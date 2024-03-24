@@ -32,7 +32,7 @@ public final class Static488 {
     public static void method6522() {
         Static329.method1636();
         MiniMenu.open = false;
-        Static585.method7670(Static682.anInt10295, Static71.anInt1576, Static407.anInt6288, Static84.anInt1775);
+        InterfaceManager.redrawWithin(Static682.anInt10295, Static71.anInt1576, Static407.anInt6288, Static84.anInt1775);
     }
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(Ljava/lang/String;I)Ljava/lang/Class;")

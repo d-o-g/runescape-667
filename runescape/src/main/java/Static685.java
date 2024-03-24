@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static685 {
 
     @OriginalMember(owner = "client!vm", name = "C", descriptor = "[Ljava/lang/String;")
-    public static String[] aStringArray47;
+    public static String[] prefixTitles;
 
     @OriginalMember(owner = "client!vm", name = "y", descriptor = "Lclient!eba;")
     public static final Class92 aClass92_16 = new Class92(3);

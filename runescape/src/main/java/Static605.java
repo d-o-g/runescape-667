@@ -208,9 +208,9 @@ public final class Static605 {
                             @Pc(957) int local957;
                             if (local212 >= 0) {
                                 local957 = local212 - 1;
-                                @Pc(964) Node_Sub45 local964 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local957);
+                                @Pc(964) NPCEntityNode local964 = (NPCEntityNode) NPCList.local.get(local957);
                                 if (local964 != null) {
-                                    local948 = local964.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                                    local948 = local964.npc;
                                 }
                             } else {
                                 local957 = -local212 - 1;

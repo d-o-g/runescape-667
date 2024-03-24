@@ -20,9 +20,9 @@ public final class Static90 {
         }
         for (@Pc(40) int local40 = 0; local40 < Static390.anInt6126; local40++) {
             @Pc(49) long local49 = Static103.anIntArray187[local40];
-            @Pc(57) Node_Sub45 local57 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local49);
+            @Pc(57) NPCEntityNode local57 = (NPCEntityNode) NPCList.local.get(local49);
             if (local57 != null) {
-                local57.aClass8_Sub2_Sub1_Sub2_Sub2_2.method9296();
+                local57.npc.method9296();
             }
         }
         if (CutsceneManager.state != 3) {

@@ -197,17 +197,17 @@ public final class EnumType {
     }
 
     @OriginalMember(owner = "client!bt", name = "c", descriptor = "(II)Ljava/lang/String;")
-    public String getString(@OriginalArg(1) int arg0) {
+    public String getString(@OriginalArg(1) int id) {
         if (this.output == null) {
             return this.defaultStr;
         } else if (this.output instanceof IterableHashTable) {
-            @Pc(31) StringNode local31 = (StringNode) ((IterableHashTable) this.output).get(arg0);
+            @Pc(31) StringNode local31 = (StringNode) ((IterableHashTable) this.output).get(id);
             return local31 == null ? this.defaultStr : local31.value;
         } else {
-            @Pc(44) String[] local44 = (String[]) this.output;
-            if (arg0 >= 0 && local44.length > arg0) {
-                @Pc(64) String local64 = local44[arg0];
-                return local64 == null ? this.defaultStr : local64;
+            @Pc(44) String[] strings = (String[]) this.output;
+            if (id >= 0 && id < strings.length) {
+                @Pc(64) String string = strings[id];
+                return string != null ? string : this.defaultStr;
             } else {
                 return this.defaultStr;
             }

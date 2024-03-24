@@ -7,9 +7,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static113 {
 
-    @OriginalMember(owner = "client!dja", name = "d", descriptor = "I")
-    public static int anInt2238;
-
     @OriginalMember(owner = "client!dja", name = "g", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___22 = new ClientProt(17, -1);
 

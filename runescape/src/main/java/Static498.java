@@ -73,19 +73,20 @@ public final class Static498 {
     @OriginalMember(owner = "client!pm", name = "b", descriptor = "(I)V")
     public static void method6646() {
         Static135.method7237();
-        @Pc(19) int local19 = ClientOptions.instance.orthographic.method2120();
-        if (local19 == 2) {
+        @Pc(19) int value = ClientOptions.instance.orthographic.getValue();
+        if (value == 2) {
             Static85.method9264(GameShell.canvasHei, GameShell.canvasWid, Toolkit.active);
-        } else if (local19 == 3) {
+        } else if (value == 3) {
             Static126.method2227(Toolkit.active, GameShell.canvasWid, Static32.anInt777, Static288.anInt4620, GameShell.canvasHei);
         }
+
         if (ClientOptions.instance.orthographic.method2118()) {
             Static575.method7606(GameShell.canvas);
         }
         if (Toolkit.active != null) {
             Static209.method3110();
         }
-        Static504.aBoolean579 = ClientOptions.instance.orthographic.method2120() != 0;
+        Static504.aBoolean579 = ClientOptions.instance.orthographic.getValue() != 0;
         InterfaceManager.aBoolean210 = ClientOptions.instance.orthographic.method2118();
     }
 

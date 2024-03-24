@@ -96,14 +96,14 @@ public final class Static694 {
             toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(local92 + Static414.aIndexedImage_2.width, height + (local101 - imageWidth), width - Static414.aIndexedImage_2.width * 2, imageWidth);
             Static535.aIndexedImage_3.method9386();
             font.renderLines(0, null, Static675.anInt10154 | 0xFF000000, text, null, null, imageWidthPlusBorder + local101, -1, 0, 1, local92 + imageWidthPlusBorder, 1, 0, width - imageWidthPlusBorder * 2, -(imageWidthPlusBorder * 2) + height);
-            Static585.method7670(width, local92, height, local101);
+            InterfaceManager.redrawWithin(width, local92, height, local101);
         } else {
             @Pc(40) int paraWidth = p12Metrics.paraWidth(null, text, 250);
             @Pc(49) int paraHeight = p12Metrics.paraHeight(text, null, 250) * 13;
             toolkit.aa(6, 6, paraWidth + 4 + 4, paraHeight + 4 + 4, 0xFF000000, 0);
             toolkit.method7976(6, 6, paraWidth + 8, 4 + 4 + paraHeight, -1, 0);
             p12.renderLines(0, null, 0xFFFFFFFF, text, null, null, 10, -1, 0, 1, 10, 1, 0, paraWidth, paraHeight);
-            Static585.method7670(paraWidth + 8, 6, paraHeight + 4 + 4, 6);
+            InterfaceManager.redrawWithin(paraWidth + 8, 6, paraHeight + 4 + 4, 6);
         }
 
         if (!arg2) {
@@ -136,7 +136,7 @@ public final class Static694 {
             for (@Pc(25) int local25 = 0; local25 < Static211.anInt5574; local25++) {
                 @Pc(36) int local36 = Static719.method9118(Static632.anInt9503 + local25, 16939, Static211.anInt5574) + local23;
                 if (Static173.anIntArray252[local36] == Static420.anInt6436) {
-                    Static651.anInterface9Array1[local36].method9040(0, 0, Static437.anInt6628, Static714.anInt10802, Static437.anInt6628 * local25, Static714.anInt10802 * local10);
+                    Static651.anInterface9Array1[local36].method9040(0, 0, Static437.horizontalAspectRatio, Static714.verticalAspectRatio, Static437.horizontalAspectRatio * local25, Static714.verticalAspectRatio * local10);
                 }
             }
         }

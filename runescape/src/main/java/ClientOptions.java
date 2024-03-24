@@ -462,14 +462,14 @@ public final class ClientOptions extends Node {
         local9.p1(this.idleAnimations.getValue());
         local9.p1(this.lightDetail.getValue());
         local9.p1(this.hardShadows.getValue());
-        local9.p1(this.orthographic.method2120());
+        local9.p1(this.orthographic.getValue());
         local9.p1(this.particles.getValue());
         local9.p1(this.removeRoofs.getValue());
         local9.p1(this.maxScreenSize.getValue());
         local9.p1(this.skydetail.getValue());
         local9.p1(this.spotShadows.getValue());
         local9.p1(this.smallTextures.getValue());
-        local9.p1(this.textures.getvalue());
+        local9.p1(this.textures.getValue());
         local9.p1(this.toolkitDefault.getValue());
         local9.p1(this.animateBackgroundDefault.getValue());
         local9.p1(this.waterDetail.getValue());

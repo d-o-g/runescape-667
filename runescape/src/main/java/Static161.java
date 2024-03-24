@@ -108,7 +108,7 @@ public final class Static161 {
             arg0.method9309(3, local141, local166, local77, local26, local15);
         }
         if ((arg3 & 0x100000) != 0) {
-            arg0.aBoolean125 = arg2.g1_alt2() == 1;
+            arg0.clanmate = arg2.g1_alt2() == 1;
         }
         if ((arg3 & 0x4) != 0) {
             local15 = arg2.g1();
@@ -162,9 +162,9 @@ public final class Static161 {
             @Pc(574) String local574 = arg2.gjstr();
             if (local574.charAt(0) == '~') {
                 local574 = local574.substring(1);
-                Static44.method1072(local574, arg0.method1424(false), 0, arg0.aString8, arg0.method1422(), 2);
+                Static44.method1072(local574, arg0.getDisplayName(false, true), 0, arg0.displayName, arg0.method1422(), 2);
             } else if (arg0 == PlayerEntity.self) {
-                Static44.method1072(local574, arg0.method1424(false), 0, arg0.aString8, arg0.method1422(), 2);
+                Static44.method1072(local574, arg0.getDisplayName(false, true), 0, arg0.displayName, arg0.method1422(), 2);
             }
             arg0.method1413(0, 0, local574);
         }
@@ -274,17 +274,17 @@ public final class Static161 {
                 break;
             }
             @Pc(29) boolean local29 = false;
-            @Pc(36) Node_Sub45 local36 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local22);
+            @Pc(36) NPCEntityNode local36 = (NPCEntityNode) NPCList.local.get(local22);
             @Pc(42) NPCEntity local42;
             if (local36 == null) {
                 local42 = new NPCEntity();
                 local42.id = local22;
-                local36 = new Node_Sub45(local42);
-                Static18.A_HASH_TABLE___2.put(local22, local36);
+                local36 = new NPCEntityNode(local42);
+                NPCList.local.put(local22, local36);
                 Static592.aClass2_Sub45Array1[Static416.anInt6378++] = local36;
                 local29 = true;
             }
-            local42 = local36.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            local42 = local36.npc;
             Static103.anIntArray187[Static390.anInt6126++] = local22;
             local42.anInt10751 = Static572.anInt8896;
             if (local42.type != null && local42.type.hasSounds()) {

@@ -432,7 +432,7 @@ public final class MapRegion extends Class306 {
         }
 
         @Pc(40) LocType locType = LocTypeList.instance.list(arg1);
-        boolean texturesEnabled = ClientOptions.instance.textures.getvalue() == 0;
+        boolean texturesEnabled = ClientOptions.instance.textures.getValue() == 0;
         if (texturesEnabled && locType.requiresTextures) {
             return;
         }

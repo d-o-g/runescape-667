@@ -2,9 +2,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static470 {
 
-    @OriginalMember(owner = "client!or", name = "F", descriptor = "Lclient!pg;")
-    public static MiniMenuEntry aClass2_Sub2_Sub16_10;
-
     @OriginalMember(owner = "client!or", name = "J", descriptor = "S")
     public static short aShort82;
 

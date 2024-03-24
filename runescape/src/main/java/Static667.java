@@ -18,9 +18,9 @@ public final class Static667 {
         FontTypeList.method2569();
         FontTypeList.method7549(Toolkit.active);
         Fonts.init(Toolkit.active);
-        Static239.method3472(js5.SPRITES, Toolkit.active);
+        Sprites.init(js5.SPRITES, Toolkit.active);
         Static329.method1649();
-        Static331.method4925(Static679.aSpriteArray14);
+        MiniMenu.method4925(Sprites.nameIcons);
         InterfaceManager.redrawAll();
         Static296.updateFeatureMask();
         if (MainLogicManager.step == 3) {

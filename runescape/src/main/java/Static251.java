@@ -25,7 +25,7 @@ public final class Static251 {
         if (arg1 == -1 && local44.type == 0) {
             for (local57 = (MiniMenuEntry) MiniMenu.entry.first(); local57 != null; local57 = (MiniMenuEntry) MiniMenu.entry.next()) {
                 if (local57.action == 18 || local57.action == 1002 || local57.action == 12 || local57.action == 20 || local57.action == 10) {
-                    for (@Pc(160) Component local160 = InterfaceList.list(local57.anInt7313); local160 != null; local160 = Static556.method7299(local160)) {
+                    for (@Pc(160) Component local160 = InterfaceList.list(local57.v3); local160 != null; local160 = Static556.method7299(local160)) {
                         if (local160.slot == local44.slot) {
                             return true;
                         }
@@ -34,7 +34,7 @@ public final class Static251 {
             }
         } else {
             for (local57 = (MiniMenuEntry) MiniMenu.entry.first(); local57 != null; local57 = (MiniMenuEntry) MiniMenu.entry.next()) {
-                if (local57.anInt7316 == arg1 && local44.slot == local57.anInt7313 && (local57.action == 18 || local57.action == 1002 || local57.action == 12 || local57.action == 20 || local57.action == 10)) {
+                if (local57.v2 == arg1 && local44.slot == local57.v3 && (local57.action == 18 || local57.action == 1002 || local57.action == 12 || local57.action == 20 || local57.action == 10)) {
                     return true;
                 }
             }

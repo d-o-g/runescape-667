@@ -26,23 +26,23 @@ public final class Static203 {
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(B)V")
     public static void method3068() {
-        Static441.aSpriteArray10 = null;
-        Static558.aSpriteArray7 = null;
-        Static174.aSpriteArray4 = null;
+        Sprites.headiconsPk = null;
+        Sprites.hintMapedge = null;
+        Sprites.hintMapmarkers = null;
         Fonts.p11 = null;
         Fonts.p12 = null;
-        Static12.aSprite_27 = null;
-        Static119.aSpriteArray3 = null;
-        Static291.aSpriteArray8 = null;
-        Static471.aSpriteArray11 = null;
-        Static34.aSpriteArray2 = null;
-        Static517.aSprite_32 = null;
-        Static355.aSpriteArray9 = null;
+        Sprites.compass = null;
+        Sprites.hitbarDefault = null;
+        Sprites.scrollbar = null;
+        Sprites.mapdots = null;
+        Sprites.timerbarDefault = null;
+        Sprites.otherlevel = null;
+        Sprites.cross = null;
         Fonts.b12 = null;
-        Static679.aSpriteArray14 = null;
-        Static691.aSpriteArray15 = null;
-        Static28.aSpriteArray1 = null;
-        Static493.aSpriteArray12 = null;
+        Sprites.nameIcons = null;
+        Sprites.mapflag = null;
+        Sprites.hintHeadicons = null;
+        Sprites.headiconsPrayer = null;
     }
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(I)Z")

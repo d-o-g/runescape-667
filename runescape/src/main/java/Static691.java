@@ -1,6 +1,5 @@
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -8,9 +7,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static691 {
-
-    @OriginalMember(owner = "client!vs", name = "p", descriptor = "[Lclient!st;")
-    public static Sprite[] aSpriteArray15;
 
     @OriginalMember(owner = "client!vs", name = "m", descriptor = "I")
     public static int anInt10368 = 0;

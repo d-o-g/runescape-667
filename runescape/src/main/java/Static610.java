@@ -177,7 +177,7 @@ public final class Static610 {
             }
             local70.anInt9322 = local37.anInt10722;
             local70.aBoolean711 = local37.aBoolean128;
-            local70.aBoolean712 = local37.aBoolean125;
+            local70.aBoolean712 = local37.clanmate;
             if (local37.anInt1452 > 0) {
                 Static76.method1552(local37);
             }

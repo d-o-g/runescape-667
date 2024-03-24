@@ -1,13 +1,9 @@
-import com.jagex.graphics.Sprite;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static34 {
-
-    @OriginalMember(owner = "client!bca", name = "f", descriptor = "[Lclient!st;")
-    public static Sprite[] aSpriteArray2;
 
     @OriginalMember(owner = "client!bca", name = "c", descriptor = "Z")
     public static boolean aBoolean62 = false;

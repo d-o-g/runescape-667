@@ -51,12 +51,12 @@ public final class Static145 {
                     @Pc(164) int local164 = local72 & 0x3FFF;
                     local95 = arg0.z - (local164 - WorldMap.areaBaseZ) * 512 - 256;
                 } else if ((local25 & 0x8000) == 0) {
-                    @Pc(111) Node_Sub45 local111 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local25);
+                    @Pc(111) NPCEntityNode local111 = (NPCEntityNode) NPCList.local.get(local25);
                     if (local111 == null) {
                         arg0.method9307(local19, -1);
                         continue;
                     }
-                    @Pc(116) NPCEntity local116 = local111.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    @Pc(116) NPCEntity local116 = local111.npc;
                     local95 = arg0.z - local116.z;
                     local102 = arg0.x - local116.x;
                 } else {

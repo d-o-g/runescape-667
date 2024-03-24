@@ -4,23 +4,11 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static598 {
 
-    @OriginalMember(owner = "client!ss", name = "d", descriptor = "I")
-    public static int anInt8828;
-
     @OriginalMember(owner = "client!ss", name = "e", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___219 = new ServerProt(119, 6);
 
     @OriginalMember(owner = "client!ss", name = "i", descriptor = "S")
     public static short aShort120 = 32767;
-
-    @OriginalMember(owner = "client!ss", name = "a", descriptor = "(IB)Z")
-    public static boolean method7825(@OriginalArg(0) int arg0) {
-        if (arg0 == 49 || arg0 == 59 || arg0 == 47 || arg0 == 57 || arg0 == 3 || arg0 == 1011) {
-            return true;
-        } else {
-            return arg0 == 23;
-        }
-    }
 
     @OriginalMember(owner = "client!ss", name = "a", descriptor = "(Z)V")
     public static void method7827() {

@@ -32,9 +32,9 @@ public final class Static407 {
             Static536.anInt8149 = 1;
         }
         if (local30) {
-            Static75.aClass2_Sub2_Sub16_9 = Static470.aClass2_Sub2_Sub16_10;
+            Static75.aClass2_Sub2_Sub16_9 = MiniMenu.leftClickEntry;
         } else {
-            Static55.method1217(local38, Static470.aClass2_Sub2_Sub16_10, local34);
+            Static55.method1217(local38, MiniMenu.leftClickEntry, local34);
         }
     }
 }

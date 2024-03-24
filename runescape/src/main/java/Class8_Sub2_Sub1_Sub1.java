@@ -228,9 +228,9 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
                 }
             } else {
                 local35 = this.anInt706 - 1;
-                @Pc(58) Node_Sub45 local58 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local35);
+                @Pc(58) NPCEntityNode local58 = (NPCEntityNode) NPCList.local.get(local35);
                 if (local58 != null) {
-                    local21 = local58.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    local21 = local58.npc;
                 }
             }
         }

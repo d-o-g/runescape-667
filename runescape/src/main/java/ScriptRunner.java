@@ -2735,7 +2735,7 @@ public final class ScriptRunner {
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
                                                 local10482 = FontMetrics.loadGroup(local27, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local10482.paraHeight(local4911, Static679.aSpriteArray14, local21);
+                                                anIntArray578[anInt7142++] = local10482.paraHeight(local4911, Sprites.nameIcons, local21);
                                                 return;
                                             }
                                             if (arg0 == 4109) {
@@ -2744,7 +2744,7 @@ public final class ScriptRunner {
                                                 local21 = anIntArray578[anInt7142];
                                                 local27 = anIntArray578[anInt7142 + 1];
                                                 local10482 = FontMetrics.loadGroup(local27, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local10482.paraWidth(Static679.aSpriteArray14, local4911, local21);
+                                                anIntArray578[anInt7142++] = local10482.paraWidth(Sprites.nameIcons, local4911, local21);
                                                 return;
                                             }
                                             if (arg0 == 4110) {
@@ -2862,7 +2862,7 @@ public final class ScriptRunner {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 local21 = anIntArray578[--anInt7142];
                                                 @Pc(11077) FontMetrics local11077 = FontMetrics.loadGroup(local21, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local11077.stringWidth(Static679.aSpriteArray14, local4911);
+                                                anIntArray578[anInt7142++] = local11077.stringWidth(Sprites.nameIcons, local4911);
                                                 return;
                                             }
                                             if (arg0 == 4126) {
@@ -3732,10 +3732,10 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5015) {
-                if (PlayerEntity.self == null || PlayerEntity.self.aString8 == null) {
+                if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
                     local95 = "";
                 } else {
-                    local95 = PlayerEntity.self.method1424(false);
+                    local95 = PlayerEntity.self.getDisplayName(false, true);
                 }
                 aStringArray37[anInt7139++] = local95;
                 return;
@@ -3769,7 +3769,7 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5020) {
-                if (PlayerEntity.self == null || PlayerEntity.self.aString8 == null) {
+                if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
                     local95 = "";
                 } else {
                     local95 = PlayerEntity.self.method1422();
@@ -4533,16 +4533,16 @@ public final class ScriptRunner {
                         local101 = aStringArray37[anInt7139 + 1];
                         local109 = anIntArray578[--anInt7142];
                         if (local95.length() > 0) {
-                            if (Static685.aStringArray47 == null) {
-                                Static685.aStringArray47 = new String[Static390.anIntArray476[client.modeGame.id]];
+                            if (Static685.prefixTitles == null) {
+                                Static685.prefixTitles = new String[Static390.anIntArray476[client.modeGame.id]];
                             }
-                            Static685.aStringArray47[local109] = local95;
+                            Static685.prefixTitles[local109] = local95;
                         }
                         if (local101.length() > 0) {
-                            if (Static377.aStringArray30 == null) {
-                                Static377.aStringArray30 = new String[Static390.anIntArray476[client.modeGame.id]];
+                            if (Static377.suffixTitles == null) {
+                                Static377.suffixTitles = new String[Static390.anIntArray476[client.modeGame.id]];
                             }
-                            Static377.aStringArray30[local109] = local101;
+                            Static377.suffixTitles[local109] = local101;
                         }
                         return;
                     }
@@ -5236,7 +5236,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6040) {
                         local192 = anIntArray578[--anInt7142];
-                        if (local192 != ClientOptions.instance.orthographic.method2120()) {
+                        if (local192 != ClientOptions.instance.orthographic.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.orthographic);
                             ClientOptions.save();
                             Static503.aBoolean578 = false;
@@ -5363,7 +5363,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6136) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.textures.getvalue() == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = ClientOptions.instance.textures.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6138) {
@@ -5391,7 +5391,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6146) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.orthographic.method2120();
+                        anIntArray578[anInt7142++] = ClientOptions.instance.orthographic.getValue();
                         return;
                     }
                     if (arg0 == 6147) {

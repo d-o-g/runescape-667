@@ -246,7 +246,7 @@ public final class Static489 {
         Static305.aBoolean371 = ClientOptions.instance.lightDetail.getValue() == 1;
         Static478.anInt7198 = ClientOptions.instance.animateBackground.getValue() == 1 ? -1 : Static164.areaLevel;
         Static718.aBoolean822 = ClientOptions.instance.groundBlending.getValue() == 1;
-        Static196.aBoolean262 = ClientOptions.instance.textures.getvalue() == 1;
+        Static196.aBoolean262 = ClientOptions.instance.textures.getValue() == 1;
         Static2.aMapRegion = new MapRegion(4, Static720.mapWidth, Static501.mapHeight, false);
         if (Static117.anInt2282 == 0) {
             Static73.method9312(Static319.aByteArrayArray16, Static2.aMapRegion);

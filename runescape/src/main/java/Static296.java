@@ -53,7 +53,7 @@ public final class Static296 {
             featureMask |= 0x2;
             featureMask |= 0x4;
         }
-        if (ClientOptions.instance.textures.getvalue() == 0) {
+        if (ClientOptions.instance.textures.getValue() == 0) {
             featureMask |= 0x40;
         }
         Component.setFeatureMask(featureMask);

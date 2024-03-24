@@ -1,11 +1,4 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
-import com.jagex.game.runetek6.config.loctype.LocType;
-import com.jagex.game.runetek6.config.loctype.LocTypeList;
-import com.jagex.game.runetek6.config.npctype.NPCType;
-import com.jagex.game.runetek6.config.objtype.ObjTypeList;
-import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
-import com.jagex.graphics.Toolkit;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -28,47 +21,6 @@ public final class Static232 {
 
     @OriginalMember(owner = "client!hda", name = "u", descriptor = "Lclient!mia;")
     public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___6 = new ClientTriggerType("", 21);
-
-    @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;IIIIILclient!pg;IIIII)V")
-    public static void method3387(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) MiniMenuEntry arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10) {
-        if (arg9 < arg10 && arg1 + arg9 > arg10 && arg8 > arg4 - 13 && arg4 + 3 > arg8 && arg6.aBoolean552) {
-            arg7 = arg5;
-        }
-        @Pc(49) int[] local49 = null;
-        if (Static245.method8635(arg6.action)) {
-            local49 = ObjTypeList.instance.list((int) arg6.aLong233).quests;
-        } else if (arg6.anInt7317 != -1) {
-            local49 = ObjTypeList.instance.list(arg6.anInt7317).quests;
-        } else if (Static598.method7825(arg6.action)) {
-            @Pc(110) Node_Sub45 local110 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) arg6.aLong233);
-            if (local110 != null) {
-                @Pc(115) NPCEntity local115 = local110.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                @Pc(118) NPCType local118 = local115.type;
-                if (local118.multinpcs != null) {
-                    local118 = local118.getMultiNPC(TimedVarDomain.instance);
-                }
-                if (local118 != null) {
-                    local49 = local118.quests;
-                }
-            }
-        } else if (Static523.method3444(arg6.action)) {
-            @Pc(87) LocType local87 = LocTypeList.instance.list((int) (arg6.aLong233 >>> 32 & 0x7FFFFFFFL));
-            if (local87.multiLocs != null) {
-                local87 = local87.getMultiLoc(TimedVarDomain.instance);
-            }
-            if (local87 != null) {
-                local49 = local87.quests;
-            }
-        }
-        @Pc(154) String local154 = Static518.method9293(arg6);
-        if (local49 != null) {
-            local154 = local154 + Static72.method1527(local49);
-        }
-        Fonts.b12.render(arg7, 0, arg4, local154, arg9 + 3, Static186.aSpriteArray5, Static460.anIntArray554);
-        if (arg6.aBoolean553) {
-            Static517.aSprite_32.render(arg9 + Fonts.b12Metrics.stringWidth(local154) + 5, arg4 + -12);
-        }
-    }
 
     @OriginalMember(owner = "client!hda", name = "c", descriptor = "(I)V")
     public static void method3392() {

@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.msitype.MSIType;
@@ -13,9 +12,6 @@ public final class Static452 {
 
     @OriginalMember(owner = "client!oea", name = "y", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___173 = new ServerProt(44, 10);
-
-    @OriginalMember(owner = "client!oea", name = "w", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___149 = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!oea", name = "a", descriptor = "(ILclient!ge;)Lclient!fea;")
     public static Class125 method6171(@OriginalArg(1) Packet arg0) {

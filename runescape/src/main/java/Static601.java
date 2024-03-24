@@ -9,7 +9,7 @@ public final class Static601 {
     public static final int[] anIntArray705 = new int[6];
 
     @OriginalMember(owner = "client!sw", name = "b", descriptor = "[Z")
-    public static final boolean[] aBooleanArray28 = new boolean[8];
+    public static final boolean[] playerOpsReducedPriority = new boolean[8];
 
     @OriginalMember(owner = "client!sw", name = "b", descriptor = "(I)V")
     public static void method7865() {

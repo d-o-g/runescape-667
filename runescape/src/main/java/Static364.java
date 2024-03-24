@@ -453,7 +453,7 @@ public final class Static364 {
                         Static626.anInt9473 = local1435.g2();
                         Static636.anInt9527 = local1435.g2();
                         Static420.aBoolean479 = local1435.g1() == 1;
-                        PlayerEntity.self.accountName = PlayerEntity.self.aString8 = Constants.playerDisplayName = local1435.gjstr2();
+                        PlayerEntity.self.accountName = PlayerEntity.self.displayName = Constants.playerDisplayName = local1435.gjstr2();
                         Static639.anInt9571 = local1435.g1();
                         Static438.anInt6640 = local1435.g4();
                         Static587.aBoolean663 = local1435.g1() == 1;

@@ -20,7 +20,7 @@ public final class HardShadowsOption extends Option {
         if (super.options.isLowDetail()) {
             return false;
         } else {
-            return super.options.textures.getvalue() != 0;
+            return super.options.textures.getValue() != 0;
         }
     }
 
@@ -46,7 +46,7 @@ public final class HardShadowsOption extends Option {
     public int getCompatibility(@OriginalArg(0) int value) {
         if (super.options.isLowDetail()) {
             return 3;
-        } else if (super.options.textures.getvalue() == 0) {
+        } else if (super.options.textures.getValue() == 0) {
             return 3;
         } else {
             return 1;
@@ -59,7 +59,7 @@ public final class HardShadowsOption extends Option {
         if (super.options.isLowDetail()) {
             super.value = 0;
         }
-        if (super.options.textures.getvalue() == 0) {
+        if (super.options.textures.getValue() == 0) {
             super.value = 0;
         }
         if (super.value < 0 || super.value > 2) {

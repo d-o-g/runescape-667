@@ -47,6 +47,15 @@ public final class Fonts {
         b12FullGroup = sprites.getgroupid("b12_full");
     }
 
+    @OriginalMember(owner = "client!bo", name = "a", descriptor = "(B)[I")
+    public static int[] groups() {
+        return new int[]{
+            p11FullGroup,
+            p12FullGroup,
+            b12FullGroup,
+        };
+    }
+
     @OriginalMember(owner = "client!oq", name = "a", descriptor = "(ZLclient!ha;)V")
     public static void init(@OriginalArg(1) Toolkit toolkit) {
         p11 = font(true, true, p11FullGroup, toolkit);

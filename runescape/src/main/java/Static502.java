@@ -44,11 +44,11 @@ public final class Static502 {
                                 continue label46;
                             }
                             local50 = local10.g1();
-                            Static406.anIntArray484 = new int[local50];
+                            Static406.maleTitleEnums = new int[local50];
                             for (local55 = 0; local55 < local50; local55++) {
-                                Static406.anIntArray484[local55] = local10.g2();
-                                if (Static406.anIntArray484[local55] == 65535) {
-                                    Static406.anIntArray484[local55] = -1;
+                                Static406.maleTitleEnums[local55] = local10.g2();
+                                if (Static406.maleTitleEnums[local55] == 65535) {
+                                    Static406.maleTitleEnums[local55] = -1;
                                 }
                             }
                         }
@@ -56,11 +56,11 @@ public final class Static502 {
                 }
             } while (local14 != 5);
             local50 = local10.g1();
-            Static150.anIntArray233 = new int[local50];
+            Static150.femaleTitleEnums = new int[local50];
             for (local55 = 0; local55 < local50; local55++) {
-                Static150.anIntArray233[local55] = local10.g2();
-                if (Static150.anIntArray233[local55] == 65535) {
-                    Static150.anIntArray233[local55] = -1;
+                Static150.femaleTitleEnums[local55] = local10.g2();
+                if (Static150.femaleTitleEnums[local55] == 65535) {
+                    Static150.femaleTitleEnums[local55] = -1;
                 }
             }
         }

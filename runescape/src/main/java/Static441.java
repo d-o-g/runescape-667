@@ -1,5 +1,4 @@
 import com.jagex.core.util.TimeUtils;
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -8,9 +7,6 @@ public final class Static441 {
 
     @OriginalMember(owner = "client!nu", name = "b", descriptor = "I")
     public static int anInt6689;
-
-    @OriginalMember(owner = "client!nu", name = "d", descriptor = "[Lclient!st;")
-    public static Sprite[] aSpriteArray10;
 
     @OriginalMember(owner = "client!nu", name = "g", descriptor = "I")
     public static int anInt6691;

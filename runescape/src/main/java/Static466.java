@@ -59,10 +59,10 @@ public final class Static466 {
                     local252 = local248;
                     local258 = local145 + Static643.aDouble23;
                 } else if (Static448.anInt6796 == 1) {
-                    local256 = local248 / Static714.anInt10802;
-                    local254 = local244 / Static437.anInt6628;
-                    local252 = local256 * Static714.anInt10802;
-                    local250 = Static437.anInt6628 * local254;
+                    local256 = local248 / Static714.verticalAspectRatio;
+                    local254 = local244 / Static437.horizontalAspectRatio;
+                    local252 = local256 * Static714.verticalAspectRatio;
+                    local250 = Static437.horizontalAspectRatio * local254;
                     local258 = (double) (local244 * local250 + local252 * local248) * (local145 + Static643.aDouble23) / (double) (local248 * local248 + local244 * local244);
                 }
                 local258 = -local258;
@@ -217,7 +217,7 @@ public final class Static466 {
                         for (local465 = 0; local465 < Static211.anInt5574; local465++) {
                             @Pc(881) int local881 = Static719.method9118(local465 + Static632.anInt9503, 16939, Static211.anInt5574) + local868;
                             @Pc(936) boolean local936 = local855 >= local319 && local855 < local319 + local321 || local325 <= local855 && local855 < local329 + local325 && local465 >= local323 && local465 < local327 + local323;
-                            Static651.anInterface9Array1[local881].method9039(local465 * Static437.anInt6628, Static714.anInt10802 * local855, Static437.anInt6628, Static714.anInt10802, local936);
+                            Static651.anInterface9Array1[local881].method9039(local465 * Static437.horizontalAspectRatio, Static714.verticalAspectRatio * local855, Static437.horizontalAspectRatio, Static714.verticalAspectRatio, local936);
                         }
                     }
                 }

@@ -33,12 +33,12 @@ public final class Static130 {
 
     @OriginalMember(owner = "client!eb", name = "a", descriptor = "(B)Ljava/lang/String;")
     public static String method2281() {
-        if (MiniMenu.open || Static470.aClass2_Sub2_Sub16_10 == null) {
+        if (MiniMenu.open || MiniMenu.leftClickEntry == null) {
             return "";
-        } else if ((Static470.aClass2_Sub2_Sub16_10.opBase == null || Static470.aClass2_Sub2_Sub16_10.opBase.length() == 0) && Static470.aClass2_Sub2_Sub16_10.aString88 != null && Static470.aClass2_Sub2_Sub16_10.aString88.length() > 0) {
-            return Static470.aClass2_Sub2_Sub16_10.aString88;
+        } else if ((MiniMenu.leftClickEntry.opBase == null || MiniMenu.leftClickEntry.opBase.length() == 0) && MiniMenu.leftClickEntry.activeEntry != null && MiniMenu.leftClickEntry.activeEntry.length() > 0) {
+            return MiniMenu.leftClickEntry.activeEntry;
         } else {
-            return Static470.aClass2_Sub2_Sub16_10.opBase;
+            return MiniMenu.leftClickEntry.opBase;
         }
     }
 

@@ -29,7 +29,7 @@ public final class Static572 {
         if (Static236.aBoolean304) {
             for (@Pc(18) MiniMenuEntryInner local18 = (MiniMenuEntryInner) MiniMenu.innerEntries.first(); local18 != null; local18 = (MiniMenuEntryInner) MiniMenu.innerEntries.next()) {
                 if (local18.size == 1) {
-                    local27 = Static249.method3536((MiniMenuEntry) local18.entries.sentinel.next2);
+                    local27 = MiniMenu.getLineWidth((MiniMenuEntry) local18.entries.sentinel.next2);
                 } else {
                     local27 = Static192.method2875(local18);
                 }
@@ -42,7 +42,7 @@ public final class Static572 {
             local68 = MiniMenu.innerCount * 16 + 21;
         } else {
             for (@Pc(74) MiniMenuEntry local74 = (MiniMenuEntry) MiniMenu.entry.first(); local74 != null; local74 = (MiniMenuEntry) MiniMenu.entry.next()) {
-                local27 = Static249.method3536(local74);
+                local27 = MiniMenu.getLineWidth(local74);
                 if (local11 < local27) {
                     local11 = local27;
                 }

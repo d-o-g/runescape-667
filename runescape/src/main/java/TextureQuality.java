@@ -39,7 +39,7 @@ public final class TextureQuality extends Option {
     }
 
     @OriginalMember(owner = "client!tv", name = "a", descriptor = "(Z)I")
-    public int getvalue() {
+    public int getValue() {
         return super.value;
     }
 

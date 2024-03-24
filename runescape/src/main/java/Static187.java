@@ -7,9 +7,6 @@ public final class Static187 {
     @OriginalMember(owner = "client!fp", name = "M", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___36 = new ClientProt(68, -1);
 
-    @OriginalMember(owner = "client!fp", name = "S", descriptor = "[S")
-    public static final short[] aShortArray52 = new short[]{2, 22, 52, 30, 53, 9, 51, 15};
-
     @OriginalMember(owner = "client!fp", name = "R", descriptor = "I")
     public static int anInt3093 = 0;
 
@@ -34,7 +31,7 @@ public final class Static187 {
             PlayerList.highResolutionPlayers[local48] = null;
         }
         Static390.anInt6126 = 0;
-        Static18.A_HASH_TABLE___2.clear();
+        NPCList.local.clear();
         Static416.anInt6378 = 0;
         Static497.stacks.clear();
         Static693.method9012();

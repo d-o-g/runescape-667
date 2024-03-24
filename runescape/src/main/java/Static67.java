@@ -7,9 +7,6 @@ public final class Static67 {
     @OriginalMember(owner = "client!cca", name = "e", descriptor = "Lclient!hda;")
     public static Component aComponent_10;
 
-    @OriginalMember(owner = "client!cca", name = "f", descriptor = "I")
-    public static int anInt6784;
-
     @OriginalMember(owner = "client!cca", name = "a", descriptor = "(ILjava/lang/String;I)V")
     public static void method6098(@OriginalArg(1) String arg0) {
         Static44.method1072(arg0, "", 0, "", "", 4);

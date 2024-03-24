@@ -1,8 +1,3 @@
-import com.jagex.game.runetek6.config.loctype.LocType;
-import com.jagex.game.runetek6.config.loctype.LocTypeList;
-import com.jagex.game.runetek6.config.npctype.NPCType;
-import com.jagex.game.runetek6.config.objtype.ObjTypeList;
-import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -37,45 +32,6 @@ public final class Static249 {
             Static696.method9037(local104, arg5, local23, local123);
             Static696.method9037(local29, arg5, local113, local123);
         }
-    }
-
-    @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BLclient!pg;)I")
-    public static int method3536(@OriginalArg(1) MiniMenuEntry arg0) {
-        @Pc(15) String local15 = Static518.method9293(arg0);
-        @Pc(17) int[] local17 = null;
-        if (Static245.method8635(arg0.action)) {
-            local17 = ObjTypeList.instance.list((int) arg0.aLong233).quests;
-        } else if (arg0.anInt7317 != -1) {
-            local17 = ObjTypeList.instance.list(arg0.anInt7317).quests;
-        } else if (Static598.method7825(arg0.action)) {
-            @Pc(51) Node_Sub45 local51 = (Node_Sub45) Static18.A_HASH_TABLE___2.get((int) arg0.aLong233);
-            if (local51 != null) {
-                @Pc(56) NPCEntity local56 = local51.aClass8_Sub2_Sub1_Sub2_Sub2_2;
-                @Pc(59) NPCType local59 = local56.type;
-                if (local59.multinpcs != null) {
-                    local59 = local59.getMultiNPC(TimedVarDomain.instance);
-                }
-                if (local59 != null) {
-                    local17 = local59.quests;
-                }
-            }
-        } else if (Static523.method3444(arg0.action)) {
-            @Pc(89) LocType local89 = LocTypeList.instance.list((int) (arg0.aLong233 >>> 32 & 0x7FFFFFFFL));
-            if (local89.multiLocs != null) {
-                local89 = local89.getMultiLoc(TimedVarDomain.instance);
-            }
-            if (local89 != null) {
-                local17 = local89.quests;
-            }
-        }
-        if (local17 != null) {
-            local15 = local15 + Static72.method1527(local17);
-        }
-        @Pc(130) int local130 = Fonts.b12Metrics.stringWidth(Static186.aSpriteArray5, local15);
-        if (arg0.aBoolean553) {
-            local130 += Static517.aSprite_32.getWidth() + 4;
-        }
-        return local130;
     }
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BZ)Z")

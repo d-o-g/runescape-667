@@ -6,15 +6,11 @@ import org.openrs2.deob.annotation.Pc;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.image.ImageObserver;
 
 public final class Static305 {
 
     @OriginalMember(owner = "client!jm", name = "m", descriptor = "F")
     public static float aFloat86;
-
-    @OriginalMember(owner = "client!jm", name = "c", descriptor = "I")
-    public static int anInt4883;
 
     @OriginalMember(owner = "client!jm", name = "n", descriptor = "J")
     public static long aLong157;

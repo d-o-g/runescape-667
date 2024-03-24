@@ -221,6 +221,19 @@ public final class InterfaceManager {
         }
     }
 
+    @OriginalMember(owner = "client!sh", name = "a", descriptor = "(IIBII)V")
+    public static void redrawWithin(@OriginalArg(0) int width, @OriginalArg(1) int x, @OriginalArg(3) int height, @OriginalArg(4) int y) {
+        for (@Pc(1) int i = 0; i < rectangleCount; i++) {
+            @Pc(6) Rectangle rectangle = rectangles[i];
+
+            if (x < rectangle.x + rectangle.width && x + width > rectangle.x && y < rectangle.height + rectangle.y && height + y > rectangle.y) {
+                dirtyRectangles[i] = true;
+            }
+        }
+
+        Static682.method8927(y, y + height, x, x + width);
+    }
+
     @OriginalMember(owner = "client!cea", name = "a", descriptor = "(II[Lclient!hda;IIIIZIII)V")
     public static void draw(@OriginalArg(0) int parent, @OriginalArg(1) int offsetX, @OriginalArg(2) Component[] children, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int boundRectangle, @OriginalArg(7) boolean arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int offsetY) {
         Toolkit.active.KA(arg3, arg4, arg8, arg5);
@@ -608,7 +621,7 @@ public final class InterfaceManager {
                                 Toolkit.active.T(posX, posY, posX + child.width, child.height + posY);
                             }
 
-                            font.renderLines(child.verticalAlignment, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Static679.aSpriteArray14, child.maxLines, 0, posY, child.height, 0, null, child.lineHeight, child.width, posX, child.horizontalAlignment, null, text);
+                            font.renderLines(child.verticalAlignment, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Sprites.nameIcons, child.maxLines, 0, posY, child.height, 0, null, child.lineHeight, child.width, posX, child.horizontalAlignment, null, text);
 
                             if (clipComponents) {
                                 Toolkit.active.KA(arg3, arg4, arg8, arg5);
@@ -617,8 +630,8 @@ public final class InterfaceManager {
                             if (text.trim().length() > 0) {
                                 if (!clipComponents) {
                                     @Pc(1730) FontMetrics metrics = Fonts.metrics(child.fontGraphic, Toolkit.active);
-                                    @Pc(777) int textWidth = metrics.paraWidth(Static679.aSpriteArray14, text, child.width);
-                                    @Pc(779) int textHeight = metrics.stringHeight(child.width, child.lineHeight, text, Static679.aSpriteArray14);
+                                    @Pc(777) int textWidth = metrics.paraWidth(Sprites.nameIcons, text, child.width);
+                                    @Pc(779) int textHeight = metrics.stringHeight(child.width, child.lineHeight, text, Sprites.nameIcons);
 
                                     if (aBoolean210) {
                                         if (arg7) {

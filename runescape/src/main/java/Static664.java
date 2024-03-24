@@ -106,7 +106,7 @@ public final class Static664 {
         Static230.A_WEIGHTED_CACHE___81.removeSoftReferences();
         Static669.A_WEIGHTED_CACHE___215.removeSoftReferences();
         Static541.A_WEIGHTED_CACHE___174.removeSoftReferences();
-        Static452.A_WEIGHTED_CACHE___149.removeSoftReferences();
+        MiniMenu.questCache.removeSoftReferences();
         ScriptRunner.A_WEIGHTED_CACHE___156.removeSoftReferences();
     }
 }

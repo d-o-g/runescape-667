@@ -9,9 +9,6 @@ public final class Static12 {
     @OriginalMember(owner = "client!ah", name = "i", descriptor = "Lclient!st;")
     public static Sprite aSprite_26;
 
-    @OriginalMember(owner = "client!ah", name = "e", descriptor = "Lclient!st;")
-    public static Sprite aSprite_27;
-
     @OriginalMember(owner = "client!ah", name = "a", descriptor = "I")
     public static int anInt5741;
 

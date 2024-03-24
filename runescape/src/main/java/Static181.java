@@ -55,7 +55,7 @@ public final class Static181 {
             @Pc(33) int local33 = Static211.anInt5574 * local27;
             for (@Pc(35) int local35 = 0; local35 < Static211.anInt5574; local35++) {
                 @Pc(41) int local41 = local35 + local33;
-                Static651.anInterface9Array1[local41].method9039(local35 * Static437.anInt6628, Static714.anInt10802 * local27, Static437.anInt6628, Static714.anInt10802, true);
+                Static651.anInterface9Array1[local41].method9039(local35 * Static437.horizontalAspectRatio, Static714.verticalAspectRatio * local27, Static437.horizontalAspectRatio, Static714.verticalAspectRatio, true);
             }
         }
     }

@@ -32,9 +32,9 @@ public final class Static527 {
                             local20.method813(Static102.method2025(local20.level, -29754, local61.z, local61.x) - local20.lb, TimeUtils.clock, local61.z, local61.x);
                         }
                     } else {
-                        @Pc(130) Node_Sub45 local130 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local20.anInt711 - 1);
+                        @Pc(130) NPCEntityNode local130 = (NPCEntityNode) NPCList.local.get(local20.anInt711 - 1);
                         if (local130 != null) {
-                            @Pc(135) NPCEntity local135 = local130.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                            @Pc(135) NPCEntity local135 = local130.npc;
                             if (local135.x >= 0 && local135.x < Static720.mapWidth * 512 && local135.z >= 0 && local135.z < Static501.mapHeight * 512) {
                                 local20.method813(Static102.method2025(local20.level, -29754, local135.z, local135.x) - local20.lb, TimeUtils.clock, local135.z, local135.x);
                             }

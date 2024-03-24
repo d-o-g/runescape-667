@@ -18,9 +18,9 @@ public final class Static112 {
         if (arg0.anInt10722 != -1) {
             @Pc(24) Class8_Sub2_Sub1_Sub2 local24 = null;
             if (arg0.anInt10722 < 32768) {
-                @Pc(54) Node_Sub45 local54 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(arg0.anInt10722);
+                @Pc(54) NPCEntityNode local54 = (NPCEntityNode) NPCList.local.get(arg0.anInt10722);
                 if (local54 != null) {
-                    local24 = local54.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    local24 = local54.npc;
                 }
             } else if (arg0.anInt10722 >= 32768) {
                 local24 = PlayerList.highResolutionPlayers[arg0.anInt10722 - 32768];

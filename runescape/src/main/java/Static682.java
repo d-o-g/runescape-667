@@ -31,10 +31,10 @@ public final class Static682 {
         if (Static448.anInt6796 != 1) {
             return;
         }
-        @Pc(14) int local14 = left / Static437.anInt6628;
-        @Pc(18) int local18 = right / Static437.anInt6628;
-        @Pc(22) int local22 = bottom / Static714.anInt10802;
-        @Pc(26) int local26 = top / Static714.anInt10802;
+        @Pc(14) int local14 = left / Static437.horizontalAspectRatio;
+        @Pc(18) int local18 = right / Static437.horizontalAspectRatio;
+        @Pc(22) int local22 = bottom / Static714.verticalAspectRatio;
+        @Pc(26) int local26 = top / Static714.verticalAspectRatio;
         if (local14 >= Static211.anInt5574 || local18 < 0 || local22 >= Static617.anInt9434 || local26 < 0) {
             return;
         }

@@ -64,15 +64,6 @@ public final class Static523 {
     @OriginalMember(owner = "client!dt", name = "a", descriptor = "Lclient!vl;")
     public static WearposDefaults wearposDefaults;
 
-    @OriginalMember(owner = "client!qi", name = "a", descriptor = "(II)Z")
-    public static boolean method3444(@OriginalArg(0) int arg0) {
-        if (arg0 == 19 || arg0 == 13 || arg0 == 46 || arg0 == 8 || arg0 == 1010 || arg0 == 1008) {
-            return true;
-        } else {
-            return arg0 == 60;
-        }
-    }
-
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZI)V")
     public static void method3447(@OriginalArg(0) boolean arg0) {
         if (Static449.aClass364_1 == null) {
@@ -152,7 +143,7 @@ public final class Static523 {
             }
         }
         if (LoadState.INIT_FONT_INFO == Static473.aLoadState_22) {
-            FontTypeList.init(js5.FONTMETRICS, js5.LOADING_SPRITES, Static52.method1159());
+            FontTypeList.init(js5.FONTMETRICS, js5.LOADING_SPRITES, Fonts.groups());
         }
         if (LoadState.LOAD_FONTS == Static473.aLoadState_22) {
             local12 = FontTypeList.readyCount();
@@ -227,8 +218,8 @@ public final class Static523 {
                 }
                 return (local12 - Static669.anInt9996) * 100 / (100 - Static669.anInt9996);
             }
-            Static204.method3079(js5.SPRITES);
-            FontTypeList.init(js5.FONTMETRICS, js5.SPRITES, Static52.method1159());
+            Sprites.getJs5Indexes(js5.SPRITES);
+            FontTypeList.init(js5.FONTMETRICS, js5.SPRITES, Fonts.groups());
         }
         if (Static473.aLoadState_22 == LoadState.PLAY_THEME_MUSIC) {
             @Pc(746) byte[] local746 = js5.DEFAULTS.getfile(4);
@@ -309,8 +300,8 @@ public final class Static523 {
             SystemInfo.instance = new SystemInfo(true, SignLink.instance);
         }
         if (LoadState.SETUP_STATIC_SPRITES == Static473.aLoadState_22) {
-            local12 = Static188.method2860(js5.SPRITES) + FontTypeList.readyCount(true);
-            local74 = Static688.method8974() + FontTypeList.totalCount();
+            local12 = Sprites.readyCount(js5.SPRITES) + FontTypeList.readyCount(true);
+            local74 = Sprites.totalCount() + FontTypeList.totalCount();
             if (local12 < local74) {
                 return local12 * 100 / local74;
             }
@@ -392,8 +383,8 @@ public final class Static523 {
             InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
             FontTypeList.method7549(Toolkit.active);
             Fonts.init(Toolkit.active);
-            Static239.method3472(js5.SPRITES, Toolkit.active);
-            Static331.method4925(Static679.aSpriteArray14);
+            Sprites.init(js5.SPRITES, Toolkit.active);
+            MiniMenu.method4925(Sprites.nameIcons);
         }
         return Static694.method9030();
     }

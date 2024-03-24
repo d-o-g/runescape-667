@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MiniMenuAction;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -24,7 +25,7 @@ public final class Static321 {
     @OriginalMember(owner = "client!kca", name = "a", descriptor = "(II)Z")
     public static boolean method4622(@OriginalArg(0) int arg0) {
         for (@Pc(8) MiniMenuEntry local8 = (MiniMenuEntry) MiniMenu.entry.first(); local8 != null; local8 = (MiniMenuEntry) MiniMenu.entry.next()) {
-            if (Static598.method7825(local8.action) && local8.aLong233 == (long) arg0) {
+            if (MiniMenuAction.isNpcOp(local8.action) && local8.v1 == (long) arg0) {
                 return true;
             }
         }

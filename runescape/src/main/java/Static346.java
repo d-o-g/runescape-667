@@ -31,8 +31,8 @@ public final class Static346 {
         @Pc(33) int local33;
         for (@Pc(25) int local25 = 0; local25 < Static78.anInt1622; local25++) {
             local33 = Static118.anIntArray197[local25];
-            @Pc(40) Node_Sub45 local40 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local33);
-            @Pc(43) NPCEntity local43 = local40.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(40) NPCEntityNode local40 = (NPCEntityNode) NPCList.local.get(local33);
+            @Pc(43) NPCEntity local43 = local40.npc;
             if (local43.anInt10751 != Static572.anInt8896) {
                 if (MiniMenu.open && Static321.method4622(local33)) {
                     Static488.method6522();
@@ -46,14 +46,14 @@ public final class Static346 {
             }
         }
         if (local23) {
-            Static416.anInt6378 = Static18.A_HASH_TABLE___2.size();
-            Static18.A_HASH_TABLE___2.copyTo(Static592.aClass2_Sub45Array1);
+            Static416.anInt6378 = NPCList.local.size();
+            NPCList.local.copyTo(Static592.aClass2_Sub45Array1);
         }
         if (ConnectionManager.GAME.buffer.pos != ConnectionManager.GAME.currentPacketSize) {
             throw new RuntimeException("gnp1 pos:" + ConnectionManager.GAME.buffer.pos + " psize:" + ConnectionManager.GAME.currentPacketSize);
         }
         for (local33 = 0; local33 < Static390.anInt6126; local33++) {
-            if (Static18.A_HASH_TABLE___2.get(Static103.anIntArray187[local33]) == null) {
+            if (NPCList.local.get(Static103.anIntArray187[local33]) == null) {
                 throw new RuntimeException("gnp2 pos:" + local33 + " size:" + Static390.anInt6126);
             }
         }
@@ -61,8 +61,8 @@ public final class Static346 {
             throw new RuntimeException("gnp3 mis:" + (Static416.anInt6378 - Static390.anInt6126));
         }
         for (@Pc(214) int local214 = 0; local214 < Static416.anInt6378; local214++) {
-            if (Static592.aClass2_Sub45Array1[local214].aClass8_Sub2_Sub1_Sub2_Sub2_2.anInt10751 != Static572.anInt8896) {
-                throw new RuntimeException("gnp4 uk:" + Static592.aClass2_Sub45Array1[local214].aClass8_Sub2_Sub1_Sub2_Sub2_2.id);
+            if (Static592.aClass2_Sub45Array1[local214].npc.anInt10751 != Static572.anInt8896) {
+                throw new RuntimeException("gnp4 uk:" + Static592.aClass2_Sub45Array1[local214].npc.id);
             }
         }
     }

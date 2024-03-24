@@ -1,5 +1,4 @@
 import com.jagex.core.datastruct.key.Deque;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -23,25 +22,6 @@ public final class Static204 {
                 aByteArray103[local46++] = (byte) (int) (255.0D / Math.sqrt((float) (local51 * local51 + local54 * local54 + 65535) / 65535.0F));
             }
         }
-    }
-
-    @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(Lclient!sb;I)V")
-    public static void method3079(@OriginalArg(0) js5 arg0) {
-        Static159.anInt2787 = arg0.getgroupid("hitbar_default");
-        Static434.anInt6579 = arg0.getgroupid("timerbar_default");
-        Static67.anInt6784 = arg0.getgroupid("headicons_pk");
-        Static304.anInt4876 = arg0.getgroupid("headicons_prayer");
-        Static644.anInt9607 = arg0.getgroupid("hint_headicons");
-        Static699.anInt10540 = arg0.getgroupid("hint_mapmarkers");
-        Static132.anInt2451 = arg0.getgroupid("mapflag");
-        Static270.anInt4355 = arg0.getgroupid("cross");
-        Static598.anInt8828 = arg0.getgroupid("mapdots");
-        Static305.anInt4883 = arg0.getgroupid("scrollbar");
-        Static548.anInt8259 = arg0.getgroupid("name_icons");
-        Static113.anInt2238 = arg0.getgroupid("floorshadows");
-        Static670.anInt10024 = arg0.getgroupid("compass");
-        Static286.anInt4592 = arg0.getgroupid("otherlevel");
-        Static665.anInt9943 = arg0.getgroupid("hint_mapedge");
     }
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(IIIIIIIIZILclient!eq;)Z")

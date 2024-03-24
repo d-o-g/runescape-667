@@ -61,7 +61,7 @@ public final class Static609 {
         @Pc(11) int local11 = 0;
         @Pc(23) int local23;
         for (@Pc(17) MiniMenuEntry local17 = (MiniMenuEntry) arg2.entries.first(); local17 != null; local17 = (MiniMenuEntry) arg2.entries.next()) {
-            local23 = Static249.method3536(local17);
+            local23 = MiniMenu.getLineWidth(local17);
             if (local23 > local11) {
                 local11 = local23;
             }

@@ -1,14 +1,9 @@
 import com.jagex.game.runetek6.sound.Audio;
-import com.jagex.graphics.PointLight;
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static517 {
-
-    @OriginalMember(owner = "client!qea", name = "h", descriptor = "Lclient!st;")
-    public static Sprite aSprite_32;
 
     @OriginalMember(owner = "client!qea", name = "c", descriptor = "Lclient!dfa;")
     public static final Class77 aClass77_5 = new Class77();

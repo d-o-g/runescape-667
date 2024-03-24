@@ -13,7 +13,7 @@ public final class Static297 {
     public static final ServerProt A_SERVER_PROT___125 = new ServerProt(66, 10);
 
     @OriginalMember(owner = "client!jha", name = "k", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray24 = new String[8];
+    public static final String[] playerOps = new String[8];
 
     @OriginalMember(owner = "client!jha", name = "i", descriptor = "J")
     public static long aLong153 = 0L;

@@ -83,7 +83,7 @@ public final class OrthographicOption extends Option {
     }
 
     @OriginalMember(owner = "client!dja", name = "a", descriptor = "(Z)I")
-    public int method2120() {
+    public int getValue() {
         return super.value;
     }
 }

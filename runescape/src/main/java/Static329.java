@@ -72,7 +72,7 @@ public final class Static329 {
     public static void method1636() {
         if (Static139.aClass2_Sub2_Sub4_1 != null) {
             Static139.aClass2_Sub2_Sub4_1 = null;
-            Static585.method7670(Static85.anInt10675, Static692.anInt10375, Static25.anInt598, Static493.anInt7364);
+            InterfaceManager.redrawWithin(Static85.anInt10675, Static692.anInt10375, Static25.anInt598, Static493.anInt7364);
         }
     }
 
@@ -84,7 +84,7 @@ public final class Static329 {
         Static561.aSprite_34 = null;
         Static26.aSprite_5 = null;
         Static459.aSprite_31 = null;
-        Static186.aSpriteArray5 = null;
+        MiniMenu.questSprites = null;
         Static261.aSprite_18 = null;
         Static63.aSprite_8 = null;
     }

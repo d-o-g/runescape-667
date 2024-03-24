@@ -1,7 +1,6 @@
 import com.jagex.DisplayProperties;
 import com.jagex.core.datastruct.key.Class191;
 import com.jagex.core.datastruct.key.Class299;
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseMonitor;
@@ -20,9 +19,6 @@ public final class Static679 {
     @OriginalMember(owner = "client!vj", name = "H", descriptor = "[Lclient!oga;")
     public static DisplayProperties[] aDisplayPropertiesArray1;
 
-    @OriginalMember(owner = "client!vj", name = "n", descriptor = "[Lclient!st;")
-    public static Sprite[] aSpriteArray14;
-
     @OriginalMember(owner = "client!vj", name = "s", descriptor = "Lclient!eba;")
     public static final Class92 aClass92_15 = new Class92(1);
 
@@ -35,8 +31,8 @@ public final class Static679 {
             return -1;
         }
 
-        if (!MiniMenu.open && Static470.aClass2_Sub2_Sub16_10 != null) {
-            return Static470.aClass2_Sub2_Sub16_10.anInt7318;
+        if (!MiniMenu.open && MiniMenu.leftClickEntry != null) {
+            return MiniMenu.leftClickEntry.cursor;
         }
 
         @Pc(28) int recordedX = MouseMonitor.instance.getRecordedX();
@@ -69,7 +65,7 @@ public final class Static679 {
                     local262 = new Class299(MiniMenu.innerEntries);
                     for (@Pc(368) MiniMenuEntryInner local368 = (MiniMenuEntryInner) local262.first(); local368 != null; local368 = (MiniMenuEntryInner) local262.next()) {
                         if (local71++ == local53) {
-                            return ((MiniMenuEntry) local368.entries.sentinel.next2).anInt7318;
+                            return ((MiniMenuEntry) local368.entries.sentinel.next2).cursor;
                         }
                     }
                 }
@@ -93,7 +89,7 @@ public final class Static679 {
                     local262 = new Class299(Static139.aClass2_Sub2_Sub4_1.entries);
                     for (local134 = (MiniMenuEntry) local262.first(); local134 != null; local134 = (MiniMenuEntry) local262.next()) {
                         if (local71++ == local53) {
-                            return local134.anInt7318;
+                            return local134.cursor;
                         }
                     }
                 }
@@ -118,7 +114,7 @@ public final class Static679 {
                 @Pc(129) Class191 local129 = new Class191(MiniMenu.entry);
                 for (local134 = (MiniMenuEntry) local129.first(); local134 != null; local134 = (MiniMenuEntry) local129.next()) {
                     if (local53 == local71++) {
-                        return local134.anInt7318;
+                        return local134.cursor;
                     }
                 }
             }

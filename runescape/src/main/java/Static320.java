@@ -45,13 +45,13 @@ public final class Static320 {
         Static204.A_DEQUE___16.appendTo(MiniMenu.entry);
         Static239.A_DEQUE___19.appendTo(MiniMenu.entry);
         if (MiniMenu.entryCount <= 1) {
-            Static470.aClass2_Sub2_Sub16_10 = null;
+            MiniMenu.leftClickEntry = null;
             MiniMenu.topEntry = null;
         } else {
-            if (Static209.aBoolean269 && KeyboardMonitor.instance.isPressed(81) && MiniMenu.entryCount > 2) {
-                Static470.aClass2_Sub2_Sub16_10 = (MiniMenuEntry) MiniMenu.entry.sentinel.prev.prev;
+            if (Static209.shiftClick && KeyboardMonitor.instance.isPressed(81) && MiniMenu.entryCount > 2) {
+                MiniMenu.leftClickEntry = (MiniMenuEntry) MiniMenu.entry.sentinel.prev.prev;
             } else {
-                Static470.aClass2_Sub2_Sub16_10 = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
+                MiniMenu.leftClickEntry = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
             }
             MiniMenu.topEntry = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
         }
@@ -72,7 +72,7 @@ public final class Static320 {
                 }
             }
             if (local64 == 0) {
-                if (Static470.aClass2_Sub2_Sub16_10 != null) {
+                if (MiniMenu.leftClickEntry != null) {
                     Static407.method5628();
                 } else if (InterfaceManager.targeting) {
                     InterfaceManager.endTargetMode();

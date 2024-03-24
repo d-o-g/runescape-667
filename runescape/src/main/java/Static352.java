@@ -135,6 +135,6 @@ public final class Static352 {
         Static230.A_WEIGHTED_CACHE___81.reset();
         Static669.A_WEIGHTED_CACHE___215.reset();
         Static541.A_WEIGHTED_CACHE___174.reset();
-        Static452.A_WEIGHTED_CACHE___149.reset();
+        MiniMenu.questCache.reset();
     }
 }

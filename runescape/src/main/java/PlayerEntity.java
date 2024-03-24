@@ -56,7 +56,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public static PlayerEntity self;
 
     @OriginalMember(owner = "client!ca", name = "Sc", descriptor = "Ljava/lang/String;")
-    public String aString8;
+    public String displayName;
 
     @OriginalMember(owner = "client!ca", name = "Mc", descriptor = "Lclient!ju;")
     public PlayerModel playerModel;
@@ -68,7 +68,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public int anInt1441;
 
     @OriginalMember(owner = "client!ca", name = "Ec", descriptor = "I")
-    public int anInt1443;
+    public int basId;
 
     @OriginalMember(owner = "client!ca", name = "yd", descriptor = "I")
     public int anInt1448;
@@ -77,7 +77,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public int anInt1430 = -1;
 
     @OriginalMember(owner = "client!ca", name = "Dd", descriptor = "B")
-    public byte aByte32 = 0;
+    public byte gender = 0;
 
     @OriginalMember(owner = "client!ca", name = "wd", descriptor = "Z")
     public boolean aBoolean124 = false;
@@ -86,10 +86,10 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public byte aByte33 = 0;
 
     @OriginalMember(owner = "client!ca", name = "rd", descriptor = "I")
-    public int anInt1433 = 0;
+    public int team = 0;
 
     @OriginalMember(owner = "client!ca", name = "Dc", descriptor = "Z")
-    public boolean aBoolean125 = false;
+    public boolean clanmate = false;
 
     @OriginalMember(owner = "client!ca", name = "Gc", descriptor = "I")
     public int anInt1431 = -1;
@@ -98,10 +98,10 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public boolean vorbis = false;
 
     @OriginalMember(owner = "client!ca", name = "cd", descriptor = "I")
-    public int anInt1437 = 0;
+    public int maxCombatLevel = 0;
 
     @OriginalMember(owner = "client!ca", name = "Ad", descriptor = "I")
-    public int anInt1436 = 0;
+    public int skillRating = 0;
 
     @OriginalMember(owner = "client!ca", name = "Gd", descriptor = "I")
     public int anInt1452 = 0;
@@ -122,7 +122,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public boolean aBoolean128 = false;
 
     @OriginalMember(owner = "client!ca", name = "pd", descriptor = "B")
-    public byte aByte31 = 0;
+    public byte titleEnum = 0;
 
     @OriginalMember(owner = "client!ca", name = "Bd", descriptor = "I")
     public int anInt1459 = -1;
@@ -140,7 +140,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public int anInt1467 = -1;
 
     @OriginalMember(owner = "client!ca", name = "ed", descriptor = "I")
-    public int anInt1471 = -1;
+    public int combatRange = -1;
 
     @OriginalMember(owner = "client!ca", name = "<init>", descriptor = "(I)V")
     public PlayerEntity(@OriginalArg(0) int arg0) {
@@ -208,7 +208,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     @Override
     public Class205 method9278(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 > -93) {
-            this.method1424(true);
+            this.getDisplayName(true, true);
         }
         return null;
     }
@@ -268,7 +268,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (arg0 != 0) {
             this.combatLevel = -112;
         }
-        return this.anInt1443;
+        return this.basId;
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(Lclient!ka;IBLclient!ha;IILclient!tt;II)V")
@@ -394,9 +394,9 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                 if (local275 != null && local275.anInt6371 != -1) {
                     @Pc(310) int local310;
                     if (local275.anInt6363 == 1) {
-                        @Pc(298) Node_Sub45 local298 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local275.anInt6366);
+                        @Pc(298) NPCEntityNode local298 = (NPCEntityNode) NPCList.local.get(local275.anInt6366);
                         if (local298 != null) {
-                            @Pc(303) NPCEntity local303 = local298.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                            @Pc(303) NPCEntity local303 = local298.npc;
                             local310 = local303.x - self.x;
                             @Pc(316) int local316 = local303.z - self.z;
                             if (Static504.aBoolean579) {
@@ -476,13 +476,13 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     public void method1420(@OriginalArg(0) Packet packet) {
         packet.pos = 0;
         @Pc(12) int local12 = packet.g1();
-        this.aByte32 = (byte) (local12 & 0x1);
+        this.gender = (byte) (local12 & 0x1);
         @Pc(21) boolean local21 = this.vorbis;
         this.vorbis = (local12 & 0x2) != 0;
         @Pc(40) boolean local40 = (local12 & 0x4) != 0;
         @Pc(44) int local44 = super.boundSize((byte) 85);
         this.method9310((local12 >> 3 & 0x7) + 1);
-        this.aByte31 = (byte) (local12 >> 6 & 0x3);
+        this.titleEnum = (byte) (local12 >> 6 & 0x3);
         super.x += this.boundSize((byte) 44) - local44 << 8;
         super.z += this.boundSize((byte) 111) - local44 << 8;
         this.aByte33 = packet.g1b();
@@ -492,7 +492,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         if (ModeWhere.LIVE == client.modeWhere && Static608.staffModLevel >= 2) {
             this.aBoolean124 = false;
         }
-        this.anInt1433 = 0;
+        this.team = 0;
         @Pc(134) int local134 = -1;
         @Pc(139) int[] local139 = new int[Static523.wearposDefaults.hidden.length];
         @Pc(144) ObjTypeCustomisation[] local144 = new ObjTypeCustomisation[Static523.wearposDefaults.hidden.length];
@@ -511,7 +511,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                     local191 = (local165 << 8) + local184;
                     if (local151 == 0 && local191 == 65535) {
                         local134 = packet.g2();
-                        this.anInt1433 = packet.g1();
+                        this.team = packet.g1();
                         break;
                     }
                     if (local191 >= 32768) {
@@ -520,7 +520,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
                         local149[local151] = ObjTypeList.instance.list(local191);
                         local240 = local149[local151].team;
                         if (local240 != 0) {
-                            this.anInt1433 = local240;
+                            this.team = local240;
                         }
                     } else {
                         local139[local151] = local191 - 256 | Integer.MIN_VALUE;
@@ -548,26 +548,26 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             }
             local332[local184] = local191;
         }
-        this.anInt1443 = packet.g2();
-        this.aString8 = packet.gjstr();
+        this.basId = packet.g2();
+        this.displayName = packet.gjstr();
         if (self == this) {
-            Constants.playerDisplayName = this.aString8;
+            Constants.playerDisplayName = this.displayName;
         }
-        this.accountName = this.aString8;
+        this.accountName = this.displayName;
         this.combatLevel = packet.g1();
         if (local40) {
-            this.anInt1436 = packet.g2();
-            this.anInt1437 = this.combatLevel;
-            if (this.anInt1436 == 65535) {
-                this.anInt1436 = -1;
+            this.skillRating = packet.g2();
+            this.maxCombatLevel = this.combatLevel;
+            if (this.skillRating == 65535) {
+                this.skillRating = -1;
             }
-            this.anInt1471 = -1;
+            this.combatRange = -1;
         } else {
-            this.anInt1436 = 0;
-            this.anInt1437 = packet.g1();
-            this.anInt1471 = packet.g1();
-            if (this.anInt1471 == 255) {
-                this.anInt1471 = -1;
+            this.skillRating = 0;
+            this.maxCombatLevel = packet.g1();
+            this.combatRange = packet.g1();
+            if (this.combatRange == 255) {
+                this.combatRange = -1;
             }
         }
         local191 = this.anInt1452;
@@ -595,7 +595,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         }
         local240 = this.playerModel.npcId;
         @Pc(603) int[] local603 = this.playerModel.clientpalette;
-        this.playerModel.update(local332, local139, local144, local134, this.method9320(0), this.aByte32 == 1);
+        this.playerModel.update(local332, local139, local144, local134, this.method9320(0), this.gender == 1);
         if (local134 != local240) {
             super.x = (super.pathX[0] << 9) + (this.boundSize((byte) 83) << 8);
             super.z = (super.pathY[0] << 9) + (this.boundSize((byte) 45) << 8);
@@ -698,34 +698,45 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ZZ)Ljava/lang/String;")
-    public String method1424(@OriginalArg(0) boolean arg0) {
-        @Pc(5) String local5 = "";
-        if (Static685.aStringArray47 != null) {
-            local5 = local5 + Static685.aStringArray47[this.aByte31];
+    public String getDisplayName(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean useDisplayName) {
+        @Pc(5) String name = "";
+        if (Static685.prefixTitles != null) {
+            name = name + Static685.prefixTitles[this.titleEnum];
         }
+
         if (arg0) {
             this.method9290(106);
         }
-        @Pc(40) int[] local40;
-        if (this.aByte32 == 1 && Static150.anIntArray233 != null) {
-            local40 = Static150.anIntArray233;
+
+        @Pc(40) int[] enums;
+        if (this.gender == 1 && Static150.femaleTitleEnums != null) {
+            enums = Static150.femaleTitleEnums;
         } else {
-            local40 = Static406.anIntArray484;
+            enums = Static406.maleTitleEnums;
         }
-        if (local40 != null && local40[this.aByte31] != -1) {
-            @Pc(62) EnumType local62 = EnumTypeList.instance.list(local40[this.aByte31]);
-            if (local62.valType == 's') {
-                local5 = local5 + local62.getString(this.aByte33 & 0xFF);
+
+        if (enums != null && enums[this.titleEnum] != -1) {
+            @Pc(62) EnumType type = EnumTypeList.instance.list(enums[this.titleEnum]);
+
+            if (type.valType == 's') {
+                name += type.getString(this.aByte33 & 0xFF);
             } else {
                 JagException.sendTrace(new Throwable(), "gdn1");
-                local40[this.aByte31] = -1;
+                enums[this.titleEnum] = -1;
             }
         }
-        local5 = local5 + this.aString8;
-        if (Static377.aStringArray30 != null) {
-            local5 = local5 + Static377.aStringArray30[this.aByte31];
+
+        if (useDisplayName) {
+            name += this.displayName;
+        } else {
+            name += this.accountName;
         }
-        return local5;
+
+        if (Static377.suffixTitles != null) {
+            name += Static377.suffixTitles[this.titleEnum];
+        }
+
+        return name;
     }
 
     @OriginalMember(owner = "client!ca", name = "d", descriptor = "(I)Lclient!dj;")

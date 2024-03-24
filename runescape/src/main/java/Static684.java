@@ -47,9 +47,9 @@ public final class Static684 {
         @Pc(308) int local308;
         if (mainLogicStep == 12) {
             for (local308 = 0; local308 < Static416.anInt6378; local308++) {
-                @Pc(313) Node_Sub45 local313 = Static592.aClass2_Sub45Array1[local308];
+                @Pc(313) NPCEntityNode local313 = Static592.aClass2_Sub45Array1[local308];
                 if (local313 != null) {
-                    @Pc(318) NPCEntity local318 = local313.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    @Pc(318) NPCEntity local318 = local313.npc;
                     for (local136 = 0; local136 < local318.pathX.length; local136++) {
                         local318.pathX[local136] -= deltaX;
                         local318.pathY[local136] -= deltaY;
@@ -64,9 +64,9 @@ public final class Static684 {
             @Pc(128) int local128 = (Static720.mapWidth - 1) * 512;
             local134 = Static501.mapHeight * 512 - 512;
             for (local136 = 0; local136 < Static416.anInt6378; local136++) {
-                @Pc(141) Node_Sub45 local141 = Static592.aClass2_Sub45Array1[local136];
+                @Pc(141) NPCEntityNode local141 = Static592.aClass2_Sub45Array1[local136];
                 if (local141 != null) {
-                    @Pc(146) NPCEntity local146 = local141.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                    @Pc(146) NPCEntity local146 = local141.npc;
                     local146.z -= deltaY * 512;
                     local146.x -= deltaX * 512;
                     if (local146.x >= 0 && local128 >= local146.x && local146.z >= 0 && local134 >= local146.z) {
@@ -93,8 +93,8 @@ public final class Static684 {
                 }
             }
             if (local120) {
-                Static416.anInt6378 = Static18.A_HASH_TABLE___2.size();
-                Static18.A_HASH_TABLE___2.copyTo(Static592.aClass2_Sub45Array1);
+                Static416.anInt6378 = NPCList.local.size();
+                NPCList.local.copyTo(Static592.aClass2_Sub45Array1);
             }
         }
         for (local308 = 0; local308 < 2048; local308++) {

@@ -14,8 +14,4 @@ public final class Static52 {
         return Static96.anInt10171 == 0 ? Static581.aClass2_Sub6_Sub1_3.method922() : true;
     }
 
-    @OriginalMember(owner = "client!bo", name = "a", descriptor = "(B)[I")
-    public static int[] method1159() {
-        return new int[]{Fonts.p11FullGroup, Fonts.p12FullGroup, Fonts.b12FullGroup};
-    }
 }

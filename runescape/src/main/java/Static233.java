@@ -23,7 +23,7 @@ public final class Static233 {
             if (local22 != null && local22.anInt6363 == 2) {
                 Static143.method3573(local22.anInt6365 * 2, local22.anInt6369, arg0 >> 1, local22.anInt6362, local22.anInt6368, arg3 >> 1);
                 if (Static215.anIntArray284[0] > -1 && TimeUtils.clock % 20 < 10) {
-                    @Pc(76) Sprite local76 = Static28.aSpriteArray1[local22.anInt6367];
+                    @Pc(76) Sprite local76 = Sprites.hintHeadicons[local22.anInt6367];
                     @Pc(84) int local84 = arg2 + Static215.anIntArray284[0] - 12;
                     @Pc(92) int local92 = Static215.anIntArray284[1] + arg1 - 28;
                     local76.render(local84, local92);

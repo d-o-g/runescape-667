@@ -1,11 +1,7 @@
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static558 {
-
-    @OriginalMember(owner = "client!rk", name = "v", descriptor = "[Lclient!st;")
-    public static Sprite[] aSpriteArray7;
 
     @OriginalMember(owner = "client!rk", name = "A", descriptor = "[[F")
     public static final float[][] aFloatArrayArray2 = new float[][]{{-0.333333F, -0.333333F, -0.333333F}, {0.333333F, -0.333333F, -0.333333F}, {-0.333333F, 0.333333F, -0.333333F}, {0.333333F, 0.333333F, -0.333333F}, {-0.333333F, -0.333333F, 0.333333F}, {0.333333F, -0.333333F, 0.333333F}, {-0.333333F, 0.333333F, 0.333333F}, {0.333333F, 0.333333F, 0.333333F}};

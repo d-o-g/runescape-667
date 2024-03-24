@@ -26,7 +26,7 @@ public final class GroundBlendingOption extends Option {
                 if (super.options.fog.getValue() == 1) {
                     return 2;
                 }
-                if (super.options.textures.getvalue() == 1) {
+                if (super.options.textures.getValue() == 1) {
                     return 2;
                 }
                 if (super.options.waterDetail.getValue() > 0) {

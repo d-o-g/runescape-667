@@ -94,12 +94,4 @@ public final class Static245 {
         }
     }
 
-    @OriginalMember(owner = "client!hka", name = "a", descriptor = "(ZI)Z")
-    public static boolean method8635(@OriginalArg(1) int arg0) {
-        if (arg0 == 25 || arg0 == 5 || arg0 == 50 || arg0 == 6 || arg0 == 45 || arg0 == 1007) {
-            return true;
-        } else {
-            return arg0 == 17;
-        }
-    }
 }

@@ -1,13 +1,9 @@
-import com.jagex.core.datastruct.key.IterableHashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static18 {
 
     @OriginalMember(owner = "client!aka", name = "f", descriptor = "F")
     public static float aFloat2;
-
-    @OriginalMember(owner = "client!aka", name = "m", descriptor = "Lclient!av;")
-    public static final IterableHashTable A_HASH_TABLE___2 = new IterableHashTable(64);
 
     @OriginalMember(owner = "client!aka", name = "o", descriptor = "Z")
     public static boolean aBoolean20 = true;

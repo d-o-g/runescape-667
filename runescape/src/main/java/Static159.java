@@ -8,9 +8,6 @@ import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static159 {
 
-    @OriginalMember(owner = "client!ew", name = "c", descriptor = "I")
-    public static int anInt2787;
-
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "[I")
     public static final int[] anIntArray245 = new int[5];
 
@@ -47,7 +44,7 @@ public final class Static159 {
             for (@Pc(137) MiniMenuEntryInner local137 = (MiniMenuEntryInner) MiniMenu.innerEntries.first(); local137 != null; local137 = (MiniMenuEntryInner) MiniMenu.innerEntries.next()) {
                 local101 = local9 + Static84.anInt1775 + local80 * 16 + 31;
                 if (local137.size == 1) {
-                    Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, (MiniMenuEntry) local137.entries.sentinel.next2, -1, local76, local7 + Static71.anInt1576, local69);
+                    MiniMenu.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, (MiniMenuEntry) local137.entries.sentinel.next2, -1, local76, local7 + Static71.anInt1576, local69);
                 } else {
                     Static515.method6799(local76, Static682.anInt10295, local101, -256, arg0, local69, -1, Static84.anInt1775 + local9, local7 + Static71.anInt1576, Static407.anInt6288, local137);
                 }
@@ -60,7 +57,7 @@ public final class Static159 {
                 for (@Pc(239) MiniMenuEntry local239 = (MiniMenuEntry) Static139.aClass2_Sub2_Sub4_1.entries.first(); local239 != null; local239 = (MiniMenuEntry) Static139.aClass2_Sub2_Sub4_1.entries.next()) {
                     @Pc(251) int local251 = local80 * 16 + Static493.anInt7364 + 31;
                     local80++;
-                    Static232.method3387(arg0, Static85.anInt10675, Static25.anInt598, Static493.anInt7364, local251, -256, local239, -1, local76, Static692.anInt10375, local69);
+                    MiniMenu.method3387(arg0, Static85.anInt10675, Static25.anInt598, Static493.anInt7364, local251, -256, local239, -1, local76, Static692.anInt10375, local69);
                 }
                 Static422.method5773(Static692.anInt10375, Static493.anInt7364, Static85.anInt10675, Static25.anInt598);
             }
@@ -69,7 +66,7 @@ public final class Static159 {
             for (@Pc(85) MiniMenuEntry local85 = (MiniMenuEntry) MiniMenu.entry.first(); local85 != null; local85 = (MiniMenuEntry) MiniMenu.entry.next()) {
                 local101 = (MiniMenu.entryCount - local80 - 1) * 16 + local9 + Static84.anInt1775 + 31;
                 local80++;
-                Static232.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, local85, -1, local76, local7 + Static71.anInt1576, local69);
+                MiniMenu.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, local85, -1, local76, local7 + Static71.anInt1576, local69);
             }
         }
         Static422.method5773(local7 + Static71.anInt1576, local9 + Static84.anInt1775, Static682.anInt10295, Static407.anInt6288);

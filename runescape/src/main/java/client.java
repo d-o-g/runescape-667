@@ -333,7 +333,7 @@ public final class client extends GameShell {
         Static230.A_WEIGHTED_CACHE___81.clean(5);
         Static669.A_WEIGHTED_CACHE___215.clean(5);
         Static541.A_WEIGHTED_CACHE___174.clean(5);
-        Static452.A_WEIGHTED_CACHE___149.clean(5);
+        MiniMenu.questCache.clean(5);
         ScriptRunner.A_WEIGHTED_CACHE___156.clean(5);
     }
 
@@ -1124,7 +1124,7 @@ public final class client extends GameShell {
         Static443.method5981();
         World.tick++;
         for (local46 = 0; local46 < Static416.anInt6378; local46++) {
-            @Pc(97) NPCEntity local97 = Static592.aClass2_Sub45Array1[local46].aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(97) NPCEntity local97 = Static592.aClass2_Sub45Array1[local46].npc;
             if (local97 != null) {
                 @Pc(103) byte local103 = local97.type.movementCapabilities;
                 if ((local103 & 0x1) != 0) {
@@ -1684,7 +1684,7 @@ public final class client extends GameShell {
             trace = trace + "7)" + ClientOptions.instance.lightDetail.getValue() + "|";
             trace = trace + "8)" + ClientOptions.instance.hardShadows.getValue() + "|";
             trace = trace + "9)" + ClientOptions.instance.waterDetail.getValue() + "|";
-            trace = trace + "10)" + ClientOptions.instance.textures.getvalue() + "|";
+            trace = trace + "10)" + ClientOptions.instance.textures.getValue() + "|";
             trace = trace + "11)" + ClientOptions.instance.bloom.getValue() + "|";
             trace = trace + "12)" + ClientOptions.instance.animateBackground.getValue() + "|";
             trace = trace + "13)" + ClientOptions.maxmemory + "|";

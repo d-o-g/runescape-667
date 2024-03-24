@@ -5,9 +5,6 @@ public final class Static699 {
     @OriginalMember(owner = "client!wc", name = "z", descriptor = "I")
     public static int anInt10532;
 
-    @OriginalMember(owner = "client!wc", name = "F", descriptor = "I")
-    public static int anInt10540;
-
     @OriginalMember(owner = "client!wc", name = "D", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___252 = new ServerProt(0, 6);
 

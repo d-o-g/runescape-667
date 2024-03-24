@@ -338,8 +338,8 @@ public final class Protocol {
                                     }
                                 }
                                 for (local100 = 0; local100 < Static416.anInt6378; local100++) {
-                                    Static592.aClass2_Sub45Array1[local100].aClass8_Sub2_Sub1_Sub2_Sub2_2.anIntArray869 = null;
-                                    Static592.aClass2_Sub45Array1[local100].aClass8_Sub2_Sub1_Sub2_Sub2_2.aAnimator_11.update(true, -1);
+                                    Static592.aClass2_Sub45Array1[local100].npc.anIntArray869 = null;
+                                    Static592.aClass2_Sub45Array1[local100].npc.aAnimator_11.update(true, -1);
                                 }
                                 arg0.currentProt = null;
                                 return true;
@@ -348,7 +348,7 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (Static346.A_SERVER_PROT___145 == arg0.currentProt) {
-                                Static324.aBoolean388 = local11.g1_alt3() == 1;
+                                Static324.reduceAttackPriority = local11.g1_alt3() == 1;
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static619.A_SERVER_PROT___34) {
@@ -671,9 +671,9 @@ public final class Protocol {
                                                 local2579[local526] = local11.g2_alt3();
                                             }
                                             local1409 = local11.g2_alt2();
-                                            @Pc(2608) Node_Sub45 local2608 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local1409);
+                                            @Pc(2608) NPCEntityNode local2608 = (NPCEntityNode) NPCList.local.get(local1409);
                                             if (local2608 != null) {
-                                                Static651.method8515(local2579, local277, true, local2608.aClass8_Sub2_Sub1_Sub2_Sub2_2);
+                                                Static651.method8515(local2579, local277, true, local2608.npc);
                                             }
                                             arg0.currentProt = null;
                                             return true;
@@ -927,7 +927,7 @@ public final class Protocol {
                                                     @Pc(3721) Class254 local3721 = new Class254();
                                                     local3721.anInt6363 = local526;
                                                     local3721.anInt6367 = local11.g1();
-                                                    if (local3721.anInt6367 >= 0 && local3721.anInt6367 < Static28.aSpriteArray1.length) {
+                                                    if (local3721.anInt6367 >= 0 && local3721.anInt6367 < Sprites.hintHeadicons.length) {
                                                         if (local3721.anInt6363 == 1 || local3721.anInt6363 == 10) {
                                                             local3721.anInt6366 = local11.g2();
                                                             local3721.anInt6360 = local11.g2();
@@ -1122,9 +1122,9 @@ public final class Protocol {
                                                             if (local629.equalsIgnoreCase("null")) {
                                                                 local629 = null;
                                                             }
-                                                            Static297.aStringArray24[local1409 - 1] = local629;
-                                                            Static147.anIntArray227[local1409 - 1] = local100;
-                                                            Static601.aBooleanArray28[local1409 - 1] = local277 == 0;
+                                                            Static297.playerOps[local1409 - 1] = local629;
+                                                            Static147.playerOpCursors[local1409 - 1] = local100;
+                                                            Static601.playerOpsReducedPriority[local1409 - 1] = local277 == 0;
                                                         }
                                                         arg0.currentProt = null;
                                                         return true;
@@ -1207,9 +1207,9 @@ public final class Protocol {
                                                                     @Pc(4905) SeqType local4905;
                                                                     if (local100 >> 29 != 0) {
                                                                         local653 = local100 & 0xFFFF;
-                                                                        @Pc(5032) Node_Sub45 local5032 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local653);
+                                                                        @Pc(5032) NPCEntityNode local5032 = (NPCEntityNode) NPCList.local.get(local653);
                                                                         if (local5032 != null) {
-                                                                            @Pc(5037) NPCEntity local5037 = local5032.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                                                                            @Pc(5037) NPCEntity local5037 = local5032.npc;
                                                                             @Pc(5042) Class199 local5042 = local5037.aClass199Array3[local526];
                                                                             if (local2098 == 65535) {
                                                                                 local2098 = -1;
@@ -1904,11 +1904,11 @@ public final class Protocol {
                                                                                         local1449 = local6565 ? 17 : 2;
                                                                                     }
                                                                                     if (local1409 == 2) {
-                                                                                        Static662.method8625("<img=1>" + local7724.method1422(), "<img=1>" + local7724.method1424(false), local996, local1427, null, 0, local7724.aString8, local1449);
+                                                                                        Static662.method8625("<img=1>" + local7724.method1422(), "<img=1>" + local7724.getDisplayName(false, true), local996, local1427, null, 0, local7724.displayName, local1449);
                                                                                     } else if (local1409 == 1) {
-                                                                                        Static662.method8625("<img=0>" + local7724.method1422(), "<img=0>" + local7724.method1424(false), local996, local1427, null, 0, local7724.aString8, local1449);
+                                                                                        Static662.method8625("<img=0>" + local7724.method1422(), "<img=0>" + local7724.getDisplayName(false, true), local996, local1427, null, 0, local7724.displayName, local1449);
                                                                                     } else {
-                                                                                        Static662.method8625(local7724.method1422(), local7724.method1424(false), local996, local1427, null, 0, local7724.aString8, local1449);
+                                                                                        Static662.method8625(local7724.method1422(), local7724.getDisplayName(false, true), local996, local1427, null, 0, local7724.displayName, local1449);
                                                                                     }
                                                                                 }
                                                                             }

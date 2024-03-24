@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static132 {
 
-    @OriginalMember(owner = "client!ec", name = "F", descriptor = "I")
-    public static int anInt2451;
-
     @OriginalMember(owner = "client!ec", name = "e", descriptor = "(I)V")
     public static void method2312() {
         @Pc(16) byte[] local16;

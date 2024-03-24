@@ -9,11 +9,6 @@ public final class Static688 {
     @OriginalMember(owner = "client!vp", name = "B", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___250 = new ServerProt(88, -2);
 
-    @OriginalMember(owner = "client!vp", name = "e", descriptor = "(B)I")
-    public static int method8974() {
-        return 15;
-    }
-
     @OriginalMember(owner = "client!vp", name = "a", descriptor = "(BI)V")
     public static void method8975(@OriginalArg(1) int arg0) {
         Static475.anInt7168 = arg0;

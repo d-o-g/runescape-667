@@ -53,7 +53,7 @@ public final class Static254 {
         }
         Static390.anInt6126 = 0;
         Static416.anInt6378 = 0;
-        Static18.A_HASH_TABLE___2.clear();
+        NPCList.local.clear();
         Static505.A_DEQUE___77.clear();
         Static346.A_HASH_TABLE___29.clear();
         Static422.A_ENTITY_LIST___9.clear();
@@ -94,9 +94,9 @@ public final class Static254 {
         InterfaceList.reset();
         InterfaceManager.dialog = null;
         for (@Pc(8849) int local8849 = 0; local8849 < 8; local8849++) {
-            Static297.aStringArray24[local8849] = null;
-            Static601.aBooleanArray28[local8849] = false;
-            Static147.anIntArray227[local8849] = -1;
+            Static297.playerOps[local8849] = null;
+            Static601.playerOpsReducedPriority[local8849] = false;
+            Static147.playerOpCursors[local8849] = -1;
         }
         Static576.method7614();
         Static426.aBoolean72 = true;

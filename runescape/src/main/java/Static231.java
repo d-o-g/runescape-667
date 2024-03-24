@@ -88,7 +88,7 @@ public final class Static231 {
             }
         }
         for (@Pc(65) int local65 = 0; local65 < Static416.anInt6378; local65++) {
-            @Pc(71) NPCEntity local71 = Static592.aClass2_Sub45Array1[local65].aClass8_Sub2_Sub1_Sub2_Sub2_2;
+            @Pc(71) NPCEntity local71 = Static592.aClass2_Sub45Array1[local65].npc;
             if (local71 != null) {
                 for (@Pc(75) int local75 = 0; local75 < local71.aModelArray3.length; local75++) {
                     local71.aModelArray3[local75] = null;
@@ -457,13 +457,13 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.equalsIgnoreCase("shiftclick")) {
-                    if (Static209.aBoolean269) {
+                    if (Static209.shiftClick) {
                         Static79.method1579("Shift-click disabled.");
-                        Static209.aBoolean269 = false;
+                        Static209.shiftClick = false;
                         return;
                     }
                     Static79.method1579("Shift-click ENABLED!");
-                    Static209.aBoolean269 = true;
+                    Static209.shiftClick = true;
                     return;
                 }
                 if (arg2.equalsIgnoreCase("getcgcoord")) {
@@ -702,7 +702,7 @@ public final class Static231 {
                     ClientOptions.save();
                     Static503.aBoolean578 = false;
                     Static498.method6646();
-                    if (local725 != ClientOptions.instance.orthographic.method2120()) {
+                    if (local725 != ClientOptions.instance.orthographic.getValue()) {
                         Static79.method1579("Failed to change ortho mode");
                         return;
                     }
@@ -710,7 +710,7 @@ public final class Static231 {
                     return;
                 }
                 if (arg2.startsWith("orthozoom ")) {
-                    if (ClientOptions.instance.orthographic.method2120() == 0) {
+                    if (ClientOptions.instance.orthographic.getValue() == 0) {
                         Static79.method1579("enable ortho mode first (use 'ortho <n>')");
                         return;
                     }

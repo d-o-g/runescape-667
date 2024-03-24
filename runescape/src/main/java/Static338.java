@@ -30,17 +30,17 @@ public final class Static338 {
     public static int method4995() {
         if (MiniMenu.open) {
             return 6;
-        } else if (Static470.aClass2_Sub2_Sub16_10 == null) {
+        } else if (MiniMenu.leftClickEntry == null) {
             return 0;
         } else {
-            @Pc(23) int local23 = Static470.aClass2_Sub2_Sub16_10.action;
+            @Pc(23) int local23 = MiniMenu.leftClickEntry.action;
             if (MiniMenuAction.isButtonOp(local23)) {
                 return 1;
-            } else if (Static245.method8635(local23)) {
+            } else if (MiniMenuAction.isObjOp(local23)) {
                 return 2;
-            } else if (Static523.method3444(local23)) {
+            } else if (MiniMenuAction.isLocOp(local23)) {
                 return 3;
-            } else if (Static598.method7825(local23)) {
+            } else if (MiniMenuAction.isNpcOp(local23)) {
                 return 4;
             } else if (Static124.method2218(local23)) {
                 return 7;

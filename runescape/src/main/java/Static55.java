@@ -17,14 +17,14 @@ public final class Static55 {
         if (arg1 == null || arg1 == MiniMenu.entry.sentinel) {
             return;
         }
-        @Pc(16) int local16 = arg1.anInt7316;
-        @Pc(19) int local19 = arg1.anInt7313;
+        @Pc(16) int local16 = arg1.v2;
+        @Pc(19) int local19 = arg1.v3;
         @Pc(22) int local22 = arg1.action;
-        @Pc(26) int local26 = (int) arg1.aLong233;
+        @Pc(26) int local26 = (int) arg1.v1;
         if (local22 >= 2000) {
             local22 -= 2000;
         }
-        @Pc(35) long local35 = arg1.aLong233;
+        @Pc(35) long local35 = arg1.v1;
         if (local22 == 44) {
             @Pc(44) PlayerEntity local44 = PlayerList.highResolutionPlayers[local26];
             if (local44 != null) {
@@ -200,10 +200,10 @@ public final class Static55 {
             local750 = Static591.A_CLIENT_PROT___107;
         }
         if (local750 != null) {
-            @Pc(806) Node_Sub45 local806 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local26);
+            @Pc(806) NPCEntityNode local806 = (NPCEntityNode) NPCList.local.get(local26);
             if (local806 != null) {
                 Static676.anInt10206 = arg2;
-                @Pc(813) NPCEntity local813 = local806.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                @Pc(813) NPCEntity local813 = local806.npc;
                 Static616.anInt9417 = 2;
                 Static305.anInt4882 = arg0;
                 Static481.anInt7215 = 0;
@@ -276,9 +276,9 @@ public final class Static55 {
             Static414.method5697(local19, local16);
         }
         if (local22 == 23) {
-            @Pc(1200) Node_Sub45 local1200 = (Node_Sub45) Static18.A_HASH_TABLE___2.get(local26);
+            @Pc(1200) NPCEntityNode local1200 = (NPCEntityNode) NPCList.local.get(local26);
             if (local1200 != null) {
-                @Pc(1205) NPCEntity local1205 = local1200.aClass8_Sub2_Sub1_Sub2_Sub2_2;
+                @Pc(1205) NPCEntity local1205 = local1200.npc;
                 Static481.anInt7215 = 0;
                 Static616.anInt9417 = 2;
                 Static676.anInt10206 = arg2;

@@ -19,7 +19,7 @@ public final class Static388 {
         } else if (Static448.anInt6796 == 1 && (Static651.anInterface9Array1 == null || local9 != Static211.anInt5574 || local16 != Static617.anInt9434)) {
             Static651.anInterface9Array1 = new Interface9[Static211.anInt5574 * Static617.anInt9434];
             for (@Pc(74) int local74 = 0; local74 < Static651.anInterface9Array1.length; local74++) {
-                Static651.anInterface9Array1[local74] = Static74.aToolkit_4.method7988(Static74.aToolkit_4.method7962(Static437.anInt6628, Static714.anInt10802), Static74.aToolkit_4.method7986(Static437.anInt6628, Static714.anInt10802));
+                Static651.anInterface9Array1[local74] = Static74.aToolkit_4.method7988(Static74.aToolkit_4.method7962(Static437.horizontalAspectRatio, Static714.verticalAspectRatio), Static74.aToolkit_4.method7986(Static437.horizontalAspectRatio, Static714.verticalAspectRatio));
             }
             Static420.anInt6436 = 1;
             Static173.anIntArray252 = new int[Static211.anInt5574 * Static617.anInt9434];

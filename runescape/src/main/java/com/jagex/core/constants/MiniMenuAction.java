@@ -88,6 +88,15 @@ public final class MiniMenuAction {
             || action == IF_BUTTONT;
     }
 
+    @OriginalMember(owner = "client!om", name = "a", descriptor = "(IB)Z")
+    public static boolean isButtonOp(@OriginalArg(0) int action) {
+        return action == IF_BUTTONX2
+            || action == IF_BUTTONT
+            || action == IF_BUTTONX1
+            || action == TGT_BUTTON
+            || action == PAUSE_BUTTON;
+    }
+
     private MiniMenuAction() {
         /* empty */
     }

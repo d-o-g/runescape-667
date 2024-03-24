@@ -16,9 +16,9 @@ public final class Static153 {
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(ILclient!uc;I)V")
     public static void method2461(@OriginalArg(0) int arg0, @OriginalArg(1) Environment arg1) {
-        if (Static584.aBoolean658) {
+        if (InterfaceManager.loginOpened) {
             arg0 = 0;
-            Static584.aBoolean658 = false;
+            InterfaceManager.loginOpened = false;
         }
         if (Static346.aEnvironment_1 != null && Static346.aEnvironment_1.method8388(arg1)) {
             return;

@@ -19,6 +19,7 @@ public final class HashTableIterator {
 
     @OriginalMember(owner = "client!sba", name = "<init>", descriptor = "()V")
     public HashTableIterator() {
+        /* empty */
     }
 
     @OriginalMember(owner = "client!sba", name = "<init>", descriptor = "(Lclient!av;)V")

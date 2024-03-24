@@ -11,11 +11,6 @@ import java.io.IOException;
 
 public final class Static218 {
 
-    @OriginalMember(owner = "client!go", name = "a", descriptor = "(I)V")
-    public static void method3187() {
-        Static584.aBoolean658 = true;
-    }
-
     @OriginalMember(owner = "client!go", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;B)V")
     public static void method3188(@OriginalArg(0) String arg0, @OriginalArg(1) String arg1) {
         if (arg1.length() > 320 || !Static470.method6387()) {

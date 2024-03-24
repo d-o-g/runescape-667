@@ -117,7 +117,7 @@ public final class Static595 {
             Static249.method3537(ClientOptions.instance.bloom.getValue() == 1);
         }
         Static613.method8239(Toolkit.active, Static501.mapHeight >> 3, Static720.mapWidth >> 3);
-        Static218.method3187();
+        InterfaceManager.loginOpened();
         Static284.aBoolean355 = true;
         Static679.aDisplayPropertiesArray1 = null;
         Static503.aBoolean578 = false;

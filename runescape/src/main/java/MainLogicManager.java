@@ -26,10 +26,10 @@ public final class MainLogicManager {
             ConnectionManager.reconnect = null;
         }
         if (arg0 == 3) {
-            InterfaceManager.openLoginScreen(Static523.graphicsDefaults.login_interface != InterfaceManager.topLevelInterface);
+            InterfaceManager.openLogin(Static523.graphicsDefaults.login_interface != InterfaceManager.topLevelInterface);
         }
         if (arg0 == 7) {
-            Static25.method688(Static523.graphicsDefaults.lobby_interface != InterfaceManager.topLevelInterface);
+            InterfaceManager.openLobby(Static523.graphicsDefaults.lobby_interface != InterfaceManager.topLevelInterface);
         }
         if (arg0 == 5 || arg0 == 13) {
             Static369.method3852();

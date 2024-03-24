@@ -370,7 +370,7 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (Static432.A_SERVER_PROT___10 == arg0.currentProt) {
-                                Login.logout(Static461.aBoolean529);
+                                Login.logout(InterfaceManager.lobbyOpened);
                                 arg0.currentProt = null;
                                 return false;
                             } else {

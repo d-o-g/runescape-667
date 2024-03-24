@@ -78,7 +78,7 @@ public final class Static254 {
             }
         }
         if (InterfaceManager.topLevelInterface != -1) {
-            InterfaceManager.closeInterface(InterfaceManager.topLevelInterface);
+            InterfaceManager.discard(InterfaceManager.topLevelInterface);
         }
         for (@Pc(8803) SubInterface local8803 = (SubInterface) InterfaceManager.subInterfaces.first(); local8803 != null; local8803 = (SubInterface) InterfaceManager.subInterfaces.next()) {
             if (!local8803.isLinked()) {
@@ -111,7 +111,7 @@ public final class Static254 {
             Static498.anIntArray604[local8911] = 0;
             Static237.anIntArray518[local8911] = 0;
         }
-        Static218.method3187();
+        InterfaceManager.loginOpened();
         Static273.aBoolean339 = true;
         client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
         Static331.walkText = LocalisedText.WALKHERE.localise(client.language);

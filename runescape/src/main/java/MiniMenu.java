@@ -425,7 +425,7 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!cv", name = "b", descriptor = "(B)V")
     public static void method1840() {
         for (@Pc(4) MiniMenuEntry local4 = (MiniMenuEntry) entry.first(); local4 != null; local4 = (MiniMenuEntry) entry.next()) {
-            if (Static466.method6326(local4.action)) {
+            if (MiniMenuAction.isButtonOp(local4.action)) {
                 Static679.method8911(local4);
             }
         }

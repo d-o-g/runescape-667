@@ -158,7 +158,7 @@ public final class Static684 {
             Camera.positionX -= deltaX * 512;
             Static12.anInt5741 -= deltaY;
             if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaY) > Static501.mapHeight) {
-                Static218.method3187();
+                InterfaceManager.loginOpened();
             }
         } else if (Camera.anInt7645 == 4) {
             Static433.anInt6262 -= deltaX * 512;

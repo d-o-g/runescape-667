@@ -1584,7 +1584,7 @@ public final class client extends GameShell {
                         ConnectionManager.GAME.connection = null;
                         MainLogicManager.setStep(14);
                     } else {
-                        Login.logout(Static461.aBoolean529);
+                        Login.logout(InterfaceManager.lobbyOpened);
                     }
                 } else {
                     Login.logout(false);

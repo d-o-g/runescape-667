@@ -17,6 +17,7 @@ import com.jagex.game.runetek6.config.idktype.IDKTypeList;
 import com.jagex.game.runetek6.config.iftype.DragRender;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
+import com.jagex.game.runetek6.config.iftype.SubInterfaceType;
 import com.jagex.game.runetek6.config.iftype.TargetMask;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
@@ -183,6 +184,12 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!nv", name = "o", descriptor = "I")
     public static int targetEndCursor = -1;
+
+    @OriginalMember(owner = "client!oja", name = "c", descriptor = "Z")
+    public static boolean lobbyOpened = false;
+
+    @OriginalMember(owner = "client!sga", name = "g", descriptor = "Z")
+    public static boolean loginOpened = false;
 
     static {
         for (@Pc(87) int i = 0; i < 100; i++) {
@@ -2496,10 +2503,10 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!oh", name = "a", descriptor = "(IZ)V")
-    public static void openLoginScreen(@OriginalArg(1) boolean unloaded) {
+    public static void openLogin(@OriginalArg(1) boolean unloaded) {
         if (unloaded) {
             if (topLevelInterface != -1) {
-                closeInterface(topLevelInterface);
+                discard(topLevelInterface);
             }
 
             for (@Pc(21) SubInterface sub = (SubInterface) subInterfaces.first(); sub != null; sub = (SubInterface) subInterfaces.next()) {
@@ -2524,7 +2531,7 @@ public final class InterfaceManager {
         }
 
         Static300.method4389();
-        Static461.aBoolean529 = false;
+        lobbyOpened = false;
         MiniMenu.setCancelEntry();
         targetEndCursor = -1;
         Static115.method2136(Cursor.dflt);
@@ -2543,27 +2550,63 @@ public final class InterfaceManager {
             Camera.splineTick();
         }
 
-        Static218.method3187();
+        loginOpened();
+    }
+
+    @OriginalMember(owner = "client!go", name = "a", descriptor = "(I)V")
+    public static void loginOpened() {
+        loginOpened = true;
+    }
+
+    @OriginalMember(owner = "client!as", name = "a", descriptor = "(ZZ)V")
+    public static void openLobby(@OriginalArg(0) boolean unloaded) {
+        if (unloaded) {
+            if (topLevelInterface != -1) {
+                discard(topLevelInterface);
+            }
+
+            for (@Pc(16) SubInterface sub = (SubInterface) subInterfaces.first(); sub != null; sub = (SubInterface) subInterfaces.next()) {
+                if (!sub.isLinked()) {
+                    sub = (SubInterface) subInterfaces.first();
+
+                    if (sub == null) {
+                        break;
+                    }
+                }
+
+                closeSubInterface(false, true, sub);
+            }
+
+            topLevelInterface = -1;
+            subInterfaces = new IterableHashTable(8);
+            InterfaceList.reset();
+            topLevelInterface = Static523.graphicsDefaults.lobby_interface;
+            refreshTopLevelInterface(false);
+            redrawAll();
+            ScriptRunner.executeOnLoad(topLevelInterface);
+        }
+
+        lobbyOpened = true;
     }
 
     @OriginalMember(owner = "client!ku", name = "a", descriptor = "(IZ)V")
-    public static void closeInterface(@OriginalArg(0) int arg0) {
-        if (arg0 != -1 && InterfaceList.loaded[arg0]) {
-            Component.interfacesJs5.discardUnpacked(arg0);
-            InterfaceList.interfaces[arg0] = null;
-            InterfaceList.cache[arg0] = null;
-            InterfaceList.loaded[arg0] = false;
+    public static void discard(@OriginalArg(0) int id) {
+        if (id != -1 && InterfaceList.loaded[id]) {
+            Component.interfacesJs5.discardUnpacked(id);
+            InterfaceList.interfaces[id] = null;
+            InterfaceList.cache[id] = null;
+            InterfaceList.loaded[id] = false;
         }
     }
 
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(BZZLclient!aha;)V")
-    public static void closeSubInterface(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean close, @OriginalArg(3) SubInterface sub) {
+    public static void closeSubInterface(@OriginalArg(1) boolean fromClient, @OriginalArg(2) boolean discard, @OriginalArg(3) SubInterface sub) {
         @Pc(6) int subId = sub.id;
         @Pc(10) int idAndSlot = (int) sub.key;
         sub.unlink();
 
-        if (close) {
-            closeInterface(subId);
+        if (discard) {
+            discard(subId);
         }
 
         resetServerActiveProperties(subId);
@@ -2575,22 +2618,25 @@ public final class InterfaceManager {
 
         MiniMenu.method1840();
 
-        if (!arg0 && topLevelInterface != -1) {
+        if (!fromClient && topLevelInterface != -1) {
             runHookImmediate(IMMEDIATE_HOOK_TYPE_SUBCHANGE, topLevelInterface);
         }
 
-        @Pc(55) HashTableIterator local55 = new HashTableIterator(subInterfaces);
-        for (@Pc(60) SubInterface local60 = (SubInterface) local55.first(); local60 != null; local60 = (SubInterface) local55.next()) {
-            if (!local60.isLinked()) {
-                local60 = (SubInterface) local55.first();
-                if (local60 == null) {
+        @Pc(55) HashTableIterator iterator = new HashTableIterator(subInterfaces);
+        for (@Pc(60) SubInterface child = (SubInterface) iterator.first(); child != null; child = (SubInterface) iterator.next()) {
+            if (!child.isLinked()) {
+                child = (SubInterface) iterator.first();
+
+                if (child == null) {
                     break;
                 }
             }
-            if (local60.type == 3) {
-                @Pc(84) int local84 = (int) local60.key;
-                if (subId == local84 >>> 16) {
-                    closeSubInterface(arg0, true, local60);
+
+            if (child.type == SubInterfaceType.OVERLAY_CLIENT) {
+                @Pc(84) int key = (int) child.key;
+
+                if (subId == key >>> 16) {
+                    closeSubInterface(fromClient, true, child);
                 }
             }
         }

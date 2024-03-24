@@ -333,7 +333,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         super.x = local26 * 256 + super.pathX[0] * 512;
         super.z = super.pathY[0] * 512 + local26 * 256;
         if (self == this) {
-            Static218.method3187();
+            InterfaceManager.loginOpened();
         }
         if (super.aClass8_Sub5_8 != null) {
             super.aClass8_Sub5_8.method3656();

@@ -96,7 +96,7 @@ public final class Static468 {
         ClientOptions.instance.update(2, ClientOptions.instance.maxScreenSize);
         ClientOptions.instance.update(1, ClientOptions.instance.graphicsQuality);
         Static296.updateFeatureMask();
-        Static218.method3187();
+        InterfaceManager.loginOpened();
         Static284.aBoolean355 = true;
     }
 

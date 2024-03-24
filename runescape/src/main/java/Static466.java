@@ -374,8 +374,4 @@ public final class Static466 {
         Static684.method8931(local28, local36, 12, local12);
     }
 
-    @OriginalMember(owner = "client!om", name = "a", descriptor = "(IB)Z")
-    public static boolean method6326(@OriginalArg(0) int arg0) {
-        return arg0 == 20 || arg0 == 18 || arg0 == 1002 || arg0 == 12 || arg0 == 10;
-    }
 }

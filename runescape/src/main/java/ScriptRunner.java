@@ -5034,7 +5034,7 @@ public final class ScriptRunner {
                     if (arg0 == 6012) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.lightDetail);
                         Static296.updateFeatureMask();
-                        Static218.method3187();
+                        InterfaceManager.loginOpened();
                         ClientOptions.save();
                         Static503.aBoolean578 = false;
                         return;

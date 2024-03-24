@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -33,7 +34,7 @@ public final class Static338 {
             return 0;
         } else {
             @Pc(23) int local23 = Static470.aClass2_Sub2_Sub16_10.action;
-            if (Static466.method6326(local23)) {
+            if (MiniMenuAction.isButtonOp(local23)) {
                 return 1;
             } else if (Static245.method8635(local23)) {
                 return 2;

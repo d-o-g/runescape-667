@@ -34,7 +34,7 @@ public final class Static407 {
         if (local30) {
             Static75.aClass2_Sub2_Sub16_9 = MiniMenu.leftClickEntry;
         } else {
-            Static55.method1217(local38, MiniMenu.leftClickEntry, local34);
+            MiniMenu.doAction(local38, MiniMenu.leftClickEntry, local34);
         }
     }
 }

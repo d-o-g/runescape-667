@@ -8,9 +8,6 @@ public final class Static591 {
     @OriginalMember(owner = "client!sl", name = "C", descriptor = "[Lclient!wka;")
     public static final KeyLog[] AN_KEYBOARD_EVENT_ARRAY_2 = new KeyLog[75];
 
-    @OriginalMember(owner = "client!sl", name = "B", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___107 = new ClientProt(92, 3);
-
     @OriginalMember(owner = "client!sl", name = "b", descriptor = "(IIIII)V")
     public static void method7757(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
         if (Static180.anInt2995 <= arg0 && Static111.anInt2219 >= arg0) {

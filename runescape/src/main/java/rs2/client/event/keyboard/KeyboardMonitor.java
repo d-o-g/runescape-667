@@ -18,7 +18,7 @@ public abstract class KeyboardMonitor {
     public abstract KeyLog removeFirstRecorded();
 
     @OriginalMember(owner = "client!rg", name = "a", descriptor = "(II)Z")
-    public abstract boolean isPressed(@OriginalArg(1) int arg0);
+    public abstract boolean isPressed(@OriginalArg(1) int keyCode);
 
     @OriginalMember(owner = "client!rg", name = "a", descriptor = "(B)V")
     public abstract void record();

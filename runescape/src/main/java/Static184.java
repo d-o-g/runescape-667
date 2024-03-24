@@ -11,18 +11,18 @@ public final class Static184 {
     }
 
     @OriginalMember(owner = "client!fma", name = "a", descriptor = "(IIII)Lclient!cg;")
-    public static Class8_Sub2_Sub1_Sub2 method2798(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static PathingEntity method2798(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(13) Class291 local13 = Static334.activeTiles[arg2][arg0][arg1];
         if (local13 == null) {
             return null;
         }
-        @Pc(20) Class8_Sub2_Sub1_Sub2 local20 = null;
+        @Pc(20) PathingEntity local20 = null;
         @Pc(22) int local22 = -1;
         for (@Pc(31) Class286 local31 = local13.aClass286_2; local31 != null; local31 = local31.aClass286_1) {
             @Pc(35) PositionEntity local35 = local31.aPositionEntity;
-            if (local35 instanceof Class8_Sub2_Sub1_Sub2) {
-                @Pc(41) Class8_Sub2_Sub1_Sub2 local41 = (Class8_Sub2_Sub1_Sub2) local35;
-                @Pc(51) int local51 = local41.boundSize((byte) 76) * 256 + 252 - 256;
+            if (local35 instanceof PathingEntity) {
+                @Pc(41) PathingEntity local41 = (PathingEntity) local35;
+                @Pc(51) int local51 = local41.getBoundSize() * 256 + 252 - 256;
                 @Pc(59) int local59 = local41.x - local51 >> 9;
                 @Pc(66) int local66 = local41.z - local51 >> 9;
                 @Pc(74) int local74 = local41.x + local51 >> 9;

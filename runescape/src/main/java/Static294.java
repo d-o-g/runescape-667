@@ -50,7 +50,7 @@ public final class Static294 {
             return;
         }
         Static198.anInt3276++;
-        if ((PlayerEntity.self != null) && (Minimap.flagX == (((PlayerEntity.self.x + 256) - (PlayerEntity.self.boundSize((byte) 45) * 256)) >> 9)) && (Minimap.flagY == ((PlayerEntity.self.z - ((PlayerEntity.self.boundSize((byte) 48) - 1) * 256)) >> 9))) {
+        if ((PlayerEntity.self != null) && (Minimap.flagX == (((PlayerEntity.self.x + 256) - (PlayerEntity.self.getBoundSize() * 256)) >> 9)) && (Minimap.flagY == ((PlayerEntity.self.z - ((PlayerEntity.self.getBoundSize() - 1) * 256)) >> 9))) {
             Minimap.flagX = -1;
             Minimap.flagY = -1;
             DelayedStateChange.resetMapFlag();
@@ -67,7 +67,7 @@ public final class Static294 {
         @Pc(161) int local161 = Static200.anInt3305;
         @Pc(169) int local169;
         @Pc(204) int local204;
-        if (Camera.anInt7645 == 1) {
+        if (Camera.mode == 1) {
             local169 = (int) Static479.aFloat123;
             if (Static188.anInt3103 >> 8 > local169) {
                 local169 = Static188.anInt3103 >> 8;
@@ -75,9 +75,9 @@ public final class Static294 {
             if (Static572.aBooleanArray29[4] && local169 < Static140.anIntArray222[4] + 128) {
                 local169 = Static140.anIntArray222[4] + 128;
             }
-            local204 = Static288.anInt4621 + (int) Static171.aFloat64 & 0x3FFF;
+            local204 = Static288.anInt4621 + (int) Camera.playerCameraYaw & 0x3FFF;
             Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Camera.renderingLevel, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
-        } else if (Camera.anInt7645 == 4) {
+        } else if (Camera.mode == 4) {
             local169 = (int) Static479.aFloat123;
             if (Static188.anInt3103 >> 8 > local169) {
                 local169 = Static188.anInt3103 >> 8;
@@ -85,9 +85,9 @@ public final class Static294 {
             if (Static572.aBooleanArray29[4] && Static140.anIntArray222[4] + 128 > local169) {
                 local169 = Static140.anIntArray222[4] + 128;
             }
-            local204 = (int) Static171.aFloat64 & 0x3FFF;
+            local204 = (int) Camera.playerCameraYaw & 0x3FFF;
             Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.method2025(Camera.renderingLevel, -29754, Static249.anInt4018, Static433.anInt6262) - 200);
-        } else if (Camera.anInt7645 == 5) {
+        } else if (Camera.mode == 5) {
             Static110.method2079(local161);
         }
         local169 = Camera.positionX;

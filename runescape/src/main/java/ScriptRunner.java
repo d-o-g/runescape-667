@@ -1,5 +1,6 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
+import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeWhat;
 import com.jagex.game.compression.huffman.WordPack;
 import com.jagex.game.runetek6.config.enumtype.EnumMapping;
@@ -4702,7 +4703,7 @@ public final class ScriptRunner {
                             throw new RuntimeException();
                         }
                         Camera.splineLookOffset = local115;
-                        Camera.anInt7645 = 3;
+                        Camera.mode = 3;
                         Static693.anInt10383 = -1;
                         Static692.anInt10376 = -1;
                         return;
@@ -4721,7 +4722,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5506) {
-                        anIntArray578[anInt7142++] = (int) Static171.aFloat64 >> 3;
+                        anIntArray578[anInt7142++] = (int) Camera.playerCameraYaw >> 3;
                         return;
                     }
                     if (arg0 == 5507) {
@@ -4758,7 +4759,7 @@ public final class ScriptRunner {
                         }
                         Static433.anInt6262 = (local834 << 9) + 256;
                         Static249.anInt4018 = (local109 << 9) + 256;
-                        Camera.anInt7645 = 4;
+                        Camera.mode = 4;
                         Static693.anInt10383 = -1;
                         Static692.anInt10376 = -1;
                         return;
@@ -4801,7 +4802,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5547) {
-                        anIntArray578[anInt7142++] = Camera.anInt7645 == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = Camera.mode == 1 ? 1 : 0;
                         return;
                     }
                 } else if (arg0 < 5700) {
@@ -6232,10 +6233,10 @@ public final class ScriptRunner {
                     local48 = arg0.source == null ? -1 : arg0.source.id;
                 }
                 if (local48 == -2147483642) {
-                    local48 = arg0.aComponent_13 == null ? -1 : arg0.aComponent_13.slot;
+                    local48 = arg0.target == null ? -1 : arg0.target.slot;
                 }
                 if (local48 == -2147483641) {
-                    local48 = arg0.aComponent_13 == null ? -1 : arg0.aComponent_13.id;
+                    local48 = arg0.target == null ? -1 : arg0.target.id;
                 }
                 if (local48 == -2147483640) {
                     local48 = arg0.anInt7216;
@@ -6434,5 +6435,20 @@ public final class ScriptRunner {
             anIntArray580[1] = MouseMonitor.instance.getRecordedY() - local37;
         }
         method6419(local5, 200000);
+    }
+
+    @OriginalMember(owner = "client!sda", name = "a", descriptor = "(BIII)V")
+    public static void executeMapElementTrigger(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+        if (arg2 == MiniMenuAction.OP_MAPELEMENT1) {
+            executeTrigger(ClientTriggerType.OP_MAPELEMENT1, arg1, arg0);
+        } else if (arg2 == MiniMenuAction.OP_MAPELEMENT2) {
+            executeTrigger(ClientTriggerType.OP_MAPELEMENT2, arg1, arg0);
+        } else if (arg2 == MiniMenuAction.OP_MAPELEMENT3) {
+            executeTrigger(ClientTriggerType.OP_MAPELEMENT3, arg1, arg0);
+        } else if (arg2 == MiniMenuAction.OP_MAPELEMENT4) {
+            executeTrigger(ClientTriggerType.OP_MAPELEMENT4, arg1, arg0);
+        } else if (arg2 == MiniMenuAction.OP_MAPELEMENT5) {
+            executeTrigger(ClientTriggerType.OP_MAPELEMENT5, arg1, arg0);
+        }
     }
 }

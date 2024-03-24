@@ -5,9 +5,6 @@ public final class Static470 {
     @OriginalMember(owner = "client!or", name = "J", descriptor = "S")
     public static short aShort82;
 
-    @OriginalMember(owner = "client!or", name = "H", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___88 = new ClientProt(19, 3);
-
     @OriginalMember(owner = "client!or", name = "P", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_32 = new Class155(50);
 

@@ -31,9 +31,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static664 {
 
-    @OriginalMember(owner = "client!vaa", name = "v", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___115 = new ClientProt(40, 11);
-
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(ILclient!fk;)[I")
     public static int[] method8652(@OriginalArg(1) ClientMessage arg0) {
         @Pc(8) Packet local8 = new Packet(518);

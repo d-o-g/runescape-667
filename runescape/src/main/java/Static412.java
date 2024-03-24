@@ -6,9 +6,6 @@ public final class Static412 {
     @OriginalMember(owner = "client!naa", name = "f", descriptor = "I")
     public static int anInt6357;
 
-    @OriginalMember(owner = "client!naa", name = "b", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___74 = new ClientProt(77, 3);
-
     @OriginalMember(owner = "client!naa", name = "d", descriptor = "I")
     public static final int anInt6358 = 5000;
 

@@ -69,7 +69,7 @@ public final class Static693 {
         Camera.lookSpline = -1;
         Static314.anInt5035 = 0;
         Static197.anInt3260 = -1;
-        Camera.anInt7645 = 1;
+        Camera.mode = 1;
         anInt10383 = -1;
         Static692.anInt10376 = -1;
     }

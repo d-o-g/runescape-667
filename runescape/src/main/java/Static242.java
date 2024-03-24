@@ -57,17 +57,17 @@ public final class Static242 {
             if (local26 != null && PlayerEntity.self != local26 && local26.accountName != null && local26.accountName.equalsIgnoreCase(arg0)) {
                 @Pc(47) ClientProt local47 = null;
                 if (arg1 == 1) {
-                    local47 = Static424.A_CLIENT_PROT___79;
+                    local47 = ClientProt.OPPLAYER1;
                 } else if (arg1 == 4) {
-                    local47 = Static587.A_CLIENT_PROT___104;
+                    local47 = ClientProt.OPPLAYER4;
                 } else if (arg1 == 5) {
-                    local47 = Static675.A_CLIENT_PROT___118;
+                    local47 = ClientProt.OPPLAYER5;
                 } else if (arg1 == 6) {
-                    local47 = Static173.A_CLIENT_PROT___30;
+                    local47 = ClientProt.OPPLAYER6;
                 } else if (arg1 == 7) {
-                    local47 = Static273.A_CLIENT_PROT___55;
+                    local47 = ClientProt.OPPLAYER7;
                 } else if (arg1 == 9) {
-                    local47 = Static571.A_CLIENT_PROT___103;
+                    local47 = ClientProt.OPPLAYER9;
                 }
                 if (local47 != null) {
                     @Pc(108) ClientMessage local108 = ClientMessage.create(local47, ConnectionManager.GAME.cipher);

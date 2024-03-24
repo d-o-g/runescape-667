@@ -8,13 +8,13 @@ public final class Static471 {
     public static void method6408(@OriginalArg(2) int arg0, @OriginalArg(3) int arg1) {
         @Pc(11) int local11 = arg1 << 3;
         @Pc(15) int local15 = arg0 << 3;
-        if (Camera.anInt7645 == 2) {
+        if (Camera.mode == 2) {
             Camera.pitch = local11;
             Camera.roll = 0;
             Camera.yaw = local15;
         }
         Static479.aFloat123 = (float) local11;
-        Static171.aFloat64 = (float) local15;
+        Camera.playerCameraYaw = (float) local15;
         Static723.method9451();
         Static273.aBoolean339 = true;
     }

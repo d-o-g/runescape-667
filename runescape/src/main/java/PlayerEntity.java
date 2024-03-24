@@ -31,7 +31,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ca")
-public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
+public final class PlayerEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!fo", name = "k", descriptor = "Lclient!dla;")
     public static final ReferenceCache modelCache = new ReferenceCache(4);
@@ -374,12 +374,9 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
 
     @OriginalMember(owner = "client!ca", name = "g", descriptor = "(B)I")
     @Override
-    public int boundSize(@OriginalArg(0) byte arg0) {
+    public int getBoundSize() {
         if (this.playerModel == null || this.playerModel.npcId == -1) {
-            if (arg0 < 43) {
-                this.soundVolume = 1;
-            }
-            return super.boundSize((byte) 76);
+            return super.getBoundSize();
         } else {
             return NPCTypeList.instance.list(this.playerModel.npcId).size;
         }
@@ -392,7 +389,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         super.anInt10763 = 0;
         super.anInt10762 = 0;
         super.pathY[0] = arg1;
-        @Pc(26) int local26 = this.boundSize((byte) 84);
+        @Pc(26) int local26 = this.getBoundSize();
         super.x = local26 * 256 + super.pathX[0] * 512;
         super.z = super.pathY[0] * 512 + local26 * 256;
         if (self == this) {
@@ -543,11 +540,11 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(21) boolean local21 = this.vorbis;
         this.vorbis = (local12 & 0x2) != 0;
         @Pc(40) boolean local40 = (local12 & 0x4) != 0;
-        @Pc(44) int local44 = super.boundSize((byte) 85);
+        @Pc(44) int local44 = super.getBoundSize();
         this.method9310((local12 >> 3 & 0x7) + 1);
         this.titleEnum = (byte) (local12 >> 6 & 0x3);
-        super.x += this.boundSize((byte) 44) - local44 << 8;
-        super.z += this.boundSize((byte) 111) - local44 << 8;
+        super.x += this.getBoundSize() - local44 << 8;
+        super.z += this.getBoundSize() - local44 << 8;
         this.aByte33 = packet.g1b();
         this.anInt1430 = packet.g1b();
         this.anInt1431 = packet.g1b();
@@ -660,8 +657,8 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         @Pc(603) int[] local603 = this.playerModel.clientpalette;
         this.playerModel.update(local332, local139, local144, local134, this.method9320(0), this.gender == 1);
         if (local134 != local240) {
-            super.x = (super.pathX[0] << 9) + (this.boundSize((byte) 83) << 8);
-            super.z = (super.pathY[0] << 9) + (this.boundSize((byte) 45) << 8);
+            super.x = (super.pathX[0] << 9) + (this.getBoundSize() << 8);
+            super.z = (super.pathY[0] << 9) + (this.getBoundSize() << 8);
         }
         if (PlayerList.activePlayerSlot == super.id && local603 != null) {
             for (local490 = 0; local490 < local332.length; local490++) {
@@ -727,7 +724,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
         super.anInt10728 = local152.ma();
         this.method9306(local152);
         if (local61 == 0 && local64 == 0) {
-            this.method9314(local95, 0, 0, this.boundSize((byte) 59) << 9, this.boundSize((byte) 126) << 9, -81);
+            this.method9314(local95, 0, 0, this.getBoundSize() << 9, this.getBoundSize() << 9, -81);
         } else {
             this.method9314(local95, local15.hillMaxAngleX, local15.hillMaxAngleY, local61, local64, -104);
             if (super.modelRotateX != 0) {
@@ -835,7 +832,7 @@ public final class PlayerEntity extends Class8_Sub2_Sub1_Sub2 {
             }
         }
         if (-9380 != -9380) {
-            this.boundSize((byte) -74);
+            this.getBoundSize();
         }
         this.anInt1467 = -1;
         if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapHeight <= arg0) {

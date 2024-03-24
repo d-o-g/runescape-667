@@ -90,7 +90,7 @@ public final class CutsceneAction_Sub23 extends CutsceneAction {
         @Pc(24) int local24;
         @Pc(21) int local21;
         @Pc(18) int local18;
-        @Pc(15) Class8_Sub2_Sub1_Sub2 local15;
+        @Pc(15) PathingEntity local15;
         if (this.anInt9980 < 0) {
             local15 = Static219.aClass236Array1[this.anInt9982].method5363();
             local18 = local15.level;

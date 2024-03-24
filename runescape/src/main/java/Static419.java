@@ -10,9 +10,6 @@ public final class Static419 {
     @OriginalMember(owner = "client!ne", name = "u", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray33 = new String[200];
 
-    @OriginalMember(owner = "client!ne", name = "p", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___77 = new ClientProt(42, 15);
-
     @OriginalMember(owner = "client!ne", name = "w", descriptor = "I")
     public static int anInt6434 = 0;
 

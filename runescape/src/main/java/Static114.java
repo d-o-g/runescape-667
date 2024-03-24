@@ -22,16 +22,16 @@ public final class Static114 {
         }
         local37 -= 10;
         @Pc(64) int local64;
-        if (Camera.anInt7645 == 4) {
-            local64 = (int) Static171.aFloat64 & 0x3FFF;
+        if (Camera.mode == 4) {
+            local64 = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
-            local64 = Static29.anInt723 + (int) Static171.aFloat64 & 0x3FFF;
+            local64 = Camera.yawOffset + (int) Camera.playerCameraYaw & 0x3FFF;
         }
         @Pc(77) int local77 = Trig1.SIN[local64];
         @Pc(81) int local81 = Trig1.COS[local64];
-        if (Camera.anInt7645 != 4) {
-            local81 = local81 * 256 / (Static660.anInt9835 + 256);
-            local77 = local77 * 256 / (Static660.anInt9835 + 256);
+        if (Camera.mode != 4) {
+            local81 = local81 * 256 / (Camera.scaleOffset + 256);
+            local77 = local77 * 256 / (Camera.scaleOffset + 256);
         }
         @Pc(112) int local112 = local81 * arg0 + local77 * arg6 >> 14;
         @Pc(123) int local123 = local81 * arg6 - arg0 * local77 >> 14;

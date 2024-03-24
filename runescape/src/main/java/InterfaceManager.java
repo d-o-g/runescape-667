@@ -151,7 +151,7 @@ public final class InterfaceManager {
     public static int dragTicks;
 
     @OriginalMember(owner = "client!et", name = "c", descriptor = "Z")
-    public static boolean targeting = false;
+    public static boolean targetMode = false;
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "Ljava/lang/String;")
     public static String targetVerb = null;
@@ -1028,9 +1028,9 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "(JI)V")
     public static void method7930(@OriginalArg(0) long arg0) {
         if (Static334.activeTiles != null) {
-            if (Camera.anInt7645 == 1 || Camera.anInt7645 == 5) {
+            if (Camera.mode == 1 || Camera.mode == 5) {
                 Static604.method7903(arg0);
-            } else if (Camera.anInt7645 == 4) {
+            } else if (Camera.mode == 4) {
                 Static349.method5121(arg0);
             }
         }
@@ -1070,7 +1070,7 @@ public final class InterfaceManager {
         }
 
         Static115.method2136(cursor);
-        @Pc(136) int size = PlayerEntity.self.boundSize((byte) 70) << 8;
+        @Pc(136) int size = PlayerEntity.self.getBoundSize() << 8;
         Static220.method3198(Static35.currentTick, size + PlayerEntity.self.z, PlayerEntity.self.x + size, PlayerEntity.self.level);
         Static35.currentTick = 0;
     }
@@ -1180,7 +1180,7 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "([Lclient!hda;IIIIIIIIIII)V")
-    public static void logicComponentList(@OriginalArg(0) Component[] components, @OriginalArg(1) int layer, @OriginalArg(2) int parentX1, @OriginalArg(3) int parentY1, @OriginalArg(4) int parentX2, @OriginalArg(5) int parentY2, @OriginalArg(6) int scrollDeltaX, @OriginalArg(7) int scrollDeltaY, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int mouseX2, @OriginalArg(11) int arg11) {
+    public static void logicComponentList(@OriginalArg(0) Component[] components, @OriginalArg(1) int layer, @OriginalArg(2) int parentX1, @OriginalArg(3) int parentY1, @OriginalArg(4) int parentX2, @OriginalArg(5) int parentY2, @OriginalArg(6) int scrollDeltaX, @OriginalArg(7) int scrollDeltaY, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int mouseX2, @OriginalArg(11) int mouseY2) {
         for (@Pc(1) int i = 0; i < components.length; i++) {
             @Pc(6) Component component = components[i];
             if (component == null || component.layer != layer) {
@@ -1233,7 +1233,7 @@ public final class InterfaceManager {
                 }
 
                 if (component.hasOpKey || x1 < x2 && y1 < y2) {
-                    if (component.noClickThrough && mouseX2 >= x1 && arg11 >= y1 && mouseX2 < x2 && arg11 < y2) {
+                    if (component.noClickThrough && mouseX2 >= x1 && mouseY2 >= y1 && mouseX2 < x2 && mouseY2 < y2) {
                         for (@Pc(220) HookRequest hook = (HookRequest) Static521.A_DEQUE___44.first(); hook != null; hook = (HookRequest) Static521.A_DEQUE___44.next()) {
                             if (hook.mouseEvent) {
                                 hook.unlink();
@@ -1281,7 +1281,7 @@ public final class InterfaceManager {
                         }
                     }
 
-                    if (!targeting && hovered) {
+                    if (!targetMode && hovered) {
                         if (component.mouseOverCursor >= 0) {
                             targetEndCursor = component.mouseOverCursor;
                         } else if (component.noClickThrough) {
@@ -1405,14 +1405,14 @@ public final class InterfaceManager {
                                 }
 
                                 if (component.clientcode == ComponentClientCode.SCENE) {
-                                    if (MiniMenu.open || mouseX2 < x1 || arg11 < y1 || mouseX2 >= x2 || arg11 >= y2) {
+                                    if (MiniMenu.open || mouseX2 < x1 || mouseY2 < y1 || mouseX2 >= x2 || mouseY2 >= y2) {
                                         continue;
                                     }
 
                                     MiniMenu.addEntries3DView(arg9, arg8, Toolkit.active);
 
                                     for (@Pc(991) Class8_Sub1 local991 = (Class8_Sub1) Static149.A_ENTITY_LIST___4.first(); local991 != null; local991 = (Class8_Sub1) Static149.A_ENTITY_LIST___4.next()) {
-                                        if (mouseX2 >= local991.anInt108 && mouseX2 < local991.anInt109 && arg11 >= local991.anInt112 && arg11 < local991.anInt111) {
+                                        if (mouseX2 >= local991.anInt108 && mouseX2 < local991.anInt109 && mouseY2 >= local991.anInt112 && mouseY2 < local991.anInt111) {
                                             MiniMenu.reset();
                                             MiniMenu.addEntityEntries(local991.aClass8_Sub2_Sub1_Sub2_1);
                                         }
@@ -1422,62 +1422,62 @@ public final class InterfaceManager {
 
                             if (component.clientcode == ComponentClientCode.MINIMAP) {
                                 @Pc(524) Graphic graphic = component.graphic(Toolkit.active);
-                                if (graphic == null || Minimap.toggle != 0 && Minimap.toggle != 3 || MiniMenu.open || mouseX2 < x1 || arg11 < y1 || mouseX2 >= x2 || arg11 >= y2) {
+                                if (graphic == null || Minimap.toggle != 0 && Minimap.toggle != 3 || MiniMenu.open || mouseX2 < x1 || mouseY2 < y1 || mouseX2 >= x2 || mouseY2 >= y2) {
                                     continue;
                                 }
 
-                                @Pc(549) int local549 = mouseX2 - startX;
-                                @Pc(555) int local555 = arg11 - startY;
-                                @Pc(569) int local569 = graphic.lineOffsets[local555];
-                                if (local549 < local569 || local549 > local569 + graphic.lineWidths[local555]) {
+                                @Pc(549) int x = mouseX2 - startX;
+                                @Pc(555) int y = mouseY2 - startY;
+                                @Pc(569) int lineOffset = graphic.lineOffsets[y];
+                                if (x < lineOffset || x > lineOffset + graphic.lineWidths[y]) {
                                     continue;
                                 }
 
-                                local549 -= component.width / 2;
-                                local555 -= component.height / 2;
+                                x -= component.width / 2;
+                                y -= component.height / 2;
 
-                                @Pc(1125) int local1125;
-                                if (Camera.anInt7645 == 4) {
-                                    local1125 = (int) Static171.aFloat64 & 0x3FFF;
+                                @Pc(1125) int yaw;
+                                if (Camera.mode == 4) {
+                                    yaw = (int) Camera.playerCameraYaw & 0x3FFF;
                                 } else {
-                                    local1125 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
+                                    yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
                                 }
 
-                                @Pc(1137) int local1137 = Trig1.SIN[local1125];
-                                @Pc(1141) int local1141 = Trig1.COS[local1125];
-                                if (Camera.anInt7645 != 4) {
-                                    local1137 = local1137 * (Static660.anInt9835 + 256) >> 8;
-                                    local1141 = local1141 * (Static660.anInt9835 + 256) >> 8;
+                                @Pc(1137) int sinYaw = Trig1.SIN[yaw];
+                                @Pc(1141) int cosYaw = Trig1.COS[yaw];
+                                if (Camera.mode != 4) {
+                                    sinYaw = sinYaw * (Camera.scaleOffset + 256) >> 8;
+                                    cosYaw = cosYaw * (Camera.scaleOffset + 256) >> 8;
                                 }
 
-                                @Pc(1170) int local1170 = local555 * local1137 + local549 * local1141 >> 14;
-                                @Pc(1180) int local1180 = local555 * local1141 - local549 * local1137 >> 14;
+                                @Pc(1170) int local1170 = ((y * sinYaw) + (x * cosYaw)) >> 14;
+                                @Pc(1180) int local1180 = ((y * cosYaw) - (x * sinYaw)) >> 14;
 
                                 @Pc(1191) int local1191;
                                 @Pc(1199) int local1199;
-                                if (Camera.anInt7645 == 4) {
+                                if (Camera.mode == 4) {
                                     local1191 = (Static433.anInt6262 >> 9) + (local1170 >> 2);
                                     local1199 = (Static249.anInt4018 >> 9) - (local1180 >> 2);
                                 } else {
-                                    @Pc(1208) int local1208 = (PlayerEntity.self.boundSize((byte) 83) - 1) * 256;
+                                    @Pc(1208) int local1208 = (PlayerEntity.self.getBoundSize() - 1) * 256;
                                     local1191 = (PlayerEntity.self.x - local1208 >> 9) + (local1170 >> 2);
                                     local1199 = (PlayerEntity.self.z - local1208 >> 9) - (local1180 >> 2);
                                 }
 
-                                if (targeting && (targetMask & 0x40) != 0) {
-                                    @Pc(1243) Component local1243 = InterfaceList.getComponent(targetComponent, targetSlot);
+                                if (targetMode && (targetMask & TargetMask.TGT_GROUND) != 0) {
+                                    @Pc(1243) Component target = InterfaceList.getComponent(targetComponent, targetSlot);
 
-                                    if (local1243 == null) {
-                                        endTargetMode();
+                                    if (target != null) {
+                                        MiniMenu.addEntry(false, component.invObject, 1L, local1191, local1199, targetVerb, MiniMenuAction.TGT_GROUND, true, targetEnterCursor, " ->", (component.id << 0) | component.slot, true);
                                     } else {
-                                        MiniMenu.addEntry(false, component.invObject, 1L, local1191, local1199, targetVerb, 21, true, targetEnterCursor, " ->", (component.id << 0) | component.slot, true);
+                                        endTargetMode();
                                     }
                                 } else {
                                     if (client.modeGame == ModeGame.STELLAR_DAWN) {
-                                        MiniMenu.addEntry(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(client.language), 11, true, -1, "", 0L, true);
+                                        MiniMenu.addEntry(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(client.language), MiniMenuAction.FACE_SQUARE, true, -1, "", 0L, true);
                                     }
 
-                                    MiniMenu.addEntry(false, -1, 1L, local1191, local1199, Static331.walkText, 58, true, Static331.walkCursor, "", 0L, true);
+                                    MiniMenu.addEntry(false, -1, 1L, local1191, local1199, Static331.walkText, MiniMenuAction.WALK, true, Static331.walkCursor, "", 0L, true);
                                 }
 
                                 continue;
@@ -1892,10 +1892,10 @@ public final class InterfaceManager {
                     Static542.prefetchSprite(component);
 
                     if (component.type == 0) {
-                        logicComponentList(components, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, arg8, arg9, mouseX2, arg11);
+                        logicComponentList(components, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, arg8, arg9, mouseX2, mouseY2);
 
                         if (component.dynamicComponents != null) {
-                            logicComponentList(component.dynamicComponents, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, arg8, arg9, mouseX2, arg11);
+                            logicComponentList(component.dynamicComponents, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, arg8, arg9, mouseX2, mouseY2);
                         }
 
                         @Pc(2824) SubInterface sub = (SubInterface) subInterfaces.get(component.slot);
@@ -1904,7 +1904,7 @@ public final class InterfaceManager {
                                 MiniMenu.reset();
                             }
 
-                            mainLogic(y2, startY, y1, arg9, arg11, x2, startX, sub.id, arg8, mouseX2, x1);
+                            mainLogic(y2, startY, y1, arg9, mouseY2, x2, startX, sub.id, arg8, mouseX2, x1);
                         }
                     }
                 }
@@ -2001,7 +2001,7 @@ public final class InterfaceManager {
 
         InterfaceManager.targetInvObj = target.invObject;
         InterfaceManager.targetSlot = target.slot;
-        InterfaceManager.targeting = true;
+        InterfaceManager.targetMode = true;
         InterfaceManager.targetParam = targetParam;
         InterfaceManager.targetEnterCursor = target.targetEnterCursor;
         InterfaceManager.targetComponent = target.id;
@@ -2012,7 +2012,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!or", name = "h", descriptor = "(I)V")
     public static void endTargetMode() {
-        if (!targeting) {
+        if (!targetMode) {
             return;
         }
 
@@ -2025,7 +2025,7 @@ public final class InterfaceManager {
         }
 
         InterfaceManager.targetEndCursor = -1;
-        InterfaceManager.targeting = false;
+        InterfaceManager.targetMode = false;
         InterfaceManager.targetInvObj = -1;
 
         if (target != null) {
@@ -2467,7 +2467,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!nea", name = "a", descriptor = "(ILclient!hda;II)V")
     public static void addMiniMenuOptions(@OriginalArg(1) Component component, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        if (targeting) {
+        if (targetMode) {
             @Pc(16) ParamType param = targetParam == -1 ? null : ParamTypeList.instance.list(targetParam);
 
             if (serverActiveProperties(component).isUseTarget() && (targetMask & TargetMask.TGT_BUTTON) != 0 && (param == null || component.param(param.defaultint, targetParam) != param.defaultint)) {
@@ -2479,7 +2479,7 @@ public final class InterfaceManager {
             @Pc(106) String op = getOp(component, i);
 
             if (op != null) {
-                MiniMenu.addEntry(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX1, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
+                MiniMenu.addEntry(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX2, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
             }
         }
 
@@ -2492,7 +2492,7 @@ public final class InterfaceManager {
             @Pc(204) String op = getOp(component, i);
 
             if (op != null) {
-                MiniMenu.addEntry(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX2, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
+                MiniMenu.addEntry(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX1, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
             }
         }
 
@@ -2557,7 +2557,7 @@ public final class InterfaceManager {
         Camera.positionX = 0;
         PlayerEntity.self.pathY[0] = Static501.mapHeight / 2;
 
-        if (Camera.anInt7645 == 2) {
+        if (Camera.mode == 2) {
             Camera.positionZ = Camera.anInt10667 << 9;
             Camera.positionX = Camera.anInt2333 << 9;
         } else {

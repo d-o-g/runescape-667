@@ -13,12 +13,12 @@ public final class Static38 {
     public static int anInt928 = 0;
 
     @OriginalMember(owner = "client!bea", name = "a", descriptor = "(IIJI)V")
-    public static void method1001(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1, @OriginalArg(3) int arg2) {
+    public static void findPathToLoc(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1, @OriginalArg(3) int arg2) {
         @Pc(10) int local10 = (int) arg1 >> 14 & 0x1F;
         @Pc(17) int local17 = (int) arg1 >> 20 & 0x3;
         @Pc(29) int local29 = Integer.MAX_VALUE & (int) (arg1 >>> 32);
         if (local10 != 10 && local10 != 11 && local10 != 22) {
-            Static147.method2419(local17, arg2, 0, true, arg0, 0, local10, 0);
+            Static147.findPath(local17, arg2, 0, true, arg0, 0, local10, 0);
             return;
         }
         @Pc(62) LocType local62 = LocTypeList.instance.list(local29);
@@ -35,7 +35,7 @@ public final class Static38 {
         if (local17 != 0) {
             local88 = (local88 << local17 & 0xF) + (local88 >> 4 - local17);
         }
-        Static147.method2419(0, arg2, local78, true, arg0, local88, 0, local75);
+        Static147.findPath(0, arg2, local78, true, arg0, local88, 0, local75);
     }
 
     @OriginalMember(owner = "client!bea", name = "a", descriptor = "(IZ)J")

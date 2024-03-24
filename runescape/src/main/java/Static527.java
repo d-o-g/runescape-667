@@ -27,7 +27,7 @@ public final class Static527 {
                 local20.method816();
                 if (local20.anInt711 > 0) {
                     if (CutsceneManager.state == 3) {
-                        @Pc(61) Class8_Sub2_Sub1_Sub2 local61 = Static219.aClass236Array1[local20.anInt711 - 1].method5363();
+                        @Pc(61) PathingEntity local61 = Static219.aClass236Array1[local20.anInt711 - 1].method5363();
                         if (local61 != null && local61.x >= 0 && local61.x < Static720.mapWidth * 512 && local61.z >= 0 && local61.z < Static501.mapHeight * 512) {
                             local20.method813(Static102.method2025(local20.level, -29754, local61.z, local61.x) - local20.lb, TimeUtils.clock, local61.z, local61.x);
                         }

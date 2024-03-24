@@ -20,9 +20,6 @@ public final class Static420 {
     @OriginalMember(owner = "client!nea", name = "a", descriptor = "I")
     public static int anInt6436 = 1;
 
-    @OriginalMember(owner = "client!nea", name = "d", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___78 = new ClientProt(28, 3);
-
     @OriginalMember(owner = "client!nea", name = "a", descriptor = "(I[SI[Ljava/lang/String;I)V")
     public static void method5759(@OriginalArg(0) int arg0, @OriginalArg(1) short[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) String[] arg3) {
         if (arg2 >= arg0) {

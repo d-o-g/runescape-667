@@ -39,14 +39,14 @@ public final class Static254 {
         for (@Pc(8628) int local8628 = 0; local8628 < Static527.aClass254Array1.length; local8628++) {
             Static527.aClass254Array1[local8628] = null;
         }
-        InterfaceManager.targeting = false;
+        InterfaceManager.targetMode = false;
         Static368.method5273();
-        Static29.anInt723 = (int) (Math.random() * 120.0D) - 60;
+        Camera.yawOffset = (int) (Math.random() * 120.0D) - 60;
         Static288.anInt4621 = (int) (Math.random() * 80.0D) - 40;
         Static145.anInt2561 = (int) (Math.random() * 110.0D) - 55;
-        Static660.anInt9835 = (int) (Math.random() * 30.0D) - 20;
+        Camera.scaleOffset = (int) (Math.random() * 30.0D) - 20;
         Static508.anInt7627 = (int) (Math.random() * 100.0D) - 50;
-        Static171.aFloat64 = (float) ((int) (Math.random() * 160.0D) - 80 & 0x3FFF);
+        Camera.playerCameraYaw = (float) ((int) (Math.random() * 160.0D) - 80 & 0x3FFF);
         Static439.method5954();
         for (@Pc(8697) int local8697 = 0; local8697 < 2048; local8697++) {
             PlayerList.highResolutionPlayers[local8697] = null;
@@ -94,7 +94,7 @@ public final class Static254 {
         InterfaceList.reset();
         InterfaceManager.dialog = null;
         for (@Pc(8849) int local8849 = 0; local8849 < 8; local8849++) {
-            Static297.playerOps[local8849] = null;
+            MiniMenu.playerOps[local8849] = null;
             Static601.playerOpsReducedPriority[local8849] = false;
             Static147.playerOpCursors[local8849] = -1;
         }

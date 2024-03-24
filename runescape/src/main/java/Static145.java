@@ -24,12 +24,12 @@ public final class Static145 {
         Static212.anInt3468 = TimeUtils.clock;
         Static179.anInt2991 = 0;
         Static314.anInt5035 = 0;
-        Camera.anInt7645 = 5;
+        Camera.mode = 5;
         Static302.anInt4854 = Camera.positionY;
     }
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(Lclient!cg;Z)V")
-    public static void method2410(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
+    public static void method2410(@OriginalArg(0) PathingEntity arg0) {
         if (arg0.anIntArray872 == null && arg0.anIntArray877 == null) {
             return;
         }

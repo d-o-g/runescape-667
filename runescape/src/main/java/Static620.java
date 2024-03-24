@@ -32,16 +32,16 @@ public final class Static620 {
             @Pc(66) int local66;
             for (local36 = 0; local36 < local34.length / 2; local36++) {
                 @Pc(51) int local51;
-                if (Camera.anInt7645 == 4) {
-                    local51 = (int) Static171.aFloat64 & 0x3FFF;
+                if (Camera.mode == 4) {
+                    local51 = (int) Camera.playerCameraYaw & 0x3FFF;
                 } else {
-                    local51 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
+                    local51 = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
                 }
                 local62 = Trig1.SIN[local51];
                 local66 = Trig1.COS[local51];
-                if (Camera.anInt7645 != 4) {
-                    local62 = local62 * 256 / (Static660.anInt9835 + 256);
-                    local66 = local66 * 256 / (Static660.anInt9835 + 256);
+                if (Camera.mode != 4) {
+                    local62 = local62 * 256 / (Camera.scaleOffset + 256);
+                    local66 = local66 * 256 / (Camera.scaleOffset + 256);
                 }
                 local34[local36 * 2] = arg7.width / 2 + arg1 + (local66 * (local10.landmarkPolygons[local36 * 2] * 4 + arg6) + local62 * (arg0 + local10.landmarkPolygons[local36 * 2 + 1] * 4) >> 14);
                 local34[local36 * 2 + 1] = arg5 + arg7.height / 2 - (local66 * (arg0 + local10.landmarkPolygons[local36 * 2 + 1] * 4) - local62 * (arg6 + local10.landmarkPolygons[local36 * 2] * 4) >> 14);

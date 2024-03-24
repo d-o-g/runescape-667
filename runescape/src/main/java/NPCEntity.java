@@ -18,7 +18,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wj")
-public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
+public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "Qc", descriptor = "Ljava/lang/String;")
     public String aString128;
@@ -251,7 +251,7 @@ public final class NPCEntity extends Class8_Sub2_Sub1_Sub2 {
         super.anInt10728 = local134.ma();
         this.method9306(local134);
         if (local50 == 0 && local53 == 0) {
-            this.method9314(local111, 0, 0, this.boundSize((byte) 116) << 9, this.boundSize((byte) 79) << 9, -86);
+            this.method9314(local111, 0, 0, this.getBoundSize() << 9, this.getBoundSize() << 9, -86);
         } else {
             this.method9314(local111, local9.hillMaxAngleX, local9.hillMaxAngleY, local50, local53, -119);
             if (super.modelRotateX != 0) {

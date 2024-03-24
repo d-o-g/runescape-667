@@ -43,7 +43,7 @@ public final class CutsceneAction_Sub18 extends CutsceneAction {
         Camera.splineStart = this.anInt8178;
         Static197.anInt3260 = 0;
         Camera.lookSpline = 1;
-        Camera.anInt7645 = 3;
+        Camera.mode = 3;
         Camera.splineRate = 0;
         Camera.splineLookOffset = this.anInt8182;
         Static303.anInt4868 = this.anInt8180;

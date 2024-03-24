@@ -133,7 +133,7 @@ public final class WorldMapArea extends Node2 {
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(IBI[I)Z")
     public boolean method4091(@OriginalArg(0) int y, @OriginalArg(2) int x, @OriginalArg(3) int[] coords) {
         for (@Pc(9) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.method8910(y, x)) {
+            if (chunk.contains(y, x)) {
                 chunk.method8913(x, coords, y);
                 return true;
             }

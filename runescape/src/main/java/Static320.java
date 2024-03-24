@@ -31,7 +31,7 @@ public final class Static320 {
         Static204.A_DEQUE___16.clear();
         Static239.A_DEQUE___19.clear();
         @Pc(64) int local64;
-        for (@Pc(57) MiniMenuEntry local57 = (MiniMenuEntry) MiniMenu.entry.first(); local57 != null; local57 = (MiniMenuEntry) MiniMenu.entry.next()) {
+        for (@Pc(57) MiniMenuEntry local57 = (MiniMenuEntry) MiniMenu.entries.first(); local57 != null; local57 = (MiniMenuEntry) MiniMenu.entries.next()) {
             local64 = local57.action;
             if (local64 < 1000) {
                 local57.unlink();
@@ -42,18 +42,18 @@ public final class Static320 {
                 }
             }
         }
-        Static204.A_DEQUE___16.appendTo(MiniMenu.entry);
-        Static239.A_DEQUE___19.appendTo(MiniMenu.entry);
+        Static204.A_DEQUE___16.appendTo(MiniMenu.entries);
+        Static239.A_DEQUE___19.appendTo(MiniMenu.entries);
         if (MiniMenu.entryCount <= 1) {
             MiniMenu.leftClickEntry = null;
             MiniMenu.topEntry = null;
         } else {
             if (Static209.shiftClick && KeyboardMonitor.instance.isPressed(81) && MiniMenu.entryCount > 2) {
-                MiniMenu.leftClickEntry = (MiniMenuEntry) MiniMenu.entry.sentinel.prev.prev;
+                MiniMenu.leftClickEntry = (MiniMenuEntry) MiniMenu.entries.sentinel.prev.prev;
             } else {
-                MiniMenu.leftClickEntry = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
+                MiniMenu.leftClickEntry = (MiniMenuEntry) MiniMenu.entries.sentinel.prev;
             }
-            MiniMenu.topEntry = (MiniMenuEntry) MiniMenu.entry.sentinel.prev;
+            MiniMenu.topEntry = (MiniMenuEntry) MiniMenu.entries.sentinel.prev;
         }
         local64 = -1;
         @Pc(204) MouseLog local204 = (MouseLog) Static226.mouseLogs.first();
@@ -74,7 +74,7 @@ public final class Static320 {
             if (local64 == 0) {
                 if (MiniMenu.leftClickEntry != null) {
                     Static407.method5628();
-                } else if (InterfaceManager.targeting) {
+                } else if (InterfaceManager.targetMode) {
                     InterfaceManager.endTargetMode();
                 }
             }
@@ -167,7 +167,7 @@ public final class Static320 {
                 local886 = new Class299(Static139.aClass2_Sub2_Sub4_1.entries);
                 for (local762 = (MiniMenuEntry) local886.first(); local762 != null; local762 = (MiniMenuEntry) local886.next()) {
                     if (local661 == local428) {
-                        Static55.method1217(local321, local762, local317);
+                        MiniMenu.doAction(local321, local762, local317);
                         break;
                     }
                     local428++;
@@ -196,10 +196,10 @@ public final class Static320 {
             }
             if (local661 != -1) {
                 local428 = 0;
-                @Pc(757) Class191 local757 = new Class191(MiniMenu.entry);
+                @Pc(757) Class191 local757 = new Class191(MiniMenu.entries);
                 for (local762 = (MiniMenuEntry) local757.first(); local762 != null; local762 = (MiniMenuEntry) local757.next()) {
                     if (local661 == local428) {
-                        Static55.method1217(local321, local762, local317);
+                        MiniMenu.doAction(local321, local762, local317);
                         break;
                     }
                     local428++;
@@ -231,7 +231,7 @@ public final class Static320 {
         local886 = new Class299(MiniMenu.innerEntries);
         for (@Pc(891) MiniMenuEntryInner local891 = (MiniMenuEntryInner) local886.first(); local891 != null; local891 = (MiniMenuEntryInner) local886.next()) {
             if (local428 == local661) {
-                Static55.method1217(local321, (MiniMenuEntry) local891.entries.sentinel.next2, local317);
+                MiniMenu.doAction(local321, (MiniMenuEntry) local891.entries.sentinel.next2, local317);
                 Static488.method6522();
                 return;
             }

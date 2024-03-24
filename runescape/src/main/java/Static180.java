@@ -10,9 +10,6 @@ public final class Static180 {
     @OriginalMember(owner = "client!fka", name = "q", descriptor = "I")
     public static int anInt2995 = 0;
 
-    @OriginalMember(owner = "client!fka", name = "j", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___33 = new ClientProt(2, 7);
-
     @OriginalMember(owner = "client!fka", name = "n", descriptor = "J")
     public static long aLong108 = -1L;
 

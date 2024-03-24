@@ -63,7 +63,7 @@ public final class Static159 {
             }
         } else {
             local80 = 0;
-            for (@Pc(85) MiniMenuEntry local85 = (MiniMenuEntry) MiniMenu.entry.first(); local85 != null; local85 = (MiniMenuEntry) MiniMenu.entry.next()) {
+            for (@Pc(85) MiniMenuEntry local85 = (MiniMenuEntry) MiniMenu.entries.first(); local85 != null; local85 = (MiniMenuEntry) MiniMenu.entries.next()) {
                 local101 = (MiniMenu.entryCount - local80 - 1) * 16 + local9 + Static84.anInt1775 + 31;
                 local80++;
                 MiniMenu.method3387(arg0, Static682.anInt10295, Static407.anInt6288, Static84.anInt1775 + local9, local101, -256, local85, -1, local76, local7 + Static71.anInt1576, local69);

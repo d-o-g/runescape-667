@@ -11,7 +11,4 @@ public final class Static29 {
     @OriginalMember(owner = "client!b", name = "V", descriptor = "Z")
     public static boolean aBoolean60 = true;
 
-    @OriginalMember(owner = "client!b", name = "jb", descriptor = "I")
-    public static int anInt723 = 0;
-
 }

@@ -160,7 +160,7 @@ public final class Static684 {
             if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaY) > Static501.mapHeight) {
                 InterfaceManager.loginOpened();
             }
-        } else if (Camera.anInt7645 == 4) {
+        } else if (Camera.mode == 4) {
             Static433.anInt6262 -= deltaX * 512;
             Static38.anInt920 -= deltaY * 512;
             Static249.anInt4018 -= deltaY * 512;
@@ -168,7 +168,7 @@ public final class Static684 {
         } else {
             Static693.anInt10383 = -1;
             Static692.anInt10376 = -1;
-            Camera.anInt7645 = 1;
+            Camera.mode = 1;
         }
         Static533.method7119();
         Minimap.reset();

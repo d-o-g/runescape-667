@@ -31,14 +31,14 @@ public final class Static723 {
         if (Static479.aFloat123 < (float) local5) {
             Static479.aFloat123 = local5;
         }
-        while (Static171.aFloat64 >= 16384.0F) {
-            Static171.aFloat64 -= 16384.0F;
+        while (Camera.playerCameraYaw >= 16384.0F) {
+            Camera.playerCameraYaw -= 16384.0F;
         }
         if ((float) local7 < Static479.aFloat123) {
             Static479.aFloat123 = local7;
         }
-        while (Static171.aFloat64 < 0.0F) {
-            Static171.aFloat64 += 16384.0F;
+        while (Camera.playerCameraYaw < 0.0F) {
+            Camera.playerCameraYaw += 16384.0F;
         }
         @Pc(59) int local59 = Static494.anInt7409 >> 9;
         @Pc(63) int local63 = Static38.anInt920 >> 9;

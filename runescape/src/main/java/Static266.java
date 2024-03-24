@@ -17,9 +17,6 @@ public final class Static266 {
     @OriginalMember(owner = "client!ifa", name = "i", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___192 = new ServerProt(109, 10);
 
-    @OriginalMember(owner = "client!ifa", name = "h", descriptor = "Z")
-    public static boolean aBoolean583 = true;
-
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(I)V")
     public static void method6774() {
         Static117.anInt2282 = -1;

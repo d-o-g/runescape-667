@@ -22,7 +22,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!cg")
-public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
+public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "Ac", descriptor = "I")
     public int anInt10704;
@@ -121,7 +121,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     public byte aByte146;
 
     @OriginalMember(owner = "client!cg", name = "R", descriptor = "I")
-    public int anInt10733;
+    public int boundSize;
 
     @OriginalMember(owner = "client!cg", name = "eb", descriptor = "I")
     public int anInt10743;
@@ -229,7 +229,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     public final Animator_Sub2_Sub1[] aClass152_Sub2_Sub1Array3;
 
     @OriginalMember(owner = "client!cg", name = "<init>", descriptor = "(I)V")
-    public Class8_Sub2_Sub1_Sub2(@OriginalArg(0) int arg0) {
+    public PathingEntity(@OriginalArg(0) int arg0) {
         super(0, 0, 0, 0, 0, 0, 0, 0, 0, false, (byte) 0);
         this.anIntArray869 = null;
         this.anIntArray870 = new int[Static523.graphicsDefaults.maxhitmarks];
@@ -239,7 +239,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
         this.anInt10735 = 0;
         this.aBoolean816 = true;
         this.aByte146 = 0;
-        this.anInt10733 = 1;
+        this.boundSize = 1;
         this.anInt10743 = -1;
         this.anInt10732 = 0;
         this.anIntArray871 = new int[Static523.graphicsDefaults.maxhitmarks];
@@ -281,7 +281,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "<init>", descriptor = "()V")
-    public Class8_Sub2_Sub1_Sub2() {
+    public PathingEntity() {
         this(10);
     }
 
@@ -385,7 +385,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     @OriginalMember(owner = "client!cg", name = "l", descriptor = "(I)V")
     @Override
     public final void method9294() {
-        @Pc(12) int local12 = (this.anInt10733 - 1 << 8) + 240;
+        @Pc(12) int local12 = (this.boundSize - 1 << 8) + 240;
         super.aShort132 = (short) (super.z - local12 >> 9);
         super.aShort131 = (short) (super.x - local12 >> 9);
         super.aShort133 = (short) (super.z + local12 >> 9);
@@ -502,11 +502,8 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "g", descriptor = "(B)I")
-    public int boundSize(@OriginalArg(0) byte arg0) {
-        if (arg0 <= 43) {
-            this.method9314(49, 56, -61, -114, 70, -70);
-        }
-        return this.anInt10733;
+    public int getBoundSize() {
+        return this.boundSize;
     }
 
     @OriginalMember(owner = "client!cg", name = "e", descriptor = "(I)I")
@@ -699,7 +696,7 @@ public abstract class Class8_Sub2_Sub1_Sub2 extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(II)V")
     public final void method9310(@OriginalArg(1) int arg0) {
-        this.anInt10733 = arg0;
+        this.boundSize = arg0;
     }
 
     @OriginalMember(owner = "client!cg", name = "e", descriptor = "(B)Z")

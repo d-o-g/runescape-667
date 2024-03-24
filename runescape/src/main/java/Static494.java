@@ -17,9 +17,6 @@ public final class Static494 {
     @OriginalMember(owner = "client!pja", name = "K", descriptor = "Z")
     public static boolean aBoolean563 = false;
 
-    @OriginalMember(owner = "client!pja", name = "ib", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___89 = new ClientProt(62, 3);
-
     @OriginalMember(owner = "client!pja", name = "e", descriptor = "(I)V")
     public static void method6596() {
         if (!aBoolean563) {

@@ -9,14 +9,14 @@ public final class Static112 {
     public static boolean aBoolean197 = false;
 
     @OriginalMember(owner = "client!dj", name = "a", descriptor = "(ILclient!cg;)I")
-    public static int method2104(@OriginalArg(1) Class8_Sub2_Sub1_Sub2 arg0) {
+    public static int method2104(@OriginalArg(1) PathingEntity arg0) {
         if (arg0.anInt10757 == 0) {
             return 0;
         }
         @Pc(74) int local74;
         @Pc(67) int local67;
         if (arg0.anInt10722 != -1) {
-            @Pc(24) Class8_Sub2_Sub1_Sub2 local24 = null;
+            @Pc(24) PathingEntity local24 = null;
             if (arg0.anInt10722 < 32768) {
                 @Pc(54) NPCEntityNode local54 = (NPCEntityNode) NPCList.local.get(arg0.anInt10722);
                 if (local54 != null) {

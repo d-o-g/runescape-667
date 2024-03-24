@@ -119,7 +119,7 @@ public final class Protocol {
             Static605.method7912(Static77.aClass287_5);
             arg0.currentProt = null;
             return true;
-        } else if (arg0.currentProt == Static660.A_SERVER_PROT___239) {
+        } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___239) {
             local277 = local11.g4_alt2();
             local100 = local11.g1_alt1();
             Static574.method7573();
@@ -255,7 +255,7 @@ public final class Protocol {
                         return true;
                     } else {
                         @Pc(892) boolean local892;
-                        if (arg0.currentProt == Static214.A_SERVER_PROT___85) {
+                        if (arg0.currentProt == ServerProt.A_SERVER_PROT___85) {
                             local277 = local11.g4();
                             local892 = local11.g1() == 1;
                             if (Static684.aBoolean775 != local892 || Static134.anInt10326 != local277) {
@@ -855,7 +855,7 @@ public final class Protocol {
                                                 Static395.anIntArray833[Static366.statUpdateCount++ & 0x1F] = local100;
                                                 arg0.currentProt = null;
                                                 return true;
-                                            } else if (arg0.currentProt == Static305.A_SERVER_PROT___129) {
+                                            } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___129) {
                                                 Static726.aClass280_7 = Static189.method2864(local11.g1());
                                                 arg0.currentProt = null;
                                                 return true;
@@ -1122,7 +1122,7 @@ public final class Protocol {
                                                             if (local629.equalsIgnoreCase("null")) {
                                                                 local629 = null;
                                                             }
-                                                            Static297.playerOps[local1409 - 1] = local629;
+                                                            MiniMenu.playerOps[local1409 - 1] = local629;
                                                             Static147.playerOpCursors[local1409 - 1] = local100;
                                                             Static601.playerOpsReducedPriority[local1409 - 1] = local277 == 0;
                                                         }
@@ -1160,7 +1160,7 @@ public final class Protocol {
                                                             return true;
                                                         }
                                                         @Pc(4669) long local4669;
-                                                        if (arg0.currentProt == Static297.A_SERVER_PROT___125) {
+                                                        if (arg0.currentProt == ServerProt.A_SERVER_PROT___125) {
                                                             local277 = local11.g2();
                                                             local4669 = local11.g8();
                                                             if (Static279.anObjectArray35 == null) {

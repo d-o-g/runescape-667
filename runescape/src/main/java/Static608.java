@@ -53,7 +53,7 @@ public final class Static608 {
         @Pc(651) int local651;
         for (@Pc(27) int local27 = 0; local27 < local20; local27++) {
             @Pc(31) NPCType local31 = null;
-            @Pc(51) Class8_Sub2_Sub1_Sub2 local51;
+            @Pc(51) PathingEntity local51;
             if (CutsceneManager.state == 3) {
                 @Pc(111) Class236 local111 = Static219.aClass236Array1[local27];
                 if (!local111.aBoolean455) {
@@ -622,14 +622,14 @@ public final class Static608 {
         @Pc(2422) int local2422;
         for (@Pc(2403) int local2403 = 0; local2403 < Static172.anInt2893; local2403++) {
             local2422 = Static324.anIntArray390[local2403];
-            @Pc(2429) Class8_Sub2_Sub1_Sub2 local2429;
+            @Pc(2429) PathingEntity local2429;
             if (local2422 < 2048) {
                 local2429 = PlayerList.highResolutionPlayers[local2422];
             } else {
                 local2429 = ((NPCEntityNode) NPCList.local.get(local2422 - 2048)).npc;
             }
             local267 = Static212.anIntArray283[local2403];
-            @Pc(2452) Class8_Sub2_Sub1_Sub2 local2452;
+            @Pc(2452) PathingEntity local2452;
             if (local267 < 2048) {
                 local2452 = PlayerList.highResolutionPlayers[local267];
             } else {

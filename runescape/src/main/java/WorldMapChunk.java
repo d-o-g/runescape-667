@@ -54,7 +54,7 @@ public final class WorldMapChunk extends Node {
     }
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "(III)Z")
-    public boolean method8910(@OriginalArg(0) int y, @OriginalArg(1) int x) {
+    public boolean contains(@OriginalArg(0) int y, @OriginalArg(1) int x) {
         return x >= this.minX && x <= this.maxX && y >= this.minY && y <= this.maxY;
     }
 

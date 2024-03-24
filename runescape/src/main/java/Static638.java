@@ -103,7 +103,7 @@ public final class Static638 {
         }
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
-        Camera.anInt7645 = 2;
+        Camera.mode = 2;
     }
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(III)Lclient!nda;")

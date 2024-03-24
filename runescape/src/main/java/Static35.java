@@ -54,7 +54,7 @@ public final class Static35 {
                             @Pc(188) int local188 = local13.anInt2578 >> 24 & 0x3;
                             if (local188 == PlayerEntity.self.level) {
                                 @Pc(199) int local199 = (local13.anInt2578 & 0xFF) << 9;
-                                @Pc(205) int local205 = PlayerEntity.self.boundSize((byte) 126) << 8;
+                                @Pc(205) int local205 = PlayerEntity.self.getBoundSize() << 8;
                                 @Pc(212) int local212 = local13.anInt2578 >> 16 & 0xFF;
                                 @Pc(224) int local224 = (local212 << 9) + local205 + 256 - PlayerEntity.self.x;
                                 @Pc(231) int local231 = local13.anInt2578 >> 8 & 0xFF;
@@ -127,7 +127,7 @@ public final class Static35 {
             Static8.aClass2_Sub6_Sub1_1 = null;
             Static501.aBoolean575 = false;
         } else if (ClientOptions.instance.musicVolume.getValue() != 0 && Static588.anInt8692 != -1 && !Static52.method1157(125)) {
-            @Pc(551) ClientMessage local551 = ClientMessage.create(Static235.A_CLIENT_PROT___49, ConnectionManager.GAME.cipher);
+            @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.A_CLIENT_PROT___49, ConnectionManager.GAME.cipher);
             local551.buffer.p4(Static588.anInt8692);
             ConnectionManager.GAME.send(local551);
             Static588.anInt8692 = -1;

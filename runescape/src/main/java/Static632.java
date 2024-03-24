@@ -9,14 +9,8 @@ public final class Static632 {
     @OriginalMember(owner = "client!u", name = "k", descriptor = "I")
     public static int anInt9503;
 
-    @OriginalMember(owner = "client!u", name = "r", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___110 = new ClientProt(78, -1);
-
     @OriginalMember(owner = "client!u", name = "l", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray44 = new String[100];
-
-    @OriginalMember(owner = "client!u", name = "f", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___111 = new ClientProt(83, 18);
 
     @OriginalMember(owner = "client!u", name = "e", descriptor = "[F")
     public static final float[] aFloatArray70 = new float[4];
@@ -88,7 +82,7 @@ public final class Static632 {
         if (local187 > 0 && local172 > 0) {
             local182 = (local172 - local187) * local33 / local172;
         }
-        PlayerEntity.self.boundSize((byte) 71);
+        PlayerEntity.self.getBoundSize();
         @Pc(214) int local214 = 8192;
         @Pc(225) int local225 = (arg1.anInt9362 + arg1.anInt9357) / 2 - arg3;
         @Pc(236) int local236 = (arg1.anInt9349 + arg1.anInt9352) / 2 - arg4;

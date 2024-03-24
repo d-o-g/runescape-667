@@ -44,7 +44,7 @@ public final class Class236 {
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.level = this.aClass8_Sub2_Sub1_Sub2_Sub1_1.aByte143 = (byte) arg1;
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1419(arg0, arg2);
         } else {
-            this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg2, arg0, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.boundSize((byte) 44));
+            this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg2, arg0, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.getBoundSize());
         }
     }
 
@@ -56,7 +56,7 @@ public final class Class236 {
     }
 
     @OriginalMember(owner = "client!lw", name = "a", descriptor = "(I)Lclient!cg;")
-    public Class8_Sub2_Sub1_Sub2 method5363() {
+    public PathingEntity method5363() {
         return this.aClass8_Sub2_Sub1_Sub2_Sub2_1 == null ? this.aClass8_Sub2_Sub1_Sub2_Sub1_1 : this.aClass8_Sub2_Sub1_Sub2_Sub2_1;
     }
 
@@ -85,7 +85,7 @@ public final class Class236 {
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method1419(arg2, arg3);
             this.aClass8_Sub2_Sub1_Sub2_Sub1_1.method9298(arg0, true);
         } else {
-            this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg3, arg2, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.boundSize((byte) 71));
+            this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9326(true, arg3, arg2, arg1, this.aClass8_Sub2_Sub1_Sub2_Sub2_1.getBoundSize());
             this.aClass8_Sub2_Sub1_Sub2_Sub2_1.method9298(arg0, true);
         }
     }

@@ -77,9 +77,9 @@ public final class Static220 {
             }
 
             local42.anInt9357 = local42.npc.x;
-            local42.anInt9362 = local42.npc.x + (local42.npc.boundSize((byte) 53) << 8);
+            local42.anInt9362 = local42.npc.x + (local42.npc.getBoundSize() << 8);
             local42.anInt9352 = local42.npc.z;
-            local42.anInt9349 = local42.npc.z + (local42.npc.boundSize((byte) 68) << 8);
+            local42.anInt9349 = local42.npc.z + (local42.npc.getBoundSize() << 8);
 
             Static632.method8366(currentTick, local42, arg3, arg2, arg1);
         }
@@ -130,9 +130,9 @@ public final class Static220 {
             }
 
             local329.anInt9357 = local329.player.x;
-            local329.anInt9362 = local329.player.x + (local329.player.boundSize((byte) 127) << 8);
+            local329.anInt9362 = local329.player.x + (local329.player.getBoundSize() << 8);
             local329.anInt9352 = local329.player.z;
-            local329.anInt9349 = local329.player.z + (local329.player.boundSize((byte) 62) << 8);
+            local329.anInt9349 = local329.player.z + (local329.player.getBoundSize() << 8);
 
             Static632.method8366(currentTick, local329, arg3, arg2, arg1);
         }

@@ -11,9 +11,6 @@ public final class Static288 {
     @OriginalMember(owner = "client!jb", name = "w", descriptor = "Z")
     public static boolean aBoolean356 = false;
 
-    @OriginalMember(owner = "client!jb", name = "y", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___58 = new ClientProt(54, 6);
-
     @OriginalMember(owner = "client!jb", name = "t", descriptor = "F")
     public static float aFloat83 = 0.0F;
 

@@ -7,9 +7,6 @@ public final class Static171 {
     @OriginalMember(owner = "client!ff", name = "v", descriptor = "I")
     public static int anInt2882;
 
-    @OriginalMember(owner = "client!ff", name = "s", descriptor = "F")
-    public static float aFloat64 = 0.0F;
-
     @OriginalMember(owner = "client!ff", name = "u", descriptor = "Z")
     public static boolean graphicsError = false;
 

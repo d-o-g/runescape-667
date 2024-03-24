@@ -41,7 +41,7 @@ public final class Static319 {
             Camera.positionZ = Camera.anInt10667 * 512 + 256;
             Camera.positionY = Static102.method2025(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX) - Static363.anInt6934;
         }
-        Camera.anInt7645 = 2;
+        Camera.mode = 2;
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
     }

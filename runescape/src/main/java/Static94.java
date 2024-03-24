@@ -33,7 +33,7 @@ public final class Static94 {
             }
         }
         Static576.method7614();
-        Camera.anInt7645 = 1;
+        Camera.mode = 1;
         Static693.anInt10383 = -1;
         Static692.anInt10376 = -1;
         MainLogicManager.setStep(11);

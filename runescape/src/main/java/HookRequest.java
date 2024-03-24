@@ -9,7 +9,7 @@ public final class HookRequest extends Node {
     public int mouseY;
 
     @OriginalMember(owner = "client!pd", name = "s", descriptor = "Lclient!hda;")
-    public Component aComponent_13;
+    public Component target;
 
     @OriginalMember(owner = "client!pd", name = "u", descriptor = "Z")
     public boolean mouseEvent;

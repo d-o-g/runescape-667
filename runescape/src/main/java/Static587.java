@@ -26,9 +26,6 @@ public final class Static587 {
     @OriginalMember(owner = "client!sia", name = "b", descriptor = "[I")
     public static final int[] anIntArray689 = new int[]{16776960, 16711680, 65280, 65535, 16711935, 16777215};
 
-    @OriginalMember(owner = "client!sia", name = "i", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___104 = new ClientProt(46, 3);
-
     @OriginalMember(owner = "client!sia", name = "a", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___105 = new ClientProt(87, 6);
 

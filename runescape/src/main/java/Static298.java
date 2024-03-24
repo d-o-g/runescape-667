@@ -13,9 +13,6 @@ public final class Static298 {
     @OriginalMember(owner = "client!ji", name = "I", descriptor = "[I")
     public static final int[] anIntArray366 = new int[]{2, 1, 1, 1, 2, 2, 2, 1, 3, 3, 3, 2, 0, 4, 0};
 
-    @OriginalMember(owner = "client!ji", name = "x", descriptor = "Lclient!mia;")
-    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___8 = new ClientTriggerType("", 10);
-
     @OriginalMember(owner = "client!ji", name = "E", descriptor = "Z")
     public static boolean aBoolean369 = false;
 

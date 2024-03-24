@@ -31,6 +31,9 @@ public final class Minimap {
     @OriginalMember(owner = "client!uf", name = "f", descriptor = "I")
     public static int level = -1;
 
+    @OriginalMember(owner = "client!ifa", name = "h", descriptor = "Z")
+    public static boolean flagSet = true;
+
     @OriginalMember(owner = "client!aw", name = "a", descriptor = "(ILclient!ha;ILclient!hda;I)V")
     public static void draw(@OriginalArg(0) int y, @OriginalArg(1) Toolkit toolkit, @OriginalArg(3) Component component, @OriginalArg(4) int x) {
         @Pc(23) Graphic local23 = component.graphic(toolkit);
@@ -47,14 +50,14 @@ public final class Minimap {
         @Pc(93) int local93;
         @Pc(87) int local87;
         @Pc(79) int local79;
-        if (Camera.anInt7645 == 4) {
-            local87 = (int) -Static171.aFloat64 & 0x3FFF;
+        if (Camera.mode == 4) {
+            local87 = (int) -Camera.playerCameraYaw & 0x3FFF;
             local79 = 4096;
             local93 = Static249.anInt4018;
             local90 = Static433.anInt6262;
         } else {
-            local79 = 4096 - Static660.anInt9835 * 16;
-            local87 = (int) -Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
+            local79 = 4096 - Camera.scaleOffset * 16;
+            local87 = (int) -Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
             local90 = PlayerEntity.self.x;
             local93 = PlayerEntity.self.z;
         }
@@ -194,13 +197,13 @@ public final class Minimap {
                 }
             }
         }
-        if (Camera.anInt7645 == 4) {
+        if (Camera.mode == 4) {
             return;
         }
         if (flagX != 0) {
-            local585 = flagX * 4 + (PlayerEntity.self.boundSize((byte) 50) + -1) * 2 + 2 - local90 / 128;
-            local878 = flagY * 4 + PlayerEntity.self.boundSize((byte) 127) * 2 + 2 - local93 / 128 - 2;
-            Static6.method107(y, local30, Sprites.mapflag[Static266.aBoolean583 ? 1 : 0], local878, local585, component, x);
+            local585 = flagX * 4 + (PlayerEntity.self.getBoundSize() + -1) * 2 + 2 - local90 / 128;
+            local878 = flagY * 4 + PlayerEntity.self.getBoundSize() * 2 + 2 - local93 / 128 - 2;
+            Static6.method107(y, local30, Sprites.mapflag[flagSet ? 1 : 0], local878, local585, component, x);
         }
         if (!PlayerEntity.self.aBoolean124) {
             toolkit.fillRect(3, 3, y + component.height / 2 - 1, component.width / 2 + x + -1, -1);
@@ -219,7 +222,7 @@ public final class Minimap {
         if (toggle >= 3) {
             Toolkit.active.A(-16777216, graphic.aClippingMask, arg1, arg2);
         } else {
-            Sprites.compass.method8183((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Static171.aFloat64 & 0x3FFF) << 2, graphic.aClippingMask, arg1, arg2);
+            Sprites.compass.method8183((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Camera.playerCameraYaw & 0x3FFF) << 2, graphic.aClippingMask, arg1, arg2);
         }
     }
 

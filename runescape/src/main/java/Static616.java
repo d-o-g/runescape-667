@@ -7,7 +7,7 @@ public final class Static616 {
     public static final ServerProt A_SERVER_PROT___223 = new ServerProt(40, -1);
 
     @OriginalMember(owner = "client!tia", name = "R", descriptor = "I")
-    public static int anInt9417 = 0;
+    public static int crossType = 0;
 
     @OriginalMember(owner = "client!tia", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;B)V")
     public static void method8283(@OriginalArg(0) String arg0, @OriginalArg(1) String arg1) {

@@ -19,7 +19,7 @@ public final class Static110 {
         if (local7 >= 100) {
             Static693.anInt10383 = -1;
             Static692.anInt10376 = -1;
-            Camera.anInt7645 = 1;
+            Camera.mode = 1;
             return;
         }
         @Pc(28) int local28 = (int) Static479.aFloat123;
@@ -29,7 +29,7 @@ public final class Static110 {
         if (Static572.aBooleanArray29[4] && local28 < Static140.anIntArray222[4] + 128) {
             local28 = Static140.anIntArray222[4] + 128;
         }
-        @Pc(63) int local63 = (int) Static171.aFloat64 + Static288.anInt4621 & 0x3FFF;
+        @Pc(63) int local63 = (int) Camera.playerCameraYaw + Static288.anInt4621 & 0x3FFF;
         Static292.method4606(local28, (local28 >> 3) * 3 + 600 << 2, arg0, Static494.anInt7409, local63, Static38.anInt920, Static102.method2025(Camera.renderingLevel, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
         @Pc(107) float local107 = 1.0F - (float) ((100 - local7) * (-local7 + 100) * (100 - local7)) / 1000000.0F;
         Camera.positionX = (int) ((float) Static70.anInt1569 + (float) (Camera.positionX - Static70.anInt1569) * local107);

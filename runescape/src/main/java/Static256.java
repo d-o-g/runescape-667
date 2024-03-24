@@ -41,7 +41,7 @@ public final class Static256 {
     }
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(ZLclient!cg;Z)V")
-    public static void method3638(@OriginalArg(1) Class8_Sub2_Sub1_Sub2 arg0, @OriginalArg(2) boolean arg1) {
+    public static void method3638(@OriginalArg(1) PathingEntity arg0, @OriginalArg(2) boolean arg1) {
         @Pc(9) BASType local9 = arg0.method9317();
         if (arg0.anInt10764 == 0) {
             arg0.anInt10763 = 0;
@@ -86,8 +86,8 @@ public final class Static256 {
         }
         @Pc(186) int local186 = arg0.x;
         @Pc(189) int local189 = arg0.z;
-        @Pc(206) int local206 = arg0.pathX[arg0.anInt10764 - 1] * 512 + arg0.boundSize((byte) 76) * 256;
-        @Pc(222) int local222 = arg0.pathY[arg0.anInt10764 - 1] * 512 + arg0.boundSize((byte) 105) * 256;
+        @Pc(206) int local206 = arg0.pathX[arg0.anInt10764 - 1] * 512 + arg0.getBoundSize() * 256;
+        @Pc(222) int local222 = arg0.pathY[arg0.anInt10764 - 1] * 512 + arg0.getBoundSize() * 256;
         if (local186 < local206) {
             if (local189 < local222) {
                 arg0.method9305(10240);
@@ -242,10 +242,10 @@ public final class Static256 {
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(Lclient!da;Ljava/lang/String;Lclient!ve;IIIZLclient!hda;Lclient!aa;III)V")
     public static void method3639(@OriginalArg(0) Font arg0, @OriginalArg(1) String arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Component arg6, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         @Pc(11) int local11;
-        if (Camera.anInt7645 == 4) {
-            local11 = (int) Static171.aFloat64 & 0x3FFF;
+        if (Camera.mode == 4) {
+            local11 = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
-            local11 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
+            local11 = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
         }
         @Pc(33) int local33 = Math.max(arg6.width / 2, arg6.height / 2) + 10;
         @Pc(59) int local59 = arg8 * arg8 + arg10 * arg10;
@@ -254,9 +254,9 @@ public final class Static256 {
         }
         @Pc(74) int local74 = Trig1.SIN[local11];
         @Pc(78) int local78 = Trig1.COS[local11];
-        if (Camera.anInt7645 != 4) {
-            local74 = local74 * 256 / (Static660.anInt9835 + 256);
-            local78 = local78 * 256 / (Static660.anInt9835 + 256);
+        if (Camera.mode != 4) {
+            local74 = local74 * 256 / (Camera.scaleOffset + 256);
+            local78 = local78 * 256 / (Camera.scaleOffset + 256);
         }
         @Pc(107) int local107 = local78 * arg10 + arg8 * local74 >> 14;
         @Pc(118) int local118 = arg8 * local78 - arg10 * local74 >> 14;

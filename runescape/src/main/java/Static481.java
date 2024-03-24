@@ -7,7 +7,7 @@ public final class Static481 {
     public static float aFloat124;
 
     @OriginalMember(owner = "client!pd", name = "k", descriptor = "I")
-    public static int anInt7215 = 0;
+    public static int crossDuration = 0;
 
     @OriginalMember(owner = "client!pd", name = "A", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___178 = new ServerProt(17, 0);

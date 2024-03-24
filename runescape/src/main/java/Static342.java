@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static342 {
 
-    @OriginalMember(owner = "client!kp", name = "A", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___61 = new ClientProt(47, 7);
-
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "(Lclient!ke;B)Z")
     public static boolean method4463(@OriginalArg(0) Class205 arg0) {
         return arg0 == null ? false : Static318.method8557(arg0.anInt5126 - arg0.anInt5123, -arg0.anInt5133 + arg0.anInt5134, arg0.anInt5123, arg0.anInt5131, arg0.anInt5133, arg0.anInt5125 - arg0.anInt5131);

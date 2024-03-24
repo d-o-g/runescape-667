@@ -9,7 +9,7 @@ public final class Static676 {
     public static js5 aJs5_121;
 
     @OriginalMember(owner = "client!vha", name = "w", descriptor = "I")
-    public static int anInt10206 = 0;
+    public static int crossX = 0;
 
     @OriginalMember(owner = "client!vha", name = "a", descriptor = "(Lclient!ha;Z)V")
     public static void method8859(@OriginalArg(0) Toolkit arg0) {

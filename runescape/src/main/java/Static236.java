@@ -14,9 +14,6 @@ public final class Static236 {
     @OriginalMember(owner = "client!hfa", name = "w", descriptor = "Lclient!oba;")
     public static SignedResource aSignedResource_2;
 
-    @OriginalMember(owner = "client!hfa", name = "v", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___50 = new ClientProt(69, 7);
-
     @OriginalMember(owner = "client!hfa", name = "r", descriptor = "Z")
     public static boolean aBoolean304 = false;
 

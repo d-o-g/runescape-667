@@ -95,7 +95,7 @@ public final class Static397 {
     }
 
     @OriginalMember(owner = "client!mia", name = "a", descriptor = "(BILclient!cg;ILclient!cg;IIIII)V")
-    public static void method5557(@OriginalArg(1) int arg0, @OriginalArg(2) Class8_Sub2_Sub1_Sub2 arg1, @OriginalArg(4) Class8_Sub2_Sub1_Sub2 arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(8) int arg5, @OriginalArg(9) int arg6) {
+    public static void method5557(@OriginalArg(1) int arg0, @OriginalArg(2) PathingEntity arg1, @OriginalArg(4) PathingEntity arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(8) int arg5, @OriginalArg(9) int arg6) {
         @Pc(7) int local7 = arg2.method9304((byte) -71);
         if (local7 == -1) {
             return;
@@ -109,7 +109,7 @@ public final class Static397 {
             local27 = Toolkit.active.createSprite(local34[0], true);
             Sprites.mobilisingArmiesCache.put(local27, local7);
         }
-        Static418.method7860(arg1.level, arg1.z, 0, arg1.x, arg1.boundSize((byte) 55) * 256);
+        Static418.method7860(arg1.level, arg1.z, 0, arg1.x, arg1.getBoundSize() * 256);
         @Pc(75) int local75 = arg0 + Static215.anIntArray284[0] - 18;
         @Pc(83) int local83 = local75 + arg6 / 4 * 18;
         @Pc(94) int local94 = arg5 + Static215.anIntArray284[1] - 54 - 16;

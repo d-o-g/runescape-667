@@ -20,7 +20,7 @@ public final class Static651 {
     public static final ServerProt A_SERVER_PROT___235 = new ServerProt(43, -2);
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
-    public static void method8513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Class8_Sub2_Sub1_Sub2 arg3) {
+    public static void method8513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) PathingEntity arg3) {
         @Pc(9) BASType local9 = arg3.method9317();
         @Pc(19) Animator local19 = arg3.animator;
         @Pc(29) int local29 = arg3.anInt10756 - arg3.aClass126_7.anInt2889 & 0x3FFF;
@@ -110,7 +110,7 @@ public final class Static651 {
     }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "([IIZLclient!cg;I)V")
-    public static void method8515(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class8_Sub2_Sub1_Sub2 arg3) {
+    public static void method8515(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) PathingEntity arg3) {
         @Pc(8) boolean local8;
         @Pc(10) int local10;
         if (arg3.anIntArray869 != null) {

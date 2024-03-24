@@ -4,6 +4,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.keyboard.KeyboardMonitor;
+import rs2.client.event.keyboard.SimpleKeyboardMonitor;
 
 public final class Static32 {
 
@@ -23,22 +24,23 @@ public final class Static32 {
     public static int anInt777 = 100;
 
     @OriginalMember(owner = "client!bba", name = "a", descriptor = "(IBII)Lclient!fk;")
-    public static ClientMessage method878(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(11) ClientMessage local11 = null;
-        if (arg2 == 0) {
-            local11 = ClientMessage.create(Static500.A_CLIENT_PROT___91, ConnectionManager.GAME.cipher);
+    public static ClientMessage moveMessage(@OriginalArg(0) int x, @OriginalArg(2) int y, @OriginalArg(3) int click) {
+        @Pc(11) ClientMessage message = null;
+        if (click == 0) {
+            message = ClientMessage.create(ClientProt.MOVE_GAMECLICK, ConnectionManager.GAME.cipher);
+        } else if (click == 1) {
+            message = ClientMessage.create(ClientProt.MOVE_MINIMAPCLICK, ConnectionManager.GAME.cipher);
         }
-        if (arg2 == 1) {
-            local11 = ClientMessage.create(Static632.A_CLIENT_PROT___111, ConnectionManager.GAME.cipher);
-        }
-        local11.buffer.p2_alt3(arg0 + WorldMap.areaBaseX);
-        local11.buffer.p2_alt3(WorldMap.areaBaseZ + arg1);
-        local11.buffer.p1(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
-        Static266.aBoolean583 = false;
-        Minimap.flagX = arg0;
-        Minimap.flagY = arg1;
+
+        message.buffer.p2_alt3(x + WorldMap.areaBaseX);
+        message.buffer.p2_alt3(WorldMap.areaBaseZ + y);
+        message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+
+        Minimap.flagSet = false;
+        Minimap.flagX = x;
+        Minimap.flagY = y;
         DelayedStateChange.resetMapFlag();
-        return local11;
+        return message;
     }
 
     @OriginalMember(owner = "client!bba", name = "a", descriptor = "(IZZ)V")

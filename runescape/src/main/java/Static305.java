@@ -15,17 +15,11 @@ public final class Static305 {
     @OriginalMember(owner = "client!jm", name = "n", descriptor = "J")
     public static long aLong157;
 
-    @OriginalMember(owner = "client!jm", name = "f", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___129 = new ServerProt(134, 1);
-
     @OriginalMember(owner = "client!jm", name = "a", descriptor = "I")
-    public static int anInt4882 = 0;
+    public static int crossY = 0;
 
     @OriginalMember(owner = "client!jm", name = "p", descriptor = "Z")
     public static boolean aBoolean371 = false;
-
-    @OriginalMember(owner = "client!jm", name = "b", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___60 = new ClientProt(67, 3);
 
     @OriginalMember(owner = "client!jm", name = "a", descriptor = "(Lclient!ge;B)Lclient!qba;")
     public static Class154_Sub4 method4437(@OriginalArg(0) Packet arg0) {

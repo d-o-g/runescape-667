@@ -15,7 +15,7 @@ public final class Camera {
     public static int positionX;
 
     @OriginalMember(owner = "client!qb", name = "j", descriptor = "I")
-    public static int anInt7645;
+    public static int mode;
 
     @OriginalMember(owner = "client!wh", name = "N", descriptor = "I")
     public static int anInt10667;
@@ -55,6 +55,15 @@ public final class Camera {
 
     @OriginalMember(owner = "client!cka", name = "q", descriptor = "I")
     public static int roll;
+
+    @OriginalMember(owner = "client!ff", name = "s", descriptor = "F")
+    public static float playerCameraYaw = 0.0F;
+
+    @OriginalMember(owner = "client!b", name = "jb", descriptor = "I")
+    public static int yawOffset = 0;
+
+    @OriginalMember(owner = "client!uu", name = "n", descriptor = "I")
+    public static int scaleOffset = 0;
 
     @OriginalMember(owner = "client!sg", name = "a", descriptor = "(I)V")
     public static void splineTick() {

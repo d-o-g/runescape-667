@@ -41,7 +41,7 @@ public final class Static572 {
             Static407.anInt6288 = (Static60.aBoolean87 ? 26 : 22) + MiniMenu.innerCount * 16;
             local68 = MiniMenu.innerCount * 16 + 21;
         } else {
-            for (@Pc(74) MiniMenuEntry local74 = (MiniMenuEntry) MiniMenu.entry.first(); local74 != null; local74 = (MiniMenuEntry) MiniMenu.entry.next()) {
+            for (@Pc(74) MiniMenuEntry local74 = (MiniMenuEntry) MiniMenu.entries.first(); local74 != null; local74 = (MiniMenuEntry) MiniMenu.entries.next()) {
                 local27 = MiniMenu.getLineWidth(local74);
                 if (local11 < local27) {
                     local11 = local27;

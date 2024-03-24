@@ -22,7 +22,7 @@ public final class Class199 {
     public final Animator aAnimator_7;
 
     @OriginalMember(owner = "client!jq", name = "<init>", descriptor = "(Lclient!cg;)V")
-    public Class199(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
+    public Class199(@OriginalArg(0) PathingEntity arg0) {
         this.aAnimator_7 = new Animator_Sub2(arg0, false);
     }
 }

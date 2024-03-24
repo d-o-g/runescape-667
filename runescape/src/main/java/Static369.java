@@ -59,7 +59,7 @@ public final class Static369 {
                         local197.method9310(local197.type.size);
                         local197.anInt10757 = local197.type.rotationSpeed << 3;
                         local197.method9298((local197.type.spawnDirection + 4 & 0x80600007) << 11, true);
-                        local197.method9326(true, local135, local121, local98, local197.boundSize((byte) 119));
+                        local197.method9326(true, local135, local121, local98, local197.getBoundSize());
                     }
                 }
             }

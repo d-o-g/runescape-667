@@ -75,8 +75,8 @@ public final class Static89 {
             return;
         }
         local7.player = arg1;
-        local7.anInt9362 = arg2 + arg1.boundSize((byte) 46) << 9;
-        local7.anInt9349 = arg1.boundSize((byte) 77) + arg3 << 9;
+        local7.anInt9362 = arg2 + arg1.getBoundSize() << 9;
+        local7.anInt9349 = arg1.getBoundSize() + arg3 << 9;
         local7.sound = PlayerEntity.method4870(arg1);
         local7.anInt9356 = arg1.anInt1452 << 9;
         local7.anInt9360 = 256;

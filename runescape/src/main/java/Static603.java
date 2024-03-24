@@ -63,7 +63,7 @@ public final class Static603 {
                     InterfaceManager.endTargetMode();
                     if (InterfaceManager.dragSource.onDragComplete != null) {
                         local197 = new HookRequest();
-                        local197.aComponent_13 = InterfaceManager.dragTarget;
+                        local197.target = InterfaceManager.dragTarget;
                         local197.mouseX = local119;
                         local197.source = InterfaceManager.dragSource;
                         local197.mouseY = local127;

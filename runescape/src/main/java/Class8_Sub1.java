@@ -12,7 +12,7 @@ public final class Class8_Sub1 extends Node {
     public int anInt109;
 
     @OriginalMember(owner = "client!aea", name = "j", descriptor = "Lclient!cg;")
-    public Class8_Sub2_Sub1_Sub2 aClass8_Sub2_Sub1_Sub2_1;
+    public PathingEntity aClass8_Sub2_Sub1_Sub2_1;
 
     @OriginalMember(owner = "client!aea", name = "g", descriptor = "I")
     public int anInt111;

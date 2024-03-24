@@ -311,7 +311,7 @@ public final class Static161 {
             if (local29) {
                 local42.method9298(local108, true);
             }
-            local42.method9326(local170 == 1, local131 + PlayerEntity.self.pathY[0], local159 + PlayerEntity.self.pathX[0], local144, local42.boundSize((byte) 91));
+            local42.method9326(local170 == 1, local131 + PlayerEntity.self.pathY[0], local159 + PlayerEntity.self.pathX[0], local144, local42.getBoundSize());
             if (local42.type.hasSounds()) {
                 Static89.method1714(local42.level, null, local42.pathX[0], local42.pathY[0], local42, null, 0);
             }

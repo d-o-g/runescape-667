@@ -20,7 +20,7 @@ public final class Static533 {
         }
         MiniMenu.innerCount = 0;
         MiniMenu.entryCount = 0;
-        MiniMenu.entry.clear();
+        MiniMenu.entries.clear();
         MiniMenu.categories.clear();
         MiniMenu.innerEntries.clear();
         MiniMenu.open = false;

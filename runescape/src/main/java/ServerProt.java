@@ -57,6 +57,18 @@ public final class ServerProt {
     @OriginalMember(owner = "client!iu", name = "c", descriptor = "Lclient!lga;")
     public static final ServerProt SOUND_AREA = new ServerProt(65, 8);
 
+    @OriginalMember(owner = "client!uu", name = "m", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___239 = new ServerProt(117, 5);
+
+    @OriginalMember(owner = "client!gla", name = "y", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___85 = new ServerProt(144, 5);
+
+    @OriginalMember(owner = "client!jha", name = "g", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___125 = new ServerProt(66, 10);
+
+    @OriginalMember(owner = "client!jm", name = "f", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___129 = new ServerProt(134, 1);
+
     @OriginalMember(owner = "client!lga", name = "e", descriptor = "I")
     public final int opcode;
 

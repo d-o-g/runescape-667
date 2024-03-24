@@ -6,15 +6,6 @@ public final class Static297 {
     @OriginalMember(owner = "client!jha", name = "n", descriptor = "Z")
     public static boolean loadingSpritesRaw;
 
-    @OriginalMember(owner = "client!jha", name = "o", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___59 = new ClientProt(9, 3);
-
-    @OriginalMember(owner = "client!jha", name = "g", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___125 = new ServerProt(66, 10);
-
-    @OriginalMember(owner = "client!jha", name = "k", descriptor = "[Ljava/lang/String;")
-    public static final String[] playerOps = new String[8];
-
     @OriginalMember(owner = "client!jha", name = "i", descriptor = "J")
     public static long aLong153 = 0L;
 

@@ -111,7 +111,7 @@ public final class Static679 {
             }
             if (local53 != -1) {
                 local71 = 0;
-                @Pc(129) Class191 local129 = new Class191(MiniMenu.entry);
+                @Pc(129) Class191 local129 = new Class191(MiniMenu.entries);
                 for (local134 = (MiniMenuEntry) local129.first(); local134 != null; local134 = (MiniMenuEntry) local129.next()) {
                     if (local53 == local71++) {
                         return local134.cursor;

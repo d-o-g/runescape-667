@@ -10,6 +10,7 @@ import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.TargetMask;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
@@ -33,8 +34,9 @@ import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.keyboard.SimpleKeyboardMonitor;
 
 public final class MiniMenu {
+
     @OriginalMember(owner = "client!vu", name = "f", descriptor = "Lclient!sia;")
-    public static final Deque entry = new Deque();
+    public static final Deque entries = new Deque();
 
     @OriginalMember(owner = "client!pha", name = "m", descriptor = "Lclient!av;")
     public static final IterableHashTable categories = new IterableHashTable(16);
@@ -51,6 +53,9 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!oea", name = "w", descriptor = "Lclient!dla;")
     public static final ReferenceCache questCache = new ReferenceCache(8);
 
+    @OriginalMember(owner = "client!jha", name = "k", descriptor = "[Ljava/lang/String;")
+    public static final String[] playerOps = new String[8];
+
     @OriginalMember(owner = "client!mk", name = "c", descriptor = "Z")
     public static boolean open = false;
 
@@ -61,7 +66,7 @@ public final class MiniMenu {
     public static int innerCount = 0;
 
     @OriginalMember(owner = "client!qja", name = "c", descriptor = "Lclient!pg;")
-    public static MiniMenuEntry CANCEL;
+    public static MiniMenuEntry cancelEntry;
 
     @OriginalMember(owner = "client!da", name = "o", descriptor = "Lclient!pg;")
     public static MiniMenuEntry topEntry;
@@ -86,10 +91,10 @@ public final class MiniMenu {
         }
         entryCount = 0;
         innerCount = 0;
-        entry.clear();
+        entries.clear();
         categories.clear();
         innerEntries.clear();
-        addEntryInner(CANCEL);
+        addEntryInner(cancelEntry);
     }
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(IIILclient!ha;)V")
@@ -143,7 +148,7 @@ public final class MiniMenu {
         @Pc(317) int local317;
         @Pc(140) int local140;
         @Pc(370) int local370;
-        if (Static706.aGroundArray3 != null && (!InterfaceManager.targeting || (InterfaceManager.targetMask & 0x40) != 0)) {
+        if (Static706.aGroundArray3 != null && (!InterfaceManager.targetMode || (InterfaceManager.targetMask & 0x40) != 0)) {
             local140 = -1;
             @Pc(142) int local142 = -1;
             @Pc(145) int local145 = arg2.i();
@@ -169,15 +174,15 @@ public final class MiniMenu {
                 local295 = local239[2] - local224[2];
                 local306 = (int) ((float) local224[0] + local273 * (float) local286);
                 local317 = (int) ((float) local224[2] + local273 * (float) local295);
-                local140 = local306 + (PlayerEntity.self.boundSize((byte) 111) - 1 << 8) >> 9;
-                local142 = local317 + (PlayerEntity.self.boundSize((byte) 102) - 1 << 8) >> 9;
+                local140 = local306 + (PlayerEntity.self.getBoundSize() - 1 << 8) >> 9;
+                local142 = local317 + (PlayerEntity.self.getBoundSize() - 1 << 8) >> 9;
                 @Pc(345) byte local345 = PlayerEntity.self.level;
                 if (local345 < 3 && (Static280.tileFlags[1][local306 >> 9][local317 >> 9] & 0x2) != 0) {
                     local370 = local345 + 1;
                 }
             }
             if (local140 != -1 && local142 != -1) {
-                if (InterfaceManager.targeting && (InterfaceManager.targetMask & 0x40) != 0) {
+                if (InterfaceManager.targetMode && (InterfaceManager.targetMask & 0x40) != 0) {
                     @Pc(453) Component local453 = InterfaceList.getComponent(InterfaceManager.targetComponent, InterfaceManager.targetSlot);
                     if (local453 == null) {
                         InterfaceManager.endTargetMode();
@@ -222,10 +227,10 @@ public final class MiniMenu {
                     @Pc(614) int local614;
                     if (local543.aRenderable_18 instanceof PlayerEntity) {
                         @Pc(610) PlayerEntity local610 = (PlayerEntity) local543.aRenderable_18;
-                        local614 = local610.boundSize((byte) 50);
+                        local614 = local610.getBoundSize();
                         if ((local614 & 0x1) == 0 && (local610.x & 0x1FF) == 0 && (local610.z & 0x1FF) == 0 || (local614 & 0x1) == 1 && (local610.x & 0x1FF) == 256 && (local610.z & 0x1FF) == 256) {
-                            local286 = local610.x - (local610.boundSize((byte) 79) - 1 << 8);
-                            local295 = local610.z - (local610.boundSize((byte) 61) - 1 << 8);
+                            local286 = local610.x - (local610.getBoundSize() - 1 << 8);
+                            local295 = local610.z - (local610.getBoundSize() - 1 << 8);
                             for (local306 = 0; local306 < Static390.anInt6126; local306++) {
                                 @Pc(690) NPCEntityNode local690 = (NPCEntityNode) NPCList.local.get(Static103.anIntArray187[local306]);
                                 if (local690 != null) {
@@ -233,7 +238,7 @@ public final class MiniMenu {
                                     if (TimeUtils.clock != local695.anInt10743 && local695.aBoolean816) {
                                         local723 = local695.x - (local695.type.size - 1 << 8);
                                         local735 = local695.z - (local695.type.size - 1 << 8);
-                                        if (local286 <= local723 && local695.type.size <= local610.boundSize((byte) 126) - (local723 - local286 >> 9) && local735 >= local295 && local695.type.size <= local610.boundSize((byte) 121) - (local735 - local295 >> 9)) {
+                                        if (local286 <= local723 && local695.type.size <= local610.getBoundSize() - (local723 - local286 >> 9) && local735 >= local295 && local695.type.size <= local610.getBoundSize() - (local735 - local295 >> 9)) {
                                             method8517(local543.aRenderable_18.level != PlayerEntity.self.level, local695);
                                             local695.anInt10743 = TimeUtils.clock;
                                         }
@@ -245,9 +250,9 @@ public final class MiniMenu {
                             for (local723 = 0; local723 < local317; local723++) {
                                 @Pc(830) PlayerEntity local830 = PlayerList.highResolutionPlayers[local820[local723]];
                                 if (local830 != null && local830.anInt10743 != TimeUtils.clock && local830 != local610 && local830.aBoolean816) {
-                                    local864 = local830.x - (local830.boundSize((byte) 123) - 1 << 8);
-                                    @Pc(876) int local876 = local830.z - (local830.boundSize((byte) 67) - 1 << 8);
-                                    if (local864 >= local286 && local830.boundSize((byte) 71) <= local610.boundSize((byte) 110) - (local864 - local286 >> 9) && local876 >= local295 && local830.boundSize((byte) 79) <= local610.boundSize((byte) 100) - (local876 - local295 >> 9)) {
+                                    local864 = local830.x - (local830.getBoundSize() - 1 << 8);
+                                    @Pc(876) int local876 = local830.z - (local830.getBoundSize() - 1 << 8);
+                                    if (local864 >= local286 && local830.getBoundSize() <= local610.getBoundSize() - (local864 - local286 >> 9) && local876 >= local295 && local830.getBoundSize() <= local610.getBoundSize() - (local876 - local295 >> 9)) {
                                         addPlayerEntries(local543.aRenderable_18.level != PlayerEntity.self.level, local830);
                                         local830.anInt10743 = TimeUtils.clock;
                                     }
@@ -285,9 +290,9 @@ public final class MiniMenu {
                                 for (local370 = 0; local370 < local306; local370++) {
                                     @Pc(1226) PlayerEntity local1226 = PlayerList.highResolutionPlayers[local1216[local370]];
                                     if (local1226 != null && local1226.anInt10743 != TimeUtils.clock && local1226.aBoolean816) {
-                                        local735 = local1226.x - (local1226.boundSize((byte) 125) - 1 << 8);
-                                        local864 = local1226.z - (local1226.boundSize((byte) 76) - 1 << 8);
-                                        if (local614 <= local735 && local1226.boundSize((byte) 98) <= local988.type.size - (local735 - local614 >> 9) && local286 <= local864 && local1226.boundSize((byte) 127) <= local988.type.size - (local864 - local286 >> 9)) {
+                                        local735 = local1226.x - (local1226.getBoundSize() - 1 << 8);
+                                        local864 = local1226.z - (local1226.getBoundSize() - 1 << 8);
+                                        if (local614 <= local735 && local1226.getBoundSize() <= local988.type.size - (local735 - local614 >> 9) && local286 <= local864 && local1226.getBoundSize() <= local988.type.size - (local864 - local286 >> 9)) {
                                             addPlayerEntries(PlayerEntity.self.level != local543.aRenderable_18.level, local1226);
                                             local1226.anInt10743 = TimeUtils.clock;
                                         }
@@ -309,7 +314,7 @@ public final class MiniMenu {
                             local295 = 0;
                             for (@Pc(1416) ObjStackEntry local1416 = (ObjStackEntry) local1406.objs.last(); local1416 != null; local1416 = (ObjStackEntry) local1406.objs.previous()) {
                                 @Pc(1424) ObjType local1424 = ObjTypeList.instance.list(local1416.id);
-                                if (InterfaceManager.targeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
+                                if (InterfaceManager.targetMode && PlayerEntity.self.level == local543.aRenderable_18.level) {
                                     @Pc(1451) ParamType local1451 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
                                     if ((InterfaceManager.targetMask & 0x1) != 0 && (local1451 == null || local1424.param(InterfaceManager.targetParam, local1451.defaultint) != local1451.defaultint)) {
                                         addEntry(false, -1, local1416.id, local186, local584, InterfaceManager.targetVerb, 17, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ff9040>" + local1424.name, local295, false);
@@ -360,7 +365,7 @@ public final class MiniMenu {
                             local1661 = local1661.getMultiLoc(TimedVarDomain.instance);
                         }
                         if (local1661 != null) {
-                            if (InterfaceManager.targeting && PlayerEntity.self.level == local543.aRenderable_18.level) {
+                            if (InterfaceManager.targetMode && PlayerEntity.self.level == local543.aRenderable_18.level) {
                                 @Pc(1697) ParamType local1697 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
                                 if ((InterfaceManager.targetMask & 0x4) != 0 && (local1697 == null || local1661.param(local1697.defaultint, InterfaceManager.targetParam) != local1697.defaultint)) {
                                     addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, InterfaceManager.targetVerb, 60, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=00ffff>" + local1661.name, local1654.hashCode(), false);
@@ -414,7 +419,7 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(Lclient!cg;I)V")
-    public static void addEntityEntries(@OriginalArg(0) Class8_Sub2_Sub1_Sub2 arg0) {
+    public static void addEntityEntries(@OriginalArg(0) PathingEntity arg0) {
         if (arg0 instanceof NPCEntity) {
             @Pc(5) NPCEntity npc = (NPCEntity) arg0;
             if (npc.type != null) {
@@ -443,7 +448,7 @@ public final class MiniMenu {
             if (topEntry.action >= 2000) {
                 topEntry.action -= 2000;
             }
-            return topEntry.action == MiniMenuAction.IF_BUTTONX1;
+            return topEntry.action == MiniMenuAction.IF_BUTTONX2;
         }
     }
 
@@ -454,7 +459,7 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!cv", name = "b", descriptor = "(B)V")
     public static void openButtons() {
-        for (@Pc(4) MiniMenuEntry entry = (MiniMenuEntry) MiniMenu.entry.first(); entry != null; entry = (MiniMenuEntry) MiniMenu.entry.next()) {
+        for (@Pc(4) MiniMenuEntry entry = (MiniMenuEntry) entries.first(); entry != null; entry = (MiniMenuEntry) entries.next()) {
             if (MiniMenuAction.isButtonOp(entry.action)) {
                 open(entry);
             }
@@ -467,7 +472,7 @@ public final class MiniMenu {
             return;
         }
 
-        MiniMenu.entry.addLast(entry);
+        entries.addLast(entry);
         entryCount++;
 
         @Pc(33) MiniMenuEntryInner inner;
@@ -533,7 +538,7 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
     public static void setCancelEntry() {
-        CANCEL = new MiniMenuEntry(LocalisedText.CANCEL.localise(client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
+        cancelEntry = new MiniMenuEntry(LocalisedText.CANCEL.localise(client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
     }
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "(ILclient!pg;)V")
@@ -608,7 +613,7 @@ public final class MiniMenu {
             npcName = npcName + colourCode(PlayerEntity.self.combatLevel, npc.combatLevel) + " (" + text + npc.combatLevel + ")";
         }
 
-        if (InterfaceManager.targeting && !differentLevel) {
+        if (InterfaceManager.targetMode && !differentLevel) {
             @Pc(113) ParamType param = InterfaceManager.targetParam != -1 ? ParamTypeList.instance.list(InterfaceManager.targetParam) : null;
 
             if ((InterfaceManager.targetMask & TargetMask.TGT_NPC) != 0 && (param == null || type.param(InterfaceManager.targetParam, param.defaultint) != param.defaultint)) {
@@ -749,12 +754,12 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(Lclient!ha;I)V")
     public static void method7301(@OriginalArg(0) Toolkit toolkit) {
-        if (entryCount < 2 && !InterfaceManager.targeting || InterfaceManager.dragSource != null) {
+        if (entryCount < 2 && !InterfaceManager.targetMode || InterfaceManager.dragSource != null) {
             return;
         }
 
         @Pc(63) String text;
-        if (InterfaceManager.targeting && entryCount < 2) {
+        if (InterfaceManager.targetMode && entryCount < 2) {
             text = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(client.language) + InterfaceManager.targetedVerb + " ->";
         } else if (Static209.shiftClick && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT) && entryCount > 2) {
             text = getLineText(leftClickEntry);
@@ -963,7 +968,7 @@ public final class MiniMenu {
         }
 
         if (player == PlayerEntity.self) {
-            if (InterfaceManager.targeting && (InterfaceManager.targetMask & TargetMask.TGT_SELF) != 0) {
+            if (InterfaceManager.targetMode && (InterfaceManager.targetMask & TargetMask.TGT_SELF) != 0) {
                 addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(client.language), player.id, false);
             }
         } else {
@@ -995,7 +1000,7 @@ public final class MiniMenu {
                 }
             }
 
-            if (InterfaceManager.targeting && !diffentLevel && (InterfaceManager.targetMask & 0x8) != 0) {
+            if (InterfaceManager.targetMode && !diffentLevel && (InterfaceManager.targetMask & 0x8) != 0) {
                 addEntry(false, -1, player.id, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_PLAYER, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + name, player.id, false);
             }
 
@@ -1003,9 +1008,9 @@ public final class MiniMenu {
                 addEntry(true, 0, 0L, 0, 0, "<col=cccccc>" + name, -1, false, -1, "", player.id, false);
             } else {
                 for (@Pc(318) int op = 7; op >= 0; op--) {
-                    if (Static297.playerOps[op] != null) {
+                    if (playerOps[op] != null) {
                         @Pc(325) short offset = 0;
-                        if (client.modeGame == ModeGame.RUNESCAPE && Static297.playerOps[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language))) {
+                        if (client.modeGame == ModeGame.RUNESCAPE && playerOps[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language))) {
                             if (Static324.reduceAttackPriority && PlayerEntity.self.combatLevel < player.combatLevel) {
                                 offset = 2000;
                             }
@@ -1025,13 +1030,13 @@ public final class MiniMenu {
 
                         @Pc(403) short action = (short) (offset + MiniMenuAction.PLAYER_OPS[op]);
                         @Pc(416) int cursor = Static147.playerOpCursors[op] != -1 ? Static147.playerOpCursors[op] : Cursor.interaction;
-                        addEntry(false, -1, player.id, 0, 0, Static297.playerOps[op], action, true, cursor, "<col=ffffff>" + name, player.id, false);
+                        addEntry(false, -1, player.id, 0, 0, playerOps[op], action, true, cursor, "<col=ffffff>" + name, player.id, false);
                     }
                 }
             }
 
             if (!diffentLevel) {
-                for (@Pc(484) MiniMenuEntry entry = (MiniMenuEntry) MiniMenu.entry.first(); entry != null; entry = (MiniMenuEntry) MiniMenu.entry.next()) {
+                for (@Pc(484) MiniMenuEntry entry = (MiniMenuEntry) entries.first(); entry != null; entry = (MiniMenuEntry) entries.next()) {
                     if (entry.action == MiniMenuAction.WALK) {
                         entry.activeEntry = "<col=ffffff>" + name;
                         return;
@@ -1039,5 +1044,401 @@ public final class MiniMenu {
                 }
             }
         }
+    }
+
+    @OriginalMember(owner = "client!br", name = "a", descriptor = "(IILclient!pg;I)V")
+    public static void doAction(@OriginalArg(0) int clickY, @OriginalArg(2) MiniMenuEntry entry, @OriginalArg(3) int clickX) {
+        if (entry == null || entry == entries.sentinel) {
+            return;
+        }
+
+        @Pc(16) int v2 = entry.v2;
+        @Pc(19) int v3 = entry.v3;
+        @Pc(22) int action = entry.action;
+        @Pc(26) int v1 = (int) entry.v1;
+        if (action >= 2000) {
+            action -= 2000;
+        }
+        @Pc(35) long v1Long = entry.v1;
+
+        if (action == MiniMenuAction.TGT_PLAYER) {
+            @Pc(44) PlayerEntity player = PlayerList.highResolutionPlayers[v1];
+
+            if (player != null) {
+                Static481.crossDuration = 0;
+                Static676.crossX = clickX;
+                Static616.crossType = 2;
+                Static305.crossY = clickY;
+
+                @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ConnectionManager.GAME.cipher);
+                message.buffer.p2_alt1(v1);
+                message.buffer.p4_alt1(InterfaceManager.targetSlot);
+                message.buffer.p2(InterfaceManager.targetInvObj);
+                message.buffer.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
+                message.buffer.p2_alt3(InterfaceManager.targetComponent);
+                ConnectionManager.GAME.send(message);
+
+                Static147.findPath(0, player.pathY[0], player.getBoundSize(), true, player.pathX[0], 0, -2, player.getBoundSize());
+            }
+        }
+
+        if (action == MiniMenuAction.TGT_SELF) {
+            Static616.crossType = 2;
+            Static305.crossY = clickY;
+            Static481.crossDuration = 0;
+            Static676.crossX = clickX;
+
+            @Pc(147) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ConnectionManager.GAME.cipher);
+            message.buffer.p2_alt1(PlayerEntity.self.id);
+            message.buffer.p4_alt1(InterfaceManager.targetSlot);
+            message.buffer.p2(InterfaceManager.targetInvObj);
+            message.buffer.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
+            message.buffer.p2_alt3(InterfaceManager.targetComponent);
+            ConnectionManager.GAME.send(message);
+        }
+
+        if (action == MiniMenuAction.TGT_BUTTON) {
+            @Pc(197) Component button = InterfaceList.getComponent(v2, v3);
+
+            if (button != null) {
+                InterfaceManager.endTargetMode();
+
+                @Pc(206) ServerActiveProperties properties = InterfaceManager.serverActiveProperties(button);
+                InterfaceManager.enterTargetMode(properties.getTargetMask(), button, properties.targetParam);
+                InterfaceManager.targetVerb = InterfaceManager.getComponentTargetVerb(button);
+                InterfaceManager.targetedVerb = button.opBase + "<col=ffffff>";
+                if (InterfaceManager.targetVerb == null) {
+                    InterfaceManager.targetVerb = "Null";
+                }
+            }
+
+            return;
+        }
+
+        if (action == MiniMenuAction.WALK) {
+            if (Static608.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT)) {
+                Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseZ + v3, WorldMap.areaBaseX + v2);
+            } else {
+                @Pc(147) ClientMessage message = Static32.moveMessage(v2, v3, v1);
+
+                if (v1 == 1) {
+                    message.buffer.p1(-1);
+                    message.buffer.p1(-1);
+                    message.buffer.p2((int) Camera.playerCameraYaw);
+                    message.buffer.p1(57);
+                    message.buffer.p1(Camera.yawOffset);
+                    message.buffer.p1(Camera.scaleOffset);
+                    message.buffer.p1(89);
+                    message.buffer.p2(PlayerEntity.self.x);
+                    message.buffer.p2(PlayerEntity.self.z);
+                    message.buffer.p1(63);
+                } else {
+                    Static305.crossY = clickY;
+                    Static616.crossType = 1;
+                    Static481.crossDuration = 0;
+                    Static676.crossX = clickX;
+                }
+
+                ConnectionManager.GAME.send(message);
+
+                Static147.findPath(0, v3, 1, true, v2, 0, -4, 1);
+            }
+        }
+
+        if (action == MiniMenuAction.PAUSE_BUTTON && InterfaceManager.dialog == null) {
+            sendResumePauseButton(v2, v3);
+            InterfaceManager.dialog = InterfaceList.getComponent(v2, v3);
+            InterfaceManager.redraw(InterfaceManager.dialog);
+        }
+
+        @Pc(389) ClientProt opPlayer = null;
+        if (action == MiniMenuAction.OPPLAYER1) {
+            opPlayer = ClientProt.OPPLAYER1;
+        } else if (action == MiniMenuAction.OPPLAYER2) {
+            opPlayer = ClientProt.OPPPLAYER2;
+        } else if (action == MiniMenuAction.OPPLAYER3) {
+            opPlayer = ClientProt.OPPLAYER3;
+        } else if (action == MiniMenuAction.OPPLAYER4) {
+            opPlayer = ClientProt.OPPLAYER4;
+        } else if (action == MiniMenuAction.OPPLAYER5) {
+            opPlayer = ClientProt.OPPLAYER5;
+        } else if (action == MiniMenuAction.OPPLAYER6) {
+            opPlayer = ClientProt.OPPLAYER6;
+        } else if (action == MiniMenuAction.OPPLAYER7) {
+            opPlayer = ClientProt.OPPLAYER7;
+        } else if (action == MiniMenuAction.OPPLAYER8) {
+            opPlayer = ClientProt.OPPLAYER8;
+        } else if (action == MiniMenuAction.OPPLAYER9) {
+            opPlayer = ClientProt.OPPLAYER9;
+        } else if (action == MiniMenuAction.OPPLAYER10) {
+            opPlayer = ClientProt.OPPLAYER10;
+        }
+
+        if (opPlayer != null) {
+            @Pc(474) PlayerEntity player = PlayerList.highResolutionPlayers[v1];
+
+            if (player != null) {
+                Static481.crossDuration = 0;
+                Static305.crossY = clickY;
+                Static616.crossType = 2;
+                Static676.crossX = clickX;
+
+                @Pc(494) ClientMessage message = ClientMessage.create(opPlayer, ConnectionManager.GAME.cipher);
+                message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+                message.buffer.p2(v1);
+                ConnectionManager.GAME.send(message);
+
+                Static147.findPath(0, player.pathY[0], player.getBoundSize(), true, player.pathX[0], 0, -2, player.getBoundSize());
+            }
+        }
+
+        @Pc(548) ClientProt opObj = null;
+        if (action == MiniMenuAction.OPOBJ1) {
+            opObj = ClientProt.OPOBJ1;
+        } else if (action == MiniMenuAction.OPOBJ2) {
+            opObj = ClientProt.OPOBJ2;
+        } else if (action == MiniMenuAction.OPOBJ3) {
+            opObj = ClientProt.OPOBJ3;
+        } else if (action == MiniMenuAction.OPOBJ4) {
+            opObj = ClientProt.OPOBJ4;
+        } else if (action == MiniMenuAction.OPOBJ5) {
+            opObj = ClientProt.OPOBJ5;
+        } else if (action == MiniMenuAction.OPOBJ6) {
+            opObj = ClientProt.OPOBJ6;
+        }
+
+        if (opObj != null) {
+            Static305.crossY = clickY;
+            Static481.crossDuration = 0;
+            Static616.crossType = 2;
+            Static676.crossX = clickX;
+
+            @Pc(494) ClientMessage message = ClientMessage.create(opObj, ConnectionManager.GAME.cipher);
+            message.buffer.p2_alt2(v1);
+            message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+            message.buffer.p2(v3 + WorldMap.areaBaseZ);
+            message.buffer.p2_alt1(WorldMap.areaBaseX + v2);
+            ConnectionManager.GAME.send(message);
+
+            Static414.findPathToObj(v3, v2);
+        }
+
+        if (action == MiniMenuAction.FACE_SQUARE) {
+            if (Static608.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT)) {
+                Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseZ + v3, WorldMap.areaBaseX + v2);
+            } else {
+                Static481.crossDuration = 0;
+                Static676.crossX = clickX;
+                Static616.crossType = 1;
+                Static305.crossY = clickY;
+
+                @Pc(494) ClientMessage message = ClientMessage.create(ClientProt.FACE_SQUARE, ConnectionManager.GAME.cipher);
+                message.buffer.p2_alt3(v3 + WorldMap.areaBaseZ);
+                message.buffer.p2_alt1(WorldMap.areaBaseX + v2);
+                ConnectionManager.GAME.send(message);
+            }
+        }
+
+        if (action == MiniMenuAction.IF_BUTTONT) {
+            @Pc(741) Component button = InterfaceList.getComponent(v2, v3);
+
+            if (button != null) {
+                sendTargetButton(button);
+            }
+        }
+
+        @Pc(750) ClientProt opNpc = null;
+        if (action == MiniMenuAction.OPNPC1) {
+            opNpc = ClientProt.OPNPC1;
+        } else if (action == MiniMenuAction.OPNPC2) {
+            opNpc = ClientProt.OPNPC2;
+        } else if (action == MiniMenuAction.OPNPC3) {
+            opNpc = ClientProt.OPNPC3;
+        } else if (action == MiniMenuAction.OPNPC4) {
+            opNpc = ClientProt.OPNPC4;
+        } else if (action == MiniMenuAction.OPNPC5) {
+            opNpc = ClientProt.OPNPC5;
+        } else if (action == MiniMenuAction.OPNPC6) {
+            opNpc = ClientProt.OPNPC6;
+        }
+
+        if (opNpc != null) {
+            @Pc(806) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(v1);
+
+            if (node != null) {
+                Static676.crossX = clickX;
+                @Pc(813) NPCEntity npc = node.npc;
+                Static616.crossType = 2;
+                Static305.crossY = clickY;
+                Static481.crossDuration = 0;
+                @Pc(831) ClientMessage message = ClientMessage.create(opNpc, ConnectionManager.GAME.cipher);
+                message.buffer.p1_alt1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+                message.buffer.p2_alt2(v1);
+                ConnectionManager.GAME.send(message);
+
+                Static147.findPath(0, npc.pathY[0], npc.getBoundSize(), true, npc.pathX[0], 0, -2, npc.getBoundSize());
+            }
+        }
+
+        @Pc(878) ClientProt opLoc = null;
+        if (action == MiniMenuAction.OPLOC1) {
+            opLoc = ClientProt.OPLOC1;
+        } else if (action == MiniMenuAction.OPLOC2) {
+            opLoc = ClientProt.OPLOC2;
+        } else if (action == MiniMenuAction.OPLOC3) {
+            opLoc = ClientProt.OPLOC3;
+        } else if (action == MiniMenuAction.OPLOC4) {
+            opLoc = ClientProt.OPLOC4;
+        } else if (action == MiniMenuAction.OPLOC5) {
+            opLoc = ClientProt.OPLOC5;
+        } else if (action == MiniMenuAction.OPLOC6) {
+            opLoc = ClientProt.OPLOC6;
+        }
+
+        if (opLoc != null) {
+            Static305.crossY = clickY;
+            Static616.crossType = 2;
+            Static481.crossDuration = 0;
+            Static676.crossX = clickX;
+
+            @Pc(949) ClientMessage message = ClientMessage.create(opLoc, ConnectionManager.GAME.cipher);
+            message.buffer.p1_alt1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+            message.buffer.p2_alt2(WorldMap.areaBaseX + v2);
+            message.buffer.p2_alt3((int) (v1Long >>> 32) & Integer.MAX_VALUE);
+            message.buffer.p2_alt1(v3 + WorldMap.areaBaseZ);
+            ConnectionManager.GAME.send(message);
+
+            Static38.findPathToLoc(v2, v1Long, v3);
+        }
+
+        if (action == MiniMenuAction.OP_MAPELEMENT1 || action == MiniMenuAction.OP_MAPELEMENT2 || action == MiniMenuAction.OP_MAPELEMENT3 || action == MiniMenuAction.OP_MAPELEMENT4 || action == MiniMenuAction.OP_MAPELEMENT5) {
+            ScriptRunner.executeMapElementTrigger(v2, v1, action);
+        }
+
+        if (action == MiniMenuAction.TGT_GROUND) {
+            Static676.crossX = clickX;
+            Static616.crossType = 1;
+            Static305.crossY = clickY;
+            Static481.crossDuration = 0;
+
+            @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.APCOORDT, ConnectionManager.GAME.cipher);
+            message.buffer.p2_alt2(WorldMap.areaBaseX + v2);
+            message.buffer.p2_alt1(InterfaceManager.targetInvObj);
+            message.buffer.p4_alt2(InterfaceManager.targetSlot);
+            message.buffer.p2_alt2(WorldMap.areaBaseZ + v3);
+            message.buffer.p2(InterfaceManager.targetComponent);
+            ConnectionManager.GAME.send(message);
+
+            Static147.findPath(0, v3, 1, true, v2, 0, -4, 1);
+        }
+
+        if (action == MiniMenuAction.TGT_OBJ) {
+            Static616.crossType = 2;
+            Static481.crossDuration = 0;
+            Static305.crossY = clickY;
+            Static676.crossX = clickX;
+
+            @Pc(949) ClientMessage message = ClientMessage.create(Static175.A_CLIENT_PROT___31, ConnectionManager.GAME.cipher);
+            message.buffer.p2(v2 + WorldMap.areaBaseX);
+            message.buffer.p2(WorldMap.areaBaseZ + v3);
+            message.buffer.p2_alt3(InterfaceManager.targetInvObj);
+            message.buffer.p4_alt3(InterfaceManager.targetSlot);
+            message.buffer.p2_alt1(InterfaceManager.targetComponent);
+            message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+            message.buffer.p2_alt1(v1);
+            ConnectionManager.GAME.send(message);
+
+            Static414.findPathToObj(v3, v2);
+        }
+
+        if (action == MiniMenuAction.TGT_NPC) {
+            @Pc(1200) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(v1);
+
+            if (node != null) {
+                @Pc(1205) NPCEntity npc = node.npc;
+
+                Static481.crossDuration = 0;
+                Static616.crossType = 2;
+                Static676.crossX = clickX;
+                Static305.crossY = clickY;
+
+                @Pc(1223) ClientMessage message = ClientMessage.create(Static503.A_CLIENT_PROT___94, ConnectionManager.GAME.cipher);
+                message.buffer.p2_alt3(InterfaceManager.targetComponent);
+                message.buffer.p2_alt1(InterfaceManager.targetInvObj);
+                message.buffer.p2_alt1(v1);
+                message.buffer.p4_alt3(InterfaceManager.targetSlot);
+                message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+                ConnectionManager.GAME.send(message);
+
+                Static147.findPath(0, npc.pathY[0], npc.getBoundSize(), true, npc.pathX[0], 0, -2, npc.getBoundSize());
+            }
+        }
+
+        if (action == MiniMenuAction.IF_BUTTONX1 || action == MiniMenuAction.IF_BUTTONX2) {
+            InterfaceManager.ifButtonXSend(v3, v2, entry.opBase, v1);
+        }
+
+        if (action == MiniMenuAction.TGT_LOC) {
+            Static676.crossX = clickX;
+            Static481.crossDuration = 0;
+            Static305.crossY = clickY;
+            Static616.crossType = 2;
+
+            @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.OPLOCT, ConnectionManager.GAME.cipher);
+            message.buffer.p1_alt2(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+            message.buffer.p2_alt1(WorldMap.areaBaseZ + v3);
+            message.buffer.p2_alt1(InterfaceManager.targetComponent);
+            message.buffer.p4_alt1(InterfaceManager.targetSlot);
+            message.buffer.p2_alt3(InterfaceManager.targetInvObj);
+            message.buffer.p2_alt1(v2 + WorldMap.areaBaseX);
+            message.buffer.p2_alt2(Integer.MAX_VALUE & (int) (v1Long >>> 32));
+            ConnectionManager.GAME.send(message);
+
+            Static38.findPathToLoc(v2, v1Long, v3);
+        }
+
+        if (InterfaceManager.targetMode) {
+            InterfaceManager.endTargetMode();
+        }
+
+        if (Static67.aComponent_10 != null && Static499.anInt7501 == 0) {
+            InterfaceManager.redraw(Static67.aComponent_10);
+        }
+    }
+
+    @OriginalMember(owner = "client!pc", name = "a", descriptor = "(IZI)V")
+    public static void sendResumePauseButton(@OriginalArg(0) int slot, @OriginalArg(2) int id) {
+        @Pc(13) ClientMessage message = ClientMessage.create(ClientProt.RESUME_PAUSEBUTTON, ConnectionManager.GAME.cipher);
+        message.buffer.p4_alt3(id);
+        message.buffer.p2_alt3(slot);
+        ConnectionManager.GAME.send(message);
+    }
+
+    @OriginalMember(owner = "client!jt", name = "a", descriptor = "(BLclient!hda;)V")
+    public static void sendTargetButton(@OriginalArg(1) Component button) {
+        if (!InterfaceManager.targetMode) {
+            return;
+        }
+
+        if (button.onOpT != null) {
+            @Pc(17) Component target = InterfaceList.getComponent(InterfaceManager.targetComponent, InterfaceManager.targetSlot);
+
+            if (target != null) {
+                @Pc(23) HookRequest request = new HookRequest();
+                request.arguments = button.onOpT;
+                request.source = button;
+                request.target = target;
+                ScriptRunner.executeHookInner(request);
+            }
+        }
+
+        @Pc(45) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTONT, ConnectionManager.GAME.cipher);
+        message.buffer.p4_alt2(button.slot);
+        message.buffer.p2_alt2(InterfaceManager.targetInvObj);
+        message.buffer.p2_alt3(InterfaceManager.targetComponent);
+        message.buffer.p4_alt3(InterfaceManager.targetSlot);
+        message.buffer.p2_alt2(button.invObject);
+        message.buffer.p2_alt1(button.id);
+        ConnectionManager.GAME.send(message);
     }
 }

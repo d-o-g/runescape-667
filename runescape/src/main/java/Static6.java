@@ -22,10 +22,10 @@ public final class Static6 {
             return;
         }
         @Pc(15) int local15;
-        if (Camera.anInt7645 == 4) {
-            local15 = (int) Static171.aFloat64 & 0x3FFF;
+        if (Camera.mode == 4) {
+            local15 = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
-            local15 = (int) Static171.aFloat64 + Static29.anInt723 & 0x3FFF;
+            local15 = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
         }
         @Pc(37) int local37 = Math.max(arg5.width / 2, arg5.height / 2) + 10;
         @Pc(45) int local45 = arg3 * arg3 + arg4 * arg4;
@@ -34,9 +34,9 @@ public final class Static6 {
         }
         @Pc(60) int local60 = Trig1.SIN[local15];
         @Pc(64) int local64 = Trig1.COS[local15];
-        if (Camera.anInt7645 != 4) {
-            local60 = local60 * 256 / (Static660.anInt9835 + 256);
-            local64 = local64 * 256 / (Static660.anInt9835 + 256);
+        if (Camera.mode != 4) {
+            local60 = local60 * 256 / (Camera.scaleOffset + 256);
+            local64 = local64 * 256 / (Camera.scaleOffset + 256);
         }
         @Pc(98) int local98 = local64 * arg4 + local60 * arg3 >> 14;
         @Pc(109) int local109 = arg3 * local64 - arg4 * local60 >> 14;

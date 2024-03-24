@@ -108,9 +108,9 @@ public final class MiniMenuAction {
     public static final int OP_MAPELEMENT5 = 1004;
 
     /* button */
-    public static final int IF_BUTTONX1 = 1002;
+    public static final int IF_BUTTONX1 = 20;
 
-    public static final int IF_BUTTONX2 = 20;
+    public static final int IF_BUTTONX2 = 1002;
 
     public static final int IF_BUTTONT = 18;
 
@@ -120,9 +120,9 @@ public final class MiniMenuAction {
 
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(IB)Z")
     public static boolean isButtonOp(@OriginalArg(0) int action) {
-        return action == IF_BUTTONX2
+        return action == IF_BUTTONX1
             || action == IF_BUTTONT
-            || action == IF_BUTTONX1
+            || action == IF_BUTTONX2
             || action == TGT_BUTTON
             || action == PAUSE_BUTTON;
     }

@@ -214,7 +214,7 @@ public final class Class8_Sub2_Sub1_Sub1 extends PositionEntity {
         if (this.aBoolean59 || this.anInt706 == 0) {
             return;
         }
-        @Pc(21) Class8_Sub2_Sub1_Sub2 local21 = null;
+        @Pc(21) PathingEntity local21 = null;
         if (CutsceneManager.state == 3) {
             local21 = Static219.aClass236Array1[this.anInt706 - 1].method5363();
         } else {

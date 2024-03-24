@@ -204,7 +204,7 @@ public final class Static605 {
                         local290 <<= 0x2;
                         local21 *= 256;
                         if (local212 != 0 && local46 != -1) {
-                            @Pc(948) Class8_Sub2_Sub1_Sub2 local948 = null;
+                            @Pc(948) PathingEntity local948 = null;
                             @Pc(957) int local957;
                             if (local212 >= 0) {
                                 local957 = local212 - 1;

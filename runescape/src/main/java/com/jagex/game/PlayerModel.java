@@ -5,7 +5,6 @@ import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
-import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeCustomisation;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
@@ -57,14 +56,14 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!rka", name = "b", descriptor = "(ZI)V")
-    public static void cacheClean() {
+    public static void cacheClean(@OriginalArg(1) int maxAge) {
         @Pc(5) ReferenceCache local5 = recentUse;
         synchronized (recentUse) {
-            recentUse.clean(5);
+            recentUse.clean(maxAge);
         }
         local5 = modelCache;
         synchronized (modelCache) {
-            modelCache.clean(5);
+            modelCache.clean(maxAge);
         }
     }
 

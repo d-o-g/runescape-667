@@ -1,7 +1,5 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static488 {
 
@@ -56,24 +54,5 @@ public final class Static488 {
         } else {
             return Class.forName(arg0);
         }
-    }
-
-    @OriginalMember(owner = "client!pga", name = "a", descriptor = "(II)Lclient!fj;")
-    public static DoublyLinkedNode_Sub2_Sub10 method6525(@OriginalArg(0) int arg0) {
-        @Pc(10) DoublyLinkedNode_Sub2_Sub10 local10 = (DoublyLinkedNode_Sub2_Sub10) Static480.A_DOUBLY_LINKED_LIST___2.get(arg0);
-        if (local10 != null) {
-            return local10;
-        }
-        @Pc(21) byte[] local21 = js5.CLIENTSCRIPTS.getfile(0, arg0);
-        if (local21 == null || local21.length <= 1) {
-            return null;
-        }
-        try {
-            local10 = Static48.method1097(local21);
-        } catch (@Pc(38) Exception local38) {
-            throw new RuntimeException(local38.getMessage() + " S: " + arg0);
-        }
-        Static480.A_DOUBLY_LINKED_LIST___2.put(local10, arg0);
-        return local10;
     }
 }

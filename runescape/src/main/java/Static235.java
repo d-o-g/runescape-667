@@ -54,66 +54,66 @@ public final class Static235 {
     }
 
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "(Lclient!ge;B)Lclient!pi;")
-    public static Class39 method3425(@OriginalArg(0) Packet arg0) {
+    public static CutsceneAction method3425(@OriginalArg(0) Packet arg0) {
         @Pc(7) int local7 = arg0.g1();
         @Pc(19) Class155 local19 = Static471.method6409(local7);
-        @Pc(21) Class39 local21 = null;
+        @Pc(21) CutsceneAction local21 = null;
         if (Static458.aClass155_31 == local19) {
-            local21 = new Class39_Sub16(arg0);
+            local21 = new CutsceneAction_Sub16(arg0);
         } else if (Static569.aClass155_38 == local19) {
-            local21 = new Class39_Sub3(arg0);
+            local21 = new CutsceneAction_Sub3(arg0);
         } else if (Static204.aClass155_14 == local19) {
-            local21 = new Class39_Sub7(arg0);
+            local21 = new CutsceneAction_Sub7(arg0);
         } else if (local19 == Static586.aClass155_40) {
-            local21 = new Class39_Sub13(arg0);
+            local21 = new CutsceneAction_Sub13(arg0);
         } else if (Static432.aClass155_3 == local19) {
-            local21 = new Class39_Sub14(arg0);
+            local21 = new CutsceneAction_Sub14(arg0);
         } else if (Static177.aClass155_13 == local19) {
-            local21 = new Class39_Sub9(arg0);
+            local21 = new CutsceneAction_Sub9(arg0);
         } else if (local19 == Static418.aClass155_42) {
-            local21 = new Class39_Sub15(arg0);
+            local21 = new CutsceneAction_Sub15(arg0);
         } else if (local19 == Static205.aClass155_15) {
-            local21 = new Class39_Sub1_Sub1(arg0);
+            local21 = new CutsceneAction_Sub1_Sub1(arg0);
         } else if (local19 == Static119.aClass155_11) {
-            local21 = new Class39_Sub6(arg0);
+            local21 = new CutsceneAction_Sub6(arg0);
         } else if (local19 == Static512.aClass155_35) {
-            local21 = new Class39_Sub5(arg0);
+            local21 = new CutsceneAction_Sub5(arg0);
         } else if (Static289.aClass155_19 == local19) {
-            local21 = new Class39_Sub18(arg0);
+            local21 = new CutsceneAction_Sub18(arg0);
         } else if (local19 == Static557.aClass155_37) {
-            local21 = new Class39_Sub11(arg0);
+            local21 = new CutsceneAction_Sub11(arg0);
         } else if (Static512.aClass155_34 == local19) {
-            local21 = new Class39_Sub4(arg0);
+            local21 = new CutsceneAction_Sub4(arg0);
         } else if (local19 == Static65.aClass155_8) {
-            local21 = new Class39_Sub20(arg0);
+            local21 = new CutsceneAction_Sub20(arg0);
         } else if (Static357.aClass155_30 == local19) {
-            local21 = new Class39_Sub21(arg0);
+            local21 = new CutsceneAction_Sub21(arg0);
         } else if (local19 == Static12.aClass155_24) {
-            local21 = new Class39_Sub2(arg0);
+            local21 = new CutsceneAction_Sub2(arg0);
         } else if (local19 == Static384.aClass155_26) {
-            local21 = new Class39_Sub17(arg0);
+            local21 = new CutsceneAction_Sub17(arg0);
         } else if (local19 == Static517.aClass155_36) {
-            local21 = new Class39_Sub10(arg0);
+            local21 = new CutsceneAction_Sub10(arg0);
         } else if (Static233.aClass155_17 == local19) {
-            local21 = new Class39_Sub12(arg0);
+            local21 = new CutsceneAction_Sub12(arg0);
         } else if (Static418.aClass155_41 == local19) {
-            local21 = new Class39_Sub1_Sub2(arg0);
+            local21 = new CutsceneAction_Sub1_Sub2(arg0);
         } else if (Static470.aClass155_32 == local19) {
-            local21 = new Class39_Sub23(arg0, 1, 1);
+            local21 = new CutsceneAction_Sub23(arg0, 1, 1);
         } else if (local19 == Static488.aClass155_33) {
-            local21 = new Class39_Sub23(arg0, 0, 1);
+            local21 = new CutsceneAction_Sub23(arg0, 0, 1);
         } else if (local19 == Static126.aClass155_12) {
-            local21 = new Class39_Sub23(arg0, 0, 0);
+            local21 = new CutsceneAction_Sub23(arg0, 0, 0);
         } else if (local19 == Static308.aClass155_21) {
-            local21 = new Class39_Sub23(arg0, 1, 0);
+            local21 = new CutsceneAction_Sub23(arg0, 1, 0);
         } else if (Static719.aClass155_45 == local19) {
-            local21 = new Class39_Sub19(arg0, false);
+            local21 = new CutsceneAction_Sub19(arg0, false);
         } else if (Static682.aClass155_43 == local19) {
-            local21 = new Class39_Sub19(arg0, true);
+            local21 = new CutsceneAction_Sub19(arg0, true);
         } else if (Static330.aClass155_23 == local19) {
-            local21 = new Class39_Sub8(arg0);
+            local21 = new CutsceneAction_Sub8(arg0);
         } else if (local19 == Static212.aClass155_16) {
-            local21 = new Class39_Sub22(arg0);
+            local21 = new CutsceneAction_Sub22(arg0);
         }
         return local21;
     }

@@ -763,9 +763,9 @@ public final class Protocol {
                                         } else if (ServerProt.A_SERVER_PROT___18 == arg0.currentProt) {
                                             local277 = local11.g2();
                                             Static607.anInt9251 = -1;
-                                            Static717.anInt10817 = local277;
+                                            CutsceneManager.cutsceneId = local277;
                                             CutsceneManager.state = 1;
-                                            js5.CUTSCENES.fileready(Static717.anInt10817);
+                                            js5.CUTSCENES.fileready(CutsceneManager.cutsceneId);
                                             local100 = local11.g2();
                                             Static322.anIntArrayArray265 = new int[local100][4];
                                             for (local526 = 0; local526 < local100; local526++) {

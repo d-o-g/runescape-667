@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vca")
-public final class Class39_Sub23 extends Class39 {
+public final class CutsceneAction_Sub23 extends CutsceneAction {
 
     @OriginalMember(owner = "client!vca", name = "j", descriptor = "I")
     public final int anInt9972;
@@ -48,7 +48,7 @@ public final class Class39_Sub23 extends Class39 {
     public final int anInt9979;
 
     @OriginalMember(owner = "client!vca", name = "<init>", descriptor = "(Lclient!ge;II)V")
-    public Class39_Sub23(@OriginalArg(0) Packet arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public CutsceneAction_Sub23(@OriginalArg(0) Packet arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         super(arg0);
         @Pc(10) int local10;
         if (arg1 == 0) {

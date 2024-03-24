@@ -308,7 +308,7 @@ public final class client extends GameShell {
         LocTypeList.instance.cacheClean(5);
         NPCTypeList.instance.cacheClean(5);
         ObjTypeList.instance.cacheClean(5);
-        SeqTypeList.instance.cacheClean();
+        SeqTypeList.instance.cacheClean(5);
         SpotAnimationTypeList.instance.cacheClean(5);
         VarBitTypeListClient.instance.cacheClean(5);
         VarPlayerTypeListClient.instance.cacheClean(5);
@@ -325,7 +325,7 @@ public final class client extends GameShell {
         CursorTypeList.instance.cacheClean(5);
         StructTypeList.instance.cacheClean(5);
         HitmarkTypeList.instance.cacheClean(5);
-        PlayerModel.cacheClean();
+        PlayerModel.cacheClean(5);
         Component.cacheClean(50);
         FontTypeList.cacheClean(50);
         PlayerEntity.cacheClean(5);
@@ -568,7 +568,7 @@ public final class client extends GameShell {
             Static82.method1593();
             Static13.method158();
         } else {
-            if (CutsceneManager.state == 1 && Static360.method5230(Static717.anInt10817)) {
+            if (CutsceneManager.state == 1 && Static360.method5230(CutsceneManager.cutsceneId)) {
                 Static266.method6774();
                 CutsceneManager.state = 2;
             }
@@ -581,14 +581,14 @@ public final class client extends GameShell {
             }
             if (CutsceneManager.state == 3) {
                 local80 = TimeUtils.clock - Static607.anInt9251;
-                if (Static401.aClass39Array1.length > Static440.anInt6680) {
+                if (Static401.aCutsceneActionArray1.length > Static440.anInt6680) {
                     do {
-                        @Pc(982) Class39 local982 = Static401.aClass39Array1[Static440.anInt6680];
+                        @Pc(982) CutsceneAction local982 = Static401.aCutsceneActionArray1[Static440.anInt6680];
                         if (local982.anInt10553 > local80) {
                             break;
                         }
                         local982.method9161();
-                    } while (CutsceneManager.state == 3 && ++Static440.anInt6680 < Static401.aClass39Array1.length);
+                    } while (CutsceneManager.state == 3 && ++Static440.anInt6680 < Static401.aCutsceneActionArray1.length);
                 }
                 if (CutsceneManager.state == 3) {
                     for (local181 = 0; local181 < Static219.aClass236Array1.length; local181++) {

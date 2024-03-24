@@ -1,7 +1,4 @@
-import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static537 {
 
@@ -11,65 +8,4 @@ public final class Static537 {
     @OriginalMember(owner = "client!qu", name = "H", descriptor = "I")
     public static int anInt8170 = -1;
 
-    @OriginalMember(owner = "client!qu", name = "a", descriptor = "(Lclient!mia;III)Lclient!fj;")
-    public static DoublyLinkedNode_Sub2_Sub10 method7189(@OriginalArg(0) ClientTriggerType arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(10) int local10 = arg0.id | arg1 << 10;
-        @Pc(19) DoublyLinkedNode_Sub2_Sub10 local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.A_DOUBLY_LINKED_LIST___2.get((long) local10 << 16);
-        if (local19 != null) {
-            return local19;
-        }
-        @Pc(32) byte[] local32 = js5.CLIENTSCRIPTS.getfile(js5.CLIENTSCRIPTS.getgroupid(local10));
-        if (local32 == null) {
-            local10 = arg2 + 65536 << 10 | arg0.id;
-            local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.A_DOUBLY_LINKED_LIST___2.get((long) local10 << 16);
-            if (local19 != null) {
-                return local19;
-            }
-            local32 = js5.CLIENTSCRIPTS.getfile(js5.CLIENTSCRIPTS.getgroupid(local10));
-            if (local32 == null) {
-                local10 = arg0.id | 0x3FFFC00;
-                local19 = (DoublyLinkedNode_Sub2_Sub10) Static480.A_DOUBLY_LINKED_LIST___2.get((long) local10 << 16);
-                if (local19 != null) {
-                    return local19;
-                }
-                local32 = js5.CLIENTSCRIPTS.getfile(js5.CLIENTSCRIPTS.getgroupid(local10));
-                if (local32 == null) {
-                    return null;
-                } else if (local32.length <= 1) {
-                    return null;
-                } else {
-                    try {
-                        local19 = Static48.method1097(local32);
-                    } catch (@Pc(211) Exception local211) {
-                        throw new RuntimeException(local211.getMessage() + " S: " + local10);
-                    }
-                    local19.aClientTriggerType_5 = arg0;
-                    Static480.A_DOUBLY_LINKED_LIST___2.put(local19, (long) local10 << 16);
-                    return local19;
-                }
-            } else if (local32.length <= 1) {
-                return null;
-            } else {
-                try {
-                    local19 = Static48.method1097(local32);
-                } catch (@Pc(135) Exception local135) {
-                    throw new RuntimeException(local135.getMessage() + " S: " + local10);
-                }
-                local19.aClientTriggerType_5 = arg0;
-                Static480.A_DOUBLY_LINKED_LIST___2.put(local19, (long) local10 << 16);
-                return local19;
-            }
-        } else if (local32.length <= 1) {
-            return null;
-        } else {
-            try {
-                local19 = Static48.method1097(local32);
-            } catch (@Pc(51) Exception local51) {
-                throw new RuntimeException(local51.getMessage() + " S: " + local10);
-            }
-            local19.aClientTriggerType_5 = arg0;
-            Static480.A_DOUBLY_LINKED_LIST___2.put(local19, (long) local10 << 16);
-            return local19;
-        }
-    }
 }

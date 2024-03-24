@@ -52,17 +52,17 @@ public final class Static360 {
                 Static183.aClass231Array1[local174] = new Class231(local46);
             }
             @Pc(195) int local195 = local46.gsmart();
-            Static401.aClass39Array1 = new Class39[local195];
+            Static401.aCutsceneActionArray1 = new CutsceneAction[local195];
             for (@Pc(200) int local200 = 0; local200 < local195; local200++) {
-                Static401.aClass39Array1[local200] = Static235.method3425(local46);
+                Static401.aCutsceneActionArray1[local200] = Static235.method3425(local46);
             }
             Static178.aClass247_1 = Static403.aClass247_3;
         }
         if (Static178.aClass247_1 == Static403.aClass247_3) {
             @Pc(227) boolean local227 = true;
-            @Pc(229) Class39[] local229 = Static401.aClass39Array1;
+            @Pc(229) CutsceneAction[] local229 = Static401.aCutsceneActionArray1;
             for (local53 = 0; local53 < local229.length; local53++) {
-                @Pc(237) Class39 local237 = local229[local53];
+                @Pc(237) CutsceneAction local237 = local229[local53];
                 if (!local237.method9158()) {
                     local227 = false;
                 }

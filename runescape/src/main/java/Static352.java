@@ -96,7 +96,7 @@ public final class Static352 {
         ParticleEffectorTypeList.cacheReset();
         ScriptRunner.A_WEIGHTED_CACHE___156.reset();
         Toolkit.active.cacheReset();
-        Static269.cacheReset();
+        ClientScriptList.cacheReset();
         Static112.method2109();
         js5.ANIMS.discardUnpacked();
         js5.BASES.discardUnpacked();

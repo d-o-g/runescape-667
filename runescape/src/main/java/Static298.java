@@ -42,7 +42,7 @@ public final class Static298 {
         Static183.aClass231Array1 = null;
         Static134.anInt10330 = 0;
         Static178.aClass247_1 = null;
-        Static401.aClass39Array1 = null;
+        Static401.aCutsceneActionArray1 = null;
     }
 
     @OriginalMember(owner = "client!ji", name = "a", descriptor = "(IZI)Z")

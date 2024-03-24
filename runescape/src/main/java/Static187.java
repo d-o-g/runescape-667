@@ -13,7 +13,7 @@ public final class Static187 {
     @OriginalMember(owner = "client!fp", name = "a", descriptor = "(Z)V")
     public static void method2842() {
         Static322.anIntArrayArray265 = null;
-        Static717.anInt10817 = -1;
+        CutsceneManager.cutsceneId = -1;
         Static117.anInt2282 = 0;
         Static102.anInt2129 = 0;
         CutsceneManager.state = 0;

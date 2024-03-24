@@ -20,7 +20,7 @@ public final class Static684 {
     public static void method8931(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int mainLogicStep, @OriginalArg(3) int arg3) {
         if (CutsceneManager.state == 4) {
             CutsceneManager.state = 0;
-            Static717.anInt10817 = -1;
+            CutsceneManager.cutsceneId = -1;
         }
         if (!arg0 && Static62.anInt1465 == arg1 && Static525.anInt8907 == arg3 && (Static164.areaLevel == Camera.renderingLevel || ClientOptions.instance.animateBackground.getValue() == 1)) {
             return;

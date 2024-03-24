@@ -3254,7 +3254,7 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!fj;I)V")
-    public static void method6419(@OriginalArg(0) DoublyLinkedNode_Sub2_Sub10 arg0, @OriginalArg(1) int arg1) {
+    public static void method6419(@OriginalArg(0) ClientScript arg0, @OriginalArg(1) int arg1) {
         anInt7142 = 0;
         anInt7139 = 0;
         @Pc(5) int local5 = -1;
@@ -3373,7 +3373,7 @@ public final class ScriptRunner {
                             anInt7139--;
                         } else if (local34 == 40) {
                             local96 = local11[local5];
-                            @Pc(503) DoublyLinkedNode_Sub2_Sub10 local503 = Static488.method6525(local96);
+                            @Pc(503) ClientScript local503 = ClientScriptList.list(local96);
                             if (local503 == null) {
                                 throw new RuntimeException();
                             }
@@ -6203,7 +6203,7 @@ public final class ScriptRunner {
     public static void method6422(@OriginalArg(0) HookRequest arg0, @OriginalArg(1) int arg1) {
         @Pc(2) Object[] local2 = arg0.arguments;
         @Pc(8) int local8 = (Integer) local2[0];
-        @Pc(12) DoublyLinkedNode_Sub2_Sub10 local12 = Static488.method6525(local8);
+        @Pc(12) ClientScript local12 = ClientScriptList.list(local8);
         if (local12 == null) {
             return;
         }
@@ -6399,16 +6399,16 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(ILjava/lang/String;I)V")
-    public static void method6427(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2) {
-        @Pc(5) DoublyLinkedNode_Sub2_Sub10 local5 = Static537.method7189(Static42.A_CLIENT_TRIGGER_TYPE___4, arg0, -1);
-        if (local5 == null) {
+    public static void executeCutsceneSubtitleTrigger(@OriginalArg(0) int id, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2) {
+        @Pc(5) ClientScript script = ClientScriptList.trigger(Static42.CUTSCENE_SUBTITLE, id, -1);
+        if (script == null) {
             return;
         }
-        anIntArray580 = new int[local5.anInt2948];
-        aStringArray36 = new String[local5.anInt2950];
+        anIntArray580 = new int[script.anInt2948];
+        aStringArray36 = new String[script.anInt2950];
         aStringArray36[0] = arg1;
         anIntArray580[0] = arg2;
-        method6419(local5, 200000);
+        method6419(script, 200000);
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "()V")
@@ -6416,14 +6416,14 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!mia;II)V")
-    public static void executeTrigger(@OriginalArg(0) ClientTriggerType arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(5) DoublyLinkedNode_Sub2_Sub10 local5 = Static537.method7189(arg0, arg1, arg2);
+    public static void executeTrigger(@OriginalArg(0) ClientTriggerType triggerType, @OriginalArg(1) int v1, @OriginalArg(2) int v2) {
+        @Pc(5) ClientScript local5 = ClientScriptList.trigger(triggerType, v1, v2);
         if (local5 == null) {
             return;
         }
         anIntArray580 = new int[local5.anInt2948];
         aStringArray36 = new String[local5.anInt2950];
-        if (local5.aClientTriggerType_5 == Static5.A_CLIENT_TRIGGER_TYPE___1 || local5.aClientTriggerType_5 == Static639.A_CLIENT_TRIGGER_TYPE___13 || local5.aClientTriggerType_5 == Static280.A_CLIENT_TRIGGER_TYPE___7) {
+        if (local5.triggerType == Static5.A_CLIENT_TRIGGER_TYPE___1 || local5.triggerType == Static639.A_CLIENT_TRIGGER_TYPE___13 || local5.triggerType == Static280.A_CLIENT_TRIGGER_TYPE___7) {
             @Pc(35) int local35 = 0;
             @Pc(37) int local37 = 0;
             if (WorldMap.component != null) {

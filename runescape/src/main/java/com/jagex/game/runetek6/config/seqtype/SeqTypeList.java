@@ -91,14 +91,14 @@ public final class SeqTypeList {
     }
 
     @OriginalMember(owner = "client!bp", name = "a", descriptor = "(II)V")
-    public void cacheClean() {
+    public void cacheClean(@OriginalArg(1) int maxAge) {
         @Pc(6) ReferenceCache local6 = this.recentUse;
         synchronized (this.recentUse) {
-            this.recentUse.clean(5);
+            this.recentUse.clean(maxAge);
         }
         local6 = this.framesetCache;
         synchronized (this.framesetCache) {
-            this.framesetCache.clean(5);
+            this.framesetCache.clean(maxAge);
         }
     }
 

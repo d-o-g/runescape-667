@@ -23,16 +23,16 @@ public final class Static570 {
     @OriginalMember(owner = "client!rv", name = "b", descriptor = "(I)Lclient!ge;")
     public static Packet method7552() {
         @Pc(8) Packet local8 = new Packet(518);
-        Static219.anIntArray287 = new int[4];
-        Static219.anIntArray287[2] = (int) (Math.random() * 9.9999999E7D);
-        Static219.anIntArray287[0] = (int) (Math.random() * 9.9999999E7D);
-        Static219.anIntArray287[3] = (int) (Math.random() * 9.9999999E7D);
-        Static219.anIntArray287[1] = (int) (Math.random() * 9.9999999E7D);
+        Static219.xteaKey = new int[4];
+        Static219.xteaKey[2] = (int) (Math.random() * 9.9999999E7D);
+        Static219.xteaKey[0] = (int) (Math.random() * 9.9999999E7D);
+        Static219.xteaKey[3] = (int) (Math.random() * 9.9999999E7D);
+        Static219.xteaKey[1] = (int) (Math.random() * 9.9999999E7D);
         local8.p1(10);
-        local8.p4(Static219.anIntArray287[0]);
-        local8.p4(Static219.anIntArray287[1]);
-        local8.p4(Static219.anIntArray287[2]);
-        local8.p4(Static219.anIntArray287[3]);
+        local8.p4(Static219.xteaKey[0]);
+        local8.p4(Static219.xteaKey[1]);
+        local8.p4(Static219.xteaKey[2]);
+        local8.p4(Static219.xteaKey[3]);
         return local8;
     }
 

@@ -70,9 +70,9 @@ public final class Static430 {
     public static void method5819(@OriginalArg(0) String arg0, @OriginalArg(2) int arg1) {
         @Pc(10) ServerConnection local10 = ConnectionManager.active();
         @Pc(16) ClientMessage local16 = ClientMessage.create(Static425.A_CLIENT_PROT___80, local10.cipher);
-        local16.buffer.p1(Static231.method3379(arg0) + 1);
-        local16.buffer.pjstr(arg0);
-        local16.buffer.p1_alt2(arg1);
+        local16.bitPacket.p1(Static231.method3379(arg0) + 1);
+        local16.bitPacket.pjstr(arg0);
+        local16.bitPacket.p1_alt2(arg1);
         local10.send(local16);
     }
 }

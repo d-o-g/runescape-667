@@ -31,7 +31,7 @@ public final class Static273 {
         @Pc(6) ClientMessage local6 = Static119.method2174();
         local6.aClientProt_32 = null;
         local6.anInt2986 = 0;
-        local6.buffer = new PacketBuffer(5000);
+        local6.bitPacket = new BitPacket(5000);
         return local6;
     }
 

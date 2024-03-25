@@ -21,7 +21,7 @@ public final class Static437 {
     public static final Class131 aClass131_4 = new Class131();
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(ILclient!rka;)V")
-    public static void method5915(@OriginalArg(1) PacketBuffer arg0) {
+    public static void method5915(@OriginalArg(1) BitPacket bitPacket) {
         @Pc(10) Node_Sub57 local10 = (Node_Sub57) Static631.aDeque_78.first();
         if (local10 == null) {
             return;
@@ -48,8 +48,8 @@ public final class Static437 {
         if (local16) {
             return;
         }
-        @Pc(98) int local98 = arg0.pos;
-        arg0.p4(local10.anInt10366);
+        @Pc(98) int local98 = bitPacket.pos;
+        bitPacket.p4(local10.anInt10366);
         for (@Pc(105) int local105 = 0; local105 < local10.anInt10364; local105++) {
             if (local10.anIntArray829[local105] == 0) {
                 try {
@@ -59,17 +59,17 @@ public final class Static437 {
                     if (local130 == 0) {
                         local149 = (Field) local10.aSignedResourceArray1[local105].result;
                         local177 = local149.getInt(null);
-                        arg0.p1(0);
-                        arg0.p4(local177);
+                        bitPacket.p1(0);
+                        bitPacket.p4(local177);
                     } else if (local130 == 1) {
                         local149 = (Field) local10.aSignedResourceArray1[local105].result;
                         local149.setInt(null, local10.anIntArray827[local105]);
-                        arg0.p1(0);
+                        bitPacket.p1(0);
                     } else if (local130 == 2) {
                         local149 = (Field) local10.aSignedResourceArray1[local105].result;
                         local177 = local149.getModifiers();
-                        arg0.p1(0);
-                        arg0.p4(local177);
+                        bitPacket.p1(0);
+                        bitPacket.p4(local177);
                     }
                     @Pc(225) Method local225;
                     if (local130 == 3) {
@@ -82,52 +82,52 @@ public final class Static437 {
                         }
                         @Pc(283) Object local283 = local225.invoke(null, local254);
                         if (local283 == null) {
-                            arg0.p1(0);
+                            bitPacket.p1(0);
                         } else if (local283 instanceof Number) {
-                            arg0.p1(1);
-                            arg0.p8(((Number) local283).longValue());
+                            bitPacket.p1(1);
+                            bitPacket.p8(((Number) local283).longValue());
                         } else if (local283 instanceof String) {
-                            arg0.p1(2);
-                            arg0.pjstr((String) local283);
+                            bitPacket.p1(2);
+                            bitPacket.pjstr((String) local283);
                         } else {
-                            arg0.p1(4);
+                            bitPacket.p1(4);
                         }
                     } else if (local130 == 4) {
                         local225 = (Method) local10.aSignedResourceArray2[local105].result;
                         local177 = local225.getModifiers();
-                        arg0.p1(0);
-                        arg0.p4(local177);
+                        bitPacket.p1(0);
+                        bitPacket.p4(local177);
                     }
                 } catch (@Pc(338) ClassNotFoundException local338) {
-                    arg0.p1(-10);
+                    bitPacket.p1(-10);
                 } catch (@Pc(344) InvalidClassException local344) {
-                    arg0.p1(-11);
+                    bitPacket.p1(-11);
                 } catch (@Pc(350) StreamCorruptedException local350) {
-                    arg0.p1(-12);
+                    bitPacket.p1(-12);
                 } catch (@Pc(356) OptionalDataException local356) {
-                    arg0.p1(-13);
+                    bitPacket.p1(-13);
                 } catch (@Pc(362) IllegalAccessException local362) {
-                    arg0.p1(-14);
+                    bitPacket.p1(-14);
                 } catch (@Pc(368) IllegalArgumentException local368) {
-                    arg0.p1(-15);
+                    bitPacket.p1(-15);
                 } catch (@Pc(374) InvocationTargetException local374) {
-                    arg0.p1(-16);
+                    bitPacket.p1(-16);
                 } catch (@Pc(380) SecurityException local380) {
-                    arg0.p1(-17);
+                    bitPacket.p1(-17);
                 } catch (@Pc(386) IOException local386) {
-                    arg0.p1(-18);
+                    bitPacket.p1(-18);
                 } catch (@Pc(392) NullPointerException local392) {
-                    arg0.p1(-19);
+                    bitPacket.p1(-19);
                 } catch (@Pc(398) Exception local398) {
-                    arg0.p1(-20);
+                    bitPacket.p1(-20);
                 } catch (@Pc(404) Throwable local404) {
-                    arg0.p1(-21);
+                    bitPacket.p1(-21);
                 }
             } else {
-                arg0.p1(local10.anIntArray829[local105]);
+                bitPacket.p1(local10.anIntArray829[local105]);
             }
         }
-        arg0.addcrc(local98);
+        bitPacket.addcrc(local98);
         if (-2 == -2) {
             local10.unlink();
         }

@@ -16,7 +16,7 @@ public final class Static408 {
         Static524.aServerConnection_3.antepenultimateProt = null;
         Static524.aServerConnection_3.penultimateProt = null;
         Static524.aServerConnection_3.aServerProt_92 = null;
-        Static524.aServerConnection_3.buffer.pos = 0;
+        Static524.aServerConnection_3.bitPacket.pos = 0;
         Static102.method2022();
         Static251.anInt4036 = 0;
         Static723.aString129 = null;

@@ -15,7 +15,7 @@ public final class Static605 {
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ILclient!pc;)V")
     public static void method7912(@OriginalArg(1) ZoneProt arg0) {
-        @Pc(8) PacketBuffer local8 = ConnectionManager.GAME.buffer;
+        @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
         @Pc(15) int local15;
         @Pc(21) int local21;
         @Pc(25) int local25;
@@ -25,14 +25,14 @@ public final class Static605 {
         @Pc(46) int local46;
         @Pc(52) int local52;
         if (arg0 == Static704.A_ZONE_PROT___17) {
-            local15 = local8.g1();
+            local15 = bitPacket.g1();
             local21 = (local15 & 0x7) + Static270.anInt4354;
             local25 = WorldMap.areaBaseZ + local21;
             local34 = Static626.anInt9476 + (local15 >> 4 & 0x7);
             local38 = WorldMap.areaBaseX + local34;
-            local42 = local8.g2();
-            local46 = local8.g2();
-            local52 = local8.g2();
+            local42 = bitPacket.g2();
+            local46 = bitPacket.g2();
+            local52 = bitPacket.g2();
             if (Static497.stacks != null) {
                 @Pc(69) ObjStack local69 = (ObjStack) Static497.stacks.get(Static87.anInt1810 << 28 | local25 << 14 | local38);
                 if (local69 != null) {
@@ -58,14 +58,14 @@ public final class Static605 {
         @Pc(217) int local217;
         @Pc(322) int local322;
         if (Static379.A_ZONE_PROT___12 == arg0) {
-            local15 = local8.g1_alt1();
+            local15 = bitPacket.g1_alt1();
             local21 = local15 >> 2;
             local25 = Static310.anIntArray379[local21];
-            local34 = local8.g1();
-            local38 = local8.g1_alt3();
+            local34 = bitPacket.g1();
+            local38 = bitPacket.g1_alt3();
             local42 = Static626.anInt9476 + (local38 >> 4 & 0x7);
             local46 = (local38 & 0x7) + Static270.anInt4354;
-            local52 = local8.ig2();
+            local52 = bitPacket.ig2();
             if (local21 == 11) {
                 local21 = 10;
             }
@@ -96,58 +96,58 @@ public final class Static605 {
                 if ((local34 & 0x2) == 2) {
                     local278 = new int[local212];
                     for (local290 = 0; local290 < local212; local290++) {
-                        local278[local290] = local8.g2();
+                        local278[local290] = bitPacket.g2();
                     }
                 }
                 @Pc(310) short[] local310 = null;
                 if ((local34 & 0x4) == 4) {
                     local310 = new short[local217];
                     for (local322 = 0; local322 < local217; local322++) {
-                        local310[local322] = (short) local8.g2();
+                        local310[local322] = (short) bitPacket.g2();
                     }
                 }
                 @Pc(343) short[] local343 = null;
                 if ((local34 & 0x8) == 8) {
                     local343 = new short[local219];
                     for (local353 = 0; local353 < local219; local353++) {
-                        local343[local353] = (short) local8.g2();
+                        local343[local353] = (short) bitPacket.g2();
                     }
                 }
                 Static296.method4361(new LocTypeCustomisation(Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
             }
         } else if (arg0 == Static420.A_ZONE_PROT___13) {
-            local15 = local8.g2_alt3();
+            local15 = bitPacket.g2_alt3();
             if (local15 == 65535) {
                 local15 = -1;
             }
-            local21 = local8.g1_alt1();
+            local21 = bitPacket.g1_alt1();
             local25 = Static626.anInt9476 + (local21 >> 4 & 0x7);
             local34 = (local21 & 0x7) + Static270.anInt4354;
-            local38 = local8.g1();
+            local38 = bitPacket.g1();
             local42 = local38 >> 2;
             local46 = local38 & 0x3;
             local52 = Static310.anIntArray379[local42];
             Static198.method2953(Static87.anInt1810, local34, local42, local15, local25, local46, local52);
         } else if (arg0 == Static328.A_ZONE_PROT___10) {
-            local15 = local8.g2();
-            local21 = local8.g1();
+            local15 = bitPacket.g2();
+            local21 = bitPacket.g1();
             LocTypeList.instance.list(local15).loadedModels(local21);
         } else {
             @Pc(537) int local537;
             if (arg0 == Static481.A_ZONE_PROT___15) {
-                local15 = local8.g1();
+                local15 = bitPacket.g1();
                 local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                 local25 = (local15 & 0x7) + Static270.anInt4354;
-                local34 = local8.g2();
+                local34 = bitPacket.g2();
                 if (local34 == 65535) {
                     local34 = -1;
                 }
-                local38 = local8.g1();
+                local38 = bitPacket.g1();
                 local42 = local38 >> 4 & 0xF;
                 local46 = local38 & 0x7;
-                local52 = local8.g1();
-                local537 = local8.g1();
-                local212 = local8.g2();
+                local52 = bitPacket.g1();
+                local537 = bitPacket.g1();
+                local212 = bitPacket.g2();
                 if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
                     local217 = local42 + 1;
                     if (local21 - local217 <= PlayerEntity.self.pathX[0] && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathZ[0] >= local25 - local217 && local217 + local25 >= PlayerEntity.self.pathZ[0]) {
@@ -155,43 +155,43 @@ public final class Static605 {
                     }
                 }
             } else if (arg0 == Static450.A_ZONE_PROT___14) {
-                local15 = local8.g1();
+                local15 = bitPacket.g1();
                 local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                 local25 = (local15 & 0x7) + Static270.anInt4354;
-                local34 = local8.g1();
+                local34 = bitPacket.g1();
                 local38 = local34 >> 2;
                 local42 = local34 & 0x3;
                 local46 = Static310.anIntArray379[local38];
-                local52 = local8.g2_alt2();
+                local52 = bitPacket.g2_alt2();
                 if (Static55.method1218(Static117.anInt2282) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
                     Static553.method7289(local42, local52, local46, local21, Static87.anInt1810, local38, local25);
                 }
             } else {
                 @Pc(812) int local812;
                 if (arg0 == Static3.A_ZONE_PROT___1) {
-                    local15 = local8.g1();
+                    local15 = bitPacket.g1();
                     local21 = Static626.anInt9476 * 2 + (local15 >> 4 & 0xF);
                     local25 = (local15 & 0xF) + Static270.anInt4354 * 2;
-                    local34 = local8.g1();
+                    local34 = bitPacket.g1();
                     @Pc(764) boolean local764 = (local34 & 0x1) != 0;
                     @Pc(773) boolean local773 = (local34 & 0x2) != 0;
                     local46 = local773 ? local34 >> 2 : -1;
-                    local52 = local8.g1b() + local21;
-                    local537 = local25 + local8.g1b();
-                    local212 = local8.g2s();
-                    local217 = local8.g2s();
-                    local219 = local8.g2();
-                    local812 = local8.g1();
+                    local52 = bitPacket.g1b() + local21;
+                    local537 = local25 + bitPacket.g1b();
+                    local212 = bitPacket.g2s();
+                    local217 = bitPacket.g2s();
+                    local219 = bitPacket.g2();
+                    local812 = bitPacket.g1();
                     if (local773) {
                         local812 = (byte) local812;
                     } else {
                         local812 *= 4;
                     }
-                    local290 = local8.g1() * 4;
-                    local322 = local8.g2();
-                    local353 = local8.g2();
-                    @Pc(843) int local843 = local8.g1();
-                    @Pc(847) int local847 = local8.g2();
+                    local290 = bitPacket.g1() * 4;
+                    local322 = bitPacket.g2();
+                    local353 = bitPacket.g2();
+                    @Pc(843) int local843 = bitPacket.g1();
+                    @Pc(847) int local847 = bitPacket.g2();
                     if (local843 == 255) {
                         local843 = -1;
                     }
@@ -235,14 +235,14 @@ public final class Static605 {
                         Static505.projectiles.addLast(new ProjectileAnimationNode(local1053));
                     }
                 } else if (Static77.A_ZONE_PROT___5 == arg0) {
-                    local15 = local8.g2_alt2();
-                    local21 = local8.g1_alt1();
+                    local15 = bitPacket.g2_alt2();
+                    local21 = bitPacket.g1_alt1();
                     local25 = Static270.anInt4354 + (local21 & 0x7);
                     local34 = local25 + WorldMap.areaBaseZ;
                     local38 = Static626.anInt9476 + (local21 >> 4 & 0x7);
                     local42 = WorldMap.areaBaseX + local38;
-                    local46 = local8.ig2();
-                    local52 = local8.g2();
+                    local46 = bitPacket.ig2();
+                    local52 = bitPacket.g2();
                     if (local15 != PlayerList.activePlayerSlot) {
                         @Pc(1151) boolean local1151 = local38 >= 0 && local25 >= 0 && Static720.mapWidth > local38 && local25 < Static501.mapHeight;
                         if (local1151 || Static55.method1218(Static117.anInt2282)) {
@@ -253,19 +253,19 @@ public final class Static605 {
                         }
                     }
                 } else if (Static84.A_ZONE_PROT___6 == arg0) {
-                    local15 = local8.g1();
+                    local15 = bitPacket.g1();
                     local21 = (local15 >> 4 & 0x7) + Static626.anInt9476;
                     local25 = (local15 & 0x7) + Static270.anInt4354;
-                    local34 = local8.g2();
+                    local34 = bitPacket.g2();
                     if (local34 == 65535) {
                         local34 = -1;
                     }
-                    local38 = local8.g1();
+                    local38 = bitPacket.g1();
                     local42 = local38 >> 4 & 0xF;
                     local46 = local38 & 0x7;
-                    local52 = local8.g1();
-                    local537 = local8.g1();
-                    local212 = local8.g2();
+                    local52 = bitPacket.g1();
+                    local537 = bitPacket.g1();
+                    local212 = bitPacket.g2();
                     if (local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
                         local217 = local42 + 1;
                         if (PlayerEntity.self.pathX[0] >= local21 - local217 && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathZ[0] >= local25 - local217 && PlayerEntity.self.pathZ[0] <= local25 + local217) {
@@ -273,8 +273,8 @@ public final class Static605 {
                         }
                     }
                 } else if (arg0 == Static565.A_ZONE_PROT___8) {
-                    local15 = local8.g2();
-                    local21 = local8.g1();
+                    local15 = bitPacket.g2();
+                    local21 = bitPacket.g1();
                     local25 = (local21 & 0x7) + Static270.anInt4354;
                     local34 = local25 + WorldMap.areaBaseZ;
                     local38 = (local21 >> 4 & 0x7) + Static626.anInt9476;
@@ -295,30 +295,30 @@ public final class Static605 {
                         }
                     }
                 } else if (Static370.A_ZONE_PROT___11 == arg0) {
-                    local8.g1();
-                    local15 = local8.g1();
+                    bitPacket.g1();
+                    local15 = bitPacket.g1();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                     local25 = (local15 & 0x7) + Static270.anInt4354;
-                    local34 = local8.g2();
-                    local38 = local8.g1();
-                    local42 = local8.g3();
-                    @Pc(1511) String local1511 = local8.gjstr();
+                    local34 = bitPacket.g2();
+                    local38 = bitPacket.g1();
+                    local42 = bitPacket.g3();
+                    @Pc(1511) String local1511 = bitPacket.gjstr();
                     Static540.method6539(Static87.anInt1810, local34, local1511, local42, local38, local21, local25);
                 } else if (ZoneProt.MAP_PROJANIM == arg0) {
-                    local15 = local8.g1();
+                    local15 = bitPacket.g1();
                     @Pc(1540) boolean local1540 = (local15 & 0x80) != 0;
                     local25 = Static626.anInt9476 + (local15 >> 3 & 0x7);
                     local34 = (local15 & 0x7) + Static270.anInt4354;
-                    local38 = local25 + local8.g1b();
-                    local42 = local34 + local8.g1b();
-                    local46 = local8.g2s();
-                    local52 = local8.g2();
-                    local537 = local8.g1() * 4;
-                    local212 = local8.g1() * 4;
-                    local217 = local8.g2();
-                    local219 = local8.g2();
-                    local812 = local8.g1();
-                    local290 = local8.g2();
+                    local38 = local25 + bitPacket.g1b();
+                    local42 = local34 + bitPacket.g1b();
+                    local46 = bitPacket.g2s();
+                    local52 = bitPacket.g2();
+                    local537 = bitPacket.g1() * 4;
+                    local212 = bitPacket.g1() * 4;
+                    local217 = bitPacket.g2();
+                    local219 = bitPacket.g2();
+                    local812 = bitPacket.g1();
+                    local290 = bitPacket.g2();
                     if (local812 == 255) {
                         local812 = -1;
                     }
@@ -335,10 +335,10 @@ public final class Static605 {
                         Static505.projectiles.addLast(new ProjectileAnimationNode(projectile));
                     }
                 } else if (Static210.A_ZONE_PROT___9 == arg0) {
-                    local15 = local8.g1_alt2();
+                    local15 = bitPacket.g1_alt2();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                     local25 = (local15 & 0x7) + Static270.anInt4354;
-                    local34 = local8.g1();
+                    local34 = bitPacket.g1();
                     local38 = local34 >> 2;
                     local42 = local34 & 0x3;
                     local46 = Static310.anIntArray379[local38];
@@ -346,13 +346,13 @@ public final class Static605 {
                         Static553.method7289(local42, -1, local46, local21, Static87.anInt1810, local38, local25);
                     }
                 } else if (Static18.A_ZONE_PROT___2 == arg0) {
-                    local15 = local8.g1_alt2();
+                    local15 = bitPacket.g1_alt2();
                     local21 = Static270.anInt4354 + (local15 & 0x7);
                     local25 = local21 + WorldMap.areaBaseZ;
                     local34 = (local15 >> 4 & 0x7) + Static626.anInt9476;
                     local38 = WorldMap.areaBaseX + local34;
-                    local42 = local8.g2_alt2();
-                    local46 = local8.g2();
+                    local42 = bitPacket.g2_alt2();
+                    local46 = bitPacket.g2();
                     @Pc(1886) boolean local1886 = local34 >= 0 && local21 >= 0 && local34 < Static720.mapWidth && local21 < Static501.mapHeight;
                     if (local1886 || Static55.method1218(Static117.anInt2282)) {
                         Static2.sortAllObjs(Static87.anInt1810, local25, local38, new ObjStackEntry(local42, local46));
@@ -361,16 +361,16 @@ public final class Static605 {
                         }
                     }
                 } else if (arg0 == Static668.A_ZONE_PROT___16) {
-                    local15 = local8.g1();
+                    local15 = bitPacket.g1();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                     local25 = (local15 & 0x7) + Static270.anInt4354;
-                    local34 = local8.g2();
+                    local34 = bitPacket.g2();
                     if (local34 == 65535) {
                         local34 = -1;
                     }
-                    local38 = local8.g1();
-                    local42 = local8.g2();
-                    local46 = local8.g1();
+                    local38 = bitPacket.g1();
+                    local42 = bitPacket.g2();
+                    local46 = bitPacket.g1();
                     if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
                         if (local34 == -1) {
                             @Pc(2004) SpotAnimationNode local2004 = (SpotAnimationNode) Static346.A_HASH_TABLE___29.get(local21 << 16 | local25);

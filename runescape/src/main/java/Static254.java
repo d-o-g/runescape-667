@@ -18,7 +18,7 @@ public final class Static254 {
 
     @OriginalMember(owner = "client!hr", name = "d", descriptor = "(I)[Lclient!hja;")
     public static LoginProt[] method3604() {
-        return new LoginProt[]{LoginProt.A_LOGIN_PROT___53, LoginProt.INIT_JS5REMOTE_CONNECTION, LoginProt.A_LOGIN_PROT___55, LoginProt.A_LOGIN_PROT___56, LoginProt.A_LOGIN_PROT___57, LoginProt.A_LOGIN_PROT___58, LoginProt.A_LOGIN_PROT___59, LoginProt.A_LOGIN_PROT___60, LoginProt.A_LOGIN_PROT___61, LoginProt.A_LOGIN_PROT___62, LoginProt.A_LOGIN_PROT___63, LoginProt.A_LOGIN_PROT___64, LoginProt.A_LOGIN_PROT___65};
+        return new LoginProt[]{LoginProt.A_LOGIN_PROT___53, LoginProt.INIT_JS5REMOTE_CONNECTION, LoginProt.A_LOGIN_PROT___55, LoginProt.A_LOGIN_PROT___56, LoginProt.A_LOGIN_PROT___57, LoginProt.A_LOGIN_PROT___58, LoginProt.A_LOGIN_PROT___59, LoginProt.A_LOGIN_PROT___60, LoginProt.GAMELOGIN_CONTINUE, LoginProt.A_LOGIN_PROT___62, LoginProt.A_LOGIN_PROT___63, LoginProt.A_LOGIN_PROT___64, LoginProt.A_LOGIN_PROT___65};
     }
 
     @OriginalMember(owner = "client!hr", name = "c", descriptor = "(I)V")

@@ -1107,11 +1107,11 @@ public final class MiniMenu {
                 Static305.crossY = clickY;
 
                 @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ConnectionManager.GAME.cipher);
-                message.buffer.p2_alt1(v1);
-                message.buffer.p4_alt1(InterfaceManager.targetSlot);
-                message.buffer.p2(InterfaceManager.targetInvObj);
-                message.buffer.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
-                message.buffer.p2_alt3(InterfaceManager.targetComponent);
+                message.bitPacket.p2_alt1(v1);
+                message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
+                message.bitPacket.p2(InterfaceManager.targetInvObj);
+                message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
+                message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
                 ConnectionManager.GAME.send(message);
 
                 Static147.findPath(0, player.pathZ[0], player.getSize(), true, player.pathX[0], 0, -2, player.getSize());
@@ -1125,11 +1125,11 @@ public final class MiniMenu {
             Static676.crossX = clickX;
 
             @Pc(147) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ConnectionManager.GAME.cipher);
-            message.buffer.p2_alt1(PlayerEntity.self.id);
-            message.buffer.p4_alt1(InterfaceManager.targetSlot);
-            message.buffer.p2(InterfaceManager.targetInvObj);
-            message.buffer.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
-            message.buffer.p2_alt3(InterfaceManager.targetComponent);
+            message.bitPacket.p2_alt1(PlayerEntity.self.id);
+            message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
+            message.bitPacket.p2(InterfaceManager.targetInvObj);
+            message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
+            message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
             ConnectionManager.GAME.send(message);
         }
 
@@ -1158,16 +1158,16 @@ public final class MiniMenu {
                 @Pc(147) ClientMessage message = Static32.moveMessage(v2, v3, v1);
 
                 if (v1 == 1) {
-                    message.buffer.p1(-1);
-                    message.buffer.p1(-1);
-                    message.buffer.p2((int) Camera.playerCameraYaw);
-                    message.buffer.p1(57);
-                    message.buffer.p1(Camera.yawOffset);
-                    message.buffer.p1(Camera.scaleOffset);
-                    message.buffer.p1(89);
-                    message.buffer.p2(PlayerEntity.self.x);
-                    message.buffer.p2(PlayerEntity.self.z);
-                    message.buffer.p1(63);
+                    message.bitPacket.p1(-1);
+                    message.bitPacket.p1(-1);
+                    message.bitPacket.p2((int) Camera.playerCameraYaw);
+                    message.bitPacket.p1(57);
+                    message.bitPacket.p1(Camera.yawOffset);
+                    message.bitPacket.p1(Camera.scaleOffset);
+                    message.bitPacket.p1(89);
+                    message.bitPacket.p2(PlayerEntity.self.x);
+                    message.bitPacket.p2(PlayerEntity.self.z);
+                    message.bitPacket.p1(63);
                 } else {
                     Static305.crossY = clickY;
                     Static616.crossType = 1;
@@ -1220,8 +1220,8 @@ public final class MiniMenu {
                 Static676.crossX = clickX;
 
                 @Pc(494) ClientMessage message = ClientMessage.create(opPlayer, ConnectionManager.GAME.cipher);
-                message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
-                message.buffer.p2(v1);
+                message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+                message.bitPacket.p2(v1);
                 ConnectionManager.GAME.send(message);
 
                 Static147.findPath(0, player.pathZ[0], player.getSize(), true, player.pathX[0], 0, -2, player.getSize());
@@ -1250,10 +1250,10 @@ public final class MiniMenu {
             Static676.crossX = clickX;
 
             @Pc(494) ClientMessage message = ClientMessage.create(opObj, ConnectionManager.GAME.cipher);
-            message.buffer.p2_alt2(v1);
-            message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
-            message.buffer.p2(v3 + WorldMap.areaBaseZ);
-            message.buffer.p2_alt1(WorldMap.areaBaseX + v2);
+            message.bitPacket.p2_alt2(v1);
+            message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+            message.bitPacket.p2(v3 + WorldMap.areaBaseZ);
+            message.bitPacket.p2_alt1(WorldMap.areaBaseX + v2);
             ConnectionManager.GAME.send(message);
 
             Static414.findPathToObj(v3, v2);
@@ -1269,8 +1269,8 @@ public final class MiniMenu {
                 Static305.crossY = clickY;
 
                 @Pc(494) ClientMessage message = ClientMessage.create(ClientProt.FACE_SQUARE, ConnectionManager.GAME.cipher);
-                message.buffer.p2_alt3(v3 + WorldMap.areaBaseZ);
-                message.buffer.p2_alt1(WorldMap.areaBaseX + v2);
+                message.bitPacket.p2_alt3(v3 + WorldMap.areaBaseZ);
+                message.bitPacket.p2_alt1(WorldMap.areaBaseX + v2);
                 ConnectionManager.GAME.send(message);
             }
         }
@@ -1308,8 +1308,8 @@ public final class MiniMenu {
                 Static305.crossY = clickY;
                 Static481.crossDuration = 0;
                 @Pc(831) ClientMessage message = ClientMessage.create(opNpc, ConnectionManager.GAME.cipher);
-                message.buffer.p1_alt1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
-                message.buffer.p2_alt2(v1);
+                message.bitPacket.p1_alt1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+                message.bitPacket.p2_alt2(v1);
                 ConnectionManager.GAME.send(message);
 
                 Static147.findPath(0, npc.pathZ[0], npc.getSize(), true, npc.pathX[0], 0, -2, npc.getSize());
@@ -1338,10 +1338,10 @@ public final class MiniMenu {
             Static676.crossX = clickX;
 
             @Pc(949) ClientMessage message = ClientMessage.create(opLoc, ConnectionManager.GAME.cipher);
-            message.buffer.p1_alt1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
-            message.buffer.p2_alt2(WorldMap.areaBaseX + v2);
-            message.buffer.p2_alt3((int) (v1Long >>> 32) & Integer.MAX_VALUE);
-            message.buffer.p2_alt1(v3 + WorldMap.areaBaseZ);
+            message.bitPacket.p1_alt1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+            message.bitPacket.p2_alt2(WorldMap.areaBaseX + v2);
+            message.bitPacket.p2_alt3((int) (v1Long >>> 32) & Integer.MAX_VALUE);
+            message.bitPacket.p2_alt1(v3 + WorldMap.areaBaseZ);
             ConnectionManager.GAME.send(message);
 
             Static38.findPathToLoc(v2, v1Long, v3);
@@ -1358,11 +1358,11 @@ public final class MiniMenu {
             Static481.crossDuration = 0;
 
             @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.APCOORDT, ConnectionManager.GAME.cipher);
-            message.buffer.p2_alt2(WorldMap.areaBaseX + v2);
-            message.buffer.p2_alt1(InterfaceManager.targetInvObj);
-            message.buffer.p4_alt2(InterfaceManager.targetSlot);
-            message.buffer.p2_alt2(WorldMap.areaBaseZ + v3);
-            message.buffer.p2(InterfaceManager.targetComponent);
+            message.bitPacket.p2_alt2(WorldMap.areaBaseX + v2);
+            message.bitPacket.p2_alt1(InterfaceManager.targetInvObj);
+            message.bitPacket.p4_alt2(InterfaceManager.targetSlot);
+            message.bitPacket.p2_alt2(WorldMap.areaBaseZ + v3);
+            message.bitPacket.p2(InterfaceManager.targetComponent);
             ConnectionManager.GAME.send(message);
 
             Static147.findPath(0, v3, 1, true, v2, 0, -4, 1);
@@ -1375,13 +1375,13 @@ public final class MiniMenu {
             Static676.crossX = clickX;
 
             @Pc(949) ClientMessage message = ClientMessage.create(Static175.A_CLIENT_PROT___31, ConnectionManager.GAME.cipher);
-            message.buffer.p2(v2 + WorldMap.areaBaseX);
-            message.buffer.p2(WorldMap.areaBaseZ + v3);
-            message.buffer.p2_alt3(InterfaceManager.targetInvObj);
-            message.buffer.p4_alt3(InterfaceManager.targetSlot);
-            message.buffer.p2_alt1(InterfaceManager.targetComponent);
-            message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
-            message.buffer.p2_alt1(v1);
+            message.bitPacket.p2(v2 + WorldMap.areaBaseX);
+            message.bitPacket.p2(WorldMap.areaBaseZ + v3);
+            message.bitPacket.p2_alt3(InterfaceManager.targetInvObj);
+            message.bitPacket.p4_alt3(InterfaceManager.targetSlot);
+            message.bitPacket.p2_alt1(InterfaceManager.targetComponent);
+            message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+            message.bitPacket.p2_alt1(v1);
             ConnectionManager.GAME.send(message);
 
             Static414.findPathToObj(v3, v2);
@@ -1399,11 +1399,11 @@ public final class MiniMenu {
                 Static305.crossY = clickY;
 
                 @Pc(1223) ClientMessage message = ClientMessage.create(Static503.A_CLIENT_PROT___94, ConnectionManager.GAME.cipher);
-                message.buffer.p2_alt3(InterfaceManager.targetComponent);
-                message.buffer.p2_alt1(InterfaceManager.targetInvObj);
-                message.buffer.p2_alt1(v1);
-                message.buffer.p4_alt3(InterfaceManager.targetSlot);
-                message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+                message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
+                message.bitPacket.p2_alt1(InterfaceManager.targetInvObj);
+                message.bitPacket.p2_alt1(v1);
+                message.bitPacket.p4_alt3(InterfaceManager.targetSlot);
+                message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
                 ConnectionManager.GAME.send(message);
 
                 Static147.findPath(0, npc.pathZ[0], npc.getSize(), true, npc.pathX[0], 0, -2, npc.getSize());
@@ -1421,13 +1421,13 @@ public final class MiniMenu {
             Static616.crossType = 2;
 
             @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.OPLOCT, ConnectionManager.GAME.cipher);
-            message.buffer.p1_alt2(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
-            message.buffer.p2_alt1(WorldMap.areaBaseZ + v3);
-            message.buffer.p2_alt1(InterfaceManager.targetComponent);
-            message.buffer.p4_alt1(InterfaceManager.targetSlot);
-            message.buffer.p2_alt3(InterfaceManager.targetInvObj);
-            message.buffer.p2_alt1(v2 + WorldMap.areaBaseX);
-            message.buffer.p2_alt2(Integer.MAX_VALUE & (int) (v1Long >>> 32));
+            message.bitPacket.p1_alt2(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+            message.bitPacket.p2_alt1(WorldMap.areaBaseZ + v3);
+            message.bitPacket.p2_alt1(InterfaceManager.targetComponent);
+            message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
+            message.bitPacket.p2_alt3(InterfaceManager.targetInvObj);
+            message.bitPacket.p2_alt1(v2 + WorldMap.areaBaseX);
+            message.bitPacket.p2_alt2(Integer.MAX_VALUE & (int) (v1Long >>> 32));
             ConnectionManager.GAME.send(message);
 
             Static38.findPathToLoc(v2, v1Long, v3);
@@ -1445,8 +1445,8 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!pc", name = "a", descriptor = "(IZI)V")
     public static void sendResumePauseButton(@OriginalArg(0) int slot, @OriginalArg(2) int id) {
         @Pc(13) ClientMessage message = ClientMessage.create(ClientProt.RESUME_PAUSEBUTTON, ConnectionManager.GAME.cipher);
-        message.buffer.p4_alt3(id);
-        message.buffer.p2_alt3(slot);
+        message.bitPacket.p4_alt3(id);
+        message.bitPacket.p2_alt3(slot);
         ConnectionManager.GAME.send(message);
     }
 
@@ -1469,12 +1469,12 @@ public final class MiniMenu {
         }
 
         @Pc(45) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTONT, ConnectionManager.GAME.cipher);
-        message.buffer.p4_alt2(button.slot);
-        message.buffer.p2_alt2(InterfaceManager.targetInvObj);
-        message.buffer.p2_alt3(InterfaceManager.targetComponent);
-        message.buffer.p4_alt3(InterfaceManager.targetSlot);
-        message.buffer.p2_alt2(button.invObject);
-        message.buffer.p2_alt1(button.id);
+        message.bitPacket.p4_alt2(button.slot);
+        message.bitPacket.p2_alt2(InterfaceManager.targetInvObj);
+        message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
+        message.bitPacket.p4_alt3(InterfaceManager.targetSlot);
+        message.bitPacket.p2_alt2(button.invObject);
+        message.bitPacket.p2_alt1(button.id);
         ConnectionManager.GAME.send(message);
     }
 

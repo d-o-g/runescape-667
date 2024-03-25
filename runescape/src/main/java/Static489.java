@@ -330,7 +330,7 @@ public final class Static489 {
         @Pc(920) ClientMessage local920;
         if (GameShell.frame != null && ConnectionManager.GAME.connection != null && MainLogicManager.step == 12) {
             local920 = ClientMessage.create(Static694.A_CLIENT_PROT___122, ConnectionManager.GAME.cipher);
-            local920.buffer.p4(1057001181);
+            local920.bitPacket.p4(1057001181);
             ConnectionManager.GAME.send(local920);
         }
         if (Static117.anInt2282 == 0) {

@@ -125,12 +125,12 @@ public final class Static364 {
                 Static524.aServerConnection_3.clear();
                 local186 = Static273.method3962();
                 if (Static311.aBoolean384) {
-                    local186.buffer.p1(LoginProt.A_LOGIN_PROT___64.opcode);
-                    local186.buffer.p2(0);
-                    local203 = local186.buffer.pos;
-                    local186.buffer.p4(667);
+                    local186.bitPacket.p1(LoginProt.A_LOGIN_PROT___64.opcode);
+                    local186.bitPacket.p2(0);
+                    local203 = local186.bitPacket.pos;
+                    local186.bitPacket.p4(667);
                     if (Static299.anInt4825 == 2) {
-                        local186.buffer.p1(MainLogicManager.step == 14 ? 1 : 0);
+                        local186.bitPacket.p1(MainLogicManager.step == 14 ? 1 : 0);
                     }
                     @Pc(229) Packet local229 = Static570.method7552();
                     local229.p1(Static129.anInt2409);
@@ -144,10 +144,10 @@ public final class Static364 {
                     local229.p1(client.modeGame.id);
                     local229.p1((int) (Math.random() * 9.9999999E7D));
                     local229.rsaenc(Static374.LOGIN_RSA_MODULUS, Static262.LOGIN_RSA_EXPONENT);
-                    local186.buffer.pdata(local229.pos, local229.data, 0);
-                    local186.buffer.psize2(local186.buffer.pos - local203);
+                    local186.bitPacket.pdata(local229.pos, local229.data, 0);
+                    local186.bitPacket.psize2(local186.bitPacket.pos - local203);
                 } else {
-                    local186.buffer.p1(LoginProt.A_LOGIN_PROT___53.opcode);
+                    local186.bitPacket.p1(LoginProt.A_LOGIN_PROT___53.opcode);
                 }
                 Static524.aServerConnection_3.send(local186);
                 Static524.aServerConnection_3.flush();
@@ -158,8 +158,8 @@ public final class Static364 {
                 if (!Static524.aServerConnection_3.connection.hasAvailable(1)) {
                     return;
                 }
-                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 1, 0);
-                local360 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
+                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 1, 0);
+                local360 = Static524.aServerConnection_3.bitPacket.data[0] & 0xFF;
                 if (local360 != 0) {
                     Static135.anInt8223 = 0;
                     Static342.method4464(local360);
@@ -177,20 +177,20 @@ public final class Static364 {
                 if (!Static524.aServerConnection_3.connection.hasAvailable(2)) {
                     return;
                 }
-                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 2, 0);
-                Static524.aServerConnection_3.buffer.pos = 0;
-                Static524.aServerConnection_3.buffer.pos = Static524.aServerConnection_3.buffer.g2();
+                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 2, 0);
+                Static524.aServerConnection_3.bitPacket.pos = 0;
+                Static524.aServerConnection_3.bitPacket.pos = Static524.aServerConnection_3.bitPacket.g2();
                 Static135.anInt8223 = 5;
             }
             if (Static135.anInt8223 == 5) {
-                if (!Static524.aServerConnection_3.connection.hasAvailable(Static524.aServerConnection_3.buffer.pos)) {
+                if (!Static524.aServerConnection_3.connection.hasAvailable(Static524.aServerConnection_3.bitPacket.pos)) {
                     return;
                 }
-                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, Static524.aServerConnection_3.buffer.pos, 0);
-                Static524.aServerConnection_3.buffer.tinydec(Static219.anIntArray287);
-                Static524.aServerConnection_3.buffer.pos = 0;
-                @Pc(465) String local465 = Static524.aServerConnection_3.buffer.gjstr2();
-                Static524.aServerConnection_3.buffer.pos = 0;
+                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, Static524.aServerConnection_3.bitPacket.pos, 0);
+                Static524.aServerConnection_3.bitPacket.tinydec(Static219.xteaKey);
+                Static524.aServerConnection_3.bitPacket.pos = 0;
+                @Pc(465) String local465 = Static524.aServerConnection_3.bitPacket.gjstr2();
+                Static524.aServerConnection_3.bitPacket.pos = 0;
                 @Pc(473) String local473 = "opensn";
                 if (!client.js || Static36.method980(SignLink.instance, local465, local473, 1).status == 2) {
                     Static259.method3693(local465, local473, SignLink.instance, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
@@ -201,8 +201,8 @@ public final class Static364 {
                 if (!Static524.aServerConnection_3.connection.hasAvailable(1)) {
                     return;
                 }
-                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 1, 0);
-                if ((Static524.aServerConnection_3.buffer.data[0] & 0xFF) == 1) {
+                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 1, 0);
+                if ((Static524.aServerConnection_3.bitPacket.data[0] & 0xFF) == 1) {
                     Static135.anInt8223 = 7;
                 }
             }
@@ -210,20 +210,20 @@ public final class Static364 {
                 if (!Static524.aServerConnection_3.connection.hasAvailable(16)) {
                     return;
                 }
-                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 16, 0);
-                Static524.aServerConnection_3.buffer.pos = 16;
-                Static524.aServerConnection_3.buffer.tinydec(Static219.anIntArray287);
-                Static524.aServerConnection_3.buffer.pos = 0;
-                Static449.aString75 = Static319.aString51 = Base37.decode(Static524.aServerConnection_3.buffer.g8());
-                Static430.aLong209 = Static524.aServerConnection_3.buffer.g8();
+                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 16, 0);
+                Static524.aServerConnection_3.bitPacket.pos = 16;
+                Static524.aServerConnection_3.bitPacket.tinydec(Static219.xteaKey);
+                Static524.aServerConnection_3.bitPacket.pos = 0;
+                Static449.aString75 = Static319.aString51 = Base37.decode(Static524.aServerConnection_3.bitPacket.g8());
+                Static430.aLong209 = Static524.aServerConnection_3.bitPacket.g8();
                 Static135.anInt8223 = 8;
             }
-            @Pc(618) PacketBuffer local618;
+            @Pc(618) BitPacket local618;
             if (Static135.anInt8223 == 8) {
-                Static524.aServerConnection_3.buffer.pos = 0;
+                Static524.aServerConnection_3.bitPacket.pos = 0;
                 Static524.aServerConnection_3.clear();
                 local186 = Static273.method3962();
-                local618 = local186.buffer;
+                local618 = local186.bitPacket;
                 @Pc(646) int local646;
                 @Pc(672) Packet local672;
                 @Pc(627) LoginProt local627;
@@ -271,7 +271,7 @@ public final class Static364 {
                     local618.p1(client.js ? 1 : 0);
                     local618.p1(client.hc ? 1 : 0);
                     Static169.method2647(local618);
-                    local618.tinyenc(Static219.anIntArray287, local646, local618.pos);
+                    local618.tinyenc(Static219.xteaKey, local646, local618.pos);
                     local618.psize2(local618.pos - local250);
                 } else {
                     if (Static311.aBoolean384) {
@@ -296,25 +296,25 @@ public final class Static364 {
                     local618.pjstr(client.settings);
                     local618.p4(client.affid);
                     Static169.method2647(local618);
-                    local618.tinyenc(Static219.anIntArray287, local646, local618.pos);
+                    local618.tinyenc(Static219.xteaKey, local646, local618.pos);
                     local618.psize2(local618.pos - local250);
                 }
                 Static524.aServerConnection_3.send(local186);
                 Static524.aServerConnection_3.flush();
-                Static524.aServerConnection_3.cipher = new Isaac(Static219.anIntArray287);
+                Static524.aServerConnection_3.cipher = new Isaac(Static219.xteaKey);
                 for (@Pc(938) int local938 = 0; local938 < 4; local938++) {
-                    Static219.anIntArray287[local938] += 50;
+                    Static219.xteaKey[local938] += 50;
                 }
-                Static524.aServerConnection_3.buffer.method7415(Static219.anIntArray287);
-                Static219.anIntArray287 = null;
+                Static524.aServerConnection_3.bitPacket.initIsaac(Static219.xteaKey);
+                Static219.xteaKey = null;
                 Static135.anInt8223 = 9;
             }
             if (Static135.anInt8223 == 9) {
                 if (!Static524.aServerConnection_3.connection.hasAvailable(1)) {
                     return;
                 }
-                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 1, 0);
-                local360 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
+                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 1, 0);
+                local360 = Static524.aServerConnection_3.bitPacket.data[0] & 0xFF;
                 if (local360 == 21) {
                     Static135.anInt8223 = 12;
                 } else if (local360 == 29 || local360 == 45) {
@@ -359,16 +359,16 @@ public final class Static364 {
             if (Static135.anInt8223 == 11) {
                 Static524.aServerConnection_3.clear();
                 local186 = Static273.method3962();
-                local618 = local186.buffer;
-                local618.method7422(Static524.aServerConnection_3.cipher);
-                local618.method7418(LoginProt.A_LOGIN_PROT___61.opcode);
+                local618 = local186.bitPacket;
+                local618.setIsaac(Static524.aServerConnection_3.cipher);
+                local618.startPacket(LoginProt.GAMELOGIN_CONTINUE.opcode);
                 Static524.aServerConnection_3.send(local186);
                 Static524.aServerConnection_3.flush();
                 Static135.anInt8223 = 9;
             } else if (Static135.anInt8223 == 12) {
                 if (Static524.aServerConnection_3.connection.hasAvailable(1)) {
-                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 1, 0);
-                    local360 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
+                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 1, 0);
+                    local360 = Static524.aServerConnection_3.bitPacket.data[0] & 0xFF;
                     Static135.anInt8223 = 0;
                     Static118.anInt2292 = local360 * 50;
                     Static342.method4464(21);
@@ -378,8 +378,8 @@ public final class Static364 {
                 }
             } else if (Static135.anInt8223 == 20) {
                 if (Static524.aServerConnection_3.connection.hasAvailable(2)) {
-                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 2, 0);
-                    Static660.anInt9837 = (Static524.aServerConnection_3.buffer.data[1] & 0xFF) + ((Static524.aServerConnection_3.buffer.data[0] & 0xFF) << 8);
+                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 2, 0);
+                    Static660.anInt9837 = (Static524.aServerConnection_3.bitPacket.data[1] & 0xFF) + ((Static524.aServerConnection_3.bitPacket.data[0] & 0xFF) << 8);
                     Static135.anInt8223 = 9;
                 }
             } else if (Static135.anInt8223 == 18) {
@@ -387,15 +387,15 @@ public final class Static364 {
                     if (!Static524.aServerConnection_3.connection.hasAvailable(1)) {
                         return;
                     }
-                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 1, 0);
-                    Static329.anInt1749 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
+                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 1, 0);
+                    Static329.anInt1749 = Static524.aServerConnection_3.bitPacket.data[0] & 0xFF;
                 } else if (anInt1634 == 45) {
                     if (!Static524.aServerConnection_3.connection.hasAvailable(3)) {
                         return;
                     }
-                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 3, 0);
-                    Static356.anInt5780 = (Static524.aServerConnection_3.buffer.data[2] & 0xFF) + ((Static524.aServerConnection_3.buffer.data[1] & 0xFF) << 8);
-                    Static329.anInt1749 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
+                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 3, 0);
+                    Static356.anInt5780 = (Static524.aServerConnection_3.bitPacket.data[2] & 0xFF) + ((Static524.aServerConnection_3.bitPacket.data[1] & 0xFF) << 8);
+                    Static329.anInt1749 = Static524.aServerConnection_3.bitPacket.data[0] & 0xFF;
                 } else {
                     throw new IllegalStateException("Login step 18 not valid for pendingResponse=" + anInt1634);
                 }
@@ -405,9 +405,9 @@ public final class Static364 {
                 Static524.aServerConnection_3.connection = null;
                 Static564.method7465();
             } else if (Static135.anInt8223 != 13) {
-                @Pc(1435) PacketBuffer local1435;
+                @Pc(1435) BitPacket local1435;
                 if (Static135.anInt8223 == 14) {
-                    local1435 = Static524.aServerConnection_3.buffer;
+                    local1435 = Static524.aServerConnection_3.bitPacket;
                     if (Static299.anInt4825 == 2) {
                         if (!Static524.aServerConnection_3.connection.hasAvailable(Static94.anInt1961)) {
                             return;
@@ -510,11 +510,11 @@ public final class Static364 {
                     if (!Static524.aServerConnection_3.connection.hasAvailable(3)) {
                         return;
                     }
-                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 3, 0);
+                    Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 3, 0);
                     Static135.anInt8223 = 17;
                 }
                 if (Static135.anInt8223 == 17) {
-                    local1435 = Static524.aServerConnection_3.buffer;
+                    local1435 = Static524.aServerConnection_3.bitPacket;
                     local1435.pos = 0;
                     if (local1435.largeOpcode()) {
                         if (!Static524.aServerConnection_3.connection.hasAvailable(1)) {
@@ -522,27 +522,27 @@ public final class Static364 {
                         }
                         Static524.aServerConnection_3.connection.read(local1435.data, 1, 3);
                     }
-                    Static524.aServerConnection_3.currentProt = Static585.method7677()[local1435.method7421()];
+                    Static524.aServerConnection_3.currentProt = Static585.method7677()[local1435.readOpcode()];
                     Static524.aServerConnection_3.currentPacketSize = local1435.g2();
                     Static135.anInt8223 = 15;
                 }
                 if (Static135.anInt8223 == 15) {
                     if (Static524.aServerConnection_3.connection.hasAvailable(Static524.aServerConnection_3.currentPacketSize)) {
-                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, Static524.aServerConnection_3.currentPacketSize, 0);
-                        Static524.aServerConnection_3.buffer.pos = 0;
+                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, Static524.aServerConnection_3.currentPacketSize, 0);
+                        Static524.aServerConnection_3.bitPacket.pos = 0;
                         local360 = Static524.aServerConnection_3.currentPacketSize;
                         Static135.anInt8223 = 0;
                         Static342.method4464(2);
                         Static254.method3605();
-                        Static168.method2633(Static524.aServerConnection_3.buffer);
+                        Static168.method2633(Static524.aServerConnection_3.bitPacket);
                         Static62.anInt1465 = -1;
                         if (Static524.aServerConnection_3.currentProt == Static291.A_SERVER_PROT___123) {
                             Static466.method6325();
                         } else {
                             Static434.method5855();
                         }
-                        if (Static524.aServerConnection_3.buffer.pos != local360) {
-                            throw new RuntimeException("lswp pos:" + Static524.aServerConnection_3.buffer.pos + " psize:" + local360);
+                        if (Static524.aServerConnection_3.bitPacket.pos != local360) {
+                            throw new RuntimeException("lswp pos:" + Static524.aServerConnection_3.bitPacket.pos + " psize:" + local360);
                         }
                         Static524.aServerConnection_3.currentProt = null;
                     }
@@ -551,27 +551,27 @@ public final class Static364 {
                         if (!Static524.aServerConnection_3.connection.hasAvailable(2)) {
                             return;
                         }
-                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 2, 0);
-                        Static524.aServerConnection_3.buffer.pos = 0;
-                        Static524.aServerConnection_3.currentPacketSize = Static524.aServerConnection_3.buffer.g2();
+                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 2, 0);
+                        Static524.aServerConnection_3.bitPacket.pos = 0;
+                        Static524.aServerConnection_3.currentPacketSize = Static524.aServerConnection_3.bitPacket.g2();
                     }
                     if (Static524.aServerConnection_3.connection.hasAvailable(Static524.aServerConnection_3.currentPacketSize)) {
-                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, Static524.aServerConnection_3.currentPacketSize, 0);
-                        Static524.aServerConnection_3.buffer.pos = 0;
+                        Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, Static524.aServerConnection_3.currentPacketSize, 0);
+                        Static524.aServerConnection_3.bitPacket.pos = 0;
                         Static135.anInt8223 = 0;
                         local360 = Static524.aServerConnection_3.currentPacketSize;
                         Static342.method4464(15);
                         Static94.method1841();
-                        Static168.method2633(Static524.aServerConnection_3.buffer);
-                        if (local360 != Static524.aServerConnection_3.buffer.pos) {
-                            throw new RuntimeException("lswpr pos:" + Static524.aServerConnection_3.buffer.pos + " psize:" + local360);
+                        Static168.method2633(Static524.aServerConnection_3.bitPacket);
+                        if (local360 != Static524.aServerConnection_3.bitPacket.pos) {
+                            throw new RuntimeException("lswpr pos:" + Static524.aServerConnection_3.bitPacket.pos + " psize:" + local360);
                         }
                         Static524.aServerConnection_3.currentProt = null;
                     }
                 }
             } else if (Static524.aServerConnection_3.connection.hasAvailable(1)) {
-                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.buffer.data, 1, 0);
-                Static94.anInt1961 = Static524.aServerConnection_3.buffer.data[0] & 0xFF;
+                Static524.aServerConnection_3.connection.read(Static524.aServerConnection_3.bitPacket.data, 1, 0);
+                Static94.anInt1961 = Static524.aServerConnection_3.bitPacket.data[0] & 0xFF;
                 Static135.anInt8223 = 14;
             }
         } catch (@Pc(2184) IOException local2184) {

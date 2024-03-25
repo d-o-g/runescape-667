@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rka")
-public final class PacketBuffer extends Packet {
+public final class BitPacket extends Packet {
 
     @OriginalMember(owner = "client!ut", name = "L", descriptor = "[I")
     public static final int[] BIT_MASKS = {
@@ -16,13 +16,13 @@ public final class PacketBuffer extends Packet {
     };
 
     @OriginalMember(owner = "client!rka", name = "Sb", descriptor = "Lclient!iv;")
-    public Isaac cipher;
+    public Isaac isaac;
 
     @OriginalMember(owner = "client!rka", name = "Rb", descriptor = "I")
     public int bitIndex;
 
     @OriginalMember(owner = "client!rka", name = "<init>", descriptor = "(I)V")
-    public PacketBuffer(@OriginalArg(0) int size) {
+    public BitPacket(@OriginalArg(0) int size) {
         super(size);
     }
 
@@ -32,7 +32,7 @@ public final class PacketBuffer extends Packet {
     }
 
     @OriginalMember(owner = "client!rka", name = "c", descriptor = "(BI)I")
-    public int readBits(@OriginalArg(1) int n) {
+    public int gbit(@OriginalArg(1) int n) {
         @Pc(10) int index = this.bitIndex >> 3;
         @Pc(18) int interest = 8 - (this.bitIndex & 0x7);
         @Pc(20) int v = 0;
@@ -56,19 +56,19 @@ public final class PacketBuffer extends Packet {
 
     @OriginalMember(owner = "client!rka", name = "j", descriptor = "(Z)Z")
     public boolean largeOpcode() {
-        @Pc(22) int local22 = super.data[super.pos] - this.cipher.peek() & 0xFF;
-        return local22 >= 128;
+        @Pc(22) int v = super.data[super.pos] - this.isaac.peek() & 0xFF;
+        return v >= 128;
     }
 
     @OriginalMember(owner = "client!rka", name = "a", descriptor = "([IB)V")
-    public void method7415(@OriginalArg(0) int[] arg0) {
-        this.cipher = new Isaac(arg0);
+    public void initIsaac(@OriginalArg(0) int[] seed) {
+        this.isaac = new Isaac(seed);
     }
 
     @OriginalMember(owner = "client!rka", name = "a", descriptor = "([BIIZ)V")
-    public void method7416(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1) {
-        for (@Pc(7) int local7 = 0; local7 < arg1; local7++) {
-            arg0[local7] = (byte) (super.data[super.pos++] - this.cipher.next());
+    public void readEncrypted(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1) {
+        for (@Pc(7) int i = 0; i < arg1; i++) {
+            arg0[i] = (byte) (super.data[super.pos++] - this.isaac.next());
         }
     }
 
@@ -78,23 +78,23 @@ public final class PacketBuffer extends Packet {
     }
 
     @OriginalMember(owner = "client!rka", name = "n", descriptor = "(II)V")
-    public void method7418(@OriginalArg(1) int arg0) {
-        super.data[super.pos++] = (byte) (arg0 + this.cipher.next());
+    public void startPacket(@OriginalArg(1) int opcode) {
+        super.data[super.pos++] = (byte) (opcode + this.isaac.next());
     }
 
     @OriginalMember(owner = "client!rka", name = "m", descriptor = "(II)I")
-    public int bitsRemaining(@OriginalArg(0) int arg0) {
-        return arg0 * 8 - this.bitIndex;
+    public int bitsRemaining(@OriginalArg(0) int end) {
+        return (end * 8) - this.bitIndex;
     }
 
     @OriginalMember(owner = "client!rka", name = "x", descriptor = "(I)I")
-    public int method7421() {
-        @Pc(30) int local30 = super.data[super.pos++] - this.cipher.next() & 0xFF;
-        return local30 < 128 ? local30 : (super.data[super.pos++] - this.cipher.next() & 0xFF) + (local30 - 128 << 8);
+    public int readOpcode() {
+        @Pc(30) int v = super.data[super.pos++] - this.isaac.next() & 0xFF;
+        return (v < 128) ? v : (((super.data[super.pos++] - this.isaac.next()) & 0xFF) + ((v - 128) << 8));
     }
 
     @OriginalMember(owner = "client!rka", name = "a", descriptor = "(Lclient!iv;I)V")
-    public void method7422(@OriginalArg(0) Isaac arg0) {
-        this.cipher = arg0;
+    public void setIsaac(@OriginalArg(0) Isaac isaac) {
+        this.isaac = isaac;
     }
 }

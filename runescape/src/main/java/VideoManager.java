@@ -70,7 +70,7 @@ public final class VideoManager {
     public static void ended(@OriginalArg(0) int id, @OriginalArg(1) boolean transmit) {
         if (transmit) {
             @Pc(26) ClientMessage message = ClientMessage.create(Static321.VIDEO_END, ConnectionManager.GAME.cipher);
-            message.buffer.p2(id);
+            message.bitPacket.p2(id);
             ConnectionManager.GAME.send(message);
         } else {
             ScriptRunner.executeTrigger(ClientTriggerType.VIDEO_END, id, -1);

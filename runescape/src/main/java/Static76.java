@@ -62,8 +62,8 @@ public final class Static76 {
                 Static6.anInt95 = 4;
             }
             if (Static6.anInt95 == 4 && ConnectionManager.LOBBY.connection.hasAvailable(1)) {
-                ConnectionManager.LOBBY.connection.read(ConnectionManager.LOBBY.buffer.data, 1, 0);
-                @Pc(139) int local139 = ConnectionManager.LOBBY.buffer.data[0] & 0xFF;
+                ConnectionManager.LOBBY.connection.read(ConnectionManager.LOBBY.bitPacket.data, 1, 0);
+                @Pc(139) int local139 = ConnectionManager.LOBBY.bitPacket.data[0] & 0xFF;
                 Static6.anInt95 = 0;
                 Static580.anInt8621 = local139;
                 ConnectionManager.LOBBY.close();

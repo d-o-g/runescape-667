@@ -32,9 +32,9 @@ public final class Static32 {
             message = ClientMessage.create(ClientProt.MOVE_MINIMAPCLICK, ConnectionManager.GAME.cipher);
         }
 
-        message.buffer.p2_alt3(x + WorldMap.areaBaseX);
-        message.buffer.p2_alt3(WorldMap.areaBaseZ + y);
-        message.buffer.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
+        message.bitPacket.p2_alt3(x + WorldMap.areaBaseX);
+        message.bitPacket.p2_alt3(WorldMap.areaBaseZ + y);
+        message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
 
         Minimap.flagSet = false;
         Minimap.flagX = x;

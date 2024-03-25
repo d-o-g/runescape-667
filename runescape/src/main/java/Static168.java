@@ -18,12 +18,12 @@ public final class Static168 {
     public static final LinkedList A_ENTITY_LIST___5 = new LinkedList();
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(Lclient!rka;I)V")
-    public static void method2633(@OriginalArg(0) PacketBuffer arg0) {
-        arg0.enterBitMode();
+    public static void method2633(@OriginalArg(0) BitPacket bitPacket) {
+        bitPacket.enterBitMode();
         @Pc(10) int local10 = PlayerList.activePlayerSlot;
         @Pc(20) PlayerEntity local20 = PlayerEntity.self = PlayerList.highResolutionPlayers[local10] = new PlayerEntity();
         local20.id = local10;
-        @Pc(28) int local28 = arg0.readBits(30);
+        @Pc(28) int local28 = bitPacket.gbit(30);
         @Pc(33) byte local33 = (byte) (local28 >> 28);
         @Pc(39) int local39 = local28 >> 14 & 0x3FFF;
         local20.pathX[0] = local39 - WorldMap.areaBaseX;
@@ -44,21 +44,21 @@ public final class Static168 {
         PlayerList.lowResolutionPlayerCount = 0;
         for (@Pc(151) int local151 = 1; local151 < 2048; local151++) {
             if (local10 != local151) {
-                @Pc(163) int local163 = arg0.readBits(18);
+                @Pc(163) int local163 = bitPacket.gbit(18);
                 @Pc(167) int local167 = local163 >> 16;
                 @Pc(173) int local173 = local163 >> 8 & 0xFF;
                 @Pc(177) int local177 = local163 & 0xFF;
-                @Pc(185) LowResPlayer local185 = PlayerList.lowResolutionPlayers[local151] = new LowResPlayer();
-                local185.aBoolean711 = false;
+                @Pc(185) SnapShotPlayer local185 = PlayerList.lowResolutionPlayers[local151] = new SnapShotPlayer();
+                local185.showPIcon = false;
                 local185.target = -1;
                 local185.coord = local177 + (local173 << 14) + (local167 << 28);
-                local185.direcion = 0;
+                local185.direction = 0;
                 local185.clanmate = false;
                 PlayerList.lowResolutionPlayerIndices[PlayerList.lowResolutionPlayerCount++] = local151;
                 PlayerList.updateHistory[local151] = 0;
             }
         }
-        arg0.exitBitMode();
+        bitPacket.exitBitMode();
     }
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(I[B)Lclient!st;")

@@ -25,8 +25,8 @@ public final class Static698 {
         }
         @Pc(16) ServerConnection local16 = ConnectionManager.active();
         @Pc(29) ClientMessage local29 = ClientMessage.create(Static244.A_CLIENT_PROT___53, local16.cipher);
-        local29.buffer.p1(Static231.method3379(arg0));
-        local29.buffer.pjstr(arg0);
+        local29.bitPacket.p1(Static231.method3379(arg0));
+        local29.bitPacket.pjstr(arg0);
         local16.send(local29);
     }
 }

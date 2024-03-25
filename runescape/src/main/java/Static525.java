@@ -20,10 +20,10 @@ public final class Static525 {
         @Pc(53) String local53 = local43.aString2;
         @Pc(56) ServerConnection local56 = ConnectionManager.active();
         @Pc(62) ClientMessage local62 = ClientMessage.create(Static457.A_CLIENT_PROT___86, local56.cipher);
-        local62.buffer.p1(Static231.method3379(local53) + 3);
-        local62.buffer.p1(arg0 ? 1 : 0);
-        local62.buffer.p2(arg1);
-        local62.buffer.pjstr(local53);
+        local62.bitPacket.p1(Static231.method3379(local53) + 3);
+        local62.bitPacket.p1(arg0 ? 1 : 0);
+        local62.bitPacket.p2(arg1);
+        local62.bitPacket.pjstr(local53);
         local56.send(local62);
     }
 }

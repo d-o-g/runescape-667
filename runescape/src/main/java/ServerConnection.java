@@ -54,7 +54,7 @@ public final class ServerConnection {
     public final Packet writePacket = new Packet(1350);
 
     @OriginalMember(owner = "client!gw", name = "y", descriptor = "Lclient!rka;")
-    public final PacketBuffer buffer = new PacketBuffer(15000);
+    public final BitPacket bitPacket = new BitPacket(15000);
 
     @OriginalMember(owner = "client!gw", name = "j", descriptor = "Lclient!lga;")
     public ServerProt currentProt = null;
@@ -104,10 +104,10 @@ public final class ServerConnection {
                 break;
             }
 
-            this.writePacket.pdata(message.totalSize, message.buffer.data, 0);
+            this.writePacket.pdata(message.totalSize, message.bitPacket.data, 0);
             this.buffered -= message.totalSize;
             message.unlink();
-            message.buffer.cache();
+            message.bitPacket.cache();
             message.method2768();
         }
 
@@ -127,8 +127,8 @@ public final class ServerConnection {
     @OriginalMember(owner = "client!gw", name = "a", descriptor = "(ILclient!fk;)V")
     public void send(@OriginalArg(1) ClientMessage message) {
         this.messages.addLast(message);
-        message.totalSize = message.buffer.pos;
-        message.buffer.pos = 0;
+        message.totalSize = message.bitPacket.pos;
+        message.bitPacket.pos = 0;
         this.buffered += message.totalSize;
     }
 }

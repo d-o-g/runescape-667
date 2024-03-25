@@ -13,12 +13,12 @@ public final class Static710 {
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {
         @Pc(15) ClientMessage local15 = ClientMessage.create(Static671.A_CLIENT_PROT___117, ConnectionManager.GAME.cipher);
-        local15.buffer.p2(arg1.invObject);
-        local15.buffer.p2_alt1(arg0.id);
-        local15.buffer.p2_alt2(arg0.invObject);
-        local15.buffer.p4_alt2(arg0.slot);
-        local15.buffer.p2_alt1(arg1.id);
-        local15.buffer.p4_alt3(arg1.slot);
+        local15.bitPacket.p2(arg1.invObject);
+        local15.bitPacket.p2_alt1(arg0.id);
+        local15.bitPacket.p2_alt2(arg0.invObject);
+        local15.bitPacket.p4_alt2(arg0.slot);
+        local15.bitPacket.p2_alt1(arg1.id);
+        local15.bitPacket.p4_alt3(arg1.slot);
         ConnectionManager.GAME.send(local15);
     }
 

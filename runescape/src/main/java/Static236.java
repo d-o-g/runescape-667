@@ -32,7 +32,7 @@ public final class Static236 {
         } catch (@Pc(29) Exception local29) {
             @Pc(106) String local106 = "T2 - " + (connection.currentProt == null ? -1 : connection.currentProt.getOpcode()) + "," + (connection.penultimateProt == null ? -1 : connection.penultimateProt.getOpcode()) + "," + (connection.antepenultimateProt == null ? -1 : connection.antepenultimateProt.getOpcode()) + " - " + connection.currentPacketSize + "," + (WorldMap.areaBaseX + PlayerEntity.self.pathX[0]) + "," + (WorldMap.areaBaseZ + PlayerEntity.self.pathZ[0]) + " - ";
             for (@Pc(108) int local108 = 0; connection.currentPacketSize > local108 && local108 < 50; local108++) {
-                local106 = local106 + connection.buffer.data[local108] + ",";
+                local106 = local106 + connection.bitPacket.data[local108] + ",";
             }
             JagException.sendTrace(local29, local106);
             Login.logout(false);

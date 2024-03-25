@@ -299,36 +299,36 @@ public final class Static466 {
 
     @OriginalMember(owner = "client!om", name = "b", descriptor = "(Z)V")
     public static void method6325() {
-        @Pc(8) PacketBuffer local8 = ConnectionManager.GAME.buffer;
-        @Pc(12) int local12 = local8.g2();
-        @Pc(16) int local16 = local8.g1();
-        @Pc(28) boolean local28 = local8.g1_alt3() == 1;
-        Static117.anInt2282 = local8.g1_alt3();
-        @Pc(36) int local36 = local8.ig2();
+        @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
+        @Pc(12) int local12 = bitPacket.g2();
+        @Pc(16) int local16 = bitPacket.g1();
+        @Pc(28) boolean local28 = bitPacket.g1_alt3() == 1;
+        Static117.anInt2282 = bitPacket.g1_alt3();
+        @Pc(36) int local36 = bitPacket.ig2();
         Static165.method2607();
         Static342.method4465(local16);
-        local8.enterBitMode();
+        bitPacket.enterBitMode();
         @Pc(50) int local50;
         @Pc(54) int local54;
         @Pc(61) int local61;
         for (@Pc(46) int local46 = 0; local46 < 4; local46++) {
             for (local50 = 0; local50 < Static720.mapWidth >> 3; local50++) {
                 for (local54 = 0; local54 < Static501.mapHeight >> 3; local54++) {
-                    local61 = local8.readBits(1);
+                    local61 = bitPacket.gbit(1);
                     if (local61 == 1) {
-                        Static623.anIntArrayArrayArray19[local46][local50][local54] = local8.readBits(26);
+                        Static623.anIntArrayArrayArray19[local46][local50][local54] = bitPacket.gbit(26);
                     } else {
                         Static623.anIntArrayArrayArray19[local46][local50][local54] = -1;
                     }
                 }
             }
         }
-        local8.exitBitMode();
-        local50 = (ConnectionManager.GAME.currentPacketSize - local8.pos) / 16;
+        bitPacket.exitBitMode();
+        local50 = (ConnectionManager.GAME.currentPacketSize - bitPacket.pos) / 16;
         Static22.anIntArrayArray11 = new int[local50][4];
         for (local54 = 0; local54 < local50; local54++) {
             for (local61 = 0; local61 < 4; local61++) {
-                Static22.anIntArrayArray11[local54][local61] = local8.g4();
+                Static22.anIntArrayArray11[local54][local61] = bitPacket.g4();
             }
         }
         Static118.aByteArrayArray3 = new byte[local50][];

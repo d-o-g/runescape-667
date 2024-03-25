@@ -165,15 +165,15 @@ public final class ClientProt {
     public static final ClientProt MESSAGE_PRIVATE = new ClientProt(72, -2);
 
     @OriginalMember(owner = "client!ss", name = "g", descriptor = "I")
-    public final int anInt8829;
+    public final int opcode;
 
     @OriginalMember(owner = "client!ss", name = "a", descriptor = "I")
-    public final int anInt8827;
+    public final int length;
 
     @OriginalMember(owner = "client!ss", name = "<init>", descriptor = "(II)V")
-    public ClientProt(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        this.anInt8829 = arg0;
-        this.anInt8827 = arg1;
+    public ClientProt(@OriginalArg(0) int opcode, @OriginalArg(1) int length) {
+        this.opcode = opcode;
+        this.length = length;
     }
 
     @OriginalMember(owner = "client!ss", name = "toString", descriptor = "()Ljava/lang/String;")
@@ -183,7 +183,7 @@ public final class ClientProt {
     }
 
     @OriginalMember(owner = "client!ss", name = "a", descriptor = "(I)I")
-    public int method7826() {
-        return this.anInt8829;
+    public int getOpcode() {
+        return this.opcode;
     }
 }

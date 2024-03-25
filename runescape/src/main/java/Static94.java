@@ -13,7 +13,7 @@ public final class Static94 {
     public static void method1841() {
         Static524.aServerConnection_3.clear();
         Static524.aServerConnection_3.currentProt = null;
-        Static524.aServerConnection_3.buffer.pos = 0;
+        Static524.aServerConnection_3.bitPacket.pos = 0;
         Static524.aServerConnection_3.anInt3646 = 0;
         Static524.aServerConnection_3.antepenultimateProt = null;
         Static524.aServerConnection_3.penultimateProt = null;

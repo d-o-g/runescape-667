@@ -128,7 +128,7 @@ public final class Static35 {
             Static501.aBoolean575 = false;
         } else if (ClientOptions.instance.musicVolume.getValue() != 0 && Static588.anInt8692 != -1 && !Static52.method1157(125)) {
             @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.A_CLIENT_PROT___49, ConnectionManager.GAME.cipher);
-            local551.buffer.p4(Static588.anInt8692);
+            local551.bitPacket.p4(Static588.anInt8692);
             ConnectionManager.GAME.send(local551);
             Static588.anInt8692 = -1;
         }

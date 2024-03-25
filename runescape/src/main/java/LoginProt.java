@@ -23,7 +23,7 @@ public final class LoginProt {
     @OriginalMember(owner = "client!s", name = "p", descriptor = "Lclient!hja;")
     public static final LoginProt A_LOGIN_PROT___60 = new LoginProt(24, -1);
     @OriginalMember(owner = "client!s", name = "h", descriptor = "Lclient!hja;")
-    public static final LoginProt A_LOGIN_PROT___61 = new LoginProt(26, 0);
+    public static final LoginProt GAMELOGIN_CONTINUE = new LoginProt(26, 0);
     @OriginalMember(owner = "client!s", name = "m", descriptor = "Lclient!hja;")
     public static final LoginProt A_LOGIN_PROT___62 = new LoginProt(27, 0);
     @OriginalMember(owner = "client!s", name = "f", descriptor = "Lclient!hja;")

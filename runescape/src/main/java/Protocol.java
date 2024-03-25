@@ -33,65 +33,65 @@ public final class Protocol {
 
     @OriginalMember(owner = "client!jfa", name = "a", descriptor = "(Lclient!gw;I)Z")
     public static boolean readServerMessage(@OriginalArg(0) ServerConnection arg0) throws IOException {
-        @Pc(8) Connection local8 = arg0.connection;
-        @Pc(11) PacketBuffer buffer = arg0.buffer;
-        if (local8 == null) {
+        @Pc(8) Connection connection = arg0.connection;
+        @Pc(11) BitPacket bitPacket = arg0.bitPacket;
+        if (connection == null) {
             return false;
         }
         @Pc(100) int local100;
         if (arg0.currentProt == null) {
             if (arg0.needsOpcode) {
-                if (!local8.hasAvailable(1)) {
+                if (!connection.hasAvailable(1)) {
                     return false;
                 }
-                local8.read(arg0.buffer.data, 1, 0);
+                connection.read(arg0.bitPacket.data, 1, 0);
                 arg0.anInt3646 = 0;
                 arg0.read++;
                 arg0.needsOpcode = false;
             }
-            buffer.pos = 0;
-            if (buffer.largeOpcode()) {
-                if (!local8.hasAvailable(1)) {
+            bitPacket.pos = 0;
+            if (bitPacket.largeOpcode()) {
+                if (!connection.hasAvailable(1)) {
                     return false;
                 }
-                local8.read(arg0.buffer.data, 1, 1);
+                connection.read(arg0.bitPacket.data, 1, 1);
                 arg0.read++;
                 arg0.anInt3646 = 0;
             }
             arg0.needsOpcode = true;
             @Pc(96) ServerProt[] local96 = Static585.method7677();
-            local100 = buffer.method7421();
+            local100 = bitPacket.readOpcode();
             if (local100 < 0 || local96.length <= local100) {
-                throw new IOException("invo:" + local100 + " ip:" + buffer.pos);
+                throw new IOException("invo:" + local100 + " ip:" + bitPacket.pos);
             }
             arg0.currentProt = local96[local100];
             arg0.currentPacketSize = arg0.currentProt.size;
         }
         if (arg0.currentPacketSize == -1) {
-            if (!local8.hasAvailable(1)) {
+            if (!connection.hasAvailable(1)) {
                 return false;
             }
-            local8.read(buffer.data, 1, 0);
-            arg0.currentPacketSize = buffer.data[0] & 0xFF;
+            connection.read(bitPacket.data, 1, 0);
+            arg0.currentPacketSize = bitPacket.data[0] & 0xFF;
             arg0.read++;
             arg0.anInt3646 = 0;
         }
         if (arg0.currentPacketSize == -2) {
-            if (!local8.hasAvailable(2)) {
+            if (!connection.hasAvailable(2)) {
                 return false;
             }
-            local8.read(buffer.data, 2, 0);
-            buffer.pos = 0;
-            arg0.currentPacketSize = buffer.g2();
+            connection.read(bitPacket.data, 2, 0);
+            bitPacket.pos = 0;
+            arg0.currentPacketSize = bitPacket.g2();
             arg0.read += 2;
             arg0.anInt3646 = 0;
         }
         if (arg0.currentPacketSize > 0) {
-            if (!local8.hasAvailable(arg0.currentPacketSize)) {
+            if (!connection.hasAvailable(arg0.currentPacketSize)) {
                 return false;
             }
-            buffer.pos = 0;
-            local8.read(buffer.data, arg0.currentPacketSize, 0);
+            bitPacket.pos = 0;
+            connection.read(bitPacket.data, arg0.currentPacketSize, 0);
             arg0.read += arg0.currentPacketSize;
             arg0.anInt3646 = 0;
         }
@@ -100,7 +100,7 @@ public final class Protocol {
         arg0.aServerProt_92 = arg0.currentProt;
         @Pc(277) int local277;
         if (Static586.A_SERVER_PROT___215 == arg0.currentProt) {
-            local277 = buffer.g4_alt1();
+            local277 = bitPacket.g4_alt1();
             Static574.method7573();
             @Pc(287) SubInterface local287 = (SubInterface) InterfaceManager.subInterfaces.get(local277);
             if (local287 != null) {
@@ -121,8 +121,8 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___239) {
-            local277 = buffer.g4_alt2();
-            local100 = buffer.g1_alt1();
+            local277 = bitPacket.g4_alt2();
+            local100 = bitPacket.g1_alt1();
             Static574.method7573();
             DelayedStateChange.interfaceSetHide(local100, local277);
             arg0.currentProt = null;
@@ -132,8 +132,8 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (Static632.A_SERVER_PROT___229 == arg0.currentProt) {
-            Static331.walkText = arg0.currentPacketSize <= 2 ? LocalisedText.WALKHERE.localise(client.language) : buffer.gjstr();
-            Static331.walkCursor = arg0.currentPacketSize <= 0 ? -1 : buffer.g2();
+            Static331.walkText = arg0.currentPacketSize <= 2 ? LocalisedText.WALKHERE.localise(client.language) : bitPacket.gjstr();
+            Static331.walkCursor = arg0.currentPacketSize <= 0 ? -1 : bitPacket.g2();
             if (Static331.walkCursor == 65535) {
                 Static331.walkCursor = -1;
             }
@@ -146,22 +146,22 @@ public final class Protocol {
         } else {
             @Pc(446) boolean local446;
             if (arg0.currentProt == Static679.A_SERVER_PROT___247) {
-                local446 = buffer.g1_alt2() == 1;
-                local100 = buffer.g4_alt3();
+                local446 = bitPacket.g1_alt2() == 1;
+                local100 = bitPacket.g4_alt3();
                 Static574.method7573();
                 DelayedStateChange.interfaceSetClickMask(local100, local446);
                 arg0.currentProt = null;
                 return true;
             } else if (Static489.A_SERVER_PROT___185 == arg0.currentProt) {
-                local277 = buffer.g2_alt2();
-                local100 = buffer.g4_alt1();
+                local277 = bitPacket.g2_alt2();
+                local100 = bitPacket.g4_alt1();
                 Static574.method7573();
                 DelayedStateChange.interfaceSetScrollPosition(local277, local100);
                 arg0.currentProt = null;
                 return true;
             } else if (Static201.A_SERVER_PROT___206 == arg0.currentProt) {
-                local277 = buffer.g4_alt1();
-                local100 = buffer.g2_alt2();
+                local277 = bitPacket.g4_alt1();
+                local100 = bitPacket.g2_alt2();
                 Static574.method7573();
                 DelayedStateChange.interfaceSetVideo(local100, local277);
                 arg0.currentProt = null;
@@ -169,21 +169,21 @@ public final class Protocol {
             } else {
                 @Pc(526) int local526;
                 if (arg0.currentProt == Static542.A_SERVER_PROT___199) {
-                    local277 = buffer.g2s_alt1();
-                    local100 = buffer.g2s_alt1();
-                    local526 = buffer.g4_alt3();
+                    local277 = bitPacket.g2s_alt1();
+                    local100 = bitPacket.g2s_alt1();
+                    local526 = bitPacket.g4_alt3();
                     Static574.method7573();
                     DelayedStateChange.interfaceSetPosition(local100, local277, local526);
                     arg0.currentProt = null;
                     return true;
                 } else if (arg0.currentProt == Static331.A_SERVER_PROT___139) {
                     Static400.lastClanSettingsTransmit = World.tick;
-                    local446 = buffer.g1() == 1;
+                    local446 = bitPacket.g1() == 1;
                     if (arg0.currentPacketSize != 1) {
                         if (local446) {
-                            Static128.aClass164_8 = new Class164(buffer);
+                            Static128.aClass164_8 = new Class164(bitPacket);
                         } else {
-                            Static91.aClass164_9 = new Class164(buffer);
+                            Static91.aClass164_9 = new Class164(bitPacket);
                         }
                         arg0.currentProt = null;
                         return true;
@@ -206,17 +206,17 @@ public final class Protocol {
                     @Pc(665) boolean local665;
                     @Pc(667) int local667;
                     if (arg0.currentProt == Static441.A_SERVER_PROT___168) {
-                        local446 = buffer.g1() == 1;
-                        local627 = buffer.gjstr();
+                        local446 = bitPacket.g1() == 1;
+                        local627 = bitPacket.gjstr();
                         local629 = local627;
                         if (local446) {
-                            local629 = buffer.gjstr();
+                            local629 = bitPacket.gjstr();
                         }
-                        local639 = buffer.g8();
-                        local644 = buffer.g2();
-                        local649 = buffer.g3();
-                        local653 = buffer.g1();
-                        local657 = buffer.g2();
+                        local639 = bitPacket.g8();
+                        local644 = bitPacket.g2();
+                        local649 = bitPacket.g3();
+                        local653 = bitPacket.g1();
+                        local657 = bitPacket.g2();
                         @Pc(663) long local663 = (local644 << 32) + local649;
                         local665 = false;
                         local667 = 0;
@@ -236,7 +236,7 @@ public final class Protocol {
                         if (!local665 && Static659.blockChat == 0) {
                             Static511.aLongArray17[Static97.anInt2001] = local663;
                             Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                            @Pc(737) String local737 = QuickChatPhraseTypeList.instance.get(local657).method3903(buffer);
+                            @Pc(737) String local737 = QuickChatPhraseTypeList.instance.get(local657).method3903(bitPacket);
                             if (local653 == 2) {
                                 ChatHistory.add("<img=1>" + local629, "<img=1>" + local627, local657, local737, Base37.decodeName(local639), 0, local627, ChatLineType.QUICKCHAT_FRIENDCHAT);
                             } else if (local653 == 1) {
@@ -248,17 +248,17 @@ public final class Protocol {
                         arg0.currentProt = null;
                         return true;
                     } else if (arg0.currentProt == Static688.A_SERVER_PROT___250) {
-                        local446 = buffer.g1() == 1;
+                        local446 = bitPacket.g1() == 1;
                         @Pc(854) byte[] local854 = new byte[arg0.currentPacketSize - 1];
-                        buffer.gdata(0, arg0.currentPacketSize - 1, local854);
+                        bitPacket.gdata(0, arg0.currentPacketSize - 1, local854);
                         WorldList.decodeWorldList(local854, local446);
                         arg0.currentProt = null;
                         return true;
                     } else {
                         @Pc(892) boolean local892;
                         if (arg0.currentProt == ServerProt.A_SERVER_PROT___85) {
-                            local277 = buffer.g4();
-                            local892 = buffer.g1() == 1;
+                            local277 = bitPacket.g4();
+                            local892 = bitPacket.g1() == 1;
                             if (Static684.aBoolean775 != local892 || Static134.anInt10326 != local277) {
                                 Static134.anInt10326 = local277;
                                 Static684.aBoolean775 = local892;
@@ -269,8 +269,8 @@ public final class Protocol {
                         }
                         @Pc(931) byte local931;
                         if (ServerProt.VARP_SMALL == arg0.currentProt) {
-                            local277 = buffer.g2();
-                            local931 = buffer.g1b_alt1();
+                            local277 = bitPacket.g2();
+                            local931 = bitPacket.g1b_alt1();
                             // g.trace("Received small varp variable: " + var18 + " value:" + var78);
                             TimedVarDomain.instance.updateVarp(local277, local931);
                             arg0.currentProt = null;
@@ -291,12 +291,12 @@ public final class Protocol {
                             @Pc(1090) String local1090;
                             @Pc(983) long local983;
                             if (Static224.A_SERVER_PROT___89 == arg0.currentProt) {
-                                local446 = buffer.g1() == 1;
-                                local627 = buffer.gjstr();
-                                local983 = buffer.g2();
-                                local988 = buffer.g3();
-                                local992 = buffer.g1();
-                                local996 = buffer.g2();
+                                local446 = bitPacket.g1() == 1;
+                                local627 = bitPacket.gjstr();
+                                local983 = bitPacket.g2();
+                                local988 = bitPacket.g3();
+                                local992 = bitPacket.g1();
+                                local996 = bitPacket.g2();
                                 local1002 = (local983 << 32) + local988;
                                 local1004 = false;
                                 @Pc(1013) Node_Sub47 local1013 = local446 ? Static45.aClass2_Sub47_1 : Static674.aClass2_Sub47_3;
@@ -319,7 +319,7 @@ public final class Protocol {
                                 if (!local1004 && Static659.blockChat == 0) {
                                     Static511.aLongArray17[Static97.anInt2001] = local1002;
                                     Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                                    local1090 = QuickChatPhraseTypeList.instance.get(local996).method3903(buffer);
+                                    local1090 = QuickChatPhraseTypeList.instance.get(local996).method3903(bitPacket);
                                     local1097 = local446 ? ChatLineType.QUICKCHAT_CLANCHANNEL_AFFINED : ChatLineType.QUICKCHAT_CLANCHANNEL_UNAFFINED;
                                     if (local992 == 2 || local992 == 3) {
                                         ChatHistory.add("<img=1>" + local627, "<img=1>" + local627, local996, local1090, local1013.channelName, 0, local627, local1097);
@@ -349,16 +349,16 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (Static346.A_SERVER_PROT___145 == arg0.currentProt) {
-                                Static324.reduceAttackPriority = buffer.g1_alt3() == 1;
+                                Static324.reduceAttackPriority = bitPacket.g1_alt3() == 1;
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static619.A_SERVER_PROT___34) {
-                                Minimap.toggle = buffer.g1();
+                                Minimap.toggle = bitPacket.g1();
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static416.A_SERVER_PROT___165) {
-                                local277 = buffer.g4_alt2();
-                                local100 = buffer.g2_alt2();
+                                local277 = bitPacket.g4_alt2();
+                                local100 = bitPacket.g2_alt2();
                                 if (local100 == 65535) {
                                     local100 = -1;
                                 }
@@ -383,18 +383,18 @@ public final class Protocol {
                                 @Pc(1750) String local1750;
                                 @Pc(1491) boolean local1491;
                                 if (arg0.currentProt == Static320.A_SERVER_PROT___135) {
-                                    while (buffer.pos < arg0.currentPacketSize) {
-                                        local446 = buffer.g1() == 1;
-                                        local627 = buffer.gjstr();
-                                        local629 = buffer.gjstr();
-                                        local1409 = buffer.g2();
-                                        local1413 = buffer.g1();
-                                        local1425 = buffer.g1() == 1;
+                                    while (bitPacket.pos < arg0.currentPacketSize) {
+                                        local446 = bitPacket.g1() == 1;
+                                        local627 = bitPacket.gjstr();
+                                        local629 = bitPacket.gjstr();
+                                        local1409 = bitPacket.g2();
+                                        local1413 = bitPacket.g1();
+                                        local1425 = bitPacket.g1() == 1;
                                         local1427 = "";
                                         @Pc(1429) boolean local1429 = false;
                                         if (local1409 > 0) {
-                                            local1427 = buffer.gjstr();
-                                            local1429 = buffer.g1() == 1;
+                                            local1427 = bitPacket.gjstr();
+                                            local1429 = bitPacket.g1() == 1;
                                         }
                                         for (local1449 = 0; local1449 < Static327.anInt5392; local1449++) {
                                             if (local446) {
@@ -492,15 +492,15 @@ public final class Protocol {
                                     arg0.currentProt = null;
                                     return true;
                                 } else if (Static207.A_SERVER_PROT___128 == arg0.currentProt) {
-                                    local277 = buffer.g1_alt3();
-                                    local931 = buffer.g1b_alt3();
+                                    local277 = bitPacket.g1_alt3();
+                                    local931 = bitPacket.g1b_alt3();
                                     Static574.method7573();
                                     Static711.method9271(local931, local277);
                                     arg0.currentProt = null;
                                     return true;
                                 } else if (ServerProt.VARBIT_LARGE == arg0.currentProt) {
-                                    local277 = buffer.g4();
-                                    local100 = buffer.g2();
+                                    local277 = bitPacket.g4();
+                                    local100 = bitPacket.g2();
                                     // g.trace("Received big varbit variable: " + var18 + " value:" + var4);
                                     TimedVarDomain.instance.updateVarBitValue(local277, local100);
                                     arg0.currentProt = null;
@@ -508,33 +508,33 @@ public final class Protocol {
                                 } else {
                                     @Pc(1937) String local1937;
                                     if (arg0.currentProt == Static87.A_SERVER_PROT___37) {
-                                        local1937 = buffer.gjstr();
-                                        local100 = buffer.g2();
-                                        local629 = QuickChatPhraseTypeList.instance.get(local100).method3903(buffer);
+                                        local1937 = bitPacket.gjstr();
+                                        local100 = bitPacket.g2();
+                                        local629 = QuickChatPhraseTypeList.instance.get(local100).method3903(bitPacket);
                                         ChatHistory.add(local1937, local1937, local100, local629, null, 0, local1937, ChatLineType.QUICKCHAT_PRIVATE_ECHO);
                                         arg0.currentProt = null;
                                         return true;
                                     } else if (arg0.currentProt == Static526.A_SERVER_PROT___194) {
-                                        local277 = buffer.g2();
+                                        local277 = bitPacket.g2();
                                         if (local277 == 65535) {
                                             local277 = -1;
                                         }
-                                        local100 = buffer.g1();
-                                        local526 = buffer.g2();
-                                        local1409 = buffer.g1();
-                                        local1413 = buffer.g2();
+                                        local100 = bitPacket.g1();
+                                        local526 = bitPacket.g2();
+                                        local1409 = bitPacket.g1();
+                                        local1413 = bitPacket.g2();
                                         Static186.method2818(local277, local100, local1413, local526, local1409, false);
                                         arg0.currentProt = null;
                                         return true;
                                     } else if (Static618.A_SERVER_PROT___226 == arg0.currentProt) {
-                                        local277 = buffer.ig2();
+                                        local277 = bitPacket.ig2();
                                         Static574.method7573();
                                         VideoTypeList.method9267(local277);
                                         arg0.currentProt = null;
                                         return true;
                                     } else if (arg0.currentProt == Static286.A_SERVER_PROT___118) {
-                                        local277 = buffer.g4_alt2();
-                                        local100 = buffer.g2_alt3();
+                                        local277 = bitPacket.g4_alt2();
+                                        local100 = bitPacket.g2_alt3();
                                         if (local100 == 65535) {
                                             local100 = -1;
                                         }
@@ -546,45 +546,45 @@ public final class Protocol {
                                         @Pc(2080) boolean local2080;
                                         @Pc(2098) int local2098;
                                         if (arg0.currentProt == ServerProt.A_SERVER_PROT___43) {
-                                            local277 = buffer.g2();
-                                            local100 = buffer.g1();
+                                            local277 = bitPacket.g2();
+                                            local100 = bitPacket.g1();
                                             local2080 = (local100 & 0x1) == 1;
                                             Static205.method3089(local277, local2080);
-                                            local1409 = buffer.g2();
+                                            local1409 = bitPacket.g2();
                                             for (local1413 = 0; local1413 < local1409; local1413++) {
-                                                local2098 = buffer.g1();
+                                                local2098 = bitPacket.g1();
                                                 if (local2098 == 255) {
-                                                    local2098 = buffer.g4();
+                                                    local2098 = bitPacket.g4();
                                                 }
-                                                local992 = buffer.ig2();
+                                                local992 = bitPacket.ig2();
                                                 Static341.method5034(local2080, local2098, local1413, local992 - 1, local277);
                                             }
                                             Static322.anIntArray889[Static451.invUpdateCount++ & 0x1F] = local277;
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static663.A_SERVER_PROT___240 == arg0.currentProt) {
-                                            local277 = buffer.g4();
+                                            local277 = bitPacket.g4();
                                             Static439.aSignedResource_4 = SignLink.instance.lookupHostname(local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static312.A_SERVER_PROT___131 == arg0.currentProt) {
-                                            local277 = buffer.ig2();
-                                            local100 = buffer.g4();
+                                            local277 = bitPacket.ig2();
+                                            local100 = bitPacket.g4();
                                             Static574.method7573();
                                             DelayedStateChange.setVarc(local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static452.A_SERVER_PROT___173) {
-                                            local277 = buffer.g4_alt3();
-                                            local100 = buffer.g2();
-                                            local526 = buffer.g2_alt3();
-                                            local1409 = buffer.g2_alt2();
+                                            local277 = bitPacket.g4_alt3();
+                                            local100 = bitPacket.g2();
+                                            local526 = bitPacket.g2_alt3();
+                                            local1409 = bitPacket.g2_alt2();
                                             Static574.method7573();
                                             DelayedStateChange.method6462(local1409 << 16 | local526, 7, local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static655.A_SERVER_PROT___237) {
-                                            local277 = buffer.g4();
+                                            local277 = bitPacket.g4();
                                             Static574.method7573();
                                             DelayedStateChange.method6462(PlayerList.activePlayerSlot, 5, 0, local277);
                                             arg0.currentProt = null;
@@ -598,17 +598,17 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             return false;
                                         } else if (arg0.currentProt == Static526.A_SERVER_PROT___195) {
-                                            local277 = buffer.g2();
-                                            local100 = buffer.g1();
+                                            local277 = bitPacket.g2();
+                                            local100 = bitPacket.g1();
                                             local2080 = (local100 & 0x1) == 1;
-                                            while (arg0.currentPacketSize > buffer.pos) {
-                                                local1409 = buffer.gsmart();
-                                                local1413 = buffer.g2();
+                                            while (arg0.currentPacketSize > bitPacket.pos) {
+                                                local1409 = bitPacket.gsmart();
+                                                local1413 = bitPacket.g2();
                                                 local2098 = 0;
                                                 if (local1413 != 0) {
-                                                    local2098 = buffer.g1();
+                                                    local2098 = bitPacket.g1();
                                                     if (local2098 == 255) {
-                                                        local2098 = buffer.g4();
+                                                        local2098 = bitPacket.g4();
                                                     }
                                                 }
                                                 Static341.method5034(local2080, local2098, local1409, local1413 - 1, local277);
@@ -617,16 +617,16 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static383.A_SERVER_PROT___155 == arg0.currentProt) {
-                                            local1937 = buffer.gjstr();
+                                            local1937 = bitPacket.gjstr();
                                             @Pc(2379) Object[] local2379 = new Object[local1937.length() + 1];
                                             for (local526 = local1937.length() - 1; local526 >= 0; local526--) {
                                                 if (local1937.charAt(local526) == 's') {
-                                                    local2379[local526 + 1] = buffer.gjstr();
+                                                    local2379[local526 + 1] = bitPacket.gjstr();
                                                 } else {
-                                                    local2379[local526 + 1] = Integer.valueOf(buffer.g4());
+                                                    local2379[local526 + 1] = Integer.valueOf(bitPacket.g4());
                                                 }
                                             }
-                                            local2379[0] = Integer.valueOf(buffer.g4());
+                                            local2379[0] = Integer.valueOf(bitPacket.g4());
                                             Static574.method7573();
                                             @Pc(2442) HookRequest local2442 = new HookRequest();
                                             local2442.arguments = local2379;
@@ -634,20 +634,20 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static356.A_SERVER_PROT___149) {
-                                            local277 = buffer.ig2();
-                                            local100 = buffer.g4();
+                                            local277 = bitPacket.ig2();
+                                            local100 = bitPacket.g4();
                                             Static574.method7573();
                                             DelayedStateChange.interfaceSetGraphic(local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static491.A_SERVER_PROT___254) {
-                                            Static494.anInt7404 = buffer.g2s();
+                                            Static494.anInt7404 = bitPacket.g2s();
                                             arg0.currentProt = null;
                                             Static321.lastMiscTransmit = World.tick;
                                             return true;
                                         } else if (Static608.A_SERVER_PROT___222 == arg0.currentProt) {
-                                            local277 = buffer.g2_alt3();
-                                            local100 = buffer.g1_alt3();
+                                            local277 = bitPacket.g2_alt3();
+                                            local100 = bitPacket.g1_alt3();
                                             Static574.method7573();
                                             if (local100 == 2) {
                                                 Static322.method9441();
@@ -662,16 +662,16 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static641.A_SERVER_PROT___234 == arg0.currentProt) {
-                                            Static708.method9230(buffer.gjstr());
+                                            Static708.method9230(bitPacket.gjstr());
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___16) {
-                                            local277 = buffer.g1_alt2();
+                                            local277 = bitPacket.g1_alt2();
                                             @Pc(2579) int[] local2579 = new int[4];
                                             for (local526 = 0; local526 < 4; local526++) {
-                                                local2579[local526] = buffer.g2_alt3();
+                                                local2579[local526] = bitPacket.g2_alt3();
                                             }
-                                            local1409 = buffer.g2_alt2();
+                                            local1409 = bitPacket.g2_alt2();
                                             @Pc(2608) NPCEntityNode local2608 = (NPCEntityNode) NPCList.local.get(local1409);
                                             if (local2608 != null) {
                                                 Static651.animate(local2579, local277, true, local2608.npc);
@@ -680,31 +680,31 @@ public final class Protocol {
                                             return true;
                                         } else if (arg0.currentProt == Static72.A_SERVER_PROT___35) {
                                             if (MainLogicManager.isAtLobbyScreen(MainLogicManager.step)) {
-                                                Static249.anInt4008 = (int) ((float) buffer.g2() * 2.5F);
+                                                Static249.anInt4008 = (int) ((float) bitPacket.g2() * 2.5F);
                                             } else {
-                                                Static249.anInt4008 = buffer.g2() * 30;
+                                                Static249.anInt4008 = bitPacket.g2() * 30;
                                             }
                                             arg0.currentProt = null;
                                             Static321.lastMiscTransmit = World.tick;
                                             return true;
                                         } else if (Static565.A_SERVER_PROT___76 == arg0.currentProt) {
-                                            Static486.aByte115 = buffer.g1b();
+                                            Static486.aByte115 = bitPacket.g1b();
                                             arg0.currentProt = null;
                                             if (Static486.aByte115 == 0 || Static486.aByte115 == 1) {
                                                 Static587.aBoolean663 = true;
                                             }
                                             return true;
                                         } else if (ServerProt.VARP_LARGE == arg0.currentProt) {
-                                            local277 = buffer.g4_alt3();
-                                            local100 = buffer.g2_alt2();
+                                            local277 = bitPacket.g4_alt3();
+                                            local100 = bitPacket.g2_alt2();
                                             // g.trace("Received big varp variable: " + var18 + " value:" + var4);
                                             TimedVarDomain.instance.updateVarp(local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (arg0.currentProt == Static229.A_SERVER_PROT___101) {
                                             Static39.lastClanChannelTransmit = World.tick;
-                                            local446 = buffer.g1() == 1;
-                                            @Pc(2736) Class68 local2736 = new Class68(buffer);
+                                            local446 = bitPacket.g1() == 1;
+                                            @Pc(2736) Class68 local2736 = new Class68(bitPacket);
                                             @Pc(2740) Node_Sub47 local2740;
                                             if (local446) {
                                                 local2740 = Static45.aClass2_Sub47_1;
@@ -715,14 +715,14 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static587.A_SERVER_PROT___216 == arg0.currentProt) {
-                                            local277 = buffer.g4_alt2();
-                                            local100 = buffer.g2();
+                                            local277 = bitPacket.g4_alt2();
+                                            local100 = bitPacket.g2();
                                             Static574.method7573();
                                             DelayedStateChange.interfaceSetColour(local100, local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static344.A_SERVER_PROT___144 == arg0.currentProt) {
-                                            local277 = buffer.g4_alt1();
+                                            local277 = bitPacket.g4_alt1();
                                             Static574.method7573();
                                             if (local277 == -1) {
                                                 Static693.anInt10383 = -1;
@@ -752,8 +752,8 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static14.A_SERVER_PROT___5 == arg0.currentProt) {
-                                            local277 = buffer.g2();
-                                            local931 = buffer.g1b();
+                                            local277 = bitPacket.g2();
+                                            local931 = bitPacket.g1b();
                                             if (Static279.anObjectArray35 == null) {
                                                 Static279.anObjectArray35 = new Object[VarClanSettingTypeList.instance.num];
                                             }
@@ -762,22 +762,22 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (ServerProt.A_SERVER_PROT___18 == arg0.currentProt) {
-                                            local277 = buffer.g2();
+                                            local277 = bitPacket.g2();
                                             Static607.anInt9251 = -1;
                                             CutsceneManager.cutsceneId = local277;
                                             CutsceneManager.state = 1;
                                             js5.CUTSCENES.fileready(CutsceneManager.cutsceneId);
-                                            local100 = buffer.g2();
+                                            local100 = bitPacket.g2();
                                             Static322.anIntArrayArray265 = new int[local100][4];
                                             for (local526 = 0; local526 < local100; local526++) {
                                                 for (local1409 = 0; local1409 < 4; local1409++) {
-                                                    Static322.anIntArrayArray265[local526][local1409] = buffer.g4();
+                                                    Static322.anIntArrayArray265[local526][local1409] = bitPacket.g4();
                                                 }
                                             }
-                                            local1409 = buffer.g1();
+                                            local1409 = bitPacket.g1();
                                             Static518.aClass2_Sub21_18 = new Packet(local1409);
-                                            Static518.aClass2_Sub21_18.pdata(local1409, buffer.data, buffer.pos);
-                                            buffer.pos += local1409;
+                                            Static518.aClass2_Sub21_18.pdata(local1409, bitPacket.data, bitPacket.pos);
+                                            bitPacket.pos += local1409;
                                             arg0.currentProt = null;
                                             return false;
                                         } else {
@@ -787,22 +787,22 @@ public final class Protocol {
                                                     InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                                                 }
                                                 local3044 = new byte[arg0.currentPacketSize];
-                                                buffer.method7416(local3044, arg0.currentPacketSize);
+                                                bitPacket.readEncrypted(local3044, arg0.currentPacketSize);
                                                 local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                 Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local627, true, SignLink.instance);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == Static444.A_SERVER_PROT___169) {
-                                                local446 = buffer.g1() == 1;
-                                                local627 = buffer.gjstr();
+                                                local446 = bitPacket.g1() == 1;
+                                                local627 = bitPacket.gjstr();
                                                 local629 = local627;
                                                 if (local446) {
-                                                    local629 = buffer.gjstr();
+                                                    local629 = bitPacket.gjstr();
                                                 }
-                                                local639 = buffer.g2();
-                                                local644 = buffer.g3();
-                                                local996 = buffer.g1();
-                                                local1449 = buffer.g2();
+                                                local639 = bitPacket.g2();
+                                                local644 = bitPacket.g3();
+                                                local996 = bitPacket.g1();
+                                                local1449 = bitPacket.g2();
                                                 @Pc(3134) long local3134 = local644 + (local639 << 32);
                                                 @Pc(3136) boolean local3136 = false;
                                                 local1021 = 0;
@@ -822,7 +822,7 @@ public final class Protocol {
                                                 if (!local3136 && Static659.blockChat == 0) {
                                                     Static511.aLongArray17[Static97.anInt2001] = local3134;
                                                     Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                                                    local1090 = QuickChatPhraseTypeList.instance.get(local1449).method3903(buffer);
+                                                    local1090 = QuickChatPhraseTypeList.instance.get(local1449).method3903(bitPacket);
                                                     if (local996 == 2) {
                                                         ChatHistory.add("<img=1>" + local629, "<img=1>" + local627, local1449, local1090, null, 0, local627, ChatLineType.QUICKCHAT_PRIVATE);
                                                     } else if (local996 == 1) {
@@ -834,16 +834,16 @@ public final class Protocol {
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (ServerProt.VARBIT_SMALL == arg0.currentProt) {
-                                                local277 = buffer.g1_alt3();
-                                                local100 = buffer.g2_alt2();
+                                                local277 = bitPacket.g1_alt3();
+                                                local100 = bitPacket.g2_alt2();
                                                 // g.trace("Received small varbit variable: " + var18 + " value:" + var4);
                                                 TimedVarDomain.instance.updateVarBitValue(local277, local100);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (Static636.A_SERVER_PROT___230 == arg0.currentProt) {
-                                                local277 = buffer.g1_alt3();
-                                                local100 = buffer.g1_alt1();
-                                                local526 = buffer.g4_alt1();
+                                                local277 = bitPacket.g1_alt3();
+                                                local100 = bitPacket.g1_alt1();
+                                                local526 = bitPacket.g4_alt1();
                                                 Static237.anIntArray518[local100] = local526;
                                                 Static581.anIntArray688[local100] = local277;
                                                 Static498.anIntArray604[local100] = 1;
@@ -857,14 +857,14 @@ public final class Protocol {
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___129) {
-                                                Static726.aClass280_7 = Static189.method2864(buffer.g1());
+                                                Static726.aClass280_7 = Static189.method2864(bitPacket.g1());
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (Static410.A_SERVER_PROT___163 == arg0.currentProt) {
-                                                local277 = buffer.g1_alt3();
-                                                local100 = buffer.g4();
-                                                local526 = buffer.ig2();
-                                                local1409 = buffer.ig2();
+                                                local277 = bitPacket.g1_alt3();
+                                                local100 = bitPacket.g4();
+                                                local526 = bitPacket.ig2();
+                                                local1409 = bitPacket.ig2();
                                                 Static574.method7573();
                                                 DelayedStateChange.interfaceSetRecol(local277, local1409, local100, local526);
                                                 arg0.currentProt = null;
@@ -873,11 +873,11 @@ public final class Protocol {
                                                 @Pc(3502) int local3502;
                                                 @Pc(3582) String local3582;
                                                 if (arg0.currentProt == Static266.A_SERVER_PROT___191) {
-                                                    local446 = buffer.g1() == 1;
-                                                    local627 = buffer.gjstr();
-                                                    local983 = buffer.g2();
-                                                    local988 = buffer.g3();
-                                                    local992 = buffer.g1();
+                                                    local446 = bitPacket.g1() == 1;
+                                                    local627 = bitPacket.gjstr();
+                                                    local983 = bitPacket.g2();
+                                                    local988 = bitPacket.g3();
+                                                    local992 = bitPacket.g1();
                                                     local649 = (local983 << 32) + local988;
                                                     local1491 = false;
                                                     @Pc(3494) Node_Sub47 local3494 = local446 ? Static45.aClass2_Sub47_1 : Static674.aClass2_Sub47_3;
@@ -904,7 +904,7 @@ public final class Protocol {
                                                     if (!local1491 && Static659.blockChat == 0) {
                                                         Static511.aLongArray17[Static97.anInt2001] = local649;
                                                         Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                                                        local3582 = Static130.method2280(WordPack.decode(buffer));
+                                                        local3582 = Static130.method2280(WordPack.decode(bitPacket));
                                                         local1021 = local446 ? ChatLineType.CLANCHANNEL_AFFINED : ChatLineType.CLANCHANNEL_UNAFFINED;
                                                         if (local992 == 2 || local992 == 3) {
                                                             ChatHistory.add("<img=1>" + local627, "<img=1>" + local627, -1, local3582, local3494.channelName, 0, local627, local1021);
@@ -917,7 +917,7 @@ public final class Protocol {
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (arg0.currentProt == Static618.A_SERVER_PROT___227) {
-                                                    local277 = buffer.g1();
+                                                    local277 = bitPacket.g1();
                                                     local100 = local277 >> 5;
                                                     local526 = local277 & 0x1F;
                                                     if (local526 == 0) {
@@ -927,12 +927,12 @@ public final class Protocol {
                                                     }
                                                     @Pc(3721) Class254 local3721 = new Class254();
                                                     local3721.anInt6363 = local526;
-                                                    local3721.anInt6367 = buffer.g1();
+                                                    local3721.anInt6367 = bitPacket.g1();
                                                     if (local3721.anInt6367 >= 0 && local3721.anInt6367 < Sprites.hintHeadicons.length) {
                                                         if (local3721.anInt6363 == 1 || local3721.anInt6363 == 10) {
-                                                            local3721.anInt6366 = buffer.g2();
-                                                            local3721.anInt6360 = buffer.g2();
-                                                            buffer.pos += 4;
+                                                            local3721.anInt6366 = bitPacket.g2();
+                                                            local3721.anInt6360 = bitPacket.g2();
+                                                            bitPacket.pos += 4;
                                                         } else if (local3721.anInt6363 >= 2 && local3721.anInt6363 <= 6) {
                                                             if (local3721.anInt6363 == 2) {
                                                                 local3721.anInt6362 = 256;
@@ -955,13 +955,13 @@ public final class Protocol {
                                                                 local3721.anInt6369 = 256;
                                                             }
                                                             local3721.anInt6363 = 2;
-                                                            local3721.anInt6368 = buffer.g1();
-                                                            local3721.anInt6369 += buffer.g2() - WorldMap.areaBaseX << 9;
-                                                            local3721.anInt6362 += buffer.g2() - WorldMap.areaBaseZ << 9;
-                                                            local3721.anInt6365 = buffer.g1() << 2;
-                                                            local3721.anInt6364 = buffer.g2();
+                                                            local3721.anInt6368 = bitPacket.g1();
+                                                            local3721.anInt6369 += bitPacket.g2() - WorldMap.areaBaseX << 9;
+                                                            local3721.anInt6362 += bitPacket.g2() - WorldMap.areaBaseZ << 9;
+                                                            local3721.anInt6365 = bitPacket.g1() << 2;
+                                                            local3721.anInt6364 = bitPacket.g2();
                                                         }
-                                                        local3721.anInt6371 = buffer.g2();
+                                                        local3721.anInt6371 = bitPacket.g2();
                                                         if (local3721.anInt6371 == 65535) {
                                                             local3721.anInt6371 = -1;
                                                         }
@@ -970,25 +970,25 @@ public final class Protocol {
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (arg0.currentProt == Static428.A_SERVER_PROT___167) {
-                                                    local277 = buffer.g1_alt3();
+                                                    local277 = bitPacket.g1_alt3();
                                                     Static574.method7573();
                                                     arg0.currentProt = null;
                                                     Static150.anInt2632 = local277;
                                                     return true;
                                                 } else if (arg0.currentProt == Static309.A_SERVER_PROT___130) {
-                                                    buffer.pos += 28;
-                                                    if (buffer.checkcrc()) {
-                                                        Static83.method1608(buffer.pos - 28, buffer);
+                                                    bitPacket.pos += 28;
+                                                    if (bitPacket.checkcrc()) {
+                                                        Static83.method1608(bitPacket.pos - 28, bitPacket);
                                                     }
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (arg0.currentProt == Static303.A_SERVER_PROT___126) {
-                                                    local277 = buffer.ig2();
+                                                    local277 = bitPacket.ig2();
                                                     if (local277 == 65535) {
                                                         local277 = -1;
                                                     }
-                                                    local100 = buffer.g4();
-                                                    local526 = buffer.g4_alt3();
+                                                    local100 = bitPacket.g4();
+                                                    local526 = bitPacket.g4_alt3();
                                                     Static574.method7573();
                                                     DelayedStateChange.interfaceSetObject(local526, local100, local277);
                                                     @Pc(4005) ObjType local4005 = ObjTypeList.instance.list(local277);
@@ -997,31 +997,31 @@ public final class Protocol {
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (arg0.currentProt == Static208.A_SERVER_PROT___83) {
-                                                    local277 = buffer.g1_alt3();
-                                                    local100 = buffer.g2();
+                                                    local277 = bitPacket.g1_alt3();
+                                                    local100 = bitPacket.g2();
                                                     Static574.method7573();
                                                     VideoTypeList.method6802(true, local100, local277);
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (arg0.currentProt == Static479.A_SERVER_PROT___177) {
-                                                    local446 = buffer.g1_alt2() == 1;
+                                                    local446 = bitPacket.g1_alt2() == 1;
                                                     Static574.method7573();
                                                     Static501.aBoolean576 = local446;
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (arg0.currentProt == Static557.A_SERVER_PROT___205) {
-                                                    local277 = buffer.g1();
-                                                    if (buffer.g1() == 0) {
+                                                    local277 = bitPacket.g1();
+                                                    if (bitPacket.g1() == 0) {
                                                         Static105.aClass171Array1[local277] = new Class171();
                                                     } else {
-                                                        buffer.pos--;
-                                                        Static105.aClass171Array1[local277] = new Class171(buffer);
+                                                        bitPacket.pos--;
+                                                        Static105.aClass171Array1[local277] = new Class171(bitPacket);
                                                     }
                                                     Static526.lastStockTransmit = World.tick;
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (Static334.A_SERVER_PROT___140 == arg0.currentProt) {
-                                                    local277 = buffer.g2_alt3();
+                                                    local277 = bitPacket.g2_alt3();
                                                     Static574.method7573();
                                                     VideoManager.stop(local277);
                                                     arg0.currentProt = null;
@@ -1034,20 +1034,20 @@ public final class Protocol {
                                                     @Pc(4175) String local4175;
                                                     @Pc(4177) String local4177;
                                                     if (arg0.currentProt == Static408.A_SERVER_PROT___162) {
-                                                        local277 = buffer.gsmart();
-                                                        local100 = buffer.g4();
-                                                        local526 = buffer.g1();
+                                                        local277 = bitPacket.gsmart();
+                                                        local100 = bitPacket.g4();
+                                                        local526 = bitPacket.g1();
                                                         local4175 = "";
                                                         local4177 = local4175;
                                                         if ((local526 & 0x1) != 0) {
-                                                            local4175 = buffer.gjstr();
+                                                            local4175 = bitPacket.gjstr();
                                                             if ((local526 & 0x2) == 0) {
                                                                 local4177 = local4175;
                                                             } else {
-                                                                local4177 = buffer.gjstr();
+                                                                local4177 = bitPacket.gjstr();
                                                             }
                                                         }
-                                                        local1750 = buffer.gjstr();
+                                                        local1750 = bitPacket.gjstr();
                                                         if (local277 == ChatLineType.CONSOLE_PRINT) {
                                                             debugconsole.addline(local1750);
                                                         } else if (local277 == ChatLineType.CONSOLE_SET) {
@@ -1065,18 +1065,18 @@ public final class Protocol {
                                                         Static279.anObjectArray35 = null;
                                                         return true;
                                                     } else if (Static51.A_SERVER_PROT___30 == arg0.currentProt) {
-                                                        local277 = buffer.g2_alt3();
-                                                        local627 = buffer.gjstr();
+                                                        local277 = bitPacket.g2_alt3();
+                                                        local627 = bitPacket.gjstr();
                                                         Static574.method7573();
                                                         DelayedStateChange.setVarcstr(local277, local627);
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (arg0.currentProt == Static231.A_SERVER_PROT___102) {
-                                                        local277 = buffer.g1_alt3();
-                                                        local100 = buffer.g1_alt1();
-                                                        local526 = buffer.g2_alt3();
-                                                        local1409 = buffer.g1_alt3();
-                                                        local1413 = buffer.g1_alt3();
+                                                        local277 = bitPacket.g1_alt3();
+                                                        local100 = bitPacket.g1_alt1();
+                                                        local526 = bitPacket.g2_alt3();
+                                                        local1409 = bitPacket.g1_alt3();
+                                                        local1413 = bitPacket.g1_alt3();
                                                         Static574.method7573();
                                                         Static572.aBooleanArray29[local100] = true;
                                                         Static331.anIntArray403[local100] = local1409;
@@ -1090,15 +1090,15 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (Static225.A_SERVER_PROT___90 == arg0.currentProt) {
-                                                        Static436.anInt3849 = buffer.g1();
+                                                        Static436.anInt3849 = bitPacket.g1();
                                                         for (local277 = 0; local277 < Static436.anInt3849; local277++) {
-                                                            Static632.aStringArray44[local277] = buffer.gjstr();
-                                                            Static446.aStringArray35[local277] = buffer.gjstr();
+                                                            Static632.aStringArray44[local277] = bitPacket.gjstr();
+                                                            Static446.aStringArray35[local277] = bitPacket.gjstr();
                                                             if (Static446.aStringArray35[local277].equals("")) {
                                                                 Static446.aStringArray35[local277] = Static632.aStringArray44[local277];
                                                             }
-                                                            Static10.aStringArray1[local277] = buffer.gjstr();
-                                                            Static316.aStringArray41[local277] = buffer.gjstr();
+                                                            Static10.aStringArray1[local277] = bitPacket.gjstr();
+                                                            Static316.aStringArray41[local277] = bitPacket.gjstr();
                                                             if (Static316.aStringArray41[local277].equals("")) {
                                                                 Static316.aStringArray41[local277] = Static10.aStringArray1[local277];
                                                             }
@@ -1112,13 +1112,13 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (Static273.A_SERVER_PROT___113 == arg0.currentProt) {
-                                                        local277 = buffer.g1_alt1();
-                                                        local100 = buffer.ig2();
+                                                        local277 = bitPacket.g1_alt1();
+                                                        local100 = bitPacket.ig2();
                                                         if (local100 == 65535) {
                                                             local100 = -1;
                                                         }
-                                                        local629 = buffer.gjstr();
-                                                        local1409 = buffer.g1_alt2();
+                                                        local629 = bitPacket.gjstr();
+                                                        local1409 = bitPacket.g1_alt2();
                                                         if (local1409 >= 1 && local1409 <= 8) {
                                                             if (local629.equalsIgnoreCase("null")) {
                                                                 local629 = null;
@@ -1133,16 +1133,16 @@ public final class Protocol {
                                                         @Pc(4611) ServerActiveProperties local4611;
                                                         @Pc(4597) ServerActiveProperties local4597;
                                                         if (arg0.currentProt == Static161.A_SERVER_PROT___62) {
-                                                            local277 = buffer.g2_alt2();
+                                                            local277 = bitPacket.g2_alt2();
                                                             if (local277 == 65535) {
                                                                 local277 = -1;
                                                             }
-                                                            local100 = buffer.g4_alt3();
-                                                            local526 = buffer.g2();
+                                                            local100 = bitPacket.g4_alt3();
+                                                            local526 = bitPacket.g2();
                                                             if (local526 == 65535) {
                                                                 local526 = -1;
                                                             }
-                                                            local1409 = buffer.ig2();
+                                                            local1409 = bitPacket.ig2();
                                                             Static574.method7573();
                                                             for (local1413 = local277; local1413 <= local526; local1413++) {
                                                                 local644 = (long) local1413 + ((long) local100 << 32);
@@ -1162,8 +1162,8 @@ public final class Protocol {
                                                         }
                                                         @Pc(4669) long local4669;
                                                         if (arg0.currentProt == ServerProt.A_SERVER_PROT___125) {
-                                                            local277 = buffer.g2();
-                                                            local4669 = buffer.g8();
+                                                            local277 = bitPacket.g2();
+                                                            local4669 = bitPacket.g8();
                                                             if (Static279.anObjectArray35 == null) {
                                                                 Static279.anObjectArray35 = new Object[VarClanSettingTypeList.instance.num];
                                                             }
@@ -1172,9 +1172,9 @@ public final class Protocol {
                                                             arg0.currentProt = null;
                                                             return true;
                                                         } else if (Static233.A_SERVER_PROT___104 == arg0.currentProt) {
-                                                            local277 = buffer.ig2();
-                                                            local100 = buffer.g2_alt3();
-                                                            local526 = buffer.g4();
+                                                            local277 = bitPacket.ig2();
+                                                            local100 = bitPacket.g2_alt3();
+                                                            local526 = bitPacket.g4();
                                                             Static574.method7573();
                                                             DelayedStateChange.method4347(local526, local277 + (local100 << 16));
                                                             arg0.currentProt = null;
@@ -1186,12 +1186,12 @@ public final class Protocol {
                                                         } else {
                                                             @Pc(4857) boolean local4857;
                                                             if (arg0.currentProt == Static605.A_SERVER_PROT___220) {
-                                                                local277 = buffer.g2_alt2();
-                                                                local100 = buffer.g4_alt3();
-                                                                local526 = buffer.g1_alt1();
-                                                                local1409 = buffer.g1_alt1();
-                                                                local1413 = buffer.g2();
-                                                                local2098 = buffer.ig2();
+                                                                local277 = bitPacket.g2_alt2();
+                                                                local100 = bitPacket.g4_alt3();
+                                                                local526 = bitPacket.g1_alt1();
+                                                                local1409 = bitPacket.g1_alt1();
+                                                                local1413 = bitPacket.g2();
+                                                                local2098 = bitPacket.ig2();
                                                                 if (local2098 == 65535) {
                                                                     local2098 = -1;
                                                                 }
@@ -1341,8 +1341,8 @@ public final class Protocol {
                                                                 arg0.currentProt = null;
                                                                 return true;
                                                             } else if (Static9.A_SERVER_PROT___3 == arg0.currentProt) {
-                                                                local277 = buffer.g4();
-                                                                local100 = buffer.ig2();
+                                                                local277 = bitPacket.g4();
+                                                                local100 = bitPacket.ig2();
                                                                 if (local100 == 65535) {
                                                                     local100 = -1;
                                                                 }
@@ -1351,7 +1351,7 @@ public final class Protocol {
                                                                 arg0.currentProt = null;
                                                                 return true;
                                                             } else if (Static36.A_SERVER_PROT___15 == arg0.currentProt) {
-                                                                Static480.method6468(buffer, SignLink.instance, arg0.currentPacketSize);
+                                                                Static480.method6468(bitPacket, SignLink.instance, arg0.currentPacketSize);
                                                                 arg0.currentProt = null;
                                                                 return true;
                                                             } else if (Static193.A_SERVER_PROT___74 == arg0.currentProt) {
@@ -1362,8 +1362,8 @@ public final class Protocol {
                                                             } else {
                                                                 @Pc(5445) SubInterface local5445;
                                                                 if (ServerProt.A_SERVER_PROT___47 == arg0.currentProt) {
-                                                                    local277 = buffer.g4_alt2();
-                                                                    local100 = buffer.g4_alt3();
+                                                                    local277 = bitPacket.g4_alt2();
+                                                                    local100 = bitPacket.g4_alt3();
                                                                     Static574.method7573();
                                                                     @Pc(5438) SubInterface local5438 = (SubInterface) InterfaceManager.subInterfaces.get(local100);
                                                                     local5445 = (SubInterface) InterfaceManager.subInterfaces.get(local277);
@@ -1389,9 +1389,9 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___49) {
-                                                                    local277 = buffer.g2_alt3();
-                                                                    local100 = buffer.g4_alt1();
-                                                                    local526 = buffer.g1();
+                                                                    local277 = bitPacket.g2_alt3();
+                                                                    local100 = bitPacket.g4_alt1();
+                                                                    local526 = bitPacket.g1();
                                                                     Static574.method7573();
                                                                     local5445 = (SubInterface) InterfaceManager.subInterfaces.get(local100);
                                                                     if (local5445 != null) {
@@ -1401,46 +1401,46 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static563.A_SERVER_PROT___207) {
-                                                                    local277 = buffer.g1_alt2();
-                                                                    local100 = buffer.g2_alt3() << 2;
-                                                                    local526 = buffer.g1_alt3();
-                                                                    local1409 = buffer.g1();
-                                                                    local1413 = buffer.g1_alt3();
+                                                                    local277 = bitPacket.g1_alt2();
+                                                                    local100 = bitPacket.g2_alt3() << 2;
+                                                                    local526 = bitPacket.g1_alt3();
+                                                                    local1409 = bitPacket.g1();
+                                                                    local1413 = bitPacket.g1_alt3();
                                                                     Static574.method7573();
                                                                     Static638.method8397(local1409, local277, local526, local100, local1413);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (Static671.A_SERVER_PROT___246 == arg0.currentProt) {
-                                                                    Static703.anInt10571 = buffer.g1();
+                                                                    Static703.anInt10571 = bitPacket.g1();
                                                                     arg0.currentProt = null;
                                                                     Static321.lastMiscTransmit = World.tick;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static721.A_SERVER_PROT___259) {
-                                                                    local277 = buffer.g2_alt2();
-                                                                    local100 = buffer.g2_alt3();
-                                                                    local526 = buffer.g4_alt1();
-                                                                    local1409 = buffer.g2_alt3();
+                                                                    local277 = bitPacket.g2_alt2();
+                                                                    local100 = bitPacket.g2_alt3();
+                                                                    local526 = bitPacket.g4_alt1();
+                                                                    local1409 = bitPacket.g2_alt3();
                                                                     Static574.method7573();
                                                                     DelayedStateChange.interfaceSetModelAngle(local1409, local277, local526, local100);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (Static454.A_SERVER_PROT___174 == arg0.currentProt) {
-                                                                    local1937 = buffer.gjstr();
-                                                                    local100 = buffer.g2_alt2();
+                                                                    local1937 = bitPacket.gjstr();
+                                                                    local100 = bitPacket.g2_alt2();
                                                                     Static574.method7573();
                                                                     DelayedStateChange.setVarcstr(local100, local1937);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static663.A_SERVER_PROT___241) {
-                                                                    local446 = buffer.g1() == 1;
-                                                                    local627 = buffer.gjstr();
+                                                                    local446 = bitPacket.g1() == 1;
+                                                                    local627 = bitPacket.gjstr();
                                                                     local629 = local627;
                                                                     if (local446) {
-                                                                        local629 = buffer.gjstr();
+                                                                        local629 = bitPacket.gjstr();
                                                                     }
-                                                                    local639 = buffer.g2();
-                                                                    local644 = buffer.g3();
-                                                                    local996 = buffer.g1();
+                                                                    local639 = bitPacket.g2();
+                                                                    local644 = bitPacket.g3();
+                                                                    local996 = bitPacket.g1();
                                                                     local1002 = local644 + (local639 << 32);
                                                                     local1004 = false;
                                                                     local3502 = 0;
@@ -1464,7 +1464,7 @@ public final class Protocol {
                                                                     if (!local1004 && Static659.blockChat == 0) {
                                                                         Static511.aLongArray17[Static97.anInt2001] = local1002;
                                                                         Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                                                                        local3582 = Static130.method2280(WordPack.decode(buffer));
+                                                                        local3582 = Static130.method2280(WordPack.decode(bitPacket));
                                                                         if (local996 == 2) {
                                                                             ChatHistory.add("<img=1>" + local629, "<img=1>" + local627, -1, local3582, null, 0, local627, ChatLineType.PRIVATE_RANK);
                                                                         } else if (local996 == 1) {
@@ -1476,22 +1476,22 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static606.A_SERVER_PROT___221) {
-                                                                    local277 = buffer.g1_alt3();
-                                                                    local100 = buffer.ig2();
+                                                                    local277 = bitPacket.g1_alt3();
+                                                                    local100 = bitPacket.ig2();
                                                                     if (local100 == 65535) {
                                                                         local100 = -1;
                                                                     }
-                                                                    local526 = buffer.g1_alt2();
+                                                                    local526 = bitPacket.g1_alt2();
                                                                     Static63.method1427(local526, local100, local277);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (ServerProt.A_SERVER_PROT___252 == arg0.currentProt) {
-                                                                    local277 = buffer.g2_alt2();
+                                                                    local277 = bitPacket.g2_alt2();
                                                                     if (local277 == 65535) {
                                                                         local277 = -1;
                                                                     }
-                                                                    local100 = buffer.g3_alt1();
-                                                                    local526 = buffer.g1_alt2();
+                                                                    local100 = bitPacket.g3_alt1();
+                                                                    local526 = bitPacket.g1_alt2();
                                                                     Static482.method6481(local526, local277, local100);
                                                                     arg0.currentProt = null;
                                                                     return true;
@@ -1500,7 +1500,7 @@ public final class Protocol {
                                                                         InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                                                                     }
                                                                     local3044 = new byte[arg0.currentPacketSize];
-                                                                    buffer.method7416(local3044, arg0.currentPacketSize);
+                                                                    bitPacket.readEncrypted(local3044, arg0.currentPacketSize);
                                                                     local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                                     local629 = "opensn";
                                                                     if (!client.js || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
@@ -1509,13 +1509,13 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___175) {
-                                                                    local277 = buffer.g2();
-                                                                    local100 = buffer.g2();
-                                                                    local526 = buffer.g2();
+                                                                    local277 = bitPacket.g2();
+                                                                    local100 = bitPacket.g2();
+                                                                    local526 = bitPacket.g2();
                                                                     Static574.method7573();
                                                                     if (InterfaceList.interfaces[local277] != null) {
                                                                         for (local1409 = local100; local1409 < local526; local1409++) {
-                                                                            local1413 = buffer.g3();
+                                                                            local1413 = bitPacket.g3();
                                                                             if (InterfaceList.interfaces[local277].length > local1409 && InterfaceList.interfaces[local277][local1409] != null) {
                                                                                 InterfaceList.interfaces[local277][local1409].anInt3774 = local1413;
                                                                             }
@@ -1524,9 +1524,9 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static266.A_SERVER_PROT___192) {
-                                                                    local277 = buffer.g4_alt2();
-                                                                    local100 = buffer.g2();
-                                                                    local526 = buffer.g4_alt3();
+                                                                    local277 = bitPacket.g4_alt2();
+                                                                    local100 = bitPacket.g2();
+                                                                    local526 = bitPacket.g4_alt3();
                                                                     Static574.method7573();
                                                                     DelayedStateChange.method6462(local100, 5, local526, local277);
                                                                     arg0.currentProt = null;
@@ -1536,13 +1536,13 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (Static389.aServerProt_157 == arg0.currentProt) {
-                                                                    local277 = buffer.g2();
+                                                                    local277 = bitPacket.g2();
                                                                     if (local277 == 65535) {
                                                                         local277 = -1;
                                                                     }
-                                                                    local100 = buffer.g1();
-                                                                    local526 = buffer.g2();
-                                                                    local1409 = buffer.g1();
+                                                                    local100 = bitPacket.g1();
+                                                                    local526 = bitPacket.g2();
+                                                                    local1409 = bitPacket.g1();
                                                                     Static186.method2818(local277, local100, 256, local526, local1409, true);
                                                                     arg0.currentProt = null;
                                                                     return true;
@@ -1552,18 +1552,18 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static91.A_SERVER_PROT___236) {
-                                                                    PlayerList.iteratePlayers(buffer, arg0.currentPacketSize);
+                                                                    PlayerList.iteratePlayers(bitPacket, arg0.currentPacketSize);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (Static250.A_SERVER_PROT___105 == arg0.currentProt) {
-                                                                    Static133.anInt2458 = buffer.g1();
-                                                                    Static87.anInt1806 = buffer.g1();
+                                                                    Static133.anInt2458 = bitPacket.g1();
+                                                                    Static87.anInt1806 = bitPacket.g1();
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (Static31.A_SERVER_PROT___14 == arg0.currentProt) {
-                                                                    Static626.anInt9476 = buffer.g1b() << 3;
-                                                                    Static270.anInt4354 = buffer.g1b_alt3() << 3;
-                                                                    Static87.anInt1810 = buffer.g1();
+                                                                    Static626.anInt9476 = bitPacket.g1b() << 3;
+                                                                    Static270.anInt4354 = bitPacket.g1b_alt3() << 3;
+                                                                    Static87.anInt1810 = bitPacket.g1();
                                                                     for (@Pc(6277) ObjStack local6277 = (ObjStack) Static497.stacks.first(); local6277 != null; local6277 = (ObjStack) Static497.stacks.next()) {
                                                                         local100 = (int) (local6277.key >> 28 & 0x3L);
                                                                         local526 = (int) (local6277.key & 0x3FFFL);
@@ -1591,7 +1591,7 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static533.A_SERVER_PROT___196) {
-                                                                    local277 = buffer.g4_alt1();
+                                                                    local277 = bitPacket.g4_alt1();
                                                                     Static574.method7573();
                                                                     DelayedStateChange.method6462(-1, 3, -1, local277);
                                                                     arg0.currentProt = null;
@@ -1599,13 +1599,13 @@ public final class Protocol {
                                                                 } else {
                                                                     @Pc(6565) boolean local6565;
                                                                     if (Static718.A_SERVER_PROT___258 == arg0.currentProt) {
-                                                                        local446 = buffer.g1() == 1;
-                                                                        local627 = buffer.gjstr();
+                                                                        local446 = bitPacket.g1() == 1;
+                                                                        local627 = bitPacket.gjstr();
                                                                         local629 = local627;
                                                                         if (local446) {
-                                                                            local629 = buffer.gjstr();
+                                                                            local629 = bitPacket.gjstr();
                                                                         }
-                                                                        local1409 = buffer.g1();
+                                                                        local1409 = bitPacket.g1();
                                                                         local6565 = false;
                                                                         if (local1409 <= 1) {
                                                                             if (Static389.aBoolean459 && !Static34.aBoolean62 || Static617.aBoolean724) {
@@ -1615,7 +1615,7 @@ public final class Protocol {
                                                                             }
                                                                         }
                                                                         if (!local6565 && Static659.blockChat == 0) {
-                                                                            local1750 = Static130.method2280(WordPack.decode(buffer));
+                                                                            local1750 = Static130.method2280(WordPack.decode(bitPacket));
                                                                             if (local1409 == 2) {
                                                                                 ChatHistory.add("<img=1>" + local629, "<img=1>" + local627, -1, local1750, null, 0, local627, ChatLineType.PLAYER_GROUP);
                                                                             } else if (local1409 == 1) {
@@ -1627,9 +1627,9 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (Static629.A_SERVER_PROT___228 == arg0.currentProt) {
-                                                                        local277 = buffer.g2();
-                                                                        local627 = buffer.gjstr();
-                                                                        local2080 = buffer.g1() == 1;
+                                                                        local277 = bitPacket.g2();
+                                                                        local627 = bitPacket.gjstr();
+                                                                        local2080 = bitPacket.g1() == 1;
                                                                         Static718.aBoolean823 = local2080;
                                                                         Static459.aConnectionInfo_2 = client.gameConnection;
                                                                         Static430.method5817(local277, local627);
@@ -1649,12 +1649,12 @@ public final class Protocol {
                                                                         return true;
                                                                     } else if (arg0.currentProt == Static384.A_SERVER_PROT___156) {
                                                                         Static39.lastClanChannelTransmit = World.tick;
-                                                                        local446 = buffer.g1() == 1;
+                                                                        local446 = bitPacket.g1() == 1;
                                                                         if (arg0.currentPacketSize != 1) {
                                                                             if (local446) {
-                                                                                Static45.aClass2_Sub47_1 = new Node_Sub47(buffer);
+                                                                                Static45.aClass2_Sub47_1 = new Node_Sub47(bitPacket);
                                                                             } else {
-                                                                                Static674.aClass2_Sub47_3 = new Node_Sub47(buffer);
+                                                                                Static674.aClass2_Sub47_3 = new Node_Sub47(bitPacket);
                                                                             }
                                                                             arg0.currentProt = null;
                                                                             return true;
@@ -1667,11 +1667,11 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (Static446.A_SERVER_PROT___170 == arg0.currentProt) {
-                                                                        Static626.anInt9476 = buffer.g1b_alt2() << 3;
-                                                                        Static87.anInt1810 = buffer.g1_alt1();
-                                                                        Static270.anInt4354 = buffer.g1b() << 3;
-                                                                        while (buffer.pos < arg0.currentPacketSize) {
-                                                                            @Pc(6873) ZoneProt local6873 = Static559.method7419()[buffer.g1()];
+                                                                        Static626.anInt9476 = bitPacket.g1b_alt2() << 3;
+                                                                        Static87.anInt1810 = bitPacket.g1_alt1();
+                                                                        Static270.anInt4354 = bitPacket.g1b() << 3;
+                                                                        while (bitPacket.pos < arg0.currentPacketSize) {
+                                                                            @Pc(6873) ZoneProt local6873 = Static559.method7419()[bitPacket.g1()];
                                                                             Static605.method7912(local6873);
                                                                         }
                                                                         arg0.currentProt = null;
@@ -1681,15 +1681,15 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return false;
                                                                     } else if (arg0.currentProt == Static41.A_SERVER_PROT___20) {
-                                                                        local277 = buffer.g4_alt3();
+                                                                        local277 = bitPacket.g4_alt3();
                                                                         local100 = local277 >> 28 & 0x3;
                                                                         local526 = local277 >> 14 & 0x3FFF;
                                                                         local1409 = local277 & 0x3FFF;
-                                                                        local1413 = buffer.g2_alt2();
+                                                                        local1413 = bitPacket.g2_alt2();
                                                                         if (local1413 == 65535) {
                                                                             local1413 = -1;
                                                                         }
-                                                                        local2098 = buffer.g1_alt3();
+                                                                        local2098 = bitPacket.g1_alt3();
                                                                         local992 = local2098 >> 2;
                                                                         local996 = local2098 & 0x3;
                                                                         local1449 = Static310.anIntArray379[local992];
@@ -1699,15 +1699,15 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (Static706.A_SERVER_PROT___255 == arg0.currentProt) {
-                                                                        local277 = buffer.g1();
+                                                                        local277 = bitPacket.g1();
                                                                         local892 = (local277 & 0x1) == 1;
-                                                                        local629 = buffer.gjstr();
-                                                                        local4175 = buffer.gjstr();
+                                                                        local629 = bitPacket.gjstr();
+                                                                        local4175 = bitPacket.gjstr();
                                                                         if (local4175.equals("")) {
                                                                             local4175 = local629;
                                                                         }
-                                                                        local4177 = buffer.gjstr();
-                                                                        local1750 = buffer.gjstr();
+                                                                        local4177 = bitPacket.gjstr();
+                                                                        local1750 = bitPacket.gjstr();
                                                                         if (local1750.equals("")) {
                                                                             local1750 = local4177;
                                                                         }
@@ -1733,7 +1733,7 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (Static331.A_SERVER_PROT___138 == arg0.currentProt) {
-                                                                        local277 = buffer.g4_alt2();
+                                                                        local277 = bitPacket.g4_alt2();
                                                                         if (local277 != Static435.anInt6594) {
                                                                             Static435.anInt6594 = local277;
                                                                             ScriptRunner.executeTrigger(Static362.A_CLIENT_TRIGGER_TYPE___10, -1, -1);
@@ -1741,20 +1741,20 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (Static550.A_SERVER_PROT___200 == arg0.currentProt) {
-                                                                        local446 = buffer.g1() == 1;
-                                                                        local627 = buffer.gjstr();
+                                                                        local446 = bitPacket.g1() == 1;
+                                                                        local627 = bitPacket.gjstr();
                                                                         local629 = local627;
                                                                         if (local446) {
-                                                                            local629 = buffer.gjstr();
+                                                                            local629 = bitPacket.gjstr();
                                                                         }
-                                                                        local1409 = buffer.g1();
-                                                                        local1413 = buffer.g2();
+                                                                        local1409 = bitPacket.g1();
+                                                                        local1413 = bitPacket.g2();
                                                                         local1425 = false;
                                                                         if (local1409 <= 1 && Static71.method1524(local629)) {
                                                                             local1425 = true;
                                                                         }
                                                                         if (!local1425 && Static659.blockChat == 0) {
-                                                                            local1427 = QuickChatPhraseTypeList.instance.get(local1413).method3903(buffer);
+                                                                            local1427 = QuickChatPhraseTypeList.instance.get(local1413).method3903(bitPacket);
                                                                             if (local1409 == 2) {
                                                                                 ChatHistory.add("<img=1>" + local629, "<img=1>" + local627, local1413, local1427, null, 0, local627, ChatLineType.QUICKCHAT_PLAYER_GROUP);
                                                                             } else if (local1409 == 1) {
@@ -1766,11 +1766,11 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (arg0.currentProt == Static287.A_SERVER_PROT___119) {
-                                                                        local277 = buffer.g4();
-                                                                        local100 = buffer.g4();
+                                                                        local277 = bitPacket.g4();
+                                                                        local100 = bitPacket.g4();
                                                                         @Pc(7309) ClientMessage local7309 = ClientMessage.create(Static128.A_CLIENT_PROT___106, arg0.cipher);
-                                                                        local7309.buffer.p4(local277);
-                                                                        local7309.buffer.p4(local100);
+                                                                        local7309.bitPacket.p4(local277);
+                                                                        local7309.bitPacket.p4(local100);
                                                                         arg0.send(local7309);
                                                                         arg0.currentProt = null;
                                                                         return true;
@@ -1781,15 +1781,15 @@ public final class Protocol {
                                                                     } else {
                                                                         @Pc(7394) Class241 local7394;
                                                                         if (arg0.currentProt == Static137.A_SERVER_PROT___57) {
-                                                                            local1937 = buffer.gjstr();
-                                                                            local2080 = buffer.g1() == 1;
+                                                                            local1937 = bitPacket.gjstr();
+                                                                            local2080 = bitPacket.g1() == 1;
                                                                             if (local2080) {
-                                                                                local627 = buffer.gjstr();
+                                                                                local627 = bitPacket.gjstr();
                                                                             } else {
                                                                                 local627 = local1937;
                                                                             }
-                                                                            local1409 = buffer.g2();
-                                                                            @Pc(7377) byte local7377 = buffer.g1b();
+                                                                            local1409 = bitPacket.g2();
+                                                                            @Pc(7377) byte local7377 = bitPacket.g1b();
                                                                             local1425 = false;
                                                                             if (local7377 == -128) {
                                                                                 local1425 = true;
@@ -1810,7 +1810,7 @@ public final class Protocol {
                                                                                     Static87.aClass241Array1[Static706.anInt10633] = null;
                                                                                 }
                                                                             } else {
-                                                                                local1427 = buffer.gjstr();
+                                                                                local1427 = bitPacket.gjstr();
                                                                                 local7394 = new Class241();
                                                                                 local7394.aString67 = local1937;
                                                                                 local7394.aString66 = local627;
@@ -1855,8 +1855,8 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___11) {
-                                                                            local277 = buffer.g2();
-                                                                            local100 = buffer.g4();
+                                                                            local277 = bitPacket.g2();
+                                                                            local100 = bitPacket.g4();
                                                                             if (Static279.anObjectArray35 == null) {
                                                                                 Static279.anObjectArray35 = new Object[VarClanSettingTypeList.instance.num];
                                                                             }
@@ -1865,7 +1865,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (ServerProt.A_SERVER_PROT___54 == arg0.currentProt) {
-                                                                            local277 = buffer.g2();
+                                                                            local277 = bitPacket.g2();
                                                                             @Pc(7724) PlayerEntity local7724;
                                                                             if (local277 == PlayerList.activePlayerSlot) {
                                                                                 local7724 = PlayerEntity.self;
@@ -1876,8 +1876,8 @@ public final class Protocol {
                                                                                 arg0.currentProt = null;
                                                                                 return true;
                                                                             }
-                                                                            local526 = buffer.g2();
-                                                                            local1409 = buffer.g1();
+                                                                            local526 = bitPacket.g2();
+                                                                            local1409 = bitPacket.g1();
                                                                             local6565 = (local526 & 0x8000) != 0;
                                                                             if (local7724.accountName != null && local7724.playerModel != null) {
                                                                                 local1425 = false;
@@ -1892,11 +1892,11 @@ public final class Protocol {
                                                                                     local996 = -1;
                                                                                     if (local6565) {
                                                                                         local526 &= 0x7FFF;
-                                                                                        @Pc(7827) Class21 local7827 = Static260.method3828(buffer);
+                                                                                        @Pc(7827) Class21 local7827 = Static260.method3828(bitPacket);
                                                                                         local996 = local7827.anInt521;
-                                                                                        local1427 = local7827.aClass2_Sub2_Sub12_1.method3903(buffer);
+                                                                                        local1427 = local7827.aClass2_Sub2_Sub12_1.method3903(bitPacket);
                                                                                     } else {
-                                                                                        local1427 = Static130.method2280(WordPack.decode(buffer));
+                                                                                        local1427 = Static130.method2280(WordPack.decode(bitPacket));
                                                                                     }
                                                                                     local7724.method1413(local526 >> 8, local526 & 0xFF, local1427.trim());
                                                                                     if (local1409 == 1 || local1409 == 2) {
@@ -1916,14 +1916,14 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static19.A_SERVER_PROT___8) {
-                                                                            local277 = buffer.g2();
+                                                                            local277 = bitPacket.g2();
                                                                             if (local277 == 65535) {
                                                                                 local277 = -1;
                                                                             }
-                                                                            local100 = buffer.g1();
-                                                                            local526 = buffer.g2();
-                                                                            local1409 = buffer.g1();
-                                                                            local1413 = buffer.g2();
+                                                                            local100 = bitPacket.g1();
+                                                                            local526 = bitPacket.g2();
+                                                                            local1409 = bitPacket.g1();
+                                                                            local1413 = bitPacket.g2();
                                                                             Static161.method2586(local1413, local526, local277, local100, local1409);
                                                                             arg0.currentProt = null;
                                                                             return true;
@@ -1931,16 +1931,16 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return false;
                                                                         } else if (Static155.A_SERVER_PROT___60 == arg0.currentProt) {
-                                                                            local277 = buffer.ig2();
+                                                                            local277 = bitPacket.ig2();
                                                                             if (local277 == 65535) {
                                                                                 local277 = -1;
                                                                             }
-                                                                            local100 = buffer.g4_alt3();
-                                                                            local526 = buffer.g2_alt2();
+                                                                            local100 = bitPacket.g4_alt3();
+                                                                            local526 = bitPacket.g2_alt2();
                                                                             if (local526 == 65535) {
                                                                                 local526 = -1;
                                                                             }
-                                                                            local1409 = buffer.g4_alt1();
+                                                                            local1409 = bitPacket.g4_alt1();
                                                                             Static574.method7573();
                                                                             for (local1413 = local277; local1413 <= local526; local1413++) {
                                                                                 local644 = (long) local1413 + ((long) local100 << 32);
@@ -1958,18 +1958,18 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___257) {
-                                                                            local277 = buffer.g2();
-                                                                            local100 = buffer.g4();
-                                                                            local526 = buffer.g2();
-                                                                            local1409 = buffer.g1_alt3();
+                                                                            local277 = bitPacket.g2();
+                                                                            local100 = bitPacket.g4();
+                                                                            local526 = bitPacket.g2();
+                                                                            local1409 = bitPacket.g1_alt3();
                                                                             Static574.method7573();
                                                                             DelayedStateChange.interfaceSetRetex(local526, local1409, local100, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static157.A_SERVER_PROT___61) {
-                                                                            Static626.anInt9476 = buffer.g1b_alt1() << 3;
-                                                                            Static270.anInt4354 = buffer.g1b() << 3;
-                                                                            Static87.anInt1810 = buffer.g1_alt3();
+                                                                            Static626.anInt9476 = bitPacket.g1b_alt1() << 3;
+                                                                            Static270.anInt4354 = bitPacket.g1b() << 3;
+                                                                            Static87.anInt1810 = bitPacket.g1_alt3();
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static18.A_SERVER_PROT___7 == arg0.currentProt) {
@@ -1977,41 +1977,41 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static207.A_SERVER_PROT___127 == arg0.currentProt) {
-                                                                            local277 = buffer.g2s_alt3();
-                                                                            local100 = buffer.g4_alt2();
+                                                                            local277 = bitPacket.g2s_alt3();
+                                                                            local100 = bitPacket.g4_alt2();
                                                                             Static574.method7573();
                                                                             DelayedStateChange.interfaceSetModelAnim(local100, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static707.A_SERVER_PROT___256 == arg0.currentProt) {
-                                                                            local277 = buffer.g2_alt3();
-                                                                            local100 = buffer.g2_alt2();
+                                                                            local277 = bitPacket.g2_alt3();
+                                                                            local100 = bitPacket.g2_alt2();
                                                                             Static574.method7573();
                                                                             Static471.method6408(local100, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static404.A_SERVER_PROT___161 == arg0.currentProt) {
-                                                                            Static106.anInt2153 = buffer.g3s();
-                                                                            Static389.aBoolean459 = buffer.g1() == 1;
+                                                                            Static106.anInt2153 = bitPacket.g3s();
+                                                                            Static389.aBoolean459 = bitPacket.g1() == 1;
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static617.A_SERVER_PROT___224) {
-                                                                            local277 = buffer.g2_alt3();
-                                                                            local931 = buffer.g1b_alt3();
+                                                                            local277 = bitPacket.g2_alt3();
+                                                                            local931 = bitPacket.g1b_alt3();
                                                                             Static574.method7573();
                                                                             DelayedStateChange.setVarc(local931, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.MESSAGE_PRIVATE_ECHO) {
-                                                                            local1937 = buffer.gjstr();
-                                                                            local627 = Static130.method2280(WordPack.decode(buffer));
+                                                                            local1937 = bitPacket.gjstr();
+                                                                            local627 = Static130.method2280(WordPack.decode(bitPacket));
                                                                             ChatHistory.add(local627, local1937, 0, local1937, local1937, ChatLineType.PRIVATE_ECHO);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static353.A_SERVER_PROT___233) {
                                                                             Static400.lastClanSettingsTransmit = World.tick;
-                                                                            local446 = buffer.g1() == 1;
-                                                                            @Pc(8376) Class20 local8376 = new Class20(buffer);
+                                                                            local446 = bitPacket.g1() == 1;
+                                                                            @Pc(8376) Class20 local8376 = new Class20(bitPacket);
                                                                             @Pc(8380) Class164 local8380;
                                                                             if (local446) {
                                                                                 local8380 = Static128.aClass164_8;
@@ -2022,15 +2022,15 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___45) {
-                                                                            local277 = buffer.g4();
-                                                                            local627 = buffer.gjstr();
+                                                                            local277 = bitPacket.g4();
+                                                                            local627 = bitPacket.gjstr();
                                                                             Static574.method7573();
                                                                             DelayedStateChange.interfaceSetText(local277, local627);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___53) {
-                                                                            local277 = buffer.ig2();
-                                                                            local100 = buffer.g1_alt2();
+                                                                            local277 = bitPacket.ig2();
+                                                                            local100 = bitPacket.g1_alt2();
                                                                             local2080 = (local100 & 0x1) == 1;
                                                                             Static698.method9123(local2080, local277);
                                                                             Static322.anIntArray889[Static451.invUpdateCount++ & 0x1F] = local277;
@@ -2045,11 +2045,11 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static670.A_SERVER_PROT___245 == arg0.currentProt) {
-                                                                            local277 = buffer.g1_alt3();
-                                                                            local100 = buffer.g1_alt2();
-                                                                            local526 = buffer.g1_alt2();
-                                                                            local1409 = buffer.g1_alt2();
-                                                                            local1413 = buffer.g2_alt3() << 2;
+                                                                            local277 = bitPacket.g1_alt3();
+                                                                            local100 = bitPacket.g1_alt2();
+                                                                            local526 = bitPacket.g1_alt2();
+                                                                            local1409 = bitPacket.g1_alt2();
+                                                                            local1413 = bitPacket.g2_alt3() << 2;
                                                                             Static574.method7573();
                                                                             Static319.method4595(local526, true, local1409, local1413, local100, local277);
                                                                             arg0.currentProt = null;
@@ -2064,15 +2064,15 @@ public final class Protocol {
                                                                                 Static158.aString28 = null;
                                                                                 return true;
                                                                             }
-                                                                            Static158.aString28 = buffer.gjstr();
-                                                                            local446 = buffer.g1() == 1;
+                                                                            Static158.aString28 = bitPacket.gjstr();
+                                                                            local446 = bitPacket.g1() == 1;
                                                                             if (local446) {
-                                                                                buffer.gjstr();
+                                                                                bitPacket.gjstr();
                                                                             }
-                                                                            local4669 = buffer.g8();
+                                                                            local4669 = bitPacket.g8();
                                                                             Static723.aString129 = Base37.decode(local4669);
-                                                                            Static673.aByte140 = buffer.g1b();
-                                                                            local1409 = buffer.g1();
+                                                                            Static673.aByte140 = bitPacket.g1b();
+                                                                            local1409 = bitPacket.g1();
                                                                             if (local1409 == 255) {
                                                                                 arg0.currentProt = null;
                                                                                 return true;
@@ -2081,17 +2081,17 @@ public final class Protocol {
                                                                             @Pc(8611) Class241[] local8611 = new Class241[100];
                                                                             for (local2098 = 0; local2098 < Static706.anInt10633; local2098++) {
                                                                                 local8611[local2098] = new Class241();
-                                                                                local8611[local2098].aString67 = buffer.gjstr();
-                                                                                local446 = buffer.g1() == 1;
+                                                                                local8611[local2098].aString67 = bitPacket.gjstr();
+                                                                                local446 = bitPacket.g1() == 1;
                                                                                 if (local446) {
-                                                                                    local8611[local2098].aString66 = buffer.gjstr();
+                                                                                    local8611[local2098].aString66 = bitPacket.gjstr();
                                                                                 } else {
                                                                                     local8611[local2098].aString66 = local8611[local2098].aString67;
                                                                                 }
                                                                                 local8611[local2098].aString68 = NameTools.format(local8611[local2098].aString66);
-                                                                                local8611[local2098].anInt6148 = buffer.g2();
-                                                                                local8611[local2098].aByte99 = buffer.g1b();
-                                                                                local8611[local2098].aString65 = buffer.gjstr();
+                                                                                local8611[local2098].anInt6148 = bitPacket.g2();
+                                                                                local8611[local2098].aByte99 = bitPacket.g1b();
+                                                                                local8611[local2098].aString65 = bitPacket.gjstr();
                                                                                 if (local8611[local2098].aString66.equals(PlayerEntity.self.accountName)) {
                                                                                     Static682.aByte142 = local8611[local2098].aByte99;
                                                                                 }
@@ -2120,8 +2120,8 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static215.A_SERVER_PROT___86) {
-                                                                            local277 = buffer.g1();
-                                                                            local100 = buffer.g1_alt1();
+                                                                            local277 = bitPacket.g1();
+                                                                            local100 = bitPacket.g1_alt1();
                                                                             if (local277 == 255) {
                                                                                 local100 = -1;
                                                                                 local277 = -1;
@@ -2134,8 +2134,8 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static390.A_SERVER_PROT___158) {
-                                                                            local277 = buffer.g2();
-                                                                            local627 = buffer.gjstr();
+                                                                            local277 = bitPacket.g2();
+                                                                            local627 = bitPacket.gjstr();
                                                                             if (Static279.anObjectArray35 == null) {
                                                                                 Static279.anObjectArray35 = new Object[VarClanSettingTypeList.instance.num];
                                                                             }
@@ -2144,16 +2144,16 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static616.A_SERVER_PROT___223) {
-                                                                            local446 = buffer.g1() == 1;
-                                                                            local627 = buffer.gjstr();
+                                                                            local446 = bitPacket.g1() == 1;
+                                                                            local627 = bitPacket.gjstr();
                                                                             local629 = local627;
                                                                             if (local446) {
-                                                                                local629 = buffer.gjstr();
+                                                                                local629 = bitPacket.gjstr();
                                                                             }
-                                                                            local639 = buffer.g8();
-                                                                            local644 = buffer.g2();
-                                                                            local649 = buffer.g3();
-                                                                            local653 = buffer.g1();
+                                                                            local639 = bitPacket.g8();
+                                                                            local644 = bitPacket.g2();
+                                                                            local649 = bitPacket.g3();
+                                                                            local653 = bitPacket.g1();
                                                                             @Pc(8945) long local8945 = local649 + (local644 << 32);
                                                                             local4857 = false;
                                                                             local1097 = 0;
@@ -2177,7 +2177,7 @@ public final class Protocol {
                                                                             if (!local4857 && Static659.blockChat == 0) {
                                                                                 Static511.aLongArray17[Static97.anInt2001] = local8945;
                                                                                 Static97.anInt2001 = (Static97.anInt2001 + 1) % 100;
-                                                                                @Pc(9032) String local9032 = Static130.method2280(WordPack.decode(buffer));
+                                                                                @Pc(9032) String local9032 = Static130.method2280(WordPack.decode(bitPacket));
                                                                                 if (local653 == 2 || local653 == 3) {
                                                                                     ChatHistory.add("<img=1>" + local629, "<img=1>" + local627, -1, local9032, Base37.decodeName(local639), 0, local627, ChatLineType.FRIENDCHANNEL);
                                                                                 } else if (local653 == 1) {
@@ -2218,10 +2218,10 @@ public final class Protocol {
     @OriginalMember(owner = "client!lma", name = "b", descriptor = "(I)V")
     public static void sendWindowStatus() {
         @Pc(22) ClientMessage local22 = ClientMessage.create(Static587.A_CLIENT_PROT___105, ConnectionManager.GAME.cipher);
-        local22.buffer.p1(InterfaceManager.getWindowMode());
-        local22.buffer.p2(GameShell.canvasWid);
-        local22.buffer.p2(GameShell.canvasHei);
-        local22.buffer.p1(ClientOptions.instance.antialiasingQuality.getValue());
+        local22.bitPacket.p1(InterfaceManager.getWindowMode());
+        local22.bitPacket.p2(GameShell.canvasWid);
+        local22.bitPacket.p2(GameShell.canvasHei);
+        local22.bitPacket.p1(ClientOptions.instance.antialiasingQuality.getValue());
         ConnectionManager.GAME.send(local22);
     }
 }

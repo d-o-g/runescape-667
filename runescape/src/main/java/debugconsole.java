@@ -610,12 +610,12 @@ public final class debugconsole {
                 if (command.startsWith("pc")) {
                     @Pc(1833) ServerConnection connection = ConnectionManager.active();
                     @Pc(1839) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, connection.cipher);
-                    message.buffer.p1(0);
-                    @Pc(521) int pos = message.buffer.pos;
+                    message.bitPacket.p1(0);
+                    @Pc(521) int pos = message.bitPacket.pos;
                     @Pc(582) int local582 = command.indexOf(" ", 4);
-                    message.buffer.pjstr(command.substring(3, local582));
-                    WordPack.encode(message.buffer, command.substring(local582));
-                    message.buffer.psize1(message.buffer.pos - pos);
+                    message.bitPacket.pjstr(command.substring(3, local582));
+                    WordPack.encode(message.bitPacket, command.substring(local582));
+                    message.bitPacket.psize1(message.bitPacket.pos - pos);
                     connection.send(message);
                     return;
                 }
@@ -888,10 +888,10 @@ public final class debugconsole {
 
                 if (MainLogicManager.step == 11) {
                     @Pc(2836) ClientMessage local2836 = ClientMessage.create(ClientProt.CLIENT_CHEAT, ConnectionManager.GAME.cipher);
-                    local2836.buffer.p1(command.length() + 3);
-                    local2836.buffer.p1(automatic ? 1 : 0);
-                    local2836.buffer.p1(retainText ? 1 : 0);
-                    local2836.buffer.pjstr(command);
+                    local2836.bitPacket.p1(command.length() + 3);
+                    local2836.bitPacket.p1(automatic ? 1 : 0);
+                    local2836.bitPacket.p1(retainText ? 1 : 0);
+                    local2836.bitPacket.pjstr(command);
                     ConnectionManager.GAME.send(local2836);
                 }
 

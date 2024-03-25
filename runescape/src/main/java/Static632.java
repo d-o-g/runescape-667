@@ -20,7 +20,7 @@ public final class Static632 {
 
     @OriginalMember(owner = "client!u", name = "a", descriptor = "(Lclient!ge;I)Lclient!is;")
     public static Class138 method8359(@OriginalArg(0) Packet arg0) {
-        @Pc(10) horizontalAlignment local10 = Static33.method882()[arg0.g1()];
+        @Pc(10) HorizontalAlignment local10 = Static33.method882()[arg0.g1()];
         @Pc(17) VerticalAlignment local17 = Static313.method4544()[arg0.g1()];
         @Pc(21) int local21 = arg0.g2s();
         @Pc(25) int local25 = arg0.g2s();

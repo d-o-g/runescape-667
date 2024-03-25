@@ -24,7 +24,7 @@ public final class Static515 {
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(Lclient!ge;B)Lclient!no;")
     public static Class160 method6803(@OriginalArg(0) Packet arg0) {
         @Pc(15) int local15 = arg0.g2();
-        @Pc(22) horizontalAlignment local22 = Static33.method882()[arg0.g1()];
+        @Pc(22) HorizontalAlignment local22 = Static33.method882()[arg0.g1()];
         @Pc(29) VerticalAlignment local29 = Static313.method4544()[arg0.g1()];
         @Pc(35) int local35 = arg0.g2s();
         @Pc(39) int local39 = arg0.g2s();

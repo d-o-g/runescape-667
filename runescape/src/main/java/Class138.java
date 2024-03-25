@@ -12,7 +12,7 @@ public class Class138 implements Interface10 {
     public final int anInt4415;
 
     @OriginalMember(owner = "client!is", name = "l", descriptor = "Lclient!wk;")
-    public final horizontalAlignment aHorizontalAlignment_10;
+    public final HorizontalAlignment aHorizontalAlignment_10;
 
     @OriginalMember(owner = "client!is", name = "d", descriptor = "I")
     public final int anInt4416;
@@ -33,7 +33,7 @@ public class Class138 implements Interface10 {
     public final int anInt4421;
 
     @OriginalMember(owner = "client!is", name = "<init>", descriptor = "(Lclient!wk;Lclient!ek;IIIIIII)V")
-    public Class138(@OriginalArg(0) horizontalAlignment arg0, @OriginalArg(1) VerticalAlignment arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8) {
+    public Class138(@OriginalArg(0) HorizontalAlignment arg0, @OriginalArg(1) VerticalAlignment arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8) {
         this.anInt4413 = arg5;
         this.anInt4415 = arg7;
         this.aHorizontalAlignment_10 = arg0;

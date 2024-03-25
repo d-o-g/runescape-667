@@ -16,7 +16,7 @@ public final class Static33 {
     }
 
     @OriginalMember(owner = "client!bc", name = "a", descriptor = "(I)[Lclient!wk;")
-    public static horizontalAlignment[] method882() {
-        return new horizontalAlignment[]{Static555.A_HORIZONTAL_ALIGNMENT___14, Static710.A_HORIZONTAL_ALIGNMENT___13, Static169.A_HORIZONTAL_ALIGNMENT___1};
+    public static HorizontalAlignment[] method882() {
+        return new HorizontalAlignment[]{HorizontalAlignment.LEFT, HorizontalAlignment.CENTER, HorizontalAlignment.RIGHT};
     }
 }

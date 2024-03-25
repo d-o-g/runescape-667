@@ -7,9 +7,6 @@ public final class Static710 {
     @OriginalMember(owner = "client!wha", name = "l", descriptor = "I")
     public static int varclanUpdateCount = 0;
 
-    @OriginalMember(owner = "client!wha", name = "h", descriptor = "Lclient!wk;")
-    public static final horizontalAlignment A_HORIZONTAL_ALIGNMENT___13 = new horizontalAlignment();
-
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {
         @Pc(15) ClientMessage local15 = ClientMessage.create(Static671.A_CLIENT_PROT___117, ConnectionManager.GAME.cipher);

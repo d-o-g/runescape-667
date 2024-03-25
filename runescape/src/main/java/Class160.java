@@ -15,13 +15,13 @@ public class Class160 implements Interface10 {
     public final int anInt3851;
 
     @OriginalMember(owner = "client!no", name = "k", descriptor = "Lclient!wk;")
-    public final horizontalAlignment aHorizontalAlignment_9;
+    public final HorizontalAlignment aHorizontalAlignment_9;
 
     @OriginalMember(owner = "client!no", name = "f", descriptor = "I")
     public final int anInt3845;
 
     @OriginalMember(owner = "client!no", name = "<init>", descriptor = "(ILclient!wk;Lclient!ek;II)V")
-    public Class160(@OriginalArg(0) int arg0, @OriginalArg(1) horizontalAlignment arg1, @OriginalArg(2) VerticalAlignment arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public Class160(@OriginalArg(0) int arg0, @OriginalArg(1) HorizontalAlignment arg1, @OriginalArg(2) VerticalAlignment arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         this.aVerticalAlignment_9 = arg2;
         this.anInt3850 = arg3;
         this.anInt3851 = arg0;

@@ -1554,7 +1554,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3115) {
                                         anInt7142 -= 11;
-                                        @Pc(5320) horizontalAlignment[] local5320 = Static33.method882();
+                                        @Pc(5320) HorizontalAlignment[] local5320 = Static33.method882();
                                         @Pc(5323) VerticalAlignment[] local5323 = Static313.method4544();
                                         Static124.method2216(anIntArray578[anInt7142 + 7], anIntArray578[anInt7142 + 2], anIntArray578[anInt7142 + 9], anIntArray578[anInt7142 + 4], local5323[anIntArray578[anInt7142 + 1]], anIntArray578[anInt7142 + 5], anIntArray578[anInt7142 + 8], anIntArray578[anInt7142 + 6], anIntArray578[anInt7142 + 3], local5320[anIntArray578[anInt7142]], anIntArray578[anInt7142 + 10]);
                                         return;

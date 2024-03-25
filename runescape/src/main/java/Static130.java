@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static130 {
 
-    @OriginalMember(owner = "client!eb", name = "c", descriptor = "Lclient!ek;")
-    public static final VerticalAlignment A_VERTICAL_ALIGNMENT___2 = new VerticalAlignment();
-
     @OriginalMember(owner = "client!eb", name = "a", descriptor = "(ZLjava/lang/String;)Ljava/lang/String;")
     public static String method2280(@OriginalArg(1) String arg0) {
         @Pc(6) int local6 = arg0.length();

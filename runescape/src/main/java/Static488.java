@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static488 {
 
-    @OriginalMember(owner = "client!pga", name = "b", descriptor = "Lclient!ek;")
-    public static final VerticalAlignment A_VERTICAL_ALIGNMENT___12 = new VerticalAlignment();
-
     @OriginalMember(owner = "client!pga", name = "l", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_33 = new Class155(51);
 

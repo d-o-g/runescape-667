@@ -7,10 +7,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 import static com.jagex.game.collision.CollisionFlag.BLOCK_WALK;
-import static com.jagex.game.collision.CollisionFlag.DIRECTION_EAST;
-import static com.jagex.game.collision.CollisionFlag.DIRECTION_NORTH;
-import static com.jagex.game.collision.CollisionFlag.DIRECTION_SOUTH;
-import static com.jagex.game.collision.CollisionFlag.DIRECTION_WEST;
+import static com.jagex.game.collision.DirectionFlag.EAST;
+import static com.jagex.game.collision.DirectionFlag.NORTH;
+import static com.jagex.game.collision.DirectionFlag.SOUTH;
+import static com.jagex.game.collision.DirectionFlag.WEST;
 import static com.jagex.game.collision.CollisionFlag.GROUND_DECOR;
 import static com.jagex.game.collision.CollisionFlag.LOCATION;
 import static com.jagex.game.collision.CollisionFlag.LOCATION_BLOCK_RANGED;
@@ -231,7 +231,7 @@ public final class CollisionMap {
         @Pc(23) int destX2 = destX1 + destWidth;
         @Pc(27) int destZ2 = destZ1 + destHeight;
 
-        if (x1 == destX2 && (direction & DIRECTION_EAST) == 0) {
+        if (x1 == destX2 && (direction & EAST) == 0) {
             @Pc(75) int fromZ = z1 > destZ1 ? z1 : destZ1;
             @Pc(83) int toZ = z2 >= destZ2 ? destZ2 : z2;
 
@@ -241,7 +241,7 @@ public final class CollisionMap {
                 }
                 fromZ++;
             }
-        } else if (x2 == destX1 && (direction & DIRECTION_WEST) == 0) {
+        } else if (x2 == destX1 && (direction & WEST) == 0) {
             @Pc(75) int fromZ = z1 <= destZ1 ? destZ1 : z1;
             @Pc(83) int toZ = z2 >= destZ2 ? destZ2 : z2;
 
@@ -251,7 +251,7 @@ public final class CollisionMap {
                 }
                 fromZ++;
             }
-        } else if (z1 == destZ2 && (direction & DIRECTION_NORTH) == 0) {
+        } else if (z1 == destZ2 && (direction & NORTH) == 0) {
             @Pc(75) int fromX = x1 <= destX1 ? destX1 : x1;
             @Pc(83) int toX = x2 >= destX2 ? destX2 : x2;
 
@@ -261,7 +261,7 @@ public final class CollisionMap {
                 }
                 fromX++;
             }
-        } else if (z2 == destZ1 && (direction & DIRECTION_SOUTH) == 0) {
+        } else if (z2 == destZ1 && (direction & SOUTH) == 0) {
             @Pc(75) int fromX = x1 > destX1 ? x1 : destX1;
             @Pc(83) int toX = x2 >= destX2 ? destX2 : x2;
 
@@ -665,13 +665,13 @@ public final class CollisionMap {
 
         if (x1 >= destX1 && x1 <= destX2 && z1 >= destZ1 && z1 <= destZ2) {
             return true;
-        } else if (x1 == destX1 - 1 && z1 >= destZ1 && z1 <= destZ2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_EAST) == 0 && (direction & DIRECTION_WEST) == 0) {
+        } else if (x1 == destX1 - 1 && z1 >= destZ1 && z1 <= destZ2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_EAST) == 0 && (direction & WEST) == 0) {
             return true;
-        } else if (x1 == destX2 + 1 && z1 >= destZ1 && z1 <= destZ2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_WEST) == 0 && (direction & DIRECTION_EAST) == 0) {
+        } else if (x1 == destX2 + 1 && z1 >= destZ1 && z1 <= destZ2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_WEST) == 0 && (direction & EAST) == 0) {
             return true;
-        } else if (z1 == destZ1 - 1 && x1 >= destX1 && x1 <= destX2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_NORTH) == 0 && (direction & DIRECTION_SOUTH) == 0) {
+        } else if (z1 == destZ1 - 1 && x1 >= destX1 && x1 <= destX2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_NORTH) == 0 && (direction & SOUTH) == 0) {
             return true;
-        } else if (z1 == destZ2 + 1 && x1 >= destX1 && x1 <= destX2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_SOUTH) == 0 && (direction & DIRECTION_NORTH) == 0) {
+        } else if (z1 == destZ2 + 1 && x1 >= destX1 && x1 <= destX2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_SOUTH) == 0 && (direction & NORTH) == 0) {
             return true;
         } else {
             return false;
@@ -684,8 +684,10 @@ public final class CollisionMap {
             if (x == destX && z == destZ) {
                 return true;
             }
-        } else if (x <= destX && x + size - 1 >= destX && destZ <= destZ && destZ <= destZ + size - 1) {
-            return true;
+        } else {
+            if (x <= destX && x + size - 1 >= destX && destZ <= destZ && destZ <= destZ + size - 1) {
+                return true;
+            }
         }
 
         @Pc(68) int x1 = x - this.x;

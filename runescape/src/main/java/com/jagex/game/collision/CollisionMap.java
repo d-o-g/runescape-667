@@ -84,16 +84,16 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!il", name = "a", descriptor = "(IIIIIIIII)Z")
-    public static boolean isInsideRect(@OriginalArg(0) int destX, @OriginalArg(1) int width, @OriginalArg(2) int x, @OriginalArg(4) int destWidth, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
+    public static boolean isInsideRect(@OriginalArg(2) int x, @OriginalArg(6) int z, @OriginalArg(1) int width, @OriginalArg(8) int height, @OriginalArg(0) int destX, @OriginalArg(7) int destZ, @OriginalArg(4) int destWidth, @OriginalArg(5) int destHeight) {
         if (x < destX + destWidth && x + width > destX) {
-            return arg5 < arg6 + arg4 && arg6 < arg7 + arg5;
+            return z < destZ + destHeight && z + height > destZ;
         } else {
             return false;
         }
     }
 
     @OriginalMember(owner = "client!eq", name = "b", descriptor = "(IIIIIIII)Z")
-    public boolean isAtDiagonalWallDecor(@OriginalArg(0) int x, @OriginalArg(2) int shape, @OriginalArg(3) int destX, @OriginalArg(4) int destZ, @OriginalArg(5) int rotation, @OriginalArg(6) int z, @OriginalArg(7) int size) {
+    public boolean isAtDiagonalWallDecor(@OriginalArg(0) int x, @OriginalArg(6) int z, @OriginalArg(7) int size, @OriginalArg(3) int destX, @OriginalArg(4) int destZ, @OriginalArg(2) int shape, @OriginalArg(5) int rotation) {
         if (size == 1) {
             if (x == destX && z == destZ) {
                 return true;
@@ -653,7 +653,7 @@ public final class CollisionMap {
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIIIIIII)Z")
     public boolean isInsideOrOutsideRect(@OriginalArg(4) int x1, @OriginalArg(8) int z1, @OriginalArg(5) int size, @OriginalArg(3) int destX1, @OriginalArg(0) int destZ1, @OriginalArg(7) int destWidth, @OriginalArg(6) int destHeight, @OriginalArg(2) int direction) {
         if (size > 1) {
-            if (isInsideRect(destX1, size, x1, destWidth, destHeight, z1, destZ1, size)) {
+            if (isInsideRect(x1, z1, size, size, destX1, destZ1, destWidth, destHeight)) {
                 return true;
             } else {
                 return this.isOutsideRect(x1, z1, size, size, destX1, destZ1, destWidth, destHeight, direction);

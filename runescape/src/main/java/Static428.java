@@ -6,9 +6,6 @@ public final class Static428 {
     @OriginalMember(owner = "client!nia", name = "n", descriptor = "I")
     public static int anInt6487;
 
-    @OriginalMember(owner = "client!nia", name = "e", descriptor = "[I")
-    public static final int[] anIntArray517 = new int[4096];
-
     @OriginalMember(owner = "client!nia", name = "o", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___167 = new ServerProt(123, 1);
 

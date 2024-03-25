@@ -5,9 +5,6 @@ import rs2.client.event.mouse.MouseLog;
 
 public final class Static407 {
 
-    @OriginalMember(owner = "client!mr", name = "d", descriptor = "I")
-    public static int anInt6285;
-
     @OriginalMember(owner = "client!mr", name = "f", descriptor = "I")
     public static int anInt6286;
 

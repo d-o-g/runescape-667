@@ -8,7 +8,4 @@ public final class Static507 {
     @OriginalMember(owner = "client!pw", name = "l", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___95 = new ClientProt(44, -1);
 
-    @OriginalMember(owner = "client!pw", name = "q", descriptor = "[I")
-    public static final int[] anIntArray610 = new int[4096];
-
 }

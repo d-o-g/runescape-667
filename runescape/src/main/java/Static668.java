@@ -18,9 +18,6 @@ public final class Static668 {
     @OriginalMember(owner = "client!vca", name = "i", descriptor = "Lclient!pc;")
     public static final ZoneProt A_ZONE_PROT___16 = new ZoneProt(12, 7);
 
-    @OriginalMember(owner = "client!vca", name = "x", descriptor = "[[I")
-    public static final int[][] anIntArrayArray244 = new int[128][128];
-
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(ZI)V")
     public static void method8700(@OriginalArg(0) boolean arg0) {
         if (arg0 && WorldMap.area != null) {

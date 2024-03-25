@@ -1146,7 +1146,7 @@ public final class client extends GameShell {
                             } else if (local203 > Static501.mapHeight - local114 - 1) {
                                 local203 = Static501.mapHeight - local114 - 1;
                             }
-                            @Pc(258) int local258 = Static521.method6870(local203, local114, true, 0, local97.pathX[0], local114, Static480.anIntArray583, local114, local97.pathZ[0], -1, Static577.collisionMaps[local97.level], Static70.anIntArray147, local166, 0);
+                            @Pc(258) int local258 = PathFinder.findPath(Static577.collisionMaps[local97.level], Static480.anIntArray583, Static70.anIntArray147, local97.pathX[0], local97.pathZ[0], local114, local166, local203, local114, local114, -1, 0, 0, true);
                             if (local258 > 0) {
                                 if (local258 > 9) {
                                     local258 = 9;

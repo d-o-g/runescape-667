@@ -42,9 +42,6 @@ public final class Static352 {
     @OriginalMember(owner = "client!lc", name = "A", descriptor = "I")
     public static int lastClanTransmit = 0;
 
-    @OriginalMember(owner = "client!lc", name = "u", descriptor = "[[I")
-    public static final int[][] anIntArrayArray141 = new int[128][128];
-
     @OriginalMember(owner = "client!lc", name = "z", descriptor = "[I")
     public static final int[] anIntArray444 = new int[anInt5752];
 

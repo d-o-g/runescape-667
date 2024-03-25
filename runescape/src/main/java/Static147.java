@@ -18,7 +18,7 @@ public final class Static147 {
         if (local16 < 0 || local16 >= Static720.mapWidth || local21 < 0 || Static501.mapHeight <= local21) {
             return false;
         } else if (arg4 >= 0 && Static720.mapWidth > arg4 && arg1 >= 0 && arg1 < Static501.mapHeight) {
-            @Pc(98) int local98 = Static521.method6870(arg1, PlayerEntity.self.getSize(), arg3, arg5, local16, arg2, Static480.anIntArray583, arg7, local21, arg6, Static577.collisionMaps[PlayerEntity.self.level], Static70.anIntArray147, arg4, arg0);
+            @Pc(98) int local98 = PathFinder.findPath(Static577.collisionMaps[PlayerEntity.self.level], Static480.anIntArray583, Static70.anIntArray147, local16, local21, PlayerEntity.self.getSize(), arg4, arg1, arg7, arg2, arg6, arg0, arg5, arg3);
             if (local98 < 1) {
                 return false;
             }

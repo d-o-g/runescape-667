@@ -19,6 +19,22 @@ public final class IntMath {
         return n6 + 1;
     }
 
+    @OriginalMember(owner = "client!kaa", name = "a", descriptor = "(IBI)I")
+    public static int gcd(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
+        @Pc(4) int local4;
+        if (arg1 < arg0) {
+            local4 = arg1;
+            arg1 = arg0;
+            arg0 = local4;
+        }
+        while (arg0 != 0) {
+            local4 = arg1 % arg0;
+            arg1 = arg0;
+            arg0 = local4;
+        }
+        return arg1;
+    }
+
     private IntMath() {
         /* empty */
     }

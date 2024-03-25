@@ -1,3 +1,4 @@
+import com.jagex.sound.SampleRateConverter;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import rs2.client.event.keyboard.KeyboardMonitor;
@@ -8,7 +9,7 @@ import java.awt.Component;
 public final class Static681 {
 
     @OriginalMember(owner = "client!vk", name = "a", descriptor = "Lclient!lg;")
-    public static Class224 aClass224_2;
+    public static SampleRateConverter aSampleRateConverter_2;
 
     @OriginalMember(owner = "client!vk", name = "a", descriptor = "(ILjava/awt/Component;)Lclient!rg;")
     public static KeyboardMonitor method8921(@OriginalArg(1) Component arg0) {

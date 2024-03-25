@@ -1,3 +1,4 @@
+import com.jagex.sound.SampleRateConverter;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -38,14 +39,14 @@ public final class Node_Sub49_Sub1 extends Node_Sub49 {
     }
 
     @OriginalMember(owner = "client!sq", name = "a", descriptor = "(Lclient!lg;)Lclient!sq;")
-    public Node_Sub49_Sub1 method7821(@OriginalArg(0) Class224 arg0) {
-        this.aByteArray98 = arg0.method5235(this.aByteArray98);
-        this.anInt8818 = arg0.method5234(this.anInt8818);
+    public Node_Sub49_Sub1 method7821(@OriginalArg(0) SampleRateConverter arg0) {
+        this.aByteArray98 = arg0.convert(this.aByteArray98);
+        this.anInt8818 = arg0.convertBitRate(this.anInt8818);
         if (this.anInt8819 == this.anInt8820) {
-            this.anInt8819 = this.anInt8820 = arg0.method5231(this.anInt8819);
+            this.anInt8819 = this.anInt8820 = arg0.convertSampleRate(this.anInt8819);
         } else {
-            this.anInt8819 = arg0.method5231(this.anInt8819);
-            this.anInt8820 = arg0.method5231(this.anInt8820);
+            this.anInt8819 = arg0.convertSampleRate(this.anInt8819);
+            this.anInt8820 = arg0.convertSampleRate(this.anInt8820);
             if (this.anInt8819 == this.anInt8820) {
                 this.anInt8819--;
             }

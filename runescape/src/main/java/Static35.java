@@ -95,7 +95,7 @@ public final class Static35 {
                         if (local179 > 0) {
                             @Pc(392) Node_Sub49_Sub1 local392 = null;
                             if (local13.aByte49 == 1) {
-                                local392 = local13.aClass89_1.method2247().method7821(Static681.aClass224_2);
+                                local392 = local13.aClass89_1.method2247().method7821(Static681.aSampleRateConverter_2);
                             } else if (local13.method2418()) {
                                 local392 = local13.aClass2_Sub49_Sub1_2;
                             }

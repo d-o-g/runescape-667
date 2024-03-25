@@ -126,7 +126,7 @@ public final class Static632 {
             } else {
                 @Pc(408) Class89 local408 = Static729.method2245(js5.SYNTH_SOUNDS, arg1.sound, 0);
                 if (local408 != null) {
-                    @Pc(415) Node_Sub49_Sub1 local415 = local408.method2247().method7821(Static681.aClass224_2);
+                    @Pc(415) Node_Sub49_Sub1 local415 = local408.method2247().method7821(Static681.aSampleRateConverter_2);
                     @Pc(423) Node_Sub6_Sub2 local423 = Static730.method3346(local415, local264, local182 << 6, local214);
                     local423.method3318(-1);
                     Static336.activeStreams.method5882(local423);
@@ -148,7 +148,7 @@ public final class Static632 {
                 local275 = (int) ((double) arg1.anIntArray718.length * Math.random());
                 @Pc(536) Class89 local536 = Static729.method2245(js5.SYNTH_SOUNDS, arg1.anIntArray718[local275], 0);
                 if (local536 != null) {
-                    @Pc(543) Node_Sub49_Sub1 local543 = local536.method2247().method7821(Static681.aClass224_2);
+                    @Pc(543) Node_Sub49_Sub1 local543 = local536.method2247().method7821(Static681.aSampleRateConverter_2);
                     @Pc(551) Node_Sub6_Sub2 local551 = Static730.method3346(local543, local264, local182 << 6, local214);
                     local551.method3318(0);
                     Static336.activeStreams.method5882(local551);

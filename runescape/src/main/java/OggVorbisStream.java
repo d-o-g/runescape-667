@@ -1,5 +1,6 @@
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.game.runetek6.sound.OggStream;
+import com.jagex.sound.SampleRateConverter;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;
 import jagtheora.vorbis.DSPState;
@@ -24,7 +25,7 @@ public final class OggVorbisStream extends OggStream {
     public int anInt4396;
 
     @OriginalMember(owner = "client!ik", name = "Q", descriptor = "Lclient!lg;")
-    public Class224 aClass224_1;
+    public SampleRateConverter converter;
 
     @OriginalMember(owner = "client!ik", name = "N", descriptor = "D")
     public double aDouble14;
@@ -71,17 +72,18 @@ public final class OggVorbisStream extends OggStream {
     @Override
     protected void decode(@OriginalArg(1) OggPacket packet) {
         if (super.packetNumber < 3) {
-            @Pc(137) int local137 = this.vorbisInfo.headerIn(this.vorbisComment, packet);
-            if (local137 < 0) {
-                throw new IllegalStateException(String.valueOf(local137));
+            @Pc(137) int ret = this.vorbisInfo.headerIn(this.vorbisComment, packet);
+            if (ret < 0) {
+                throw new IllegalStateException(String.valueOf(ret));
             }
+
             if (super.packetNumber == 2) {
                 if (this.vorbisInfo.channels > 2 || this.vorbisInfo.channels < 1) {
                     throw new RuntimeException(String.valueOf(this.vorbisInfo.channels));
                 }
                 this.dspState = new DSPState(this.vorbisInfo);
                 this.vorbisBlock = new VorbisBlock(this.dspState);
-                this.aClass224_1 = new Class224(this.vorbisInfo.rate, Audio.sampleRate);
+                this.converter = new SampleRateConverter(this.vorbisInfo.rate, Audio.sampleRate);
                 this.aClass2_Sub6_Sub5_1 = new Node_Sub6_Sub5(this.vorbisInfo.channels);
             }
             return;
@@ -99,7 +101,7 @@ public final class OggVorbisStream extends OggStream {
         @Pc(85) DoublyLinkedNode_Sub2_Sub8 local85 = this.aClass2_Sub6_Sub5_1.method9142(local35[0].length, this.aDouble14);
         Static373.method5300(local35, local85.aShortArrayArray3);
         for (@Pc(93) int local93 = 0; local93 < this.vorbisInfo.channels; local93++) {
-            local85.aShortArrayArray3[local93] = this.aClass224_1.method5237(local85.aShortArrayArray3[local93]);
+            local85.aShortArrayArray3[local93] = this.converter.convert(local85.aShortArrayArray3[local93]);
         }
         this.aClass2_Sub6_Sub5_1.method9143(local85);
     }

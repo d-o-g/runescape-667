@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!bn")
-public final class Node_Sub8 extends Node {
+public final class MidiSong extends Node {
 
     @OriginalMember(owner = "client!bn", name = "l", descriptor = "Lclient!av;")
     public IterableHashTable aIterableHashTable_8;
@@ -16,12 +16,12 @@ public final class Node_Sub8 extends Node {
     public final byte[] aByteArray12;
 
     @OriginalMember(owner = "client!bn", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Node_Sub8(@OriginalArg(0) Packet arg0) {
-        arg0.pos = arg0.data.length - 3;
-        @Pc(12) int local12 = arg0.g1();
-        @Pc(16) int local16 = arg0.g2();
+    public MidiSong(@OriginalArg(0) Packet packet) {
+        packet.pos = packet.data.length - 3;
+        @Pc(12) int local12 = packet.g1();
+        @Pc(16) int local16 = packet.g2();
         @Pc(22) int local22 = local12 * 10 + 14;
-        arg0.pos = 0;
+        packet.pos = 0;
         @Pc(27) int local27 = 0;
         @Pc(29) int local29 = 0;
         @Pc(31) int local31 = 0;
@@ -35,7 +35,7 @@ public final class Node_Sub8 extends Node {
         for (@Pc(43) int local43 = 0; local43 < local12; local43++) {
             local46 = -1;
             while (true) {
-                local50 = arg0.g1();
+                local50 = packet.g1();
                 if (local50 != local46) {
                     local22++;
                 }
@@ -67,13 +67,13 @@ public final class Node_Sub8 extends Node {
         local22 += local27 * 5;
         local22 += (local31 + local33 + local29 + local35 + local39) * 2;
         local22 += local37 + local41;
-        local46 = arg0.pos;
+        local46 = packet.pos;
         local50 = local12 + local27 + local29 + local31 + local33 + local35 + local37 + local39 + local41;
         for (@Pc(169) int local169 = 0; local169 < local50; local169++) {
-            arg0.gVarInt();
+            packet.gVarInt();
         }
-        local22 += arg0.pos - local46;
-        @Pc(188) int local188 = arg0.pos;
+        local22 += packet.pos - local46;
+        @Pc(188) int local188 = packet.pos;
         @Pc(190) int local190 = 0;
         @Pc(192) int local192 = 0;
         @Pc(194) int local194 = 0;
@@ -88,7 +88,7 @@ public final class Node_Sub8 extends Node {
         @Pc(212) int local212 = 0;
         @Pc(214) int local214 = 0;
         for (@Pc(216) int local216 = 0; local216 < local29; local216++) {
-            local214 = local214 + arg0.g1() & 0x7F;
+            local214 = local214 + packet.g1() & 0x7F;
             if (local214 == 0 || local214 == 32) {
                 local41++;
             } else if (local214 == 1) {
@@ -118,48 +118,48 @@ public final class Node_Sub8 extends Node {
             }
         }
         @Pc(328) int local328 = 0;
-        @Pc(331) int local331 = arg0.pos;
-        arg0.pos += local210;
-        @Pc(340) int local340 = arg0.pos;
-        arg0.pos += local39;
-        @Pc(349) int local349 = arg0.pos;
-        arg0.pos += local37;
-        @Pc(358) int local358 = arg0.pos;
-        arg0.pos += local35;
-        @Pc(367) int local367 = arg0.pos;
-        arg0.pos += local190;
-        @Pc(376) int local376 = arg0.pos;
-        arg0.pos += local194;
-        @Pc(385) int local385 = arg0.pos;
-        arg0.pos += local198;
-        @Pc(394) int local394 = arg0.pos;
-        arg0.pos += local31 + local33 + local39;
-        @Pc(407) int local407 = arg0.pos;
-        arg0.pos += local31;
-        @Pc(416) int local416 = arg0.pos;
-        arg0.pos += local212;
-        @Pc(425) int local425 = arg0.pos;
-        arg0.pos += local33;
-        @Pc(434) int local434 = arg0.pos;
-        arg0.pos += local192;
-        @Pc(443) int local443 = arg0.pos;
-        arg0.pos += local196;
-        @Pc(452) int local452 = arg0.pos;
-        arg0.pos += local200;
-        @Pc(461) int local461 = arg0.pos;
-        arg0.pos += local41;
-        @Pc(470) int local470 = arg0.pos;
-        arg0.pos += local35;
-        @Pc(479) int local479 = arg0.pos;
-        arg0.pos += local202;
-        @Pc(488) int local488 = arg0.pos;
-        arg0.pos += local204;
-        @Pc(497) int local497 = arg0.pos;
-        arg0.pos += local206;
-        @Pc(506) int local506 = arg0.pos;
-        arg0.pos += local208;
-        @Pc(515) int local515 = arg0.pos;
-        arg0.pos += local27 * 3;
+        @Pc(331) int local331 = packet.pos;
+        packet.pos += local210;
+        @Pc(340) int local340 = packet.pos;
+        packet.pos += local39;
+        @Pc(349) int local349 = packet.pos;
+        packet.pos += local37;
+        @Pc(358) int local358 = packet.pos;
+        packet.pos += local35;
+        @Pc(367) int local367 = packet.pos;
+        packet.pos += local190;
+        @Pc(376) int local376 = packet.pos;
+        packet.pos += local194;
+        @Pc(385) int local385 = packet.pos;
+        packet.pos += local198;
+        @Pc(394) int local394 = packet.pos;
+        packet.pos += local31 + local33 + local39;
+        @Pc(407) int local407 = packet.pos;
+        packet.pos += local31;
+        @Pc(416) int local416 = packet.pos;
+        packet.pos += local212;
+        @Pc(425) int local425 = packet.pos;
+        packet.pos += local33;
+        @Pc(434) int local434 = packet.pos;
+        packet.pos += local192;
+        @Pc(443) int local443 = packet.pos;
+        packet.pos += local196;
+        @Pc(452) int local452 = packet.pos;
+        packet.pos += local200;
+        @Pc(461) int local461 = packet.pos;
+        packet.pos += local41;
+        @Pc(470) int local470 = packet.pos;
+        packet.pos += local35;
+        @Pc(479) int local479 = packet.pos;
+        packet.pos += local202;
+        @Pc(488) int local488 = packet.pos;
+        packet.pos += local204;
+        @Pc(497) int local497 = packet.pos;
+        packet.pos += local206;
+        @Pc(506) int local506 = packet.pos;
+        packet.pos += local208;
+        @Pc(515) int local515 = packet.pos;
+        packet.pos += local27 * 3;
         this.aByteArray12 = new byte[local22];
         @Pc(533) Packet local533 = new Packet(this.aByteArray12);
         local533.p4(1297377380);
@@ -167,7 +167,7 @@ public final class Node_Sub8 extends Node {
         local533.p2(local12 > 1 ? 1 : 0);
         local533.p2(local12);
         local533.p2(local16);
-        arg0.pos = local46;
+        packet.pos = local46;
         @Pc(564) int local564 = 0;
         @Pc(566) int local566 = 0;
         @Pc(568) int local568 = 0;
@@ -185,9 +185,9 @@ public final class Node_Sub8 extends Node {
             @Pc(599) int local599 = -1;
             while (true) {
                 while (true) {
-                    @Pc(603) int local603 = arg0.gVarInt();
+                    @Pc(603) int local603 = packet.gVarInt();
                     local533.pVarInt(local603);
-                    @Pc(615) int local615 = arg0.data[local328++] & 0xFF;
+                    @Pc(615) int local615 = packet.data[local328++] & 0xFF;
                     @Pc(623) boolean local623 = local615 != local599;
                     local599 = local615 & 0xF;
                     if (local615 == 7) {
@@ -205,60 +205,60 @@ public final class Node_Sub8 extends Node {
                         }
                         local533.p1(81);
                         local533.p1(3);
-                        local533.p1(arg0.data[local515++]);
-                        local533.p1(arg0.data[local515++]);
-                        local533.p1(arg0.data[local515++]);
+                        local533.p1(packet.data[local515++]);
+                        local533.p1(packet.data[local515++]);
+                        local533.p1(packet.data[local515++]);
                     } else {
                         local564 ^= local615 >> 4;
                         if (local599 == 0) {
                             if (local623) {
                                 local533.p1(local564 + 144);
                             }
-                            local566 += arg0.data[local394++];
-                            local568 += arg0.data[local407++];
+                            local566 += packet.data[local394++];
+                            local568 += packet.data[local407++];
                             local533.p1(local566 & 0x7F);
                             local533.p1(local568 & 0x7F);
                         } else if (local599 == 1) {
                             if (local623) {
                                 local533.p1(local564 + 128);
                             }
-                            local566 += arg0.data[local394++];
-                            local570 += arg0.data[local425++];
+                            local566 += packet.data[local394++];
+                            local570 += packet.data[local425++];
                             local533.p1(local566 & 0x7F);
                             local533.p1(local570 & 0x7F);
                         } else if (local599 == 2) {
                             if (local623) {
                                 local533.p1(local564 + 176);
                             }
-                            local214 = local214 + arg0.data[local188++] & 0x7F;
+                            local214 = local214 + packet.data[local188++] & 0x7F;
                             local533.p1(local214);
                             @Pc(830) byte local830;
                             if (local214 == 0 || local214 == 32) {
-                                local830 = arg0.data[local461++];
+                                local830 = packet.data[local461++];
                             } else if (local214 == 1) {
-                                local830 = arg0.data[local367++];
+                                local830 = packet.data[local367++];
                             } else if (local214 == 33) {
-                                local830 = arg0.data[local434++];
+                                local830 = packet.data[local434++];
                             } else if (local214 == 7) {
-                                local830 = arg0.data[local376++];
+                                local830 = packet.data[local376++];
                             } else if (local214 == 39) {
-                                local830 = arg0.data[local443++];
+                                local830 = packet.data[local443++];
                             } else if (local214 == 10) {
-                                local830 = arg0.data[local385++];
+                                local830 = packet.data[local385++];
                             } else if (local214 == 42) {
-                                local830 = arg0.data[local452++];
+                                local830 = packet.data[local452++];
                             } else if (local214 == 99) {
-                                local830 = arg0.data[local479++];
+                                local830 = packet.data[local479++];
                             } else if (local214 == 98) {
-                                local830 = arg0.data[local488++];
+                                local830 = packet.data[local488++];
                             } else if (local214 == 101) {
-                                local830 = arg0.data[local497++];
+                                local830 = packet.data[local497++];
                             } else if (local214 == 100) {
-                                local830 = arg0.data[local506++];
+                                local830 = packet.data[local506++];
                             } else if (local214 == 64 || local214 == 65 || local214 == 120 || local214 == 121 || local214 == 123) {
-                                local830 = arg0.data[local331++];
+                                local830 = packet.data[local331++];
                             } else {
-                                local830 = arg0.data[local416++];
+                                local830 = packet.data[local416++];
                             }
                             @Pc(973) int local973 = local830 + local579[local214];
                             local579[local214] = local973;
@@ -267,29 +267,29 @@ public final class Node_Sub8 extends Node {
                             if (local623) {
                                 local533.p1(local564 + 224);
                             }
-                            local572 += arg0.data[local470++];
-                            local572 += arg0.data[local358++] << 7;
+                            local572 += packet.data[local470++];
+                            local572 += packet.data[local358++] << 7;
                             local533.p1(local572 & 0x7F);
                             local533.p1(local572 >> 7 & 0x7F);
                         } else if (local599 == 4) {
                             if (local623) {
                                 local533.p1(local564 + 208);
                             }
-                            local574 += arg0.data[local349++];
+                            local574 += packet.data[local349++];
                             local533.p1(local574 & 0x7F);
                         } else if (local599 == 5) {
                             if (local623) {
                                 local533.p1(local564 + 160);
                             }
-                            local566 += arg0.data[local394++];
-                            local576 += arg0.data[local340++];
+                            local566 += packet.data[local394++];
+                            local576 += packet.data[local340++];
                             local533.p1(local566 & 0x7F);
                             local533.p1(local576 & 0x7F);
                         } else if (local599 == 6) {
                             if (local623) {
                                 local533.p1(local564 + 192);
                             }
-                            local533.p1(arg0.data[local461++]);
+                            local533.p1(packet.data[local461++]);
                         } else {
                             throw new RuntimeException();
                         }

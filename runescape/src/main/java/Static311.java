@@ -13,7 +13,7 @@ public final class Static311 {
     public static boolean aBoolean384 = false;
 
     @OriginalMember(owner = "client!js", name = "a", descriptor = "(Lclient!bn;I)Z")
-    public static boolean method4537(@OriginalArg(0) Node_Sub8 arg0) {
+    public static boolean method4537(@OriginalArg(0) MidiSong arg0) {
         if (arg0 == null) {
             return true;
         }

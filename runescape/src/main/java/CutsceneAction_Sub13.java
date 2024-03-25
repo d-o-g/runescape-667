@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class CutsceneAction_Sub13 extends CutsceneAction {
 
     @OriginalMember(owner = "client!kha", name = "i", descriptor = "Lclient!bn;")
-    public Node_Sub8 aClass2_Sub8_4;
+    public MidiSong aClass2_Sub8_4;
 
     @OriginalMember(owner = "client!kha", name = "n", descriptor = "I")
     public final int anInt5431;

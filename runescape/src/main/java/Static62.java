@@ -6,12 +6,12 @@ public final class Static62 {
     public static int[][] waterColour;
 
     @OriginalMember(owner = "client!ca", name = "Pc", descriptor = "Lclient!bn;")
-    public static Node_Sub8 aClass2_Sub8_3;
+    public static MidiSong aClass2_Sub8_3;
 
     @OriginalMember(owner = "client!ca", name = "vd", descriptor = "I")
     public static int anInt1465;
 
     @OriginalMember(owner = "client!ca", name = "Ic", descriptor = "Lclient!bn;")
-    public static Node_Sub8 aClass2_Sub8_2 = null;
+    public static MidiSong aClass2_Sub8_2 = null;
 
 }

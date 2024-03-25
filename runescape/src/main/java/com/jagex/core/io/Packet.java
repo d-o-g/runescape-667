@@ -12,6 +12,8 @@ import java.math.BigInteger;
 @OriginalClass("client!ge")
 public class Packet extends Node {
 
+    private static final int GOLDEN_RATIO = 0x9E3779B9;
+
     private static final int CRC32_POLYNOMIAL = 0xEDB88320;
     private static final long CRC64_POLYNOMIAL = 0xC96C5795D7870F42L;
 
@@ -566,7 +568,7 @@ public class Packet extends Node {
             @Pc(38) int rounds = 32;
             while (rounds-- > 0) {
                 v1 -= (v0 >>> 5 ^ v0 << 4) + v0 ^ sum + key[sum >>> 11 & 0x3];
-                sum -= -1640531527;
+                sum -= GOLDEN_RATIO;
                 v0 -= sum + key[sum & 0x3] ^ v1 + (v1 << 4 ^ v1 >>> 5);
             }
             this.pos -= 8;
@@ -587,7 +589,7 @@ public class Packet extends Node {
             @Pc(44) int rounds = 32;
             while (rounds-- > 0) {
                 v1 -= (v0 << 4 ^ v0 >>> 5) + v0 ^ key[sum >>> 11 & 0x3] + sum;
-                sum -= -1640531527;
+                sum -= GOLDEN_RATIO;
                 v0 -= v1 + (v1 >>> 5 ^ v1 << 4) ^ sum - -key[sum & 0x3];
             }
             this.pos -= 8;

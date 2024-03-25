@@ -50,7 +50,7 @@ public final class Protocol {
                 arg0.needsOpcode = false;
             }
             buffer.pos = 0;
-            if (buffer.method7413()) {
+            if (buffer.largeOpcode()) {
                 if (!local8.hasAvailable(1)) {
                     return false;
                 }

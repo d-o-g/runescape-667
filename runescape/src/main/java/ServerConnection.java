@@ -1,5 +1,5 @@
 import com.jagex.SignedResource;
-import com.jagex.core.crypto.IsaacCipher;
+import com.jagex.core.crypto.Isaac;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.io.connection.Connection;
 import com.jagex.core.io.Packet;
@@ -21,7 +21,7 @@ public final class ServerConnection {
     public SignedResource gameSocketRequest;
 
     @OriginalMember(owner = "client!gw", name = "l", descriptor = "Lclient!iv;")
-    public IsaacCipher cipher;
+    public Isaac cipher;
 
     @OriginalMember(owner = "client!gw", name = "t", descriptor = "I")
     public int writeRate;

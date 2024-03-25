@@ -1,7 +1,7 @@
 import com.jagex.Constants;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
-import com.jagex.core.crypto.IsaacCipher;
+import com.jagex.core.crypto.Isaac;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.util.JavaScript;
@@ -301,7 +301,7 @@ public final class Static364 {
                 }
                 Static524.aServerConnection_3.send(local186);
                 Static524.aServerConnection_3.flush();
-                Static524.aServerConnection_3.cipher = new IsaacCipher(Static219.anIntArray287);
+                Static524.aServerConnection_3.cipher = new Isaac(Static219.anIntArray287);
                 for (@Pc(938) int local938 = 0; local938 < 4; local938++) {
                     Static219.anIntArray287[local938] += 50;
                 }
@@ -516,7 +516,7 @@ public final class Static364 {
                 if (Static135.anInt8223 == 17) {
                     local1435 = Static524.aServerConnection_3.buffer;
                     local1435.pos = 0;
-                    if (local1435.method7413()) {
+                    if (local1435.largeOpcode()) {
                         if (!Static524.aServerConnection_3.connection.hasAvailable(1)) {
                             return;
                         }

@@ -1,4 +1,4 @@
-import com.jagex.core.crypto.IsaacCipher;
+import com.jagex.core.crypto.Isaac;
 import com.jagex.core.datastruct.key.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -21,7 +21,7 @@ public final class ClientMessage extends Node {
     public int totalSize;
 
     @OriginalMember(owner = "client!jfa", name = "a", descriptor = "(ILclient!ss;Lclient!iv;)Lclient!fk;")
-    public static ClientMessage create(@OriginalArg(1) ClientProt arg0, @OriginalArg(2) IsaacCipher arg1) {
+    public static ClientMessage create(@OriginalArg(1) ClientProt arg0, @OriginalArg(2) Isaac arg1) {
         @Pc(6) ClientMessage local6 = Static119.method2174();
         local6.anInt2986 = arg0.anInt8827;
         local6.aClientProt_32 = arg0;

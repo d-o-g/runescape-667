@@ -48,6 +48,6 @@ public final class Static434 {
                 local46++;
             }
         }
-        Static684.method8931(local24, local28, 12, local32);
+        Static684.updateMapArea(local24, local28, 12, local32);
     }
 }

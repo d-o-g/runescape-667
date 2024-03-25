@@ -107,8 +107,8 @@ public final class MidiSong extends Node {
         for (@Pc(169) int i = 0; i < timeCount; i++) {
             packet.gVarInt();
         }
-
         midiLength += packet.pos - timePos;
+
         @Pc(188) int controllerPos = packet.pos;
         @Pc(190) int modulationWheelCoarseCount = 0;
         @Pc(192) int modulationWheelFineCount = 0;

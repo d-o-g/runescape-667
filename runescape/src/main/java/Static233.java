@@ -17,11 +17,11 @@ public final class Static233 {
 
     @OriginalMember(owner = "client!he", name = "a", descriptor = "(IIIIIII)V")
     public static void method3407(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3) {
-        @Pc(14) Class254[] local14 = Static527.aClass254Array1;
+        @Pc(14) HintArrow[] local14 = Static527.hintArrows;
         for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
-            @Pc(22) Class254 local22 = local14[local16];
+            @Pc(22) HintArrow local22 = local14[local16];
             if (local22 != null && local22.anInt6363 == 2) {
-                Static143.method3573(local22.anInt6365 * 2, local22.anInt6369, arg0 >> 1, local22.anInt6362, local22.anInt6368, arg3 >> 1);
+                Static143.method3573(local22.anInt6365 * 2, local22.x, arg0 >> 1, local22.z, local22.anInt6368, arg3 >> 1);
                 if (Static215.anIntArray284[0] > -1 && TimeUtils.clock % 20 < 10) {
                     @Pc(76) Sprite local76 = Sprites.hintHeadicons[local22.anInt6367];
                     @Pc(84) int local84 = arg2 + Static215.anIntArray284[0] - 12;

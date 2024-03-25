@@ -128,7 +128,7 @@ public final class Static266 {
         }
         Static22.anIntArrayArray11 = Static322.anIntArrayArray265;
         Static322.anIntArrayArray265 = null;
-        Static684.method8931(false, Static720.mapWidth >> 4, 12, Static501.mapHeight >> 4);
+        Static684.updateMapArea(false, Static720.mapWidth >> 4, 12, Static501.mapHeight >> 4);
     }
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(B)V")

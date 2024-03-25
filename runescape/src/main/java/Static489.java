@@ -345,10 +345,10 @@ public final class Static489 {
         }
 
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
-            local855 = (Static62.anInt1465 - (Static720.mapWidth >> 4)) / 8;
-            local858 = (Static62.anInt1465 + (Static720.mapWidth >> 4)) / 8;
-            @Pc(961) int local961 = (Static525.anInt8907 - (Static501.mapHeight >> 4)) / 8;
-            @Pc(969) int local969 = ((Static501.mapHeight >> 4) + Static525.anInt8907) / 8;
+            local855 = (Static62.areaCenterX - (Static720.mapWidth >> 4)) / 8;
+            local858 = (Static62.areaCenterX + (Static720.mapWidth >> 4)) / 8;
+            @Pc(961) int local961 = (Static525.areaCenterZ - (Static501.mapHeight >> 4)) / 8;
+            @Pc(969) int local969 = ((Static501.mapHeight >> 4) + Static525.areaCenterZ) / 8;
             for (@Pc(973) int local973 = local855 - 1; local973 <= local858 + 1; local973++) {
                 for (@Pc(978) int local978 = local961 - 1; local978 <= local969 + 1; local978++) {
                     if (local973 < local855 || local973 > local858 || local978 < local961 || local969 < local978) {

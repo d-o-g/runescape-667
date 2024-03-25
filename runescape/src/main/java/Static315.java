@@ -14,7 +14,7 @@ public final class Static315 {
 
     @OriginalMember(owner = "client!k", name = "a", descriptor = "(IILclient!cka;)V")
     public static void method4577(@OriginalArg(0) int arg0, @OriginalArg(2) SeqType arg1) {
-        if (Static33.anInt779 >= 50 || (arg1 == null || arg1.soundInfo == null || arg1.soundInfo.length <= arg0 || arg1.soundInfo[arg0] == null)) {
+        if (SoundManager.count >= 50 || (arg1 == null || arg1.soundInfo == null || arg1.soundInfo.length <= arg0 || arg1.soundInfo[arg0] == null)) {
             return;
         }
         @Pc(42) int local42 = arg1.soundInfo[arg0][0];

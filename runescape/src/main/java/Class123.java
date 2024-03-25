@@ -1,5 +1,6 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.js5.js5;
+import com.jagex.sound.SynthSound;
 import com.jagex.sound.VariableRateSoundPacket;
 import com.jagex.sound.vorbis.VorbisSound;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -37,11 +38,11 @@ public final class Class123 {
         if (local37 != null) {
             return local37;
         } else if (arg2 == null || arg2[0] > 0) {
-            @Pc(62) Class89 local62 = Static729.method2245(this.aJs5_32, arg1, arg0);
+            @Pc(62) SynthSound local62 = SynthSound.get(this.aJs5_32, arg1, arg0);
             if (local62 == null) {
                 return null;
             }
-            local37 = local62.method2247();
+            local37 = local62.sample();
             this.aIterableHashTable_16.put(local30, local37);
             if (arg2 != null) {
                 arg2[0] -= local37.data.length;

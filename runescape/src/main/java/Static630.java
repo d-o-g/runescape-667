@@ -43,7 +43,7 @@ public final class Static630 {
     @OriginalMember(owner = "client!tv", name = "b", descriptor = "(I)V")
     public static void method8358() {
         if (ClientOptions.instance.animateBackground.getValue() == 0 && Static164.areaLevel != Camera.renderingLevel) {
-            Static684.method8931(false, Static62.anInt1465, 12, Static525.anInt8907);
+            Static684.updateMapArea(false, Static62.areaCenterX, 12, Static525.areaCenterZ);
         } else {
             Static106.method2046(Toolkit.active);
             if (Static514.anInt7680 != Camera.renderingLevel) {

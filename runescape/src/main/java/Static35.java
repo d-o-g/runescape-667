@@ -1,5 +1,6 @@
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
+import com.jagex.sound.SynthSound;
 import com.jagex.sound.VariableRateSoundPacket;
 import com.jagex.sound.vorbis.VorbisSound;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -19,59 +20,59 @@ public final class Static35 {
 
     @OriginalMember(owner = "client!bd", name = "c", descriptor = "(I)V")
     public static void method918() {
-        for (@Pc(7) int local7 = 0; local7 < Static33.anInt779; local7++) {
-            @Pc(13) Class104 local13 = Static409.aClass104Array1[local7];
+        for (@Pc(7) int local7 = 0; local7 < SoundManager.count; local7++) {
+            @Pc(13) Sound local13 = SoundManager.sounds[local7];
             @Pc(15) boolean local15 = false;
             @Pc(179) int local179;
             if (local13.aClass2_Sub6_Sub2_2 == null) {
-                local13.anInt2571--;
-                if (local13.anInt2571 < (local13.method2418() ? -1500 : -10)) {
+                local13.rate--;
+                if (local13.rate < (local13.isVorbis() ? -1500 : -10)) {
                     local15 = true;
                 } else {
-                    if (local13.aByte49 == 1 && local13.aClass89_1 == null) {
-                        local13.aClass89_1 = Static729.method2245(js5.SYNTH_SOUNDS, local13.anInt2580, 0);
-                        if (local13.aClass89_1 == null) {
+                    if (local13.type == 1 && local13.synth == null) {
+                        local13.synth = SynthSound.get(js5.SYNTH_SOUNDS, local13.id, 0);
+                        if (local13.synth == null) {
                             continue;
                         }
-                        local13.anInt2571 += local13.aClass89_1.method2248();
-                    } else if (local13.method2418() && (local13.aClass2_Sub53_1 == null || local13.aClass2_Sub49_Sub1_2 == null)) {
-                        if (local13.aClass2_Sub53_1 == null) {
-                            local13.aClass2_Sub53_1 = VorbisSound.create(js5.VORBIS, local13.anInt2580);
+                        local13.rate += local13.synth.delay();
+                    } else if (local13.isVorbis() && (local13.vorbis == null || local13.packet == null)) {
+                        if (local13.vorbis == null) {
+                            local13.vorbis = VorbisSound.create(js5.VORBIS, local13.id);
                         }
-                        if (local13.aClass2_Sub53_1 == null) {
+                        if (local13.vorbis == null) {
                             continue;
                         }
-                        if (local13.aClass2_Sub49_Sub1_2 == null) {
-                            local13.aClass2_Sub49_Sub1_2 = local13.aClass2_Sub53_1.method8502(new int[]{22050});
-                            if (local13.aClass2_Sub49_Sub1_2 == null) {
+                        if (local13.packet == null) {
+                            local13.packet = local13.vorbis.method8502(new int[]{22050});
+                            if (local13.packet == null) {
                                 continue;
                             }
                         }
                     }
-                    if (local13.anInt2571 < 0) {
+                    if (local13.rate < 0) {
                         @Pc(154) int local154 = 8192;
-                        if (local13.anInt2578 == 0) {
-                            local179 = local13.anInt2577 * (local13.aByte49 == 3 ? ClientOptions.instance.speechVolume.getValue() : ClientOptions.instance.soundVolume.getValue()) >> 2;
+                        if (local13.delay == 0) {
+                            local179 = local13.loops * (local13.type == 3 ? ClientOptions.instance.speechVolume.getValue() : ClientOptions.instance.soundVolume.getValue()) >> 2;
                         } else {
-                            @Pc(188) int local188 = local13.anInt2578 >> 24 & 0x3;
+                            @Pc(188) int local188 = local13.delay >> 24 & 0x3;
                             if (local188 == PlayerEntity.self.level) {
-                                @Pc(199) int local199 = (local13.anInt2578 & 0xFF) << 9;
+                                @Pc(199) int local199 = (local13.delay & 0xFF) << 9;
                                 @Pc(205) int local205 = PlayerEntity.self.getSize() << 8;
-                                @Pc(212) int local212 = local13.anInt2578 >> 16 & 0xFF;
+                                @Pc(212) int local212 = local13.delay >> 16 & 0xFF;
                                 @Pc(224) int local224 = (local212 << 9) + local205 + 256 - PlayerEntity.self.x;
-                                @Pc(231) int local231 = local13.anInt2578 >> 8 & 0xFF;
+                                @Pc(231) int local231 = local13.delay >> 8 & 0xFF;
                                 @Pc(243) int local243 = local205 + (local231 << 9) + 256 - PlayerEntity.self.z;
                                 @Pc(251) int local251 = Math.abs(local224) + Math.abs(local243) - 512;
                                 if (local199 < local251) {
-                                    local13.anInt2571 = -99999;
+                                    local13.rate = -99999;
                                     continue;
                                 }
                                 if (local251 < 0) {
                                     local251 = 0;
                                 }
-                                local179 = ClientOptions.instance.backgroundSoundVolume.getValue() * (local199 - local251) * local13.anInt2577 / local199 >> 2;
-                                if (local13.aEntity_10 != null && local13.aEntity_10 instanceof PositionEntity) {
-                                    @Pc(301) PositionEntity local301 = (PositionEntity) local13.aEntity_10;
+                                local179 = ClientOptions.instance.backgroundSoundVolume.getValue() * (local199 - local251) * local13.loops / local199 >> 2;
+                                if (local13.entity != null && local13.entity instanceof PositionEntity) {
+                                    @Pc(301) PositionEntity local301 = (PositionEntity) local13.entity;
                                     @Pc(304) short local304 = local301.z1;
                                     @Pc(307) short local307 = local301.x1;
                                 }
@@ -96,13 +97,13 @@ public final class Static35 {
                         }
                         if (local179 > 0) {
                             @Pc(392) VariableRateSoundPacket local392 = null;
-                            if (local13.aByte49 == 1) {
-                                local392 = local13.aClass89_1.method2247().resample(Static681.aSampleRateConverter_2);
-                            } else if (local13.method2418()) {
-                                local392 = local13.aClass2_Sub49_Sub1_2;
+                            if (local13.type == 1) {
+                                local392 = local13.synth.sample().resample(Static681.aSampleRateConverter_2);
+                            } else if (local13.isVorbis()) {
+                                local392 = local13.packet;
                             }
-                            @Pc(422) Node_Sub6_Sub2 local422 = local13.aClass2_Sub6_Sub2_2 = Static730.method3346(local392, local13.anInt2573, local179, local154);
-                            local422.method3318(local13.anInt2574 - 1);
+                            @Pc(422) Node_Sub6_Sub2 local422 = local13.aClass2_Sub6_Sub2_2 = Static730.method3346(local392, local13.range, local179, local154);
+                            local422.method3318(local13.volume - 1);
                             Static336.activeStreams.method5882(local422);
                         }
                     }
@@ -111,9 +112,9 @@ public final class Static35 {
                 local15 = true;
             }
             if (local15) {
-                Static33.anInt779--;
-                for (local179 = local7; local179 < Static33.anInt779; local179++) {
-                    Static409.aClass104Array1[local179] = Static409.aClass104Array1[local179 + 1];
+                SoundManager.count--;
+                for (local179 = local7; local179 < SoundManager.count; local179++) {
+                    SoundManager.sounds[local179] = SoundManager.sounds[local179 + 1];
                 }
                 local7--;
             }

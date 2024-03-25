@@ -54,9 +54,4 @@ public final class Static368 {
         }
     }
 
-    @OriginalMember(owner = "client!lka", name = "b", descriptor = "(B)V")
-    public static void method5273() {
-        Static33.anInt779 = 0;
-        Static409.aClass104Array1 = new Class104[50];
-    }
 }

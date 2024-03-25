@@ -15,7 +15,7 @@ public final class Static159 {
     public static int anInt2788 = 0;
 
     @OriginalMember(owner = "client!ew", name = "d", descriptor = "Lclient!sia;")
-    public static Deque aDeque_15 = new Deque();
+    public static Deque changes = new Deque();
 
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(III)I")
     public static int method2572(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {

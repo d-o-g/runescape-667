@@ -36,11 +36,11 @@ public final class Static254 {
         Static50.aBoolean565 = true;
         GameShell.focus = true;
         Static230.method3374();
-        for (@Pc(8628) int local8628 = 0; local8628 < Static527.aClass254Array1.length; local8628++) {
-            Static527.aClass254Array1[local8628] = null;
+        for (@Pc(8628) int local8628 = 0; local8628 < Static527.hintArrows.length; local8628++) {
+            Static527.hintArrows[local8628] = null;
         }
         InterfaceManager.targetMode = false;
-        Static368.method5273();
+        SoundManager.reset();
         Camera.yawOffset = (int) (Math.random() * 120.0D) - 60;
         Static288.anInt4621 = (int) (Math.random() * 80.0D) - 40;
         Static145.anInt2561 = (int) (Math.random() * 110.0D) - 55;
@@ -58,8 +58,8 @@ public final class Static254 {
         Static346.A_HASH_TABLE___29.clear();
         Static422.textCoords.clear();
         Static497.stacks.clear();
-        Static159.aDeque_15 = new Deque();
-        Static227.aDeque_18 = new Deque();
+        Static159.changes = new Deque();
+        Static227.customisations = new Deque();
         TimedVarDomain.instance.reset();
         DelayedStateChange.clear();
         Camera.anInt2333 = 0;

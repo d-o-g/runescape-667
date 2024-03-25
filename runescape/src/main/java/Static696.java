@@ -14,11 +14,11 @@ public final class Static696 {
 
     @OriginalMember(owner = "client!w", name = "a", descriptor = "(B)V")
     public static void method9035() {
-        for (@Pc(1) int local1 = 0; local1 < Static33.anInt779; local1++) {
-            @Pc(6) Class104 local6 = Static409.aClass104Array1[local1];
-            if (local6.aByte49 == 3) {
+        for (@Pc(1) int local1 = 0; local1 < SoundManager.count; local1++) {
+            @Pc(6) Sound local6 = SoundManager.sounds[local1];
+            if (local6.type == 3) {
                 if (local6.aClass2_Sub6_Sub2_2 == null) {
-                    local6.anInt2571 = Integer.MIN_VALUE;
+                    local6.rate = Integer.MIN_VALUE;
                 } else {
                     Static336.activeStreams.method5883(local6.aClass2_Sub6_Sub2_2);
                 }

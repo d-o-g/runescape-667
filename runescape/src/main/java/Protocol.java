@@ -954,11 +954,11 @@ public final class Protocol {
                                                     local100 = local277 >> 5;
                                                     local526 = local277 & 0x1F;
                                                     if (local526 == 0) {
-                                                        Static527.aClass254Array1[local100] = null;
+                                                        Static527.hintArrows[local100] = null;
                                                         arg0.currentProt = null;
                                                         return true;
                                                     }
-                                                    @Pc(3721) Class254 local3721 = new Class254();
+                                                    @Pc(3721) HintArrow local3721 = new HintArrow();
                                                     local3721.anInt6363 = local526;
                                                     local3721.anInt6367 = bitPacket.g1();
                                                     if (local3721.anInt6367 >= 0 && local3721.anInt6367 < Sprites.hintHeadicons.length) {
@@ -968,29 +968,29 @@ public final class Protocol {
                                                             bitPacket.pos += 4;
                                                         } else if (local3721.anInt6363 >= 2 && local3721.anInt6363 <= 6) {
                                                             if (local3721.anInt6363 == 2) {
-                                                                local3721.anInt6362 = 256;
-                                                                local3721.anInt6369 = 256;
+                                                                local3721.z = 256;
+                                                                local3721.x = 256;
                                                             }
                                                             if (local3721.anInt6363 == 3) {
-                                                                local3721.anInt6369 = 0;
-                                                                local3721.anInt6362 = 256;
+                                                                local3721.x = 0;
+                                                                local3721.z = 256;
                                                             }
                                                             if (local3721.anInt6363 == 4) {
-                                                                local3721.anInt6369 = 512;
-                                                                local3721.anInt6362 = 256;
+                                                                local3721.x = 512;
+                                                                local3721.z = 256;
                                                             }
                                                             if (local3721.anInt6363 == 5) {
-                                                                local3721.anInt6362 = 0;
-                                                                local3721.anInt6369 = 256;
+                                                                local3721.z = 0;
+                                                                local3721.x = 256;
                                                             }
                                                             if (local3721.anInt6363 == 6) {
-                                                                local3721.anInt6362 = 512;
-                                                                local3721.anInt6369 = 256;
+                                                                local3721.z = 512;
+                                                                local3721.x = 256;
                                                             }
                                                             local3721.anInt6363 = 2;
                                                             local3721.anInt6368 = bitPacket.g1();
-                                                            local3721.anInt6369 += bitPacket.g2() - WorldMap.areaBaseX << 9;
-                                                            local3721.anInt6362 += bitPacket.g2() - WorldMap.areaBaseZ << 9;
+                                                            local3721.x += bitPacket.g2() - WorldMap.areaBaseX << 9;
+                                                            local3721.z += bitPacket.g2() - WorldMap.areaBaseZ << 9;
                                                             local3721.anInt6365 = bitPacket.g1() << 2;
                                                             local3721.anInt6364 = bitPacket.g2();
                                                         }
@@ -998,7 +998,7 @@ public final class Protocol {
                                                         if (local3721.anInt6371 == 65535) {
                                                             local3721.anInt6371 = -1;
                                                         }
-                                                        Static527.aClass254Array1[local100] = local3721;
+                                                        Static527.hintArrows[local100] = local3721;
                                                     }
                                                     arg0.currentProt = null;
                                                     return true;
@@ -1611,13 +1611,13 @@ public final class Protocol {
                                                                         }
                                                                     }
                                                                     @Pc(6385) ChangeLocationRequest local6385;
-                                                                    for (local6385 = (ChangeLocationRequest) Static159.aDeque_15.first(); local6385 != null; local6385 = (ChangeLocationRequest) Static159.aDeque_15.next()) {
-                                                                        if (Static626.anInt9476 <= local6385.anInt4016 && Static626.anInt9476 + 8 > local6385.anInt4016 && local6385.anInt4006 >= Static270.anInt4354 && Static270.anInt4354 + 8 > local6385.anInt4006 && Static87.anInt1810 == local6385.anInt4010) {
+                                                                    for (local6385 = (ChangeLocationRequest) Static159.changes.first(); local6385 != null; local6385 = (ChangeLocationRequest) Static159.changes.next()) {
+                                                                        if (Static626.anInt9476 <= local6385.x && Static626.anInt9476 + 8 > local6385.x && local6385.z >= Static270.anInt4354 && Static270.anInt4354 + 8 > local6385.z && Static87.anInt1810 == local6385.anInt4010) {
                                                                             local6385.aBoolean309 = true;
                                                                         }
                                                                     }
-                                                                    for (local6385 = (ChangeLocationRequest) Static227.aDeque_18.first(); local6385 != null; local6385 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
-                                                                        if (local6385.anInt4016 >= Static626.anInt9476 && Static626.anInt9476 + 8 > local6385.anInt4016 && local6385.anInt4006 >= Static270.anInt4354 && Static270.anInt4354 + 8 > local6385.anInt4006 && local6385.anInt4010 == Static87.anInt1810) {
+                                                                    for (local6385 = (ChangeLocationRequest) Static227.customisations.first(); local6385 != null; local6385 = (ChangeLocationRequest) Static227.customisations.next()) {
+                                                                        if (local6385.x >= Static626.anInt9476 && Static626.anInt9476 + 8 > local6385.x && local6385.z >= Static270.anInt4354 && Static270.anInt4354 + 8 > local6385.z && local6385.anInt4010 == Static87.anInt1810) {
                                                                             local6385.aBoolean309 = true;
                                                                         }
                                                                     }

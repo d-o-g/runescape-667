@@ -225,8 +225,8 @@ public final class Static84 {
                 local166.drawPriority = -1;
             }
         }
-        for (local103 = 0; local103 < Static527.aClass254Array1.length; local103++) {
-            @Pc(292) Class254 local292 = Static527.aClass254Array1[local103];
+        for (local103 = 0; local103 < Static527.hintArrows.length; local103++) {
+            @Pc(292) HintArrow local292 = Static527.hintArrows[local103];
             if (local292 != null) {
                 if (local292.anInt6363 == 1) {
                     @Pc(308) NPCEntityNode local308 = (NPCEntityNode) NPCList.local.get(local292.anInt6366);

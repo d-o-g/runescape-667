@@ -21,16 +21,16 @@ public final class Static293 {
 
         @Pc(9) Location location = null;
         if (request.layer == LocLayer.WALL) {
-            location = (Location) Static302.getWall(request.anInt4010, request.anInt4016, request.anInt4006);
+            location = (Location) Static302.getWall(request.anInt4010, request.x, request.z);
         }
         if (request.layer == LocLayer.WALLDECOR) {
-            location = Static114.getWallDecor(request.anInt4010, request.anInt4016, request.anInt4006);
+            location = Static114.getWallDecor(request.anInt4010, request.x, request.z);
         }
         if (request.layer == LocLayer.GROUND) {
-            location = (Location) Static578.getEntity(request.anInt4010, request.anInt4016, request.anInt4006, aClass10 == null ? (aClass10 = getClass("Location")) : aClass10);
+            location = (Location) Static578.getEntity(request.anInt4010, request.x, request.z, aClass10 == null ? (aClass10 = getClass("Location")) : aClass10);
         }
         if (request.layer == LocLayer.GROUNDDECOR) {
-            location = (Location) Static687.getGroundDecor(request.anInt4010, request.anInt4016, request.anInt4006);
+            location = (Location) Static687.getGroundDecor(request.anInt4010, request.x, request.z);
         }
 
         if (location == null) {

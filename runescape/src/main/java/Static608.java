@@ -231,11 +231,11 @@ public final class Static608 {
                         local233 -= 2;
                     }
                 }
-                @Pc(905) Class254[] local905;
-                @Pc(913) Class254 local913;
+                @Pc(905) HintArrow[] local905;
+                @Pc(913) HintArrow local913;
                 if (!(local51 instanceof PlayerEntity)) {
                     local267 = 0;
-                    local905 = Static527.aClass254Array1;
+                    local905 = Static527.hintArrows;
                     for (local504 = 0; local504 < local905.length; local504++) {
                         local913 = local905[local504];
                         if (local913 != null && local913.anInt6363 == 1 && NPCList.localNpcIndices[local27 - local7] == local913.anInt6366) {
@@ -260,7 +260,7 @@ public final class Static608 {
                     }
                 } else if (local27 >= 0) {
                     local267 = 0;
-                    local905 = Static527.aClass254Array1;
+                    local905 = Static527.hintArrows;
                     for (local504 = 0; local504 < local905.length; local504++) {
                         local913 = local905[local504];
                         if (local913 != null && local913.anInt6363 == 10 && local913.anInt6366 == local11[local27]) {

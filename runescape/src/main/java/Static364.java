@@ -535,7 +535,7 @@ public final class Static364 {
                         Static342.method4464(2);
                         Static254.method3605();
                         PlayerList.getSnapShotPlayer(Static524.aServerConnection_3.bitPacket);
-                        Static62.anInt1465 = -1;
+                        Static62.areaCenterX = -1;
                         if (Static524.aServerConnection_3.currentProt == Static291.A_SERVER_PROT___123) {
                             Static466.rebuildRegion();
                         } else {

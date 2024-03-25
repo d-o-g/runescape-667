@@ -15,8 +15,8 @@ public final class Static161 {
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IIIIII)V")
     public static void method2586(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (ClientOptions.instance.soundVolume.getValue() != 0 && arg3 != 0 && Static33.anInt779 < 50 && arg2 != -1) {
-            Static409.aClass104Array1[Static33.anInt779++] = new Class104((byte) 1, arg2, arg3, arg1, arg4, 0, arg0, null);
+        if (ClientOptions.instance.soundVolume.getValue() != 0 && arg3 != 0 && SoundManager.count < 50 && arg2 != -1) {
+            SoundManager.sounds[SoundManager.count++] = new Sound((byte) 1, arg2, arg3, arg1, arg4, 0, arg0, null);
         }
     }
 

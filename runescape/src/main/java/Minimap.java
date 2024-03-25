@@ -165,10 +165,10 @@ public final class Minimap {
                 }
             }
         }
-        @Pc(788) Class254[] local788 = Static527.aClass254Array1;
+        @Pc(788) HintArrow[] local788 = Static527.hintArrows;
         @Pc(878) int local878;
         for (local490 = 0; local490 < local788.length; local490++) {
-            @Pc(796) Class254 local796 = local788[local490];
+            @Pc(796) HintArrow local796 = local788[local490];
             if (local796 != null && local796.anInt6363 != 0 && TimeUtils.clock % 20 < 10) {
                 @Pc(843) int local843;
                 if (local796.anInt6363 == 1) {
@@ -181,8 +181,8 @@ public final class Minimap {
                     }
                 }
                 if (local796.anInt6363 == 2) {
-                    local878 = local796.anInt6369 / 128 - local90 / 128;
-                    local589 = local796.anInt6362 / 128 - local93 / 128;
+                    local878 = local796.x / 128 - local90 / 128;
+                    local589 = local796.z / 128 - local93 / 128;
                     @Pc(893) long local893 = local796.anInt6364 << 7;
                     @Pc(897) long local897 = local893 * local893;
                     Static114.method2132(local878, x, local897, local30, local796.anInt6367, y, local589, component);

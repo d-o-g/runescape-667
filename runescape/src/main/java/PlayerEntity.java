@@ -461,8 +461,8 @@ public final class PlayerEntity extends PathingEntity {
         }
         @Pc(269) int local269;
         if (self == this) {
-            for (local269 = Static527.aClass254Array1.length - 1; local269 >= 0; local269--) {
-                @Pc(275) Class254 local275 = Static527.aClass254Array1[local269];
+            for (local269 = Static527.hintArrows.length - 1; local269 >= 0; local269--) {
+                @Pc(275) HintArrow local275 = Static527.hintArrows[local269];
                 if (local275 != null && local275.anInt6371 != -1) {
                     @Pc(310) int local310;
                     if (local275.anInt6363 == 1) {
@@ -480,8 +480,8 @@ public final class PlayerEntity extends PathingEntity {
                     }
                     @Pc(371) int local371;
                     if (local275.anInt6363 == 2) {
-                        @Pc(364) int local364 = local275.anInt6369 - self.x;
-                        local371 = local275.anInt6362 - self.z;
+                        @Pc(364) int local364 = local275.x - self.x;
+                        local371 = local275.z - self.z;
                         local310 = local275.anInt6364 << 9;
                         local310 *= local310;
                         if (Static504.renderOrtho) {

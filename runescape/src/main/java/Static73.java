@@ -108,7 +108,7 @@ public final class Static73 {
             @Pc(90) int local90 = (Static89.anIntArray169[local78] >> 8) * 64 - WorldMap.areaBaseX;
             local26 = (Static89.anIntArray169[local78] & 0xFF) * 64 - WorldMap.areaBaseZ;
             @Pc(105) byte[] local105 = arg0[local78];
-            if (local105 == null && Static525.anInt8907 < 800) {
+            if (local105 == null && Static525.areaCenterZ < 800) {
                 Static557.method7331();
                 arg1.method7880(local90, local26);
             }

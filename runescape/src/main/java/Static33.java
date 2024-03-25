@@ -2,9 +2,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static33 {
 
-    @OriginalMember(owner = "client!bc", name = "c", descriptor = "I")
-    public static int anInt779 = 0;
-
     @OriginalMember(owner = "client!bc", name = "a", descriptor = "(B)V")
     public static void method881() {
         CutsceneManager.state = 4;

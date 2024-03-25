@@ -18,153 +18,179 @@ public final class Static684 {
     public static int anInt10304 = 0;
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "(ZIIIB)V")
-    public static void method8931(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int mainLogicStep, @OriginalArg(3) int arg3) {
+    public static void updateMapArea(@OriginalArg(0) boolean force, @OriginalArg(1) int centerX, @OriginalArg(2) int mainLogicStep, @OriginalArg(3) int centerZ) {
         if (CutsceneManager.state == 4) {
             CutsceneManager.state = 0;
             CutsceneManager.cutsceneId = -1;
         }
-        if (!arg0 && Static62.anInt1465 == arg1 && Static525.anInt8907 == arg3 && (Static164.areaLevel == Camera.renderingLevel || ClientOptions.instance.animateBackground.getValue() == 1)) {
+
+        if (!force && Static62.areaCenterX == centerX && Static525.areaCenterZ == centerZ && (Static164.areaLevel == Camera.renderingLevel || ClientOptions.instance.animateBackground.getValue() == 1)) {
             return;
         }
-        Static525.anInt8907 = arg3;
-        Static62.anInt1465 = arg1;
+
+        Static525.areaCenterZ = centerZ;
+        Static62.areaCenterX = centerX;
         Static164.areaLevel = Camera.renderingLevel;
         if (ClientOptions.instance.animateBackground.getValue() == 1) {
             Static164.areaLevel = 0;
         }
+
         MainLogicManager.setStep(mainLogicStep);
         Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);
-        @Pc(74) int local74 = WorldMap.areaBaseX;
-        WorldMap.areaBaseX = (Static62.anInt1465 - (Static720.mapWidth >> 4)) * 8;
-        @Pc(85) int local85 = WorldMap.areaBaseZ;
-        WorldMap.areaBaseZ = (Static525.anInt8907 - (Static501.mapHeight >> 4)) * 8;
-        Static162.aClass2_Sub2_Sub13_2 = WorldMap.method5078(Static62.anInt1465 * 8, Static525.anInt8907 * 8);
+
+        @Pc(74) int baseX = WorldMap.areaBaseX;
+        WorldMap.areaBaseX = (Static62.areaCenterX - (Static720.mapWidth >> 4)) * 8;
+
+        @Pc(85) int baseZ = WorldMap.areaBaseZ;
+        WorldMap.areaBaseZ = (Static525.areaCenterZ - (Static501.mapHeight >> 4)) * 8;
+
+        Static162.aClass2_Sub2_Sub13_2 = WorldMap.method5078(Static62.areaCenterX * 8, Static525.areaCenterZ * 8);
         Static42.aMapElementList_2 = null;
-        @Pc(109) int deltaX = WorldMap.areaBaseX - local74;
-        @Pc(113) int deltaY = WorldMap.areaBaseZ - local85;
-        @Pc(134) int local134;
-        @Pc(136) int local136;
-        @Pc(193) int local193;
-        @Pc(308) int local308;
+
+        @Pc(109) int deltaX = WorldMap.areaBaseX - baseX;
+        @Pc(113) int deltaZ = WorldMap.areaBaseZ - baseZ;
+
         if (mainLogicStep == 12) {
-            for (local308 = 0; local308 < NPCList.newNpcCount; local308++) {
-                @Pc(313) NPCEntityNode local313 = NPCList.localNpcs[local308];
-                if (local313 != null) {
-                    @Pc(318) NPCEntity local318 = local313.npc;
-                    for (local136 = 0; local136 < local318.pathX.length; local136++) {
-                        local318.pathX[local136] -= deltaX;
-                        local318.pathZ[local136] -= deltaY;
+            for (@Pc(308) int i = 0; i < NPCList.newNpcCount; i++) {
+                @Pc(313) NPCEntityNode node = NPCList.localNpcs[i];
+
+                if (node != null) {
+                    @Pc(318) NPCEntity npc = node.npc;
+                    for (@Pc(136) int local136 = 0; local136 < npc.pathX.length; local136++) {
+                        npc.pathX[local136] -= deltaX;
+                        npc.pathZ[local136] -= deltaZ;
                     }
-                    local318.x -= deltaX * 512;
-                    local318.z -= deltaY * 512;
+
+                    npc.x -= deltaX * 512;
+                    npc.z -= deltaZ * 512;
                 }
             }
         } else {
-            @Pc(120) boolean local120 = false;
             NPCList.localNpcCount = 0;
-            @Pc(128) int local128 = (Static720.mapWidth - 1) * 512;
-            local134 = Static501.mapHeight * 512 - 512;
-            for (local136 = 0; local136 < NPCList.newNpcCount; local136++) {
-                @Pc(141) NPCEntityNode local141 = NPCList.localNpcs[local136];
-                if (local141 != null) {
-                    @Pc(146) NPCEntity local146 = local141.npc;
-                    local146.z -= deltaY * 512;
-                    local146.x -= deltaX * 512;
-                    if (local146.x >= 0 && local128 >= local146.x && local146.z >= 0 && local134 >= local146.z) {
-                        @Pc(191) boolean local191 = true;
-                        for (local193 = 0; local193 < local146.pathX.length; local193++) {
-                            local146.pathX[local193] -= deltaX;
-                            local146.pathZ[local193] -= deltaY;
-                            if (local146.pathX[local193] < 0 || local146.pathX[local193] >= Static720.mapWidth || local146.pathZ[local193] < 0 || Static501.mapHeight <= local146.pathZ[local193]) {
-                                local191 = false;
-                            }
+
+            @Pc(120) boolean removed = false;
+            @Pc(128) int maxX = (Static720.mapWidth - 1) * 512;
+            @Pc(134) int maxZ = (Static501.mapHeight * 512) - 512;
+
+            for (@Pc(136) int i = 0; i < NPCList.newNpcCount; i++) {
+                @Pc(141) NPCEntityNode node = NPCList.localNpcs[i];
+                if (node == null) {
+                    continue;
+                }
+
+                @Pc(146) NPCEntity npc = node.npc;
+                npc.z -= deltaZ * 512;
+                npc.x -= deltaX * 512;
+
+                if (npc.x >= 0 && npc.x <= maxX && npc.z >= 0 && npc.z <= maxZ) {
+                    @Pc(191) boolean inBounds = true;
+
+                    for (@Pc(193) int j = 0; j < npc.pathX.length; j++) {
+                        npc.pathX[j] -= deltaX;
+                        npc.pathZ[j] -= deltaZ;
+
+                        if (npc.pathX[j] < 0 || npc.pathX[j] >= Static720.mapWidth || npc.pathZ[j] < 0 || Static501.mapHeight <= npc.pathZ[j]) {
+                            inBounds = false;
                         }
-                        if (local191) {
-                            NPCList.localNpcIndices[NPCList.localNpcCount++] = local146.id;
-                        } else {
-                            local146.setupNewNPCType(null);
-                            local120 = true;
-                            local141.unlink();
-                        }
-                    } else {
-                        local146.setupNewNPCType(null);
-                        local120 = true;
-                        local141.unlink();
                     }
+
+                    if (inBounds) {
+                        NPCList.localNpcIndices[NPCList.localNpcCount++] = npc.id;
+                    } else {
+                        npc.setupNewNPCType(null);
+                        removed = true;
+                        node.unlink();
+                    }
+                } else {
+                    npc.setupNewNPCType(null);
+                    removed = true;
+                    node.unlink();
                 }
             }
-            if (local120) {
+
+            if (removed) {
                 NPCList.newNpcCount = NPCList.local.size();
                 NPCList.local.copyTo(NPCList.localNpcs);
             }
         }
-        for (local308 = 0; local308 < 2048; local308++) {
-            @Pc(389) PlayerEntity local389 = PlayerList.highResolutionPlayers[local308];
-            if (local389 != null) {
-                for (local134 = 0; local134 < local389.pathX.length; local134++) {
-                    local389.pathX[local134] -= deltaX;
-                    local389.pathZ[local134] -= deltaY;
+
+        for (@Pc(308) int i = 0; i < PlayerList.MAX_PLAYER_COUNT; i++) {
+            @Pc(389) PlayerEntity player = PlayerList.highResolutionPlayers[i];
+
+            if (player != null) {
+                for (@Pc(134) int j = 0; j < player.pathX.length; j++) {
+                    player.pathX[j] -= deltaX;
+                    player.pathZ[j] -= deltaZ;
                 }
-                local389.z -= deltaY * 512;
-                local389.x -= deltaX * 512;
+
+                player.z -= deltaZ * 512;
+                player.x -= deltaX * 512;
             }
         }
-        @Pc(446) Class254[] local446 = Static527.aClass254Array1;
-        for (local134 = 0; local134 < local446.length; local134++) {
-            @Pc(453) Class254 local453 = local446[local134];
-            if (local453 != null) {
-                local453.anInt6362 -= deltaY * 512;
-                local453.anInt6369 -= deltaX * 512;
+
+        @Pc(446) HintArrow[] hintArrows = Static527.hintArrows;
+        for (@Pc(134) int i = 0; i < hintArrows.length; i++) {
+            @Pc(453) HintArrow hintArrow = hintArrows[i];
+            if (hintArrow != null) {
+                hintArrow.z -= deltaZ * 512;
+                hintArrow.x -= deltaX * 512;
             }
         }
-        @Pc(485) ChangeLocationRequest local485;
-        for (local485 = (ChangeLocationRequest) Static159.aDeque_15.first(); local485 != null; local485 = (ChangeLocationRequest) Static159.aDeque_15.next()) {
-            local485.anInt4016 -= deltaX;
-            local485.anInt4006 -= deltaY;
-            if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
-                local485.unlink();
+
+        for (@Pc(485) ChangeLocationRequest request = (ChangeLocationRequest) Static159.changes.first(); request != null; request = (ChangeLocationRequest) Static159.changes.next()) {
+            request.x -= deltaX;
+            request.z -= deltaZ;
+
+            boolean outOfBounds = request.x < 0 || request.z < 0 || request.x >= Static720.mapWidth || request.z >= Static501.mapHeight;
+            if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS && outOfBounds) {
+                request.unlink();
             }
         }
-        for (local485 = (ChangeLocationRequest) Static227.aDeque_18.first(); local485 != null; local485 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
-            local485.anInt4006 -= deltaY;
-            local485.anInt4016 -= deltaX;
-            if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
-                local485.unlink();
+
+        for (@Pc(485) ChangeLocationRequest request = (ChangeLocationRequest) Static227.customisations.first(); request != null; request = (ChangeLocationRequest) Static227.customisations.next()) {
+            request.z -= deltaZ;
+            request.x -= deltaX;
+
+            boolean outOfBounds = request.x < 0 || request.z < 0 || request.x >= Static720.mapWidth || request.z >= Static501.mapHeight;
+            if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS && outOfBounds) {
+                request.unlink();
             }
         }
+
         if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS) {
             for (@Pc(608) ObjStack stack = (ObjStack) Static497.stacks.first(); stack != null; stack = (ObjStack) Static497.stacks.next()) {
-                @Pc(615) int local615 = (int) (stack.key & 0x3FFFL);
-                @Pc(619) int local619 = local615 - WorldMap.areaBaseX;
-                local193 = (int) (stack.key >> 14 & 0x3FFFL);
-                @Pc(632) int local632 = local193 - WorldMap.areaBaseZ;
-                if (local619 < 0 || local632 < 0 || local619 >= Static720.mapWidth || local632 >= Static501.mapHeight) {
+                @Pc(615) int absX = (int) (stack.key & 0x3FFFL);
+                @Pc(619) int x = absX - WorldMap.areaBaseX;
+                @Pc(193) int absZ = (int) (stack.key >> 14 & 0x3FFFL);
+                @Pc(632) int z = absZ - WorldMap.areaBaseZ;
+
+                if (x < 0 || z < 0 || x >= Static720.mapWidth || z >= Static501.mapHeight) {
                     stack.unlink();
                 }
             }
         }
 
         if (Minimap.flagX != 0) {
-            Minimap.flagY -= deltaY;
+            Minimap.flagY -= deltaZ;
             Minimap.flagX -= deltaX;
         }
 
-        Static368.method5273();
+        SoundManager.reset();
 
         if (mainLogicStep != 12) {
             Camera.lookX -= deltaX;
             Camera.anInt2333 -= deltaX;
-            Camera.anInt10667 -= deltaY;
-            Camera.z -= deltaY * 512;
+            Camera.anInt10667 -= deltaZ;
+            Camera.z -= deltaZ * 512;
             Camera.x -= deltaX * 512;
-            Camera.lookZ -= deltaY;
-            if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaY) > Static501.mapHeight) {
+            Camera.lookZ -= deltaZ;
+            if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaZ) > Static501.mapHeight) {
                 InterfaceManager.loginOpened();
             }
         } else if (Camera.mode == 4) {
             Static433.anInt6262 -= deltaX * 512;
-            Static38.anInt920 -= deltaY * 512;
-            Static249.anInt4018 -= deltaY * 512;
+            Static38.anInt920 -= deltaZ * 512;
+            Static249.anInt4018 -= deltaZ * 512;
             Static494.anInt7409 -= deltaX * 512;
         } else {
             Static693.anInt10383 = -1;

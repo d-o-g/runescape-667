@@ -9,11 +9,11 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class PlayerList {
 
+    public static final int MAX_PLAYER_COUNT = 2048;
+
     private static final int SKIPPED_LAST_CYCLE = 0x1;
 
     private static final int SKIPPED_THIS_CYCLE = 0x2;
-
-    private static final int MAX_PLAYER_COUNT = 2048;
 
     @OriginalMember(owner = "client!lf", name = "r", descriptor = "Z")
     public static boolean debug = false;

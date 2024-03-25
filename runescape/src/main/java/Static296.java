@@ -24,8 +24,8 @@ public final class Static296 {
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(Lclient!gp;BIIII)V")
     public static void method4361(@OriginalArg(0) LocTypeCustomisation arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(15) ChangeLocationRequest local15 = null;
-        for (@Pc(20) ChangeLocationRequest local20 = (ChangeLocationRequest) Static227.aDeque_18.first(); local20 != null; local20 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
-            if (local20.anInt4010 == arg1 && local20.anInt4016 == arg3 && local20.anInt4006 == arg4 && arg2 == local20.layer) {
+        for (@Pc(20) ChangeLocationRequest local20 = (ChangeLocationRequest) Static227.customisations.first(); local20 != null; local20 = (ChangeLocationRequest) Static227.customisations.next()) {
+            if (local20.anInt4010 == arg1 && local20.x == arg3 && local20.z == arg4 && arg2 == local20.layer) {
                 local15 = local20;
                 break;
             }
@@ -33,10 +33,10 @@ public final class Static296 {
         if (local15 == null) {
             local15 = new ChangeLocationRequest();
             local15.anInt4010 = arg1;
-            local15.anInt4016 = arg3;
-            local15.anInt4006 = arg4;
+            local15.x = arg3;
+            local15.z = arg4;
             local15.layer = arg2;
-            Static227.aDeque_18.addLast(local15);
+            Static227.customisations.addLast(local15);
         }
         local15.aBoolean309 = false;
         local15.customisation = arg0;

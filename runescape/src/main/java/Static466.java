@@ -371,7 +371,7 @@ public final class Static466 {
                 }
             }
         }
-        Static684.method8931(forceUpdate, zoneX, 12, zoneZ);
+        Static684.updateMapArea(forceUpdate, zoneX, 12, zoneZ);
     }
 
 }

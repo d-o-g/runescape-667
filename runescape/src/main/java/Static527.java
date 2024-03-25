@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static527 {
 
     @OriginalMember(owner = "client!qka", name = "i", descriptor = "[Lclient!nba;")
-    public static final Class254[] aClass254Array1 = new Class254[8];
+    public static final HintArrow[] hintArrows = new HintArrow[8];
 
     @OriginalMember(owner = "client!qka", name = "a", descriptor = "(IBIII)V")
     public static void method7081(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {

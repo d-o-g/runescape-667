@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static227 {
 
     @OriginalMember(owner = "client!hb", name = "k", descriptor = "Lclient!sia;")
-    public static Deque aDeque_18 = new Deque();
+    public static Deque customisations = new Deque();
 
     @OriginalMember(owner = "client!hb", name = "g", descriptor = "I")
     public static int anInt3694 = -1;

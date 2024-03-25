@@ -1,3 +1,5 @@
+package com.jagex.sound;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -5,16 +7,16 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!kl")
-public final class Class211 {
+public final class Envelope {
 
     @OriginalMember(owner = "client!kl", name = "j", descriptor = "I")
-    public int anInt5475;
+    public int start;
 
     @OriginalMember(owner = "client!kl", name = "h", descriptor = "I")
-    public int anInt5476;
+    public int end;
 
     @OriginalMember(owner = "client!kl", name = "e", descriptor = "I")
-    public int anInt5477;
+    public int form;
 
     @OriginalMember(owner = "client!kl", name = "g", descriptor = "I")
     public int anInt5478;
@@ -41,7 +43,7 @@ public final class Class211 {
     public int[] anIntArray408 = new int[2];
 
     @OriginalMember(owner = "client!kl", name = "<init>", descriptor = "()V")
-    public Class211() {
+    public Envelope() {
         this.anIntArray407[0] = 0;
         this.anIntArray407[1] = 65535;
         this.anIntArray408[0] = 0;
@@ -49,18 +51,19 @@ public final class Class211 {
     }
 
     @OriginalMember(owner = "client!kl", name = "a", descriptor = "(Lclient!ge;)V")
-    public void method4949(@OriginalArg(0) Packet arg0) {
-        this.anInt5474 = arg0.g1();
+    public void decodeShape(@OriginalArg(0) Packet packet) {
+        this.anInt5474 = packet.g1();
         this.anIntArray407 = new int[this.anInt5474];
         this.anIntArray408 = new int[this.anInt5474];
-        for (@Pc(16) int local16 = 0; local16 < this.anInt5474; local16++) {
-            this.anIntArray407[local16] = arg0.g2();
-            this.anIntArray408[local16] = arg0.g2();
+
+        for (@Pc(16) int i = 0; i < this.anInt5474; i++) {
+            this.anIntArray407[i] = packet.g2();
+            this.anIntArray408[i] = packet.g2();
         }
     }
 
     @OriginalMember(owner = "client!kl", name = "a", descriptor = "()V")
-    public void method4950() {
+    public void reset() {
         this.anInt5480 = 0;
         this.anInt5478 = 0;
         this.anInt5482 = 0;
@@ -69,7 +72,7 @@ public final class Class211 {
     }
 
     @OriginalMember(owner = "client!kl", name = "a", descriptor = "(I)I")
-    public int method4951(@OriginalArg(0) int arg0) {
+    public int step(@OriginalArg(0) int arg0) {
         if (this.anInt5481 >= this.anInt5480) {
             this.anInt5479 = this.anIntArray408[this.anInt5478++] << 15;
             if (this.anInt5478 >= this.anInt5474) {
@@ -86,10 +89,10 @@ public final class Class211 {
     }
 
     @OriginalMember(owner = "client!kl", name = "b", descriptor = "(Lclient!ge;)V")
-    public void method4952(@OriginalArg(0) Packet arg0) {
-        this.anInt5477 = arg0.g1();
-        this.anInt5475 = arg0.g4();
-        this.anInt5476 = arg0.g4();
-        this.method4949(arg0);
+    public void decode(@OriginalArg(0) Packet packet) {
+        this.form = packet.g1();
+        this.start = packet.g4();
+        this.end = packet.g4();
+        this.decodeShape(packet);
     }
 }

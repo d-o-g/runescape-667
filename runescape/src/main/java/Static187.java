@@ -20,12 +20,12 @@ public final class Static187 {
         CutsceneManager.state = 0;
         Static518.aClass2_Sub21_18 = null;
         Static298.method4385();
-        Static525.anInt8907 = 0;
+        Static525.areaCenterZ = 0;
         WorldMap.areaBaseX = 0;
         WorldMap.areaBaseZ = 0;
-        Static62.anInt1465 = 0;
-        for (@Pc(34) int local34 = 0; local34 < Static527.aClass254Array1.length; local34++) {
-            Static527.aClass254Array1[local34] = null;
+        Static62.areaCenterX = 0;
+        for (@Pc(34) int local34 = 0; local34 < Static527.hintArrows.length; local34++) {
+            Static527.hintArrows[local34] = null;
         }
         Static11.method146();
         for (@Pc(48) int local48 = 0; local48 < 2048; local48++) {

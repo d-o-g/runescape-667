@@ -15,7 +15,7 @@ public final class ChangeLocationRequest extends Node {
     public LocTypeCustomisation customisation;
 
     @OriginalMember(owner = "client!hma", name = "t", descriptor = "I")
-    public int anInt4006;
+    public int z;
 
     @OriginalMember(owner = "client!hma", name = "s", descriptor = "I")
     public int originalShape;
@@ -39,7 +39,7 @@ public final class ChangeLocationRequest extends Node {
     public int originalRotation;
 
     @OriginalMember(owner = "client!hma", name = "m", descriptor = "I")
-    public int anInt4016;
+    public int x;
 
     @OriginalMember(owner = "client!hma", name = "r", descriptor = "Z")
     public boolean aBoolean309 = false;

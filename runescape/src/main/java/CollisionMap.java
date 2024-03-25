@@ -53,6 +53,8 @@ public final class CollisionMap {
 
     public static final int GROUND_DECOR = 0x40000;
 
+    public static final int UNKNOWN = 0x80000;
+
     public static final int BLOCK_WALK = 0x200000;
 
     public static final int WALL_NORTH_WEST_BLOCK_ROUTE = 0x400000;
@@ -96,6 +98,8 @@ public final class CollisionMap {
     public static final int WALL_SOUTH_AND_EAST_BLOCK_RANGED = WALL_SOUTH_BLOCK_RANGED | WALL_EAST_BLOCK_RANGED;
 
     public static final int WALL_SOUTH_AND_WEST_BLOCK_RANGED = WALL_SOUTH_BLOCK_RANGED | WALL_WEST_BLOCK_RANGED;
+
+    public static final int WALL = BLOCK_WALK | UNKNOWN | GROUND_DECOR | LOCATION;
 
     @OriginalMember(owner = "client!eq", name = "p", descriptor = "I")
     public int width;
@@ -740,40 +744,40 @@ public final class CollisionMap {
                     if (x1 == destX1 - 1 && z1 == destZ1) {
                         return true;
                     }
-                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & 0x2C0120) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & 0x2C0102) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & (WALL | WALL_NORTH)) == 0) {
                         return true;
                     }
                 } else if (rotation == 1) {
                     if (x1 == destX1 && z1 == destZ1 + 1) {
                         return true;
                     }
-                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & (WALL | WALL_EAST)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & (WALL | WALL_WEST)) == 0) {
                         return true;
                     }
                 } else if (rotation == 2) {
                     if (x1 == destX1 + 1 && z1 == destZ1) {
                         return true;
                     }
-                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & 0x2C0120) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & 0x2C0102) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & (WALL | WALL_NORTH)) == 0) {
                         return true;
                     }
                 } else if (rotation == 3) {
                     if (x1 == destX1 && z1 == destZ1 - 1) {
                         return true;
                     }
-                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & (WALL | WALL_EAST)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & (WALL | WALL_WEST)) == 0) {
                         return true;
                     }
                 }
@@ -786,14 +790,14 @@ public final class CollisionMap {
                     if (destX1 == x1 && z1 == destZ1 + 1) {
                         return true;
                     }
-                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & (WALL | WALL_WEST)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & 0x2C0102) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & (WALL | WALL_NORTH)) == 0) {
                         return true;
                     }
                 } else if (rotation == 1) {
-                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & (WALL | WALL_EAST)) == 0) {
                         return true;
                     }
                     if (x1 == destX1 && z1 == destZ1 + 1) {
@@ -802,14 +806,14 @@ public final class CollisionMap {
                     if (x1 == destX1 + 1 && z1 == destZ1) {
                         return true;
                     }
-                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & 0x2C0102) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & (WALL | WALL_NORTH)) == 0) {
                         return true;
                     }
                 } else if (rotation == 2) {
-                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & (WALL | WALL_EAST)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & 0x2C0120) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
                     if (x1 == destX1 + 1 && z1 == destZ1) {
@@ -822,10 +826,10 @@ public final class CollisionMap {
                     if (x1 == destX1 - 1 && z1 == destZ1) {
                         return true;
                     }
-                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & 0x2C0120) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & (WALL | WALL_WEST)) == 0) {
                         return true;
                     }
                     if (x1 == destX1 && z1 == destZ1 - 1) {
@@ -856,40 +860,40 @@ public final class CollisionMap {
                     if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] &  (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & (WALL | WALL_NORTH)) == 0) {
                         return true;
                     }
                 } else if (rotation == 1) {
                     if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1) {
                         return true;
                     }
-                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & (WALL | WALL_EAST)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & (WALL | WALL_WEST)) == 0) {
                         return true;
                     }
                 } else if (rotation == 2) {
                     if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & (WALL | WALL_NORTH)) == 0) {
                         return true;
                     }
                 } else if (rotation == 3) {
                     if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size) {
                         return true;
                     }
-                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & (WALL | WALL_EAST)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & (WALL | WALL_WEST)) == 0) {
                         return true;
                     }
                 }
@@ -902,14 +906,14 @@ public final class CollisionMap {
                     if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1) {
                         return true;
                     }
-                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & (WALL | WALL_WEST)) == 0) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & (WALL | WALL_NORTH)) == 0) {
                         return true;
                     }
                 } else if (rotation == 1) {
-                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & (WALL | WALL_EAST)) == 0) {
                         return true;
                     }
                     if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1) {
@@ -918,14 +922,14 @@ public final class CollisionMap {
                     if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & (WALL | WALL_NORTH)) == 0) {
                         return true;
                     }
                 } else if (rotation == 2) {
-                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & (WALL | WALL_EAST)) == 0) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
                     if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1) {
@@ -938,10 +942,10 @@ public final class CollisionMap {
                     if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
-                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & (WALL | WALL_WEST)) == 0) {
                         return true;
                     }
                     if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size) {
@@ -950,16 +954,16 @@ public final class CollisionMap {
                 }
             }
             if (shape == LocShapes.WALL_DIAGONAL) {
-                if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
+                if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & (WALL | WALL_SOUTH)) == 0) {
                     return true;
                 }
-                if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
+                if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & (WALL | WALL_NORTH)) == 0) {
                     return true;
                 }
-                if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
+                if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & (WALL | WALL_EAST)) == 0) {
                     return true;
                 }
-                if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
+                if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & (WALL | WALL_WEST)) == 0) {
                     return true;
                 }
             }

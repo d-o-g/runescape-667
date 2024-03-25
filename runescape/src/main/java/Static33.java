@@ -15,8 +15,4 @@ public final class Static33 {
         ConnectionManager.GAME.send(ClientMessage.create(Static45.A_CLIENT_PROT___5, ConnectionManager.GAME.cipher));
     }
 
-    @OriginalMember(owner = "client!bc", name = "a", descriptor = "(I)[Lclient!wk;")
-    public static HorizontalAlignment[] method882() {
-        return new HorizontalAlignment[]{HorizontalAlignment.LEFT, HorizontalAlignment.CENTER, HorizontalAlignment.RIGHT};
-    }
 }

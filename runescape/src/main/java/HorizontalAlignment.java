@@ -9,11 +9,20 @@ public final class HorizontalAlignment {
     @OriginalMember(owner = "client!ria", name = "e", descriptor = "Lclient!wk;")
     public static final HorizontalAlignment LEFT = new HorizontalAlignment();
 
+    @OriginalMember(owner = "client!wha", name = "h", descriptor = "Lclient!wk;")
+    public static final HorizontalAlignment CENTER = new HorizontalAlignment();
+
     @OriginalMember(owner = "client!fe", name = "f", descriptor = "Lclient!wk;")
     public static final HorizontalAlignment RIGHT = new HorizontalAlignment();
 
-    @OriginalMember(owner = "client!wha", name = "h", descriptor = "Lclient!wk;")
-    public static final HorizontalAlignment CENTER = new HorizontalAlignment();
+    @OriginalMember(owner = "client!bc", name = "a", descriptor = "(I)[Lclient!wk;")
+    public static HorizontalAlignment[] values() {
+        return new HorizontalAlignment[]{
+            LEFT,
+            CENTER,
+            RIGHT,
+        };
+    }
 
     @OriginalMember(owner = "client!wk", name = "a", descriptor = "(III)I")
     public int align(@OriginalArg(1) int x, @OriginalArg(2) int width) {

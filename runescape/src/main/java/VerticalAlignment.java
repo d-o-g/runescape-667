@@ -9,11 +9,20 @@ public final class VerticalAlignment {
     @OriginalMember(owner = "client!qg", name = "X", descriptor = "Lclient!ek;")
     public static final VerticalAlignment TOP = new VerticalAlignment();
 
+    @OriginalMember(owner = "client!eb", name = "c", descriptor = "Lclient!ek;")
+    public static final VerticalAlignment CENTER = new VerticalAlignment();
+
     @OriginalMember(owner = "client!pga", name = "b", descriptor = "Lclient!ek;")
     public static final VerticalAlignment BOTTOM = new VerticalAlignment();
 
-    @OriginalMember(owner = "client!eb", name = "c", descriptor = "Lclient!ek;")
-    public static final VerticalAlignment CENTER = new VerticalAlignment();
+    @OriginalMember(owner = "client!ju", name = "b", descriptor = "(I)[Lclient!ek;")
+    public static VerticalAlignment[] values() {
+        return new VerticalAlignment[]{
+            TOP,
+            CENTER,
+            BOTTOM,
+        };
+    }
 
     @OriginalMember(owner = "client!ek", name = "a", descriptor = "(IZI)I")
     public int align(@OriginalArg(0) int arg0, @OriginalArg(2) int height) {

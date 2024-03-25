@@ -35,6 +35,50 @@ public final class IntMath {
         return arg1;
     }
 
+    @OriginalMember(owner = "client!nla", name = "a", descriptor = "(IB)I")
+    public static int countBits(@OriginalArg(0) int n) {
+        @Pc(5) int bits = 0;
+        if (n < 0 || n >= 65536) {
+            n >>>= 0x10;
+            bits += 16;
+        }
+        if (n >= 256) {
+            bits += 8;
+            n >>>= 0x8;
+        }
+        if (n >= 16) {
+            bits += 4;
+            n >>>= 0x4;
+        }
+        if (n >= 4) {
+            bits += 2;
+            n >>>= 0x2;
+        }
+        if (n >= 1) {
+            n >>>= 0x1;
+            bits++;
+        }
+        return bits + n;
+    }
+
+    @OriginalMember(owner = "client!bf", name = "a", descriptor = "(III)I")
+    public static int ipow(@OriginalArg(0) int exp, @OriginalArg(1) int base) {
+        @Pc(5) int result = 1;
+        while (exp > 1) {
+            if ((exp & 0x1) != 0) {
+                result *= base;
+            }
+            base *= base;
+            exp >>= 0x1;
+        }
+
+        if (exp == 1) {
+            return result * base;
+        } else {
+            return result;
+        }
+    }
+
     private IntMath() {
         /* empty */
     }

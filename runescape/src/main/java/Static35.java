@@ -1,5 +1,7 @@
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
+import com.jagex.sound.VariableRateSoundPacket;
+import com.jagex.sound.vorbis.VorbisSound;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -34,7 +36,7 @@ public final class Static35 {
                         local13.anInt2571 += local13.aClass89_1.method2248();
                     } else if (local13.method2418() && (local13.aClass2_Sub53_1 == null || local13.aClass2_Sub49_Sub1_2 == null)) {
                         if (local13.aClass2_Sub53_1 == null) {
-                            local13.aClass2_Sub53_1 = Static650.method8498(js5.VORBIS, local13.anInt2580);
+                            local13.aClass2_Sub53_1 = VorbisSound.create(js5.VORBIS, local13.anInt2580);
                         }
                         if (local13.aClass2_Sub53_1 == null) {
                             continue;
@@ -93,9 +95,9 @@ public final class Static35 {
                             }
                         }
                         if (local179 > 0) {
-                            @Pc(392) Node_Sub49_Sub1 local392 = null;
+                            @Pc(392) VariableRateSoundPacket local392 = null;
                             if (local13.aByte49 == 1) {
-                                local392 = local13.aClass89_1.method2247().method7821(Static681.aSampleRateConverter_2);
+                                local392 = local13.aClass89_1.method2247().resample(Static681.aSampleRateConverter_2);
                             } else if (local13.method2418()) {
                                 local392 = local13.aClass2_Sub49_Sub1_2;
                             }

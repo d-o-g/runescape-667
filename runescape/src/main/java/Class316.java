@@ -1,5 +1,6 @@
 import com.jagex.ParticleList;
 import com.jagex.core.datastruct.Node2;
+import com.jagex.math.IntMath;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -155,7 +156,7 @@ public final class Class316 {
             }
             @Pc(116) int local116 = local43 - local41;
             if (local116 + 2 > 1600) {
-                local81 = Static434.method5853(local116) + 1 - Static328.anInt5425;
+                local81 = IntMath.countBits(local116) + 1 - Static328.anInt5425;
                 local116 = (local116 >> local81) + 2;
             } else {
                 local81 = 0;

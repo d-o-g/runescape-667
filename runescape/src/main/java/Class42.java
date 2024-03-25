@@ -1,5 +1,6 @@
 import com.jagex.ParticleList;
 import com.jagex.core.datastruct.Node2;
+import com.jagex.math.IntMath;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -28,7 +29,7 @@ public final class Class42 {
     public final Node_Sub21_Sub1 aClass2_Sub21_Sub1_1 = new Node_Sub21_Sub1(786336);
 
     @OriginalMember(owner = "client!bj", name = "r", descriptor = "I")
-    public final int anInt998 = Static434.method5853(1600);
+    public final int anInt998 = IntMath.countBits(1600);
 
     @OriginalMember(owner = "client!bj", name = "s", descriptor = "[[Lclient!up;")
     public final Particle[][] aParticle = new Particle[64][768];
@@ -374,7 +375,7 @@ public final class Class42 {
                 local91 = 0;
                 local118 += 2;
             } else {
-                local91 = Static434.method5853(local118) + 1 - this.anInt998;
+                local91 = IntMath.countBits(local118) + 1 - this.anInt998;
                 local118 = (local118 >> local91) + 2;
             }
             local48 = 0;

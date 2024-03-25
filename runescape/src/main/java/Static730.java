@@ -1,3 +1,4 @@
+import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -702,8 +703,8 @@ public final class Static730 {
     }
 
     @OriginalMember(owner = "client!haa", name = "a", descriptor = "(Lclient!sq;III)Lclient!haa;")
-    public static Node_Sub6_Sub2 method3346(@OriginalArg(0) Node_Sub49_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        return arg0.aByteArray98 == null || arg0.aByteArray98.length == 0 ? null : new Node_Sub6_Sub2(arg0, arg1, arg2, arg3);
+    public static Node_Sub6_Sub2 method3346(@OriginalArg(0) VariableRateSoundPacket arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+        return arg0.data == null || arg0.data.length == 0 ? null : new Node_Sub6_Sub2(arg0, arg1, arg2, arg3);
     }
 
     @OriginalMember(owner = "client!haa", name = "d", descriptor = "(II[B[IIIIIIIILclient!haa;II)I")

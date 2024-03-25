@@ -2,6 +2,7 @@ import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.sound.Audio;
+import com.jagex.sound.SoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -271,7 +272,7 @@ public class Class56 {
                                 if (local97 == null) {
                                     break label97;
                                 }
-                                @Pc(101) Node_Sub49 local101 = local97.aClass2_Sub49_6;
+                                @Pc(101) SoundPacket local101 = local97.aClass2_Sub49_6;
                                 if (local101 == null || local101.anInt8817 <= local63) {
                                     local97.aBoolean793 = true;
                                     @Pc(127) int local127 = local97.method9132();

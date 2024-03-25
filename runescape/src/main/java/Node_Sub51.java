@@ -2,6 +2,8 @@ import com.jagex.core.datastruct.key.Node;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.sound.VariableRateSoundPacket;
+import com.jagex.sound.vorbis.VorbisSound;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -61,13 +63,13 @@ public final class Node_Sub51 extends Node {
     public boolean multi;
 
     @OriginalMember(owner = "client!tg", name = "K", descriptor = "Lclient!sq;")
-    public Node_Sub49_Sub1 aClass2_Sub49_Sub1_3;
+    public VariableRateSoundPacket aClass2_Sub49_Sub1_3;
 
     @OriginalMember(owner = "client!tg", name = "q", descriptor = "Lclient!sq;")
-    public Node_Sub49_Sub1 aClass2_Sub49_Sub1_4;
+    public VariableRateSoundPacket aClass2_Sub49_Sub1_4;
 
     @OriginalMember(owner = "client!tg", name = "s", descriptor = "Lclient!uj;")
-    public Node_Sub53 aClass2_Sub53_2;
+    public VorbisSound aClass2_Sub53_2;
 
     @OriginalMember(owner = "client!tg", name = "o", descriptor = "[I")
     public int[] anIntArray718;
@@ -76,7 +78,7 @@ public final class Node_Sub51 extends Node {
     public boolean vorbis;
 
     @OriginalMember(owner = "client!tg", name = "r", descriptor = "Lclient!uj;")
-    public Node_Sub53 aClass2_Sub53_3;
+    public VorbisSound aClass2_Sub53_3;
 
     @OriginalMember(owner = "client!tg", name = "t", descriptor = "I")
     public int anInt9362;

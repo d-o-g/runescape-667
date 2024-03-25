@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.js5.js5;
+import com.jagex.sound.VariableRateSoundPacket;
 import com.jagex.sound.midi.MidiProgramNode;
 import com.jagex.sound.midi.MidiSequence;
 import com.jagex.sound.midi.MidiSong;
@@ -235,7 +236,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             @Pc(104) double local104 = Math.sin((double) (arg0.anInt2188 & 0x1FF) * 0.01227184630308513D);
             local14 += (int) (local104 * (double) local65);
         }
-        local65 = (int) ((double) (arg0.aClass2_Sub49_Sub1_1.anInt8818 * 256) * Math.pow(2.0D, (double) local14 * 3.255208333333333E-4D) / (double) Audio.sampleRate + 0.5D);
+        local65 = (int) ((double) (arg0.aClass2_Sub49_Sub1_1.sampleRate * 256) * Math.pow(2.0D, (double) local14 * 3.255208333333333E-4D) / (double) Audio.sampleRate + 0.5D);
         return local65 >= 1 ? local65 : 1;
     }
 
@@ -674,7 +675,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         if (local117 == null) {
             return;
         }
-        @Pc(126) Node_Sub49_Sub1 local126 = local117.aClass2_Sub49_Sub1Array1[arg1];
+        @Pc(126) VariableRateSoundPacket local126 = local117.aClass2_Sub49_Sub1Array1[arg1];
         if (local126 == null) {
             return;
         }
@@ -773,10 +774,10 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(ZLclient!dha;I)V")
     public void method943(@OriginalArg(0) boolean arg0, @OriginalArg(1) Node_Sub16 arg1) {
-        @Pc(13) int local13 = arg1.aClass2_Sub49_Sub1_1.aByteArray98.length;
+        @Pc(13) int local13 = arg1.aClass2_Sub49_Sub1_1.data.length;
         @Pc(42) int local42;
         if (arg0 && arg1.aClass2_Sub49_Sub1_1.aBoolean668) {
-            @Pc(29) int local29 = local13 + local13 - arg1.aClass2_Sub49_Sub1_1.anInt8819;
+            @Pc(29) int local29 = local13 + local13 - arg1.aClass2_Sub49_Sub1_1.nominalBitRate;
             local42 = (int) ((long) local29 * (long) this.anIntArray49[arg1.anInt2187] >> 6);
             local13 <<= 0x8;
             if (local13 <= local42) {

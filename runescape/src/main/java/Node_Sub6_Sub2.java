@@ -1,3 +1,4 @@
+import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -52,10 +53,10 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
     public int anInt3686;
 
     @OriginalMember(owner = "client!haa", name = "<init>", descriptor = "(Lclient!sq;III)V")
-    public Node_Sub6_Sub2(@OriginalArg(0) Node_Sub49_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public Node_Sub6_Sub2(@OriginalArg(0) VariableRateSoundPacket arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         super.aClass2_Sub49_6 = arg0;
-        this.anInt3681 = arg0.anInt8819;
-        this.anInt3675 = arg0.anInt8820;
+        this.anInt3681 = arg0.nominalBitRate;
+        this.anInt3675 = arg0.minBitRate;
         this.aBoolean281 = arg0.aBoolean668;
         this.anInt3679 = arg1;
         this.anInt3685 = arg2;
@@ -70,14 +71,14 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
             if (this.anInt3684 <= 0) {
                 if (this.anInt3679 == -256 && (this.anInt3686 & 0xFF) == 0) {
                     if (Static316.aBoolean644) {
-                        return Static730.method3334(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this);
+                        return Static730.method3334(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this);
                     }
-                    return Static730.method3343(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this);
+                    return Static730.method3343(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this);
                 }
                 if (Static316.aBoolean644) {
-                    return Static730.method3324(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this, this.anInt3679, arg4);
+                    return Static730.method3324(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this, this.anInt3679, arg4);
                 }
-                return Static730.method3339(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this, this.anInt3679, arg4);
+                return Static730.method3339(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this, this.anInt3679, arg4);
             }
             @Pc(5) int local5 = arg1 + this.anInt3684;
             if (local5 > arg3) {
@@ -86,14 +87,14 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
             this.anInt3684 += arg1;
             if (this.anInt3679 == -256 && (this.anInt3686 & 0xFF) == 0) {
                 if (Static316.aBoolean644) {
-                    arg1 = Static730.method3342(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this);
+                    arg1 = Static730.method3342(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this);
                 } else {
-                    arg1 = Static730.method3332(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this);
+                    arg1 = Static730.method3332(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this);
                 }
             } else if (Static316.aBoolean644) {
-                arg1 = Static730.method3326(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this, this.anInt3679, arg4);
+                arg1 = Static730.method3326(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this, this.anInt3679, arg4);
             } else {
-                arg1 = Static730.method3347(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this, this.anInt3679, arg4);
+                arg1 = Static730.method3347(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this, this.anInt3679, arg4);
             }
             this.anInt3684 -= arg1;
             if (this.anInt3684 != 0) {
@@ -110,10 +111,10 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
             this.method9130(arg2);
             return;
         }
-        @Pc(13) Node_Sub49_Sub1 local13 = (Node_Sub49_Sub1) super.aClass2_Sub49_6;
+        @Pc(13) VariableRateSoundPacket local13 = (VariableRateSoundPacket) super.aClass2_Sub49_6;
         @Pc(18) int local18 = this.anInt3681 << 8;
         @Pc(23) int local23 = this.anInt3675 << 8;
-        @Pc(29) int local29 = local13.aByteArray98.length << 8;
+        @Pc(29) int local29 = local13.data.length << 8;
         @Pc(33) int local33 = local23 - local18;
         if (local33 <= 0) {
             this.anInt3688 = 0;
@@ -142,7 +143,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                     label130:
                     {
                         if (this.anInt3679 < 0) {
-                            local40 = this.method3309(arg0, arg1, local18, local44, local13.aByteArray98[this.anInt3681]);
+                            local40 = this.method3309(arg0, arg1, local18, local44, local13.data[this.anInt3681]);
                             if (this.anInt3686 >= local18) {
                                 return;
                             }
@@ -153,7 +154,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                             }
                         }
                         do {
-                            local40 = this.method3317(arg0, local40, local23, local44, local13.aByteArray98[this.anInt3675 - 1]);
+                            local40 = this.method3317(arg0, local40, local23, local44, local13.data[this.anInt3675 - 1]);
                             if (this.anInt3686 < local23) {
                                 return;
                             }
@@ -162,7 +163,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                             if (--this.anInt3688 == 0) {
                                 break;
                             }
-                            local40 = this.method3309(arg0, local40, local18, local44, local13.aByteArray98[this.anInt3681]);
+                            local40 = this.method3309(arg0, local40, local18, local44, local13.data[this.anInt3681]);
                             if (this.anInt3686 >= local18) {
                                 return;
                             }
@@ -174,7 +175,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                     @Pc(416) int local416;
                     if (this.anInt3679 < 0) {
                         while (true) {
-                            local40 = this.method3309(arg0, local40, local18, local44, local13.aByteArray98[this.anInt3675 - 1]);
+                            local40 = this.method3309(arg0, local40, local18, local44, local13.data[this.anInt3675 - 1]);
                             if (this.anInt3686 >= local18) {
                                 return;
                             }
@@ -189,7 +190,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                         }
                     } else {
                         while (true) {
-                            local40 = this.method3317(arg0, local40, local23, local44, local13.aByteArray98[this.anInt3681]);
+                            local40 = this.method3317(arg0, local40, local23, local44, local13.data[this.anInt3681]);
                             if (this.anInt3686 < local23) {
                                 return;
                             }
@@ -223,7 +224,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
             }
         } else if (this.aBoolean281) {
             if (this.anInt3679 < 0) {
-                local40 = this.method3309(arg0, arg1, local18, local44, local13.aByteArray98[this.anInt3681]);
+                local40 = this.method3309(arg0, arg1, local18, local44, local13.data[this.anInt3681]);
                 if (this.anInt3686 >= local18) {
                     return;
                 }
@@ -231,13 +232,13 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                 this.anInt3679 = -this.anInt3679;
             }
             while (true) {
-                local40 = this.method3317(arg0, local40, local23, local44, local13.aByteArray98[this.anInt3675 - 1]);
+                local40 = this.method3317(arg0, local40, local23, local44, local13.data[this.anInt3675 - 1]);
                 if (this.anInt3686 < local23) {
                     return;
                 }
                 this.anInt3686 = local23 + local23 - this.anInt3686 - 1;
                 this.anInt3679 = -this.anInt3679;
-                local40 = this.method3309(arg0, local40, local18, local44, local13.aByteArray98[this.anInt3681]);
+                local40 = this.method3309(arg0, local40, local18, local44, local13.data[this.anInt3681]);
                 if (this.anInt3686 >= local18) {
                     return;
                 }
@@ -246,7 +247,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
             }
         } else if (this.anInt3679 < 0) {
             while (true) {
-                local40 = this.method3309(arg0, local40, local18, local44, local13.aByteArray98[this.anInt3675 - 1]);
+                local40 = this.method3309(arg0, local40, local18, local44, local13.data[this.anInt3675 - 1]);
                 if (this.anInt3686 >= local18) {
                     return;
                 }
@@ -254,7 +255,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
             }
         } else {
             while (true) {
-                local40 = this.method3317(arg0, local40, local23, local44, local13.aByteArray98[this.anInt3681]);
+                local40 = this.method3317(arg0, local40, local23, local44, local13.data[this.anInt3681]);
                 if (this.anInt3686 < local23) {
                     return;
                 }
@@ -265,7 +266,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!haa", name = "e", descriptor = "()Z")
     public boolean method3311() {
-        return this.anInt3686 < 0 || this.anInt3686 >= ((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98.length << 8;
+        return this.anInt3686 < 0 || this.anInt3686 >= ((VariableRateSoundPacket) super.aClass2_Sub49_6).data.length << 8;
     }
 
     @OriginalMember(owner = "client!haa", name = "j", descriptor = "()V")
@@ -286,14 +287,14 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
             if (this.anInt3684 <= 0) {
                 if (this.anInt3679 == 256 && (this.anInt3686 & 0xFF) == 0) {
                     if (Static316.aBoolean644) {
-                        return Static730.method3329(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this);
+                        return Static730.method3329(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this);
                     }
-                    return Static730.method3310(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this);
+                    return Static730.method3310(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this);
                 }
                 if (Static316.aBoolean644) {
-                    return Static730.method3312(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this, this.anInt3679, arg4);
+                    return Static730.method3312(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this, this.anInt3679, arg4);
                 }
-                return Static730.method3316(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this, this.anInt3679, arg4);
+                return Static730.method3316(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this, this.anInt3679, arg4);
             }
             @Pc(5) int local5 = arg1 + this.anInt3684;
             if (local5 > arg3) {
@@ -302,14 +303,14 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
             this.anInt3684 += arg1;
             if (this.anInt3679 == 256 && (this.anInt3686 & 0xFF) == 0) {
                 if (Static316.aBoolean644) {
-                    arg1 = Static730.method3325(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this);
+                    arg1 = Static730.method3325(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this);
                 } else {
-                    arg1 = Static730.method3321(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this);
+                    arg1 = Static730.method3321(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this);
                 }
             } else if (Static316.aBoolean644) {
-                arg1 = Static730.method3313(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this, this.anInt3679, arg4);
+                arg1 = Static730.method3313(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this, this.anInt3679, arg4);
             } else {
-                arg1 = Static730.method3331(((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this, this.anInt3679, arg4);
+                arg1 = Static730.method3331(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this, this.anInt3679, arg4);
             }
             this.anInt3684 -= arg1;
             if (this.anInt3684 != 0) {
@@ -498,10 +499,10 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
                 this.anInt3684 -= arg0;
             }
         }
-        @Pc(71) Node_Sub49_Sub1 local71 = (Node_Sub49_Sub1) super.aClass2_Sub49_6;
+        @Pc(71) VariableRateSoundPacket local71 = (VariableRateSoundPacket) super.aClass2_Sub49_6;
         @Pc(76) int local76 = this.anInt3681 << 8;
         @Pc(81) int local81 = this.anInt3675 << 8;
-        @Pc(87) int local87 = local71.aByteArray98.length << 8;
+        @Pc(87) int local87 = local71.data.length << 8;
         @Pc(91) int local91 = local81 - local76;
         if (local91 <= 0) {
             this.anInt3688 = 0;
@@ -622,7 +623,7 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!haa", name = "b", descriptor = "(I)V")
     public synchronized void method3344(@OriginalArg(0) int arg0) {
-        @Pc(7) int local7 = ((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98.length << 8;
+        @Pc(7) int local7 = ((VariableRateSoundPacket) super.aClass2_Sub49_6).data.length << 8;
         if (arg0 < -1) {
             arg0 = -1;
         }
@@ -705,9 +706,9 @@ public final class Node_Sub6_Sub2 extends Node_Sub6 {
         @Pc(6) int local6 = this.anInt3676 * 3 >> 6;
         local6 = (local6 ^ local6 >> 31) + (local6 >>> 31);
         if (this.anInt3688 == 0) {
-            local6 -= local6 * this.anInt3686 / (((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98.length << 8);
+            local6 -= local6 * this.anInt3686 / (((VariableRateSoundPacket) super.aClass2_Sub49_6).data.length << 8);
         } else if (this.anInt3688 >= 0) {
-            local6 -= local6 * this.anInt3681 / ((Node_Sub49_Sub1) super.aClass2_Sub49_6).aByteArray98.length;
+            local6 -= local6 * this.anInt3681 / ((VariableRateSoundPacket) super.aClass2_Sub49_6).data.length;
         }
         return local6 > 255 ? 255 : local6;
     }

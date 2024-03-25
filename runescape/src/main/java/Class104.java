@@ -1,3 +1,5 @@
+import com.jagex.sound.VariableRateSoundPacket;
+import com.jagex.sound.vorbis.VorbisSound;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -6,13 +8,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Class104 {
 
     @OriginalMember(owner = "client!eka", name = "n", descriptor = "Lclient!sq;")
-    public Node_Sub49_Sub1 aClass2_Sub49_Sub1_2;
+    public VariableRateSoundPacket aClass2_Sub49_Sub1_2;
 
     @OriginalMember(owner = "client!eka", name = "m", descriptor = "Lclient!haa;")
     public Node_Sub6_Sub2 aClass2_Sub6_Sub2_2;
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "Lclient!uj;")
-    public Node_Sub53 aClass2_Sub53_1;
+    public VorbisSound aClass2_Sub53_1;
 
     @OriginalMember(owner = "client!eka", name = "t", descriptor = "Lclient!dw;")
     public Class89 aClass89_1;

@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.Node;
+import com.jagex.sound.SoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -13,7 +14,7 @@ public abstract class Node_Sub6 extends Node {
     public int anInt10517;
 
     @OriginalMember(owner = "client!dea", name = "k", descriptor = "Lclient!rm;")
-    public Node_Sub49 aClass2_Sub49_6;
+    public SoundPacket aClass2_Sub49_6;
 
     @OriginalMember(owner = "client!dea", name = "m", descriptor = "Z")
     public volatile boolean aBoolean793 = true;

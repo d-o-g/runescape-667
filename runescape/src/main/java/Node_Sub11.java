@@ -1,5 +1,6 @@
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.Packet;
+import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -18,7 +19,7 @@ public final class Node_Sub11 extends Node {
     public byte[] aByteArray18;
 
     @OriginalMember(owner = "client!cea", name = "t", descriptor = "[Lclient!sq;")
-    public Node_Sub49_Sub1[] aClass2_Sub49_Sub1Array1;
+    public VariableRateSoundPacket[] aClass2_Sub49_Sub1Array1;
 
     @OriginalMember(owner = "client!cea", name = "n", descriptor = "I")
     public int anInt1579;
@@ -39,7 +40,7 @@ public final class Node_Sub11 extends Node {
     @OriginalMember(owner = "client!cea", name = "<init>", descriptor = "([B)V")
     public Node_Sub11(@OriginalArg(0) byte[] arg0) {
         this.aClass269Array1 = new Class269[128];
-        this.aClass2_Sub49_Sub1Array1 = new Node_Sub49_Sub1[128];
+        this.aClass2_Sub49_Sub1Array1 = new VariableRateSoundPacket[128];
         this.anIntArray149 = new int[128];
         this.aByteArray20 = new byte[128];
         this.aByteArray19 = new byte[128];
@@ -396,7 +397,7 @@ public final class Node_Sub11 extends Node {
     public boolean method1526(@OriginalArg(1) Class123 arg0, @OriginalArg(2) int[] arg1, @OriginalArg(3) byte[] arg2) {
         @Pc(5) boolean local5 = true;
         @Pc(7) int local7 = 0;
-        @Pc(9) Node_Sub49_Sub1 local9 = null;
+        @Pc(9) VariableRateSoundPacket local9 = null;
         for (@Pc(11) int local11 = 0; local11 < 128; local11++) {
             if (arg2 == null || arg2[local11] != 0) {
                 @Pc(33) int local33 = this.anIntArray149[local11];

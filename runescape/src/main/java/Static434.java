@@ -1,6 +1,5 @@
 import com.jagex.core.constants.AreaMode;
 import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -8,32 +7,6 @@ public final class Static434 {
 
     @OriginalMember(owner = "client!nla", name = "Q", descriptor = "I")
     public static int anInt6565;
-
-    @OriginalMember(owner = "client!nla", name = "a", descriptor = "(IB)I")
-    public static int method5853(@OriginalArg(0) int arg0) {
-        @Pc(5) int local5 = 0;
-        if (arg0 < 0 || arg0 >= 65536) {
-            arg0 >>>= 0x10;
-            local5 += 16;
-        }
-        if (arg0 >= 256) {
-            local5 += 8;
-            arg0 >>>= 0x8;
-        }
-        if (arg0 >= 16) {
-            local5 += 4;
-            arg0 >>>= 0x4;
-        }
-        if (arg0 >= 4) {
-            local5 += 2;
-            arg0 >>>= 0x2;
-        }
-        if (arg0 >= 1) {
-            arg0 >>>= 0x1;
-            local5++;
-        }
-        return local5 + arg0;
-    }
 
     @OriginalMember(owner = "client!nla", name = "g", descriptor = "(I)V")
     public static void method5855() {

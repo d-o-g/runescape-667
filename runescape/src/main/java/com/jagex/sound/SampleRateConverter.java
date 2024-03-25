@@ -60,7 +60,7 @@ public final class SampleRateConverter {
     }
 
     @OriginalMember(owner = "client!lg", name = "c", descriptor = "(II)I")
-    public int convertSampleRate(@OriginalArg(1) int rate) {
+    public int convertBitRate(@OriginalArg(1) int rate) {
         if (this.filterWeights != null) {
             rate = (int) ((long) rate * (long) this.desiredRate / (long) this.baseRate) + 6;
         }
@@ -68,11 +68,11 @@ public final class SampleRateConverter {
     }
 
     @OriginalMember(owner = "client!lg", name = "a", descriptor = "(II)I")
-    public int convertBitRate(@OriginalArg(1) int arg0) {
+    public int convertSampleRate(@OriginalArg(1) int rate) {
         if (this.filterWeights != null) {
-            arg0 = (int) ((long) this.desiredRate * (long) arg0 / (long) this.baseRate);
+            rate = (int) ((long) this.desiredRate * (long) rate / (long) this.baseRate);
         }
-        return arg0;
+        return rate;
     }
 
     @OriginalMember(owner = "client!lg", name = "a", descriptor = "(I[B)[B")

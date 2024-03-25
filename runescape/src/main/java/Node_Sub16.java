@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.Node;
+import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -27,7 +28,7 @@ public final class Node_Sub16 extends Node {
     public int anInt2191;
 
     @OriginalMember(owner = "client!dha", name = "p", descriptor = "Lclient!sq;")
-    public Node_Sub49_Sub1 aClass2_Sub49_Sub1_1;
+    public VariableRateSoundPacket aClass2_Sub49_Sub1_1;
 
     @OriginalMember(owner = "client!dha", name = "r", descriptor = "I")
     public int anInt2193;

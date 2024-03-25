@@ -1,6 +1,7 @@
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Toolkit;
+import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -32,7 +33,7 @@ public final class Static231 {
     public static final Class157 aClass157_7 = new Class157(6, 4, Static702.aClass397_20);
 
     @OriginalMember(owner = "client!hd", name = "c", descriptor = "I")
-    public static final int anInt3733 = Static434.method5853(16);
+    public static final int anInt3733 = IntMath.countBits(16);
 
     @OriginalMember(owner = "client!hd", name = "e", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___41 = new ClientProt(34, 4);

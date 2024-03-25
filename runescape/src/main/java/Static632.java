@@ -1,5 +1,7 @@
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
+import com.jagex.sound.VariableRateSoundPacket;
+import com.jagex.sound.vorbis.VorbisSound;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -110,7 +112,7 @@ public final class Static632 {
             local264 = arg1.anInt9360 == 256 && arg1.anInt9359 == 256 ? 256 : Static159.method2572(arg1.anInt9359, arg1.anInt9360);
             if (arg1.vorbis) {
                 if (arg1.aClass2_Sub53_3 == null) {
-                    arg1.aClass2_Sub53_3 = Static650.method8498(js5.VORBIS, arg1.sound);
+                    arg1.aClass2_Sub53_3 = VorbisSound.create(js5.VORBIS, arg1.sound);
                 }
                 if (arg1.aClass2_Sub53_3 != null) {
                     if (arg1.aClass2_Sub49_Sub1_4 == null) {
@@ -126,7 +128,7 @@ public final class Static632 {
             } else {
                 @Pc(408) Class89 local408 = Static729.method2245(js5.SYNTH_SOUNDS, arg1.sound, 0);
                 if (local408 != null) {
-                    @Pc(415) Node_Sub49_Sub1 local415 = local408.method2247().method7821(Static681.aSampleRateConverter_2);
+                    @Pc(415) VariableRateSoundPacket local415 = local408.method2247().resample(Static681.aSampleRateConverter_2);
                     @Pc(423) Node_Sub6_Sub2 local423 = Static730.method3346(local415, local264, local182 << 6, local214);
                     local423.method3318(-1);
                     Static336.activeStreams.method5882(local423);
@@ -148,7 +150,7 @@ public final class Static632 {
                 local275 = (int) ((double) arg1.anIntArray718.length * Math.random());
                 @Pc(536) Class89 local536 = Static729.method2245(js5.SYNTH_SOUNDS, arg1.anIntArray718[local275], 0);
                 if (local536 != null) {
-                    @Pc(543) Node_Sub49_Sub1 local543 = local536.method2247().method7821(Static681.aSampleRateConverter_2);
+                    @Pc(543) VariableRateSoundPacket local543 = local536.method2247().resample(Static681.aSampleRateConverter_2);
                     @Pc(551) Node_Sub6_Sub2 local551 = Static730.method3346(local543, local264, local182 << 6, local214);
                     local551.method3318(0);
                     Static336.activeStreams.method5882(local551);
@@ -160,7 +162,7 @@ public final class Static632 {
             }
             if (arg1.aClass2_Sub53_2 == null) {
                 local275 = (int) (Math.random() * (double) arg1.anIntArray718.length);
-                arg1.aClass2_Sub53_2 = Static650.method8498(js5.VORBIS, arg1.anIntArray718[local275]);
+                arg1.aClass2_Sub53_2 = VorbisSound.create(js5.VORBIS, arg1.anIntArray718[local275]);
             }
             if (arg1.aClass2_Sub53_2 != null) {
                 if (arg1.aClass2_Sub49_Sub1_3 == null) {

@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -65,9 +66,9 @@ public final class Class89 {
     }
 
     @OriginalMember(owner = "client!dw", name = "c", descriptor = "()Lclient!sq;")
-    public Node_Sub49_Sub1 method2247() {
+    public VariableRateSoundPacket method2247() {
         @Pc(2) byte[] local2 = this.method2246();
-        return new Node_Sub49_Sub1(22050, local2, this.anInt2381 * 22050 / 1000, this.anInt2382 * 22050 / 1000);
+        return new VariableRateSoundPacket(22050, local2, this.anInt2381 * 22050 / 1000, this.anInt2382 * 22050 / 1000);
     }
 
     @OriginalMember(owner = "client!dw", name = "a", descriptor = "()I")

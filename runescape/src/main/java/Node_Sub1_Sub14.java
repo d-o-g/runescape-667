@@ -215,8 +215,8 @@ public final class Node_Sub1_Sub14 extends TextureOp {
     @OriginalMember(owner = "client!kg", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(19) int[][] local19 = super.colourCache.method8450(arg0);
-        if (super.colourCache.aBoolean737) {
+        @Pc(19) int[][] local19 = super.colourCache.get(arg0);
+        if (super.colourCache.dirty) {
             @Pc(29) int[] local29 = this.method9422(arg0, 0);
             @Pc(33) int[] local33 = local19[0];
             @Pc(37) int[] local37 = local19[1];

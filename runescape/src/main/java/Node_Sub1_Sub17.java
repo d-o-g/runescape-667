@@ -40,8 +40,8 @@ public final class Node_Sub1_Sub17 extends TextureOp {
         if (arg0 < 107) {
             WorldList.checksum = -76;
         }
-        @Pc(16) int[] local16 = super.monochromeCache.method3935(arg1);
-        if (super.monochromeCache.aBoolean338) {
+        @Pc(16) int[] local16 = super.monochromeCache.get(arg1);
+        if (super.monochromeCache.dirty) {
             Arrays.set(local16, 0, Static608.anInt9289, this.anInt5965);
         }
         return local16;

@@ -133,8 +133,8 @@ public final class Node_Sub1_Sub11 extends TextureOp {
         if (arg0 < 107) {
             Static278.anIntArray350 = null;
         }
-        @Pc(18) int[] local18 = super.monochromeCache.method3935(arg1);
-        if (super.monochromeCache.aBoolean338) {
+        @Pc(18) int[] local18 = super.monochromeCache.get(arg1);
+        if (super.monochromeCache.dirty) {
             @Pc(24) int local24 = 0;
             @Pc(31) int local31;
             for (local31 = this.anInt4531 + Static273.anIntArray341[arg1]; local31 < 0; local31 += 4096) {

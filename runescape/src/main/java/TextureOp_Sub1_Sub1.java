@@ -34,8 +34,8 @@ public final class TextureOp_Sub1_Sub1 extends TextureOp {
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(17) int[][] local17 = super.colourCache.method8450(arg0);
-        if (super.colourCache.aBoolean737) {
+        @Pc(17) int[][] local17 = super.colourCache.get(arg0);
+        if (super.colourCache.dirty) {
             @Pc(44) int local44 = (this.anInt49 == Static2.anInt53 ? arg0 : arg0 * this.anInt49 / Static2.anInt53) * this.anInt57;
             @Pc(48) int[] local48 = local17[0];
             @Pc(52) int[] local52 = local17[1];

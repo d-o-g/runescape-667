@@ -42,8 +42,8 @@ public final class Node_Sub1_Sub32 extends TextureOp {
     @OriginalMember(owner = "client!vda", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
-        if (super.monochromeCache.aBoolean338) {
+        @Pc(11) int[] local11 = super.monochromeCache.get(arg1);
+        if (super.monochromeCache.dirty) {
             @Pc(22) int local22 = Static675.anInt10157 * this.anInt10015 >> 12;
             @Pc(32) int[] local32 = this.method9422(Static489.anInt7343 & arg1 - 1, 0);
             @Pc(38) int[] local38 = this.method9422(arg1, 0);

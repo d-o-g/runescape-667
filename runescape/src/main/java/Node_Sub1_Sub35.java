@@ -21,8 +21,8 @@ public final class Node_Sub1_Sub35 extends TextureOp {
     @OriginalMember(owner = "client!vi", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
-        if (super.monochromeCache.aBoolean338) {
+        @Pc(11) int[] local11 = super.monochromeCache.get(arg1);
+        if (super.monochromeCache.dirty) {
             @Pc(21) int[] local21 = this.method9422(arg1, 0);
             for (@Pc(23) int local23 = 0; local23 < Static608.anInt9289; local23++) {
                 @Pc(29) int local29 = local21[local23];
@@ -59,8 +59,8 @@ public final class Node_Sub1_Sub35 extends TextureOp {
     @OriginalMember(owner = "client!vi", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(21) int[][] local21 = super.colourCache.method8450(arg0);
-        if (super.colourCache.aBoolean737) {
+        @Pc(21) int[][] local21 = super.colourCache.get(arg0);
+        if (super.colourCache.dirty) {
             @Pc(31) int[][] local31 = this.method9413(0, arg0);
             @Pc(35) int[] local35 = local31[0];
             @Pc(39) int[] local39 = local31[1];

@@ -49,14 +49,14 @@ public final class Node_Sub1_Sub7 extends TextureOp {
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
+        @Pc(11) int[] local11 = super.monochromeCache.get(arg1);
         if (arg0 <= 107) {
             StringTools.numberWithSign(-62, 43, true);
         }
-        if (!super.monochromeCache.aBoolean338) {
+        if (!super.monochromeCache.dirty) {
             return local11;
         }
-        @Pc(31) int[][] local31 = super.monochromeCache.method3932();
+        @Pc(31) int[][] local31 = super.monochromeCache.get();
         @Pc(33) int local33 = 0;
         @Pc(35) int local35 = 0;
         @Pc(37) int local37 = 0;

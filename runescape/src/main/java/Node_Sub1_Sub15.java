@@ -51,10 +51,10 @@ public final class Node_Sub1_Sub15 extends TextureOp {
     @OriginalMember(owner = "client!kga", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
-        if (super.monochromeCache.aBoolean338) {
+        @Pc(11) int[] local11 = super.monochromeCache.get(arg1);
+        if (super.monochromeCache.dirty) {
             @Pc(20) int local20 = this.anInt5424 >> 1;
-            @Pc(25) int[][] local25 = super.monochromeCache.method3932();
+            @Pc(25) int[][] local25 = super.monochromeCache.get();
             @Pc(32) Random local32 = new Random(this.anInt5419);
             for (@Pc(34) int local34 = 0; local34 < this.anInt5420; local34++) {
                 @Pc(60) int local60 = this.anInt5424 > 0 ? this.anInt5418 + Static623.method8326(-5208, this.anInt5424, local32) - local20 : this.anInt5418;

@@ -144,11 +144,11 @@ public final class Node_Sub1_Sub27 extends TextureOp {
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(9) int[] local9 = super.monochromeCache.method3935(arg1);
+        @Pc(9) int[] local9 = super.monochromeCache.get(arg1);
         if (arg0 <= 107) {
             this.aShortArray126 = null;
         }
-        if (super.monochromeCache.aBoolean338) {
+        if (super.monochromeCache.dirty) {
             this.method7809(arg1, local9);
         }
         return local9;

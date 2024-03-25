@@ -137,8 +137,8 @@ public final class Static35 {
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(Lclient!ge;I)Lclient!lv;")
     public static Class235 method935(@OriginalArg(0) Packet arg0) {
         @Pc(7) int local7 = arg0.g1();
-        @Pc(16) Class403 local16 = Static33.method882()[arg0.g1()];
-        @Pc(25) Class103 local25 = Static313.method4544()[arg0.g1()];
+        @Pc(16) horizontalAlignment local16 = Static33.method882()[arg0.g1()];
+        @Pc(25) VerticalAlignment local25 = Static313.method4544()[arg0.g1()];
         @Pc(29) int local29 = arg0.g2s();
         @Pc(33) int local33 = arg0.g2s();
         @Pc(39) int local39 = arg0.g2();

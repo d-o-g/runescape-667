@@ -18,6 +18,6 @@ public final class Static464 {
     public static Class160_Sub1 method6301(@OriginalArg(0) Packet arg0) {
         @Pc(16) Class160 local16 = Static515.method6803(arg0);
         @Pc(20) int local20 = arg0.g3s();
-        return new Class160_Sub1(local16.anInt3851, local16.aClass403_9, local16.aClass103_9, local16.anInt3850, local16.anInt3845, local20);
+        return new Class160_Sub1(local16.anInt3851, local16.aHorizontalAlignment_9, local16.aVerticalAlignment_9, local16.anInt3850, local16.anInt3845, local20);
     }
 }

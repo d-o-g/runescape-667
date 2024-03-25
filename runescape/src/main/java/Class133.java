@@ -1,8 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
-import com.jagex.graphics.ClippingMask;
-import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -42,8 +40,8 @@ public final class Class133 implements Interface13 {
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(ZI)V")
     @Override
     public void method7749() {
-        @Pc(27) int local27 = this.aClass125_1.aClass403_2.method9332(client.loadingScreenWidth, this.aClass125_1.anInt2865) + this.aClass125_1.anInt2868;
-        @Pc(41) int local41 = this.aClass125_1.aClass103_3.method2416(client.loadingScreenHeight, this.aClass125_1.anInt2859) + this.aClass125_1.anInt2869;
+        @Pc(27) int local27 = this.aClass125_1.aHorizontalAlignment_2.align(client.loadingScreenWidth, this.aClass125_1.anInt2865) + this.aClass125_1.anInt2868;
+        @Pc(41) int local41 = this.aClass125_1.aVerticalAlignment_3.align(client.loadingScreenHeight, this.aClass125_1.anInt2859) + this.aClass125_1.anInt2869;
         this.aFont_4.renderLines(0, null, this.aClass125_1.anInt2867, this.aClass125_1.aString30, null, null, local41, this.aClass125_1.anInt2862, 0, this.aClass125_1.anInt2860, local27, this.aClass125_1.anInt2870, this.aClass125_1.anInt2866, this.aClass125_1.anInt2865, this.aClass125_1.anInt2859);
     }
 

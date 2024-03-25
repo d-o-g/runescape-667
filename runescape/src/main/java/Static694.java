@@ -71,8 +71,8 @@ public final class Static694 {
                 width = Static343.minWidth;
             }
 
-            @Pc(92) int local92 = Static180.aClass403_3.method9332(client.loadingScreenWidth, width) + Static665.anInt9944;
-            @Pc(101) int local101 = Static129.aClass103_1.method2416(client.loadingScreenHeight, height) + Static101.anInt2097;
+            @Pc(92) int local92 = Static180.aHorizontalAlignment_3.align(client.loadingScreenWidth, width) + Static665.anInt9944;
+            @Pc(101) int local101 = Static129.aVerticalAlignment_1.align(client.loadingScreenHeight, height) + Static101.anInt2097;
             if (InterfaceManager.aBoolean210) {
                 local92 += Static130.method2283();
                 local101 += Static422.method5771();

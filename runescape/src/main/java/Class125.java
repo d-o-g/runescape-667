@@ -30,13 +30,13 @@ public final class Class125 implements Interface10 {
     public final int anInt2859;
 
     @OriginalMember(owner = "client!fea", name = "c", descriptor = "Lclient!ek;")
-    public final Class103 aClass103_3;
+    public final VerticalAlignment aVerticalAlignment_3;
 
     @OriginalMember(owner = "client!fea", name = "j", descriptor = "I")
     public final int anInt2862;
 
     @OriginalMember(owner = "client!fea", name = "d", descriptor = "Lclient!wk;")
-    public final Class403 aClass403_2;
+    public final horizontalAlignment aHorizontalAlignment_2;
 
     @OriginalMember(owner = "client!fea", name = "m", descriptor = "I")
     public final int anInt2858;
@@ -45,7 +45,7 @@ public final class Class125 implements Interface10 {
     public final int anInt2869;
 
     @OriginalMember(owner = "client!fea", name = "<init>", descriptor = "(Ljava/lang/String;Lclient!wk;Lclient!ek;IIIIIIIIII)V")
-    public Class125(@OriginalArg(0) String arg0, @OriginalArg(1) Class403 arg1, @OriginalArg(2) Class103 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12) {
+    public Class125(@OriginalArg(0) String arg0, @OriginalArg(1) horizontalAlignment arg1, @OriginalArg(2) VerticalAlignment arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12) {
         this.anInt2867 = arg11;
         this.anInt2860 = arg5;
         this.aString30 = arg0;
@@ -54,9 +54,9 @@ public final class Class125 implements Interface10 {
         this.anInt2866 = arg7;
         this.anInt2865 = arg8;
         this.anInt2859 = arg9;
-        this.aClass103_3 = arg2;
+        this.aVerticalAlignment_3 = arg2;
         this.anInt2862 = arg12;
-        this.aClass403_2 = arg1;
+        this.aHorizontalAlignment_2 = arg1;
         this.anInt2858 = arg10;
         this.anInt2869 = arg4;
     }

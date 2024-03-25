@@ -8,7 +8,7 @@ public final class Static710 {
     public static int varclanUpdateCount = 0;
 
     @OriginalMember(owner = "client!wha", name = "h", descriptor = "Lclient!wk;")
-    public static final Class403 aClass403_13 = new Class403();
+    public static final horizontalAlignment A_HORIZONTAL_ALIGNMENT___13 = new horizontalAlignment();
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {

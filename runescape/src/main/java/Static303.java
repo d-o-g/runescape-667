@@ -30,6 +30,6 @@ public final class Static303 {
         @Pc(19) int local19 = arg0.g4();
         @Pc(23) int local23 = arg0.g4();
         @Pc(27) int local27 = arg0.g2();
-        return new Class138_Sub2(local15.aClass403_10, local15.aClass103_10, local15.anInt4423, local15.anInt4412, local15.anInt4418, local15.anInt4413, local15.anInt4416, local15.anInt4415, local15.anInt4421, local19, local23, local27);
+        return new Class138_Sub2(local15.aHorizontalAlignment_10, local15.aVerticalAlignment_10, local15.anInt4423, local15.anInt4412, local15.anInt4418, local15.anInt4413, local15.anInt4416, local15.anInt4415, local15.anInt4421, local19, local23, local27);
     }
 }

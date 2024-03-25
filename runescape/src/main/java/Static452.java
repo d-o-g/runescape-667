@@ -16,8 +16,8 @@ public final class Static452 {
     @OriginalMember(owner = "client!oea", name = "a", descriptor = "(ILclient!ge;)Lclient!fea;")
     public static Class125 method6171(@OriginalArg(1) Packet arg0) {
         @Pc(7) String local7 = arg0.gjstr();
-        @Pc(14) Class403 local14 = Static33.method882()[arg0.g1()];
-        @Pc(23) Class103 local23 = Static313.method4544()[arg0.g1()];
+        @Pc(14) horizontalAlignment local14 = Static33.method882()[arg0.g1()];
+        @Pc(23) VerticalAlignment local23 = Static313.method4544()[arg0.g1()];
         @Pc(27) int local27 = arg0.g2s();
         @Pc(33) int local33 = arg0.g2s();
         @Pc(39) int local39 = arg0.g1();

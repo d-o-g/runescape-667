@@ -7,7 +7,7 @@ public final class Static555 {
     public static int anInt8305 = 2;
 
     @OriginalMember(owner = "client!ria", name = "e", descriptor = "Lclient!wk;")
-    public static final Class403 aClass403_14 = new Class403();
+    public static final horizontalAlignment A_HORIZONTAL_ALIGNMENT___14 = new horizontalAlignment();
 
     @OriginalMember(owner = "client!ria", name = "a", descriptor = "(III)Z")
     public static boolean method7297(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {

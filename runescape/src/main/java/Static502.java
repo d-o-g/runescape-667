@@ -13,7 +13,7 @@ public final class Static502 {
         @Pc(7) Class138 local7 = Static632.method8359(arg0);
         @Pc(23) int local23 = arg0.g4();
         @Pc(27) int local27 = arg0.g4();
-        return new Class138_Sub3(local7.aClass403_10, local7.aClass103_10, local7.anInt4423, local7.anInt4412, local7.anInt4418, local7.anInt4413, local7.anInt4416, local7.anInt4415, local7.anInt4421, local23, local27);
+        return new Class138_Sub3(local7.aHorizontalAlignment_10, local7.aVerticalAlignment_10, local7.anInt4423, local7.anInt4412, local7.anInt4418, local7.anInt4413, local7.anInt4416, local7.anInt4415, local7.anInt4421, local23, local27);
     }
 
     @OriginalMember(owner = "client!pr", name = "a", descriptor = "(B[B)V")

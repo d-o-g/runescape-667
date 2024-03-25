@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static169 {
 
     @OriginalMember(owner = "client!fe", name = "f", descriptor = "Lclient!wk;")
-    public static final Class403 aClass403_1 = new Class403();
+    public static final horizontalAlignment A_HORIZONTAL_ALIGNMENT___1 = new horizontalAlignment();
 
     @OriginalMember(owner = "client!fe", name = "h", descriptor = "I")
     public static int anInt2850 = 500;

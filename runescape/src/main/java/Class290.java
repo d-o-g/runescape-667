@@ -1,6 +1,4 @@
 import com.jagex.graphics.Font;
-import com.jagex.graphics.ClippingMask;
-import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -34,8 +32,8 @@ public final class Class290 implements Interface13 {
         if (local19 == null) {
             return;
         }
-        @Pc(35) int local35 = this.aClass235_1.aClass403_11.method9332(client.loadingScreenWidth, this.aClass235_1.anInt5976) + this.aClass235_1.anInt5977;
-        @Pc(49) int local49 = this.aClass235_1.aClass103_11.method2416(client.loadingScreenHeight, this.aClass235_1.anInt5970) + this.aClass235_1.anInt5974;
+        @Pc(35) int local35 = this.aClass235_1.aHorizontalAlignment_11.align(client.loadingScreenWidth, this.aClass235_1.anInt5976) + this.aClass235_1.anInt5977;
+        @Pc(49) int local49 = this.aClass235_1.aVerticalAlignment_11.align(client.loadingScreenHeight, this.aClass235_1.anInt5970) + this.aClass235_1.anInt5974;
         if (this.aClass235_1.aBoolean454) {
             Toolkit.active.method7976(local35, local49, this.aClass235_1.anInt5976, this.aClass235_1.anInt5970, this.aClass235_1.anInt5972, 0);
         }

@@ -26,7 +26,7 @@ public final class Static205 {
                 local17.unlink();
             } else {
                 Static143.method3573(local17.anInt956 * 2, (local17.anInt959 << 9) + 256, arg0 >> 1, (local17.anInt954 << 9) + 256, local17.anInt958, arg1 >> 1);
-                Fonts.b12.renderCentre(0, Static215.anIntArray284[0] + arg3, local17.aString3, Static215.anIntArray284[1] + arg2, local17.anInt957 | 0xFF000000);
+                Fonts.b12.renderCentre(0, OverlayManager.hitmarkpos[0] + arg3, local17.aString3, OverlayManager.hitmarkpos[1] + arg2, local17.anInt957 | 0xFF000000);
             }
         }
     }

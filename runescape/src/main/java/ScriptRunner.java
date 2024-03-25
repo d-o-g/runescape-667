@@ -2035,13 +2035,13 @@ public final class ScriptRunner {
                                                 anIntArray578[anInt7142++] = -1;
                                                 return;
                                             }
-                                            anIntArray578[anInt7142++] = Static327.anInt5392;
+                                            anIntArray578[anInt7142++] = FriendsList.count;
                                             return;
                                         }
                                         if (arg0 == 3601) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static251.anInt4036 == 2 && local15 < Static327.anInt5392) {
-                                                aStringArray37[anInt7139++] = Static330.aStringArray25[local15];
+                                            if (Static251.anInt4036 == 2 && local15 < FriendsList.count) {
+                                                aStringArray37[anInt7139++] = FriendsList.names[local15];
                                                 if (Static572.aStringArray42[local15] != null) {
                                                     aStringArray37[anInt7139++] = Static572.aStringArray42[local15];
                                                     return;
@@ -2055,8 +2055,8 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3602) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static251.anInt4036 == 2 && local15 < Static327.anInt5392) {
-                                                anIntArray578[anInt7142++] = Static371.anIntArray455[local15];
+                                            if (Static251.anInt4036 == 2 && local15 < FriendsList.count) {
+                                                anIntArray578[anInt7142++] = FriendsList.worlds[local15];
                                                 return;
                                             }
                                             anIntArray578[anInt7142++] = 0;
@@ -2064,7 +2064,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3603) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static251.anInt4036 == 2 && local15 < Static327.anInt5392) {
+                                            if (Static251.anInt4036 == 2 && local15 < FriendsList.count) {
                                                 anIntArray578[anInt7142++] = Static715.anIntArray881[local15];
                                                 return;
                                             }
@@ -2107,7 +2107,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3610) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static251.anInt4036 == 2 && local15 < Static327.anInt5392) {
+                                            if (Static251.anInt4036 == 2 && local15 < FriendsList.count) {
                                                 aStringArray37[anInt7139++] = Static419.aStringArray33[local15];
                                                 return;
                                             }
@@ -2124,7 +2124,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3612) {
                                             if (Static723.aString129 != null) {
-                                                anIntArray578[anInt7142++] = Static706.anInt10633;
+                                                anIntArray578[anInt7142++] = FriendChat.count;
                                                 return;
                                             }
                                             anIntArray578[anInt7142++] = 0;
@@ -2132,8 +2132,8 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3613) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static723.aString129 != null && local15 < Static706.anInt10633) {
-                                                aStringArray37[anInt7139++] = Static87.aClass241Array1[local15].aString67;
+                                            if (Static723.aString129 != null && local15 < FriendChat.count) {
+                                                aStringArray37[anInt7139++] = FriendChat.users[local15].aString67;
                                                 return;
                                             }
                                             aStringArray37[anInt7139++] = "";
@@ -2141,8 +2141,8 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3614) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static723.aString129 != null && local15 < Static706.anInt10633) {
-                                                anIntArray578[anInt7142++] = Static87.aClass241Array1[local15].anInt6148;
+                                            if (Static723.aString129 != null && local15 < FriendChat.count) {
+                                                anIntArray578[anInt7142++] = FriendChat.users[local15].anInt6148;
                                                 return;
                                             }
                                             anIntArray578[anInt7142++] = 0;
@@ -2150,8 +2150,8 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3615) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static723.aString129 != null && local15 < Static706.anInt10633) {
-                                                anIntArray578[anInt7142++] = Static87.aClass241Array1[local15].aByte99;
+                                            if (Static723.aString129 != null && local15 < FriendChat.count) {
+                                                anIntArray578[anInt7142++] = FriendChat.users[local15].aByte99;
                                                 return;
                                             }
                                             anIntArray578[anInt7142++] = 0;
@@ -2212,7 +2212,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3624) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static87.aClass241Array1 != null && local15 < Static706.anInt10633 && Static87.aClass241Array1[local15].aString66.equalsIgnoreCase(PlayerEntity.self.accountName)) {
+                                            if (FriendChat.users != null && local15 < FriendChat.count && FriendChat.users[local15].accountName.equalsIgnoreCase(PlayerEntity.self.accountName)) {
                                                 anIntArray578[anInt7142++] = 1;
                                                 return;
                                             }
@@ -2229,8 +2229,8 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3626) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static723.aString129 != null && local15 < Static706.anInt10633) {
-                                                aStringArray37[anInt7139++] = Static87.aClass241Array1[local15].aString65;
+                                            if (Static723.aString129 != null && local15 < FriendChat.count) {
+                                                aStringArray37[anInt7139++] = FriendChat.users[local15].aString65;
                                                 return;
                                             }
                                             aStringArray37[anInt7139++] = "";
@@ -2238,7 +2238,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3627) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static251.anInt4036 == 2 && local15 >= 0 && local15 < Static327.anInt5392) {
+                                            if (Static251.anInt4036 == 2 && local15 >= 0 && local15 < FriendsList.count) {
                                                 anIntArray578[anInt7142++] = Static623.aBooleanArray30[local15] ? 1 : 0;
                                                 return;
                                             }
@@ -2269,8 +2269,8 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3632) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static723.aString129 != null && local15 < Static706.anInt10633) {
-                                                aStringArray37[anInt7139++] = Static87.aClass241Array1[local15].aString66;
+                                            if (Static723.aString129 != null && local15 < FriendChat.count) {
+                                                aStringArray37[anInt7139++] = FriendChat.users[local15].accountName;
                                                 return;
                                             }
                                             aStringArray37[anInt7139++] = "";
@@ -2287,7 +2287,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3634) {
                                             local15 = anIntArray578[--anInt7142];
-                                            if (Static251.anInt4036 == 2 && local15 < Static327.anInt5392) {
+                                            if (Static251.anInt4036 == 2 && local15 < FriendsList.count) {
                                                 anIntArray578[anInt7142++] = Static429.aBooleanArray21[local15] ? 1 : 0;
                                                 return;
                                             }
@@ -4757,8 +4757,8 @@ public final class ScriptRunner {
                         } else if (local109 >= Static501.mapHeight) {
                             local109 = Static501.mapHeight;
                         }
-                        Static433.anInt6262 = (local834 << 9) + 256;
-                        Static249.anInt4018 = (local109 << 9) + 256;
+                        Camera.anInt6262 = (local834 << 9) + 256;
+                        Camera.anInt4018 = (local109 << 9) + 256;
                         Camera.mode = 4;
                         Static693.anInt10383 = -1;
                         Static692.anInt10376 = -1;

@@ -335,7 +335,7 @@ public final class oa extends Toolkit implements Interface5 {
     }
 
     @OriginalMember(owner = "client!oa", name = "KA", descriptor = "(IIII)V")
-    public native void KA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public native void KA(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2);
 
     @OriginalMember(owner = "client!oa", name = "c", descriptor = "(S)Z")
     public boolean c(@OriginalArg(0) short arg0) {

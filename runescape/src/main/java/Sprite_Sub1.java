@@ -50,7 +50,7 @@ public abstract class Sprite_Sub1 extends Sprite {
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "([I)V")
     @Override
-    public final void getOffsets(@OriginalArg(0) int[] arg0) {
+    public final void projectOffsets(@OriginalArg(0) int[] arg0) {
         arg0[0] = this.anInt9298;
         arg0[1] = this.anInt9308;
         arg0[2] = this.anInt9295;

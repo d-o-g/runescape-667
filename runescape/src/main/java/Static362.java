@@ -18,8 +18,8 @@ public final class Static362 {
         if (arg1 == null) {
             return false;
         }
-        for (@Pc(10) int local10 = arg0; local10 < Static327.anInt5392; local10++) {
-            if (arg1.equalsIgnoreCase(Static330.aStringArray25[local10])) {
+        for (@Pc(10) int local10 = arg0; local10 < FriendsList.count; local10++) {
+            if (arg1.equalsIgnoreCase(FriendsList.names[local10])) {
                 return true;
             }
         }

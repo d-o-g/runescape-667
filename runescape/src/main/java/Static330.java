@@ -11,6 +11,4 @@ public final class Static330 {
     @OriginalMember(owner = "client!kha", name = "m", descriptor = "I")
     public static int anInt5434 = 0;
 
-    @OriginalMember(owner = "client!kha", name = "g", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray25 = new String[200];
 }

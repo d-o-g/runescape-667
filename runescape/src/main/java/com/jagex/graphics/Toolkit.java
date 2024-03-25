@@ -87,7 +87,7 @@ public abstract class Toolkit {
      * setClipping
      */
     @OriginalMember(owner = "client!ha", name = "KA", descriptor = "(IIII)V")
-    public abstract void KA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public abstract void KA(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2);
 
     @OriginalMember(owner = "client!ha", name = "EA", descriptor = "(IIII)V")
     public abstract void EA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
@@ -242,8 +242,8 @@ public abstract class Toolkit {
     public abstract boolean method7970();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIBII)V")
-    public final void fillRect(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        this.aa(arg3, arg2, arg0, arg1, arg4, 1);
+    public final void fillRect(@OriginalArg(4) int x, @OriginalArg(2) int y, @OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(5) int colour) {
+        this.aa(x, y, width, height, colour, 1);
     }
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(Ljava/awt/Canvas;)V")

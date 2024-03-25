@@ -41,8 +41,8 @@ public final class Static498 {
                 local122 = (arg4 - local115) / 2;
                 if (arg1) {
                     Toolkit.active.la();
-                    Toolkit.active.fillRect(local122, arg3, arg2, arg0, -16777216);
-                    Toolkit.active.fillRect(local122, arg3, arg2, arg4 + arg0 - local122, -16777216);
+                    Toolkit.active.fillRect(arg0, arg2, local122, arg3, -16777216);
+                    Toolkit.active.fillRect(arg4 + arg0 - local122, arg2, local122, arg3, -16777216);
                 }
                 arg0 += local122;
                 arg4 -= local122 * 2;
@@ -56,8 +56,8 @@ public final class Static498 {
                 local122 = (arg3 - local115) / 2;
                 if (arg1) {
                     Toolkit.active.la();
-                    Toolkit.active.fillRect(arg4, local122, arg2, arg0, -16777216);
-                    Toolkit.active.fillRect(arg4, local122, arg2 + arg3 - local122, arg0, -16777216);
+                    Toolkit.active.fillRect(arg0, arg2, arg4, local122, -16777216);
+                    Toolkit.active.fillRect(arg0, arg2 + arg3 - local122, arg4, local122, -16777216);
                 }
                 arg3 -= local122 * 2;
                 arg2 += local122;

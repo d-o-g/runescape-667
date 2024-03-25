@@ -1826,15 +1826,15 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "KA", descriptor = "(IIII)V")
     @Override
-    public final void KA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        if (arg0 <= 0 && this.anInt9122 - 1 <= arg2 && arg1 <= 0 && this.anInt9013 - 1 <= arg3) {
+    public final void KA(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2) {
+        if (x1 <= 0 && this.anInt9122 - 1 <= x2 && y1 <= 0 && this.anInt9013 - 1 <= y2) {
             this.la();
             return;
         }
-        this.anInt9153 = this.anInt9122 >= arg2 ? arg2 : 0;
-        this.anInt9154 = arg0 < 0 ? 0 : arg0;
-        this.anInt9161 = arg1 < 0 ? 0 : arg1;
-        this.anInt9165 = this.anInt9122 < arg3 ? 0 : arg3;
+        this.anInt9153 = this.anInt9122 >= x2 ? x2 : 0;
+        this.anInt9154 = x1 < 0 ? 0 : x1;
+        this.anInt9161 = y1 < 0 ? 0 : y1;
+        this.anInt9165 = this.anInt9122 < y2 ? 0 : y2;
         if (!this.aBoolean697) {
             this.aBoolean697 = true;
             this.method8058();

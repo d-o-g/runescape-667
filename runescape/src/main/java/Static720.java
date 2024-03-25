@@ -26,7 +26,7 @@ public final class Static720 {
         @Pc(14) int local14 = arg2 - arg5 / 2 - 5;
         @Pc(18) int local18 = arg7 + 2;
         if (arg3.fillColour != 0) {
-            arg6.fillRect(arg5 + 10, arg0 * arg4.method7536() + 1 + arg7 + -local18, local18, local14, arg3.fillColour);
+            arg6.fillRect(local14, local18, arg5 + 10, arg0 * arg4.method7536() + 1 + arg7 + -local18, arg3.fillColour);
         }
         if (arg3.outlineColour != 0) {
             arg6.method7945(local18, arg3.outlineColour, arg5 + 10, arg4.method7536() * arg0 + 1 + arg7 + -local18, local14);

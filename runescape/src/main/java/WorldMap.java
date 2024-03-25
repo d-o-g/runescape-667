@@ -294,7 +294,7 @@ public final class WorldMap {
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(BILclient!ha;III)V")
     public static void drawOverview(@OriginalArg(1) int width, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int height, @OriginalArg(4) int x, @OriginalArg(5) int z) {
         arg1.KA(x, z, x + width, height + z);
-        arg1.fillRect(width, height, z, x, 0xFF000000);
+        arg1.fillRect(x, z, width, height, 0xFF000000);
 
         if (loadingPercent < 100) {
             return;
@@ -352,11 +352,11 @@ public final class WorldMap {
                 if (Static475.anInt7168 == entry.id) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
                     @Pc(269) int drawY = newY + ((newHeight * (areaHeight - entry.y)) / areaHeight);
-                    arg1.fillRect(4, 4, drawY - 2, drawX - 2, (alpha << 24) | 0xFFFF00);
+                    arg1.fillRect(drawX - 2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
                 } else if (Static409.anInt6318 != -1 && Static409.anInt6318 == elementType.category) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
                     @Pc(269) int drawY = newY + (((areaHeight - entry.y) * newHeight) / areaHeight);
-                    arg1.fillRect(4, 4, drawY - 2, drawX + -2, (alpha << 24) | 0xFFFF00);
+                    arg1.fillRect(drawX + -2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
                 }
             }
         }

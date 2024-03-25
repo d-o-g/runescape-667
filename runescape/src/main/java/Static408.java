@@ -20,11 +20,11 @@ public final class Static408 {
         Static102.method2022();
         Static251.anInt4036 = 0;
         Static723.aString129 = null;
-        Static327.anInt5392 = 0;
+        FriendsList.count = 0;
         Static91.aClass164_9 = null;
         Static128.aClass164_8 = null;
-        Static706.anInt10633 = 0;
-        Static87.aClass241Array1 = null;
+        FriendChat.count = 0;
+        FriendChat.users = null;
     }
 
     @OriginalMember(owner = "client!ms", name = "a", descriptor = "(ZLclient!el;)Z")

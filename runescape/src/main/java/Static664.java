@@ -62,8 +62,8 @@ public final class Static664 {
         if (arg0 == null) {
             return -1;
         }
-        for (@Pc(10) int local10 = 0; local10 < Static327.anInt5392; local10++) {
-            if (arg0.equalsIgnoreCase(Static330.aStringArray25[local10])) {
+        for (@Pc(10) int local10 = 0; local10 < FriendsList.count; local10++) {
+            if (arg0.equalsIgnoreCase(FriendsList.names[local10])) {
                 return local10;
             }
         }

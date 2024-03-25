@@ -15,9 +15,6 @@ public final class Static481 {
     @OriginalMember(owner = "client!pd", name = "p", descriptor = "Lclient!pc;")
     public static final ZoneProt A_ZONE_PROT___15 = new ZoneProt(1, 8);
 
-    @OriginalMember(owner = "client!pd", name = "r", descriptor = "I")
-    public static int anInt7222 = 0;
-
     @OriginalMember(owner = "client!pd", name = "b", descriptor = "(B)V")
     public static void method6475() {
         if (Static222.anIntArray289 != null && Static24.anIntArray33 != null) {

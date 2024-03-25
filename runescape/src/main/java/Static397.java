@@ -110,9 +110,9 @@ public final class Static397 {
             Sprites.mobilisingArmiesCache.put(local27, local7);
         }
         Static418.method7860(arg1.level, arg1.z, 0, arg1.x, arg1.getSize() * 256);
-        @Pc(75) int local75 = arg0 + Static215.anIntArray284[0] - 18;
+        @Pc(75) int local75 = arg0 + OverlayManager.hitmarkpos[0] - 18;
         @Pc(83) int local83 = local75 + arg6 / 4 * 18;
-        @Pc(94) int local94 = arg5 + Static215.anIntArray284[1] - 54 - 16;
+        @Pc(94) int local94 = arg5 + OverlayManager.hitmarkpos[1] - 54 - 16;
         @Pc(102) int local102 = local94 + arg6 % 4 * 18;
         local27.render(local83, local102);
         if (arg2 == arg1) {

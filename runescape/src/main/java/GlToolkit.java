@@ -827,23 +827,23 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "KA", descriptor = "(IIII)V")
     @Override
-    public void KA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        if (arg0 < 0) {
-            arg0 = 0;
+    public void KA(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2) {
+        if (x1 < 0) {
+            x1 = 0;
         }
-        if (this.anInt7869 < arg2) {
-            arg2 = this.anInt7869;
+        if (this.anInt7869 < x2) {
+            x2 = this.anInt7869;
         }
-        if (arg3 > this.anInt7956) {
-            arg3 = this.anInt7956;
+        if (y2 > this.anInt7956) {
+            y2 = this.anInt7956;
         }
-        if (arg1 < 0) {
-            arg1 = 0;
+        if (y1 < 0) {
+            y1 = 0;
         }
-        this.anInt8000 = arg0;
-        this.anInt8028 = arg2;
-        this.anInt8012 = arg3;
-        this.anInt8032 = arg1;
+        this.anInt8000 = x1;
+        this.anInt8028 = x2;
+        this.anInt8012 = y2;
+        this.anInt8032 = y1;
         OpenGL.glEnable(OpenGL.GL_SCISSOR_TEST);
         this.method7037();
         this.method7000();

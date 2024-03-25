@@ -5,32 +5,32 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class HintArrow {
 
     @OriginalMember(owner = "client!nba", name = "e", descriptor = "I")
-    public int anInt6360;
+    public int flashRate;
 
     @OriginalMember(owner = "client!nba", name = "o", descriptor = "I")
     public int z;
 
     @OriginalMember(owner = "client!nba", name = "n", descriptor = "I")
-    public int anInt6363;
+    public int type;
 
     @OriginalMember(owner = "client!nba", name = "a", descriptor = "I")
-    public int anInt6364;
+    public int drawDistance;
 
     @OriginalMember(owner = "client!nba", name = "p", descriptor = "I")
-    public int anInt6365;
+    public int y;
 
     @OriginalMember(owner = "client!nba", name = "j", descriptor = "I")
-    public int anInt6366;
+    public int entity;
 
     @OriginalMember(owner = "client!nba", name = "f", descriptor = "I")
-    public int anInt6367;
+    public int sprite;
 
     @OriginalMember(owner = "client!nba", name = "m", descriptor = "I")
-    public int anInt6368;
+    public int level;
 
     @OriginalMember(owner = "client!nba", name = "g", descriptor = "I")
     public int x;
 
     @OriginalMember(owner = "client!nba", name = "k", descriptor = "I")
-    public int anInt6371 = -1;
+    public int model = -1;
 }

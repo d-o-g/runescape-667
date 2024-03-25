@@ -12,7 +12,7 @@ public final class Static128 {
 
     @OriginalMember(owner = "client!ea", name = "a", descriptor = "(ILjava/lang/String;)V")
     public static void method7754(@OriginalArg(1) String arg0) {
-        if (Static87.aClass241Array1 == null) {
+        if (FriendChat.users == null) {
             return;
         }
         @Pc(21) ServerConnection local21 = ConnectionManager.active();

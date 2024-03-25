@@ -15,9 +15,6 @@ public final class Static706 {
     @OriginalMember(owner = "client!wfa", name = "U", descriptor = "[Lclient!s;")
     public static Ground[] floor;
 
-    @OriginalMember(owner = "client!wfa", name = "T", descriptor = "I")
-    public static int anInt10633;
-
     @OriginalMember(owner = "client!wfa", name = "Q", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___255 = new ServerProt(105, -1);
 
@@ -79,7 +76,7 @@ public final class Static706 {
         if (arg0 == null) {
             return;
         }
-        if (Static327.anInt5392 >= 200 && !Static126.aBoolean200 || Static327.anInt5392 >= 200) {
+        if (FriendsList.count >= 200 && !Static126.aBoolean200 || FriendsList.count >= 200) {
             ChatHistory.addPrivateError(LocalisedText.FRIENDLIST_FULL.localise(client.language));
             return;
         }
@@ -88,8 +85,8 @@ public final class Static706 {
             return;
         }
         @Pc(81) String local81;
-        for (@Pc(40) int local40 = 0; local40 < Static327.anInt5392; local40++) {
-            @Pc(47) String local47 = NameTools.format(Static330.aStringArray25[local40]);
+        for (@Pc(40) int local40 = 0; local40 < FriendsList.count; local40++) {
+            @Pc(47) String local47 = NameTools.format(FriendsList.names[local40]);
             if (local47 != null && local47.equals(local34)) {
                 ChatHistory.addPrivateError(arg0 + LocalisedText.FRIENDLISTDUPE.localise(client.language));
                 return;

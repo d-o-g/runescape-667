@@ -33,23 +33,8 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static352 {
 
-    @OriginalMember(owner = "client!lc", name = "B", descriptor = "I")
-    public static final int anInt5752 = 50;
-
-    @OriginalMember(owner = "client!lc", name = "E", descriptor = "[Lclient!dj;")
-    public static final EntityChatLine[] A_CHAT_MESSAGE_ARRAY_1 = new EntityChatLine[anInt5752];
-
     @OriginalMember(owner = "client!lc", name = "A", descriptor = "I")
     public static int lastClanTransmit = 0;
-
-    @OriginalMember(owner = "client!lc", name = "z", descriptor = "[I")
-    public static final int[] anIntArray444 = new int[anInt5752];
-
-    @OriginalMember(owner = "client!lc", name = "v", descriptor = "[I")
-    public static final int[] anIntArray445 = new int[anInt5752];
-
-    @OriginalMember(owner = "client!lc", name = "w", descriptor = "[I")
-    public static final int[] anIntArray446 = new int[anInt5752];
 
     @OriginalMember(owner = "client!lc", name = "c", descriptor = "(B)V")
     public static void cacheReset() {

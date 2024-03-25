@@ -74,6 +74,12 @@ public final class Camera {
     @OriginalMember(owner = "client!br", name = "B", descriptor = "I")
     public static int lookY;
 
+    @OriginalMember(owner = "client!hma", name = "k", descriptor = "I")
+    public static int anInt4018 = 0;
+
+    @OriginalMember(owner = "client!nl", name = "c", descriptor = "I")
+    public static int anInt6262 = 0;
+
     @OriginalMember(owner = "client!sg", name = "a", descriptor = "(I)V")
     public static void splineTick() {
         if (Static197.anInt3260 == -1 || lookSpline == -1) {

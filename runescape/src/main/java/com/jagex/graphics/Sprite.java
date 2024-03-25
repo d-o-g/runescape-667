@@ -82,7 +82,7 @@ public abstract class Sprite implements Surface {
     public abstract int scaleHeight();
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "([I)V")
-    public abstract void getOffsets(@OriginalArg(0) int[] arg0);
+    public abstract void projectOffsets(@OriginalArg(0) int[] arg0);
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     protected abstract void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8);

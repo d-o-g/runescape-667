@@ -58,9 +58,9 @@ public final class Static595 {
                         }
                         @Pc(158) Node_Sub13 local158;
                         if (local141) {
-                            local158 = Toolkit.active.method7961(146800640);
+                            local158 = Toolkit.active.method7961(0x8C00000);
                         } else {
-                            local158 = Toolkit.active.method7961(104857600);
+                            local158 = Toolkit.active.method7961(0x6400000);
                         }
                         Toolkit.active.method7938(local158);
                         var14 = false;

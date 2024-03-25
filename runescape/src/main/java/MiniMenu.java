@@ -269,7 +269,7 @@ public final class MiniMenu {
                                 @Pc(690) NPCEntityNode local690 = (NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local306]);
                                 if (local690 != null) {
                                     @Pc(695) NPCEntity local695 = local690.npc;
-                                    if (TimeUtils.clock != local695.anInt10743 && local695.aBoolean816) {
+                                    if (TimeUtils.clock != local695.anInt10743 && local695.visible) {
                                         local723 = local695.x - (local695.type.size - 1 << 8);
                                         local735 = local695.z - (local695.type.size - 1 << 8);
                                         if (local286 <= local723 && local695.type.size <= local610.getSize() - (local723 - local286 >> 9) && local735 >= local295 && local695.type.size <= local610.getSize() - (local735 - local295 >> 9)) {
@@ -283,7 +283,7 @@ public final class MiniMenu {
                             @Pc(820) int[] local820 = PlayerList.highResolutionPlayerIndices;
                             for (local723 = 0; local723 < local317; local723++) {
                                 @Pc(830) PlayerEntity local830 = PlayerList.highResolutionPlayers[local820[local723]];
-                                if (local830 != null && local830.anInt10743 != TimeUtils.clock && local830 != local610 && local830.aBoolean816) {
+                                if (local830 != null && local830.anInt10743 != TimeUtils.clock && local830 != local610 && local830.visible) {
                                     local864 = local830.x - (local830.getSize() - 1 << 8);
                                     @Pc(876) int local876 = local830.z - (local830.getSize() - 1 << 8);
                                     if (local864 >= local286 && local830.getSize() <= local610.getSize() - (local864 - local286 >> 9) && local876 >= local295 && local830.getSize() <= local610.getSize() - (local876 - local295 >> 9)) {
@@ -309,7 +309,7 @@ public final class MiniMenu {
                                     @Pc(1081) NPCEntityNode local1081 = (NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local295]);
                                     if (local1081 != null) {
                                         @Pc(1086) NPCEntity local1086 = local1081.npc;
-                                        if (local1086.anInt10743 != TimeUtils.clock && local1086 != local988 && local1086.aBoolean816) {
+                                        if (local1086.anInt10743 != TimeUtils.clock && local1086 != local988 && local1086.visible) {
                                             local370 = local1086.x - (local1086.type.size - 1 << 8);
                                             local723 = local1086.z - (local1086.type.size - 1 << 8);
                                             if (local614 <= local370 && local988.type.size - (local370 - local614 >> 9) >= local1086.type.size && local723 >= local286 && local1086.type.size <= local988.type.size - (local723 - local286 >> 9)) {
@@ -323,7 +323,7 @@ public final class MiniMenu {
                                 @Pc(1216) int[] local1216 = PlayerList.highResolutionPlayerIndices;
                                 for (local370 = 0; local370 < local306; local370++) {
                                     @Pc(1226) PlayerEntity local1226 = PlayerList.highResolutionPlayers[local1216[local370]];
-                                    if (local1226 != null && local1226.anInt10743 != TimeUtils.clock && local1226.aBoolean816) {
+                                    if (local1226 != null && local1226.anInt10743 != TimeUtils.clock && local1226.visible) {
                                         local735 = local1226.x - (local1226.getSize() - 1 << 8);
                                         local864 = local1226.z - (local1226.getSize() - 1 << 8);
                                         if (local614 <= local735 && local1226.getSize() <= local988.type.size - (local735 - local614 >> 9) && local286 <= local864 && local1226.getSize() <= local988.type.size - (local864 - local286 >> 9)) {

@@ -188,9 +188,9 @@ public final class Static684 {
                 InterfaceManager.loginOpened();
             }
         } else if (Camera.mode == 4) {
-            Static433.anInt6262 -= deltaX * 512;
+            Camera.anInt6262 -= deltaX * 512;
             Static38.anInt920 -= deltaZ * 512;
-            Static249.anInt4018 -= deltaZ * 512;
+            Camera.anInt4018 -= deltaZ * 512;
             Static494.anInt7409 -= deltaX * 512;
         } else {
             Static693.anInt10383 = -1;

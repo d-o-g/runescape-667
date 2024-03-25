@@ -85,7 +85,7 @@ public final class Static84 {
                     continue;
                 }
                 if (local36.drawPriority < 0) {
-                    local36.aBoolean816 = false;
+                    local36.visible = false;
                     continue;
                 }
             }
@@ -93,11 +93,11 @@ public final class Static84 {
             @Pc(80) int local80 = local36.getSize();
             if ((local80 & 0x1) == 0) {
                 if ((local36.x & 0x1FF) != 0 || (local36.z & 0x1FF) != 0) {
-                    local36.aBoolean816 = false;
+                    local36.visible = false;
                     continue;
                 }
             } else if ((local36.x & 0x1FF) != 256 || (local36.z & 0x1FF) != 256) {
-                local36.aBoolean816 = false;
+                local36.visible = false;
                 continue;
             }
             if (CutsceneManager.state != 3) {
@@ -108,12 +108,12 @@ public final class Static84 {
                     local135 = local36.x >> 9;
                     local140 = local36.z >> 9;
                     if (local36.drawPriority != Static341.entityDrawPriorities[local135][local140]) {
-                        local36.aBoolean816 = true;
+                        local36.visible = true;
                         continue;
                     }
                     if (Static148.anIntArrayArray64[local135][local140] > 1) {
                         local166 = Static148.anIntArrayArray64[local135][local140]--;
-                        local36.aBoolean816 = true;
+                        local36.visible = true;
                         continue;
                     }
                 } else {
@@ -130,12 +130,12 @@ public final class Static84 {
                                 }
                             }
                         }
-                        local36.aBoolean816 = true;
+                        local36.visible = true;
                         continue;
                     }
                 }
             }
-            local36.aBoolean816 = false;
+            local36.visible = false;
             local36.y = Static102.averageHeight(local36.level, -29754, local36.z, local36.x);
             Static102.method2026(local36, true);
         }
@@ -150,7 +150,7 @@ public final class Static84 {
         @Pc(103) int local103;
         for (@Pc(32) int local32 = 0; local32 < local1; local32++) {
             @Pc(39) PlayerEntity local39 = PlayerList.highResolutionPlayers[local3[local32]];
-            if (!local39.method1417()) {
+            if (!local39.hasModel()) {
                 local39.drawPriority = -1;
             } else if (local39.hideOnMap) {
                 local39.drawPriority = -1;
@@ -162,10 +162,10 @@ public final class Static84 {
                         local39.drawPriority = Integer.MAX_VALUE;
                     } else {
                         local103 = 0;
-                        if (!local39.aBoolean816) {
+                        if (!local39.visible) {
                             local103++;
                         }
-                        if (local39.hpClock > TimeUtils.clock) {
+                        if (local39.healthClock > TimeUtils.clock) {
                             local103 += 2;
                         }
                         local103 += 5 - local39.getSize() << 2;
@@ -188,14 +188,14 @@ public final class Static84 {
         }
         for (@Pc(155) int local155 = 0; local155 < NPCList.localNpcCount; local155++) {
             @Pc(166) NPCEntity local166 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local155])).npc;
-            if (local166.method9322() && local166.type.isVisible(TimedVarDomain.instance)) {
+            if (local166.hasType() && local166.type.isVisible(TimedVarDomain.instance)) {
                 local166.updateBounds();
                 if (local166.x1 >= 0 && local166.z1 >= 0 && local166.x2 < Static720.mapWidth && local166.z2 < Static501.mapHeight) {
                     @Pc(213) int local213 = 0;
-                    if (!local166.aBoolean816) {
+                    if (!local166.visible) {
                         local213++;
                     }
-                    if (local166.hpClock > TimeUtils.clock) {
+                    if (local166.healthClock > TimeUtils.clock) {
                         local213 += 2;
                     }
                     local213 += 5 - local166.getSize() << 2;
@@ -228,16 +228,16 @@ public final class Static84 {
         for (local103 = 0; local103 < Static527.hintArrows.length; local103++) {
             @Pc(292) HintArrow local292 = Static527.hintArrows[local103];
             if (local292 != null) {
-                if (local292.anInt6363 == 1) {
-                    @Pc(308) NPCEntityNode local308 = (NPCEntityNode) NPCList.local.get(local292.anInt6366);
+                if (local292.type == 1) {
+                    @Pc(308) NPCEntityNode local308 = (NPCEntityNode) NPCList.local.get(local292.entity);
                     if (local308 != null) {
                         @Pc(313) NPCEntity local313 = local308.npc;
                         if (local313.drawPriority >= 0) {
                             local313.drawPriority += 2048;
                         }
                     }
-                } else if (local292.anInt6363 == 10) {
-                    @Pc(333) PlayerEntity local333 = PlayerList.highResolutionPlayers[local292.anInt6366];
+                } else if (local292.type == 10) {
+                    @Pc(333) PlayerEntity local333 = PlayerList.highResolutionPlayers[local292.entity];
                     if (local333 != null && local333 != PlayerEntity.self && local333.drawPriority >= 0) {
                         local333.drawPriority += 2048;
                     }
@@ -266,7 +266,7 @@ public final class Static84 {
         Static172.anInt2893 = 0;
         for (@Pc(3) int local3 = 0; local3 < NPCList.localNpcCount; local3++) {
             @Pc(14) NPCEntity local14 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local3])).npc;
-            if (local14.aBoolean816 && local14.method9304((byte) -123) != -1) {
+            if (local14.visible && local14.method9304((byte) -123) != -1) {
                 @Pc(34) int local34 = (local14.getSize() - 1) * 256 + 252;
                 @Pc(41) int local41 = local14.x - local34 >> 9;
                 @Pc(48) int local48 = local14.z - local34 >> 9;

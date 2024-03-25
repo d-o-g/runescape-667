@@ -1,3 +1,4 @@
+import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -35,179 +36,194 @@ public final class Minimap {
     public static boolean flagSet = true;
 
     @OriginalMember(owner = "client!aw", name = "a", descriptor = "(ILclient!ha;ILclient!hda;I)V")
-    public static void draw(@OriginalArg(0) int y, @OriginalArg(1) Toolkit toolkit, @OriginalArg(3) Component component, @OriginalArg(4) int x) {
-        @Pc(23) Graphic local23 = component.graphic(toolkit);
-        if (local23 == null) {
+    public static void draw(@OriginalArg(3) Component component, @OriginalArg(1) Toolkit toolkit, @OriginalArg(4) int screenX, @OriginalArg(0) int screenY) {
+        @Pc(23) Graphic graphic = component.graphic(toolkit);
+        if (graphic == null) {
             return;
         }
-        @Pc(30) ClippingMask local30 = local23.aClippingMask;
-        toolkit.KA(x, y, x + component.width, y - -component.height);
+
+        @Pc(30) ClippingMask clippingMask = graphic.clippingMask;
+        toolkit.KA(screenX, screenY, screenX + component.width, screenY + component.height);
+
         if (toggle == 2 || toggle == 5 || sprite == null) {
-            toolkit.A(-16777216, local30, x, y);
+            toolkit.A(0xFF000000, clippingMask, screenX, screenY);
             return;
         }
-        @Pc(90) int local90;
-        @Pc(93) int local93;
-        @Pc(87) int local87;
-        @Pc(79) int local79;
+
+        @Pc(90) int selfX;
+        @Pc(93) int selfZ;
+        @Pc(87) int yaw;
+        @Pc(79) int scale;
         if (Camera.mode == 4) {
-            local87 = (int) -Camera.playerCameraYaw & 0x3FFF;
-            local79 = 4096;
-            local93 = Static249.anInt4018;
-            local90 = Static433.anInt6262;
+            yaw = (int) -Camera.playerCameraYaw & 0x3FFF;
+            scale = 4096;
+            selfZ = Camera.anInt4018;
+            selfX = Camera.anInt6262;
         } else {
-            local79 = 4096 - Camera.scaleOffset * 16;
-            local87 = (int) -Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
-            local90 = PlayerEntity.self.x;
-            local93 = PlayerEntity.self.z;
+            scale = 4096 - Camera.scaleOffset * 16;
+            yaw = (int) -Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
+            selfX = PlayerEntity.self.x;
+            selfZ = PlayerEntity.self.z;
         }
-        @Pc(120) int local120 = local90 / 128 + 208 + 48 - Static720.mapWidth * 2;
-        @Pc(137) int local137 = Static501.mapHeight * 4 + 48 - local93 / 128 - (Static501.mapHeight - 104) * 2;
-        sprite.renderRotated((float) x + (float) component.width / 2.0F, (float) component.height / 2.0F + (float) y, (float) local120, (float) local137, local79, local87 << 2, local30, x, y);
-        @Pc(190) int local190;
-        @Pc(200) int local200;
-        @Pc(211) int local211;
-        @Pc(222) int local222;
-        for (@Pc(171) IntNode local171 = (IntNode) Static612.A_DEQUE___67.first(); local171 != null; local171 = (IntNode) Static612.A_DEQUE___67.next()) {
-            @Pc(178) int local178 = local171.value;
-            local190 = (Static42.aMapElementList_2.coords[local178] >> 14 & 0x3FFF) - WorldMap.areaBaseX;
-            local200 = (Static42.aMapElementList_2.coords[local178] & 0x3FFF) - WorldMap.areaBaseZ;
-            local211 = local190 * 4 + 2 - local90 / 128;
-            local222 = local200 * 4 + 2 - local93 / 128;
-            Static620.method8322(local222, x, local30, toolkit, Static42.aMapElementList_2.functions[local178], y, local211, component);
+
+        @Pc(120) int x = ((selfX / 128) + 208 + 48) - (Static720.mapWidth * 2);
+        @Pc(137) int y = ((Static501.mapHeight * 4) + 48) - (selfZ / 128) - ((Static501.mapHeight - 104) * 2);
+        sprite.renderRotated((float) screenX + ((float) component.width / 2.0F), ((float) component.height / 2.0F) + (float) screenY, (float) x, (float) y, scale, yaw << 2, clippingMask, screenX, screenY);
+
+        for (@Pc(171) IntNode node = (IntNode) Static612.A_DEQUE___67.first(); node != null; node = (IntNode) Static612.A_DEQUE___67.next()) {
+            @Pc(178) int local178 = node.value;
+            @Pc(190) int local190 = (Static42.aMapElementList_2.coords[local178] >> 14 & 0x3FFF) - WorldMap.areaBaseX;
+            @Pc(200) int local200 = (Static42.aMapElementList_2.coords[local178] & 0x3FFF) - WorldMap.areaBaseZ;
+            @Pc(211) int local211 = local190 * 4 + 2 - selfX / 128;
+            @Pc(222) int local222 = local200 * 4 + 2 - selfZ / 128;
+            Static620.method8322(local222, screenX, clippingMask, toolkit, Static42.aMapElementList_2.functions[local178], screenY, local211, component);
         }
-        for (local190 = 0; local190 < Static536.anInt8148; local190++) {
-            local200 = anIntArray654[local190] * 4 + 2 - local90 / 128;
-            local211 = Static350.anIntArray433[local190] * 4 + 2 - local93 / 128;
-            @Pc(287) LocType local287 = LocTypeList.instance.list(Static533.anIntArray628[local190]);
+
+        for (@Pc(190) int i = 0; i < Static536.anInt8148; i++) {
+            @Pc(200) int local200 = anIntArray654[i] * 4 + 2 - selfX / 128;
+            @Pc(211) int local211 = Static350.anIntArray433[i] * 4 + 2 - selfZ / 128;
+            @Pc(287) LocType local287 = LocTypeList.instance.list(Static533.anIntArray628[i]);
             if (local287.multiLocs != null) {
                 local287 = local287.getMultiLoc(TimedVarDomain.instance);
                 if (local287 == null || local287.mapElement == -1) {
                     continue;
                 }
             }
-            Static620.method8322(local211, x, local30, toolkit, local287.mapElement, y, local200, component);
+            Static620.method8322(local211, screenX, clippingMask, toolkit, local287.mapElement, screenY, local200, component);
         }
-        @Pc(381) int local381;
-        @Pc(392) int local392;
-        for (@Pc(334) ObjStack local334 = (ObjStack) Static497.stacks.first(); local334 != null; local334 = (ObjStack) Static497.stacks.next()) {
-            local211 = (int) (local334.key >> 28 & 0x3L);
-            if (level == local211) {
-                local222 = (int) (local334.key & 0x3FFFL) - WorldMap.areaBaseX;
-                @Pc(370) int local370 = (int) (local334.key >> 14 & 0x3FFFL) - WorldMap.areaBaseZ;
-                local381 = local222 * 4 + 2 - local90 / 128;
-                local392 = local370 * 4 + 2 - local93 / 128;
-                Static6.method107(y, local30, Sprites.mapdots[0], local392, local381, component, x);
+
+        for (@Pc(334) ObjStack stack = (ObjStack) Static497.stacks.first(); stack != null; stack = (ObjStack) Static497.stacks.next()) {
+            @Pc(211) int stackLevel = (int) (stack.key >> 28 & 0x3L);
+
+            if (level == stackLevel) {
+                @Pc(222) int local222 = (int) (stack.key & 0x3FFFL) - WorldMap.areaBaseX;
+                @Pc(370) int local370 = (int) (stack.key >> 14 & 0x3FFFL) - WorldMap.areaBaseZ;
+                @Pc(381) int local381 = local222 * 4 + 2 - selfX / 128;
+                @Pc(392) int local392 = local370 * 4 + 2 - selfZ / 128;
+                Static6.method107(screenY, clippingMask, Sprites.mapdots[0], local392, local381, component, screenX);
             }
         }
-        @Pc(490) int local490;
-        for (local211 = 0; local211 < NPCList.localNpcCount; local211++) {
-            @Pc(427) NPCEntityNode local427 = (NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local211]);
-            if (local427 != null) {
-                @Pc(432) NPCEntity local432 = local427.npc;
-                if (local432.method9322() && local432.level == PlayerEntity.self.level) {
-                    @Pc(446) NPCType local446 = local432.type;
-                    if (local446 != null && local446.multinpcs != null) {
-                        local446 = local446.getMultiNPC(TimedVarDomain.instance);
-                    }
-                    if (local446 != null && local446.displayOnMiniMap && local446.interactive) {
-                        local392 = local432.x / 128 - local90 / 128;
-                        local490 = local432.z / 128 - local93 / 128;
-                        if (local446.mapElement == -1) {
-                            Static6.method107(y, local30, Sprites.mapdots[1], local490, local392, component, x);
-                        } else {
-                            Static620.method8322(local490, x, local30, toolkit, local446.mapElement, y, local392, component);
-                        }
-                    }
-                }
+
+        for (@Pc(211) int i = 0; i < NPCList.localNpcCount; i++) {
+            @Pc(427) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[i]);
+            if (node == null) {
+                continue;
             }
-        }
-        local222 = PlayerList.highResolutionPlayerCount;
-        @Pc(531) int[] local531 = PlayerList.highResolutionPlayerIndices;
-        @Pc(585) int local585;
-        @Pc(589) int local589;
-        @Pc(622) int local622;
-        for (local381 = 0; local381 < local222; local381++) {
-            @Pc(541) PlayerEntity local541 = PlayerList.highResolutionPlayers[local531[local381]];
-            if (local541 != null && local541.method1417() && !local541.hideOnMap && PlayerEntity.self != local541 && local541.level == PlayerEntity.self.level) {
-                local490 = local541.x / 128 - local90 / 128;
-                local585 = local541.z / 128 - local93 / 128;
-                @Pc(587) boolean local587 = false;
-                for (local589 = 0; local589 < Static327.anInt5392; local589++) {
-                    if (local541.accountName.equals(Static330.aStringArray25[local589]) && Static371.anIntArray455[local589] != 0) {
-                        local587 = true;
-                        break;
-                    }
+
+            @Pc(432) NPCEntity npc = node.npc;
+            if (npc.hasType() && npc.level == PlayerEntity.self.level) {
+                @Pc(446) NPCType type = npc.type;
+                if (type != null && type.multinpcs != null) {
+                    type = type.getMultiNPC(TimedVarDomain.instance);
                 }
-                @Pc(620) boolean local620 = false;
-                for (local622 = 0; local622 < Static706.anInt10633; local622++) {
-                    if (local541.accountName.equals(Static87.aClass241Array1[local622].aString66)) {
-                        local620 = true;
-                        break;
-                    }
-                }
-                @Pc(652) boolean local652 = false;
-                if (PlayerEntity.self.team != 0 && local541.team != 0 && PlayerEntity.self.team == local541.team) {
-                    local652 = true;
-                }
-                if (local541.showPIcon) {
-                    Static6.method107(y, local30, Sprites.mapdots[6], local585, local490, component, x);
-                } else if (local652) {
-                    Static6.method107(y, local30, Sprites.mapdots[4], local585, local490, component, x);
-                } else if (local541.clanmate) {
-                    Static6.method107(y, local30, Sprites.mapdots[7], local585, local490, component, x);
-                } else if (local587) {
-                    Static6.method107(y, local30, Sprites.mapdots[3], local585, local490, component, x);
-                } else if (local620) {
-                    Static6.method107(y, local30, Sprites.mapdots[5], local585, local490, component, x);
-                } else {
-                    Static6.method107(y, local30, Sprites.mapdots[2], local585, local490, component, x);
-                }
-            }
-        }
-        @Pc(788) HintArrow[] local788 = Static527.hintArrows;
-        @Pc(878) int local878;
-        for (local490 = 0; local490 < local788.length; local490++) {
-            @Pc(796) HintArrow local796 = local788[local490];
-            if (local796 != null && local796.anInt6363 != 0 && TimeUtils.clock % 20 < 10) {
-                @Pc(843) int local843;
-                if (local796.anInt6363 == 1) {
-                    @Pc(828) NPCEntityNode local828 = (NPCEntityNode) NPCList.local.get(local796.anInt6366);
-                    if (local828 != null) {
-                        @Pc(833) NPCEntity local833 = local828.npc;
-                        local843 = local833.x / 128 - local90 / 128;
-                        local622 = local833.z / 128 - local93 / 128;
-                        Static114.method2132(local843, x, 360000L, local30, local796.anInt6367, y, local622, component);
-                    }
-                }
-                if (local796.anInt6363 == 2) {
-                    local878 = local796.x / 128 - local90 / 128;
-                    local589 = local796.z / 128 - local93 / 128;
-                    @Pc(893) long local893 = local796.anInt6364 << 7;
-                    @Pc(897) long local897 = local893 * local893;
-                    Static114.method2132(local878, x, local897, local30, local796.anInt6367, y, local589, component);
-                }
-                if (local796.anInt6363 == 10 && local796.anInt6366 >= 0 && local796.anInt6366 < PlayerList.highResolutionPlayers.length) {
-                    @Pc(932) PlayerEntity local932 = PlayerList.highResolutionPlayers[local796.anInt6366];
-                    if (local932 != null) {
-                        local589 = local932.x / 128 - local90 / 128;
-                        local843 = local932.z / 128 - local93 / 128;
-                        Static114.method2132(local589, x, 360000L, local30, local796.anInt6367, y, local843, component);
+
+                if (type != null && type.displayOnMiniMap && type.interactive) {
+                    @Pc(392) int npcX = (npc.x / 128) - (selfX / 128);
+                    @Pc(490) int npcZ = (npc.z / 128) - (selfZ / 128);
+
+                    if (type.mapElement != -1) {
+                        Static620.method8322(npcZ, screenX, clippingMask, toolkit, type.mapElement, screenY, npcX, component);
+                    } else {
+                        Static6.method107(screenY, clippingMask, Sprites.mapdots[1], npcZ, npcX, component, screenX);
                     }
                 }
             }
         }
-        if (Camera.mode == 4) {
-            return;
+
+        @Pc(222) int playerCount = PlayerList.highResolutionPlayerCount;
+        @Pc(531) int[] playerIndices = PlayerList.highResolutionPlayerIndices;
+        for (@Pc(381) int i = 0; i < playerCount; i++) {
+            @Pc(541) PlayerEntity player = PlayerList.highResolutionPlayers[playerIndices[i]];
+            if (player == null || !player.hasModel() || player.hideOnMap || PlayerEntity.self == player || player.level != PlayerEntity.self.level) {
+                continue;
+            }
+
+            @Pc(490) int playerX = (player.x / 128) - (selfX / 128);
+            @Pc(585) int playerZ = (player.z / 128) - (selfZ / 128);
+            @Pc(587) boolean friend = false;
+            for (@Pc(589) int j = 0; j < FriendsList.count; j++) {
+                if (player.accountName.equals(FriendsList.names[j]) && FriendsList.worlds[j] != 0) {
+                    friend = true;
+                    break;
+                }
+            }
+
+            @Pc(620) boolean chatmate = false;
+            for (@Pc(622) int j = 0; j < FriendChat.count; j++) {
+                if (player.accountName.equals(FriendChat.users[j].accountName)) {
+                    chatmate = true;
+                    break;
+                }
+            }
+
+            @Pc(652) boolean teammate = false;
+            if (PlayerEntity.self.team != 0 && player.team != 0 && PlayerEntity.self.team == player.team) {
+                teammate = true;
+            }
+
+            if (player.showPIcon) {
+                Static6.method107(screenY, clippingMask, Sprites.mapdots[6], playerZ, playerX, component, screenX);
+            } else if (teammate) {
+                Static6.method107(screenY, clippingMask, Sprites.mapdots[4], playerZ, playerX, component, screenX);
+            } else if (player.clanmate) {
+                Static6.method107(screenY, clippingMask, Sprites.mapdots[7], playerZ, playerX, component, screenX);
+            } else if (friend) {
+                Static6.method107(screenY, clippingMask, Sprites.mapdots[3], playerZ, playerX, component, screenX);
+            } else if (chatmate) {
+                Static6.method107(screenY, clippingMask, Sprites.mapdots[5], playerZ, playerX, component, screenX);
+            } else {
+                Static6.method107(screenY, clippingMask, Sprites.mapdots[2], playerZ, playerX, component, screenX);
+            }
         }
-        if (flagX != 0) {
-            local585 = flagX * 4 + (PlayerEntity.self.getSize() + -1) * 2 + 2 - local90 / 128;
-            local878 = flagY * 4 + PlayerEntity.self.getSize() * 2 + 2 - local93 / 128 - 2;
-            Static6.method107(y, local30, Sprites.mapflag[flagSet ? 1 : 0], local878, local585, component, x);
+
+        @Pc(788) HintArrow[] hintArrows = Static527.hintArrows;
+
+        for (@Pc(490) int i = 0; i < hintArrows.length; i++) {
+            @Pc(796) HintArrow hintArrow = hintArrows[i];
+            if (hintArrow == null || hintArrow.type == HintArrowType.CLEAR || TimeUtils.clock % 20 >= 10) {
+                continue;
+            }
+
+            if (hintArrow.type == HintArrowType.NPC) {
+                @Pc(828) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(hintArrow.entity);
+
+                if (node != null) {
+                    @Pc(833) NPCEntity npc = node.npc;
+                    @Pc(843) int arrowX = (npc.x / 128) - (selfX / 128);
+                    @Pc(622) int arrowZ = (npc.z / 128) - (selfZ / 128);
+                    Static114.method2132(arrowX, screenX, 360000L, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
+                }
+            }
+
+            if (hintArrow.type == HintArrowType.TILE_CENTRE) {
+                @Pc(878) int arrowX = hintArrow.x / 128 - selfX / 128;
+                @Pc(589) int arrowZ = hintArrow.z / 128 - selfZ / 128;
+                @Pc(893) long distance = hintArrow.drawDistance << 7;
+                @Pc(897) long distanceSquared = distance * distance;
+                Static114.method2132(arrowX, screenX, distanceSquared, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
+            }
+
+            if (hintArrow.type == HintArrowType.PLAYER && hintArrow.entity >= 0 && hintArrow.entity < PlayerList.highResolutionPlayers.length) {
+                @Pc(932) PlayerEntity player = PlayerList.highResolutionPlayers[hintArrow.entity];
+
+                if (player != null) {
+                    @Pc(589) int arrowX = (player.x / 128) - (selfX / 128);
+                    @Pc(843) int arrowZ = (player.z / 128) - (selfZ / 128);
+                    Static114.method2132(arrowX, screenX, 360000L, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
+                }
+            }
         }
-        if (!PlayerEntity.self.hideOnMap) {
-            toolkit.fillRect(3, 3, y + component.height / 2 - 1, component.width / 2 + x + -1, -1);
-            return;
+
+        if (Camera.mode != 4) {
+            if (flagX != 0) {
+                @Pc(585) int arrowX = ((flagX * 4) + ((PlayerEntity.self.getSize() - 1) * 2) + 2) - (selfX / 128);
+                @Pc(878) int arrowZ = ((flagY * 4) + (PlayerEntity.self.getSize() * 2) + 2) - (selfZ / 128) - 2;
+                Static6.method107(screenY, clippingMask, Sprites.mapflag[flagSet ? 1 : 0], arrowZ, arrowX, component, screenX);
+            }
+
+            if (!PlayerEntity.self.hideOnMap) {
+                toolkit.fillRect((component.width / 2) + screenX - 1, (screenY + (component.height / 2)) - 1, 3, 3, 0xFFFFFFFF);
+            }
         }
     }
 
@@ -220,9 +236,9 @@ public final class Minimap {
 
         Toolkit.active.KA(arg1, arg2, arg1 + component.width, arg2 + component.height);
         if (toggle >= 3) {
-            Toolkit.active.A(-16777216, graphic.aClippingMask, arg1, arg2);
+            Toolkit.active.A(-16777216, graphic.clippingMask, arg1, arg2);
         } else {
-            Sprites.compass.method8183((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Camera.playerCameraYaw & 0x3FFF) << 2, graphic.aClippingMask, arg1, arg2);
+            Sprites.compass.method8183((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Camera.playerCameraYaw & 0x3FFF) << 2, graphic.clippingMask, arg1, arg2);
         }
     }
 

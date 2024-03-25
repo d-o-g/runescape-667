@@ -34,7 +34,7 @@ public final class Static294 {
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(IIZIII)V")
     public static void method4339(@OriginalArg(1) int arg0, @OriginalArg(2) boolean login, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (Static334.activeTiles == null) {
-            Toolkit.active.fillRect(arg2, arg3, arg0, arg4, -16777216);
+            Toolkit.active.fillRect(arg4, arg0, arg2, arg3, -16777216);
             return;
         }
         @Pc(19) boolean local19 = false;
@@ -46,7 +46,7 @@ public final class Static294 {
             local19 = true;
         }
         if (local19) {
-            Toolkit.active.fillRect(arg2, arg3, arg0, arg4, -16777216);
+            Toolkit.active.fillRect(arg4, arg0, arg2, arg3, -16777216);
             return;
         }
         Static198.anInt3276++;
@@ -86,7 +86,7 @@ public final class Static294 {
                 local169 = Static140.anIntArray222[4] + 128;
             }
             local204 = (int) Camera.playerCameraYaw & 0x3FFF;
-            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, -29754, Static249.anInt4018, Static433.anInt6262) - 200);
+            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, -29754, Camera.anInt4018, Camera.anInt6262) - 200);
         } else if (Camera.mode == 5) {
             Static110.method2079(local161);
         }
@@ -170,7 +170,7 @@ public final class Static294 {
         Static557.method7331();
         if (MainLogicManager.step == 11) {
             Static205.method3091(local155, local161, local159, local153);
-            Static608.method8176(local159, local155, local153, local161);
+            OverlayManager.render(local159, local155, local153, local161);
             Static233.method3407(local155, local159, local153, local161);
             Static208.method3105(local155, local153, local159, local161);
         }
@@ -185,7 +185,7 @@ public final class Static294 {
             Static426.aBoolean72 = false;
         }
         if (Static426.aBoolean72) {
-            Toolkit.active.fillRect(local155, local161, local159, local153, -16777216);
+            Toolkit.active.fillRect(local153, local159, local155, local161, -16777216);
             Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language), false, Fonts.p12Metrics, Fonts.p12);
         }
         Static501.method6716(false);

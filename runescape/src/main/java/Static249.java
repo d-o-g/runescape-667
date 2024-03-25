@@ -8,9 +8,6 @@ public final class Static249 {
     @OriginalMember(owner = "client!hma", name = "B", descriptor = "I")
     public static int anInt4008 = 0;
 
-    @OriginalMember(owner = "client!hma", name = "k", descriptor = "I")
-    public static int anInt4018 = 0;
-
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(IBIIIII)V")
     public static void method3535(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         @Pc(11) int local11 = Static670.method8732(Static724.anInt10930, Static273.anInt4395, arg1);

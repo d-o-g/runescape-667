@@ -33,7 +33,7 @@ public abstract class PathingEntity extends PositionEntity {
     protected int modelTranslateY;
 
     @OriginalMember(owner = "client!cg", name = "qb", descriptor = "I")
-    public int anInt10726;
+    public int healthPercentage;
 
     @OriginalMember(owner = "client!cg", name = "Kb", descriptor = "[I")
     public int[] wornTargets;
@@ -117,7 +117,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int anInt10735;
 
     @OriginalMember(owner = "client!cg", name = "ec", descriptor = "Z")
-    public boolean aBoolean816;
+    public boolean visible;
 
     @OriginalMember(owner = "client!cg", name = "Xb", descriptor = "B")
     public byte hitmarkPointer;
@@ -144,7 +144,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int target;
 
     @OriginalMember(owner = "client!cg", name = "Ub", descriptor = "[I")
-    public final int[] soakTypes;
+    public final int[] soakHitmarkTypes;
 
     @OriginalMember(owner = "client!cg", name = "dc", descriptor = "[I")
     public final int[] healthPercentages;
@@ -153,13 +153,13 @@ public abstract class PathingEntity extends PositionEntity {
     public boolean timerbarSprite;
 
     @OriginalMember(owner = "client!cg", name = "uc", descriptor = "[I")
-    public final int[] hitTypes;
+    public final int[] damageHitmarkTypes;
 
     @OriginalMember(owner = "client!cg", name = "N", descriptor = "I")
     protected int minY;
 
     @OriginalMember(owner = "client!cg", name = "Db", descriptor = "I")
-    public int hpClock;
+    public int healthClock;
 
     @OriginalMember(owner = "client!cg", name = "qc", descriptor = "Lclient!gu;")
     public final Animator animator;
@@ -239,7 +239,7 @@ public abstract class PathingEntity extends PositionEntity {
         this.timerbarEnd = -1000;
         this.drawPriority = 0;
         this.anInt10735 = 0;
-        this.aBoolean816 = true;
+        this.visible = true;
         this.hitmarkPointer = 0;
         this.size = 1;
         this.anInt10743 = -1;
@@ -248,12 +248,12 @@ public abstract class PathingEntity extends PositionEntity {
         this.ready = false;
         this.soakAmounts = new int[GraphicsDefaults.instance.maxhitmarks];
         this.target = -1;
-        this.soakTypes = new int[GraphicsDefaults.instance.maxhitmarks];
+        this.soakHitmarkTypes = new int[GraphicsDefaults.instance.maxhitmarks];
         this.healthPercentages = new int[GraphicsDefaults.instance.maxhitmarks];
         this.timerbarSprite = false;
-        this.hitTypes = new int[GraphicsDefaults.instance.maxhitmarks];
+        this.damageHitmarkTypes = new int[GraphicsDefaults.instance.maxhitmarks];
         this.minY = -32768;
-        this.hpClock = -1000;
+        this.healthClock = -1000;
         this.animator = new EntityAnimator(this, false);
         this.actionAnimator = new EntityAnimator(this, false);
         this.anInt10749 = 0;
@@ -417,7 +417,7 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "f", descriptor = "(B)I")
-    public int method9299() {
+    public int getY() {
         @Pc(17) BASType local17 = this.getBASType();
         @Pc(31) int local31;
         if (local17.characterHeight != -1) {
@@ -517,9 +517,9 @@ public abstract class PathingEntity extends PositionEntity {
             return;
         }
 
-        this.hitTypes[index] = hitType;
+        this.damageHitmarkTypes[index] = hitType;
         this.hitAmounts[index] = hitAmount;
-        this.soakTypes[index] = soakType;
+        this.soakHitmarkTypes[index] = soakType;
         this.soakAmounts[index] = soakAmount;
         this.hitmarkEndTimes[index] = duration + clock + delay;
         this.healthPercentages[index] = healthPercentage;
@@ -748,7 +748,7 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "e", descriptor = "(B)Z")
-    public abstract boolean method9311();
+    public abstract boolean enableMessages();
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(ILjava/lang/String;ZII)V")
     public final void setChatLine(@OriginalArg(0) int duration, @OriginalArg(1) String text, @OriginalArg(3) int effect, @OriginalArg(4) int colour) {
@@ -887,7 +887,7 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "d", descriptor = "(I)Lclient!dj;")
-    public abstract EntityChatLine method9318(@OriginalArg(0) int arg0);
+    public abstract EntityChatLine getChatLine(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ha;BZ[Lclient!ka;Lclient!tt;)V")
     protected final void method9319(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) Model[] arg2, @OriginalArg(4) Matrix arg3) {

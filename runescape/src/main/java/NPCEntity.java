@@ -85,7 +85,7 @@ public final class NPCEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!wj", name = "j", descriptor = "(B)Z")
-    public boolean method9322() {
+    public boolean hasType() {
         return this.type != null;
     }
 
@@ -276,14 +276,14 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "f", descriptor = "(B)I")
     @Override
-    public int method9299() {
+    public int getY() {
         if (this.type.multinpcs != null) {
             @Pc(19) NPCType local19 = this.type.getMultiNPC(TimedVarDomain.instance);
             if (local19 != null && local19.height != -1) {
                 return local19.height;
             }
         }
-        return this.type.height == -1 ? super.method9299() : this.type.height;
+        return this.type.height == -1 ? super.getY() : this.type.height;
     }
 
     @OriginalMember(owner = "client!wj", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
@@ -297,7 +297,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(I)Lclient!dj;")
     @Override
-    public EntityChatLine method9318(@OriginalArg(0) int arg0) {
+    public EntityChatLine getChatLine(@OriginalArg(0) int arg0) {
         if (arg0 == -3109) {
             return super.line != null && super.line.text == null ? null : super.line;
         } else {
@@ -307,7 +307,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "e", descriptor = "(B)Z")
     @Override
-    public boolean method9311() {
+    public boolean enableMessages() {
         return GraphicsDefaults.instance.npcShouldDisplayChat;
     }
 
@@ -470,7 +470,7 @@ public final class NPCEntity extends PathingEntity {
     @Override
     public boolean method9290(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
-            this.method9322();
+            this.hasType();
         }
         return false;
     }

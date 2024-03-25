@@ -270,8 +270,8 @@ public final class InterfaceManager {
                 drawSpinningPlayer(child);
             }
 
-            @Pc(125) int posX = offsetX + child.positionX;
-            @Pc(130) int posY = offsetY + child.positionY;
+            @Pc(125) int screenX = offsetX + child.positionX;
+            @Pc(130) int screenY = offsetY + child.positionY;
 
             @Pc(132) int local132 = 0;
             @Pc(134) int local134 = 0;
@@ -311,12 +311,12 @@ public final class InterfaceManager {
                     if (dragParentX + dragLayer.width < mouseX - -child.width) {
                         mouseX = dragParentX + dragLayer.width - child.width;
                     }
-                    posX = mouseX;
+                    screenX = mouseX;
 
                     if (dragParentY + dragLayer.height < mouseY + child.height) {
                         mouseY = dragParentY + dragLayer.height - child.height;
                     }
-                    posY = mouseY;
+                    screenY = mouseY;
                 }
 
                 if (child.dragRenderBehaviour == DragRender.OFFSET_TRANSPARENT) {
@@ -334,16 +334,16 @@ public final class InterfaceManager {
                 y1 = arg4;
                 x2 = arg8;
             } else {
-                @Pc(317) int local317 = posX + child.width;
-                @Pc(323) int local323 = posY + child.height;
+                @Pc(317) int local317 = screenX + child.width;
+                @Pc(323) int local323 = screenY + child.height;
 
                 if (child.type == Component.TYPE_LINE) {
                     local323++;
                     local317++;
                 }
 
-                y1 = arg4 >= posY ? arg4 : posY;
-                x1 = posX > arg3 ? posX : arg3;
+                y1 = arg4 >= screenY ? arg4 : screenY;
+                x1 = screenX > arg3 ? screenX : arg3;
                 x2 = arg8 <= local317 ? arg8 : local317;
                 y2 = local323 < arg5 ? local323 : arg5;
             }
@@ -351,10 +351,10 @@ public final class InterfaceManager {
             if (x2 > x1 && y2 > y1) {
                 if (child.clientcode != 0) {
                     if (child.clientcode == ComponentClientCode.SCENE || child.clientcode == ComponentClientCode.LOGIN_SCENE) {
-                        setOptions(posY, posX, child);
+                        setOptions(screenY, screenX, child);
 
                         if (!aBoolean210) {
-                            Static294.method4339(posY, child.clientcode == ComponentClientCode.LOGIN_SCENE, child.width, child.height, posX);
+                            Static294.method4339(screenY, child.clientcode == ComponentClientCode.LOGIN_SCENE, child.width, child.height, screenX);
                             Toolkit.active.KA(arg3, arg4, arg8, arg5);
                         }
 
@@ -365,7 +365,7 @@ public final class InterfaceManager {
                     if (child.clientcode == ComponentClientCode.MINIMAP && CutsceneManager.state == 0) {
                         if (child.graphic(Toolkit.active) != null) {
                             Static557.method7331();
-                            Minimap.draw(posY, Toolkit.active, child, posX);
+                            Minimap.draw(child, Toolkit.active, screenX, screenY);
                             flipDirtyRect[rectangle] = true;
                             Toolkit.active.KA(arg3, arg4, arg8, arg5);
 
@@ -381,18 +381,18 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.COLOUR_CHOOSER_HUE) {
-                        ColourChooser.drawHue(child, posX, posY, Toolkit.active);
+                        ColourChooser.drawHue(child, screenX, screenY, Toolkit.active);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.COLOUR_CHOOSER_SATURATION_VALUE) {
-                        ColourChooser.drawSaturationValue(Toolkit.active, child.colour % 64, child, posX, posY);
+                        ColourChooser.drawSaturationValue(Toolkit.active, child.colour % 64, child, screenX, screenY);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.COMPASS) {
                         if (child.graphic(Toolkit.active) != null) {
-                            Minimap.drawCompass(child, posX, posY);
+                            Minimap.drawCompass(child, screenX, screenY);
                             flipDirtyRect[rectangle] = true;
 
                             Toolkit.active.KA(arg3, arg4, arg8, arg5);
@@ -409,14 +409,14 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.WORLD_MAP) {
-                        WorldMap.draw(child.height, posX, posY, Js5TextureSource.instance, Toolkit.active, child.width);
+                        WorldMap.draw(child.height, screenX, screenY, Js5TextureSource.instance, Toolkit.active, child.width);
                         dirtyRectangles[rectangle] = true;
                         Toolkit.active.KA(arg3, arg4, arg8, arg5);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.WORLD_MAP_OVERVIEW) {
-                        WorldMap.drawOverview(child.width, Toolkit.active, child.height, posX, posY);
+                        WorldMap.drawOverview(child.width, Toolkit.active, child.height, screenX, screenY);
                         dirtyRectangles[rectangle] = true;
                         Toolkit.active.KA(arg3, arg4, arg8, arg5);
                         continue;
@@ -427,8 +427,8 @@ public final class InterfaceManager {
                             continue;
                         }
 
-                        @Pc(317) int drawX = posX + child.width;
-                        @Pc(323) int drawY = posY + 15;
+                        @Pc(317) int drawX = screenX + child.width;
+                        @Pc(323) int drawY = screenY + 15;
 
                         if (aBoolean210) {
                             if (arg7) {
@@ -521,18 +521,18 @@ public final class InterfaceManager {
 
                 if (child.type == Component.TYPE_LAYER) {
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER && Toolkit.active.method8014()) {
-                        Toolkit.active.method7959(posX, posY, child.width, child.height);
+                        Toolkit.active.method7959(screenX, screenY, child.width, child.height);
                     }
 
-                    draw(child.slot, posX - child.scrollX, children, x1, y1, y2, rectangle, arg7, x2, posY - child.scrollY);
+                    draw(child.slot, screenX - child.scrollX, children, x1, y1, y2, rectangle, arg7, x2, screenY - child.scrollY);
 
                     if (child.dynamicComponents != null) {
-                        draw(child.slot, posX - child.scrollX, child.dynamicComponents, x1, y1, y2, rectangle, arg7, x2, posY - child.scrollY);
+                        draw(child.slot, screenX - child.scrollX, child.dynamicComponents, x1, y1, y2, rectangle, arg7, x2, screenY - child.scrollY);
                     }
 
                     @Pc(1214) SubInterface sub = (SubInterface) subInterfaces.get(child.slot);
                     if (sub != null) {
-                        draw(sub.id, x1, x2, y1, posY, rectangle, posX, y2);
+                        draw(sub.id, x1, x2, y1, screenY, rectangle, screenX, y2);
                     }
 
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER) {
@@ -555,7 +555,7 @@ public final class InterfaceManager {
                             }
 
                             if (alpha > 0) {
-                                Toolkit.active.fillRect(x2 - x1, -y1 + y2, y1, x1, blue << 16 | alpha << 24 | red << 8 | green);
+                                Toolkit.active.fillRect(x1, y1, x2 - x1, -y1 + y2, blue << 16 | alpha << 24 | red << 8 | green);
                             }
                         }
                     }
@@ -567,15 +567,15 @@ public final class InterfaceManager {
                     if (child.type == Component.TYPE_RECTANGLE) {
                         if (transparency == 0) {
                             if (child.filled) {
-                                Toolkit.active.aa(posX, posY, child.width, child.height, child.colour, 0);
+                                Toolkit.active.aa(screenX, screenY, child.width, child.height, child.colour, 0);
                             } else {
-                                Toolkit.active.method7976(posX, posY, child.width, child.height, child.colour, 0);
+                                Toolkit.active.method7976(screenX, screenY, child.width, child.height, child.colour, 0);
                             }
                         } else {
                             if (child.filled) {
-                                Toolkit.active.aa(posX, posY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                                Toolkit.active.aa(screenX, screenY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                             } else {
-                                Toolkit.active.method7976(posX, posY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                                Toolkit.active.method7976(screenX, screenY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                             }
                         }
 
@@ -620,10 +620,10 @@ public final class InterfaceManager {
                             }
 
                             if (clipComponents) {
-                                Toolkit.active.T(posX, posY, posX + child.width, child.height + posY);
+                                Toolkit.active.T(screenX, screenY, screenX + child.width, child.height + screenY);
                             }
 
-                            font.renderLines(child.verticalAlignment, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Sprites.nameIcons, child.maxLines, 0, posY, child.height, 0, null, child.lineHeight, child.width, posX, child.horizontalAlignment, null, text);
+                            font.renderLines(child.verticalAlignment, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Sprites.nameIcons, child.maxLines, 0, screenY, child.height, 0, null, child.lineHeight, child.width, screenX, child.horizontalAlignment, null, text);
 
                             if (clipComponents) {
                                 Toolkit.active.KA(arg3, arg4, arg8, arg5);
@@ -637,9 +637,9 @@ public final class InterfaceManager {
 
                                     if (aBoolean210) {
                                         if (arg7) {
-                                            Static682.method8927(posY, posY + textHeight, posX, posX + textWidth);
+                                            Static682.method8927(screenY, screenY + textHeight, screenX, screenX + textWidth);
                                         } else {
-                                            Static595.method7810(posY, posX + textWidth, textHeight + posY, posX);
+                                            Static595.method7810(screenY, screenX + textWidth, textHeight + screenY, screenX);
                                         }
                                     }
                                 } else if (aBoolean210) {
@@ -655,7 +655,7 @@ public final class InterfaceManager {
                         }
                     } else if (child.type == Component.TYPE_GRAPHIC) {
                         if (child.skyBox >= 0) {
-                            child.skyBox(SkyBoxSphereTypeList.instance, SkyBoxTypeList.instance).method3162(Toolkit.active, posY, posX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
+                            child.skyBox(SkyBoxSphereTypeList.instance, SkyBoxTypeList.instance).method3162(Toolkit.active, screenY, screenX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
                         } else {
                             @Pc(1816) Sprite sprite;
                             if (child.invObject != -1) {
@@ -673,7 +673,7 @@ public final class InterfaceManager {
                                 @Pc(1255) int backgroundColour = ((255 - (transparency & 0xFF)) << 24) | ((child.colour != 0) ? (child.colour & 0xFFFFFF) : 0xFFFFFF);
 
                                 if (child.tiled) {
-                                    Toolkit.active.T(posX, posY, posX + child.width, posY - -child.height);
+                                    Toolkit.active.T(screenX, screenY, screenX + child.width, screenY - -child.height);
 
                                     if (child.angle2d != 0) {
                                         @Pc(777) int newWidth = (child.width + scaleWidth - 1) / scaleWidth;
@@ -682,17 +682,17 @@ public final class InterfaceManager {
                                         for (@Pc(792) int x = 0; x < newWidth; x++) {
                                             for (@Pc(936) int y = 0; y < newHeight; y++) {
                                                 if (child.colour != 0) {
-                                                    sprite.method8187((float) (x * scaleWidth + posX) + ((float) scaleWidth / 2.0F), (float) scaleHeight / 2.0F + (float) (y * scaleHeight + posY), 4096, child.angle2d, backgroundColour);
+                                                    sprite.method8187((float) (x * scaleWidth + screenX) + ((float) scaleWidth / 2.0F), (float) scaleHeight / 2.0F + (float) (y * scaleHeight + screenY), 4096, child.angle2d, backgroundColour);
                                                 } else {
-                                                    sprite.method8186((float) (x * scaleWidth + posX) + ((float) scaleWidth / 2.0F), (float) (posY + scaleHeight * y) + (float) scaleHeight / 2.0F, 4096, child.angle2d);
+                                                    sprite.method8186((float) (x * scaleWidth + screenX) + ((float) scaleWidth / 2.0F), (float) (screenY + scaleHeight * y) + (float) scaleHeight / 2.0F, 4096, child.angle2d);
                                                 }
                                             }
                                         }
                                     } else {
                                         if (child.colour != 0 || transparency != 0) {
-                                            sprite.method8189(posX, posY, child.width, child.height, 0, backgroundColour, 1);
+                                            sprite.method8189(screenX, screenY, child.width, child.height, 0, backgroundColour, 1);
                                         } else {
-                                            sprite.method8198(posX, posY, child.width, child.height);
+                                            sprite.method8198(screenX, screenY, child.width, child.height);
                                         }
                                     }
 
@@ -700,19 +700,19 @@ public final class InterfaceManager {
                                 } else {
                                     if (child.colour != 0 || transparency != 0) {
                                         if (child.angle2d != 0) {
-                                            sprite.method8187(((float) child.width / 2.0F) + (float) posX, (float) child.height / 2.0F + (float) posY, child.width * 4096 / scaleWidth, child.angle2d, backgroundColour);
+                                            sprite.method8187(((float) child.width / 2.0F) + (float) screenX, (float) child.height / 2.0F + (float) screenY, child.width * 4096 / scaleWidth, child.angle2d, backgroundColour);
                                         } else if (scaleWidth == child.width && scaleHeight == child.height) {
-                                            sprite.render(posX, posY, 0, backgroundColour, 1);
+                                            sprite.render(screenX, screenY, 0, backgroundColour, 1);
                                         } else {
-                                            sprite.render(posX, posY, child.width, child.height, 0, backgroundColour, 1);
+                                            sprite.render(screenX, screenY, child.width, child.height, 0, backgroundColour, 1);
                                         }
                                     } else {
                                         if (child.angle2d != 0) {
-                                            sprite.method8186(((float) child.width / 2.0F) + (float) posX, (float) posY + (float) child.height / 2.0F, child.width * 4096 / scaleWidth, child.angle2d);
+                                            sprite.method8186(((float) child.width / 2.0F) + (float) screenX, (float) screenY + (float) child.height / 2.0F, child.width * 4096 / scaleWidth, child.angle2d);
                                         } else if (scaleWidth == child.width && scaleHeight == child.height) {
-                                            sprite.render(posX, posY);
+                                            sprite.render(screenX, screenY);
                                         } else {
-                                            sprite.render(posX, posY, child.width, child.height);
+                                            sprite.render(screenX, screenY, child.width, child.height);
                                         }
                                     }
                                 }
@@ -790,8 +790,8 @@ public final class InterfaceManager {
                                 local777 = (child.height << 9) / child.anInt3825;
                             }
 
-                            @Pc(779) int local779 = child.width / 2 + posX;
-                            @Pc(792) int local792 = child.height / 2 + posY;
+                            @Pc(779) int local779 = child.width / 2 + screenX;
+                            @Pc(792) int local792 = child.height / 2 + screenY;
                             if (!child.orthoView) {
                                 local779 += child.modelOriginX * local1255 >> 9;
                                 local792 += child.modelOriginY * local777 >> 9;
@@ -823,7 +823,7 @@ public final class InterfaceManager {
                             child.method3384(Toolkit.active, model, Static59.aMatrix_5, TimeUtils.clock);
 
                             if (clipComponents) {
-                                Toolkit.active.T(posX, posY, posX + child.width, child.height + posY);
+                                Toolkit.active.T(screenX, screenY, screenX + child.width, child.height + screenY);
                             }
 
                             if (child.orthoView) {
@@ -870,19 +870,19 @@ public final class InterfaceManager {
                         @Pc(1255) int local1255;
 
                         if (child.lineDirection) {
-                            local323 = child.height + posY;
-                            local1255 = posY;
-                            local744 = posX + child.width;
+                            local323 = child.height + screenY;
+                            local1255 = screenY;
+                            local744 = screenX + child.width;
                         } else {
-                            local1255 = child.height + posY;
-                            local323 = posY;
-                            local744 = posX + child.width;
+                            local1255 = child.height + screenY;
+                            local323 = screenY;
+                            local744 = screenX + child.width;
                         }
 
                         if (child.lineWidth != 1) {
-                            Toolkit.active.method7947(posX, local323, local744, local1255, child.colour, child.lineWidth);
+                            Toolkit.active.method7947(screenX, local323, local744, local1255, child.colour, child.lineWidth);
                         } else {
-                            Toolkit.active.method7951(posX, local323, local744, local1255, child.colour, 0);
+                            Toolkit.active.method7951(screenX, local323, local744, local1255, child.colour, 0);
                         }
 
                         if (aBoolean210) {
@@ -1458,8 +1458,8 @@ public final class InterfaceManager {
                                 @Pc(1191) int local1191;
                                 @Pc(1199) int local1199;
                                 if (Camera.mode == 4) {
-                                    local1191 = (Static433.anInt6262 >> 9) + (local1170 >> 2);
-                                    local1199 = (Static249.anInt4018 >> 9) - (local1180 >> 2);
+                                    local1191 = (Camera.anInt6262 >> 9) + (local1170 >> 2);
+                                    local1199 = (Camera.anInt4018 >> 9) - (local1180 >> 2);
                                 } else {
                                     @Pc(1208) int local1208 = (PlayerEntity.self.getSize() - 1) * 256;
                                     local1191 = (PlayerEntity.self.x - local1208 >> 9) + (local1170 >> 2);

@@ -144,7 +144,7 @@ public final class Static603 {
             local257 = local38 + local246 + 10;
             local259 = Static142.aClass327_1.method7536() * local36 + local163 + 3;
             if (arg2.fillColour != 0) {
-                arg1.fillRect(local257 - local246, local259 - local163, local163, local246, arg2.fillColour);
+                arg1.fillRect(local246, local163, local257 - local246, local259 - local163, arg2.fillColour);
             }
             if (arg2.outlineColour != 0) {
                 arg1.method7945(local163, arg2.outlineColour, local257 - local246, local259 - local163, local246);

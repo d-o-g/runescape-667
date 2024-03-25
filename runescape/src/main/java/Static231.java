@@ -137,8 +137,8 @@ public final class Static231 {
                 }
             }
         }
-        for (@Pc(106) int local106 = 0; local106 < Static327.anInt5392; local106++) {
-            local76 = NameTools.format(Static330.aStringArray25[local106]);
+        for (@Pc(106) int local106 = 0; local106 < FriendsList.count; local106++) {
+            local76 = NameTools.format(FriendsList.names[local106]);
             if (local76 != null && local76.equals(local27)) {
                 ChatHistory.addPrivateError(LocalisedText.REMOVEFRIEND1.localise(client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(client.language));
                 return;

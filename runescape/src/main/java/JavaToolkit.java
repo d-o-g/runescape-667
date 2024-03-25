@@ -1753,23 +1753,23 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "KA", descriptor = "(IIII)V")
     @Override
-    public void KA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        if (arg0 < 0) {
-            arg0 = 0;
+    public void KA(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2) {
+        if (x1 < 0) {
+            x1 = 0;
         }
-        if (arg1 < 0) {
-            arg1 = 0;
+        if (y1 < 0) {
+            y1 = 0;
         }
-        if (arg2 > this.anInt4207) {
-            arg2 = this.anInt4207;
+        if (x2 > this.anInt4207) {
+            x2 = this.anInt4207;
         }
-        if (arg3 > this.anInt4209) {
-            arg3 = this.anInt4209;
+        if (y2 > this.anInt4209) {
+            y2 = this.anInt4209;
         }
-        this.anInt4192 = arg0;
-        this.anInt4200 = arg2;
-        this.anInt4186 = arg1;
-        this.anInt4196 = arg3;
+        this.anInt4192 = x1;
+        this.anInt4200 = x2;
+        this.anInt4186 = y1;
+        this.anInt4196 = y2;
         this.method3799();
     }
 

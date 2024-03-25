@@ -33,7 +33,7 @@ public final class Static65 {
         }
 
         @Pc(71) int deltaTime = (int) (SystemTimer.safetime() - startTime);
-        toolkit.fillRect(100, 100, 0, 0, 0xFF000000);
+        toolkit.fillRect(0, 0, 100, 100, 0xFF000000);
 
         if (toolkitChanged) {
             toolkit.free();

@@ -21,7 +21,7 @@ public final class Static349 {
 
     @OriginalMember(owner = "client!kw", name = "a", descriptor = "(ZJ)V")
     public static void method5121(@OriginalArg(1) long arg0) {
-        @Pc(7) int local7 = Static433.anInt6262;
+        @Pc(7) int local7 = Camera.anInt6262;
         @Pc(19) int local19;
         @Pc(27) int local27;
         if (Static494.anInt7409 != local7) {
@@ -40,7 +40,7 @@ public final class Static349 {
             }
             Static494.anInt7409 += local27;
         }
-        @Pc(75) int local75 = Static249.anInt4018;
+        @Pc(75) int local75 = Camera.anInt4018;
         if (local75 != Static38.anInt920) {
             local19 = local75 - Static38.anInt920;
             local27 = (int) ((long) local19 * arg0 / 320L);

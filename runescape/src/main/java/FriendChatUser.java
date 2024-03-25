@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!mga")
-public final class Class241 {
+public final class FriendChatUser {
 
     @OriginalMember(owner = "client!mga", name = "a", descriptor = "B")
     public byte aByte99;
@@ -14,7 +14,7 @@ public final class Class241 {
     public int anInt6148;
 
     @OriginalMember(owner = "client!mga", name = "e", descriptor = "Ljava/lang/String;")
-    public String aString66;
+    public String accountName;
 
     @OriginalMember(owner = "client!mga", name = "c", descriptor = "Ljava/lang/String;")
     public String aString67;

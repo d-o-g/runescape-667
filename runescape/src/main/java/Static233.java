@@ -20,12 +20,12 @@ public final class Static233 {
         @Pc(14) HintArrow[] local14 = Static527.hintArrows;
         for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
             @Pc(22) HintArrow local22 = local14[local16];
-            if (local22 != null && local22.anInt6363 == 2) {
-                Static143.method3573(local22.anInt6365 * 2, local22.x, arg0 >> 1, local22.z, local22.anInt6368, arg3 >> 1);
-                if (Static215.anIntArray284[0] > -1 && TimeUtils.clock % 20 < 10) {
-                    @Pc(76) Sprite local76 = Sprites.hintHeadicons[local22.anInt6367];
-                    @Pc(84) int local84 = arg2 + Static215.anIntArray284[0] - 12;
-                    @Pc(92) int local92 = Static215.anIntArray284[1] + arg1 - 28;
+            if (local22 != null && local22.type == 2) {
+                Static143.method3573(local22.y * 2, local22.x, arg0 >> 1, local22.z, local22.level, arg3 >> 1);
+                if (OverlayManager.hitmarkpos[0] > -1 && TimeUtils.clock % 20 < 10) {
+                    @Pc(76) Sprite local76 = Sprites.hintHeadicons[local22.sprite];
+                    @Pc(84) int local84 = arg2 + OverlayManager.hitmarkpos[0] - 12;
+                    @Pc(92) int local92 = OverlayManager.hitmarkpos[1] + arg1 - 28;
                     local76.render(local84, local92);
                     Static682.method8927(local92, local76.scaleHeight() + local92, local84, local76.scaleWidth() + local84);
                 }

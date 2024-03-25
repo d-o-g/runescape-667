@@ -31,15 +31,15 @@ public final class Static545 {
         if (local11 == null) {
             return;
         }
-        for (@Pc(22) int local22 = 0; local22 < Static327.anInt5392; local22++) {
-            @Pc(27) String local27 = Static330.aStringArray25[local22];
+        for (@Pc(22) int local22 = 0; local22 < FriendsList.count; local22++) {
+            @Pc(27) String local27 = FriendsList.names[local22];
             @Pc(31) String local31 = NameTools.format(local27);
             if (Static585.method7682(arg0, local31, local27, local11)) {
-                Static327.anInt5392--;
-                for (@Pc(44) int local44 = local22; local44 < Static327.anInt5392; local44++) {
-                    Static330.aStringArray25[local44] = Static330.aStringArray25[local44 + 1];
+                FriendsList.count--;
+                for (@Pc(44) int local44 = local22; local44 < FriendsList.count; local44++) {
+                    FriendsList.names[local44] = FriendsList.names[local44 + 1];
                     Static572.aStringArray42[local44] = Static572.aStringArray42[local44 + 1];
-                    Static371.anIntArray455[local44] = Static371.anIntArray455[local44 + 1];
+                    FriendsList.worlds[local44] = FriendsList.worlds[local44 + 1];
                     Static419.aStringArray33[local44] = Static419.aStringArray33[local44 + 1];
                     Static715.anIntArray881[local44] = Static715.anIntArray881[local44 + 1];
                     Static623.aBooleanArray30[local44] = Static623.aBooleanArray30[local44 + 1];

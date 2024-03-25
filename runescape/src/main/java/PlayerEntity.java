@@ -321,7 +321,7 @@ public final class PlayerEntity extends PathingEntity {
     @Override
     public int method9304(@OriginalArg(0) byte arg0) {
         if (arg0 > -48) {
-            this.method9318(-126);
+            this.getChatLine(-126);
         }
         return -1;
     }
@@ -359,7 +359,7 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "j", descriptor = "(B)Z")
-    public boolean method1417() {
+    public boolean hasModel() {
         return this.playerModel != null;
     }
 
@@ -463,42 +463,42 @@ public final class PlayerEntity extends PathingEntity {
         if (self == this) {
             for (local269 = Static527.hintArrows.length - 1; local269 >= 0; local269--) {
                 @Pc(275) HintArrow local275 = Static527.hintArrows[local269];
-                if (local275 != null && local275.anInt6371 != -1) {
+                if (local275 != null && local275.model != -1) {
                     @Pc(310) int local310;
-                    if (local275.anInt6363 == 1) {
-                        @Pc(298) NPCEntityNode local298 = (NPCEntityNode) NPCList.local.get(local275.anInt6366);
+                    if (local275.type == 1) {
+                        @Pc(298) NPCEntityNode local298 = (NPCEntityNode) NPCList.local.get(local275.entity);
                         if (local298 != null) {
                             @Pc(303) NPCEntity local303 = local298.npc;
                             local310 = local303.x - self.x;
                             @Pc(316) int local316 = local303.z - self.z;
                             if (Static504.renderOrtho) {
-                                this.method1416(super.aModelArray3[0], 92160000, arg0, local275.anInt6371, local310, local22, Static582.orthoAngle, local316);
+                                this.method1416(super.aModelArray3[0], 92160000, arg0, local275.model, local310, local22, Static582.orthoAngle, local316);
                             } else {
-                                this.method1414((byte) -74, local310, 92160000, local275.anInt6371, super.aModelArray3[0], local22, arg0, local316);
+                                this.method1414((byte) -74, local310, 92160000, local275.model, super.aModelArray3[0], local22, arg0, local316);
                             }
                         }
                     }
                     @Pc(371) int local371;
-                    if (local275.anInt6363 == 2) {
+                    if (local275.type == 2) {
                         @Pc(364) int local364 = local275.x - self.x;
                         local371 = local275.z - self.z;
-                        local310 = local275.anInt6364 << 9;
+                        local310 = local275.drawDistance << 9;
                         local310 *= local310;
                         if (Static504.renderOrtho) {
-                            this.method1416(super.aModelArray3[0], local310, arg0, local275.anInt6371, local364, local22, Static582.orthoAngle, local371);
+                            this.method1416(super.aModelArray3[0], local310, arg0, local275.model, local364, local22, Static582.orthoAngle, local371);
                         } else {
-                            this.method1414((byte) -74, local364, local310, local275.anInt6371, super.aModelArray3[0], local22, arg0, local371);
+                            this.method1414((byte) -74, local364, local310, local275.model, super.aModelArray3[0], local22, arg0, local371);
                         }
                     }
-                    if (local275.anInt6363 == 10 && local275.anInt6366 >= 0 && local275.anInt6366 < PlayerList.highResolutionPlayers.length) {
-                        @Pc(438) PlayerEntity local438 = PlayerList.highResolutionPlayers[local275.anInt6366];
+                    if (local275.type == 10 && local275.entity >= 0 && local275.entity < PlayerList.highResolutionPlayers.length) {
+                        @Pc(438) PlayerEntity local438 = PlayerList.highResolutionPlayers[local275.entity];
                         if (local438 != null) {
                             local371 = local438.x - self.x;
                             local310 = local438.z - self.z;
                             if (Static504.renderOrtho) {
-                                this.method1416(super.aModelArray3[0], 92160000, arg0, local275.anInt6371, local371, local22, Static582.orthoAngle, local310);
+                                this.method1416(super.aModelArray3[0], 92160000, arg0, local275.model, local371, local22, Static582.orthoAngle, local310);
                             } else {
-                                this.method1414((byte) -74, local371, 92160000, local275.anInt6371, super.aModelArray3[0], local22, arg0, local310);
+                                this.method1414((byte) -74, local371, 92160000, local275.model, super.aModelArray3[0], local22, arg0, local310);
                             }
                         }
                     }
@@ -784,7 +784,7 @@ public final class PlayerEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!ca", name = "e", descriptor = "(B)Z")
     @Override
-    public boolean method9311() {
+    public boolean enableMessages() {
         return GraphicsDefaults.instance.playerShouldDisplayChat;
     }
 
@@ -837,7 +837,7 @@ public final class PlayerEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!ca", name = "d", descriptor = "(I)Lclient!dj;")
     @Override
-    public EntityChatLine method9318(@OriginalArg(0) int arg0) {
+    public EntityChatLine getChatLine(@OriginalArg(0) int arg0) {
         if (arg0 != -3109) {
             this.showPIcon = false;
         }

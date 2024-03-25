@@ -276,7 +276,7 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "([I)V")
     @Override
-    public void getOffsets(@OriginalArg(0) int[] arg0) {
+    public void projectOffsets(@OriginalArg(0) int[] arg0) {
         arg0[2] = this.anInt6037;
         arg0[3] = this.anInt6040;
         arg0[1] = this.anInt6027;

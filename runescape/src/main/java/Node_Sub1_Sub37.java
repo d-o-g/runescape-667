@@ -71,7 +71,7 @@ public final class Node_Sub1_Sub37 extends TextureOp {
             }
         }
         if (arg0 <= 107) {
-            Static706.anInt10633 = 6;
+            FriendChat.count = 6;
         }
         return local11;
     }

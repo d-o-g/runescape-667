@@ -351,7 +351,7 @@ public final class client extends GameShell {
             Static219.mouseButtons = value;
         }
         if (clientCode == 6) {
-            Static55.anInt1124 = value;
+            Static55.disableChatEffects = value;
         }
     }
 

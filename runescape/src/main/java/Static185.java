@@ -43,13 +43,13 @@ public final class Static185 {
                 }
                 if (local30 == 3) {
                     if (local26 == 0) {
-                        arg0.fillRect(1, 1, arg5, arg4, local45);
+                        arg0.fillRect(arg4, arg5, 1, 1, local45);
                     } else if (local26 == 1) {
-                        arg0.fillRect(1, 1, arg5, arg4 + 3, local45);
+                        arg0.fillRect(arg4 + 3, arg5, 1, 1, local45);
                     } else if (local26 == 2) {
-                        arg0.fillRect(1, 1, arg5 + 3, arg4 + 3, local45);
+                        arg0.fillRect(arg4 + 3, arg5 + 3, 1, 1, local45);
                     } else if (local26 == 3) {
-                        arg0.fillRect(1, 1, arg5 + 3, arg4, local45);
+                        arg0.fillRect(arg4, arg5 + 3, 1, 1, local45);
                     }
                 }
                 if (local30 == 2) {

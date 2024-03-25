@@ -1,6 +1,7 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ChatLineType;
+import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.constants.LocLayer;
 import com.jagex.core.io.Packet;
 import com.jagex.core.io.connection.Connection;
@@ -429,16 +430,16 @@ public final class Protocol {
                                             local1427 = bitPacket.gjstr();
                                             local1429 = bitPacket.g1() == 1;
                                         }
-                                        for (local1449 = 0; local1449 < Static327.anInt5392; local1449++) {
+                                        for (local1449 = 0; local1449 < FriendsList.count; local1449++) {
                                             if (local446) {
-                                                if (local629.equals(Static330.aStringArray25[local1449])) {
-                                                    Static330.aStringArray25[local1449] = local627;
+                                                if (local629.equals(FriendsList.names[local1449])) {
+                                                    FriendsList.names[local1449] = local627;
                                                     local627 = null;
                                                     Static572.aStringArray42[local1449] = local629;
                                                     break;
                                                 }
-                                            } else if (local627.equals(Static330.aStringArray25[local1449])) {
-                                                if (Static371.anIntArray455[local1449] != local1409) {
+                                            } else if (local627.equals(FriendsList.names[local1449])) {
+                                                if (FriendsList.worlds[local1449] != local1409) {
                                                     local1491 = true;
                                                     for (@Pc(1496) Class8_Sub4_Sub1 local1496 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local1496 != null; local1496 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
                                                         if (local1496.aString72.equals(local627)) {
@@ -454,7 +455,7 @@ public final class Protocol {
                                                     if (local1491) {
                                                         Static168.A_ENTITY_LIST___5.add(new Class8_Sub4_Sub1(local627, local1409));
                                                     }
-                                                    Static371.anIntArray455[local1449] = local1409;
+                                                    FriendsList.worlds[local1449] = local1409;
                                                 }
                                                 Static572.aStringArray42[local1449] = local629;
                                                 Static419.aStringArray33[local1449] = local1427;
@@ -465,44 +466,44 @@ public final class Protocol {
                                                 break;
                                             }
                                         }
-                                        if (local627 != null && Static327.anInt5392 < 200) {
-                                            Static330.aStringArray25[Static327.anInt5392] = local627;
-                                            Static572.aStringArray42[Static327.anInt5392] = local629;
-                                            Static371.anIntArray455[Static327.anInt5392] = local1409;
-                                            Static419.aStringArray33[Static327.anInt5392] = local1427;
-                                            Static715.anIntArray881[Static327.anInt5392] = local1413;
-                                            Static623.aBooleanArray30[Static327.anInt5392] = local1429;
-                                            Static429.aBooleanArray21[Static327.anInt5392] = local1425;
-                                            Static327.anInt5392++;
+                                        if (local627 != null && FriendsList.count < 200) {
+                                            FriendsList.names[FriendsList.count] = local627;
+                                            Static572.aStringArray42[FriendsList.count] = local629;
+                                            FriendsList.worlds[FriendsList.count] = local1409;
+                                            Static419.aStringArray33[FriendsList.count] = local1427;
+                                            Static715.anIntArray881[FriendsList.count] = local1413;
+                                            Static623.aBooleanArray30[FriendsList.count] = local1429;
+                                            Static429.aBooleanArray21[FriendsList.count] = local1425;
+                                            FriendsList.count++;
                                         }
                                     }
                                     Static344.lastFriendTransmit = World.tick;
                                     Static251.anInt4036 = 2;
-                                    local100 = Static327.anInt5392;
+                                    local100 = FriendsList.count;
                                     while (local100 > 0) {
                                         local446 = true;
                                         local100--;
                                         for (local526 = 0; local526 < local100; local526++) {
                                             @Pc(1665) boolean local1665 = false;
-                                            if (client.gameConnection.id != Static371.anIntArray455[local526] && client.gameConnection.id == Static371.anIntArray455[local526 + 1]) {
+                                            if (client.gameConnection.id != FriendsList.worlds[local526] && client.gameConnection.id == FriendsList.worlds[local526 + 1]) {
                                                 local1665 = true;
                                             }
-                                            if (!local1665 && Static371.anIntArray455[local526] == 0 && Static371.anIntArray455[local526 + 1] != 0) {
+                                            if (!local1665 && FriendsList.worlds[local526] == 0 && FriendsList.worlds[local526 + 1] != 0) {
                                                 local1665 = true;
                                             }
                                             if (!local1665 && !Static429.aBooleanArray21[local526] && Static429.aBooleanArray21[local526 + 1]) {
                                                 local1665 = true;
                                             }
                                             if (local1665) {
-                                                local1413 = Static371.anIntArray455[local526];
-                                                Static371.anIntArray455[local526] = Static371.anIntArray455[local526 + 1];
-                                                Static371.anIntArray455[local526 + 1] = local1413;
+                                                local1413 = FriendsList.worlds[local526];
+                                                FriendsList.worlds[local526] = FriendsList.worlds[local526 + 1];
+                                                FriendsList.worlds[local526 + 1] = local1413;
                                                 local1750 = Static419.aStringArray33[local526];
                                                 Static419.aStringArray33[local526] = Static419.aStringArray33[local526 + 1];
                                                 Static419.aStringArray33[local526 + 1] = local1750;
-                                                local1427 = Static330.aStringArray25[local526];
-                                                Static330.aStringArray25[local526] = Static330.aStringArray25[local526 + 1];
-                                                Static330.aStringArray25[local526 + 1] = local1427;
+                                                local1427 = FriendsList.names[local526];
+                                                FriendsList.names[local526] = FriendsList.names[local526 + 1];
+                                                FriendsList.names[local526 + 1] = local1427;
                                                 @Pc(1786) String local1786 = Static572.aStringArray42[local526];
                                                 Static572.aStringArray42[local526] = Static572.aStringArray42[local526 + 1];
                                                 Static572.aStringArray42[local526 + 1] = local1786;
@@ -540,7 +541,7 @@ public final class Protocol {
                                     return true;
                                 } else {
                                     @Pc(1937) String local1937;
-                                    if (arg0.currentProt == Static87.A_SERVER_PROT___37) {
+                                    if (arg0.currentProt == ServerProt.A_SERVER_PROT___37) {
                                         local1937 = bitPacket.gjstr();
                                         local100 = bitPacket.g2();
                                         local629 = QuickChatPhraseTypeList.instance.get(local100).method3903(bitPacket);
@@ -958,47 +959,50 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     }
-                                                    @Pc(3721) HintArrow local3721 = new HintArrow();
-                                                    local3721.anInt6363 = local526;
-                                                    local3721.anInt6367 = bitPacket.g1();
-                                                    if (local3721.anInt6367 >= 0 && local3721.anInt6367 < Sprites.hintHeadicons.length) {
-                                                        if (local3721.anInt6363 == 1 || local3721.anInt6363 == 10) {
-                                                            local3721.anInt6366 = bitPacket.g2();
-                                                            local3721.anInt6360 = bitPacket.g2();
+                                                    @Pc(3721) HintArrow hintArrow = new HintArrow();
+                                                    hintArrow.type = local526;
+                                                    hintArrow.sprite = bitPacket.g1();
+                                                    if (hintArrow.sprite >= 0 && hintArrow.sprite < Sprites.hintHeadicons.length) {
+                                                        if (hintArrow.type == HintArrowType.NPC || hintArrow.type == HintArrowType.PLAYER) {
+                                                            hintArrow.entity = bitPacket.g2();
+                                                            hintArrow.flashRate = bitPacket.g2();
                                                             bitPacket.pos += 4;
-                                                        } else if (local3721.anInt6363 >= 2 && local3721.anInt6363 <= 6) {
-                                                            if (local3721.anInt6363 == 2) {
-                                                                local3721.z = 256;
-                                                                local3721.x = 256;
+                                                        } else if (hintArrow.type >= HintArrowType.TILE_CENTRE && hintArrow.type <= HintArrowType.TILE_NORTH) {
+                                                            if (hintArrow.type == HintArrowType.TILE_CENTRE) {
+                                                                hintArrow.z = 256;
+                                                                hintArrow.x = 256;
                                                             }
-                                                            if (local3721.anInt6363 == 3) {
-                                                                local3721.x = 0;
-                                                                local3721.z = 256;
+                                                            if (hintArrow.type == HintArrowType.TILE_WEST) {
+                                                                hintArrow.x = 0;
+                                                                hintArrow.z = 256;
                                                             }
-                                                            if (local3721.anInt6363 == 4) {
-                                                                local3721.x = 512;
-                                                                local3721.z = 256;
+                                                            if (hintArrow.type == HintArrowType.TILE_EAST) {
+                                                                hintArrow.x = 512;
+                                                                hintArrow.z = 256;
                                                             }
-                                                            if (local3721.anInt6363 == 5) {
-                                                                local3721.z = 0;
-                                                                local3721.x = 256;
+                                                            if (hintArrow.type == HintArrowType.TILE_SOUTH) {
+                                                                hintArrow.z = 0;
+                                                                hintArrow.x = 256;
                                                             }
-                                                            if (local3721.anInt6363 == 6) {
-                                                                local3721.z = 512;
-                                                                local3721.x = 256;
+                                                            if (hintArrow.type == HintArrowType.TILE_NORTH) {
+                                                                hintArrow.z = 512;
+                                                                hintArrow.x = 256;
                                                             }
-                                                            local3721.anInt6363 = 2;
-                                                            local3721.anInt6368 = bitPacket.g1();
-                                                            local3721.x += bitPacket.g2() - WorldMap.areaBaseX << 9;
-                                                            local3721.z += bitPacket.g2() - WorldMap.areaBaseZ << 9;
-                                                            local3721.anInt6365 = bitPacket.g1() << 2;
-                                                            local3721.anInt6364 = bitPacket.g2();
+
+                                                            hintArrow.type = 2;
+                                                            hintArrow.level = bitPacket.g1();
+                                                            hintArrow.x += bitPacket.g2() - WorldMap.areaBaseX << 9;
+                                                            hintArrow.z += bitPacket.g2() - WorldMap.areaBaseZ << 9;
+                                                            hintArrow.y = bitPacket.g1() << 2;
+                                                            hintArrow.drawDistance = bitPacket.g2();
                                                         }
-                                                        local3721.anInt6371 = bitPacket.g2();
-                                                        if (local3721.anInt6371 == 65535) {
-                                                            local3721.anInt6371 = -1;
+
+                                                        hintArrow.model = bitPacket.g2();
+                                                        if (hintArrow.model == 65535) {
+                                                            hintArrow.model = -1;
                                                         }
-                                                        Static527.hintArrows[local100] = local3721;
+
+                                                        Static527.hintArrows[local100] = hintArrow;
                                                     }
                                                     arg0.currentProt = null;
                                                     return true;
@@ -1812,7 +1816,7 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else {
-                                                                        @Pc(7394) Class241 local7394;
+                                                                        @Pc(7394) FriendChatUser local7394;
                                                                         if (arg0.currentProt == Static137.A_SERVER_PROT___57) {
                                                                             local1937 = bitPacket.gjstr();
                                                                             local2080 = bitPacket.g1() == 1;
@@ -1828,35 +1832,35 @@ public final class Protocol {
                                                                                 local1425 = true;
                                                                             }
                                                                             if (local1425) {
-                                                                                if (Static706.anInt10633 == 0) {
+                                                                                if (FriendChat.count == 0) {
                                                                                     arg0.currentProt = null;
                                                                                     return true;
                                                                                 }
-                                                                                for (local992 = 0; Static706.anInt10633 > local992 && (!Static87.aClass241Array1[local992].aString66.equals(local627) || local1409 != Static87.aClass241Array1[local992].anInt6148); local992++) {
+                                                                                for (local992 = 0; FriendChat.count > local992 && (!FriendChat.users[local992].accountName.equals(local627) || local1409 != FriendChat.users[local992].anInt6148); local992++) {
                                                                                 }
-                                                                                if (local992 < Static706.anInt10633) {
-                                                                                    while (Static706.anInt10633 - 1 > local992) {
-                                                                                        Static87.aClass241Array1[local992] = Static87.aClass241Array1[local992 + 1];
+                                                                                if (local992 < FriendChat.count) {
+                                                                                    while (FriendChat.count - 1 > local992) {
+                                                                                        FriendChat.users[local992] = FriendChat.users[local992 + 1];
                                                                                         local992++;
                                                                                     }
-                                                                                    Static706.anInt10633--;
-                                                                                    Static87.aClass241Array1[Static706.anInt10633] = null;
+                                                                                    FriendChat.count--;
+                                                                                    FriendChat.users[FriendChat.count] = null;
                                                                                 }
                                                                             } else {
                                                                                 local1427 = bitPacket.gjstr();
-                                                                                local7394 = new Class241();
+                                                                                local7394 = new FriendChatUser();
                                                                                 local7394.aString67 = local1937;
-                                                                                local7394.aString66 = local627;
-                                                                                local7394.aString68 = NameTools.format(local7394.aString66);
+                                                                                local7394.accountName = local627;
+                                                                                local7394.aString68 = NameTools.format(local7394.accountName);
                                                                                 local7394.anInt6148 = local1409;
                                                                                 local7394.aString65 = local1427;
                                                                                 local7394.aByte99 = local7377;
-                                                                                for (local1449 = Static706.anInt10633 - 1; local1449 >= 0; local1449--) {
-                                                                                    local653 = Static87.aClass241Array1[local1449].aString68.compareTo(local7394.aString68);
+                                                                                for (local1449 = FriendChat.count - 1; local1449 >= 0; local1449--) {
+                                                                                    local653 = FriendChat.users[local1449].aString68.compareTo(local7394.aString68);
                                                                                     if (local653 == 0) {
-                                                                                        Static87.aClass241Array1[local1449].anInt6148 = local1409;
-                                                                                        Static87.aClass241Array1[local1449].aByte99 = local7377;
-                                                                                        Static87.aClass241Array1[local1449].aString65 = local1427;
+                                                                                        FriendChat.users[local1449].anInt6148 = local1409;
+                                                                                        FriendChat.users[local1449].aByte99 = local7377;
+                                                                                        FriendChat.users[local1449].aString65 = local1427;
                                                                                         if (local627.equals(PlayerEntity.self.accountName)) {
                                                                                             Static682.aByte142 = local7377;
                                                                                         }
@@ -1868,18 +1872,18 @@ public final class Protocol {
                                                                                         break;
                                                                                     }
                                                                                 }
-                                                                                if (Static87.aClass241Array1.length <= Static706.anInt10633) {
+                                                                                if (FriendChat.users.length <= FriendChat.count) {
                                                                                     arg0.currentProt = null;
                                                                                     return true;
                                                                                 }
-                                                                                for (local653 = Static706.anInt10633 - 1; local653 > local1449; local653--) {
-                                                                                    Static87.aClass241Array1[local653 + 1] = Static87.aClass241Array1[local653];
+                                                                                for (local653 = FriendChat.count - 1; local653 > local1449; local653--) {
+                                                                                    FriendChat.users[local653 + 1] = FriendChat.users[local653];
                                                                                 }
-                                                                                if (Static706.anInt10633 == 0) {
-                                                                                    Static87.aClass241Array1 = new Class241[100];
+                                                                                if (FriendChat.count == 0) {
+                                                                                    FriendChat.users = new FriendChatUser[100];
                                                                                 }
-                                                                                Static87.aClass241Array1[local1449 + 1] = local7394;
-                                                                                Static706.anInt10633++;
+                                                                                FriendChat.users[local1449 + 1] = local7394;
+                                                                                FriendChat.count++;
                                                                                 if (local627.equals(PlayerEntity.self.accountName)) {
                                                                                     Static682.aByte142 = local7377;
                                                                                 }
@@ -2091,8 +2095,8 @@ public final class Protocol {
                                                                             Static352.lastClanTransmit = World.tick;
                                                                             if (arg0.currentPacketSize == 0) {
                                                                                 arg0.currentProt = null;
-                                                                                Static706.anInt10633 = 0;
-                                                                                Static87.aClass241Array1 = null;
+                                                                                FriendChat.count = 0;
+                                                                                FriendChat.users = null;
                                                                                 Static723.aString129 = null;
                                                                                 Static158.aString28 = null;
                                                                                 return true;
@@ -2110,26 +2114,26 @@ public final class Protocol {
                                                                                 arg0.currentProt = null;
                                                                                 return true;
                                                                             }
-                                                                            Static706.anInt10633 = local1409;
-                                                                            @Pc(8611) Class241[] local8611 = new Class241[100];
-                                                                            for (local2098 = 0; local2098 < Static706.anInt10633; local2098++) {
-                                                                                local8611[local2098] = new Class241();
+                                                                            FriendChat.count = local1409;
+                                                                            @Pc(8611) FriendChatUser[] local8611 = new FriendChatUser[100];
+                                                                            for (local2098 = 0; local2098 < FriendChat.count; local2098++) {
+                                                                                local8611[local2098] = new FriendChatUser();
                                                                                 local8611[local2098].aString67 = bitPacket.gjstr();
                                                                                 local446 = bitPacket.g1() == 1;
                                                                                 if (local446) {
-                                                                                    local8611[local2098].aString66 = bitPacket.gjstr();
+                                                                                    local8611[local2098].accountName = bitPacket.gjstr();
                                                                                 } else {
-                                                                                    local8611[local2098].aString66 = local8611[local2098].aString67;
+                                                                                    local8611[local2098].accountName = local8611[local2098].aString67;
                                                                                 }
-                                                                                local8611[local2098].aString68 = NameTools.format(local8611[local2098].aString66);
+                                                                                local8611[local2098].aString68 = NameTools.format(local8611[local2098].accountName);
                                                                                 local8611[local2098].anInt6148 = bitPacket.g2();
                                                                                 local8611[local2098].aByte99 = bitPacket.g1b();
                                                                                 local8611[local2098].aString65 = bitPacket.gjstr();
-                                                                                if (local8611[local2098].aString66.equals(PlayerEntity.self.accountName)) {
+                                                                                if (local8611[local2098].accountName.equals(PlayerEntity.self.accountName)) {
                                                                                     Static682.aByte142 = local8611[local2098].aByte99;
                                                                                 }
                                                                             }
-                                                                            local1449 = Static706.anInt10633;
+                                                                            local1449 = FriendChat.count;
                                                                             while (local1449 > 0) {
                                                                                 @Pc(8729) boolean local8729 = true;
                                                                                 local1449--;
@@ -2146,7 +2150,7 @@ public final class Protocol {
                                                                                 }
                                                                             }
                                                                             arg0.currentProt = null;
-                                                                            Static87.aClass241Array1 = local8611;
+                                                                            FriendChat.users = local8611;
                                                                             return true;
                                                                         } else if (Static722.A_SERVER_PROT___260 == arg0.currentProt) {
                                                                             method7912(ZoneProt.MAP_PROJANIM);

@@ -71,7 +71,7 @@ public final class j extends Sprite implements Interface5 {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "([I)V")
     @Override
-    public void getOffsets(@OriginalArg(0) int[] arg0) {
+    public void projectOffsets(@OriginalArg(0) int[] arg0) {
         this.CA(this.nativeid, arg0);
     }
 

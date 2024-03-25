@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ot")
-public final class Node_Sub1_Sub24 extends Node_Sub1 {
+public final class Node_Sub1_Sub24 extends TextureOp {
 
     @OriginalMember(owner = "client!ot", name = "M", descriptor = "[Lclient!ifa;")
     public Class154[] aClass154Array1;
@@ -21,9 +21,9 @@ public final class Node_Sub1_Sub24 extends Node_Sub1 {
         if (arg0 < 107) {
             Sprites.mapdots = null;
         }
-        @Pc(16) int[] local16 = super.aClass180_41.method3935(arg1);
-        if (super.aClass180_41.aBoolean338) {
-            this.method6410(super.aClass180_41.method3932());
+        @Pc(16) int[] local16 = super.monochromeCache.method3935(arg1);
+        if (super.monochromeCache.aBoolean338) {
+            this.method6410(super.monochromeCache.method3932());
         }
         return local16;
     }
@@ -56,12 +56,12 @@ public final class Node_Sub1_Sub24 extends Node_Sub1 {
     @OriginalMember(owner = "client!ot", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(17) int[][] local17 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737) {
+        @Pc(17) int[][] local17 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737) {
             @Pc(23) int local23 = Static608.anInt9289;
             @Pc(25) int local25 = Static2.anInt53;
             @Pc(29) int[][] local29 = new int[local25][local23];
-            @Pc(34) int[][][] local34 = super.aClass372_41.method8451();
+            @Pc(34) int[][][] local34 = super.colourCache.method8451();
             this.method6410(local29);
             for (@Pc(40) int local40 = 0; local40 < Static2.anInt53; local40++) {
                 @Pc(46) int[] local46 = local29[local40];
@@ -98,7 +98,7 @@ public final class Node_Sub1_Sub24 extends Node_Sub1 {
                 }
             }
         } else if (arg2 == 1) {
-            super.aBoolean824 = arg1.g1() == 1;
+            super.monochrome = arg1.g1() == 1;
         }
         if (arg0) {
             this.method9416(false, null, -67);

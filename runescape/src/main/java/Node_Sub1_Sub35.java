@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vi")
-public final class Node_Sub1_Sub35 extends Node_Sub1 {
+public final class Node_Sub1_Sub35 extends TextureOp {
 
     @OriginalMember(owner = "client!vi", name = "G", descriptor = "I")
     public int anInt10233 = 0;
@@ -21,8 +21,8 @@ public final class Node_Sub1_Sub35 extends Node_Sub1 {
     @OriginalMember(owner = "client!vi", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
-        if (super.aClass180_41.aBoolean338) {
+        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
+        if (super.monochromeCache.aBoolean338) {
             @Pc(21) int[] local21 = this.method9422(arg1, 0);
             for (@Pc(23) int local23 = 0; local23 < Static608.anInt9289; local23++) {
                 @Pc(29) int local29 = local21[local23];
@@ -49,7 +49,7 @@ public final class Node_Sub1_Sub35 extends Node_Sub1 {
         } else if (arg2 == 1) {
             this.anInt10231 = arg1.g2();
         } else if (arg2 == 2) {
-            super.aBoolean824 = arg1.g1() == 1;
+            super.monochrome = arg1.g1() == 1;
         }
         if (arg0) {
             this.method9414(0);
@@ -59,8 +59,8 @@ public final class Node_Sub1_Sub35 extends Node_Sub1 {
     @OriginalMember(owner = "client!vi", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(21) int[][] local21 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737) {
+        @Pc(21) int[][] local21 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737) {
             @Pc(31) int[][] local31 = this.method9413(0, arg0);
             @Pc(35) int[] local35 = local31[0];
             @Pc(39) int[] local39 = local31[1];

@@ -4,13 +4,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rca")
-public final class Node_Sub1_Sub8_Sub1 extends Node_Sub1_Sub8 {
+public final class TextureOp_Sub1_Sub8_Sub1 extends Node_Sub1_Sub8 {
 
     @OriginalMember(owner = "client!rca", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(20) int[][] local20 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737 && this.method7238()) {
+        @Pc(20) int[][] local20 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737 && this.method7238()) {
             @Pc(34) int[] local34 = local20[0];
             @Pc(38) int[] local38 = local20[1];
             @Pc(42) int[] local42 = local20[2];

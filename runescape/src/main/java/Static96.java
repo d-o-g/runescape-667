@@ -7,7 +7,7 @@ public final class Static96 {
     public static int anInt10171 = 0;
 
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(II)Lclient!pf;")
-    public static Node_Sub1 method8821(@OriginalArg(0) int arg0) {
+    public static TextureOp method8821(@OriginalArg(0) int arg0) {
         if (arg0 == 0) {
             return new Node_Sub1_Sub17();
         } else if (arg0 == 1) {
@@ -45,7 +45,7 @@ public final class Static96 {
         } else if (arg0 == 17) {
             return new Node_Sub1_Sub9();
         } else if (arg0 == 18) {
-            return new Node_Sub1_Sub8_Sub1();
+            return new TextureOp_Sub1_Sub8_Sub1();
         } else if (arg0 == 19) {
             return new Node_Sub1_Sub10();
         } else if (arg0 == 20) {
@@ -81,7 +81,7 @@ public final class Static96 {
         } else if (arg0 == 35) {
             return new Node_Sub1_Sub22();
         } else if (arg0 == 36) {
-            return new Node_Sub1_Sub1();
+            return new TextureOp_Sub1_Sub1();
         } else if (arg0 == 37) {
             return new Node_Sub1_Sub20();
         } else if (arg0 == 38) {

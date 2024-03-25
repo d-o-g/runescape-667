@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vba")
-public final class Node_Sub1_Sub31 extends Node_Sub1 {
+public final class Node_Sub1_Sub31 extends TextureOp {
 
     @OriginalMember(owner = "client!vba", name = "<init>", descriptor = "()V")
     public Node_Sub1_Sub31() {
@@ -16,7 +16,7 @@ public final class Node_Sub1_Sub31 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg2 == 0) {
-            super.aBoolean824 = arg1.g1() == 1;
+            super.monochrome = arg1.g1() == 1;
         }
         if (arg0) {
             Component.interfacesJs5 = null;
@@ -60,8 +60,8 @@ public final class Node_Sub1_Sub31 extends Node_Sub1 {
     @OriginalMember(owner = "client!vba", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(21) int[][] local21 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737) {
+        @Pc(21) int[][] local21 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737) {
             @Pc(29) int[] local29 = local21[0];
             @Pc(33) int[] local33 = local21[1];
             @Pc(37) int[] local37 = local21[2];
@@ -82,8 +82,8 @@ public final class Node_Sub1_Sub31 extends Node_Sub1 {
         if (arg0 <= 107) {
             ClientOptions.save();
         }
-        @Pc(18) int[] local18 = super.aClass180_41.method3935(arg1);
-        if (super.aClass180_41.aBoolean338) {
+        @Pc(18) int[] local18 = super.monochromeCache.method3935(arg1);
+        if (super.monochromeCache.aBoolean338) {
             for (@Pc(24) int local24 = 0; local24 < Static608.anInt9289; local24++) {
                 this.method8691(local24, arg1);
                 @Pc(37) int[] local37 = this.method9422(Static187.anInt3093, 0);

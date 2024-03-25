@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 import java.util.Random;
 
 @OriginalClass("client!in")
-public final class Node_Sub1_Sub11 extends Node_Sub1 {
+public final class Node_Sub1_Sub11 extends TextureOp {
 
     @OriginalMember(owner = "client!in", name = "U", descriptor = "[[I")
     public int[][] anIntArrayArray109;
@@ -133,8 +133,8 @@ public final class Node_Sub1_Sub11 extends Node_Sub1 {
         if (arg0 < 107) {
             Static278.anIntArray350 = null;
         }
-        @Pc(18) int[] local18 = super.aClass180_41.method3935(arg1);
-        if (super.aClass180_41.aBoolean338) {
+        @Pc(18) int[] local18 = super.monochromeCache.method3935(arg1);
+        if (super.monochromeCache.aBoolean338) {
             @Pc(24) int local24 = 0;
             @Pc(31) int local31;
             for (local31 = this.anInt4531 + Static273.anIntArray341[arg1]; local31 < 0; local31 += 4096) {

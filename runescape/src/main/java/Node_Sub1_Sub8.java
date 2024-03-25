@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ee")
-public class Node_Sub1_Sub8 extends Node_Sub1 {
+public class Node_Sub1_Sub8 extends TextureOp {
 
     @OriginalMember(owner = "client!ee", name = "J", descriptor = "[I")
     protected int[] anIntArray641;
@@ -28,8 +28,8 @@ public class Node_Sub1_Sub8 extends Node_Sub1 {
     @OriginalMember(owner = "client!ee", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(11) int[][] local11 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737 && this.method7238()) {
+        @Pc(11) int[][] local11 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737 && this.method7238()) {
             @Pc(25) int[] local25 = local11[0];
             @Pc(29) int[] local29 = local11[1];
             @Pc(33) int[] local33 = local11[2];
@@ -74,8 +74,8 @@ public class Node_Sub1_Sub8 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!ee", name = "b", descriptor = "(I)V")
     @Override
-    public final void method9423() {
-        super.method9423();
+    public final void cacheReset() {
+        super.cacheReset();
         this.anIntArray641 = null;
     }
 

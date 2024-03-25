@@ -565,17 +565,19 @@ public abstract class PathingEntity extends PositionEntity {
     public abstract int method9304(@OriginalArg(0) byte arg0);
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(BI)V")
-    public final void method9305(@OriginalArg(1) int arg0) {
-        @Pc(15) BASType local15 = this.getBASType();
-        if (local15.yawAcceleration == 0 && this.yawSpeed == 0) {
+    public final void turn(@OriginalArg(1) int yaw) {
+        @Pc(15) BASType basType = this.getBASType();
+        if (basType.yawAcceleration == 0 && this.yawSpeed == 0) {
             return;
         }
+
         this.yaw.normalizeValue();
-        @Pc(37) int local37 = arg0 - this.yaw.value & 0x3FFF;
-        if (local37 > 8192) {
-            this.turnYaw = local37 + this.yaw.value - 16384;
+
+        @Pc(37) int normalizedYaw = (yaw - this.yaw.value) & 0x3FFF;
+        if (normalizedYaw > 8192) {
+            this.turnYaw = normalizedYaw + this.yaw.value - 16384;
         } else {
-            this.turnYaw = local37 + this.yaw.value;
+            this.turnYaw = normalizedYaw + this.yaw.value;
         }
     }
 

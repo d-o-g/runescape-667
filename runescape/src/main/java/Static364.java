@@ -534,7 +534,7 @@ public final class Static364 {
                         Static135.anInt8223 = 0;
                         Static342.method4464(2);
                         Static254.method3605();
-                        Static168.method2633(Static524.aServerConnection_3.bitPacket);
+                        PlayerList.getSnapShotPlayer(Static524.aServerConnection_3.bitPacket);
                         Static62.anInt1465 = -1;
                         if (Static524.aServerConnection_3.currentProt == Static291.A_SERVER_PROT___123) {
                             Static466.method6325();
@@ -562,7 +562,7 @@ public final class Static364 {
                         local360 = Static524.aServerConnection_3.currentPacketSize;
                         Static342.method4464(15);
                         Static94.method1841();
-                        Static168.method2633(Static524.aServerConnection_3.bitPacket);
+                        PlayerList.getSnapShotPlayer(Static524.aServerConnection_3.bitPacket);
                         if (local360 != Static524.aServerConnection_3.bitPacket.pos) {
                             throw new RuntimeException("lswpr pos:" + Static524.aServerConnection_3.bitPacket.pos + " psize:" + local360);
                         }

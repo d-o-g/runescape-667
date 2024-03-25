@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!vea")
-public final class Node_Sub1_Sub33 extends Node_Sub1 {
+public final class Node_Sub1_Sub33 extends TextureOp {
 
     @OriginalMember(owner = "client!vea", name = "<init>", descriptor = "()V")
     public Node_Sub1_Sub33() {

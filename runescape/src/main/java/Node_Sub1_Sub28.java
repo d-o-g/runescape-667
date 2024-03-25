@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 import java.awt.Rectangle;
 
 @OriginalClass("client!tia")
-public final class Node_Sub1_Sub28 extends Node_Sub1 {
+public final class Node_Sub1_Sub28 extends TextureOp {
 
     @OriginalMember(owner = "client!tia", name = "F", descriptor = "[I")
     public int[] anIntArray724;
@@ -73,11 +73,11 @@ public final class Node_Sub1_Sub28 extends Node_Sub1 {
     @OriginalMember(owner = "client!tia", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
+        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
         if (arg0 <= 107) {
             InterfaceManager.rectangles = null;
         }
-        if (super.aClass180_41.aBoolean338) {
+        if (super.monochromeCache.aBoolean338) {
             @Pc(26) int local26 = Static273.anIntArray341[arg1];
             @Pc(35) int local35;
             if (this.anInt9409 == 0) {

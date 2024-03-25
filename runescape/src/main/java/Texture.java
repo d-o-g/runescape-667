@@ -17,28 +17,28 @@ public final class Texture extends Node2 {
     public final int[] anIntArray823;
 
     @OriginalMember(owner = "client!vm", name = "t", descriptor = "Lclient!pf;")
-    public final Node_Sub1 aClass2_Sub1_2;
+    public final TextureOp aClass2_Sub1_2;
 
     @OriginalMember(owner = "client!vm", name = "D", descriptor = "Lclient!pf;")
-    public final Node_Sub1 aClass2_Sub1_3;
+    public final TextureOp aClass2_Sub1_3;
 
     @OriginalMember(owner = "client!vm", name = "v", descriptor = "Lclient!pf;")
-    public final Node_Sub1 aClass2_Sub1_1;
+    public final TextureOp aClass2_Sub1_1;
 
     @OriginalMember(owner = "client!vm", name = "F", descriptor = "[Lclient!pf;")
-    public final Node_Sub1[] aClass2_Sub1Array39;
+    public final TextureOp[] aClass2_Sub1Array39;
 
     @OriginalMember(owner = "client!vm", name = "<init>", descriptor = "()V")
     public Texture() {
         this.anIntArray824 = new int[0];
         this.anIntArray823 = new int[0];
         this.aClass2_Sub1_2 = new Node_Sub1_Sub17(0);
-        this.aClass2_Sub1_2.anInt10880 = 1;
+        this.aClass2_Sub1_2.cacheSize = 1;
         this.aClass2_Sub1_3 = new Node_Sub1_Sub17();
-        this.aClass2_Sub1_3.anInt10880 = 1;
+        this.aClass2_Sub1_3.cacheSize = 1;
         this.aClass2_Sub1_1 = new Node_Sub1_Sub17();
-        this.aClass2_Sub1_1.anInt10880 = 1;
-        this.aClass2_Sub1Array39 = new Node_Sub1[]{this.aClass2_Sub1_3, this.aClass2_Sub1_1, this.aClass2_Sub1_2};
+        this.aClass2_Sub1_1.cacheSize = 1;
+        this.aClass2_Sub1Array39 = new TextureOp[]{this.aClass2_Sub1_3, this.aClass2_Sub1_1, this.aClass2_Sub1_2};
     }
 
     @OriginalMember(owner = "client!vm", name = "<init>", descriptor = "(Lclient!ge;)V")
@@ -47,17 +47,17 @@ public final class Texture extends Node2 {
         @Pc(9) int local9 = 0;
         @Pc(11) int local11 = 0;
         @Pc(14) int[][] local14 = new int[local7][];
-        this.aClass2_Sub1Array39 = new Node_Sub1[local7];
+        this.aClass2_Sub1Array39 = new TextureOp[local7];
         @Pc(56) int local56;
         for (@Pc(20) int local20 = 0; local20 < local7; local20++) {
-            @Pc(28) Node_Sub1 local28 = Static294.method4341(arg0);
+            @Pc(28) TextureOp local28 = Static294.method4341(arg0);
             if (local28.method9412() >= 0) {
                 local9++;
             }
             if (local28.method9419() >= 0) {
                 local11++;
             }
-            @Pc(49) int local49 = local28.aClass2_Sub1Array42.length;
+            @Pc(49) int local49 = local28.ops.length;
             local14[local20] = new int[local49];
             for (local56 = 0; local56 < local49; local56++) {
                 local14[local20][local56] = arg0.g1();
@@ -69,10 +69,10 @@ public final class Texture extends Node2 {
         local9 = 0;
         local11 = 0;
         for (@Pc(105) int local105 = 0; local105 < local7; local105++) {
-            @Pc(114) Node_Sub1 local114 = this.aClass2_Sub1Array39[local105];
-            local56 = local114.aClass2_Sub1Array42.length;
+            @Pc(114) TextureOp local114 = this.aClass2_Sub1Array39[local105];
+            local56 = local114.ops.length;
             for (@Pc(120) int local120 = 0; local120 < local56; local120++) {
-                local114.aClass2_Sub1Array42[local120] = this.aClass2_Sub1Array39[local14[local105][local120]];
+                local114.ops[local120] = this.aClass2_Sub1Array39[local14[local105][local120]];
             }
             @Pc(148) int local148 = local114.method9412();
             @Pc(152) int local152 = local114.method9419();
@@ -94,7 +94,7 @@ public final class Texture extends Node2 {
         Static582.aJs5_108 = arg2;
         Static677.anTextureSource_11 = arg1;
         for (@Pc(25) int local25 = 0; local25 < this.aClass2_Sub1Array39.length; local25++) {
-            this.aClass2_Sub1Array39[local25].method9418(arg0, arg4);
+            this.aClass2_Sub1Array39[local25].initCache(arg0, arg4);
         }
         Static132.method2313(arg0, arg4);
         @Pc(54) float[] local54 = new float[arg4 * 4 * arg0];
@@ -103,7 +103,7 @@ public final class Texture extends Node2 {
             @Pc(78) int[] local78;
             @Pc(80) int[] local80;
             @Pc(76) int[] local76;
-            if (this.aClass2_Sub1_3.aBoolean824) {
+            if (this.aClass2_Sub1_3.monochrome) {
                 @Pc(74) int[] local74 = this.aClass2_Sub1_3.monochromeOutput(117, local58);
                 local76 = local74;
                 local78 = local74;
@@ -115,7 +115,7 @@ public final class Texture extends Node2 {
                 local80 = local88[1];
             }
             @Pc(110) int[] local110;
-            if (this.aClass2_Sub1_1.aBoolean824) {
+            if (this.aClass2_Sub1_1.monochrome) {
                 local110 = this.aClass2_Sub1_1.monochromeOutput(114, local58);
             } else {
                 local110 = this.aClass2_Sub1_1.method9414(local58)[0];
@@ -124,7 +124,7 @@ public final class Texture extends Node2 {
                 local56 = local58 << 2;
             }
             @Pc(136) int[] local136;
-            if (this.aClass2_Sub1_2.aBoolean824) {
+            if (this.aClass2_Sub1_2.monochrome) {
                 local136 = this.aClass2_Sub1_2.monochromeOutput(115, local58);
             } else {
                 local136 = this.aClass2_Sub1_2.method9414(local58)[0];
@@ -147,7 +147,7 @@ public final class Texture extends Node2 {
             }
         }
         for (@Pc(244) int local244 = 0; local244 < this.aClass2_Sub1Array39.length; local244++) {
-            this.aClass2_Sub1Array39[local244].method9423();
+            this.aClass2_Sub1Array39[local244].cacheReset();
         }
         return local54;
     }
@@ -184,7 +184,7 @@ public final class Texture extends Node2 {
         Static582.aJs5_108 = arg5;
         Static677.anTextureSource_11 = arg4;
         for (@Pc(11) int local11 = 0; local11 < this.aClass2_Sub1Array39.length; local11++) {
-            this.aClass2_Sub1Array39[local11].method9418(arg3, arg0);
+            this.aClass2_Sub1Array39[local11].initCache(arg3, arg0);
         }
         Static725.method9455(arg1);
         Static132.method2313(arg3, arg0);
@@ -195,7 +195,7 @@ public final class Texture extends Node2 {
             @Pc(85) int[] local85;
             @Pc(81) int[] local81;
             @Pc(93) int[] local93;
-            if (this.aClass2_Sub1_3.aBoolean824) {
+            if (this.aClass2_Sub1_3.monochrome) {
                 local93 = this.aClass2_Sub1_3.monochromeOutput(117, local57);
                 local81 = local93;
                 local85 = local93;
@@ -206,7 +206,7 @@ public final class Texture extends Node2 {
                 local81 = local73[2];
                 local85 = local73[1];
             }
-            if (this.aClass2_Sub1_1.aBoolean824) {
+            if (this.aClass2_Sub1_1.monochrome) {
                 local93 = this.aClass2_Sub1_1.monochromeOutput(111, local57);
             } else {
                 local93 = this.aClass2_Sub1_1.method9414(local57)[0];
@@ -258,7 +258,7 @@ public final class Texture extends Node2 {
             }
         }
         for (@Pc(268) int local268 = 0; local268 < this.aClass2_Sub1Array39.length; local268++) {
-            this.aClass2_Sub1Array39[local268].method9423();
+            this.aClass2_Sub1Array39[local268].cacheReset();
         }
         return local53;
     }
@@ -268,7 +268,7 @@ public final class Texture extends Node2 {
         Static677.anTextureSource_11 = arg3;
         Static582.aJs5_108 = arg0;
         for (@Pc(11) int local11 = 0; local11 < this.aClass2_Sub1Array39.length; local11++) {
-            this.aClass2_Sub1Array39[local11].method9418(arg5, arg6);
+            this.aClass2_Sub1Array39[local11].initCache(arg5, arg6);
         }
         Static725.method9455(arg1);
         Static132.method2313(arg5, arg6);
@@ -290,7 +290,7 @@ public final class Texture extends Node2 {
             @Pc(85) int[] local85;
             @Pc(81) int[] local81;
             @Pc(83) int[] local83;
-            if (this.aClass2_Sub1_3.aBoolean824) {
+            if (this.aClass2_Sub1_3.monochrome) {
                 @Pc(79) int[] local79 = this.aClass2_Sub1_3.monochromeOutput(127, local65);
                 local81 = local79;
                 local83 = local79;
@@ -340,7 +340,7 @@ public final class Texture extends Node2 {
             }
         }
         for (@Pc(230) int local230 = 0; local230 < this.aClass2_Sub1Array39.length; local230++) {
-            this.aClass2_Sub1Array39[local230].method9423();
+            this.aClass2_Sub1Array39[local230].cacheReset();
         }
         return local41;
     }

@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!aaa")
-public final class Node_Sub1_Sub1 extends Node_Sub1 {
+public final class TextureOp_Sub1_Sub1 extends TextureOp {
 
     @OriginalMember(owner = "client!aaa", name = "G", descriptor = "I")
     public int anInt49;
@@ -20,22 +20,22 @@ public final class Node_Sub1_Sub1 extends Node_Sub1 {
     public int anInt55 = -1;
 
     @OriginalMember(owner = "client!aaa", name = "<init>", descriptor = "()V")
-    public Node_Sub1_Sub1() {
+    public TextureOp_Sub1_Sub1() {
         super(0, false);
     }
 
     @OriginalMember(owner = "client!aaa", name = "b", descriptor = "(I)V")
     @Override
-    public void method9423() {
-        super.method9423();
+    public void cacheReset() {
+        super.cacheReset();
         this.anIntArray10 = null;
     }
 
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(17) int[][] local17 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737) {
+        @Pc(17) int[][] local17 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737) {
             @Pc(44) int local44 = (this.anInt49 == Static2.anInt53 ? arg0 : arg0 * this.anInt49 / Static2.anInt53) * this.anInt57;
             @Pc(48) int[] local48 = local17[0];
             @Pc(52) int[] local52 = local17[1];
@@ -75,8 +75,8 @@ public final class Node_Sub1_Sub1 extends Node_Sub1 {
 
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IIZ)V")
     @Override
-    public void method9418(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        super.method9418(arg0, arg1);
+    public void initCache(@OriginalArg(0) int height, @OriginalArg(1) int width) {
+        super.initCache(height, width);
         if (this.anInt55 >= 0 && Static677.anTextureSource_11 != null) {
             @Pc(40) int local40 = Static677.anTextureSource_11.getMetrics(this.anInt55).small ? 64 : 128;
             this.anIntArray10 = Static677.anTextureSource_11.rgbOutput(local40, false, local40, this.anInt55, 1.0F);

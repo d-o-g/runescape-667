@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wh")
-public final class Node_Sub1_Sub38 extends Node_Sub1 {
+public final class Node_Sub1_Sub38 extends TextureOp {
 
     @OriginalMember(owner = "client!wh", name = "P", descriptor = "Z")
     public boolean aBoolean810 = true;
@@ -27,7 +27,7 @@ public final class Node_Sub1_Sub38 extends Node_Sub1 {
         } else if (arg2 == 1) {
             this.aBoolean810 = arg1.g1() == 1;
         } else if (arg2 == 2) {
-            super.aBoolean824 = arg1.g1() == 1;
+            super.monochrome = arg1.g1() == 1;
         }
         if (arg0) {
             this.method9414(121);
@@ -37,8 +37,8 @@ public final class Node_Sub1_Sub38 extends Node_Sub1 {
     @OriginalMember(owner = "client!wh", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(18) int[][] local18 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737) {
+        @Pc(18) int[][] local18 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737) {
             @Pc(39) int[][] local39 = this.method9413(0, this.aBoolean810 ? Static489.anInt7343 - arg0 : arg0);
             @Pc(43) int[] local43 = local39[0];
             @Pc(47) int[] local47 = local39[1];
@@ -67,11 +67,11 @@ public final class Node_Sub1_Sub38 extends Node_Sub1 {
     @OriginalMember(owner = "client!wh", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
+        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
         if (arg0 < 107) {
             return null;
         }
-        if (super.aClass180_41.aBoolean338) {
+        if (super.monochromeCache.aBoolean338) {
             @Pc(37) int[] local37 = this.method9422(this.aBoolean810 ? Static489.anInt7343 - arg1 : arg1, 0);
             if (this.aBoolean809) {
                 for (@Pc(52) int local52 = 0; local52 < Static608.anInt9289; local52++) {

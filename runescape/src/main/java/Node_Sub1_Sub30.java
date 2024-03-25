@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ur")
-public final class Node_Sub1_Sub30 extends Node_Sub1 {
+public final class Node_Sub1_Sub30 extends TextureOp {
 
     @OriginalMember(owner = "client!ur", name = "G", descriptor = "I")
     public int anInt9793 = 4;
@@ -21,8 +21,8 @@ public final class Node_Sub1_Sub30 extends Node_Sub1 {
     @OriginalMember(owner = "client!ur", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(19) int[][] local19 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737) {
+        @Pc(19) int[][] local19 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737) {
             @Pc(28) int local28 = Static608.anInt9289 / this.anInt9793;
             @Pc(33) int local33 = Static2.anInt53 / this.anInt9789;
             @Pc(49) int[][] local49;
@@ -70,11 +70,11 @@ public final class Node_Sub1_Sub30 extends Node_Sub1 {
     @OriginalMember(owner = "client!ur", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
+        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
         if (arg0 < 107) {
             this.monochromeOutput(94, -126);
         }
-        if (super.aClass180_41.aBoolean338) {
+        if (super.monochromeCache.aBoolean338) {
             @Pc(30) int local30 = Static608.anInt9289 / this.anInt9793;
             @Pc(35) int local35 = Static2.anInt53 / this.anInt9789;
             @Pc(51) int[] local51;

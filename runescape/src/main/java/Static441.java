@@ -1,3 +1,4 @@
+import com.jagex.core.constants.TileFlag;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -12,31 +13,33 @@ public final class Static441 {
     public static final ServerProt A_SERVER_PROT___168 = new ServerProt(20, -1);
 
     @OriginalMember(owner = "client!nu", name = "a", descriptor = "(ILclient!cg;)V")
-    public static void method5967(@OriginalArg(1) PathingEntity arg0) {
-        @Pc(9) int local9 = arg0.exactMoveT1 - TimeUtils.clock;
-        @Pc(20) int local20 = arg0.exactMoveX1 * 512 + arg0.getSize() * 256;
-        @Pc(32) int local32 = arg0.exactMoveZ1 * 512 + arg0.getSize() * 256;
-        arg0.z += (local32 - arg0.z) / local9;
-        arg0.x += (local20 - arg0.x) / local9;
-        arg0.delayedWalkingTicks = 0;
-        if (arg0.exactMoveDirection == 0) {
-            arg0.method9305(8192);
+    public static void method5967(@OriginalArg(1) PathingEntity entity) {
+        @Pc(9) int deltaT = entity.exactMoveT1 - TimeUtils.clock;
+        @Pc(20) int x = (entity.exactMoveX1 * 512) + (entity.getSize() * 256);
+        @Pc(32) int z = (entity.exactMoveZ1 * 512) + (entity.getSize() * 256);
+
+        entity.z += (z - entity.z) / deltaT;
+        entity.x += (x - entity.x) / deltaT;
+        entity.delayedWalkingTicks = 0;
+
+        if (entity.exactMoveDirection == 0) {
+            entity.turn(8192);
         }
-        if (arg0.exactMoveDirection == 1) {
-            arg0.method9305(12288);
+        if (entity.exactMoveDirection == 1) {
+            entity.turn(12288);
         }
-        if (arg0.exactMoveDirection == 2) {
-            arg0.method9305(0);
+        if (entity.exactMoveDirection == 2) {
+            entity.turn(0);
         }
-        if (arg0.exactMoveDirection == 3) {
-            arg0.method9305(4096);
+        if (entity.exactMoveDirection == 3) {
+            entity.turn(4096);
         }
     }
 
     @OriginalMember(owner = "client!nu", name = "a", descriptor = "(III)Z")
-    public static boolean isBridgeAt(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (arg1 >= 0 && arg0 >= 0 && arg1 < Static280.tileFlags[1].length && arg0 < Static280.tileFlags[1][arg1].length) {
-            return (Static280.tileFlags[1][arg1][arg0] & 0x2) != 0;
+    public static boolean isBridgeAt(@OriginalArg(0) int z, @OriginalArg(1) int x) {
+        if (x >= 0 && z >= 0 && x < Static280.tileFlags[1].length && z < Static280.tileFlags[1][x].length) {
+            return (Static280.tileFlags[1][x][z] & TileFlag.BRIDGE) != 0;
         } else {
             return false;
         }

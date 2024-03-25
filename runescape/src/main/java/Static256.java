@@ -90,24 +90,24 @@ public final class Static256 {
         @Pc(222) int local222 = arg0.pathZ[arg0.pathPointer - 1] * 512 + arg0.getSize() * 256;
         if (local186 < local206) {
             if (local189 < local222) {
-                arg0.method9305(10240);
+                arg0.turn(10240);
             } else if (local222 < local189) {
-                arg0.method9305(14336);
+                arg0.turn(14336);
             } else {
-                arg0.method9305(12288);
+                arg0.turn(12288);
             }
         } else if (local206 >= local186) {
             if (local189 < local222) {
-                arg0.method9305(8192);
+                arg0.turn(8192);
             } else if (local222 < local189) {
-                arg0.method9305(0);
+                arg0.turn(0);
             }
         } else if (local222 > local189) {
-            arg0.method9305(6144);
+            arg0.turn(6144);
         } else if (local222 < local189) {
-            arg0.method9305(2048);
+            arg0.turn(2048);
         } else {
-            arg0.method9305(4096);
+            arg0.turn(4096);
         }
         @Pc(348) byte local348 = arg0.pathSpeed[arg0.pathPointer - 1];
         if (!arg1 && (local206 - local186 > 1024 || local206 - local186 < -1024 || local222 - local189 > 1024 || local222 - local189 < -1024)) {

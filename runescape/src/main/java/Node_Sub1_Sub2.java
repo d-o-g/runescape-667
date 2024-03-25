@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ai")
-public final class Node_Sub1_Sub2 extends Node_Sub1 {
+public final class Node_Sub1_Sub2 extends TextureOp {
 
     @OriginalMember(owner = "client!ai", name = "<init>", descriptor = "()V")
     public Node_Sub1_Sub2() {
@@ -15,8 +15,8 @@ public final class Node_Sub1_Sub2 extends Node_Sub1 {
     @OriginalMember(owner = "client!ai", name = "a", descriptor = "(IZ)[[I")
     @Override
     public int[][] method9414(@OriginalArg(0) int arg0) {
-        @Pc(11) int[][] local11 = super.aClass372_41.method8450(arg0);
-        if (super.aClass372_41.aBoolean737) {
+        @Pc(11) int[][] local11 = super.colourCache.method8450(arg0);
+        if (super.colourCache.aBoolean737) {
             @Pc(27) int[] local27 = this.method9422(arg0, 2);
             @Pc(33) int[][] local33 = this.method9413(0, arg0);
             @Pc(39) int[][] local39 = this.method9413(1, arg0);
@@ -53,8 +53,8 @@ public final class Node_Sub1_Sub2 extends Node_Sub1 {
     @OriginalMember(owner = "client!ai", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
-        if (super.aClass180_41.aBoolean338) {
+        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
+        if (super.monochromeCache.aBoolean338) {
             @Pc(21) int[] local21 = this.method9422(arg1, 0);
             @Pc(27) int[] local27 = this.method9422(arg1, 1);
             @Pc(33) int[] local33 = this.method9422(arg1, 2);
@@ -79,7 +79,7 @@ public final class Node_Sub1_Sub2 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg2 == 0) {
-            super.aBoolean824 = arg1.g1() == 1;
+            super.monochrome = arg1.g1() == 1;
         }
         if (arg0) {
             Static14.anIntArray25 = null;

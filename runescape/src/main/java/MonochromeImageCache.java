@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ija")
-public final class Class180 {
+public final class MonochromeImageCache {
 
     @OriginalMember(owner = "client!ija", name = "h", descriptor = "I")
     public int anInt4368 = -1;
@@ -20,10 +20,10 @@ public final class Class180 {
     public boolean aBoolean338 = false;
 
     @OriginalMember(owner = "client!ija", name = "f", descriptor = "I")
-    public final int anInt4373;
+    public final int size;
 
     @OriginalMember(owner = "client!ija", name = "p", descriptor = "I")
-    public final int anInt4372;
+    public final int height;
 
     @OriginalMember(owner = "client!ija", name = "a", descriptor = "[Lclient!v;")
     public Node_Sub54[] aClass2_Sub54Array1;
@@ -32,27 +32,27 @@ public final class Class180 {
     public int[][] anIntArrayArray104;
 
     @OriginalMember(owner = "client!ija", name = "<init>", descriptor = "(III)V")
-    public Class180(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        this.anInt4373 = arg0;
-        this.anInt4372 = arg1;
-        this.aClass2_Sub54Array1 = new Node_Sub54[this.anInt4372];
-        this.anIntArrayArray104 = new int[this.anInt4373][arg2];
+    public MonochromeImageCache(@OriginalArg(0) int size, @OriginalArg(1) int height, @OriginalArg(2) int width) {
+        this.size = size;
+        this.height = height;
+        this.aClass2_Sub54Array1 = new Node_Sub54[this.height];
+        this.anIntArrayArray104 = new int[this.size][width];
     }
 
     @OriginalMember(owner = "client!ija", name = "a", descriptor = "(B)[[I")
     public int[][] method3932() {
-        if (this.anInt4373 != this.anInt4372) {
+        if (this.size != this.height) {
             throw new RuntimeException("Can only retrieve a full image cache");
         }
-        for (@Pc(32) int local32 = 0; local32 < this.anInt4373; local32++) {
+        for (@Pc(32) int local32 = 0; local32 < this.size; local32++) {
             this.aClass2_Sub54Array1[local32] = Static405.aClass2_Sub54_1;
         }
         return this.anIntArrayArray104;
     }
 
     @OriginalMember(owner = "client!ija", name = "a", descriptor = "(I)V")
-    public void method3934() {
-        for (@Pc(3) int local3 = 0; local3 < this.anInt4373; local3++) {
+    public void reset() {
+        for (@Pc(3) int local3 = 0; local3 < this.size; local3++) {
             this.anIntArrayArray104[local3] = null;
         }
         if (-113 < -119) {
@@ -66,11 +66,11 @@ public final class Class180 {
 
     @OriginalMember(owner = "client!ija", name = "a", descriptor = "(II)[I")
     public int[] method3935(@OriginalArg(1) int arg0) {
-        if (this.anInt4373 == this.anInt4372) {
+        if (this.size == this.height) {
             this.aBoolean338 = this.aClass2_Sub54Array1[arg0] == null;
             this.aClass2_Sub54Array1[arg0] = Static405.aClass2_Sub54_1;
             return this.anIntArrayArray104[arg0];
-        } else if (this.anInt4373 == 1) {
+        } else if (this.size == 1) {
             this.aBoolean338 = this.anInt4368 != arg0;
             this.anInt4368 = arg0;
             return this.anIntArrayArray104[0];
@@ -78,7 +78,7 @@ public final class Class180 {
             @Pc(34) Node_Sub54 local34 = this.aClass2_Sub54Array1[arg0];
             if (local34 == null) {
                 this.aBoolean338 = true;
-                if (this.anInt4369 >= this.anInt4373) {
+                if (this.anInt4369 >= this.size) {
                     @Pc(59) Node_Sub54 local59 = (Node_Sub54) this.aDeque_25.last();
                     local34 = new Node_Sub54(arg0, local59.anInt9846);
                     this.aClass2_Sub54Array1[local59.anInt9844] = null;

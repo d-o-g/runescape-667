@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vf")
-public final class Node_Sub1_Sub34 extends Node_Sub1 {
+public final class Node_Sub1_Sub34 extends TextureOp {
 
     @OriginalMember(owner = "client!vf", name = "<init>", descriptor = "()V")
     public Node_Sub1_Sub34() {
@@ -22,11 +22,11 @@ public final class Node_Sub1_Sub34 extends Node_Sub1 {
     @OriginalMember(owner = "client!vf", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
+        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
         if (arg0 <= 107) {
             SignLink.getDisplayProperties(null, false);
         }
-        if (super.aClass180_41.aBoolean338) {
+        if (super.monochromeCache.aBoolean338) {
             @Pc(28) int local28 = Static273.anIntArray341[arg1];
             for (@Pc(30) int local30 = 0; local30 < Static608.anInt9289; local30++) {
                 local11[local30] = this.method8786(local28, Static54.anIntArray92[local30]) % 4096;

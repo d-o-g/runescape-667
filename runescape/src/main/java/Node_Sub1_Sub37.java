@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wfa")
-public final class Node_Sub1_Sub37 extends Node_Sub1 {
+public final class Node_Sub1_Sub37 extends TextureOp {
 
     @OriginalMember(owner = "client!wfa", name = "K", descriptor = "[[I")
     public int[][] anIntArrayArray259;
@@ -56,8 +56,8 @@ public final class Node_Sub1_Sub37 extends Node_Sub1 {
     @OriginalMember(owner = "client!wfa", name = "a", descriptor = "(II)[I")
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int[] local11 = super.aClass180_41.method3935(arg1);
-        if (super.aClass180_41.aBoolean338) {
+        @Pc(11) int[] local11 = super.monochromeCache.method3935(arg1);
+        if (super.monochromeCache.aBoolean338) {
             @Pc(21) int[] local21 = this.method9422(arg1, 0);
             for (@Pc(23) int local23 = 0; local23 < Static608.anInt9289; local23++) {
                 @Pc(31) int local31 = local21[local23] >> 4;

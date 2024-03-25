@@ -192,11 +192,11 @@ public final class Static294 {
     }
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(ILclient!ge;)Lclient!pf;")
-    public static Node_Sub1 method4341(@OriginalArg(1) Packet arg0) {
+    public static TextureOp method4341(@OriginalArg(1) Packet arg0) {
         arg0.g1();
         @Pc(13) int local13 = arg0.g1();
-        @Pc(17) Node_Sub1 local17 = Static96.method8821(local13);
-        local17.anInt10880 = arg0.g1();
+        @Pc(17) TextureOp local17 = Static96.method8821(local13);
+        local17.cacheSize = arg0.g1();
         @Pc(32) int local32 = arg0.g1();
         for (@Pc(34) int local34 = 0; local34 < local32; local34++) {
             @Pc(40) int local40 = arg0.g1();

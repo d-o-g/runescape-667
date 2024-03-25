@@ -224,7 +224,7 @@ public final class PlayerEntity extends PathingEntity {
     public int runSound = -1;
 
     @OriginalMember(owner = "client!ca", name = "Tc", descriptor = "I")
-    public int anInt1467 = -1;
+    public int turnAngle = -1;
 
     @OriginalMember(owner = "client!ca", name = "ed", descriptor = "I")
     public int combatRange = -1;
@@ -865,7 +865,7 @@ public final class PlayerEntity extends PathingEntity {
         if (-9380 != -9380) {
             this.getSize();
         }
-        this.anInt1467 = -1;
+        this.turnAngle = -1;
         if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapHeight <= arg0) {
             this.teleport(arg1, arg0);
         } else if (super.pathX[0] >= 0 && super.pathX[0] < Static720.mapWidth && super.pathZ[0] >= 0 && Static501.mapHeight > super.pathZ[0]) {

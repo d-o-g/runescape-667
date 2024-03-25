@@ -9,33 +9,38 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class PlayerList {
 
-    public static final int SKIPPED_LAST_CYCLE = 0x1;
+    private static final int SKIPPED_LAST_CYCLE = 0x1;
 
-    public static final int SKIPPED_THIS_CYCLE = 0x2;
+    private static final int SKIPPED_THIS_CYCLE = 0x2;
+
+    private static final int MAX_PLAYER_COUNT = 2048;
+
+    @OriginalMember(owner = "client!lf", name = "r", descriptor = "Z")
+    public static boolean debug = false;
 
     @OriginalMember(owner = "client!tl", name = "f", descriptor = "[Lclient!ca;")
-    public static final PlayerEntity[] highResolutionPlayers = new PlayerEntity[2048];
+    public static final PlayerEntity[] highResolutionPlayers = new PlayerEntity[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!ml", name = "f", descriptor = "[B")
-    public static final byte[] updateHistory = new byte[2048];
+    public static final byte[] updateHistory = new byte[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!gia", name = "o", descriptor = "[I")
-    public static final int[] highResolutionPlayerIndices = new int[2048];
+    public static final int[] highResolutionPlayerIndices = new int[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!mt", name = "N", descriptor = "[I")
-    public static final int[] lowResolutionPlayerIndices = new int[2048];
+    public static final int[] lowResolutionPlayerIndices = new int[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!kca", name = "O", descriptor = "[I")
-    public static final int[] extendedInfoIndices = new int[2048];
+    public static final int[] extendedInfoIndices = new int[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!hl", name = "d", descriptor = "[Lclient!tea;")
-    public static final SnapShotPlayer[] lowResolutionPlayers = new SnapShotPlayer[2048];
+    public static final SnapShotPlayer[] lowResolutionPlayers = new SnapShotPlayer[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!ok", name = "q", descriptor = "[Lclient!ge;")
-    public static final Packet[] appearances = new Packet[2048];
+    public static final Packet[] appearances = new Packet[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!eg", name = "i", descriptor = "[B")
-    public static final byte[] pathSpeeds = new byte[2048];
+    public static final byte[] pathSpeeds = new byte[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!jt", name = "g", descriptor = "I")
     public static int activePlayerSlot = -1;
@@ -48,9 +53,6 @@ public final class PlayerList {
 
     @OriginalMember(owner = "client!uka", name = "y", descriptor = "I")
     public static int extendedInfoUpdateCount = 0;
-
-    @OriginalMember(owner = "client!lf", name = "r", descriptor = "Z")
-    public static boolean debug = false;
 
     @OriginalMember(owner = "client!jp", name = "a", descriptor = "(BLclient!rka;I)V")
     public static void iteratePlayers(@OriginalArg(1) BitPacket bitPacket, @OriginalArg(2) int size) {
@@ -87,7 +89,7 @@ public final class PlayerList {
                         stationary = readStationary(bitPacket);
                         updateHistory[id] |= SKIPPED_THIS_CYCLE;
                     } else {
-                        method8217(id, bitPacket);
+                        getHighResolutionPlayerPosition(id, bitPacket);
                     }
                 }
             }
@@ -113,7 +115,7 @@ public final class PlayerList {
                         stationary = readStationary(bitPacket);
                         updateHistory[id] |= SKIPPED_THIS_CYCLE;
                     } else {
-                        method8217(id, bitPacket);
+                        getHighResolutionPlayerPosition(id, bitPacket);
                     }
                 }
             }
@@ -179,7 +181,7 @@ public final class PlayerList {
         lowResolutionPlayerCount = 0;
         highResolutionPlayerCount = 0;
 
-        for (@Pc(243) int i = 1; i < 2048; i++) {
+        for (@Pc(243) int i = 1; i < MAX_PLAYER_COUNT; i++) {
             updateHistory[i] = (byte) (updateHistory[i] >> 1);
 
             @Pc(433) PlayerEntity player = highResolutionPlayers[i];
@@ -424,10 +426,10 @@ public final class PlayerList {
         }
 
         if ((flags & PlayerExtendedInfoFlag.TURN) != 0) {
-            player.anInt1467 = bitPacket.g2();
+            player.turnAngle = bitPacket.g2();
             if (player.pathPointer == 0) {
-                player.method9305(player.anInt1467);
-                player.anInt1467 = -1;
+                player.turn(player.turnAngle);
+                player.turnAngle = -1;
             }
         }
 
@@ -480,6 +482,204 @@ public final class PlayerList {
 
                 Static702.updateActionAnimator(player, speed);
                 player.move(player.moveZ, player.moveX, speed);
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!tf", name = "a", descriptor = "(ILclient!rka;I)V")
+    public static void getHighResolutionPlayerPosition(@OriginalArg(0) int id, @OriginalArg(1) BitPacket bitPacket) {
+        @Pc(16) boolean updateRequired = bitPacket.gbit(1) == 1;
+        if (updateRequired) {
+            extendedInfoIndices[extendedInfoUpdateCount++] = id;
+        }
+
+        @Pc(33) int type = bitPacket.gbit(2);
+        @Pc(37) PlayerEntity player = highResolutionPlayers[id];
+        if (type == 0) {
+            if (updateRequired) {
+                player.moved = false;
+            } else if (activePlayerSlot == id) {
+                throw new RuntimeException("s:lr");
+            } else {
+                @Pc(70) SnapShotPlayer snapShot = lowResolutionPlayers[id] = new SnapShotPlayer();
+                snapShot.coord = (player.level << 28) + ((WorldMap.areaBaseX + player.pathX[0] >> 6 << 14) + (WorldMap.areaBaseZ + player.pathZ[0] >> 6));
+                if (player.turnAngle == -1) {
+                    snapShot.direction = player.yaw.getValue(16383);
+                } else {
+                    snapShot.direction = player.turnAngle;
+                }
+                snapShot.target = player.target;
+                snapShot.showPIcon = player.showPIcon;
+                snapShot.clanmate = player.clanmate;
+                if (player.soundRange > 0) {
+                    Static76.method1552(player);
+                }
+
+                highResolutionPlayers[id] = null;
+
+                if (bitPacket.gbit(1) != 0) {
+                    getLowResolutionPlayerPosition(id, bitPacket);
+                }
+            }
+        } else if (type == 1) {
+            @Pc(165) int direction = bitPacket.gbit(3);
+
+            @Pc(170) int x = player.pathX[0];
+            @Pc(175) int z = player.pathZ[0];
+            if (direction == 0) {
+                z--;
+                x--;
+            } else if (direction == 1) {
+                z--;
+            } else if (direction == 2) {
+                z--;
+                x++;
+            } else if (direction == 3) {
+                x--;
+            } else if (direction == 4) {
+                x++;
+            } else if (direction == 5) {
+                z++;
+                x--;
+            } else if (direction == 6) {
+                z++;
+            } else if (direction == 7) {
+                x++;
+                z++;
+            }
+
+            if (updateRequired) {
+                player.moveZ = z;
+                player.moveX = x;
+                player.moved = true;
+            } else {
+                player.move(z, x, pathSpeeds[id]);
+            }
+        } else if (type == 2) {
+            @Pc(165) int direction = bitPacket.gbit(4);
+
+            @Pc(170) int x = player.pathX[0];
+            @Pc(175) int z = player.pathZ[0];
+            if (direction == 0) {
+                x -= 2;
+                z -= 2;
+            } else if (direction == 1) {
+                x--;
+                z -= 2;
+            } else if (direction == 2) {
+                z -= 2;
+            } else if (direction == 3) {
+                x++;
+                z -= 2;
+            } else if (direction == 4) {
+                z -= 2;
+                x += 2;
+            } else if (direction == 5) {
+                z--;
+                x -= 2;
+            } else if (direction == 6) {
+                x += 2;
+                z--;
+            } else if (direction == 7) {
+                x -= 2;
+            } else if (direction == 8) {
+                x += 2;
+            } else if (direction == 9) {
+                x -= 2;
+                z++;
+            } else if (direction == 10) {
+                x += 2;
+                z++;
+            } else if (direction == 11) {
+                z += 2;
+                x -= 2;
+            } else if (direction == 12) {
+                z += 2;
+                x--;
+            } else if (direction == 13) {
+                z += 2;
+            } else if (direction == 14) {
+                z += 2;
+                x++;
+            } else if (direction == 15) {
+                x += 2;
+                z += 2;
+            }
+
+            if (updateRequired) {
+                player.moveX = x;
+                player.moveZ = z;
+                player.moved = true;
+            } else {
+                player.move(z, x, pathSpeeds[id]);
+            }
+        } else {
+            @Pc(165) int farTravel = bitPacket.gbit(1);
+
+            if (farTravel == 0) {
+                @Pc(170) int delta = bitPacket.gbit(12);
+                @Pc(175) int deltaLevel = delta >> 10;
+
+                @Pc(539) int deltaX = delta >> 5 & 0x1F;
+                if (deltaX > 15) {
+                    deltaX -= 32;
+                }
+
+                @Pc(551) int deltaZ = delta & 0x1F;
+                if (deltaZ > 15) {
+                    deltaZ -= 32;
+                }
+
+                @Pc(566) int x = player.pathX[0] + deltaX;
+                @Pc(573) int z = player.pathZ[0] + deltaZ;
+
+                if (updateRequired) {
+                    player.moveX = x;
+                    player.moved = true;
+                    player.moveZ = z;
+                } else {
+                    player.move(z, x, pathSpeeds[id]);
+                }
+
+                player.level = player.virtualLevel = (byte) ((player.level + deltaLevel) & 0x3);
+
+                if (Static441.isBridgeAt(z, x)) {
+                    player.virtualLevel++;
+                }
+
+                if (activePlayerSlot == id) {
+                    if (player.level != Camera.renderingLevel) {
+                        Static75.hasOpaqueStationaryEntities = true;
+                    }
+
+                    Camera.renderingLevel = player.level;
+                }
+            } else {
+                @Pc(170) int delta = bitPacket.gbit(30);
+                @Pc(175) int deltaLevel = delta >> 28;
+                @Pc(539) int deltaX = (delta >> 14) & 0x3FFF;
+                @Pc(551) int deltaZ = delta & 0x3FFF;
+
+                @Pc(566) int x = ((player.pathX[0] + WorldMap.areaBaseX + deltaX) & 0x3FFF) - WorldMap.areaBaseX;
+                @Pc(573) int z = ((player.pathZ[0] + WorldMap.areaBaseZ + deltaZ) & 0x3FFF) - WorldMap.areaBaseZ;
+
+                if (updateRequired) {
+                    player.moved = true;
+                    player.moveZ = z;
+                    player.moveX = x;
+                } else {
+                    player.move(z, x, pathSpeeds[id]);
+                }
+
+                player.level = player.virtualLevel = (byte) ((deltaLevel + player.level) & 0x3);
+
+                if (Static441.isBridgeAt(z, x)) {
+                    player.virtualLevel++;
+                }
+
+                if (activePlayerSlot == id) {
+                    Camera.renderingLevel = player.level;
+                }
             }
         }
     }
@@ -586,6 +786,61 @@ public final class PlayerList {
         }
     }
 
+    @OriginalMember(owner = "client!fda", name = "a", descriptor = "(Lclient!rka;I)V")
+    public static void getSnapShotPlayer(@OriginalArg(0) BitPacket bitPacket) {
+        bitPacket.enterBitMode();
+        @Pc(10) int id = activePlayerSlot;
+
+        @Pc(20) PlayerEntity self = PlayerEntity.self = highResolutionPlayers[id] = new PlayerEntity();
+        self.id = id;
+
+        @Pc(28) int delta = bitPacket.gbit(30);
+        @Pc(33) byte deltaLevel = (byte) (delta >> 28);
+        @Pc(39) int deltaX = (delta >> 14) & 0x3FFF;
+        @Pc(51) int deltaZ = delta & 0x3FFF;
+
+        self.pathX[0] = deltaX - WorldMap.areaBaseX;
+        self.x = (self.pathX[0] << 9) + (self.getSize() << 8);
+
+        self.pathZ[0] = deltaZ - WorldMap.areaBaseZ;
+        self.z = (self.pathZ[0] << 9) + (self.getSize() << 8);
+
+        Camera.renderingLevel = self.level = self.virtualLevel = deltaLevel;
+        if (Static441.isBridgeAt(self.pathZ[0], self.pathX[0])) {
+            self.virtualLevel++;
+        }
+
+        if (appearances[id] != null) {
+            self.decodeAppearance(appearances[id]);
+        }
+
+        highResolutionPlayerCount = 0;
+        highResolutionPlayerIndices[highResolutionPlayerCount++] = id;
+        updateHistory[id] = 0;
+        lowResolutionPlayerCount = 0;
+
+        for (@Pc(151) int i = 1; i < MAX_PLAYER_COUNT; i++) {
+            if (id != i) {
+                @Pc(163) int coord = bitPacket.gbit(18);
+                @Pc(167) int level = coord >> 16;
+                @Pc(173) int x = (coord >> 8) & 0xFF;
+                @Pc(177) int z = coord & 0xFF;
+
+                @Pc(185) SnapShotPlayer snapShot = lowResolutionPlayers[i] = new SnapShotPlayer();
+                snapShot.showPIcon = false;
+                snapShot.target = -1;
+                snapShot.coord = (level << 28) + (x << 14) + z;
+                snapShot.direction = 0;
+                snapShot.clanmate = false;
+
+                lowResolutionPlayerIndices[lowResolutionPlayerCount++] = i;
+                updateHistory[i] = 0;
+            }
+        }
+
+        bitPacket.exitBitMode();
+    }
+
     @OriginalMember(owner = "client!bv", name = "a", descriptor = "(Lclient!rka;I)I")
     public static int readStationary(@OriginalArg(0) BitPacket bitPacket) {
         @Pc(10) int type = bitPacket.gbit(2);
@@ -604,189 +859,5 @@ public final class PlayerList {
 
     private PlayerList() {
         /* empty */
-    }
-
-    @OriginalMember(owner = "client!tf", name = "a", descriptor = "(ILclient!rka;I)V")
-    public static void method8217(@OriginalArg(0) int arg0, @OriginalArg(1) BitPacket bitPacket) {
-        @Pc(16) boolean local16 = bitPacket.gbit(1) == 1;
-        if (local16) {
-            extendedInfoIndices[extendedInfoUpdateCount++] = arg0;
-        }
-        @Pc(33) int local33 = bitPacket.gbit(2);
-        @Pc(37) PlayerEntity local37 = highResolutionPlayers[arg0];
-        if (local33 != 0) {
-            @Pc(165) int local165;
-            @Pc(170) int local170;
-            @Pc(175) int local175;
-            if (local33 == 1) {
-                local165 = bitPacket.gbit(3);
-                local170 = local37.pathX[0];
-                local175 = local37.pathZ[0];
-                if (local165 == 0) {
-                    local175--;
-                    local170--;
-                } else if (local165 == 1) {
-                    local175--;
-                } else if (local165 == 2) {
-                    local175--;
-                    local170++;
-                } else if (local165 == 3) {
-                    local170--;
-                } else if (local165 == 4) {
-                    local170++;
-                } else if (local165 == 5) {
-                    local175++;
-                    local170--;
-                } else if (local165 == 6) {
-                    local175++;
-                } else if (local165 == 7) {
-                    local170++;
-                    local175++;
-                }
-                if (local16) {
-                    local37.moveZ = local175;
-                    local37.moveX = local170;
-                    local37.moved = true;
-                } else {
-                    local37.move(local175, local170, pathSpeeds[arg0]);
-                }
-            } else if (local33 == 2) {
-                local165 = bitPacket.gbit(4);
-                local170 = local37.pathX[0];
-                local175 = local37.pathZ[0];
-                if (local165 == 0) {
-                    local170 -= 2;
-                    local175 -= 2;
-                } else if (local165 == 1) {
-                    local170--;
-                    local175 -= 2;
-                } else if (local165 == 2) {
-                    local175 -= 2;
-                } else if (local165 == 3) {
-                    local170++;
-                    local175 -= 2;
-                } else if (local165 == 4) {
-                    local175 -= 2;
-                    local170 += 2;
-                } else if (local165 == 5) {
-                    local175--;
-                    local170 -= 2;
-                } else if (local165 == 6) {
-                    local170 += 2;
-                    local175--;
-                } else if (local165 == 7) {
-                    local170 -= 2;
-                } else if (local165 == 8) {
-                    local170 += 2;
-                } else if (local165 == 9) {
-                    local170 -= 2;
-                    local175++;
-                } else if (local165 == 10) {
-                    local170 += 2;
-                    local175++;
-                } else if (local165 == 11) {
-                    local175 += 2;
-                    local170 -= 2;
-                } else if (local165 == 12) {
-                    local175 += 2;
-                    local170--;
-                } else if (local165 == 13) {
-                    local175 += 2;
-                } else if (local165 == 14) {
-                    local175 += 2;
-                    local170++;
-                } else if (local165 == 15) {
-                    local170 += 2;
-                    local175 += 2;
-                }
-                if (local16) {
-                    local37.moveX = local170;
-                    local37.moveZ = local175;
-                    local37.moved = true;
-                } else {
-                    local37.move(local175, local170, pathSpeeds[arg0]);
-                }
-            } else {
-                local165 = bitPacket.gbit(1);
-                @Pc(539) int local539;
-                @Pc(551) int local551;
-                @Pc(566) int local566;
-                @Pc(573) int local573;
-                if (local165 == 0) {
-                    local170 = bitPacket.gbit(12);
-                    local175 = local170 >> 10;
-                    local539 = local170 >> 5 & 0x1F;
-                    if (local539 > 15) {
-                        local539 -= 32;
-                    }
-                    local551 = local170 & 0x1F;
-                    if (local551 > 15) {
-                        local551 -= 32;
-                    }
-                    local566 = local37.pathX[0] + local539;
-                    local573 = local551 + local37.pathZ[0];
-                    if (local16) {
-                        local37.moveX = local566;
-                        local37.moved = true;
-                        local37.moveZ = local573;
-                    } else {
-                        local37.move(local573, local566, pathSpeeds[arg0]);
-                    }
-                    local37.level = local37.virtualLevel = (byte) (local37.level + local175 & 0x3);
-                    if (Static441.isBridgeAt(local573, local566)) {
-                        local37.virtualLevel++;
-                    }
-                    if (activePlayerSlot == arg0) {
-                        if (local37.level != Camera.renderingLevel) {
-                            Static75.hasOpaqueStationaryEntities = true;
-                        }
-                        Camera.renderingLevel = local37.level;
-                    }
-                } else {
-                    local170 = bitPacket.gbit(30);
-                    local175 = local170 >> 28;
-                    local539 = local170 >> 14 & 0x3FFF;
-                    local551 = local170 & 0x3FFF;
-                    local566 = (local37.pathX[0] + WorldMap.areaBaseX + local539 & 0x3FFF) - WorldMap.areaBaseX;
-                    local573 = (local551 + local37.pathZ[0] + WorldMap.areaBaseZ & 0x3FFF) - WorldMap.areaBaseZ;
-                    if (local16) {
-                        local37.moved = true;
-                        local37.moveZ = local573;
-                        local37.moveX = local566;
-                    } else {
-                        local37.move(local573, local566, pathSpeeds[arg0]);
-                    }
-                    local37.level = local37.virtualLevel = (byte) (local175 + local37.level & 0x3);
-                    if (Static441.isBridgeAt(local573, local566)) {
-                        local37.virtualLevel++;
-                    }
-                    if (activePlayerSlot == arg0) {
-                        Camera.renderingLevel = local37.level;
-                    }
-                }
-            }
-        } else if (local16) {
-            local37.moved = false;
-        } else if (activePlayerSlot == arg0) {
-            throw new RuntimeException("s:lr");
-        } else {
-            @Pc(70) SnapShotPlayer local70 = lowResolutionPlayers[arg0] = new SnapShotPlayer();
-            local70.coord = (local37.level << 28) + ((WorldMap.areaBaseX + local37.pathX[0] >> 6 << 14) + (WorldMap.areaBaseZ + local37.pathZ[0] >> 6));
-            if (local37.anInt1467 == -1) {
-                local70.direction = local37.yaw.getValue(16383);
-            } else {
-                local70.direction = local37.anInt1467;
-            }
-            local70.target = local37.target;
-            local70.showPIcon = local37.showPIcon;
-            local70.clanmate = local37.clanmate;
-            if (local37.soundRange > 0) {
-                Static76.method1552(local37);
-            }
-            highResolutionPlayers[arg0] = null;
-            if (bitPacket.gbit(1) != 0) {
-                getLowResolutionPlayerPosition(arg0, bitPacket);
-            }
-        }
     }
 }

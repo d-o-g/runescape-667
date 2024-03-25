@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ug")
-public final class Class372 {
+public final class ColourImageCache {
 
     @OriginalMember(owner = "client!ug", name = "j", descriptor = "I")
     public int anInt9613 = -1;
@@ -20,10 +20,10 @@ public final class Class372 {
     public boolean aBoolean737 = false;
 
     @OriginalMember(owner = "client!ug", name = "b", descriptor = "I")
-    public final int anInt9610;
+    public final int size;
 
     @OriginalMember(owner = "client!ug", name = "h", descriptor = "I")
-    public final int anInt9612;
+    public final int height;
 
     @OriginalMember(owner = "client!ug", name = "g", descriptor = "[Lclient!iia;")
     public Node_Sub27[] aClass2_Sub27Array1;
@@ -32,16 +32,16 @@ public final class Class372 {
     public int[][][] anIntArrayArrayArray20;
 
     @OriginalMember(owner = "client!ug", name = "<init>", descriptor = "(III)V")
-    public Class372(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        this.anInt9610 = arg0;
-        this.anInt9612 = arg1;
-        this.aClass2_Sub27Array1 = new Node_Sub27[this.anInt9612];
-        this.anIntArrayArrayArray20 = new int[this.anInt9610][3][arg2];
+    public ColourImageCache(@OriginalArg(0) int size, @OriginalArg(1) int height, @OriginalArg(2) int width) {
+        this.size = size;
+        this.height = height;
+        this.aClass2_Sub27Array1 = new Node_Sub27[this.height];
+        this.anIntArrayArrayArray20 = new int[this.size][3][width];
     }
 
     @OriginalMember(owner = "client!ug", name = "a", descriptor = "(Z)V")
-    public void method8449() {
-        for (@Pc(15) int local15 = 0; local15 < this.anInt9610; local15++) {
+    public void reset() {
+        for (@Pc(15) int local15 = 0; local15 < this.size; local15++) {
             this.anIntArrayArrayArray20[local15][0] = null;
             this.anIntArrayArrayArray20[local15][1] = null;
             this.anIntArrayArrayArray20[local15][2] = null;
@@ -55,11 +55,11 @@ public final class Class372 {
 
     @OriginalMember(owner = "client!ug", name = "a", descriptor = "(II)[[I")
     public int[][] method8450(@OriginalArg(0) int arg0) {
-        if (this.anInt9610 == this.anInt9612) {
+        if (this.size == this.height) {
             this.aBoolean737 = this.aClass2_Sub27Array1[arg0] == null;
             this.aClass2_Sub27Array1[arg0] = Static528.aClass2_Sub27_1;
             return this.anIntArrayArrayArray20[arg0];
-        } else if (this.anInt9610 == 1) {
+        } else if (this.size == 1) {
             this.aBoolean737 = this.anInt9613 != arg0;
             this.anInt9613 = arg0;
             return this.anIntArrayArrayArray20[0];
@@ -67,7 +67,7 @@ public final class Class372 {
             @Pc(78) Node_Sub27 local78 = this.aClass2_Sub27Array1[arg0];
             if (local78 == null) {
                 this.aBoolean737 = true;
-                if (this.anInt9615 < this.anInt9610) {
+                if (this.anInt9615 < this.size) {
                     local78 = new Node_Sub27(arg0, this.anInt9615);
                     this.anInt9615++;
                 } else {
@@ -87,10 +87,10 @@ public final class Class372 {
 
     @OriginalMember(owner = "client!ug", name = "a", descriptor = "(I)[[[I")
     public int[][][] method8451() {
-        if (this.anInt9612 != this.anInt9610) {
+        if (this.height != this.size) {
             throw new RuntimeException("Can only retrieve a full image cache");
         }
-        for (@Pc(20) int local20 = 0; local20 < this.anInt9610; local20++) {
+        for (@Pc(20) int local20 = 0; local20 < this.size; local20++) {
             this.aClass2_Sub27Array1[local20] = Static528.aClass2_Sub27_1;
         }
         return this.anIntArrayArrayArray20;

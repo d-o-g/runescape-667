@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!bu")
-public final class Node_Sub1_Sub4 extends Node_Sub1 {
+public final class Node_Sub1_Sub4 extends TextureOp {
 
     @OriginalMember(owner = "client!bu", name = "F", descriptor = "I")
     public int anInt1169 = 1;
@@ -27,8 +27,8 @@ public final class Node_Sub1_Sub4 extends Node_Sub1 {
         if (arg0 <= 107) {
             this.anInt1169 = -17;
         }
-        @Pc(19) int[] local19 = super.aClass180_41.method3935(arg1);
-        if (super.aClass180_41.aBoolean338) {
+        @Pc(19) int[] local19 = super.monochromeCache.method3935(arg1);
+        if (super.monochromeCache.aBoolean338) {
             @Pc(27) int local27 = Static273.anIntArray341[arg1];
             @Pc(33) int local33 = local27 - 2048 >> 1;
             for (@Pc(35) int local35 = 0; local35 < Static608.anInt9289; local35++) {

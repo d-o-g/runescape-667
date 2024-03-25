@@ -29,15 +29,15 @@ public final class Static112 {
                 local67 = arg0.x - local24.x;
                 local74 = arg0.z - local24.z;
                 if (local67 != 0 || local74 != 0) {
-                    arg0.method9305((int) (Math.atan2(local67, local74) * 2607.5945876176133D) & 0x3FFF);
+                    arg0.turn((int) (Math.atan2(local67, local74) * 2607.5945876176133D) & 0x3FFF);
                 }
             }
         }
         if (arg0 instanceof PlayerEntity) {
             @Pc(104) PlayerEntity local104 = (PlayerEntity) arg0;
-            if (local104.anInt1467 != -1 && (local104.pathPointer == 0 || local104.delayedWalkingTicks > 0)) {
-                local104.method9305(local104.anInt1467);
-                local104.anInt1467 = -1;
+            if (local104.turnAngle != -1 && (local104.pathPointer == 0 || local104.delayedWalkingTicks > 0)) {
+                local104.turn(local104.turnAngle);
+                local104.turnAngle = -1;
             }
         } else if (arg0 instanceof NPCEntity) {
             @Pc(138) NPCEntity local138 = (NPCEntity) arg0;
@@ -45,7 +45,7 @@ public final class Static112 {
                 local67 = local138.x - (local138.turnToX - WorldMap.areaBaseX - WorldMap.areaBaseX) * 256;
                 local74 = local138.z - (local138.turnToZ - WorldMap.areaBaseZ - WorldMap.areaBaseZ) * 256;
                 if (local67 != 0 || local74 != 0) {
-                    local138.method9305((int) (Math.atan2(local67, local74) * 2607.5945876176133D) & 0x3FFF);
+                    local138.turn((int) (Math.atan2(local67, local74) * 2607.5945876176133D) & 0x3FFF);
                 }
                 local138.turnToX = -1;
             }

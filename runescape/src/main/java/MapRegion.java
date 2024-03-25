@@ -512,7 +512,7 @@ public final class MapRegion extends Class306 {
             Static61.method1299(level, x, z, decor);
 
             if (locType.movementPolicy == 1 && collisionMap != null) {
-                collisionMap.flagGroundDecor(z, x);
+                collisionMap.flagGroundDecor(x, z);
             }
         } else if (shape == LocShapes.CENTREPIECE_STRAIGHT || shape == LocShapes.CENTREPIECE_DIAGONAL) {
             @Pc(420) PositionEntity loc;
@@ -548,7 +548,7 @@ public final class MapRegion extends Class306 {
             }
 
             if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagRect(x, locLength, z, !locType.routingHint, locWidth, locType.blockRanged);
+                collisionMap.flagRect(x, z, locWidth, locLength, locType.blockRanged, !locType.routingHint);
             }
         } else if (shape >= LocShapes.ROOF_STRAIGHT && shape <= LocShapes.ROOF_FLAT || shape >= LocShapes.ROOFEDGE_STRAIGHT && shape <= LocShapes.ROOFEDGE_SQUARECORNER) {
             @Pc(420) PositionEntity loc;
@@ -574,7 +574,7 @@ public final class MapRegion extends Class306 {
             }
 
             if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagRect(x, locLength, z, !locType.routingHint, locWidth, locType.blockRanged);
+                collisionMap.flagRect(x, z, locWidth, locLength, locType.blockRanged, !locType.routingHint);
             }
         } else if (shape == LocShapes.WALL_STRAIGHT) {
             @Pc(774) Wall wall;
@@ -787,7 +787,7 @@ public final class MapRegion extends Class306 {
             }
 
             if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagRect(x, locLength, z, !locType.routingHint, locWidth, locType.blockRanged);
+                collisionMap.flagRect(x, z, locWidth, locLength, locType.blockRanged, !locType.routingHint);
             }
 
             if (locType.anInt1243 != 64) {
@@ -1207,7 +1207,7 @@ public final class MapRegion extends Class306 {
         if (arg0 == 0) {
             Static26.method717(arg3, arg4, arg1);
             if (local22.movementPolicy != 0) {
-                arg2.method2463(arg1, local30, local26, !local22.routingHint, arg4, local22.blockRanged);
+                arg2.unflagWall(arg1, local30, local26, !local22.routingHint, arg4, local22.blockRanged);
             }
             if (local22.locOcclusionMode == 1) {
                 if (local30 == 0) {
@@ -1225,7 +1225,7 @@ public final class MapRegion extends Class306 {
         } else if (arg0 == 2) {
             Static10.method130(arg3, arg4, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
             if (local22.movementPolicy != 0 && super.width > local22.width + arg4 && super.height > local22.width + arg1 && arg4 + local22.length < super.width && local22.length + arg1 < super.height) {
-                arg2.method2468(local22.blockRanged, !local22.routingHint, arg4, local22.width, local22.length, local30, arg1);
+                arg2.unflagRect(arg4, arg1, local22.width, local22.length, local30, local22.blockRanged, !local22.routingHint);
             }
             if (local26 == 9) {
                 if ((local30 & 0x1) == 0) {
@@ -1237,7 +1237,7 @@ public final class MapRegion extends Class306 {
         } else if (arg0 == 3) {
             Static609.method8212(arg3, arg4, arg1);
             if (local22.movementPolicy == 1) {
-                arg2.method2473(arg1, arg4);
+                arg2.unflagGroundDecor(arg4, arg1);
             }
         }
     }

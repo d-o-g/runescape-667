@@ -36,14 +36,14 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ca")
 public final class PlayerEntity extends PathingEntity {
 
+    private static final int APPEARANCE_FLAG_GENDER = 0x1;
+
+    private static final int APPEARANCE_FLAG_VORBIS = 0x2;
+
+    private static final int APPEARANCE_FLAG_SKILL_AREA = 0x4;
+
     @OriginalMember(owner = "client!fo", name = "k", descriptor = "Lclient!dla;")
     public static final ReferenceCache modelCache = new ReferenceCache(4);
-
-    public static final int APPEARANCE_FLAG_GENDER = 0x1;
-
-    public static final int APPEARANCE_FLAG_VORBIS = 0x2;
-
-    public static final int APPEARANCE_FLAG_SKILL_AREA = 0x4;
 
     @OriginalMember(owner = "client!kw", name = "r", descriptor = "[I")
     public static int[] wornObjIds;
@@ -438,7 +438,7 @@ public final class PlayerEntity extends PathingEntity {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) local68 / 10.0F);
         }
         local22.translate(super.x, -super.anInt10732 + super.y - 20, super.z);
-        super.aBoolean819 = false;
+        super.transparent = false;
         @Pc(114) PickableEntity local114 = null;
         if (ClientOptions.instance.spotShadows.getValue() == 1) {
             @Pc(126) BASType local126 = this.getBASType();
@@ -448,7 +448,7 @@ public final class PlayerEntity extends PathingEntity {
                 @Pc(212) Model local212 = ShadowList.model(240, super.aModelArray3[0], super.modelRotateZ, 0, super.modelTranslateY, 1, arg0, 160, local186 == null ? local166 : local186, super.modelRotateX, local27, 0);
                 if (local212 != null) {
                     local114 = Static642.method8441(true, super.aModelArray3.length + 1);
-                    super.aBoolean819 = true;
+                    super.transparent = true;
                     arg0.C(false);
                     if (Static504.renderOrtho) {
                         local212.renderOrtho(local22, local114.pickingCylinders[super.aModelArray3.length], Static582.orthoAngle, 0);
@@ -536,7 +536,7 @@ public final class PlayerEntity extends PathingEntity {
         }
         for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
             if (super.aModelArray3[local269] != null) {
-                super.aBoolean819 |= super.aModelArray3[local269].F();
+                super.transparent |= super.aModelArray3[local269].F();
             }
             super.aModelArray3[local269] = null;
         }
@@ -714,7 +714,7 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(IILclient!ha;)Z")
-    public boolean method1421(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1) {
+    public boolean method1421(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit toolkit) {
         @Pc(5) int local5 = arg0;
         @Pc(15) BASType local15 = this.getBASType();
         @Pc(33) Animator local33 = super.actionAnimator.isAnimating() && !super.actionAnimator.isDelayed() ? super.actionAnimator : null;
@@ -724,12 +724,12 @@ public final class PlayerEntity extends PathingEntity {
         if (local61 != 0 || local64 != 0 || local15.rollTargetAngle != 0 || local15.pitchTargetAngle != 0) {
             arg0 |= 0x7;
         }
-        @Pc(95) int local95 = super.yaw.getValue(16383);
+        @Pc(95) int yaw = super.yaw.getValue(16383);
         @Pc(119) boolean local119 = super.recolScale != 0 && TimeUtils.clock >= super.recolStart && TimeUtils.clock < super.recolEnd;
         if (local119) {
             arg0 |= 0x80000;
         }
-        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(ObjTypeList.instance, local33, BASTypeList.instance, SeqTypeList.instance, arg0, super.wornRotation, WearposDefaults.instance, IDKTypeList.instance, arg1, NPCTypeList.instance, super.wornAnimators, local95, local58, TimedVarDomain.instance);
+        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(ObjTypeList.instance, local33, BASTypeList.instance, SeqTypeList.instance, arg0, super.wornRotation, WearposDefaults.instance, IDKTypeList.instance, toolkit, NPCTypeList.instance, super.wornAnimators, yaw, local58, TimedVarDomain.instance);
         @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
         if (GameShell.maxmemory < 96 && local155 > 50) {
             Static358.method9191();
@@ -751,13 +751,15 @@ public final class PlayerEntity extends PathingEntity {
         if (local152 == null) {
             return false;
         }
-        super.anInt10748 = local152.fa();
-        super.anInt10728 = local152.ma();
+
+        super.minY = local152.fa();
+        super.sphereRadius = local152.ma();
+
         this.method9306(local152);
         if (local61 == 0 && local64 == 0) {
-            this.method9314(local95, 0, 0, this.getSize() << 9, this.getSize() << 9, -81);
+            this.method9314(yaw, 0, 0, this.getSize() << 9, this.getSize() << 9, -81);
         } else {
-            this.method9314(local95, local15.hillMaxAngleX, local15.hillMaxAngleY, local61, local64, -104);
+            this.method9314(yaw, local15.hillMaxAngleX, local15.hillMaxAngleY, local61, local64, -104);
             if (super.modelRotateX != 0) {
                 local152.FA(super.modelRotateX);
             }
@@ -768,12 +770,15 @@ public final class PlayerEntity extends PathingEntity {
                 local152.H(0, super.modelTranslateY, 0);
             }
         }
+
         if (local119) {
             local152.adjustColours(super.recolHue, super.recolSaturation, super.recolLightness, super.recolScale & 0xFF);
         }
+
         if (!this.aBoolean129) {
-            this.method9297(local5, local64, arg1, local15, local95, local61);
+            this.method9297(local5, local64, toolkit, local15, yaw, local61);
         }
+
         return true;
     }
 

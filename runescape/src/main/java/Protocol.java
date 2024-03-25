@@ -594,7 +594,7 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             return false;
                                         } else if (arg0.currentProt == Static291.A_SERVER_PROT___123) {
-                                            Static466.method6325();
+                                            Static466.rebuildRegion();
                                             arg0.currentProt = null;
                                             return false;
                                         } else if (arg0.currentProt == Static526.A_SERVER_PROT___195) {

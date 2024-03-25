@@ -162,7 +162,7 @@ public final class Static523 {
         }
         if (LoadState.CREATE_COLLISION_MAPS == Static473.aLoadState_22) {
             for (local12 = 0; local12 < 4; local12++) {
-                Static577.A_COLLISION_MAP_ARRAY_1[local12] = Static125.method2219(Static720.mapWidth, Static501.mapHeight);
+                Static577.collisionMaps[local12] = CollisionMap.create(Static720.mapWidth, Static501.mapHeight);
             }
         }
         if (Static473.aLoadState_22 == LoadState.OPEN_JS5_ARCHIVES) {

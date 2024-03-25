@@ -298,15 +298,15 @@ public final class Static466 {
     }
 
     @OriginalMember(owner = "client!om", name = "b", descriptor = "(Z)V")
-    public static void method6325() {
+    public static void rebuildRegion() {
         @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
-        @Pc(12) int local12 = bitPacket.g2();
-        @Pc(16) int local16 = bitPacket.g1();
-        @Pc(28) boolean local28 = bitPacket.g1_alt3() == 1;
-        Static117.anInt2282 = bitPacket.g1_alt3();
-        @Pc(36) int local36 = bitPacket.ig2();
-        Static165.method2607();
-        Static342.method4465(local16);
+        @Pc(12) int zoneZ = bitPacket.g2();
+        @Pc(16) int buildArea = bitPacket.g1();
+        @Pc(28) boolean forceUpdate = bitPacket.g1_alt3() == 1;
+        Static117.areaMode = bitPacket.g1_alt3();
+        @Pc(36) int zoneX = bitPacket.ig2();
+        Static165.updateLastAreaMode();
+        Static342.setBuildArea(buildArea);
         bitPacket.enterBitMode();
         @Pc(50) int local50;
         @Pc(54) int local54;
@@ -316,9 +316,9 @@ public final class Static466 {
                 for (local54 = 0; local54 < Static501.mapHeight >> 3; local54++) {
                     local61 = bitPacket.gbit(1);
                     if (local61 == 1) {
-                        Static623.anIntArrayArrayArray19[local46][local50][local54] = bitPacket.gbit(26);
+                        Static623.zonePointers[local46][local50][local54] = bitPacket.gbit(26);
                     } else {
-                        Static623.anIntArrayArrayArray19[local46][local50][local54] = -1;
+                        Static623.zonePointers[local46][local50][local54] = -1;
                     }
                 }
             }
@@ -346,7 +346,7 @@ public final class Static466 {
         for (local61 = 0; local61 < 4; local61++) {
             for (@Pc(221) int local221 = 0; local221 < Static720.mapWidth >> 3; local221++) {
                 for (@Pc(225) int local225 = 0; local225 < Static501.mapHeight >> 3; local225++) {
-                    @Pc(235) int local235 = Static623.anIntArrayArrayArray19[local61][local221][local225];
+                    @Pc(235) int local235 = Static623.zonePointers[local61][local221][local225];
                     if (local235 != -1) {
                         @Pc(245) int local245 = local235 >> 14 & 0x3FF;
                         @Pc(251) int local251 = local235 >> 3 & 0x7FF;
@@ -371,7 +371,7 @@ public final class Static466 {
                 }
             }
         }
-        Static684.method8931(local28, local36, 12, local12);
+        Static684.method8931(forceUpdate, zoneX, 12, zoneZ);
     }
 
 }

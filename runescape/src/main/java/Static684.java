@@ -1,4 +1,5 @@
 import com.jagex.ChangeLocationRequest;
+import com.jagex.core.constants.AreaMode;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -120,25 +121,25 @@ public final class Static684 {
         for (local485 = (ChangeLocationRequest) Static159.aDeque_15.first(); local485 != null; local485 = (ChangeLocationRequest) Static159.aDeque_15.next()) {
             local485.anInt4016 -= deltaX;
             local485.anInt4006 -= deltaY;
-            if (Static117.anInt2282 != 4 && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
+            if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
                 local485.unlink();
             }
         }
         for (local485 = (ChangeLocationRequest) Static227.aDeque_18.first(); local485 != null; local485 = (ChangeLocationRequest) Static227.aDeque_18.next()) {
             local485.anInt4006 -= deltaY;
             local485.anInt4016 -= deltaX;
-            if (Static117.anInt2282 != 4 && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
+            if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS && (local485.anInt4016 < 0 || local485.anInt4006 < 0 || local485.anInt4016 >= Static720.mapWidth || local485.anInt4006 >= Static501.mapHeight)) {
                 local485.unlink();
             }
         }
-        if (Static117.anInt2282 != 4) {
-            for (@Pc(608) ObjStack local608 = (ObjStack) Static497.stacks.first(); local608 != null; local608 = (ObjStack) Static497.stacks.next()) {
-                @Pc(615) int local615 = (int) (local608.key & 0x3FFFL);
+        if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS) {
+            for (@Pc(608) ObjStack stack = (ObjStack) Static497.stacks.first(); stack != null; stack = (ObjStack) Static497.stacks.next()) {
+                @Pc(615) int local615 = (int) (stack.key & 0x3FFFL);
                 @Pc(619) int local619 = local615 - WorldMap.areaBaseX;
-                local193 = (int) (local608.key >> 14 & 0x3FFFL);
+                local193 = (int) (stack.key >> 14 & 0x3FFFL);
                 @Pc(632) int local632 = local193 - WorldMap.areaBaseZ;
                 if (local619 < 0 || local632 < 0 || local619 >= Static720.mapWidth || local632 >= Static501.mapHeight) {
-                    local608.unlink();
+                    stack.unlink();
                 }
             }
         }

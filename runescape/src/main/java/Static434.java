@@ -1,3 +1,4 @@
+import com.jagex.core.constants.AreaMode;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -47,7 +48,7 @@ public final class Static434 {
         @Pc(41) int local41 = 0;
         @Pc(44) int local44 = local35 + 1;
         Static428.anIntArray517[0] = arg5;
-        @Pc(49) int[][] local49 = arg1.anIntArrayArray65;
+        @Pc(49) int[][] local49 = arg1.flags;
         while (true) {
             label282:
             while (true) {
@@ -72,8 +73,8 @@ public final class Static434 {
                                 local41 = local41 + 1 & 0xFFF;
                                 local69 = local7 - local27;
                                 local74 = local5 - local16;
-                                local79 = local5 - arg1.anInt2647;
-                                local85 = local7 - arg1.anInt2645;
+                                local79 = local5 - arg1.x;
+                                local85 = local7 - arg1.z;
                                 if (arg4 == -4) {
                                     if (local5 == arg7 && arg8 == local7) {
                                         Static407.anInt6285 = local7;
@@ -81,30 +82,30 @@ public final class Static434 {
                                         return true;
                                     }
                                 } else if (arg4 == -3) {
-                                    if (Static275.method3979(arg7, arg9, local5, arg3, arg10, local7, arg8, arg9)) {
+                                    if (CollisionMap.isInsideRect(arg7, arg9, local5, arg3, arg10, local7, arg8, arg9)) {
                                         Static407.anInt6285 = local7;
                                         Static594.anInt8775 = local5;
                                         return true;
                                     }
                                 } else if (arg4 == -2) {
-                                    if (arg1.method2460(arg9, arg8, arg9, local5, arg7, arg6, arg10, local7, arg3)) {
+                                    if (arg1.isOutsideRect(local5, local7, arg9, arg9, arg7, arg8, arg3, arg10, arg6)) {
                                         Static407.anInt6285 = local7;
                                         Static594.anInt8775 = local5;
                                         return true;
                                     }
                                 } else if (arg4 == -1) {
-                                    if (arg1.method2464(arg8, arg6, arg7, local5, arg9, arg10, arg3, local7)) {
+                                    if (arg1.isInsideOrOutsideRect(local5, local7, arg9, arg7, arg8, arg3, arg10, arg6)) {
                                         Static407.anInt6285 = local7;
                                         Static594.anInt8775 = local5;
                                         return true;
                                     }
                                 } else if (arg4 == 0 || arg4 == 1 || arg4 == 2 || arg4 == 3 || arg4 == 9) {
-                                    if (arg1.method2465(arg9, arg4, arg8, local7, local5, arg7, arg0)) {
+                                    if (arg1.isAtWall(local5, arg8, arg9, arg7, local7, arg4, arg0)) {
                                         Static407.anInt6285 = local7;
                                         Static594.anInt8775 = local5;
                                         return true;
                                     }
-                                } else if (arg1.method2458(local5, arg4, arg7, arg8, arg0, local7, arg9)) {
+                                } else if (arg1.isAtDiagonalWallDecor(local5, arg4, arg7, arg8, arg0, local7, arg9)) {
                                     Static407.anInt6285 = local7;
                                     Static594.anInt8775 = local5;
                                     return true;
@@ -244,14 +245,14 @@ public final class Static434 {
 
     @OriginalMember(owner = "client!nla", name = "g", descriptor = "(I)V")
     public static void method5855() {
-        Static117.anInt2282 = 0;
+        Static117.areaMode = AreaMode.STATIC_AREA;
         @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
         @Pc(12) int local12 = bitPacket.g1_alt2();
         @Pc(24) boolean local24 = bitPacket.g1() == 1;
         @Pc(28) int local28 = bitPacket.ig2();
         @Pc(32) int local32 = bitPacket.g2();
-        Static165.method2607();
-        Static342.method4465(local12);
+        Static165.updateLastAreaMode();
+        Static342.setBuildArea(local12);
         @Pc(46) int local46 = (ConnectionManager.GAME.currentPacketSize - bitPacket.pos) / 16;
         Static22.anIntArrayArray11 = new int[local46][4];
         @Pc(55) int local55;

@@ -7,7 +7,7 @@ import java.util.Random;
 public final class Static623 {
 
     @OriginalMember(owner = "client!tm", name = "b", descriptor = "[[[I")
-    public static int[][][] anIntArrayArrayArray19;
+    public static int[][][] zonePointers;
 
     @OriginalMember(owner = "client!tm", name = "a", descriptor = "[Z")
     public static final boolean[] aBooleanArray30 = new boolean[200];

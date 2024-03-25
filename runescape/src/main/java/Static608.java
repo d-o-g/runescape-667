@@ -106,7 +106,7 @@ public final class Static608 {
                 @Pc(306) Sprite[] local306;
                 @Pc(313) IndexedImage[] local313;
                 @Pc(381) Sprite local381;
-                if (local51.aBoolean816 || TimeUtils.clock >= local51.anInt10747) {
+                if (local51.aBoolean816 || TimeUtils.clock >= local51.hpClock) {
                     local233 -= Math.max(Fonts.b12Metrics.paddingTop, Sprites.hitbarDefault[0].getHeight());
                 } else {
                     @Pc(262) byte local262 = 1;
@@ -297,7 +297,7 @@ public final class Static608 {
                     if (local1179 - local651 <= TimeUtils.clock) {
                         local412 = local51.healthPercentages[local267];
                         if (local412 >= 0) {
-                            local51.anInt10747 = TimeUtils.clock + 300;
+                            local51.hpClock = TimeUtils.clock + 300;
                             local51.anInt10726 = local412;
                             local51.healthPercentages[local267] = -1;
                         }

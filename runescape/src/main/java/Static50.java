@@ -123,7 +123,7 @@ public final class Static50 {
     }
 
     @OriginalMember(owner = "client!bm", name = "a", descriptor = "(Lclient!cg;B)V")
-    public static void method6638(@OriginalArg(0) PathingEntity arg0) {
+    public static void animationTick(@OriginalArg(0) PathingEntity arg0) {
         @Pc(8) Animator local8 = arg0.animator;
         if (local8.isAnimating() && local8.tick(1) && local8.isFinished()) {
             if (arg0.ready) {

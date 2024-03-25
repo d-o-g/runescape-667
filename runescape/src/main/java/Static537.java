@@ -6,6 +6,6 @@ public final class Static537 {
     public static int[] anIntArray633;
 
     @OriginalMember(owner = "client!qu", name = "H", descriptor = "I")
-    public static int anInt8170 = -1;
+    public static int buildArea = -1;
 
 }

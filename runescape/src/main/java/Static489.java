@@ -1,6 +1,7 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.core.constants.AreaMode;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
@@ -60,54 +61,58 @@ public final class Static489 {
     }
 
     @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ZBLclient!cg;)V")
-    public static void method6547(@OriginalArg(0) boolean arg0, @OriginalArg(2) PathingEntity arg1) {
+    public static void tick(@OriginalArg(0) boolean cutscene, @OriginalArg(2) PathingEntity entity) {
         @Pc(7) int local7 = -1;
         @Pc(16) int local16 = 0;
-        if (arg1.exactMoveT1 > TimeUtils.clock) {
-            Static441.method5967(arg1);
-        } else if (TimeUtils.clock > arg1.exactMoveT2) {
-            Static256.method3638(arg1, arg0);
+
+        if (entity.exactMoveT1 > TimeUtils.clock) {
+            Static441.exactMoveTick1(entity);
+        } else if (entity.exactMoveT2 >= TimeUtils.clock) {
+            Static354.exactMoveTick2(entity);
+        } else {
+            Static256.movementTick(entity, cutscene);
             local7 = Static521.anInt7756;
             local16 = Static524.anInt8042;
-        } else {
-            Static354.method5181(arg1);
         }
-        @Pc(107) int local107;
-        if (arg1.x < 512 || arg1.z < 512 || Static720.mapWidth * 512 - 512 <= arg1.x || arg1.z >= Static501.mapHeight * 512 - 512) {
-            arg1.actionAnimator.update(true, -1);
-            for (local107 = 0; local107 < arg1.spotAnims.length; local107++) {
-                arg1.spotAnims[local107].id = -1;
-                arg1.spotAnims[local107].animator.update(true, -1);
+
+        if ((entity.x < 512) || (entity.z < 512) || (entity.x >= ((Static720.mapWidth * 512) - 512)) || (entity.z >= ((Static501.mapHeight * 512) - 512))) {
+            entity.actionAnimator.update(true, -1);
+            for (@Pc(107) int local107 = 0; local107 < entity.spotAnims.length; local107++) {
+                entity.spotAnims[local107].id = -1;
+                entity.spotAnims[local107].animator.update(true, -1);
             }
-            arg1.exactMoveT1 = 0;
+
+            entity.exactMoveT1 = 0;
             local7 = -1;
-            arg1.exactMoveT2 = 0;
-            arg1.actionAnimations = null;
+            entity.exactMoveT2 = 0;
+            entity.actionAnimations = null;
             local16 = 0;
-            arg1.x = arg1.pathX[0] * 512 + arg1.getSize() * 256;
-            arg1.z = arg1.pathZ[0] * 512 + arg1.getSize() * 256;
-            arg1.method9316();
+            entity.x = entity.pathX[0] * 512 + entity.getSize() * 256;
+            entity.z = entity.pathZ[0] * 512 + entity.getSize() * 256;
+            entity.stopMoving();
         }
-        if (arg1 == PlayerEntity.self && (arg1.x < 6144 || arg1.z < 6144 || arg1.x >= Static720.mapWidth * 512 - 6144 || Static501.mapHeight * 512 - 6144 <= arg1.z)) {
-            arg1.actionAnimator.update(true, -1);
-            for (local107 = 0; local107 < arg1.spotAnims.length; local107++) {
-                arg1.spotAnims[local107].id = -1;
-                arg1.spotAnims[local107].animator.update(true, -1);
+
+        if ((entity == PlayerEntity.self) && ((entity.x < 6144) || (entity.z < 6144) || (entity.x >= ((Static720.mapWidth * 512) - 6144)) || (((Static501.mapHeight * 512) - 6144) <= entity.z))) {
+            entity.actionAnimator.update(true, -1);
+            for (@Pc(107) int local107 = 0; local107 < entity.spotAnims.length; local107++) {
+                entity.spotAnims[local107].id = -1;
+                entity.spotAnims[local107].animator.update(true, -1);
             }
-            arg1.exactMoveT1 = 0;
-            arg1.exactMoveT2 = 0;
-            arg1.actionAnimations = null;
+            entity.exactMoveT1 = 0;
+            entity.exactMoveT2 = 0;
+            entity.actionAnimations = null;
             local16 = 0;
             local7 = -1;
-            arg1.x = arg1.pathX[0] * 512 + arg1.getSize() * 256;
-            arg1.z = arg1.pathZ[0] * 512 + arg1.getSize() * 256;
-            arg1.method9316();
+            entity.x = entity.pathX[0] * 512 + entity.getSize() * 256;
+            entity.z = entity.pathZ[0] * 512 + entity.getSize() * 256;
+            entity.stopMoving();
         }
-        local107 = Static112.method2104(arg1);
-        Static145.method2410(arg1);
-        Static651.method8513(local7, local107, local16, arg1);
-        Static702.updateActionAnimator(arg1, local7);
-        Static50.method6638(arg1);
+
+        @Pc(107) int deltaYaw = Static112.turnTick(entity);
+        Static145.wornTargetTick(entity);
+        Static651.basTick(local7, deltaYaw, local16, entity);
+        Static702.updateActionAnimator(entity, local7);
+        Static50.animationTick(entity);
     }
 
     @OriginalMember(owner = "client!ph", name = "d", descriptor = "(I)V")
@@ -175,7 +180,7 @@ public final class Static489 {
             if (local287 != null) {
                 local299 = (Static89.anIntArray169[local282] >> 8) * 64 - WorldMap.areaBaseX;
                 local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseZ;
-                if (Static117.anInt2282 != 0) {
+                if (Static117.areaMode != AreaMode.STATIC_AREA) {
                     local299 = 10;
                     local310 = 10;
                 }
@@ -185,7 +190,7 @@ public final class Static489 {
             if (local287 != null) {
                 local299 = (Static89.anIntArray169[local282] >> 8) * 64 - WorldMap.areaBaseX;
                 local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseZ;
-                if (Static117.anInt2282 != 0) {
+                if (Static117.areaMode != AreaMode.STATIC_AREA) {
                     local310 = 10;
                     local299 = 10;
                 }
@@ -211,14 +216,17 @@ public final class Static489 {
                 }
             }
         }
+
         if (ClientOptions.instance.fog.getValue() == 1) {
-            local310 = Static571.anIntArray682[Static537.anInt8170];
+            local310 = Static571.anIntArray682[Static537.buildArea];
         } else {
-            local310 = Static506.anIntArray728[Static537.anInt8170];
+            local310 = Static506.anIntArray728[Static537.buildArea];
         }
+
         if (Toolkit.active.method7968()) {
             local310++;
         }
+
         Static21.method8043(Toolkit.active, Static455.anInt6915, Static720.mapWidth, Static501.mapHeight, local310, local430, Toolkit.active.getMaxLights() > 0);
         Static483.method6490(Static699.w2Debug);
         if (Static699.w2Debug == 0) {
@@ -226,9 +234,11 @@ public final class Static489 {
         } else {
             Static110.method2082(Fonts.p11);
         }
+
         for (@Pc(519) int local519 = 0; local519 < 4; local519++) {
-            Static577.A_COLLISION_MAP_ARRAY_1[local519].method2467();
+            Static577.collisionMaps[local519].reset();
         }
+
         Static305.method4441();
         Static609.method8213(false);
         Static508.method6750();
@@ -245,7 +255,7 @@ public final class Static489 {
         Static718.aBoolean822 = ClientOptions.instance.groundBlending.getValue() == 1;
         Static196.aBoolean262 = ClientOptions.instance.textures.getValue() == 1;
         Static2.aMapRegion = new MapRegion(4, Static720.mapWidth, Static501.mapHeight, false);
-        if (Static117.anInt2282 == 0) {
+        if (Static117.areaMode == AreaMode.STATIC_AREA) {
             Static73.method9312(Static319.aByteArrayArray16, Static2.aMapRegion);
         } else {
             Static693.method9010(Static319.aByteArrayArray16, Static2.aMapRegion);
@@ -255,7 +265,7 @@ public final class Static489 {
         if (local430) {
             Static379.method5355(true);
             Static134.aMapRegion_3 = new MapRegion(1, Static720.mapWidth, Static501.mapHeight, true);
-            if (Static117.anInt2282 == 0) {
+            if (Static117.areaMode == AreaMode.STATIC_AREA) {
                 Static73.method9312(Static177.aByteArrayArray5, Static134.aMapRegion_3);
                 Static314.noTimeout(true);
             } else {
@@ -266,8 +276,8 @@ public final class Static489 {
             Static134.aMapRegion_3.method7881(null, Toolkit.active, null);
             Static379.method5355(false);
         }
-        Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Static577.A_COLLISION_MAP_ARRAY_1);
-        if (Static117.anInt2282 == 0) {
+        Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Static577.collisionMaps);
+        if (Static117.areaMode == AreaMode.STATIC_AREA) {
             Static314.noTimeout(true);
             Static338.method4994(Static118.aByteArrayArray3, Static2.aMapRegion);
             if (Static363.aByteArrayArray22 != null) {
@@ -288,7 +298,7 @@ public final class Static489 {
         if (local430) {
             Static379.method5355(true);
             Static314.noTimeout(true);
-            if (Static117.anInt2282 == 0) {
+            if (Static117.areaMode == AreaMode.STATIC_AREA) {
                 Static338.method4994(Static421.aByteArrayArray19, Static134.aMapRegion_3);
             } else {
                 Static101.method2001(Static421.aByteArrayArray19, Static134.aMapRegion_3);
@@ -333,7 +343,8 @@ public final class Static489 {
             local920.bitPacket.p4(1057001181);
             ConnectionManager.GAME.send(local920);
         }
-        if (Static117.anInt2282 == 0) {
+
+        if (Static117.areaMode == AreaMode.STATIC_AREA) {
             local855 = (Static62.anInt1465 - (Static720.mapWidth >> 4)) / 8;
             local858 = (Static62.anInt1465 + (Static720.mapWidth >> 4)) / 8;
             @Pc(961) int local961 = (Static525.anInt8907 - (Static501.mapHeight >> 4)) / 8;
@@ -347,6 +358,7 @@ public final class Static489 {
                 }
             }
         }
+
         if (MainLogicManager.step == 4) {
             MainLogicManager.setStep(3);
         } else if (MainLogicManager.step == 8) {

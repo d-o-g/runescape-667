@@ -21,21 +21,22 @@ public final class Static342 {
     }
 
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "(BI)V")
-    public static void method4465(@OriginalArg(1) int arg0) {
-        if (arg0 == Static537.anInt8170) {
+    public static void setBuildArea(@OriginalArg(1) int buildArea) {
+        if (buildArea == Static537.buildArea) {
             return;
         }
-        Static720.mapWidth = Static501.mapHeight = Static238.anIntArray306[arg0];
+
+        Static720.mapWidth = Static501.mapHeight = Static238.BUILD_AREAS[buildArea];
         Static209.method3110();
-        Static623.anIntArrayArrayArray19 = new int[4][Static720.mapWidth >> 3][Static501.mapHeight >> 3];
+        Static623.zonePointers = new int[4][Static720.mapWidth >> 3][Static501.mapHeight >> 3];
         Static148.anIntArrayArray64 = new int[Static720.mapWidth][Static501.mapHeight];
-        Static341.anIntArrayArray133 = new int[Static720.mapWidth][Static501.mapHeight];
+        Static341.entityDrawPriorities = new int[Static720.mapWidth][Static501.mapHeight];
         for (@Pc(35) int local35 = 0; local35 < 4; local35++) {
-            Static577.A_COLLISION_MAP_ARRAY_1[local35] = Static125.method2219(Static720.mapWidth, Static501.mapHeight);
+            Static577.collisionMaps[local35] = CollisionMap.create(Static720.mapWidth, Static501.mapHeight);
         }
         Static328.aByteArrayArrayArray4 = new byte[4][Static720.mapWidth][Static501.mapHeight];
-        Static708.method9231(Static720.mapWidth, Static501.mapHeight);
+        Static708.resetTileFlags(Static720.mapWidth, Static501.mapHeight);
         Static613.method8239(Toolkit.active, Static501.mapHeight >> 3, Static720.mapWidth >> 3);
-        Static537.anInt8170 = arg0;
+        Static537.buildArea = buildArea;
     }
 }

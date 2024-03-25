@@ -23,11 +23,11 @@ public final class Static235 {
         if (Static334.activeTiles == null) {
             return;
         }
-        Static2.aMapRegion.method7901(arg5, arg0, Static577.A_COLLISION_MAP_ARRAY_1[arg6], arg6, arg3, Toolkit.active);
+        Static2.aMapRegion.method7901(arg5, arg0, Static577.collisionMaps[arg6], arg6, arg3, Toolkit.active);
         if (arg7 >= 0) {
             @Pc(93) int local93 = ClientOptions.instance.groundDecor.getValue();
             ClientOptions.instance.update(1, ClientOptions.instance.groundDecor);
-            Static2.aMapRegion.loadLocation(arg1, arg7, Static577.A_COLLISION_MAP_ARRAY_1[arg6], arg0, Toolkit.active, arg3, arg2, local39, arg6, arg4);
+            Static2.aMapRegion.loadLocation(arg1, arg7, Static577.collisionMaps[arg6], arg0, Toolkit.active, arg3, arg2, local39, arg6, arg4);
             ClientOptions.instance.update(local93, ClientOptions.instance.groundDecor);
         }
     }

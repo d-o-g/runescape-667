@@ -13,7 +13,7 @@ public final class Static441 {
     public static final ServerProt A_SERVER_PROT___168 = new ServerProt(20, -1);
 
     @OriginalMember(owner = "client!nu", name = "a", descriptor = "(ILclient!cg;)V")
-    public static void method5967(@OriginalArg(1) PathingEntity entity) {
+    public static void exactMoveTick1(@OriginalArg(1) PathingEntity entity) {
         @Pc(9) int deltaT = entity.exactMoveT1 - TimeUtils.clock;
         @Pc(20) int x = (entity.exactMoveX1 * 512) + (entity.getSize() * 256);
         @Pc(32) int z = (entity.exactMoveZ1 * 512) + (entity.getSize() * 256);

@@ -26,7 +26,7 @@ public final class Static700 {
     public static void method9152() {
         Static563.method7461();
         for (@Pc(16) int local16 = 0; local16 < 4; local16++) {
-            Static577.A_COLLISION_MAP_ARRAY_1[local16].method2467();
+            Static577.collisionMaps[local16].reset();
         }
         Minimap.reset();
         Static352.cacheReset();

@@ -1,3 +1,4 @@
+import com.jagex.core.constants.LocShapes;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -6,823 +7,959 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!eq")
 public final class CollisionMap {
 
+    public static final int WALL_NORTH_WEST = 0x1;
+
+    public static final int WALL_NORTH = 0x2;
+
+    public static final int WALL_NORTH_EAST = 0x4;
+
+    public static final int WALL_EAST = 0x8;
+
+    public static final int WALL_SOUTH_EAST = 0x10;
+
+    public static final int WALL_SOUTH = 0x20;
+
+    public static final int WALL_SOUTH_WEST = 0x40;
+
+    public static final int WALL_WEST = 0x80;
+
+    public static final int DIRECTION_EAST = 0x2;
+
+    public static final int DIRECTION_WEST = 0x8;
+
+    public static final int DIRECTION_NORTH = 0x1;
+
+    public static final int DIRECTION_SOUTH = 0x4;
+
+    public static final int LOCATION = 0x100;
+
+    public static final int WALL_NORTH_WEST_BLOCK_RANGED = 0x200;
+
+    public static final int WALL_NORTH_BLOCK_RANGED = 0x400;
+
+    public static final int WALL_NORTH_EAST_BLOCK_RANGED = 0x800;
+
+    public static final int WALL_EAST_BLOCK_RANGED = 0x1000;
+
+    public static final int WALL_SOUTH_EAST_BLOCK_RANGED = 0x2000;
+
+    public static final int WALL_SOUTH_BLOCK_RANGED = 0x4000;
+
+    public static final int WALL_SOUTH_WEST_BLOCK_RANGED = 0x8000;
+
+    public static final int WALL_WEST_BLOCK_RANGED = 0x10000;
+
+    public static final int LOCATION_BLOCK_RANGED = 0x20000;
+
+    public static final int GROUND_DECOR = 0x40000;
+
+    public static final int BLOCK_WALK = 0x200000;
+
+    public static final int WALL_NORTH_WEST_BLOCK_ROUTE = 0x400000;
+
+    public static final int WALL_NORTH_BLOCK_ROUTE = 0x800000;
+
+    public static final int WALL_NORTH_EAST_BLOCK_ROUTE = 0x1000000;
+
+    public static final int WALL_EAST_BLOCK_ROUTE = 0x2000000;
+
+    public static final int WALL_SOUTH_EAST_BLOCK_ROUTE = 0x4000000;
+
+    public static final int WALL_SOUTH_BLOCK_ROUTE = 0x8000000;
+
+    public static final int WALL_SOUTH_WEST_BLOCK_ROUTE = 0x10000000;
+
+    public static final int WALL_WEST_BLOCK_ROUTE = 0x20000000;
+
+    public static final int LOCATION_BLOCK_ROUTE = 0x40000000;
+
+    public static final int WALL_NORTH_AND_EAST = WALL_NORTH | WALL_EAST;
+
+    public static final int WALL_NORTH_AND_WEST = WALL_NORTH | WALL_WEST;
+
+    public static final int WALL_SOUTH_AND_EAST = WALL_SOUTH | WALL_EAST;
+
+    public static final int WALL_SOUTH_AND_WEST = WALL_SOUTH | WALL_WEST;
+
+    public static final int WALL_NORTH_AND_EAST_BLOCK_ROUTE = WALL_NORTH_BLOCK_ROUTE | WALL_EAST_BLOCK_ROUTE;
+
+    public static final int WALL_NORTH_AND_WEST_BLOCK_ROUTE = WALL_NORTH_BLOCK_ROUTE | WALL_WEST_BLOCK_ROUTE;
+
+    public static final int WALL_SOUTH_AND_EAST_BLOCK_ROUTE = WALL_SOUTH_BLOCK_ROUTE | WALL_EAST_BLOCK_ROUTE;
+
+    public static final int WALL_SOUTH_AND_WEST_BLOCK_ROUTE = WALL_SOUTH_BLOCK_ROUTE | WALL_WEST_BLOCK_ROUTE;
+
+    public static final int WALL_NORTH_AND_EAST_BLOCK_RANGED = WALL_NORTH_BLOCK_RANGED | WALL_EAST_BLOCK_RANGED;
+
+    public static final int WALL_NORTH_AND_WEST_BLOCK_RANGED = WALL_NORTH_BLOCK_RANGED | WALL_WEST_BLOCK_RANGED;
+
+    public static final int WALL_SOUTH_AND_EAST_BLOCK_RANGED = WALL_SOUTH_BLOCK_RANGED | WALL_EAST_BLOCK_RANGED;
+
+    public static final int WALL_SOUTH_AND_WEST_BLOCK_RANGED = WALL_SOUTH_BLOCK_RANGED | WALL_WEST_BLOCK_RANGED;
+
     @OriginalMember(owner = "client!eq", name = "p", descriptor = "I")
-    public int anInt2643;
+    public int width;
 
     @OriginalMember(owner = "client!eq", name = "n", descriptor = "I")
-    public int anInt2645;
+    public int z;
 
     @OriginalMember(owner = "client!eq", name = "e", descriptor = "[[I")
-    public int[][] anIntArrayArray65;
+    public int[][] flags;
 
     @OriginalMember(owner = "client!eq", name = "u", descriptor = "I")
-    public int anInt2647;
+    public int x;
 
     @OriginalMember(owner = "client!eq", name = "i", descriptor = "I")
-    public int anInt2653;
+    public int height;
+
+    @OriginalMember(owner = "client!dt", name = "a", descriptor = "(IIB)Lclient!eq;")
+    public static CollisionMap create(@OriginalArg(0) int width, @OriginalArg(1) int height) {
+        @Pc(7) CollisionMap map = new CollisionMap();
+        map.x = -1;
+        map.z = -1;
+        map.width = width + 6;
+        map.height = height + 5 + 1;
+        map.flags = new int[map.width][map.height];
+        map.reset();
+        return map;
+    }
+
+    @OriginalMember(owner = "client!il", name = "a", descriptor = "(IIIIIIIII)Z")
+    public static boolean isInsideRect(@OriginalArg(0) int destX, @OriginalArg(1) int width, @OriginalArg(2) int x, @OriginalArg(4) int destWidth, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
+        if (x < destX + destWidth && x + width > destX) {
+            return arg5 < arg6 + arg4 && arg6 < arg7 + arg5;
+        } else {
+            return false;
+        }
+    }
 
     @OriginalMember(owner = "client!eq", name = "b", descriptor = "(IIIIIIII)Z")
-    public boolean method2458(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
-        if (arg6 == 1) {
-            if (arg2 == arg0 && arg5 == arg3) {
+    public boolean isAtDiagonalWallDecor(@OriginalArg(0) int x, @OriginalArg(2) int shape, @OriginalArg(3) int destX, @OriginalArg(4) int destZ, @OriginalArg(5) int rotation, @OriginalArg(6) int z, @OriginalArg(7) int size) {
+        if (size == 1) {
+            if (x == destX && z == destZ) {
                 return true;
             }
-        } else if (arg2 >= arg0 && arg6 + arg0 - 1 >= arg2 && arg3 <= arg3 && arg3 <= arg6 + arg3 - 1) {
-            return true;
+        } else {
+            if (x <= destX && (x + size - 1) >= destX && (destZ <= destZ) && (destZ + size - 1) >= destZ) {
+                return true;
+            }
         }
-        @Pc(59) int local59 = arg3 - this.anInt2645;
-        @Pc(64) int local64 = arg5 - this.anInt2645;
-        @Pc(69) int local69 = arg0 - this.anInt2647;
-        @Pc(74) int local74 = arg2 - this.anInt2647;
-        if (arg6 == 1) {
-            if (arg1 == 6 || arg1 == 7) {
-                if (arg1 == 7) {
-                    arg4 = arg4 + 2 & 0x3;
+
+        @Pc(59) int destZ1 = destZ - this.z;
+        @Pc(64) int z1 = z - this.z;
+        @Pc(69) int x1 = x - this.x;
+        @Pc(74) int destX1 = destX - this.x;
+
+        if (size == 1) {
+            if (shape == LocShapes.WALLDECOR_DIAGONAL_OFFSET || shape == LocShapes.WALLDECOR_DIAGONAL_NOOFFSET) {
+                if (shape == 7) {
+                    rotation = rotation + 2 & 0x3;
                 }
-                if (arg4 == 0) {
-                    if (local74 + 1 == local69 && local59 == local64 && (this.anIntArrayArray65[local69][local64] & 0x80) == 0) {
+
+                if (rotation == 0) {
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & WALL_WEST) == 0) {
                         return true;
                     }
-                    if (local69 == local74 && local64 == local59 - 1 && (this.anIntArrayArray65[local69][local64] & 0x2) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & WALL_NORTH) == 0) {
                         return true;
                     }
-                } else if (arg4 == 1) {
-                    if (local69 == local74 - 1 && local59 == local64 && (this.anIntArrayArray65[local69][local64] & 0x8) == 0) {
+                } else if (rotation == 1) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & WALL_EAST) == 0) {
                         return true;
                     }
-                    if (local74 == local69 && local59 - 1 == local64 && (this.anIntArrayArray65[local69][local64] & 0x2) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & WALL_NORTH) == 0) {
                         return true;
                     }
-                } else if (arg4 == 2) {
-                    if (local74 - 1 == local69 && local64 == local59 && (this.anIntArrayArray65[local69][local64] & 0x8) == 0) {
+                } else if (rotation == 2) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & WALL_EAST) == 0) {
                         return true;
                     }
-                    if (local74 == local69 && local64 == local59 + 1 && (this.anIntArrayArray65[local69][local64] & 0x20) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & WALL_SOUTH) == 0) {
                         return true;
                     }
-                } else if (arg4 == 3) {
-                    if (local69 == local74 + 1 && local59 == local64 && (this.anIntArrayArray65[local69][local64] & 0x80) == 0) {
+                } else if (rotation == 3) {
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & WALL_WEST) == 0) {
                         return true;
                     }
-                    if (local74 == local69 && local59 + 1 == local64 && (this.anIntArrayArray65[local69][local64] & 0x20) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & WALL_SOUTH) == 0) {
                         return true;
                     }
                 }
             }
-            if (arg1 == 8) {
-                if (local74 == local69 && local59 + 1 == local64 && (this.anIntArrayArray65[local69][local64] & 0x20) == 0) {
+
+            if (shape == LocShapes.WALLDECOR_DIAGONAL_BOTH) {
+                if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & WALL_SOUTH) == 0) {
                     return true;
                 }
-                if (local74 == local69 && local59 - 1 == local64 && (this.anIntArrayArray65[local69][local64] & 0x2) == 0) {
+                if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & WALL_NORTH) == 0) {
                     return true;
                 }
-                if (local74 - 1 == local69 && local64 == local59 && (this.anIntArrayArray65[local69][local64] & 0x8) == 0) {
+                if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & WALL_EAST) == 0) {
                     return true;
                 }
-                if (local69 == local74 + 1 && local59 == local64 && (this.anIntArrayArray65[local69][local64] & 0x80) == 0) {
+                if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & WALL_WEST) == 0) {
                     return true;
                 }
             }
         } else {
-            @Pc(512) int local512 = arg6 + local69 - 1;
-            @Pc(518) int local518 = local64 + arg6 - 1;
-            if (arg1 == 6 || arg1 == 7) {
-                if (arg1 == 7) {
-                    arg4 = arg4 + 2 & 0x3;
+            @Pc(512) int x2 = x1 + size - 1;
+            @Pc(518) int z2 = z1 + size - 1;
+
+            if (shape == LocShapes.WALLDECOR_DIAGONAL_OFFSET || shape == LocShapes.WALLDECOR_DIAGONAL_NOOFFSET) {
+                if (shape == LocShapes.WALLDECOR_DIAGONAL_NOOFFSET) {
+                    rotation = rotation + 2 & 0x3;
                 }
-                if (arg4 == 0) {
-                    if (local69 == local74 + 1 && local64 <= local59 && local518 >= local59 && (this.anIntArrayArray65[local69][local59] & 0x80) == 0) {
+
+                if (rotation == 0) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & WALL_WEST) == 0) {
                         return true;
                     }
-                    if (local69 <= local74 && local74 <= local512 && local59 - arg6 == local64 && (this.anIntArrayArray65[local74][local518] & 0x2) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & WALL_NORTH) == 0) {
                         return true;
                     }
-                } else if (arg4 == 1) {
-                    if (local69 == local74 - arg6 && local64 <= local59 && local59 <= local518 && (this.anIntArrayArray65[local512][local59] & 0x8) == 0) {
+                } else if (rotation == 1) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & WALL_EAST) == 0) {
                         return true;
                     }
-                    if (local74 >= local69 && local74 <= local512 && local64 == local59 - arg6 && (this.anIntArrayArray65[local74][local518] & 0x2) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & WALL_NORTH) == 0) {
                         return true;
                     }
-                } else if (arg4 == 2) {
-                    if (local74 - arg6 == local69 && local64 <= local59 && local59 <= local518 && (this.anIntArrayArray65[local512][local59] & 0x8) == 0) {
+                } else if (rotation == 2) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & WALL_EAST) == 0) {
                         return true;
                     }
-                    if (local69 <= local74 && local74 <= local512 && local64 == local59 + 1 && (this.anIntArrayArray65[local74][local64] & 0x20) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & WALL_SOUTH) == 0) {
                         return true;
                     }
-                } else if (arg4 == 3) {
-                    if (local74 + 1 == local69 && local59 >= local64 && local59 <= local518 && (this.anIntArrayArray65[local69][local59] & 0x80) == 0) {
+                } else if (rotation == 3) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & WALL_WEST) == 0) {
                         return true;
                     }
-                    if (local74 >= local69 && local74 <= local512 && local64 == local59 + 1 && (this.anIntArrayArray65[local74][local64] & 0x20) == 0) {
+                    if (x1 <= destX1 && destX1 <= x2 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & WALL_SOUTH) == 0) {
                         return true;
                     }
                 }
             }
-            if (arg1 == 8) {
-                if (local74 >= local69 && local74 <= local512 && local59 + 1 == local64 && (this.anIntArrayArray65[local74][local64] & 0x20) == 0) {
+
+            if (shape == LocShapes.WALLDECOR_DIAGONAL_BOTH) {
+                if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & WALL_SOUTH) == 0) {
                     return true;
                 }
-                if (local69 <= local74 && local74 <= local512 && local64 == local59 - arg6 && (this.anIntArrayArray65[local74][local518] & 0x2) == 0) {
+                if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & WALL_NORTH) == 0) {
                     return true;
                 }
-                if (local69 == local74 - arg6 && local59 >= local64 && local59 <= local518 && (this.anIntArrayArray65[local512][local59] & 0x8) == 0) {
+                if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & WALL_EAST) == 0) {
                     return true;
                 }
-                if (local69 == local74 + 1 && local59 >= local64 && local518 >= local59 && (this.anIntArrayArray65[local69][local59] & 0x80) == 0) {
+                if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & WALL_WEST) == 0) {
                     return true;
                 }
             }
         }
+
         return false;
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIZ)V")
-    public void method2459(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        this.anIntArrayArray65[arg2][arg0] &= ~arg1;
+    public void unflag(@OriginalArg(2) int x, @OriginalArg(0) int z, @OriginalArg(1) int flags) {
+        this.flags[x][z] &= ~flags;
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIBIIIIIII)Z")
-    public boolean method2460(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
-        @Pc(7) int local7 = arg0 + arg3;
-        @Pc(11) int local11 = arg2 + arg7;
-        @Pc(23) int local23 = arg8 + arg4;
-        @Pc(27) int local27 = arg6 + arg1;
-        @Pc(75) int local75;
-        @Pc(83) int local83;
-        if (arg3 == local23 && (arg5 & 0x2) == 0) {
-            local75 = arg1 < arg7 ? arg7 : arg1;
-            local83 = local11 >= local27 ? local27 : local11;
-            while (local75 < local83) {
-                if ((this.anIntArrayArray65[local23 - this.anInt2647 - 1][local75 - this.anInt2645] & 0x8) == 0) {
+    public boolean isOutsideRect(@OriginalArg(4) int x1, @OriginalArg(8) int z1, @OriginalArg(0) int width, @OriginalArg(3) int height, @OriginalArg(5) int destX1, @OriginalArg(1) int destZ1, @OriginalArg(9) int destWidth, @OriginalArg(7) int destHeight, @OriginalArg(6) int direction) {
+        @Pc(7) int x2 = x1 + width;
+        @Pc(11) int z2 = z1 + height;
+        @Pc(23) int destX2 = destX1 + destWidth;
+        @Pc(27) int destZ2 = destZ1 + destHeight;
+
+        if (x1 == destX2 && (direction & DIRECTION_EAST) == 0) {
+            @Pc(75) int fromZ = z1 > destZ1 ? z1 : destZ1;
+            @Pc(83) int toZ = z2 >= destZ2 ? destZ2 : z2;
+
+            while (fromZ < toZ) {
+                if ((this.flags[destX2 - this.x - 1][fromZ - this.z] & WALL_EAST) == 0) {
                     return true;
                 }
-                local75++;
+                fromZ++;
             }
-        } else if (arg4 == local7 && (arg5 & 0x8) == 0) {
-            local75 = arg7 <= arg1 ? arg1 : arg7;
-            local83 = local11 >= local27 ? local27 : local11;
-            while (local83 > local75) {
-                if ((this.anIntArrayArray65[arg4 - this.anInt2647][local75 - this.anInt2645] & 0x80) == 0) {
+        } else if (x2 == destX1 && (direction & DIRECTION_WEST) == 0) {
+            @Pc(75) int fromZ = z1 <= destZ1 ? destZ1 : z1;
+            @Pc(83) int toZ = z2 >= destZ2 ? destZ2 : z2;
+
+            while (fromZ < toZ) {
+                if ((this.flags[destX1 - this.x][fromZ - this.z] & WALL_WEST) == 0) {
                     return true;
                 }
-                local75++;
+                fromZ++;
             }
-        } else if (local27 == arg7 && (arg5 & 0x1) == 0) {
-            local75 = arg3 <= arg4 ? arg4 : arg3;
-            local83 = local23 <= local7 ? local23 : local7;
-            while (local75 < local83) {
-                if ((this.anIntArrayArray65[local75 - this.anInt2647][local27 - this.anInt2645 - 1] & 0x2) == 0) {
+        } else if (z1 == destZ2 && (direction & DIRECTION_NORTH) == 0) {
+            @Pc(75) int fromX = x1 <= destX1 ? destX1 : x1;
+            @Pc(83) int toX = x2 >= destX2 ? destX2 : x2;
+
+            while (fromX < toX) {
+                if ((this.flags[fromX - this.x][destZ2 - this.z - 1] & WALL_NORTH) == 0) {
                     return true;
                 }
-                local75++;
+                fromX++;
             }
-        } else if (local11 == arg1 && (arg5 & 0x4) == 0) {
-            local75 = arg4 < arg3 ? arg3 : arg4;
-            local83 = local23 <= local7 ? local23 : local7;
-            while (local83 > local75) {
-                if ((this.anIntArrayArray65[local75 - this.anInt2647][arg1 - this.anInt2645] & 0x20) == 0) {
+        } else if (z2 == destZ1 && (direction & DIRECTION_SOUTH) == 0) {
+            @Pc(75) int fromX = x1 > destX1 ? x1 : destX1;
+            @Pc(83) int toX = x2 >= destX2 ? destX2 : x2;
+
+            while (toX > fromX) {
+                if ((this.flags[fromX - this.x][destZ1 - this.z] & WALL_SOUTH) == 0) {
                     return true;
                 }
-                local75++;
+                fromX++;
             }
         }
+
         return false;
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IZZIIII)V")
-    public void flagWall(@OriginalArg(1) boolean arg0, @OriginalArg(2) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
-        @Pc(8) int local8 = arg2 - this.anInt2645;
-        @Pc(13) int local13 = arg5 - this.anInt2647;
-        if (arg4 == 0) {
-            if (arg3 == 0) {
-                this.method2471(local13, local8, 128);
-                this.method2471(local13 - 1, local8, 8);
+    public void flagWall(@OriginalArg(1) boolean blockRanged, @OriginalArg(2) boolean blockRoute, @OriginalArg(3) int z, @OriginalArg(4) int rotation, @OriginalArg(5) int shape, @OriginalArg(6) int x) {
+        @Pc(8) int z1 = z - this.z;
+        @Pc(13) int x1 = x - this.x;
+
+        if (shape == LocShapes.WALL_STRAIGHT) {
+            if (rotation == 0) {
+                this.flag(x1, z1, WALL_WEST);
+                this.flag(x1 - 1, z1, WALL_EAST);
             }
-            if (arg3 == 1) {
-                this.method2471(local13, local8, 2);
-                this.method2471(local13, local8 + 1, 32);
+            if (rotation == 1) {
+                this.flag(x1, z1, WALL_NORTH);
+                this.flag(x1, z1 + 1, WALL_SOUTH);
             }
-            if (arg3 == 2) {
-                this.method2471(local13, local8, 8);
-                this.method2471(local13 + 1, local8, 128);
+            if (rotation == 2) {
+                this.flag(x1, z1, WALL_EAST);
+                this.flag(x1 + 1, z1, WALL_WEST);
             }
-            if (arg3 == 3) {
-                this.method2471(local13, local8, 32);
-                this.method2471(local13, local8 - 1, 2);
-            }
-        }
-        if (arg4 == 1 || arg4 == 3) {
-            if (arg3 == 0) {
-                this.method2471(local13, local8, 1);
-                this.method2471(local13 - 1, local8 - -1, 16);
-            }
-            if (arg3 == 1) {
-                this.method2471(local13, local8, 4);
-                this.method2471(local13 + 1, local8 + 1, 64);
-            }
-            if (arg3 == 2) {
-                this.method2471(local13, local8, 16);
-                this.method2471(local13 + 1, local8 + -1, 1);
-            }
-            if (arg3 == 3) {
-                this.method2471(local13, local8, 64);
-                this.method2471(local13 - 1, local8 + -1, 4);
+            if (rotation == 3) {
+                this.flag(x1, z1, WALL_SOUTH);
+                this.flag(x1, z1 - 1, WALL_NORTH);
             }
         }
-        if (arg4 == 2) {
-            if (arg3 == 0) {
-                this.method2471(local13, local8, 130);
-                this.method2471(local13 - 1, local8, 8);
-                this.method2471(local13, local8 + 1, 32);
+        if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
+            if (rotation == 0) {
+                this.flag(x1, z1, WALL_NORTH_WEST);
+                this.flag(x1 - 1, z1 - -1, WALL_SOUTH_EAST);
             }
-            if (arg3 == 1) {
-                this.method2471(local13, local8, 10);
-                this.method2471(local13, local8 + 1, 32);
-                this.method2471(local13 + 1, local8, 128);
+            if (rotation == 1) {
+                this.flag(x1, z1, WALL_NORTH_EAST);
+                this.flag(x1 + 1, z1 + 1, WALL_SOUTH_WEST);
             }
-            if (arg3 == 2) {
-                this.method2471(local13, local8, 40);
-                this.method2471(local13 + 1, local8, 128);
-                this.method2471(local13, local8 - 1, 2);
+            if (rotation == 2) {
+                this.flag(x1, z1, WALL_SOUTH_EAST);
+                this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST);
             }
-            if (arg3 == 3) {
-                this.method2471(local13, local8, 160);
-                this.method2471(local13, local8 - 1, 2);
-                this.method2471(local13 - 1, local8, 8);
+            if (rotation == 3) {
+                this.flag(x1, z1, WALL_SOUTH_WEST);
+                this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST);
             }
         }
-        if (arg0) {
-            if (arg4 == 0) {
-                if (arg3 == 0) {
-                    this.method2471(local13, local8, 65536);
-                    this.method2471(local13 - 1, local8, 4096);
+        if (shape == LocShapes.WALL_L) {
+            if (rotation == 0) {
+                this.flag(x1, z1, WALL_NORTH_AND_WEST);
+                this.flag(x1 - 1, z1, WALL_EAST);
+                this.flag(x1, z1 + 1, WALL_SOUTH);
+            }
+            if (rotation == 1) {
+                this.flag(x1, z1, WALL_NORTH_AND_EAST);
+                this.flag(x1, z1 + 1, WALL_SOUTH);
+                this.flag(x1 + 1, z1, WALL_WEST);
+            }
+            if (rotation == 2) {
+                this.flag(x1, z1, WALL_SOUTH_AND_EAST);
+                this.flag(x1 + 1, z1, WALL_WEST);
+                this.flag(x1, z1 - 1, WALL_NORTH);
+            }
+            if (rotation == 3) {
+                this.flag(x1, z1, WALL_SOUTH_AND_WEST);
+                this.flag(x1, z1 - 1, WALL_NORTH);
+                this.flag(x1 - 1, z1, WALL_EAST);
+            }
+        }
+
+        if (blockRanged) {
+            if (shape == LocShapes.WALL_STRAIGHT) {
+                if (rotation == 0) {
+                    this.flag(x1, z1, WALL_WEST_BLOCK_RANGED);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
                 }
-                if (arg3 == 1) {
-                    this.method2471(local13, local8, 1024);
-                    this.method2471(local13, local8 + 1, 16384);
+                if (rotation == 1) {
+                    this.flag(x1, z1, WALL_NORTH_BLOCK_RANGED);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
                 }
-                if (arg3 == 2) {
-                    this.method2471(local13, local8, 4096);
-                    this.method2471(local13 + 1, local8, 65536);
+                if (rotation == 2) {
+                    this.flag(x1, z1, WALL_EAST_BLOCK_RANGED);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
                 }
-                if (arg3 == 3) {
-                    this.method2471(local13, local8, 16384);
-                    this.method2471(local13, local8 - 1, 1024);
+                if (rotation == 3) {
+                    this.flag(x1, z1, WALL_SOUTH_BLOCK_RANGED);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
                 }
             }
-            if (arg4 == 1 || arg4 == 3) {
-                if (arg3 == 0) {
-                    this.method2471(local13, local8, 512);
-                    this.method2471(local13 - 1, local8 + 1, 8192);
+            if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
+                if (rotation == 0) {
+                    this.flag(x1, z1, WALL_NORTH_WEST_BLOCK_RANGED);
+                    this.flag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCK_RANGED);
                 }
-                if (arg3 == 1) {
-                    this.method2471(local13, local8, 2048);
-                    this.method2471(local13 + 1, local8 + 1, 32768);
+                if (rotation == 1) {
+                    this.flag(x1, z1, WALL_NORTH_EAST_BLOCK_RANGED);
+                    this.flag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BLOCK_RANGED);
                 }
-                if (arg3 == 2) {
-                    this.method2471(local13, local8, 8192);
-                    this.method2471(local13 + 1, local8 + -1, 512);
+                if (rotation == 2) {
+                    this.flag(x1, z1, WALL_SOUTH_EAST_BLOCK_RANGED);
+                    this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST_BLOCK_RANGED);
                 }
-                if (arg3 == 3) {
-                    this.method2471(local13, local8, 32768);
-                    this.method2471(local13 - 1, local8 + -1, 2048);
+                if (rotation == 3) {
+                    this.flag(x1, z1, WALL_SOUTH_WEST_BLOCK_RANGED);
+                    this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST_BLOCK_RANGED);
                 }
             }
-            if (arg4 == 2) {
-                if (arg3 == 0) {
-                    this.method2471(local13, local8, 66560);
-                    this.method2471(local13 - 1, local8, 4096);
-                    this.method2471(local13, local8 + 1, 16384);
+            if (shape == LocShapes.WALL_L) {
+                if (rotation == 0) {
+                    this.flag(x1, z1, WALL_NORTH_AND_WEST_BLOCK_RANGED);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
                 }
-                if (arg3 == 1) {
-                    this.method2471(local13, local8, 5120);
-                    this.method2471(local13, local8 + 1, 16384);
-                    this.method2471(local13 + 1, local8, 65536);
+                if (rotation == 1) {
+                    this.flag(x1, z1, WALL_NORTH_AND_EAST_BLOCK_RANGED);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
                 }
-                if (arg3 == 2) {
-                    this.method2471(local13, local8, 20480);
-                    this.method2471(local13 + 1, local8, 65536);
-                    this.method2471(local13, local8 - 1, 1024);
+                if (rotation == 2) {
+                    this.flag(x1, z1, WALL_SOUTH_AND_EAST_BLOCK_RANGED);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
                 }
-                if (arg3 == 3) {
-                    this.method2471(local13, local8, 81920);
-                    this.method2471(local13, local8 - 1, 1024);
-                    this.method2471(local13 - 1, local8, 4096);
+                if (rotation == 3) {
+                    this.flag(x1, z1, WALL_SOUTH_AND_WEST_BLOCK_RANGED);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
                 }
             }
         }
-        if (!arg1) {
-            return;
-        }
-        if (arg4 == 0) {
-            if (arg3 == 0) {
-                this.method2471(local13, local8, 536870912);
-                this.method2471(local13 - 1, local8, 33554432);
+
+        if (blockRoute) {
+            if (shape == LocShapes.WALL_STRAIGHT) {
+                if (rotation == 0) {
+                    this.flag(x1, z1, WALL_WEST_BLOCK_ROUTE);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                }
+                if (rotation == 1) {
+                    this.flag(x1, z1, WALL_NORTH_BLOCK_ROUTE);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                }
+                if (rotation == 2) {
+                    this.flag(x1, z1, WALL_EAST_BLOCK_ROUTE);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                }
+                if (rotation == 3) {
+                    this.flag(x1, z1, WALL_SOUTH_BLOCK_ROUTE);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                }
             }
-            if (arg3 == 1) {
-                this.method2471(local13, local8, 8388608);
-                this.method2471(local13, local8 + 1, 134217728);
+            if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
+                if (rotation == 0) {
+                    this.flag(x1, z1, WALL_NORTH_WEST_BLOCK_ROUTE);
+                    this.flag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCK_ROUTE);
+                }
+                if (rotation == 1) {
+                    this.flag(x1, z1, WALL_NORTH_EAST_BLOCK_ROUTE);
+                    this.flag(x1 + 1, z1 - -1, WALL_SOUTH_WEST_BLOCK_ROUTE);
+                }
+                if (rotation == 2) {
+                    this.flag(x1, z1, WALL_SOUTH_EAST_BLOCK_ROUTE);
+                    this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST_BLOCK_ROUTE);
+                }
+                if (rotation == 3) {
+                    this.flag(x1, z1, WALL_SOUTH_WEST_BLOCK_ROUTE);
+                    this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST_BLOCK_ROUTE);
+                }
             }
-            if (arg3 == 2) {
-                this.method2471(local13, local8, 33554432);
-                this.method2471(local13 + 1, local8, 536870912);
+            if (shape == LocShapes.WALL_L) {
+                if (rotation == 0) {
+                    this.flag(x1, z1, WALL_NORTH_AND_WEST_BLOCK_ROUTE);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                }
+                if (rotation == 1) {
+                    this.flag(x1, z1, WALL_NORTH_AND_EAST_BLOCK_ROUTE);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                }
+                if (rotation == 2) {
+                    this.flag(x1, z1, WALL_SOUTH_AND_EAST_BLOCK_ROUTE);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                }
+                if (rotation == 3) {
+                    this.flag(x1, z1, WALL_SOUTH_AND_WEST_BLOCK_ROUTE);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                }
             }
-            if (arg3 == 3) {
-                this.method2471(local13, local8, 134217728);
-                this.method2471(local13, local8 - 1, 8388608);
-            }
-        }
-        if (arg4 == 1 || arg4 == 3) {
-            if (arg3 == 0) {
-                this.method2471(local13, local8, 4194304);
-                this.method2471(local13 - 1, local8 + 1, 67108864);
-            }
-            if (arg3 == 1) {
-                this.method2471(local13, local8, 16777216);
-                this.method2471(local13 + 1, local8 - -1, 268435456);
-            }
-            if (arg3 == 2) {
-                this.method2471(local13, local8, 67108864);
-                this.method2471(local13 + 1, local8 + -1, 4194304);
-            }
-            if (arg3 == 3) {
-                this.method2471(local13, local8, 268435456);
-                this.method2471(local13 - 1, local8 + -1, 16777216);
-            }
-        }
-        if (arg4 != 2) {
-            return;
-        }
-        if (arg3 == 0) {
-            this.method2471(local13, local8, 545259520);
-            this.method2471(local13 - 1, local8, 33554432);
-            this.method2471(local13, local8 + 1, 134217728);
-        }
-        if (arg3 == 1) {
-            this.method2471(local13, local8, 41943040);
-            this.method2471(local13, local8 + 1, 134217728);
-            this.method2471(local13 + 1, local8, 536870912);
-        }
-        if (arg3 == 2) {
-            this.method2471(local13, local8, 167772160);
-            this.method2471(local13 + 1, local8, 536870912);
-            this.method2471(local13, local8 - 1, 8388608);
-        }
-        if (arg3 == 3) {
-            this.method2471(local13, local8, 671088640);
-            this.method2471(local13, local8 - 1, 8388608);
-            this.method2471(local13 - 1, local8, 33554432);
-            return;
         }
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIBZIZ)V")
-    public void method2463(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) boolean arg3, @OriginalArg(5) int arg4, @OriginalArg(6) boolean arg5) {
-        @Pc(4) int local4 = arg4 - this.anInt2647;
-        @Pc(17) int local17 = arg0 - this.anInt2645;
-        if (arg2 == 0) {
-            if (arg1 == 0) {
-                this.method2459(local17, 128, local4);
-                this.method2459(local17, 8, local4 - 1);
+    public void unflagWall(@OriginalArg(0) int z, @OriginalArg(1) int rotation, @OriginalArg(2) int shape, @OriginalArg(4) boolean blockRoute, @OriginalArg(5) int x, @OriginalArg(6) boolean blockRanged) {
+        @Pc(4) int x1 = x - this.x;
+        @Pc(17) int z1 = z - this.z;
+
+        if (shape == LocShapes.WALL_STRAIGHT) {
+            if (rotation == 0) {
+                this.unflag(x1, z1, WALL_WEST);
+                this.unflag(x1 - 1, z1, WALL_EAST);
             }
-            if (arg1 == 1) {
-                this.method2459(local17, 2, local4);
-                this.method2459(local17 + 1, 32, local4);
+            if (rotation == 1) {
+                this.unflag(x1, z1, WALL_NORTH);
+                this.unflag(x1, z1 + 1, WALL_SOUTH);
             }
-            if (arg1 == 2) {
-                this.method2459(local17, 8, local4);
-                this.method2459(local17, 128, local4 + 1);
+            if (rotation == 2) {
+                this.unflag(x1, z1, WALL_EAST);
+                this.unflag(x1 + 1, z1, WALL_WEST);
             }
-            if (arg1 == 3) {
-                this.method2459(local17, 32, local4);
-                this.method2459(local17 - 1, 2, local4);
-            }
-        }
-        if (arg2 == 1 || arg2 == 3) {
-            if (arg1 == 0) {
-                this.method2459(local17, 1, local4);
-                this.method2459(local17 + 1, 16, local4 - 1);
-            }
-            if (arg1 == 1) {
-                this.method2459(local17, 4, local4);
-                this.method2459(local17 + 1, 64, local4 + 1);
-            }
-            if (arg1 == 2) {
-                this.method2459(local17, 16, local4);
-                this.method2459(local17 - 1, 1, local4 + 1);
-            }
-            if (arg1 == 3) {
-                this.method2459(local17, 64, local4);
-                this.method2459(local17 - 1, 4, local4 - 1);
+            if (rotation == 3) {
+                this.unflag(x1, z1, WALL_SOUTH);
+                this.unflag(x1, z1 - 1, WALL_NORTH);
             }
         }
-        if (arg2 == 2) {
-            if (arg1 == 0) {
-                this.method2459(local17, 130, local4);
-                this.method2459(local17, 8, local4 - 1);
-                this.method2459(local17 + 1, 32, local4);
+        if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
+            if (rotation == 0) {
+                this.unflag(x1, z1, WALL_NORTH_WEST);
+                this.unflag(x1 - 1, z1 + 1, WALL_SOUTH_EAST);
             }
-            if (arg1 == 1) {
-                this.method2459(local17, 10, local4);
-                this.method2459(local17 + 1, 32, local4);
-                this.method2459(local17, 128, local4 + 1);
+            if (rotation == 1) {
+                this.unflag(x1, z1, WALL_NORTH_EAST);
+                this.unflag(x1 + 1, z1 + 1, WALL_SOUTH_WEST);
             }
-            if (arg1 == 2) {
-                this.method2459(local17, 40, local4);
-                this.method2459(local17, 128, local4 + 1);
-                this.method2459(local17 - 1, 2, local4);
+            if (rotation == 2) {
+                this.unflag(x1, z1, WALL_SOUTH_EAST);
+                this.unflag(x1 + 1, z1 - 1, WALL_NORTH_WEST);
             }
-            if (arg1 == 3) {
-                this.method2459(local17, 160, local4);
-                this.method2459(local17 - 1, 2, local4);
-                this.method2459(local17, 8, local4 - 1);
+            if (rotation == 3) {
+                this.unflag(x1, z1, WALL_SOUTH_WEST);
+                this.unflag(x1 - 1, z1 - 1, WALL_NORTH_EAST);
             }
         }
-        if (arg5) {
-            if (arg2 == 0) {
-                if (arg1 == 0) {
-                    this.method2459(local17, 65536, local4);
-                    this.method2459(local17, 4096, local4 - 1);
+        if (shape == LocShapes.WALL_L) {
+            if (rotation == 0) {
+                this.unflag(x1, z1, WALL_NORTH_AND_WEST);
+                this.unflag(x1 - 1, z1, WALL_EAST);
+                this.unflag(x1, z1 + 1, WALL_SOUTH);
+            }
+            if (rotation == 1) {
+                this.unflag(x1, z1, WALL_NORTH_AND_EAST);
+                this.unflag(x1, z1 + 1, WALL_SOUTH);
+                this.unflag(x1 + 1, z1, WALL_WEST);
+            }
+            if (rotation == 2) {
+                this.unflag(x1, z1, WALL_SOUTH_AND_EAST);
+                this.unflag(x1 + 1, z1, WALL_WEST);
+                this.unflag(x1, z1 - 1, WALL_NORTH);
+            }
+            if (rotation == 3) {
+                this.unflag(x1, z1, WALL_SOUTH_AND_WEST);
+                this.unflag(x1, z1 - 1, WALL_NORTH);
+                this.unflag(x1 - 1, z1, WALL_EAST);
+            }
+        }
+
+        if (blockRanged) {
+            if (shape == LocShapes.WALL_STRAIGHT) {
+                if (rotation == 0) {
+                    this.unflag(x1, z1, WALL_WEST_BLOCK_RANGED);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
                 }
-                if (arg1 == 1) {
-                    this.method2459(local17, 1024, local4);
-                    this.method2459(local17 + 1, 16384, local4);
+                if (rotation == 1) {
+                    this.unflag(x1, z1, WALL_NORTH_BLOCK_RANGED);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
                 }
-                if (arg1 == 2) {
-                    this.method2459(local17, 4096, local4);
-                    this.method2459(local17, 65536, local4 + 1);
+                if (rotation == 2) {
+                    this.unflag(x1, z1, WALL_EAST_BLOCK_RANGED);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
                 }
-                if (arg1 == 3) {
-                    this.method2459(local17, 16384, local4);
-                    this.method2459(local17 - 1, 1024, local4);
+                if (rotation == 3) {
+                    this.unflag(x1, z1, WALL_SOUTH_BLOCK_RANGED);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
                 }
             }
-            if (arg2 == 1 || arg2 == 3) {
-                if (arg1 == 0) {
-                    this.method2459(local17, 512, local4);
-                    this.method2459(local17 + 1, 8192, local4 - 1);
+            if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
+                if (rotation == 0) {
+                    this.unflag(x1, z1, WALL_NORTH_WEST_BLOCK_RANGED);
+                    this.unflag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCK_RANGED);
                 }
-                if (arg1 == 1) {
-                    this.method2459(local17, 2048, local4);
-                    this.method2459(local17 + 1, 32768, local4 + 1);
+                if (rotation == 1) {
+                    this.unflag(x1, z1, WALL_NORTH_EAST_BLOCK_RANGED);
+                    this.unflag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BLOCK_RANGED);
                 }
-                if (arg1 == 2) {
-                    this.method2459(local17, 8192, local4);
-                    this.method2459(local17 - 1, 512, local4 + 1);
+                if (rotation == 2) {
+                    this.unflag(x1, z1, WALL_SOUTH_EAST_BLOCK_RANGED);
+                    this.unflag(x1 + 1, z1 - 1, WALL_NORTH_WEST_BLOCK_RANGED);
                 }
-                if (arg1 == 3) {
-                    this.method2459(local17, 32768, local4);
-                    this.method2459(local17 - 1, 2048, local4 - 1);
+                if (rotation == 3) {
+                    this.unflag(x1, z1, WALL_SOUTH_WEST_BLOCK_RANGED);
+                    this.unflag(x1 - 1, z1 - 1, WALL_NORTH_EAST_BLOCK_RANGED);
                 }
             }
-            if (arg2 == 2) {
-                if (arg1 == 0) {
-                    this.method2459(local17, 66560, local4);
-                    this.method2459(local17, 4096, local4 - 1);
-                    this.method2459(local17 + 1, 16384, local4);
+            if (shape == LocShapes.WALL_L) {
+                if (rotation == 0) {
+                    this.unflag(x1, z1, WALL_NORTH_AND_WEST_BLOCK_RANGED);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
                 }
-                if (arg1 == 1) {
-                    this.method2459(local17, 5120, local4);
-                    this.method2459(local17 + 1, 16384, local4);
-                    this.method2459(local17, 65536, local4 + 1);
+                if (rotation == 1) {
+                    this.unflag(x1, z1, WALL_NORTH_AND_EAST_BLOCK_RANGED);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
                 }
-                if (arg1 == 2) {
-                    this.method2459(local17, 20480, local4);
-                    this.method2459(local17, 65536, local4 + 1);
-                    this.method2459(local17 - 1, 1024, local4);
+                if (rotation == 2) {
+                    this.unflag(x1, z1, WALL_SOUTH_AND_EAST_BLOCK_RANGED);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
                 }
-                if (arg1 == 3) {
-                    this.method2459(local17, 81920, local4);
-                    this.method2459(local17 - 1, 1024, local4);
-                    this.method2459(local17, 4096, local4 - 1);
+                if (rotation == 3) {
+                    this.unflag(x1, z1, WALL_SOUTH_AND_WEST_BLOCK_RANGED);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
                 }
             }
         }
-        if (!arg3) {
-            return;
-        }
-        if (arg2 == 0) {
-            if (arg1 == 0) {
-                this.method2459(local17, 536870912, local4);
-                this.method2459(local17, 33554432, local4 - 1);
+
+        if (blockRoute) {
+            if (shape == LocShapes.WALL_STRAIGHT) {
+                if (rotation == 0) {
+                    this.unflag(x1, z1, WALL_WEST_BLOCK_ROUTE);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                }
+                if (rotation == 1) {
+                    this.unflag(x1, z1, WALL_NORTH_BLOCK_ROUTE);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                }
+                if (rotation == 2) {
+                    this.unflag(x1, z1, WALL_EAST_BLOCK_ROUTE);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                }
+                if (rotation == 3) {
+                    this.unflag(x1, z1, WALL_SOUTH_BLOCK_ROUTE);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                }
             }
-            if (arg1 == 1) {
-                this.method2459(local17, 8388608, local4);
-                this.method2459(local17 + 1, 134217728, local4);
+            if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
+                if (rotation == 0) {
+                    this.unflag(x1, z1, WALL_NORTH_WEST_BLOCK_ROUTE);
+                    this.unflag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCK_ROUTE);
+                }
+                if (rotation == 1) {
+                    this.unflag(x1, z1, WALL_NORTH_EAST_BLOCK_ROUTE);
+                    this.unflag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BLOCK_ROUTE);
+                }
+                if (rotation == 2) {
+                    this.unflag(x1, z1, WALL_SOUTH_EAST_BLOCK_ROUTE);
+                    this.unflag(x1 + 1, z1 - 1, WALL_NORTH_WEST_BLOCK_ROUTE);
+                }
+                if (rotation == 3) {
+                    this.unflag(x1, z1, WALL_SOUTH_WEST_BLOCK_ROUTE);
+                    this.unflag(x1 - 1, z1 - 1, WALL_NORTH_EAST_BLOCK_ROUTE);
+                }
             }
-            if (arg1 == 2) {
-                this.method2459(local17, 33554432, local4);
-                this.method2459(local17, 536870912, local4 + 1);
+            if (shape == 2) {
+                if (rotation == 0) {
+                    this.unflag(x1, z1, WALL_NORTH_AND_WEST_BLOCK_ROUTE);
+                    this.unflag(x1 - 1, z1, WALL_NORTH_EAST_BLOCK_ROUTE);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                }
+                if (rotation == 1) {
+                    this.unflag(x1, z1, WALL_NORTH_AND_EAST_BLOCK_ROUTE);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                }
+                if (rotation == 2) {
+                    this.unflag(x1, z1, WALL_SOUTH_AND_EAST_BLOCK_ROUTE);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                }
+                if (rotation == 3) {
+                    this.unflag(x1, z1, WALL_SOUTH_AND_WEST_BLOCK_ROUTE);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                }
             }
-            if (arg1 == 3) {
-                this.method2459(local17, 134217728, local4);
-                this.method2459(local17 - 1, 8388608, local4);
-            }
-        }
-        if (arg2 == 1 || arg2 == 3) {
-            if (arg1 == 0) {
-                this.method2459(local17, 4194304, local4);
-                this.method2459(local17 + 1, 67108864, local4 - 1);
-            }
-            if (arg1 == 1) {
-                this.method2459(local17, 16777216, local4);
-                this.method2459(local17 + 1, 268435456, local4 + 1);
-            }
-            if (arg1 == 2) {
-                this.method2459(local17, 67108864, local4);
-                this.method2459(local17 - 1, 4194304, local4 + 1);
-            }
-            if (arg1 == 3) {
-                this.method2459(local17, 268435456, local4);
-                this.method2459(local17 - 1, 16777216, local4 - 1);
-            }
-        }
-        if (arg2 != 2) {
-            return;
-        }
-        if (arg1 == 0) {
-            this.method2459(local17, 545259520, local4);
-            this.method2459(local17, 33554432, local4 - 1);
-            this.method2459(local17 + 1, 134217728, local4);
-        }
-        if (arg1 == 1) {
-            this.method2459(local17, 41943040, local4);
-            this.method2459(local17 + 1, 134217728, local4);
-            this.method2459(local17, 536870912, local4 + 1);
-        }
-        if (arg1 == 2) {
-            this.method2459(local17, 167772160, local4);
-            this.method2459(local17, 536870912, local4 + 1);
-            this.method2459(local17 - 1, 8388608, local4);
-        }
-        if (arg1 == 3) {
-            this.method2459(local17, 671088640, local4);
-            this.method2459(local17 - 1, 8388608, local4);
-            this.method2459(local17, 33554432, local4 - 1);
-            return;
         }
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIIIIIII)Z")
-    public boolean method2464(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
-        if (arg4 > 1) {
-            return Static275.method3979(arg2, arg4, arg3, arg6, arg5, arg7, arg0, arg4) ? true : this.method2460(arg4, arg0, arg4, arg3, arg2, arg1, arg5, arg7, arg6);
+    public boolean isInsideOrOutsideRect(@OriginalArg(4) int x1, @OriginalArg(8) int z1, @OriginalArg(5) int size, @OriginalArg(3) int destX1, @OriginalArg(0) int destZ1, @OriginalArg(7) int destWidth, @OriginalArg(6) int destHeight, @OriginalArg(2) int direction) {
+        if (size > 1) {
+            if (isInsideRect(destX1, size, x1, destWidth, destHeight, z1, destZ1, size)) {
+                return true;
+            } else {
+                return this.isOutsideRect(x1, z1, size, size, destX1, destZ1, destWidth, destHeight, direction);
+            }
         }
-        @Pc(53) int local53 = arg6 + arg2 - 1;
-        @Pc(59) int local59 = arg5 + arg0 - 1;
-        if (arg2 <= arg3 && local53 >= arg3 && arg0 <= arg7 && arg7 <= local59) {
+
+        @Pc(53) int destX2 = destX1 + destWidth - 1;
+        @Pc(59) int destZ2 = destZ1 + destHeight - 1;
+
+        if (x1 >= destX1 && x1 <= destX2 && z1 >= destZ1 && z1 <= destZ2) {
             return true;
-        } else if (arg3 == arg2 - 1 && arg7 >= arg0 && arg7 <= local59 && (this.anIntArrayArray65[arg3 - this.anInt2647][arg7 - this.anInt2645] & 0x8) == 0 && (arg1 & 0x8) == 0) {
+        } else if (x1 == destX1 - 1 && z1 >= destZ1 && z1 <= destZ2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_EAST) == 0 && (direction & DIRECTION_WEST) == 0) {
             return true;
-        } else if (arg3 == local53 + 1 && arg0 <= arg7 && local59 >= arg7 && (this.anIntArrayArray65[arg3 - this.anInt2647][arg7 - this.anInt2645] & 0x80) == 0 && (arg1 & 0x2) == 0) {
+        } else if (x1 == destX2 + 1 && z1 >= destZ1 && z1 <= destZ2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_WEST) == 0 && (direction & DIRECTION_EAST) == 0) {
             return true;
-        } else if (arg0 - 1 == arg7 && arg3 >= arg2 && arg3 <= local53 && (this.anIntArrayArray65[arg3 - this.anInt2647][arg7 - this.anInt2645] & 0x2) == 0 && (arg1 & 0x4) == 0) {
+        } else if (z1 == destZ1 - 1 && x1 >= destX1 && x1 <= destX2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_NORTH) == 0 && (direction & DIRECTION_SOUTH) == 0) {
+            return true;
+        } else if (z1 == destZ2 + 1 && x1 >= destX1 && x1 <= destX2 && (this.flags[x1 - this.x][z1 - this.z] & WALL_SOUTH) == 0 && (direction & DIRECTION_NORTH) == 0) {
             return true;
         } else {
-            return arg7 == local59 + 1 && arg3 >= arg2 && arg3 <= local53 && (this.anIntArrayArray65[arg3 - this.anInt2647][arg7 - this.anInt2645] & 0x20) == 0 && (arg1 & 0x1) == 0;
+            return false;
         }
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIIIIII)Z")
-    public boolean method2465(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        if (arg0 == 1) {
-            if (arg5 == arg4 && arg3 == arg2) {
+    public boolean isAtWall(@OriginalArg(4) int x, @OriginalArg(2) int destZ, @OriginalArg(0) int size, @OriginalArg(5) int destX, @OriginalArg(3) int z, @OriginalArg(1) int shape, @OriginalArg(6) int rotation) {
+        if (size == 1) {
+            if (x == destX && z == destZ) {
                 return true;
             }
-        } else if (arg5 >= arg4 && arg5 <= arg4 + arg0 - 1 && arg2 >= arg2 && arg2 + arg0 - 1 >= arg2) {
+        } else if (x <= destX && x + size - 1 >= destX && destZ <= destZ && destZ <= destZ + size - 1) {
             return true;
         }
-        @Pc(68) int local68 = arg4 - this.anInt2647;
-        @Pc(73) int local73 = arg2 - this.anInt2645;
-        @Pc(78) int local78 = arg5 - this.anInt2647;
-        @Pc(83) int local83 = arg3 - this.anInt2645;
-        if (arg0 == 1) {
-            if (arg1 == 0) {
-                if (arg6 == 0) {
-                    if (local68 == local78 - 1 && local83 == local73) {
+
+        @Pc(68) int x1 = x - this.x;
+        @Pc(73) int destZ1 = destZ - this.z;
+        @Pc(78) int destX1 = destX - this.x;
+        @Pc(83) int z1 = z - this.z;
+
+        if (size == 1) {
+            if (shape == LocShapes.WALL_STRAIGHT) {
+                if (rotation == 0) {
+                    if (x1 == destX1 - 1 && z1 == destZ1) {
                         return true;
                     }
-                    if (local68 == local78 && local73 + 1 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0120) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & 0x2C0120) == 0) {
                         return true;
                     }
-                    if (local78 == local68 && local83 == local73 - 1 && (this.anIntArrayArray65[local68][local83] & 0x2C0102) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & 0x2C0102) == 0) {
                         return true;
                     }
-                } else if (arg6 == 1) {
-                    if (local78 == local68 && local73 + 1 == local83) {
+                } else if (rotation == 1) {
+                    if (x1 == destX1 && z1 == destZ1 + 1) {
                         return true;
                     }
-                    if (local78 - 1 == local68 && local83 == local73 && (this.anIntArrayArray65[local68][local83] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0108) == 0) {
                         return true;
                     }
-                    if (local68 == local78 + 1 && local73 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0180) == 0) {
                         return true;
                     }
-                } else if (arg6 == 2) {
-                    if (local68 == local78 + 1 && local83 == local73) {
+                } else if (rotation == 2) {
+                    if (x1 == destX1 + 1 && z1 == destZ1) {
                         return true;
                     }
-                    if (local78 == local68 && local83 == local73 + 1 && (this.anIntArrayArray65[local68][local83] & 0x2C0120) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & 0x2C0120) == 0) {
                         return true;
                     }
-                    if (local78 == local68 && local73 - 1 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0102) == 0) {
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & 0x2C0102) == 0) {
                         return true;
                     }
-                } else if (arg6 == 3) {
-                    if (local78 == local68 && local83 == local73 - 1) {
+                } else if (rotation == 3) {
+                    if (x1 == destX1 && z1 == destZ1 - 1) {
                         return true;
                     }
-                    if (local68 == local78 - 1 && local73 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0108) == 0) {
                         return true;
                     }
-                    if (local68 == local78 + 1 && local73 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0180) == 0) {
-                        return true;
-                    }
-                }
-            }
-            if (arg1 == 2) {
-                if (arg6 == 0) {
-                    if (local68 == local78 - 1 && local73 == local83) {
-                        return true;
-                    }
-                    if (local78 == local68 && local83 == local73 + 1) {
-                        return true;
-                    }
-                    if (local68 == local78 + 1 && local73 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0180) == 0) {
-                        return true;
-                    }
-                    if (local78 == local68 && local73 - 1 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0102) == 0) {
-                        return true;
-                    }
-                } else if (arg6 == 1) {
-                    if (local68 == local78 - 1 && local83 == local73 && (this.anIntArrayArray65[local68][local83] & 0x2C0108) == 0) {
-                        return true;
-                    }
-                    if (local68 == local78 && local83 == local73 + 1) {
-                        return true;
-                    }
-                    if (local68 == local78 + 1 && local83 == local73) {
-                        return true;
-                    }
-                    if (local78 == local68 && local83 == local73 - 1 && (this.anIntArrayArray65[local68][local83] & 0x2C0102) == 0) {
-                        return true;
-                    }
-                } else if (arg6 == 2) {
-                    if (local78 - 1 == local68 && local73 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0108) == 0) {
-                        return true;
-                    }
-                    if (local78 == local68 && local73 + 1 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0120) == 0) {
-                        return true;
-                    }
-                    if (local78 + 1 == local68 && local83 == local73) {
-                        return true;
-                    }
-                    if (local78 == local68 && local73 - 1 == local83) {
-                        return true;
-                    }
-                } else if (arg6 == 3) {
-                    if (local78 - 1 == local68 && local83 == local73) {
-                        return true;
-                    }
-                    if (local68 == local78 && local83 == local73 + 1 && (this.anIntArrayArray65[local68][local83] & 0x2C0120) == 0) {
-                        return true;
-                    }
-                    if (local68 == local78 + 1 && local73 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2C0180) == 0) {
-                        return true;
-                    }
-                    if (local78 == local68 && local73 - 1 == local83) {
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0180) == 0) {
                         return true;
                     }
                 }
             }
-            if (arg1 == 9) {
-                if (local78 == local68 && local73 + 1 == local83 && (this.anIntArrayArray65[local68][local83] & 0x20) == 0) {
+            if (shape == LocShapes.WALL_L) {
+                if (rotation == 0) {
+                    if (x1 == destX1 - 1 && z1 == destZ1) {
+                        return true;
+                    }
+                    if (destX1 == x1 && z1 == destZ1 + 1) {
+                        return true;
+                    }
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0180) == 0) {
+                        return true;
+                    }
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & 0x2C0102) == 0) {
+                        return true;
+                    }
+                } else if (rotation == 1) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0108) == 0) {
+                        return true;
+                    }
+                    if (x1 == destX1 && z1 == destZ1 + 1) {
+                        return true;
+                    }
+                    if (x1 == destX1 + 1 && z1 == destZ1) {
+                        return true;
+                    }
+                    if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & 0x2C0102) == 0) {
+                        return true;
+                    }
+                } else if (rotation == 2) {
+                    if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0108) == 0) {
+                        return true;
+                    }
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & 0x2C0120) == 0) {
+                        return true;
+                    }
+                    if (x1 == destX1 + 1 && z1 == destZ1) {
+                        return true;
+                    }
+                    if (x1 == destX1 && z1 == destZ1 - 1) {
+                        return true;
+                    }
+                } else if (rotation == 3) {
+                    if (x1 == destX1 - 1 && z1 == destZ1) {
+                        return true;
+                    }
+                    if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & 0x2C0120) == 0) {
+                        return true;
+                    }
+                    if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & 0x2C0180) == 0) {
+                        return true;
+                    }
+                    if (x1 == destX1 && z1 == destZ1 - 1) {
+                        return true;
+                    }
+                }
+            }
+            if (shape == LocShapes.WALL_DIAGONAL) {
+                if (x1 == destX1 && z1 == destZ1 + 1 && (this.flags[x1][z1] & WALL_SOUTH) == 0) {
                     return true;
                 }
-                if (local78 == local68 && local73 - 1 == local83 && (this.anIntArrayArray65[local68][local83] & 0x2) == 0) {
+                if (x1 == destX1 && z1 == destZ1 - 1 && (this.flags[x1][z1] & WALL_NORTH) == 0) {
                     return true;
                 }
-                if (local78 - 1 == local68 && local73 == local83 && (this.anIntArrayArray65[local68][local83] & 0x8) == 0) {
+                if (x1 == destX1 - 1 && z1 == destZ1 && (this.flags[x1][z1] & WALL_EAST) == 0) {
                     return true;
                 }
-                if (local78 + 1 == local68 && local73 == local83 && (this.anIntArrayArray65[local68][local83] & 0x80) == 0) {
+                if (x1 == destX1 + 1 && z1 == destZ1 && (this.flags[x1][z1] & WALL_WEST) == 0) {
                     return true;
                 }
             }
         } else {
-            @Pc(100) int local100 = arg0 + local68 - 1;
-            @Pc(106) int local106 = arg0 + local83 - 1;
-            if (arg1 == 0) {
-                if (arg6 == 0) {
-                    if (local78 - arg0 == local68 && local73 >= local83 && local73 <= local106) {
+            @Pc(100) int x2 = x1 + size - 1;
+            @Pc(106) int z2 = z1 + size - 1;
+
+            if (shape == LocShapes.WALL_STRAIGHT) {
+                if (rotation == 0) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1) {
                         return true;
                     }
-                    if (local78 >= local68 && local100 >= local78 && local73 + 1 == local83 && (this.anIntArrayArray65[local78][local83] & 0x2C0120) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
                         return true;
                     }
-                    if (local78 >= local68 && local100 >= local78 && local73 - arg0 == local83 && (this.anIntArrayArray65[local78][local106] & 0x2C0102) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
                         return true;
                     }
-                } else if (arg6 == 1) {
-                    if (local78 >= local68 && local100 >= local78 && local73 + 1 == local83) {
+                } else if (rotation == 1) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1) {
                         return true;
                     }
-                    if (local68 == local78 - arg0 && local73 >= local83 && local73 <= local106 && (this.anIntArrayArray65[local100][local73] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
                         return true;
                     }
-                    if (local78 + 1 == local68 && local73 >= local83 && local106 >= local73 && (this.anIntArrayArray65[local68][local73] & 0x2C0180) == 0) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
                         return true;
                     }
-                } else if (arg6 == 2) {
-                    if (local78 + 1 == local68 && local83 <= local73 && local73 <= local106) {
+                } else if (rotation == 2) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1) {
                         return true;
                     }
-                    if (local78 >= local68 && local78 <= local100 && local83 == local73 + 1 && (this.anIntArrayArray65[local78][local83] & 0x2C0120) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
                         return true;
                     }
-                    if (local68 <= local78 && local100 >= local78 && local73 - arg0 == local83 && (this.anIntArrayArray65[local78][local106] & 0x2C0102) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
                         return true;
                     }
-                } else if (arg6 == 3) {
-                    if (local78 >= local68 && local78 <= local100 && local83 == local73 - arg0) {
+                } else if (rotation == 3) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size) {
                         return true;
                     }
-                    if (local68 == local78 - arg0 && local73 >= local83 && local73 <= local106 && (this.anIntArrayArray65[local100][local73] & 0x2C0108) == 0) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
                         return true;
                     }
-                    if (local68 == local78 + 1 && local83 <= local73 && local106 >= local73 && (this.anIntArrayArray65[local68][local73] & 0x2C0180) == 0) {
-                        return true;
-                    }
-                }
-            }
-            if (arg1 == 2) {
-                if (arg6 == 0) {
-                    if (local78 - arg0 == local68 && local83 <= local73 && local73 <= local106) {
-                        return true;
-                    }
-                    if (local78 >= local68 && local100 >= local78 && local83 == local73 + 1) {
-                        return true;
-                    }
-                    if (local68 == local78 + 1 && local73 >= local83 && local73 <= local106 && (this.anIntArrayArray65[local68][local73] & 0x2C0180) == 0) {
-                        return true;
-                    }
-                    if (local78 >= local68 && local78 <= local100 && local83 == local73 - arg0 && (this.anIntArrayArray65[local78][local106] & 0x2C0102) == 0) {
-                        return true;
-                    }
-                } else if (arg6 == 1) {
-                    if (local68 == local78 - arg0 && local83 <= local73 && local73 <= local106 && (this.anIntArrayArray65[local100][local73] & 0x2C0108) == 0) {
-                        return true;
-                    }
-                    if (local78 >= local68 && local100 >= local78 && local83 == local73 + 1) {
-                        return true;
-                    }
-                    if (local78 + 1 == local68 && local83 <= local73 && local106 >= local73) {
-                        return true;
-                    }
-                    if (local68 <= local78 && local100 >= local78 && local73 - arg0 == local83 && (this.anIntArrayArray65[local78][local106] & 0x2C0102) == 0) {
-                        return true;
-                    }
-                } else if (arg6 == 2) {
-                    if (local68 == local78 - arg0 && local73 >= local83 && local106 >= local73 && (this.anIntArrayArray65[local100][local73] & 0x2C0108) == 0) {
-                        return true;
-                    }
-                    if (local78 >= local68 && local78 <= local100 && local73 + 1 == local83 && (this.anIntArrayArray65[local78][local83] & 0x2C0120) == 0) {
-                        return true;
-                    }
-                    if (local78 + 1 == local68 && local73 >= local83 && local106 >= local73) {
-                        return true;
-                    }
-                    if (local78 >= local68 && local100 >= local78 && local83 == local73 - arg0) {
-                        return true;
-                    }
-                } else if (arg6 == 3) {
-                    if (local78 - arg0 == local68 && local73 >= local83 && local106 >= local73) {
-                        return true;
-                    }
-                    if (local68 <= local78 && local100 >= local78 && local83 == local73 + 1 && (this.anIntArrayArray65[local78][local83] & 0x2C0120) == 0) {
-                        return true;
-                    }
-                    if (local68 == local78 + 1 && local83 <= local73 && local73 <= local106 && (this.anIntArrayArray65[local68][local73] & 0x2C0180) == 0) {
-                        return true;
-                    }
-                    if (local68 <= local78 && local78 <= local100 && local83 == local73 - arg0) {
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
                         return true;
                     }
                 }
             }
-            if (arg1 == 9) {
-                if (local68 <= local78 && local78 <= local100 && local73 + 1 == local83 && (this.anIntArrayArray65[local78][local83] & 0x2C0120) == 0) {
+            if (shape == LocShapes.WALL_L) {
+                if (rotation == 0) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1) {
+                        return true;
+                    }
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1) {
+                        return true;
+                    }
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
+                        return true;
+                    }
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
+                        return true;
+                    }
+                } else if (rotation == 1) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
+                        return true;
+                    }
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1) {
+                        return true;
+                    }
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1) {
+                        return true;
+                    }
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
+                        return true;
+                    }
+                } else if (rotation == 2) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
+                        return true;
+                    }
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
+                        return true;
+                    }
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1) {
+                        return true;
+                    }
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size) {
+                        return true;
+                    }
+                } else if (rotation == 3) {
+                    if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1) {
+                        return true;
+                    }
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
+                        return true;
+                    }
+                    if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
+                        return true;
+                    }
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size) {
+                        return true;
+                    }
+                }
+            }
+            if (shape == LocShapes.WALL_DIAGONAL) {
+                if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & 0x2C0120) == 0) {
                     return true;
                 }
-                if (local78 >= local68 && local100 >= local78 && local73 - arg0 == local83 && (this.anIntArrayArray65[local78][local106] & 0x2C0102) == 0) {
+                if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & 0x2C0102) == 0) {
                     return true;
                 }
-                if (local68 == local78 - arg0 && local73 >= local83 && local106 >= local73 && (this.anIntArrayArray65[local100][local73] & 0x2C0108) == 0) {
+                if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x2][destZ1] & 0x2C0108) == 0) {
                     return true;
                 }
-                if (local78 + 1 == local68 && local83 <= local73 && local106 >= local73 && (this.anIntArrayArray65[local68][local73] & 0x2C0180) == 0) {
+                if (x1 == destX1 + 1 && z1 <= destZ1 && z2 >= destZ1 && (this.flags[x1][destZ1] & 0x2C0180) == 0) {
                     return true;
                 }
             }
@@ -831,47 +968,48 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(III)V")
-    public void method2466(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(15) int local15 = arg1 - this.anInt2647;
-        @Pc(20) int local20 = arg0 - this.anInt2645;
-        this.anIntArrayArray65[local15][local20] |= 0x200000;
+    public void flagBlockWalk(@OriginalArg(0) int z, @OriginalArg(1) int x) {
+        @Pc(15) int x1 = x - this.x;
+        @Pc(20) int z1 = z - this.z;
+        this.flags[x1][z1] |= BLOCK_WALK;
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(I)V")
-    public void method2467() {
-        for (@Pc(5) int local5 = 0; local5 < this.anInt2643; local5++) {
-            for (@Pc(8) int local8 = 0; local8 < this.anInt2653; local8++) {
-                if (local5 == 0 || local8 == 0 || local5 >= this.anInt2643 - 5 || this.anInt2653 - 5 <= local8) {
-                    this.anIntArrayArray65[local5][local8] = -1;
+    public void reset() {
+        for (@Pc(5) int x = 0; x < this.width; x++) {
+            for (@Pc(8) int z = 0; z < this.height; z++) {
+                if (x != 0 && z != 0 && x < this.width - 5 && z < this.height - 5) {
+                    this.flags[x][z] = BLOCK_WALK;
                 } else {
-                    this.anIntArrayArray65[local5][local8] = 2097152;
+                    this.flags[x][z] = -1;
                 }
             }
         }
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(ZZBIIIII)V")
-    public void method2468(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
-        @Pc(7) int local7 = 256;
-        if (arg0) {
-            local7 = 131328;
+    public void unflagRect(@OriginalArg(3) int x, @OriginalArg(7) int z, @OriginalArg(4) int width, @OriginalArg(5) int height, @OriginalArg(6) int rotation, @OriginalArg(0) boolean blockRanged, @OriginalArg(1) boolean blockRoute) {
+        @Pc(7) int flags = LOCATION;
+        if (blockRanged) {
+            flags |= LOCATION_BLOCK_RANGED;
         }
-        @Pc(18) int local18 = arg6 - this.anInt2645;
-        @Pc(23) int local23 = arg2 - this.anInt2647;
-        @Pc(35) int local35;
-        if (arg5 == 1 || arg5 == 3) {
-            local35 = arg3;
-            arg3 = arg4;
-            arg4 = local35;
+        if (blockRoute) {
+            flags |= LOCATION_BLOCK_ROUTE;
         }
-        if (arg1) {
-            local7 |= 0x40000000;
+
+        @Pc(18) int z1 = z - this.z;
+        @Pc(23) int x1 = x - this.x;
+        if (rotation == 1 || rotation == 3) {
+            @Pc(35) int temp = width;
+            width = height;
+            height = temp;
         }
-        for (local35 = local23; local35 < arg3 + local23; local35++) {
-            if (local35 >= 0 && this.anInt2643 > local35) {
-                for (@Pc(69) int local69 = local18; local69 < local18 + arg4; local69++) {
-                    if (local69 >= 0 && local69 < this.anInt2653) {
-                        this.method2459(local69, local7, local35);
+
+        for (@Pc(35) int currX = x1; currX < width + x1; currX++) {
+            if (currX >= 0 && currX < this.width) {
+                for (@Pc(69) int currZ = z1; currZ < z1 + height; currZ++) {
+                    if (currZ >= 0 && currZ < this.height) {
+                        this.unflag(currX, currZ, flags);
                     }
                 }
             }
@@ -879,40 +1017,41 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "c", descriptor = "(III)V")
-    public void method2469(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(11) int local11 = arg0 - this.anInt2645;
-        @Pc(20) int local20 = arg1 - this.anInt2647;
-        this.anIntArrayArray65[local20][local11] &= 0xFFDFFFFF;
+    public void unflagTile(@OriginalArg(1) int x, @OriginalArg(0) int z) {
+        @Pc(11) int z1 = z - this.z;
+        @Pc(20) int x1 = x - this.x;
+        this.flags[x1][z1] &= ~BLOCK_WALK;
     }
 
     @OriginalMember(owner = "client!eq", name = "b", descriptor = "(III)V")
-    public void flagGroundDecor(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(8) int local8 = arg1 - this.anInt2647;
-        @Pc(13) int local13 = arg0 - this.anInt2645;
-        this.anIntArrayArray65[local8][local13] |= 0x40000;
+    public void flagGroundDecor(@OriginalArg(1) int x, @OriginalArg(0) int z) {
+        @Pc(8) int x1 = x - this.x;
+        @Pc(13) int z1 = z - this.z;
+        this.flags[x1][z1] |= GROUND_DECOR;
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIII)V")
-    public void method2471(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        this.anIntArrayArray65[arg0][arg1] |= arg2;
+    public void flag(@OriginalArg(0) int x, @OriginalArg(1) int z, @OriginalArg(2) int flags) {
+        this.flags[x][z] |= flags;
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIIZIZ)V")
-    public void flagRect(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) boolean arg3, @OriginalArg(5) int arg4, @OriginalArg(6) boolean arg5) {
-        @Pc(5) int local5 = 256;
-        if (arg5) {
-            local5 = 131328;
+    public void flagRect(@OriginalArg(0) int x, @OriginalArg(3) int z, @OriginalArg(5) int width, @OriginalArg(1) int height, @OriginalArg(6) boolean blockRanged, @OriginalArg(4) boolean blockRoute) {
+        @Pc(5) int flags = LOCATION;
+        if (blockRanged) {
+            flags |= LOCATION_BLOCK_RANGED;
         }
-        if (arg3) {
-            local5 |= 0x40000000;
+        if (blockRoute) {
+            flags |= LOCATION_BLOCK_ROUTE;
         }
-        @Pc(22) int local22 = arg2 - this.anInt2645;
-        @Pc(32) int local32 = arg0 - this.anInt2647;
-        for (@Pc(34) int local34 = local32; local34 < local32 + arg4; local34++) {
-            if (local34 >= 0 && this.anInt2643 > local34) {
-                for (@Pc(52) int local52 = local22; local52 < arg1 + local22; local52++) {
-                    if (local52 >= 0 && this.anInt2653 > local52) {
-                        this.method2471(local34, local52, local5);
+
+        @Pc(22) int z1 = z - this.z;
+        @Pc(32) int x1 = x - this.x;
+        for (@Pc(34) int currX = x1; currX < x1 + width; currX++) {
+            if (currX >= 0 && currX < this.width) {
+                for (@Pc(52) int currZ = z1; currZ < z1 + height; currZ++) {
+                    if (currZ >= 0 && currZ < this.height) {
+                        this.flag(currX, currZ, flags);
                     }
                 }
             }
@@ -920,9 +1059,9 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IZI)V")
-    public void method2473(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(20) int local20 = arg0 - this.anInt2645;
-        @Pc(25) int local25 = arg1 - this.anInt2647;
-        this.anIntArrayArray65[local25][local20] &= 0xFFFBFFFF;
+    public void unflagGroundDecor(@OriginalArg(2) int x, @OriginalArg(0) int z) {
+        @Pc(20) int z1 = z - this.z;
+        @Pc(25) int x1 = x - this.x;
+        this.flags[x1][z1] &= ~GROUND_DECOR;
     }
 }

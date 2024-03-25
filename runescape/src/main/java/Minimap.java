@@ -70,11 +70,11 @@ public final class Minimap {
         @Pc(222) int local222;
         for (@Pc(171) IntNode local171 = (IntNode) Static612.A_DEQUE___67.first(); local171 != null; local171 = (IntNode) Static612.A_DEQUE___67.next()) {
             @Pc(178) int local178 = local171.value;
-            local190 = (Static42.aMapElementList_2.anIntArray495[local178] >> 14 & 0x3FFF) - WorldMap.areaBaseX;
-            local200 = (Static42.aMapElementList_2.anIntArray495[local178] & 0x3FFF) - WorldMap.areaBaseZ;
+            local190 = (Static42.aMapElementList_2.coords[local178] >> 14 & 0x3FFF) - WorldMap.areaBaseX;
+            local200 = (Static42.aMapElementList_2.coords[local178] & 0x3FFF) - WorldMap.areaBaseZ;
             local211 = local190 * 4 + 2 - local90 / 128;
             local222 = local200 * 4 + 2 - local93 / 128;
-            Static620.method8322(local222, x, local30, toolkit, Static42.aMapElementList_2.anIntArray496[local178], y, local211, component);
+            Static620.method8322(local222, x, local30, toolkit, Static42.aMapElementList_2.functions[local178], y, local211, component);
         }
         for (local190 = 0; local190 < Static536.anInt8148; local190++) {
             local200 = anIntArray654[local190] * 4 + 2 - local90 / 128;

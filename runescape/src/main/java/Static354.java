@@ -19,30 +19,33 @@ public final class Static354 {
     public static boolean showProfiling = false;
 
     @OriginalMember(owner = "client!ld", name = "a", descriptor = "(BLclient!cg;)V")
-    public static void method5181(@OriginalArg(1) PathingEntity arg0) {
-        @Pc(6) Animator local6 = arg0.actionAnimator;
-        if (TimeUtils.clock == arg0.exactMoveT2 || !local6.isAnimating() || local6.method9090()) {
-            @Pc(34) int local34 = arg0.exactMoveT2 - arg0.exactMoveT1;
-            @Pc(40) int local40 = TimeUtils.clock - arg0.exactMoveT1;
-            @Pc(52) int local52 = arg0.exactMoveX1 * 512 + arg0.getSize() * 256;
-            @Pc(64) int local64 = arg0.exactMoveZ1 * 512 + arg0.getSize() * 256;
-            @Pc(76) int local76 = arg0.exactMoveX2 * 512 + arg0.getSize() * 256;
-            @Pc(88) int local88 = arg0.exactMoveZ2 * 512 + arg0.getSize() * 256;
-            arg0.x = (local76 * local40 + local52 * (local34 - local40)) / local34;
-            arg0.z = (local40 * local88 + local64 * (local34 - local40)) / local34;
+    public static void exactMoveTick2(@OriginalArg(1) PathingEntity entity) {
+        @Pc(6) Animator animator = entity.actionAnimator;
+
+        if (TimeUtils.clock == entity.exactMoveT2 || !animator.isAnimating() || animator.method9090()) {
+            @Pc(34) int total = entity.exactMoveT2 - entity.exactMoveT1;
+            @Pc(40) int elapsed = TimeUtils.clock - entity.exactMoveT1;
+            @Pc(52) int x1 = (entity.exactMoveX1 * 512) + (entity.getSize() * 256);
+            @Pc(64) int z1 = (entity.exactMoveZ1 * 512) + (entity.getSize() * 256);
+            @Pc(76) int x2 = (entity.exactMoveX2 * 512) + (entity.getSize() * 256);
+            @Pc(88) int z2 = (entity.exactMoveZ2 * 512) + (entity.getSize() * 256);
+            entity.x = ((x2 * elapsed) + (x1 * (total - elapsed))) / total;
+            entity.z = ((z2 * elapsed) + (z1 * (total - elapsed))) / total;
         }
-        arg0.delayedWalkingTicks = 0;
-        if (arg0.exactMoveDirection == 0) {
-            arg0.turn(8192, false);
+
+        entity.delayedWalkingTicks = 0;
+
+        if (entity.exactMoveDirection == 0) {
+            entity.turn(8192, false);
         }
-        if (arg0.exactMoveDirection == 1) {
-            arg0.turn(12288, false);
+        if (entity.exactMoveDirection == 1) {
+            entity.turn(12288, false);
         }
-        if (arg0.exactMoveDirection == 2) {
-            arg0.turn(0, false);
+        if (entity.exactMoveDirection == 2) {
+            entity.turn(0, false);
         }
-        if (arg0.exactMoveDirection == 3) {
-            arg0.turn(4096, false);
+        if (entity.exactMoveDirection == 3) {
+            entity.turn(4096, false);
         }
     }
 }

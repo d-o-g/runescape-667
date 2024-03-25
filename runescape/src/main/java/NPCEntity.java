@@ -174,7 +174,7 @@ public final class NPCEntity extends PathingEntity {
         local22.translate(super.x, -super.anInt10732 + super.y - 20, super.z);
         @Pc(104) BASType local104 = this.getBASType();
         @Pc(118) NPCType local118 = this.type.multinpcs == null ? this.type : this.type.getMultiNPC(TimedVarDomain.instance);
-        super.aBoolean819 = false;
+        super.transparent = false;
         @Pc(123) PickableEntity local123 = null;
         if (ClientOptions.instance.spotShadows.getValue() == 1 && local118.hasShadow && local104.animateShadow) {
             @Pc(159) Animator local159 = super.actionAnimator.isAnimating() && super.actionAnimator.isDelayed() ? super.actionAnimator : null;
@@ -182,7 +182,7 @@ public final class NPCEntity extends PathingEntity {
             @Pc(223) Model local223 = ShadowList.model(this.type.shadowInnerAlpha & 0xFF, super.aModelArray3[0], super.modelRotateZ, this.type.shadowInnerColour & 0xFFFF, super.modelTranslateY, this.type.size, arg0, this.type.shadowOuterAlpha & 0xFF, local179 == null ? local159 : local179, super.modelRotateX, local27, this.type.shadowOuterColour & 0xFFFF);
             if (local223 != null) {
                 local123 = Static642.method8441(this.method9330(), super.aModelArray3.length + 1);
-                super.aBoolean819 = true;
+                super.transparent = true;
                 arg0.C(false);
                 if (Static504.renderOrtho) {
                     local223.renderOrtho(local22, local123.pickingCylinders[super.aModelArray3.length], Static582.orthoAngle, 0);
@@ -222,7 +222,7 @@ public final class NPCEntity extends PathingEntity {
         }
         for (@Pc(419) int local419 = 0; local419 < super.aModelArray3.length; local419++) {
             if (super.aModelArray3[local419] != null) {
-                super.aBoolean819 |= super.aModelArray3[local419].F();
+                super.transparent |= super.aModelArray3[local419].F();
             }
             super.aModelArray3[local419] = null;
         }
@@ -231,32 +231,32 @@ public final class NPCEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IZLclient!ha;)Z")
-    public boolean method9324(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1) {
+    public boolean method9324(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit toolkit) {
         @Pc(5) int local5 = arg0;
-        @Pc(9) BASType local9 = this.getBASType();
+        @Pc(9) BASType basType = this.getBASType();
         @Pc(27) Animator local27 = super.actionAnimator.isAnimating() && !super.actionAnimator.isDelayed() ? super.actionAnimator : null;
         @Pc(47) Animator local47 = super.animator.isAnimating() && (!super.ready || local27 == null) ? super.animator : null;
-        @Pc(50) int local50 = local9.hillWidth;
-        @Pc(53) int local53 = local9.hillHeight;
-        if (local50 != 0 || local53 != 0 || local9.rollTargetAngle != 0 || local9.pitchTargetAngle != 0) {
+        @Pc(50) int local50 = basType.hillWidth;
+        @Pc(53) int local53 = basType.hillHeight;
+        if (local50 != 0 || local53 != 0 || basType.rollTargetAngle != 0 || basType.pitchTargetAngle != 0) {
             arg0 |= 0x7;
         }
         @Pc(100) boolean local100 = super.recolScale != 0 && super.recolStart <= TimeUtils.clock && TimeUtils.clock < super.recolEnd;
         if (local100) {
             arg0 |= 0x80000;
         }
-        @Pc(111) int local111 = super.yaw.getValue(16383);
-        @Pc(134) Model local134 = super.aModelArray3[0] = this.type.getModel(TimedVarDomain.instance, arg1, BASTypeList.instance, local27, local111, super.wornRotation, this.customisation, local47, arg0, super.wornAnimators);
+        @Pc(111) int yaw = super.yaw.getValue(16383);
+        @Pc(134) Model local134 = super.aModelArray3[0] = this.type.getModel(TimedVarDomain.instance, toolkit, BASTypeList.instance, local27, yaw, super.wornRotation, this.customisation, local47, arg0, super.wornAnimators);
         if (local134 == null) {
             return false;
         }
-        super.anInt10748 = local134.fa();
-        super.anInt10728 = local134.ma();
+        super.minY = local134.fa();
+        super.sphereRadius = local134.ma();
         this.method9306(local134);
         if (local50 == 0 && local53 == 0) {
-            this.method9314(local111, 0, 0, this.getSize() << 9, this.getSize() << 9, -86);
+            this.method9314(yaw, 0, 0, this.getSize() << 9, this.getSize() << 9, -86);
         } else {
-            this.method9314(local111, local9.hillMaxAngleX, local9.hillMaxAngleY, local50, local53, -119);
+            this.method9314(yaw, basType.hillMaxAngleX, basType.hillMaxAngleY, local50, local53, -119);
             if (super.modelRotateX != 0) {
                 super.aModelArray3[0].FA(super.modelRotateX);
             }
@@ -270,7 +270,7 @@ public final class NPCEntity extends PathingEntity {
         if (local100) {
             local134.adjustColours(super.recolHue, super.recolSaturation, super.recolLightness, super.recolScale & 0xFF);
         }
-        this.method9297(local5, local53, arg1, local9, local111, local50);
+        this.method9297(local5, local53, toolkit, basType, yaw, local50);
         return true;
     }
 

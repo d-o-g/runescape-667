@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static341 {
 
     @OriginalMember(owner = "client!ko", name = "J", descriptor = "[[I")
-    public static int[][] anIntArrayArray133;
+    public static int[][] entityDrawPriorities;
 
     @OriginalMember(owner = "client!ko", name = "g", descriptor = "(I)V")
     public static void method5033(@OriginalArg(0) int arg0) {

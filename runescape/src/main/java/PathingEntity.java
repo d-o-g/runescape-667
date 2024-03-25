@@ -105,7 +105,7 @@ public abstract class PathingEntity extends PositionEntity {
     public final int[] hitAmounts;
 
     @OriginalMember(owner = "client!cg", name = "tb", descriptor = "I")
-    protected int anInt10728;
+    protected int sphereRadius;
 
     @OriginalMember(owner = "client!cg", name = "vc", descriptor = "I")
     public int timerbarEnd;
@@ -156,10 +156,10 @@ public abstract class PathingEntity extends PositionEntity {
     public final int[] hitTypes;
 
     @OriginalMember(owner = "client!cg", name = "N", descriptor = "I")
-    protected int anInt10748;
+    protected int minY;
 
     @OriginalMember(owner = "client!cg", name = "Db", descriptor = "I")
-    public int anInt10747;
+    public int hpClock;
 
     @OriginalMember(owner = "client!cg", name = "qc", descriptor = "Lclient!gu;")
     public final Animator animator;
@@ -207,7 +207,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int anInt10765;
 
     @OriginalMember(owner = "client!cg", name = "Hb", descriptor = "Z")
-    protected boolean aBoolean819;
+    protected boolean transparent;
 
     @OriginalMember(owner = "client!cg", name = "rb", descriptor = "Z")
     protected boolean aBoolean820;
@@ -231,11 +231,11 @@ public abstract class PathingEntity extends PositionEntity {
     public final DelayedEntityAnimator[] wornAnimators;
 
     @OriginalMember(owner = "client!cg", name = "<init>", descriptor = "(I)V")
-    public PathingEntity(@OriginalArg(0) int arg0) {
+    public PathingEntity(@OriginalArg(0) int pathLength) {
         super(0, 0, 0, 0, 0, 0, 0, 0, 0, false, (byte) 0);
         this.actionAnimations = null;
         this.hitAmounts = new int[GraphicsDefaults.instance.maxhitmarks];
-        this.anInt10728 = 0;
+        this.sphereRadius = 0;
         this.timerbarEnd = -1000;
         this.drawPriority = 0;
         this.anInt10735 = 0;
@@ -252,8 +252,8 @@ public abstract class PathingEntity extends PositionEntity {
         this.healthPercentages = new int[GraphicsDefaults.instance.maxhitmarks];
         this.timerbarSprite = false;
         this.hitTypes = new int[GraphicsDefaults.instance.maxhitmarks];
-        this.anInt10748 = -32768;
-        this.anInt10747 = -1000;
+        this.minY = -32768;
+        this.hpClock = -1000;
         this.animator = new EntityAnimator(this, false);
         this.actionAnimator = new EntityAnimator(this, false);
         this.anInt10749 = 0;
@@ -269,12 +269,12 @@ public abstract class PathingEntity extends PositionEntity {
         this.delayedWalkingTicks = 0;
         this.pathPointer = 0;
         this.anInt10765 = 0;
-        this.aBoolean819 = false;
+        this.transparent = false;
         this.aBoolean820 = false;
-        this.pathZ = new int[arg0];
-        this.pathX = new int[arg0];
+        this.pathZ = new int[pathLength];
+        this.pathX = new int[pathLength];
         this.spotAnims = new EntitySpotAnimation[4];
-        this.pathSpeed = new byte[arg0];
+        this.pathSpeed = new byte[pathLength];
         this.aModelArray3 = new Model[5];
         for (@Pc(174) int local174 = 0; local174 < 4; local174++) {
             this.spotAnims[local174] = new EntitySpotAnimation(this);
@@ -288,9 +288,10 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "b", descriptor = "(I)V")
-    public final void method9296() {
+    public final void chatTick() {
         if (this.line != null && this.line.text != null) {
             this.line.remaining--;
+
             if (this.line.remaining == 0) {
                 this.line.text = null;
             }
@@ -298,85 +299,96 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IILclient!ha;Lclient!pda;III)V")
-    protected final void method9297(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Toolkit arg2, @OriginalArg(3) BASType arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        for (@Pc(13) int local13 = 0; local13 < this.spotAnims.length; local13++) {
+    protected final void method9297(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Toolkit toolkit, @OriginalArg(3) BASType basType, @OriginalArg(4) int rotation, @OriginalArg(5) int arg5) {
+        for (@Pc(13) int i = 0; i < this.spotAnims.length; i++) {
             @Pc(16) byte local16 = 0;
-            if (local13 == 0) {
+            if (i == 0) {
                 local16 = 2;
-            } else if (local13 == 1) {
+            } else if (i == 1) {
                 local16 = 5;
-            } else if (local13 == 2) {
+            } else if (i == 2) {
                 local16 = 1;
-            } else if (local13 == 3) {
+            } else if (i == 3) {
                 local16 = 7;
             }
-            @Pc(50) EntitySpotAnimation local50 = this.spotAnims[local13];
-            if (local50.id == -1 || local50.animator.isDelayed()) {
-                this.aModelArray3[local13 + 1] = null;
+
+            @Pc(50) EntitySpotAnimation spotAnim = this.spotAnims[i];
+            if (spotAnim.id == -1 || spotAnim.animator.isDelayed()) {
+                this.aModelArray3[i + 1] = null;
             } else {
-                @Pc(76) SpotAnimationType local76 = SpotAnimationTypeList.instance.list(local50.id);
-                @Pc(95) boolean local95 = local76.hillType == 3 && (arg5 != 0 || arg1 != 0);
+                @Pc(76) SpotAnimationType spotAnimationType = SpotAnimationTypeList.instance.list(spotAnim.id);
+                @Pc(95) boolean local95 = spotAnimationType.hillType == 3 && (arg5 != 0 || arg1 != 0);
+
                 @Pc(97) int local97 = arg0;
                 if (local95) {
                     local97 = arg0 | 0x7;
                 } else {
-                    if (local50.rotation != 0) {
+                    if (spotAnim.rotation != 0) {
                         local97 = arg0 | 0x5;
                     }
-                    if (local50.height != 0) {
+                    if (spotAnim.height != 0) {
                         local97 |= 0x2;
                     }
-                    if (local50.wornSlot >= 0) {
+                    if (spotAnim.wornSlot >= 0) {
                         local97 |= 0x7;
                     }
                 }
-                @Pc(146) Model local146 = this.aModelArray3[local13 + 1] = local76.model(local50.animator, local16, local97, arg2);
-                if (local146 != null) {
-                    if (local50.wornSlot >= 0 && arg3.wornTransformations != null && arg3.wornTransformations[local50.wornSlot] != null) {
-                        @Pc(171) int local171 = 0;
-                        @Pc(173) int local173 = 0;
-                        @Pc(175) int local175 = 0;
-                        if (arg3.wornTransformations != null && arg3.wornTransformations[local50.wornSlot] != null) {
-                            local173 = arg3.wornTransformations[local50.wornSlot][1];
-                            local175 = arg3.wornTransformations[local50.wornSlot][2];
-                            local171 = arg3.wornTransformations[local50.wornSlot][0];
+
+                @Pc(146) Model model = this.aModelArray3[i + 1] = spotAnimationType.model(spotAnim.animator, local16, local97, toolkit);
+                if (model != null) {
+                    if (spotAnim.wornSlot >= 0 && basType.wornTransformations != null && basType.wornTransformations[spotAnim.wornSlot] != null) {
+                        @Pc(171) int translateX = 0;
+                        @Pc(173) int translateY = 0;
+                        @Pc(175) int translateZ = 0;
+
+                        if (basType.wornTransformations != null && basType.wornTransformations[spotAnim.wornSlot] != null) {
+                            translateY = basType.wornTransformations[spotAnim.wornSlot][1];
+                            translateZ = basType.wornTransformations[spotAnim.wornSlot][2];
+                            translateX = basType.wornTransformations[spotAnim.wornSlot][0];
                         }
-                        if (arg3.graphicOffsets != null && arg3.graphicOffsets[local50.wornSlot] != null) {
-                            local173 += arg3.graphicOffsets[local50.wornSlot][1];
-                            local175 += arg3.graphicOffsets[local50.wornSlot][2];
-                            local171 += arg3.graphicOffsets[local50.wornSlot][0];
+
+                        if (basType.graphicOffsets != null && basType.graphicOffsets[spotAnim.wornSlot] != null) {
+                            translateY += basType.graphicOffsets[spotAnim.wornSlot][1];
+                            translateZ += basType.graphicOffsets[spotAnim.wornSlot][2];
+                            translateX += basType.graphicOffsets[spotAnim.wornSlot][0];
                         }
-                        if (local175 != 0 || local171 != 0) {
-                            @Pc(268) int local268 = arg4;
-                            if (this.wornRotation != null && this.wornRotation[local50.wornSlot] != -1) {
-                                local268 = this.wornRotation[local50.wornSlot];
+
+                        if (translateZ != 0 || translateX != 0) {
+                            @Pc(268) int wornRotation = rotation;
+                            if (this.wornRotation != null && this.wornRotation[spotAnim.wornSlot] != -1) {
+                                wornRotation = this.wornRotation[spotAnim.wornSlot];
                             }
-                            @Pc(299) int local299 = local268 + local50.rotation * 2048 - arg4 & 0x3FFF;
-                            if (local299 != 0) {
-                                local146.a(local299);
+
+                            @Pc(299) int rotateY = ((wornRotation + (spotAnim.rotation * 2048)) - rotation) & 0x3FFF;
+                            if (rotateY != 0) {
+                                model.a(rotateY);
                             }
-                            @Pc(310) int local310 = Trig1.SIN[local299];
-                            @Pc(314) int local314 = Trig1.COS[local299];
-                            @Pc(324) int local324 = local310 * local175 + local171 * local314 >> 14;
-                            local175 = local175 * local314 - local171 * local310 >> 14;
-                            local171 = local324;
+
+                            @Pc(310) int local310 = Trig1.SIN[rotateY];
+                            @Pc(314) int local314 = Trig1.COS[rotateY];
+                            @Pc(324) int local324 = local310 * translateZ + translateX * local314 >> 14;
+                            translateZ = translateZ * local314 - translateX * local310 >> 14;
+                            translateX = local324;
                         }
-                        local146.H(local171, local173, local175);
-                    } else if (local50.rotation != 0) {
-                        local146.a(local50.rotation * 2048);
+
+                        model.H(translateX, translateY, translateZ);
+                    } else if (spotAnim.rotation != 0) {
+                        model.a(spotAnim.rotation * 2048);
                     }
-                    if (local50.height != 0) {
-                        local146.H(0, -local50.height << 2, 0);
+
+                    if (spotAnim.height != 0) {
+                        model.H(0, -spotAnim.height << 2, 0);
                     }
+
                     if (local95) {
                         if (this.modelRotateX != 0) {
-                            local146.FA(this.modelRotateX);
+                            model.FA(this.modelRotateX);
                         }
                         if (this.modelRotateZ != 0) {
-                            local146.VA(this.modelRotateZ);
+                            model.VA(this.modelRotateZ);
                         }
                         if (this.modelTranslateY != 0) {
-                            local146.H(0, this.modelTranslateY, 0);
+                            model.H(0, this.modelTranslateY, 0);
                         }
                     }
                 }
@@ -410,10 +422,10 @@ public abstract class PathingEntity extends PositionEntity {
         @Pc(31) int local31;
         if (local17.characterHeight != -1) {
             local31 = local17.characterHeight;
-        } else if (this.anInt10748 == -32768) {
+        } else if (this.minY == -32768) {
             local31 = 200;
         } else {
-            local31 = -this.anInt10748;
+            local31 = -this.minY;
         }
         @Pc(55) Tile local55 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
         return local55 == null || local55.groundDecor == null ? local31 : local31 + local55.groundDecor.offsetY;
@@ -422,14 +434,14 @@ public abstract class PathingEntity extends PositionEntity {
     @OriginalMember(owner = "client!cg", name = "c", descriptor = "(B)I")
     @Override
     public final int getSphereRadius(@OriginalArg(0) byte arg0) {
-        return arg0 == -21 ? this.anInt10728 : 44;
+        return arg0 == -21 ? this.sphereRadius : 44;
     }
 
     @OriginalMember(owner = "client!cg", name = "k", descriptor = "(I)I")
     @Override
     public final int getMinY(@OriginalArg(0) int arg0) {
         if (arg0 == 2) {
-            return this.anInt10748 == -32768 ? 0 : this.anInt10748;
+            return this.minY == -32768 ? 0 : this.minY;
         } else {
             return 16;
         }
@@ -520,45 +532,50 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "e", descriptor = "(I)I")
     public final int method9303() {
-        @Pc(9) BASType local9 = this.getBASType();
-        @Pc(13) int local13 = this.yaw.value;
+        @Pc(9) BASType basType = this.getBASType();
+        @Pc(13) int yaw = this.yaw.value;
         @Pc(30) boolean local30;
-        if (local9.yawAcceleration == 0) {
+        if (basType.yawAcceleration == 0) {
             local30 = this.yaw.method2676(this.turnYaw, this.yawSpeed, -21712, this.yawSpeed);
         } else {
-            local30 = this.yaw.method2676(this.turnYaw, local9.yawMaxSpeed, -21712, local9.yawAcceleration);
+            local30 = this.yaw.method2676(this.turnYaw, basType.yawMaxSpeed, -21712, basType.yawAcceleration);
         }
-        @Pc(55) int local55 = this.yaw.value - local13;
-        if (local55 == 0) {
+
+        @Pc(55) int deltaYaw = this.yaw.value - yaw;
+        if (deltaYaw == 0) {
             this.anInt10749 = 0;
             this.yaw.setValue(this.turnYaw);
         } else {
             this.anInt10749++;
         }
+
         if (local30) {
-            if (local9.rollAcceleration != 0) {
-                if (local55 > 0) {
-                    this.aClass126_8.method2676(local9.rollTargetAngle, local9.rollMaxSpeed, -21712, local9.rollAcceleration);
+            if (basType.rollAcceleration != 0) {
+                if (deltaYaw > 0) {
+                    this.aClass126_8.method2676(basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
                 } else {
-                    this.aClass126_8.method2676(-local9.rollTargetAngle, local9.rollMaxSpeed, -21712, local9.rollAcceleration);
+                    this.aClass126_8.method2676(-basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
                 }
             }
-            if (local9.pitchAcceleration != 0) {
-                this.aClass126_9.method2676(local9.pitchTargetAngle, local9.pitchMaxSpeed, -21712, local9.pitchAcceleration);
+
+            if (basType.pitchAcceleration != 0) {
+                this.aClass126_9.method2676(basType.pitchTargetAngle, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
             }
         } else {
-            if (local9.rollAcceleration == 0) {
+            if (basType.rollAcceleration == 0) {
                 this.aClass126_8.setValue(0);
             } else {
-                this.aClass126_8.method2676(0, local9.rollMaxSpeed, -21712, local9.rollAcceleration);
+                this.aClass126_8.method2676(0, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
             }
-            if (local9.pitchAcceleration == 0) {
+
+            if (basType.pitchAcceleration == 0) {
                 this.aClass126_9.setValue(0);
             } else {
-                this.aClass126_9.method2676(0, local9.pitchMaxSpeed, -21712, local9.pitchAcceleration);
+                this.aClass126_9.method2676(0, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
             }
         }
-        return local55;
+
+        return deltaYaw;
     }
 
     @OriginalMember(owner = "client!cg", name = "h", descriptor = "(B)I")
@@ -582,17 +599,18 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ka;Z)V")
-    protected final void method9306(@OriginalArg(0) Model arg0) {
-        @Pc(15) int local15 = this.aClass126_8.value;
-        @Pc(19) int local19 = this.aClass126_9.value;
-        if (local15 == 0 && local19 == 0) {
+    protected final void method9306(@OriginalArg(0) Model model) {
+        @Pc(15) int rotateZ = this.aClass126_8.value;
+        @Pc(19) int rotateX = this.aClass126_9.value;
+        if (rotateZ == 0 && rotateX == 0) {
             return;
         }
-        @Pc(33) int local33 = arg0.fa() / 2;
-        arg0.H(0, -local33, 0);
-        arg0.VA(local15 & 0x3FFF);
-        arg0.FA(local19 & 0x3FFF);
-        arg0.H(0, local33, 0);
+
+        @Pc(33) int translateY = model.fa() / 2;
+        model.H(0, -translateY, 0);
+        model.VA(rotateZ & 0x3FFF);
+        model.FA(rotateX & 0x3FFF);
+        model.H(0, translateY, 0);
     }
 
     @OriginalMember(owner = "client!cg", name = "h", descriptor = "(I)Z")
@@ -601,63 +619,71 @@ public abstract class PathingEntity extends PositionEntity {
         if (arg0 != 0) {
             this.anInt10749 = -63;
         }
-        return this.aBoolean819;
+        return this.transparent;
     }
 
     @OriginalMember(owner = "client!cg", name = "b", descriptor = "(III)Z")
-    public final boolean method9307(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
+    public final boolean method9307(@OriginalArg(1) int slot, @OriginalArg(2) int arg1) {
         if (this.wornRotation == null) {
             if (arg1 == -1) {
                 return true;
             }
+
             this.wornRotation = new int[WearposDefaults.instance.hidden.length];
-            for (@Pc(24) int local24 = 0; local24 < WearposDefaults.instance.hidden.length; local24++) {
-                this.wornRotation[local24] = -1;
+
+            for (@Pc(24) int i = 0; i < WearposDefaults.instance.hidden.length; i++) {
+                this.wornRotation[i] = -1;
             }
         }
-        @Pc(43) BASType local43 = this.getBASType();
-        @Pc(45) int local45 = 256;
-        if (local43.maxWornRotation != null && local43.maxWornRotation[arg0] > 0) {
-            local45 = local43.maxWornRotation[arg0];
+
+        @Pc(43) BASType basType = this.getBASType();
+        @Pc(45) int maxWornRotation = 256;
+        if (basType.maxWornRotation != null && basType.maxWornRotation[slot] > 0) {
+            maxWornRotation = basType.maxWornRotation[slot];
         }
-        @Pc(82) int local82;
-        @Pc(87) int local87;
+
         if (arg1 != -1) {
-            if (this.wornRotation[arg0] == -1) {
-                this.wornRotation[arg0] = this.yaw.getValue(16383);
+            if (this.wornRotation[slot] == -1) {
+                this.wornRotation[slot] = this.yaw.getValue(16383);
             }
-            local82 = this.wornRotation[arg0];
-            local87 = arg1 - local82;
-            if (local87 >= -local45 && local45 >= local87) {
-                this.wornRotation[arg0] = arg1;
+
+            @Pc(82) int rotation = this.wornRotation[slot];
+            @Pc(87) int wornRotation = arg1 - rotation;
+            if (wornRotation >= -maxWornRotation && wornRotation <= maxWornRotation) {
+                this.wornRotation[slot] = arg1;
                 return true;
             }
-            if ((local87 <= 0 || local87 > 8192) && local87 > -8192) {
-                this.wornRotation[arg0] = local82 - local45 & 0x3FFF;
+
+            if ((wornRotation <= 0 || wornRotation > 8192) && wornRotation > -8192) {
+                this.wornRotation[slot] = rotation - maxWornRotation & 0x3FFF;
             } else {
-                this.wornRotation[arg0] = local82 + local45 & 0x3FFF;
+                this.wornRotation[slot] = rotation + maxWornRotation & 0x3FFF;
             }
+
             return false;
-        } else if (this.wornRotation[arg0] == -1) {
+        } else if (this.wornRotation[slot] == -1) {
             return true;
         } else {
-            local82 = this.yaw.getValue(16383);
-            local87 = this.wornRotation[arg0];
+            @Pc(82) int local82 = this.yaw.getValue(16383);
+            @Pc(87) int local87 = this.wornRotation[slot];
+
             @Pc(92) int local92 = local82 - local87;
-            if (-local45 > local92 || local45 < local92) {
+            if (-maxWornRotation > local92 || maxWornRotation < local92) {
                 if ((local92 <= 0 || local92 > 8192) && local92 > -8192) {
-                    this.wornRotation[arg0] = local87 - local45 & 0x3FFF;
+                    this.wornRotation[slot] = local87 - maxWornRotation & 0x3FFF;
                 } else {
-                    this.wornRotation[arg0] = local45 + local87 & 0x3FFF;
+                    this.wornRotation[slot] = maxWornRotation + local87 & 0x3FFF;
                 }
                 return false;
             }
-            this.wornRotation[arg0] = -1;
+
+            this.wornRotation[slot] = -1;
             for (@Pc(112) int local112 = 0; local112 < WearposDefaults.instance.hidden.length; local112++) {
                 if (this.wornRotation[local112] != -1) {
                     return true;
                 }
             }
+
             this.wornRotation = null;
             return true;
         }
@@ -729,6 +755,7 @@ public abstract class PathingEntity extends PositionEntity {
         if (this.line == null) {
             this.line = new EntityChatLine();
         }
+
         this.line.effect = effect;
         this.line.remaining = this.line.duration = duration;
         this.line.colour = colour;
@@ -763,14 +790,19 @@ public abstract class PathingEntity extends PositionEntity {
         @Pc(210) int local210 = Static323.method4626(local194 + super.z, super.level, local11, local20, super.x + local183);
         @Pc(218) int local218 = local74 < local119 ? local74 : local119;
         @Pc(226) int local226 = local210 > local165 ? local165 : local210;
+
         @Pc(234) int local234 = local119 >= local210 ? local210 : local119;
         this.modelRotateX = (int) (Math.atan2(local218 - local226, arg4) * 2607.5945876176133D) & 0x3FFF;
+
         @Pc(257) int local257 = local165 > local74 ? local74 : local165;
         this.modelRotateZ = (int) (Math.atan2(local257 - local234, arg3) * 2607.5945876176133D) & 0x3FFF;
+
         if (arg5 >= -78) {
             return;
         }
+
         @Pc(288) int local288;
+
         if (this.modelRotateX != 0 && arg1 != 0) {
             local288 = 16384 - arg1;
             if (this.modelRotateX > 8192) {
@@ -781,7 +813,9 @@ public abstract class PathingEntity extends PositionEntity {
                 this.modelRotateX = arg1;
             }
         }
+
         this.modelTranslateY = local210 + local74;
+
         if (this.modelRotateZ != 0 && arg2 != 0) {
             local288 = 16384 - arg2;
             if (this.modelRotateZ > 8192) {
@@ -792,9 +826,11 @@ public abstract class PathingEntity extends PositionEntity {
                 this.modelRotateZ = arg2;
             }
         }
+
         if (this.modelTranslateY > local119 + local165) {
             this.modelTranslateY = local119 + local165;
         }
+
         this.modelTranslateY = (this.modelTranslateY >> 1) - super.y;
     }
 
@@ -825,7 +861,7 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "c", descriptor = "(I)V")
-    public final void method9316() {
+    public final void stopMoving() {
         this.pathPointer = 0;
         this.animationPathPointer = 0;
     }

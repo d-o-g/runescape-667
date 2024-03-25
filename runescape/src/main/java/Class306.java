@@ -88,7 +88,7 @@ public class Class306 {
                         local19 = local11 + arg5;
                         @Pc(23) int local23 = local14 + arg1;
                         if (local19 >= 0 && this.width > local19 && local23 >= 0 && local23 < this.height) {
-                            local9.method2469(local23, local19);
+                            local9.unflagTile(local19, local23);
                         }
                     }
                 }
@@ -127,7 +127,7 @@ public class Class306 {
                                 local26 = local4 - 1;
                             }
                             if (local26 >= 0) {
-                                arg2[local26].method2466(local10, local7);
+                                arg2[local26].flagBlockWalk(local10, local7);
                             }
                         }
                     }
@@ -1340,7 +1340,7 @@ public class Class306 {
                     @Pc(49) int local49 = arg2 + MapRegion.rotateZoneX(local32 & 0x7, local35 & 0x7, arg6);
                     local61 = arg4 + MapRegion.rotateZoneY(local35 & 0x7, local32 & 0x7, arg6);
                     if (local49 > 0 && this.width - 1 > local49 && local61 > 0 && local61 < this.height - 1) {
-                        local30.method2469(local61, local49);
+                        local30.unflagTile(local49, local61);
                     }
                 }
             }

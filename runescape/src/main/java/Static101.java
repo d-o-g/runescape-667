@@ -28,7 +28,7 @@ public final class Static101 {
             Static557.method7331();
             for (@Pc(6) int chunkX = 0; chunkX < Static720.mapWidth >> 3; chunkX++) {
                 for (@Pc(9) int chunkY = 0; chunkY < Static501.mapHeight >> 3; chunkY++) {
-                    @Pc(18) int chunkData = Static623.anIntArrayArrayArray19[level][chunkX][chunkY];
+                    @Pc(18) int chunkData = Static623.zonePointers[level][chunkX][chunkY];
                     if (chunkData != -1) {
                         @Pc(27) int chunkLevel = (chunkData >> 24) & 0x3;
                         if (!region.underwater || chunkLevel == 0) {
@@ -38,7 +38,7 @@ public final class Static101 {
                             @Pc(65) int regionId = (regionZ / 8) + ((regionX / 8) << 8);
                             for (@Pc(67) int local67 = 0; local67 < Static89.anIntArray169.length; local67++) {
                                 if (Static89.anIntArray169[local67] == regionId && arg0[local67] != null) {
-                                    region.loadChunkLocations((regionX & 0x7) * 8, Static577.A_COLLISION_MAP_ARRAY_1, level, Toolkit.active, chunkX * 8, chunkY * 8, arg0[local67], regionDirection, chunkLevel, (regionZ & 0x7) * 8);
+                                    region.loadChunkLocations((regionX & 0x7) * 8, Static577.collisionMaps, level, Toolkit.active, chunkX * 8, chunkY * 8, arg0[local67], regionDirection, chunkLevel, (regionZ & 0x7) * 8);
                                     break;
                                 }
                             }

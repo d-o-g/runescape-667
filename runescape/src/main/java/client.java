@@ -595,7 +595,7 @@ public final class client extends GameShell {
                         @Pc(1027) Actor local1027 = CutsceneManager.actors[local181];
                         if (local1027.initialised) {
                             @Pc(1034) PathingEntity local1034 = local1027.entity();
-                            Static489.method6547(true, local1034);
+                            Static489.tick(true, local1034);
                         }
                     }
                 }
@@ -1146,7 +1146,7 @@ public final class client extends GameShell {
                             } else if (local203 > Static501.mapHeight - local114 - 1) {
                                 local203 = Static501.mapHeight - local114 - 1;
                             }
-                            @Pc(258) int local258 = Static521.method6870(local203, local114, true, 0, local97.pathX[0], local114, Static480.anIntArray583, local114, local97.pathZ[0], -1, Static577.A_COLLISION_MAP_ARRAY_1[local97.level], Static70.anIntArray147, local166, 0);
+                            @Pc(258) int local258 = Static521.method6870(local203, local114, true, 0, local97.pathX[0], local114, Static480.anIntArray583, local114, local97.pathZ[0], -1, Static577.collisionMaps[local97.level], Static70.anIntArray147, local166, 0);
                             if (local258 > 0) {
                                 if (local258 > 9) {
                                     local258 = 9;
@@ -1160,12 +1160,12 @@ public final class client extends GameShell {
                             }
                         }
                     }
-                    Static256.method3638(local97, true);
-                    local142 = Static112.method2104(local97);
-                    Static145.method2410(local97);
-                    Static651.method8513(Static521.anInt7756, local142, Static524.anInt8042, local97);
+                    Static256.movementTick(local97, true);
+                    local142 = Static112.turnTick(local97);
+                    Static145.wornTargetTick(local97);
+                    Static651.basTick(Static521.anInt7756, local142, Static524.anInt8042, local97);
                     Static702.updateActionAnimator(local97, Static521.anInt7756);
-                    Static50.method6638(local97);
+                    Static50.animationTick(local97);
                 }
             }
         }

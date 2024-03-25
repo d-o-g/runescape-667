@@ -120,12 +120,12 @@ public final class Static484 {
                     }
                 }
                 if (Static113.drawCollisionMap) {
-                    @Pc(435) CollisionMap local435 = Static577.A_COLLISION_MAP_ARRAY_1[arg1];
+                    @Pc(435) CollisionMap local435 = Static577.collisionMaps[arg1];
                     for (local284 = 0; local284 < Static200.anInt3302; local284++) {
                         for (local331 = 0; local331 < Static200.anInt3302; local331++) {
                             local336 = local208 + local284;
                             local340 = local331 + local211;
-                            local365 = local435.anIntArrayArray65[local336 - local435.anInt2647][local340 - local435.anInt2645];
+                            local365 = local435.flags[local336 - local435.x][local340 - local435.z];
                             if ((local365 & 0x40240000) != 0) {
                                 arg0.fillRect(4, 4, (Static200.anInt3302 - local331) * 4 + local216 - 4, local214 + local284 * 4, -1713569622);
                             } else if ((local365 & 0x800000) != 0) {
@@ -189,9 +189,9 @@ public final class Static484 {
                                         local278 = local211;
                                         local281 = local214;
                                         if (local832) {
-                                            @Pc(862) int[][] local862 = Static577.A_COLLISION_MAP_ARRAY_1[local216].anIntArrayArray65;
-                                            local331 = Static577.A_COLLISION_MAP_ARRAY_1[local216].anInt2647;
-                                            local336 = Static577.A_COLLISION_MAP_ARRAY_1[local216].anInt2645;
+                                            @Pc(862) int[][] local862 = Static577.collisionMaps[local216].flags;
+                                            local331 = Static577.collisionMaps[local216].x;
+                                            local336 = Static577.collisionMaps[local216].z;
                                             for (local340 = 0; local340 < 10; local340++) {
                                                 local365 = (int) (Math.random() * 4.0D);
                                                 if (local365 == 0 && local9 < local278 && local211 - 3 < local278 && (local862[local278 - local331 - 1][local281 - local336] & 0x2C0108) == 0) {
@@ -222,15 +222,15 @@ public final class Static484 {
             if (Static42.aMapElementList_2 != null) {
                 js5.CONFIG.discardunpacked = 1;
                 MapElementTypeList.instance.setCaches(1024, 64);
-                for (local214 = 0; local214 < Static42.aMapElementList_2.anInt6373; local214++) {
-                    local216 = Static42.aMapElementList_2.anIntArray495[local214];
+                for (local214 = 0; local214 < Static42.aMapElementList_2.size; local214++) {
+                    local216 = Static42.aMapElementList_2.coords[local214];
                     if (PlayerEntity.self.level == local216 >> 28) {
                         local218 = (local216 >> 14 & 0x3FFF) - WorldMap.areaBaseX;
                         local229 = (local216 & 0x3FFF) - WorldMap.areaBaseZ;
                         if (local218 >= 0 && local218 < Static720.mapWidth && local229 >= 0 && local229 < Static501.mapHeight) {
                             Static612.A_DEQUE___67.addLast(new IntNode(local214));
                         } else {
-                            @Pc(1199) MapElementType local1199 = MapElementTypeList.instance.list(Static42.aMapElementList_2.anIntArray496[local214]);
+                            @Pc(1199) MapElementType local1199 = MapElementTypeList.instance.list(Static42.aMapElementList_2.functions[local214]);
                             if (local1199.landmarkPolygons != null && local1199.anInt2614 + local218 >= 0 && local218 + local1199.anInt2598 < Static720.mapWidth && local1199.anInt2594 + local229 >= 0 && local229 + local1199.anInt2588 < Static501.mapHeight) {
                                 Static612.A_DEQUE___67.addLast(new IntNode(local214));
                             }

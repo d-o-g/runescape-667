@@ -8,47 +8,49 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!nc")
 public final class MapElementList {
 
-    @OriginalMember(owner = "client!nc", name = "d", descriptor = "I")
-    public int anInt6373;
-
-    @OriginalMember(owner = "client!nc", name = "e", descriptor = "[I")
-    public final int[] anIntArray495;
-
-    @OriginalMember(owner = "client!nc", name = "b", descriptor = "[I")
-    public final int[] anIntArray496;
-
-    @OriginalMember(owner = "client!nc", name = "<init>", descriptor = "(I)V")
-    public MapElementList(@OriginalArg(0) int arg0) {
-        this.anInt6373 = arg0;
-        this.anIntArray495 = new int[this.anInt6373];
-        this.anIntArray496 = new int[this.anInt6373];
-    }
-
     @OriginalMember(owner = "client!iu", name = "a", descriptor = "(ZILclient!sb;Ljava/lang/String;)Lclient!nc;")
-    public static MapElementList load(@OriginalArg(0) boolean arg0, @OriginalArg(2) js5 arg1, @OriginalArg(3) String arg2) {
-        @Pc(8) int local8 = arg1.getgroupid(arg2);
-        if (local8 == -1) {
+    public static MapElementList load(@OriginalArg(0) boolean mapMembers, @OriginalArg(2) js5 worldmapdata, @OriginalArg(3) String fileName) {
+        @Pc(8) int groupId = worldmapdata.getgroupid(fileName);
+        if (groupId == -1) {
             return new MapElementList(0);
         }
-        @Pc(24) int[] local24 = arg1.fileIds(local8);
-        @Pc(30) MapElementList local30 = new MapElementList(local24.length);
-        @Pc(32) int local32 = 0;
-        @Pc(34) int local34 = 0;
-        while (true) {
-            while (local30.anInt6373 > local32) {
-                @Pc(47) Packet local47 = new Packet(arg1.getfile(local24[local34++], local8));
-                @Pc(51) int local51 = local47.g4();
-                @Pc(57) int local57 = local47.g2();
-                @Pc(61) int local61 = local47.g1();
-                if (!arg0 && local61 == 1) {
-                    local30.anInt6373--;
-                } else {
-                    local30.anIntArray495[local32] = local51;
-                    local30.anIntArray496[local32] = local57;
-                    local32++;
-                }
+
+        @Pc(24) int[] fileIds = worldmapdata.fileIds(groupId);
+        @Pc(30) MapElementList list = new MapElementList(fileIds.length);
+
+        @Pc(32) int i = 0;
+        @Pc(34) int count = 0;
+        while (i < list.size) {
+            @Pc(47) Packet packet = new Packet(worldmapdata.getfile(fileIds[count++], groupId));
+            @Pc(51) int coord = packet.g4();
+            @Pc(57) int function = packet.g2();
+            @Pc(61) int members = packet.g1();
+
+            if (!mapMembers && members == 1) {
+                list.size--;
+            } else {
+                list.coords[i] = coord;
+                list.functions[i] = function;
+                i++;
             }
-            return local30;
         }
+
+        return list;
+    }
+
+    @OriginalMember(owner = "client!nc", name = "d", descriptor = "I")
+    public int size;
+
+    @OriginalMember(owner = "client!nc", name = "e", descriptor = "[I")
+    public final int[] coords;
+
+    @OriginalMember(owner = "client!nc", name = "b", descriptor = "[I")
+    public final int[] functions;
+
+    @OriginalMember(owner = "client!nc", name = "<init>", descriptor = "(I)V")
+    public MapElementList(@OriginalArg(0) int size) {
+        this.size = size;
+        this.coords = new int[this.size];
+        this.functions = new int[this.size];
     }
 }

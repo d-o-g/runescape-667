@@ -107,7 +107,7 @@ public final class Static84 {
                 if (local80 == 1) {
                     local135 = local36.x >> 9;
                     local140 = local36.z >> 9;
-                    if (local36.drawPriority != Static341.anIntArrayArray133[local135][local140]) {
+                    if (local36.drawPriority != Static341.entityDrawPriorities[local135][local140]) {
                         local36.aBoolean816 = true;
                         continue;
                     }
@@ -125,7 +125,7 @@ public final class Static84 {
                     if (!Static426.method1017(local203, local210, local140, local196, local36.drawPriority)) {
                         for (@Pc(221) int local221 = local140; local221 <= local203; local221++) {
                             for (@Pc(224) int local224 = local196; local224 <= local210; local224++) {
-                                if (local36.drawPriority == Static341.anIntArrayArray133[local221][local224]) {
+                                if (local36.drawPriority == Static341.entityDrawPriorities[local221][local224]) {
                                     local166 = Static148.anIntArrayArray64[local221][local224]--;
                                 }
                             }
@@ -165,7 +165,7 @@ public final class Static84 {
                         if (!local39.aBoolean816) {
                             local103++;
                         }
-                        if (local39.anInt10747 > TimeUtils.clock) {
+                        if (local39.hpClock > TimeUtils.clock) {
                             local103 += 2;
                         }
                         local103 += 5 - local39.getSize() << 2;
@@ -195,7 +195,7 @@ public final class Static84 {
                     if (!local166.aBoolean816) {
                         local213++;
                     }
-                    if (local166.anInt10747 > TimeUtils.clock) {
+                    if (local166.hpClock > TimeUtils.clock) {
                         local213 += 2;
                     }
                     local213 += 5 - local166.getSize() << 2;
@@ -295,7 +295,7 @@ public final class Static84 {
     @OriginalMember(owner = "client!client", name = "d", descriptor = "()V")
     public static void method1665() {
         for (@Pc(1) int local1 = 0; local1 < Static720.mapWidth; local1++) {
-            @Pc(6) int[] local6 = Static341.anIntArrayArray133[local1];
+            @Pc(6) int[] local6 = Static341.entityDrawPriorities[local1];
             for (@Pc(8) int local8 = 0; local8 < Static501.mapHeight; local8++) {
                 local6[local8] = 0;
             }
@@ -344,10 +344,10 @@ public final class Static84 {
             if (local69 == 1) {
                 local113 = local31.x >> 9;
                 local118 = local31.z >> 9;
-                if (local31.drawPriority > Static341.anIntArrayArray133[local113][local118]) {
-                    Static341.anIntArrayArray133[local113][local118] = local31.drawPriority;
+                if (local31.drawPriority > Static341.entityDrawPriorities[local113][local118]) {
+                    Static341.entityDrawPriorities[local113][local118] = local31.drawPriority;
                     Static148.anIntArrayArray64[local113][local118] = 1;
-                } else if (local31.drawPriority == Static341.anIntArrayArray133[local113][local118]) {
+                } else if (local31.drawPriority == Static341.entityDrawPriorities[local113][local118]) {
                     local155 = Static148.anIntArrayArray64[local113][local118]++;
                 }
             } else {
@@ -358,10 +358,10 @@ public final class Static84 {
                 @Pc(196) int local196 = local31.z + local113 >> 9;
                 for (@Pc(198) int local198 = local118; local198 <= local189; local198++) {
                     for (@Pc(201) int local201 = local182; local201 <= local196; local201++) {
-                        if (local31.drawPriority > Static341.anIntArrayArray133[local198][local201]) {
-                            Static341.anIntArrayArray133[local198][local201] = local31.drawPriority;
+                        if (local31.drawPriority > Static341.entityDrawPriorities[local198][local201]) {
+                            Static341.entityDrawPriorities[local198][local201] = local31.drawPriority;
                             Static148.anIntArrayArray64[local198][local201] = 1;
-                        } else if (local31.drawPriority == Static341.anIntArrayArray133[local198][local201]) {
+                        } else if (local31.drawPriority == Static341.entityDrawPriorities[local198][local201]) {
                             local155 = Static148.anIntArrayArray64[local198][local201]++;
                         }
                     }

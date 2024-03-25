@@ -12,7 +12,7 @@ public final class Static102 {
     public static final int[] anIntArray183 = new int[]{0, 1, 2, 2, 1, 1, 2, 3, 1, 3, 3, 4, 2, 0, 4};
 
     @OriginalMember(owner = "client!dd", name = "G", descriptor = "I")
-    public static int anInt2129 = 0;
+    public static int lastAreaMode = 0;
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "()V")
     public static void method2021() {

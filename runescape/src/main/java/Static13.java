@@ -20,7 +20,7 @@ public final class Static13 {
             @Pc(20) NPCEntityNode local20 = (NPCEntityNode) NPCList.local.get(local13);
             if (local20 != null) {
                 @Pc(25) NPCEntity local25 = local20.npc;
-                Static489.method6547(false, local25);
+                Static489.tick(false, local25);
             }
         }
     }

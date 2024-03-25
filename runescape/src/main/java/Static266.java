@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.core.constants.AreaMode;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
@@ -19,14 +20,14 @@ public final class Static266 {
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(I)V")
     public static void method6774() {
-        Static117.anInt2282 = -1;
-        Static102.anInt2129 = -1;
-        Static342.method4465(0);
+        Static117.areaMode = AreaMode.DEFAULT;
+        Static102.lastAreaMode = AreaMode.DEFAULT;
+        Static342.setBuildArea(0);
         @Pc(22) int local22;
         for (@Pc(14) int local14 = 0; local14 < 4; local14++) {
             for (@Pc(18) int local18 = 0; local18 < Static720.mapWidth >> 3; local18++) {
                 for (local22 = 0; local22 < Static501.mapHeight >> 3; local22++) {
-                    Static623.anIntArrayArrayArray19[local14][local18][local22] = -1;
+                    Static623.zonePointers[local14][local18][local22] = -1;
                 }
             }
         }
@@ -71,9 +72,9 @@ public final class Static266 {
                 @Pc(177) int local177 = local93;
                 while (local177 < local93 + local113) {
                     if (local88) {
-                        Static623.anIntArrayArrayArray19[local110][local118 + local101][local175 + local104] = (local171 << 3) + (local177 << 14) + (local107 << 24) + (local22 << 1);
+                        Static623.zonePointers[local110][local118 + local101][local175 + local104] = (local171 << 3) + (local177 << 14) + (local107 << 24) + (local22 << 1);
                     } else {
-                        Static623.anIntArrayArrayArray19[local110][local175 + local101][local104 + local118] = (local22 << 1) + (local171 << 3) + (local107 << 24) + (local177 << 14);
+                        Static623.zonePointers[local110][local175 + local101][local104 + local118] = (local22 << 1) + (local171 << 3) + (local107 << 24) + (local177 << 14);
                     }
                     local177++;
                     local175 += local122;

@@ -10,7 +10,7 @@ public final class Static82 {
         for (@Pc(16) int local16 = 0; local16 < local7; local16++) {
             @Pc(24) PlayerEntity local24 = PlayerList.highResolutionPlayers[local9[local16]];
             if (local24 != null) {
-                Static489.method6547(false, local24);
+                Static489.tick(false, local24);
             }
         }
     }

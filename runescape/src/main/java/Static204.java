@@ -37,15 +37,15 @@ public final class Static204 {
         @Pc(41) int local41 = 0;
         @Pc(52) int local52 = local35 + 1;
         Static428.anIntArray517[0] = arg8;
-        @Pc(57) int[][] local57 = arg9.anIntArrayArray65;
+        @Pc(57) int[][] local57 = arg9.flags;
         while (local52 != local41) {
             local7 = Static428.anIntArray517[local41];
             local5 = Static507.anIntArray610[local41];
             @Pc(70) int local70 = local7 - local21;
             @Pc(75) int local75 = local5 - local16;
             local41 = local41 + 1 & 0xFFF;
-            @Pc(87) int local87 = local5 - arg9.anInt2647;
-            @Pc(93) int local93 = local7 - arg9.anInt2645;
+            @Pc(87) int local87 = local5 - arg9.x;
+            @Pc(93) int local93 = local7 - arg9.z;
             if (arg5 == -4) {
                 if (arg3 == local5 && local7 == arg7) {
                     Static594.anInt8775 = local5;
@@ -53,30 +53,30 @@ public final class Static204 {
                     return true;
                 }
             } else if (arg5 == -3) {
-                if (Static275.method3979(arg3, 2, local5, arg6, arg2, local7, arg7, 2)) {
+                if (CollisionMap.isInsideRect(arg3, 2, local5, arg6, arg2, local7, arg7, 2)) {
                     Static407.anInt6285 = local7;
                     Static594.anInt8775 = local5;
                     return true;
                 }
             } else if (arg5 == -2) {
-                if (arg9.method2460(2, arg7, 2, local5, arg3, arg0, arg2, local7, arg6)) {
+                if (arg9.isOutsideRect(local5, local7, 2, 2, arg3, arg7, arg6, arg2, arg0)) {
                     Static407.anInt6285 = local7;
                     Static594.anInt8775 = local5;
                     return true;
                 }
             } else if (arg5 == -1) {
-                if (arg9.method2464(arg7, arg0, arg3, local5, 2, arg2, arg6, local7)) {
+                if (arg9.isInsideOrOutsideRect(local5, local7, 2, arg3, arg7, arg6, arg2, arg0)) {
                     Static407.anInt6285 = local7;
                     Static594.anInt8775 = local5;
                     return true;
                 }
             } else if (arg5 == 0 || arg5 == 1 || arg5 == 2 || arg5 == 3 || arg5 == 9) {
-                if (arg9.method2465(2, arg5, arg7, local7, local5, arg3, arg4)) {
+                if (arg9.isAtWall(local5, arg7, 2, arg3, local7, arg5, arg4)) {
                     Static594.anInt8775 = local5;
                     Static407.anInt6285 = local7;
                     return true;
                 }
-            } else if (arg9.method2458(local5, arg5, arg3, arg7, arg4, local7, 2)) {
+            } else if (arg9.isAtDiagonalWallDecor(local5, arg5, arg3, arg7, arg4, local7, 2)) {
                 Static407.anInt6285 = local7;
                 Static594.anInt8775 = local5;
                 return true;

@@ -163,7 +163,7 @@ public final class Static605 {
                 local42 = local34 & 0x3;
                 local46 = Static310.anIntArray379[local38];
                 local52 = bitPacket.g2_alt2();
-                if (Static55.method1218(Static117.anInt2282) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
+                if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
                     Static553.method7289(local42, local52, local46, local21, Static87.anInt1810, local38, local25);
                 }
             } else {
@@ -245,7 +245,7 @@ public final class Static605 {
                     local52 = bitPacket.g2();
                     if (local15 != PlayerList.activePlayerSlot) {
                         @Pc(1151) boolean local1151 = local38 >= 0 && local25 >= 0 && Static720.mapWidth > local38 && local25 < Static501.mapHeight;
-                        if (local1151 || Static55.method1218(Static117.anInt2282)) {
+                        if (local1151 || Static55.method1218(Static117.areaMode)) {
                             Static2.sortAllObjs(Static87.anInt1810, local34, local42, new ObjStackEntry(local46, local52));
                             if (local1151) {
                                 Static468.updateObjCount(Static87.anInt1810, local25, local38);
@@ -342,7 +342,7 @@ public final class Static605 {
                     local38 = local34 >> 2;
                     local42 = local34 & 0x3;
                     local46 = Static310.anIntArray379[local38];
-                    if (Static55.method1218(Static117.anInt2282) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && local25 < Static501.mapHeight) {
+                    if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && local25 < Static501.mapHeight) {
                         Static553.method7289(local42, -1, local46, local21, Static87.anInt1810, local38, local25);
                     }
                 } else if (Static18.A_ZONE_PROT___2 == arg0) {
@@ -354,7 +354,7 @@ public final class Static605 {
                     local42 = bitPacket.g2_alt2();
                     local46 = bitPacket.g2();
                     @Pc(1886) boolean local1886 = local34 >= 0 && local21 >= 0 && local34 < Static720.mapWidth && local21 < Static501.mapHeight;
-                    if (local1886 || Static55.method1218(Static117.anInt2282)) {
+                    if (local1886 || Static55.method1218(Static117.areaMode)) {
                         Static2.sortAllObjs(Static87.anInt1810, local25, local38, new ObjStackEntry(local42, local46));
                         if (local1886) {
                             Static468.updateObjCount(Static87.anInt1810, local21, local34);

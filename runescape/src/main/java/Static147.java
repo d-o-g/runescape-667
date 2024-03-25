@@ -18,7 +18,7 @@ public final class Static147 {
         if (local16 < 0 || local16 >= Static720.mapWidth || local21 < 0 || Static501.mapHeight <= local21) {
             return false;
         } else if (arg4 >= 0 && Static720.mapWidth > arg4 && arg1 >= 0 && arg1 < Static501.mapHeight) {
-            @Pc(98) int local98 = Static521.method6870(arg1, PlayerEntity.self.getSize(), arg3, arg5, local16, arg2, Static480.anIntArray583, arg7, local21, arg6, Static577.A_COLLISION_MAP_ARRAY_1[PlayerEntity.self.level], Static70.anIntArray147, arg4, arg0);
+            @Pc(98) int local98 = Static521.method6870(arg1, PlayerEntity.self.getSize(), arg3, arg5, local16, arg2, Static480.anIntArray583, arg7, local21, arg6, Static577.collisionMaps[PlayerEntity.self.level], Static70.anIntArray147, arg4, arg0);
             if (local98 < 1) {
                 return false;
             }

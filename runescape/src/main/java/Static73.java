@@ -100,7 +100,7 @@ public final class Static73 {
                 @Pc(38) int local38 = local26 * 64 - WorldMap.areaBaseX;
                 @Pc(45) int local45 = local32 * 64 - WorldMap.areaBaseZ;
                 Static557.method7331();
-                arg1.method7879(local20, local45, Static577.A_COLLISION_MAP_ARRAY_1, WorldMap.areaBaseZ, WorldMap.areaBaseX, local38);
+                arg1.method7879(local20, local45, Static577.collisionMaps, WorldMap.areaBaseZ, WorldMap.areaBaseX, local38);
                 arg1.method7893(local45, local20, local38, Toolkit.active);
             }
         }

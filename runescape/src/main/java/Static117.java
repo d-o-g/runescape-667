@@ -6,5 +6,5 @@ public final class Static117 {
     public static Node_Sub6_Sub1 aClass2_Sub6_Sub1_2;
 
     @OriginalMember(owner = "client!dla", name = "q", descriptor = "I")
-    public static int anInt2282 = 0;
+    public static int areaMode = 0;
 }

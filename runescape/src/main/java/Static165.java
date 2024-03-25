@@ -1,3 +1,4 @@
+import com.jagex.core.constants.AreaMode;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -7,16 +8,18 @@ public final class Static165 {
     public static int anInt2810;
 
     @OriginalMember(owner = "client!fc", name = "a", descriptor = "(I)V")
-    public static void method2607() {
-        if (Static117.anInt2282 == -1 || Static102.anInt2129 == -1) {
+    public static void updateLastAreaMode() {
+        if (Static117.areaMode == AreaMode.DEFAULT || Static102.lastAreaMode == AreaMode.DEFAULT) {
             return;
         }
-        if (Static117.anInt2282 == 1 || Static117.anInt2282 == 3 || Static117.anInt2282 != Static102.anInt2129 && (Static117.anInt2282 == 0 || Static102.anInt2129 == 0)) {
+
+        if (Static117.areaMode == AreaMode.CLEAR_LOCAL_NPCS || Static117.areaMode == AreaMode.ALLOW_OUT_OF_BOUNDS || Static117.areaMode != Static102.lastAreaMode && (Static117.areaMode == AreaMode.STATIC_AREA || Static102.lastAreaMode == AreaMode.STATIC_AREA)) {
             NPCList.localNpcCount = 0;
             NPCList.newNpcCount = 0;
             NPCList.local.clear();
         }
-        Static102.anInt2129 = Static117.anInt2282;
+
+        Static102.lastAreaMode = Static117.areaMode;
     }
 
     @OriginalMember(owner = "client!fc", name = "a", descriptor = "(IIBIIII)V")

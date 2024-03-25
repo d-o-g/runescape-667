@@ -33,7 +33,7 @@ public final class Static708 {
     }
 
     @OriginalMember(owner = "client!wga", name = "a", descriptor = "(IIII)V")
-    public static void method9231(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
+    public static void resetTileFlags(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         Static280.tileFlags = new byte[4][arg0][arg1];
     }
 }

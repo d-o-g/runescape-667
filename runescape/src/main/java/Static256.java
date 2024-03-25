@@ -114,7 +114,7 @@ public final class Static256 {
         if (!cutscene && (local206 - local186 > 1024 || local206 - local186 < -1024 || local222 - local189 > 1024 || local222 - local189 < -1024)) {
             entity.z = local222;
             entity.x = local206;
-            entity.turn(entity.turnYaw, false);
+            entity.turn(entity.yawTarget, false);
             Static524.anInt8042 = 0;
             if (entity.animationPathPointer > 0) {
                 entity.animationPathPointer--;
@@ -130,7 +130,7 @@ public final class Static256 {
         }
         @Pc(468) int local468;
         if (local424) {
-            local468 = entity.turnYaw - entity.yaw.value;
+            local468 = entity.yawTarget - entity.yaw.value;
             if (local468 != 0 && entity.target == -1 && entity.yawSpeed != 0) {
                 local422 = 8;
             }

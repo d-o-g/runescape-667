@@ -210,9 +210,9 @@ public final class i extends Model implements Interface5 {
             } else {
                 local89.matrix.method7128(arg0);
             }
-            local91.anInt6252 = Static445.anIntArray537[local5++];
-            local91.anInt6250 = Static445.anIntArray537[local5++];
-            local91.anInt6249 = Static445.anIntArray537[local5++];
+            local91.x = Static445.anIntArray537[local5++];
+            local91.y = Static445.anIntArray537[local5++];
+            local91.z = Static445.anIntArray537[local5++];
         }
     }
 

@@ -81,7 +81,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int exactMoveT2;
 
     @OriginalMember(owner = "client!cg", name = "jc", descriptor = "I")
-    public int turnYaw;
+    public int yawTarget;
 
     @OriginalMember(owner = "client!cg", name = "nb", descriptor = "I")
     public int exactMoveZ2;
@@ -186,13 +186,13 @@ public abstract class PathingEntity extends PositionEntity {
     public int recolStart;
 
     @OriginalMember(owner = "client!cg", name = "Cb", descriptor = "Lclient!ffa;")
-    public final Class126 yaw;
+    public final Orientation yaw;
 
     @OriginalMember(owner = "client!cg", name = "Eb", descriptor = "Lclient!ffa;")
-    public final Class126 aClass126_8;
+    public final Orientation aOrientation_8;
 
     @OriginalMember(owner = "client!cg", name = "Mb", descriptor = "Lclient!ffa;")
-    public final Class126 aClass126_9;
+    public final Orientation aOrientation_9;
 
     @OriginalMember(owner = "client!cg", name = "xb", descriptor = "I")
     public int animationPathPointer;
@@ -262,9 +262,9 @@ public abstract class PathingEntity extends PositionEntity {
         this.cutsceneClock = 0;
         this.recolScale = 0;
         this.recolStart = -1;
-        this.yaw = new Class126();
-        this.aClass126_8 = new Class126();
-        this.aClass126_9 = new Class126();
+        this.yaw = new Orientation();
+        this.aOrientation_8 = new Orientation();
+        this.aOrientation_9 = new Orientation();
         this.animationPathPointer = 0;
         this.delayedWalkingTicks = 0;
         this.pathPointer = 0;
@@ -411,8 +411,8 @@ public abstract class PathingEntity extends PositionEntity {
         @Pc(15) BASType bas = this.getBASType();
 
         if (force || bas.yawAcceleration != 0 || this.yawSpeed != 0) {
-            this.turnYaw = yaw & 0x3FFF;
-            this.yaw.setValue(this.turnYaw);
+            this.yawTarget = yaw & 0x3FFF;
+            this.yaw.setValue(this.yawTarget);
         }
     }
 
@@ -535,16 +535,16 @@ public abstract class PathingEntity extends PositionEntity {
         @Pc(9) BASType basType = this.getBASType();
         @Pc(13) int yaw = this.yaw.value;
         @Pc(30) boolean local30;
-        if (basType.yawAcceleration == 0) {
-            local30 = this.yaw.method2676(this.turnYaw, this.yawSpeed, -21712, this.yawSpeed);
+        if (basType.yawAcceleration != 0) {
+            local30 = this.yaw.tick(this.yawTarget, basType.yawMaxSpeed, -21712, basType.yawAcceleration);
         } else {
-            local30 = this.yaw.method2676(this.turnYaw, basType.yawMaxSpeed, -21712, basType.yawAcceleration);
+            local30 = this.yaw.tick(this.yawTarget, this.yawSpeed, -21712, this.yawSpeed);
         }
 
         @Pc(55) int deltaYaw = this.yaw.value - yaw;
         if (deltaYaw == 0) {
             this.anInt10749 = 0;
-            this.yaw.setValue(this.turnYaw);
+            this.yaw.setValue(this.yawTarget);
         } else {
             this.anInt10749++;
         }
@@ -552,26 +552,26 @@ public abstract class PathingEntity extends PositionEntity {
         if (local30) {
             if (basType.rollAcceleration != 0) {
                 if (deltaYaw > 0) {
-                    this.aClass126_8.method2676(basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
+                    this.aOrientation_8.tick(basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
                 } else {
-                    this.aClass126_8.method2676(-basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
+                    this.aOrientation_8.tick(-basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
                 }
             }
 
             if (basType.pitchAcceleration != 0) {
-                this.aClass126_9.method2676(basType.pitchTargetAngle, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
+                this.aOrientation_9.tick(basType.pitchTargetAngle, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
             }
         } else {
             if (basType.rollAcceleration == 0) {
-                this.aClass126_8.setValue(0);
+                this.aOrientation_8.setValue(0);
             } else {
-                this.aClass126_8.method2676(0, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
+                this.aOrientation_8.tick(0, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
             }
 
             if (basType.pitchAcceleration == 0) {
-                this.aClass126_9.setValue(0);
+                this.aOrientation_9.setValue(0);
             } else {
-                this.aClass126_9.method2676(0, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
+                this.aOrientation_9.tick(0, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
             }
         }
 
@@ -588,20 +588,20 @@ public abstract class PathingEntity extends PositionEntity {
             return;
         }
 
-        this.yaw.normalizeValue();
+        this.yaw.normalize();
 
-        @Pc(37) int normalizedYaw = (yaw - this.yaw.value) & 0x3FFF;
-        if (normalizedYaw > 8192) {
-            this.turnYaw = normalizedYaw + this.yaw.value - 16384;
+        @Pc(37) int delta = (yaw - this.yaw.value) & 0x3FFF;
+        if (delta > 8192) {
+            this.yawTarget = (delta + this.yaw.value) - 16384;
         } else {
-            this.turnYaw = normalizedYaw + this.yaw.value;
+            this.yawTarget = delta + this.yaw.value;
         }
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ka;Z)V")
     protected final void method9306(@OriginalArg(0) Model model) {
-        @Pc(15) int rotateZ = this.aClass126_8.value;
-        @Pc(19) int rotateX = this.aClass126_9.value;
+        @Pc(15) int rotateZ = this.aOrientation_8.value;
+        @Pc(19) int rotateX = this.aOrientation_9.value;
         if (rotateZ == 0 && rotateX == 0) {
             return;
         }

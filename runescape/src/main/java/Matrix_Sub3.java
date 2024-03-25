@@ -329,7 +329,7 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "b", descriptor = "(III[I)V")
     @Override
-    public void method7138(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
+    public void projectDirection(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
         arg3[2] = (int) ((float) arg0 * this.aFloat155 + this.aFloat151 * (float) arg1 + this.aFloat154 * (float) arg2);
         arg3[0] = (int) (this.aFloat160 * (float) arg2 + (float) arg0 * this.aFloat153 + (float) arg1 * this.aFloat157);
         arg3[1] = (int) ((float) arg1 * this.aFloat156 + this.aFloat161 * (float) arg0 + this.aFloat150 * (float) arg2);

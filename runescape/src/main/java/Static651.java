@@ -23,7 +23,7 @@ public final class Static651 {
     public static void basTick(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) PathingEntity arg3) {
         @Pc(9) BASType local9 = arg3.getBASType();
         @Pc(19) Animator local19 = arg3.animator;
-        @Pc(29) int local29 = arg3.turnYaw - arg3.yaw.value & 0x3FFF;
+        @Pc(29) int local29 = arg3.yawTarget - arg3.yaw.value & 0x3FFF;
         if (arg0 == -1) {
             if (local29 == 0 && arg3.anInt10749 <= 25) {
                 if (!arg3.ready || !local9.isReady(local19.getAnimationId())) {

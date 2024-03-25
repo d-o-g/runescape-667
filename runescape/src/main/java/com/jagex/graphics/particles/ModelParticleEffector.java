@@ -11,13 +11,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class ModelParticleEffector {
 
     @OriginalMember(owner = "client!mn", name = "j", descriptor = "I")
-    public int anInt6249;
+    public int z;
 
     @OriginalMember(owner = "client!mn", name = "c", descriptor = "I")
-    public int anInt6250;
+    public int y;
 
     @OriginalMember(owner = "client!mn", name = "h", descriptor = "I")
-    public int anInt6252;
+    public int x;
 
     @OriginalMember(owner = "client!mn", name = "l", descriptor = "Lclient!mn;")
     public ModelParticleEffector next;

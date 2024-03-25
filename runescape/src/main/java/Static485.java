@@ -10,9 +10,6 @@ public final class Static485 {
     @OriginalMember(owner = "client!pf", name = "C", descriptor = "[I")
     public static int[] anIntArray886;
 
-    @OriginalMember(owner = "client!pf", name = "x", descriptor = "[I")
-    public static final int[] anIntArray888 = new int[3];
-
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(Lclient!hda;ILclient!ha;)V")
     public static void method9415(@OriginalArg(0) Component arg0, @OriginalArg(2) Toolkit arg1) {
         @Pc(38) boolean local38 = ObjTypeList.instance.getCachedSprite(arg0.objWearCol ? PlayerEntity.self.playerModel : null, arg1, arg0.objNumMode, arg0.invObject, arg0.outline, arg0.invCount, arg0.shadow | 0xFF000000) == null;

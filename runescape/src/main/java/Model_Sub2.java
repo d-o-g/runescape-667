@@ -1507,9 +1507,9 @@ public final class Model_Sub2 extends Model {
             } else {
                 local367.matrix.method7128(local8);
             }
-            local369.anInt6252 = (int) (local8.aFloat157 * (float) this.anIntArray409[local367.vertex] + (float) this.anIntArray410[local367.vertex] * local8.aFloat153 + local8.aFloat160 * (float) this.anIntArray412[local367.vertex] + local8.aFloat152);
-            local369.anInt6250 = (int) ((float) this.anIntArray410[local367.vertex] * local8.aFloat161 + (float) this.anIntArray409[local367.vertex] * local8.aFloat156 + local8.aFloat150 * (float) this.anIntArray412[local367.vertex] + local8.aFloat158);
-            local369.anInt6249 = (int) (local8.aFloat155 * (float) this.anIntArray410[local367.vertex] + local8.aFloat151 * (float) this.anIntArray409[local367.vertex] + (float) this.anIntArray412[local367.vertex] * local8.aFloat154 + local8.aFloat159);
+            local369.x = (int) (local8.aFloat157 * (float) this.anIntArray409[local367.vertex] + (float) this.anIntArray410[local367.vertex] * local8.aFloat153 + local8.aFloat160 * (float) this.anIntArray412[local367.vertex] + local8.aFloat152);
+            local369.y = (int) ((float) this.anIntArray410[local367.vertex] * local8.aFloat161 + (float) this.anIntArray409[local367.vertex] * local8.aFloat156 + local8.aFloat150 * (float) this.anIntArray412[local367.vertex] + local8.aFloat158);
+            local369.z = (int) (local8.aFloat155 * (float) this.anIntArray410[local367.vertex] + local8.aFloat151 * (float) this.anIntArray409[local367.vertex] + (float) this.anIntArray412[local367.vertex] * local8.aFloat154 + local8.aFloat159);
         }
     }
 

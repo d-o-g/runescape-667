@@ -1774,9 +1774,9 @@ public final class Model_Sub3 extends Model {
             } else {
                 local355.matrix.method7128(local2);
             }
-            local357.anInt6252 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local355.vertex] + local2.aFloat55 * (float) this.anIntArray675[local355.vertex] + local2.aFloat53 * (float) this.anIntArray658[local355.vertex]);
-            local357.anInt6250 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local355.vertex] + local2.aFloat52 * (float) this.anIntArray675[local355.vertex] + local2.aFloat51 * (float) this.anIntArray658[local355.vertex]);
-            local357.anInt6249 = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local355.vertex] + local2.aFloat54 * (float) this.anIntArray675[local355.vertex] + local2.aFloat61 * (float) this.anIntArray658[local355.vertex]);
+            local357.x = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local355.vertex] + local2.aFloat55 * (float) this.anIntArray675[local355.vertex] + local2.aFloat53 * (float) this.anIntArray658[local355.vertex]);
+            local357.y = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local355.vertex] + local2.aFloat52 * (float) this.anIntArray675[local355.vertex] + local2.aFloat51 * (float) this.anIntArray658[local355.vertex]);
+            local357.z = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local355.vertex] + local2.aFloat54 * (float) this.anIntArray675[local355.vertex] + local2.aFloat61 * (float) this.anIntArray658[local355.vertex]);
         }
     }
 

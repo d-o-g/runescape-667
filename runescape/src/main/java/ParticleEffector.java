@@ -8,20 +8,23 @@ import org.openrs2.deob.annotation.OriginalMember;
 @OriginalClass("client!co")
 public final class ParticleEffector extends Node2 {
 
+    @OriginalMember(owner = "client!pf", name = "x", descriptor = "[I")
+    private static final int[] PROJECTION = new int[3];
+
     @OriginalMember(owner = "client!co", name = "z", descriptor = "I")
-    public int anInt1821;
+    public int z;
 
     @OriginalMember(owner = "client!co", name = "x", descriptor = "I")
-    public int anInt1823;
+    public int directionX;
 
     @OriginalMember(owner = "client!co", name = "y", descriptor = "I")
-    public int anInt1824;
+    public int y;
 
     @OriginalMember(owner = "client!co", name = "C", descriptor = "I")
-    public int anInt1825;
+    public int directionZ;
 
     @OriginalMember(owner = "client!co", name = "D", descriptor = "I")
-    public int anInt1827;
+    public int x;
 
     @OriginalMember(owner = "client!co", name = "A", descriptor = "Lclient!mn;")
     public final ModelParticleEffector model;
@@ -38,13 +41,13 @@ public final class ParticleEffector extends Node2 {
 
     @OriginalMember(owner = "client!co", name = "c", descriptor = "(B)V")
     public void method1707() {
-        this.anInt1827 = this.model.anInt6252;
-        this.anInt1824 = this.model.anInt6250;
-        this.anInt1821 = this.model.anInt6249;
+        this.x = this.model.x;
+        this.y = this.model.y;
+        this.z = this.model.z;
         if (this.model.matrix != null) {
-            this.model.matrix.method7138(this.type.dirX, this.type.dirY, this.type.dirZ, Static485.anIntArray888);
+            this.model.matrix.projectDirection(this.type.dirX, this.type.dirY, this.type.dirZ, PROJECTION);
         }
-        this.anInt1823 = Static485.anIntArray888[2];
-        this.anInt1825 = Static485.anIntArray888[0];
+        this.directionX = PROJECTION[2];
+        this.directionZ = PROJECTION[0];
     }
 }

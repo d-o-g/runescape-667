@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!uo")
-public final class Class8_Sub10 extends Node {
+public final class WorldMapTile extends Node {
 
     @OriginalMember(owner = "client!uo", name = "j", descriptor = "B")
     public final byte aByte138;
@@ -28,7 +28,7 @@ public final class Class8_Sub10 extends Node {
     public final byte[] aByteArray104;
 
     @OriginalMember(owner = "client!uo", name = "<init>", descriptor = "(IIIII[S[B)V")
-    public Class8_Sub10(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) short[] arg5, @OriginalArg(6) byte[] arg6) {
+    public WorldMapTile(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) short[] arg5, @OriginalArg(6) byte[] arg6) {
         this.aByte138 = (byte) arg0;
         this.aByte139 = (byte) arg1;
         this.anInt9770 = arg2;

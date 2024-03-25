@@ -34,7 +34,7 @@ public final class BoundingCylinder {
     public int y;
 
     @OriginalMember(owner = "client!ke", name = "j", descriptor = "I")
-    public int anInt5132;
+    public int squareRadius;
 
     @OriginalMember(owner = "client!ke", name = "d", descriptor = "I")
     public int x1;
@@ -55,11 +55,11 @@ public final class BoundingCylinder {
     public int y1;
 
     @OriginalMember(owner = "client!ke", name = "<init>", descriptor = "(IIIIIIIIII)V")
-    public BoundingCylinder(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int arg3, @OriginalArg(4) int minX, @OriginalArg(5) int maxX, @OriginalArg(6) int minY, @OriginalArg(7) int maxY, @OriginalArg(8) int minZ, @OriginalArg(9) int maxZ) {
+    public BoundingCylinder(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int radius, @OriginalArg(4) int minX, @OriginalArg(5) int maxX, @OriginalArg(6) int minY, @OriginalArg(7) int maxY, @OriginalArg(8) int minZ, @OriginalArg(9) int maxZ) {
         this.x = x;
         this.z = z;
         this.y = y;
-        this.anInt5132 = arg3 * arg3;
+        this.squareRadius = radius * radius;
         this.x1 = this.x + minX;
         this.x2 = this.x + maxX;
         this.z1 = this.z + minZ;
@@ -69,10 +69,10 @@ public final class BoundingCylinder {
     }
 
     @OriginalMember(owner = "client!ke", name = "a", descriptor = "(IIIIIIIIIII)V")
-    public void update(@OriginalArg(0) int minY, @OriginalArg(1) int minZ, @OriginalArg(2) int y, @OriginalArg(3) int x, @OriginalArg(4) int maxZ, @OriginalArg(6) int arg5, @OriginalArg(7) int z, @OriginalArg(8) int maxY, @OriginalArg(9) int minX, @OriginalArg(10) int maxX) {
+    public void update(@OriginalArg(0) int minY, @OriginalArg(1) int minZ, @OriginalArg(2) int y, @OriginalArg(3) int x, @OriginalArg(4) int maxZ, @OriginalArg(6) int radius, @OriginalArg(7) int z, @OriginalArg(8) int maxY, @OriginalArg(9) int minX, @OriginalArg(10) int maxX) {
         this.z = z;
         this.y = y;
-        this.anInt5132 = arg5 * arg5;
+        this.squareRadius = radius * radius;
         this.x = x;
         this.y1 = this.y + minY;
         this.z1 = this.z + minZ;
@@ -83,7 +83,7 @@ public final class BoundingCylinder {
     }
 
     @OriginalMember(owner = "client!ke", name = "a", descriptor = "(IBII)Z")
-    public boolean method4631(@OriginalArg(0) int y, @OriginalArg(2) int z, @OriginalArg(3) int x) {
+    public boolean contains(@OriginalArg(0) int y, @OriginalArg(2) int z, @OriginalArg(3) int x) {
         if (x < this.x1 || x > this.x2) {
             return false;
         } else if (y < this.y1 || y > this.y2) {
@@ -93,7 +93,7 @@ public final class BoundingCylinder {
         } else {
             @Pc(74) int deltaX = x - this.x;
             @Pc(79) int deltaY = z - this.z;
-            return ((deltaY * deltaY) + (deltaX * deltaX)) < this.anInt5132;
+            return ((deltaY * deltaY) + (deltaX * deltaX)) < this.squareRadius;
         }
     }
 }

@@ -1001,7 +1001,7 @@ public final class WorldMap {
                     if (local589 != null) {
                         local173 = (local80 + (areaX >> 6)) * 64;
                         local175 = (local84 + (areaY >> 6)) * 64;
-                        for (@Pc(612) Class8_Sub10 local612 = (Class8_Sub10) local589.first(); local612 != null; local612 = (Class8_Sub10) local589.next()) {
+                        for (@Pc(612) WorldMapTile local612 = (WorldMapTile) local589.first(); local612 != null; local612 = (WorldMapTile) local589.next()) {
                             local179 = local173 + local612.aByte138 - areaX - anInt5652;
                             local631 = local175 + local612.aByte139 - areaY - anInt5654;
                             local641 = (arg1 * local179 >> 16) + anInt5649;
@@ -1019,7 +1019,7 @@ public final class WorldMap {
                     if (local727 != null) {
                         local175 = (local84 + (areaX >> 6)) * 64;
                         local177 = (local93 + (areaY >> 6)) * 64;
-                        for (@Pc(750) Class8_Sub10 local750 = (Class8_Sub10) local727.first(); local750 != null; local750 = (Class8_Sub10) local727.next()) {
+                        for (@Pc(750) WorldMapTile local750 = (WorldMapTile) local727.first(); local750 != null; local750 = (WorldMapTile) local727.next()) {
                             local631 = local175 + local750.aByte138 - areaX - anInt5652;
                             local641 = local177 + local750.aByte139 - areaY - anInt5654;
                             local653 = (arg1 * local631 >> 16) + anInt5649;
@@ -1176,14 +1176,14 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!ge;IIII[I[I)V")
-    public static void method5074(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7) {
-        @Pc(3) int local3 = arg1.g1();
-        if ((local3 & 0x1) == 0) {
-            @Pc(15) boolean local15 = (local3 & 0x2) == 0;
-            @Pc(21) int local21 = local3 >> 2 & 0x3F;
+    public static void decodeTile(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) Packet packet, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7) {
+        @Pc(3) int data = packet.g1();
+        if ((data & 0x1) == 0) {
+            @Pc(15) boolean local15 = (data & 0x2) == 0;
+            @Pc(21) int local21 = data >> 2 & 0x3F;
             if (local21 != 62) {
                 if (local21 == 63) {
-                    local21 = arg1.g1();
+                    local21 = packet.g1();
                 } else if (local15) {
                     local21 = arg6[local21];
                 } else {
@@ -1195,25 +1195,26 @@ public final class WorldMap {
                 } else {
                     aByteArray60[arg4 + arg5 * areaWidth] = (byte) local21;
                     aByteArray59[arg4 + arg5 * areaWidth] = 0;
-                    aByteArray57[arg4 + arg5 * areaWidth] = arg1.g1b();
+                    aByteArray57[arg4 + arg5 * areaWidth] = packet.g1b();
                 }
             }
             return;
         }
-        @Pc(100) int local100 = (local3 >> 1 & 0x3) + 1;
-        @Pc(108) boolean local108 = (local3 & 0x8) != 0;
-        @Pc(116) boolean local116 = (local3 & 0x10) != 0;
+
+        @Pc(100) int local100 = (data >> 1 & 0x3) + 1;
+        @Pc(108) boolean local108 = (data & 0x8) != 0;
+        @Pc(116) boolean local116 = (data & 0x10) != 0;
         for (@Pc(118) int local118 = 0; local118 < local100; local118++) {
-            @Pc(123) int local123 = arg1.g1();
+            @Pc(123) int local123 = packet.g1();
             @Pc(125) int local125 = 0;
             @Pc(127) int local127 = 0;
             if (local108) {
-                local125 = arg1.g1();
-                local127 = arg1.g1();
+                local125 = packet.g1();
+                local127 = packet.g1();
             }
             @Pc(139) int local139 = 0;
             if (local116) {
-                local139 = arg1.g1();
+                local139 = packet.g1();
             }
             @Pc(215) short[] local215;
             @Pc(218) byte[] local218;
@@ -1223,15 +1224,15 @@ public final class WorldMap {
                 aByteArray60[arg4 + arg5 * areaWidth] = (byte) local125;
                 aByteArray59[arg4 + arg5 * areaWidth] = (byte) local127;
                 if (local139 == 1) {
-                    aShortArray78[arg4 + arg5 * areaWidth] = (short) (arg1.g2() + 1);
-                    aByteArray58[arg4 + arg5 * areaWidth] = arg1.g1b();
+                    aShortArray78[arg4 + arg5 * areaWidth] = (short) (packet.g2() + 1);
+                    aByteArray58[arg4 + arg5 * areaWidth] = packet.g1b();
                 } else if (local139 > 1) {
                     aShortArray78[arg4 + arg5 * areaWidth] = -1;
                     local215 = new short[local139];
                     local218 = new byte[local139];
                     for (local220 = 0; local220 < local139; local220++) {
-                        local215[local220] = (short) arg1.g2();
-                        local218[local220] = arg1.g1b();
+                        local215[local220] = (short) packet.g2();
+                        local218[local220] = packet.g1b();
                     }
                     aIterableHashTable.put(arg4 << 16 | arg5, new Node_Sub23(local215, local218));
                 }
@@ -1242,15 +1243,15 @@ public final class WorldMap {
                     local215 = new short[local139];
                     local218 = new byte[local139];
                     for (local220 = 0; local220 < local139; local220++) {
-                        local215[local220] = (short) arg1.g2();
-                        local218[local220] = arg1.g1b();
+                        local215[local220] = (short) packet.g2();
+                        local218[local220] = packet.g1b();
                     }
                 }
                 if (tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaY >> 6)] == null) {
                     tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaY >> 6)] = new LinkedList();
                 }
-                @Pc(338) Class8_Sub10 local338 = new Class8_Sub10(arg4 & 0x3F, arg5 & 0x3F, local123, local125, local127, local215, local218);
-                tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaY >> 6)].add(local338);
+                @Pc(338) WorldMapTile tile = new WorldMapTile(arg4 & 0x3F, arg5 & 0x3F, local123, local125, local127, local215, local218);
+                tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaY >> 6)].add(tile);
             }
         }
     }
@@ -1309,7 +1310,7 @@ public final class WorldMap {
                 for (@Pc(144) int local144 = 0; local144 < tiles[0][0].length; local144++) {
                     @Pc(153) LinkedList local153 = tiles[local4][local15][local144];
                     if (local153 != null) {
-                        for (@Pc(160) Class8_Sub10 local160 = (Class8_Sub10) local153.first(); local160 != null; local160 = (Class8_Sub10) local153.next()) {
+                        for (@Pc(160) WorldMapTile local160 = (WorldMapTile) local153.first(); local160 != null; local160 = (WorldMapTile) local153.next()) {
                             if (local160.aShortArray133 != null) {
                                 for (local49 = 0; local49 < local160.aShortArray133.length; local49++) {
                                     @Pc(177) LocType local177 = locTypeList.list(local160.aShortArray133[local49] & 0xFFFF);
@@ -1399,7 +1400,7 @@ public final class WorldMap {
                         for (local69 = 0; local69 < 64; local69++) {
                             local78 = local60 * 64 + local66 - areaX;
                             local86 = local64 * 64 + local69 - areaY;
-                            method5074(arg0, local11, local60, local64, local78, local86, local18, local38);
+                            decodeTile(arg0, local11, local60, local64, local78, local86, local18, local38);
                         }
                     }
                 } else {
@@ -1411,7 +1412,7 @@ public final class WorldMap {
                         for (local86 = 0; local86 < 8; local86++) {
                             @Pc(138) int local138 = local60 * 64 + local66 * 8 + local78 - areaX;
                             local150 = local64 * 64 + local69 * 8 + local86 - areaY;
-                            method5074(arg0, local11, local60, local64, local138, local150, local18, local38);
+                            decodeTile(arg0, local11, local60, local64, local138, local150, local18, local38);
                         }
                     }
                 }
@@ -1424,7 +1425,7 @@ public final class WorldMap {
                     for (local69 = 0; local69 < tiles[local60][0].length; local69++) {
                         @Pc(207) LinkedList local207 = tiles[local60][local66][local69];
                         if (local207 != null) {
-                            for (@Pc(214) Class8_Sub10 local214 = (Class8_Sub10) local207.first(); local214 != null; local214 = (Class8_Sub10) local207.next()) {
+                            for (@Pc(214) WorldMapTile local214 = (WorldMapTile) local207.first(); local214 != null; local214 = (WorldMapTile) local207.next()) {
                                 local193[local66 * 64 + local214.aByte138 + (local69 * 64 + local214.aByte139) * areaWidth] = (byte) local214.anInt9770;
                             }
                         }
@@ -1435,7 +1436,7 @@ public final class WorldMap {
                     for (local78 = 0; local78 < tiles[local60][0].length; local78++) {
                         @Pc(278) LinkedList local278 = tiles[local60][local69][local78];
                         if (local278 != null) {
-                            for (@Pc(285) Class8_Sub10 local285 = (Class8_Sub10) local278.first(); local285 != null; local285 = (Class8_Sub10) local278.next()) {
+                            for (@Pc(285) WorldMapTile local285 = (WorldMapTile) local278.first(); local285 != null; local285 = (WorldMapTile) local278.next()) {
                                 local150 = local69 * 64 + local285.aByte138 + (local78 * 64 + local285.aByte139) * areaWidth;
                                 local285.anInt9770 = (aByteArray56[local150] & 0xFF) << 16 | aShortArray79[local150] & 0xFFFF;
                                 if (local285.anInt9770 != 0) {

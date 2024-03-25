@@ -387,28 +387,28 @@ public final class MovingParticle extends Particle {
                 @Pc(318) BoundingCylinder local318;
                 if (local58.wall != null) {
                     local318 = local58.wall.getCylinder(arg0, -105);
-                    if (local318 != null && local318.method4631(local18, local261, local304)) {
+                    if (local318 != null && local318.contains(local18, local261, local304)) {
                         this.remove();
                         return;
                     }
                 }
                 if (local58.adjacentWall != null) {
                     local318 = local58.adjacentWall.getCylinder(arg0, -120);
-                    if (local318 != null && local318.method4631(local18, local261, local304)) {
+                    if (local318 != null && local318.contains(local18, local261, local304)) {
                         this.remove();
                         return;
                     }
                 }
                 if (local58.groundDecor != null) {
                     local318 = local58.groundDecor.getCylinder(arg0, -109);
-                    if (local318 != null && local318.method4631(local18, local261, local304)) {
+                    if (local318 != null && local318.contains(local18, local261, local304)) {
                         this.remove();
                         return;
                     }
                 }
                 for (@Pc(375) PositionEntityNode local375 = local58.head; local375 != null; local375 = local375.node) {
                     @Pc(382) BoundingCylinder local382 = local375.entity.getCylinder(arg0, -117);
-                    if (local382 != null && local382.method4631(local18, local261, local304)) {
+                    if (local382 != null && local382.contains(local18, local261, local304)) {
                         this.remove();
                         return;
                     }

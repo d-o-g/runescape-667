@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.MonochromeImageCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -40,7 +41,7 @@ public final class Node_Sub1_Sub39 extends TextureOp {
         if (super.monochromeCache.dirty) {
             for (@Pc(17) int local17 = 0; local17 < Static608.anInt9289; local17++) {
                 @Pc(23) int local23 = Static54.anIntArray92[local17];
-                @Pc(27) int local27 = Static273.anIntArray341[arg1];
+                @Pc(27) int local27 = MonochromeImageCache.anIntArray341[arg1];
                 @Pc(34) int local34 = local23 * this.anInt10895 >> 12;
                 @Pc(41) int local41 = local27 * this.anInt10892 >> 12;
                 @Pc(51) int local51 = local23 % (4096 / this.anInt10895) * this.anInt10895;

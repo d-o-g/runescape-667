@@ -36,7 +36,12 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 @OriginalClass("client!iaa")
-public final class Toolkit_Sub2 extends Toolkit {
+public final class JavaToolkit extends Toolkit {
+
+    @OriginalMember(owner = "client!uf", name = "a", descriptor = "(IILclient!d;ILjava/awt/Canvas;)Lclient!ha;")
+    public static Toolkit create(@OriginalArg(4) Canvas canvas, @OriginalArg(2) TextureSource textureSource, @OriginalArg(0) int width, @OriginalArg(3) int height) {
+        return new JavaToolkit(canvas, textureSource, width, height);
+    }
 
     @OriginalMember(owner = "client!iaa", name = "pb", descriptor = "I")
     public int anInt4183;
@@ -186,7 +191,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     public int anInt4184;
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Lclient!d;)V")
-    public Toolkit_Sub2(@OriginalArg(0) TextureSource arg0) {
+    public JavaToolkit(@OriginalArg(0) TextureSource arg0) {
         super(arg0);
         this.aBoolean331 = false;
         this.aBoolean330 = false;
@@ -224,7 +229,7 @@ public final class Toolkit_Sub2 extends Toolkit {
     }
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;II)V")
-    public Toolkit_Sub2(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public JavaToolkit(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         this(arg1);
         try {
             this.method8022(arg0, arg2, arg3);

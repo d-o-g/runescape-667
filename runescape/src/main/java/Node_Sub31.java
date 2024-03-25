@@ -10,10 +10,10 @@ public abstract class Node_Sub31 extends Node {
     public boolean aBoolean387;
 
     @OriginalMember(owner = "client!jea", name = "k", descriptor = "Lclient!qha;")
-    protected final Toolkit_Sub3 aClass19_Sub3_22;
+    protected final GlToolkit aClass19_Sub3_22;
 
     @OriginalMember(owner = "client!jea", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Node_Sub31(@OriginalArg(0) Toolkit_Sub3 arg0) {
+    public Node_Sub31(@OriginalArg(0) GlToolkit arg0) {
         this.aClass19_Sub3_22 = arg0;
     }
 

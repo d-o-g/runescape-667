@@ -16,24 +16,30 @@ public final class Static65 {
 
     @OriginalMember(owner = "client!cba", name = "c", descriptor = "(B)I")
     public static int profileCpu() {
-        @Pc(5) Toolkit local5 = Toolkit.active;
-        @Pc(7) boolean local7 = false;
+        @Pc(5) Toolkit toolkit = Toolkit.active;
+
+        @Pc(7) boolean toolkitChanged = false;
         if (ClientOptions.instance.toolkit.getValue() != ToolkitType.JAVA) {
-            @Pc(19) Canvas local19 = new Canvas();
-            local19.setSize(100, 100);
-            local7 = true;
-            local5 = Static255.method3612(null, null, 0, local19, 0);
+            @Pc(19) Canvas canvas = new Canvas();
+            canvas.setSize(100, 100);
+
+            toolkitChanged = true;
+            toolkit = Static255.create(ToolkitType.JAVA, null, canvas, null, 0);
         }
-        @Pc(36) long local36 = SystemTimer.safetime();
-        for (@Pc(38) int local38 = 0; local38 < 10000; local38++) {
-            local5.method7994();
+
+        @Pc(36) long startTime = SystemTimer.safetime();
+        for (@Pc(38) int i = 0; i < 10000; i++) {
+            toolkit.method7994();
         }
-        @Pc(71) int local71 = (int) (SystemTimer.safetime() - local36);
-        local5.fillRect(100, 100, 0, 0, -16777216);
-        if (local7) {
-            local5.free();
+
+        @Pc(71) int deltaTime = (int) (SystemTimer.safetime() - startTime);
+        toolkit.fillRect(100, 100, 0, 0, 0xFF000000);
+
+        if (toolkitChanged) {
+            toolkit.free();
         }
-        return local71;
+
+        return deltaTime;
     }
 
     @OriginalMember(owner = "client!cba", name = "a", descriptor = "(I)V")

@@ -9,10 +9,10 @@ public final class Class317 {
     public final long aLong253;
 
     @OriginalMember(owner = "client!rda", name = "a", descriptor = "Lclient!tca;")
-    public final Toolkit_Sub1_Sub2 aClass19_Sub1_Sub2_10;
+    public final GlxToolkit aClass19_Sub1_Sub2_10;
 
     @OriginalMember(owner = "client!rda", name = "<init>", descriptor = "(Lclient!tca;J[Lclient!ns;)V")
-    public Class317(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) Class265[] arg2) {
+    public Class317(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) long arg1, @OriginalArg(2) Class265[] arg2) {
         this.aLong253 = arg1;
         this.aClass19_Sub1_Sub2_10 = arg0;
     }

@@ -23,7 +23,7 @@ public final class DoublyLinkedNode_Sub2_Sub9_ extends Shadow {
     public final byte[] aByteArray85;
 
     @OriginalMember(owner = "client!ph", name = "<init>", descriptor = "(Lclient!qha;II)V")
-    public DoublyLinkedNode_Sub2_Sub9_(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public DoublyLinkedNode_Sub2_Sub9_(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aByteArray85 = new byte[arg1 * arg2];
     }
 

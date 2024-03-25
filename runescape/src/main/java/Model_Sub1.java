@@ -82,7 +82,7 @@ public final class Model_Sub1 extends Model {
     public int anInt2771;
 
     @OriginalMember(owner = "client!eu", name = "kc", descriptor = "Lclient!am;")
-    public final Toolkit_Sub1 aClass19_Sub1_6;
+    public final NativeToolkit aClass19_Sub1_6;
 
     @OriginalMember(owner = "client!eu", name = "vb", descriptor = "[I")
     public int[] anIntArray243;
@@ -205,7 +205,7 @@ public final class Model_Sub1 extends Model {
     public int[][] anIntArrayArray68;
 
     @OriginalMember(owner = "client!eu", name = "<init>", descriptor = "(Lclient!am;Lclient!dv;IIII)V")
-    public Model_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Model_Sub1(@OriginalArg(0) NativeToolkit arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this(arg0, arg2, arg5, true, false);
         @Pc(11) TextureSource local11 = arg0.textureSource;
         @Pc(15) int[] local15 = new int[arg1.faceCount];
@@ -768,7 +768,7 @@ public final class Model_Sub1 extends Model {
     }
 
     @OriginalMember(owner = "client!eu", name = "<init>", descriptor = "(Lclient!am;IIZZ)V")
-    public Model_Sub1(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) boolean arg4) {
+    public Model_Sub1(@OriginalArg(0) NativeToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) boolean arg4) {
         this.aBoolean228 = false;
         this.anInt2715 = 0;
         this.aBoolean230 = false;

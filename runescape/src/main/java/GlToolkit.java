@@ -47,7 +47,12 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 @OriginalClass("client!qha")
-public final class Toolkit_Sub3 extends Toolkit {
+public final class GlToolkit extends Toolkit {
+
+    @OriginalMember(owner = "client!gga", name = "a", descriptor = "(Lclient!d;Ljava/awt/Canvas;II)Lclient!ha;")
+    public static Toolkit create(@OriginalArg(1) Canvas canvas, @OriginalArg(0) TextureSource textureSource, @OriginalArg(2) int antialiasing) {
+        return new GlToolkit(canvas, textureSource, antialiasing);
+    }
 
     @OriginalMember(owner = "client!qha", name = "Mf", descriptor = "I")
     public int anInt7864;
@@ -548,7 +553,7 @@ public final class Toolkit_Sub3 extends Toolkit {
     public final Class98 aClass98_1;
 
     @OriginalMember(owner = "client!qha", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;I)V")
-    public Toolkit_Sub3(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2) {
+    public GlToolkit(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2) {
         super(arg1);
         new Queue();
         new IterableHashTable(16);

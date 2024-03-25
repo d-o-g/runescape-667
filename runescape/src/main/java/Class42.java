@@ -50,7 +50,7 @@ public final class Class42 {
     public final int[] anIntArray76 = new int[64];
 
     @OriginalMember(owner = "client!bj", name = "a", descriptor = "(ZLclient!qha;)V")
-    public void method1075(@OriginalArg(1) Toolkit_Sub3 arg0) {
+    public void method1075(@OriginalArg(1) GlToolkit arg0) {
         Static481.aFloat124 = arg0.aFloat149;
         arg0.method7027();
         OpenGL.glDisable(OpenGL.GL_LIGHT0);
@@ -60,7 +60,7 @@ public final class Class42 {
     }
 
     @OriginalMember(owner = "client!bj", name = "a", descriptor = "(BLclient!qha;I)V")
-    public void method1077(@OriginalArg(1) Toolkit_Sub3 arg0, @OriginalArg(2) int arg1) {
+    public void method1077(@OriginalArg(1) GlToolkit arg0, @OriginalArg(2) int arg1) {
         OpenGL.glGetFloatv(OpenGL.GL_MODELVIEW_MATRIX, this.aFloatArray10, 0);
         @Pc(15) float local15 = this.aFloatArray10[0];
         @Pc(20) float local20 = this.aFloatArray10[4];
@@ -318,7 +318,7 @@ public final class Class42 {
     }
 
     @OriginalMember(owner = "client!bj", name = "a", descriptor = "(ILclient!qha;)V")
-    public void method1078(@OriginalArg(1) Toolkit_Sub3 arg0) {
+    public void method1078(@OriginalArg(1) GlToolkit arg0) {
         arg0.method6972(true);
         OpenGL.glEnable(OpenGL.GL_LIGHT0);
         OpenGL.glEnable(OpenGL.GL_LIGHT1);
@@ -328,7 +328,7 @@ public final class Class42 {
     }
 
     @OriginalMember(owner = "client!bj", name = "a", descriptor = "(ILclient!qha;I)V")
-    public void method1079(@OriginalArg(0) int arg0, @OriginalArg(1) Toolkit_Sub3 arg1) {
+    public void method1079(@OriginalArg(0) int arg0, @OriginalArg(1) GlToolkit arg1) {
         Static481.aFloat124 = arg1.aFloat149;
         arg1.method6964((float) arg0);
         arg1.method6978();
@@ -339,7 +339,7 @@ public final class Class42 {
     }
 
     @OriginalMember(owner = "client!bj", name = "a", descriptor = "(Lclient!qha;Lclient!lk;IZ)V")
-    public void method1080(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) ParticleList arg1, @OriginalArg(2) int arg2) {
+    public void method1080(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) ParticleList arg1, @OriginalArg(2) int arg2) {
         if (arg0.aClass73_Sub3_3 == null) {
             return;
         }
@@ -439,7 +439,7 @@ public final class Class42 {
     }
 
     @OriginalMember(owner = "client!bj", name = "b", descriptor = "(ILclient!qha;)V")
-    public void method1081(@OriginalArg(1) Toolkit_Sub3 arg0) {
+    public void method1081(@OriginalArg(1) GlToolkit arg0) {
         this.anInterface12_1 = arg0.method7024(true, 196584, null, 24);
         this.aClass94_3 = new Class94(this.anInterface12_1, 5126, 2, 0);
         this.aClass94_1 = new Class94(this.anInterface12_1, 5126, 3, 8);

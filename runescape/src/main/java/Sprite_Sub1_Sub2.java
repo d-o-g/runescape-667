@@ -11,7 +11,7 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
     public final int[] anIntArray528;
 
     @OriginalMember(owner = "client!nr", name = "<init>", descriptor = "(Lclient!iaa;[IIIIIZ)V")
-    public Sprite_Sub1_Sub2(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) boolean arg6) {
+    public Sprite_Sub1_Sub2(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) boolean arg6) {
         super(arg0, arg4, arg5);
         if (arg6) {
             this.anIntArray528 = new int[arg4 * arg5];
@@ -29,13 +29,13 @@ public final class Sprite_Sub1_Sub2 extends Sprite_Sub1 {
     }
 
     @OriginalMember(owner = "client!nr", name = "<init>", descriptor = "(Lclient!iaa;II)V")
-    public Sprite_Sub1_Sub2(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public Sprite_Sub1_Sub2(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         super(arg0, arg1, arg2);
         this.anIntArray528 = new int[arg1 * arg2];
     }
 
     @OriginalMember(owner = "client!nr", name = "<init>", descriptor = "(Lclient!iaa;[III)V")
-    public Sprite_Sub1_Sub2(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public Sprite_Sub1_Sub2(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         super(arg0, arg2, arg3);
         this.anIntArray528 = arg1;
     }

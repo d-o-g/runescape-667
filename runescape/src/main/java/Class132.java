@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public abstract class Class132 {
 
     @OriginalMember(owner = "client!gj", name = "c", descriptor = "Lclient!qha;")
-    protected final Toolkit_Sub3 aClass19_Sub3_25;
+    protected final GlToolkit aClass19_Sub3_25;
 
     @OriginalMember(owner = "client!gj", name = "e", descriptor = "I")
     public final int anInt5568;
@@ -23,7 +23,7 @@ public abstract class Class132 {
     protected final int anInt5572;
 
     @OriginalMember(owner = "client!gj", name = "<init>", descriptor = "(Lclient!qha;I[BIZ)V")
-    public Class132(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Class132(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         this.aClass19_Sub3_25 = arg0;
         this.anInt5568 = arg1;
         this.aBoolean425 = arg4;
@@ -36,7 +36,7 @@ public abstract class Class132 {
     }
 
     @OriginalMember(owner = "client!gj", name = "<init>", descriptor = "(Lclient!qha;ILclient!jaclib/memory/Buffer;IZ)V")
-    public Class132(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Buffer arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Class132(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Buffer arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         this.anInt5571 = arg3;
         this.aClass19_Sub3_25 = arg0;
         this.anInt5568 = arg1;

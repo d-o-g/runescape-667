@@ -16,10 +16,10 @@ public final class Class334 {
     public final TextureSource anTextureSource_9;
 
     @OriginalMember(owner = "client!sf", name = "j", descriptor = "Lclient!am;")
-    public final Toolkit_Sub1 aClass19_Sub1_20;
+    public final NativeToolkit aClass19_Sub1_20;
 
     @OriginalMember(owner = "client!sf", name = "<init>", descriptor = "(Lclient!am;Lclient!d;)V")
-    public Class334(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) TextureSource arg1) {
+    public Class334(@OriginalArg(0) NativeToolkit arg0, @OriginalArg(1) TextureSource arg1) {
         this.anTextureSource_9 = arg1;
         this.aClass19_Sub1_20 = arg0;
     }

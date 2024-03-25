@@ -15,7 +15,7 @@ public final class Class51_Sub3 extends Class51 implements Interface18 {
     public final int anInt6893;
 
     @OriginalMember(owner = "client!of", name = "<init>", descriptor = "(Lclient!tca;Lclient!eba;II[FII)V")
-    public Class51_Sub3(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) float[] arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public Class51_Sub3(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) float[] arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         super(arg0, 34037, arg1, Static702.aClass397_20, arg3 * arg2, false);
         this.anInt6895 = arg3;
         this.anInt6893 = arg2;
@@ -26,7 +26,7 @@ public final class Class51_Sub3 extends Class51 implements Interface18 {
     }
 
     @OriginalMember(owner = "client!of", name = "<init>", descriptor = "(Lclient!tca;II[III)V")
-    public Class51_Sub3(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Class51_Sub3(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super(arg0, 34037, Static172.aClass92_8, Static702.aClass397_16, arg2 * arg1, false);
         this.anInt6893 = arg1;
         this.anInt6895 = arg2;
@@ -37,7 +37,7 @@ public final class Class51_Sub3 extends Class51 implements Interface18 {
     }
 
     @OriginalMember(owner = "client!of", name = "<init>", descriptor = "(Lclient!tca;Lclient!eba;Lclient!wda;II)V")
-    public Class51_Sub3(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) Class397 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public Class51_Sub3(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) Class397 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         super(arg0, 34037, arg1, arg2, arg3 * arg4, false);
         this.anInt6893 = arg3;
         this.anInt6895 = arg4;
@@ -46,7 +46,7 @@ public final class Class51_Sub3 extends Class51 implements Interface18 {
     }
 
     @OriginalMember(owner = "client!of", name = "<init>", descriptor = "(Lclient!tca;Lclient!eba;II[BII)V")
-    public Class51_Sub3(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte[] arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public Class51_Sub3(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) Class92 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) byte[] arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         super(arg0, 34037, arg1, Static702.aClass397_16, arg2 * arg3, false);
         this.anInt6893 = arg2;
         this.anInt6895 = arg3;

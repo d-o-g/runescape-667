@@ -26,13 +26,13 @@ public final class Class406 implements Interface14 {
     public final Interface3[] anInterface3Array1 = new Interface3[9];
 
     @OriginalMember(owner = "client!wo", name = "t", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_41;
+    public final GlToolkit aClass19_Sub3_41;
 
     @OriginalMember(owner = "client!wo", name = "k", descriptor = "I")
     public final int anInt10832;
 
     @OriginalMember(owner = "client!wo", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Class406(@OriginalArg(0) Toolkit_Sub3 arg0) {
+    public Class406(@OriginalArg(0) GlToolkit arg0) {
         if (!arg0.aBoolean613) {
             throw new IllegalStateException("");
         }

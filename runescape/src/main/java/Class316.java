@@ -42,7 +42,7 @@ public final class Class316 {
     public final Interface20 anInterface20_5;
 
     @OriginalMember(owner = "client!rc", name = "<init>", descriptor = "(Lclient!am;)V")
-    public Class316(@OriginalArg(0) Toolkit_Sub1 arg0) {
+    public Class316(@OriginalArg(0) NativeToolkit arg0) {
         this.aClass244_16 = arg0.method8148(new Class237[]{new Class237(new Class157[]{Static231.aClass157_1, Static231.aClass157_3, Static231.aClass157_5}), new Class237(Static231.aClass157_2)});
         this.anInterface16_11 = arg0.method8156(true);
         this.anInterface16_12 = arg0.method8156(false);
@@ -123,7 +123,7 @@ public final class Class316 {
     }
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(Lclient!lk;IILclient!am;)V")
-    public void method7210(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Toolkit_Sub1 arg2) {
+    public void method7210(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1, @OriginalArg(3) NativeToolkit arg2) {
         if (arg2.aClass73_Sub1_16 == null) {
             return;
         }
@@ -219,7 +219,7 @@ public final class Class316 {
     }
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(ILclient!am;)V")
-    public void method7211(@OriginalArg(1) Toolkit_Sub1 arg0) {
+    public void method7211(@OriginalArg(1) NativeToolkit arg0) {
         arg0.method8083(true);
         arg0.method8117(true);
         if (Static260.aFloat75 != arg0.aFloat186) {
@@ -228,12 +228,12 @@ public final class Class316 {
     }
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(Lclient!am;I)V")
-    public void method7212(@OriginalArg(0) Toolkit_Sub1 arg0) {
+    public void method7212(@OriginalArg(0) NativeToolkit arg0) {
         this.anInterface16_11.method3153(24, 786336);
     }
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(IBLclient!am;)V")
-    public void method7213(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit_Sub1 arg1) {
+    public void method7213(@OriginalArg(0) int arg0, @OriginalArg(2) NativeToolkit arg1) {
         Static260.aFloat75 = arg1.aFloat186;
         arg1.method8046((float) arg0);
         arg1.method8111();
@@ -243,7 +243,7 @@ public final class Class316 {
     }
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(BLclient!am;)V")
-    public void method7215(@OriginalArg(1) Toolkit_Sub1 arg0) {
+    public void method7215(@OriginalArg(1) NativeToolkit arg0) {
         Static260.aFloat75 = arg0.aFloat186;
         arg0.method8044();
         arg0.method8117(false);
@@ -252,7 +252,7 @@ public final class Class316 {
     }
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(IZLclient!am;)V")
-    public void method7216(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit_Sub1 arg1) {
+    public void method7216(@OriginalArg(0) int arg0, @OriginalArg(2) NativeToolkit arg1) {
         @Pc(5) int local5 = 0;
         @Pc(9) Matrix_Sub1 local9 = arg1.method8154();
         @Pc(12) float local12 = local9.aFloat39;

@@ -181,7 +181,7 @@ public final class Model_Sub2 extends Model {
     public int anInt5560 = 0;
 
     @OriginalMember(owner = "client!kla", name = "vc", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_24;
+    public final GlToolkit aClass19_Sub3_24;
 
     @OriginalMember(owner = "client!kla", name = "xc", descriptor = "Lclient!ed;")
     public Class94 aClass94_8;
@@ -199,7 +199,7 @@ public final class Model_Sub2 extends Model {
     public Class136 aClass136_1;
 
     @OriginalMember(owner = "client!kla", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Model_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0) {
+    public Model_Sub2(@OriginalArg(0) GlToolkit arg0) {
         this.aClass19_Sub3_24 = arg0;
         this.aClass94_8 = new Class94(null, 5126, 3, 0);
         this.aClass94_9 = new Class94(null, 5126, 2, 0);
@@ -209,7 +209,7 @@ public final class Model_Sub2 extends Model {
     }
 
     @OriginalMember(owner = "client!kla", name = "<init>", descriptor = "(Lclient!qha;Lclient!dv;IIII)V")
-    public Model_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Model_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass19_Sub3_24 = arg0;
         this.anInt5520 = arg2;
         this.anInt5529 = arg5;

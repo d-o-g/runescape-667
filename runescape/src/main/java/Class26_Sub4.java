@@ -16,7 +16,7 @@ public final class Class26_Sub4 extends Class26 {
     public Interface8[] anInterface8Array1;
 
     @OriginalMember(owner = "client!fga", name = "<init>", descriptor = "(Lclient!am;)V")
-    public Class26_Sub4(@OriginalArg(0) Toolkit_Sub1 arg0) {
+    public Class26_Sub4(@OriginalArg(0) NativeToolkit arg0) {
         super(arg0);
         if (arg0.aBoolean685) {
             this.aBoolean247 = arg0.anInt9184 < 3;

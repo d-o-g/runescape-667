@@ -31,25 +31,25 @@ public final class Sprite_Sub2 extends Sprite {
     public int anInt6041 = 0;
 
     @OriginalMember(owner = "client!mb", name = "u", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_28;
+    public final GlToolkit aClass19_Sub3_28;
 
     @OriginalMember(owner = "client!mb", name = "c", descriptor = "Lclient!gb;")
     public final Class93_Sub2_Sub1 aClass93_Sub2_Sub1_3;
 
     @OriginalMember(owner = "client!mb", name = "<init>", descriptor = "(Lclient!qha;IIZ)V")
-    public Sprite_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
+    public Sprite_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
         this.aClass19_Sub3_28 = arg0;
         this.aClass93_Sub2_Sub1_3 = Static709.method9251(arg2, arg1, arg3 ? 6408 : 6407, arg0);
     }
 
     @OriginalMember(owner = "client!mb", name = "<init>", descriptor = "(Lclient!qha;IIII)V")
-    public Sprite_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public Sprite_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         this.aClass19_Sub3_28 = arg0;
         this.aClass93_Sub2_Sub1_3 = Static295.method4353(arg1, arg4, arg3, arg2, arg0);
     }
 
     @OriginalMember(owner = "client!mb", name = "<init>", descriptor = "(Lclient!qha;II[III)V")
-    public Sprite_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Sprite_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass19_Sub3_28 = arg0;
         this.aClass93_Sub2_Sub1_3 = Static88.method1706(arg0, arg1, arg5, arg3, arg2, arg4);
     }

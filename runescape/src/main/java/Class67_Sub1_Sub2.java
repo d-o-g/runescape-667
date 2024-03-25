@@ -21,7 +21,7 @@ public final class Class67_Sub1_Sub2 extends Class67_Sub1 {
     public final int anInt9799;
 
     @OriginalMember(owner = "client!us", name = "j", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_37;
+    public final GlToolkit aClass19_Sub3_37;
 
     @OriginalMember(owner = "client!us", name = "t", descriptor = "I")
     public final int anInt9804;
@@ -33,7 +33,7 @@ public final class Class67_Sub1_Sub2 extends Class67_Sub1 {
     public final int anInt9798;
 
     @OriginalMember(owner = "client!us", name = "<init>", descriptor = "(Lclient!qha;IIIIII)V")
-    public Class67_Sub1_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public Class67_Sub1_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
         this.anInt9796 = arg3;
         this.anInt9802 = arg2;
         this.anInt9799 = arg4;

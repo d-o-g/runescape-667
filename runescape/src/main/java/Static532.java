@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static532 {
 
     @OriginalMember(owner = "client!qo", name = "a", descriptor = "([I[IIILclient!am;I)Lclient!jv;")
-    public static ClippingMask_Sub2 method7113(@OriginalArg(0) int[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Toolkit_Sub1 arg3, @OriginalArg(5) int arg4) {
+    public static ClippingMask_Sub2 method7113(@OriginalArg(0) int[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) NativeToolkit arg3, @OriginalArg(5) int arg4) {
         @Pc(24) int local24;
         @Pc(34) int local34;
         @Pc(36) int local36;

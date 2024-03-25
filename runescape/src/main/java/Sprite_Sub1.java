@@ -24,7 +24,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     public int[] anIntArray713;
 
     @OriginalMember(owner = "client!qc", name = "o", descriptor = "Lclient!iaa;")
-    protected final Toolkit_Sub2 aClass19_Sub2_10;
+    protected final JavaToolkit aClass19_Sub2_10;
 
     @OriginalMember(owner = "client!qc", name = "z", descriptor = "I")
     public final int anInt9302;
@@ -33,7 +33,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     public final int anInt9306;
 
     @OriginalMember(owner = "client!qc", name = "<init>", descriptor = "(Lclient!iaa;II)V")
-    public Sprite_Sub1(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public Sprite_Sub1(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aClass19_Sub2_10 = arg0;
         this.anInt9302 = arg1;
         this.anInt9306 = arg2;

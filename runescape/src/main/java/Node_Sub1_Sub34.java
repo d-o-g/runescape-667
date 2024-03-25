@@ -1,4 +1,5 @@
 import com.jagex.SignLink;
+import com.jagex.graphics.MonochromeImageCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -27,7 +28,7 @@ public final class Node_Sub1_Sub34 extends TextureOp {
             SignLink.getDisplayProperties(null, false);
         }
         if (super.monochromeCache.dirty) {
-            @Pc(28) int local28 = Static273.anIntArray341[arg1];
+            @Pc(28) int local28 = MonochromeImageCache.anIntArray341[arg1];
             for (@Pc(30) int local30 = 0; local30 < Static608.anInt9289; local30++) {
                 local11[local30] = this.method8786(local28, Static54.anIntArray92[local30]) % 4096;
             }

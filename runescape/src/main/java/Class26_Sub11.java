@@ -1,4 +1,3 @@
-import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.js5.js5;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -43,7 +42,7 @@ public final class Class26_Sub11 extends Class26 {
     public Interface18 anInterface18_6;
 
     @OriginalMember(owner = "client!tj", name = "<init>", descriptor = "(Lclient!tca;Lclient!sb;)V")
-    public Class26_Sub11(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) js5 arg1) {
+    public Class26_Sub11(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) js5 arg1) {
         super(arg0);
         if (arg1 != null && arg0.aBoolean708) {
             this.aClass135_2 = Static294.method4338(arg0, arg1.getfile("gl", "uw_ground_unlit"));

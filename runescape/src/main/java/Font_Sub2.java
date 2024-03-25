@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Font_Sub2 extends Font {
 
     @OriginalMember(owner = "client!gs", name = "z", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_16;
+    public final GlToolkit aClass19_Sub3_16;
 
     @OriginalMember(owner = "client!gs", name = "A", descriptor = "Lclient!gb;")
     public final Class93_Sub2_Sub1 aClass93_Sub2_Sub1_1;
@@ -24,7 +24,7 @@ public final class Font_Sub2 extends Font {
     public final Class36 aClass36_4;
 
     @OriginalMember(owner = "client!gs", name = "<init>", descriptor = "(Lclient!qha;Lclient!ve;[Lclient!wp;Z)V")
-    public Font_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
+    public Font_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) boolean arg3) {
         super(arg0, arg1);
         this.aClass19_Sub3_16 = arg0;
         @Pc(8) int local8 = 0;

@@ -10,7 +10,7 @@ public final class Class72_Sub2 extends Class72 implements Interface20 {
     public final Class397 aClass397_10;
 
     @OriginalMember(owner = "client!ula", name = "<init>", descriptor = "(Lclient!tca;Lclient!wda;Z)V")
-    public Class72_Sub2(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) Class397 arg1, @OriginalArg(2) boolean arg2) {
+    public Class72_Sub2(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) Class397 arg1, @OriginalArg(2) boolean arg2) {
         super(arg0, 34963, arg2);
         this.aClass397_10 = arg1;
     }

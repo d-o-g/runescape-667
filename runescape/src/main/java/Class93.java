@@ -20,7 +20,7 @@ public abstract class Class93 implements Interface3 {
     public final int anInt10908;
 
     @OriginalMember(owner = "client!kd", name = "l", descriptor = "Lclient!qha;")
-    protected final Toolkit_Sub3 aClass19_Sub3_43;
+    protected final GlToolkit aClass19_Sub3_43;
 
     @OriginalMember(owner = "client!kd", name = "i", descriptor = "I")
     protected final int anInt10911;
@@ -29,7 +29,7 @@ public abstract class Class93 implements Interface3 {
     protected int anInt10920;
 
     @OriginalMember(owner = "client!kd", name = "<init>", descriptor = "(Lclient!qha;IIIZ)V")
-    protected Class93(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    protected Class93(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         this.aBoolean825 = arg4;
         this.anInt10912 = arg1;
         this.anInt10908 = arg3;

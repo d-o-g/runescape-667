@@ -1,13 +1,8 @@
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.core.util.Arrays;
-import com.jagex.graphics.TextureSource;
-import com.jagex.graphics.Toolkit;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-
-import java.awt.Canvas;
 
 public final class Static587 {
 
@@ -28,11 +23,6 @@ public final class Static587 {
 
     @OriginalMember(owner = "client!sia", name = "a", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___105 = new ClientProt(87, 6);
-
-    @OriginalMember(owner = "client!sia", name = "a", descriptor = "(Lclient!d;IIILjava/awt/Canvas;)Lclient!ha;")
-    public static Toolkit method7698(@OriginalArg(0) TextureSource arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Canvas arg3) {
-        return new oa(arg3, arg0, arg1, arg2);
-    }
 
     @OriginalMember(owner = "client!sia", name = "b", descriptor = "(I)V")
     public static void method7704() {

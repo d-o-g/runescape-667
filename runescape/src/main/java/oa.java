@@ -35,6 +35,11 @@ import java.lang.reflect.Method;
 @OriginalClass("client!oa")
 public final class oa extends Toolkit implements Interface5 {
 
+    @OriginalMember(owner = "client!sia", name = "a", descriptor = "(Lclient!d;IIILjava/awt/Canvas;)Lclient!ha;")
+    public static Toolkit create(@OriginalArg(4) Canvas canvas, @OriginalArg(0) TextureSource textureSource, @OriginalArg(1) int width, @OriginalArg(2) int height) {
+        return new oa(canvas, textureSource, width, height);
+    }
+
     @OriginalMember(owner = "client!oa", name = "O", descriptor = "Lclient!ya;")
     public ya aYa2;
 

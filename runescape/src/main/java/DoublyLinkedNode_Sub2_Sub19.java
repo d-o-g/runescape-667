@@ -21,7 +21,7 @@ public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interfac
     public final int anInt9826;
 
     @OriginalMember(owner = "client!ut", name = "z", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_38;
+    public final GlToolkit aClass19_Sub3_38;
 
     @OriginalMember(owner = "client!ut", name = "t", descriptor = "I")
     public final int anInt9818;
@@ -42,7 +42,7 @@ public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interfac
     }
 
     @OriginalMember(owner = "client!ut", name = "<init>", descriptor = "(Lclient!qha;III)V")
-    public DoublyLinkedNode_Sub2_Sub19(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public DoublyLinkedNode_Sub2_Sub19(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         this.anInt9826 = arg1;
         this.aClass19_Sub3_38 = arg0;
         this.anInt9818 = arg2;
@@ -55,7 +55,7 @@ public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interfac
     }
 
     @OriginalMember(owner = "client!ut", name = "<init>", descriptor = "(Lclient!qha;IIII)V")
-    public DoublyLinkedNode_Sub2_Sub19(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public DoublyLinkedNode_Sub2_Sub19(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         this.aClass19_Sub3_38 = arg0;
         this.anInt9826 = arg1;
         this.anInt9818 = arg2;

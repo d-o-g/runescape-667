@@ -14,7 +14,7 @@ public final class Static294 {
     public static double aDouble15;
 
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(Lclient!tca;II[B)Lclient!fr;")
-    public static Class135 method4338(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(3) byte[] arg1) {
+    public static Class135 method4338(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(3) byte[] arg1) {
         if (arg1 == null) {
             return null;
         }

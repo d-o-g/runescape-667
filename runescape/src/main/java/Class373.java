@@ -14,7 +14,7 @@ public final class Class373 {
     public boolean aBoolean738 = true;
 
     @OriginalMember(owner = "client!uga", name = "j", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_36;
+    public final GlToolkit aClass19_Sub3_36;
 
     @OriginalMember(owner = "client!uga", name = "r", descriptor = "I")
     public final int anInt9626;
@@ -38,7 +38,7 @@ public final class Class373 {
     public Class134_Sub2 aClass134_Sub2_2;
 
     @OriginalMember(owner = "client!uga", name = "<init>", descriptor = "(Lclient!qha;Lclient!hn;Lclient!pn;IIIII)V")
-    public Class373(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Class170 arg1, @OriginalArg(2) Ground_Sub2 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+    public Class373(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) Class170 arg1, @OriginalArg(2) Ground_Sub2 arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
         this.aClass19_Sub3_36 = arg0;
         this.anInt9626 = arg7;
         this.aClass170_2 = arg1;

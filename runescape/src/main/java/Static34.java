@@ -9,7 +9,7 @@ public final class Static34 {
     public static boolean aBoolean62 = false;
 
     @OriginalMember(owner = "client!bca", name = "a", descriptor = "(II[BLclient!tca;)Lclient!ns;")
-    public static Class265 method884(@OriginalArg(0) int arg0, @OriginalArg(2) byte[] arg1, @OriginalArg(3) Toolkit_Sub1_Sub2 arg2) {
+    public static Class265 method884(@OriginalArg(0) int arg0, @OriginalArg(2) byte[] arg1, @OriginalArg(3) GlxToolkit arg2) {
         if (arg1 == null || arg1.length == 0) {
             return null;
         }

@@ -1,4 +1,5 @@
 import com.jagex.core.io.ByteArrayWrapper;
+import com.jagex.graphics.MonochromeImageCache;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -36,11 +37,11 @@ public final class Static132 {
             return;
         }
         if (Static608.anInt9289 == arg0) {
-            Static273.anIntArray341 = Static54.anIntArray92;
+            MonochromeImageCache.anIntArray341 = Static54.anIntArray92;
         } else {
-            Static273.anIntArray341 = new int[arg0];
+            MonochromeImageCache.anIntArray341 = new int[arg0];
             for (local7 = 0; local7 < arg0; local7++) {
-                Static273.anIntArray341[local7] = (local7 << 12) / arg0;
+                MonochromeImageCache.anIntArray341[local7] = (local7 << 12) / arg0;
             }
         }
         Static489.anInt7343 = arg0 - 1;

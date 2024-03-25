@@ -11,10 +11,10 @@ public final class Class202 {
     public Class179 aClass179_1;
 
     @OriginalMember(owner = "client!kaa", name = "e", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_21;
+    public final GlToolkit aClass19_Sub3_21;
 
     @OriginalMember(owner = "client!kaa", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Class202(@OriginalArg(0) Toolkit_Sub3 arg0) {
+    public Class202(@OriginalArg(0) GlToolkit arg0) {
         this.aClass19_Sub3_21 = arg0;
     }
 

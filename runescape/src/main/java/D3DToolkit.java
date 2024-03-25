@@ -16,7 +16,6 @@ import jagdx.D3DLIGHT;
 import jagdx.D3DPRESENT_PARAMETERS;
 import jagdx.GeometryBuffer;
 import jagdx.IDirect3D;
-import jagdx.IDirect3DBaseTexture;
 import jagdx.IDirect3DDevice;
 import jagdx.IDirect3DEventQuery;
 import jagdx.IDirect3DPixelShader;
@@ -33,9 +32,27 @@ import org.openrs2.deob.annotation.Pc;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.lang.reflect.Method;
 
 @OriginalClass("client!kea")
-public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
+public final class D3DToolkit extends NativeToolkit {
+
+    @OriginalMember(owner = "client!sd", name = "a", descriptor = "(Lclient!sb;IILclient!d;Ljava/awt/Canvas;)Lclient!ha;")
+    public static Toolkit create(@OriginalArg(0) js5 shaders, @OriginalArg(4) Canvas canvas, @OriginalArg(3) TextureSource textureSource, @OriginalArg(1) int antialiasing) {
+        try {
+            if (!Static651.method8516()) {
+                throw new RuntimeException("");
+            } else if (Static14.loadNativeLibrary("jagdx")) {
+                @Pc(26) Class local26 = Class.forName("D3DToolkit");
+                @Pc(68) Method local68 = local26.getDeclaredMethod("createToolkit", Class.forName("java.awt.Canvas"), Class.forName("com.jagex.graphics.TextureSource"), Class.forName("com.jagex.js5.js5"), Class.forName("java.lang.Integer"));
+                return (Toolkit) local68.invoke(null, canvas, textureSource, shaders, Integer.valueOf(antialiasing));
+            } else {
+                throw new RuntimeException("");
+            }
+        } catch (@Pc(98) Throwable local98) {
+            throw new RuntimeException("");
+        }
+    }
 
     @OriginalMember(owner = "client!kea", name = "Og", descriptor = "Lclient!jagdx/IDirect3DVertexShader;")
     public IDirect3DVertexShader anIDirect3DVertexShader1;
@@ -114,7 +131,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
 
     @OriginalMember(owner = "client!kea", name = "createToolkit", descriptor = "(Ljava/awt/Canvas;Lclient!d;Lclient!sb;Ljava/lang/Integer;)Lclient!ha;")
     public static Toolkit createToolkit(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) Integer arg3) {
-        @Pc(1) Toolkit_Sub1_Sub1 local1 = null;
+        @Pc(1) D3DToolkit local1 = null;
         try {
             @Pc(3) byte local3 = 0;
             @Pc(5) byte local5 = 1;
@@ -164,7 +181,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
                     local237 = local13.a(local3, local5, arg0, local213 | 0x20, local186);
                 }
                 @Pc(258) Class349 local258 = new Class349(local237.b(0), local237.c());
-                local1 = new Toolkit_Sub1_Sub1(local3, local5, arg0, local9, local13, local237, local258, local186, local18, arg1, arg2, arg3);
+                local1 = new D3DToolkit(local3, local5, arg0, local9, local13, local237, local258, local186, local18, arg1, arg2, arg3);
                 local1.method8134();
                 return local1;
             }
@@ -177,7 +194,7 @@ public final class Toolkit_Sub1_Sub1 extends Toolkit_Sub1 {
     }
 
     @OriginalMember(owner = "client!kea", name = "<init>", descriptor = "(IILjava/awt/Canvas;Lclient!jaclib/peer/ti;Lclient!jagdx/IDirect3D;Lclient!jagdx/IDirect3DDevice;Lclient!tda;Lclient!jagdx/D3DPRESENT_PARAMETERS;Lclient!jagdx/D3DCAPS;Lclient!d;Lclient!sb;I)V")
-    public Toolkit_Sub1_Sub1(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Canvas arg2, @OriginalArg(3) ti arg3, @OriginalArg(4) IDirect3D arg4, @OriginalArg(5) IDirect3DDevice arg5, @OriginalArg(6) Class349 arg6, @OriginalArg(7) D3DPRESENT_PARAMETERS arg7, @OriginalArg(8) D3DCAPS arg8, @OriginalArg(9) TextureSource arg9, @OriginalArg(10) js5 arg10, @OriginalArg(11) int arg11) {
+    public D3DToolkit(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Canvas arg2, @OriginalArg(3) ti arg3, @OriginalArg(4) IDirect3D arg4, @OriginalArg(5) IDirect3DDevice arg5, @OriginalArg(6) Class349 arg6, @OriginalArg(7) D3DPRESENT_PARAMETERS arg7, @OriginalArg(8) D3DCAPS arg8, @OriginalArg(9) TextureSource arg9, @OriginalArg(10) js5 arg10, @OriginalArg(11) int arg11) {
         super(arg2, arg6, arg9, arg10, arg11, 0);
         try {
             this.aD3DCAPS1 = arg8;

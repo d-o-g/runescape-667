@@ -58,7 +58,7 @@ public final class Ground_Sub2 extends Ground {
     public final int anInt7488 = this.anInt8895 - 2;
 
     @OriginalMember(owner = "client!pn", name = "O", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_33;
+    public final GlToolkit aClass19_Sub3_33;
 
     @OriginalMember(owner = "client!pn", name = "W", descriptor = "[[B")
     public byte[][] aByteArrayArray26;
@@ -109,7 +109,7 @@ public final class Ground_Sub2 extends Ground {
     public Class170 aClass170_1;
 
     @OriginalMember(owner = "client!pn", name = "<init>", descriptor = "(Lclient!qha;IIII[[I[[II)V")
-    public Ground_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[][] arg5, @OriginalArg(6) int[][] arg6, @OriginalArg(7) int arg7) {
+    public Ground_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[][] arg5, @OriginalArg(6) int[][] arg6, @OriginalArg(7) int arg7) {
         super(arg3, arg4, arg7, arg5);
         this.aClass19_Sub3_33 = arg0;
         this.aByteArrayArray26 = new byte[arg3 + 1][arg4 + 1];

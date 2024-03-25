@@ -254,15 +254,15 @@ public final class Model_Sub3 extends Model {
     public boolean aBoolean651 = false;
 
     @OriginalMember(owner = "client!rs", name = "ub", descriptor = "Lclient!iaa;")
-    public final Toolkit_Sub2 aClass19_Sub2_9;
+    public final JavaToolkit aClass19_Sub2_9;
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;)V")
-    public Model_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0) {
+    public Model_Sub3(@OriginalArg(0) JavaToolkit arg0) {
         this.aClass19_Sub2_9 = arg0;
     }
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;Lclient!dv;IIII)V")
-    public Model_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Model_Sub3(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass19_Sub2_9 = arg0;
         this.anInt8489 = arg2;
         this.anInt8495 = arg3;

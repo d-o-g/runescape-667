@@ -11,7 +11,7 @@ public final class Class72_Sub1 extends Class72 implements Interface16 {
     public byte aByte60;
 
     @OriginalMember(owner = "client!gla", name = "<init>", descriptor = "(Lclient!tca;Z)V")
-    public Class72_Sub1(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) boolean arg1) {
+    public Class72_Sub1(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) boolean arg1) {
         super(arg0, 34962, arg1);
     }
 

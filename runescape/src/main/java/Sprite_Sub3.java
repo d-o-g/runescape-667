@@ -30,7 +30,7 @@ public final class Sprite_Sub3 extends Sprite {
     public final int anInt6626;
 
     @OriginalMember(owner = "client!np", name = "i", descriptor = "Lclient!am;")
-    public final Toolkit_Sub1 aClass19_Sub1_12;
+    public final NativeToolkit aClass19_Sub1_12;
 
     @OriginalMember(owner = "client!np", name = "t", descriptor = "Lclient!og;")
     public final Interface18 anInterface18_3;
@@ -48,7 +48,7 @@ public final class Sprite_Sub3 extends Sprite {
     public final boolean aBoolean496;
 
     @OriginalMember(owner = "client!np", name = "<init>", descriptor = "(Lclient!am;IIZ)V")
-    public Sprite_Sub3(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
+    public Sprite_Sub3(@OriginalArg(0) NativeToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
         this.anInt6606 = arg2;
         this.anInt6626 = arg1;
         this.aClass19_Sub1_12 = arg0;
@@ -61,7 +61,7 @@ public final class Sprite_Sub3 extends Sprite {
     }
 
     @OriginalMember(owner = "client!np", name = "<init>", descriptor = "(Lclient!am;II[III)V")
-    public Sprite_Sub3(@OriginalArg(0) Toolkit_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public Sprite_Sub3(@OriginalArg(0) NativeToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.anInt6626 = arg1;
         this.anInt6606 = arg2;
         this.aClass19_Sub1_12 = arg0;

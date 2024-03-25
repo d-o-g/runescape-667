@@ -6,10 +6,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 public abstract class Class101 {
 
     @OriginalMember(owner = "client!ua", name = "d", descriptor = "Lclient!qha;")
-    protected final Toolkit_Sub3 aClass19_Sub3_42;
+    protected final GlToolkit aClass19_Sub3_42;
 
     @OriginalMember(owner = "client!ua", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Class101(@OriginalArg(0) Toolkit_Sub3 arg0) {
+    public Class101(@OriginalArg(0) GlToolkit arg0) {
         this.aClass19_Sub3_42 = arg0;
     }
 

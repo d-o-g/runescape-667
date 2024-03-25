@@ -61,7 +61,7 @@ public final class Class276 {
     public int anInt6955 = -1;
 
     @OriginalMember(owner = "client!oia", name = "G", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_32;
+    public final GlToolkit aClass19_Sub3_32;
 
     @OriginalMember(owner = "client!oia", name = "e", descriptor = "Lclient!wo;")
     public Class406 aClass406_4;
@@ -73,7 +73,7 @@ public final class Class276 {
     public Class406 aClass406_3;
 
     @OriginalMember(owner = "client!oia", name = "<init>", descriptor = "(Lclient!qha;)V")
-    public Class276(@OriginalArg(0) Toolkit_Sub3 arg0) {
+    public Class276(@OriginalArg(0) GlToolkit arg0) {
         this.aClass19_Sub3_32 = arg0;
         if (this.aClass19_Sub3_32.aBoolean613 && this.aClass19_Sub3_32.aBoolean595) {
             this.aClass406_5 = this.aClass406_4 = new Class406(this.aClass19_Sub3_32);

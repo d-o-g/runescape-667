@@ -7,13 +7,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 public class Class134 {
 
     @OriginalMember(owner = "client!ll", name = "a", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_40;
+    public final GlToolkit aClass19_Sub3_40;
 
     @OriginalMember(owner = "client!ll", name = "b", descriptor = "Lclient!jaclib/memory/Buffer;")
     protected Buffer aBuffer3;
 
     @OriginalMember(owner = "client!ll", name = "<init>", descriptor = "(Lclient!qha;[BI)V")
-    protected Class134(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int arg2) {
+    protected Class134(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int arg2) {
         this.aClass19_Sub3_40 = arg0;
         this.aBuffer3 = this.aClass19_Sub3_40.lb.a(arg2, false);
         if (arg1 != null) {
@@ -22,7 +22,7 @@ public class Class134 {
     }
 
     @OriginalMember(owner = "client!ll", name = "<init>", descriptor = "(Lclient!qha;Lclient!jaclib/memory/Buffer;)V")
-    protected Class134(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) Buffer arg1) {
+    protected Class134(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) Buffer arg1) {
         this.aClass19_Sub3_40 = arg0;
         this.aBuffer3 = arg1;
     }

@@ -10,6 +10,9 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ija")
 public final class MonochromeImageCache {
 
+    @OriginalMember(owner = "client!ik", name = "H", descriptor = "[I")
+    public static int[] anIntArray341;
+
     @OriginalMember(owner = "client!ija", name = "h", descriptor = "I")
     public int cachedId = -1;
 

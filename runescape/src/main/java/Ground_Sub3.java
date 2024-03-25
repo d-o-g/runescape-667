@@ -66,7 +66,7 @@ public final class Ground_Sub3 extends Ground {
     public int anInt8145 = -1;
 
     @OriginalMember(owner = "client!qs", name = "I", descriptor = "Lclient!iaa;")
-    public final Toolkit_Sub2 aClass19_Sub2_8;
+    public final JavaToolkit aClass19_Sub2_8;
 
     @OriginalMember(owner = "client!qs", name = "D", descriptor = "I")
     public final int anInt8146;
@@ -78,7 +78,7 @@ public final class Ground_Sub3 extends Ground {
     public byte[][] aByteArrayArray30;
 
     @OriginalMember(owner = "client!qs", name = "<init>", descriptor = "(Lclient!iaa;IIII[[I[[II)V")
-    public Ground_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[][] arg5, @OriginalArg(6) int[][] arg6, @OriginalArg(7) int arg7) {
+    public Ground_Sub3(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[][] arg5, @OriginalArg(6) int[][] arg6, @OriginalArg(7) int arg7) {
         super(arg3, arg4, arg7, arg5);
         this.aClass19_Sub2_8 = arg0;
         this.anInt8146 = arg2;

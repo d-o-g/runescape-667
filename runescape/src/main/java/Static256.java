@@ -6,39 +6,15 @@ import com.jagex.graphics.FontMetrics;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.graphics.ClippingMask;
-import com.jagex.graphics.TextureSource;
-import com.jagex.graphics.Toolkit;
-import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
-import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-
-import java.awt.Canvas;
 
 public final class Static256 {
 
     @OriginalMember(owner = "client!hu", name = "n", descriptor = "[S")
     public static short[] aShortArray63;
-
-    @OriginalMember(owner = "client!hu", name = "a", descriptor = "(IILclient!sb;Lclient!d;Ljava/awt/Canvas;)Lclient!ha;")
-    public static Toolkit method3637(@OriginalArg(0) int arg0, @OriginalArg(2) js5 arg1, @OriginalArg(3) TextureSource arg2, @OriginalArg(4) Canvas arg3) {
-        if (!Static651.method8516()) {
-            throw new RuntimeException("");
-        } else if (Static14.loadNativeLibrary("jaggl")) {
-            @Pc(28) OpenGL local28 = new OpenGL();
-            @Pc(38) long local38 = local28.init(arg3, 8, 8, 8, 24, 0, arg0);
-            if (local38 == 0L) {
-                throw new RuntimeException("");
-            }
-            @Pc(58) Toolkit_Sub1_Sub2 local58 = new Toolkit_Sub1_Sub2(local28, arg3, local38, arg2, arg1, arg0);
-            local58.method8134();
-            return local58;
-        } else {
-            throw new RuntimeException("");
-        }
-    }
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(ZLclient!cg;Z)V")
     public static void movementTick(@OriginalArg(1) PathingEntity entity, @OriginalArg(2) boolean cutscene) {

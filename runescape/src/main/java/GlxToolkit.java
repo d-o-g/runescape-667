@@ -11,6 +11,7 @@ import com.jagex.graphics.Interface9;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import com.jagex.math.IntMath;
 import jaclib.memory.Stream;
@@ -25,7 +26,25 @@ import java.awt.Canvas;
 import java.awt.Rectangle;
 
 @OriginalClass("client!tca")
-public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
+public final class GlxToolkit extends NativeToolkit {
+
+    @OriginalMember(owner = "client!hu", name = "a", descriptor = "(IILclient!sb;Lclient!d;Ljava/awt/Canvas;)Lclient!ha;")
+    public static Toolkit create(@OriginalArg(2) js5 shaders, @OriginalArg(4) Canvas canvas, @OriginalArg(3) TextureSource textureSource, @OriginalArg(0) int antialiasing) {
+        if (!Static651.method8516()) {
+            throw new RuntimeException("");
+        } else if (Static14.loadNativeLibrary("jaggl")) {
+            @Pc(28) OpenGL local28 = new OpenGL();
+            @Pc(38) long local38 = local28.init(canvas, 8, 8, 8, 24, 0, antialiasing);
+            if (local38 == 0L) {
+                throw new RuntimeException("");
+            }
+            @Pc(58) GlxToolkit local58 = new GlxToolkit(local28, canvas, local38, textureSource, shaders, antialiasing);
+            local58.method8134();
+            return local58;
+        } else {
+            throw new RuntimeException("");
+        }
+    }
 
     @OriginalMember(owner = "client!tca", name = "si", descriptor = "Z")
     public boolean aBoolean698;
@@ -118,7 +137,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
     public final int anInt9277;
 
     @OriginalMember(owner = "client!tca", name = "<init>", descriptor = "(Lclient!jaggl/OpenGL;Ljava/awt/Canvas;JLclient!d;Lclient!sb;I)V")
-    public Toolkit_Sub1_Sub2(@OriginalArg(0) OpenGL arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) long arg2, @OriginalArg(3) TextureSource arg3, @OriginalArg(4) js5 arg4, @OriginalArg(5) int arg5) {
+    public GlxToolkit(@OriginalArg(0) OpenGL arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) long arg2, @OriginalArg(3) TextureSource arg3, @OriginalArg(4) js5 arg4, @OriginalArg(5) int arg5) {
         super(arg1, Long.valueOf(arg2), arg3, arg4, arg5, 1);
         try {
             this.anOpenGL2 = arg0;

@@ -25,13 +25,13 @@ public final class Class11 implements Interface20 {
     public final Class397 aClass397_1;
 
     @OriginalMember(owner = "client!ag", name = "b", descriptor = "Lclient!kea;")
-    public final Toolkit_Sub1_Sub1 aClass19_Sub1_Sub1_1;
+    public final D3DToolkit aClass19_Sub1_Sub1_1;
 
     @OriginalMember(owner = "client!ag", name = "a", descriptor = "Z")
     public final boolean aBoolean11;
 
     @OriginalMember(owner = "client!ag", name = "<init>", descriptor = "(Lclient!kea;Lclient!wda;Z)V")
-    public Class11(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) Class397 arg1, @OriginalArg(2) boolean arg2) {
+    public Class11(@OriginalArg(0) D3DToolkit arg0, @OriginalArg(1) Class397 arg1, @OriginalArg(2) boolean arg2) {
         this.aClass397_1 = arg1;
         this.aClass19_Sub1_Sub1_1 = arg0;
         this.aBoolean11 = arg2;

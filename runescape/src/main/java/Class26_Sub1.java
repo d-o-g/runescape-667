@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class26_Sub1 extends Class26 {
 
     @OriginalMember(owner = "client!at", name = "l", descriptor = "Lclient!tca;")
-    public final Toolkit_Sub1_Sub2 aClass19_Sub1_Sub2_1;
+    public final GlxToolkit aClass19_Sub1_Sub2_1;
 
     @OriginalMember(owner = "client!at", name = "s", descriptor = "Lclient!ae;")
     public final Class7 aClass7_2;
@@ -18,7 +18,7 @@ public final class Class26_Sub1 extends Class26 {
     public final Class135 aClass135_1;
 
     @OriginalMember(owner = "client!at", name = "<init>", descriptor = "(Lclient!tca;Lclient!sb;Lclient!ae;)V")
-    public Class26_Sub1(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) Class7 arg2) {
+    public Class26_Sub1(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) Class7 arg2) {
         super(arg0);
         this.aClass19_Sub1_Sub2_1 = arg0;
         this.aClass7_2 = arg2;

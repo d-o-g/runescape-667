@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class26_Sub9 extends Class26 {
 
     @OriginalMember(owner = "client!qn", name = "j", descriptor = "Lclient!kea;")
-    public final Toolkit_Sub1_Sub1 aClass19_Sub1_Sub1_7;
+    public final D3DToolkit aClass19_Sub1_Sub1_7;
 
     @OriginalMember(owner = "client!qn", name = "l", descriptor = "Lclient!ae;")
     public final Class7 aClass7_6;
@@ -19,7 +19,7 @@ public final class Class26_Sub9 extends Class26 {
     public final IDirect3DVertexShader anIDirect3DVertexShader7;
 
     @OriginalMember(owner = "client!qn", name = "<init>", descriptor = "(Lclient!kea;Lclient!sb;Lclient!ae;)V")
-    public Class26_Sub9(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) Class7 arg2) {
+    public Class26_Sub9(@OriginalArg(0) D3DToolkit arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) Class7 arg2) {
         super(arg0);
         this.aClass19_Sub1_Sub1_7 = arg0;
         this.aClass7_6 = arg2;

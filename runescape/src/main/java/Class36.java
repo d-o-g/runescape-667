@@ -10,7 +10,7 @@ public final class Class36 {
     public final int anInt923;
 
     @OriginalMember(owner = "client!bea", name = "<init>", descriptor = "(Lclient!qha;I)V")
-    public Class36(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1) {
+    public Class36(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1) {
         this.anInt923 = OpenGL.glGenLists(arg1);
     }
 

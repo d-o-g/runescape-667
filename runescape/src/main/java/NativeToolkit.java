@@ -35,7 +35,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 @OriginalClass("client!am")
-public abstract class Toolkit_Sub1 extends Toolkit {
+public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "J", descriptor = "Lclient!jaclib/memory/heap/NativeHeap;")
     public NativeHeap aNativeHeap5;
@@ -467,7 +467,7 @@ public abstract class Toolkit_Sub1 extends Toolkit {
     public final Class334 aClass334_3;
 
     @OriginalMember(owner = "client!am", name = "<init>", descriptor = "(Ljava/awt/Canvas;Ljava/lang/Object;Lclient!d;Lclient!sb;II)V")
-    protected Toolkit_Sub1(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Object arg1, @OriginalArg(2) TextureSource arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    protected NativeToolkit(@OriginalArg(0) Canvas arg0, @OriginalArg(1) Object arg1, @OriginalArg(2) TextureSource arg2, @OriginalArg(3) js5 arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         super(arg2);
         try {
             this.aJs5_112 = arg3;

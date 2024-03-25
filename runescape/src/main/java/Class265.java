@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Class265 {
 
     @OriginalMember(owner = "client!ns", name = "f", descriptor = "Lclient!tca;")
-    public final Toolkit_Sub1_Sub2 aClass19_Sub1_Sub2_8;
+    public final GlxToolkit aClass19_Sub1_Sub2_8;
 
     @OriginalMember(owner = "client!ns", name = "g", descriptor = "J")
     public final long aLong213;
@@ -16,7 +16,7 @@ public final class Class265 {
     }
 
     @OriginalMember(owner = "client!ns", name = "<init>", descriptor = "(Lclient!tca;JI)V")
-    public Class265(@OriginalArg(0) Toolkit_Sub1_Sub2 arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int arg2) {
+    public Class265(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int arg2) {
         this.aClass19_Sub1_Sub2_8 = arg0;
         this.aLong213 = arg1;
     }

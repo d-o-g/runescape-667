@@ -1,9 +1,4 @@
-import com.jagex.graphics.TextureSource;
-import com.jagex.graphics.Toolkit;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-
-import java.awt.Canvas;
 
 public final class Static206 {
 
@@ -13,8 +8,4 @@ public final class Static206 {
     @OriginalMember(owner = "client!gga", name = "j", descriptor = "J")
     public static long aLong114 = 0L;
 
-    @OriginalMember(owner = "client!gga", name = "a", descriptor = "(Lclient!d;Ljava/awt/Canvas;II)Lclient!ha;")
-    public static Toolkit method3093(@OriginalArg(0) TextureSource arg0, @OriginalArg(1) Canvas arg1, @OriginalArg(2) int arg2) {
-        return new Toolkit_Sub3(arg1, arg0, arg2);
-    }
 }

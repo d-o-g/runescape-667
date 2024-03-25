@@ -2,6 +2,7 @@ import com.jagex.Class67;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -20,17 +21,17 @@ public final class Static226 {
     public static final Deque mouseLogs = new Deque();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(ILjava/awt/Canvas;IILclient!d;ILclient!sb;I)Lclient!ha;")
-    public static synchronized Toolkit method7982(@OriginalArg(1) Canvas arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) TextureSource arg3, @OriginalArg(5) int arg4, @OriginalArg(6) js5 arg5, @OriginalArg(7) int arg6) {
-        if (arg4 == 0) {
-            return Static643.method8443(arg6, arg3, arg1, arg0);
-        } else if (arg4 == 2) {
-            return Static587.method7698(arg3, arg6, arg1, arg0);
-        } else if (arg4 == 1) {
-            return Static206.method3093(arg3, arg0, arg2);
-        } else if (arg4 == 5) {
-            return Static256.method3637(arg2, arg5, arg3, arg0);
-        } else if (arg4 == 3) {
-            return Static733.method7618(arg5, arg2, arg3, arg0);
+    public static synchronized Toolkit create(@OriginalArg(5) int type, @OriginalArg(6) js5 shaders, @OriginalArg(1) Canvas canvas, @OriginalArg(4) TextureSource textureSource, @OriginalArg(7) int width, @OriginalArg(2) int height, @OriginalArg(3) int antialiasing) {
+        if (type == ToolkitType.JAVA) {
+            return JavaToolkit.create(canvas, textureSource, width, height);
+        } else if (type == ToolkitType.SSE) {
+            return oa.create(canvas, textureSource, width, height);
+        } else if (type == ToolkitType.GL) {
+            return GlToolkit.create(canvas, textureSource, antialiasing);
+        } else if (type == ToolkitType.GLX) {
+            return GlxToolkit.create(shaders, canvas, textureSource, antialiasing);
+        } else if (type == ToolkitType.D3D) {
+            return D3DToolkit.create(shaders, canvas, textureSource, antialiasing);
         } else {
             throw new IllegalArgumentException("UM");
         }

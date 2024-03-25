@@ -10,13 +10,13 @@ public final class Class132_Sub2 extends Class132 implements Interface12 {
     public int anInt5581;
 
     @OriginalMember(owner = "client!kma", name = "<init>", descriptor = "(Lclient!qha;I[BIZ)V")
-    public Class132_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Class132_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) byte[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         super(arg0, 34962, arg2, arg3, arg4);
         this.anInt5581 = arg1;
     }
 
     @OriginalMember(owner = "client!kma", name = "<init>", descriptor = "(Lclient!qha;ILclient!jaclib/memory/Buffer;IZ)V")
-    public Class132_Sub2(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Buffer arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Class132_Sub2(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Buffer arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         super(arg0, 34962, arg2, arg3, arg4);
         this.anInt5581 = arg1;
     }

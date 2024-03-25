@@ -16,10 +16,10 @@ public final class Class169 {
     public final TextureSource anTextureSource_4;
 
     @OriginalMember(owner = "client!hm", name = "c", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_17;
+    public final GlToolkit aClass19_Sub3_17;
 
     @OriginalMember(owner = "client!hm", name = "<init>", descriptor = "(Lclient!qha;Lclient!d;)V")
-    public Class169(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) TextureSource arg1) {
+    public Class169(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) TextureSource arg1) {
         this.anTextureSource_4 = arg1;
         this.aClass19_Sub3_17 = arg0;
     }

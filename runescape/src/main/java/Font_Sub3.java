@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Font_Sub3 extends Font {
 
     @OriginalMember(owner = "client!ib", name = "x", descriptor = "Lclient!iaa;")
-    public Toolkit_Sub2 aClass19_Sub2_4;
+    public JavaToolkit aClass19_Sub2_4;
 
     @OriginalMember(owner = "client!ib", name = "D", descriptor = "[I")
     public final int[] anIntArray323;
@@ -32,7 +32,7 @@ public final class Font_Sub3 extends Font {
     public final int[] anIntArray321;
 
     @OriginalMember(owner = "client!ib", name = "<init>", descriptor = "(Lclient!iaa;Lclient!ve;[Lclient!wp;[I[I)V")
-    public Font_Sub3(@OriginalArg(0) Toolkit_Sub2 arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public Font_Sub3(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         super(arg0, arg1);
         this.aClass19_Sub2_4 = arg0;
         this.aClass19_Sub2_4 = arg0;

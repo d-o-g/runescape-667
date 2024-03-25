@@ -24,7 +24,7 @@ public final class Node_Sub39 extends Node {
     public final Ground_Sub2 aClass178_Sub2_3;
 
     @OriginalMember(owner = "client!nm", name = "n", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_31;
+    public final GlToolkit aClass19_Sub3_31;
 
     @OriginalMember(owner = "client!nm", name = "s", descriptor = "I")
     public final int anInt6595;

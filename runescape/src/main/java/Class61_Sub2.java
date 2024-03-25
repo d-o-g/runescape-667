@@ -17,7 +17,7 @@ public final class Class61_Sub2 extends Class61 implements Interface8 {
     public final IDirect3DCubeTexture anIDirect3DCubeTexture1;
 
     @OriginalMember(owner = "client!kfa", name = "<init>", descriptor = "(Lclient!kea;IZ[[I)V")
-    public Class61_Sub2(@OriginalArg(0) Toolkit_Sub1_Sub1 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int[][] arg3) {
+    public Class61_Sub2(@OriginalArg(0) D3DToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) int[][] arg3) {
         super(arg0, Static172.aClass92_8, Static702.aClass397_16, arg2 && arg0.aBoolean412, arg1 * 6 * arg1);
         this.anInt5373 = arg1;
         if (this.aBoolean785) {

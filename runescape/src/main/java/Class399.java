@@ -112,7 +112,7 @@ public final class Class399 {
     public final Model_Sub3[] aClass114_Sub3Array3 = new Model_Sub3[7];
 
     @OriginalMember(owner = "client!wf", name = "y", descriptor = "Lclient!iaa;")
-    public final Toolkit_Sub2 aClass19_Sub2_12;
+    public final JavaToolkit aClass19_Sub2_12;
 
     @OriginalMember(owner = "client!wf", name = "I", descriptor = "I")
     public int anInt10601;
@@ -124,7 +124,7 @@ public final class Class399 {
     public final int[] anIntArray853;
 
     @OriginalMember(owner = "client!wf", name = "<init>", descriptor = "(Lclient!iaa;)V")
-    public Class399(@OriginalArg(0) Toolkit_Sub2 arg0) {
+    public Class399(@OriginalArg(0) JavaToolkit arg0) {
         this.aClass19_Sub2_12 = arg0;
         this.anInt10601 = this.aClass19_Sub2_12.anInt4199 - 255;
         this.aClass219_2 = new Class219(arg0, this);

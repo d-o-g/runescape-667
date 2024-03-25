@@ -6,13 +6,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Class71 {
 
     @OriginalMember(owner = "client!cn", name = "e", descriptor = "Lclient!qha;")
-    public final Toolkit_Sub3 aClass19_Sub3_2;
+    public final GlToolkit aClass19_Sub3_2;
 
     @OriginalMember(owner = "client!cn", name = "j", descriptor = "I")
     public final int anInt1805;
 
     @OriginalMember(owner = "client!cn", name = "<init>", descriptor = "(Lclient!qha;II)V")
-    public Class71(@OriginalArg(0) Toolkit_Sub3 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public Class71(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.aClass19_Sub3_2 = arg0;
         this.anInt1805 = arg2;
     }

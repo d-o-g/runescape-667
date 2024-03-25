@@ -1,11 +1,12 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.ClanSettings;
 
 public final class Static128 {
 
     @OriginalMember(owner = "client!ea", name = "m", descriptor = "Lclient!hi;")
-    public static Class164 aClass164_8;
+    public static ClanSettings aClanSettings_8;
 
     @OriginalMember(owner = "client!ea", name = "f", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___106 = new ClientProt(6, 8);

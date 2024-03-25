@@ -61,24 +61,6 @@ public final class IntMath {
         return bits + n;
     }
 
-    @OriginalMember(owner = "client!bf", name = "a", descriptor = "(III)I")
-    public static int ipow(@OriginalArg(0) int exp, @OriginalArg(1) int base) {
-        @Pc(5) int result = 1;
-        while (exp > 1) {
-            if ((exp & 0x1) != 0) {
-                result *= base;
-            }
-            base *= base;
-            exp >>= 0x1;
-        }
-
-        if (exp == 1) {
-            return result * base;
-        } else {
-            return result;
-        }
-    }
-
     private IntMath() {
         /* empty */
     }

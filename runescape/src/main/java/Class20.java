@@ -5,6 +5,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.ClanSettings;
 
 @OriginalClass("client!ama")
 public final class Class20 {
@@ -67,13 +68,13 @@ public final class Class20 {
     }
 
     @OriginalMember(owner = "client!ama", name = "a", descriptor = "(ILclient!hi;)V")
-    public void method587(@OriginalArg(1) Class164 arg0) {
-        if (this.aLong15 != arg0.aLong125 || this.anInt519 != arg0.anInt3950) {
-            throw new RuntimeException("ClanSettingsDelta.applyToClanSettings(): Credentials do not match! Settings.owner:" + Base37.decode(arg0.aLong125) + " updateNum:" + arg0.anInt3950 + " delta.owner:" + Base37.decode(this.aLong15) + " updateNum:" + this.anInt519);
+    public void method587(@OriginalArg(1) ClanSettings arg0) {
+        if (this.aLong15 != arg0.aLong125 || this.anInt519 != arg0.updateNum) {
+            throw new RuntimeException("ClanSettingsDelta.applyToClanSettings(): Credentials do not match! Settings.owner:" + Base37.decode(arg0.aLong125) + " updateNum:" + arg0.updateNum + " delta.owner:" + Base37.decode(this.aLong15) + " updateNum:" + this.anInt519);
         }
         for (@Pc(82) Node_Sub14 local82 = (Node_Sub14) this.aDeque_4.first(); local82 != null; local82 = (Node_Sub14) this.aDeque_4.next()) {
             local82.method8617(arg0);
         }
-        arg0.anInt3950++;
+        arg0.updateNum++;
     }
 }

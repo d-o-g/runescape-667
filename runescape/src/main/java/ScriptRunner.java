@@ -50,6 +50,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.ClanSettings;
 import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseMonitor;
 
@@ -78,7 +79,7 @@ public final class ScriptRunner {
     public static Node_Sub47 aClass2_Sub47_2;
 
     @OriginalMember(owner = "client!ou", name = "G", descriptor = "Lclient!hi;")
-    public static Class164 aClass164_7;
+    public static ClanSettings aClanSettings_7;
 
     @OriginalMember(owner = "client!ou", name = "k", descriptor = "Lclient!hda;")
     public static Component aComponent_12;
@@ -134,7 +135,7 @@ public final class ScriptRunner {
         if (local4 == null) {
             throw new RuntimeException("sr-c113");
         }
-        @Pc(29) Integer local29 = aClass164_7.method3495(client.modeGame.id << 16 | local4.id, local4.end, local4.start);
+        @Pc(29) Integer local29 = aClanSettings_7.getExtraSettingVarbit((client.modeGame.id << 16) | local4.baseVar, local4.endBit, local4.startBit);
         return local29 == null ? 0 : local29;
     }
 
@@ -144,7 +145,7 @@ public final class ScriptRunner {
         if (local4 == null) {
             throw new RuntimeException("sr-c112");
         }
-        @Pc(24) Integer local24 = aClass164_7.method3490(client.modeGame.id << 16 | arg0);
+        @Pc(24) Integer local24 = aClanSettings_7.getExtraSettingInt(client.modeGame.id << 16 | arg0);
         if (local24 == null) {
             return local4.dataType == 'i' || local4.dataType == '1' ? 0 : -1;
         } else {
@@ -154,7 +155,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "c", descriptor = "(I)J")
     public static long method6413(@OriginalArg(0) int arg0) {
-        @Pc(9) Long local9 = aClass164_7.method3478(client.modeGame.id << 16 | arg0);
+        @Pc(9) Long local9 = aClanSettings_7.getExtraSettingLong(client.modeGame.id << 16 | arg0);
         return local9 == null ? -1L : local9;
     }
 
@@ -2296,68 +2297,68 @@ public final class ScriptRunner {
                                         }
                                     } else if (arg0 < 3800) {
                                         if (arg0 == 3700) {
-                                            if (Static91.aClass164_9 != null) {
+                                            if (Static91.aClanSettings_9 != null) {
                                                 anIntArray578[anInt7142++] = 1;
-                                                aClass164_7 = Static91.aClass164_9;
+                                                aClanSettings_7 = Static91.aClanSettings_9;
                                                 return;
                                             }
                                             anIntArray578[anInt7142++] = 0;
                                             return;
                                         }
                                         if (arg0 == 3701) {
-                                            if (Static128.aClass164_8 != null) {
+                                            if (Static128.aClanSettings_8 != null) {
                                                 anIntArray578[anInt7142++] = 1;
-                                                aClass164_7 = Static128.aClass164_8;
+                                                aClanSettings_7 = Static128.aClanSettings_8;
                                                 return;
                                             }
                                             anIntArray578[anInt7142++] = 0;
                                             return;
                                         }
                                         if (arg0 == 3702) {
-                                            aStringArray37[anInt7139++] = aClass164_7.aString45;
+                                            aStringArray37[anInt7139++] = aClanSettings_7.name;
                                             return;
                                         }
                                         if (arg0 == 3703) {
-                                            anIntArray578[anInt7142++] = aClass164_7.aBoolean307 ? 1 : 0;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.allowNonMembers ? 1 : 0;
                                             return;
                                         }
                                         if (arg0 == 3704) {
-                                            anIntArray578[anInt7142++] = aClass164_7.aByte68;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.rankTalk;
                                             return;
                                         }
                                         if (arg0 == 3705) {
-                                            anIntArray578[anInt7142++] = aClass164_7.aByte67;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.rankKick;
                                             return;
                                         }
                                         if (arg0 == 3706) {
-                                            anIntArray578[anInt7142++] = aClass164_7.aByte66;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.rankLootShare;
                                             return;
                                         }
                                         if (arg0 == 3707) {
-                                            anIntArray578[anInt7142++] = aClass164_7.aByte65;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.coinshare;
                                             return;
                                         }
                                         if (arg0 == 3709) {
-                                            anIntArray578[anInt7142++] = aClass164_7.anInt3939;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.affinedCount;
                                             return;
                                         }
                                         if (arg0 == 3710) {
                                             local15 = anIntArray578[--anInt7142];
-                                            aStringArray37[anInt7139++] = aClass164_7.aStringArray18[local15];
+                                            aStringArray37[anInt7139++] = aClanSettings_7.affinedDisplayNames[local15];
                                             return;
                                         }
                                         if (arg0 == 3711) {
                                             local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = aClass164_7.aByteArray40[local15];
+                                            anIntArray578[anInt7142++] = aClanSettings_7.affinedRanks[local15];
                                             return;
                                         }
                                         if (arg0 == 3712) {
-                                            anIntArray578[anInt7142++] = aClass164_7.anInt3941;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.bannedCount;
                                             return;
                                         }
                                         if (arg0 == 3713) {
                                             local15 = anIntArray578[--anInt7142];
-                                            aStringArray37[anInt7139++] = aClass164_7.aStringArray19[local15];
+                                            aStringArray37[anInt7139++] = aClanSettings_7.bannedDisplayNames[local15];
                                             return;
                                         }
                                         if (arg0 == 3714) {
@@ -2365,23 +2366,23 @@ public final class ScriptRunner {
                                             local15 = anIntArray578[anInt7142];
                                             local21 = anIntArray578[anInt7142 + 1];
                                             local27 = anIntArray578[anInt7142 + 2];
-                                            anIntArray578[anInt7142++] = aClass164_7.method3497(local21, local27, local15);
+                                            anIntArray578[anInt7142++] = aClanSettings_7.getAffinedExtraInfo(local21, local27, local15);
                                             return;
                                         }
                                         if (arg0 == 3715) {
-                                            anIntArray578[anInt7142++] = aClass164_7.anInt3956;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.currentOwnerSlot;
                                             return;
                                         }
                                         if (arg0 == 3716) {
-                                            anIntArray578[anInt7142++] = aClass164_7.anInt3947;
+                                            anIntArray578[anInt7142++] = aClanSettings_7.replacementOwnerSlot;
                                             return;
                                         }
                                         if (arg0 == 3717) {
-                                            anIntArray578[anInt7142++] = aClass164_7.method3479(aStringArray37[--anInt7139]);
+                                            anIntArray578[anInt7142++] = aClanSettings_7.affinedSlot(aStringArray37[--anInt7139]);
                                             return;
                                         }
                                         if (arg0 == 3718) {
-                                            anIntArray578[anInt7142 - 1] = aClass164_7.method3487()[anIntArray578[anInt7142 - 1]];
+                                            anIntArray578[anInt7142 - 1] = aClanSettings_7.sortedAffinedSlots()[anIntArray578[anInt7142 - 1]];
                                             return;
                                         }
                                         if (arg0 == 3719) {
@@ -2390,7 +2391,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3720) {
                                             local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = aClass164_7.anIntArray308[local15];
+                                            anIntArray578[anInt7142++] = aClanSettings_7.affinedJoinRuneday[local15];
                                             return;
                                         }
                                         if (arg0 == 3750) {
@@ -6267,7 +6268,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "e", descriptor = "(I)Ljava/lang/String;")
     public static String method6425(@OriginalArg(0) int arg0) {
-        @Pc(9) String local9 = aClass164_7.method3484(client.modeGame.id << 16 | arg0);
+        @Pc(9) String local9 = aClanSettings_7.getExtraSettingString(client.modeGame.id << 16 | arg0);
         return local9 == null ? "" : local9;
     }
 

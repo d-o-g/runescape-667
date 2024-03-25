@@ -12,7 +12,7 @@ public final class VorbisResidue {
     public final int type;
 
     @OriginalMember(owner = "client!l", name = "g", descriptor = "I")
-    public final int start;
+    public final int begin;
 
     @OriginalMember(owner = "client!l", name = "b", descriptor = "I")
     public final int end;
@@ -29,10 +29,13 @@ public final class VorbisResidue {
     @OriginalMember(owner = "client!l", name = "d", descriptor = "[I")
     public final int[] books;
 
+    /**
+     * @see <a href="https://xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-1110008.6.1">header decode</a>
+     */
     @OriginalMember(owner = "client!l", name = "<init>", descriptor = "()V")
     public VorbisResidue() {
         this.type = VorbisSound.gbit(16);
-        this.start = VorbisSound.gbit(24);
+        this.begin = VorbisSound.gbit(24);
         this.end = VorbisSound.gbit(24);
         this.partitionSize = VorbisSound.gbit(24) + 1;
         this.classifications = VorbisSound.gbit(6) + 1;
@@ -54,10 +57,17 @@ public final class VorbisResidue {
 
         this.books = new int[this.classifications * 8];
         for (@Pc(38) int i = 0; i < this.classifications * 8; i++) {
-            this.books[i] = (cascade[i >> 3] & 0x1 << (i & 0x7)) == 0 ? -1 : VorbisSound.gbit(8);
+            if ((cascade[i >> 3] & 0x1 << (i & 0x7)) != 0) {
+                this.books[i] = VorbisSound.gbit(8);
+            } else {
+                this.books[i] = -1;
+            }
         }
     }
 
+    /**
+     * @see <a href="https://xiph.org/vorbis/doc/Vorbis_I_spec.html#xx1-1120008.6.2">packet decode</a>
+     */
     @OriginalMember(owner = "client!l", name = "a", descriptor = "([FIZ)V")
     public void decode(@OriginalArg(0) float[] v, @OriginalArg(1) int arg1, @OriginalArg(2) boolean decode) {
         for (@Pc(1) int i = 0; i < arg1; i++) {
@@ -67,33 +77,34 @@ public final class VorbisResidue {
             return;
         }
 
-        @Pc(19) int classbooksPerCodeword = VorbisSound.codebooks[this.classbook].dimensions;
-        @Pc(25) int delta = this.end - this.start;
-        @Pc(30) int totalCount = delta / this.partitionSize;
-        @Pc(33) int[] partitions = new int[totalCount];
+        @Pc(19) int classwordsPerCodeword = VorbisSound.codebooks[this.classbook].dimensions;
+        @Pc(25) int nToRead = this.end - this.begin;
+        @Pc(30) int partitionsToRead = nToRead / this.partitionSize;
+
+        @Pc(33) int[] partitions = new int[partitionsToRead];
 
         for (@Pc(35) int pass = 0; pass < 8; pass++) {
-            @Pc(38) int readCount = 0;
+            @Pc(38) int partitionCount = 0;
 
-            while (readCount < totalCount) {
+            while (partitionCount < partitionsToRead) {
                 if (pass == 0) {
                     @Pc(47) int temp = VorbisSound.codebooks[this.classbook].decode();
 
-                    for (@Pc(51) int j = classbooksPerCodeword - 1; j >= 0; j--) {
-                        if (readCount + j < totalCount) {
-                            partitions[readCount + j] = temp % this.classifications;
+                    for (@Pc(51) int i = classwordsPerCodeword - 1; i >= 0; i--) {
+                        if (partitionCount + i < partitionsToRead) {
+                            partitions[partitionCount + i] = temp % this.classifications;
                         }
 
                         temp /= this.classifications;
                     }
                 }
 
-                for (@Pc(47) int book = 0; book < classbooksPerCodeword; book++) {
-                    @Pc(51) int vqClass = partitions[readCount];
+                for (@Pc(47) int book = 0; book < classwordsPerCodeword && partitionCount < partitionsToRead; book++) {
+                    @Pc(51) int vqClass = partitions[partitionCount];
                     @Pc(90) int vqBook = this.books[(vqClass * 8) + pass];
 
                     if (vqBook >= 0) {
-                        @Pc(100) int off = this.start + readCount * this.partitionSize;
+                        @Pc(100) int off = this.begin + partitionCount * this.partitionSize;
                         @Pc(104) VorbisCodebook codebook = VorbisSound.codebooks[vqBook];
 
                         if (this.type == 0) {
@@ -120,11 +131,7 @@ public final class VorbisResidue {
                         }
                     }
 
-                    readCount++;
-
-                    if (readCount >= totalCount) {
-                        break;
-                    }
+                    partitionCount++;
                 }
             }
         }

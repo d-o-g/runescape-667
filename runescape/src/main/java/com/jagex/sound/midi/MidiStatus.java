@@ -1,5 +1,6 @@
 package com.jagex.sound.midi;
 
+/* https://www.recordingblogs.com/wiki/status-byte-of-a-midi-message */
 public final class MidiStatus {
 
     public static final int NOTE_ON = 0x90;

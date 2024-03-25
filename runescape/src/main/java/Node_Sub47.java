@@ -1,6 +1,7 @@
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
+import com.jagex.core.util.Quicksort;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -51,7 +52,7 @@ public final class Node_Sub47 extends Node {
                 local17[local19] = this.aClass34Array1[local19].aString2;
                 this.anIntArray644[local19] = local19++;
             }
-            Static351.method5137(this.anIntArray644, local17);
+            Quicksort.sort(local17, this.anIntArray644);
         }
         return this.anIntArray644;
     }

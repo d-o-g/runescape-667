@@ -33,6 +33,7 @@ import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.ClanSettings;
 
 import java.io.IOException;
 
@@ -215,18 +216,18 @@ public final class Protocol {
                     local446 = bitPacket.g1() == 1;
                     if (arg0.currentPacketSize != 1) {
                         if (local446) {
-                            Static128.aClass164_8 = new Class164(bitPacket);
+                            Static128.aClanSettings_8 = new ClanSettings(bitPacket);
                         } else {
-                            Static91.aClass164_9 = new Class164(bitPacket);
+                            Static91.aClanSettings_9 = new ClanSettings(bitPacket);
                         }
                         arg0.currentProt = null;
                         return true;
                     }
                     arg0.currentProt = null;
                     if (local446) {
-                        Static128.aClass164_8 = null;
+                        Static128.aClanSettings_8 = null;
                     } else {
-                        Static91.aClass164_9 = null;
+                        Static91.aClanSettings_9 = null;
                     }
                     return true;
                 } else {
@@ -2049,11 +2050,11 @@ public final class Protocol {
                                                                             Static400.lastClanSettingsTransmit = World.tick;
                                                                             local446 = bitPacket.g1() == 1;
                                                                             @Pc(8376) Class20 local8376 = new Class20(bitPacket);
-                                                                            @Pc(8380) Class164 local8380;
+                                                                            @Pc(8380) ClanSettings local8380;
                                                                             if (local446) {
-                                                                                local8380 = Static128.aClass164_8;
+                                                                                local8380 = Static128.aClanSettings_8;
                                                                             } else {
-                                                                                local8380 = Static91.aClass164_9;
+                                                                                local8380 = Static91.aClanSettings_9;
                                                                             }
                                                                             local8376.method587(local8380);
                                                                             arg0.currentProt = null;

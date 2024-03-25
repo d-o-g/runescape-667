@@ -2,6 +2,7 @@ import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.clan.ClanSettings;
 
 @OriginalClass("client!pt")
 public final class Node_Sub14_Sub10 extends Node_Sub14 {
@@ -20,8 +21,8 @@ public final class Node_Sub14_Sub10 extends Node_Sub14 {
 
     @OriginalMember(owner = "client!pt", name = "a", descriptor = "(Lclient!hi;I)V")
     @Override
-    public void method8617(@OriginalArg(0) Class164 arg0) {
-        arg0.method3475(this.anInt7588, this.anInt7589, this.anInt7590, this.anInt7591);
+    public void method8617(@OriginalArg(0) ClanSettings arg0) {
+        arg0.doSetMemberExtraInfo(this.anInt7588, this.anInt7589, this.anInt7590, this.anInt7591);
     }
 
     @OriginalMember(owner = "client!pt", name = "a", descriptor = "(ILclient!ge;)V")

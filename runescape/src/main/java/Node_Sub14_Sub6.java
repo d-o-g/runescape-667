@@ -2,6 +2,7 @@ import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.clan.ClanSettings;
 
 import java.util.BitSet;
 
@@ -29,12 +30,12 @@ public final class Node_Sub14_Sub6 extends Node_Sub14 {
 
     @OriginalMember(owner = "client!ku", name = "a", descriptor = "(Lclient!hi;I)V")
     @Override
-    public void method8617(@OriginalArg(0) Class164 arg0) {
-        arg0.aBoolean307 = this.aBoolean430;
-        arg0.aByte67 = this.aByte90;
-        arg0.aByte66 = this.aByte93;
-        arg0.aByte65 = this.aByte91;
-        arg0.aByte68 = this.aByte92;
+    public void method8617(@OriginalArg(0) ClanSettings arg0) {
+        arg0.allowNonMembers = this.aBoolean430;
+        arg0.rankKick = this.aByte90;
+        arg0.rankLootShare = this.aByte93;
+        arg0.coinshare = this.aByte91;
+        arg0.rankTalk = this.aByte92;
     }
 
     @OriginalMember(owner = "client!ku", name = "a", descriptor = "(ILclient!ge;)V")

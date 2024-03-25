@@ -11,25 +11,25 @@ import org.openrs2.deob.annotation.Pc;
 public final class VarClanType {
 
     @OriginalMember(owner = "client!sla", name = "h", descriptor = "I")
-    public int start;
+    public int startBit;
 
     @OriginalMember(owner = "client!sla", name = "g", descriptor = "I")
-    public int id;
+    public int baseVar;
 
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "C")
     public char dataType;
 
     @OriginalMember(owner = "client!sla", name = "e", descriptor = "I")
-    public int end;
+    public int endBit;
 
     @OriginalMember(owner = "client!sla", name = "a", descriptor = "(ILclient!ge;Z)V")
     public void decode(@OriginalArg(0) int code, @OriginalArg(1) Packet packet) {
         if (code == 1) {
             this.dataType = Cp1252.decode(packet.g1b());
         } else if (code == 2) {
-            this.id = packet.g2();
-            this.start = packet.g1();
-            this.end = packet.g1();
+            this.baseVar = packet.g2();
+            this.startBit = packet.g1();
+            this.endBit = packet.g1();
         }
     }
 

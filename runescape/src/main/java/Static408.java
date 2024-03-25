@@ -21,8 +21,8 @@ public final class Static408 {
         Static251.anInt4036 = 0;
         Static723.aString129 = null;
         FriendsList.count = 0;
-        Static91.aClass164_9 = null;
-        Static128.aClass164_8 = null;
+        Static91.aClanSettings_9 = null;
+        Static128.aClanSettings_8 = null;
         FriendChat.count = 0;
         FriendChat.users = null;
     }

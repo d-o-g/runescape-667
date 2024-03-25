@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static316 {
 
@@ -19,34 +18,4 @@ public final class Static316 {
         }
     }
 
-    @OriginalMember(owner = "client!ka", name = "a", descriptor = "(I[Ljava/lang/String;[III)V")
-    public static void method7500(@OriginalArg(1) String[] arg0, @OriginalArg(2) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        if (arg3 >= arg2) {
-            return;
-        }
-        @Pc(16) int local16 = (arg3 + arg2) / 2;
-        @Pc(18) int local18 = arg3;
-        @Pc(22) String local22 = arg0[local16];
-        arg0[local16] = arg0[arg2];
-        arg0[arg2] = local22;
-        @Pc(36) int local36 = arg1[local16];
-        arg1[local16] = arg1[arg2];
-        arg1[arg2] = local36;
-        for (@Pc(48) int local48 = arg3; local48 < arg2; local48++) {
-            if (local22 == null || arg0[local48] != null && (local48 & 0x1) > arg0[local48].compareTo(local22)) {
-                @Pc(72) String local72 = arg0[local48];
-                arg0[local48] = arg0[local18];
-                arg0[local18] = local72;
-                @Pc(86) int local86 = arg1[local48];
-                arg1[local48] = arg1[local18];
-                arg1[local18++] = local86;
-            }
-        }
-        arg0[arg2] = arg0[local18];
-        arg0[local18] = local22;
-        arg1[arg2] = arg1[local18];
-        arg1[local18] = local36;
-        method7500(arg0, arg1, local18 - 1, arg3);
-        method7500(arg0, arg1, arg2, local18 + 1);
-    }
 }

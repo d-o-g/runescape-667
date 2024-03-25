@@ -38,8 +38,8 @@ public final class Static187 {
         Static693.method9012();
         Static334.anInt5456 = 0;
         TimedVarDomain.instance.reset();
-        Static91.aClass164_9 = null;
-        Static128.aClass164_8 = null;
+        Static91.aClanSettings_9 = null;
+        Static128.aClanSettings_8 = null;
         Static211.aClass2_Sub12_3 = null;
         Static45.aClass2_Sub47_1 = null;
         Static674.aClass2_Sub47_3 = null;

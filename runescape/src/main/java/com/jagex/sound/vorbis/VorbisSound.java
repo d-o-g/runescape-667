@@ -101,22 +101,25 @@ public final class VorbisSound extends Node {
     @OriginalMember(owner = "client!uj", name = "c", descriptor = "(I)I")
     public static int gbit(@OriginalArg(0) int n) {
         @Pc(1) int value = 0;
-        @Pc(3) int local3 = 0;
+        @Pc(3) int read = 0;
         @Pc(8) int bitOff;
+
         while (n >= 8 - bitPos) {
             bitOff = 8 - bitPos;
             @Pc(14) int mask = (0x1 << bitOff) - 1;
-            value += (data[pos] >> bitPos & mask) << local3;
+            value += (data[pos] >> bitPos & mask) << read;
             bitPos = 0;
             pos++;
-            local3 += bitOff;
+            read += bitOff;
             n -= bitOff;
         }
+
         if (n > 0) {
             bitOff = (0x1 << n) - 1;
-            value += (data[pos] >> bitPos & bitOff) << local3;
+            value += (data[pos] >> bitPos & bitOff) << read;
             bitPos += n;
         }
+
         return value;
     }
 
@@ -227,15 +230,18 @@ public final class VorbisSound extends Node {
         return true;
     }
 
+    /**
+     * @see <a href="https://xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-1200009.2.2">float32_unpack</a>
+     */
     @OriginalMember(owner = "client!uj", name = "a", descriptor = "(I)F")
-    public static float unpackFloat32(@OriginalArg(0) int v) {
-        @Pc(3) int significand = v & 0x1FFFFF;
+    public static float float32Unpack(@OriginalArg(0) int v) {
+        @Pc(3) int mantissa = v & 0x1FFFFF;
         @Pc(7) int sign = v & Integer.MIN_VALUE;
         @Pc(13) int exponent = (v >> 21) & 0x3FF;
         if (sign != 0) {
-            significand = -significand;
+            mantissa = -mantissa;
         }
-        return (float) ((double) significand * Math.pow(2.0D, exponent - 788));
+        return (float) ((double) mantissa * Math.pow(2.0D, exponent - 788));
     }
 
     @OriginalMember(owner = "client!uj", name = "a", descriptor = "([BI)V")
@@ -266,7 +272,7 @@ public final class VorbisSound extends Node {
     }
 
     @OriginalMember(owner = "client!uj", name = "E", descriptor = "Z")
-    public boolean previousIgnoreFloor;
+    public boolean previousNoDecodeFloor;
 
     @OriginalMember(owner = "client!uj", name = "F", descriptor = "I")
     public int previousWindowEnd;
@@ -391,13 +397,16 @@ public final class VorbisSound extends Node {
         return new VariableRateSoundPacket(this.sampleRate, data, this.nominalBitRate, this.minBitRate, this.negativeBitRate);
     }
 
+    /**
+     * @see <a href="https://xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-730004.3.1">packet type, mode and window decode</a>
+     */
     @OriginalMember(owner = "client!uj", name = "b", descriptor = "(I)[F")
-    public float[] decode(@OriginalArg(0) int arg0) {
-        setData(this.packets[arg0]);
+    public float[] decode(@OriginalArg(0) int packet) {
+        setData(this.packets[packet]);
         g1();
 
-        @Pc(15) int mdeNumber = gbit(IntMath.countBits(modeMapping.length - 1));
-        @Pc(19) boolean blockflag = modeBlockflag[mdeNumber];
+        @Pc(15) int modeNumber = gbit(IntMath.countBits(modeMapping.length - 1));
+        @Pc(19) boolean blockflag = modeBlockflag[modeNumber];
         @Pc(25) int n = blockflag ? blocksize_1 : blocksize_0;
 
         @Pc(27) boolean previousWindowFlag = false;
@@ -410,48 +419,53 @@ public final class VorbisSound extends Node {
         @Pc(47) int windowCenter = n >> 1;
         @Pc(59) int leftWindowStart;
         @Pc(67) int leftWindowEnd;
-        @Pc(71) int leftCount;
+        @Pc(71) int leftN;
         if (blockflag && !previousWindowFlag) {
             leftWindowStart = (n >> 2) - (blocksize_0 >> 2);
             leftWindowEnd = (n >> 2) + (blocksize_0 >> 2);
-            leftCount = blocksize_0 >> 1;
+            leftN = blocksize_0 >> 1;
         } else {
             leftWindowStart = 0;
             leftWindowEnd = windowCenter;
-            leftCount = n >> 1;
+            leftN = n >> 1;
         }
 
         @Pc(94) int rightWindowStart;
         @Pc(104) int rightWindowEnd;
-        @Pc(108) int rightWindowCount;
+        @Pc(108) int rightN;
         if (blockflag && !nextWindowFlag) {
             rightWindowStart = n - (n >> 2) - (blocksize_0 >> 2);
             rightWindowEnd = n + (blocksize_0 >> 2) - (n >> 2);
-            rightWindowCount = blocksize_0 >> 1;
+            rightN = blocksize_0 >> 1;
         } else {
             rightWindowStart = windowCenter;
             rightWindowEnd = n;
-            rightWindowCount = n >> 1;
+            rightN = n >> 1;
         }
 
-        @Pc(123) VorbisMapping mapping = mappings[modeMapping[mdeNumber]];
+        /**
+         * @see <a href="https://xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-740004.3.2">floor curve decode</a>
+         */
+
+        @Pc(123) VorbisMapping mapping = mappings[modeMapping[modeNumber]];
         @Pc(126) int submapNumber = mapping.mux;
         @Pc(131) int floorNumber = mapping.submapFloor[submapNumber];
-        @Pc(140) boolean ignoreFloor = !floors[floorNumber].decode();
+        @Pc(140) boolean noDecodeFloor = !floors[floorNumber].decode();
+        boolean noDecodeResidue = noDecodeFloor;
 
-        for (@Pc(144) int i = 0; i < mapping.anInt9477; i++) {
+        for (@Pc(144) int i = 0; i < mapping.submaps; i++) {
             @Pc(152) VorbisResidue residue = residues[mapping.submapResidue[i]];
-            @Pc(154) float[] local154 = currentWindow;
-            residue.decode(local154, n >> 1, ignoreFloor);
+            @Pc(154) float[] v = currentWindow;
+            residue.decode(v, n >> 1, noDecodeResidue);
         }
 
-        if (!ignoreFloor) {
+        if (!noDecodeFloor) {
             @Pc(171) int submap = mapping.mux;
             @Pc(176) int floor = mapping.submapFloor[submap];
-            floors[floor].compute(currentWindow, n >> 1);
+            floors[floor].computeCurve(currentWindow, n >> 1);
         }
 
-        if (ignoreFloor) {
+        if (noDecodeFloor) {
             for (@Pc(171) int local171 = n >> 1; local171 < n; local171++) {
                 currentWindow[local171] = 0.0F;
             }
@@ -600,12 +614,12 @@ public final class VorbisSound extends Node {
             }
 
             for (@Pc(1150) int i = leftWindowStart; i < leftWindowEnd; i++) {
-                @Pc(559) float v = (float) Math.sin(((double) (i - leftWindowStart) + 0.5D) / (double) leftCount * 0.5D * 3.141592653589793D);
+                @Pc(559) float v = (float) Math.sin((((double) (i - leftWindowStart) + 0.5D) / (double) leftN) * 0.5D * 3.141592653589793D);
                 currentWindow[i] *= (float) Math.sin((double) v * 1.5707963267948966D * (double) v);
             }
 
             for (@Pc(1188) int i = rightWindowStart; i < rightWindowEnd; i++) {
-                @Pc(585) float v = (float) Math.sin(((double) (i - rightWindowStart) + 0.5D) / (double) rightWindowCount * 0.5D * 3.141592653589793D + 1.5707963267948966D);
+                @Pc(585) float v = (float) Math.sin(((((double) (i - rightWindowStart) + 0.5D) / (double) rightN) * 0.5D * 3.141592653589793D) + 1.5707963267948966D);
                 currentWindow[i] *= (float) Math.sin((double) v * 1.5707963267948966D * (double) v);
             }
         }
@@ -614,19 +628,18 @@ public final class VorbisSound extends Node {
         if (this.previousWindowSize > 0) {
             @Pc(176) int totalSize = this.previousWindowSize + n >> 2;
             v = new float[totalSize];
-            @Pc(1254) int local1254;
 
-            if (!this.previousIgnoreFloor) {
-                for (@Pc(212) int local212 = 0; local212 < this.previousWindowEnd; local212++) {
-                    local1254 = (this.previousWindowSize >> 1) + local212;
-                    v[local212] += this.previousWindow[local1254];
+            if (!this.previousNoDecodeFloor) {
+                for (@Pc(212) int i = 0; i < this.previousWindowEnd; i++) {
+                    @Pc(1254) int offset = (this.previousWindowSize >> 1) + i;
+                    v[i] += this.previousWindow[offset];
                 }
             }
 
-            if (!ignoreFloor) {
-                for (@Pc(212) int local212 = leftWindowStart; local212 < n >> 1; local212++) {
-                    local1254 = v.length + local212 - (n >> 1);
-                    v[local1254] += currentWindow[local212];
+            if (!noDecodeFloor) {
+                for (@Pc(212) int i = leftWindowStart; i < (n >> 1); i++) {
+                    @Pc(1254) int offset = v.length + i - (n >> 1);
+                    v[offset] += currentWindow[i];
                 }
             }
         }
@@ -636,7 +649,7 @@ public final class VorbisSound extends Node {
         currentWindow = temp;
         this.previousWindowSize = n;
         this.previousWindowEnd = rightWindowEnd - (n >> 1);
-        this.previousIgnoreFloor = ignoreFloor;
+        this.previousNoDecodeFloor = noDecodeFloor;
         return v;
     }
 }

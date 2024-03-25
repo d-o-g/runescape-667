@@ -9,12 +9,33 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!oca")
 public final class VorbisCodebook {
 
+    /**
+     * @see <a href="https://xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-1210009.2.3">lookup1_values</a>
+     */
     @OriginalMember(owner = "client!oca", name = "a", descriptor = "(II)I")
-    public static int valuesLookup1(@OriginalArg(0) int entries, @OriginalArg(1) int dimensions) {
+    private static int lookup1Values(@OriginalArg(0) int entries, @OriginalArg(1) int dimensions) {
         @Pc(10) int values;
-        for (values = (int) Math.pow(entries, 1.0D / (double) dimensions) + 1; IntMath.ipow(dimensions, values) > entries; values--) {
+        for (values = (int) Math.pow(entries, 1.0D / (double) dimensions) + 1; ipow(dimensions, values) > entries; values--) {
         }
         return values;
+    }
+
+    @OriginalMember(owner = "client!bf", name = "a", descriptor = "(III)I")
+    private static int ipow(@OriginalArg(0) int exp, @OriginalArg(1) int base) {
+        @Pc(5) int result = 1;
+        while (exp > 1) {
+            if ((exp & 0x1) != 0) {
+                result *= base;
+            }
+            base *= base;
+            exp >>= 0x1;
+        }
+
+        if (exp == 1) {
+            return result * base;
+        } else {
+            return result;
+        }
     }
 
     @OriginalMember(owner = "client!oca", name = "b", descriptor = "[I")
@@ -35,9 +56,14 @@ public final class VorbisCodebook {
     @OriginalMember(owner = "client!oca", name = "c", descriptor = "[[F")
     public float[][] valueVector;
 
+    /**
+     * @see <a href="https://xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-510003.2.1">codebook decode</a>
+     */
     @OriginalMember(owner = "client!oca", name = "<init>", descriptor = "()V")
     public VorbisCodebook() {
-        VorbisSound.gbit(24); // sync pattern
+        /* A codebook begins with a 24 bit sync pattern, 0x564342: */
+        VorbisSound.gbit(24);
+
         this.dimensions = VorbisSound.gbit(16);
         this.entries = VorbisSound.gbit(24);
         this.codewordLengths = new int[this.entries];
@@ -72,14 +98,14 @@ public final class VorbisCodebook {
 
         @Pc(27) int lookupType = VorbisSound.gbit(4);
         if (lookupType > 0) {
-            @Pc(103) float minimumValue = VorbisSound.unpackFloat32(VorbisSound.gbit(32));
-            @Pc(107) float deltaValue = VorbisSound.unpackFloat32(VorbisSound.gbit(32));
+            @Pc(103) float minimumValue = VorbisSound.float32Unpack(VorbisSound.gbit(32));
+            @Pc(107) float deltaValue = VorbisSound.float32Unpack(VorbisSound.gbit(32));
             @Pc(43) int valueBits = VorbisSound.gbit(4) + 1;
             @Pc(118) boolean sequenceP = VorbisSound.g1() != 0;
 
             @Pc(127) int values;
             if (lookupType == 1) {
-                values = valuesLookup1(this.entries, this.dimensions);
+                values = lookup1Values(this.entries, this.dimensions);
             } else {
                 values = this.entries * this.dimensions;
             }

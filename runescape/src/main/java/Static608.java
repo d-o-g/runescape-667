@@ -113,7 +113,7 @@ public final class Static608 {
                     if (local31 == null) {
                         @Pc(283) PlayerEntity local283 = PlayerList.highResolutionPlayers[local11[local27]];
                         local267 = local51.getBASType().hitbarSprite;
-                        if (local283.showPICon) {
+                        if (local283.showPIcon) {
                             local262 = 2;
                         }
                     } else {

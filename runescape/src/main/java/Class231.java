@@ -30,7 +30,7 @@ public final class Class231 {
     @OriginalMember(owner = "client!lka", name = "a", descriptor = "(Lclient!lw;II)V")
     public void method5271(@OriginalArg(0) Actor arg0, @OriginalArg(2) int arg1) {
         @Pc(10) int local10 = this.anIntArray453[0];
-        arg0.coord(local10 >>> 16, arg1, local10 & 0xFFFF);
+        arg0.teleport(local10 >>> 16, arg1, local10 & 0xFFFF);
         @Pc(24) PathingEntity local24 = arg0.entity();
         local24.pathPointer = 0;
         for (@Pc(41) int local41 = this.anIntArray454.length - 1; local41 >= 0; local41--) {

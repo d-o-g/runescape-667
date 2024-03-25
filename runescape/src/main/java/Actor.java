@@ -41,10 +41,10 @@ public final class Actor {
     }
 
     @OriginalMember(owner = "client!lw", name = "a", descriptor = "(IBII)V")
-    public void coord(@OriginalArg(0) int x, @OriginalArg(2) int level, @OriginalArg(3) int z) {
+    public void teleport(@OriginalArg(0) int x, @OriginalArg(2) int level, @OriginalArg(3) int z) {
         if (this.npc == null) {
             this.player.level = this.player.virtualLevel = (byte) level;
-            this.player.coord(x, z);
+            this.player.teleport(x, z);
         } else {
             this.npc.clearPath(true, z, x, level, this.npc.getSize());
         }
@@ -86,7 +86,7 @@ public final class Actor {
 
         if (this.npcId < 0) {
             this.player.level = this.player.virtualLevel = (byte) level;
-            this.player.coord(x, z);
+            this.player.teleport(x, z);
             this.player.turn(angle, true);
         } else {
             this.npc.clearPath(true, z, x, level, this.npc.getSize());

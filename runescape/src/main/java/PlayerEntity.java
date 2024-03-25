@@ -152,13 +152,13 @@ public final class PlayerEntity extends PathingEntity {
     public String accountName;
 
     @OriginalMember(owner = "client!ca", name = "bd", descriptor = "I")
-    public int anInt1441;
+    public int moveX;
 
     @OriginalMember(owner = "client!ca", name = "Ec", descriptor = "I")
     public int basId;
 
     @OriginalMember(owner = "client!ca", name = "yd", descriptor = "I")
-    public int anInt1448;
+    public int moveZ;
 
     @OriginalMember(owner = "client!ca", name = "qd", descriptor = "I")
     public int pkIcon = -1;
@@ -206,7 +206,7 @@ public final class PlayerEntity extends PathingEntity {
     public int combatLevel = 0;
 
     @OriginalMember(owner = "client!ca", name = "zd", descriptor = "Z")
-    public boolean showPICon = false;
+    public boolean showPIcon = false;
 
     @OriginalMember(owner = "client!ca", name = "pd", descriptor = "B")
     public byte titleEnum = 0;
@@ -392,7 +392,7 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "c", descriptor = "(III)V")
-    public void coord(@OriginalArg(0) int x, @OriginalArg(2) int z) {
+    public void teleport(@OriginalArg(0) int x, @OriginalArg(2) int z) {
         super.pathPointer = 0;
         super.pathX[0] = x;
         super.delayedWalkingTicks = 0;
@@ -834,7 +834,7 @@ public final class PlayerEntity extends PathingEntity {
     @Override
     public EntityChatLine method9318(@OriginalArg(0) int arg0) {
         if (arg0 != -3109) {
-            this.showPICon = false;
+            this.showPIcon = false;
         }
         if (super.line != null) {
             if (super.line.text == null) {
@@ -848,7 +848,7 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "b", descriptor = "(IIIB)V")
-    public void method1425(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) byte arg2) {
+    public void move(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) byte arg2) {
         if (super.actionAnimator.isAnimating() && super.actionAnimator.getAnimation().walkingPrecedence == 1) {
             super.actionAnimations = null;
             super.actionAnimator.update(true, -1);
@@ -867,14 +867,14 @@ public final class PlayerEntity extends PathingEntity {
         }
         this.anInt1467 = -1;
         if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapHeight <= arg0) {
-            this.coord(arg1, arg0);
+            this.teleport(arg1, arg0);
         } else if (super.pathX[0] >= 0 && super.pathX[0] < Static720.mapWidth && super.pathZ[0] >= 0 && Static501.mapHeight > super.pathZ[0]) {
             if (arg2 == 2) {
                 Static360.method5232(this, arg1, arg0);
             }
             this.method1418(arg0, arg1, arg2);
         } else {
-            this.coord(arg1, arg0);
+            this.teleport(arg1, arg0);
         }
     }
 }

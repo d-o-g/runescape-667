@@ -169,7 +169,7 @@ public final class Static84 {
                             local103 += 2;
                         }
                         local103 += 5 - local39.getSize() << 2;
-                        if (local39.showPICon || local39.clanmate) {
+                        if (local39.showPIcon || local39.clanmate) {
                             local103 += 512;
                         } else {
                             if (Static150.anInt2632 == 0) {

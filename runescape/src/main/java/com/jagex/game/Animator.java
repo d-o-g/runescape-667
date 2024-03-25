@@ -82,7 +82,7 @@ public class Animator {
     }
 
     @OriginalMember(owner = "client!gu", name = "b", descriptor = "(I)I")
-    public final int method9087() {
+    public final int getDelay() {
         return this.delay;
     }
 

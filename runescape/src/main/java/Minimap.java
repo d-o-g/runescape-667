@@ -150,7 +150,7 @@ public final class Minimap {
                 if (PlayerEntity.self.team != 0 && local541.team != 0 && PlayerEntity.self.team == local541.team) {
                     local652 = true;
                 }
-                if (local541.showPICon) {
+                if (local541.showPIcon) {
                     Static6.method107(y, local30, Sprites.mapdots[6], local585, local490, component, x);
                 } else if (local652) {
                     Static6.method107(y, local30, Sprites.mapdots[4], local585, local490, component, x);

@@ -82,7 +82,7 @@ public final class ServerProt {
     public static final ServerProt A_SERVER_PROT___219 = new ServerProt(119, 6);
 
     @OriginalMember(owner = "client!op", name = "r", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___212 = new ServerProt(77, -2);
+    public static final ServerProt MESSAGE_PRIVATE_ECHO = new ServerProt(77, -2);
 
     @OriginalMember(owner = "client!oia", name = "d", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___175 = new ServerProt(110, -1);

@@ -1,3 +1,4 @@
+import com.jagex.core.constants.NpcExtendedInfoFlag;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.MoveSpeed;
@@ -15,44 +16,6 @@ public final class NPCList {
     private static final int UPDATE_RUN_OR_CRAWL = 2;
 
     private static final int UPDATE_REMOVE = 3;
-
-    private static final int FLAG_SPOTANIM_2 = 0x100000;
-
-    private static final int FLAG_TARGET = 0x1;
-
-    private static final int FLAG_SPOTANIM3 = 0x20000;
-
-    private static final int FLAG_HITMARK = 0x40;
-
-    private static final int FLAG_TIMERBAR = 0x100;
-
-    private static final int FLAG_NAME = 0x40000;
-
-    private static final int FLAG_SET_TYPE = 0x20;
-
-    private static final int FLAG_CHAT = 0x2;
-
-    private static final int FLAG_TURN_TO = 0x8;
-
-    private static final int FLAG_COMBAT_LEVEL = 0x80000;
-
-    private static final int FLAG_WORN = 0x2000;
-
-    private static final int FLAG_CUSTOMISE_HEAD = 0x10000;
-
-    private static final int FLAG_EXACT_MOVE = 0x400;
-
-    private static final int FLAG_ANIMATE = 0x10;
-
-    private static final int FLAG_CUSTOMISE = 0x800;
-
-    private static final int FLAG_ANIMATE_WORN = 0x4000;
-
-    private static final int FLAG_SPOTANIM1 = 0x1000;
-
-    private static final int FLAG_SPOTANIM0 = 0x4;
-
-    private static final int FLAG_RECOL = 0x200;
 
     @OriginalMember(owner = "client!aka", name = "m", descriptor = "Lclient!av;")
     public static final IterableHashTable local = new IterableHashTable(64);
@@ -294,7 +257,7 @@ public final class NPCList {
                 flags += buffer.g1() << 16;
             }
 
-            if ((flags & FLAG_SPOTANIM_2) != 0) {
+            if ((flags & NpcExtendedInfoFlag.SPOTANIM_2) != 0) {
                 @Pc(73) int id = buffer.g2();
                 @Pc(77) int heightAndDelay = buffer.g4();
                 if (id == 65535) {
@@ -312,7 +275,7 @@ public final class NPCList {
                 npc.setSpotAnim(2, rotation, loop, heightAndDelay, wornSlot, id);
             }
 
-            if ((flags & FLAG_TARGET) != 0) {
+            if ((flags & NpcExtendedInfoFlag.TARGET) != 0) {
                 npc.target = buffer.ig2();
 
                 if (npc.target == 65535) {
@@ -320,7 +283,7 @@ public final class NPCList {
                 }
             }
 
-            if ((flags & FLAG_SPOTANIM3) != 0) {
+            if ((flags & NpcExtendedInfoFlag.SPOTANIM3) != 0) {
                 @Pc(73) int id = buffer.g2();
                 @Pc(77) int heightAndDelay = buffer.g4();
                 if (id == 65535) {
@@ -338,7 +301,7 @@ public final class NPCList {
                 npc.setSpotAnim(3, rotation, loop, heightAndDelay, wornSlot, id);
             }
 
-            if ((flags & FLAG_HITMARK) != 0) {
+            if ((flags & NpcExtendedInfoFlag.HITMARK) != 0) {
                 @Pc(73) int count = buffer.g1_alt2();
 
                 if (count > 0) {
@@ -367,7 +330,7 @@ public final class NPCList {
                 }
             }
 
-            if ((flags & FLAG_TIMERBAR) != 0) {
+            if ((flags & NpcExtendedInfoFlag.TIMERBAR) != 0) {
                 @Pc(73) int data = buffer.g2_alt2();
                 npc.timerbarStart = buffer.g1_alt2();
                 npc.timerbarGranularity = buffer.g1_alt2();
@@ -376,7 +339,7 @@ public final class NPCList {
                 npc.timerbarEnd = npc.timerbarDuration + TimeUtils.clock + npc.timerbarStart;
             }
 
-            if ((flags & FLAG_NAME) != 0) {
+            if ((flags & NpcExtendedInfoFlag.NAME) != 0) {
                 npc.name = buffer.gjstr();
 
                 if ("".equals(npc.name) || npc.name.equals(npc.type.name)) {
@@ -384,7 +347,7 @@ public final class NPCList {
                 }
             }
 
-            if ((flags & FLAG_SET_TYPE) != 0) {
+            if ((flags & NpcExtendedInfoFlag.SET_TYPE) != 0) {
                 if (npc.type.hasSounds()) {
                     Static58.method1259(npc);
                 }
@@ -398,16 +361,16 @@ public final class NPCList {
                 }
             }
 
-            if ((flags & FLAG_CHAT) != 0) {
+            if ((flags & NpcExtendedInfoFlag.CHAT) != 0) {
                 npc.chat(0, 0, buffer.gjstr());
             }
 
-            if ((flags & FLAG_TURN_TO) != 0) {
+            if ((flags & NpcExtendedInfoFlag.TURN_TO) != 0) {
                 npc.turnToX = buffer.ig2();
                 npc.turnToZ = buffer.ig2();
             }
 
-            if ((flags & FLAG_COMBAT_LEVEL) != 0) {
+            if ((flags & NpcExtendedInfoFlag.COMBAT_LEVEL) != 0) {
                 npc.combatLevel = buffer.ig2();
 
                 if (npc.combatLevel == 65535) {
@@ -415,7 +378,7 @@ public final class NPCList {
                 }
             }
 
-            if ((flags & FLAG_WORN) != 0) {
+            if ((flags & NpcExtendedInfoFlag.WORN) != 0) {
                 @Pc(73) int count = buffer.g1_alt1();
                 @Pc(511) int[] wornTargets = new int[count];
                 @Pc(514) int[] wornFlags = new int[count];
@@ -435,7 +398,7 @@ public final class NPCList {
                 npc.updateWornTargets(wornFlags, wornTargets);
             }
 
-            if ((flags & FLAG_CUSTOMISE_HEAD) != 0) {
+            if ((flags & NpcExtendedInfoFlag.CUSTOMISE_HEAD) != 0) {
                 @Pc(73) int count = npc.type.headModels.length;
 
                 @Pc(77) int length = 0;
@@ -479,7 +442,7 @@ public final class NPCList {
                 }
             }
 
-            if ((flags & FLAG_EXACT_MOVE) != 0) {
+            if ((flags & NpcExtendedInfoFlag.EXACT_MOVE) != 0) {
                 npc.exactMoveX1 = buffer.g1b_alt3();
                 npc.exactMoveZ1 = buffer.g1b_alt3();
                 npc.exactMoveX2 = buffer.g1b_alt2();
@@ -496,7 +459,7 @@ public final class NPCList {
                 npc.exactMoveX1 += npc.pathX[0];
             }
 
-            if ((flags & FLAG_ANIMATE) != 0) {
+            if ((flags & NpcExtendedInfoFlag.ANIMATE) != 0) {
                 @Pc(814) int[] animations = new int[4];
                 for (@Pc(77) int j = 0; j < 4; j++) {
                     animations[j] = buffer.g2();
@@ -510,7 +473,7 @@ public final class NPCList {
                 Static651.animate(animations, delay, true, npc);
             }
 
-            if ((flags & FLAG_CUSTOMISE) != 0) {
+            if ((flags & NpcExtendedInfoFlag.CUSTOMISE) != 0) {
                 @Pc(73) int modelsLength = npc.type.models.length;
 
                 @Pc(77) int recolLength = 0;
@@ -556,7 +519,7 @@ public final class NPCList {
                 }
             }
 
-            if ((flags & FLAG_ANIMATE_WORN) != 0) {
+            if ((flags & NpcExtendedInfoFlag.ANIMATE_WORN) != 0) {
                 @Pc(73) int count = buffer.g1();
                 @Pc(511) int[] animations = new int[count];
                 @Pc(514) int[] delays = new int[count];
@@ -574,7 +537,7 @@ public final class NPCList {
                 Static310.animateWorn(slots, animations, delays, npc);
             }
 
-            if ((flags & FLAG_SPOTANIM1) != 0) {
+            if ((flags & NpcExtendedInfoFlag.SPOTANIM1) != 0) {
                 @Pc(73) int id = buffer.g2_alt2();
                 @Pc(77) int heightAndDelay = buffer.g4();
                 if (id == 65535) {
@@ -590,7 +553,7 @@ public final class NPCList {
                 npc.setSpotAnim(1, rotation, loop, heightAndDelay, wornSlot, id);
             }
 
-            if ((flags & FLAG_SPOTANIM0) != 0) {
+            if ((flags & NpcExtendedInfoFlag.SPOTANIM0) != 0) {
                 @Pc(73) int id = buffer.ig2();
                 @Pc(77) int heightAndDelay = buffer.g4_alt3();
                 if (id == 65535) {
@@ -606,7 +569,7 @@ public final class NPCList {
                 npc.setSpotAnim(0, rotation, loop, heightAndDelay, wornSlot, id);
             }
 
-            if ((flags & FLAG_RECOL) != 0) {
+            if ((flags & NpcExtendedInfoFlag.RECOL) != 0) {
                 npc.recolHue = buffer.g1b_alt1();
                 npc.recolSaturation = buffer.g1b_alt3();
                 npc.recolLightness = buffer.g1b();

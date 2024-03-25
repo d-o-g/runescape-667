@@ -106,7 +106,7 @@ public final class Static489 {
         local107 = Static112.method2104(arg1);
         Static145.method2410(arg1);
         Static651.method8513(local7, local107, local16, arg1);
-        Static702.method9166(arg1, local7);
+        Static702.updateActionAnimator(arg1, local7);
         Static50.method6638(arg1);
     }
 

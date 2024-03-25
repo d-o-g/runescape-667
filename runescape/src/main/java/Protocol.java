@@ -2002,10 +2002,10 @@ public final class Protocol {
                                                                             DelayedStateChange.setVarc(local931, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
-                                                                        } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___212) {
+                                                                        } else if (arg0.currentProt == ServerProt.MESSAGE_PRIVATE_ECHO) {
                                                                             local1937 = buffer.gjstr();
                                                                             local627 = Static130.method2280(WordPack.decode(buffer));
-                                                                            ChatHistory.add(local627, local1937, 0, local1937, local1937, 6);
+                                                                            ChatHistory.add(local627, local1937, 0, local1937, local1937, ChatLineType.PRIVATE_ECHO);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static353.A_SERVER_PROT___233) {

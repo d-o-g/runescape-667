@@ -1,6 +1,8 @@
 import com.jagex.core.constants.ChatLineType;
+import com.jagex.core.constants.PlayerExtendedInfoFlag;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.MoveSpeed;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -10,22 +12,6 @@ public final class PlayerList {
     public static final int SKIPPED_LAST_CYCLE = 0x1;
 
     public static final int SKIPPED_THIS_CYCLE = 0x2;
-
-    public static final int FLAG_ANIMATE_WORN = 0x8000;
-
-    public static final int FLAG_ANIMATION = 0x40;
-
-    public static final int FLAG_SPOTANIM2 = 0x40000;
-
-    public static final int FLAG_RECOL = 0x20000;
-
-    public static final int FLAG_SPEED = 0x200;
-
-    public static final int FLAG_TIMERBAR = 0x2000;
-
-    public static final int FLAG_SPOTANIM3 = 0x80000;
-
-    public static final int FLAG_CLANMATE = 0x100000;
 
     @OriginalMember(owner = "client!tl", name = "f", descriptor = "[Lclient!ca;")
     public static final PlayerEntity[] highResolutionPlayers = new PlayerEntity[2048];
@@ -58,6 +44,20 @@ public final class PlayerList {
     public static final int FLAG_APPEARANCE = 0x8;
 
     public static final int FLAG_CHAT = 0x4000;
+
+    public static final int FLAG_P_ICON = 0x400;
+
+    public static final int FLAG_SPEED = 0x1;
+
+    public static final int FLAG_TARGET = 0x10;
+
+    public static final int FLAG_EXACT_MOVE = 0x1000;
+
+    public static final int FLAG_TURN = 0x20;
+
+    public static final int FLAG_SPOTANIM0 = 0x2;
+
+    public static final int FLAG_SPOTANIM1 = 0x100;
 
     @OriginalMember(owner = "client!jt", name = "g", descriptor = "I")
     public static int activePlayerSlot = -1;
@@ -234,10 +234,10 @@ public final class PlayerList {
     }
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(ILclient!ca;ILclient!rka;I)V")
-    public static void processExtendedInfo(@OriginalArg(1) PlayerEntity player, @OriginalArg(2) int arg1, @OriginalArg(3) PacketBuffer packet, @OriginalArg(4) int flags) {
+    public static void processExtendedInfo(@OriginalArg(1) PlayerEntity player, @OriginalArg(2) int index, @OriginalArg(3) PacketBuffer packet, @OriginalArg(4) int flags) {
         @Pc(7) byte tempSpeed = -1;
 
-        if ((flags & FLAG_ANIMATE_WORN) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.ANIMATE_WORN) != 0) {
             @Pc(15) int count = packet.g1();
             @Pc(18) int[] animations = new int[count];
             @Pc(21) int[] delays = new int[count];
@@ -256,7 +256,7 @@ public final class PlayerList {
             Static310.animateWorn(slots, animations, delays, player);
         }
 
-        if ((flags & FLAG_ANIMATION) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.ANIMATION) != 0) {
             @Pc(75) int[] animations = new int[4];
             for (@Pc(77) int j = 0; j < 4; j++) {
                 animations[j] = packet.ig2();
@@ -270,7 +270,7 @@ public final class PlayerList {
             Static651.animate(animations, delay, false, player);
         }
 
-        if ((flags & FLAG_SPOTANIM2) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.SPOTANIM2) != 0) {
             @Pc(15) int id = packet.g2_alt3();
             @Pc(77) int heightAndDelay = packet.g4_alt3();
             if (id == 65535) {
@@ -288,7 +288,7 @@ public final class PlayerList {
             player.setSpotAnim(2, rotation, loop, heightAndDelay, wornSlot, id);
         }
 
-        if ((flags & FLAG_RECOL) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.RECOL) != 0) {
             player.recolHue = packet.g1b_alt3();
             player.recolSaturation = packet.g1b_alt3();
             player.recolLightness = packet.g1b_alt2();
@@ -297,11 +297,11 @@ public final class PlayerList {
             player.recolEnd = TimeUtils.clock + packet.g2();
         }
 
-        if ((flags & FLAG_SPEED) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.TEMP_SPEED) != 0) {
             tempSpeed = packet.g1b_alt2();
         }
 
-        if ((flags & FLAG_TIMERBAR) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.TIMERBAR) != 0) {
             @Pc(15) int data = packet.g2_alt2();
             player.timerbarStart = packet.g1();
             player.timerbarGranularity = packet.g1_alt2();
@@ -310,7 +310,7 @@ public final class PlayerList {
             player.timerbarEnd = player.timerbarStart + player.timerbarDuration + TimeUtils.clock;
         }
 
-        if ((flags & FLAG_SPOTANIM3) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.SPOTANIM3) != 0) {
             @Pc(15) int id = packet.ig2();
             @Pc(108) int heightAndDelay = packet.g4_alt3();
             if (id == 65535) {
@@ -328,7 +328,7 @@ public final class PlayerList {
             player.setSpotAnim(3, rotation, loop, heightAndDelay, wornSlot, id);
         }
 
-        if ((flags & FLAG_CLANMATE) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.CLANMATE) != 0) {
             player.clanmate = packet.g1_alt2() == 1;
         }
 
@@ -385,7 +385,7 @@ public final class PlayerList {
             @Pc(540) byte[] data = new byte[count];
             @Pc(545) Packet appearance = new Packet(data);
             packet.gdata(0, count, data);
-            appearances[arg1] = appearance;
+            appearances[index] = appearance;
             player.decodeAppearance(appearance);
         }
 
@@ -401,20 +401,25 @@ public final class PlayerList {
 
             player.method1413(0, 0, message);
         }
-        if ((flags & 0x400) != 0) {
-            player.showPICon = packet.g1_alt3() == 1;
+
+        if ((flags & FLAG_P_ICON) != 0) {
+            player.showPIcon = packet.g1_alt3() == 1;
         }
-        if ((flags & 0x1) != 0) {
-            pathSpeeds[arg1] = packet.g1b_alt3();
+
+        if ((flags & FLAG_SPEED) != 0) {
+            pathSpeeds[index] = packet.g1b_alt3();
         }
-        if ((flags & 0x10) != 0) {
-            @Pc(15) int local15 = packet.g2_alt2();
-            if (local15 == 65535) {
-                local15 = -1;
+
+        if ((flags & FLAG_TARGET) != 0) {
+            @Pc(15) int target = packet.g2_alt2();
+            if (target == 65535) {
+                target = -1;
             }
-            player.target = local15;
+
+            player.target = target;
         }
-        if ((flags & 0x1000) != 0) {
+
+        if ((flags & FLAG_EXACT_MOVE) != 0) {
             player.exactMoveX1 = packet.g1b_alt3();
             player.exactMoveZ1 = packet.g1b();
             player.exactMoveX2 = packet.g1b_alt1();
@@ -422,12 +427,13 @@ public final class PlayerList {
             player.exactMoveT1 = packet.ig2() + TimeUtils.clock;
             player.exactMoveT2 = packet.g2_alt3() + TimeUtils.clock;
             player.exactMoveDirection = packet.g1_alt1();
+
             if (player.moved) {
                 player.pathPointer = 0;
-                player.exactMoveZ2 += player.anInt1448;
-                player.exactMoveX1 += player.anInt1441;
-                player.exactMoveZ1 += player.anInt1448;
-                player.exactMoveX2 += player.anInt1441;
+                player.exactMoveZ2 += player.moveZ;
+                player.exactMoveX1 += player.moveX;
+                player.exactMoveZ1 += player.moveZ;
+                player.exactMoveX2 += player.moveX;
             } else {
                 player.exactMoveX2 += player.pathX[0];
                 player.pathPointer = 1;
@@ -435,63 +441,69 @@ public final class PlayerList {
                 player.exactMoveZ1 += player.pathZ[0];
                 player.exactMoveX1 += player.pathX[0];
             }
+
             player.animationPathPointer = 0;
         }
-        if ((flags & 0x20) != 0) {
+
+        if ((flags & FLAG_TURN) != 0) {
             player.anInt1467 = packet.g2();
             if (player.pathPointer == 0) {
                 player.method9305(player.anInt1467);
                 player.anInt1467 = -1;
             }
         }
-        if ((flags & 0x2) != 0) {
-            @Pc(15) int local15 = packet.g2();
-            @Pc(77) int local77 = packet.g4_alt1();
-            if (local15 == 65535) {
-                local15 = -1;
+
+        if ((flags & FLAG_SPOTANIM0) != 0) {
+            @Pc(15) int id = packet.g2();
+            @Pc(77) int heightAndDelay = packet.g4_alt1();
+            if (id == 65535) {
+                id = -1;
             }
 
-            @Pc(108) int local108 = packet.g1_alt1();
-            @Pc(141) int local141 = local108 & 0x7;
-            @Pc(26) int local26 = local108 >> 3 & 0xF;
-            if (local26 == 15) {
-                local26 = -1;
+            @Pc(108) int data = packet.g1_alt1();
+            @Pc(141) int rotation = data & 0x7;
+            @Pc(26) int wornSlot = data >> 3 & 0xF;
+            if (wornSlot == 15) {
+                wornSlot = -1;
             }
-            @Pc(166) boolean local166 = (local108 >> 7 & 0x1) == 1;
+            @Pc(166) boolean loop = (data >> 7 & 0x1) == 1;
 
-            player.setSpotAnim(0, local141, local166, local77, local26, local15);
+            player.setSpotAnim(0, rotation, loop, heightAndDelay, wornSlot, id);
         }
 
-        if ((flags & 0x100) != 0) {
-            @Pc(15) int local15 = packet.g2_alt3();
-            if (local15 == 65535) {
-                local15 = -1;
+        if ((flags & FLAG_SPOTANIM1) != 0) {
+            @Pc(15) int id = packet.g2_alt3();
+            if (id == 65535) {
+                id = -1;
             }
-            @Pc(77) int local77 = packet.g4_alt3();
-            @Pc(108) int local108 = packet.g1_alt2();
-            @Pc(141) int local141 = local108 & 0x7;
-            @Pc(26) int local26 = local108 >> 3 & 0xF;
-            if (local26 == 15) {
-                local26 = -1;
+
+            @Pc(77) int heightAndDelay = packet.g4_alt3();
+            @Pc(108) int data = packet.g1_alt2();
+            @Pc(141) int rotation = data & 0x7;
+            @Pc(26) int wornSlot = data >> 3 & 0xF;
+            if (wornSlot == 15) {
+                wornSlot = -1;
             }
-            @Pc(166) boolean local166 = (local108 >> 7 & 0x1) == 1;
-            player.setSpotAnim(1, local141, local166, local77, local26, local15);
+            @Pc(166) boolean loop = (data >> 7 & 0x1) == 1;
+
+            player.setSpotAnim(1, rotation, loop, heightAndDelay, wornSlot, id);
         }
-        if (!player.moved) {
-            return;
+
+        if (player.moved) {
+            if (tempSpeed == MoveSpeed.TELEPORT) {
+                player.teleport(player.moveX, player.moveZ);
+            } else {
+                @Pc(985) byte speed;
+                if (tempSpeed != -1) {
+                    speed = tempSpeed;
+                } else {
+                    speed = pathSpeeds[index];
+                }
+
+                Static702.updateActionAnimator(player, speed);
+                player.move(player.moveZ, player.moveX, speed);
+            }
         }
-        if (tempSpeed == 127) {
-            player.coord(player.anInt1441, player.anInt1448);
-            return;
-        }
-        @Pc(985) byte local985;
-        if (tempSpeed == -1) {
-            local985 = pathSpeeds[arg1];
-        } else {
-            local985 = tempSpeed;
-        }
-        Static702.method9166(player, local985);
-        player.method1425(player.anInt1448, player.anInt1441, local985);
     }
 
     @OriginalMember(owner = "client!ma", name = "a", descriptor = "(ILclient!rka;I)Z")
@@ -532,7 +544,7 @@ public final class PlayerList {
             @Pc(161) int localZ = (z << 6) + deltaY - WorldMap.areaBaseZ;
 
             player.clanmate = lowRes.clanmate;
-            player.showPICon = lowRes.aBoolean711;
+            player.showPIcon = lowRes.aBoolean711;
             player.pathSpeed[0] = pathSpeeds[id];
 
             player.level = player.virtualLevel = (byte) level;
@@ -540,7 +552,7 @@ public final class PlayerList {
                 player.virtualLevel++;
             }
 
-            player.coord(localX, localZ);
+            player.teleport(localX, localZ);
             player.moved = false;
             lowResolutionPlayers[id] = null;
             return true;
@@ -654,11 +666,11 @@ public final class PlayerList {
                     local175++;
                 }
                 if (local16) {
-                    local37.anInt1448 = local175;
-                    local37.anInt1441 = local170;
+                    local37.moveZ = local175;
+                    local37.moveX = local170;
                     local37.moved = true;
                 } else {
-                    local37.method1425(local175, local170, pathSpeeds[arg0]);
+                    local37.move(local175, local170, pathSpeeds[arg0]);
                 }
             } else if (local33 == 2) {
                 local165 = arg1.readBits(4);
@@ -710,11 +722,11 @@ public final class PlayerList {
                     local175 += 2;
                 }
                 if (local16) {
-                    local37.anInt1441 = local170;
-                    local37.anInt1448 = local175;
+                    local37.moveX = local170;
+                    local37.moveZ = local175;
                     local37.moved = true;
                 } else {
-                    local37.method1425(local175, local170, pathSpeeds[arg0]);
+                    local37.move(local175, local170, pathSpeeds[arg0]);
                 }
             } else {
                 local165 = arg1.readBits(1);
@@ -736,11 +748,11 @@ public final class PlayerList {
                     local566 = local37.pathX[0] + local539;
                     local573 = local551 + local37.pathZ[0];
                     if (local16) {
-                        local37.anInt1441 = local566;
+                        local37.moveX = local566;
                         local37.moved = true;
-                        local37.anInt1448 = local573;
+                        local37.moveZ = local573;
                     } else {
-                        local37.method1425(local573, local566, pathSpeeds[arg0]);
+                        local37.move(local573, local566, pathSpeeds[arg0]);
                     }
                     local37.level = local37.virtualLevel = (byte) (local37.level + local175 & 0x3);
                     if (Static441.isBridgeAt(local573, local566)) {
@@ -761,10 +773,10 @@ public final class PlayerList {
                     local573 = (local551 + local37.pathZ[0] + WorldMap.areaBaseZ & 0x3FFF) - WorldMap.areaBaseZ;
                     if (local16) {
                         local37.moved = true;
-                        local37.anInt1448 = local573;
-                        local37.anInt1441 = local566;
+                        local37.moveZ = local573;
+                        local37.moveX = local566;
                     } else {
-                        local37.method1425(local573, local566, pathSpeeds[arg0]);
+                        local37.move(local573, local566, pathSpeeds[arg0]);
                     }
                     local37.level = local37.virtualLevel = (byte) (local175 + local37.level & 0x3);
                     if (Static441.isBridgeAt(local573, local566)) {
@@ -788,7 +800,7 @@ public final class PlayerList {
                 local70.direcion = local37.anInt1467;
             }
             local70.target = local37.target;
-            local70.aBoolean711 = local37.showPICon;
+            local70.aBoolean711 = local37.showPIcon;
             local70.clanmate = local37.clanmate;
             if (local37.soundRange > 0) {
                 Static76.method1552(local37);

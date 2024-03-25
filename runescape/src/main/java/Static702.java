@@ -35,14 +35,15 @@ public final class Static702 {
     public static boolean aBoolean797 = false;
 
     @OriginalMember(owner = "client!wda", name = "a", descriptor = "(ILclient!cg;I)V")
-    public static void method9166(@OriginalArg(1) PathingEntity arg0, @OriginalArg(2) int arg1) {
-        if (arg0.actionAnimations == null) {
+    public static void updateActionAnimator(@OriginalArg(1) PathingEntity entity, @OriginalArg(2) int speed) {
+        if (entity.actionAnimations == null) {
             return;
         }
-        @Pc(13) int local13 = arg0.actionAnimations[arg1 + 1];
-        if (arg0.actionAnimator.getAnimationId() != local13) {
-            arg0.actionAnimator.update(arg0.actionAnimator.method9087(), local13);
-            arg0.animationPathPointer = arg0.pathPointer;
+
+        @Pc(13) int animation = entity.actionAnimations[speed + 1];
+        if (entity.actionAnimator.getAnimationId() != animation) {
+            entity.actionAnimator.update(entity.actionAnimator.getDelay(), animation);
+            entity.animationPathPointer = entity.pathPointer;
         }
     }
 }

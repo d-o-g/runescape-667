@@ -1164,7 +1164,7 @@ public final class client extends GameShell {
                     local142 = Static112.method2104(local97);
                     Static145.method2410(local97);
                     Static651.method8513(Static521.anInt7756, local142, Static524.anInt8042, local97);
-                    Static702.method9166(local97, Static521.anInt7756);
+                    Static702.updateActionAnimator(local97, Static521.anInt7756);
                     Static50.method6638(local97);
                 }
             }

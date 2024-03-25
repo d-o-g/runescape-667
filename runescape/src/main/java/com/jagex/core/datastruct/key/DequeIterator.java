@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!jg")
-public final class Class191 {
+public final class DequeIterator {
 
     @OriginalMember(owner = "client!jg", name = "g", descriptor = "Lclient!sia;")
     public Deque deque;
@@ -15,11 +15,11 @@ public final class Class191 {
     public Node node;
 
     @OriginalMember(owner = "client!jg", name = "<init>", descriptor = "()V")
-    public Class191() {
+    public DequeIterator() {
     }
 
     @OriginalMember(owner = "client!jg", name = "<init>", descriptor = "(Lclient!sia;)V")
-    public Class191(@OriginalArg(0) Deque deque) {
+    public DequeIterator(@OriginalArg(0) Deque deque) {
         this.deque = deque;
     }
 

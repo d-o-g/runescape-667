@@ -32,10 +32,10 @@ public final class Static364 {
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Z)Lclient!fu;")
     public static MapElementListEntry method5248() {
-        if (WorldMap.elements == null || Static444.aClass191_1 == null) {
+        if (WorldMap.elements == null || Static444.A_DEQUE_ITERATOR___1 == null) {
             return null;
         }
-        for (@Pc(17) MapElementListEntry local17 = (MapElementListEntry) Static444.aClass191_1.next(); local17 != null; local17 = (MapElementListEntry) Static444.aClass191_1.next()) {
+        for (@Pc(17) MapElementListEntry local17 = (MapElementListEntry) Static444.A_DEQUE_ITERATOR___1.next(); local17 != null; local17 = (MapElementListEntry) Static444.A_DEQUE_ITERATOR___1.next()) {
             @Pc(30) MapElementType local30 = WorldMap.mapElementTypeList.list(local17.id);
             if (local30 != null && local30.aBoolean217 && local30.variableTest(WorldMap.varDomain)) {
                 return local17;

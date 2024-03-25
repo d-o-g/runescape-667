@@ -6,11 +6,11 @@ public final class Static122 {
 
     @OriginalMember(owner = "client!dq", name = "b", descriptor = "(B)Lclient!fu;")
     public static MapElementListEntry method2207() {
-        if (WorldMap.elements == null || Static444.aClass191_1 == null) {
+        if (WorldMap.elements == null || Static444.A_DEQUE_ITERATOR___1 == null) {
             return null;
         }
-        Static444.aClass191_1.setDeque(WorldMap.elements);
-        @Pc(23) MapElementListEntry local23 = (MapElementListEntry) Static444.aClass191_1.first();
+        Static444.A_DEQUE_ITERATOR___1.setDeque(WorldMap.elements);
+        @Pc(23) MapElementListEntry local23 = (MapElementListEntry) Static444.A_DEQUE_ITERATOR___1.first();
         if (local23 == null) {
             return null;
         } else {

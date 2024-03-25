@@ -1,5 +1,5 @@
-import com.jagex.core.datastruct.key.Class191;
-import com.jagex.core.datastruct.key.Class299;
+import com.jagex.core.datastruct.key.DequeIterator;
+import com.jagex.core.datastruct.key.QueueIterator;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.keyboard.KeyboardMonitor;
@@ -125,7 +125,7 @@ public final class Static320 {
                     }
                     if (local426 != -1) {
                         local444 = 0;
-                        @Pc(525) Class299 local525 = new Class299(MiniMenu.innerEntries);
+                        @Pc(525) QueueIterator local525 = new QueueIterator(MiniMenu.innerEntries);
                         for (@Pc(530) MiniMenuEntryInner local530 = (MiniMenuEntryInner) local525.first(); local530 != null; local530 = (MiniMenuEntryInner) local525.next()) {
                             if (local444 == local426) {
                                 if (local530.size > 1) {
@@ -145,7 +145,7 @@ public final class Static320 {
         local317 = local204.getX();
         local321 = local204.getY();
         @Pc(661) int local661;
-        @Pc(886) Class299 local886;
+        @Pc(886) QueueIterator local886;
         @Pc(762) MiniMenuEntry local762;
         if (MiniMenu.openedInner != null && MiniMenu.openedInnerX <= local317 && MiniMenu.openedInnerWidth + MiniMenu.openedInnerX >= local317 && local321 >= MiniMenu.openedInnerY && MiniMenu.openedInnerY + MiniMenu.openedInnerHeight >= local321) {
             local661 = -1;
@@ -164,7 +164,7 @@ public final class Static320 {
             }
             if (local661 != -1) {
                 local428 = 0;
-                local886 = new Class299(MiniMenu.openedInner.entries);
+                local886 = new QueueIterator(MiniMenu.openedInner.entries);
                 for (local762 = (MiniMenuEntry) local886.first(); local762 != null; local762 = (MiniMenuEntry) local886.next()) {
                     if (local661 == local428) {
                         MiniMenu.doAction(local321, local762, local317);
@@ -196,7 +196,7 @@ public final class Static320 {
             }
             if (local661 != -1) {
                 local428 = 0;
-                @Pc(757) Class191 local757 = new Class191(MiniMenu.entries);
+                @Pc(757) DequeIterator local757 = new DequeIterator(MiniMenu.entries);
                 for (local762 = (MiniMenuEntry) local757.first(); local762 != null; local762 = (MiniMenuEntry) local757.next()) {
                     if (local661 == local428) {
                         MiniMenu.doAction(local321, local762, local317);
@@ -228,7 +228,7 @@ public final class Static320 {
             return;
         }
         local428 = 0;
-        local886 = new Class299(MiniMenu.innerEntries);
+        local886 = new QueueIterator(MiniMenu.innerEntries);
         for (@Pc(891) MiniMenuEntryInner local891 = (MiniMenuEntryInner) local886.first(); local891 != null; local891 = (MiniMenuEntryInner) local886.next()) {
             if (local428 == local661) {
                 MiniMenu.doAction(local321, (MiniMenuEntry) local891.entries.sentinel.next2, local317);

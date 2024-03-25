@@ -1,6 +1,6 @@
 import com.jagex.DisplayProperties;
-import com.jagex.core.datastruct.key.Class191;
-import com.jagex.core.datastruct.key.Class299;
+import com.jagex.core.datastruct.key.DequeIterator;
+import com.jagex.core.datastruct.key.QueueIterator;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseMonitor;
@@ -43,7 +43,7 @@ public final class Static679 {
 
         @Pc(134) MiniMenuEntry local134;
         if (Static236.aBoolean304) {
-            @Pc(262) Class299 local262;
+            @Pc(262) QueueIterator local262;
             if (MiniMenu.x < recordedX && MiniMenu.x + MiniMenu.width > recordedX) {
                 local53 = -1;
                 for (local55 = 0; local55 < MiniMenu.innerCount; local55++) {
@@ -62,7 +62,7 @@ public final class Static679 {
 
                 if (local53 != -1) {
                     local71 = 0;
-                    local262 = new Class299(MiniMenu.innerEntries);
+                    local262 = new QueueIterator(MiniMenu.innerEntries);
                     for (@Pc(368) MiniMenuEntryInner local368 = (MiniMenuEntryInner) local262.first(); local368 != null; local368 = (MiniMenuEntryInner) local262.next()) {
                         if (local71++ == local53) {
                             return ((MiniMenuEntry) local368.entries.sentinel.next2).cursor;
@@ -86,7 +86,7 @@ public final class Static679 {
                 }
                 if (local53 != -1) {
                     local71 = 0;
-                    local262 = new Class299(MiniMenu.openedInner.entries);
+                    local262 = new QueueIterator(MiniMenu.openedInner.entries);
                     for (local134 = (MiniMenuEntry) local262.first(); local134 != null; local134 = (MiniMenuEntry) local262.next()) {
                         if (local71++ == local53) {
                             return local134.cursor;
@@ -111,7 +111,7 @@ public final class Static679 {
             }
             if (local53 != -1) {
                 local71 = 0;
-                @Pc(129) Class191 local129 = new Class191(MiniMenu.entries);
+                @Pc(129) DequeIterator local129 = new DequeIterator(MiniMenu.entries);
                 for (local134 = (MiniMenuEntry) local129.first(); local134 != null; local134 = (MiniMenuEntry) local129.next()) {
                     if (local53 == local71++) {
                         return local134.cursor;

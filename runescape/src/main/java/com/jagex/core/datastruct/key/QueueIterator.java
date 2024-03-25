@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ps")
-public final class Class299 {
+public final class QueueIterator {
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "Lclient!cm;")
     public Node2 node;
@@ -15,11 +15,11 @@ public final class Class299 {
     public Queue queue;
 
     @OriginalMember(owner = "client!ps", name = "<init>", descriptor = "()V")
-    public Class299() {
+    public QueueIterator() {
     }
 
     @OriginalMember(owner = "client!ps", name = "<init>", descriptor = "(Lclient!jga;)V")
-    public Class299(@OriginalArg(0) Queue queue) {
+    public QueueIterator(@OriginalArg(0) Queue queue) {
         this.queue = queue;
     }
 

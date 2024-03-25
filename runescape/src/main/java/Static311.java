@@ -3,6 +3,7 @@ import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.js5.js5;
+import com.jagex.sound.midi.MidiSong;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

@@ -1,5 +1,6 @@
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
+import com.jagex.sound.midi.MidiSong;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

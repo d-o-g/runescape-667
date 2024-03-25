@@ -1,3 +1,4 @@
+import com.jagex.sound.midi.MidiSong;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static62 {

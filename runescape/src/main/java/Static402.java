@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static402 {
 
-    @OriginalMember(owner = "client!ml", name = "f", descriptor = "[B")
-    public static final byte[] aByteArray68 = new byte[2048];
-
     @OriginalMember(owner = "client!ml", name = "a", descriptor = "(III)Z")
     public static boolean method5577(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
         return (arg1 & 0x70000) != 0 | Static58.method1257(arg0, arg1) || Static598.method7828(arg1, arg0);
@@ -15,7 +12,7 @@ public final class Static402 {
 
     @OriginalMember(owner = "client!ml", name = "a", descriptor = "(B)I")
     public static int method5578() {
-        return Static129.anInt2406;
+        return ChatHistory.length;
     }
 
     @OriginalMember(owner = "client!ml", name = "c", descriptor = "(II)Lclient!uja;")

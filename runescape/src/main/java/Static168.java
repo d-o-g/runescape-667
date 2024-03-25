@@ -35,27 +35,27 @@ public final class Static168 {
         if (Static441.isBridgeAt(local20.pathZ[0], local20.pathX[0])) {
             local20.virtualLevel++;
         }
-        if (Static462.aClass2_Sub21Array1[local10] != null) {
-            local20.method1420(Static462.aClass2_Sub21Array1[local10]);
+        if (PlayerList.appearances[local10] != null) {
+            local20.decodeAppearance(PlayerList.appearances[local10]);
         }
-        Static338.anInt5564 = 0;
-        Static210.anIntArray280[Static338.anInt5564++] = local10;
-        Static402.aByteArray68[local10] = 0;
-        Static51.anInt1053 = 0;
+        PlayerList.highResolutionPlayerCount = 0;
+        PlayerList.highResolutionPlayerIndices[PlayerList.highResolutionPlayerCount++] = local10;
+        PlayerList.updateHistory[local10] = 0;
+        PlayerList.lowResolutionPlayerCount = 0;
         for (@Pc(151) int local151 = 1; local151 < 2048; local151++) {
             if (local10 != local151) {
                 @Pc(163) int local163 = arg0.readBits(18);
                 @Pc(167) int local167 = local163 >> 16;
                 @Pc(173) int local173 = local163 >> 8 & 0xFF;
                 @Pc(177) int local177 = local163 & 0xFF;
-                @Pc(185) Class350 local185 = Static246.aClass350Array1[local151] = new Class350();
+                @Pc(185) LowResPlayer local185 = PlayerList.lowResolutionPlayers[local151] = new LowResPlayer();
                 local185.aBoolean711 = false;
-                local185.anInt9322 = -1;
-                local185.anInt9324 = local177 + (local173 << 14) + (local167 << 28);
-                local185.anInt9326 = 0;
-                local185.aBoolean712 = false;
-                Static409.anIntArray494[Static51.anInt1053++] = local151;
-                Static402.aByteArray68[local151] = 0;
+                local185.target = -1;
+                local185.coord = local177 + (local173 << 14) + (local167 << 28);
+                local185.direcion = 0;
+                local185.clanmate = false;
+                PlayerList.lowResolutionPlayerIndices[PlayerList.lowResolutionPlayerCount++] = local151;
+                PlayerList.updateHistory[local151] = 0;
             }
         }
         arg0.exitBitMode();
@@ -85,29 +85,6 @@ public final class Static168 {
             } catch (@Pc(91) InterruptedException local91) {
             }
         }
-    }
-
-    @OriginalMember(owner = "client!fda", name = "a", descriptor = "(BIIZIZI)V")
-    public static void method2636(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) int arg5) {
-        if (arg0 <= arg1) {
-            return;
-        }
-        @Pc(13) int local13 = (arg1 + arg0) / 2;
-        @Pc(15) int local15 = arg1;
-        @Pc(19) Class297_Sub1 local19 = Static343.aClass297_Sub1Array2[local13];
-        Static343.aClass297_Sub1Array2[local13] = Static343.aClass297_Sub1Array2[arg0];
-        Static343.aClass297_Sub1Array2[arg0] = local19;
-        for (@Pc(31) int local31 = arg1; local31 < arg0; local31++) {
-            if (Static639.method8418(local19, arg3, arg5, arg4, 70, Static343.aClass297_Sub1Array2[local31], arg2) <= 0) {
-                @Pc(47) Class297_Sub1 local47 = Static343.aClass297_Sub1Array2[local31];
-                Static343.aClass297_Sub1Array2[local31] = Static343.aClass297_Sub1Array2[local15];
-                Static343.aClass297_Sub1Array2[local15++] = local47;
-            }
-        }
-        Static343.aClass297_Sub1Array2[arg0] = Static343.aClass297_Sub1Array2[local15];
-        Static343.aClass297_Sub1Array2[local15] = local19;
-        method2636(local15 - 1, arg1, arg2, arg3, arg4, arg5);
-        method2636(arg0, local15 + 1, arg2, arg3, arg4, arg5);
     }
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(IBIIIII)V")

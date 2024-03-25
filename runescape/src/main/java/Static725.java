@@ -13,7 +13,7 @@ public final class Static725 {
 
     @OriginalMember(owner = "client!ww", name = "a", descriptor = "(Lclient!ha;IB)V")
     public static void method9454(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
-        if (!Static18.aBoolean20 || !Static29.aBoolean60) {
+        if (!Static18.occlude || !Static29.aBoolean60) {
             Static469.anInt7072 = 0;
             return;
         }

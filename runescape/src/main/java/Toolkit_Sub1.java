@@ -2794,13 +2794,13 @@ public abstract class Toolkit_Sub1 extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "f", descriptor = "(I)V")
     @Override
-    public final void method7989(@OriginalArg(0) int arg0) {
-        if (arg0 < 128 || arg0 > 1024) {
+    public final void setTextureSize(@OriginalArg(0) int size) {
+        if (size < 128 || size > 1024) {
             throw new IllegalArgumentException();
         }
         if (this.aClass334_3 != null) {
             this.aClass334_3.method7653();
         }
-        this.anInt9183 = arg0;
+        this.anInt9183 = size;
     }
 }

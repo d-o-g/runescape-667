@@ -25,8 +25,8 @@ public final class Static674 {
         Static719.aClass56_5 = Static638.method8394(SignLink.instance, 0, 22050, GameShell.canvas);
         Static697.method9120(Static48.method1100(null));
         Static559.aClass56_3 = Static638.method8394(SignLink.instance, 1, 2048, GameShell.canvas);
-        Static336.aClass2_Sub6_Sub3_1 = new Node_Sub6_Sub3();
-        Static559.aClass56_3.method3582(Static336.aClass2_Sub6_Sub3_1);
+        Static336.activeStreams = new Node_Sub6_Sub3();
+        Static559.aClass56_3.method3582(Static336.activeStreams);
         Static681.aClass224_2 = new Class224(22050, Audio.sampleRate);
         Static550.method7266();
     }

@@ -150,7 +150,7 @@ public final class Node_Sub51 extends Node {
             this.soundVolume = this.player.soundVolume;
             this.anInt9355 = 0;
             this.anInt9359 = 256;
-            this.anInt9356 = this.player.anInt1452 << 9;
+            this.anInt9356 = this.player.soundRange << 9;
             this.vorbis = this.player.vorbis;
             this.anInt9360 = 256;
         }
@@ -160,7 +160,7 @@ public final class Node_Sub51 extends Node {
         if (this.aClass2_Sub6_Sub2_4 == null) {
             return;
         }
-        Static336.aClass2_Sub6_Sub3_1.method5883(this.aClass2_Sub6_Sub2_4);
+        Static336.activeStreams.method5883(this.aClass2_Sub6_Sub2_4);
         this.aClass2_Sub6_Sub2_4 = null;
         this.aClass2_Sub49_Sub1_4 = null;
         this.aClass2_Sub53_3 = null;

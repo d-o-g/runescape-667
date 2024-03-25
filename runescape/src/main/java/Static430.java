@@ -33,9 +33,9 @@ public final class Static430 {
                 client.gameConnection.defaultPort = client.gameConnection.id + 40000;
                 client.gameConnection.alternatePort = client.gameConnection.id + 50000;
             }
-            for (@Pc(45) int local45 = 0; local45 < Static343.aClass297_Sub1Array2.length; local45++) {
-                if (Static343.aClass297_Sub1Array2[local45].anInt7569 == arg0) {
-                    client.worldFlags = Static343.aClass297_Sub1Array2[local45].anInt7563;
+            for (@Pc(45) int local45 = 0; local45 < WorldList.activeWorlds.length; local45++) {
+                if (WorldList.activeWorlds[local45].id == arg0) {
+                    client.worldFlags = WorldList.activeWorlds[local45].flags;
                 }
             }
             return true;
@@ -68,7 +68,7 @@ public final class Static430 {
 
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(Ljava/lang/String;II)V")
     public static void method5819(@OriginalArg(0) String arg0, @OriginalArg(2) int arg1) {
-        @Pc(10) ServerConnection local10 = Static668.method8701();
+        @Pc(10) ServerConnection local10 = ConnectionManager.active();
         @Pc(16) ClientMessage local16 = ClientMessage.create(Static425.A_CLIENT_PROT___80, local10.cipher);
         local16.buffer.p1(Static231.method3379(arg0) + 1);
         local16.buffer.pjstr(arg0);

@@ -18,8 +18,4 @@ public final class Static557 {
         }
     }
 
-    @OriginalMember(owner = "client!rja", name = "d", descriptor = "(I)Lclient!pq;")
-    public static Class297_Sub1 method7333() {
-        return Static59.anInt5936 < Static343.aClass297_Sub1Array2.length ? Static343.aClass297_Sub1Array2[Static59.anInt5936++] : null;
-    }
 }

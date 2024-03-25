@@ -646,7 +646,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "f", descriptor = "(I)V")
     @Override
-    public void method7989(@OriginalArg(0) int arg0) {
+    public void setTextureSize(@OriginalArg(0) int size) {
         throw new IllegalStateException();
     }
 

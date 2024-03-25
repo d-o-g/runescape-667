@@ -108,7 +108,7 @@ public abstract class PathingEntity extends PositionEntity {
     protected int anInt10728;
 
     @OriginalMember(owner = "client!cg", name = "vc", descriptor = "I")
-    public int anInt10719;
+    public int timerbarEnd;
 
     @OriginalMember(owner = "client!cg", name = "gb", descriptor = "I")
     public int drawPriority;
@@ -236,7 +236,7 @@ public abstract class PathingEntity extends PositionEntity {
         this.actionAnimations = null;
         this.hitAmounts = new int[GraphicsDefaults.instance.maxhitmarks];
         this.anInt10728 = 0;
-        this.anInt10719 = -1000;
+        this.timerbarEnd = -1000;
         this.drawPriority = 0;
         this.anInt10735 = 0;
         this.aBoolean816 = true;
@@ -838,7 +838,7 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "i", descriptor = "(B)Lclient!pda;")
     public final BASType getBASType() {
-        @Pc(13) int local13 = this.method9320(0);
+        @Pc(13) int local13 = this.getBasId(0);
         return local13 == -1 ? Static636.A_BAS_TYPE___1 : BASTypeList.instance.list(local13);
     }
 
@@ -922,5 +922,5 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "m", descriptor = "(I)I")
-    protected abstract int method9320(@OriginalArg(0) int arg0);
+    protected abstract int getBasId(@OriginalArg(0) int arg0);
 }

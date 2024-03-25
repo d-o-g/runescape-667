@@ -9,12 +9,12 @@ import org.openrs2.deob.annotation.Pc;
 public abstract class Class8_Sub2_Sub5 extends Entity {
 
     @OriginalMember(owner = "client!nda", name = "<init>", descriptor = "(IIIII)V")
-    public Class8_Sub2_Sub5(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        super.x = arg0;
-        super.virtualLevel = (byte) arg4;
-        super.y = arg1;
-        super.z = arg2;
-        super.level = (byte) arg3;
+    public Class8_Sub2_Sub5(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int level, @OriginalArg(4) int virtualLevel) {
+        super.x = x;
+        super.virtualLevel = (byte) virtualLevel;
+        super.y = y;
+        super.z = z;
+        super.level = (byte) level;
     }
 
     @OriginalMember(owner = "client!nda", name = "a", descriptor = "(BLclient!ha;)Z")

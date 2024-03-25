@@ -78,18 +78,18 @@ public final class Static638 {
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(IIIIII)V")
     public static void method8397(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        Static12.anInt5741 = arg1;
-        Static55.anInt1125 = arg3;
+        Camera.lookZ = arg1;
+        Camera.lookY = arg3;
         Static314.anInt5035 = arg0;
         Static179.anInt2991 = arg4;
-        Static441.anInt6689 = arg2;
+        Camera.lookX = arg2;
         if (Static179.anInt2991 >= 100) {
-            @Pc(22) int local22 = Static441.anInt6689 * 512 + 256;
-            @Pc(28) int local28 = Static12.anInt5741 * 512 + 256;
-            @Pc(36) int local36 = Static102.averageHeight(Camera.renderingLevel, -29754, local28, local22) - Static55.anInt1125;
-            @Pc(41) int local41 = local22 - Camera.positionX;
-            @Pc(46) int local46 = local36 - Camera.positionY;
-            @Pc(51) int local51 = local28 - Camera.positionZ;
+            @Pc(22) int local22 = Camera.lookX * 512 + 256;
+            @Pc(28) int local28 = Camera.lookZ * 512 + 256;
+            @Pc(36) int local36 = Static102.averageHeight(Camera.renderingLevel, -29754, local28, local22) - Camera.lookY;
+            @Pc(41) int local41 = local22 - Camera.x;
+            @Pc(46) int local46 = local36 - Camera.y;
+            @Pc(51) int local51 = local28 - Camera.z;
             @Pc(62) int local62 = (int) Math.sqrt(local51 * local51 + local41 * local41);
             Camera.pitch = (int) (Math.atan2(local46, local62) * 2607.5945876176133D) & 0x3FFF;
             Camera.yaw = (int) (-2607.5945876176133D * Math.atan2(local41, local51)) & 0x3FFF;

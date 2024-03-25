@@ -13,8 +13,8 @@ public final class Static145 {
         for (@Pc(10) int local10 = 0; local10 < 5; local10++) {
             Static572.aBooleanArray29[local10] = false;
         }
-        Static70.anInt1569 = Camera.positionX;
-        Static411.anInt6329 = Camera.positionZ;
+        Static70.anInt1569 = Camera.x;
+        Static411.anInt6329 = Camera.z;
         Static225.anInt3641 = Camera.yaw;
         Static197.anInt3260 = -1;
         Static340.anInt5584 = Camera.pitch;
@@ -25,7 +25,7 @@ public final class Static145 {
         Static179.anInt2991 = 0;
         Static314.anInt5035 = 0;
         Camera.mode = 5;
-        Static302.anInt4854 = Camera.positionY;
+        Static302.anInt4854 = Camera.y;
     }
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(Lclient!cg;Z)V")

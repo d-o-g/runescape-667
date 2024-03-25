@@ -41,8 +41,8 @@ public final class ObjStackEntity extends Class8_Sub2_Sub5 {
     public int anInt8885 = 0;
 
     @OriginalMember(owner = "client!sv", name = "<init>", descriptor = "(IIIII)V")
-    public ObjStackEntity(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        super(arg0, arg1, arg2, arg3, arg4);
+    public ObjStackEntity(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int level, @OriginalArg(4) int virtualLevel) {
+        super(x, y, z, level, virtualLevel);
     }
 
     @OriginalMember(owner = "client!sv", name = "d", descriptor = "(B)I")

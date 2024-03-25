@@ -7,11 +7,6 @@ public final class Static67 {
     @OriginalMember(owner = "client!cca", name = "e", descriptor = "Lclient!hda;")
     public static Component aComponent_10;
 
-    @OriginalMember(owner = "client!cca", name = "a", descriptor = "(ILjava/lang/String;I)V")
-    public static void method6098(@OriginalArg(1) String arg0) {
-        Static44.method1072(arg0, "", 0, "", "", 4);
-    }
-
     @OriginalMember(owner = "client!cca", name = "a", descriptor = "(IIZB)I")
     public static int method6099(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         @Pc(8) ClientInventory local8 = Static556.method7303(arg1, arg2);

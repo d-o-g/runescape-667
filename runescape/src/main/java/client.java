@@ -525,7 +525,7 @@ public final class client extends GameShell {
             local179.buffer.p1(focus ? 1 : 0);
             ConnectionManager.GAME.send(local179);
         }
-        if (!Static503.aBoolean578) {
+        if (!Static503.sentPreferences) {
             local179 = ClientMessage.create(Static600.A_CLIENT_PROT___108, ConnectionManager.GAME.cipher);
             local179.buffer.p1(0);
             local181 = local179.buffer.pos;
@@ -533,7 +533,7 @@ public final class client extends GameShell {
             local179.buffer.pdata(local810.pos, local810.data, 0);
             local179.buffer.psize1(local179.buffer.pos - local181);
             ConnectionManager.GAME.send(local179);
-            Static503.aBoolean578 = true;
+            Static503.sentPreferences = true;
         }
         if (Static334.activeTiles != null) {
             if (Camera.mode == 2) {
@@ -826,10 +826,10 @@ public final class client extends GameShell {
                                             for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
                                                 if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.anInt6433) {
                                                     if (local2281.aShort74 > 0) {
-                                                        Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGIN.localise(language), "", 0, "", "", 5);
+                                                        ChatHistory.add(local2281.aString72 + LocalisedText.FRIENDLOGIN.localise(language), "", 0, "", "", 5);
                                                     }
                                                     if (local2281.aShort74 == 0) {
-                                                        Static44.method1072(local2281.aString72 + LocalisedText.FRIENDLOGOUT.localise(language), "", 0, "", "", 5);
+                                                        ChatHistory.add(local2281.aString72 + LocalisedText.FRIENDLOGOUT.localise(language), "", 0, "", "", 5);
                                                     }
                                                     local2281.unlink();
                                                 }
@@ -1175,7 +1175,7 @@ public final class client extends GameShell {
             } else {
                 Camera.splineTick();
             }
-            if (Camera.positionX >> 9 < 14 || Camera.positionX >> 9 >= Static720.mapWidth - 14 || Camera.positionZ >> 9 < 14 || Camera.positionZ >> 9 >= Static501.mapHeight - 14) {
+            if (Camera.x >> 9 < 14 || Camera.x >> 9 >= Static720.mapWidth - 14 || Camera.z >> 9 < 14 || Camera.z >> 9 >= Static501.mapHeight - 14) {
                 Static54.method1179();
             }
         }
@@ -1210,10 +1210,10 @@ public final class client extends GameShell {
                                             for (@Pc(672) Class8_Sub4_Sub1 local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local672 != null; local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
                                                 if ((long) local672.anInt6433 < SystemTimer.safetime() / 1000L - 5L) {
                                                     if (local672.aShort74 > 0) {
-                                                        Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGIN.localise(language), "", 0, "", "", 5);
+                                                        ChatHistory.add(local672.aString72 + LocalisedText.FRIENDLOGIN.localise(language), "", 0, "", "", 5);
                                                     }
                                                     if (local672.aShort74 == 0) {
-                                                        Static44.method1072(local672.aString72 + LocalisedText.FRIENDLOGOUT.localise(language), "", 0, "", "", 5);
+                                                        ChatHistory.add(local672.aString72 + LocalisedText.FRIENDLOGOUT.localise(language), "", 0, "", "", 5);
                                                     }
                                                     local672.unlink();
                                                 }
@@ -1404,7 +1404,7 @@ public final class client extends GameShell {
         }
 
         if (debugconsole.isOpen()) {
-            Static546.method7251(Toolkit.active);
+            debugconsole.draw(Toolkit.active);
         }
 
         if (SignLink.instance.microsoftjava && Static475.method6445(MainLogicManager.step) && InterfaceManager.rectDebug == 0 && InterfaceManager.getWindowMode() == 1 && !local209) {
@@ -1601,7 +1601,7 @@ public final class client extends GameShell {
     @Override
     protected void method1647() {
         if (force64mb) {
-            ClientOptions.maxmemory = 64;
+            GameShell.maxmemory = 64;
         }
         @Pc(18) Frame local18 = new Frame("Jagex");
         local18.pack();
@@ -1687,7 +1687,7 @@ public final class client extends GameShell {
             trace = trace + "10)" + ClientOptions.instance.textures.getValue() + "|";
             trace = trace + "11)" + ClientOptions.instance.bloom.getValue() + "|";
             trace = trace + "12)" + ClientOptions.instance.animateBackground.getValue() + "|";
-            trace = trace + "13)" + ClientOptions.maxmemory + "|";
+            trace = trace + "13)" + GameShell.maxmemory + "|";
             trace = trace + "14)" + MainLogicManager.step;
 
             if (SystemInfo.instance != null) {

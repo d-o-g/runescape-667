@@ -1427,8 +1427,8 @@ public final class Toolkit_Sub2 extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "f", descriptor = "(I)V")
     @Override
-    public void method7989(@OriginalArg(0) int arg0) {
-        this.lb = arg0;
+    public void setTextureSize(@OriginalArg(0) int size) {
+        this.lb = size;
         this.aReferenceCache_89.reset();
     }
 

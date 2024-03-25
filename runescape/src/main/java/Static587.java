@@ -40,11 +40,11 @@ public final class Static587 {
             return;
         }
         while (true) {
-            while (Static343.aClass297_Sub1Array2.length > Static419.anInt6434) {
-                @Pc(26) Class297_Sub1 local26 = Static343.aClass297_Sub1Array2[Static419.anInt6434];
-                if (local26 != null && local26.anInt7570 == -1) {
+            while (WorldList.activeWorlds.length > Static419.anInt6434) {
+                @Pc(26) GameWorld local26 = WorldList.activeWorlds[Static419.anInt6434];
+                if (local26 != null && local26.ping == -1) {
                     if (Static522.aClass2_Sub12_4 == null) {
-                        Static522.aClass2_Sub12_4 = Static151.aClass226_20.method5245(local26.aString90);
+                        Static522.aClass2_Sub12_4 = Static151.aClass226_20.method5245(local26.address);
                     }
                     @Pc(54) int local54 = Static522.aClass2_Sub12_4.anInt1631;
                     if (local54 == -1) {
@@ -52,7 +52,7 @@ public final class Static587 {
                     }
                     Static419.anInt6434++;
                     Static522.aClass2_Sub12_4 = null;
-                    local26.anInt7570 = local54;
+                    local26.ping = local54;
                 } else {
                     Static419.anInt6434++;
                 }

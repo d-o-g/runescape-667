@@ -20,7 +20,7 @@ public final class Static696 {
                 if (local6.aClass2_Sub6_Sub2_2 == null) {
                     local6.anInt2571 = Integer.MIN_VALUE;
                 } else {
-                    Static336.aClass2_Sub6_Sub3_1.method5883(local6.aClass2_Sub6_Sub2_2);
+                    Static336.activeStreams.method5883(local6.aClass2_Sub6_Sub2_2);
                 }
             }
         }

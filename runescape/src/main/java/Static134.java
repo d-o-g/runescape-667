@@ -3,12 +3,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.io.FileOutputStream;
-
 public final class Static134 {
-
-    @OriginalMember(owner = "client!eda", name = "k", descriptor = "Ljava/io/FileOutputStream;")
-    public static FileOutputStream aFileOutputStream2;
 
     @OriginalMember(owner = "client!eda", name = "f", descriptor = "Lclient!taa;")
     public static MapRegion aMapRegion_3;

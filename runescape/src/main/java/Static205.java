@@ -21,7 +21,7 @@ public final class Static205 {
 
     @OriginalMember(owner = "client!gg", name = "a", descriptor = "(BIIIIII)V")
     public static void method3091(@OriginalArg(1) int arg0, @OriginalArg(3) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3) {
-        for (@Pc(17) Class8_Sub3 local17 = (Class8_Sub3) Static422.A_ENTITY_LIST___9.first(); local17 != null; local17 = (Class8_Sub3) Static422.A_ENTITY_LIST___9.next()) {
+        for (@Pc(17) Class8_Sub3 local17 = (Class8_Sub3) Static422.textCoords.first(); local17 != null; local17 = (Class8_Sub3) Static422.textCoords.next()) {
             if (local17.anInt953 <= TimeUtils.clock) {
                 local17.unlink();
             } else {

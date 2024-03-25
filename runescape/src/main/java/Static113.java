@@ -1,9 +1,6 @@
 import com.jagex.core.datastruct.key.IterableHashTable;
-import com.jagex.core.io.Packet;
-import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static113 {
 
@@ -14,7 +11,7 @@ public final class Static113 {
     public static final IterableHashTable A_HASH_TABLE___12 = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!dja", name = "n", descriptor = "Z")
-    public static boolean aBoolean198 = false;
+    public static boolean drawCollisionMap = false;
 
     @OriginalMember(owner = "client!dja", name = "b", descriptor = "(II)V")
     public static void method2119(@OriginalArg(1) int arg0) {
@@ -24,26 +21,4 @@ public final class Static113 {
         Static238.method3471(Static319.aString51.equals(""), Static319.aString51, true, "");
     }
 
-    @OriginalMember(owner = "client!dja", name = "a", descriptor = "([BBZ)V")
-    public static void method2121(@OriginalArg(0) byte[] arg0, @OriginalArg(2) boolean arg1) {
-        if (Static339.aClass2_Sub21_9 == null) {
-            Static339.aClass2_Sub21_9 = new Packet(20000);
-        }
-        Static339.aClass2_Sub21_9.pdata(arg0.length, arg0, 0);
-        if (!arg1) {
-            return;
-        }
-        Static681.method8919(Static339.aClass2_Sub21_9.data);
-        Static343.aClass297_Sub1Array2 = new Class297_Sub1[Static476.anInt7177];
-        @Pc(31) int local31 = 0;
-        for (@Pc(33) int local33 = Static494.anInt7396; local33 <= Static699.anInt10532; local33++) {
-            @Pc(38) Class297_Sub1 local38 = Static615.method8260(local33);
-            if (local38 != null) {
-                Static343.aClass297_Sub1Array2[local31++] = local38;
-            }
-        }
-        Static149.aBoolean221 = false;
-        Static363.aLong219 = SystemTimer.safetime();
-        Static339.aClass2_Sub21_9 = null;
-    }
 }

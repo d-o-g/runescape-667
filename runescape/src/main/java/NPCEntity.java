@@ -290,7 +290,7 @@ public final class NPCEntity extends PathingEntity {
     @Override
     public BoundingCylinder getCylinder(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
         if (arg1 >= -93) {
-            this.method9320(98);
+            this.getBasId(98);
         }
         return null;
     }
@@ -495,7 +495,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "m", descriptor = "(I)I")
     @Override
-    protected int method9320(@OriginalArg(0) int arg0) {
+    protected int getBasId(@OriginalArg(0) int arg0) {
         if (this.type.multinpcs != null) {
             @Pc(15) NPCType local15 = this.type.getMultiNPC(TimedVarDomain.instance);
             if (local15 != null && local15.basId != -1) {

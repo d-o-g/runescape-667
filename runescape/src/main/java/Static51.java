@@ -7,9 +7,6 @@ public final class Static51 {
     @OriginalMember(owner = "client!bma", name = "e", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___30 = new ServerProt(54, -1);
 
-    @OriginalMember(owner = "client!bma", name = "b", descriptor = "I")
-    public static int anInt1053 = 0;
-
     @OriginalMember(owner = "client!bma", name = "a", descriptor = "(IIIIIII)V")
     public static void method1146(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
         Static315.method4574(arg4);

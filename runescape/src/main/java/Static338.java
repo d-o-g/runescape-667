@@ -9,9 +9,6 @@ public final class Static338 {
     @OriginalMember(owner = "client!km", name = "d", descriptor = "I")
     public static int anInt5563;
 
-    @OriginalMember(owner = "client!km", name = "a", descriptor = "I")
-    public static int anInt5564 = 0;
-
     @OriginalMember(owner = "client!km", name = "a", descriptor = "(I[[BLclient!taa;)V")
     public static void method4994(@OriginalArg(1) byte[][] arg0, @OriginalArg(2) MapRegion arg1) {
         @Pc(6) int local6 = Static319.aByteArrayArray16.length;

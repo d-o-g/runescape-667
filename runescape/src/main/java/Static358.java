@@ -12,9 +12,6 @@ public final class Static358 {
     @OriginalMember(owner = "client!lf", name = "d", descriptor = "Ljava/lang/Class;")
     public static Class aClass28;
 
-    @OriginalMember(owner = "client!lf", name = "r", descriptor = "Z")
-    public static boolean aBoolean803 = false;
-
     @OriginalMember(owner = "client!lf", name = "a", descriptor = "(BI[S)[S")
     public static short[] method9173(@OriginalArg(1) int arg0, @OriginalArg(2) short[] arg1) {
         @Pc(14) short[] local14 = new short[arg0];

@@ -90,6 +90,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     @OriginalMember(owner = "client!ke", name = "e", descriptor = "J")
     public static long logicUpdateInterval = 20000000L;
 
+    @OriginalMember(owner = "client!lla", name = "a", descriptor = "I")
+    public static int maxmemory = 64;
+
     @OriginalMember(owner = "client!kh", name = "z", descriptor = "Z")
     public boolean aBoolean157 = false;
 

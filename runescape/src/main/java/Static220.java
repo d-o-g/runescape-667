@@ -59,7 +59,7 @@ public final class Static220 {
                         local42.soundVolume -= 512;
 
                         if (local42.soundVolume <= 0) {
-                            Static336.aClass2_Sub6_Sub3_1.method5883(local42.aClass2_Sub6_Sub2_4);
+                            Static336.activeStreams.method5883(local42.aClass2_Sub6_Sub2_4);
                             local198 = true;
                             local42.aClass2_Sub6_Sub2_4 = null;
                         }
@@ -112,7 +112,7 @@ public final class Static220 {
                         local329.soundVolume -= 512;
 
                         if (local329.soundVolume <= 0) {
-                            Static336.aClass2_Sub6_Sub3_1.method5883(local329.aClass2_Sub6_Sub2_4);
+                            Static336.activeStreams.method5883(local329.aClass2_Sub6_Sub2_4);
                             local329.aClass2_Sub6_Sub2_4 = null;
                             local198 = true;
                         }

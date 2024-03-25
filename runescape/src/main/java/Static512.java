@@ -11,6 +11,4 @@ public final class Static512 {
     @OriginalMember(owner = "client!qba", name = "n", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_35 = new Class155(40);
 
-    @OriginalMember(owner = "client!qba", name = "l", descriptor = "I")
-    public static int anInt7664 = 0;
 }

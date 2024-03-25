@@ -14,11 +14,11 @@ public final class Static506 {
         for (@Pc(18) Node_Sub51 local18 = (Node_Sub51) Static460.A_DEQUE___40.first(); local18 != null; local18 = (Node_Sub51) Static460.A_DEQUE___40.next()) {
             if (local18.anInt9350 == arg2 && local18.anInt9357 == arg0 << 9 && local18.anInt9352 == arg1 << 9 && arg3.id == local18.aLocType_1.id) {
                 if (local18.aClass2_Sub6_Sub2_4 != null) {
-                    Static336.aClass2_Sub6_Sub3_1.method5883(local18.aClass2_Sub6_Sub2_4);
+                    Static336.activeStreams.method5883(local18.aClass2_Sub6_Sub2_4);
                     local18.aClass2_Sub6_Sub2_4 = null;
                 }
                 if (local18.aClass2_Sub6_Sub2_3 != null) {
-                    Static336.aClass2_Sub6_Sub3_1.method5883(local18.aClass2_Sub6_Sub2_3);
+                    Static336.activeStreams.method5883(local18.aClass2_Sub6_Sub2_3);
                     local18.aClass2_Sub6_Sub2_3 = null;
                 }
                 local18.unlink();

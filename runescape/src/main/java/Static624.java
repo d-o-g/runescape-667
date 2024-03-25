@@ -26,6 +26,6 @@ public final class Static624 {
     public static void teleport(@OriginalArg(1) int level, @OriginalArg(2) int y, @OriginalArg(3) int x) {
         @Pc(37) String command = "tele " + level + "," + (x >> 6) + "," + (y >> 6) + "," + (x & 0x3F) + "," + (y & 0x3F);
         System.out.println(command);
-        Static231.executeComand(true, false, command);
+        debugconsole.executeComand(true, false, command);
     }
 }

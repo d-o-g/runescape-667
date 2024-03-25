@@ -13,11 +13,11 @@ public final class Static625 {
     @OriginalMember(owner = "client!tp", name = "b", descriptor = "(I)I")
     public static int method8337() {
         @Pc(10) byte local10;
-        if (ClientOptions.maxmemory < 96) {
+        if (GameShell.maxmemory < 96) {
             local10 = 1;
             Static468.method7643();
         } else {
-            @Pc(17) int local17 = Static65.method1470();
+            @Pc(17) int local17 = Static65.profileCpu();
             if (local17 <= 100) {
                 Static395.method9162();
                 local10 = 4;

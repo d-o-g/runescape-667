@@ -257,7 +257,7 @@ public final class Static364 {
                     local672 = ClientOptions.instance.encode();
                     local618.p1(local672.pos);
                     local618.pdata(local672.pos, local672.data, 0);
-                    Static503.aBoolean578 = true;
+                    Static503.sentPreferences = true;
                     @Pc(748) Packet local748 = new Packet(SystemInfo.instance.size());
                     SystemInfo.instance.encode(local748);
                     local618.pdata(local748.data.length, local748.data, 0);

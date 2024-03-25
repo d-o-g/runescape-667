@@ -7,9 +7,6 @@ public final class Static106 {
     @OriginalMember(owner = "client!dfa", name = "e", descriptor = "I")
     public static int anInt2153;
 
-    @OriginalMember(owner = "client!dfa", name = "d", descriptor = "[Lclient!pq;")
-    public static Class297_Sub1[] aClass297_Sub1Array1;
-
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method2046(@OriginalArg(1) Toolkit arg0) {
         if (Minimap.level != PlayerEntity.self.level && (Static334.activeTiles != null && Static484.method6494(arg0, PlayerEntity.self.level))) {

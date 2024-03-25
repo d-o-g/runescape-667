@@ -77,7 +77,7 @@ public final class Actor {
                 this.npc.drawPriority = Static457.anInt6933++;
             } else {
                 this.player = new PlayerEntity(25);
-                this.player.method1420(Static518.aClass2_Sub21_18);
+                this.player.decodeAppearance(Static518.aClass2_Sub21_18);
                 this.player.cutsceneClock = TimeUtils.clock;
                 this.player.drawPriority = Static457.anInt6933++;
                 this.player.id = this.id;

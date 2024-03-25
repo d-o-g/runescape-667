@@ -58,9 +58,4 @@ public final class Static87 {
         arg3.aa(arg5, arg4 + 20, arg0, arg1 - 20, -Static514.anInt7677 + 255 << 24 | Static719.anInt10504, 1);
     }
 
-    @OriginalMember(owner = "client!cn", name = "a", descriptor = "(Ljava/lang/String;B)V")
-    public static void method1694(@OriginalArg(0) String arg0) {
-        Static110.aString19 = arg0;
-        Static594.anInt8776 = Static110.aString19.length();
-    }
 }

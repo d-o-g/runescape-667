@@ -17,9 +17,6 @@ public final class Static236 {
     @OriginalMember(owner = "client!hfa", name = "r", descriptor = "Z")
     public static boolean aBoolean304 = false;
 
-    @OriginalMember(owner = "client!hfa", name = "u", descriptor = "Z")
-    public static boolean aBoolean305 = false;
-
     @OriginalMember(owner = "client!hfa", name = "a", descriptor = "(Lclient!gw;I)Z")
     public static boolean readPacket(@OriginalArg(0) ServerConnection connection) {
         try {

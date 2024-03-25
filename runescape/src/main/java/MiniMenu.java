@@ -279,8 +279,8 @@ public final class MiniMenu {
                                     }
                                 }
                             }
-                            local317 = Static338.anInt5564;
-                            @Pc(820) int[] local820 = Static210.anIntArray280;
+                            local317 = PlayerList.highResolutionPlayerCount;
+                            @Pc(820) int[] local820 = PlayerList.highResolutionPlayerIndices;
                             for (local723 = 0; local723 < local317; local723++) {
                                 @Pc(830) PlayerEntity local830 = PlayerList.highResolutionPlayers[local820[local723]];
                                 if (local830 != null && local830.anInt10743 != TimeUtils.clock && local830 != local610 && local830.aBoolean816) {
@@ -319,8 +319,8 @@ public final class MiniMenu {
                                         }
                                     }
                                 }
-                                local306 = Static338.anInt5564;
-                                @Pc(1216) int[] local1216 = Static210.anIntArray280;
+                                local306 = PlayerList.highResolutionPlayerCount;
+                                @Pc(1216) int[] local1216 = PlayerList.highResolutionPlayerIndices;
                                 for (local370 = 0; local370 < local306; local370++) {
                                     @Pc(1226) PlayerEntity local1226 = PlayerList.highResolutionPlayers[local1216[local370]];
                                     if (local1226 != null && local1226.anInt10743 != TimeUtils.clock && local1226.aBoolean816) {

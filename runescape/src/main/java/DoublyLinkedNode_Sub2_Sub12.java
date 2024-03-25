@@ -1,5 +1,6 @@
 import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.game.QuickChatDynamicCommand;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -114,7 +115,7 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
     @OriginalMember(owner = "client!ih", name = "a", descriptor = "(Lclient!ge;II)V")
     public void method3907(@OriginalArg(0) Packet arg0, @OriginalArg(2) int arg1) {
         if (arg1 == 1) {
-            this.aStringArray23 = Static189.method2861(arg0.gjstr(), '<');
+            this.aStringArray23 = StringTools.split(arg0.gjstr(), '<');
             return;
         }
         @Pc(21) int local21;

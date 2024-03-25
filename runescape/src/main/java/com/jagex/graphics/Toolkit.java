@@ -327,7 +327,7 @@ public abstract class Toolkit {
     public abstract int[] Y();
 
     @OriginalMember(owner = "client!ha", name = "f", descriptor = "(I)V")
-    public abstract void method7989(@OriginalArg(0) int arg0);
+    public abstract void setTextureSize(@OriginalArg(0) int size);
 
     /**
      * zFar

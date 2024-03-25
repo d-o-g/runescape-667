@@ -57,7 +57,7 @@ public final class QuickChatPhraseTypeList {
     }
 
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(IZ)Lclient!ih;")
-    public DoublyLinkedNode_Sub2_Sub12 method2950(@OriginalArg(0) int arg0) {
+    public DoublyLinkedNode_Sub2_Sub12 get(@OriginalArg(0) int arg0) {
         @Pc(11) DoublyLinkedNode_Sub2_Sub12 local11 = (DoublyLinkedNode_Sub2_Sub12) this.aReferenceCache_70.get(arg0);
         if (local11 != null) {
             return local11;

@@ -49,8 +49,8 @@ public final class Static242 {
 
     @OriginalMember(owner = "client!hj", name = "a", descriptor = "(Ljava/lang/String;II)V")
     public static void method3504(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        @Pc(5) int local5 = Static338.anInt5564;
-        @Pc(7) int[] local7 = Static210.anIntArray280;
+        @Pc(5) int local5 = PlayerList.highResolutionPlayerCount;
+        @Pc(7) int[] local7 = PlayerList.highResolutionPlayerIndices;
         @Pc(9) boolean local9 = false;
         for (@Pc(19) int local19 = 0; local19 < local5; local19++) {
             @Pc(26) PlayerEntity local26 = PlayerList.highResolutionPlayers[local7[local19]];
@@ -80,7 +80,7 @@ public final class Static242 {
             }
         }
         if (!local9) {
-            Static67.method6098(LocalisedText.UNABLETOFIND.localise(client.language) + arg0);
+            ChatHistory.addPrivateError(LocalisedText.UNABLETOFIND.localise(client.language) + arg0);
         }
     }
 }

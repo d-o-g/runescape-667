@@ -37,9 +37,9 @@ public final class Static319 {
         Camera.anInt10667 = arg4;
         Camera.anInt2333 = arg0;
         if (arg1 && Static674.anInt10088 >= 100) {
-            Camera.positionX = Camera.anInt2333 * 512 + 256;
-            Camera.positionZ = Camera.anInt10667 * 512 + 256;
-            Camera.positionY = Static102.averageHeight(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX) - Static363.anInt6934;
+            Camera.x = Camera.anInt2333 * 512 + 256;
+            Camera.z = Camera.anInt10667 * 512 + 256;
+            Camera.y = Static102.averageHeight(Camera.renderingLevel, -29754, Camera.z, Camera.x) - Static363.anInt6934;
         }
         Camera.mode = 2;
         Static693.anInt10383 = -1;

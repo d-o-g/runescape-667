@@ -9,53 +9,53 @@ public final class Static592 {
         @Pc(15) int local15 = Camera.anInt10667 * 512 + 256;
         @Pc(24) int local24 = Static102.averageHeight(Camera.renderingLevel, -29754, local15, local9) - Static363.anInt6934;
         if (Static674.anInt10088 >= 100) {
-            Camera.positionX = Camera.anInt2333 * 512 + 256;
-            Camera.positionZ = Camera.anInt10667 * 512 + 256;
-            Camera.positionY = Static102.averageHeight(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX) - Static363.anInt6934;
+            Camera.x = Camera.anInt2333 * 512 + 256;
+            Camera.z = Camera.anInt10667 * 512 + 256;
+            Camera.y = Static102.averageHeight(Camera.renderingLevel, -29754, Camera.z, Camera.x) - Static363.anInt6934;
         } else {
-            if (Camera.positionX < local9) {
-                Camera.positionX += Static694.anInt10411 + (local9 - Camera.positionX) * Static674.anInt10088 / 1000;
-                if (local9 < Camera.positionX) {
-                    Camera.positionX = local9;
+            if (Camera.x < local9) {
+                Camera.x += Static694.anInt10411 + (local9 - Camera.x) * Static674.anInt10088 / 1000;
+                if (local9 < Camera.x) {
+                    Camera.x = local9;
                 }
             }
-            if (local24 > Camera.positionY) {
-                Camera.positionY += Static694.anInt10411 + Static674.anInt10088 * (local24 - Camera.positionY) / 1000;
-                if (local24 < Camera.positionY) {
-                    Camera.positionY = local24;
+            if (local24 > Camera.y) {
+                Camera.y += Static694.anInt10411 + Static674.anInt10088 * (local24 - Camera.y) / 1000;
+                if (local24 < Camera.y) {
+                    Camera.y = local24;
                 }
             }
-            if (local9 < Camera.positionX) {
-                Camera.positionX -= Static694.anInt10411 + (Camera.positionX - local9) * Static674.anInt10088 / 1000;
-                if (local9 > Camera.positionX) {
-                    Camera.positionX = local9;
+            if (local9 < Camera.x) {
+                Camera.x -= Static694.anInt10411 + (Camera.x - local9) * Static674.anInt10088 / 1000;
+                if (local9 > Camera.x) {
+                    Camera.x = local9;
                 }
             }
-            if (Camera.positionY > local24) {
-                Camera.positionY -= Static694.anInt10411 + (Camera.positionY - local24) * Static674.anInt10088 / 1000;
-                if (local24 > Camera.positionY) {
-                    Camera.positionY = local24;
+            if (Camera.y > local24) {
+                Camera.y -= Static694.anInt10411 + (Camera.y - local24) * Static674.anInt10088 / 1000;
+                if (local24 > Camera.y) {
+                    Camera.y = local24;
                 }
             }
-            if (Camera.positionZ < local15) {
-                Camera.positionZ += Static694.anInt10411 + (local15 - Camera.positionZ) * Static674.anInt10088 / 1000;
-                if (local15 < Camera.positionZ) {
-                    Camera.positionZ = local15;
+            if (Camera.z < local15) {
+                Camera.z += Static694.anInt10411 + (local15 - Camera.z) * Static674.anInt10088 / 1000;
+                if (local15 < Camera.z) {
+                    Camera.z = local15;
                 }
             }
-            if (Camera.positionZ > local15) {
-                Camera.positionZ -= Static674.anInt10088 * (Camera.positionZ - local15) / 1000 + Static694.anInt10411;
-                if (local15 > Camera.positionZ) {
-                    Camera.positionZ = local15;
+            if (Camera.z > local15) {
+                Camera.z -= Static674.anInt10088 * (Camera.z - local15) / 1000 + Static694.anInt10411;
+                if (local15 > Camera.z) {
+                    Camera.z = local15;
                 }
             }
         }
-        local15 = Static12.anInt5741 * 512 + 256;
-        local9 = Static441.anInt6689 * 512 + 256;
-        local24 = Static102.averageHeight(Camera.renderingLevel, -29754, local15, local9) - Static55.anInt1125;
-        @Pc(259) int local259 = local9 - Camera.positionX;
-        @Pc(264) int local264 = local24 - Camera.positionY;
-        @Pc(269) int local269 = local15 - Camera.positionZ;
+        local15 = Camera.lookZ * 512 + 256;
+        local9 = Camera.lookX * 512 + 256;
+        local24 = Static102.averageHeight(Camera.renderingLevel, -29754, local15, local9) - Camera.lookY;
+        @Pc(259) int local259 = local9 - Camera.x;
+        @Pc(264) int local264 = local24 - Camera.y;
+        @Pc(269) int local269 = local15 - Camera.z;
         @Pc(280) int local280 = (int) Math.sqrt(local269 * local269 + local259 * local259);
         @Pc(291) int local291 = (int) (Math.atan2(local264, local280) * 2607.5945876176133D) & 0x3FFF;
         @Pc(302) int local302 = (int) (-2607.5945876176133D * Math.atan2(local259, local269)) & 0x3FFF;

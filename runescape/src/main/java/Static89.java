@@ -78,7 +78,7 @@ public final class Static89 {
         local7.anInt9362 = arg2 + arg1.getSize() << 9;
         local7.anInt9349 = arg1.getSize() + arg3 << 9;
         local7.sound = PlayerEntity.method4870(arg1);
-        local7.anInt9356 = arg1.anInt1452 << 9;
+        local7.anInt9356 = arg1.soundRange << 9;
         local7.anInt9360 = 256;
         local7.anInt9359 = 256;
         local7.soundVolume = arg1.soundVolume;

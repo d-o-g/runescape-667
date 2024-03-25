@@ -225,7 +225,7 @@ public final class SystemInfo extends Node {
             this.processorCount = 0;
         }
 
-        this.heapSize = ClientOptions.maxmemory;
+        this.heapSize = GameShell.maxmemory;
 
         if (signLink.signed) {
             this.unsigned = false;

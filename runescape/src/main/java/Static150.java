@@ -21,7 +21,7 @@ public final class Static150 {
         Static719.aClass56_5 = Static638.method8394(SignLink.instance, 0, 22050, GameShell.canvas);
         Static697.method9120(Static48.method1100(null));
         Static559.aClass56_3 = Static638.method8394(SignLink.instance, 1, 2048, GameShell.canvas);
-        Static559.aClass56_3.method3582(Static336.aClass2_Sub6_Sub3_1);
+        Static559.aClass56_3.method3582(Static336.activeStreams);
     }
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(BLclient!ge;)Lclient!hba;")

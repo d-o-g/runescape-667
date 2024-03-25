@@ -6,7 +6,7 @@ public final class Static18 {
     public static float aFloat2;
 
     @OriginalMember(owner = "client!aka", name = "o", descriptor = "Z")
-    public static boolean aBoolean20 = true;
+    public static boolean occlude = true;
 
     @OriginalMember(owner = "client!aka", name = "g", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___7 = new ServerProt(48, 5);

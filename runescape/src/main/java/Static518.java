@@ -6,9 +6,6 @@ public final class Static518 {
     @OriginalMember(owner = "client!qf", name = "C", descriptor = "Lclient!ge;")
     public static Packet aClass2_Sub21_18;
 
-    @OriginalMember(owner = "client!qf", name = "H", descriptor = "Z")
-    public static boolean aBoolean814 = false;
-
     @OriginalMember(owner = "client!qf", name = "G", descriptor = "[[I")
     public static final int[][] anIntArrayArray262 = new int[6][];
 

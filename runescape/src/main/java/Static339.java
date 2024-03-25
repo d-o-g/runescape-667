@@ -1,12 +1,8 @@
-import com.jagex.core.io.Packet;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static339 {
-
-    @OriginalMember(owner = "client!kma", name = "m", descriptor = "Lclient!ge;")
-    public static Packet aClass2_Sub21_9;
 
     @OriginalMember(owner = "client!kma", name = "a", descriptor = "(II)I")
     public static int method5005(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {

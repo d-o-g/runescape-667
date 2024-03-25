@@ -1,15 +1,9 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static695 {
 
     @OriginalMember(owner = "client!vw", name = "u", descriptor = "[I")
     public static int[] anIntArray868;
-
-    @OriginalMember(owner = "client!vw", name = "a", descriptor = "(Ljava/lang/String;I)V")
-    public static void method9265(@OriginalArg(0) String arg0) {
-        Static44.method1072(arg0, "", 0, "", "", 0);
-    }
 
     @OriginalMember(owner = "client!vw", name = "a", descriptor = "(I)V")
     public static void method9266() {

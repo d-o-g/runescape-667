@@ -120,7 +120,7 @@ public final class Static595 {
         InterfaceManager.loginOpened();
         Static284.aBoolean355 = true;
         Static679.aDisplayPropertiesArray1 = null;
-        Static503.aBoolean578 = false;
+        Static503.sentPreferences = false;
         Static498.method6646();
     }
 

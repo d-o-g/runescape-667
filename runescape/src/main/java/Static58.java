@@ -14,7 +14,7 @@ public final class Static58 {
         for (@Pc(17) Node_Sub51 local17 = (Node_Sub51) Static717.A_DEQUE___81.first(); local17 != null; local17 = (Node_Sub51) Static717.A_DEQUE___81.next()) {
             if (local17.npc == arg0) {
                 if (local17.aClass2_Sub6_Sub2_4 != null) {
-                    Static336.aClass2_Sub6_Sub3_1.method5883(local17.aClass2_Sub6_Sub2_4);
+                    Static336.activeStreams.method5883(local17.aClass2_Sub6_Sub2_4);
                     local17.aClass2_Sub6_Sub2_4 = null;
                 }
                 local17.unlink();

@@ -14,9 +14,6 @@ public final class Static149 {
     @OriginalMember(owner = "client!ema", name = "c", descriptor = "Lclient!fla;")
     public static final LinkedList A_ENTITY_LIST___4 = new LinkedList();
 
-    @OriginalMember(owner = "client!ema", name = "o", descriptor = "Z")
-    public static boolean aBoolean221 = false;
-
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(Lclient!ha;I)V")
     public static void method2449(@OriginalArg(0) Toolkit arg0) {
         @Pc(5) int local5 = 0;

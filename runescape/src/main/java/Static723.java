@@ -23,7 +23,7 @@ public final class Static723 {
         @Pc(5) short local5 = 1024;
         @Pc(7) short local7 = 3072;
         if (Static504.renderOrtho) {
-            if (Static129.aBoolean203) {
+            if (Static129.orthoCameraLock) {
                 local5 = 2048;
             }
             local7 = 4096;

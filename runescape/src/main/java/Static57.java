@@ -85,8 +85,8 @@ public final class Static57 {
             return;
         }
         @Pc(22) boolean local22 = false;
-        @Pc(24) int local24 = Static338.anInt5564;
-        @Pc(26) int[] local26 = Static210.anIntArray280;
+        @Pc(24) int local24 = PlayerList.highResolutionPlayerCount;
+        @Pc(26) int[] local26 = PlayerList.highResolutionPlayerIndices;
         for (@Pc(28) int local28 = 0; local28 < local24; local28++) {
             @Pc(35) PlayerEntity local35 = PlayerList.highResolutionPlayers[local26[local28]];
             if (local35.accountName != null && local35.accountName.equalsIgnoreCase(arg0) && (PlayerEntity.self == local35 && (InterfaceManager.targetMask & 0x10) != 0 || (InterfaceManager.targetMask & 0x8) != 0)) {
@@ -103,22 +103,11 @@ public final class Static57 {
             }
         }
         if (!local22) {
-            Static67.method6098(LocalisedText.UNABLETOFIND.localise(client.language) + arg0);
+            ChatHistory.addPrivateError(LocalisedText.UNABLETOFIND.localise(client.language) + arg0);
         }
         if (InterfaceManager.targetMode) {
             InterfaceManager.endTargetMode();
         }
     }
 
-    @OriginalMember(owner = "client!bt", name = "a", descriptor = "(ILjava/lang/String;Ljava/lang/String;I)V")
-    public static void method1232(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) String arg2) {
-        if (arg2.length() > 320 || !Static470.method6387()) {
-            return;
-        }
-        Static367.method5268();
-        Static470.anInt7113 = arg0;
-        Static59.aString63 = arg1;
-        Static449.aString75 = arg2;
-        MainLogicManager.setStep(6);
-    }
 }

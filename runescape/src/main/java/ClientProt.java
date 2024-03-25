@@ -158,6 +158,12 @@ public final class ClientProt {
     @OriginalMember(owner = "client!cma", name = "H", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___16 = new ClientProt(8, -1);
 
+    @OriginalMember(owner = "client!oia", name = "y", descriptor = "Lclient!ss;")
+    public static final ClientProt CLIENT_CHEAT = new ClientProt(70, -1);
+
+    @OriginalMember(owner = "client!hja", name = "d", descriptor = "Lclient!ss;")
+    public static final ClientProt MESSAGE_PRIVATE = new ClientProt(72, -2);
+
     @OriginalMember(owner = "client!ss", name = "g", descriptor = "I")
     public final int anInt8829;
 

@@ -11,8 +11,8 @@ public final class Static90 {
 
     @OriginalMember(owner = "client!cq", name = "a", descriptor = "(I)V")
     public static void method1733() {
-        @Pc(17) int[] local17 = Static210.anIntArray280;
-        for (@Pc(19) int local19 = 0; local19 < Static338.anInt5564; local19++) {
+        @Pc(17) int[] local17 = PlayerList.highResolutionPlayerIndices;
+        for (@Pc(19) int local19 = 0; local19 < PlayerList.highResolutionPlayerCount; local19++) {
             @Pc(27) PlayerEntity local27 = PlayerList.highResolutionPlayers[local17[local19]];
             if (local27 != null) {
                 local27.method9296();

@@ -24,4 +24,9 @@ public final class ConnectionManager {
             MainLogicManager.setStep(14);
         }
     }
+
+    @OriginalMember(owner = "client!vca", name = "a", descriptor = "(B)Lclient!gw;")
+    public static ServerConnection active() {
+        return MainLogicManager.isAtLobbyScreen(MainLogicManager.step) ? LOBBY : GAME;
+    }
 }

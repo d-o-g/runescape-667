@@ -19,17 +19,14 @@ public final class Static363 {
     @OriginalMember(owner = "client!li", name = "h", descriptor = "[[B")
     public static byte[][] aByteArrayArray22;
 
-    @OriginalMember(owner = "client!li", name = "g", descriptor = "J")
-    public static long aLong219;
-
     @OriginalMember(owner = "client!li", name = "c", descriptor = "Lclient!nga;")
     public static final Class259 aClass259_14 = new Class259();
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(I[Ljava/lang/String;)V")
     public static void method6234(@OriginalArg(1) String[] arg0) {
         if (arg0.length <= 1) {
-            Static110.aString19 = Static110.aString19 + arg0[0];
-            Static594.anInt8776 += arg0[0].length();
+            debugconsole.currententry = debugconsole.currententry + arg0[0];
+            debugconsole.currententryLength += arg0[0].length();
             return;
         }
         for (@Pc(41) int local41 = 0; local41 < arg0.length; local41++) {
@@ -39,13 +36,13 @@ public final class Static363 {
                     local61 = Integer.parseInt(arg0[local41].substring(6));
                 } catch (@Pc(70) Exception local70) {
                 }
-                Static79.method1579("Pausing for " + local61 + " seconds...");
+                debugconsole.addline("Pausing for " + local61 + " seconds...");
                 Static144.aStringArray7 = arg0;
                 Static523.anInt3885 = local41 + 1;
                 Static305.aLong157 = (long) (local61 * 1000) + SystemTimer.safetime();
                 return;
             }
-            Static110.aString19 = arg0[local41];
+            debugconsole.currententry = arg0[local41];
             Static270.method3920(false);
         }
     }

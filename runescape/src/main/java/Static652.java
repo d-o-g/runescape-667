@@ -12,9 +12,6 @@ public final class Static652 {
     @OriginalMember(owner = "client!uka", name = "o", descriptor = "I")
     public static int currentFps = 0;
 
-    @OriginalMember(owner = "client!uka", name = "y", descriptor = "I")
-    public static int anInt9713 = 0;
-
     @OriginalMember(owner = "client!uka", name = "a", descriptor = "(Lclient!ge;I)Lclient!gi;")
     public static Class146 method8531(@OriginalArg(0) Packet arg0) {
         @Pc(16) int local16 = arg0.g4();

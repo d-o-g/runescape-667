@@ -21,7 +21,7 @@ public final class Static76 {
             return;
         }
         if (local19.aClass2_Sub6_Sub2_4 != null) {
-            Static336.aClass2_Sub6_Sub3_1.method5883(local19.aClass2_Sub6_Sub2_4);
+            Static336.activeStreams.method5883(local19.aClass2_Sub6_Sub2_4);
             local19.aClass2_Sub6_Sub2_4 = null;
         }
         local19.unlink();

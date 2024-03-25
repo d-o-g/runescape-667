@@ -15,7 +15,7 @@ public final class Static65 {
     public static final Class155 aClass155_8 = new Class155(11);
 
     @OriginalMember(owner = "client!cba", name = "c", descriptor = "(B)I")
-    public static int method1470() {
+    public static int profileCpu() {
         @Pc(5) Toolkit local5 = Toolkit.active;
         @Pc(7) boolean local7 = false;
         if (ClientOptions.instance.toolkit.getValue() != ToolkitType.JAVA) {

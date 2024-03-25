@@ -101,7 +101,7 @@ public final class Static484 {
                         }
                     }
                     Static706.floor[local278].method7873(local218, local229, local238, local249, local206);
-                    if (!Static113.aBoolean198) {
+                    if (!Static113.drawCollisionMap) {
                         for (local284 = -4; local284 < Static200.anInt3302; local284++) {
                             for (local331 = -4; local331 < Static200.anInt3302; local331++) {
                                 local336 = local284 + local208;
@@ -119,7 +119,7 @@ public final class Static484 {
                         }
                     }
                 }
-                if (Static113.aBoolean198) {
+                if (Static113.drawCollisionMap) {
                     @Pc(435) CollisionMap local435 = Static577.A_COLLISION_MAP_ARRAY_1[arg1];
                     for (local284 = 0; local284 < Static200.anInt3302; local284++) {
                         for (local331 = 0; local331 < Static200.anInt3302; local331++) {
@@ -149,7 +149,7 @@ public final class Static484 {
         InterfaceManager.redrawAll();
         Static536.anInt8148 = 0;
         Static612.A_DEQUE___67.clear();
-        if (!Static113.aBoolean198) {
+        if (!Static113.drawCollisionMap) {
             for (local211 = local9; local211 < local9 + 104; local211++) {
                 for (local214 = local15; local214 < local15 + 104; local214++) {
                     for (local216 = arg1; local216 <= arg1 + 1 && local216 <= 3; local216++) {

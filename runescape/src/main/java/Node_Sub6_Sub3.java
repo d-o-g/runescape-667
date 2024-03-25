@@ -60,7 +60,7 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!nn", name = "e", descriptor = "()I")
-    public synchronized int method5881() {
+    public synchronized int count() {
         return this.aDeque_35.size();
     }
 

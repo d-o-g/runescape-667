@@ -106,7 +106,7 @@ public class Animator {
     }
 
     @OriginalMember(owner = "client!gu", name = "b", descriptor = "(II)V")
-    public final void method9091(@OriginalArg(0) int arg0) {
+    public final void setDelay(@OriginalArg(0) int arg0) {
         this.delay = arg0;
     }
 

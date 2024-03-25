@@ -15,7 +15,7 @@ public final class Static128 {
         if (Static87.aClass241Array1 == null) {
             return;
         }
-        @Pc(21) ServerConnection local21 = Static668.method8701();
+        @Pc(21) ServerConnection local21 = ConnectionManager.active();
         @Pc(27) ClientMessage local27 = ClientMessage.create(Static436.A_CLIENT_PROT___45, local21.cipher);
         local27.buffer.p1(Static231.method3379(arg0));
         local27.buffer.pjstr(arg0);

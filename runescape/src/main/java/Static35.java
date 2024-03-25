@@ -101,7 +101,7 @@ public final class Static35 {
                             }
                             @Pc(422) Node_Sub6_Sub2 local422 = local13.aClass2_Sub6_Sub2_2 = Static730.method3346(local392, local13.anInt2573, local179, local154);
                             local422.method3318(local13.anInt2574 - 1);
-                            Static336.aClass2_Sub6_Sub3_1.method5882(local422);
+                            Static336.activeStreams.method5882(local422);
                         }
                     }
                 }

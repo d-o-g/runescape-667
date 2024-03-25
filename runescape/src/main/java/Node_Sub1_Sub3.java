@@ -1,5 +1,4 @@
 import com.jagex.core.io.Packet;
-import com.jagex.core.stringtools.general.StringTools;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -56,7 +55,7 @@ public final class Node_Sub1_Sub3 extends Node_Sub1 {
     @Override
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            Static37.anInt918 = -61;
+            ChatLine.nextUid = -61;
         }
         if (arg2 == 0) {
             this.anInt919 = arg1.g2();

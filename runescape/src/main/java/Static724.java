@@ -5,10 +5,4 @@ public final class Static724 {
     @OriginalMember(owner = "client!wv", name = "b", descriptor = "I")
     public static int anInt10930 = 0;
 
-    @OriginalMember(owner = "client!wv", name = "a", descriptor = "(B)Lclient!pq;")
-    public static Class297_Sub1 method9452() {
-        Static59.anInt5936 = 0;
-        return Static557.method7333();
-    }
-
 }

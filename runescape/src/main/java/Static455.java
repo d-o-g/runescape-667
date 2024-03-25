@@ -29,10 +29,10 @@ public final class Static455 {
         if (!Static647.method8468()) {
             return;
         }
-        if (Static393.aStringArray32 == null) {
-            Static279.method4072();
+        if (debugconsole.lines == null) {
+            debugconsole.reset();
         }
         Static460.anInt8472 = 0;
-        Static236.aBoolean305 = true;
+        debugconsole.open = true;
     }
 }

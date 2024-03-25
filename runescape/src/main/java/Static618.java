@@ -66,21 +66,4 @@ public final class Static618 {
         }
     }
 
-    @OriginalMember(owner = "client!tja", name = "a", descriptor = "(Lclient!rka;B)V")
-    public static void method8319(@OriginalArg(0) PacketBuffer arg0) {
-        for (@Pc(10) int local10 = 0; local10 < Static652.anInt9713; local10++) {
-            @Pc(18) int local18 = Static321.anIntArray388[local10];
-            @Pc(22) PlayerEntity local22 = PlayerList.highResolutionPlayers[local18];
-            @Pc(26) int local26 = arg0.g1();
-            if ((local26 & 0x80) != 0) {
-                local26 += arg0.g1() << 8;
-            }
-            if ((local26 & 0x800) != 0) {
-                local26 += arg0.g1() << 16;
-            }
-            Static161.method2585(local22, local18, arg0, local26);
-        }
-        anInt9449++;
-    }
-
 }

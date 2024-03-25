@@ -10,9 +10,6 @@ public final class Static110 {
     @OriginalMember(owner = "client!dha", name = "s", descriptor = "I")
     public static int fullscreenHeight;
 
-    @OriginalMember(owner = "client!dha", name = "v", descriptor = "Ljava/lang/String;")
-    public static String aString19 = "";
-
     @OriginalMember(owner = "client!dha", name = "a", descriptor = "(IZ)V")
     public static void method2079(@OriginalArg(0) int arg0) {
         @Pc(7) int local7 = TimeUtils.clock - Static212.anInt3468;
@@ -32,9 +29,9 @@ public final class Static110 {
         @Pc(63) int local63 = (int) Camera.playerCameraYaw + Static288.anInt4621 & 0x3FFF;
         Static292.method4606(local28, (local28 >> 3) * 3 + 600 << 2, arg0, Static494.anInt7409, local63, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
         @Pc(107) float local107 = 1.0F - (float) ((100 - local7) * (-local7 + 100) * (100 - local7)) / 1000000.0F;
-        Camera.positionX = (int) ((float) Static70.anInt1569 + (float) (Camera.positionX - Static70.anInt1569) * local107);
-        Camera.positionY = (int) ((float) (Camera.positionY - Static302.anInt4854) * local107 + (float) Static302.anInt4854);
-        Camera.positionZ = (int) (local107 * (float) (Camera.positionZ - Static411.anInt6329) + (float) Static411.anInt6329);
+        Camera.x = (int) ((float) Static70.anInt1569 + (float) (Camera.x - Static70.anInt1569) * local107);
+        Camera.y = (int) ((float) (Camera.y - Static302.anInt4854) * local107 + (float) Static302.anInt4854);
+        Camera.z = (int) (local107 * (float) (Camera.z - Static411.anInt6329) + (float) Static411.anInt6329);
         Camera.pitch = (int) ((float) (Camera.pitch - Static340.anInt5584) * local107 + (float) Static340.anInt5584);
         @Pc(160) int local160 = Camera.yaw - Static225.anInt3641;
         if (local160 > 8192) {

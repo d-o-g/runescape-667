@@ -11,9 +11,6 @@ public final class Static321 {
     @OriginalMember(owner = "client!kca", name = "y", descriptor = "I")
     public static int lastMiscTransmit = 0;
 
-    @OriginalMember(owner = "client!kca", name = "O", descriptor = "[I")
-    public static final int[] anIntArray388 = new int[2048];
-
     @OriginalMember(owner = "client!kca", name = "a", descriptor = "(IB)Lclient!wca;")
     public static Class396 method4620() {
         return new Class396(1, false);

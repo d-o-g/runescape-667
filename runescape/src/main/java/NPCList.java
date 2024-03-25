@@ -373,7 +373,7 @@ public final class NPCList {
                 npc.timerbarGranularity = buffer.g1_alt2();
                 npc.timerbarDuration = data & 0x7FFF;
                 npc.timerbarSprite = (data & 0x8000) != 0;
-                npc.anInt10719 = npc.timerbarDuration + TimeUtils.clock + npc.timerbarStart;
+                npc.timerbarEnd = npc.timerbarDuration + TimeUtils.clock + npc.timerbarStart;
             }
 
             if ((flags & FLAG_NAME) != 0) {

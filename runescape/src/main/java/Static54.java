@@ -11,8 +11,8 @@ public final class Static54 {
     @OriginalMember(owner = "client!bq", name = "a", descriptor = "(I)V")
     public static void method1179() {
         Static342.method4465(ClientOptions.instance.buildArea.getValue());
-        @Pc(19) int local19 = (WorldMap.areaBaseX >> 3) + (Camera.positionX >> 12);
-        @Pc(28) int local28 = (Camera.positionZ >> 12) + (WorldMap.areaBaseZ >> 3);
+        @Pc(19) int local19 = (WorldMap.areaBaseX >> 3) + (Camera.x >> 12);
+        @Pc(28) int local28 = (Camera.z >> 12) + (WorldMap.areaBaseZ >> 3);
         Camera.renderingLevel = PlayerEntity.self.level = 0;
         PlayerEntity.self.coord(8, 8);
         Static22.anIntArrayArray11 = new int[18][4];

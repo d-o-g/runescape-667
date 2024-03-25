@@ -22,9 +22,9 @@ public final class Static276 {
         Static469.anInt7072 = 0;
         Static560.aLocOccluderArray3 = new LocOccluder[500];
         if (Static665.aToolkit_15 instanceof oa) {
-            Static18.aBoolean20 = false;
+            Static18.occlude = false;
         } else {
-            Static18.aBoolean20 = true;
+            Static18.occlude = true;
         }
     }
 
@@ -55,9 +55,9 @@ public final class Static276 {
         @Pc(95) int local95 = PlayerEntity.self.z;
         @Pc(149) int local149;
         if (Camera.mode != 1 && Static692.anInt10376 == -1) {
-            local149 = Static102.averageHeight(Camera.renderingLevel, -29754, Camera.positionZ, Camera.positionX);
-            if (local149 - Camera.positionY < 3200 && (Static280.tileFlags[Camera.renderingLevel][Camera.positionX >> 9][Camera.positionZ >> 9] & 0x4) != 0) {
-                Static409.method5656(Camera.positionZ >> 9, Static334.activeTiles, 1, Camera.positionX >> 9, false);
+            local149 = Static102.averageHeight(Camera.renderingLevel, -29754, Camera.z, Camera.x);
+            if (local149 - Camera.y < 3200 && (Static280.tileFlags[Camera.renderingLevel][Camera.x >> 9][Camera.z >> 9] & 0x4) != 0) {
+                Static409.method5656(Camera.z >> 9, Static334.activeTiles, 1, Camera.x >> 9, false);
                 return;
             }
             return;
@@ -72,8 +72,8 @@ public final class Static276 {
         if (Camera.pitch >= 2560) {
             return;
         }
-        local149 = Camera.positionX >> 9;
-        @Pc(153) int local153 = Camera.positionZ >> 9;
+        local149 = Camera.x >> 9;
+        @Pc(153) int local153 = Camera.z >> 9;
         @Pc(157) int local157 = local92 >> 9;
         @Pc(161) int local161 = local95 >> 9;
         @Pc(169) int local169;

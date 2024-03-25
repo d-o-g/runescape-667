@@ -34,13 +34,13 @@ public final class Static314 {
 
     @OriginalMember(owner = "client!jw", name = "a", descriptor = "(Z)V")
     public static void method4567() {
-        if (Static134.aFileOutputStream2 != null) {
+        if (debugconsole.output != null) {
             try {
-                Static134.aFileOutputStream2.close();
+                debugconsole.output.close();
             } catch (@Pc(10) IOException local10) {
             }
         }
-        Static134.aFileOutputStream2 = null;
+        debugconsole.output = null;
     }
 
     @OriginalMember(owner = "client!jw", name = "a", descriptor = "(ZI)V")

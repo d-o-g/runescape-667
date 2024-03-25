@@ -151,12 +151,12 @@ public final class Static684 {
         Static368.method5273();
 
         if (mainLogicStep != 12) {
-            Static441.anInt6689 -= deltaX;
+            Camera.lookX -= deltaX;
             Camera.anInt2333 -= deltaX;
             Camera.anInt10667 -= deltaY;
-            Camera.positionZ -= deltaY * 512;
-            Camera.positionX -= deltaX * 512;
-            Static12.anInt5741 -= deltaY;
+            Camera.z -= deltaY * 512;
+            Camera.x -= deltaX * 512;
+            Camera.lookZ -= deltaY;
             if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaY) > Static501.mapHeight) {
                 InterfaceManager.loginOpened();
             }
@@ -174,7 +174,7 @@ public final class Static684 {
         Minimap.reset();
         Static346.A_HASH_TABLE___29.clear();
         Static505.projectiles.clear();
-        Static422.A_ENTITY_LIST___9.clear();
+        Static422.textCoords.clear();
         ParticleManager.method2044();
     }
 }

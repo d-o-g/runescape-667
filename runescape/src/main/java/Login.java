@@ -48,4 +48,29 @@ public final class Login {
     private Login() {
         /* empty */
     }
+
+    @OriginalMember(owner = "client!eo", name = "a", descriptor = "(III)V")
+    public static void requestLoginFromSocialNetwork(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+        if (!Static470.method6387()) {
+            return;
+        }
+        Static470.anInt7113 = arg1;
+        if (Static129.anInt2409 != arg0) {
+            Static319.aString51 = "";
+        }
+        Static129.anInt2409 = arg0;
+        MainLogicManager.setStep(6);
+    }
+
+    @OriginalMember(owner = "client!bt", name = "a", descriptor = "(ILjava/lang/String;Ljava/lang/String;I)V")
+    public static void requestLoginWithUsername(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1, @OriginalArg(2) String arg2) {
+        if (arg2.length() > 320 || !Static470.method6387()) {
+            return;
+        }
+        Static367.method5268();
+        Static470.anInt7113 = arg0;
+        Static59.aString63 = arg1;
+        Static449.aString75 = arg2;
+        MainLogicManager.setStep(6);
+    }
 }

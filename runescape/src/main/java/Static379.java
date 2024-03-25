@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static379 {
 
-    @OriginalMember(owner = "client!lu", name = "G", descriptor = "I")
-    public static int anInt5968;
-
     @OriginalMember(owner = "client!lu", name = "I", descriptor = "Lclient!pc;")
     public static final ZoneProt A_ZONE_PROT___12 = new ZoneProt(2, -1);
 

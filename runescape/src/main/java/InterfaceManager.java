@@ -461,7 +461,7 @@ public final class InterfaceManager {
                                     memoryUsage = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
 
                                     if (memoryUsage > 65536) {
-                                        Static67.method6098("WARNING: Memory usage over 64MB! Please inform whoever is responsible for the content/area you are using/in.");
+                                        ChatHistory.addPrivateError("WARNING: Memory usage over 64MB! Please inform whoever is responsible for the content/area you are using/in.");
                                     }
                                 }
 
@@ -2555,13 +2555,13 @@ public final class InterfaceManager {
         PlayerEntity.self.z = Static501.mapHeight * 512 / 2;
         PlayerEntity.self.x = Static720.mapWidth * 512 / 2;
         PlayerEntity.self.pathX[0] = Static720.mapWidth / 2;
-        Camera.positionZ = 0;
-        Camera.positionX = 0;
+        Camera.z = 0;
+        Camera.x = 0;
         PlayerEntity.self.pathZ[0] = Static501.mapHeight / 2;
 
         if (Camera.mode == 2) {
-            Camera.positionZ = Camera.anInt10667 << 9;
-            Camera.positionX = Camera.anInt2333 << 9;
+            Camera.z = Camera.anInt10667 << 9;
+            Camera.x = Camera.anInt2333 << 9;
         } else {
             Camera.splineTick();
         }

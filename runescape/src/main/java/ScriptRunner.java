@@ -1451,7 +1451,7 @@ public final class ScriptRunner {
                                 if (arg0 < 3200) {
                                     if (arg0 == 3100) {
                                         local4911 = aStringArray37[--anInt7139];
-                                        Static695.method9265(local4911);
+                                        ChatHistory.addScript(local4911);
                                         return;
                                     }
                                     if (arg0 == 3101) {
@@ -1549,7 +1549,7 @@ public final class ScriptRunner {
                                         local15 = anIntArray578[anInt7142];
                                         local21 = anIntArray578[anInt7142 + 1];
                                         local1791 = aStringArray37[--anInt7139];
-                                        Static44.method1072(local1791, "", local21, "", "", local15);
+                                        ChatHistory.add(local1791, "", local21, "", "", local15);
                                         return;
                                     }
                                     if (arg0 == 3115) {
@@ -1817,7 +1817,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3338) {
-                                        anIntArray578[anInt7142++] = Static65.method1470();
+                                        anIntArray578[anInt7142++] = Static65.profileCpu();
                                         return;
                                     }
                                     if (arg0 == 3339) {
@@ -2412,7 +2412,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3752) {
-                                            aStringArray37[anInt7139++] = aClass2_Sub47_2.aString101;
+                                            aStringArray37[anInt7139++] = aClass2_Sub47_2.channelName;
                                             return;
                                         }
                                         if (arg0 == 3753) {
@@ -2726,7 +2726,7 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4107) {
                                                 anInt7139 -= 2;
-                                                anIntArray578[anInt7142++] = Static540.method6538(aStringArray37[anInt7139 + 1], client.language, aStringArray37[anInt7139]);
+                                                anIntArray578[anInt7142++] = Static540.compare(aStringArray37[anInt7139 + 1], client.language, aStringArray37[anInt7139]);
                                                 return;
                                             }
                                             @Pc(10482) FontMetrics local10482;
@@ -3251,7 +3251,7 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(IZ)V")
-    public static void method6418() {
+    public static void profileOutput() {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!fj;I)V")
@@ -3610,7 +3610,7 @@ public final class ScriptRunner {
                     Static726.aClass280_7 = Static137.aClass280_4;
                 }
                 Static87.anInt1806 = anIntArray578[anInt7142 + 2];
-                local57 = Static668.method8701();
+                local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(Static98.A_CLIENT_PROT___20, local57.cipher);
                 local63.buffer.p1(Static133.anInt2458);
                 local63.buffer.p1(Static726.aClass280_7.anInt7039);
@@ -3631,7 +3631,7 @@ public final class ScriptRunner {
                 if (local101.length() > 80) {
                     local101 = local101.substring(0, 80);
                 }
-                @Pc(135) ServerConnection local135 = Static668.method8701();
+                @Pc(135) ServerConnection local135 = ConnectionManager.active();
                 @Pc(141) ClientMessage local141 = ClientMessage.create(Static245.A_CLIENT_PROT___114, local135.cipher);
                 local141.buffer.p1(Static231.method3379(local95) + Static231.method3379(local101) + 2);
                 local141.buffer.pjstr(local95);
@@ -3641,13 +3641,13 @@ public final class ScriptRunner {
                 local135.send(local141);
                 return;
             }
-            @Pc(196) Class283 local196;
+            @Pc(196) ChatLine local196;
             if (arg0 == 5003) {
                 local192 = anIntArray578[--anInt7142];
                 local196 = Static8.method122(local192);
                 local198 = "";
-                if (local196 != null && local196.aString78 != null) {
-                    local198 = local196.aString78;
+                if (local196 != null && local196.message != null) {
+                    local198 = local196.message;
                 }
                 aStringArray37[anInt7139++] = local198;
                 return;
@@ -3657,7 +3657,7 @@ public final class ScriptRunner {
                 local196 = Static8.method122(local192);
                 local109 = -1;
                 if (local196 != null) {
-                    local109 = local196.anInt7166;
+                    local109 = local196.type;
                 }
                 anIntArray578[anInt7142++] = local109;
                 return;
@@ -3674,7 +3674,7 @@ public final class ScriptRunner {
             @Pc(289) ServerConnection local289;
             if (arg0 == 5006) {
                 local192 = anIntArray578[--anInt7142];
-                local289 = Static668.method8701();
+                local289 = ConnectionManager.active();
                 local295 = ClientMessage.create(Static356.A_CLIENT_PROT___67, local289.cipher);
                 local295.buffer.p1(local192);
                 local289.send(local295);
@@ -3690,8 +3690,8 @@ public final class ScriptRunner {
                 local95 = aStringArray37[anInt7139];
                 local101 = aStringArray37[anInt7139 + 1];
                 if (Static608.staffModLevel != 0 || (!Static389.aBoolean459 || Static34.aBoolean62) && !Static617.aBoolean724) {
-                    @Pc(360) ServerConnection local360 = Static668.method8701();
-                    @Pc(366) ClientMessage local366 = ClientMessage.create(Static243.A_CLIENT_PROT___52, local360.cipher);
+                    @Pc(360) ServerConnection local360 = ConnectionManager.active();
+                    @Pc(366) ClientMessage local366 = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, local360.cipher);
                     local366.buffer.p2(0);
                     local375 = local366.buffer.pos;
                     local366.buffer.pjstr(local95);
@@ -3706,8 +3706,8 @@ public final class ScriptRunner {
                 local192 = anIntArray578[--anInt7142];
                 local196 = Static8.method122(local192);
                 local198 = "";
-                if (local196 != null && local196.aString81 != null) {
-                    local198 = local196.aString81;
+                if (local196 != null && local196.name != null) {
+                    local198 = local196.name;
                 }
                 aStringArray37[anInt7139++] = local198;
                 return;
@@ -3716,8 +3716,8 @@ public final class ScriptRunner {
                 local192 = anIntArray578[--anInt7142];
                 local196 = Static8.method122(local192);
                 local198 = "";
-                if (local196 != null && local196.aString79 != null) {
-                    local198 = local196.aString79;
+                if (local196 != null && local196.channel != null) {
+                    local198 = local196.channel;
                 }
                 aStringArray37[anInt7139++] = local198;
                 return;
@@ -3727,7 +3727,7 @@ public final class ScriptRunner {
                 local196 = Static8.method122(local192);
                 local109 = -1;
                 if (local196 != null) {
-                    local109 = local196.anInt7167;
+                    local109 = local196.quickchatId;
                 }
                 anIntArray578[anInt7142++] = local109;
                 return;
@@ -3754,7 +3754,7 @@ public final class ScriptRunner {
                 local196 = Static8.method122(local192);
                 local109 = 0;
                 if (local196 != null) {
-                    local109 = local196.anInt7171;
+                    local109 = local196.flags;
                 }
                 anIntArray578[anInt7142++] = local109;
                 return;
@@ -3763,8 +3763,8 @@ public final class ScriptRunner {
                 local192 = anIntArray578[--anInt7142];
                 local196 = Static8.method122(local192);
                 local198 = "";
-                if (local196 != null && local196.aString80 != null) {
-                    local198 = local196.aString80;
+                if (local196 != null && local196.accountName != null) {
+                    local198 = local196.accountName;
                 }
                 aStringArray37[anInt7139++] = local198;
                 return;
@@ -3773,7 +3773,7 @@ public final class ScriptRunner {
                 if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
                     local95 = "";
                 } else {
-                    local95 = PlayerEntity.self.method1422();
+                    local95 = PlayerEntity.self.getAccountName();
                 }
                 aStringArray37[anInt7139++] = local95;
                 return;
@@ -3783,7 +3783,7 @@ public final class ScriptRunner {
                 local196 = Static8.method122(local192);
                 local109 = -1;
                 if (local196 != null) {
-                    local109 = local196.anInt7163;
+                    local109 = local196.uid;
                 }
                 anIntArray578[anInt7142++] = local109;
                 return;
@@ -3793,7 +3793,7 @@ public final class ScriptRunner {
                 local196 = Static8.method122(local192);
                 local109 = -1;
                 if (local196 != null) {
-                    local109 = local196.anInt7164;
+                    local109 = local196.clock;
                 }
                 anIntArray578[anInt7142++] = local109;
                 return;
@@ -3802,8 +3802,8 @@ public final class ScriptRunner {
                 local192 = anIntArray578[--anInt7142];
                 local196 = Static8.method122(local192);
                 local198 = "";
-                if (local196 != null && local196.aString77 != null) {
-                    local198 = local196.aString77;
+                if (local196 != null && local196.displayName != null) {
+                    local198 = local196.displayName;
                 }
                 aStringArray37[anInt7139++] = local198;
                 return;
@@ -3852,12 +3852,12 @@ public final class ScriptRunner {
             }
             if (arg0 == 5055) {
                 local192 = anIntArray578[--anInt7142];
-                aStringArray37[anInt7139++] = QuickChatPhraseTypeList.instance.method2950(local192).method3906();
+                aStringArray37[anInt7139++] = QuickChatPhraseTypeList.instance.get(local192).method3906();
                 return;
             }
             if (arg0 == 5056) {
                 local192 = anIntArray578[--anInt7142];
-                @Pc(966) DoublyLinkedNode_Sub2_Sub12 local966 = QuickChatPhraseTypeList.instance.method2950(local192);
+                @Pc(966) DoublyLinkedNode_Sub2_Sub12 local966 = QuickChatPhraseTypeList.instance.get(local192);
                 if (local966.anIntArray333 == null) {
                     anIntArray578[anInt7142++] = 0;
                     return;
@@ -3869,18 +3869,18 @@ public final class ScriptRunner {
                 anInt7142 -= 2;
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = QuickChatPhraseTypeList.instance.method2950(local192).anIntArray333[local834];
+                anIntArray578[anInt7142++] = QuickChatPhraseTypeList.instance.get(local192).anIntArray333[local834];
                 return;
             }
             if (arg0 == 5058) {
                 aClass21_1 = new Class21();
                 aClass21_1.anInt521 = anIntArray578[--anInt7142];
-                aClass21_1.aClass2_Sub2_Sub12_1 = QuickChatPhraseTypeList.instance.method2950(aClass21_1.anInt521);
+                aClass21_1.aClass2_Sub2_Sub12_1 = QuickChatPhraseTypeList.instance.get(aClass21_1.anInt521);
                 aClass21_1.anIntArray29 = new int[aClass21_1.aClass2_Sub2_Sub12_1.method3901()];
                 return;
             }
             if (arg0 == 5059) {
-                local57 = Static668.method8701();
+                local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(Static456.A_CLIENT_PROT___85, local57.cipher);
                 local63.buffer.p1(0);
                 local109 = local63.buffer.pos;
@@ -3893,7 +3893,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5060) {
                 local95 = aStringArray37[--anInt7139];
-                local289 = Static668.method8701();
+                local289 = ConnectionManager.active();
                 local295 = ClientMessage.create(Static234.A_CLIENT_PROT___46, local289.cipher);
                 local295.buffer.p1(0);
                 local115 = local295.buffer.pos;
@@ -3905,7 +3905,7 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5061) {
-                local57 = Static668.method8701();
+                local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(Static456.A_CLIENT_PROT___85, local57.cipher);
                 local63.buffer.p1(0);
                 local109 = local63.buffer.pos;
@@ -3954,14 +3954,14 @@ public final class ScriptRunner {
             }
             if (arg0 == 5066) {
                 local192 = anIntArray578[--anInt7142];
-                anIntArray578[anInt7142++] = QuickChatPhraseTypeList.instance.method2950(local192).method3901();
+                anIntArray578[anInt7142++] = QuickChatPhraseTypeList.instance.get(local192).method3901();
                 return;
             }
             if (arg0 == 5067) {
                 anInt7142 -= 2;
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
-                local109 = QuickChatPhraseTypeList.instance.method2950(local192).method3898(local834).id;
+                local109 = QuickChatPhraseTypeList.instance.get(local192).method3898(local834).id;
                 anIntArray578[anInt7142++] = local109;
                 return;
             }
@@ -3984,7 +3984,7 @@ public final class ScriptRunner {
                 local192 = anIntArray578[anInt7142];
                 local834 = anIntArray578[anInt7142 + 1];
                 local109 = anIntArray578[anInt7142 + 2];
-                @Pc(1526) DoublyLinkedNode_Sub2_Sub12 local1526 = QuickChatPhraseTypeList.instance.method2950(local192);
+                @Pc(1526) DoublyLinkedNode_Sub2_Sub12 local1526 = QuickChatPhraseTypeList.instance.get(local192);
                 if (local1526.method3898(local834).id != 0) {
                     throw new RuntimeException("bad command");
                 }
@@ -4011,7 +4011,7 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5074) {
-                local57 = Static668.method8701();
+                local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(Static456.A_CLIENT_PROT___85, local57.cipher);
                 local63.buffer.p1(0);
                 local109 = local63.buffer.pos;
@@ -4023,7 +4023,7 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5075) {
-                local57 = Static668.method8701();
+                local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(Static456.A_CLIENT_PROT___85, local57.cipher);
                 local63.buffer.p1(0);
                 local109 = local63.buffer.pos;
@@ -4442,7 +4442,7 @@ public final class ScriptRunner {
                         local95 = aStringArray37[anInt7139];
                         local101 = aStringArray37[anInt7139 + 1];
                         local109 = anIntArray578[--anInt7142];
-                        @Pc(3411) ServerConnection local3411 = Static668.method8701();
+                        @Pc(3411) ServerConnection local3411 = ConnectionManager.active();
                         @Pc(3417) ClientMessage local3417 = ClientMessage.create(Static563.A_CLIENT_PROT___102, local3411.cipher);
                         local3417.buffer.p1(Static231.method3379(local95) + Static231.method3379(local101) + 1);
                         local3417.buffer.pjstr(local95);
@@ -4603,7 +4603,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5429) {
-                        Static231.executeComand(false, false, aStringArray37[--anInt7139]);
+                        debugconsole.executeComand(false, false, aStringArray37[--anInt7139]);
                         return;
                     }
                     if (arg0 == 5430) {
@@ -4769,11 +4769,11 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5514) {
-                        Static582.anInt8630 = anIntArray578[--anInt7142];
+                        Static582.orthoZoom = anIntArray578[--anInt7142];
                         return;
                     }
                     if (arg0 == 5516) {
-                        anIntArray578[anInt7142++] = Static582.anInt8630;
+                        anIntArray578[anInt7142++] = Static582.orthoZoom;
                         return;
                     }
                     if (arg0 == 5517) {
@@ -4811,7 +4811,7 @@ public final class ScriptRunner {
                         local95 = aStringArray37[anInt7139];
                         local101 = aStringArray37[anInt7139 + 1];
                         local109 = anIntArray578[--anInt7142];
-                        Static57.method1232(local109, local101, local95);
+                        Login.requestLoginWithUsername(local109, local101, local95);
                         return;
                     }
                     if (arg0 == 5601) {
@@ -4960,7 +4960,7 @@ public final class ScriptRunner {
                         anInt7142 -= 2;
                         local192 = anIntArray578[anInt7142];
                         local834 = anIntArray578[anInt7142 + 1];
-                        Static151.method9291(local192, local834);
+                        Login.requestLoginFromSocialNetwork(local192, local834);
                         return;
                     }
                     if (arg0 == 5632) {
@@ -4978,7 +4978,7 @@ public final class ScriptRunner {
                         ClientOptions.instance.update(local192, ClientOptions.instance.brightness);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     @Pc(5337) boolean local5337;
@@ -4989,7 +4989,7 @@ public final class ScriptRunner {
                         MainLogicManager.mapBuild();
                         Static77.method1561();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6003) {
@@ -4998,39 +4998,39 @@ public final class ScriptRunner {
                         ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.removeRoofsOverride);
                         Static77.method1561();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6005) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.groundDecor);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6007) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.idleAnimations);
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6008) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.flickeringEffects);
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6010) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.spotShadows);
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6011) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.hardShadows);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6012) {
@@ -5038,21 +5038,21 @@ public final class ScriptRunner {
                         Static296.updateFeatureMask();
                         InterfaceManager.loginOpened();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6014) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 2 : 0, ClientOptions.instance.waterDetail);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6015) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.fog);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6016) {
@@ -5065,13 +5065,13 @@ public final class ScriptRunner {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.stereoSound);
                         Static150.method2455();
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6018) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.soundVolume);
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6019) {
@@ -5092,14 +5092,14 @@ public final class ScriptRunner {
                             }
                             ClientOptions.instance.update(local192, ClientOptions.instance.musicVolume);
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                         }
                         return;
                     }
                     if (arg0 == 6020) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.backgroundSoundVolume);
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6021) {
@@ -5112,7 +5112,7 @@ public final class ScriptRunner {
                         local192 = anIntArray578[--anInt7142];
                         ClientOptions.instance.update(local192, ClientOptions.instance.particles);
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6024) {
@@ -5123,7 +5123,7 @@ public final class ScriptRunner {
                     if (arg0 == 6025) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.buildArea);
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6027) {
@@ -5167,7 +5167,7 @@ public final class ScriptRunner {
                             ClientOptions.instance.update(0, ClientOptions.instance.graphicsQuality);
                         }
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6033) {
@@ -5179,7 +5179,7 @@ public final class ScriptRunner {
                         ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.textures);
                         ClientOptions.save();
                         Static296.updateFeatureMask();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6035) {
@@ -5198,7 +5198,7 @@ public final class ScriptRunner {
                     if (arg0 == 6037) {
                         ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.speechVolume);
                         ClientOptions.save();
-                        Static503.aBoolean578 = false;
+                        Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6038) {
@@ -5219,7 +5219,7 @@ public final class ScriptRunner {
                             }
                             ClientOptions.instance.update(local192, ClientOptions.instance.loginVolume);
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                         }
                         return;
                     }
@@ -5231,7 +5231,7 @@ public final class ScriptRunner {
                         if (local192 != ClientOptions.instance.loadingSequence.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.loadingSequence);
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                         }
                         return;
                     }
@@ -5240,7 +5240,7 @@ public final class ScriptRunner {
                         if (local192 != ClientOptions.instance.orthographic.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.orthographic);
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                             Static498.method6646();
                         }
                         return;
@@ -5250,7 +5250,7 @@ public final class ScriptRunner {
                         if (local192 != ClientOptions.instance.skydetail.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.skydetail);
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                         }
                         return;
                     }
@@ -5541,17 +5541,17 @@ public final class ScriptRunner {
                 } else if (arg0 < 6600) {
                     if (arg0 == 6500) {
                         if (MainLogicManager.step == 7 && !Static242.method3500() && Static6.anInt95 == 0) {
-                            if (Static149.aBoolean221) {
+                            if (WorldList.fetching) {
                                 anIntArray578[anInt7142++] = 0;
                                 return;
                             }
-                            if (Static363.aLong219 > SystemTimer.safetime() - 1000L) {
+                            if (WorldList.lastReply > SystemTimer.safetime() - 1000L) {
                                 anIntArray578[anInt7142++] = 1;
                                 return;
                             }
-                            Static149.aBoolean221 = true;
+                            WorldList.fetching = true;
                             @Pc(7662) ClientMessage local7662 = ClientMessage.create(Static231.A_CLIENT_PROT___41, ConnectionManager.LOBBY.cipher);
-                            local7662.buffer.p4(Static379.anInt5968);
+                            local7662.buffer.p4(WorldList.checksum);
                             ConnectionManager.LOBBY.send(local7662);
                             anIntArray578[anInt7142++] = 0;
                             return;
@@ -5559,20 +5559,20 @@ public final class ScriptRunner {
                         anIntArray578[anInt7142++] = 1;
                         return;
                     }
-                    @Pc(7719) Class65 local7719;
-                    @Pc(7686) Class297_Sub1 local7686;
+                    @Pc(7719) Country local7719;
+                    @Pc(7686) GameWorld local7686;
                     if (arg0 == 6501) {
-                        local7686 = Static724.method9452();
+                        local7686 = WorldList.first();
                         if (local7686 != null) {
-                            anIntArray578[anInt7142++] = local7686.anInt7569;
-                            anIntArray578[anInt7142++] = local7686.anInt7563;
-                            aStringArray37[anInt7139++] = local7686.aString91;
+                            anIntArray578[anInt7142++] = local7686.id;
+                            anIntArray578[anInt7142++] = local7686.flags;
+                            aStringArray37[anInt7139++] = local7686.activity;
                             local7719 = local7686.method6717();
-                            anIntArray578[anInt7142++] = local7719.anInt1610;
-                            aStringArray37[anInt7139++] = local7719.aString13;
-                            anIntArray578[anInt7142++] = local7686.anInt7561;
-                            anIntArray578[anInt7142++] = local7686.anInt7570;
-                            aStringArray37[anInt7139++] = local7686.aString90;
+                            anIntArray578[anInt7142++] = local7719.flag;
+                            aStringArray37[anInt7139++] = local7719.name;
+                            anIntArray578[anInt7142++] = local7686.population;
+                            anIntArray578[anInt7142++] = local7686.ping;
+                            aStringArray37[anInt7139++] = local7686.address;
                             return;
                         }
                         anIntArray578[anInt7142++] = -1;
@@ -5586,17 +5586,17 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6502) {
-                        local7686 = Static557.method7333();
+                        local7686 = WorldList.next();
                         if (local7686 != null) {
-                            anIntArray578[anInt7142++] = local7686.anInt7569;
-                            anIntArray578[anInt7142++] = local7686.anInt7563;
-                            aStringArray37[anInt7139++] = local7686.aString91;
+                            anIntArray578[anInt7142++] = local7686.id;
+                            anIntArray578[anInt7142++] = local7686.flags;
+                            aStringArray37[anInt7139++] = local7686.activity;
                             local7719 = local7686.method6717();
-                            anIntArray578[anInt7142++] = local7719.anInt1610;
-                            aStringArray37[anInt7139++] = local7719.aString13;
-                            anIntArray578[anInt7142++] = local7686.anInt7561;
-                            anIntArray578[anInt7142++] = local7686.anInt7570;
-                            aStringArray37[anInt7139++] = local7686.aString90;
+                            anIntArray578[anInt7142++] = local7719.flag;
+                            aStringArray37[anInt7139++] = local7719.name;
+                            anIntArray578[anInt7142++] = local7686.population;
+                            anIntArray578[anInt7142++] = local7686.ping;
+                            aStringArray37[anInt7139++] = local7686.address;
                             return;
                         }
                         anIntArray578[anInt7142++] = -1;
@@ -5621,16 +5621,16 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6506) {
                         local192 = anIntArray578[--anInt7142];
-                        @Pc(8053) Class297_Sub1 local8053 = Static615.method8260(local192);
+                        @Pc(8053) GameWorld local8053 = WorldList.list(local192);
                         if (local8053 != null) {
-                            anIntArray578[anInt7142++] = local8053.anInt7563;
-                            aStringArray37[anInt7139++] = local8053.aString91;
-                            @Pc(8077) Class65 local8077 = local8053.method6717();
-                            anIntArray578[anInt7142++] = local8077.anInt1610;
-                            aStringArray37[anInt7139++] = local8077.aString13;
-                            anIntArray578[anInt7142++] = local8053.anInt7561;
-                            anIntArray578[anInt7142++] = local8053.anInt7570;
-                            aStringArray37[anInt7139++] = local8053.aString90;
+                            anIntArray578[anInt7142++] = local8053.flags;
+                            aStringArray37[anInt7139++] = local8053.activity;
+                            @Pc(8077) Country local8077 = local8053.method6717();
+                            anIntArray578[anInt7142++] = local8077.flag;
+                            aStringArray37[anInt7139++] = local8077.name;
+                            anIntArray578[anInt7142++] = local8053.population;
+                            anIntArray578[anInt7142++] = local8053.ping;
+                            aStringArray37[anInt7139++] = local8053.address;
                             return;
                         }
                         anIntArray578[anInt7142++] = -1;
@@ -5648,7 +5648,7 @@ public final class ScriptRunner {
                         local1578 = anIntArray578[anInt7142 + 1] == 1;
                         local109 = anIntArray578[anInt7142 + 2];
                         local2331 = anIntArray578[anInt7142 + 3] == 1;
-                        Static210.method3119(local1578, local109, local192, local2331);
+                        Static210.quicksortWorldList(local1578, local109, local192, local2331);
                         return;
                     }
                     if (arg0 == 6508) {
@@ -5960,41 +5960,41 @@ public final class ScriptRunner {
                             anIntArray578[anInt7142++] = local192;
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                             return;
                         }
                         if (arg0 == 7001) {
                             Static395.method9162();
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                             return;
                         }
                         if (arg0 == 7002) {
                             Static133.method2316();
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                             return;
                         }
                         if (arg0 == 7003) {
                             Static75.method6239();
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                             return;
                         }
                         if (arg0 == 7004) {
                             Static468.method7643();
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                             return;
                         }
                         if (arg0 == 7005) {
                             ClientOptions.instance.update(0, ClientOptions.instance.graphicsQuality);
                             ClientOptions.save();
-                            Static503.aBoolean578 = false;
+                            Static503.sentPreferences = false;
                             return;
                         }
                         if (arg0 == 7006) {
@@ -6388,7 +6388,7 @@ public final class ScriptRunner {
                 arg0 = arg0.substring(LocalisedText.CHATEFFECT5.localise(client.language).length());
             }
         }
-        @Pc(650) ServerConnection local650 = Static668.method8701();
+        @Pc(650) ServerConnection local650 = ConnectionManager.active();
         @Pc(656) ClientMessage local656 = ClientMessage.create(Static278.aClientProt_57, local650.cipher);
         local656.buffer.p1(0);
         @Pc(665) int local665 = local656.buffer.pos;
@@ -6413,7 +6413,7 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "()V")
-    public static void method6428() {
+    public static void profileClear() {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!mia;II)V")

@@ -110,50 +110,55 @@ public final class Static651 {
     }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "([IIZLclient!cg;I)V")
-    public static void animate(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) PathingEntity arg3) {
-        @Pc(8) boolean local8;
-        @Pc(10) int local10;
-        if (arg3.actionAnimations != null) {
-            local8 = true;
-            for (local10 = 0; local10 < arg3.actionAnimations.length; local10++) {
-                if (arg0[local10] != arg3.actionAnimations[local10]) {
-                    local8 = false;
+    public static void animate(@OriginalArg(0) int[] animations, @OriginalArg(1) int delay, @OriginalArg(2) boolean updatePathPointer, @OriginalArg(3) PathingEntity entity) {
+        if (entity.actionAnimations != null) {
+            @Pc(8) boolean repeat = true;
+
+            for (@Pc(10) int i = 0; i < entity.actionAnimations.length; i++) {
+                if (animations[i] != entity.actionAnimations[i]) {
+                    repeat = false;
                     break;
                 }
             }
-            @Pc(31) Animator local31 = arg3.actionAnimator;
-            if (local8 && local31.isAnimating()) {
-                @Pc(44) SeqType local44 = arg3.actionAnimator.getAnimation();
-                @Pc(47) int replayMode = local44.replayMode;
+
+            @Pc(31) Animator animator = entity.actionAnimator;
+            if (repeat && animator.isAnimating()) {
+                @Pc(44) SeqType seqType = entity.actionAnimator.getAnimation();
+                @Pc(47) int replayMode = seqType.replayMode;
+
                 if (replayMode == SeqReplayMode.RESET) {
-                    local31.reset(arg1);
+                    animator.reset(delay);
                 }
+
                 if (replayMode == SeqReplayMode.RESTART_LOOP) {
-                    local31.restartLoop();
+                    animator.restartLoop();
                 }
             }
         }
-        local8 = true;
-        for (local10 = 0; local10 < arg0.length; local10++) {
-            if (arg0[local10] != -1) {
-                local8 = false;
+
+        @Pc(8) boolean override = true;
+        for (@Pc(10) int i = 0; i < animations.length; i++) {
+            if (animations[i] != -1) {
+                override = false;
             }
-            if (arg3.actionAnimations == null || arg3.actionAnimations[local10] == -1 || SeqTypeList.instance.list(arg0[local10]).priority >= SeqTypeList.instance.list(arg3.actionAnimations[local10]).priority) {
-                arg3.actionAnimations = arg0;
-                arg3.actionAnimator.method9091(arg1);
-                if (arg2) {
-                    arg3.animationPathPointer = arg3.pathPointer;
+
+            if (entity.actionAnimations == null || entity.actionAnimations[i] == -1 || SeqTypeList.instance.list(animations[i]).priority >= SeqTypeList.instance.list(entity.actionAnimations[i]).priority) {
+                entity.actionAnimations = animations;
+                entity.actionAnimator.setDelay(delay);
+
+                if (updatePathPointer) {
+                    entity.animationPathPointer = entity.pathPointer;
                 }
             }
         }
-        if (!local8) {
-            return;
-        }
-        arg3.actionAnimations = arg0;
-        arg3.actionAnimator.method9091(arg1);
-        if (arg2) {
-            arg3.animationPathPointer = arg3.pathPointer;
-            return;
+
+        if (override) {
+            entity.actionAnimations = animations;
+            entity.actionAnimator.setDelay(delay);
+
+            if (updatePathPointer) {
+                entity.animationPathPointer = entity.pathPointer;
+            }
         }
     }
 

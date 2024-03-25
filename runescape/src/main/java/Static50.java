@@ -170,10 +170,10 @@ public final class Static50 {
                     }
                 } else if (local214.animatingPrecedence == 1) {
                     if (arg0.animationPathPointer > 0 && TimeUtils.clock >= arg0.exactMoveT1 && arg0.exactMoveT2 < TimeUtils.clock) {
-                        local75.method9091(1);
+                        local75.setDelay(1);
                         break label83;
                     }
-                    local75.method9091(0);
+                    local75.setDelay(0);
                 }
                 if (local75.tick(1) && local75.isFinished()) {
                     arg0.actionAnimations = null;

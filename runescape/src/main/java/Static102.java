@@ -22,9 +22,9 @@ public final class Static102 {
     @OriginalMember(owner = "client!dd", name = "d", descriptor = "(B)V")
     public static void method2022() {
         for (@Pc(15) int local15 = 0; local15 < 100; local15++) {
-            Static489.aClass283Array1[local15] = null;
+            ChatHistory.lines[local15] = null;
         }
-        Static129.anInt2406 = 0;
+        ChatHistory.length = 0;
     }
 
     @OriginalMember(owner = "client!dd", name = "b", descriptor = "(IIII)I")

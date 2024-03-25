@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static494 {
 
-    @OriginalMember(owner = "client!pja", name = "Z", descriptor = "I")
-    public static int anInt7396;
-
     @OriginalMember(owner = "client!pja", name = "kb", descriptor = "I")
     public static int anInt7409;
 
@@ -28,17 +25,17 @@ public final class Static494 {
 
     @OriginalMember(owner = "client!pja", name = "e", descriptor = "(B)V")
     public static void method6597() {
-        Static659.anInt9817 = 0;
+        Static659.blockChat = 0;
         @Pc(17) int local17 = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
         @Pc(24) int local24 = WorldMap.areaBaseZ + (PlayerEntity.self.z >> 9);
         if (local17 >= 3053 && local17 <= 3156 && local24 >= 3056 && local24 <= 3136) {
-            Static659.anInt9817 = 1;
+            Static659.blockChat = 1;
         }
         if (local17 >= 3072 && local17 <= 3118 && local24 >= 9492 && local24 <= 9535) {
-            Static659.anInt9817 = 1;
+            Static659.blockChat = 1;
         }
-        if (Static659.anInt9817 == 1 && local17 >= 3139 && local17 <= 3199 && local24 >= 3008 && local24 <= 3062) {
-            Static659.anInt9817 = 0;
+        if (Static659.blockChat == 1 && local17 >= 3139 && local17 <= 3199 && local24 >= 3008 && local24 <= 3062) {
+            Static659.blockChat = 0;
         }
     }
 
@@ -51,7 +48,7 @@ public final class Static494 {
         @Pc(29) int local29 = (arg1 ? QuickChatPhraseTypeList.instance.anInt3261 : QuickChatPhraseTypeList.instance.anInt3264) + local18;
         @Pc(80) int local80;
         for (@Pc(31) int local31 = local18; local31 < local29; local31++) {
-            @Pc(37) DoublyLinkedNode_Sub2_Sub12 local37 = QuickChatPhraseTypeList.instance.method2950(local31);
+            @Pc(37) DoublyLinkedNode_Sub2_Sub12 local37 = QuickChatPhraseTypeList.instance.get(local31);
             if (local37.aBoolean334 && local37.method3906().toLowerCase().indexOf(local6) != -1) {
                 if (local11 >= 50) {
                     Static256.aShortArray63 = null;
@@ -73,7 +70,7 @@ public final class Static494 {
         Static256.aShortArray63 = local9;
         @Pc(120) String[] local120 = new String[Static606.anInt8947];
         for (local80 = 0; local80 < Static606.anInt8947; local80++) {
-            local120[local80] = QuickChatPhraseTypeList.instance.method2950(local9[local80]).method3906();
+            local120[local80] = QuickChatPhraseTypeList.instance.get(local9[local80]).method3906();
         }
         Static554.method7292(local120, Static256.aShortArray63);
     }

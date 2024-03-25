@@ -18,8 +18,8 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "()V")
     public static void method1652() {
-        @Pc(1) int local1 = Static338.anInt5564;
-        @Pc(3) int[] local3 = Static210.anIntArray280;
+        @Pc(1) int local1 = PlayerList.highResolutionPlayerCount;
+        @Pc(3) int[] local3 = PlayerList.highResolutionPlayerIndices;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
             local9 = CutsceneManager.actors.length;
@@ -59,8 +59,8 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "n", descriptor = "(I)V")
     public static void method1654(@OriginalArg(0) int arg0) {
-        @Pc(1) int local1 = Static338.anInt5564;
-        @Pc(3) int[] local3 = Static210.anIntArray280;
+        @Pc(1) int local1 = PlayerList.highResolutionPlayerCount;
+        @Pc(3) int[] local3 = PlayerList.highResolutionPlayerIndices;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
             local9 = CutsceneManager.actors.length;
@@ -143,8 +143,8 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "b", descriptor = "()V")
     public static void method1655() {
-        @Pc(1) int local1 = Static338.anInt5564;
-        @Pc(3) int[] local3 = Static210.anIntArray280;
+        @Pc(1) int local1 = PlayerList.highResolutionPlayerCount;
+        @Pc(3) int[] local3 = PlayerList.highResolutionPlayerIndices;
         @Pc(8) int local8 = ClientOptions.instance.idleAnimations.getValue();
         @Pc(30) boolean local30 = local8 == 1 && local1 > 200 || local8 == 0 && local1 > 50;
         @Pc(103) int local103;
@@ -152,7 +152,7 @@ public final class Static84 {
             @Pc(39) PlayerEntity local39 = PlayerList.highResolutionPlayers[local3[local32]];
             if (!local39.method1417()) {
                 local39.drawPriority = -1;
-            } else if (local39.aBoolean124) {
+            } else if (local39.hideOnMap) {
                 local39.drawPriority = -1;
             } else {
                 local39.updateBounds();
@@ -169,7 +169,7 @@ public final class Static84 {
                             local103 += 2;
                         }
                         local103 += 5 - local39.getSize() << 2;
-                        if (local39.aBoolean128 || local39.clanmate) {
+                        if (local39.showPICon || local39.clanmate) {
                             local103 += 512;
                         } else {
                             if (Static150.anInt2632 == 0) {
@@ -304,8 +304,8 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "l", descriptor = "(I)V")
     public static void method1670(@OriginalArg(0) int arg0) {
-        @Pc(1) int local1 = Static338.anInt5564;
-        @Pc(3) int[] local3 = Static210.anIntArray280;
+        @Pc(1) int local1 = PlayerList.highResolutionPlayerCount;
+        @Pc(3) int[] local3 = PlayerList.highResolutionPlayerIndices;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
             local9 = CutsceneManager.actors.length;

@@ -631,7 +631,7 @@ public final class Toolkit_Sub3 extends Toolkit {
                     @Pc(375) int local375 = 0;
                     @Pc(377) boolean local377 = false;
                     @Pc(379) boolean local379 = false;
-                    @Pc(388) String[] local388 = Static189.method2861(this.aString99.replace('/', ' '), ' ');
+                    @Pc(388) String[] local388 = StringTools.split(this.aString99.replace('/', ' '), ' ');
                     for (@Pc(390) int local390 = 0; local390 < local388.length; local390++) {
                         @Pc(395) String local395 = local388[local390];
                         try {
@@ -973,11 +973,11 @@ public final class Toolkit_Sub3 extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "f", descriptor = "(I)V")
     @Override
-    public void method7989(@OriginalArg(0) int arg0) {
-        if (arg0 < 128 || arg0 > 1024) {
+    public void setTextureSize(@OriginalArg(0) int size) {
+        if (size < 128 || size > 1024) {
             throw new IllegalArgumentException();
         }
-        this.anInt7981 = arg0;
+        this.anInt7981 = size;
         this.aClass169_1.method3527();
     }
 
@@ -1658,7 +1658,7 @@ public final class Toolkit_Sub3 extends Toolkit {
             local10 |= 0x1;
         }
         @Pc(55) String local55 = OpenGL.glGetString(OpenGL.GL_VERSION);
-        @Pc(63) String[] local63 = Static189.method2861(local55.replace('.', ' '), ' ');
+        @Pc(63) String[] local63 = StringTools.split(local55.replace('.', ' '), ' ');
         if (local63.length >= 2) {
             try {
                 @Pc(73) int local73 = StringTools.parseDecimal(local63[0]);

@@ -31,9 +31,6 @@ public final class ClientOptions extends Node {
     @OriginalMember(owner = "client!mk", name = "d", descriptor = "Lclient!kv;")
     public static ClientOptions instance;
 
-    @OriginalMember(owner = "client!lla", name = "a", descriptor = "I")
-    public static int maxmemory = 64;
-
     @OriginalMember(owner = "client!pk", name = "m", descriptor = "I")
     public static int cpucount = 1;
 
@@ -163,7 +160,7 @@ public final class ClientOptions extends Node {
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ul;I)V")
     public ClientOptions(@OriginalArg(0) ModeGame game, @OriginalArg(1) int toolkit) {
         this.game = game;
-        this.environment = new EnvironmentContext(SignLink.instance.signed, maxmemory, cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
+        this.environment = new EnvironmentContext(SignLink.instance.signed, GameShell.maxmemory, cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
         this.toolkit = new ToolkitOption(toolkit, this);
         this.loadDefaults(true);
     }
@@ -171,7 +168,7 @@ public final class ClientOptions extends Node {
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ge;Lclient!ul;I)V")
     public ClientOptions(@OriginalArg(0) Packet packet, @OriginalArg(1) ModeGame game, @OriginalArg(2) int toolkit) {
         this.game = game;
-        this.environment = new EnvironmentContext(SignLink.instance.signed, maxmemory, cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
+        this.environment = new EnvironmentContext(SignLink.instance.signed, GameShell.maxmemory, cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
         this.toolkit = new ToolkitOption(toolkit, this);
         this.decode(packet);
     }

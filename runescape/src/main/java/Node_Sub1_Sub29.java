@@ -30,7 +30,7 @@ public final class Node_Sub1_Sub29 extends Node_Sub1 {
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg0 <= 107) {
-            Static639.method8418(null, 60, -47, true, -23, null, true);
+            WorldComparator.compare(null, 60, -47, true, null, true);
         }
         @Pc(25) int[] local25 = super.aClass180_41.method3935(arg1);
         if (super.aClass180_41.aBoolean338) {

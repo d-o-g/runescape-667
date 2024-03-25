@@ -34,7 +34,7 @@ public final class Node_Sub47 extends Node {
     public int anInt8286 = 0;
 
     @OriginalMember(owner = "client!rfa", name = "s", descriptor = "Ljava/lang/String;")
-    public String aString101 = null;
+    public String channelName = null;
 
     @OriginalMember(owner = "client!rfa", name = "<init>", descriptor = "(Lclient!ge;)V")
     public Node_Sub47(@OriginalArg(0) Packet arg0) {
@@ -76,7 +76,7 @@ public final class Node_Sub47 extends Node {
         }
         super.key = arg0.g8();
         this.aLong256 = arg0.g8();
-        this.aString101 = arg0.gjstr();
+        this.channelName = arg0.gjstr();
         arg0.g1();
         this.aByte127 = arg0.g1b();
         this.aByte128 = arg0.g1b();

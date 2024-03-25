@@ -9,10 +9,10 @@ public final class Camera {
     public static int renderingLevel;
 
     @OriginalMember(owner = "client!dha", name = "y", descriptor = "I")
-    public static int positionZ;
+    public static int z;
 
     @OriginalMember(owner = "client!fea", name = "h", descriptor = "I")
-    public static int positionX;
+    public static int x;
 
     @OriginalMember(owner = "client!qb", name = "j", descriptor = "I")
     public static int mode;
@@ -39,7 +39,7 @@ public final class Camera {
     public static boolean aBoolean73 = false;
 
     @OriginalMember(owner = "client!lfa", name = "g", descriptor = "I")
-    public static int positionY;
+    public static int y;
 
     @OriginalMember(owner = "client!sl", name = "A", descriptor = "I")
     public static int splineLookOffset = 0;
@@ -64,6 +64,15 @@ public final class Camera {
 
     @OriginalMember(owner = "client!uu", name = "n", descriptor = "I")
     public static int scaleOffset = 0;
+
+    @OriginalMember(owner = "client!nu", name = "b", descriptor = "I")
+    public static int lookX;
+
+    @OriginalMember(owner = "client!ah", name = "a", descriptor = "I")
+    public static int lookZ;
+
+    @OriginalMember(owner = "client!br", name = "B", descriptor = "I")
+    public static int lookY;
 
     @OriginalMember(owner = "client!sg", name = "a", descriptor = "(I)V")
     public static void splineTick() {
@@ -107,9 +116,9 @@ public final class Camera {
             local57[local63] = (float) local135 + ((float) local140 + (local54 * (float) local165 + (float) local149) * local54) * local54;
         }
 
-        positionZ = (int) local57[2] - WorldMap.areaBaseZ * 512;
-        positionY = (int) local57[1] * -1;
-        positionX = (int) local57[0] - WorldMap.areaBaseX * 512;
+        z = (int) local57[2] - WorldMap.areaBaseZ * 512;
+        y = (int) local57[1] * -1;
+        x = (int) local57[0] - WorldMap.areaBaseX * 512;
 
         @Pc(220) float[] local220 = new float[3];
         local94 = splineLookOffset * 2;

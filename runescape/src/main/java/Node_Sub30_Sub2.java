@@ -22,7 +22,7 @@ public final class Node_Sub30_Sub2 extends Node_Sub30 {
             arg0.aByte127 = this.aByte95;
             arg0.aByte128 = this.aByte94;
         }
-        arg0.aString101 = this.aString56;
+        arg0.channelName = this.aString56;
     }
 
     @OriginalMember(owner = "client!lc", name = "a", descriptor = "(Lclient!ge;I)V")

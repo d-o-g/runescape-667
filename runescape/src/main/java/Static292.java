@@ -53,7 +53,7 @@ public final class Static292 {
             local7 = 100;
         }
         @Pc(33) int local33 = local7 * (Static502.aShort97 - Static228.aShort45) / 100 + Static228.aShort45;
-        Static582.orthoAngle = Static582.anInt8630 * local33 >> 8;
+        Static582.orthoAngle = Static582.orthoZoom * local33 >> 8;
         @Pc(45) int local45 = local33 * arg1 >> 8;
         @Pc(52) int local52 = 16384 - arg0 & 0x3FFF;
         @Pc(65) int local65 = 16384 - arg4 & 0x3FFF;
@@ -69,9 +69,9 @@ public final class Static292 {
             local71 = Trig1.COS[local65] * local71 >> 14;
         }
         Camera.pitch = arg0;
-        Camera.positionZ = arg5 - local71;
-        Camera.positionX = arg3 - local67;
-        Camera.positionY = arg6 - local69;
+        Camera.z = arg5 - local71;
+        Camera.x = arg3 - local67;
+        Camera.y = arg6 - local69;
         Camera.roll = 0;
         Camera.yaw = arg4;
     }

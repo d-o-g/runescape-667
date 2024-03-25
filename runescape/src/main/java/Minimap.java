@@ -122,14 +122,14 @@ public final class Minimap {
                 }
             }
         }
-        local222 = Static338.anInt5564;
-        @Pc(531) int[] local531 = Static210.anIntArray280;
+        local222 = PlayerList.highResolutionPlayerCount;
+        @Pc(531) int[] local531 = PlayerList.highResolutionPlayerIndices;
         @Pc(585) int local585;
         @Pc(589) int local589;
         @Pc(622) int local622;
         for (local381 = 0; local381 < local222; local381++) {
             @Pc(541) PlayerEntity local541 = PlayerList.highResolutionPlayers[local531[local381]];
-            if (local541 != null && local541.method1417() && !local541.aBoolean124 && PlayerEntity.self != local541 && local541.level == PlayerEntity.self.level) {
+            if (local541 != null && local541.method1417() && !local541.hideOnMap && PlayerEntity.self != local541 && local541.level == PlayerEntity.self.level) {
                 local490 = local541.x / 128 - local90 / 128;
                 local585 = local541.z / 128 - local93 / 128;
                 @Pc(587) boolean local587 = false;
@@ -150,7 +150,7 @@ public final class Minimap {
                 if (PlayerEntity.self.team != 0 && local541.team != 0 && PlayerEntity.self.team == local541.team) {
                     local652 = true;
                 }
-                if (local541.aBoolean128) {
+                if (local541.showPICon) {
                     Static6.method107(y, local30, Sprites.mapdots[6], local585, local490, component, x);
                 } else if (local652) {
                     Static6.method107(y, local30, Sprites.mapdots[4], local585, local490, component, x);
@@ -205,7 +205,7 @@ public final class Minimap {
             local878 = flagY * 4 + PlayerEntity.self.getSize() * 2 + 2 - local93 / 128 - 2;
             Static6.method107(y, local30, Sprites.mapflag[flagSet ? 1 : 0], local878, local585, component, x);
         }
-        if (!PlayerEntity.self.aBoolean124) {
+        if (!PlayerEntity.self.hideOnMap) {
             toolkit.fillRect(3, 3, y + component.height / 2 - 1, component.width / 2 + x + -1, -1);
             return;
         }

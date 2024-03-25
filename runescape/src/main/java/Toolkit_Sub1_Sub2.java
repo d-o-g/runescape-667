@@ -129,7 +129,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
                 throw new RuntimeException("");
             }
             @Pc(114) String local114 = OpenGL.glGetString(OpenGL.GL_VERSION);
-            @Pc(122) String[] local122 = Static189.method2861(local114.replace('.', ' '), ' ');
+            @Pc(122) String[] local122 = StringTools.split(local114.replace('.', ' '), ' ');
             if (local122.length < 2) {
                 throw new RuntimeException("");
             }
@@ -169,7 +169,7 @@ public final class Toolkit_Sub1_Sub2 extends Toolkit_Sub1 {
                     local140 = 0;
                     @Pc(330) boolean local330 = false;
                     @Pc(332) boolean local332 = false;
-                    @Pc(341) String[] local341 = Static189.method2861(this.aString110.replace('/', ' '), ' ');
+                    @Pc(341) String[] local341 = StringTools.split(this.aString110.replace('/', ' '), ' ');
                     for (@Pc(343) int local343 = 0; local343 < local341.length; local343++) {
                         @Pc(348) String local348 = local341[local343];
                         try {

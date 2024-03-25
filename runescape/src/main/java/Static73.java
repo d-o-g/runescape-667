@@ -8,7 +8,7 @@ public final class Static73 {
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IIILclient!kp;I)Z")
     public static boolean method9308(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) Wall arg2, @OriginalArg(4) int arg3) {
-        if (!Static18.aBoolean20 || !Static29.aBoolean60) {
+        if (!Static18.occlude || !Static29.aBoolean60) {
             return false;
         } else if (Static432.anInt525 < 100) {
             return false;

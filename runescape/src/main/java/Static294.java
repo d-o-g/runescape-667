@@ -62,7 +62,7 @@ public final class Static294 {
         Static498.method6643(arg4, true, arg0, arg3, arg2);
         @Pc(153) int local153 = Static32.anInt773;
         @Pc(155) int local155 = Static242.anInt3971;
-        Static582.orthoAngle = Static582.anInt8630;
+        Static582.orthoAngle = Static582.orthoZoom;
         @Pc(159) int local159 = Static290.anInt4657;
         @Pc(161) int local161 = Static200.anInt3305;
         @Pc(169) int local169;
@@ -90,9 +90,9 @@ public final class Static294 {
         } else if (Camera.mode == 5) {
             Static110.method2079(local161);
         }
-        local169 = Camera.positionX;
-        local204 = Camera.positionY;
-        @Pc(325) int local325 = Camera.positionZ;
+        local169 = Camera.x;
+        local204 = Camera.y;
+        @Pc(325) int local325 = Camera.z;
         @Pc(327) int local327 = Camera.pitch;
         @Pc(329) int local329 = Camera.yaw;
         @Pc(375) int local375;
@@ -103,13 +103,13 @@ public final class Static294 {
                     Camera.yaw = local375 + Camera.yaw & 0x3FFF;
                 }
                 if (local331 == 0) {
-                    Camera.positionX += local375 << 2;
+                    Camera.x += local375 << 2;
                 }
                 if (local331 == 1) {
-                    Camera.positionY += local375 << 2;
+                    Camera.y += local375 << 2;
                 }
                 if (local331 == 2) {
-                    Camera.positionZ += local375 << 2;
+                    Camera.z += local375 << 2;
                 }
                 if (local331 == 4) {
                     Camera.pitch += local375;
@@ -121,23 +121,23 @@ public final class Static294 {
                 }
             }
         }
-        if (Camera.positionX < 0) {
-            Camera.positionX = 0;
+        if (Camera.x < 0) {
+            Camera.x = 0;
         }
-        if (Camera.positionZ < 0) {
-            Camera.positionZ = 0;
+        if (Camera.z < 0) {
+            Camera.z = 0;
         }
-        if (Camera.positionX > (Static619.tileMaxX << 9) - 1) {
-            Camera.positionX = (Static619.tileMaxX << 9) - 1;
+        if (Camera.x > (Static619.tileMaxX << 9) - 1) {
+            Camera.x = (Static619.tileMaxX << 9) - 1;
         }
-        if (Camera.positionZ > (Static662.tileMaxZ << 9) - 1) {
-            Camera.positionZ = (Static662.tileMaxZ << 9) - 1;
+        if (Camera.z > (Static662.tileMaxZ << 9) - 1) {
+            Camera.z = (Static662.tileMaxZ << 9) - 1;
         }
         Static276.method3988();
         Toolkit.active.KA(local153, local159, local155 + local153, local159 + local161);
         Static501.method6716(true);
         local375 = Static251.anInt4037;
-        Static460.aMatrix_10.method7135(Camera.positionX, Camera.positionY, Camera.positionZ, -Camera.pitch & 0x3FFF, -Camera.yaw & 0x3FFF, -Camera.roll & 0x3FFF);
+        Static460.aMatrix_10.method7135(Camera.x, Camera.y, Camera.z, -Camera.pitch & 0x3FFF, -Camera.yaw & 0x3FFF, -Camera.roll & 0x3FFF);
         Toolkit.active.setCamera(Static460.aMatrix_10);
         Toolkit.active.DA(local155 / 2 + local153, local161 / 2 + local159, Static428.anInt6495 << 1, Static428.anInt6495 << 1);
         if (InterfaceManager.aBoolean210) {
@@ -158,14 +158,14 @@ public final class Static294 {
         }
         Static557.method7331();
         Static527.method7081(Static428.anInt6495 << 1, local161 / 2 + local159, Static428.anInt6495 << 1, local153 + local155 / 2);
-        Static620.method8324(-Camera.yaw & 0x3FFF, Camera.positionZ, -Camera.roll & 0x3FFF, Camera.positionY, -Camera.pitch & 0x3FFF, Camera.positionX);
+        Static620.method8324(-Camera.yaw & 0x3FFF, Camera.z, -Camera.roll & 0x3FFF, Camera.y, -Camera.pitch & 0x3FFF, Camera.x);
         Static159.method2575();
         @Pc(688) byte local688 = ClientOptions.instance.removeRoofsOverride.getValue() == 2 ? (byte) Static198.anInt3276 : 1;
         if (InterfaceManager.aBoolean210) {
             Static648.method8483(-Camera.yaw & 0x3FFF, -Camera.roll & 0x3FFF, -Camera.pitch & 0x3FFF);
-            Static466.method6324(local688, Camera.positionX, Camera.positionZ, Camera.positionY, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, ClientOptions.instance.flickeringEffects.getValue() == 0, Static582.orthoAngle, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
+            Static466.method6324(local688, Camera.x, Camera.z, Camera.y, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, ClientOptions.instance.flickeringEffects.getValue() == 0, Static582.orthoAngle, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
         } else {
-            Static283.method4100(TimeUtils.clock, Camera.positionX, Camera.positionY, Camera.positionZ, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, ClientOptions.instance.flickeringEffects.getValue() == 0, Static504.renderOrtho ? Static582.orthoAngle : -1, 0, false);
+            Static283.method4100(TimeUtils.clock, Camera.x, Camera.y, Camera.z, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, ClientOptions.instance.flickeringEffects.getValue() == 0, Static504.renderOrtho ? Static582.orthoAngle : -1, 0, false);
         }
         Static557.method7331();
         if (MainLogicManager.step == 11) {
@@ -175,10 +175,10 @@ public final class Static294 {
             Static208.method3105(local155, local153, local159, local161);
         }
         Static712.method9323();
-        Camera.positionZ = local325;
-        Camera.positionX = local169;
+        Camera.z = local325;
+        Camera.x = local169;
         Camera.pitch = local327;
-        Camera.positionY = local204;
+        Camera.y = local204;
         Camera.yaw = local329;
         Static288.aBoolean356 = false;
         if (Static426.aBoolean72 && client.js5WorkerThread.urgentCount() == 0) {

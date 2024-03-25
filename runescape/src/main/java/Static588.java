@@ -21,7 +21,7 @@ public final class Static588 {
 
     @OriginalMember(owner = "client!sj", name = "a", descriptor = "(ZIII)Z")
     public static boolean method7714(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        if (!Static18.aBoolean20 || !Static29.aBoolean60) {
+        if (!Static18.occlude || !Static29.aBoolean60) {
             return false;
         } else if (Static432.anInt525 < 100) {
             return false;

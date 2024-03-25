@@ -1,5 +1,5 @@
-import com.jagex.ParticleList;
 import com.jagex.Constants;
+import com.jagex.ParticleList;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
@@ -38,6 +38,12 @@ public final class PlayerEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!fo", name = "k", descriptor = "Lclient!dla;")
     public static final ReferenceCache modelCache = new ReferenceCache(4);
+
+    public static final int APPEARANCE_FLAG_GENDER = 0x1;
+
+    public static final int APPEARANCE_FLAG_VORBIS = 0x2;
+
+    public static final int APPEARANCE_FLAG_SKILL_AREA = 0x4;
 
     @OriginalMember(owner = "client!kw", name = "r", descriptor = "[I")
     public static int[] wornObjIds;
@@ -99,15 +105,15 @@ public final class PlayerEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!kf", name = "a", descriptor = "(ILclient!ca;)I")
     public static int method4870(@OriginalArg(1) PlayerEntity arg0) {
-        @Pc(6) int local6 = arg0.anInt1445;
+        @Pc(6) int local6 = arg0.walkSound;
         @Pc(10) BASType local10 = arg0.getBASType();
         @Pc(15) int local15 = arg0.animator.getAnimationId();
         if (local15 == -1 || arg0.ready) {
-            local6 = arg0.anInt1455;
+            local6 = arg0.readySound;
         } else if (local10.run == local15 || local15 == local10.runFollowTurn180 || local10.runFollowTurnCw == local15 || local10.runFollowTurnCcw == local15) {
-            local6 = arg0.anInt1469;
+            local6 = arg0.runSound;
         } else if (local10.crawl == local15 || local10.crawlFollowTurn180 == local15 || local10.crawlFollowTurnCw == local15 || local10.crawlFollowTurnCcw == local15) {
-            local6 = arg0.anInt1459;
+            local6 = arg0.crawlSound;
         }
         return local6;
     }
@@ -155,16 +161,16 @@ public final class PlayerEntity extends PathingEntity {
     public int anInt1448;
 
     @OriginalMember(owner = "client!ca", name = "qd", descriptor = "I")
-    public int anInt1430 = -1;
+    public int pkIcon = -1;
 
     @OriginalMember(owner = "client!ca", name = "Dd", descriptor = "B")
     public byte gender = 0;
 
     @OriginalMember(owner = "client!ca", name = "wd", descriptor = "Z")
-    public boolean aBoolean124 = false;
+    public boolean hideOnMap = false;
 
     @OriginalMember(owner = "client!ca", name = "gd", descriptor = "B")
-    public byte aByte33 = 0;
+    public byte titleKey = 0;
 
     @OriginalMember(owner = "client!ca", name = "rd", descriptor = "I")
     public int team = 0;
@@ -173,7 +179,7 @@ public final class PlayerEntity extends PathingEntity {
     public boolean clanmate = false;
 
     @OriginalMember(owner = "client!ca", name = "Gc", descriptor = "I")
-    public int anInt1431 = -1;
+    public int prayerIcon = -1;
 
     @OriginalMember(owner = "client!ca", name = "Jc", descriptor = "Z")
     public boolean vorbis = false;
@@ -185,13 +191,13 @@ public final class PlayerEntity extends PathingEntity {
     public int skillRating = 0;
 
     @OriginalMember(owner = "client!ca", name = "Gd", descriptor = "I")
-    public int anInt1452 = 0;
+    public int soundRange = 0;
 
     @OriginalMember(owner = "client!ca", name = "Lc", descriptor = "Z")
-    public boolean aBoolean127 = false;
+    public boolean moved = false;
 
     @OriginalMember(owner = "client!ca", name = "sd", descriptor = "I")
-    public int anInt1455 = -1;
+    public int readySound = -1;
 
     @OriginalMember(owner = "client!ca", name = "id", descriptor = "Z")
     public boolean aBoolean129 = false;
@@ -200,22 +206,22 @@ public final class PlayerEntity extends PathingEntity {
     public int combatLevel = 0;
 
     @OriginalMember(owner = "client!ca", name = "zd", descriptor = "Z")
-    public boolean aBoolean128 = false;
+    public boolean showPICon = false;
 
     @OriginalMember(owner = "client!ca", name = "pd", descriptor = "B")
     public byte titleEnum = 0;
 
     @OriginalMember(owner = "client!ca", name = "Bd", descriptor = "I")
-    public int anInt1459 = -1;
+    public int crawlSound = -1;
 
     @OriginalMember(owner = "client!ca", name = "Oc", descriptor = "I")
     public int soundVolume = 255;
 
     @OriginalMember(owner = "client!ca", name = "hd", descriptor = "I")
-    public int anInt1445 = -1;
+    public int walkSound = -1;
 
     @OriginalMember(owner = "client!ca", name = "ld", descriptor = "I")
-    public int anInt1469 = -1;
+    public int runSound = -1;
 
     @OriginalMember(owner = "client!ca", name = "Tc", descriptor = "I")
     public int anInt1467 = -1;
@@ -330,7 +336,7 @@ public final class PlayerEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!ca", name = "m", descriptor = "(I)I")
     @Override
-    protected int method9320(@OriginalArg(0) int arg0) {
+    protected int getBasId(@OriginalArg(0) int arg0) {
         if (arg0 != 0) {
             this.combatLevel = -112;
         }
@@ -410,7 +416,7 @@ public final class PlayerEntity extends PathingEntity {
     @Override
     public void stopSharingLight(@OriginalArg(0) int arg0) {
         if (arg0 != 27811) {
-            this.aBoolean127 = true;
+            this.moved = true;
         }
         throw new IllegalStateException();
     }
@@ -539,81 +545,89 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(Lclient!ge;I)V")
-    public void method1420(@OriginalArg(0) Packet packet) {
+    public void decodeAppearance(@OriginalArg(0) Packet packet) {
         packet.pos = 0;
-        @Pc(12) int local12 = packet.g1();
-        this.gender = (byte) (local12 & 0x1);
-        @Pc(21) boolean local21 = this.vorbis;
-        this.vorbis = (local12 & 0x2) != 0;
-        @Pc(40) boolean local40 = (local12 & 0x4) != 0;
-        @Pc(44) int local44 = super.getSize();
-        this.setSize((local12 >> 3 & 0x7) + 1);
-        this.titleEnum = (byte) (local12 >> 6 & 0x3);
-        super.x += this.getSize() - local44 << 8;
-        super.z += this.getSize() - local44 << 8;
-        this.aByte33 = packet.g1b();
-        this.anInt1430 = packet.g1b();
-        this.anInt1431 = packet.g1b();
-        this.aBoolean124 = packet.g1b() == 1;
+
+        @Pc(12) int flags = packet.g1();
+        this.gender = (byte) (flags & APPEARANCE_FLAG_GENDER);
+        @Pc(21) boolean vorbisBefore = this.vorbis;
+        this.vorbis = (flags & APPEARANCE_FLAG_VORBIS) != 0;
+        @Pc(40) boolean skillArea = (flags & APPEARANCE_FLAG_SKILL_AREA) != 0;
+        @Pc(44) int sizeBefore = super.getSize();
+        this.setSize((flags >> 3 & 0x7) + 1);
+        this.titleEnum = (byte) (flags >> 6 & 0x3);
+        super.x += (this.getSize() - sizeBefore) << 8;
+        super.z += (this.getSize() - sizeBefore) << 8;
+        this.titleKey = packet.g1b();
+        this.pkIcon = packet.g1b();
+        this.prayerIcon = packet.g1b();
+        this.hideOnMap = packet.g1b() == 1;
         if (ModeWhere.LIVE == client.modeWhere && Static608.staffModLevel >= 2) {
-            this.aBoolean124 = false;
+            this.hideOnMap = false;
         }
+
         this.team = 0;
-        @Pc(134) int local134 = -1;
-        @Pc(139) int[] local139 = new int[WearposDefaults.instance.hidden.length];
-        @Pc(144) ObjTypeCustomisation[] local144 = new ObjTypeCustomisation[WearposDefaults.instance.hidden.length];
-        @Pc(149) ObjType[] local149 = new ObjType[WearposDefaults.instance.hidden.length];
-        @Pc(165) int local165;
-        @Pc(184) int local184;
-        @Pc(191) int local191;
-        @Pc(240) int local240;
-        for (@Pc(151) int local151 = 0; local151 < WearposDefaults.instance.hidden.length; local151++) {
-            if (WearposDefaults.instance.hidden[local151] != 1) {
-                local165 = packet.g1();
-                if (local165 == 0) {
-                    local139[local151] = 0;
+        @Pc(134) int npcId = -1;
+
+        @Pc(139) int[] identikit = new int[WearposDefaults.instance.hidden.length];
+        @Pc(144) ObjTypeCustomisation[] customisations = new ObjTypeCustomisation[WearposDefaults.instance.hidden.length];
+        @Pc(149) ObjType[] objTypes = new ObjType[WearposDefaults.instance.hidden.length];
+        for (@Pc(151) int i = 0; i < WearposDefaults.instance.hidden.length; i++) {
+            if (WearposDefaults.instance.hidden[i] != 1) {
+                @Pc(165) int hi = packet.g1();
+
+                if (hi == 0) {
+                    identikit[i] = 0;
                 } else {
-                    local184 = packet.g1();
-                    local191 = (local165 << 8) + local184;
-                    if (local151 == 0 && local191 == 65535) {
-                        local134 = packet.g2();
+                    @Pc(184) int lo = packet.g1();
+                    @Pc(191) int id = (hi << 8) + lo;
+
+                    if (i == 0 && id == 65535) {
+                        npcId = packet.g2();
                         this.team = packet.g1();
                         break;
                     }
-                    if (local191 >= 32768) {
-                        local191 = wornObjIds[local191 - 32768];
-                        local139[local151] = local191 | 0x40000000;
-                        local149[local151] = ObjTypeList.instance.list(local191);
-                        local240 = local149[local151].team;
-                        if (local240 != 0) {
-                            this.team = local240;
+
+                    if (id >= 32768) {
+                        id = wornObjIds[id - 32768];
+                        identikit[i] = id | 0x40000000;
+                        objTypes[i] = ObjTypeList.instance.list(id);
+
+                        @Pc(240) int team = objTypes[i].team;
+                        if (team != 0) {
+                            this.team = team;
                         }
                     } else {
-                        local139[local151] = local191 - 256 | Integer.MIN_VALUE;
+                        identikit[i] = id - 256 | Integer.MIN_VALUE;
                     }
                 }
             }
         }
-        if (local134 == -1) {
-            local165 = packet.g2();
-            local184 = 0;
-            for (local191 = 0; local191 < WearposDefaults.instance.hidden.length; local191++) {
-                if (WearposDefaults.instance.hidden[local191] == 0) {
-                    if ((local165 & 0x1 << local184) != 0) {
-                        local144[local191] = ObjTypeCustomisation.decode(packet, local149[local191]);
+
+        if (npcId == -1) {
+            @Pc(165) int mask = packet.g2();
+            @Pc(240) int bit = 0;
+
+            for (@Pc(191) int i = 0; i < WearposDefaults.instance.hidden.length; i++) {
+                if (WearposDefaults.instance.hidden[i] == 0) {
+                    if ((mask & 0x1 << bit) != 0) {
+                        customisations[i] = ObjTypeCustomisation.decode(packet, objTypes[i]);
                     }
-                    local184++;
+                    bit++;
                 }
             }
         }
-        @Pc(332) int[] local332 = new int[10];
-        for (local184 = 0; local184 < 10; local184++) {
-            local191 = packet.g1();
-            if (local184 >= PlayerModel.recol_d.length || local191 < 0 || PlayerModel.recol_d[local184][0].length <= local191) {
-                local191 = 0;
+
+        @Pc(332) int[] bodyColours = new int[10];
+        for (@Pc(184) int i = 0; i < 10; i++) {
+            @Pc(191) int colour = packet.g1();
+            if (i >= PlayerModel.recol_d.length || colour < 0 || PlayerModel.recol_d[i][0].length <= colour) {
+                colour = 0;
             }
-            local332[local184] = local191;
+
+            bodyColours[i] = colour;
         }
+
         this.basId = packet.g2();
         this.displayName = packet.gjstr();
         if (self == this) {
@@ -621,9 +635,11 @@ public final class PlayerEntity extends PathingEntity {
         }
         this.accountName = this.displayName;
         this.combatLevel = packet.g1();
-        if (local40) {
+
+        if (skillArea) {
             this.skillRating = packet.g2();
             this.maxCombatLevel = this.combatLevel;
+
             if (this.skillRating == 65535) {
                 this.skillRating = -1;
             }
@@ -632,59 +648,68 @@ public final class PlayerEntity extends PathingEntity {
             this.skillRating = 0;
             this.maxCombatLevel = packet.g1();
             this.combatRange = packet.g1();
+
             if (this.combatRange == 255) {
                 this.combatRange = -1;
             }
         }
-        local191 = this.anInt1452;
-        this.anInt1452 = packet.g1();
-        @Pc(490) int local490;
-        if (this.anInt1452 == 0) {
+
+        @Pc(191) int soundRangeBefore = this.soundRange;
+        this.soundRange = packet.g1();
+        if (this.soundRange == 0) {
             Static76.method1552(this);
         } else {
-            local240 = this.anInt1455;
-            @Pc(487) int local487 = this.anInt1459;
-            local490 = this.anInt1445;
-            @Pc(493) int local493 = this.anInt1469;
-            @Pc(496) int local496 = this.soundVolume;
-            this.anInt1455 = packet.g2();
-            this.anInt1459 = packet.g2();
-            this.anInt1445 = packet.g2();
-            this.anInt1469 = packet.g2();
+            @Pc(240) int readySoundBefore = this.readySound;
+            @Pc(487) int crawlSoundBefore = this.crawlSound;
+            @Pc(490) int walkSoundBefore = this.walkSound;
+            @Pc(493) int runSoundBefore = this.runSound;
+            @Pc(496) int soundVolumeBefore = this.soundVolume;
+
+            this.readySound = packet.g2();
+            this.crawlSound = packet.g2();
+            this.walkSound = packet.g2();
+            this.runSound = packet.g2();
             this.soundVolume = packet.g1();
-            if (this.vorbis != local21 || this.anInt1452 != local191 || local240 != this.anInt1455 || local487 != this.anInt1459 || this.anInt1445 != local490 || this.anInt1469 != local493 || local496 != this.soundVolume) {
+
+            if (this.vorbis != vorbisBefore || this.soundRange != soundRangeBefore || readySoundBefore != this.readySound || crawlSoundBefore != this.crawlSound || this.walkSound != walkSoundBefore || this.runSound != runSoundBefore || soundVolumeBefore != this.soundVolume) {
                 Static247.method3523(this);
             }
         }
+
         if (this.playerModel == null) {
             this.playerModel = new PlayerModel();
         }
-        local240 = this.playerModel.npcId;
-        @Pc(603) int[] local603 = this.playerModel.clientpalette;
-        this.playerModel.update(local332, local139, local144, local134, this.method9320(0), this.gender == 1);
-        if (local134 != local240) {
+
+        @Pc(240) int npcIdBefore = this.playerModel.npcId;
+        @Pc(603) int[] clientpaletteBefore = this.playerModel.clientpalette;
+        this.playerModel.update(bodyColours, identikit, customisations, npcId, this.getBasId(0), this.gender == 1);
+
+        if (npcId != npcIdBefore) {
             super.x = (super.pathX[0] << 9) + (this.getSize() << 8);
             super.z = (super.pathZ[0] << 9) + (this.getSize() << 8);
         }
-        if (PlayerList.activePlayerSlot == super.id && local603 != null) {
-            for (local490 = 0; local490 < local332.length; local490++) {
-                if (local332[local490] != local603[local490]) {
+
+        if (PlayerList.activePlayerSlot == super.id && clientpaletteBefore != null) {
+            for (@Pc(490) int i = 0; i < bodyColours.length; i++) {
+                if (bodyColours[i] != clientpaletteBefore[i]) {
                     ObjTypeList.instance.spriteCacheReset();
                     break;
                 }
             }
         }
+
         if (super.particleSystem != null) {
             super.particleSystem.restart();
         }
+
         if (!super.animator.isAnimating() || !super.ready) {
             return;
         }
-        @Pc(717) BASType local717 = this.getBASType();
-        if (!local717.isReady(super.animator.getAnimationId())) {
+
+        @Pc(717) BASType basType = this.getBASType();
+        if (!basType.isReady(super.animator.getAnimationId())) {
             super.animator.update(true, -1);
             super.ready = false;
-            return;
         }
     }
 
@@ -706,7 +731,7 @@ public final class PlayerEntity extends PathingEntity {
         }
         @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(ObjTypeList.instance, local33, BASTypeList.instance, SeqTypeList.instance, arg0, super.wornRotation, WearposDefaults.instance, IDKTypeList.instance, arg1, NPCTypeList.instance, super.wornAnimators, local95, local58, TimedVarDomain.instance);
         @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
-        if (ClientOptions.maxmemory < 96 && local155 > 50) {
+        if (GameShell.maxmemory < 96 && local155 > 50) {
             Static358.method9191();
         }
         if (ModeWhere.LIVE != client.modeWhere && local155 < 50) {
@@ -759,7 +784,7 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ZI)Ljava/lang/String;")
-    public String method1422() {
+    public String getAccountName() {
         return this.accountName;
     }
 
@@ -785,7 +810,7 @@ public final class PlayerEntity extends PathingEntity {
             @Pc(62) EnumType type = EnumTypeList.instance.list(enums[this.titleEnum]);
 
             if (type.valType == 's') {
-                name += type.getString(this.aByte33 & 0xFF);
+                name += type.getString(this.titleKey & 0xFF);
             } else {
                 JagException.sendTrace(new Throwable(), "gdn1");
                 enums[this.titleEnum] = -1;
@@ -809,7 +834,7 @@ public final class PlayerEntity extends PathingEntity {
     @Override
     public EntityChatLine method9318(@OriginalArg(0) int arg0) {
         if (arg0 != -3109) {
-            this.aBoolean128 = false;
+            this.showPICon = false;
         }
         if (super.line != null) {
             if (super.line.text == null) {

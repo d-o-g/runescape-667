@@ -8,11 +8,11 @@ public final class Static11 {
 
     @OriginalMember(owner = "client!aga", name = "a", descriptor = "(I)V")
     public static void method146() {
-        Static338.anInt5564 = 0;
+        PlayerList.highResolutionPlayerCount = 0;
         for (@Pc(15) int local15 = 0; local15 < 2048; local15++) {
-            Static462.aClass2_Sub21Array1[local15] = null;
-            Static139.aByteArray30[local15] = 1;
-            Static246.aClass350Array1[local15] = null;
+            PlayerList.appearances[local15] = null;
+            PlayerList.pathSpeeds[local15] = 1;
+            PlayerList.lowResolutionPlayers[local15] = null;
         }
     }
 }

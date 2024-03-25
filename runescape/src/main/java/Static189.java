@@ -10,23 +10,6 @@ public final class Static189 {
     @OriginalMember(owner = "client!fr", name = "c", descriptor = "Lclient!kda;")
     public static final Class204 aClass204_7 = new Class204(7, 2);
 
-    @OriginalMember(owner = "client!fr", name = "a", descriptor = "(BLjava/lang/String;C)[Ljava/lang/String;")
-    public static String[] method2861(@OriginalArg(1) String arg0, @OriginalArg(2) char arg1) {
-        @Pc(8) int local8 = Static108.method2065(arg0, arg1);
-        @Pc(13) String[] local13 = new String[local8 + 1];
-        @Pc(23) int local23 = 0;
-        @Pc(25) int local25 = 0;
-        for (@Pc(27) int local27 = 0; local27 < local8; local27++) {
-            @Pc(30) int local30;
-            for (local30 = local25; arg1 != arg0.charAt(local30); local30++) {
-            }
-            local13[local23++] = arg0.substring(local25, local30);
-            local25 = local30 + 1;
-        }
-        local13[local8] = arg0.substring(local25);
-        return local13;
-    }
-
     @OriginalMember(owner = "client!fr", name = "a", descriptor = "(IB)Lclient!om;")
     public static Class280 method2864(@OriginalArg(0) int arg0) {
         @Pc(6) Class280[] local6 = Static400.method7112();

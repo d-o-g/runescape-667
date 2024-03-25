@@ -30,9 +30,9 @@ public final class Static608 {
 
     @OriginalMember(owner = "client!td", name = "a", descriptor = "(IIIIIIZ)V")
     public static void method8176(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2, @OriginalArg(5) int arg3) {
-        @Pc(7) int local7 = Static338.anInt5564;
+        @Pc(7) int local7 = PlayerList.highResolutionPlayerCount;
         Static481.anInt7222 = 0;
-        @Pc(11) int[] local11 = Static210.anIntArray280;
+        @Pc(11) int[] local11 = PlayerList.highResolutionPlayerIndices;
         @Pc(20) int local20;
         if (CutsceneManager.state == 3) {
             local20 = CutsceneManager.actors.length;
@@ -113,7 +113,7 @@ public final class Static608 {
                     if (local31 == null) {
                         @Pc(283) PlayerEntity local283 = PlayerList.highResolutionPlayers[local11[local27]];
                         local267 = local51.getBASType().hitbarSprite;
-                        if (local283.aBoolean128) {
+                        if (local283.showPICon) {
                             local262 = 2;
                         }
                     } else {
@@ -161,7 +161,7 @@ public final class Static608 {
                 if (!local51.aBoolean816) {
                     @Pc(486) Sprite local486;
                     @Pc(496) Sprite local496;
-                    if (local51.anInt10719 > TimeUtils.clock) {
+                    if (local51.timerbarEnd > TimeUtils.clock) {
                         local486 = Sprites.timerbarDefault[local51.timerbarSprite ? 2 : 0];
                         local496 = Sprites.timerbarDefault[local51.timerbarSprite ? 3 : 1];
                         if (local51 instanceof NPCEntity) {
@@ -189,7 +189,7 @@ public final class Static608 {
                                 local496 = local306[local51.timerbarSprite ? 3 : 1];
                             }
                         }
-                        @Pc(612) int local612 = local51.anInt10719 - TimeUtils.clock;
+                        @Pc(612) int local612 = local51.timerbarEnd - TimeUtils.clock;
                         if (local51.timerbarStart < local612) {
                             local612 -= local51.timerbarStart;
                             local321 = local51.timerbarGranularity == 0 ? 0 : (local51.timerbarDuration - local612) / local51.timerbarGranularity * local51.timerbarGranularity;
@@ -209,15 +209,15 @@ public final class Static608 {
                     }
                     if (local31 == null) {
                         @Pc(720) PlayerEntity local720 = (PlayerEntity) local51;
-                        if (local720.anInt1430 != -1) {
-                            local496 = Sprites.headiconsPk[local720.anInt1430];
+                        if (local720.pkIcon != -1) {
+                            local496 = Sprites.headiconsPk[local720.pkIcon];
                             local233 -= local496.getHeight();
                             local496.render(Static215.anIntArray284[0] + arg2 - 12, local233);
                             Static682.method8927(local233, local496.scaleHeight() + local233, Static215.anIntArray284[0] + arg2 + -12, Static215.anIntArray284[0] + arg2 + local496.scaleWidth() - 12);
                             local233 -= 2;
                         }
-                        if (local720.anInt1431 != -1) {
-                            local496 = Sprites.headiconsPrayer[local720.anInt1431];
+                        if (local720.prayerIcon != -1) {
+                            local496 = Sprites.headiconsPrayer[local720.prayerIcon];
                             local233 -= local496.getHeight();
                             local496.render(arg2 + Static215.anIntArray284[0] - 12, local233);
                             Static682.method8927(local233, local233 + local496.scaleHeight(), Static215.anIntArray284[0] + arg2 + -12, Static215.anIntArray284[0] + arg2 + local496.scaleWidth() - 12);

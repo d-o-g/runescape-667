@@ -256,6 +256,16 @@ public final class StringTools {
         return hash;
     }
 
+    @OriginalMember(owner = "client!qb", name = "a", descriptor = "(BIC)I")
+    public static int intHash(@OriginalArg(1) int language, @OriginalArg(2) char c) {
+        @Pc(7) int hash = c << 4;
+        if (Character.isUpperCase(c) || Character.isTitleCase(c)) {
+            @Pc(18) char lower = Character.toLowerCase(c);
+            hash = (lower << 4) + 1;
+        }
+        return hash;
+    }
+
     @OriginalMember(owner = "client!cw", name = "a", descriptor = "(ZLjava/lang/String;)I")
     public static int intHashCp1252(@OriginalArg(1) String text) {
         @Pc(12) int length = text.length();
@@ -289,6 +299,52 @@ public final class StringTools {
             return true;
         } else {
             return c == '€' || c == 'Œ' || c == '—' || c == 'œ' || c == 'Ÿ';
+        }
+    }
+
+    @OriginalMember(owner = "client!fr", name = "a", descriptor = "(BLjava/lang/String;C)[Ljava/lang/String;")
+    public static String[] split(@OriginalArg(1) String string, @OriginalArg(2) char c) {
+        @Pc(8) int count = count(string, c);
+        @Pc(13) String[] strings = new String[count + 1];
+        @Pc(23) int pos = 0;
+        @Pc(25) int start = 0;
+        for (@Pc(27) int i = 0; i < count; i++) {
+            @Pc(30) int end;
+            for (end = start; c != string.charAt(end); end++) {
+            }
+            strings[pos++] = string.substring(start, end);
+            start = end + 1;
+        }
+        strings[count] = string.substring(start);
+        return strings;
+    }
+
+    @OriginalMember(owner = "client!dga", name = "a", descriptor = "(Ljava/lang/String;ZC)I")
+    public static int count(@OriginalArg(0) String string, @OriginalArg(2) char c) {
+        @Pc(5) int count = 0;
+        @Pc(8) int length = string.length();
+        for (@Pc(17) int i = 0; i < length; i++) {
+            if (string.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @OriginalMember(owner = "client!pn", name = "a", descriptor = "(CZ)C")
+    public static char transliteral(@OriginalArg(0) char c) {
+        if (c == 'Æ') {
+            return 'E';
+        } else if (c == 'æ') {
+            return 'e';
+        } else if (c == 'ß') {
+            return 's';
+        } else if (c == 'Œ') {
+            return 'E';
+        } else if (c == 'œ') {
+            return 'e';
+        } else {
+            return '\u0000';
         }
     }
 

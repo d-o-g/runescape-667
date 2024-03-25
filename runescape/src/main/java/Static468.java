@@ -7,9 +7,6 @@ public final class Static468 {
     @OriginalMember(owner = "client!op", name = "l", descriptor = "[Lclient!eo;")
     public static Entity[] dynamicEntities;
 
-    @OriginalMember(owner = "client!op", name = "r", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___212 = new ServerProt(77, -2);
-
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZIII)V")
     public static void updateObjCount(@OriginalArg(1) int level, @OriginalArg(2) int zoneZ, @OriginalArg(3) int zoneX) {
         @Pc(8) int x = zoneX + WorldMap.areaBaseX;
@@ -19,7 +16,7 @@ public final class Static468 {
             return;
         }
 
-        @Pc(67) long key = z << 14 | level << 28 | x;
+        @Pc(67) long key = (level << 28) | (z << 14) | x;
         @Pc(73) ObjStack stack = (ObjStack) Static497.stacks.get(key);
         if (stack == null) {
             Static638.method8398(level, zoneX, zoneZ);

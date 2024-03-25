@@ -75,7 +75,7 @@ public final class Static159 {
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(Z)V")
     public static void method2575() {
         if (Static41.method1027(MainLogicManager.step) || MainLogicManager.isAtLobbyScreen(MainLogicManager.step)) {
-            Static127.method2243(Static412.anInt6358, Camera.positionX >> 12, Camera.positionZ >> 12);
+            Static127.method2243(Static412.anInt6358, Camera.x >> 12, Camera.z >> 12);
         } else {
             @Pc(20) int local20 = PlayerEntity.self.pathX[0] >> 3;
             @Pc(27) int local27 = PlayerEntity.self.pathZ[0] >> 3;

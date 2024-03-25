@@ -20,9 +20,6 @@ public final class Static489 {
     @OriginalMember(owner = "client!ph", name = "I", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___185 = new ServerProt(8, 6);
 
-    @OriginalMember(owner = "client!ph", name = "D", descriptor = "[Lclient!pa;")
-    public static final Class283[] aClass283Array1 = new Class283[100];
-
     @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ILclient!vq;IIII)Ljava/awt/Frame;")
     public static Frame createFullscreenFrame(@OriginalArg(1) SignLink signlink, @OriginalArg(4) int width, @OriginalArg(3) int height, @OriginalArg(0) int oldWidth, @OriginalArg(2) int oldHeight) {
         if (!signlink.supportsFullscreen()) {
@@ -223,8 +220,8 @@ public final class Static489 {
             local310++;
         }
         Static21.method8043(Toolkit.active, Static455.anInt6915, Static720.mapWidth, Static501.mapHeight, local310, local430, Toolkit.active.getMaxLights() > 0);
-        Static483.method6490(Static699.anInt10539);
-        if (Static699.anInt10539 == 0) {
+        Static483.method6490(Static699.w2Debug);
+        if (Static699.w2Debug == 0) {
             Static110.method2082(null);
         } else {
             Static110.method2082(Fonts.p11);
@@ -241,7 +238,7 @@ public final class Static489 {
         Static314.noTimeout(true);
         Static699.method9139();
         Static439.anInt6674 = ClientOptions.instance.hardShadows.getValue();
-        Static428.aBoolean487 = ClientOptions.maxmemory >= 96;
+        Static428.aBoolean487 = GameShell.maxmemory >= 96;
         Static50.aBoolean566 = ClientOptions.instance.waterDetail.getValue() == 2;
         Static305.aBoolean371 = ClientOptions.instance.lightDetail.getValue() == 1;
         Static478.anInt7198 = ClientOptions.instance.animateBackground.getValue() == 1 ? -1 : Static164.areaLevel;
@@ -281,7 +278,7 @@ public final class Static489 {
             Static101.method2001(Static118.aByteArrayArray3, Static2.aMapRegion);
         }
         Static352.cacheReset();
-        if (ClientOptions.maxmemory < 96) {
+        if (GameShell.maxmemory < 96) {
             Static358.method9191();
         }
         Static314.noTimeout(true);
@@ -368,7 +365,7 @@ public final class Static489 {
         Static199.doneslowupdate();
         Static75.hasOpaqueStationaryEntities = true;
         if (Static28.aBoolean43) {
-            Static79.method1579("Took: " + (SystemTimer.safetime() - Static690.aLong318) + "ms");
+            debugconsole.addline("Took: " + (SystemTimer.safetime() - Static690.aLong318) + "ms");
             Static28.aBoolean43 = false;
         }
     }

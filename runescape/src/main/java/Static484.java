@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.IntNode;
+import com.jagex.game.collision.CollisionMap;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.meltype.MapElementType;

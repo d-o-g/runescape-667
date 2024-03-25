@@ -1,17 +1,23 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ChatLineType;
+import com.jagex.core.constants.LocLayer;
 import com.jagex.core.io.Packet;
 import com.jagex.core.io.connection.Connection;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.core.util.JagException;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.compression.huffman.WordPack;
+import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
+import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
+import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
@@ -30,6 +36,33 @@ import org.openrs2.deob.annotation.Pc;
 import java.io.IOException;
 
 public final class Protocol {
+
+    @OriginalMember(owner = "client!jr", name = "I", descriptor = "[I")
+    public static final int[] LOC_LAYERS_BY_SHAPE = {
+        /* 00 */ LocLayer.WALL,
+        /* 01 */ LocLayer.WALL,
+        /* 02 */ LocLayer.WALL,
+        /* 03 */ LocLayer.WALL,
+        /* 04 */ LocLayer.WALLDECOR,
+        /* 05 */ LocLayer.WALLDECOR,
+        /* 06 */ LocLayer.WALLDECOR,
+        /* 07 */ LocLayer.WALLDECOR,
+        /* 08 */ LocLayer.WALLDECOR,
+        /* 09 */ LocLayer.GROUND,
+        /* 10 */ LocLayer.GROUND,
+        /* 11 */ LocLayer.GROUND,
+        /* 12 */ LocLayer.GROUND,
+        /* 13 */ LocLayer.GROUND,
+        /* 14 */ LocLayer.GROUND,
+        /* 15 */ LocLayer.GROUND,
+        /* 16 */ LocLayer.GROUND,
+        /* 17 */ LocLayer.GROUND,
+        /* 18 */ LocLayer.GROUND,
+        /* 19 */ LocLayer.GROUND,
+        /* 20 */ LocLayer.GROUND,
+        /* 21 */ LocLayer.GROUND,
+        /* 22 */ LocLayer.GROUNDDECOR
+    };
 
     @OriginalMember(owner = "client!jfa", name = "a", descriptor = "(Lclient!gw;I)Z")
     public static boolean readServerMessage(@OriginalArg(0) ServerConnection arg0) throws IOException {
@@ -113,11 +146,11 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (Static133.A_SERVER_PROT___55 == arg0.currentProt) {
-            Static605.method7912(Static3.A_ZONE_PROT___1);
+            method7912(Static3.A_ZONE_PROT___1);
             arg0.currentProt = null;
             return true;
         } else if (ServerProt.A_SERVER_PROT___52 == arg0.currentProt) {
-            Static605.method7912(Static77.A_ZONE_PROT___5);
+            method7912(Static77.A_ZONE_PROT___5);
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___239) {
@@ -128,7 +161,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (Static347.A_SERVER_PROT___146 == arg0.currentProt) {
-            Static605.method7912(Static420.A_ZONE_PROT___13);
+            method7912(Static420.A_ZONE_PROT___13);
             arg0.currentProt = null;
             return true;
         } else if (Static632.A_SERVER_PROT___229 == arg0.currentProt) {
@@ -140,7 +173,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == Static504.A_SERVER_PROT___188) {
-            Static605.method7912(Static565.A_ZONE_PROT___8);
+            method7912(Static565.A_ZONE_PROT___8);
             arg0.currentProt = null;
             return true;
         } else {
@@ -367,7 +400,7 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == Static286.A_SERVER_PROT___117) {
-                                Static605.method7912(Static370.A_ZONE_PROT___11);
+                                method7912(Static370.A_ZONE_PROT___11);
                                 arg0.currentProt = null;
                                 return true;
                             } else if (Static432.A_SERVER_PROT___10 == arg0.currentProt) {
@@ -1027,7 +1060,7 @@ public final class Protocol {
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (Static166.A_SERVER_PROT___63 == arg0.currentProt) {
-                                                    Static605.method7912(Static668.A_ZONE_PROT___16);
+                                                    method7912(Static668.A_ZONE_PROT___16);
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else {
@@ -1086,7 +1119,7 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (ServerProt.SOUND_AREA == arg0.currentProt) {
-                                                        Static605.method7912(Static481.A_ZONE_PROT___15);
+                                                        method7912(Static481.A_ZONE_PROT___15);
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (Static225.A_SERVER_PROT___90 == arg0.currentProt) {
@@ -1108,7 +1141,7 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (Static570.A_SERVER_PROT___208 == arg0.currentProt) {
-                                                        Static605.method7912(Static379.A_ZONE_PROT___12);
+                                                        method7912(Static379.A_ZONE_PROT___12);
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (Static273.A_SERVER_PROT___113 == arg0.currentProt) {
@@ -1180,7 +1213,7 @@ public final class Protocol {
                                                             arg0.currentProt = null;
                                                             return true;
                                                         } else if (arg0.currentProt == Static137.A_SERVER_PROT___56) {
-                                                            Static605.method7912(Static328.A_ZONE_PROT___10);
+                                                            method7912(Static328.A_ZONE_PROT___10);
                                                             arg0.currentProt = null;
                                                             return true;
                                                         } else {
@@ -1532,7 +1565,7 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___219) {
-                                                                    Static605.method7912(Static84.A_ZONE_PROT___6);
+                                                                    method7912(Static84.A_ZONE_PROT___6);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (Static389.aServerProt_157 == arg0.currentProt) {
@@ -1672,7 +1705,7 @@ public final class Protocol {
                                                                         Static270.anInt4354 = bitPacket.g1b() << 3;
                                                                         while (bitPacket.pos < arg0.currentPacketSize) {
                                                                             @Pc(6873) ZoneProt local6873 = Static559.method7419()[bitPacket.g1()];
-                                                                            Static605.method7912(local6873);
+                                                                            method7912(local6873);
                                                                         }
                                                                         arg0.currentProt = null;
                                                                         return true;
@@ -1692,7 +1725,7 @@ public final class Protocol {
                                                                         local2098 = bitPacket.g1_alt3();
                                                                         local992 = local2098 >> 2;
                                                                         local996 = local2098 & 0x3;
-                                                                        local1449 = Static310.anIntArray379[local992];
+                                                                        local1449 = LOC_LAYERS_BY_SHAPE[local992];
                                                                         local1409 -= WorldMap.areaBaseZ;
                                                                         local526 -= WorldMap.areaBaseX;
                                                                         Static198.method2953(local100, local1409, local992, local1413, local526, local996, local1449);
@@ -1775,7 +1808,7 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (arg0.currentProt == Static84.A_SERVER_PROT___36) {
-                                                                        Static605.method7912(Static450.A_ZONE_PROT___14);
+                                                                        method7912(Static450.A_ZONE_PROT___14);
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else {
@@ -1973,7 +2006,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static18.A_SERVER_PROT___7 == arg0.currentProt) {
-                                                                            Static605.method7912(Static18.A_ZONE_PROT___2);
+                                                                            method7912(Static18.A_ZONE_PROT___2);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static207.A_SERVER_PROT___127 == arg0.currentProt) {
@@ -2037,7 +2070,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static464.A_SERVER_PROT___176) {
-                                                                            Static605.method7912(Static210.A_ZONE_PROT___9);
+                                                                            method7912(Static210.A_ZONE_PROT___9);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static269.A_SERVER_PROT___111) {
@@ -2116,7 +2149,7 @@ public final class Protocol {
                                                                             Static87.aClass241Array1 = local8611;
                                                                             return true;
                                                                         } else if (Static722.A_SERVER_PROT___260 == arg0.currentProt) {
-                                                                            Static605.method7912(ZoneProt.MAP_PROJANIM);
+                                                                            method7912(ZoneProt.MAP_PROJANIM);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static215.A_SERVER_PROT___86) {
@@ -2130,7 +2163,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static211.A_SERVER_PROT___143) {
-                                                                            Static605.method7912(Static704.A_ZONE_PROT___17);
+                                                                            method7912(Static704.A_ZONE_PROT___17);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static390.A_SERVER_PROT___158) {
@@ -2223,5 +2256,390 @@ public final class Protocol {
         local22.bitPacket.p2(GameShell.canvasHei);
         local22.bitPacket.p1(ClientOptions.instance.antialiasingQuality.getValue());
         ConnectionManager.GAME.send(local22);
+    }
+
+    @OriginalMember(owner = "client!tba", name = "a", descriptor = "(ILclient!pc;)V")
+    public static void method7912(@OriginalArg(1) ZoneProt arg0) {
+        @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
+        @Pc(15) int local15;
+        @Pc(21) int local21;
+        @Pc(25) int local25;
+        @Pc(34) int local34;
+        @Pc(38) int local38;
+        @Pc(42) int local42;
+        @Pc(46) int local46;
+        @Pc(52) int local52;
+        if (arg0 == Static704.A_ZONE_PROT___17) {
+            local15 = bitPacket.g1();
+            local21 = (local15 & 0x7) + Static270.anInt4354;
+            local25 = WorldMap.areaBaseZ + local21;
+            local34 = Static626.anInt9476 + (local15 >> 4 & 0x7);
+            local38 = WorldMap.areaBaseX + local34;
+            local42 = bitPacket.g2();
+            local46 = bitPacket.g2();
+            local52 = bitPacket.g2();
+            if (Static497.stacks != null) {
+                @Pc(69) ObjStack local69 = (ObjStack) Static497.stacks.get(Static87.anInt1810 << 28 | local25 << 14 | local38);
+                if (local69 != null) {
+                    for (@Pc(77) ObjStackEntry local77 = (ObjStackEntry) local69.objs.first(); local77 != null; local77 = (ObjStackEntry) local69.objs.next()) {
+                        if ((local42 & 0x7FFF) == local77.id && local77.count == local46) {
+                            local77.unlink();
+                            local77.count = local52;
+                            Static2.sortAllObjs(Static87.anInt1810, local25, local38, local77);
+                            break;
+                        }
+                    }
+                    if (local34 >= 0 && local21 >= 0 && Static720.mapWidth > local34 && Static501.mapHeight > local21) {
+                        Static468.updateObjCount(Static87.anInt1810, local21, local34);
+                    }
+                }
+            }
+            return;
+        }
+        @Pc(212) int local212;
+        @Pc(219) int local219;
+        @Pc(290) int local290;
+        @Pc(353) int local353;
+        @Pc(217) int local217;
+        @Pc(322) int local322;
+        if (Static379.A_ZONE_PROT___12 == arg0) {
+            local15 = bitPacket.g1_alt1();
+            local21 = local15 >> 2;
+            local25 = LOC_LAYERS_BY_SHAPE[local21];
+            local34 = bitPacket.g1();
+            local38 = bitPacket.g1_alt3();
+            local42 = Static626.anInt9476 + (local38 >> 4 & 0x7);
+            local46 = (local38 & 0x7) + Static270.anInt4354;
+            local52 = bitPacket.ig2();
+            if (local21 == 11) {
+                local21 = 10;
+            }
+            @Pc(210) LocType local210 = LocTypeList.instance.list(local52);
+            local212 = 0;
+            if (local210.modelShapes != null) {
+                local217 = -1;
+                for (local219 = 0; local219 < local210.modelShapes.length; local219++) {
+                    if (local210.modelShapes[local219] == local21) {
+                        local217 = local219;
+                        break;
+                    }
+                }
+                local212 = local210.models[local217].length;
+            }
+            local217 = 0;
+            if (local210.recol_d != null) {
+                local217 = local210.recol_d.length;
+            }
+            local219 = 0;
+            if (local210.retex_d != null) {
+                local219 = local210.retex_d.length;
+            }
+            if ((local34 & 0x1) == 1) {
+                Static296.method4361(null, Static87.anInt1810, local25, local42, local46);
+            } else {
+                @Pc(278) int[] local278 = null;
+                if ((local34 & 0x2) == 2) {
+                    local278 = new int[local212];
+                    for (local290 = 0; local290 < local212; local290++) {
+                        local278[local290] = bitPacket.g2();
+                    }
+                }
+                @Pc(310) short[] local310 = null;
+                if ((local34 & 0x4) == 4) {
+                    local310 = new short[local217];
+                    for (local322 = 0; local322 < local217; local322++) {
+                        local310[local322] = (short) bitPacket.g2();
+                    }
+                }
+                @Pc(343) short[] local343 = null;
+                if ((local34 & 0x8) == 8) {
+                    local343 = new short[local219];
+                    for (local353 = 0; local353 < local219; local353++) {
+                        local343[local353] = (short) bitPacket.g2();
+                    }
+                }
+                Static296.method4361(new LocTypeCustomisation(Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
+            }
+        } else if (arg0 == Static420.A_ZONE_PROT___13) {
+            local15 = bitPacket.g2_alt3();
+            if (local15 == 65535) {
+                local15 = -1;
+            }
+            local21 = bitPacket.g1_alt1();
+            local25 = Static626.anInt9476 + (local21 >> 4 & 0x7);
+            local34 = (local21 & 0x7) + Static270.anInt4354;
+            local38 = bitPacket.g1();
+            local42 = local38 >> 2;
+            local46 = local38 & 0x3;
+            local52 = LOC_LAYERS_BY_SHAPE[local42];
+            Static198.method2953(Static87.anInt1810, local34, local42, local15, local25, local46, local52);
+        } else if (arg0 == Static328.A_ZONE_PROT___10) {
+            local15 = bitPacket.g2();
+            local21 = bitPacket.g1();
+            LocTypeList.instance.list(local15).loadedModels(local21);
+        } else {
+            @Pc(537) int local537;
+            if (arg0 == Static481.A_ZONE_PROT___15) {
+                local15 = bitPacket.g1();
+                local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
+                local25 = (local15 & 0x7) + Static270.anInt4354;
+                local34 = bitPacket.g2();
+                if (local34 == 65535) {
+                    local34 = -1;
+                }
+                local38 = bitPacket.g1();
+                local42 = local38 >> 4 & 0xF;
+                local46 = local38 & 0x7;
+                local52 = bitPacket.g1();
+                local537 = bitPacket.g1();
+                local212 = bitPacket.g2();
+                if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
+                    local217 = local42 + 1;
+                    if (local21 - local217 <= PlayerEntity.self.pathX[0] && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathZ[0] >= local25 - local217 && local217 + local25 >= PlayerEntity.self.pathZ[0]) {
+                        Static165.method2608(local537, local52, local34, local46, local212, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16));
+                    }
+                }
+            } else if (arg0 == Static450.A_ZONE_PROT___14) {
+                local15 = bitPacket.g1();
+                local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
+                local25 = (local15 & 0x7) + Static270.anInt4354;
+                local34 = bitPacket.g1();
+                local38 = local34 >> 2;
+                local42 = local34 & 0x3;
+                local46 = LOC_LAYERS_BY_SHAPE[local38];
+                local52 = bitPacket.g2_alt2();
+                if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
+                    Static553.method7289(local42, local52, local46, local21, Static87.anInt1810, local38, local25);
+                }
+            } else {
+                @Pc(812) int local812;
+                if (arg0 == Static3.A_ZONE_PROT___1) {
+                    local15 = bitPacket.g1();
+                    local21 = Static626.anInt9476 * 2 + (local15 >> 4 & 0xF);
+                    local25 = (local15 & 0xF) + Static270.anInt4354 * 2;
+                    local34 = bitPacket.g1();
+                    @Pc(764) boolean local764 = (local34 & 0x1) != 0;
+                    @Pc(773) boolean local773 = (local34 & 0x2) != 0;
+                    local46 = local773 ? local34 >> 2 : -1;
+                    local52 = bitPacket.g1b() + local21;
+                    local537 = local25 + bitPacket.g1b();
+                    local212 = bitPacket.g2s();
+                    local217 = bitPacket.g2s();
+                    local219 = bitPacket.g2();
+                    local812 = bitPacket.g1();
+                    if (local773) {
+                        local812 = (byte) local812;
+                    } else {
+                        local812 *= 4;
+                    }
+                    local290 = bitPacket.g1() * 4;
+                    local322 = bitPacket.g2();
+                    local353 = bitPacket.g2();
+                    @Pc(843) int local843 = bitPacket.g1();
+                    @Pc(847) int local847 = bitPacket.g2();
+                    if (local843 == 255) {
+                        local843 = -1;
+                    }
+                    if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth * 2 && local25 < Static720.mapWidth * 2 && local52 >= 0 && local537 >= 0 && Static501.mapHeight * 2 > local52 && Static501.mapHeight * 2 > local537 && local219 != 65535) {
+                        local52 = local52 * 256;
+                        local847 <<= 0x2;
+                        local25 = local25 * 256;
+                        local537 *= 256;
+                        local812 <<= 0x2;
+                        local290 <<= 0x2;
+                        local21 *= 256;
+                        if (local212 != 0 && local46 != -1) {
+                            @Pc(948) PathingEntity local948 = null;
+                            @Pc(957) int local957;
+                            if (local212 >= 0) {
+                                local957 = local212 - 1;
+                                @Pc(964) NPCEntityNode local964 = (NPCEntityNode) NPCList.local.get(local957);
+                                if (local964 != null) {
+                                    local948 = local964.npc;
+                                }
+                            } else {
+                                local957 = -local212 - 1;
+                                if (local957 == PlayerList.activePlayerSlot) {
+                                    local948 = PlayerEntity.self;
+                                } else {
+                                    local948 = PlayerList.highResolutionPlayers[local957];
+                                }
+                            }
+                            if (local948 != null) {
+                                @Pc(991) BASType local991 = local948.getBASType();
+                                if (local991.wornTransformations != null && local991.wornTransformations[local46] != null) {
+                                    local812 -= local991.wornTransformations[local46][1];
+                                }
+                                if (local991.graphicOffsets != null && local991.graphicOffsets[local46] != null) {
+                                    local812 -= local991.graphicOffsets[local46][1];
+                                }
+                            }
+                        }
+                        @Pc(1053) ProjectileAnimation local1053 = new ProjectileAnimation(local219, Static87.anInt1810, Static87.anInt1810, local21, local25, local812, local322 + TimeUtils.clock, TimeUtils.clock + local353, local843, local847, local212, local217, local290, local764, local46);
+                        local1053.target(Static102.averageHeight(Static87.anInt1810, -29754, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
+                        Static505.projectiles.addLast(new ProjectileAnimationNode(local1053));
+                    }
+                } else if (Static77.A_ZONE_PROT___5 == arg0) {
+                    local15 = bitPacket.g2_alt2();
+                    local21 = bitPacket.g1_alt1();
+                    local25 = Static270.anInt4354 + (local21 & 0x7);
+                    local34 = local25 + WorldMap.areaBaseZ;
+                    local38 = Static626.anInt9476 + (local21 >> 4 & 0x7);
+                    local42 = WorldMap.areaBaseX + local38;
+                    local46 = bitPacket.ig2();
+                    local52 = bitPacket.g2();
+                    if (local15 != PlayerList.activePlayerSlot) {
+                        @Pc(1151) boolean local1151 = local38 >= 0 && local25 >= 0 && Static720.mapWidth > local38 && local25 < Static501.mapHeight;
+                        if (local1151 || Static55.method1218(Static117.areaMode)) {
+                            Static2.sortAllObjs(Static87.anInt1810, local34, local42, new ObjStackEntry(local46, local52));
+                            if (local1151) {
+                                Static468.updateObjCount(Static87.anInt1810, local25, local38);
+                            }
+                        }
+                    }
+                } else if (Static84.A_ZONE_PROT___6 == arg0) {
+                    local15 = bitPacket.g1();
+                    local21 = (local15 >> 4 & 0x7) + Static626.anInt9476;
+                    local25 = (local15 & 0x7) + Static270.anInt4354;
+                    local34 = bitPacket.g2();
+                    if (local34 == 65535) {
+                        local34 = -1;
+                    }
+                    local38 = bitPacket.g1();
+                    local42 = local38 >> 4 & 0xF;
+                    local46 = local38 & 0x7;
+                    local52 = bitPacket.g1();
+                    local537 = bitPacket.g1();
+                    local212 = bitPacket.g2();
+                    if (local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
+                        local217 = local42 + 1;
+                        if (PlayerEntity.self.pathX[0] >= local21 - local217 && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathZ[0] >= local25 - local217 && PlayerEntity.self.pathZ[0] <= local25 + local217) {
+                            Static179.method2770(local46, local52, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16), local212, local537, local34);
+                        }
+                    }
+                } else if (arg0 == Static565.A_ZONE_PROT___8) {
+                    local15 = bitPacket.g2();
+                    local21 = bitPacket.g1();
+                    local25 = (local21 & 0x7) + Static270.anInt4354;
+                    local34 = local25 + WorldMap.areaBaseZ;
+                    local38 = (local21 >> 4 & 0x7) + Static626.anInt9476;
+                    local42 = local38 + WorldMap.areaBaseX;
+                    @Pc(1389) ObjStack local1389 = (ObjStack) Static497.stacks.get(local34 << 14 | Static87.anInt1810 << 28 | local42);
+                    if (local1389 != null) {
+                        for (@Pc(1399) ObjStackEntry local1399 = (ObjStackEntry) local1389.objs.first(); local1399 != null; local1399 = (ObjStackEntry) local1389.objs.next()) {
+                            if (local1399.id == (local15 & 0x7FFF)) {
+                                local1399.unlink();
+                                break;
+                            }
+                        }
+                        if (local1389.objs.isEmpty()) {
+                            local1389.unlink();
+                        }
+                        if (local38 >= 0 && local25 >= 0 && local38 < Static720.mapWidth && local25 < Static501.mapHeight) {
+                            Static468.updateObjCount(Static87.anInt1810, local25, local38);
+                        }
+                    }
+                } else if (Static370.A_ZONE_PROT___11 == arg0) {
+                    bitPacket.g1();
+                    local15 = bitPacket.g1();
+                    local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
+                    local25 = (local15 & 0x7) + Static270.anInt4354;
+                    local34 = bitPacket.g2();
+                    local38 = bitPacket.g1();
+                    local42 = bitPacket.g3();
+                    @Pc(1511) String local1511 = bitPacket.gjstr();
+                    Static540.method6539(Static87.anInt1810, local34, local1511, local42, local38, local21, local25);
+                } else if (ZoneProt.MAP_PROJANIM == arg0) {
+                    local15 = bitPacket.g1();
+                    @Pc(1540) boolean local1540 = (local15 & 0x80) != 0;
+                    local25 = Static626.anInt9476 + (local15 >> 3 & 0x7);
+                    local34 = (local15 & 0x7) + Static270.anInt4354;
+                    local38 = local25 + bitPacket.g1b();
+                    local42 = local34 + bitPacket.g1b();
+                    local46 = bitPacket.g2s();
+                    local52 = bitPacket.g2();
+                    local537 = bitPacket.g1() * 4;
+                    local212 = bitPacket.g1() * 4;
+                    local217 = bitPacket.g2();
+                    local219 = bitPacket.g2();
+                    local812 = bitPacket.g1();
+                    local290 = bitPacket.g2();
+                    if (local812 == 255) {
+                        local812 = -1;
+                    }
+                    if (local25 >= 0 && local34 >= 0 && Static720.mapWidth > local25 && local34 < Static501.mapHeight && local38 >= 0 && local42 >= 0 && Static720.mapWidth > local38 && local42 < Static501.mapHeight && local52 != 65535) {
+                        local42 = local42 * 512 + 256;
+                        local290 <<= 0x2;
+                        local537 <<= 0x2;
+                        local25 = local25 * 512 + 256;
+                        local212 <<= 0x2;
+                        local38 = local38 * 512 + 256;
+                        local34 = local34 * 512 + 256;
+                        @Pc(1728) ProjectileAnimation projectile = new ProjectileAnimation(local52, Static87.anInt1810, Static87.anInt1810, local25, local34, local537, local217 + TimeUtils.clock, local219 + TimeUtils.clock, local812, local290, 0, local46, local212, local1540, -1);
+                        projectile.target(Static102.averageHeight(Static87.anInt1810, -29754, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
+                        Static505.projectiles.addLast(new ProjectileAnimationNode(projectile));
+                    }
+                } else if (Static210.A_ZONE_PROT___9 == arg0) {
+                    local15 = bitPacket.g1_alt2();
+                    local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
+                    local25 = (local15 & 0x7) + Static270.anInt4354;
+                    local34 = bitPacket.g1();
+                    local38 = local34 >> 2;
+                    local42 = local34 & 0x3;
+                    local46 = LOC_LAYERS_BY_SHAPE[local38];
+                    if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && local25 < Static501.mapHeight) {
+                        Static553.method7289(local42, -1, local46, local21, Static87.anInt1810, local38, local25);
+                    }
+                } else if (Static18.A_ZONE_PROT___2 == arg0) {
+                    local15 = bitPacket.g1_alt2();
+                    local21 = Static270.anInt4354 + (local15 & 0x7);
+                    local25 = local21 + WorldMap.areaBaseZ;
+                    local34 = (local15 >> 4 & 0x7) + Static626.anInt9476;
+                    local38 = WorldMap.areaBaseX + local34;
+                    local42 = bitPacket.g2_alt2();
+                    local46 = bitPacket.g2();
+                    @Pc(1886) boolean local1886 = local34 >= 0 && local21 >= 0 && local34 < Static720.mapWidth && local21 < Static501.mapHeight;
+                    if (local1886 || Static55.method1218(Static117.areaMode)) {
+                        Static2.sortAllObjs(Static87.anInt1810, local25, local38, new ObjStackEntry(local42, local46));
+                        if (local1886) {
+                            Static468.updateObjCount(Static87.anInt1810, local21, local34);
+                        }
+                    }
+                } else if (arg0 == Static668.A_ZONE_PROT___16) {
+                    local15 = bitPacket.g1();
+                    local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
+                    local25 = (local15 & 0x7) + Static270.anInt4354;
+                    local34 = bitPacket.g2();
+                    if (local34 == 65535) {
+                        local34 = -1;
+                    }
+                    local38 = bitPacket.g1();
+                    local42 = bitPacket.g2();
+                    local46 = bitPacket.g1();
+                    if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
+                        if (local34 == -1) {
+                            @Pc(2004) SpotAnimationNode local2004 = (SpotAnimationNode) Static346.A_HASH_TABLE___29.get(local21 << 16 | local25);
+                            if (local2004 != null) {
+                                local2004.spotAnimation.runParticleSystem();
+                                local2004.unlink();
+                                return;
+                            }
+                        } else {
+                            local52 = local21 * 512 + 256;
+                            local537 = local25 * 512 + 256;
+                            local212 = Static87.anInt1810;
+                            if (local212 < 3 && Static441.isBridgeAt(local25, local21)) {
+                                local212++;
+                            }
+                            @Pc(2065) SpotAnimation local2065 = new SpotAnimation(local34, local42, Static87.anInt1810, local212, local52, Static102.averageHeight(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
+                            Static346.A_HASH_TABLE___29.put(local21 << 16 | local25, new SpotAnimationNode(local2065));
+                        }
+                    }
+                } else {
+                    JagException.sendTrace(null, "T3 - " + arg0);
+                    Login.logout(false);
+                }
+            }
+        }
     }
 }

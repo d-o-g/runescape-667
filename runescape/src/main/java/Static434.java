@@ -1,4 +1,5 @@
 import com.jagex.core.constants.AreaMode;
+import com.jagex.game.collision.CollisionMap;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

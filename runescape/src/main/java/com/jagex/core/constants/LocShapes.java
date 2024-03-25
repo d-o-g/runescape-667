@@ -4,37 +4,17 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class LocShapes {
+    @OriginalMember(owner = "client!pf", name = "q", descriptor = "[I")
+    public static final int[] WALLDECOR_STRAIGHT_XOFFSET = {1, 0, -1, 0};
 
-	public static int[] WALLDECOR_DIAGONAL_ZOFFSET = { -1, -1, +1, +1 };
-	public static int[] WALLDECOR_DIAGONAL_XOFFSET = { +1, -1, -1, +1 };
-	public static int[] WALLDECOR_STRAIGHT_ZOFFSET = { +0, -1, +0, +1 };
-	public static int[] WALLDECOR_STRAIGHT_XOFFSET = { +1, +0, -1, +0 };
+    @OriginalMember(owner = "client!tea", name = "g", descriptor = "[I")
+    public static final int[] WALLDECOR_STRAIGHT_ZOFFSET = {0, -1, 0, 1};
 
-	public static int[] LAYERS_BY_SHAPE = {
-		/* 00 */ LocLayer.WALL,
-		/* 01 */ LocLayer.WALL,
-		/* 02 */ LocLayer.WALL,
-		/* 03 */ LocLayer.WALL,
-		/* 04 */ LocLayer.WALLDECOR,
-		/* 05 */ LocLayer.WALLDECOR,
-		/* 06 */ LocLayer.WALLDECOR,
-		/* 07 */ LocLayer.WALLDECOR,
-		/* 08 */ LocLayer.WALLDECOR,
-		/* 09 */ LocLayer.GROUND,
-		/* 10 */ LocLayer.GROUND,
-		/* 11 */ LocLayer.GROUND,
-		/* 12 */ LocLayer.GROUND,
-		/* 13 */ LocLayer.GROUND,
-		/* 14 */ LocLayer.GROUND,
-		/* 15 */ LocLayer.GROUND,
-		/* 16 */ LocLayer.GROUND,
-		/* 17 */ LocLayer.GROUND,
-		/* 18 */ LocLayer.GROUND,
-		/* 19 */ LocLayer.GROUND,
-		/* 20 */ LocLayer.GROUND,
-		/* 21 */ LocLayer.GROUND,
-		/* 22 */ LocLayer.GROUNDDECOR
-	};
+    @OriginalMember(owner = "client!mr", name = "e", descriptor = "[I")
+    public static final int[] WALLDECOR_DIAGONAL_XOFFSET = {1, -1, -1, 1};
+
+    @OriginalMember(owner = "client!uba", name = "e", descriptor = "[I")
+    public static final int[] WALLDECOR_DIAGONAL_ZOFFSET = {-1, -1, 1, 1};
 
 	public static final int WALL_STRAIGHT = 0;
 	public static final int WALL_DIAGONALCORNER = 1;

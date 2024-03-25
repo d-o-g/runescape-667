@@ -10,9 +10,6 @@ public final class Static485 {
     @OriginalMember(owner = "client!pf", name = "C", descriptor = "[I")
     public static int[] anIntArray886;
 
-    @OriginalMember(owner = "client!pf", name = "q", descriptor = "[I")
-    public static final int[] anIntArray887 = new int[]{1, 0, -1, 0};
-
     @OriginalMember(owner = "client!pf", name = "x", descriptor = "[I")
     public static final int[] anIntArray888 = new int[3];
 

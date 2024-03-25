@@ -1,105 +1,60 @@
+package com.jagex.game.collision;
+
 import com.jagex.core.constants.LocShapes;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
+import static com.jagex.game.collision.CollisionFlag.BLOCK_WALK;
+import static com.jagex.game.collision.CollisionFlag.DIRECTION_EAST;
+import static com.jagex.game.collision.CollisionFlag.DIRECTION_NORTH;
+import static com.jagex.game.collision.CollisionFlag.DIRECTION_SOUTH;
+import static com.jagex.game.collision.CollisionFlag.DIRECTION_WEST;
+import static com.jagex.game.collision.CollisionFlag.GROUND_DECOR;
+import static com.jagex.game.collision.CollisionFlag.LOCATION;
+import static com.jagex.game.collision.CollisionFlag.LOCATION_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.LOCATION_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL;
+import static com.jagex.game.collision.CollisionFlag.WALL_EAST;
+import static com.jagex.game.collision.CollisionFlag.WALL_EAST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_EAST;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_EAST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_WEST;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_WEST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_WEST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_EAST;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_EAST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_WEST;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_WEST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_WEST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_EAST;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_EAST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_WEST;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_WEST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_WEST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_EAST;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_EAST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_WEST;
+import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCK_RANGED;
+import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCK_ROUTE;
+
 @OriginalClass("client!eq")
 public final class CollisionMap {
-
-    public static final int WALL_NORTH_WEST = 0x1;
-
-    public static final int WALL_NORTH = 0x2;
-
-    public static final int WALL_NORTH_EAST = 0x4;
-
-    public static final int WALL_EAST = 0x8;
-
-    public static final int WALL_SOUTH_EAST = 0x10;
-
-    public static final int WALL_SOUTH = 0x20;
-
-    public static final int WALL_SOUTH_WEST = 0x40;
-
-    public static final int WALL_WEST = 0x80;
-
-    public static final int DIRECTION_EAST = 0x2;
-
-    public static final int DIRECTION_WEST = 0x8;
-
-    public static final int DIRECTION_NORTH = 0x1;
-
-    public static final int DIRECTION_SOUTH = 0x4;
-
-    public static final int LOCATION = 0x100;
-
-    public static final int WALL_NORTH_WEST_BLOCK_RANGED = 0x200;
-
-    public static final int WALL_NORTH_BLOCK_RANGED = 0x400;
-
-    public static final int WALL_NORTH_EAST_BLOCK_RANGED = 0x800;
-
-    public static final int WALL_EAST_BLOCK_RANGED = 0x1000;
-
-    public static final int WALL_SOUTH_EAST_BLOCK_RANGED = 0x2000;
-
-    public static final int WALL_SOUTH_BLOCK_RANGED = 0x4000;
-
-    public static final int WALL_SOUTH_WEST_BLOCK_RANGED = 0x8000;
-
-    public static final int WALL_WEST_BLOCK_RANGED = 0x10000;
-
-    public static final int LOCATION_BLOCK_RANGED = 0x20000;
-
-    public static final int GROUND_DECOR = 0x40000;
-
-    public static final int UNKNOWN = 0x80000;
-
-    public static final int BLOCK_WALK = 0x200000;
-
-    public static final int WALL_NORTH_WEST_BLOCK_ROUTE = 0x400000;
-
-    public static final int WALL_NORTH_BLOCK_ROUTE = 0x800000;
-
-    public static final int WALL_NORTH_EAST_BLOCK_ROUTE = 0x1000000;
-
-    public static final int WALL_EAST_BLOCK_ROUTE = 0x2000000;
-
-    public static final int WALL_SOUTH_EAST_BLOCK_ROUTE = 0x4000000;
-
-    public static final int WALL_SOUTH_BLOCK_ROUTE = 0x8000000;
-
-    public static final int WALL_SOUTH_WEST_BLOCK_ROUTE = 0x10000000;
-
-    public static final int WALL_WEST_BLOCK_ROUTE = 0x20000000;
-
-    public static final int LOCATION_BLOCK_ROUTE = 0x40000000;
-
-    public static final int WALL_NORTH_AND_EAST = WALL_NORTH | WALL_EAST;
-
-    public static final int WALL_NORTH_AND_WEST = WALL_NORTH | WALL_WEST;
-
-    public static final int WALL_SOUTH_AND_EAST = WALL_SOUTH | WALL_EAST;
-
-    public static final int WALL_SOUTH_AND_WEST = WALL_SOUTH | WALL_WEST;
-
-    public static final int WALL_NORTH_AND_EAST_BLOCK_ROUTE = WALL_NORTH_BLOCK_ROUTE | WALL_EAST_BLOCK_ROUTE;
-
-    public static final int WALL_NORTH_AND_WEST_BLOCK_ROUTE = WALL_NORTH_BLOCK_ROUTE | WALL_WEST_BLOCK_ROUTE;
-
-    public static final int WALL_SOUTH_AND_EAST_BLOCK_ROUTE = WALL_SOUTH_BLOCK_ROUTE | WALL_EAST_BLOCK_ROUTE;
-
-    public static final int WALL_SOUTH_AND_WEST_BLOCK_ROUTE = WALL_SOUTH_BLOCK_ROUTE | WALL_WEST_BLOCK_ROUTE;
-
-    public static final int WALL_NORTH_AND_EAST_BLOCK_RANGED = WALL_NORTH_BLOCK_RANGED | WALL_EAST_BLOCK_RANGED;
-
-    public static final int WALL_NORTH_AND_WEST_BLOCK_RANGED = WALL_NORTH_BLOCK_RANGED | WALL_WEST_BLOCK_RANGED;
-
-    public static final int WALL_SOUTH_AND_EAST_BLOCK_RANGED = WALL_SOUTH_BLOCK_RANGED | WALL_EAST_BLOCK_RANGED;
-
-    public static final int WALL_SOUTH_AND_WEST_BLOCK_RANGED = WALL_SOUTH_BLOCK_RANGED | WALL_WEST_BLOCK_RANGED;
-
-    public static final int WALL = BLOCK_WALK | UNKNOWN | GROUND_DECOR | LOCATION;
 
     @OriginalMember(owner = "client!eq", name = "p", descriptor = "I")
     public int width;
@@ -860,7 +815,7 @@ public final class CollisionMap {
                     if (x1 == destX1 - size && z1 <= destZ1 && z2 >= destZ1) {
                         return true;
                     }
-                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] &  (WALL | WALL_SOUTH)) == 0) {
+                    if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 + 1 && (this.flags[destX1][z1] & (WALL | WALL_SOUTH)) == 0) {
                         return true;
                     }
                     if (x1 <= destX1 && x2 >= destX1 && z1 == destZ1 - size && (this.flags[destX1][z2] & (WALL | WALL_NORTH)) == 0) {
@@ -972,7 +927,7 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(III)V")
-    public void flagBlockWalk(@OriginalArg(0) int z, @OriginalArg(1) int x) {
+    public void flagBlocked(@OriginalArg(0) int z, @OriginalArg(1) int x) {
         @Pc(15) int x1 = x - this.x;
         @Pc(20) int z1 = z - this.z;
         this.flags[x1][z1] |= BLOCK_WALK;
@@ -992,7 +947,7 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(ZZBIIIII)V")
-    public void unflagRect(@OriginalArg(3) int x, @OriginalArg(7) int z, @OriginalArg(4) int width, @OriginalArg(5) int height, @OriginalArg(6) int rotation, @OriginalArg(0) boolean blockRanged, @OriginalArg(1) boolean blockRoute) {
+    public void unflagLoc(@OriginalArg(3) int x, @OriginalArg(7) int z, @OriginalArg(4) int width, @OriginalArg(5) int height, @OriginalArg(6) int rotation, @OriginalArg(0) boolean blockRanged, @OriginalArg(1) boolean blockRoute) {
         @Pc(7) int flags = LOCATION;
         if (blockRanged) {
             flags |= LOCATION_BLOCK_RANGED;
@@ -1021,7 +976,7 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "c", descriptor = "(III)V")
-    public void unflagTile(@OriginalArg(1) int x, @OriginalArg(0) int z) {
+    public void unflagBlocked(@OriginalArg(1) int x, @OriginalArg(0) int z) {
         @Pc(11) int z1 = z - this.z;
         @Pc(20) int x1 = x - this.x;
         this.flags[x1][z1] &= ~BLOCK_WALK;
@@ -1040,7 +995,7 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIIZIZ)V")
-    public void flagRect(@OriginalArg(0) int x, @OriginalArg(3) int z, @OriginalArg(5) int width, @OriginalArg(1) int height, @OriginalArg(6) boolean blockRanged, @OriginalArg(4) boolean blockRoute) {
+    public void flagLoc(@OriginalArg(0) int x, @OriginalArg(3) int z, @OriginalArg(5) int width, @OriginalArg(1) int height, @OriginalArg(6) boolean blockRanged, @OriginalArg(4) boolean blockRoute) {
         @Pc(5) int flags = LOCATION;
         if (blockRanged) {
             flags |= LOCATION_BLOCK_RANGED;

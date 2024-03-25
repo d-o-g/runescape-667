@@ -12,6 +12,4 @@ public final class Static636 {
     @OriginalMember(owner = "client!uba", name = "c", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___230 = new ServerProt(93, 6);
 
-    @OriginalMember(owner = "client!uba", name = "e", descriptor = "[I")
-    public static final int[] anIntArray742 = new int[]{-1, -1, 1, 1};
 }

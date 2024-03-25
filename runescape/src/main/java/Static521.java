@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.Deque;
+import com.jagex.game.collision.CollisionMap;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

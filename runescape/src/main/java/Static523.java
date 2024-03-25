@@ -2,6 +2,7 @@ import com.jagex.SignLink;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
 import com.jagex.game.SimpleFillerDecoder;
+import com.jagex.game.collision.CollisionMap;
 import com.jagex.game.compression.huffman.Huffman;
 import com.jagex.game.compression.huffman.WordPack;
 import com.jagex.game.runetek6.config.cursortype.CursorTypeList;

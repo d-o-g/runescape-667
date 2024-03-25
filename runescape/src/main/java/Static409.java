@@ -1,3 +1,4 @@
+import com.jagex.core.constants.LocShapes;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -77,8 +78,8 @@ public final class Static409 {
                                             @Pc(347) Location local347 = (Location) local341;
                                             local351 = local347.getShape();
                                             @Pc(355) int local355 = local347.getRotation();
-                                            if (local351 == 21) {
-                                                local351 = 19;
+                                            if (local351 == LocShapes.ROOFEDGE_SQUARECORNER) {
+                                                local351 = LocShapes.ROOFEDGE_DIAGONALCORNER;
                                             }
                                             @Pc(368) int local368 = local351 | local355 << 6;
                                             if (local368 == local86 || local94 != 0 && local94 == local368 || local108 != 0 && local368 == local108) {

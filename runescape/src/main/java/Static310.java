@@ -7,8 +7,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static310 {
 
-    @OriginalMember(owner = "client!jr", name = "I", descriptor = "[I")
-    public static final int[] anIntArray379 = new int[]{0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3};
 
     @OriginalMember(owner = "client!jr", name = "a", descriptor = "([II[I[ILclient!cg;)V")
     public static void animateWorn(@OriginalArg(0) int[] slots, @OriginalArg(2) int[] animations, @OriginalArg(3) int[] delays, @OriginalArg(4) PathingEntity entity) {

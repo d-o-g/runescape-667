@@ -1,3 +1,4 @@
+import com.jagex.game.collision.CollisionMap;
 import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

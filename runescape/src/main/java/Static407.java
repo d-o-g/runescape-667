@@ -11,9 +11,6 @@ public final class Static407 {
     @OriginalMember(owner = "client!mr", name = "f", descriptor = "I")
     public static int anInt6286;
 
-    @OriginalMember(owner = "client!mr", name = "e", descriptor = "[I")
-    public static final int[] anIntArray489 = new int[]{1, -1, -1, 1};
-
     @OriginalMember(owner = "client!mr", name = "a", descriptor = "(III)Z")
     public static boolean method5627(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return false;

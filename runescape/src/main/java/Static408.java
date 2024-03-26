@@ -10,7 +10,7 @@ public final class Static408 {
 
     @OriginalMember(owner = "client!ms", name = "a", descriptor = "(I)V")
     public static void method5632() {
-        client.aClient1.method1634();
+        client.aClient1.load_jagmisc();
         Static524.aServerConnection_3.clear();
         Static524.aServerConnection_3.anInt3646 = 0;
         Static249.anInt4008 = 0;

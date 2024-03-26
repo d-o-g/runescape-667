@@ -27,7 +27,7 @@ public final class Static460 {
                 return 1;
             }
             if (!((LibraryLoader) LoadingRequirement.NL_JACLIB.getLoader()).isDone()) {
-                client.aClient1.loadJaclib();
+                client.aClient1.load_jaclib();
             }
             Static213.anInt3470 = 1;
         }
@@ -98,10 +98,10 @@ public final class Static460 {
         }
         if (local348) {
             if (!((LibraryLoader) LoadingRequirement.NL_JAGMISC.getLoader()).isDone()) {
-                client.aClient1.method1634();
+                client.aClient1.load_jagmisc();
             }
             if (!((LibraryLoader) LoadingRequirement.NL_JAGTHEORA.getLoader()).isDone()) {
-                Static234.loadedJagtheora = client.aClient1.method1651();
+                Static234.loadedJagtheora = client.aClient1.load_jagtheora();
             }
             Static522.aLoadingRequirementArray1 = null;
         }

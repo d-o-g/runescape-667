@@ -85,7 +85,7 @@ public final class client extends GameShell {
     public static client aClient1;
 
     @OriginalMember(owner = "client!fha", name = "c", descriptor = "Ljava/awt/datatransfer/Clipboard;")
-    public static Clipboard aClipboard1;
+    public static Clipboard clipboard;
 
     @OriginalMember(owner = "client!client", name = "main", descriptor = "([Ljava/lang/String;)V")
     public static void main(@OriginalArg(0) String[] arg0) {
@@ -1463,14 +1463,14 @@ public final class client extends GameShell {
 
     @OriginalMember(owner = "client!client", name = "h", descriptor = "(I)V")
     @Override
-    protected void method1647() {
+    protected void maininit() {
         if (Client.force64mb) {
             GameShell.maxmemory = 64;
         }
 
-        @Pc(18) Frame local18 = new Frame("Jagex");
-        local18.pack();
-        local18.dispose();
+        @Pc(18) Frame frame = new Frame("Jagex");
+        frame.pack();
+        frame.dispose();
 
         Static712.method9329((byte) 11);
         Static66.aCachedResourceWorker_1 = new CachedResourceWorker(GameShell.signLink);
@@ -1508,7 +1508,7 @@ public final class client extends GameShell {
         }
 
         try {
-            aClipboard1 = aClient1.getToolkit().getSystemClipboard();
+            clipboard = aClient1.getToolkit().getSystemClipboard();
         } catch (@Pc(183) Exception ignored) {
             /* empty */
         }

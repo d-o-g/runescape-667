@@ -102,19 +102,19 @@ public final class Static668 {
             if (local151 == 80) {
                 Static270.method3920(true);
             } else if (local151 == 66 && (local159 & 0x4) != 0) {
-                if (client.aClipboard1 != null) {
+                if (client.clipboard != null) {
                     @Pc(467) String local467 = "";
                     for (@Pc(472) int local472 = debugconsole.lines.length - 1; local472 >= 0; local472--) {
                         if (debugconsole.lines[local472] != null && debugconsole.lines[local472].length() > 0) {
                             local467 = local467 + debugconsole.lines[local472] + '\n';
                         }
                     }
-                    client.aClipboard1.setContents(new StringSelection(local467), null);
+                    client.clipboard.setContents(new StringSelection(local467), null);
                 }
             } else if (local151 == 67 && (local159 & 0x4) != 0) {
-                if (client.aClipboard1 != null) {
+                if (client.clipboard != null) {
                     try {
-                        @Pc(207) Transferable local207 = client.aClipboard1.getContents(null);
+                        @Pc(207) Transferable local207 = client.clipboard.getContents(null);
                         if (local207 != null) {
                             @Pc(214) String local214 = (String) local207.getTransferData(DataFlavor.stringFlavor);
                             if (local214 != null) {

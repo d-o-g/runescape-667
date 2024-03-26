@@ -4628,8 +4628,8 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5432) {
                         local95 = "";
-                        if (client.aClipboard1 != null) {
-                            @Pc(4173) Transferable local4173 = client.aClipboard1.getContents(null);
+                        if (client.clipboard != null) {
+                            @Pc(4173) Transferable local4173 = client.clipboard.getContents(null);
                             if (local4173 != null) {
                                 try {
                                     local95 = (String) local4173.getTransferData(DataFlavor.stringFlavor);

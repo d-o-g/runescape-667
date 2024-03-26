@@ -24,7 +24,7 @@ public final class Static709 {
     @OriginalMember(owner = "client!wh", name = "g", descriptor = "(I)V")
     public static void method9252() {
         if (Static655.aLoadStateArray1 == null) {
-            Static655.aLoadStateArray1 = LoadState.method2955();
+            Static655.aLoadStateArray1 = LoadState.values();
             Static473.aLoadState_22 = Static655.aLoadStateArray1[0];
             Static72.aLong52 = SystemTimer.safetime();
         }

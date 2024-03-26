@@ -50,6 +50,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.channel.ClanChannel;
 import rs2.client.clan.settings.ClanSettings;
 import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseMonitor;
@@ -76,7 +77,7 @@ public final class ScriptRunner {
     public static Class21 aClass21_1;
 
     @OriginalMember(owner = "client!ou", name = "z", descriptor = "Lclient!rfa;")
-    public static Node_Sub47 aClass2_Sub47_2;
+    public static ClanChannel aClass2_Sub47_2;
 
     @OriginalMember(owner = "client!ou", name = "G", descriptor = "Lclient!hi;")
     public static ClanSettings aClanSettings_7;
@@ -2417,30 +2418,30 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3753) {
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.aByte127;
+                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.kickRank;
                                             return;
                                         }
                                         if (arg0 == 3754) {
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.aByte128;
+                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.talkRank;
                                             return;
                                         }
                                         if (arg0 == 3755) {
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.anInt8286;
+                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.userCount;
                                             return;
                                         }
                                         if (arg0 == 3756) {
                                             local15 = anIntArray578[--anInt7142];
-                                            aStringArray37[anInt7139++] = aClass2_Sub47_2.aClass34Array1[local15].aString2;
+                                            aStringArray37[anInt7139++] = aClass2_Sub47_2.users[local15].displayName;
                                             return;
                                         }
                                         if (arg0 == 3757) {
                                             local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.aClass34Array1[local15].aByte9;
+                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.users[local15].rank;
                                             return;
                                         }
                                         if (arg0 == 3758) {
                                             local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.aClass34Array1[local15].anInt783;
+                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.users[local15].world;
                                             return;
                                         }
                                         if (arg0 == 3759) {
@@ -2449,11 +2450,11 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3760) {
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.method7278(aStringArray37[--anInt7139]);
+                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.userSlot(aStringArray37[--anInt7139]);
                                             return;
                                         }
                                         if (arg0 == 3761) {
-                                            anIntArray578[anInt7142 - 1] = aClass2_Sub47_2.method7272()[anIntArray578[anInt7142 - 1]];
+                                            anIntArray578[anInt7142 - 1] = aClass2_Sub47_2.sortedUserSlots()[anIntArray578[anInt7142 - 1]];
                                             return;
                                         }
                                         if (arg0 == 3790) {

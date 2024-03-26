@@ -33,6 +33,8 @@ import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.channel.ClanChannel;
+import rs2.client.clan.channel.delta.ClanChannelDelta;
 import rs2.client.clan.settings.ClanSettings;
 
 import java.io.IOException;
@@ -334,7 +336,7 @@ public final class Protocol {
                                 local996 = bitPacket.g2();
                                 local1002 = (local983 << 32) + local988;
                                 local1004 = false;
-                                @Pc(1013) Node_Sub47 local1013 = local446 ? Static45.aClass2_Sub47_1 : Static674.aClass2_Sub47_3;
+                                @Pc(1013) ClanChannel local1013 = local446 ? Static45.aClass2_Sub47_1 : Static674.aClass2_Sub47_3;
                                 if (local1013 == null) {
                                     local1004 = true;
                                 } else {
@@ -739,14 +741,14 @@ public final class Protocol {
                                         } else if (arg0.currentProt == Static229.A_SERVER_PROT___101) {
                                             Static39.lastClanChannelTransmit = World.tick;
                                             local446 = bitPacket.g1() == 1;
-                                            @Pc(2736) Class68 local2736 = new Class68(bitPacket);
-                                            @Pc(2740) Node_Sub47 local2740;
+                                            @Pc(2736) ClanChannelDelta local2736 = new ClanChannelDelta(bitPacket);
+                                            @Pc(2740) ClanChannel local2740;
                                             if (local446) {
                                                 local2740 = Static45.aClass2_Sub47_1;
                                             } else {
                                                 local2740 = Static674.aClass2_Sub47_3;
                                             }
-                                            local2736.method1581(local2740);
+                                            local2736.applyToClanChannel(local2740);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static587.A_SERVER_PROT___216 == arg0.currentProt) {
@@ -915,7 +917,7 @@ public final class Protocol {
                                                     local992 = bitPacket.g1();
                                                     local649 = (local983 << 32) + local988;
                                                     local1491 = false;
-                                                    @Pc(3494) Node_Sub47 local3494 = local446 ? Static45.aClass2_Sub47_1 : Static674.aClass2_Sub47_3;
+                                                    @Pc(3494) ClanChannel local3494 = local446 ? Static45.aClass2_Sub47_1 : Static674.aClass2_Sub47_3;
                                                     if (local3494 == null) {
                                                         local1491 = true;
                                                     } else {
@@ -1690,9 +1692,9 @@ public final class Protocol {
                                                                         local446 = bitPacket.g1() == 1;
                                                                         if (arg0.currentPacketSize != 1) {
                                                                             if (local446) {
-                                                                                Static45.aClass2_Sub47_1 = new Node_Sub47(bitPacket);
+                                                                                Static45.aClass2_Sub47_1 = new ClanChannel(bitPacket);
                                                                             } else {
-                                                                                Static674.aClass2_Sub47_3 = new Node_Sub47(bitPacket);
+                                                                                Static674.aClass2_Sub47_3 = new ClanChannel(bitPacket);
                                                                             }
                                                                             arg0.currentProt = null;
                                                                             return true;

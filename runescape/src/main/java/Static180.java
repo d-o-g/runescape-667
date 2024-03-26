@@ -1,6 +1,7 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.channel.ClanChannelUser;
 
 public final class Static180 {
 
@@ -18,18 +19,18 @@ public final class Static180 {
 
     @OriginalMember(owner = "client!fka", name = "a", descriptor = "(II)V")
     public static void method2775(@OriginalArg(1) int arg0) {
-        if (Static45.aClass2_Sub47_1 == null || (arg0 < 0 || arg0 >= Static45.aClass2_Sub47_1.anInt8286)) {
+        if (Static45.aClass2_Sub47_1 == null || (arg0 < 0 || arg0 >= Static45.aClass2_Sub47_1.userCount)) {
             return;
         }
-        @Pc(29) Class34 local29 = Static45.aClass2_Sub47_1.aClass34Array1[arg0];
-        if (local29.aByte9 != -1) {
+        @Pc(29) ClanChannelUser local29 = Static45.aClass2_Sub47_1.users[arg0];
+        if (local29.rank != -1) {
             return;
         }
         @Pc(45) ServerConnection local45 = ConnectionManager.active();
         @Pc(53) ClientMessage local53 = ClientMessage.create(Static507.A_CLIENT_PROT___95, local45.cipher);
-        local53.bitPacket.p1(Static231.method3379(local29.aString2) + 2);
+        local53.bitPacket.p1(Static231.method3379(local29.displayName) + 2);
         local53.bitPacket.p2(arg0);
-        local53.bitPacket.pjstr(local29.aString2);
+        local53.bitPacket.pjstr(local29.displayName);
         local45.send(local53);
     }
 

@@ -114,8 +114,30 @@ public final class LoadState {
     }
 
     @OriginalMember(owner = "client!gca", name = "a", descriptor = "(B)[Lclient!gca;")
-    public static LoadState[] method2955() {
-        return new LoadState[]{WAIT_FOR_MEMORY, INIT_LOADING_SCREEN_ARCHIVES, FETCH_LOADING_SCREEN_RESOURCES, INIT_FONT_INFO, LOAD_FONTS, FETCH_FONTS, CREATE_COLLISION_MAPS, OPEN_JS5_ARCHIVES, GET_JS5_INDEXES, PLAY_THEME_MUSIC, SETUP_LIB_PATH, DOWNLOAD_STUFF, SETUP_CONFIG_DECODERS, A_LOAD_STATE___14, SETUP_STATIC_SPRITES, SETUP_WORLD_MAP, SETUP_VARC_SYSTEM, LOAD_LOGIN_WINDOW, SHOW_LOGIN_WINDOW, CLEANUP, COMPLETE};
+    public static LoadState[] values() {
+        return new LoadState[]{
+            WAIT_FOR_MEMORY,
+            INIT_LOADING_SCREEN_ARCHIVES,
+            FETCH_LOADING_SCREEN_RESOURCES,
+            INIT_FONT_INFO,
+            LOAD_FONTS,
+            FETCH_FONTS,
+            CREATE_COLLISION_MAPS,
+            OPEN_JS5_ARCHIVES,
+            GET_JS5_INDEXES,
+            PLAY_THEME_MUSIC,
+            SETUP_LIB_PATH,
+            DOWNLOAD_STUFF,
+            SETUP_CONFIG_DECODERS,
+            A_LOAD_STATE___14,
+            SETUP_STATIC_SPRITES,
+            SETUP_WORLD_MAP,
+            SETUP_VARC_SYSTEM,
+            LOAD_LOGIN_WINDOW,
+            SHOW_LOGIN_WINDOW,
+            CLEANUP,
+            COMPLETE,
+        };
     }
 
     @OriginalMember(owner = "client!gca", name = "toString", descriptor = "()Ljava/lang/String;")
@@ -125,7 +147,7 @@ public final class LoadState {
     }
 
     @OriginalMember(owner = "client!gca", name = "b", descriptor = "(I)I")
-    public int step() {
+    public int getStep() {
         return this.step;
     }
 }

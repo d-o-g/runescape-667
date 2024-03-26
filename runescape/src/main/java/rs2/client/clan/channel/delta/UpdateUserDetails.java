@@ -1,40 +1,45 @@
+package rs2.client.clan.channel.delta;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.channel.ClanChannel;
+import rs2.client.clan.channel.ClanChannelUser;
+import rs2.client.clan.channel.delta.DeltaEntry;
 
 @OriginalClass("client!sea")
-public final class Node_Sub30_Sub4 extends Node_Sub30 {
+public final class UpdateUserDetails extends DeltaEntry {
 
     @OriginalMember(owner = "client!sea", name = "t", descriptor = "I")
-    public int anInt8618;
+    public int world;
 
     @OriginalMember(owner = "client!sea", name = "w", descriptor = "Ljava/lang/String;")
-    public String aString107;
+    public String name;
 
     @OriginalMember(owner = "client!sea", name = "s", descriptor = "B")
-    public byte aByte131;
+    public byte rank;
 
     @OriginalMember(owner = "client!sea", name = "v", descriptor = "I")
-    public int anInt8616 = -1;
+    public int pos = -1;
 
     @OriginalMember(owner = "client!sea", name = "a", descriptor = "(Lclient!ge;I)V")
     @Override
-    public void method7647(@OriginalArg(0) Packet arg0) {
-        this.anInt8616 = arg0.g2();
-        this.aByte131 = arg0.g1b();
-        this.anInt8618 = arg0.g2();
-        arg0.g8();
-        this.aString107 = arg0.gjstr();
+    public void decode(@OriginalArg(0) Packet packet) {
+        this.pos = packet.g2();
+        this.rank = packet.g1b();
+        this.world = packet.g2();
+        packet.g8();
+        this.name = packet.gjstr();
     }
 
     @OriginalMember(owner = "client!sea", name = "a", descriptor = "(Lclient!rfa;I)V")
     @Override
-    public void method7642(@OriginalArg(0) Node_Sub47 arg0) {
-        @Pc(9) Class34 local9 = arg0.aClass34Array1[this.anInt8616];
-        local9.anInt783 = this.anInt8618;
-        local9.aByte9 = this.aByte131;
-        local9.aString2 = this.aString107;
+    public void applyTo(@OriginalArg(0) ClanChannel channel) {
+        @Pc(9) ClanChannelUser user = channel.users[this.pos];
+        user.world = this.world;
+        user.rank = this.rank;
+        user.displayName = this.name;
     }
 }

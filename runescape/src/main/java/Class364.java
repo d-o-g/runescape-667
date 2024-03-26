@@ -86,7 +86,7 @@ public final class Class364 implements Runnable {
         if (this.aLoadState_23 == null) {
             return 0;
         }
-        @Pc(22) int local22 = this.aLoadState_23.step();
+        @Pc(22) int local22 = this.aLoadState_23.getStep();
         if (this.aLoadState_23.updatePercentage && this.aLoadState_23.endPercentage > this.anInt9524) {
             return this.anInt9524 + 1;
         } else if (local22 >= 0 && local22 < Static655.aLoadStateArray1.length - 1) {
@@ -177,7 +177,7 @@ public final class Class364 implements Runnable {
                         GameShell.frame.getInsets();
                     }
                     this.aBoolean731 = false;
-                    if (Toolkit.active != null && !(this.anInterface22_1 instanceof Class374) && this.aLoadState_23.step() < LoadState.SHOW_LOGIN_WINDOW.step()) {
+                    if (Toolkit.active != null && !(this.anInterface22_1 instanceof Class374) && this.aLoadState_23.getStep() < LoadState.SHOW_LOGIN_WINDOW.getStep()) {
                         Static712.method9329((byte) 11);
                     }
                 } catch (@Pc(292) Exception local292) {

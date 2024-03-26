@@ -122,7 +122,7 @@ public final class Static694 {
 
     @OriginalMember(owner = "client!vv", name = "c", descriptor = "(B)I")
     public static int method9030() {
-        @Pc(9) int local9 = Static473.aLoadState_22.step();
+        @Pc(9) int local9 = Static473.aLoadState_22.getStep();
         if (local9 < Static655.aLoadStateArray1.length - 1) {
             Static473.aLoadState_22 = Static655.aLoadStateArray1[local9 + 1];
         }

@@ -46,7 +46,7 @@ public abstract class Class90 implements Interface13 {
         this.method7753(local18, local32);
         @Pc(56) String local56 = Static449.aClass364_1.method8377();
         if (SystemTimer.safetime() - this.aLong274 > 10000L) {
-            local56 = local56 + " (" + Static449.aClass364_1.method8369().step() + ")";
+            local56 = local56 + " (" + Static449.aClass364_1.method8369().getStep() + ")";
         }
         this.aFont_10.renderCentre(-1, local18 + this.aClass138_5.anInt4418 / 2, local56, local32 + this.aClass138_5.anInt4413 / 2 + this.aClass138_5.anInt4416 + 4, this.aClass138_5.anInt4421);
     }

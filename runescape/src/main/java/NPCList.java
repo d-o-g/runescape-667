@@ -1,5 +1,6 @@
 import com.jagex.core.constants.NpcExtendedInfoFlag;
 import com.jagex.core.datastruct.key.IterableHashTable;
+import com.jagex.core.io.BitPacket;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.MoveSpeed;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;

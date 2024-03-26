@@ -1,5 +1,6 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.SignLink;
+import com.jagex.core.io.BitPacket;
 import com.jagex.game.camera.Shake;
 import com.jagex.core.constants.ChatLineType;
 import com.jagex.core.constants.HintArrowType;

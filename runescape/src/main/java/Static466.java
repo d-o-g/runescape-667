@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.LinkedList;
+import com.jagex.core.io.BitPacket;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

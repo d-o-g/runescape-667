@@ -1,5 +1,6 @@
 import com.jagex.core.constants.ChatLineType;
 import com.jagex.core.constants.PlayerExtendedInfoFlag;
+import com.jagex.core.io.BitPacket;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.MoveSpeed;

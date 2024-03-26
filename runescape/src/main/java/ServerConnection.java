@@ -1,6 +1,7 @@
 import com.jagex.SignedResource;
 import com.jagex.core.crypto.Isaac;
 import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.io.BitPacket;
 import com.jagex.core.io.connection.Connection;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;

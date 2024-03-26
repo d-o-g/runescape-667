@@ -2,6 +2,7 @@ import com.jagex.Constants;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.crypto.Isaac;
+import com.jagex.core.io.BitPacket;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.util.JavaScript;

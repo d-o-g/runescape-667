@@ -1,5 +1,6 @@
 import com.jagex.core.crypto.Isaac;
 import com.jagex.core.datastruct.key.Node;
+import com.jagex.core.io.BitPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

@@ -16,13 +16,13 @@ public final class Static76 {
 
     @OriginalMember(owner = "client!cha", name = "a", descriptor = "(BLclient!ca;)V")
     public static void method1552(@OriginalArg(1) PlayerEntity arg0) {
-        @Pc(19) Node_Sub51 local19 = (Node_Sub51) Static113.A_HASH_TABLE___12.get(arg0.id);
+        @Pc(19) PositionedSound local19 = (PositionedSound) SoundManager.playerSounds.get(arg0.id);
         if (local19 == null) {
             return;
         }
-        if (local19.aClass2_Sub6_Sub2_4 != null) {
-            Static336.activeStreams.method5883(local19.aClass2_Sub6_Sub2_4);
-            local19.aClass2_Sub6_Sub2_4 = null;
+        if (local19.stream != null) {
+            SoundManager.activeStreams.remove(local19.stream);
+            local19.stream = null;
         }
         local19.unlink();
     }

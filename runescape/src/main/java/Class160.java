@@ -1,9 +1,21 @@
+import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!no")
 public class Class160 implements Interface10 {
+
+    @OriginalMember(owner = "client!qda", name = "a", descriptor = "(Lclient!ge;B)Lclient!no;")
+    public static Class160 decode(@OriginalArg(0) Packet packet) {
+        @Pc(15) int local15 = packet.g2();
+        @Pc(22) HorizontalAlignment local22 = HorizontalAlignment.values()[packet.g1()];
+        @Pc(29) VerticalAlignment local29 = VerticalAlignment.values()[packet.g1()];
+        @Pc(35) int local35 = packet.g2s();
+        @Pc(39) int local39 = packet.g2s();
+        return new Class160(local15, local22, local29, local35, local39);
+    }
 
     @OriginalMember(owner = "client!no", name = "l", descriptor = "Lclient!ek;")
     public final VerticalAlignment aVerticalAlignment_9;

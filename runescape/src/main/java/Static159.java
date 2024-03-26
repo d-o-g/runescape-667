@@ -17,14 +17,6 @@ public final class Static159 {
     @OriginalMember(owner = "client!ew", name = "d", descriptor = "Lclient!sia;")
     public static Deque changes = new Deque();
 
-    @OriginalMember(owner = "client!ew", name = "a", descriptor = "(III)I")
-    public static int method2572(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(17) double local17 = Math.log(arg1) / Math.log(2.0D);
-        @Pc(24) double local24 = Math.log(arg0) / Math.log(2.0D);
-        @Pc(33) double local33 = local24 + Math.random() * (local17 - local24);
-        return (int) (Math.pow(2.0D, local33) + 0.5D);
-    }
-
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(Lclient!ha;B)V")
     public static void method2574(@OriginalArg(0) Toolkit arg0) {
         @Pc(7) int local7 = 0;

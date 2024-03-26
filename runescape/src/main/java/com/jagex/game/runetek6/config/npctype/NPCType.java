@@ -82,7 +82,7 @@ public final class NPCType {
     public short[] retex_d;
 
     @OriginalMember(owner = "client!o", name = "g", descriptor = "Z")
-    public boolean vorbisSound;
+    public boolean vorbis;
 
     @OriginalMember(owner = "client!o", name = "ub", descriptor = "I")
     public int mobilisingArmiesIcon = -1;
@@ -136,7 +136,7 @@ public final class NPCType {
     public int readySound = -1;
 
     @OriginalMember(owner = "client!o", name = "K", descriptor = "I")
-    public int anInt6729 = 256;
+    public int soundRateMin = 256;
 
     @OriginalMember(owner = "client!o", name = "E", descriptor = "Z")
     public boolean interactive = true;
@@ -154,7 +154,7 @@ public final class NPCType {
     public int headIcon = -1;
 
     @OriginalMember(owner = "client!o", name = "Db", descriptor = "I")
-    public int anInt6736 = 256;
+    public int soundRateMax = 256;
 
     @OriginalMember(owner = "client!o", name = "v", descriptor = "I")
     public int attackCursor = -1;
@@ -169,13 +169,13 @@ public final class NPCType {
     public int basId = -1;
 
     @OriginalMember(owner = "client!o", name = "zb", descriptor = "I")
-    public int soundStartDistance = 0;
+    public int soundRangeMin = 0;
 
     @OriginalMember(owner = "client!o", name = "t", descriptor = "S")
     public short shadowOuterColour = 0;
 
     @OriginalMember(owner = "client!o", name = "Fb", descriptor = "I")
-    public int soundDistance = 0;
+    public int soundRangeMax = 0;
 
     @OriginalMember(owner = "client!o", name = "D", descriptor = "B")
     public byte shadowInnerAlpha = -16;
@@ -445,7 +445,7 @@ public final class NPCType {
                 this.runSound = -1;
             }
 
-            this.soundDistance = packet.g1();
+            this.soundRangeMax = packet.g1();
         } else if (code == 135) {
             this.cursor1Op = packet.g1();
             this.cursor1 = packet.g2();
@@ -489,16 +489,16 @@ public final class NPCType {
                 this.quests[local18] = packet.g2();
             }
         } else if (code == 162) {
-            this.vorbisSound = true;
+            this.vorbis = true;
         } else if (code == 163) {
             this.anInt6706 = packet.g1();
         } else if (code == 164) {
-            this.anInt6729 = packet.g2();
-            this.anInt6736 = packet.g2();
+            this.soundRateMin = packet.g2();
+            this.soundRateMax = packet.g2();
         } else if (code == 165) {
             this.pickSizeShift = packet.g1();
         } else if (code == 168) {
-            this.soundStartDistance = packet.g1();
+            this.soundRangeMin = packet.g1();
         } else if (code == 249) {
             @Pc(12) int count = packet.g1();
 

@@ -49,7 +49,7 @@ public final class Node_Sub16 extends Node {
     public Class269 aClass269_1;
 
     @OriginalMember(owner = "client!dha", name = "G", descriptor = "Lclient!haa;")
-    public Node_Sub6_Sub2 aClass2_Sub6_Sub2_1;
+    public SoundStream aClass2_Sub6_Sub2_1;
 
     @OriginalMember(owner = "client!dha", name = "k", descriptor = "I")
     public int anInt2199;

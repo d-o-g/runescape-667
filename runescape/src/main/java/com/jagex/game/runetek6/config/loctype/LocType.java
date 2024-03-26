@@ -73,7 +73,7 @@ public final class LocType {
     public int[][] models;
 
     @OriginalMember(owner = "client!c", name = "Tb", descriptor = "[I")
-    public int[] soundRandom;
+    public int[] randomSoundIds;
 
     @OriginalMember(owner = "client!c", name = "ob", descriptor = "[S")
     public short[] retex_s;
@@ -88,7 +88,7 @@ public final class LocType {
     public byte targetLightness;
 
     @OriginalMember(owner = "client!c", name = "Rb", descriptor = "Z")
-    public boolean aBoolean88 = false;
+    public boolean vorbis = false;
 
     @OriginalMember(owner = "client!c", name = "B", descriptor = "Z")
     public boolean hardshadow = true;
@@ -106,7 +106,7 @@ public final class LocType {
     public int offsetY = 0;
 
     @OriginalMember(owner = "client!c", name = "Gb", descriptor = "I")
-    public int soundMaxDelay = 0;
+    public int soundDelayMax = 0;
 
     @OriginalMember(owner = "client!c", name = "w", descriptor = "I")
     public int length = 1;
@@ -163,7 +163,7 @@ public final class LocType {
     public int anInt1248 = 0;
 
     @OriginalMember(owner = "client!c", name = "f", descriptor = "I")
-    public int ambientSoundVolume = 255;
+    public int soundVolume = 255;
 
     @OriginalMember(owner = "client!c", name = "n", descriptor = "I")
     public int msiRotateOffset = 0;
@@ -172,10 +172,10 @@ public final class LocType {
     public int[] anim = null;
 
     @OriginalMember(owner = "client!c", name = "nb", descriptor = "I")
-    public int hillskew_value = -1;
+    public int hillskew = -1;
 
     @OriginalMember(owner = "client!c", name = "Sb", descriptor = "I")
-    public int soundMinDelay = 0;
+    public int soundDelayMin = 0;
 
     @OriginalMember(owner = "client!c", name = "L", descriptor = "I")
     public int cursor1 = -1;
@@ -193,10 +193,10 @@ public final class LocType {
     public int[] anim_weight = null;
 
     @OriginalMember(owner = "client!c", name = "X", descriptor = "B")
-    public byte hillskew_mode = 0;
+    public byte hillchange = 0;
 
     @OriginalMember(owner = "client!c", name = "jb", descriptor = "I")
-    public int soundMaxRate = 256;
+    public int soundRateMax = 256;
 
     @OriginalMember(owner = "client!c", name = "tb", descriptor = "I")
     public int cursor2Op = -1;
@@ -211,7 +211,7 @@ public final class LocType {
     public int blockwalk = 2;
 
     @OriginalMember(owner = "client!c", name = "bb", descriptor = "Z")
-    public boolean aBoolean92 = false;
+    public boolean randsound = false;
 
     @OriginalMember(owner = "client!c", name = "N", descriptor = "Z")
     public boolean animated = false;
@@ -223,7 +223,7 @@ public final class LocType {
     public int forceapproach = 0;
 
     @OriginalMember(owner = "client!c", name = "fb", descriptor = "I")
-    public int soundMinRate = 256;
+    public int soundRateMin = 256;
 
     @OriginalMember(owner = "client!c", name = "o", descriptor = "I")
     public int contrast = 0;
@@ -313,7 +313,7 @@ public final class LocType {
         } else if (code == 19) {
             this.active = packet.g1();
         } else if (code == 21) {
-            this.hillskew_mode = 1;
+            this.hillchange = 1;
         } else if (code == 22) {
             this.sharelight = true;
         } else if (code == 23) {
@@ -417,18 +417,18 @@ public final class LocType {
             this.sound = packet.g2();
             this.soundRange = packet.g1();
         } else if (code == 79) {
-            this.soundMinDelay = packet.g2();
-            this.soundMaxDelay = packet.g2();
+            this.soundDelayMin = packet.g2();
+            this.soundDelayMax = packet.g2();
             this.soundRange = packet.g1();
 
             @Pc(37) int count = packet.g1();
-            this.soundRandom = new int[count];
+            this.randomSoundIds = new int[count];
             for (@Pc(47) int i = 0; i < count; i++) {
-                this.soundRandom[i] = packet.g2();
+                this.randomSoundIds[i] = packet.g2();
             }
         } else if (code == 81) {
-            this.hillskew_mode = 2;
-            this.hillskew_value = packet.g1() * 256;
+            this.hillchange = 2;
+            this.hillskew = packet.g1() * 256;
         } else if (code == 82) {
             this.istexture = true;
         } else if (code == 88) {
@@ -438,13 +438,13 @@ public final class LocType {
         } else if (code == 91) {
             this.members = true;
         } else if (code == 93) {
-            this.hillskew_mode = 3;
-            this.hillskew_value = packet.g2();
+            this.hillchange = 3;
+            this.hillskew = packet.g2();
         } else if (code == 94) {
-            this.hillskew_mode = 4;
+            this.hillchange = 4;
         } else if (code == 95) {
-            this.hillskew_mode = 5;
-            this.hillskew_value = packet.g2s();
+            this.hillchange = 5;
+            this.hillskew = packet.g2s();
         } else if (code == 97) {
             this.msirotate = true;
         } else if (code == 98) {
@@ -462,7 +462,7 @@ public final class LocType {
         } else if (code == 103) {
             this.occlude = LocOcclusionMode.ROOFS;
         } else if (code == 104) {
-            this.ambientSoundVolume = packet.g1();
+            this.soundVolume = packet.g1();
         } else if (code == 105) {
             this.msiflip = true;
         } else if (code == 106) {
@@ -500,8 +500,8 @@ public final class LocType {
                 this.quests[local47] = packet.g2();
             }
         } else if (code == 162) {
-            this.hillskew_mode = 3;
-            this.hillskew_value = packet.g4();
+            this.hillchange = 3;
+            this.hillskew = packet.g4();
         } else if (code == 163) {
             this.targetHue = packet.g1b();
             this.targetSaturation = packet.g1b();
@@ -516,16 +516,16 @@ public final class LocType {
         } else if (code == 167) {
             this.offsetY = packet.g2();
         } else if (code == 168) {
-            this.aBoolean88 = true;
+            this.vorbis = true;
         } else if (code == 169) {
-            this.aBoolean92 = true;
+            this.randsound = true;
         } else if (code == 170) {
             this.occlusionHeight = packet.gsmart();
         } else if (code == 171) {
             this.occlusionOffset = packet.gsmart();
         } else if (code == 173) {
-            this.soundMinRate = packet.g2();
-            this.soundMaxRate = packet.g2();
+            this.soundRateMin = packet.g2();
+            this.soundRateMax = packet.g2();
         } else if (code == 177) {
             this.aBoolean91 = true;
         } else if (code == 178) {
@@ -618,13 +618,13 @@ public final class LocType {
     @OriginalMember(owner = "client!c", name = "d", descriptor = "(I)Z")
     public boolean hasSounds() {
         if (this.multiloc == null) {
-            return this.sound != -1 || this.soundRandom != null;
+            return this.sound != -1 || this.randomSoundIds != null;
         }
 
         for (@Pc(35) int i = 0; i < this.multiloc.length; i++) {
             if (this.multiloc[i] != INVISIBLE_ID) {
                 @Pc(52) LocType locType = this.typeList.list(this.multiloc[i]);
-                if (locType.sound != -1 || locType.soundRandom != null) {
+                if (locType.sound != -1 || locType.randomSoundIds != null) {
                     return true;
                 }
             }
@@ -727,10 +727,10 @@ public final class LocType {
         }
 
         @Pc(40) int newFunctionMask = functionMask;
-        if (this.hillskew_mode == 3) {
+        if (this.hillchange == 3) {
             newFunctionMask = functionMask | 0x7;
         } else {
-            if (this.hillskew_mode != 0 || this.anInt1213 != 0) {
+            if (this.hillchange != 0 || this.anInt1213 != 0) {
                 newFunctionMask = functionMask | 0x2;
             }
             if (this.anInt1214 != 0) {
@@ -794,13 +794,13 @@ public final class LocType {
             }
         }
 
-        @Pc(271) boolean local271 = this.hillskew_mode != 0 && (floor != null || ceiling != null);
+        @Pc(271) boolean local271 = this.hillchange != 0 && (floor != null || ceiling != null);
         @Pc(292) boolean local292 = this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0;
         if (local271 || local292) {
             model = model.copy((byte) 0, newFunctionMask, true);
 
             if (local271) {
-                model.p(this.hillskew_mode, this.hillskew_value, floor, ceiling, x, y, z);
+                model.p(this.hillchange, this.hillskew, floor, ceiling, x, y, z);
             }
 
             if (local292) {
@@ -835,10 +835,10 @@ public final class LocType {
             functionMask |= animator.functionMask();
         }
 
-        if (this.hillskew_mode == 3) {
+        if (this.hillchange == 3) {
             functionMask |= 0x7;
         } else {
-            if (this.hillskew_mode != 0 || this.anInt1213 != 0) {
+            if (this.hillchange != 0 || this.anInt1213 != 0) {
                 functionMask |= 0x2;
             }
 
@@ -893,12 +893,12 @@ public final class LocType {
             model.a(2048);
         }
 
-        if (this.hillskew_mode != 0) {
+        if (this.hillchange != 0) {
             if (!copied) {
                 copied = true;
                 model = model.copy((byte) 3, functionMask, true);
             }
-            model.p(this.hillskew_mode, this.hillskew_value, arg7, arg4, arg3, arg10, arg1);
+            model.p(this.hillchange, this.hillskew, arg7, arg4, arg3, arg10, arg1);
         }
 
         if (this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0) {

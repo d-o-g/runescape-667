@@ -213,8 +213,8 @@ public final class t extends Ground implements Interface5 {
 
     @OriginalMember(owner = "client!t", name = "a", descriptor = "(IIIIIII[[Z)V")
     @Override
-    public void method7873(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) boolean[][] arg4) {
-        this.anOa3.method6087().method13(this, arg0, arg1, arg2, arg3, arg4);
+    public void method7873(@OriginalArg(3) int x1, @OriginalArg(4) int y1, @OriginalArg(5) int x2, @OriginalArg(6) int y2, @OriginalArg(7) boolean[][] visibility) {
+        this.anOa3.method6087().method13(this, x1, y1, x2, y2, visibility);
     }
 
     @OriginalMember(owner = "client!t", name = "ga", descriptor = "(Lclient!oa;Lclient!ya;II[[I[[IIII)V")

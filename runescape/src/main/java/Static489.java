@@ -240,7 +240,7 @@ public final class Static489 {
         }
 
         Static305.method4441();
-        Static609.method8213(false);
+        SoundManager.removeActiveStreams(false);
         Static508.method6750();
         Static112.aBoolean197 = false;
         Static557.method7331();

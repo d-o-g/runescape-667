@@ -17,17 +17,17 @@ public final class Static220 {
     }
 
     @OriginalMember(owner = "client!gq", name = "a", descriptor = "(IBIII)V")
-    public static void method3198(@OriginalArg(0) int currentTick, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        for (@Pc(6) Node_Sub51 local6 = (Node_Sub51) Static460.A_DEQUE___40.first(); local6 != null; local6 = (Node_Sub51) Static460.A_DEQUE___40.next()) {
-            Static632.method8366(currentTick, local6, arg3, arg2, arg1);
+    public static void method3198(@OriginalArg(0) int currentTick, @OriginalArg(2) int z, @OriginalArg(3) int x, @OriginalArg(4) int level) {
+        for (@Pc(6) PositionedSound sound = (PositionedSound) SoundManager.locSounds.first(); sound != null; sound = (PositionedSound) SoundManager.locSounds.next()) {
+            SoundManager.method8366(currentTick, sound, level, x, z);
         }
 
-        for (@Pc(42) Node_Sub51 local42 = (Node_Sub51) Static717.A_DEQUE___81.first(); local42 != null; local42 = (Node_Sub51) Static717.A_DEQUE___81.next()) {
-            @Pc(51) BASType basType = local42.npc.getBASType();
-            @Pc(57) int animation = local42.npc.animator.getAnimationId();
+        for (@Pc(42) PositionedSound sound = (PositionedSound) SoundManager.npcSounds.first(); sound != null; sound = (PositionedSound) SoundManager.npcSounds.next()) {
+            @Pc(51) BASType basType = sound.npc.getBASType();
+            @Pc(57) int animation = sound.npc.animator.getAnimationId();
 
             @Pc(46) byte movementSpeed = 1;
-            if (animation == -1 || local42.npc.ready) {
+            if (animation == -1 || sound.npc.ready) {
                 movementSpeed = 0;
             } else if (animation == basType.run || animation == basType.runFollowTurn180 || animation == basType.runFollowTurnCw || animation == basType.runFollowTurnCcw) {
                 movementSpeed = 2;
@@ -35,61 +35,61 @@ public final class Static220 {
                 movementSpeed = 3;
             }
 
-            if (local42.movementSpeed != movementSpeed) {
-                @Pc(154) int currentSound = NPCEntity.currentSound(local42.npc);
+            if (sound.movementSpeed != movementSpeed) {
+                @Pc(154) int currentSound = NPCEntity.currentSound(sound.npc);
 
-                @Pc(158) NPCType npcType = local42.npc.type;
+                @Pc(158) NPCType npcType = sound.npc.type;
                 if (npcType.multinpcs != null) {
                     npcType = npcType.getMultiNPC(TimedVarDomain.instance);
                 }
 
                 if (npcType == null || currentSound == -1) {
-                    local42.movementSpeed = movementSpeed;
-                    local42.vorbis = false;
-                    local42.sound = -1;
-                } else if (currentSound == local42.sound && local42.vorbis == npcType.vorbisSound) {
-                    local42.movementSpeed = movementSpeed;
-                    local42.soundVolume = npcType.soundVolume;
+                    sound.movementSpeed = movementSpeed;
+                    sound.vorbis = false;
+                    sound.id = -1;
+                } else if (currentSound == sound.id && sound.vorbis == npcType.vorbis) {
+                    sound.movementSpeed = movementSpeed;
+                    sound.volume = npcType.soundVolume;
                 } else {
                     @Pc(198) boolean local198 = false;
 
-                    if (local42.aClass2_Sub6_Sub2_4 == null) {
+                    if (sound.stream == null) {
                         local198 = true;
                     } else {
-                        local42.soundVolume -= 512;
+                        sound.volume -= 512;
 
-                        if (local42.soundVolume <= 0) {
-                            Static336.activeStreams.method5883(local42.aClass2_Sub6_Sub2_4);
+                        if (sound.volume <= 0) {
+                            SoundManager.activeStreams.remove(sound.stream);
                             local198 = true;
-                            local42.aClass2_Sub6_Sub2_4 = null;
+                            sound.stream = null;
                         }
                     }
 
                     if (local198) {
-                        local42.aClass2_Sub53_3 = null;
-                        local42.aClass2_Sub49_Sub1_4 = null;
-                        local42.vorbis = npcType.vorbisSound;
-                        local42.soundVolume = npcType.soundVolume;
-                        local42.movementSpeed = movementSpeed;
-                        local42.sound = currentSound;
+                        sound.vorbisSound = null;
+                        sound.packet = null;
+                        sound.vorbis = npcType.vorbis;
+                        sound.volume = npcType.soundVolume;
+                        sound.movementSpeed = movementSpeed;
+                        sound.id = currentSound;
                     }
                 }
             }
 
-            local42.anInt9357 = local42.npc.x;
-            local42.anInt9362 = local42.npc.x + (local42.npc.getSize() << 8);
-            local42.anInt9352 = local42.npc.z;
-            local42.anInt9349 = local42.npc.z + (local42.npc.getSize() << 8);
+            sound.x1 = sound.npc.x;
+            sound.x2 = sound.npc.x + (sound.npc.getSize() << 8);
+            sound.z1 = sound.npc.z;
+            sound.z2 = sound.npc.z + (sound.npc.getSize() << 8);
 
-            Static632.method8366(currentTick, local42, arg3, arg2, arg1);
+            SoundManager.method8366(currentTick, sound, level, x, z);
         }
 
-        for (@Pc(329) Node_Sub51 local329 = (Node_Sub51) Static113.A_HASH_TABLE___12.first(); local329 != null; local329 = (Node_Sub51) Static113.A_HASH_TABLE___12.next()) {
-            @Pc(338) BASType basType = local329.player.getBASType();
-            @Pc(154) int animation = local329.player.animator.getAnimationId();
+        for (@Pc(329) PositionedSound sound = (PositionedSound) SoundManager.playerSounds.first(); sound != null; sound = (PositionedSound) SoundManager.playerSounds.next()) {
+            @Pc(338) BASType basType = sound.player.getBASType();
+            @Pc(154) int animation = sound.player.animator.getAnimationId();
 
             @Pc(333) byte movementSpeed = 1;
-            if (animation == -1 || local329.player.ready) {
+            if (animation == -1 || sound.player.ready) {
                 movementSpeed = 0;
             } else if (animation == basType.run || animation == basType.runFollowTurn180 || basType.runFollowTurnCw == animation || animation == basType.runFollowTurnCcw) {
                 movementSpeed = 2;
@@ -97,44 +97,44 @@ public final class Static220 {
                 movementSpeed = 3;
             }
 
-            if (movementSpeed != local329.movementSpeed) {
-                @Pc(448) int currentSound = PlayerEntity.method4870(local329.player);
+            if (movementSpeed != sound.movementSpeed) {
+                @Pc(448) int currentSound = PlayerEntity.sound(sound.player);
 
-                if (local329.sound == currentSound && local329.player.vorbis == local329.vorbis) {
-                    local329.movementSpeed = movementSpeed;
-                    local329.soundVolume = local329.player.soundVolume;
+                if (sound.id == currentSound && sound.player.vorbis == sound.vorbis) {
+                    sound.movementSpeed = movementSpeed;
+                    sound.volume = sound.player.soundVolume;
                 } else {
                     @Pc(198) boolean local198 = false;
 
-                    if (local329.aClass2_Sub6_Sub2_4 == null) {
+                    if (sound.stream == null) {
                         local198 = true;
                     } else {
-                        local329.soundVolume -= 512;
+                        sound.volume -= 512;
 
-                        if (local329.soundVolume <= 0) {
-                            Static336.activeStreams.method5883(local329.aClass2_Sub6_Sub2_4);
-                            local329.aClass2_Sub6_Sub2_4 = null;
+                        if (sound.volume <= 0) {
+                            SoundManager.activeStreams.remove(sound.stream);
+                            sound.stream = null;
                             local198 = true;
                         }
                     }
 
                     if (local198) {
-                        local329.vorbis = local329.player.vorbis;
-                        local329.sound = currentSound;
-                        local329.soundVolume = local329.player.soundVolume;
-                        local329.aClass2_Sub49_Sub1_4 = null;
-                        local329.movementSpeed = movementSpeed;
-                        local329.aClass2_Sub53_3 = null;
+                        sound.vorbis = sound.player.vorbis;
+                        sound.id = currentSound;
+                        sound.volume = sound.player.soundVolume;
+                        sound.packet = null;
+                        sound.movementSpeed = movementSpeed;
+                        sound.vorbisSound = null;
                     }
                 }
             }
 
-            local329.anInt9357 = local329.player.x;
-            local329.anInt9362 = local329.player.x + (local329.player.getSize() << 8);
-            local329.anInt9352 = local329.player.z;
-            local329.anInt9349 = local329.player.z + (local329.player.getSize() << 8);
+            sound.x1 = sound.player.x;
+            sound.x2 = sound.player.x + (sound.player.getSize() << 8);
+            sound.z1 = sound.player.z;
+            sound.z2 = sound.player.z + (sound.player.getSize() << 8);
 
-            Static632.method8366(currentTick, local329, arg3, arg2, arg1);
+            SoundManager.method8366(currentTick, sound, level, x, z);
         }
     }
 

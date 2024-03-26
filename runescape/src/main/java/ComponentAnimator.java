@@ -15,6 +15,6 @@ public final class ComponentAnimator extends Animator {
     @OriginalMember(owner = "client!js", name = "a", descriptor = "(ILclient!cka;B)V")
     @Override
     protected void newFrame(@OriginalArg(0) int arg0, @OriginalArg(1) SeqType arg1) {
-        Static315.method4577(arg0, arg1);
+        SoundManager.method4577(arg0, arg1);
     }
 }

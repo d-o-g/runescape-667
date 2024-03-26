@@ -1200,7 +1200,7 @@ public final class MapRegion extends Class306 {
         @Pc(26) int local26 = local13.getShape();
         @Pc(30) int local30 = local13.getRotation();
         if (local22.hasSounds()) {
-            Static506.method8312(arg4, arg1, arg3, local22);
+            SoundManager.method8312(arg4, arg1, arg3, local22);
         }
         if (local13.hardShadow()) {
             local13.removeShadow(arg5);

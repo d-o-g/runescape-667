@@ -18,10 +18,10 @@ public final class Static696 {
         for (@Pc(1) int local1 = 0; local1 < SoundManager.count; local1++) {
             @Pc(6) Sound local6 = SoundManager.sounds[local1];
             if (local6.type == 3) {
-                if (local6.aClass2_Sub6_Sub2_2 == null) {
-                    local6.rate = Integer.MIN_VALUE;
+                if (local6.stream == null) {
+                    local6.range = Integer.MIN_VALUE;
                 } else {
-                    Static336.activeStreams.method5883(local6.aClass2_Sub6_Sub2_2);
+                    SoundManager.activeStreams.remove(local6.stream);
                 }
             }
         }

@@ -1,6 +1,4 @@
 import com.jagex.core.util.SystemTimer;
-import com.jagex.game.runetek6.config.loctype.LocType;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -8,24 +6,6 @@ public final class Static506 {
 
     @OriginalMember(owner = "client!pv", name = "v", descriptor = "[I")
     public static final int[] anIntArray728 = new int[]{28, 35, 40, 44};
-
-    @OriginalMember(owner = "client!pv", name = "a", descriptor = "(IIILclient!c;I)V")
-    public static void method8312(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) LocType arg3) {
-        for (@Pc(18) Node_Sub51 local18 = (Node_Sub51) Static460.A_DEQUE___40.first(); local18 != null; local18 = (Node_Sub51) Static460.A_DEQUE___40.next()) {
-            if (local18.anInt9350 == arg2 && local18.anInt9357 == arg0 << 9 && local18.anInt9352 == arg1 << 9 && arg3.id == local18.aLocType_1.id) {
-                if (local18.aClass2_Sub6_Sub2_4 != null) {
-                    Static336.activeStreams.method5883(local18.aClass2_Sub6_Sub2_4);
-                    local18.aClass2_Sub6_Sub2_4 = null;
-                }
-                if (local18.aClass2_Sub6_Sub2_3 != null) {
-                    Static336.activeStreams.method5883(local18.aClass2_Sub6_Sub2_3);
-                    local18.aClass2_Sub6_Sub2_3 = null;
-                }
-                local18.unlink();
-                return;
-            }
-        }
-    }
 
     @OriginalMember(owner = "client!pv", name = "d", descriptor = "(B)V")
     public static void method8313() {

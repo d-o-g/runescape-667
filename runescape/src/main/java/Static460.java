@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.key.Deque;
 import com.jagex.graphics.Matrix;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -16,9 +15,6 @@ public final class Static460 {
 
     @OriginalMember(owner = "client!oj", name = "t", descriptor = "I")
     public static int anInt6964 = 0;
-
-    @OriginalMember(owner = "client!oj", name = "n", descriptor = "Lclient!sia;")
-    public static final Deque A_DEQUE___40 = new Deque();
 
     @OriginalMember(owner = "client!rr", name = "j", descriptor = "I")
     public static int anInt8472 = 0;

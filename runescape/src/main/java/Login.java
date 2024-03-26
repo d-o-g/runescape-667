@@ -30,7 +30,7 @@ public final class Login {
         Static588.anInt8692 = -1;
         Static501.aBoolean575 = false;
         Static550.method7266();
-        Static609.method8213(true);
+        SoundManager.removeActiveStreams(true);
         Static300.method4393();
         Static723.method9450();
         Static187.method2842();

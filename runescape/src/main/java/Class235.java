@@ -1,6 +1,8 @@
+import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!lv")
 public final class Class235 implements Interface10 {
@@ -51,6 +53,22 @@ public final class Class235 implements Interface10 {
         this.anInt5978 = arg0;
         this.aBoolean454 = arg10;
         this.anInt5975 = arg8;
+    }
+
+    @OriginalMember(owner = "client!bd", name = "a", descriptor = "(Lclient!ge;I)Lclient!lv;")
+    public static Class235 method935(@OriginalArg(0) Packet arg0) {
+        @Pc(7) int local7 = arg0.g1();
+        @Pc(16) HorizontalAlignment local16 = HorizontalAlignment.values()[arg0.g1()];
+        @Pc(25) VerticalAlignment local25 = VerticalAlignment.values()[arg0.g1()];
+        @Pc(29) int local29 = arg0.g2s();
+        @Pc(33) int local33 = arg0.g2s();
+        @Pc(39) int local39 = arg0.g2();
+        @Pc(43) int local43 = arg0.g2();
+        @Pc(49) int local49 = arg0.g4();
+        @Pc(53) int local53 = arg0.g4();
+        @Pc(59) int local59 = arg0.g4();
+        @Pc(69) boolean local69 = arg0.g1() == 1;
+        return new Class235(local7, local16, local25, local29, local33, local39, local43, local49, local53, local59, local69);
     }
 
     @OriginalMember(owner = "client!lv", name = "a", descriptor = "(I)Lclient!kda;")

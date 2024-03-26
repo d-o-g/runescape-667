@@ -342,7 +342,7 @@ public final class client extends GameShell {
 
     @OriginalMember(owner = "client!bda", name = "a", descriptor = "(IB)V")
     public static void method977(@OriginalArg(0) int id) {
-        Static101.method2000();
+        SoundManager.method2000();
 
         @Pc(16) int clientCode = VarPlayerTypeListClient.instance.list(id).clientCode;
         if (clientCode == 0) {
@@ -561,7 +561,7 @@ public final class client extends GameShell {
         }
         Static159.method2575();
         Static271.method3930();
-        Static35.method918();
+        SoundManager.method918();
         ConnectionManager.GAME.anInt3646++;
         if (ConnectionManager.GAME.anInt3646 > 750) {
             ConnectionManager.disconnect();

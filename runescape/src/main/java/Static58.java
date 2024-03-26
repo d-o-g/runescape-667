@@ -11,11 +11,11 @@ public final class Static58 {
 
     @OriginalMember(owner = "client!bu", name = "a", descriptor = "(ILclient!wj;)V")
     public static void method1259(@OriginalArg(1) NPCEntity arg0) {
-        for (@Pc(17) Node_Sub51 local17 = (Node_Sub51) Static717.A_DEQUE___81.first(); local17 != null; local17 = (Node_Sub51) Static717.A_DEQUE___81.next()) {
+        for (@Pc(17) PositionedSound local17 = (PositionedSound) SoundManager.npcSounds.first(); local17 != null; local17 = (PositionedSound) SoundManager.npcSounds.next()) {
             if (local17.npc == arg0) {
-                if (local17.aClass2_Sub6_Sub2_4 != null) {
-                    Static336.activeStreams.method5883(local17.aClass2_Sub6_Sub2_4);
-                    local17.aClass2_Sub6_Sub2_4 = null;
+                if (local17.stream != null) {
+                    SoundManager.activeStreams.remove(local17.stream);
+                    local17.stream = null;
                 }
                 local17.unlink();
                 return;

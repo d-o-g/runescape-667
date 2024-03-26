@@ -16,7 +16,7 @@ public final class Static464 {
 
     @OriginalMember(owner = "client!ol", name = "a", descriptor = "(Lclient!ge;Z)Lclient!hea;")
     public static Class160_Sub1 method6301(@OriginalArg(0) Packet arg0) {
-        @Pc(16) Class160 local16 = Static515.method6803(arg0);
+        @Pc(16) Class160 local16 = Class160.decode(arg0);
         @Pc(20) int local20 = arg0.g3s();
         return new Class160_Sub1(local16.anInt3851, local16.aHorizontalAlignment_9, local16.aVerticalAlignment_9, local16.anInt3850, local16.anInt3845, local20);
     }

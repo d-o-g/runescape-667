@@ -39,7 +39,7 @@ public final class VideoManager {
 
                         if (local79 != null) {
                             local79.method9147(type.anInt180);
-                            Static336.activeStreams.method5882(local79);
+                            SoundManager.activeStreams.addFirst(local79);
                             type.aBoolean14 = true;
                         }
                     }

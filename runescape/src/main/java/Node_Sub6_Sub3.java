@@ -65,12 +65,12 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(Lclient!dea;)V")
-    public synchronized void method5882(@OriginalArg(0) Node_Sub6 arg0) {
+    public synchronized void addFirst(@OriginalArg(0) Node_Sub6 arg0) {
         this.aDeque_35.addFirst(arg0);
     }
 
     @OriginalMember(owner = "client!nn", name = "b", descriptor = "(Lclient!dea;)V")
-    public synchronized void method5883(@OriginalArg(0) Node_Sub6 arg0) {
+    public synchronized void remove(@OriginalArg(0) Node_Sub6 arg0) {
         arg0.unlink();
     }
 

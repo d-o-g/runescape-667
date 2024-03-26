@@ -13,7 +13,7 @@ public final class Sound {
     public VariableRateSoundPacket packet;
 
     @OriginalMember(owner = "client!eka", name = "m", descriptor = "Lclient!haa;")
-    public Node_Sub6_Sub2 aClass2_Sub6_Sub2_2;
+    public SoundStream stream;
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "Lclient!uj;")
     public VorbisSound vorbis;
@@ -22,7 +22,7 @@ public final class Sound {
     public SynthSound synth;
 
     @OriginalMember(owner = "client!eka", name = "q", descriptor = "I")
-    public final int range;
+    public final int rate;
 
     @OriginalMember(owner = "client!eka", name = "g", descriptor = "B")
     public final byte type;
@@ -31,7 +31,7 @@ public final class Sound {
     public final int id;
 
     @OriginalMember(owner = "client!eka", name = "e", descriptor = "I")
-    public int rate;
+    public int range;
 
     @OriginalMember(owner = "client!eka", name = "k", descriptor = "I")
     public final int delay;
@@ -46,11 +46,11 @@ public final class Sound {
     public final int loops;
 
     @OriginalMember(owner = "client!eka", name = "<init>", descriptor = "(BIIIIIILclient!eo;)V")
-    public Sound(@OriginalArg(0) byte type, @OriginalArg(1) int id, @OriginalArg(2) int volume, @OriginalArg(3) int rate, @OriginalArg(4) int loops, @OriginalArg(5) int delay, @OriginalArg(6) int range, @OriginalArg(7) Entity entity) {
-        this.range = range;
+    public Sound(@OriginalArg(0) byte type, @OriginalArg(1) int id, @OriginalArg(2) int volume, @OriginalArg(3) int range, @OriginalArg(4) int loops, @OriginalArg(5) int delay, @OriginalArg(6) int rate, @OriginalArg(7) Entity entity) {
+        this.rate = rate;
         this.type = type;
         this.id = id;
-        this.rate = rate;
+        this.range = range;
         this.delay = delay;
         this.volume = volume;
         this.entity = entity;

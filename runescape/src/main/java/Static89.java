@@ -14,78 +14,74 @@ public final class Static89 {
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___9 = new CutsceneActionType(2);
 
     @OriginalMember(owner = "client!cp", name = "a", descriptor = "(ILclient!ca;IILclient!wj;Lclient!c;BI)V")
-    public static void method1714(@OriginalArg(0) int arg0, @OriginalArg(1) PlayerEntity arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) NPCEntity arg4, @OriginalArg(5) LocType arg5, @OriginalArg(7) int arg6) {
-        @Pc(7) Node_Sub51 local7 = new Node_Sub51();
-        local7.anInt9350 = arg0;
-        local7.anInt9357 = arg2 << 9;
-        local7.anInt9352 = arg3 << 9;
-        if (arg5 != null) {
-            local7.aLocType_1 = arg5;
-            @Pc(173) int local173 = arg5.width;
-            @Pc(176) int local176 = arg5.length;
-            if (arg6 == 1 || arg6 == 3) {
-                local176 = arg5.width;
-                local173 = arg5.length;
+    public static void method1714(@OriginalArg(0) int level, @OriginalArg(1) PlayerEntity player, @OriginalArg(2) int x, @OriginalArg(3) int z, @OriginalArg(4) NPCEntity npc, @OriginalArg(5) LocType locType, @OriginalArg(7) int rotation) {
+        @Pc(7) PositionedSound sound = new PositionedSound();
+        sound.level = level;
+        sound.x1 = x << 9;
+        sound.z1 = z << 9;
+
+        if (locType != null) {
+            sound.locType = locType;
+            @Pc(173) int width = locType.width;
+            @Pc(176) int length = locType.length;
+            if (rotation == 1 || rotation == 3) {
+                length = locType.width;
+                width = locType.length;
             }
-            local7.soundVolume = arg5.ambientSoundVolume;
-            local7.anInt9356 = arg5.soundRange << 9;
-            local7.sound = arg5.sound;
-            local7.anInt9354 = arg5.soundMaxDelay;
-            local7.anInt9349 = arg3 + local176 << 9;
-            local7.anInt9360 = arg5.soundMaxRate;
-            local7.vorbis = arg5.aBoolean88;
-            local7.aBoolean715 = arg5.aBoolean92;
-            local7.anInt9355 = arg5.soundSize << 9;
-            local7.anInt9365 = arg5.soundMinDelay;
-            local7.anInt9359 = arg5.soundMinRate;
-            local7.anIntArray718 = arg5.soundRandom;
-            local7.anInt9362 = arg2 + local173 << 9;
-            if (arg5.multiloc != null) {
-                local7.multi = true;
-                local7.method8236();
+
+            sound.volume = locType.soundVolume;
+            sound.rangeMax = locType.soundRange << 9;
+            sound.id = locType.sound;
+            sound.delayMax = locType.soundDelayMax;
+            sound.z2 = z + length << 9;
+            sound.rateMax = locType.soundRateMax;
+            sound.vorbis = locType.vorbis;
+            sound.random = locType.randsound;
+            sound.minRange = locType.soundSize << 9;
+            sound.delayMin = locType.soundDelayMin;
+            sound.rateMin = locType.soundRateMin;
+            sound.randomIds = locType.randomSoundIds;
+            sound.x2 = x + width << 9;
+            if (locType.multiloc != null) {
+                sound.multi = true;
+                sound.update();
             }
-            if (local7.anIntArray718 != null) {
-                local7.anInt9351 = (int) ((double) (local7.anInt9354 - local7.anInt9365) * Math.random()) + local7.anInt9365;
+            if (sound.randomIds != null) {
+                sound.randomDelay = (int) ((double) (sound.delayMax - sound.delayMin) * Math.random()) + sound.delayMin;
             }
-            Static460.A_DEQUE___40.addLast(local7);
-            return;
-        }
-        if (arg4 != null) {
-            local7.npc = arg4;
-            @Pc(37) NPCType local37 = arg4.type;
+            SoundManager.locSounds.addLast(sound);
+        } else if (npc != null) {
+            sound.npc = npc;
+            @Pc(37) NPCType local37 = npc.type;
             if (local37.multinpcs != null) {
-                local7.multi = true;
+                sound.multi = true;
                 local37 = local37.getMultiNPC(TimedVarDomain.instance);
             }
             if (local37 != null) {
-                local7.anInt9362 = local37.size + arg2 << 9;
-                local7.anInt9349 = arg3 + local37.size << 9;
-                local7.sound = NPCEntity.currentSound(arg4);
-                local7.anInt9355 = local37.soundStartDistance << 9;
-                local7.soundVolume = local37.soundVolume;
-                local7.anInt9359 = local37.anInt6729;
-                local7.vorbis = local37.vorbisSound;
-                local7.anInt9356 = local37.soundDistance << 9;
-                local7.anInt9360 = local37.anInt6736;
+                sound.x2 = local37.size + x << 9;
+                sound.z2 = z + local37.size << 9;
+                sound.id = NPCEntity.currentSound(npc);
+                sound.minRange = local37.soundRangeMin << 9;
+                sound.volume = local37.soundVolume;
+                sound.rateMin = local37.soundRateMin;
+                sound.vorbis = local37.vorbis;
+                sound.rangeMax = local37.soundRangeMax << 9;
+                sound.rateMax = local37.soundRateMax;
             }
-            Static717.A_DEQUE___81.addLast(local7);
-            return;
+            SoundManager.npcSounds.addLast(sound);
+        } else if (player != null) {
+            sound.player = player;
+            sound.x2 = x + player.getSize() << 9;
+            sound.z2 = player.getSize() + z << 9;
+            sound.id = PlayerEntity.sound(player);
+            sound.rangeMax = player.soundRange << 9;
+            sound.rateMax = 256;
+            sound.rateMin = 256;
+            sound.volume = player.soundVolume;
+            sound.minRange = 0;
+            sound.vorbis = player.vorbis;
+            SoundManager.playerSounds.put(player.id, sound);
         }
-        if (arg1 == null) {
-            return;
-        }
-        local7.player = arg1;
-        local7.anInt9362 = arg2 + arg1.getSize() << 9;
-        local7.anInt9349 = arg1.getSize() + arg3 << 9;
-        local7.sound = PlayerEntity.method4870(arg1);
-        local7.anInt9356 = arg1.soundRange << 9;
-        local7.anInt9360 = 256;
-        local7.anInt9359 = 256;
-        local7.soundVolume = arg1.soundVolume;
-        local7.anInt9355 = 0;
-        local7.vorbis = arg1.vorbis;
-        Static113.A_HASH_TABLE___12.put(arg1.id, local7);
-        return;
     }
 
     @OriginalMember(owner = "client!cp", name = "a", descriptor = "([FFIII[FFIIIII)V")

@@ -717,7 +717,7 @@ public final class debugconsole {
                 }
 
                 if (command.equals("soundstreamcount")) {
-                    addline("Active streams: " + Static336.activeStreams.count());
+                    addline("Active streams: " + SoundManager.activeStreams.count());
                     return;
                 }
 

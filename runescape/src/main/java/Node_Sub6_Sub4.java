@@ -50,13 +50,13 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
             arg0.anInt2183 = arg0.anInt2183 + local28 * arg1 & 0xFFFFF;
             if (local37 <= arg1) {
                 if (this.aClass2_Sub6_Sub1_4.anIntArray49[arg0.anInt2187] == 0) {
-                    arg0.aClass2_Sub6_Sub2_1 = Static730.method3346(arg0.aClass2_Sub49_Sub1_1, arg0.aClass2_Sub6_Sub2_1.method3340(), arg0.aClass2_Sub6_Sub2_1.method3341(), arg0.aClass2_Sub6_Sub2_1.method3348());
+                    arg0.aClass2_Sub6_Sub2_1 = SoundStream.create(arg0.aClass2_Sub49_Sub1_1, arg0.aClass2_Sub6_Sub2_1.method3340(), arg0.aClass2_Sub6_Sub2_1.getRangeXZ(), arg0.aClass2_Sub6_Sub2_1.getRangeY());
                 } else {
-                    arg0.aClass2_Sub6_Sub2_1 = Static730.method3346(arg0.aClass2_Sub49_Sub1_1, arg0.aClass2_Sub6_Sub2_1.method3340(), 0, arg0.aClass2_Sub6_Sub2_1.method3348());
+                    arg0.aClass2_Sub6_Sub2_1 = SoundStream.create(arg0.aClass2_Sub49_Sub1_1, arg0.aClass2_Sub6_Sub2_1.method3340(), 0, arg0.aClass2_Sub6_Sub2_1.getRangeY());
                     this.aClass2_Sub6_Sub1_4.method943(arg0.aClass2_Sub11_1.aShortArray16[arg0.anInt2196] < 0, arg0);
                 }
                 if (arg0.aClass2_Sub11_1.aShortArray16[arg0.anInt2196] < 0) {
-                    arg0.aClass2_Sub6_Sub2_1.method3318(-1);
+                    arg0.aClass2_Sub6_Sub2_1.setVolume(-1);
                 }
                 arg1 = arg0.anInt2183 / local28;
             }
@@ -115,21 +115,21 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
                 if (local79 < local75) {
                     local75 = local79;
                 }
-                @Pc(91) Node_Sub6_Sub2 local91 = arg1.aClass2_Sub6_Sub2_1;
+                @Pc(91) SoundStream local91 = arg1.aClass2_Sub6_Sub2_1;
                 if (this.aClass2_Sub6_Sub1_4.anIntArray49[arg1.anInt2187] == 0) {
-                    arg1.aClass2_Sub6_Sub2_1 = Static730.method3346(arg1.aClass2_Sub49_Sub1_1, local91.method3340(), local91.method3341(), local91.method3348());
+                    arg1.aClass2_Sub6_Sub2_1 = SoundStream.create(arg1.aClass2_Sub49_Sub1_1, local91.method3340(), local91.getRangeXZ(), local91.getRangeY());
                 } else {
-                    arg1.aClass2_Sub6_Sub2_1 = Static730.method3346(arg1.aClass2_Sub49_Sub1_1, local91.method3340(), 0, local91.method3348());
+                    arg1.aClass2_Sub6_Sub2_1 = SoundStream.create(arg1.aClass2_Sub49_Sub1_1, local91.method3340(), 0, local91.getRangeY());
                     this.aClass2_Sub6_Sub1_4.method943(arg1.aClass2_Sub11_1.aShortArray16[arg1.anInt2196] < 0, arg1);
-                    arg1.aClass2_Sub6_Sub2_1.method3315(local75, local91.method3341());
+                    arg1.aClass2_Sub6_Sub2_1.method3315(local75, local91.getRangeXZ());
                 }
                 if (arg1.aClass2_Sub11_1.aShortArray16[arg1.anInt2196] < 0) {
-                    arg1.aClass2_Sub6_Sub2_1.method3318(-1);
+                    arg1.aClass2_Sub6_Sub2_1.setVolume(-1);
                 }
                 local91.method3320(local75);
                 local91.method9131(arg0, arg4, arg2 - arg4);
                 if (local91.method3336()) {
-                    this.aClass2_Sub6_Sub3_2.method5882(local91);
+                    this.aClass2_Sub6_Sub3_2.addFirst(local91);
                 }
             }
         }

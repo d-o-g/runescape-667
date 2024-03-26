@@ -9,7 +9,7 @@ public final class PositionEntityNode {
     private static final int MAX_POOL_SIZE = 500;
 
     @OriginalMember(owner = "client!fl", name = "c", descriptor = "I")
-    public static int poolSize = 0;
+    private static int poolSize = 0;
 
     @OriginalMember(owner = "client!tka", name = "e", descriptor = "Lclient!pba;")
     private static PositionEntityNode poolHead;

@@ -18,38 +18,6 @@ public final class Static609 {
         }
     }
 
-    @OriginalMember(owner = "client!tea", name = "a", descriptor = "(ZI)V")
-    public static void method8213(@OriginalArg(0) boolean arg0) {
-        for (@Pc(8) Node_Sub51 local8 = (Node_Sub51) Static460.A_DEQUE___40.first(); local8 != null; local8 = (Node_Sub51) Static460.A_DEQUE___40.next()) {
-            if (local8.aClass2_Sub6_Sub2_4 != null) {
-                Static336.activeStreams.method5883(local8.aClass2_Sub6_Sub2_4);
-                local8.aClass2_Sub6_Sub2_4 = null;
-            }
-            if (local8.aClass2_Sub6_Sub2_3 != null) {
-                Static336.activeStreams.method5883(local8.aClass2_Sub6_Sub2_3);
-                local8.aClass2_Sub6_Sub2_3 = null;
-            }
-            local8.unlink();
-        }
-        if (!arg0) {
-            return;
-        }
-        for (@Pc(57) Node_Sub51 local57 = (Node_Sub51) Static717.A_DEQUE___81.first(); local57 != null; local57 = (Node_Sub51) Static717.A_DEQUE___81.next()) {
-            if (local57.aClass2_Sub6_Sub2_4 != null) {
-                Static336.activeStreams.method5883(local57.aClass2_Sub6_Sub2_4);
-                local57.aClass2_Sub6_Sub2_4 = null;
-            }
-            local57.unlink();
-        }
-        for (@Pc(85) Node_Sub51 local85 = (Node_Sub51) Static113.A_HASH_TABLE___12.first(); local85 != null; local85 = (Node_Sub51) Static113.A_HASH_TABLE___12.next()) {
-            if (local85.aClass2_Sub6_Sub2_4 != null) {
-                Static336.activeStreams.method5883(local85.aClass2_Sub6_Sub2_4);
-                local85.aClass2_Sub6_Sub2_4 = null;
-            }
-            local85.unlink();
-        }
-    }
-
     @OriginalMember(owner = "client!tea", name = "a", descriptor = "(IIILclient!cba;)V")
     public static void method8214(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) MiniMenuEntryInner arg2) {
         if (!MiniMenu.open) {

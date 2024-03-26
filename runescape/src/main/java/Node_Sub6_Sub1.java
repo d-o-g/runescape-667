@@ -221,7 +221,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(ILclient!dha;)I")
-    public int method914(@OriginalArg(1) Node_Sub16 arg0) {
+    public int sampleRate(@OriginalArg(1) Node_Sub16 arg0) {
         @Pc(14) int local14 = arg0.anInt2191 + (arg0.anInt2203 * arg0.anInt2197 >> 12);
         local14 += (this.anIntArray48[arg0.anInt2187] - 8192) * this.anIntArray52[arg0.anInt2187] >> 12;
         @Pc(35) Class269 local35 = arg0.aClass269_1;
@@ -575,7 +575,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
                 if (local14.aClass2_Sub6_Sub2_1 != null) {
                     local14.aClass2_Sub6_Sub2_1.method3320(Audio.sampleRate / 100);
                     if (local14.aClass2_Sub6_Sub2_1.method3336()) {
-                        this.aClass2_Sub6_Sub4_1.aClass2_Sub6_Sub3_2.method5882(local14.aClass2_Sub6_Sub2_1);
+                        this.aClass2_Sub6_Sub4_1.aClass2_Sub6_Sub3_2.addFirst(local14.aClass2_Sub6_Sub2_1);
                     }
                     local14.method2083();
                 }
@@ -695,13 +695,13 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         local142.anInt2190 = 0;
         local142.anInt2185 = 0;
         if (this.anIntArray49[arg0] == 0) {
-            local142.aClass2_Sub6_Sub2_1 = Static730.method3346(local126, this.method914(local142), this.method920(local142), this.method923(local142));
+            local142.aClass2_Sub6_Sub2_1 = SoundStream.create(local126, this.sampleRate(local142), this.method920(local142), this.method923(local142));
         } else {
-            local142.aClass2_Sub6_Sub2_1 = Static730.method3346(local126, this.method914(local142), 0, this.method923(local142));
+            local142.aClass2_Sub6_Sub2_1 = SoundStream.create(local126, this.sampleRate(local142), 0, this.method923(local142));
             this.method943(local117.aShortArray16[arg1] < 0, local142);
         }
         if (local117.aShortArray16[arg1] < 0) {
-            local142.aClass2_Sub6_Sub2_1.method3318(-1);
+            local142.aClass2_Sub6_Sub2_1.setVolume(-1);
         }
         if (local142.anInt2198 >= 0) {
             @Pc(297) Node_Sub16 local297 = this.aClass2_Sub16ArrayArray2[arg0][local142.anInt2198];
@@ -856,7 +856,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             }
             arg0.anInt2203 = local70;
         }
-        arg0.aClass2_Sub6_Sub2_1.method3319(this.method914(arg0));
+        arg0.aClass2_Sub6_Sub2_1.setRate(this.sampleRate(arg0));
         @Pc(113) Class269 local113 = arg0.aClass269_1;
         arg0.anInt2188 += local113.anInt6776;
         @Pc(122) boolean local122 = false;
@@ -909,7 +909,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             arg0.aClass2_Sub6_Sub2_1.method9131(arg1, arg2, arg3);
         }
         if (arg0.aClass2_Sub6_Sub2_1.method3336()) {
-            this.aClass2_Sub6_Sub4_1.aClass2_Sub6_Sub3_2.method5882(arg0.aClass2_Sub6_Sub2_1);
+            this.aClass2_Sub6_Sub4_1.aClass2_Sub6_Sub3_2.addFirst(arg0.aClass2_Sub6_Sub2_1);
         }
         arg0.method2083();
         if (arg0.anInt2202 >= 0) {

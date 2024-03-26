@@ -104,18 +104,18 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!kf", name = "a", descriptor = "(ILclient!ca;)I")
-    public static int method4870(@OriginalArg(1) PlayerEntity arg0) {
-        @Pc(6) int local6 = arg0.walkSound;
-        @Pc(10) BASType local10 = arg0.getBASType();
-        @Pc(15) int local15 = arg0.animator.getAnimationId();
-        if (local15 == -1 || arg0.ready) {
-            local6 = arg0.readySound;
-        } else if (local10.run == local15 || local15 == local10.runFollowTurn180 || local10.runFollowTurnCw == local15 || local10.runFollowTurnCcw == local15) {
-            local6 = arg0.runSound;
-        } else if (local10.crawl == local15 || local10.crawlFollowTurn180 == local15 || local10.crawlFollowTurnCw == local15 || local10.crawlFollowTurnCcw == local15) {
-            local6 = arg0.crawlSound;
+    public static int sound(@OriginalArg(1) PlayerEntity entity) {
+        @Pc(6) int sound = entity.walkSound;
+        @Pc(10) BASType basType = entity.getBASType();
+        @Pc(15) int animationId = entity.animator.getAnimationId();
+        if (animationId == -1 || entity.ready) {
+            sound = entity.readySound;
+        } else if (basType.run == animationId || animationId == basType.runFollowTurn180 || basType.runFollowTurnCw == animationId || basType.runFollowTurnCcw == animationId) {
+            sound = entity.runSound;
+        } else if (basType.crawl == animationId || basType.crawlFollowTurn180 == animationId || basType.crawlFollowTurnCw == animationId || basType.crawlFollowTurnCcw == animationId) {
+            sound = entity.crawlSound;
         }
-        return local6;
+        return sound;
     }
 
     @OriginalMember(owner = "client!ema", name = "a", descriptor = "(I)V")

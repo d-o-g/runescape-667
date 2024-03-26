@@ -23,17 +23,17 @@ public final class Class76 {
         } else if (Static77.aClass204_1 == arg1) {
             return Static502.method6720(arg0);
         } else if (arg1 == Static166.aClass204_6) {
-            return Static35.method935(arg0);
+            return Class235.method935(arg0);
         } else if (Static647.aClass204_13 == arg1) {
             return Static464.method6301(arg0);
         } else if (Static541.aClass204_12 == arg1) {
-            return Static515.method6803(arg0);
+            return Class160.decode(arg0);
         } else if (arg1 == Static565.aClass204_9) {
             return Static303.method4430(arg0);
         } else if (Static535.aClass204_11 == arg1) {
             return Static715.method9346(arg0);
         } else if (arg1 == Static189.aClass204_7) {
-            return Static452.method6171(arg0);
+            return Class125.method6171(arg0);
         } else if (arg1 == Static667.aClass204_15) {
             return Static112.method2106(arg0);
         } else if (arg1 == Static505.aClass204_16) {

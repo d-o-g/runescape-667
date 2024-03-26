@@ -680,7 +680,7 @@ public final class Ground_Sub1 extends Ground {
 
     @OriginalMember(owner = "client!iga", name = "a", descriptor = "(IIIIIII[[Z)V")
     @Override
-    public void method7873(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) boolean[][] arg4) {
+    public void method7873(@OriginalArg(3) int x1, @OriginalArg(4) int y1, @OriginalArg(5) int x2, @OriginalArg(6) int y2, @OriginalArg(7) boolean[][] visibility) {
         if (this.anInt4322 <= 0) {
             return;
         }
@@ -700,10 +700,10 @@ public final class Ground_Sub1 extends Ground {
                 @Pc(87) int local87;
                 @Pc(95) int local95;
                 if (Stream.b()) {
-                    for (local51 = arg1; local51 < arg3; local51++) {
-                        local60 = arg0 + local51 * super.anInt8894;
-                        for (local62 = arg0; local62 < arg2; local62++) {
-                            if (arg4[local62 - arg0][local51 - arg1]) {
+                    for (local51 = y1; local51 < y2; local51++) {
+                        local60 = x1 + local51 * super.anInt8894;
+                        for (local62 = x1; local62 < x2; local62++) {
+                            if (visibility[local62 - x1][local51 - y1]) {
                                 local83 = this.aShortArrayArray4[local60];
                                 if (local83 != null) {
                                     for (local87 = 0; local87 < local83.length; local87++) {
@@ -723,10 +723,10 @@ public final class Ground_Sub1 extends Ground {
                         }
                     }
                 } else {
-                    for (local51 = arg1; local51 < arg3; local51++) {
-                        local60 = arg0 + super.anInt8894 * local51;
-                        for (local62 = arg0; local62 < arg2; local62++) {
-                            if (arg4[local62 - arg0][local51 - arg1]) {
+                    for (local51 = y1; local51 < y2; local51++) {
+                        local60 = x1 + super.anInt8894 * local51;
+                        for (local62 = x1; local62 < x2; local62++) {
+                            if (visibility[local62 - x1][local51 - y1]) {
                                 local83 = this.aShortArrayArray4[local60];
                                 if (local83 != null) {
                                     for (local87 = 0; local87 < local83.length; local87++) {
@@ -765,7 +765,7 @@ public final class Ground_Sub1 extends Ground {
         this.aClass19_Sub1_9.method8088(null);
         @Pc(306) Matrix_Sub1 local306 = this.aClass19_Sub1_9.method8040();
         @Pc(311) float[] local311 = this.aClass19_Sub1_9.method8133();
-        local311[13] = 1.0F - ((float) 0 + (float) (arg3 * 1024) / 128.0F) / (float) this.aClass19_Sub1_9.anInt9013;
+        local311[13] = 1.0F - ((float) 0 + (float) (y2 * 1024) / 128.0F) / (float) this.aClass19_Sub1_9.anInt9013;
         local311[2] = 0.0F;
         local311[4] = 0.0F;
         local311[9] = 0.0F;
@@ -774,7 +774,7 @@ public final class Ground_Sub1 extends Ground {
         local311[11] = 0.0F;
         local311[5] = (float) 1024 / ((float) super.anInt8888 * 128.0F * (float) this.aClass19_Sub1_9.anInt9013);
         local311[0] = (float) 1024 / ((float) super.anInt8888 * 128.0F * (float) this.aClass19_Sub1_9.anInt9122);
-        local311[12] = -1.0F - ((float) (arg0 * 1024) / 128.0F - (float) 0) / (float) this.aClass19_Sub1_9.anInt9122;
+        local311[12] = -1.0F - ((float) (x1 * 1024) / 128.0F - (float) 0) / (float) this.aClass19_Sub1_9.anInt9122;
         local311[1] = 0.0F;
         local311[14] = -this.aFloat77 / (this.aFloat76 - this.aFloat77);
         local311[6] = 0.0F;

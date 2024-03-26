@@ -1265,16 +1265,16 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(IIIIIII[[Z)V")
     @Override
-    public void method7873(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) boolean[][] arg4) {
+    public void method7873(@OriginalArg(3) int x1, @OriginalArg(4) int y1, @OriginalArg(5) int x2, @OriginalArg(6) int y2, @OriginalArg(7) boolean[][] visibility) {
         @Pc(4) Class399 local4 = this.aClass19_Sub2_8.method3787(Thread.currentThread());
         @Pc(7) Class219 local7 = local4.aClass219_2;
         local7.anInt5724 = 0;
         local7.aBoolean434 = true;
         this.aClass19_Sub2_8.ya();
         if (this.aClass305ArrayArray1 != null || this.aClass320ArrayArray1 != null) {
-            this.method7164(arg0, arg1, arg2, arg3, arg4, local4, local7, local4.anIntArray840, local4.anIntArray843);
+            this.method7164(x1, y1, x2, y2, visibility, local4, local7, local4.anIntArray840, local4.anIntArray843);
         } else if (this.aClass127ArrayArray1 != null) {
-            this.method7163(arg0, arg1, arg2, arg3, arg4, local4, local7, local4.anIntArray840, local4.anIntArray843);
+            this.method7163(x1, y1, x2, y2, visibility, local4, local7, local4.anIntArray840, local4.anIntArray843);
         }
     }
 

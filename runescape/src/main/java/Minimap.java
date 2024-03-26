@@ -634,32 +634,32 @@ public final class Minimap {
         @Pc(37) int randomWallColour = (int) (Math.random() * 20.0D) + ((int) (Math.random() * 20.0D) + 238 - 10 << 8) + ((int) (Math.random() * 20.0D) + -10 + 238 << 16) + 238 - 10 | 0xFF000000;
         @Pc(177) int randomDoorColour = ((int) (Math.random() * 20.0D) + 238 - 10 | 0x9E04FF00) << 16;
         @Pc(196) int randomFloorColour = (int) (Math.random() * 8.0D) << 16 | (int) (Math.random() * 8.0D) << 8 | (int) (Math.random() * 8.0D);
-        @Pc(206) boolean[][] local206 = new boolean[anInt3302 + 1 + 2][anInt3302 + 3];
+        @Pc(206) boolean[][] visibility = new boolean[anInt3302 + 1 + 2][anInt3302 + 3];
 
         for (@Pc(208) int x = mapX; x < mapX + 104; x += anInt3302) {
             for (@Pc(211) int z = mapZ; z < mapZ + 104; z += anInt3302) {
                 @Pc(214) int local214 = 0;
                 @Pc(216) int local216 = 0;
 
-                @Pc(218) int local218 = x;
+                @Pc(218) int x1 = x;
                 if (x > 0) {
-                    local218 = x - 1;
+                    x1 = x - 1;
                     local214 += 4;
                 }
 
-                @Pc(229) int local229 = z;
+                @Pc(229) int z1 = z;
                 if (z > 0) {
-                    local229 = z - 1;
+                    z1 = z - 1;
                 }
 
-                @Pc(238) int local238 = anInt3302 + x;
-                if (local238 < 104) {
-                    local238++;
+                @Pc(238) int x2 = x + anInt3302;
+                if (x2 < 104) {
+                    x2++;
                 }
 
-                @Pc(249) int local249 = z + anInt3302;
-                if (local249 < 104) {
-                    local249++;
+                @Pc(249) int y2 = z + anInt3302;
+                if (y2 < 104) {
+                    y2++;
                     local216 += 4;
                 }
 
@@ -667,26 +667,26 @@ public final class Minimap {
                 toolkit.GA(0xFF000000);
 
                 for (@Pc(278) int level = mapLevel; level <= 3; level++) {
-                    for (@Pc(281) int local281 = 0; local281 <= anInt3302; local281++) {
-                        for (@Pc(284) int local284 = 0; local284 <= anInt3302; local284++) {
-                            local206[local281][local284] = Static696.isTileVisibleFrom(local284 + local229, mapLevel, local218 + local281, level);
+                    for (@Pc(281) int offsetX = 0; offsetX <= anInt3302; offsetX++) {
+                        for (@Pc(284) int offsetZ = 0; offsetZ <= anInt3302; offsetZ++) {
+                            visibility[offsetX][offsetZ] = Static696.isTileVisibleFrom(offsetZ + z1, mapLevel, x1 + offsetX, level);
                         }
                     }
 
-                    Static706.floor[level].method7873(local218, local229, local238, local249, local206);
+                    Static706.floor[level].method7873(x1, z1, x2, y2, visibility);
 
                     if (!drawCollisionMap) {
-                        for (@Pc(284) int local284 = -4; local284 < anInt3302; local284++) {
-                            for (@Pc(331) int local331 = -4; local331 < anInt3302; local331++) {
-                                @Pc(336) int tileX = local284 + x;
-                                @Pc(340) int tileZ = local331 + z;
+                        for (@Pc(284) int offsetX = -4; offsetX < anInt3302; offsetX++) {
+                            for (@Pc(331) int offsetZ = -4; offsetZ < anInt3302; offsetZ++) {
+                                @Pc(336) int tileX = offsetX + x;
+                                @Pc(340) int tileZ = offsetZ + z;
                                 if (mapX <= tileX && tileZ >= mapZ && Static696.isTileVisibleFrom(tileZ, mapLevel, tileX, level)) {
                                     @Pc(365) int actualLevel = level;
                                     if (Static441.isBridgeAt(tileZ, tileX)) {
                                         actualLevel = level - 1;
                                     }
                                     if (actualLevel >= 0) {
-                                        drawLocs(toolkit, randomWallColour, tileX, tileZ, local214 + local284 * 4, (-local331 + anInt3302) * 4 + local216 + -4, actualLevel, randomDoorColour);
+                                        drawLocs(toolkit, randomWallColour, tileX, tileZ, local214 + offsetX * 4, (-offsetZ + anInt3302) * 4 + local216 + -4, actualLevel, randomDoorColour);
                                     }
                                 }
                             }

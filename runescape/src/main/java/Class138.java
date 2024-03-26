@@ -1,6 +1,8 @@
+import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!is")
 public class Class138 implements Interface10 {
@@ -43,6 +45,20 @@ public class Class138 implements Interface10 {
         this.anInt4423 = arg2;
         this.anInt4412 = arg3;
         this.anInt4421 = arg8;
+    }
+
+    @OriginalMember(owner = "client!u", name = "a", descriptor = "(Lclient!ge;I)Lclient!is;")
+    public static Class138 method8359(@OriginalArg(0) Packet arg0) {
+        @Pc(10) HorizontalAlignment local10 = HorizontalAlignment.values()[arg0.g1()];
+        @Pc(17) VerticalAlignment local17 = VerticalAlignment.values()[arg0.g1()];
+        @Pc(21) int local21 = arg0.g2s();
+        @Pc(25) int local25 = arg0.g2s();
+        @Pc(29) int local29 = arg0.g2();
+        @Pc(33) int local33 = arg0.g2();
+        @Pc(37) int local37 = arg0.g2s();
+        @Pc(47) int local47 = arg0.g4();
+        @Pc(51) int local51 = arg0.g4();
+        return new Class138(local10, local17, local21, local25, local29, local33, local37, local47, local51);
     }
 
     @OriginalMember(owner = "client!is", name = "a", descriptor = "(I)Lclient!kda;")

@@ -185,7 +185,7 @@ public final class Ground_Sub2 extends Ground {
 
     @OriginalMember(owner = "client!pn", name = "a", descriptor = "(IIIIIII[[Z)V")
     @Override
-    public void method7873(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) boolean[][] arg4) {
+    public void method7873(@OriginalArg(3) int x1, @OriginalArg(4) int y1, @OriginalArg(5) int x2, @OriginalArg(6) int y2, @OriginalArg(7) boolean[][] visibility) {
         if (this.anInt7508 <= 0) {
             return;
         }
@@ -203,12 +203,12 @@ public final class Ground_Sub2 extends Ground {
         Static699.aFloatArray81[15] = 1.0F;
         Static699.aFloatArray81[8] = 0.0F;
         Static699.aFloatArray81[9] = 0.0F;
-        Static699.aFloatArray81[13] = 1.0F - ((float) (arg3 * 1024) / 128.0F + (float) 0) / (float) this.aClass19_Sub3_33.anInt7956;
+        Static699.aFloatArray81[13] = 1.0F - ((float) (y2 * 1024) / 128.0F + (float) 0) / (float) this.aClass19_Sub3_33.anInt7956;
         Static699.aFloatArray81[14] = 0.0F;
         Static699.aFloatArray81[6] = 0.0F;
         Static699.aFloatArray81[11] = 0.0F;
         Static699.aFloatArray81[3] = 0.0F;
-        Static699.aFloatArray81[12] = -(((float) 0 + (float) (arg0 * 1024) / 128.0F) / (float) this.aClass19_Sub3_33.anInt7869) - 1.0F;
+        Static699.aFloatArray81[12] = -(((float) 0 + (float) (x1 * 1024) / 128.0F) / (float) this.aClass19_Sub3_33.anInt7869) - 1.0F;
         Static699.aFloatArray81[1] = 0.0F;
         Static699.aFloatArray81[10] = 0.0F;
         Static699.aFloatArray81[4] = 0.0F;
@@ -253,10 +253,10 @@ public final class Ground_Sub2 extends Ground {
         @Pc(360) short[] local360;
         @Pc(364) int local364;
         if (this.aClass19_Sub3_33.aBoolean618) {
-            for (local327 = arg1; local327 < arg3; local327++) {
-                local337 = local327 * super.anInt8894 + arg0;
-                for (local339 = arg0; local339 < arg2; local339++) {
-                    if (arg4[local339 - arg0][local327 - arg1]) {
+            for (local327 = y1; local327 < y2; local327++) {
+                local337 = local327 * super.anInt8894 + x1;
+                for (local339 = x1; local339 < x2; local339++) {
+                    if (visibility[local339 - x1][local327 - y1]) {
                         local360 = this.aShortArrayArray6[local337];
                         if (local360 != null) {
                             for (local364 = 0; local364 < local360.length; local364++) {
@@ -269,10 +269,10 @@ public final class Ground_Sub2 extends Ground {
                 }
             }
         } else {
-            for (local327 = arg1; local327 < arg3; local327++) {
-                local337 = local327 * super.anInt8894 + arg0;
-                for (local339 = arg0; local339 < arg2; local339++) {
-                    if (arg4[local339 - arg0][local327 - arg1]) {
+            for (local327 = y1; local327 < y2; local327++) {
+                local337 = local327 * super.anInt8894 + x1;
+                for (local339 = x1; local339 < x2; local339++) {
+                    if (visibility[local339 - x1][local327 - y1]) {
                         local360 = this.aShortArrayArray6[local337];
                         if (local360 != null) {
                             for (local364 = 0; local364 < local360.length; local364++) {

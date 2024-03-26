@@ -40,7 +40,7 @@ public final class CollisionFlag {
 
     public static final int GROUND_DECOR = 0x40000;
 
-    public static final int UNKNOWN = 0x80000;
+    public static final int UNKNOWN = 0x80000; // TODO: identify
 
     public static final int BLOCK_WALK = 0x200000;
 

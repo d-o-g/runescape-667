@@ -8,7 +8,7 @@ public final class CameraMode {
 
     public static final int MODE_SPLINE = 3;
 
-    public static final int MODE_FOUR = 4; // TODO
+    public static final int MODE_FOUR = 4; // TODO: identify
 
     public static final int MODE_SMOOTH_RESET = 5;
 

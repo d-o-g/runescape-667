@@ -1,5 +1,6 @@
 import com.jagex.Class84;
 import com.jagex.SignLink;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -13,7 +14,7 @@ public final class Static519 {
         @Pc(5) boolean local5 = false;
         @Pc(7) boolean local7 = false;
         @Pc(9) boolean local9 = false;
-        if (SignLink.instance.signed && !SignLink.instance.microsoftjava) {
+        if (GameShell.signLink.signed && !GameShell.signLink.microsoftjava) {
             local5 = true;
             if (SystemInfo.instance.totalMemory < 512 && SystemInfo.instance.totalMemory != 0) {
                 local5 = false;

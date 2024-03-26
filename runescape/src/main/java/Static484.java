@@ -9,9 +9,6 @@ public final class Static484 {
     @OriginalMember(owner = "client!pea", name = "n", descriptor = "Ljava/lang/Class;")
     public static Class aClass19;
 
-    @OriginalMember(owner = "client!pea", name = "i", descriptor = "Ljava/lang/String;")
-    public static String aString85 = null;
-
     static Class getClass(String name) {
         Class instance;
         try {

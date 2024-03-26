@@ -2,7 +2,6 @@ import com.jagex.ChangeLocationRequest;
 import com.jagex.Client;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ServerProt;
-import com.jagex.SignLink;
 import com.jagex.Static14;
 import com.jagex.core.io.BitPacket;
 import com.jagex.game.camera.Shake;
@@ -195,7 +194,7 @@ public final class Protocol {
                 DelayedStateChange.interfaceSetClickMask(local100, local446);
                 arg0.currentProt = null;
                 return true;
-            } else if (Static489.A_SERVER_PROT___185 == arg0.currentProt) {
+            } else if (ServerProt.A_SERVER_PROT___185 == arg0.currentProt) {
                 local277 = bitPacket.g2_alt2();
                 local100 = bitPacket.g4_alt1();
                 Static574.method7573();
@@ -607,7 +606,7 @@ public final class Protocol {
                                             return true;
                                         } else if (Static663.A_SERVER_PROT___240 == arg0.currentProt) {
                                             local277 = bitPacket.g4();
-                                            Static439.aSignedResource_4 = SignLink.instance.lookupHostname(local277);
+                                            Static439.aSignedResource_4 = GameShell.signLink.lookupHostname(local277);
                                             arg0.currentProt = null;
                                             return true;
                                         } else if (Static312.A_SERVER_PROT___131 == arg0.currentProt) {
@@ -626,7 +625,7 @@ public final class Protocol {
                                             DelayedStateChange.method6462(local1409 << 16 | local526, 7, local100, local277);
                                             arg0.currentProt = null;
                                             return true;
-                                        } else if (arg0.currentProt == Static655.A_SERVER_PROT___237) {
+                                        } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___237) {
                                             local277 = bitPacket.g4();
                                             Static574.method7573();
                                             DelayedStateChange.method6462(PlayerList.activePlayerSlot, 5, 0, local277);
@@ -832,7 +831,7 @@ public final class Protocol {
                                                 local3044 = new byte[arg0.currentPacketSize];
                                                 bitPacket.readEncrypted(local3044, arg0.currentPacketSize);
                                                 local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
-                                                Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local627, true, SignLink.instance);
+                                                Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local627, true, GameShell.signLink);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == Static444.A_SERVER_PROT___169) {
@@ -1397,7 +1396,7 @@ public final class Protocol {
                                                                 arg0.currentProt = null;
                                                                 return true;
                                                             } else if (Static36.A_SERVER_PROT___15 == arg0.currentProt) {
-                                                                Static480.method6468(bitPacket, SignLink.instance, arg0.currentPacketSize);
+                                                                Static480.method6468(bitPacket, GameShell.signLink, arg0.currentPacketSize);
                                                                 arg0.currentProt = null;
                                                                 return true;
                                                             } else if (Static193.A_SERVER_PROT___74 == arg0.currentProt) {
@@ -1549,8 +1548,8 @@ public final class Protocol {
                                                                     bitPacket.readEncrypted(local3044, arg0.currentPacketSize);
                                                                     local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                                     local629 = "opensn";
-                                                                    if (!Client.js || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
-                                                                        Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
+                                                                    if (!Client.js || Static36.method980(GameShell.signLink, local627, local629, 1).status == 2) {
+                                                                        Static259.method3693(local627, local629, GameShell.signLink, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
                                                                     }
                                                                     arg0.currentProt = null;
                                                                     return true;

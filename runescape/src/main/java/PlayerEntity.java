@@ -1,5 +1,4 @@
 import com.jagex.Client;
-import com.jagex.Constants;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ParticleList;
 import com.jagex.core.constants.ModeWhere;
@@ -633,7 +632,7 @@ public final class PlayerEntity extends PathingEntity {
         this.basId = packet.g2();
         this.displayName = packet.gjstr();
         if (self == this) {
-            Constants.playerDisplayName = this.displayName;
+            Client.playerDisplayName = this.displayName;
         }
         this.accountName = this.displayName;
         this.combatLevel = packet.g1();

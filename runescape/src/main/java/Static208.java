@@ -43,7 +43,7 @@ public final class Static208 {
         client.aClient1.addcanvas();
         GameShell.canvas.setBackground(Color.black);
         Static470.anInt7112 = -1;
-        KeyboardMonitor.instance = Static681.method8921(GameShell.canvas);
+        KeyboardMonitor.instance = KeyboardMonitor.create(GameShell.canvas);
         MouseMonitor.instance = MouseMonitor.create(GameShell.canvas);
     }
 

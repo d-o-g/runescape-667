@@ -1,7 +1,6 @@
 import com.jagex.Client;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.NativeLibraryList;
-import com.jagex.SignLink;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
 import com.jagex.game.SimpleFillerDecoder;
@@ -230,7 +229,7 @@ public final class Static523 {
             MainLogicManager.setStep(2);
         }
         if (LoadState.SETUP_LIB_PATH == Static473.aLoadState_22) {
-            NativeLibraryList.init(js5.DLLS, SignLink.instance);
+            NativeLibraryList.init(js5.DLLS, GameShell.signLink);
         }
         if (LoadState.DOWNLOAD_STUFF == Static473.aLoadState_22) {
             local12 = Static460.method6266();
@@ -296,7 +295,7 @@ public final class Static523 {
             }
 
             GameShell.aClass27_1 = GameShell.method7550();
-            SystemInfo.instance = new SystemInfo(true, SignLink.instance);
+            SystemInfo.instance = new SystemInfo(true, GameShell.signLink);
         }
         if (LoadState.SETUP_STATIC_SPRITES == Static473.aLoadState_22) {
             local12 = Sprites.readyCount(js5.SPRITES) + FontTypeList.readyCount(true);

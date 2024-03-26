@@ -1,8 +1,8 @@
-import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -27,7 +27,7 @@ public final class Static218 {
     public static void method3189() {
         @Pc(7) FileOnDisk local7 = null;
         try {
-            @Pc(13) SignedResource local13 = SignLink.instance.openPrefs("2", true);
+            @Pc(13) SignedResource local13 = GameShell.signLink.openPrefs("2", true);
             while (local13.status == 0) {
                 TimeUtils.sleep(1L);
             }

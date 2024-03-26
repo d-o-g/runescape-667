@@ -7,13 +7,15 @@ import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Shadow;
+import com.jagex.graphics.sw.SoftwareMemoryManager;
+import com.jagex.graphics.sw.SoftwareObject;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!i")
-public final class i extends Model implements Interface5 {
+public final class i extends Model implements SoftwareObject {
 
     @OriginalMember(owner = "client!i", name = "nativeid", descriptor = "J")
     public long nativeid;
@@ -321,7 +323,7 @@ public final class i extends Model implements Interface5 {
     @Override
     public void finalize() {
         if (this.nativeid != 0L) {
-            Static307.method4477(this);
+            SoftwareMemoryManager.free(this);
         }
     }
 

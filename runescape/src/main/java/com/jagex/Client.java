@@ -165,6 +165,12 @@ public final class Client {
     @OriginalMember(owner = "client!br", name = "z", descriptor = "I")
     public static int disableChatEffects = 0;
 
+    @OriginalMember(owner = "client!qda", name = "q", descriptor = "Ljava/lang/String;")
+    public static String playerDisplayName;
+
+    @OriginalMember(owner = "client!jea", name = "t", descriptor = "J")
+    public static long playerDisplayNameEncoded;
+
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(BLjava/lang/String;)V")
     public static void error(@OriginalArg(1) String arg0) {
         System.exit(1);

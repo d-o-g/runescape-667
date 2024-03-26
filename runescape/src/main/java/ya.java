@@ -1,10 +1,12 @@
 import com.jagex.graphics.Node_Sub13;
+import com.jagex.graphics.sw.SoftwareMemoryManager;
+import com.jagex.graphics.sw.SoftwareObject;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ya")
-public final class ya extends Node_Sub13 implements Interface5 {
+public final class ya extends Node_Sub13 implements SoftwareObject {
 
     @OriginalMember(owner = "client!ya", name = "nativeid", descriptor = "J")
     public long nativeid;
@@ -21,7 +23,7 @@ public final class ya extends Node_Sub13 implements Interface5 {
     @Override
     public void finalize() {
         if (this.nativeid != 0L) {
-            Static307.method4477(this);
+            SoftwareMemoryManager.free(this);
         }
     }
 

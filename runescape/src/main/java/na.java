@@ -1,10 +1,12 @@
 import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.sw.SoftwareMemoryManager;
+import com.jagex.graphics.sw.SoftwareObject;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!na")
-public final class na extends ClippingMask implements Interface5 {
+public final class na extends ClippingMask implements SoftwareObject {
 
     @OriginalMember(owner = "client!na", name = "nativeid", descriptor = "J")
     public long nativeid;
@@ -18,7 +20,7 @@ public final class na extends ClippingMask implements Interface5 {
     @Override
     public void finalize() {
         if (this.nativeid != 0L) {
-            Static307.method4477(this);
+            SoftwareMemoryManager.free(this);
         }
     }
 

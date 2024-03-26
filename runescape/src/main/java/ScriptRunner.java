@@ -1,7 +1,6 @@
 import com.jagex.Client;
 import com.jagex.DisplayProperties;
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.SignLink;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeWhat;
 import com.jagex.game.camera.CameraMode;
@@ -4399,8 +4398,8 @@ public final class ScriptRunner {
                     return;
                 }
                 if (arg0 == 5305) {
-                    local192 = Static328.fullscreenWidth;
-                    local834 = Static110.fullscreenHeight;
+                    local192 = GameShell.fullscreenWidth;
+                    local834 = GameShell.fullscreenHeight;
                     local109 = -1;
                     @Pc(3245) DisplayProperties[] local3245 = Static587.method7710();
                     for (local375 = 0; local375 < local3245.length; local375++) {
@@ -4504,7 +4503,7 @@ public final class ScriptRunner {
                             return;
                         }
                         local95 = Client.quitUrl == null ? Static659.method8605() : Client.quitUrl;
-                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local95, false, SignLink.instance);
+                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local95, false, GameShell.signLink);
                         return;
                     }
                     if (arg0 == 5419) {
@@ -4520,7 +4519,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5420) {
-                        anIntArray578[anInt7142++] = SignLink.instance.signed ? 0 : 1;
+                        anIntArray578[anInt7142++] = GameShell.signLink.signed ? 0 : 1;
                         return;
                     }
                     if (arg0 == 5421) {
@@ -4530,7 +4529,7 @@ public final class ScriptRunner {
                         local95 = aStringArray37[--anInt7139];
                         local1578 = anIntArray578[--anInt7142] == 1;
                         local198 = Static659.method8605() + local95;
-                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local198, local1578, SignLink.instance);
+                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local198, local1578, GameShell.signLink);
                         return;
                     }
                     if (arg0 == 5422) {
@@ -4629,8 +4628,8 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5432) {
                         local95 = "";
-                        if (Static175.aClipboard1 != null) {
-                            @Pc(4173) Transferable local4173 = Static175.aClipboard1.getContents(null);
+                        if (client.aClipboard1 != null) {
+                            @Pc(4173) Transferable local4173 = client.aClipboard1.getContents(null);
                             if (local4173 != null) {
                                 try {
                                     local95 = (String) local4173.getTransferData(DataFlavor.stringFlavor);
@@ -5361,7 +5360,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6133) {
-                        anIntArray578[anInt7142++] = SignLink.instance.signed && !SignLink.instance.microsoftjava ? 1 : 0;
+                        anIntArray578[anInt7142++] = GameShell.signLink.signed && !GameShell.signLink.microsoftjava ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6135) {

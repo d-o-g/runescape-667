@@ -1,10 +1,12 @@
 import com.jagex.Interface26;
+import com.jagex.graphics.sw.SoftwareMemoryManager;
+import com.jagex.graphics.sw.SoftwareObject;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!xa")
-public final class xa implements Interface26, Interface5 {
+public final class xa implements Interface26, SoftwareObject {
 
     @OriginalMember(owner = "client!xa", name = "nativeid", descriptor = "J")
     public final long nativeid = 0L;
@@ -18,7 +20,7 @@ public final class xa implements Interface26, Interface5 {
     @Override
     public void finalize() {
         if (this.nativeid != 0L) {
-            Static307.method4477(this);
+            SoftwareMemoryManager.free(this);
         }
     }
 

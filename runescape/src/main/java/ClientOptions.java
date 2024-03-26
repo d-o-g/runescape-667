@@ -158,7 +158,7 @@ public final class ClientOptions extends Node {
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ul;I)V")
     public ClientOptions(@OriginalArg(0) ModeGame game, @OriginalArg(1) int toolkit) {
         this.game = game;
-        this.environment = new EnvironmentContext(SignLink.instance.signed, GameShell.maxmemory, GameShell.cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
+        this.environment = new EnvironmentContext(GameShell.signLink.signed, GameShell.maxmemory, GameShell.cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
         this.toolkit = new ToolkitOption(toolkit, this);
         this.loadDefaults(true);
     }
@@ -166,7 +166,7 @@ public final class ClientOptions extends Node {
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ge;Lclient!ul;I)V")
     public ClientOptions(@OriginalArg(0) Packet packet, @OriginalArg(1) ModeGame game, @OriginalArg(2) int toolkit) {
         this.game = game;
-        this.environment = new EnvironmentContext(SignLink.instance.signed, GameShell.maxmemory, GameShell.cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
+        this.environment = new EnvironmentContext(GameShell.signLink.signed, GameShell.maxmemory, GameShell.cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
         this.toolkit = new ToolkitOption(toolkit, this);
         this.decode(packet);
     }
@@ -175,7 +175,7 @@ public final class ClientOptions extends Node {
     public static void save() {
         @Pc(5) FileOnDisk file = null;
         try {
-            @Pc(18) SignedResource resource = SignLink.instance.openPrefs("", true);
+            @Pc(18) SignedResource resource = GameShell.signLink.openPrefs("", true);
             while (resource.status == 0) {
                 TimeUtils.sleep(1L);
             }

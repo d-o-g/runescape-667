@@ -1,7 +1,5 @@
 import com.jagex.Client;
-import com.jagex.Constants;
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.crypto.Isaac;
 import com.jagex.core.io.BitPacket;
@@ -108,9 +106,9 @@ public final class Static364 {
             }
             if (Static135.anInt8223 == 1) {
                 if (Static299.anInt4825 == 2) {
-                    Static524.aServerConnection_3.gameSocketRequest = Client.gameConnection.openSocket(SignLink.instance);
+                    Static524.aServerConnection_3.gameSocketRequest = Client.gameConnection.openSocket(GameShell.signLink);
                 } else {
-                    Static524.aServerConnection_3.gameSocketRequest = Login.lobbyInfo.openSocket(SignLink.instance);
+                    Static524.aServerConnection_3.gameSocketRequest = Login.lobbyInfo.openSocket(GameShell.signLink);
                 }
                 Static135.anInt8223 = 2;
             }
@@ -196,8 +194,8 @@ public final class Static364 {
                 @Pc(465) String local465 = Static524.aServerConnection_3.bitPacket.gjstr2();
                 Static524.aServerConnection_3.bitPacket.pos = 0;
                 @Pc(473) String local473 = "opensn";
-                if (!Client.js || Static36.method980(SignLink.instance, local465, local473, 1).status == 2) {
-                    Static259.method3693(local465, local473, SignLink.instance, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
+                if (!Client.js || Static36.method980(GameShell.signLink, local465, local473, 1).status == 2) {
+                    Static259.method3693(local465, local473, GameShell.signLink, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
                 }
                 Static135.anInt8223 = 6;
             }
@@ -452,12 +450,12 @@ public final class Static364 {
                         Static476.anInt7175 = local1435.g2();
                         Static323.anInt5118 = local1435.g2();
                         Static392.anInt6141 = local1435.g4();
-                        Static439.aSignedResource_4 = SignLink.instance.lookupHostname(Static392.anInt6141);
+                        Static439.aSignedResource_4 = GameShell.signLink.lookupHostname(Static392.anInt6141);
                         Static335.anInt5462 = local1435.g1();
                         Static626.anInt9473 = local1435.g2();
                         Static636.anInt9527 = local1435.g2();
                         Static420.aBoolean479 = local1435.g1() == 1;
-                        PlayerEntity.self.accountName = PlayerEntity.self.displayName = Constants.playerDisplayName = local1435.gjstr2();
+                        PlayerEntity.self.accountName = PlayerEntity.self.displayName = Client.playerDisplayName = local1435.gjstr2();
                         Static639.anInt9571 = local1435.g1();
                         Static438.anInt6640 = local1435.g4();
                         Static587.aBoolean663 = local1435.g1() == 1;

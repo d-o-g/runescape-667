@@ -2,12 +2,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.datatransfer.Clipboard;
-
 public final class Static175 {
-
-    @OriginalMember(owner = "client!fha", name = "c", descriptor = "Ljava/awt/datatransfer/Clipboard;")
-    public static Clipboard aClipboard1;
 
     @OriginalMember(owner = "client!fha", name = "b", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___31 = new ClientProt(21, 15);

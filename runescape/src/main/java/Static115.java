@@ -1,6 +1,5 @@
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.IndexedImage;
-import com.jagex.SignLink;
 import com.jagex.game.runetek6.config.cursortype.CursorType;
 import com.jagex.game.runetek6.config.cursortype.CursorTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -31,12 +30,12 @@ public final class Static115 {
             if (local32 == null) {
                 arg0 = -1;
             } else {
-                SignLink.instance.method8995(GameShell.canvas, local32.method9383(), new Point(local28.hotspotx, local28.hotspoty), local32.offsetX(), local32.offsetY());
+                GameShell.signLink.method8995(GameShell.canvas, local32.method9383(), new Point(local28.hotspotx, local28.hotspoty), local32.offsetX(), local32.offsetY());
                 Static470.anInt7112 = arg0;
             }
         }
         if (arg0 == -1 && Static470.anInt7112 != -1) {
-            SignLink.instance.method8995(GameShell.canvas, null, new Point(), -1, -1);
+            GameShell.signLink.method8995(GameShell.canvas, null, new Point(), -1, -1);
             Static470.anInt7112 = -1;
         }
     }

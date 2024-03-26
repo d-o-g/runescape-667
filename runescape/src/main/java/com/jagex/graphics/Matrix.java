@@ -3,9 +3,24 @@ package com.jagex.graphics;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!tt")
 public abstract class Matrix {
+
+    @OriginalMember(owner = "client!fb", name = "i", descriptor = "[F")
+    public static final float[] SIN = new float[16384];
+
+    @OriginalMember(owner = "client!fb", name = "c", descriptor = "[F")
+    public static final float[] COS = new float[16384];
+
+    static {
+        @Pc(70) double d = 3.834951969714103E-4D;
+        for (@Pc(72) int i = 0; i < 16384; i++) {
+            SIN[i] = (float) Math.sin(d * (double) i);
+            COS[i] = (float) Math.cos(d * (double) i);
+        }
+    }
 
     @OriginalMember(owner = "client!tt", name = "c", descriptor = "(III[I)V")
     public abstract void method7124(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3);

@@ -1,22 +1,7 @@
 import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static203 {
-
-    @OriginalMember(owner = "client!fb", name = "i", descriptor = "[F")
-    public static final float[] aFloatArray79 = new float[16384];
-
-    @OriginalMember(owner = "client!fb", name = "c", descriptor = "[F")
-    public static final float[] aFloatArray80 = new float[16384];
-
-    static {
-        @Pc(70) double local70 = 3.834951969714103E-4D;
-        for (@Pc(72) int local72 = 0; local72 < 16384; local72++) {
-            aFloatArray79[local72] = (float) Math.sin(local70 * (double) local72);
-            aFloatArray80[local72] = (float) Math.cos(local70 * (double) local72);
-        }
-    }
 
     @OriginalMember(owner = "client!gf", name = "l", descriptor = "F")
     public static float aFloat69;

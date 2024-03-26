@@ -2,13 +2,15 @@ import com.jagex.core.datastruct.key.Deque;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
+import com.jagex.graphics.sw.SoftwareMemoryManager;
+import com.jagex.graphics.sw.SoftwareObject;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!t")
-public final class t extends Ground implements Interface5 {
+public final class t extends Ground implements SoftwareObject {
 
     @OriginalMember(owner = "client!t", name = "nativeid", descriptor = "J")
     public long nativeid;
@@ -33,7 +35,7 @@ public final class t extends Ground implements Interface5 {
     @Override
     public void finalize() {
         if (this.nativeid != 0L) {
-            Static307.method4477(this);
+            SoftwareMemoryManager.free(this);
         }
     }
 

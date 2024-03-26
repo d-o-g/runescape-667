@@ -63,10 +63,10 @@ public final class Static305 {
                 local58.setFont(Static589.aFont1);
                 local58.setColor(arg2);
                 local58.drawString(arg4, (304 - arg4.length() * 6) / 2 + local73, local79 + 22);
-                if (Static484.aString85 != null) {
+                if (GameShell.loadingTitle != null) {
                     local58.setFont(Static589.aFont1);
                     local58.setColor(arg2);
-                    local58.drawString(Static484.aString85, GameShell.canvasWid / 2 - Static484.aString85.length() * 6 / 2, GameShell.canvasHei / 2 + -26);
+                    local58.drawString(GameShell.loadingTitle, GameShell.canvasWid / 2 - GameShell.loadingTitle.length() * 6 / 2, GameShell.canvasHei / 2 + -26);
                 }
                 local6.drawImage(Static103.anImage1, 0, 0, null);
             } catch (@Pc(205) Exception local205) {
@@ -83,10 +83,10 @@ public final class Static305 {
                 local6.fillRect(local220 + arg0 * 3 + 2, local73 + 2, 300 - arg0 * 3, 30);
                 local6.setFont(Static589.aFont1);
                 local6.setColor(arg2);
-                if (Static484.aString85 != null) {
+                if (GameShell.loadingTitle != null) {
                     local6.setFont(Static589.aFont1);
                     local6.setColor(arg2);
-                    local6.drawString(Static484.aString85, GameShell.canvasWid / 2 - Static484.aString85.length() * 6 / 2, GameShell.canvasHei / 2 + -26);
+                    local6.drawString(GameShell.loadingTitle, GameShell.canvasWid / 2 - GameShell.loadingTitle.length() * 6 / 2, GameShell.canvasHei / 2 + -26);
                 }
                 local6.drawString(arg4, local220 + (304 - arg4.length() * 6) / 2, local73 + 22);
             }

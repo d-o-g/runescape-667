@@ -4,6 +4,8 @@ import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
 import com.jagex.Static14;
+import com.jagex.graphics.sw.SoftwareMemoryManager;
+import com.jagex.graphics.sw.SoftwareObject;
 import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
@@ -34,7 +36,7 @@ import java.awt.Rectangle;
 import java.lang.reflect.Method;
 
 @OriginalClass("client!oa")
-public final class oa extends Toolkit implements Interface5 {
+public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!sia", name = "a", descriptor = "(Lclient!d;IIILjava/awt/Canvas;)Lclient!ha;")
     public static Toolkit create(@OriginalArg(4) Canvas canvas, @OriginalArg(0) TextureSource textureSource, @OriginalArg(1) int width, @OriginalArg(2) int height) {
@@ -87,7 +89,7 @@ public final class oa extends Toolkit implements Interface5 {
             if (!Static14.loadNativeLibrary("sw3d")) {
                 throw new RuntimeException("");
             }
-            Static307.method4479();
+            SoftwareMemoryManager.instanceCreated();
             this.MA(super.textureSource, 0, 0);
             ColourUtils.init(true, false);
             this.aBoolean510 = true;
@@ -125,7 +127,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "e", descriptor = "(I)V")
     @Override
     public void method7977(@OriginalArg(0) int arg0) {
-        Static307.method4478();
+        SoftwareMemoryManager.freeAll();
         this.d(arg0);
         for (@Pc(10) ya local10 = (ya) this.aDeque_38.first(); local10 != null; local10 = (ya) this.aDeque_38.next()) {
             local10.r();
@@ -646,7 +648,7 @@ public final class oa extends Toolkit implements Interface5 {
     public synchronized void finalize() {
         this.free();
         if (this.nativeid != 0L) {
-            Static307.method4477(this);
+            SoftwareMemoryManager.free(this);
         }
     }
 
@@ -764,7 +766,7 @@ public final class oa extends Toolkit implements Interface5 {
     public void g() {
         System.gc();
         System.runFinalization();
-        Static307.method4478();
+        SoftwareMemoryManager.freeAll();
     }
 
     @OriginalMember(owner = "client!oa", name = "f", descriptor = "()V")
@@ -819,7 +821,7 @@ public final class oa extends Toolkit implements Interface5 {
             this.aBoolean510 = false;
         }
         this.g();
-        Static307.method4481();
+        SoftwareMemoryManager.instanceDestroyed();
         this.aBoolean509 = true;
     }
 

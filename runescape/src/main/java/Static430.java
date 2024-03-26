@@ -1,7 +1,7 @@
 import com.jagex.Client;
-import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.ConnectionInfo;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.Exception_Sub1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -27,7 +27,7 @@ public final class Static430 {
 
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(IBLjava/lang/String;)Z")
     public static boolean method5817(@OriginalArg(0) int arg0, @OriginalArg(2) String arg1) {
-        if (SignLink.instance.signed) {
+        if (GameShell.signLink.signed) {
             Client.gameConnection = new ConnectionInfo();
             Client.gameConnection.id = arg0;
             Client.gameConnection.address = arg1;

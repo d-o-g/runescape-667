@@ -1,9 +1,10 @@
 package com.jagex.core.util;
 
-import com.jagex.Constants;
+import com.jagex.Client;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.stringtools.general.StringTools;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -108,8 +109,8 @@ public final class JagException extends RuntimeException {
             trace = StringTools.replace(trace, "&", "%26");
             trace = StringTools.replace(trace, "#", "%23");
 
-            if (Constants.sourceApplet != null) {
-                @Pc(131) SignedResource resource = SignLink.aSignLink_4.openStream(new URL(Constants.sourceApplet.getCodeBase(), "clienterror.ws?c=" + Constants.clientBuild + "&u=" + (Constants.playerDisplayName == null ? String.valueOf(Constants.playerDisplayNameEncoded) : Constants.playerDisplayName) + "&v1=" + SignLink.javaVendor + "&v2=" + SignLink.javaVersion + "&e=" + trace));
+            if (GameShell.sourceApplet != null) {
+                @Pc(131) SignedResource resource = SignLink.instance.openStream(new URL(GameShell.sourceApplet.getCodeBase(), "clienterror.ws?c=" + GameShell.clientBuild + "&u=" + (Client.playerDisplayName == null ? String.valueOf(Client.playerDisplayNameEncoded) : Client.playerDisplayName) + "&v1=" + GameShell.javaVendor + "&v2=" + GameShell.javaVersion + "&e=" + trace));
 
                 while (resource.status == 0) {
                     TimeUtils.sleep(1L);

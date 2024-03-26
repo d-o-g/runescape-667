@@ -165,11 +165,11 @@ public final class SystemInfo extends Node {
             }
         }
 
-        if (SignLink.javaVendor.toLowerCase().indexOf("sun") != -1) {
+        if (GameShell.javaVendor.toLowerCase().indexOf("sun") != -1) {
             this.javaVendor = JAVA_VENDOR_SUN;
-        } else if (SignLink.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
+        } else if (GameShell.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
             this.javaVendor = JAVA_VENDOR_MICROSOFT;
-        } else if (SignLink.javaVendor.toLowerCase().indexOf("apple") == -1) {
+        } else if (GameShell.javaVendor.toLowerCase().indexOf("apple") == -1) {
             this.javaVendor = JAVA_VENDOR_APPLE;
         } else {
             this.javaVendor = JAVA_VENDOR_UNKNOWN;
@@ -177,8 +177,8 @@ public final class SystemInfo extends Node {
 
         @Pc(334) int javaRelease = 0;
         try {
-            for (@Pc(332) int i = SignLink.javaVersion.startsWith("1.") ? 2 : 0; i < SignLink.javaVersion.length(); i++) {
-                @Pc(340) char c = SignLink.javaVersion.charAt(i);
+            for (@Pc(332) int i = GameShell.javaVersion.startsWith("1.") ? 2 : 0; i < GameShell.javaVersion.length(); i++) {
+                @Pc(340) char c = GameShell.javaVersion.charAt(i);
                 if (c < '0' || c > '9') {
                     break;
                 }
@@ -192,8 +192,8 @@ public final class SystemInfo extends Node {
 
         @Pc(334) int javaVersion = 0;
         try {
-            for (@Pc(332) int i = SignLink.javaVersion.indexOf(46, 2) + 1; i < SignLink.javaVersion.length(); i++) {
-                @Pc(340) char c = SignLink.javaVersion.charAt(i);
+            for (@Pc(332) int i = GameShell.javaVersion.indexOf(46, 2) + 1; i < GameShell.javaVersion.length(); i++) {
+                @Pc(340) char c = GameShell.javaVersion.charAt(i);
                 if (c < '0' || c > '9') {
                     break;
                 }
@@ -207,8 +207,8 @@ public final class SystemInfo extends Node {
 
         @Pc(334) int javaUpdate = 0;
         try {
-            for (@Pc(332) int i = SignLink.javaVersion.indexOf(95, 4) + 1; i < SignLink.javaVersion.length(); i++) {
-                @Pc(340) char c = SignLink.javaVersion.charAt(i);
+            for (@Pc(332) int i = GameShell.javaVersion.indexOf(95, 4) + 1; i < GameShell.javaVersion.length(); i++) {
+                @Pc(340) char c = GameShell.javaVersion.charAt(i);
                 if (c < '0' || c > '9') {
                     break;
                 }

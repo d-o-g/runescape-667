@@ -1,4 +1,3 @@
-import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
@@ -50,6 +49,20 @@ import java.util.Hashtable;
 
 @OriginalClass("client!qha")
 public final class GlToolkit extends Toolkit {
+
+    @OriginalMember(owner = "client!kh", name = "N", descriptor = "[F")
+    public static final float[] SIN = new float[16384];
+
+    @OriginalMember(owner = "client!kh", name = "f", descriptor = "[F")
+    public static final float[] COS = new float[16384];
+
+    static {
+        @Pc(433) double d = 3.834951969714103E-4D;
+        for (@Pc(435) int i = 0; i < 16384; i++) {
+            GlToolkit.SIN[i] = (float) Math.sin(d * (double) i);
+            GlToolkit.COS[i] = (float) Math.cos((double) i * d);
+        }
+    }
 
     @OriginalMember(owner = "client!gga", name = "a", descriptor = "(Lclient!d;Ljava/awt/Canvas;II)Lclient!ha;")
     public static Toolkit create(@OriginalArg(1) Canvas canvas, @OriginalArg(0) TextureSource textureSource, @OriginalArg(2) int antialiasing) {
@@ -2991,7 +3004,7 @@ public final class GlToolkit extends Toolkit {
             local148 = SkyBoxSphere.method5587(local148);
             OpenGL.glVertex2f((float) radius + local83, local88);
             for (@Pc(178) int local178 = 16384 - local148; local178 > 0; local178 -= local148) {
-                OpenGL.glVertex2f(GameShell.aFloatArray14[local178] * (float) radius + local83, GameShell.aFloatArray15[local178] * (float) radius + local88);
+                OpenGL.glVertex2f(COS[local178] * (float) radius + local83, SIN[local178] * (float) radius + local88);
             }
             OpenGL.glVertex2f(local83 + (float) radius, local88);
             OpenGL.glEnd();

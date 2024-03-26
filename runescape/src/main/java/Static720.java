@@ -1,9 +1,9 @@
 import com.jagex.Client;
-import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -62,7 +62,7 @@ public final class Static720 {
         @Pc(13) FileOnDisk local13 = null;
         @Pc(19) ClientOptions local19 = new ClientOptions(Client.modeGame, 0);
         try {
-            @Pc(25) SignedResource local25 = SignLink.instance.openPrefs("", true);
+            @Pc(25) SignedResource local25 = GameShell.signLink.openPrefs("", true);
             while (local25.status == 0) {
                 TimeUtils.sleep(1L);
             }

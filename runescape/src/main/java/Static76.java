@@ -1,4 +1,4 @@
-import com.jagex.SignLink;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -46,7 +46,7 @@ public final class Static76 {
                 Static720.anInt10865++;
             }
             if (Static6.anInt95 == 1) {
-                ConnectionManager.LOBBY.gameSocketRequest = Login.lobbyInfo.openSocket(SignLink.instance);
+                ConnectionManager.LOBBY.gameSocketRequest = Login.lobbyInfo.openSocket(GameShell.signLink);
                 Static6.anInt95 = 2;
             }
             if (Static6.anInt95 == 2) {

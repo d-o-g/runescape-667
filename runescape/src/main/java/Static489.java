@@ -1,9 +1,5 @@
 import com.jagex.Client;
-import com.jagex.DisplayProperties;
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.ServerProt;
-import com.jagex.SignLink;
-import com.jagex.SignedResource;
 import com.jagex.core.constants.AreaMode;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
@@ -14,54 +10,10 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.Frame;
-
 public final class Static489 {
 
     @OriginalMember(owner = "client!ph", name = "K", descriptor = "I")
     public static int anInt7343;
-
-    @OriginalMember(owner = "client!ph", name = "I", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___185 = new ServerProt(8, 6);
-
-    @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ILclient!vq;IIII)Ljava/awt/Frame;")
-    public static Frame createFullscreenFrame(@OriginalArg(1) SignLink signlink, @OriginalArg(4) int width, @OriginalArg(3) int height, @OriginalArg(0) int oldWidth, @OriginalArg(2) int oldHeight) {
-        if (!signlink.supportsFullscreen()) {
-            return null;
-        }
-
-        @Pc(18) DisplayProperties[] properties = SignLink.getDisplayProperties(signlink, true);
-        if (properties == null) {
-            return null;
-        }
-
-        @Pc(25) boolean found = false;
-        for (@Pc(27) int i = 0; i < properties.length; i++) {
-            if (properties[i].width == width && properties[i].height == height && (oldHeight == 0 || oldHeight == properties[i].oldHeight) && (!found || properties[i].oldWidth > oldWidth)) {
-                found = true;
-                oldWidth = properties[i].oldWidth;
-            }
-        }
-
-        if (!found) {
-            return null;
-        }
-
-        @Pc(101) SignedResource resource = signlink.enterFullscreen(width, height, oldWidth, oldHeight);
-        while (resource.status == 0) {
-            TimeUtils.sleep(10L);
-        }
-
-        @Pc(112) Frame local112 = (Frame) resource.result;
-        if (local112 == null) {
-            return null;
-        } else if (resource.status == 2) {
-            Static655.method8562(signlink, local112);
-            return null;
-        } else {
-            return local112;
-        }
-    }
 
     @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ZBLclient!cg;)V")
     public static void tick(@OriginalArg(0) boolean cutscene, @OriginalArg(2) PathingEntity entity) {

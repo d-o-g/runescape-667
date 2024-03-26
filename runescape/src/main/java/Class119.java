@@ -34,7 +34,7 @@ public final class Class119 implements Runnable {
                     }
                 }
                 TimeUtils.sleep(10L);
-                GameShell.method1312(this.aSignLink_2, null);
+                GameShell.waitForEvents(this.aSignLink_2, null);
             }
         } catch (@Pc(49) Exception local49) {
             JagException.sendTrace(local49, null);

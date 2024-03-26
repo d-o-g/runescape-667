@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MaxScreenSize;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -102,7 +103,7 @@ public final class Static468 {
         ClientOptions.instance.update(0, ClientOptions.instance.bloom);
         ClientOptions.instance.update(0, ClientOptions.instance.skydetail);
         Static376.method5313();
-        ClientOptions.instance.update(2, ClientOptions.instance.maxScreenSize);
+        ClientOptions.instance.update(MaxScreenSize._800x600, ClientOptions.instance.maxScreenSize);
         ClientOptions.instance.update(1, ClientOptions.instance.graphicsQuality);
         Static296.updateFeatureMask();
         InterfaceManager.loginOpened();

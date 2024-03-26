@@ -54,7 +54,7 @@ public final class Static712 {
                 GameShell.leftMargin = (GameShell.frameWid - Client.loadingScreenWidth) / 2;
                 GameShell.canvasWid = Client.loadingScreenWidth;
             } else {
-                Static323.method4625();
+                InterfaceManager.method4625();
             }
             if (Client.modeWhere != ModeWhere.LIVE) {
                 @Pc(101) boolean local101;

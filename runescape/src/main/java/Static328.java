@@ -6,9 +6,6 @@ public final class Static328 {
     @OriginalMember(owner = "client!kga", name = "L", descriptor = "[[[B")
     public static byte[][][] aByteArrayArrayArray4;
 
-    @OriginalMember(owner = "client!kga", name = "M", descriptor = "I")
-    public static int fullscreenWidth;
-
     @OriginalMember(owner = "client!kga", name = "O", descriptor = "I")
     public static final int anInt5425 = IntMath.countBits(1600);
 

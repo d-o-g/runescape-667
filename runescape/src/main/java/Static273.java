@@ -16,9 +16,6 @@ public final class Static273 {
     @OriginalMember(owner = "client!ik", name = "I", descriptor = "Z")
     public static boolean aBoolean339 = true;
 
-    @OriginalMember(owner = "client!ik", name = "w", descriptor = "Z")
-    public static boolean aBoolean340 = true;
-
     @OriginalMember(owner = "client!ik", name = "a", descriptor = "(Lclient!bd;ZIILclient!sb;II)V")
     public static void method3961(@OriginalArg(0) Node_Sub6_Sub1 arg0, @OriginalArg(3) int arg1, @OriginalArg(4) js5 arg2, @OriginalArg(5) int arg3) {
         Static611.method8229(arg1, arg3, arg2);

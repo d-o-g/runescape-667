@@ -4,6 +4,7 @@ import com.jagex.SignLink;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -58,7 +59,7 @@ public final class SimpleKeyboardMonitor extends KeyboardMonitor implements KeyL
 
     @OriginalMember(owner = "client!vaa", name = "b", descriptor = "(Z)V")
     public static void updateKeymap() {
-        if (SignLink.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
+        if (GameShell.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
             KEY_MAP[191] = 73;
             KEY_MAP[186] = 57;
             KEY_MAP[219] = 42;

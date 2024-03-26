@@ -115,6 +115,9 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!as", name = "g", descriptor = "I")
     public static int openedInnerHeight;
 
+    @OriginalMember(owner = "client!ik", name = "w", descriptor = "Z")
+    public static boolean ignorePlayerLevels = true;
+
     @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
     public static void reset() {
         for (@Pc(10) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) innerEntries.next()) {
@@ -247,7 +250,7 @@ public final class MiniMenu {
             }
             @Pc(538) LinkedList local538 = local510.aLinkedList_8;
             for (@Pc(543) PickableEntity local543 = (PickableEntity) local538.first(); local543 != null; local543 = (PickableEntity) local538.next()) {
-                if ((Static273.aBoolean340 || local543.aEntity_18.level == PlayerEntity.self.level) && local543.method6496(arg2, local177, local148)) {
+                if ((ignorePlayerLevels || local543.aEntity_18.level == PlayerEntity.self.level) && local543.method6496(arg2, local177, local148)) {
                     @Pc(584) int local584;
                     if (local543.aEntity_18 instanceof PositionEntity) {
                         local186 = ((PositionEntity) local543.aEntity_18).x1;

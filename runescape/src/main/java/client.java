@@ -1,6 +1,5 @@
 import com.jagex.Client;
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.SignLink;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.PathFinder;
 import com.jagex.game.camera.CameraMode;
@@ -71,6 +70,7 @@ import java.awt.Container;
 import java.awt.Frame;
 import java.awt.Insets;
 import java.awt.Rectangle;
+import java.awt.datatransfer.Clipboard;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -83,6 +83,9 @@ public final class client extends GameShell {
 
     @OriginalMember(owner = "client!jga", name = "k", descriptor = "Lclient!client;")
     public static client aClient1;
+
+    @OriginalMember(owner = "client!fha", name = "c", descriptor = "Ljava/awt/datatransfer/Clipboard;")
+    public static Clipboard aClipboard1;
 
     @OriginalMember(owner = "client!client", name = "main", descriptor = "([Ljava/lang/String;)V")
     public static void main(@OriginalArg(0) String[] arg0) {
@@ -799,7 +802,7 @@ public final class client extends GameShell {
     @OriginalMember(owner = "client!client", name = "i", descriptor = "(I)V")
     @Override
     public synchronized void addcanvas() {
-        if (GameShell.loaderApplet != null && GameShell.canvas == null && !SignLink.instance.microsoftjava) {
+        if (GameShell.loaderApplet != null && GameShell.canvas == null && !GameShell.signLink.microsoftjava) {
             try {
                 @Pc(25) Class local25 = GameShell.loaderApplet.getClass();
                 @Pc(31) Field local31 = local25.getDeclaredField("canvas");
@@ -828,7 +831,7 @@ public final class client extends GameShell {
         }
 
         if (GameShell.fsframe != null) {
-            Static655.method8562(SignLink.instance, GameShell.fsframe);
+            InterfaceManager.exitFullscreen(GameShell.signLink, GameShell.fsframe);
             GameShell.fsframe = null;
         }
 
@@ -901,7 +904,7 @@ public final class client extends GameShell {
 
         try {
             if (Client.js5State == Js5State.INIT) {
-                Client.js5Socket = Client.gameConnection.openSocket(SignLink.instance);
+                Client.js5Socket = Client.gameConnection.openSocket(GameShell.signLink);
                 Client.js5State++;
             }
 
@@ -921,7 +924,7 @@ public final class client extends GameShell {
             }
 
             if (Client.js5State == Js5State.SEND_HEADER) {
-                Client.js5BufferedSocket = new BufferedSocket((Socket) Client.js5Socket.result, SignLink.instance, 25000);
+                Client.js5BufferedSocket = new BufferedSocket((Socket) Client.js5Socket.result, GameShell.signLink, 25000);
                 @Pc(251) Packet packet = new Packet(5);
                 packet.p1(LoginProt.INIT_JS5REMOTE_CONNECTION.opcode);
                 packet.p4(667);
@@ -1143,7 +1146,8 @@ public final class client extends GameShell {
 
     @OriginalMember(owner = "client!client", name = "e", descriptor = "(B)V")
     @Override
-    protected void method1637() {
+    protected void cleanup() {
+        /* empty */
     }
 
     @OriginalMember(owner = "client!client", name = "f", descriptor = "(B)V")
@@ -1267,7 +1271,7 @@ public final class client extends GameShell {
             debugconsole.draw(Toolkit.active);
         }
 
-        if (SignLink.instance.microsoftjava && Static475.method6445(MainLogicManager.step) && InterfaceManager.rectDebug == 0 && InterfaceManager.getWindowMode() == 1 && !local209) {
+        if (GameShell.signLink.microsoftjava && Static475.method6445(MainLogicManager.step) && InterfaceManager.rectDebug == 0 && InterfaceManager.getWindowMode() == 1 && !local209) {
             @Pc(110) int rectangle = 0;
 
             for (@Pc(114) int i = 0; i < InterfaceManager.rectangleCount; i++) {
@@ -1463,17 +1467,22 @@ public final class client extends GameShell {
         if (Client.force64mb) {
             GameShell.maxmemory = 64;
         }
+
         @Pc(18) Frame local18 = new Frame("Jagex");
         local18.pack();
         local18.dispose();
+
         Static712.method9329((byte) 11);
-        Static66.aCachedResourceWorker_1 = new CachedResourceWorker(SignLink.instance);
+        Static66.aCachedResourceWorker_1 = new CachedResourceWorker(GameShell.signLink);
         Client.js5WorkerThread = new Js5WorkerThread();
         Static545.method7241(new int[]{20, 260}, new int[]{1000, 100});
+
         if (ModeWhere.LIVE != Client.modeWhere) {
             Static163.aByteArrayArray36 = new byte[50][];
         }
+
         ClientOptions.instance = Static720.method9398();
+
         if (Client.modeWhere == ModeWhere.LIVE) {
             Login.worldInfo.address = this.getCodeBase().getHost();
         } else if (ModeWhere.isPrivate(Client.modeWhere)) {
@@ -1490,32 +1499,38 @@ public final class client extends GameShell {
             Login.lobbyInfo.defaultPort = Login.lobbyInfo.id + 40000;
             Login.lobbyInfo.alternatePort = Login.lobbyInfo.id + 50000;
         }
+
         Client.gameConnection = Login.worldInfo;
         Client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
+
         if (Client.modeGame == ModeGame.RUNESCAPE) {
-            Static273.aBoolean340 = false;
+            MiniMenu.ignorePlayerLevels = false;
         }
+
         try {
-            Static175.aClipboard1 = aClient1.getToolkit().getSystemClipboard();
-        } catch (@Pc(183) Exception local183) {
+            aClipboard1 = aClient1.getToolkit().getSystemClipboard();
+        } catch (@Pc(183) Exception ignored) {
+            /* empty */
         }
-        KeyboardMonitor.instance = Static681.method8921(GameShell.canvas);
+
+        KeyboardMonitor.instance = KeyboardMonitor.create(GameShell.canvas);
         MouseMonitor.instance = MouseMonitor.create(GameShell.canvas);
+
         try {
-            if (SignLink.instance.cacheDat != null) {
-                Client.cacheDat = new BufferedFile(SignLink.instance.cacheDat, 5200, 0);
+            if (GameShell.signLink.cacheDat != null) {
+                Client.cacheDat = new BufferedFile(GameShell.signLink.cacheDat, 5200, 0);
                 for (@Pc(205) int i = 0; i < 37; i++) {
-                    Client.cacheIndexFiles[i] = new BufferedFile(SignLink.instance.cacheIndex[i], 6000, 0);
+                    Client.cacheIndexFiles[i] = new BufferedFile(GameShell.signLink.cacheIndex[i], 6000, 0);
                 }
-                Client.metaFile = new BufferedFile(SignLink.instance.masterIndex, 6000, 0);
+                Client.metaFile = new BufferedFile(GameShell.signLink.masterIndex, 6000, 0);
                 Client.metaCache = new FileSystem_Client(Js5Archive.ARCHIVESET, Client.cacheDat, Client.metaFile, 500000);
-                Client.uidDat = new BufferedFile(SignLink.instance.uidFile, 24, 0);
-                SignLink.instance.masterIndex = null;
-                SignLink.instance.cacheIndex = null;
-                SignLink.instance.cacheDat = null;
-                SignLink.instance.uidFile = null;
+                Client.uidDat = new BufferedFile(GameShell.signLink.uidFile, 24, 0);
+                GameShell.signLink.masterIndex = null;
+                GameShell.signLink.cacheIndex = null;
+                GameShell.signLink.cacheDat = null;
+                GameShell.signLink.uidFile = null;
             }
-        } catch (@Pc(275) IOException local275) {
+        } catch (@Pc(275) IOException ignored) {
             Client.metaFile = null;
             Client.metaCache = null;
             Client.uidDat = null;
@@ -1526,7 +1541,7 @@ public final class client extends GameShell {
             Client.displayFps = true;
         }
 
-        Static484.aString85 = LocalisedText.LOADING.localise(Client.language);
+        GameShell.loadingTitle = LocalisedText.LOADING.localise(Client.language);
     }
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "(I)Ljava/lang/String;")

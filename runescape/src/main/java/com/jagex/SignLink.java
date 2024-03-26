@@ -8,6 +8,7 @@ import com.jagex.core.io.socket.ProxyAuthenticationException;
 import com.jagex.core.io.socket.SocketFactory;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -40,8 +41,9 @@ public final class SignLink implements Runnable {
 
     private static final String cacheIndexFilename = "main_file_cache.idx";
 
-    @OriginalMember(owner = "client!oaa", name = "b", descriptor = "Lclient!vq;")
-    public static SignLink instance;
+    private static final long MAX_CACHEINDEX_SIZE = 1048576L;
+
+    private static final String FILE_ACCESS_PERMISSIONS = "rw";
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!vq", name = "s", descriptor = "Ljava/lang/Class;")
@@ -58,12 +60,6 @@ public final class SignLink implements Runnable {
     // $FF: synthetic field
     @OriginalMember(owner = "client!vq", name = "d", descriptor = "Ljava/lang/Class;")
     public static Class pointClass;
-
-    @OriginalMember(owner = "client!vq", name = "D", descriptor = "Ljava/lang/String;")
-    public static String javaVendor;
-
-    @OriginalMember(owner = "client!vq", name = "q", descriptor = "Ljava/lang/String;")
-    public static String javaVersion;
 
     @OriginalMember(owner = "client!vq", name = "f", descriptor = "Ljava/lang/String;")
     public static String game;
@@ -86,9 +82,6 @@ public final class SignLink implements Runnable {
     @OriginalMember(owner = "client!vq", name = "A", descriptor = "Ljava/lang/reflect/Method;")
     public static Method setFocusTraversalKeysEnabled;
 
-    @OriginalMember(owner = "client!vq", name = "v", descriptor = "Ljava/lang/reflect/Method;")
-    public static Method setFocusCycleRoot;
-
     @OriginalMember(owner = "client!vq", name = "w", descriptor = "I")
     public static int cacheId;
 
@@ -96,7 +89,7 @@ public final class SignLink implements Runnable {
     public static volatile long timeout = 0L;
 
     @OriginalMember(owner = "client!iu", name = "h", descriptor = "Lclient!vq;")
-    public static SignLink aSignLink_4;
+    public static SignLink instance;
 
     @OriginalMember(owner = "client!vq", name = "m", descriptor = "Lclient!dm;")
     public FileOnDisk cacheDat = null;
@@ -149,20 +142,20 @@ public final class SignLink implements Runnable {
     @OriginalMember(owner = "client!vq", name = "<init>", descriptor = "(ILjava/lang/String;IZ)V")
     public SignLink(@OriginalArg(0) int cacheId, @OriginalArg(1) String game, @OriginalArg(2) int archiveCount, @OriginalArg(3) boolean signed) throws Exception {
         SignLink.game = game;
-        SignLink.javaVersion = "1.1";
-        SignLink.javaVendor = "Unknown";
+        GameShell.javaVersion = "1.1";
+        GameShell.javaVendor = "Unknown";
 
         this.signed = signed;
         SignLink.cacheId = cacheId;
 
         try {
-            javaVendor = System.getProperty("java.vendor");
-            javaVersion = System.getProperty("java.version");
+            GameShell.javaVendor = System.getProperty("java.vendor");
+            GameShell.javaVersion = System.getProperty("java.version");
         } catch (@Pc(52) Exception ignored) {
             /* empty */
         }
 
-        if (javaVendor.toLowerCase().indexOf("microsoft") != -1) {
+        if (GameShell.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
             this.microsoftjava = true;
         }
 
@@ -214,7 +207,7 @@ public final class SignLink implements Runnable {
             }
 
             try {
-                setFocusCycleRoot = Class.forName("java.awt.Container").getDeclaredMethod("setFocusCycleRoot", Boolean.TYPE);
+                GameShell.setFocusCycleRoot = Class.forName("java.awt.Container").getDeclaredMethod("setFocusCycleRoot", Boolean.TYPE);
             } catch (@Pc(168) Exception ignored) {
                 /* empty */
             }
@@ -223,13 +216,13 @@ public final class SignLink implements Runnable {
         FileCache.initialize(SignLink.cacheId, SignLink.game);
 
         if (this.signed) {
-            this.uidFile = new FileOnDisk(FileCache.get(null, SignLink.cacheId, UIDFileName), "rw", 25L);
-            this.cacheDat = new FileOnDisk(FileCache.get(cacheDatFilename), "rw", 314572800L);
-            this.masterIndex = new FileOnDisk(FileCache.get(cacheMasterIndexFilename), "rw", 1048576L);
+            this.uidFile = new FileOnDisk(FileCache.get(null, SignLink.cacheId, UIDFileName), FILE_ACCESS_PERMISSIONS, 25L);
+            this.cacheDat = new FileOnDisk(FileCache.get(cacheDatFilename), FILE_ACCESS_PERMISSIONS, 314572800L);
+            this.masterIndex = new FileOnDisk(FileCache.get(cacheMasterIndexFilename), FILE_ACCESS_PERMISSIONS, MAX_CACHEINDEX_SIZE);
             this.cacheIndex = new FileOnDisk[archiveCount];
 
             for (@Pc(226) int i = 0; i < archiveCount; i++) {
-                this.cacheIndex[i] = new FileOnDisk(FileCache.get(cacheIndexFilename + i), "rw", 1048576L);
+                this.cacheIndex[i] = new FileOnDisk(FileCache.get(cacheIndexFilename + i), FILE_ACCESS_PERMISSIONS, MAX_CACHEINDEX_SIZE);
             }
 
             if (this.microsoftjava) {
@@ -348,7 +341,7 @@ public final class SignLink implements Runnable {
 
             if (dir.length() <= 0 || (new File(dir)).exists()) {
                 try {
-                    return new FileOnDisk(new File(dir, path), "rw", 10000L);
+                    return new FileOnDisk(new File(dir, path), FILE_ACCESS_PERMISSIONS, 10000L);
                 } catch (@Pc(158) Exception ignored) {
                     /* empty */
                 }

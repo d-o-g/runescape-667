@@ -1,6 +1,9 @@
 import com.jagex.Client;
-import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
+import com.jagex.SignedResource;
+import com.jagex.core.constants.MaxScreenSize;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeGame;
@@ -50,6 +53,7 @@ import rs2.client.event.mouse.MouseLog;
 import rs2.client.event.mouse.MouseMonitor;
 
 import java.awt.Container;
+import java.awt.Frame;
 import java.awt.Insets;
 import java.awt.Rectangle;
 
@@ -2365,16 +2369,17 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(IIIIIZ)V")
     public static void windowModeChanged(@OriginalArg(0) int oldMode, @OriginalArg(1) int height, @OriginalArg(2) int newMode, @OriginalArg(4) int width, @OriginalArg(5) boolean modeChanged) {
-        if (GameShell.fsframe != null && (newMode != WindowMode.FULLSCREEN || width != Static328.fullscreenWidth || height != Static110.fullscreenHeight)) {
-            Static655.method8562(SignLink.instance, GameShell.fsframe);
+        if (GameShell.fsframe != null && (newMode != WindowMode.FULLSCREEN || width != GameShell.fullscreenWidth || height != GameShell.fullscreenHeight)) {
+            exitFullscreen(GameShell.signLink, GameShell.fsframe);
             GameShell.fsframe = null;
         }
 
-        if (newMode == 3 && GameShell.fsframe == null) {
-            GameShell.fsframe = Static489.createFullscreenFrame(SignLink.instance, width, height, 0, 0);
+        if (newMode == WindowMode.FULLSCREEN && GameShell.fsframe == null) {
+            GameShell.fsframe = createFullscreenFrame(GameShell.signLink, width, height, 0, 0);
+
             if (GameShell.fsframe != null) {
-                Static328.fullscreenWidth = width;
-                Static110.fullscreenHeight = height;
+                GameShell.fullscreenWidth = width;
+                GameShell.fullscreenHeight = height;
                 ClientOptions.save();
             }
         }
@@ -2395,6 +2400,7 @@ public final class InterfaceManager {
 
             @Pc(126) int negativeTop = -insets.top;
             GameShell.frameHei = GameShell.frame.getSize().height + negativeTop - insets.bottom;
+
             topContainer = GameShell.frame;
         } else {
             if (GameShell.loaderApplet == null) {
@@ -2413,7 +2419,7 @@ public final class InterfaceManager {
             GameShell.canvasHei = Client.loadingScreenHeight;
             GameShell.canvasWid = Client.loadingScreenWidth;
         } else {
-            Static323.method4625();
+            method4625();
         }
 
         if (Client.modeWhere != ModeWhere.LIVE) {
@@ -2683,6 +2689,90 @@ public final class InterfaceManager {
         if (dialog != null) {
             redraw(dialog);
             dialog = null;
+        }
+    }
+
+    @OriginalMember(owner = "client!un", name = "a", descriptor = "(Lclient!vq;ILjava/awt/Frame;)V")
+    public static void exitFullscreen(@OriginalArg(0) SignLink signLink, @OriginalArg(2) Frame frame) {
+        while (true) {
+            @Pc(10) SignedResource resource = signLink.exitFullscreen(frame);
+            while (resource.status == 0) {
+                TimeUtils.sleep(10L);
+            }
+            if (resource.status == 1) {
+                frame.setVisible(false);
+                frame.dispose();
+                return;
+            }
+            TimeUtils.sleep(100L);
+        }
+    }
+
+    @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ILclient!vq;IIII)Ljava/awt/Frame;")
+    public static Frame createFullscreenFrame(@OriginalArg(1) SignLink signlink, @OriginalArg(4) int width, @OriginalArg(3) int height, @OriginalArg(0) int oldWidth, @OriginalArg(2) int oldHeight) {
+        if (!signlink.supportsFullscreen()) {
+            return null;
+        }
+
+        @Pc(18) DisplayProperties[] properties = SignLink.getDisplayProperties(signlink, true);
+        if (properties == null) {
+            return null;
+        }
+
+        @Pc(25) boolean found = false;
+        for (@Pc(27) int i = 0; i < properties.length; i++) {
+            if (properties[i].width == width && properties[i].height == height && (oldHeight == 0 || oldHeight == properties[i].oldHeight) && (!found || properties[i].oldWidth > oldWidth)) {
+                found = true;
+                oldWidth = properties[i].oldWidth;
+            }
+        }
+
+        if (!found) {
+            return null;
+        }
+
+        @Pc(101) SignedResource resource = signlink.enterFullscreen(width, height, oldWidth, oldHeight);
+        while (resource.status == 0) {
+            TimeUtils.sleep(10L);
+        }
+
+        @Pc(112) Frame local112 = (Frame) resource.result;
+        if (local112 == null) {
+            return null;
+        } else if (resource.status == 2) {
+            exitFullscreen(signlink, local112);
+            return null;
+        } else {
+            return local112;
+        }
+    }
+
+    @OriginalMember(owner = "client!kda", name = "a", descriptor = "(I)V")
+    public static void method4625() {
+        @Pc(5) int maxScreenSize = 0;
+        if (ClientOptions.instance != null) {
+            maxScreenSize = ClientOptions.instance.maxScreenSize.getValue();
+        }
+
+        if (maxScreenSize == MaxScreenSize._800x600) {
+            @Pc(34) int local34 = GameShell.frameWid <= 800 ? GameShell.frameWid : 800;
+            GameShell.leftMargin = (GameShell.frameWid - local34) / 2;
+            GameShell.canvasWid = local34;
+            @Pc(51) int local51 = GameShell.frameHei <= 600 ? GameShell.frameHei : 600;
+            GameShell.topMargin = 0;
+            GameShell.canvasHei = local51;
+        } else if (maxScreenSize == MaxScreenSize._1024x768) {
+            @Pc(34) int local34 = GameShell.frameWid <= 1024 ? GameShell.frameWid : 1024;
+            GameShell.canvasWid = local34;
+            @Pc(51) int local51 = GameShell.frameHei <= 768 ? GameShell.frameHei : 768;
+            GameShell.leftMargin = (GameShell.frameWid - local34) / 2;
+            GameShell.canvasHei = local51;
+            GameShell.topMargin = 0;
+        } else {
+            GameShell.topMargin = 0;
+            GameShell.canvasHei = GameShell.frameHei;
+            GameShell.canvasWid = GameShell.frameWid;
+            GameShell.leftMargin = 0;
         }
     }
 }

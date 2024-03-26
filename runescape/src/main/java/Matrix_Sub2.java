@@ -71,8 +71,8 @@ public final class Matrix_Sub2 extends Matrix {
     @Override
     public void makeRotationZ(@OriginalArg(0) int arg0) {
         this.aFloat61 = 1.0F;
-        this.aFloat59 = this.aFloat52 = Static203.aFloatArray80[arg0 & 0x3FFF];
-        this.aFloat57 = Static203.aFloatArray79[arg0 & 0x3FFF];
+        this.aFloat59 = this.aFloat52 = Matrix.COS[arg0 & 0x3FFF];
+        this.aFloat57 = Matrix.SIN[arg0 & 0x3FFF];
         this.aFloat53 = this.aFloat60 = this.aFloat51 = this.aFloat58 = this.aFloat56 = this.aFloat54 = this.aFloat62 = 0.0F;
         this.aFloat55 = -this.aFloat57;
     }
@@ -101,8 +101,8 @@ public final class Matrix_Sub2 extends Matrix {
     @OriginalMember(owner = "client!eaa", name = "c", descriptor = "(I)V")
     @Override
     public void rotateAxisX(@OriginalArg(0) int arg0) {
-        @Pc(9) float local9 = Static203.aFloatArray80[arg0 & 0x3FFF];
-        @Pc(15) float local15 = Static203.aFloatArray79[arg0 & 0x3FFF];
+        @Pc(9) float local9 = Matrix.COS[arg0 & 0x3FFF];
+        @Pc(15) float local15 = Matrix.SIN[arg0 & 0x3FFF];
         @Pc(18) float local18 = this.aFloat57;
         @Pc(21) float local21 = this.aFloat52;
         @Pc(24) float local24 = this.aFloat51;
@@ -128,12 +128,12 @@ public final class Matrix_Sub2 extends Matrix {
     @OriginalMember(owner = "client!eaa", name = "a", descriptor = "(IIIIII)V")
     @Override
     public void method7135(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        @Pc(9) float local9 = Static203.aFloatArray80[arg3 & 0x3FFF];
-        @Pc(15) float local15 = Static203.aFloatArray79[arg3 & 0x3FFF];
-        @Pc(21) float local21 = Static203.aFloatArray80[arg4 & 0x3FFF];
-        @Pc(27) float local27 = Static203.aFloatArray79[arg4 & 0x3FFF];
-        @Pc(33) float local33 = Static203.aFloatArray80[arg5 & 0x3FFF];
-        @Pc(39) float local39 = Static203.aFloatArray79[arg5 & 0x3FFF];
+        @Pc(9) float local9 = Matrix.COS[arg3 & 0x3FFF];
+        @Pc(15) float local15 = Matrix.SIN[arg3 & 0x3FFF];
+        @Pc(21) float local21 = Matrix.COS[arg4 & 0x3FFF];
+        @Pc(27) float local27 = Matrix.SIN[arg4 & 0x3FFF];
+        @Pc(33) float local33 = Matrix.COS[arg5 & 0x3FFF];
+        @Pc(39) float local39 = Matrix.SIN[arg5 & 0x3FFF];
         @Pc(43) float local43 = local33 * local15;
         @Pc(47) float local47 = local39 * local15;
         this.aFloat55 = local9 * local39;
@@ -188,8 +188,8 @@ public final class Matrix_Sub2 extends Matrix {
     @Override
     public void rotate(@OriginalArg(0) int angle) {
         this.aFloat52 = 1.0F;
-        this.aFloat59 = this.aFloat61 = Static203.aFloatArray80[angle & 0x3FFF];
-        this.aFloat53 = Static203.aFloatArray79[angle & 0x3FFF];
+        this.aFloat59 = this.aFloat61 = Matrix.COS[angle & 0x3FFF];
+        this.aFloat53 = Matrix.SIN[angle & 0x3FFF];
         this.aFloat55 = this.aFloat60 = this.aFloat57 = this.aFloat51 = this.aFloat58 = this.aFloat54 = this.aFloat62 = 0.0F;
         this.aFloat56 = -this.aFloat53;
     }
@@ -198,8 +198,8 @@ public final class Matrix_Sub2 extends Matrix {
     @Override
     public void makeRotationX(@OriginalArg(0) int arg0) {
         this.aFloat59 = 1.0F;
-        this.aFloat52 = this.aFloat61 = Static203.aFloatArray80[arg0 & 0x3FFF];
-        this.aFloat54 = Static203.aFloatArray79[arg0 & 0x3FFF];
+        this.aFloat52 = this.aFloat61 = Matrix.COS[arg0 & 0x3FFF];
+        this.aFloat54 = Matrix.SIN[arg0 & 0x3FFF];
         this.aFloat51 = -this.aFloat54;
         this.aFloat55 = this.aFloat53 = this.aFloat60 = this.aFloat57 = this.aFloat58 = this.aFloat56 = this.aFloat62 = 0.0F;
     }
@@ -207,8 +207,8 @@ public final class Matrix_Sub2 extends Matrix {
     @OriginalMember(owner = "client!eaa", name = "b", descriptor = "(I)V")
     @Override
     public void rotateAxisZ(@OriginalArg(0) int arg0) {
-        @Pc(9) float local9 = Static203.aFloatArray80[arg0 & 0x3FFF];
-        @Pc(15) float local15 = Static203.aFloatArray79[arg0 & 0x3FFF];
+        @Pc(9) float local9 = Matrix.COS[arg0 & 0x3FFF];
+        @Pc(15) float local15 = Matrix.SIN[arg0 & 0x3FFF];
         @Pc(18) float local18 = this.aFloat59;
         @Pc(21) float local21 = this.aFloat55;
         @Pc(24) float local24 = this.aFloat53;
@@ -226,8 +226,8 @@ public final class Matrix_Sub2 extends Matrix {
     @OriginalMember(owner = "client!eaa", name = "f", descriptor = "(I)V")
     @Override
     public void rotateAxisY(@OriginalArg(0) int arg0) {
-        @Pc(9) float local9 = Static203.aFloatArray80[arg0 & 0x3FFF];
-        @Pc(15) float local15 = Static203.aFloatArray79[arg0 & 0x3FFF];
+        @Pc(9) float local9 = Matrix.COS[arg0 & 0x3FFF];
+        @Pc(15) float local15 = Matrix.SIN[arg0 & 0x3FFF];
         @Pc(18) float local18 = this.aFloat59;
         @Pc(21) float local21 = this.aFloat55;
         @Pc(24) float local24 = this.aFloat53;

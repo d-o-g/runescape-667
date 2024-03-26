@@ -301,7 +301,7 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("unloadnatives")) {
-                    addline(GameShell.method6714() ? "Libraries unloaded" : "Library unloading failed!");
+                    addline(GameShell.unloadNatives() ? "Libraries unloaded" : "Library unloading failed!");
                     return;
                 }
                 if (command.equalsIgnoreCase("clientdrop")) {
@@ -330,7 +330,7 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("breakcon")) {
-                    SignLink.instance.timeout();
+                    GameShell.signLink.timeout();
                     @Pc(723) ServerConnection[] local723 = ConnectionManager.VALUES;
                     for (@Pc(725) int local725 = 0; local725 < local723.length; local725++) {
                         @Pc(730) ServerConnection connection = local723[local725];

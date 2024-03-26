@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static449 {
 
     @OriginalMember(owner = "client!od", name = "h", descriptor = "Lclient!uaa;")
-    public static Class364 aClass364_1;
+    public static LoadingScreenRenderer aLoadingScreenRenderer_1;
 
     @OriginalMember(owner = "client!od", name = "c", descriptor = "[I")
     public static int[] anIntArray546;

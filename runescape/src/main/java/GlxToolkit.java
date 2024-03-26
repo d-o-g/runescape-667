@@ -472,7 +472,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "v", descriptor = "()V")
     @Override
-    public void method7943() {
+    public void restoreSurface() {
     }
 
     @OriginalMember(owner = "client!tca", name = "Y", descriptor = "(I)V")
@@ -576,8 +576,8 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "GA", descriptor = "(I)V")
     @Override
-    public void GA(@OriginalArg(0) int arg0) {
-        OpenGL.glClearColor((float) (arg0 & 0xFF0000) / 1.671168E7F, (float) (arg0 & 0xFF00) / 65280.0F, (float) (arg0 & 0xFF) / 255.0F, (float) (arg0 >>> 24) / 255.0F);
+    public void GA(@OriginalArg(0) int colour) {
+        OpenGL.glClearColor((float) (colour & 0xFF0000) / 1.671168E7F, (float) (colour & 0xFF00) / 65280.0F, (float) (colour & 0xFF) / 255.0F, (float) (colour >>> 24) / 255.0F);
         OpenGL.glClear(OpenGL.GL_COLOR_BUFFER_BIT);
     }
 
@@ -614,7 +614,7 @@ public final class GlxToolkit extends NativeToolkit {
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
     public void method8011(@OriginalArg(0) Rectangle[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) throws Exception_Sub1 {
-        this.method7975(arg2, arg3);
+        this.flip(arg2, arg3);
     }
 
     @OriginalMember(owner = "client!tca", name = "v", descriptor = "(B)V")
@@ -659,7 +659,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "e", descriptor = "(II)V")
     @Override
-    public void method7975(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) throws Exception_Sub1 {
+    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1 {
         this.anOpenGL2.swapBuffers();
     }
 

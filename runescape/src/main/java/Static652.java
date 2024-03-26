@@ -1,5 +1,4 @@
 import com.jagex.IndexedImage;
-import com.jagex.core.io.Packet;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -11,12 +10,6 @@ public final class Static652 {
 
     @OriginalMember(owner = "client!uka", name = "o", descriptor = "I")
     public static int currentFps = 0;
-
-    @OriginalMember(owner = "client!uka", name = "a", descriptor = "(Lclient!ge;I)Lclient!gi;")
-    public static Class146 method8531(@OriginalArg(0) Packet arg0) {
-        @Pc(16) int local16 = arg0.g4();
-        return new Class146(local16);
-    }
 
     @OriginalMember(owner = "client!uka", name = "a", descriptor = "(III)Z")
     public static boolean method8532(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {

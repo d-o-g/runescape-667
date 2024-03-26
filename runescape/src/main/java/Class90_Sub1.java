@@ -16,8 +16,8 @@ public final class Class90_Sub1 extends Class90 {
     @OriginalMember(owner = "client!gia", name = "a", descriptor = "(ZIBI)V")
     @Override
     protected void method7751(@OriginalArg(1) int arg0, @OriginalArg(3) int arg1) {
-        Toolkit.active.method7976(arg0 - 2, arg1, super.aClass138_5.anInt4418 + 4, super.aClass138_5.anInt4413 + 2, ((Class138_Sub3) super.aClass138_5).anInt4427, 0);
-        Toolkit.active.method7976(arg0 - 1, arg1 - -1, super.aClass138_5.anInt4418 + 2, super.aClass138_5.anInt4413, 0, 0);
+        Toolkit.active.outlineRect(arg0 - 2, arg1, super.aClass138_5.anInt4418 + 4, super.aClass138_5.anInt4413 + 2, ((Class138_Sub3) super.aClass138_5).anInt4427, 0);
+        Toolkit.active.outlineRect(arg0 - 1, arg1 - -1, super.aClass138_5.anInt4418 + 2, super.aClass138_5.anInt4413, 0, 0);
     }
 
     @OriginalMember(owner = "client!gia", name = "a", descriptor = "(IIZI)V")

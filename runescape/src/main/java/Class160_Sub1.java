@@ -1,6 +1,7 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!hea")
 public final class Class160_Sub1 extends Class160 {
@@ -16,7 +17,7 @@ public final class Class160_Sub1 extends Class160 {
 
     @OriginalMember(owner = "client!hea", name = "a", descriptor = "(I)Lclient!kda;")
     @Override
-    public Class204 method5357() {
-        return Static647.aClass204_13;
+    public LoadingScreenOpType type() {
+        return LoadingScreenOpType.ROTATING_IMAGE;
     }
 }

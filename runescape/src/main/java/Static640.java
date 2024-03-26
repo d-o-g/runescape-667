@@ -10,11 +10,6 @@ public final class Static640 {
     @OriginalMember(owner = "client!uda", name = "B", descriptor = "S")
     public static short aShort122 = 256;
 
-    @OriginalMember(owner = "client!uda", name = "i", descriptor = "(I)Lclient!wca;")
-    public static Class396 method8436() {
-        return Static321.method4620();
-    }
-
     @OriginalMember(owner = "client!uda", name = "a", descriptor = "(II)[[[B")
     public static byte[][][] method8437(@OriginalArg(1) int arg0) {
         @Pc(9) byte[][][] local9 = new byte[8][4][];

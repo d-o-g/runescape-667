@@ -932,8 +932,8 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "GA", descriptor = "(I)V")
     @Override
-    public void GA(@OriginalArg(0) int arg0) {
-        this.aa(0, 0, this.anInt4207, this.anInt4209, arg0, 0);
+    public void GA(@OriginalArg(0) int colour) {
+        this.aa(0, 0, this.anInt4207, this.anInt4209, colour, 0);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
@@ -1130,11 +1130,11 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "d", descriptor = "(IIIIII)V")
     @Override
-    public void method7976(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.U(arg0, arg1, arg2, arg4, arg5);
-        this.U(arg0, arg1 + arg3 - 1, arg2, arg4, arg5);
-        this.P(arg0, arg1 + 1, arg3 - 2, arg4, arg5);
-        this.P(arg0 + arg2 - 1, arg1 + 1, arg3 - 2, arg4, arg5);
+    public void outlineRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
+        this.U(x, y, width, colour, mode);
+        this.U(x, y + height - 1, width, colour, mode);
+        this.P(x, y + 1, height - 2, colour, mode);
+        this.P(x + width - 1, y + 1, height - 2, colour, mode);
     }
 
     @OriginalMember(owner = "client!iaa", name = "U", descriptor = "(IIIII)V")
@@ -1502,7 +1502,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(II)Lclient!eca;")
     @Override
     public Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return this.method7963(arg0, arg1, false);
+        return this.createSprite(arg0, arg1, false);
     }
 
     @OriginalMember(owner = "client!iaa", name = "H", descriptor = "(III[I)V")
@@ -1952,7 +1952,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     @Override
-    public Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         @Pc(4) int[] local4 = new int[arg2 * arg3];
         @Pc(11) int local11 = arg1 * this.anInt4207 + arg0;
         @Pc(16) int local16 = this.anInt4207 - arg2;
@@ -2082,21 +2082,21 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void method7951(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        arg2 -= arg0;
-        arg3 -= arg1;
-        if (arg3 == 0) {
-            if (arg2 >= 0) {
-                this.U(arg0, arg1, arg2 + 1, arg4, arg5);
+    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
+        x2 -= x1;
+        y2 -= y1;
+        if (y2 == 0) {
+            if (x2 >= 0) {
+                this.U(x1, y1, x2 + 1, colour, mode);
             } else {
-                this.U(arg0 + arg2, arg1, 1 - arg2, arg4, arg5);
+                this.U(x1 + x2, y1, 1 - x2, colour, mode);
             }
-        } else if (arg2 != 0) {
-            if (arg2 + arg3 < 0) {
-                arg0 += arg2;
-                arg2 = -arg2;
-                arg1 += arg3;
-                arg3 = -arg3;
+        } else if (x2 != 0) {
+            if (x2 + y2 < 0) {
+                x1 += x2;
+                x2 = -x2;
+                y1 += y2;
+                y2 = -y2;
             }
             @Pc(110) int local110;
             @Pc(143) int local143;
@@ -2106,119 +2106,119 @@ public final class JavaToolkit extends Toolkit {
             @Pc(251) int local251;
             @Pc(331) int local331;
             @Pc(220) int local220;
-            if (arg2 > arg3) {
-                arg1 <<= 0x10;
-                arg1 += 32768;
-                @Pc(100) int local100 = arg3 << 16;
-                local110 = (int) Math.floor((double) local100 / (double) arg2 + 0.5D);
-                arg2 += arg0;
-                if (arg0 < this.anInt4192) {
-                    arg1 += local110 * (this.anInt4192 - arg0);
-                    arg0 = this.anInt4192;
+            if (x2 > y2) {
+                y1 <<= 0x10;
+                y1 += 32768;
+                @Pc(100) int local100 = y2 << 16;
+                local110 = (int) Math.floor((double) local100 / (double) x2 + 0.5D);
+                x2 += x1;
+                if (x1 < this.anInt4192) {
+                    y1 += local110 * (this.anInt4192 - x1);
+                    x1 = this.anInt4192;
                 }
-                if (arg2 >= this.anInt4200) {
-                    arg2 = this.anInt4200 - 1;
+                if (x2 >= this.anInt4200) {
+                    x2 = this.anInt4200 - 1;
                 }
-                local143 = arg4 >>> 24;
-                if (arg5 == 0 || arg5 == 1 && local143 == 255) {
-                    while (arg0 <= arg2) {
-                        local161 = arg1 >> 16;
+                local143 = colour >>> 24;
+                if (mode == 0 || mode == 1 && local143 == 255) {
+                    while (x1 <= x2) {
+                        local161 = y1 >> 16;
                         if (local161 >= this.anInt4186 && local161 < this.anInt4196) {
-                            this.anIntArray319[arg0 + local161 * this.anInt4207] = arg4;
+                            this.anIntArray319[x1 + local161 * this.anInt4207] = colour;
                         }
-                        arg1 += local110;
-                        arg0++;
+                        y1 += local110;
+                        x1++;
                     }
-                } else if (arg5 == 1) {
-                    local220 = ((arg4 & 0xFF00FF) * local143 >> 8 & 0xFF00FF) + ((arg4 & 0xFF00) * local143 >> 8 & 0xFF00) + (local143 << 24);
+                } else if (mode == 1) {
+                    local220 = ((colour & 0xFF00FF) * local143 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local143 >> 8 & 0xFF00) + (local143 << 24);
                     local161 = 256 - local143;
-                    while (arg0 <= arg2) {
-                        local229 = arg1 >> 16;
+                    while (x1 <= x2) {
+                        local229 = y1 >> 16;
                         if (local229 >= this.anInt4186 && local229 < this.anInt4196) {
-                            local246 = arg0 + local229 * this.anInt4207;
+                            local246 = x1 + local229 * this.anInt4207;
                             local251 = this.anIntArray319[local246];
                             local251 = ((local251 & 0xFF00FF) * local161 >> 8 & 0xFF00FF) + ((local251 & 0xFF00) * local161 >> 8 & 0xFF00);
                             this.anIntArray319[local246] = local220 + local251;
                         }
-                        arg1 += local110;
-                        arg0++;
+                        y1 += local110;
+                        x1++;
                     }
-                } else if (arg5 == 2) {
-                    while (arg0 <= arg2) {
-                        local161 = arg1 >> 16;
+                } else if (mode == 2) {
+                    while (x1 <= x2) {
+                        local161 = y1 >> 16;
                         if (local161 >= this.anInt4186 && local161 < this.anInt4196) {
-                            local229 = arg0 + local161 * this.anInt4207;
+                            local229 = x1 + local161 * this.anInt4207;
                             local246 = this.anIntArray319[local229];
-                            local251 = arg4 + local246;
-                            local331 = (arg4 & 0xFF00FF) + (local246 & 0xFF00FF);
+                            local251 = colour + local246;
+                            local331 = (colour & 0xFF00FF) + (local246 & 0xFF00FF);
                             local246 = (local331 & 0x1000100) + (local251 - local331 & 0x10000);
                             this.anIntArray319[local229] = local251 - local246 | local246 - (local246 >>> 8);
                         }
-                        arg1 += local110;
-                        arg0++;
+                        y1 += local110;
+                        x1++;
                     }
                 } else {
                     throw new IllegalArgumentException();
                 }
             } else {
-                arg0 <<= 0x10;
-                arg0 += 32768;
-                @Pc(380) int local380 = arg2 << 16;
-                local110 = (int) Math.floor((double) local380 / (double) arg3 + 0.5D);
-                arg3 += arg1;
-                if (arg1 < this.anInt4186) {
-                    arg0 += local110 * (this.anInt4186 - arg1);
-                    arg1 = this.anInt4186;
+                x1 <<= 0x10;
+                x1 += 32768;
+                @Pc(380) int local380 = x2 << 16;
+                local110 = (int) Math.floor((double) local380 / (double) y2 + 0.5D);
+                y2 += y1;
+                if (y1 < this.anInt4186) {
+                    x1 += local110 * (this.anInt4186 - y1);
+                    y1 = this.anInt4186;
                 }
-                if (arg3 >= this.anInt4196) {
-                    arg3 = this.anInt4196 - 1;
+                if (y2 >= this.anInt4196) {
+                    y2 = this.anInt4196 - 1;
                 }
-                local143 = arg4 >>> 24;
-                if (arg5 == 0 || arg5 == 1 && local143 == 255) {
-                    while (arg1 <= arg3) {
-                        local161 = arg0 >> 16;
+                local143 = colour >>> 24;
+                if (mode == 0 || mode == 1 && local143 == 255) {
+                    while (y1 <= y2) {
+                        local161 = x1 >> 16;
                         if (local161 >= this.anInt4192 && local161 < this.anInt4200) {
-                            this.anIntArray319[local161 + arg1 * this.anInt4207] = arg4;
+                            this.anIntArray319[local161 + y1 * this.anInt4207] = colour;
                         }
-                        arg0 += local110;
-                        arg1++;
+                        x1 += local110;
+                        y1++;
                     }
-                } else if (arg5 == 1) {
-                    local220 = ((arg4 & 0xFF00FF) * local143 >> 8 & 0xFF00FF) + ((arg4 & 0xFF00) * local143 >> 8 & 0xFF00) + (local143 << 24);
+                } else if (mode == 1) {
+                    local220 = ((colour & 0xFF00FF) * local143 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local143 >> 8 & 0xFF00) + (local143 << 24);
                     local161 = 256 - local143;
-                    while (arg1 <= arg3) {
-                        local229 = arg0 >> 16;
+                    while (y1 <= y2) {
+                        local229 = x1 >> 16;
                         if (local229 >= this.anInt4192 && local229 < this.anInt4200) {
-                            local246 = local229 + arg1 * this.anInt4207;
+                            local246 = local229 + y1 * this.anInt4207;
                             local251 = this.anIntArray319[local246];
                             local251 = ((local251 & 0xFF00FF) * local161 >> 8 & 0xFF00FF) + ((local251 & 0xFF00) * local161 >> 8 & 0xFF00);
-                            this.anIntArray319[local229 + arg1 * this.anInt4207] = local220 + local251;
+                            this.anIntArray319[local229 + y1 * this.anInt4207] = local220 + local251;
                         }
-                        arg0 += local110;
-                        arg1++;
+                        x1 += local110;
+                        y1++;
                     }
-                } else if (arg5 == 2) {
-                    while (arg1 <= arg3) {
-                        local161 = arg0 >> 16;
+                } else if (mode == 2) {
+                    while (y1 <= y2) {
+                        local161 = x1 >> 16;
                         if (local161 >= this.anInt4192 && local161 < this.anInt4200) {
-                            local229 = local161 + arg1 * this.anInt4207;
+                            local229 = local161 + y1 * this.anInt4207;
                             local246 = this.anIntArray319[local229];
-                            local251 = arg4 + local246;
-                            local331 = (arg4 & 0xFF00FF) + (local246 & 0xFF00FF);
+                            local251 = colour + local246;
+                            local331 = (colour & 0xFF00FF) + (local246 & 0xFF00FF);
                             @Pc(626) int local626 = (local331 & 0x1000100) + (local251 - local331 & 0x10000);
                             this.anIntArray319[local229] = local251 - local626 | local626 - (local626 >>> 8);
                         }
-                        arg0 += local110;
-                        arg1++;
+                        x1 += local110;
+                        y1++;
                     }
                 } else {
                     throw new IllegalArgumentException();
                 }
             }
-        } else if (arg3 >= 0) {
-            this.P(arg0, arg1, arg3 + 1, arg4, arg5);
+        } else if (y2 >= 0) {
+            this.P(x1, y1, y2 + 1, colour, mode);
         } else {
-            this.P(arg0, arg1 + arg3, -arg3 + 1, arg4, arg5);
+            this.P(x1, y1 + y2, -y2 + 1, colour, mode);
         }
     }
 
@@ -2339,13 +2339,13 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "e", descriptor = "(II)V")
     @Override
-    public void method7975(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) throws Exception_Sub1 {
+    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1 {
         if (this.aCanvas3 == null || this.aClass2_Sub10_1 == null) {
             throw new IllegalStateException("off");
         }
         try {
             @Pc(19) Graphics local19 = this.aCanvas3.getGraphics();
-            this.aClass2_Sub10_1.method6334(this.anInt4183, arg0, 0, local19, this.anInt4185, 0, arg1);
+            this.aClass2_Sub10_1.method6334(this.anInt4183, x, 0, local19, this.anInt4185, 0, y);
         } catch (@Pc(34) Exception local34) {
             this.aCanvas3.repaint();
         }
@@ -2675,7 +2675,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    public Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         return arg2 ? new Sprite_Sub1_Sub2(this, arg0, arg1) : new Sprite_Sub1_Sub1(this, arg0, arg1);
     }
 
@@ -2687,7 +2687,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "v", descriptor = "()V")
     @Override
-    public void method7943() {
+    public void restoreSurface() {
         if (this.aCanvas3 == null) {
             this.anInt4207 = 1;
             this.anInt4209 = 1;

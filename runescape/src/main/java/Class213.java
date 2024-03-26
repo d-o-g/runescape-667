@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.LinkedList;
+import com.jagex.core.datastruct.Node;
 import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -44,7 +45,7 @@ public final class Class213 {
         }
         for (local42 = (PickableEntity) this.aLinkedList_8.first(); local42 != null; local42 = (PickableEntity) this.aLinkedList_8.next()) {
             if (local6.anInt10697 >= local42.aEntity_18.anInt10697) {
-                Static370.method5282(arg0, local42);
+                Node.method5282(arg0, local42);
                 return;
             }
         }

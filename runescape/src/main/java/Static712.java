@@ -79,7 +79,7 @@ public final class Static712 {
             if (InterfaceManager.topLevelInterface != -1) {
                 InterfaceManager.refreshTopLevelInterface(true);
             }
-            Static288.method4182();
+            Static288.repaintMargins();
         }
         if (arg0 != 11) {
             aMatrix_11 = null;

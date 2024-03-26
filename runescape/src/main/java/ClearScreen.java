@@ -2,32 +2,34 @@ import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.loading.screen.instance.ClearScreenInstance;
+import rs2.client.loading.screen.op.LoadingScreenOp;
 
 @OriginalClass("client!aca")
-public final class Class5 implements Interface13 {
+public final class ClearScreen implements LoadingScreenOp {
 
     @OriginalMember(owner = "client!aca", name = "a", descriptor = "Lclient!gi;")
-    public final Class146 aClass146_1;
+    public final ClearScreenInstance instance;
 
     @OriginalMember(owner = "client!aca", name = "<init>", descriptor = "(Lclient!gi;)V")
-    public Class5(@OriginalArg(0) Class146 arg0) {
-        this.aClass146_1 = arg0;
+    public ClearScreen(@OriginalArg(0) ClearScreenInstance instance) {
+        this.instance = instance;
     }
 
     @OriginalMember(owner = "client!aca", name = "a", descriptor = "(I)V")
     @Override
-    public void method7748() {
+    public void init() {
     }
 
     @OriginalMember(owner = "client!aca", name = "b", descriptor = "(I)Z")
     @Override
-    public boolean method7747() {
+    public boolean ready() {
         return true;
     }
 
     @OriginalMember(owner = "client!aca", name = "a", descriptor = "(ZI)V")
     @Override
-    public void method7749() {
-        Toolkit.active.aa(0, 0, GameShell.canvasWid, GameShell.canvasHei, this.aClass146_1.anInt3441, 0);
+    public void execute() {
+        Toolkit.active.aa(0, 0, GameShell.canvasWid, GameShell.canvasHei, this.instance.colour, 0);
     }
 }

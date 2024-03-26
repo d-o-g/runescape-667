@@ -21,50 +21,54 @@ public final class Static288 {
     public static int anInt4621 = 0;
 
     @OriginalMember(owner = "client!jb", name = "a", descriptor = "(I)V")
-    public static void method4182() {
+    public static void repaintMargins() {
         if (GameShell.fsframe != null) {
             return;
         }
-        @Pc(17) int local17 = GameShell.leftMargin;
-        @Pc(19) int local19 = GameShell.topMargin;
-        @Pc(27) int local27 = client.frameWid - local17 - GameShell.canvasWid;
-        @Pc(34) int local34 = client.frameHei - local19 - GameShell.canvasHei;
-        if (local17 <= 0 && local27 <= 0 && local19 <= 0 && local34 <= 0) {
+
+        @Pc(17) int leftMargin = GameShell.leftMargin;
+        @Pc(19) int topMargin = GameShell.topMargin;
+        @Pc(27) int rightMargin = client.frameWid - leftMargin - GameShell.canvasWid;
+        @Pc(34) int bottomMargin = client.frameHei - topMargin - GameShell.canvasHei;
+        if (leftMargin <= 0 && rightMargin <= 0 && topMargin <= 0 && bottomMargin <= 0) {
             return;
         }
+
         try {
-            @Pc(59) Container local59;
+            @Pc(59) Container topContainer;
             if (GameShell.frame != null) {
-                local59 = GameShell.frame;
+                topContainer = GameShell.frame;
             } else if (GameShell.loaderApplet == null) {
-                local59 = GameShell.instance;
+                topContainer = GameShell.instance;
             } else {
-                local59 = GameShell.loaderApplet;
+                topContainer = GameShell.loaderApplet;
             }
-            @Pc(67) int local67 = 0;
-            @Pc(69) int local69 = 0;
-            if (local59 == GameShell.frame) {
+
+            @Pc(67) int left = 0;
+            @Pc(69) int top = 0;
+            if (topContainer == GameShell.frame) {
                 @Pc(75) Insets local75 = GameShell.frame.getInsets();
-                local67 = local75.left;
-                local69 = local75.top;
+                left = local75.left;
+                top = local75.top;
             }
-            @Pc(84) Graphics local84 = local59.getGraphics();
-            local84.setColor(Color.black);
-            if (local17 > 0) {
-                local84.fillRect(local67, local69, local17, client.frameHei);
+
+            @Pc(84) Graphics graphics = topContainer.getGraphics();
+            graphics.setColor(Color.black);
+
+            if (leftMargin > 0) {
+                graphics.fillRect(left, top, leftMargin, client.frameHei);
             }
-            if (local19 > 0) {
-                local84.fillRect(local67, local69, client.frameWid, local19);
+            if (topMargin > 0) {
+                graphics.fillRect(left, top, client.frameWid, topMargin);
             }
-            if (local27 > 0) {
-                local84.fillRect(client.frameWid + local67 - local27, local69, local27, client.frameHei);
+            if (rightMargin > 0) {
+                graphics.fillRect(client.frameWid + left - rightMargin, top, rightMargin, client.frameHei);
             }
-            if (local34 > 0) {
-                local84.fillRect(local67, local69 + client.frameHei - local34, client.frameWid, local34);
-                return;
+            if (bottomMargin > 0) {
+                graphics.fillRect(left, top + client.frameHei - bottomMargin, client.frameWid, bottomMargin);
             }
-        } catch (@Pc(144) Exception local144) {
-            return;
+        } catch (@Pc(144) Exception ignored) {
+            /* empty */
         }
     }
 }

@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static667 {
 
-    @OriginalMember(owner = "client!vc", name = "b", descriptor = "Lclient!kda;")
-    public static final Class204 aClass204_15 = new Class204(8, 1);
-
     @OriginalMember(owner = "client!vc", name = "a", descriptor = "(ZZLjava/lang/String;I)V")
     public static void setToolkit(@OriginalArg(1) boolean arg0, @OriginalArg(2) String arg1, @OriginalArg(3) int toolkit) {
         Static419.method5757();

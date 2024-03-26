@@ -98,7 +98,7 @@ public final class Static694 {
             @Pc(40) int paraWidth = p12Metrics.paraWidth(null, text, 250);
             @Pc(49) int paraHeight = p12Metrics.paraHeight(text, null, 250) * 13;
             toolkit.aa(6, 6, paraWidth + 4 + 4, paraHeight + 4 + 4, 0xFF000000, 0);
-            toolkit.method7976(6, 6, paraWidth + 8, 4 + 4 + paraHeight, -1, 0);
+            toolkit.outlineRect(6, 6, paraWidth + 8, 4 + 4 + paraHeight, -1, 0);
             p12.renderLines(0, null, 0xFFFFFFFF, text, null, null, 10, -1, 0, 1, 10, 1, 0, paraWidth, paraHeight);
             InterfaceManager.redrawWithin(paraWidth + 8, 6, paraHeight + 4 + 4, 6);
         }
@@ -111,7 +111,7 @@ public final class Static694 {
             if (InterfaceManager.aBoolean210) {
                 Static430.method5818();
             } else {
-                toolkit.method7984();
+                toolkit.flip();
             }
         } catch (@Pc(458) Exception_Sub1 local458) {
         }

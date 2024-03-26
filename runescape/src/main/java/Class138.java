@@ -3,9 +3,11 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
+import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!is")
-public class Class138 implements Interface10 {
+public class Class138 implements LoadingScreenOpInstance {
 
     @OriginalMember(owner = "client!is", name = "i", descriptor = "I")
     public final int anInt4413;
@@ -63,7 +65,7 @@ public class Class138 implements Interface10 {
 
     @OriginalMember(owner = "client!is", name = "a", descriptor = "(I)Lclient!kda;")
     @Override
-    public Class204 method5357() {
+    public LoadingScreenOpType type() {
         return null;
     }
 }

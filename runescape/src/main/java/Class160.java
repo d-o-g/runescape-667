@@ -3,9 +3,11 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
+import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!no")
-public class Class160 implements Interface10 {
+public class Class160 implements LoadingScreenOpInstance {
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(Lclient!ge;B)Lclient!no;")
     public static Class160 decode(@OriginalArg(0) Packet packet) {
@@ -43,7 +45,7 @@ public class Class160 implements Interface10 {
 
     @OriginalMember(owner = "client!no", name = "a", descriptor = "(I)Lclient!kda;")
     @Override
-    public Class204 method5357() {
-        return Static541.aClass204_12;
+    public LoadingScreenOpType type() {
+        return LoadingScreenOpType.IMAGE;
     }
 }

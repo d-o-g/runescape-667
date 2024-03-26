@@ -685,7 +685,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public final Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    public final Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         return new Sprite_Sub3(this, arg0, arg1, arg2);
     }
 
@@ -1049,7 +1049,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     @Override
-    public final Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public final Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         @Pc(11) Sprite_Sub3 local11 = new Sprite_Sub3(this, arg2, arg3, arg4);
         local11.render(0, 0, arg2, arg3, arg0, arg1);
         return local11;
@@ -1370,7 +1370,7 @@ public abstract class NativeToolkit extends Toolkit {
     @OriginalMember(owner = "client!am", name = "U", descriptor = "(IIIII)V")
     @Override
     public final void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
-        this.method7951(x, y, x + height, y, colour, arg4);
+        this.line(x, y, x + height, y, colour, arg4);
     }
 
     @OriginalMember(owner = "client!am", name = "l", descriptor = "(B)Lclient!cw;")
@@ -1710,7 +1710,7 @@ public abstract class NativeToolkit extends Toolkit {
     @OriginalMember(owner = "client!am", name = "P", descriptor = "(IIIII)V")
     @Override
     public final void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
-        this.method7951(x, y, x, width + y, colour, arg4);
+        this.line(x, y, x, width + y, colour, arg4);
     }
 
     @OriginalMember(owner = "client!am", name = "b", descriptor = "(I)V")
@@ -1956,9 +1956,9 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public final void method7951(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        @Pc(10) float local10 = (float) -arg0 + (float) arg2;
-        @Pc(16) float local16 = (float) arg3 - (float) arg1;
+    public final void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
+        @Pc(10) float local10 = (float) -x1 + (float) x2;
+        @Pc(16) float local16 = (float) y2 - (float) y1;
         if (local10 == 0.0F && local16 == 0.0F) {
             local10 = 1.0F;
         } else {
@@ -1966,14 +1966,14 @@ public abstract class NativeToolkit extends Toolkit {
             local10 *= local43;
             local16 *= local43;
         }
-        if (!this.method8157(local10 + (float) arg2, 0.0F, (float) arg0, (float) arg3 + local16, (float) arg1, 0.0F)) {
+        if (!this.method8157(local10 + (float) x2, 0.0F, (float) x1, (float) y2 + local16, (float) y1, 0.0F)) {
             return;
         }
         this.method8149();
-        this.method8112(arg4);
+        this.method8112(colour);
         this.method8080(0, Static454.aClass168_5);
         this.method8142(Static454.aClass168_5, 0);
-        this.method8053(arg5);
+        this.method8053(mode);
         this.method8096();
         this.method8141(false);
         this.method8124();
@@ -2175,15 +2175,15 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "d", descriptor = "(IIIIII)V")
     @Override
-    public final void method7976(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public final void outlineRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
         @Pc(7) float local7 = this.method8155();
         this.method8149();
-        this.method8112(arg4);
+        this.method8112(colour);
         this.method8080(0, Static454.aClass168_5);
         this.method8142(Static454.aClass168_5, 0);
-        this.method8053(arg5);
-        this.aClass73_Sub1_15.method1884(1.0F, (float) (arg3 - 1), (float) (arg2 - 1));
-        this.aClass73_Sub1_15.method1882(0.0F, (float) arg1 - local7, (float) arg0 - local7);
+        this.method8053(mode);
+        this.aClass73_Sub1_15.method1884(1.0F, (float) (height - 1), (float) (width - 1));
+        this.aClass73_Sub1_15.method1882(0.0F, (float) y - local7, (float) x - local7);
         this.method8042();
         this.method8141(false);
         this.method8047(4, Static495.aClass131_5);

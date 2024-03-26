@@ -95,7 +95,7 @@ public final class Static21 {
             }
             Static684.aClass302Array1 = new Class302[local253];
             for (@Pc(273) int local273 = 0; local273 < local253; local273++) {
-                Static684.aClass302Array1[local273] = new Class302(Static515.aStringArrayArray2[Static32.anInt772 - 2][local273]);
+                Static684.aClass302Array1[local273] = new Class302(Static515.renderingTaskNames[Static32.anInt772 - 2][local273]);
             }
         } else {
             Static549.anInt9424 = 1;

@@ -20,8 +20,8 @@ public final class Static419 {
 
     @OriginalMember(owner = "client!ne", name = "b", descriptor = "(I)V")
     public static void method5757() {
-        if (Static449.aClass364_1 != null) {
-            Static449.aClass364_1.method8372();
+        if (Static449.aLoadingScreenRenderer_1 != null) {
+            Static449.aLoadingScreenRenderer_1.method8372();
         }
         if (Static242.aThread1 == null) {
             return;

@@ -1463,7 +1463,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3103) {
-                                        Static77.method1557();
+                                        InterfaceManager.method1557();
                                         return;
                                     }
                                     if (arg0 == 3104) {
@@ -3608,7 +3608,7 @@ public final class ScriptRunner {
             if (arg0 == 5001) {
                 anInt7142 -= 3;
                 Static133.anInt2458 = anIntArray578[anInt7142];
-                Static726.aClass280_7 = Static189.method2864(anIntArray578[anInt7142 + 1]);
+                Static726.aClass280_7 = Class280.method2864(anIntArray578[anInt7142 + 1]);
                 if (Static726.aClass280_7 == null) {
                     Static726.aClass280_7 = Static137.aClass280_4;
                 }

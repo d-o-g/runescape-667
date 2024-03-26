@@ -6,10 +6,11 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static515 {
 
     @OriginalMember(owner = "client!qda", name = "l", descriptor = "[[Ljava/lang/String;")
-    public static final String[][] aStringArrayArray2 = new String[][]{{"M1", "M2", "S1", "F"}, {"M1", "M2", "M3", "S1", "S2", "F"}, {"M1", "M2", "M3", "M4", "S1", "S2", "S3", "F"}};
-
-    @OriginalMember(owner = "client!qda", name = "t", descriptor = "Lclient!kda;")
-    public static final Class204 aClass204_10 = new Class204(0, 1);
+    public static final String[][] renderingTaskNames = new String[][]{
+        {"M1", "M2", "S1", "F"},
+        {"M1", "M2", "M3", "S1", "S2", "F"},
+        {"M1", "M2", "M3", "M4", "S1", "S2", "S3", "F"}
+    };
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(IIIIILclient!ha;IIIIILclient!cba;)V")
     public static void method6799(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) MiniMenuEntryInner arg10) {

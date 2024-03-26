@@ -62,11 +62,11 @@ public final class Static523 {
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZI)V")
     public static void method3447(@OriginalArg(0) boolean arg0) {
-        if (Static449.aClass364_1 == null) {
+        if (Static449.aLoadingScreenRenderer_1 == null) {
             Static229.method3368();
         }
         if (arg0) {
-            Static449.aClass364_1.method8371();
+            Static449.aLoadingScreenRenderer_1.repaint();
         }
     }
 
@@ -130,11 +130,11 @@ public final class Static523 {
             if (local262.length == 0) {
                 local262 = Static333.aClass279_1.method6275(0);
             }
-            @Pc(276) Class398 local276 = new Class398(js5.LOADING_SPRITES, js5.FONTMETRICS);
+            @Pc(276) LoadingScreenOpFactory local276 = new LoadingScreenOpFactory(js5.LOADING_SPRITES, js5.FONTMETRICS);
             if (local262.length > 0) {
-                Static234.anInterface22Array1 = new Interface22[local262.length];
-                for (@Pc(285) int local285 = 0; local285 < Static234.anInterface22Array1.length; local285++) {
-                    Static234.anInterface22Array1[local285] = new Class354(Static333.aClass279_1.method6277(local262[local285]), local276);
+                Static234.anLoadingScreenArray1 = new LoadingScreen[local262.length];
+                for (@Pc(285) int local285 = 0; local285 < Static234.anLoadingScreenArray1.length; local285++) {
+                    Static234.anLoadingScreenArray1[local285] = new Class354(Static333.aClass279_1.method6277(local262[local285]), local276);
                 }
             }
         }
@@ -149,11 +149,11 @@ public final class Static523 {
             }
         }
         if (LoadState.FETCH_FONTS == Static473.aLoadState_22) {
-            if (Static234.anInterface22Array1 != null && Static234.anInterface22Array1.length > 0) {
-                if (Static234.anInterface22Array1[0].method8460() < 100) {
+            if (Static234.anLoadingScreenArray1 != null && Static234.anLoadingScreenArray1.length > 0) {
+                if (Static234.anLoadingScreenArray1[0].method8460() < 100) {
                     return 0;
                 }
-                if (Static234.anInterface22Array1.length > 1 && Static333.aClass279_1.method6276() && Static234.anInterface22Array1[1].method8460() < 100) {
+                if (Static234.anLoadingScreenArray1.length > 1 && Static333.aClass279_1.method6276() && Static234.anLoadingScreenArray1[1].method8460() < 100) {
                     return 0;
                 }
             }
@@ -350,14 +350,14 @@ public final class Static523 {
             InterfaceManager.openLogin(true);
         }
         if (LoadState.CLEANUP == Static473.aLoadState_22) {
-            Static449.aClass364_1.method8372();
+            Static449.aLoadingScreenRenderer_1.method8372();
             try {
                 Static242.aThread1.join();
             } catch (@Pc(1370) InterruptedException local1370) {
                 return 0;
             }
-            Static234.anInterface22Array1 = null;
-            Static449.aClass364_1 = null;
+            Static234.anLoadingScreenArray1 = null;
+            Static449.aLoadingScreenRenderer_1 = null;
             js5.LOADING_SPRITES = null;
             js5.LOADING_SCREENS = null;
             Static242.aThread1 = null;

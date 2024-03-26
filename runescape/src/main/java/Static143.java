@@ -25,12 +25,12 @@ public final class Static143 {
 
     @OriginalMember(owner = "client!eia", name = "e", descriptor = "(B)V")
     public static void method3572() {
-        if (Static234.anInterface22Array1 == null) {
+        if (Static234.anLoadingScreenArray1 == null) {
             return;
         }
-        @Pc(14) Interface22[] local14 = Static234.anInterface22Array1;
+        @Pc(14) LoadingScreen[] local14 = Static234.anLoadingScreenArray1;
         for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
-            @Pc(21) Interface22 local21 = local14[local16];
+            @Pc(21) LoadingScreen local21 = local14[local16];
             local21.method8464();
         }
     }

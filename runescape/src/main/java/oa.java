@@ -181,7 +181,7 @@ public final class oa extends Toolkit implements Interface5 {
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(II)Lclient!eca;")
     @Override
     public Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return this.method7963(arg0, arg1, false);
+        return this.createSprite(arg0, arg1, false);
     }
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Ljava/awt/Canvas;)V")
@@ -288,7 +288,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "v", descriptor = "()V")
     @Override
-    public void method7943() {
+    public void restoreSurface() {
         this.method8019(this.aP1.aCanvas9);
     }
 
@@ -388,11 +388,11 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "d", descriptor = "(IIIIII)V")
     @Override
-    public void method7976(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.U(arg0, arg1, arg2, arg4, arg5);
-        this.U(arg0, arg1 + arg3 - 1, arg2, arg4, arg5);
-        this.P(arg0, arg1 + 1, arg3 - 1, arg4, arg5);
-        this.P(arg0 + arg2 - 1, arg1 + 1, arg3 - 1, arg4, arg5);
+    public void outlineRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
+        this.U(x, y, width, colour, mode);
+        this.U(x, y + height - 1, width, colour, mode);
+        this.P(x, y + 1, height - 1, colour, mode);
+        this.P(x + width - 1, y + 1, height - 1, colour, mode);
     }
 
     @OriginalMember(owner = "client!oa", name = "DA", descriptor = "(IIII)V")
@@ -551,7 +551,7 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     @Override
-    public Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         return new j(this, arg0, arg1, arg2, arg3, !arg4);
     }
 
@@ -571,14 +571,14 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    public Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         return new j(this, arg0, arg1);
     }
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void method7951(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.wa(arg0, arg1, arg2, arg3, arg4, arg5);
+    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
+        this.wa(x1, y1, x2, y2, colour, mode);
     }
 
     @OriginalMember(owner = "client!oa", name = "ma", descriptor = "(J)V")
@@ -773,11 +773,11 @@ public final class oa extends Toolkit implements Interface5 {
 
     @OriginalMember(owner = "client!oa", name = "e", descriptor = "(II)V")
     @Override
-    public void method7975(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) throws Exception_Sub1 {
+    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1 {
         if (this.aP1 == null) {
             throw new IllegalStateException("off");
         }
-        this.aP1.method6438(arg0, arg1);
+        this.aP1.method6438(x, y);
     }
 
     @OriginalMember(owner = "client!oa", name = "N", descriptor = "(I[I[F)V")
@@ -871,7 +871,7 @@ public final class oa extends Toolkit implements Interface5 {
     public native void A(@OriginalArg(0) int colour, @OriginalArg(1) ClippingMask clippingMask, @OriginalArg(2) int x, @OriginalArg(3) int y);
 
     @OriginalMember(owner = "client!oa", name = "GA", descriptor = "(I)V")
-    public native void GA(@OriginalArg(0) int arg0);
+    public native void GA(@OriginalArg(0) int colour);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Z)V")
     @Override

@@ -3,12 +3,15 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.instance.ClearScreenInstance;
+import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
+import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!de")
 public final class Class76 {
 
     @OriginalMember(owner = "client!de", name = "d", descriptor = "[Lclient!gja;")
-    public Interface10[] anInterface10Array1;
+    public LoadingScreenOpInstance[] anLoadingScreenOpInstanceArray1;
 
     @OriginalMember(owner = "client!de", name = "j", descriptor = "I")
     public int anInt2140;
@@ -17,26 +20,26 @@ public final class Class76 {
     public int anInt2141;
 
     @OriginalMember(owner = "client!de", name = "a", descriptor = "(ILclient!ge;Lclient!kda;)Lclient!gja;")
-    public Interface10 method2030(@OriginalArg(1) Packet arg0, @OriginalArg(2) Class204 arg1) {
-        if (Static515.aClass204_10 == arg1) {
-            return Static652.method8531(arg0);
-        } else if (Static77.aClass204_1 == arg1) {
+    public LoadingScreenOpInstance method2030(@OriginalArg(1) Packet arg0, @OriginalArg(2) LoadingScreenOpType arg1) {
+        if (LoadingScreenOpType.CLEAR_SCREEN == arg1) {
+            return ClearScreenInstance.decode(arg0);
+        } else if (LoadingScreenOpType.SOLID_PROGRESS_BAR == arg1) {
             return Static502.method6720(arg0);
-        } else if (arg1 == Static166.aClass204_6) {
-            return Class235.method935(arg0);
-        } else if (Static647.aClass204_13 == arg1) {
+        } else if (arg1 == LoadingScreenOpType.NEWS) {
+            return NewsInstance.decode(arg0);
+        } else if (LoadingScreenOpType.ROTATING_IMAGE == arg1) {
             return Static464.method6301(arg0);
-        } else if (Static541.aClass204_12 == arg1) {
+        } else if (LoadingScreenOpType.IMAGE == arg1) {
             return Class160.decode(arg0);
-        } else if (arg1 == Static565.aClass204_9) {
+        } else if (arg1 == LoadingScreenOpType.IMAGE_PROGRESS_BAR) {
             return Static303.method4430(arg0);
-        } else if (Static535.aClass204_11 == arg1) {
+        } else if (LoadingScreenOpType.FANCY_PROGRESS_BAR == arg1) {
             return Static715.method9346(arg0);
-        } else if (arg1 == Static189.aClass204_7) {
+        } else if (arg1 == LoadingScreenOpType.TEXT) {
             return Class125.method6171(arg0);
-        } else if (arg1 == Static667.aClass204_15) {
+        } else if (arg1 == LoadingScreenOpType.BACKGROUND_IMAGE) {
             return Static112.method2106(arg0);
-        } else if (arg1 == Static505.aClass204_16) {
+        } else if (arg1 == LoadingScreenOpType.ANIMATED_PROGRESS_BAR) {
             return Static353.method8430(arg0);
         } else {
             return null;
@@ -47,10 +50,10 @@ public final class Class76 {
     public void decode(@OriginalArg(0) Packet arg0) {
         this.anInt2140 = arg0.g3();
         this.anInt2141 = arg0.g2();
-        this.anInterface10Array1 = new Interface10[arg0.g1()];
-        @Pc(31) Class204[] local31 = Static370.method5281();
-        for (@Pc(33) int local33 = 0; local33 < this.anInterface10Array1.length; local33++) {
-            this.anInterface10Array1[local33] = this.method2030(arg0, local31[arg0.g1()]);
+        this.anLoadingScreenOpInstanceArray1 = new LoadingScreenOpInstance[arg0.g1()];
+        @Pc(31) LoadingScreenOpType[] local31 = LoadingScreenOpType.values();
+        for (@Pc(33) int local33 = 0; local33 < this.anLoadingScreenOpInstanceArray1.length; local33++) {
+            this.anLoadingScreenOpInstanceArray1[local33] = this.method2030(arg0, local31[arg0.g1()]);
         }
     }
 }

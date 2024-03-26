@@ -570,13 +570,13 @@ public final class InterfaceManager {
                             if (child.filled) {
                                 Toolkit.active.aa(screenX, screenY, child.width, child.height, child.colour, 0);
                             } else {
-                                Toolkit.active.method7976(screenX, screenY, child.width, child.height, child.colour, 0);
+                                Toolkit.active.outlineRect(screenX, screenY, child.width, child.height, child.colour, 0);
                             }
                         } else {
                             if (child.filled) {
                                 Toolkit.active.aa(screenX, screenY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                             } else {
-                                Toolkit.active.method7976(screenX, screenY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                                Toolkit.active.outlineRect(screenX, screenY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                             }
                         }
 
@@ -883,7 +883,7 @@ public final class InterfaceManager {
                         if (child.lineWidth != 1) {
                             Toolkit.active.method7947(screenX, local323, local744, local1255, child.colour, child.lineWidth);
                         } else {
-                            Toolkit.active.method7951(screenX, local323, local744, local1255, child.colour, 0);
+                            Toolkit.active.line(screenX, local323, local744, local1255, child.colour, 0);
                         }
 
                         if (aBoolean210) {
@@ -2661,5 +2661,26 @@ public final class InterfaceManager {
 
     private InterfaceManager() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!ci", name = "a", descriptor = "(IZ)V")
+    public static void method1557() {
+        @Pc(13) ClientMessage local13 = ClientMessage.create(Static317.A_CLIENT_PROT___62, ConnectionManager.GAME.cipher);
+        ConnectionManager.GAME.send(local13);
+        for (@Pc(22) SubInterface local22 = (SubInterface) subInterfaces.first(); local22 != null; local22 = (SubInterface) subInterfaces.next()) {
+            if (!local22.isLinked()) {
+                local22 = (SubInterface) subInterfaces.first();
+                if (local22 == null) {
+                    break;
+                }
+            }
+            if (local22.type == 0) {
+                closeSubInterface(true, true, local22);
+            }
+        }
+        if (dialog != null) {
+            redraw(dialog);
+            dialog = null;
+        }
     }
 }

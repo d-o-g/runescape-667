@@ -28,7 +28,7 @@ public final class Static709 {
             Static473.aLoadState_22 = Static655.aLoadStateArray1[0];
             Static72.aLong52 = SystemTimer.safetime();
         }
-        if (Static449.aClass364_1 == null) {
+        if (Static449.aLoadingScreenRenderer_1 == null) {
             Static229.method3368();
         }
         @Pc(27) LoadState local27 = Static473.aLoadState_22;
@@ -42,7 +42,7 @@ public final class Static709 {
                 Static579.aString106 = Static579.aString106 + Static376.anInt5919 + "%";
             }
         } else if (LoadState.COMPLETE == Static473.aLoadState_22) {
-            Static449.aClass364_1 = null;
+            Static449.aLoadingScreenRenderer_1 = null;
             MainLogicManager.setStep(3);
         } else {
             Static579.aString106 = local27.changedText.localise(client.language);
@@ -54,24 +54,24 @@ public final class Static709 {
                 Static72.aLong52 = SystemTimer.safetime();
             }
         }
-        if (Static449.aClass364_1 == null) {
+        if (Static449.aLoadingScreenRenderer_1 == null) {
             return;
         }
-        Static449.aClass364_1.method8374(Static376.anInt5919, Static579.aString106, Static473.aLoadState_22, Static72.aLong52);
-        if (Static234.anInterface22Array1 == null) {
+        Static449.aLoadingScreenRenderer_1.updateState(Static376.anInt5919, Static579.aString106, Static473.aLoadState_22, Static72.aLong52);
+        if (Static234.anLoadingScreenArray1 == null) {
             return;
         }
-        for (@Pc(157) int local157 = Static214.anInt3500 + 1; local157 < Static234.anInterface22Array1.length; local157++) {
-            if (Static234.anInterface22Array1[local157].method8460() >= 100 && Static214.anInt3500 == local157 - 1 && MainLogicManager.step >= 1 && Static449.aClass364_1.method8376()) {
+        for (@Pc(157) int local157 = Static214.anInt3500 + 1; local157 < Static234.anLoadingScreenArray1.length; local157++) {
+            if (Static234.anLoadingScreenArray1[local157].method8460() >= 100 && Static214.anInt3500 == local157 - 1 && MainLogicManager.step >= 1 && Static449.aLoadingScreenRenderer_1.method8376()) {
                 try {
-                    Static234.anInterface22Array1[local157].method8464();
+                    Static234.anLoadingScreenArray1[local157].method8464();
                 } catch (@Pc(197) Exception local197) {
-                    Static234.anInterface22Array1 = null;
+                    Static234.anLoadingScreenArray1 = null;
                     return;
                 }
-                Static449.aClass364_1.method8373(Static234.anInterface22Array1[local157]);
+                Static449.aLoadingScreenRenderer_1.change(Static234.anLoadingScreenArray1[local157]);
                 Static214.anInt3500++;
-                if (Static214.anInt3500 >= Static234.anInterface22Array1.length - 1 && Static234.anInterface22Array1.length > 1) {
+                if (Static214.anInt3500 >= Static234.anLoadingScreenArray1.length - 1 && Static234.anLoadingScreenArray1.length > 1) {
                     Static214.anInt3500 = Static333.aClass279_1.method6276() ? 0 : -1;
                 }
             }

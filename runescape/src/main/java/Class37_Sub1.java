@@ -17,7 +17,7 @@ public final class Class37_Sub1 extends Class37 {
 
     @OriginalMember(owner = "client!bf", name = "a", descriptor = "(ZI)V")
     @Override
-    public void method7749() {
+    public void execute() {
         @Pc(17) int local17 = super.aClass160_2.aHorizontalAlignment_9.align(client.loadingScreenWidth, super.aSprite_7.scaleWidth()) + super.aClass160_2.anInt3850;
         @Pc(32) int local32 = super.aClass160_2.aVerticalAlignment_9.align(client.loadingScreenHeight, super.aSprite_7.scaleHeight()) + super.aClass160_2.anInt3845;
         super.aSprite_7.method8186((float) (super.aSprite_7.scaleWidth() / 2 + local17), (float) (super.aSprite_7.scaleHeight() / 2 + local32), 4096, this.anInt946);

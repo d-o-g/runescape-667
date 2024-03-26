@@ -1,9 +1,12 @@
+package rs2.client.loading.screen.instance;
+
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!gja")
-public interface Interface10 {
+public interface LoadingScreenOpInstance {
 
     @OriginalMember(owner = "client!gja", name = "a", descriptor = "(I)Lclient!kda;")
-    Class204 method5357();
+    LoadingScreenOpType type();
 }

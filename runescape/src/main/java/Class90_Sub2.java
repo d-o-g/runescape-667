@@ -78,8 +78,8 @@ public class Class90_Sub2 extends Class90 {
 
     @OriginalMember(owner = "client!gr", name = "a", descriptor = "(I)V")
     @Override
-    public final void method7748() {
-        super.method7748();
+    public final void init() {
+        super.init();
         @Pc(10) Class138_Sub1 local10 = (Class138_Sub1) super.aClass138_5;
         this.aSprite_40 = Static652.method8533(local10.anInt3188, super.aJs5_109);
         this.aSprite_39 = Static652.method8533(local10.anInt3190, super.aJs5_109);
@@ -91,8 +91,8 @@ public class Class90_Sub2 extends Class90 {
 
     @OriginalMember(owner = "client!gr", name = "b", descriptor = "(I)Z")
     @Override
-    public final boolean method7747() {
-        if (!super.method7747()) {
+    public final boolean ready() {
+        if (!super.ready()) {
             return false;
         }
         @Pc(14) Class138_Sub1 local14 = (Class138_Sub1) super.aClass138_5;

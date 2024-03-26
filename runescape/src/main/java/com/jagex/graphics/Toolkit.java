@@ -123,7 +123,7 @@ public abstract class Toolkit {
     public abstract int I();
 
     @OriginalMember(owner = "client!ha", name = "v", descriptor = "()V")
-    public abstract void method7943();
+    public abstract void restoreSurface();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "([I)V")
     public abstract void method7944(@OriginalArg(0) int[] arg0);
@@ -139,7 +139,7 @@ public abstract class Toolkit {
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIBI)V")
     public final void method7945(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
-        this.method7976(arg4, arg0, arg2, arg3, arg1, 1);
+        this.outlineRect(arg4, arg0, arg2, arg3, arg1, 1);
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(III[III)Lclient!st;")
@@ -169,7 +169,7 @@ public abstract class Toolkit {
     public abstract void T(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIII)V")
-    public abstract void method7951(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
+    public abstract void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!dv;IIII)Lclient!ka;")
     public abstract Model createModel(@OriginalArg(0) Mesh mesh, @OriginalArg(1) int functionMask, @OriginalArg(2) int featureMask, @OriginalArg(3) int ambient, @OriginalArg(4) int contrast);
@@ -179,7 +179,7 @@ public abstract class Toolkit {
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(IIIIII)V")
     public final void line(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
-        this.method7951(arg4, arg1, arg2, arg0, arg3, 1);
+        this.line(arg4, arg1, arg2, arg0, arg3, 1);
     }
 
     /**
@@ -210,10 +210,10 @@ public abstract class Toolkit {
     public abstract Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIZ)Lclient!st;")
-    public abstract Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
+    public abstract Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIZ)Lclient!st;")
-    public abstract Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);
+    public abstract Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);
 
     /**
      * setGlobalSun
@@ -221,8 +221,11 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "ZA", descriptor = "(IFFFFF)V")
     public abstract void ZA(@OriginalArg(0) int arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5);
 
+    /**
+     * cls
+     */
     @OriginalMember(owner = "client!ha", name = "GA", descriptor = "(I)V")
-    public abstract void GA(@OriginalArg(0) int arg0);
+    public abstract void GA(@OriginalArg(0) int colour);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     public abstract void method7965(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int offsetX, @OriginalArg(8) int offsetY);
@@ -265,10 +268,10 @@ public abstract class Toolkit {
     public abstract void C(@OriginalArg(0) boolean arg0);
 
     @OriginalMember(owner = "client!ha", name = "e", descriptor = "(II)V")
-    public abstract void method7975(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) throws Exception_Sub1;
+    public abstract void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1;
 
     @OriginalMember(owner = "client!ha", name = "d", descriptor = "(IIIIII)V")
-    public abstract void method7976(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
+    public abstract void outlineRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode);
 
     @OriginalMember(owner = "client!ha", name = "e", descriptor = "(I)V")
     public abstract void method7977(@OriginalArg(0) int arg0);
@@ -304,8 +307,8 @@ public abstract class Toolkit {
     public abstract void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!ha", name = "g", descriptor = "(I)V")
-    public final void method7984() throws Exception_Sub1 {
-        this.method7975(0, 0);
+    public final void flip() throws Exception_Sub1 {
+        this.flip(0, 0);
     }
 
     @OriginalMember(owner = "client!ha", name = "A", descriptor = "()Lclient!tt;")

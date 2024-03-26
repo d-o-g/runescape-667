@@ -297,7 +297,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "v", descriptor = "()V")
     @Override
-    public void method7943() {
+    public void restoreSurface() {
     }
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(I[[IZI)Lclient!fv;")
@@ -703,7 +703,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "e", descriptor = "(II)V")
     @Override
-    public void method7975(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) throws Exception_Sub1 {
+    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1 {
         this.anIDirect3DDevice1.EndScene();
         if (this.aClass349_1.method8181()) {
             this.anInt5370 = 0;
@@ -815,8 +815,8 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "GA", descriptor = "(I)V")
     @Override
-    public void GA(@OriginalArg(0) int arg0) {
-        this.anIDirect3DDevice1.Clear(1, arg0, 0.0F, 0);
+    public void GA(@OriginalArg(0) int colour) {
+        this.anIDirect3DDevice1.Clear(1, colour, 0.0F, 0);
     }
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(IZ)Lclient!mg;")
@@ -883,7 +883,7 @@ public final class D3DToolkit extends NativeToolkit {
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
     public void method8011(@OriginalArg(0) Rectangle[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) throws Exception_Sub1 {
-        this.method7975(arg2, arg3);
+        this.flip(arg2, arg3);
     }
 
     @OriginalMember(owner = "client!kea", name = "U", descriptor = "(I)V")

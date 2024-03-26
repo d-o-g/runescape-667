@@ -203,7 +203,7 @@ public final class Static466 {
                 Static74.aToolkit_4.la();
                 Static102.method2021();
                 if (Static448.anInt6796 == 0) {
-                    Static74.aToolkit_4.method7943();
+                    Static74.aToolkit_4.restoreSurface();
                 }
                 Static587.anInt8688 += local252;
                 Static601.anInt8887 += local250;
@@ -263,7 +263,7 @@ public final class Static466 {
             Static102.method2021();
             Static75.hasOpaqueStationaryEntities = false;
             if (Static448.anInt6796 == 0) {
-                Static74.aToolkit_4.method7943();
+                Static74.aToolkit_4.restoreSurface();
             }
             if (Static448.anInt6796 == 1) {
                 Static181.method2781();

@@ -35,7 +35,7 @@ public final class Static556 {
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(B)I")
     public static int method7302() {
-        return Static449.aClass364_1.method8379();
+        return Static449.aLoadingScreenRenderer_1.getTick();
     }
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(IBZ)Lclient!gfa;")

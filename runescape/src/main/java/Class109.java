@@ -4,9 +4,10 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.op.LoadingScreenOp;
 
 @OriginalClass("client!en")
-public final class Class109 implements Interface13 {
+public final class Class109 implements LoadingScreenOp {
 
     @OriginalMember(owner = "client!en", name = "b", descriptor = "Lclient!st;")
     public Sprite aSprite_9;
@@ -25,7 +26,7 @@ public final class Class109 implements Interface13 {
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(ZI)V")
     @Override
-    public void method7749() {
+    public void execute() {
         @Pc(11) int local11 = client.loadingScreenWidth >= GameShell.canvasWid ? client.loadingScreenWidth : GameShell.canvasWid;
         @Pc(19) int local19 = GameShell.canvasHei <= client.loadingScreenHeight ? client.loadingScreenHeight : GameShell.canvasHei;
         @Pc(23) int local23 = this.aSprite_9.scaleWidth();
@@ -45,13 +46,13 @@ public final class Class109 implements Interface13 {
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(I)V")
     @Override
-    public void method7748() {
+    public void init() {
         this.aSprite_9 = Static652.method8533(this.aClass200_1.anInt4996, this.aJs5_27);
     }
 
     @OriginalMember(owner = "client!en", name = "b", descriptor = "(I)Z")
     @Override
-    public boolean method7747() {
+    public boolean ready() {
         return this.aJs5_27.fileready(this.aClass200_1.anInt4996);
     }
 }

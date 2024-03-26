@@ -156,7 +156,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (ServerProt.A_SERVER_PROT___52 == arg0.currentProt) {
-            method7912(Static77.A_ZONE_PROT___5);
+            method7912(ZoneProt.A_ZONE_PROT___5);
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___239) {
@@ -179,7 +179,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == Static504.A_SERVER_PROT___188) {
-            method7912(Static565.A_ZONE_PROT___8);
+            method7912(ZoneProt.A_ZONE_PROT___8);
             arg0.currentProt = null;
             return true;
         } else {
@@ -726,7 +726,7 @@ public final class Protocol {
                                             arg0.currentProt = null;
                                             Static321.lastMiscTransmit = World.tick;
                                             return true;
-                                        } else if (Static565.A_SERVER_PROT___76 == arg0.currentProt) {
+                                        } else if (ServerProt.A_SERVER_PROT___76 == arg0.currentProt) {
                                             Static486.aByte115 = bitPacket.g1b();
                                             arg0.currentProt = null;
                                             if (Static486.aByte115 == 0 || Static486.aByte115 == 1) {
@@ -896,7 +896,7 @@ public final class Protocol {
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___129) {
-                                                Static726.aClass280_7 = Static189.method2864(bitPacket.g1());
+                                                Static726.aClass280_7 = Class280.method2864(bitPacket.g1());
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (Static410.A_SERVER_PROT___163 == arg0.currentProt) {
@@ -1068,7 +1068,7 @@ public final class Protocol {
                                                     VideoManager.stop(local277);
                                                     arg0.currentProt = null;
                                                     return true;
-                                                } else if (Static166.A_SERVER_PROT___63 == arg0.currentProt) {
+                                                } else if (ServerProt.A_SERVER_PROT___63 == arg0.currentProt) {
                                                     method7912(Static668.A_ZONE_PROT___16);
                                                     arg0.currentProt = null;
                                                     return true;
@@ -2488,7 +2488,7 @@ public final class Protocol {
                         local1053.target(Static102.averageHeight(Static87.anInt1810, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
                         Static505.projectiles.addLast(new ProjectileAnimationNode(local1053));
                     }
-                } else if (Static77.A_ZONE_PROT___5 == arg0) {
+                } else if (ZoneProt.A_ZONE_PROT___5 == arg0) {
                     local15 = bitPacket.g2_alt2();
                     local21 = bitPacket.g1_alt1();
                     local25 = Static270.anInt4354 + (local21 & 0x7);
@@ -2526,7 +2526,7 @@ public final class Protocol {
                             Static179.method2770(local46, local52, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16), local212, local537, local34);
                         }
                     }
-                } else if (arg0 == Static565.A_ZONE_PROT___8) {
+                } else if (arg0 == ZoneProt.A_ZONE_PROT___8) {
                     local15 = bitPacket.g2();
                     local21 = bitPacket.g1();
                     local25 = (local21 & 0x7) + Static270.anInt4354;

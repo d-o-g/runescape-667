@@ -1354,7 +1354,7 @@ public final class client extends GameShell {
         }
 
         if (local209) {
-            Static288.method4182();
+            Static288.repaintMargins();
         }
 
         if (Toolkit.active != null && Toolkit.active.method8001() || InterfaceManager.getWindowMode() != 1) {
@@ -1439,7 +1439,7 @@ public final class client extends GameShell {
                 if (InterfaceManager.aBoolean210) {
                     Static430.method5818();
                 } else {
-                    Toolkit.active.method7984();
+                    Toolkit.active.flip();
                 }
             } catch (@Pc(666) Exception_Sub1 cause) {
                 JagException.sendTrace(cause, cause.getMessage() + " (Recovered) " + this.getErrorTrace());

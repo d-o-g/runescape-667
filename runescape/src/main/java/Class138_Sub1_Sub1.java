@@ -1,6 +1,7 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!fw")
 public final class Class138_Sub1_Sub1 extends Class138_Sub1 {
@@ -16,7 +17,7 @@ public final class Class138_Sub1_Sub1 extends Class138_Sub1 {
 
     @OriginalMember(owner = "client!fw", name = "a", descriptor = "(I)Lclient!kda;")
     @Override
-    public Class204 method5357() {
-        return Static505.aClass204_16;
+    public LoadingScreenOpType type() {
+        return LoadingScreenOpType.ANIMATED_PROGRESS_BAR;
     }
 }

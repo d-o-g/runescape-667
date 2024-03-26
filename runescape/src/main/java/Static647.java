@@ -6,9 +6,6 @@ import java.util.Calendar;
 
 public final class Static647 {
 
-    @OriginalMember(owner = "client!uh", name = "s", descriptor = "Lclient!kda;")
-    public static final Class204 aClass204_13 = new Class204(6, 1);
-
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(B)Z")
     public static boolean method8468() {
         return MainLogicManager.step >= 1;

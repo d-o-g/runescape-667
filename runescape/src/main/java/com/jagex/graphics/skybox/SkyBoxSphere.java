@@ -252,7 +252,7 @@ public final class SkyBoxSphere {
         @Pc(231) int local231 = this.anInt5638 * 13 / 16;
         @Pc(238) int local238 = (this.anInt5638 - local231) / 2;
         aSprite.render(local238, local238, local231, local231, 0, this.anInt5634 | 0xFF000000, 1);
-        this.aSprite_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
+        this.aSprite_24 = arg0.createSprite(0, 0, this.anInt5638, this.anInt5638, true);
         arg0.ya();
         arg0.aa(0, 0, this.anInt5638, this.anInt5638, 0, 0);
         aSprite_25.render(0, 0, this.anInt5638, this.anInt5638, 1, 0, 0);
@@ -319,7 +319,7 @@ public final class SkyBoxSphere {
         @Pc(238) Matrix local238 = arg0.scratchMatrix();
         local238.applyTranslation(0, 0, arg0.i() - local190.HA());
         local190.renderOrtho(local238, null, arg0.i(), 1);
-        this.aSprite_24 = arg0.method7964(0, 0, this.anInt5638, this.anInt5638, true);
+        this.aSprite_24 = arg0.createSprite(0, 0, this.anInt5638, this.anInt5638, true);
         this.aSprite_24.method8196();
         arg0.DA(local219[0], local219[1], local219[2], local219[3]);
         arg0.KA(anIntArray418[0], anIntArray418[1], anIntArray418[2], anIntArray418[3]);

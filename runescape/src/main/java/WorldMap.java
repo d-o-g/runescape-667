@@ -243,7 +243,7 @@ public final class WorldMap {
             @Pc(38) int x = (childWidth / 2) + childX;
             toolkit.aa(childX, childY, childWidth, childHeight, 0xFF000000, 0);
             @Pc(57) int y = (childY + (childHeight / 2)) - 20 - 18;
-            toolkit.method7976(x - 152, y, 304, 34, client.OUTLINE_COLOURS[client.colourId].getRGB(), 0);
+            toolkit.outlineRect(x - 152, y, 304, 34, client.OUTLINE_COLOURS[client.colourId].getRGB(), 0);
             toolkit.aa(x - 150, y + 2, loadingPercent * 3, 30, client.FILL_COLOURS[client.colourId].getRGB(), 0);
             Fonts.b12.renderCentre(-1, x, LocalisedText.LOADINGDOTDOTDOT.localise(client.language), y + 20, Static399.aColorArray2[client.colourId].getRGB());
         } else {
@@ -314,7 +314,7 @@ public final class WorldMap {
         if (Static13.aSprite_4 == null || Static13.aSprite_4.getWidth() != width || Static13.aSprite_4.getHeight() != height) {
             method5062(areaX, areaY + areaHeight, areaWidth + areaX, areaY, newX, newY, newX + newWidth, newY - -newHeight);
             method5060(arg1);
-            Static13.aSprite_4 = arg1.method7964(newX, newY, newWidth, newHeight, false);
+            Static13.aSprite_4 = arg1.createSprite(newX, newY, newWidth, newHeight, false);
         }
 
         Static13.aSprite_4.render(newX, newY);
@@ -330,7 +330,7 @@ public final class WorldMap {
         }
 
         arg1.aa(local152, local166, local138, local144, colour, 1);
-        arg1.method7976(local152, local166, local138, local144, colour, 0);
+        arg1.outlineRect(local152, local166, local138, local144, colour, 0);
 
         if (Static320.anInt5084 <= 0) {
             return;

@@ -904,11 +904,11 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void method7951(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
         this.method7026();
-        this.method7017(arg5);
-        @Pc(16) float local16 = (float) arg2 - (float) arg0;
-        @Pc(23) float local23 = (float) -arg1 + (float) arg3;
+        this.method7017(mode);
+        @Pc(16) float local16 = (float) x2 - (float) x1;
+        @Pc(23) float local23 = (float) -y1 + (float) y2;
         if (local16 == 0.0F && local23 == 0.0F) {
             local16 = 1.0F;
         } else {
@@ -916,10 +916,10 @@ public final class GlToolkit extends Toolkit {
             local16 *= local46;
             local23 *= local46;
         }
-        OpenGL.glColor4ub((byte) (arg4 >> 16), (byte) (arg4 >> 8), (byte) arg4, (byte) (arg4 >> 24));
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         OpenGL.glBegin(OpenGL.GL_LINES);
-        OpenGL.glVertex2f((float) arg0 + 0.35F, (float) arg1 + 0.35F);
-        OpenGL.glVertex2f(local16 + (float) arg2 + 0.35F, (float) arg3 + local23 + 0.35F);
+        OpenGL.glVertex2f((float) x1 + 0.35F, (float) y1 + 0.35F);
+        OpenGL.glVertex2f(local16 + (float) x2 + 0.35F, (float) y2 + local23 + 0.35F);
         OpenGL.glEnd();
     }
 
@@ -1005,13 +1005,13 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public Sprite method7963(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
+    public Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
         return new Sprite_Sub2(this, arg0, arg1, arg2);
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     @Override
-    public Sprite method7964(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
+    public Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         return new Sprite_Sub2(this, arg0, arg1, arg2, arg3);
     }
 
@@ -1419,9 +1419,9 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "GA", descriptor = "(I)V")
     @Override
-    public void GA(@OriginalArg(0) int arg0) {
+    public void GA(@OriginalArg(0) int colour) {
         this.method7017(0);
-        OpenGL.glClearColor((float) (arg0 & 0xFF0000) / 1.671168E7F, (float) (arg0 & 0xFF00) / 65280.0F, (float) (arg0 & 0xFF) / 255.0F, (float) (arg0 >>> 24) / 255.0F);
+        OpenGL.glClearColor((float) (colour & 0xFF0000) / 1.671168E7F, (float) (colour & 0xFF00) / 65280.0F, (float) (colour & 0xFF) / 255.0F, (float) (colour >>> 24) / 255.0F);
         OpenGL.glClear(OpenGL.GL_COLOR_BUFFER_BIT);
     }
 
@@ -2015,14 +2015,14 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "d", descriptor = "(IIIIII)V")
     @Override
-    public void method7976(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        @Pc(8) float local8 = (float) arg0 + 0.35F;
-        @Pc(13) float local13 = (float) arg1 + 0.35F;
-        @Pc(20) float local20 = (float) arg2 + local8 - 1.0F;
-        @Pc(27) float local27 = (float) arg3 + local13 - 1.0F;
+    public void outlineRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
+        @Pc(8) float local8 = (float) x + 0.35F;
+        @Pc(13) float local13 = (float) y + 0.35F;
+        @Pc(20) float local20 = (float) width + local8 - 1.0F;
+        @Pc(27) float local27 = (float) height + local13 - 1.0F;
         this.method7026();
-        this.method7017(arg5);
-        OpenGL.glColor4ub((byte) (arg4 >> 16), (byte) (arg4 >> 8), (byte) arg4, (byte) (arg4 >> 24));
+        this.method7017(mode);
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         if (this.aBoolean615) {
             OpenGL.glDisable(OpenGL.GL_MULTISAMPLE);
         }
@@ -2082,7 +2082,7 @@ public final class GlToolkit extends Toolkit {
     @Override
     public void method7947(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         OpenGL.glLineWidth((float) arg5);
-        this.method7951(arg0, arg1, arg2, arg3, arg4, 0);
+        this.line(arg0, arg1, arg2, arg3, arg4, 0);
         OpenGL.glLineWidth(1.0F);
     }
 
@@ -2417,7 +2417,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "v", descriptor = "()V")
     @Override
-    public void method7943() {
+    public void restoreSurface() {
         if (this.aBoolean613) {
             if (this.anInterface14_2 != this.aClass406_6) {
                 throw new RuntimeException();
@@ -2621,7 +2621,7 @@ public final class GlToolkit extends Toolkit {
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
     public void method8011(@OriginalArg(0) Rectangle[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) throws Exception_Sub1 {
-        this.method7975(arg2, arg3);
+        this.flip(arg2, arg3);
     }
 
     @OriginalMember(owner = "client!qha", name = "la", descriptor = "()V")
@@ -3273,7 +3273,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "e", descriptor = "(II)V")
     @Override
-    public void method7975(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) throws Exception_Sub1 {
+    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1 {
         try {
             this.anOpenGL1.swapBuffers();
         } catch (@Pc(8) Exception local8) {

@@ -8,9 +8,6 @@ public final class Static535 {
     @OriginalMember(owner = "client!qr", name = "f", descriptor = "Lclient!wp;")
     public static IndexedImage aIndexedImage_3;
 
-    @OriginalMember(owner = "client!qr", name = "k", descriptor = "Lclient!kda;")
-    public static final Class204 aClass204_11 = new Class204(3, 2);
-
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(Lclient!eo;IIIII)V")
     public static void method7148(@OriginalArg(0) Entity entity, @OriginalArg(1) int level, @OriginalArg(2) int x, @OriginalArg(3) int z, @OriginalArg(4) int width, @OriginalArg(5) int height) {
         @Pc(1) boolean local1 = true;

@@ -8,11 +8,10 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.ImageObserver;
 import java.lang.reflect.Field;
 
 @OriginalClass("client!uh")
-public final class Class374 implements Interface22 {
+public final class AwtLoadingScreen implements LoadingScreen {
 
     @OriginalMember(owner = "client!uh", name = "c", descriptor = "Ljava/awt/Font;")
     public Font aFont2;
@@ -148,7 +147,7 @@ public final class Class374 implements Interface22 {
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Z)V")
     public void method8471() {
-        Static305.method4439(Static449.aClass364_1.method8378(), client.OUTLINE_COLOURS[client.colourId], Static399.aColorArray2[client.colourId], client.FILL_COLOURS[client.colourId], Static449.aClass364_1.method8377());
+        Static305.method4439(Static449.aLoadingScreenRenderer_1.getPercentage(), client.OUTLINE_COLOURS[client.colourId], Static399.aColorArray2[client.colourId], client.FILL_COLOURS[client.colourId], Static449.aLoadingScreenRenderer_1.getText());
     }
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Ljava/lang/Class;Ljava/lang/Object;ZLjava/lang/String;)I")
@@ -179,7 +178,7 @@ public final class Class374 implements Interface22 {
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(ZB)V")
     @Override
-    public void method8465(@OriginalArg(0) boolean arg0) {
+    public void render(@OriginalArg(0) boolean arg0) {
         if (!this.aBoolean741) {
             if (GameShell.loaderApplet == null) {
                 this.aBoolean741 = true;
@@ -201,8 +200,8 @@ public final class Class374 implements Interface22 {
             return;
         }
         try {
-            @Pc(63) int local63 = Static449.aClass364_1.method8378();
-            @Pc(67) String local67 = Static449.aClass364_1.method8377();
+            @Pc(63) int local63 = Static449.aLoadingScreenRenderer_1.getPercentage();
+            @Pc(67) String local67 = Static449.aLoadingScreenRenderer_1.getText();
             if (Static103.anImage1 == null) {
                 Static103.anImage1 = GameShell.canvas.createImage(GameShell.canvasWid, GameShell.canvasHei);
             }

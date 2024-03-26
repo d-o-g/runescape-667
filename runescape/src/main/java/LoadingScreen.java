@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!uha")
-public interface Interface22 {
+public interface LoadingScreen {
 
     @OriginalMember(owner = "client!uha", name = "d", descriptor = "(I)I")
     int method8460();
@@ -21,5 +21,5 @@ public interface Interface22 {
     void method8464();
 
     @OriginalMember(owner = "client!uha", name = "a", descriptor = "(ZB)V")
-    void method8465(@OriginalArg(0) boolean arg0);
+    void render(@OriginalArg(0) boolean arg0);
 }

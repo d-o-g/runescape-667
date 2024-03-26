@@ -25,5 +25,5 @@ public final class SignedResource {
     public int type;
 
     @OriginalMember(owner = "client!oba", name = "g", descriptor = "I")
-    public volatile int status = 0;
+    public volatile int status = SignedResourceStatus.IDLE;
 }

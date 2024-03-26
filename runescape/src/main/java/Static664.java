@@ -28,6 +28,7 @@ import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.web.ClientURLTools;
 
 public final class Static664 {
 
@@ -53,8 +54,8 @@ public final class Static664 {
     }
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(IZLjava/lang/String;ZLclient!vq;)V")
-    public static void method8655(@OriginalArg(1) boolean arg0, @OriginalArg(2) String arg1, @OriginalArg(3) boolean arg2, @OriginalArg(4) SignLink arg3) {
-        Static259.method3693(arg1, "openjs", arg3, arg0, arg2);
+    public static void openjs(@OriginalArg(1) boolean glToolkit, @OriginalArg(2) String page, @OriginalArg(3) boolean loggedIn, @OriginalArg(4) SignLink signLink) {
+        ClientURLTools.openURL(page, "openjs", signLink, glToolkit, loggedIn);
     }
 
     @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(ILjava/lang/String;)I")

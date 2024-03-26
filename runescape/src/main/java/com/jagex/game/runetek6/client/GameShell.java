@@ -342,7 +342,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
 
         try {
             this.mainquit();
-        } catch (@Pc(42) Exception local42) {
+        } catch (@Pc(42) Exception ignored) {
+            /* empty */
         }
 
         if (this.jagmiscRunning) {

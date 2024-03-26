@@ -1,5 +1,7 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.Client;
+import com.jagex.SignedResourceStatus;
+import rs2.client.web.OpenUrlType;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ServerProt;
 import com.jagex.Static14;
@@ -38,6 +40,7 @@ import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.web.ClientURLTools;
 import rs2.client.clan.channel.ClanChannel;
 import rs2.client.clan.channel.delta.ClanChannelDelta;
 import rs2.client.clan.settings.ClanSettings;
@@ -831,7 +834,7 @@ public final class Protocol {
                                                 local3044 = new byte[arg0.currentPacketSize];
                                                 bitPacket.readEncrypted(local3044, arg0.currentPacketSize);
                                                 local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
-                                                Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local627, true, GameShell.signLink);
+                                                Static664.openjs(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local627, true, GameShell.signLink);
                                                 arg0.currentProt = null;
                                                 return true;
                                             } else if (arg0.currentProt == Static444.A_SERVER_PROT___169) {
@@ -1395,7 +1398,7 @@ public final class Protocol {
                                                                 DelayedStateChange.method6462(local100, 2, -1, local277);
                                                                 arg0.currentProt = null;
                                                                 return true;
-                                                            } else if (Static36.A_SERVER_PROT___15 == arg0.currentProt) {
+                                                            } else if (ServerProt.A_SERVER_PROT___15 == arg0.currentProt) {
                                                                 Static480.method6468(bitPacket, GameShell.signLink, arg0.currentPacketSize);
                                                                 arg0.currentProt = null;
                                                                 return true;
@@ -1548,8 +1551,8 @@ public final class Protocol {
                                                                     bitPacket.readEncrypted(local3044, arg0.currentPacketSize);
                                                                     local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                                     local629 = "opensn";
-                                                                    if (!Client.js || Static36.method980(GameShell.signLink, local627, local629, 1).status == 2) {
-                                                                        Static259.method3693(local627, local629, GameShell.signLink, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
+                                                                    if (!Client.js || ClientURLTools.openURL(GameShell.signLink, local627, local629, OpenUrlType.CALL).status == SignedResourceStatus.ERROR) {
+                                                                        ClientURLTools.openURL(local627, local629, GameShell.signLink, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
                                                                     }
                                                                     arg0.currentProt = null;
                                                                     return true;

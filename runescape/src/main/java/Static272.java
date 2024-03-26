@@ -1,5 +1,4 @@
 import com.jagex.ServerProt;
-import com.jagex.SignLink;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -7,9 +6,6 @@ public final class Static272 {
 
     @OriginalMember(owner = "client!ija", name = "q", descriptor = "[[S")
     public static short[][] waterDepth;
-
-    @OriginalMember(owner = "client!ija", name = "j", descriptor = "Lclient!vq;")
-    public static SignLink aSignLink_3;
 
     @OriginalMember(owner = "client!ija", name = "e", descriptor = "Z")
     public static boolean aBoolean336;

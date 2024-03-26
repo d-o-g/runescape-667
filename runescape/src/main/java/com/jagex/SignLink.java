@@ -441,8 +441,8 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/String;B)Lclient!oba;")
-    public SignedResource openPage(@OriginalArg(0) String string) {
-        return this.request(SignedResourceType.OPEN_PAGE, string, 0, 0);
+    public SignedResource openurl(@OriginalArg(0) String page) {
+        return this.request(SignedResourceType.OPEN_PAGE, page, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/io/File;I[B)Z")

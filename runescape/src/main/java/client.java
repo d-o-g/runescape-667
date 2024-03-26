@@ -64,6 +64,7 @@ import rs2.client.event.keyboard.KeyLog;
 import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseLog;
 import rs2.client.event.mouse.MouseMonitor;
+import rs2.client.web.ClientURLTools;
 
 import java.awt.Canvas;
 import java.awt.Container;
@@ -1382,7 +1383,7 @@ public final class client extends GameShell {
         if (Toolkit.active != null) {
             Toolkit.active.method7977((int) SystemTimer.safetime());
         }
-        Static711.method9272();
+        ClientURLTools.tick();
         Static671.anInt10026 = 0;
         Static216.anInt3530 = 0;
         for (@Pc(94) KeyLog local94 = KeyboardMonitor.instance.removeFirstRecorded(); local94 != null; local94 = KeyboardMonitor.instance.removeFirstRecorded()) {

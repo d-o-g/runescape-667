@@ -4503,7 +4503,7 @@ public final class ScriptRunner {
                             return;
                         }
                         local95 = Client.quitUrl == null ? Static659.method8605() : Client.quitUrl;
-                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local95, false, GameShell.signLink);
+                        Static664.openjs(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local95, false, GameShell.signLink);
                         return;
                     }
                     if (arg0 == 5419) {
@@ -4529,7 +4529,7 @@ public final class ScriptRunner {
                         local95 = aStringArray37[--anInt7139];
                         local1578 = anIntArray578[--anInt7142] == 1;
                         local198 = Static659.method8605() + local95;
-                        Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local198, local1578, GameShell.signLink);
+                        Static664.openjs(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local198, local1578, GameShell.signLink);
                         return;
                     }
                     if (arg0 == 5422) {

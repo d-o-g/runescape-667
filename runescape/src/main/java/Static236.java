@@ -1,4 +1,3 @@
-import com.jagex.SignedResource;
 import com.jagex.core.util.JagException;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -10,9 +9,6 @@ public final class Static236 {
 
     @OriginalMember(owner = "client!hfa", name = "s", descriptor = "I")
     public static int anInt3893;
-
-    @OriginalMember(owner = "client!hfa", name = "w", descriptor = "Lclient!oba;")
-    public static SignedResource aSignedResource_2;
 
     @OriginalMember(owner = "client!hfa", name = "r", descriptor = "Z")
     public static boolean aBoolean304 = false;

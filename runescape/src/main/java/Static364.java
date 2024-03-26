@@ -1,4 +1,6 @@
 import com.jagex.Client;
+import com.jagex.SignedResourceStatus;
+import rs2.client.web.OpenUrlType;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.crypto.Isaac;
@@ -16,6 +18,7 @@ import com.jagex.graphics.ToolkitType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.web.ClientURLTools;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -194,8 +197,8 @@ public final class Static364 {
                 @Pc(465) String local465 = Static524.aServerConnection_3.bitPacket.gjstr2();
                 Static524.aServerConnection_3.bitPacket.pos = 0;
                 @Pc(473) String local473 = "opensn";
-                if (!Client.js || Static36.method980(GameShell.signLink, local465, local473, 1).status == 2) {
-                    Static259.method3693(local465, local473, GameShell.signLink, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
+                if (!Client.js || ClientURLTools.openURL(GameShell.signLink, local465, local473, OpenUrlType.CALL).status == SignedResourceStatus.ERROR) {
+                    ClientURLTools.openURL(local465, local473, GameShell.signLink, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
                 }
                 Static135.anInt8223 = 6;
             }

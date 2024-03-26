@@ -11,19 +11,4 @@ public final class Static711 {
         Static577.method7615(arg1, arg0);
     }
 
-    @OriginalMember(owner = "client!wia", name = "a", descriptor = "(B)V")
-    public static void method9272() {
-        if (Static236.aSignedResource_2 == null) {
-            return;
-        }
-        if (Static236.aSignedResource_2.status == 1) {
-            Static236.aSignedResource_2 = null;
-            return;
-        }
-        if (Static236.aSignedResource_2.status == 2) {
-            Static637.method8382(Static340.aString53, 2, Static272.aSignLink_3);
-            Static236.aSignedResource_2 = null;
-            return;
-        }
-    }
 }

@@ -1,4 +1,4 @@
-package com.jagex.graphics;
+package com.jagex.graphics.awt;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -12,7 +12,7 @@ import java.awt.GraphicsEnvironment;
 import java.lang.reflect.Field;
 
 @OriginalClass("client!cia")
-public final class FullscreenAdapter {
+public final class AwtFullscreenAdapter {
 
     @OriginalMember(owner = "client!cia", name = "b", descriptor = "Ljava/awt/DisplayMode;")
     public DisplayMode previousDisplayMode;
@@ -21,7 +21,7 @@ public final class FullscreenAdapter {
     public GraphicsDevice fullscreenDevice;
 
     @OriginalMember(owner = "client!cia", name = "<init>", descriptor = "()V")
-    public FullscreenAdapter() throws Exception {
+    public AwtFullscreenAdapter() throws Exception {
         @Pc(3) GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
         this.fullscreenDevice = env.getDefaultScreenDevice();
 

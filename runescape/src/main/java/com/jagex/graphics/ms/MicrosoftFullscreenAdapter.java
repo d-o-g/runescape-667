@@ -1,4 +1,4 @@
-package com.jagex;
+package com.jagex.graphics.ms;
 
 import com.ms.awt.WComponentPeer;
 import com.ms.com.IUnknown;
@@ -19,10 +19,10 @@ import java.lang.reflect.Method;
 public final class MicrosoftFullscreenAdapter implements IEnumModesCallback {
 
     @OriginalMember(owner = "client!ak", name = "b", descriptor = "[I")
-    public static int[] anIntArray28;
+    public static int[] data;
 
     @OriginalMember(owner = "client!ak", name = "a", descriptor = "I")
-    public static int anInt240;
+    public static int pos;
 
     @OriginalMember(owner = "client!ak", name = "c", descriptor = "Lcom/ms/directX/DirectDraw;")
     public final DirectDraw draw = new DirectDraw();
@@ -64,24 +64,27 @@ public final class MicrosoftFullscreenAdapter implements IEnumModesCallback {
     @OriginalMember(owner = "client!ak", name = "a", descriptor = "(I)[I")
     public int[] listmodes() {
         this.draw.enumDisplayModes(0, null, null, this);
-        anIntArray28 = new int[anInt240];
-        anInt240 = 0;
+        data = new int[pos];
+        pos = 0;
         this.draw.enumDisplayModes(0, null, null, this);
-        @Pc(20) int[] local20 = anIntArray28;
-        anIntArray28 = null;
-        anInt240 = 0;
-        return local20;
+        @Pc(20) int[] modes = data;
+        data = null;
+        pos = 0;
+        return modes;
     }
 
+    /**
+     * @see <a href="https://learn.microsoft.com/en-us/windows/win32/api/ddraw/nc-ddraw-lpddenummodescallback">EnumModesCallback</a>
+     */
     @OriginalMember(owner = "client!ak", name = "callbackEnumModes", descriptor = "(Lcom/ms/directX/DDSurfaceDesc;Lcom/ms/com/IUnknown;)V")
-    public void callbackEnumModes(@OriginalArg(0) DDSurfaceDesc arg0, @OriginalArg(1) IUnknown arg1) {
-        if (anIntArray28 == null) {
-            anInt240 += 4;
+    public void callbackEnumModes(@OriginalArg(0) DDSurfaceDesc description, @OriginalArg(1) IUnknown arg1) {
+        if (data == null) {
+            pos += 4;
         } else {
-            anIntArray28[anInt240++] = arg0.width;
-            anIntArray28[anInt240++] = arg0.height;
-            anIntArray28[anInt240++] = arg0.rgbBitCount;
-            anIntArray28[anInt240++] = arg0.refreshRate;
+            data[pos++] = description.width;
+            data[pos++] = description.height;
+            data[pos++] = description.rgbBitCount;
+            data[pos++] = description.refreshRate;
         }
     }
 }

@@ -1,3 +1,5 @@
+package com.jagex.graphics.awt;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -11,7 +13,7 @@ import java.awt.image.BufferedImage;
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 
 @OriginalClass("client!me")
-public final class MouseAdapter {
+public final class AwtMouseAdapter {
 
     @OriginalMember(owner = "client!me", name = "b", descriptor = "Ljava/awt/Component;")
     public Component component;
@@ -20,7 +22,7 @@ public final class MouseAdapter {
     public final Robot robot = new Robot();
 
     @OriginalMember(owner = "client!me", name = "<init>", descriptor = "()V")
-    public MouseAdapter() throws Exception {
+    public AwtMouseAdapter() throws Exception {
     }
 
     @OriginalMember(owner = "client!me", name = "showcursor", descriptor = "(Ljava/awt/Component;Z)V")

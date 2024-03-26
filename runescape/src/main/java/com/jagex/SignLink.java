@@ -9,6 +9,8 @@ import com.jagex.core.io.socket.SocketFactory;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.graphics.ms.MicrosoftFullscreenAdapter;
+import com.jagex.graphics.ms.MicrosoftJavaMouseCallback;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -237,7 +239,7 @@ public final class SignLink implements Runnable {
                 if (this.microsoftjava) {
                     this.microsoftFullscreenAdapter = new MicrosoftFullscreenAdapter();
                 } else {
-                    this.fullscreenAdapter = Class.forName("com.jagex.graphics.FullscreenAdapter").getDeclaredConstructor().newInstance();
+                    this.fullscreenAdapter = Class.forName("com.jagex.graphics.awt.AwtFullscreenAdapter").getDeclaredConstructor().newInstance();
                 }
             } catch (@Pc(287) Throwable ignored) {
                 /* empty */
@@ -247,7 +249,7 @@ public final class SignLink implements Runnable {
                 if (this.microsoftjava) {
                     this.mouseCallback = new MicrosoftJavaMouseCallback();
                 } else {
-                    this.mouseAdapter = Class.forName("MouseAdapter").getDeclaredConstructor().newInstance();
+                    this.mouseAdapter = Class.forName("com.jagex.graphics.awt.AwtMouseAdapter").getDeclaredConstructor().newInstance();
                 }
             } catch (@Pc(306) Throwable ignored) {
                 /* empty */
@@ -615,7 +617,7 @@ public final class SignLink implements Runnable {
                         if (this.microsoftjava) {
                             request.result = this.microsoftFullscreenAdapter.listmodes();
                         } else {
-                            request.result = Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("listmodes").invoke(this.fullscreenAdapter);
+                            request.result = Class.forName("com.jagex.graphics.awt.AwtFullscreenAdapter").getMethod("listmodes").invoke(this.fullscreenAdapter);
                         }
                     } else if (type == SignedResourceType.ENTER_FULLSCREEN) {
                         @Pc(268) Frame frame = new Frame("Jagex Full Screen");
@@ -625,13 +627,13 @@ public final class SignLink implements Runnable {
                         if (this.microsoftjava) {
                             this.microsoftFullscreenAdapter.enter(frame, request.intData2 >> 16, request.intData2 & 0xFFFF, request.intData1 & 0xFFFF, request.intData1 >>> 16);
                         } else {
-                            Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("enter", frameClass == null ? (frameClass = Class.forName("java.awt.Frame")) : frameClass, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE).invoke(this.fullscreenAdapter, frame, Integer.valueOf(request.intData1 >>> 16), new Integer(request.intData1 & 0xFFFF), Integer.valueOf(request.intData2 >> 16), new Integer(request.intData2 & 0xFFFF));
+                            Class.forName("com.jagex.graphics.awt.AwtFullscreenAdapter").getMethod("enter", frameClass == null ? (frameClass = Class.forName("java.awt.Frame")) : frameClass, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE).invoke(this.fullscreenAdapter, frame, Integer.valueOf(request.intData1 >>> 16), new Integer(request.intData1 & 0xFFFF), Integer.valueOf(request.intData2 >> 16), new Integer(request.intData2 & 0xFFFF));
                         }
                     } else if (type == SignedResourceType.EXIT_FULLSCREEN) {
                         if (this.microsoftjava) {
                             this.microsoftFullscreenAdapter.exit((Frame) request.objectData);
                         } else {
-                            Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("exit").invoke(this.fullscreenAdapter);
+                            Class.forName("com.jagex.graphics.awt.AwtFullscreenAdapter").getMethod("exit").invoke(this.fullscreenAdapter);
                         }
                     } else if (type == SignedResourceType.PREFERENCES_SPECIFIC_GAME) {
                         @Pc(438) FileOnDisk file = openPrefs(game, cacheId, (String) request.objectData);
@@ -646,7 +648,7 @@ public final class SignLink implements Runnable {
                         if (this.microsoftjava) {
                             this.mouseCallback.movemouse(x, y);
                         } else {
-                            Class.forName("MouseAdapter").getDeclaredMethod("movemouse", Integer.TYPE, Integer.TYPE).invoke(this.mouseAdapter, Integer.valueOf(x), new Integer(y));
+                            Class.forName("com.jagex.graphics.awt.AwtMouseAdapter").getDeclaredMethod("movemouse", Integer.TYPE, Integer.TYPE).invoke(this.mouseAdapter, Integer.valueOf(x), new Integer(y));
                         }
                     } else if (this.signed && type == SignedResourceType.UPDATE_MOUSE_COMPONENT) {
                         @Pc(534) boolean delete = request.intData1 != 0;
@@ -655,11 +657,11 @@ public final class SignLink implements Runnable {
                         if (this.microsoftjava) {
                             this.mouseCallback.showcursor(delete, component);
                         } else {
-                            Class.forName("MouseAdapter").getDeclaredMethod("showcursor", componentClass == null ? (componentClass = Class.forName("java.awt.Component")) : componentClass, Boolean.TYPE).invoke(this.mouseAdapter, component, Boolean.valueOf(delete));
+                            Class.forName("com.jagex.graphics.awt.AwtMouseAdapter").getDeclaredMethod("showcursor", componentClass == null ? (componentClass = Class.forName("java.awt.Component")) : componentClass, Boolean.TYPE).invoke(this.mouseAdapter, component, Boolean.valueOf(delete));
                         }
                     } else if (!this.microsoftjava && type == SignedResourceType.UPDATE_MOUSE_CURSOR) {
                         @Pc(102) Object[] objectData = (Object[]) request.objectData;
-                        Class.forName("MouseAdapter").getDeclaredMethod("setcustomcursor", componentClass == null ? (componentClass = Class.forName("java.awt.Component")) : componentClass, intArrayClass == null ? (intArrayClass = Class.forName("[I")) : intArrayClass, Integer.TYPE, Integer.TYPE, pointClass == null ? (pointClass = Class.forName("java.awt.Point")) : pointClass).invoke(this.mouseAdapter, objectData[0], objectData[1], Integer.valueOf(request.intData1), new Integer(request.intData2), objectData[2]);
+                        Class.forName("com.jagex.graphics.awt.AwtMouseAdapter").getDeclaredMethod("setcustomcursor", componentClass == null ? (componentClass = Class.forName("java.awt.Component")) : componentClass, intArrayClass == null ? (intArrayClass = Class.forName("[I")) : intArrayClass, Integer.TYPE, Integer.TYPE, pointClass == null ? (pointClass = Class.forName("java.awt.Point")) : pointClass).invoke(this.mouseAdapter, objectData[0], objectData[1], Integer.valueOf(request.intData1), new Integer(request.intData2), objectData[2]);
                     } else if (type == SignedResourceType.OPEN_PAGE) {
                         try {
                             if (!osNameLower.startsWith("win")) {

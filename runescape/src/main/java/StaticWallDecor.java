@@ -51,9 +51,9 @@ public final class StaticWallDecor extends WallDecor implements Location {
         this.rotation = (byte) rotation;
         super.x = x;
         this.shape = (byte) shape;
-        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
+        this.interactive = type.active != LocInteractivity.NONINTERACTIVE && !underwater;
         this.underwater = underwater;
-        this.hardShadow = toolkit.hardShadow() && type.hardShadow && !this.underwater && ClientOptions.instance.hardShadows.getValue() != 0;
+        this.hardShadow = toolkit.hardShadow() && type.hardshadow && !this.underwater && ClientOptions.instance.hardShadows.getValue() != 0;
 
         @Pc(81) ModelAndShadow modelAndShadow = this.modelAndShadow(toolkit, 0x800, this.hardShadow);
         if (modelAndShadow != null) {

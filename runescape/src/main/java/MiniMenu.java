@@ -395,7 +395,7 @@ public final class MiniMenu {
                     if (local543.aEntity_18 instanceof Location) {
                         @Pc(1654) Location local1654 = (Location) local543.aEntity_18;
                         @Pc(1661) LocType local1661 = LocTypeList.instance.list(local1654.getId());
-                        if (local1661.multiLocs != null) {
+                        if (local1661.multiloc != null) {
                             local1661 = local1661.getMultiLoc(TimedVarDomain.instance);
                         }
                         if (local1661 != null) {
@@ -825,7 +825,7 @@ public final class MiniMenu {
                 }
             } else if (MiniMenuAction.isLocOp(entry.action)) {
                 @Pc(131) LocType type = LocTypeList.instance.list((int) ((entry.v1 >>> 32) & 0x7FFFFFFFL));
-                if (type.multiLocs != null) {
+                if (type.multiloc != null) {
                     type = type.getMultiLoc(TimedVarDomain.instance);
                 }
                 if (type != null) {
@@ -891,7 +891,7 @@ public final class MiniMenu {
             }
         } else if (MiniMenuAction.isLocOp(arg6.action)) {
             @Pc(87) LocType local87 = LocTypeList.instance.list((int) (arg6.v1 >>> 32 & 0x7FFFFFFFL));
-            if (local87.multiLocs != null) {
+            if (local87.multiloc != null) {
                 local87 = local87.getMultiLoc(TimedVarDomain.instance);
             }
             if (local87 != null) {
@@ -934,7 +934,7 @@ public final class MiniMenu {
             }
         } else if (MiniMenuAction.isLocOp(entry.action)) {
             @Pc(89) LocType type = LocTypeList.instance.list((int) ((entry.v1 >>> 32) & 0x7FFFFFFFL));
-            if (type.multiLocs != null) {
+            if (type.multiloc != null) {
                 type = type.getMultiLoc(TimedVarDomain.instance);
             }
             if (type != null) {

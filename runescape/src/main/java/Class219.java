@@ -126,9 +126,9 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "(FFFFFFFFFIII)V")
     public void method5141(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11) {
         if (this.aBoolean437) {
-            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, arg9 | 0xFF000000, (int) arg3);
-            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, arg9 | 0xFF000000, (int) arg4);
-            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, arg9 | 0xFF000000, (int) arg5);
+            this.aClass19_Sub2_5.line((int) arg1, (int) arg0, (int) arg4, arg9 | 0xFF000000, (int) arg3);
+            this.aClass19_Sub2_5.line((int) arg2, (int) arg1, (int) arg5, arg9 | 0xFF000000, (int) arg4);
+            this.aClass19_Sub2_5.line((int) arg0, (int) arg2, (int) arg3, arg9 | 0xFF000000, (int) arg5);
             return;
         }
         @Pc(52) float local52 = arg4 - arg3;
@@ -611,9 +611,9 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "(FFFFFFFFFIII)V")
     public void method5143(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11) {
         if (this.aBoolean437) {
-            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, arg9 | 0xFF000000, (int) arg3);
-            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, arg9 | 0xFF000000, (int) arg4);
-            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, arg9 | 0xFF000000, (int) arg5);
+            this.aClass19_Sub2_5.line((int) arg1, (int) arg0, (int) arg4, arg9 | 0xFF000000, (int) arg3);
+            this.aClass19_Sub2_5.line((int) arg2, (int) arg1, (int) arg5, arg9 | 0xFF000000, (int) arg4);
+            this.aClass19_Sub2_5.line((int) arg0, (int) arg2, (int) arg3, arg9 | 0xFF000000, (int) arg5);
             return;
         }
         @Pc(52) float local52 = arg4 - arg3;
@@ -1091,9 +1091,9 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "(FFFFFFFFFI)V")
     public void method5144(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) int arg9) {
         if (this.aBoolean437) {
-            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, arg9, (int) arg3);
-            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, arg9, (int) arg4);
-            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, arg9, (int) arg5);
+            this.aClass19_Sub2_5.line((int) arg1, (int) arg0, (int) arg4, arg9, (int) arg3);
+            this.aClass19_Sub2_5.line((int) arg2, (int) arg1, (int) arg5, arg9, (int) arg4);
+            this.aClass19_Sub2_5.line((int) arg0, (int) arg2, (int) arg3, arg9, (int) arg5);
             return;
         }
         @Pc(46) float local46 = arg4 - arg3;
@@ -4537,9 +4537,9 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "(FFFFFFFFFFFF)V")
     public void method5153(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) float arg9, @OriginalArg(10) float arg10, @OriginalArg(11) float arg11) {
         if (this.aBoolean437) {
-            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg3);
-            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg4);
-            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg5);
+            this.aClass19_Sub2_5.line((int) arg1, (int) arg0, (int) arg4, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg3);
+            this.aClass19_Sub2_5.line((int) arg2, (int) arg1, (int) arg5, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg4);
+            this.aClass19_Sub2_5.line((int) arg0, (int) arg2, (int) arg3, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg5);
             return;
         }
         @Pc(55) float local55 = arg4 - arg3;
@@ -7058,9 +7058,9 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "(FFFFFFFFFFFF)V")
     public void method5156(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) float arg9, @OriginalArg(10) float arg10, @OriginalArg(11) float arg11) {
         if (this.aBoolean437) {
-            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg3);
-            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg4);
-            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg5);
+            this.aClass19_Sub2_5.line((int) arg1, (int) arg0, (int) arg4, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg3);
+            this.aClass19_Sub2_5.line((int) arg2, (int) arg1, (int) arg5, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg4);
+            this.aClass19_Sub2_5.line((int) arg0, (int) arg2, (int) arg3, ColourUtils.HSV_TO_RGB[(int) arg9], (int) arg5);
             return;
         }
         @Pc(55) float local55 = arg4 - arg3;
@@ -7748,9 +7748,9 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "(FFFFFFFFFI)V")
     public void method5158(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) int arg9) {
         if (this.aBoolean437) {
-            this.aClass19_Sub2_5.method7954((int) arg1, (int) arg0, (int) arg4, arg9, (int) arg3);
-            this.aClass19_Sub2_5.method7954((int) arg2, (int) arg1, (int) arg5, arg9, (int) arg4);
-            this.aClass19_Sub2_5.method7954((int) arg0, (int) arg2, (int) arg3, arg9, (int) arg5);
+            this.aClass19_Sub2_5.line((int) arg1, (int) arg0, (int) arg4, arg9, (int) arg3);
+            this.aClass19_Sub2_5.line((int) arg2, (int) arg1, (int) arg5, arg9, (int) arg4);
+            this.aClass19_Sub2_5.line((int) arg0, (int) arg2, (int) arg3, arg9, (int) arg5);
             return;
         }
         @Pc(46) float local46 = arg4 - arg3;

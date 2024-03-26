@@ -49,7 +49,7 @@ public final class LocType {
     public int[] quests;
 
     @OriginalMember(owner = "client!c", name = "H", descriptor = "[I")
-    public int[] multiLocs;
+    public int[] multiloc;
 
     @OriginalMember(owner = "client!c", name = "ub", descriptor = "[S")
     public short[] retex_d;
@@ -73,7 +73,7 @@ public final class LocType {
     public int[][] models;
 
     @OriginalMember(owner = "client!c", name = "Tb", descriptor = "[I")
-    public int[] anIntArray116;
+    public int[] soundRandom;
 
     @OriginalMember(owner = "client!c", name = "ob", descriptor = "[S")
     public short[] retex_s;
@@ -91,10 +91,10 @@ public final class LocType {
     public boolean aBoolean88 = false;
 
     @OriginalMember(owner = "client!c", name = "B", descriptor = "Z")
-    public boolean hardShadow = true;
+    public boolean hardshadow = true;
 
     @OriginalMember(owner = "client!c", name = "db", descriptor = "I")
-    public int scaleY = 128;
+    public int resizey = 128;
 
     @OriginalMember(owner = "client!c", name = "x", descriptor = "I")
     public int anInt1213 = 0;
@@ -106,7 +106,7 @@ public final class LocType {
     public int offsetY = 0;
 
     @OriginalMember(owner = "client!c", name = "Gb", descriptor = "I")
-    public int anInt1219 = 0;
+    public int soundMaxDelay = 0;
 
     @OriginalMember(owner = "client!c", name = "w", descriptor = "I")
     public int length = 1;
@@ -115,49 +115,49 @@ public final class LocType {
     public int cursor1Op = -1;
 
     @OriginalMember(owner = "client!c", name = "h", descriptor = "I")
-    public int anInt1221 = 0;
+    public int soundSize = 0;
 
     @OriginalMember(owner = "client!c", name = "k", descriptor = "I")
     public int anInt1214 = 0;
 
     @OriginalMember(owner = "client!c", name = "K", descriptor = "I")
-    public int scaleX = 128;
+    public int resizex = 128;
 
     @OriginalMember(owner = "client!c", name = "qb", descriptor = "Ljava/lang/String;")
     public String name = "null";
 
     @OriginalMember(owner = "client!c", name = "G", descriptor = "I")
-    public int translateZ = 0;
+    public int zoff = 0;
 
     @OriginalMember(owner = "client!c", name = "ib", descriptor = "Z")
     public boolean members = false;
 
     @OriginalMember(owner = "client!c", name = "lb", descriptor = "I")
-    public int lb = -1;
+    public int raiseobject = -1;
 
     @OriginalMember(owner = "client!c", name = "s", descriptor = "I")
-    public int mapElement = -1;
+    public int mapelement = -1;
 
     @OriginalMember(owner = "client!c", name = "v", descriptor = "I")
-    public int locOcclusionMode = -1;
+    public int occlude = -1;
 
     @OriginalMember(owner = "client!c", name = "p", descriptor = "I")
-    public int soundDistance = 0;
+    public int soundRange = 0;
 
     @OriginalMember(owner = "client!c", name = "z", descriptor = "I")
     public int sound = -1;
 
     @OriginalMember(owner = "client!c", name = "c", descriptor = "I")
-    public int multiLocVarbit = -1;
+    public int multivarbit = -1;
 
     @OriginalMember(owner = "client!c", name = "Nb", descriptor = "Z")
-    public boolean routingHint = false;
+    public boolean breakroutefinding = false;
 
     @OriginalMember(owner = "client!c", name = "m", descriptor = "Z")
-    public boolean msiFlip = false;
+    public boolean msiflip = false;
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "I")
-    public int scaleZ = 128;
+    public int resizez = 128;
 
     @OriginalMember(owner = "client!c", name = "y", descriptor = "I")
     public int anInt1248 = 0;
@@ -169,13 +169,13 @@ public final class LocType {
     public int msiRotateOffset = 0;
 
     @OriginalMember(owner = "client!c", name = "Cb", descriptor = "[I")
-    public int[] animations = null;
+    public int[] anim = null;
 
     @OriginalMember(owner = "client!c", name = "nb", descriptor = "I")
-    public int hillValue = -1;
+    public int hillskew_value = -1;
 
     @OriginalMember(owner = "client!c", name = "Sb", descriptor = "I")
-    public int anInt1231 = 0;
+    public int soundMinDelay = 0;
 
     @OriginalMember(owner = "client!c", name = "L", descriptor = "I")
     public int cursor1 = -1;
@@ -184,31 +184,31 @@ public final class LocType {
     public int occlusionHeight = 960;
 
     @OriginalMember(owner = "client!c", name = "W", descriptor = "Z")
-    public boolean randomiseAnimations = true;
+    public boolean randseq = true;
 
     @OriginalMember(owner = "client!c", name = "U", descriptor = "I")
-    public int anInt1243 = 64;
+    public int walloff = 64;
 
     @OriginalMember(owner = "client!c", name = "vb", descriptor = "[I")
-    public int[] animationChances = null;
+    public int[] anim_weight = null;
 
     @OriginalMember(owner = "client!c", name = "X", descriptor = "B")
-    public byte hillType = 0;
+    public byte hillskew_mode = 0;
 
     @OriginalMember(owner = "client!c", name = "jb", descriptor = "I")
-    public int anInt1249 = 256;
+    public int soundMaxRate = 256;
 
     @OriginalMember(owner = "client!c", name = "tb", descriptor = "I")
     public int cursor2Op = -1;
 
     @OriginalMember(owner = "client!c", name = "b", descriptor = "I")
-    public int translateX = 0;
+    public int xoff = 0;
 
     @OriginalMember(owner = "client!c", name = "Y", descriptor = "I")
     public int ambient = 0;
 
     @OriginalMember(owner = "client!c", name = "M", descriptor = "I")
-    public int movementPolicy = 2;
+    public int blockwalk = 2;
 
     @OriginalMember(owner = "client!c", name = "bb", descriptor = "Z")
     public boolean aBoolean92 = false;
@@ -217,31 +217,31 @@ public final class LocType {
     public boolean animated = false;
 
     @OriginalMember(owner = "client!c", name = "Eb", descriptor = "I")
-    public int translateY = 0;
+    public int yoff = 0;
 
     @OriginalMember(owner = "client!c", name = "E", descriptor = "I")
-    public int blockedDirections = 0;
+    public int forceapproach = 0;
 
     @OriginalMember(owner = "client!c", name = "fb", descriptor = "I")
-    public int anInt1268 = 256;
+    public int soundMinRate = 256;
 
     @OriginalMember(owner = "client!c", name = "o", descriptor = "I")
     public int contrast = 0;
 
     @OriginalMember(owner = "client!c", name = "gb", descriptor = "Z")
-    public boolean obstructiveGround = false;
+    public boolean forcedecor = false;
 
     @OriginalMember(owner = "client!c", name = "t", descriptor = "Z")
-    public boolean requiresTextures = false;
+    public boolean istexture = false;
 
     @OriginalMember(owner = "client!c", name = "P", descriptor = "Z")
-    public boolean blockRanged = true;
+    public boolean blockrange = true;
 
     @OriginalMember(owner = "client!c", name = "Mb", descriptor = "Z")
     public boolean aBoolean91 = false;
 
     @OriginalMember(owner = "client!c", name = "e", descriptor = "Z")
-    public boolean copyNormals = false;
+    public boolean sharelight = false;
 
     @OriginalMember(owner = "client!c", name = "Ub", descriptor = "I")
     public int width = 1;
@@ -253,26 +253,26 @@ public final class LocType {
     public int msi = -1;
 
     @OriginalMember(owner = "client!c", name = "pb", descriptor = "I")
-    public int multiLocVarp = -1;
+    public int multivarp = -1;
 
     @OriginalMember(owner = "client!c", name = "Ab", descriptor = "I")
     public int cursor2 = -1;
 
     @OriginalMember(owner = "client!c", name = "Z", descriptor = "Z")
-    public boolean castsShadow = true;
+    public boolean shadow = true;
 
     @OriginalMember(owner = "client!c", name = "zb", descriptor = "Z")
-    public boolean msiRotate = false;
+    public boolean msirotate = false;
 
     @OriginalMember(owner = "client!c", name = "Jb", descriptor = "Z")
-    public boolean mirrorModel = false;
+    public boolean mirror = false;
 
     @OriginalMember(owner = "client!c", name = "Ib", descriptor = "I")
-    public int interactivity = LocInteractivity.UNSET;
+    public int active = LocInteractivity.UNSET;
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(B)Z")
     public boolean hasMultipleAnimations() {
-        return this.animations != null && this.animations.length > 1;
+        return this.anim != null && this.anim.length > 1;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(Lclient!ge;II)V")
@@ -306,27 +306,27 @@ public final class LocType {
         } else if (code == 15) {
             this.length = packet.g1();
         } else if (code == 17) {
-            this.blockRanged = false;
-            this.movementPolicy = 0;
+            this.blockrange = false;
+            this.blockwalk = 0;
         } else if (code == 18) {
-            this.blockRanged = false;
+            this.blockrange = false;
         } else if (code == 19) {
-            this.interactivity = packet.g1();
+            this.active = packet.g1();
         } else if (code == 21) {
-            this.hillType = 1;
+            this.hillskew_mode = 1;
         } else if (code == 22) {
-            this.copyNormals = true;
+            this.sharelight = true;
         } else if (code == 23) {
-            this.locOcclusionMode = LocOcclusionMode.ALL;
+            this.occlude = LocOcclusionMode.ALL;
         } else if (code == 24) {
             @Pc(37) int animation = packet.g2();
             if (animation != 65535) {
-                this.animations = new int[]{animation};
+                this.anim = new int[]{animation};
             }
         } else if (code == 27) {
-            this.movementPolicy = 1;
+            this.blockwalk = 1;
         } else if (code == 28) {
-            this.anInt1243 = packet.g1() << 2;
+            this.walloff = packet.g1() << 2;
         } else if (code == 29) {
             this.ambient = packet.g1b();
         } else if (code == 39) {
@@ -359,38 +359,38 @@ public final class LocType {
                 this.recol_d_palette[local47] = packet.g1b();
             }
         } else if (code == 62) {
-            this.mirrorModel = true;
+            this.mirror = true;
         } else if (code == 64) {
-            this.castsShadow = false;
+            this.shadow = false;
         } else if (code == 65) {
-            this.scaleX = packet.g2();
+            this.resizex = packet.g2();
         } else if (code == 66) {
-            this.scaleY = packet.g2();
+            this.resizey = packet.g2();
         } else if (code == 67) {
-            this.scaleZ = packet.g2();
+            this.resizez = packet.g2();
         } else if (code == 69) {
-            this.blockedDirections = packet.g1();
+            this.forceapproach = packet.g1();
         } else if (code == 70) {
-            this.translateX = packet.g2s() << 2;
+            this.xoff = packet.g2s() << 2;
         } else if (code == 71) {
-            this.translateY = packet.g2s() << 2;
+            this.yoff = packet.g2s() << 2;
         } else if (code == 72) {
-            this.translateZ = packet.g2s() << 2;
+            this.zoff = packet.g2s() << 2;
         } else if (code == 73) {
-            this.obstructiveGround = true;
+            this.forcedecor = true;
         } else if (code == 74) {
-            this.routingHint = true;
+            this.breakroutefinding = true;
         } else if (code == 75) {
-            this.lb = packet.g1();
+            this.raiseobject = packet.g1();
         } else if (code == 77 || code == 92) {
-            this.multiLocVarbit = packet.g2();
-            if (this.multiLocVarbit == 65535) {
-                this.multiLocVarbit = -1;
+            this.multivarbit = packet.g2();
+            if (this.multivarbit == 65535) {
+                this.multivarbit = -1;
             }
 
-            this.multiLocVarp = packet.g2();
-            if (this.multiLocVarp == 65535) {
-                this.multiLocVarp = -1;
+            this.multivarp = packet.g2();
+            if (this.multivarp == 65535) {
+                this.multivarp = -1;
             }
 
             @Pc(37) int defaultId = INVISIBLE_ID;
@@ -403,49 +403,50 @@ public final class LocType {
             }
 
             @Pc(47) int count = packet.g1();
-            this.multiLocs = new int[count + 2];
+            this.multiloc = new int[count + 2];
             for (@Pc(59) int i = 0; i <= count; i++) {
-                this.multiLocs[i] = packet.g2();
+                this.multiloc[i] = packet.g2();
 
-                if (this.multiLocs[i] == 65535) {
-                    this.multiLocs[i] = INVISIBLE_ID;
+                if (this.multiloc[i] == 65535) {
+                    this.multiloc[i] = INVISIBLE_ID;
                 }
             }
 
-            this.multiLocs[count + 1] = defaultId;
+            this.multiloc[count + 1] = defaultId;
         } else if (code == 78) {
             this.sound = packet.g2();
-            this.soundDistance = packet.g1();
+            this.soundRange = packet.g1();
         } else if (code == 79) {
-            this.anInt1231 = packet.g2();
-            this.anInt1219 = packet.g2();
-            this.soundDistance = packet.g1();
-            @Pc(37) int local37 = packet.g1();
-            this.anIntArray116 = new int[local37];
-            for (@Pc(47) int local47 = 0; local47 < local37; local47++) {
-                this.anIntArray116[local47] = packet.g2();
+            this.soundMinDelay = packet.g2();
+            this.soundMaxDelay = packet.g2();
+            this.soundRange = packet.g1();
+
+            @Pc(37) int count = packet.g1();
+            this.soundRandom = new int[count];
+            for (@Pc(47) int i = 0; i < count; i++) {
+                this.soundRandom[i] = packet.g2();
             }
         } else if (code == 81) {
-            this.hillType = 2;
-            this.hillValue = packet.g1() * 256;
+            this.hillskew_mode = 2;
+            this.hillskew_value = packet.g1() * 256;
         } else if (code == 82) {
-            this.requiresTextures = true;
+            this.istexture = true;
         } else if (code == 88) {
-            this.hardShadow = false;
+            this.hardshadow = false;
         } else if (code == 89) {
-            this.randomiseAnimations = false;
+            this.randseq = false;
         } else if (code == 91) {
             this.members = true;
         } else if (code == 93) {
-            this.hillType = 3;
-            this.hillValue = packet.g2();
+            this.hillskew_mode = 3;
+            this.hillskew_value = packet.g2();
         } else if (code == 94) {
-            this.hillType = 4;
+            this.hillskew_mode = 4;
         } else if (code == 95) {
-            this.hillType = 5;
-            this.hillValue = packet.g2s();
+            this.hillskew_mode = 5;
+            this.hillskew_value = packet.g2s();
         } else if (code == 97) {
-            this.msiRotate = true;
+            this.msirotate = true;
         } else if (code == 98) {
             this.animated = true;
         } else if (code == 99) {
@@ -459,32 +460,32 @@ public final class LocType {
         } else if (code == 102) {
             this.msi = packet.g2();
         } else if (code == 103) {
-            this.locOcclusionMode = LocOcclusionMode.ROOFS;
+            this.occlude = LocOcclusionMode.ROOFS;
         } else if (code == 104) {
             this.ambientSoundVolume = packet.g1();
         } else if (code == 105) {
-            this.msiFlip = true;
+            this.msiflip = true;
         } else if (code == 106) {
             @Pc(37) int count = packet.g1();
-            @Pc(47) int totalChance = 0;
-            this.animations = new int[count];
-            this.animationChances = new int[count];
+            @Pc(47) int totalWeight = 0;
+            this.anim = new int[count];
+            this.anim_weight = new int[count];
 
             for (@Pc(59) int i = 0; i < count; i++) {
-                this.animations[i] = packet.g2();
+                this.anim[i] = packet.g2();
 
-                if (this.animations[i] == 65535) {
-                    this.animations[i] = -1;
+                if (this.anim[i] == 65535) {
+                    this.anim[i] = -1;
                 }
 
-                totalChance += this.animationChances[i] = packet.g1();
+                totalWeight += this.anim_weight[i] = packet.g1();
             }
 
             for (@Pc(67) int i = 0; i < count; i++) {
-                this.animationChances[i] = (this.animationChances[i] * 65535) / totalChance;
+                this.anim_weight[i] = (this.anim_weight[i] * 65535) / totalWeight;
             }
         } else if (code == 107) {
-            this.mapElement = packet.g2();
+            this.mapelement = packet.g2();
         } else if (code >= 150 && code < 155) {
             this.ops[code - 150] = packet.gjstr();
 
@@ -499,8 +500,8 @@ public final class LocType {
                 this.quests[local47] = packet.g2();
             }
         } else if (code == 162) {
-            this.hillType = 3;
-            this.hillValue = packet.g4();
+            this.hillskew_mode = 3;
+            this.hillskew_value = packet.g4();
         } else if (code == 163) {
             this.targetHue = packet.g1b();
             this.targetSaturation = packet.g1b();
@@ -523,12 +524,12 @@ public final class LocType {
         } else if (code == 171) {
             this.occlusionOffset = packet.gsmart();
         } else if (code == 173) {
-            this.anInt1268 = packet.g2();
-            this.anInt1249 = packet.g2();
+            this.soundMinRate = packet.g2();
+            this.soundMaxRate = packet.g2();
         } else if (code == 177) {
             this.aBoolean91 = true;
         } else if (code == 178) {
-            this.anInt1221 = packet.g1();
+            this.soundSize = packet.g1();
         } else if (code == 249) {
             @Pc(37) int count = packet.g1();
             if (this.params == null) {
@@ -564,9 +565,9 @@ public final class LocType {
 
     @OriginalMember(owner = "client!c", name = "b", descriptor = "(II)Z")
     public boolean hasAnimation(@OriginalArg(0) int id) {
-        if (this.animations != null && id != -1) {
-            for (@Pc(21) int i = 0; i < this.animations.length; i++) {
-                if (id == this.animations[i]) {
+        if (this.anim != null && id != -1) {
+            for (@Pc(21) int i = 0; i < this.anim.length; i++) {
+                if (id == this.anim[i]) {
                     return true;
                 }
             }
@@ -576,23 +577,23 @@ public final class LocType {
 
     @OriginalMember(owner = "client!c", name = "c", descriptor = "(I)Z")
     public boolean hasAnimations() {
-        return this.animations != null;
+        return this.anim != null;
     }
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(ILclient!uk;)Lclient!c;")
     public LocType getMultiLoc(@OriginalArg(1) VarDomain varDomain) {
         @Pc(5) int index = -1;
-        if (this.multiLocVarbit != -1) {
-            index = varDomain.getVarBitValue(this.multiLocVarbit);
-        } else if (this.multiLocVarp != -1) {
-            index = varDomain.getVarValueInt(this.multiLocVarp);
+        if (this.multivarbit != -1) {
+            index = varDomain.getVarBitValue(this.multivarbit);
+        } else if (this.multivarp != -1) {
+            index = varDomain.getVarValueInt(this.multivarp);
         }
 
-        if (index < 0 || this.multiLocs.length - 1 <= index || this.multiLocs[index] == -1) {
-            @Pc(74) int id = this.multiLocs[this.multiLocs.length - 1];
+        if (index < 0 || this.multiloc.length - 1 <= index || this.multiloc[index] == -1) {
+            @Pc(74) int id = this.multiloc[this.multiloc.length - 1];
             return id == -1 ? null : this.typeList.list(id);
         } else {
-            return this.typeList.list(this.multiLocs[index]);
+            return this.typeList.list(this.multiloc[index]);
         }
     }
 
@@ -616,14 +617,14 @@ public final class LocType {
 
     @OriginalMember(owner = "client!c", name = "d", descriptor = "(I)Z")
     public boolean hasSounds() {
-        if (this.multiLocs == null) {
-            return this.sound != -1 || this.anIntArray116 != null;
+        if (this.multiloc == null) {
+            return this.sound != -1 || this.soundRandom != null;
         }
 
-        for (@Pc(35) int i = 0; i < this.multiLocs.length; i++) {
-            if (this.multiLocs[i] != INVISIBLE_ID) {
-                @Pc(52) LocType locType = this.typeList.list(this.multiLocs[i]);
-                if (locType.sound != -1 || locType.anIntArray116 != null) {
+        for (@Pc(35) int i = 0; i < this.multiloc.length; i++) {
+            if (this.multiloc[i] != INVISIBLE_ID) {
+                @Pc(52) LocType locType = this.typeList.list(this.multiloc[i]);
+                if (locType.sound != -1 || locType.soundRandom != null) {
                     return true;
                 }
             }
@@ -669,44 +670,44 @@ public final class LocType {
 
     @OriginalMember(owner = "client!c", name = "b", descriptor = "(I)V")
     public void postDecode() {
-        if (this.interactivity == LocInteractivity.UNSET) {
-            this.interactivity = LocInteractivity.NONINTERACTIVE;
+        if (this.active == LocInteractivity.UNSET) {
+            this.active = LocInteractivity.NONINTERACTIVE;
 
             if (this.modelShapes != null && this.modelShapes.length == 1 && this.modelShapes[0] == 10) {
-                this.interactivity = LocInteractivity.INTERACTIVE;
+                this.active = LocInteractivity.INTERACTIVE;
             }
 
             for (@Pc(43) int i = 0; i < 5; i++) {
                 if (this.ops[i] != null) {
-                    this.interactivity = LocInteractivity.INTERACTIVE;
+                    this.active = LocInteractivity.INTERACTIVE;
                     break;
                 }
             }
         }
 
-        if (this.lb == -1) {
-            this.lb = this.movementPolicy == 0 ? 0 : 1;
+        if (this.raiseobject == -1) {
+            this.raiseobject = this.blockwalk == 0 ? 0 : 1;
         }
 
-        if (this.hasAnimations() || this.animated || this.multiLocs != null) {
+        if (this.hasAnimations() || this.animated || this.multiloc != null) {
             this.aBoolean91 = true;
         }
     }
 
     @OriginalMember(owner = "client!c", name = "e", descriptor = "(I)I")
     public int randomAnimation() {
-        if (this.animations != null) {
-            if (this.animations.length <= 1) {
-                return this.animations[0];
+        if (this.anim != null) {
+            if (this.anim.length <= 1) {
+                return this.anim[0];
             }
 
             @Pc(34) int random = (int) (Math.random() * 65535.0D);
-            for (@Pc(36) int i = 0; i < this.animations.length; i++) {
-                if (random <= this.animationChances[i]) {
-                    return this.animations[i];
+            for (@Pc(36) int i = 0; i < this.anim.length; i++) {
+                if (random <= this.anim_weight[i]) {
+                    return this.anim[i];
                 }
 
-                random -= this.animationChances[i];
+                random -= this.anim_weight[i];
             }
         }
 
@@ -726,10 +727,10 @@ public final class LocType {
         }
 
         @Pc(40) int newFunctionMask = functionMask;
-        if (this.hillType == 3) {
+        if (this.hillskew_mode == 3) {
             newFunctionMask = functionMask | 0x7;
         } else {
-            if (this.hillType != 0 || this.anInt1213 != 0) {
+            if (this.hillskew_mode != 0 || this.anInt1213 != 0) {
                 newFunctionMask = functionMask | 0x2;
             }
             if (this.anInt1214 != 0) {
@@ -793,13 +794,13 @@ public final class LocType {
             }
         }
 
-        @Pc(271) boolean local271 = this.hillType != 0 && (floor != null || ceiling != null);
+        @Pc(271) boolean local271 = this.hillskew_mode != 0 && (floor != null || ceiling != null);
         @Pc(292) boolean local292 = this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0;
         if (local271 || local292) {
             model = model.copy((byte) 0, newFunctionMask, true);
 
             if (local271) {
-                model.p(this.hillType, this.hillValue, floor, ceiling, x, y, z);
+                model.p(this.hillskew_mode, this.hillskew_value, floor, ceiling, x, y, z);
             }
 
             if (local292) {
@@ -834,10 +835,10 @@ public final class LocType {
             functionMask |= animator.functionMask();
         }
 
-        if (this.hillType == 3) {
+        if (this.hillskew_mode == 3) {
             functionMask |= 0x7;
         } else {
-            if (this.hillType != 0 || this.anInt1213 != 0) {
+            if (this.hillskew_mode != 0 || this.anInt1213 != 0) {
                 functionMask |= 0x2;
             }
 
@@ -892,12 +893,12 @@ public final class LocType {
             model.a(2048);
         }
 
-        if (this.hillType != 0) {
+        if (this.hillskew_mode != 0) {
             if (!copied) {
                 copied = true;
                 model = model.copy((byte) 3, functionMask, true);
             }
-            model.p(this.hillType, this.hillValue, arg7, arg4, arg3, arg10, arg1);
+            model.p(this.hillskew_mode, this.hillskew_value, arg7, arg4, arg3, arg10, arg1);
         }
 
         if (this.anInt1214 != 0 || this.anInt1213 != 0 || this.anInt1248 != 0) {
@@ -921,23 +922,23 @@ public final class LocType {
         @Pc(13) int contrast = this.contrast + 850;
         @Pc(15) int functionMaskBefore = functionMask;
 
-        @Pc(35) boolean mirror = this.mirrorModel || shape == LocShapes.WALL_L && rotation > 3;
+        @Pc(35) boolean mirror = this.mirror || shape == LocShapes.WALL_L && rotation > 3;
         if (mirror) {
             functionMask |= 0x10;
         }
 
         if (rotation == 0) {
-            if (this.scaleX != 128 || this.translateX != 0) {
+            if (this.resizex != 128 || this.xoff != 0) {
                 functionMask |= 0x1;
             }
-            if (this.scaleZ != 128 || this.translateZ != 0) {
+            if (this.resizez != 128 || this.zoff != 0) {
                 functionMask |= 0x4;
             }
         } else {
             functionMask |= 0xD;
         }
 
-        if (this.scaleY != 128 || this.translateY != 0) {
+        if (this.resizey != 128 || this.yoff != 0) {
             functionMask |= 0x2;
         }
 
@@ -1101,12 +1102,12 @@ public final class LocType {
             result.adjustColours(this.targetHue, this.targetSaturation, this.targetLightness, this.colourShiftPercentage & 0xFF);
         }
 
-        if (this.scaleX != 128 || this.scaleY != 128 || this.scaleZ != 128) {
-            result.O(this.scaleX, this.scaleY, this.scaleZ);
+        if (this.resizex != 128 || this.resizey != 128 || this.resizez != 128) {
+            result.O(this.resizex, this.resizey, this.resizez);
         }
 
-        if (this.translateX != 0 || this.translateY != 0 || this.translateZ != 0) {
-            result.H(this.translateX, this.translateY, this.translateZ);
+        if (this.xoff != 0 || this.yoff != 0 || this.zoff != 0) {
+            result.H(this.xoff, this.yoff, this.zoff);
         }
 
         result.s(functionMaskBefore);

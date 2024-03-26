@@ -31,7 +31,7 @@ public final class Static38 {
             local75 = local62.length;
             local78 = local62.width;
         }
-        @Pc(88) int local88 = local62.blockedDirections;
+        @Pc(88) int local88 = local62.forceapproach;
         if (local17 != 0) {
             local88 = (local88 << local17 & 0xF) + (local88 >> 4 - local17);
         }

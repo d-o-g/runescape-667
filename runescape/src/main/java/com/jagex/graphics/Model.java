@@ -375,7 +375,7 @@ public abstract class Model {
     protected abstract void method7494();
 
     @OriginalMember(owner = "client!ka", name = "a", descriptor = "(BIZ)Lclient!ka;")
-    public abstract Model copy(@OriginalArg(0) byte arg0, @OriginalArg(1) int mask, @OriginalArg(2) boolean arg2);
+    public abstract Model copy(@OriginalArg(0) byte arg0, @OriginalArg(1) int functionMask, @OriginalArg(2) boolean arg2);
 
     /**
      * setAmbient

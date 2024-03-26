@@ -115,15 +115,15 @@ public final class Node_Sub51 extends Node {
                 this.anInt9356 = 0;
             } else {
                 this.vorbis = local148.aBoolean88;
-                this.anInt9360 = local148.anInt1249;
-                this.anInt9359 = local148.anInt1268;
-                this.anInt9356 = local148.soundDistance << 9;
+                this.anInt9360 = local148.soundMaxRate;
+                this.anInt9359 = local148.soundMinRate;
+                this.anInt9356 = local148.soundRange << 9;
                 this.soundVolume = local148.ambientSoundVolume;
-                this.anInt9354 = local148.anInt1219;
+                this.anInt9354 = local148.soundMaxDelay;
                 this.sound = local148.sound;
-                this.anIntArray718 = local148.anIntArray116;
+                this.anIntArray718 = local148.soundRandom;
                 this.aBoolean715 = local148.aBoolean92;
-                this.anInt9365 = local148.anInt1231;
+                this.anInt9365 = local148.soundMinDelay;
             }
         } else if (this.npc != null) {
             @Pc(27) int local27 = NPCEntity.currentSound(this.npc);

@@ -11,14 +11,12 @@ import com.jagex.game.runetek6.config.flutype.FloorUnderlayType;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
-import com.jagex.game.runetek6.config.msitype.MSIType;
 import com.jagex.game.runetek6.config.msitype.MSITypeList;
 import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
-import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
@@ -654,7 +652,7 @@ public final class WorldMap {
                 @Pc(127) LocType local127 = locTypeList.list(arg8[local100] & 0xFFFF);
                 if (local127.msi == -1) {
                     @Pc(133) int local133 = -3355444;
-                    if (local127.interactivity == LocInteractivity.INTERACTIVE) {
+                    if (local127.active == LocInteractivity.INTERACTIVE) {
                         local133 = -3407872;
                     }
                     @Pc(147) int local147 = arg9[local100] >> 6 & 0x3;
@@ -719,43 +717,6 @@ public final class WorldMap {
         anInt5653 = arg5;
         anInt5651 = arg6;
         anInt5646 = arg7;
-    }
-
-    @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIII[S[B)V")
-    public static void method5063(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) short[] arg5, @OriginalArg(6) byte[] arg6) {
-        if (arg5 == null) {
-            return;
-        }
-        for (@Pc(4) int local4 = 0; local4 < arg5.length; local4++) {
-            @Pc(14) LocType local14 = locTypeList.list(arg5[local4] & 0xFFFF);
-            @Pc(17) int local17 = local14.msi;
-            if (local17 != -1) {
-                @Pc(25) MSIType local25 = msiTypeList.list(local17);
-                @Pc(49) Sprite local49 = local25.sprite(local14.msiRotate ? arg6[local4] >> 6 & 0x3 : 0, arg0, local14.msiFlip ? local14.mirrorModel : false);
-                if (local49 != null) {
-                    @Pc(58) int local58 = arg3 * local49.scaleWidth() >> 2;
-                    @Pc(65) int local65 = arg4 * local49.scaleHeight() >> 2;
-                    if (local25.enlarge) {
-                        @Pc(71) int local71 = local14.width;
-                        @Pc(74) int local74 = local14.length;
-                        if ((arg6[local4] >> 6 & 0x1) == 1) {
-                            @Pc(85) int local85 = local71;
-                            local71 = local74;
-                            local74 = local85;
-                        }
-                        local58 = local71 * arg3;
-                        local65 = local74 * arg4;
-                    }
-                    if (local58 != 0 && local65 != 0) {
-                        if (local25.anInt4165 == 0) {
-                            local49.render(arg1, arg2 + arg4 - local65, local58, local65);
-                        } else {
-                            local49.render(arg1, arg2 + arg4 - local65, local58, local65, 0, local25.anInt4165 | 0xFF000000, 1);
-                        }
-                    }
-                }
-            }
-        }
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "([B[B[SII)V")
@@ -956,16 +917,16 @@ public final class WorldMap {
                             if (local173 >= 0 && local173 < areaHeight) {
                                 local175 = aShortArray78[local57 + local173 * areaWidth] & 0xFFFF;
                                 if (local175 <= 0) {
-                                    method5063(arg0, local40, local80, local50, local93, null, null);
+                                    Minimap.drawMsiMultiple(arg0, local40, local80, local50, local93, null, null);
                                 } else if (local175 == 65535) {
                                     @Pc(459) Node_Sub23 local459 = (Node_Sub23) aIterableHashTable.get(local57 << 16 | local173);
                                     if (local459 != null) {
-                                        method5063(arg0, local40, local80, local50, local93, local459.aShortArray59, local459.aByteArray38);
+                                        Minimap.drawMsiMultiple(arg0, local40, local80, local50, local93, local459.aShortArray59, local459.aByteArray38);
                                     }
                                 } else {
                                     aShortArray77[0] = (short) (local175 - 1);
                                     aByteArray55[0] = aByteArray58[local57 + local173 * areaWidth];
-                                    method5063(arg0, local40, local80, local50, local93, aShortArray77, aByteArray55);
+                                    Minimap.drawMsiMultiple(arg0, local40, local80, local50, local93, aShortArray77, aByteArray55);
                                 }
                             }
                         }
@@ -1026,7 +987,7 @@ public final class WorldMap {
                             local665 = (arg1 * (local631 + 1) >> 16) + anInt5649;
                             local675 = anInt5646 - (arg2 * (local641 + 1) >> 16);
                             @Pc(813) int local813 = anInt5646 - (arg2 * local641 >> 16);
-                            method5063(arg0, local653, local675, local665 - local653, local813 - local675, local750.aShortArray133, local750.aByteArray104);
+                            Minimap.drawMsiMultiple(arg0, local653, local675, local665 - local653, local813 - local675, local750.aShortArray133, local750.aByteArray104);
                         }
                     }
                 }
@@ -1164,9 +1125,9 @@ public final class WorldMap {
             return;
         }
         for (local20 = 0; local20 < local7.length / 2 - 1; local20++) {
-            arg0.method7954(local7[(local20 + 1) * 2 + 1], local7[local20 * 2 + 1], local7[(local20 + 1) * 2], arg2.landmarkPalette[arg2.landmarkColorIndices[local20] & 0xFF], local7[local20 * 2]);
+            arg0.line(local7[(local20 + 1) * 2 + 1], local7[local20 * 2 + 1], local7[(local20 + 1) * 2], arg2.landmarkPalette[arg2.landmarkColorIndices[local20] & 0xFF], local7[local20 * 2]);
         }
-        arg0.method7954(local7[1], local7[local7.length - 1], local7[0], arg2.landmarkPalette[arg2.landmarkColorIndices[arg2.landmarkColorIndices.length - 1] & 0xFF], local7[local7.length - 2]);
+        arg0.line(local7[1], local7[local7.length - 1], local7[0], arg2.landmarkPalette[arg2.landmarkColorIndices[arg2.landmarkColorIndices.length - 1] & 0xFF], local7[local7.length - 2]);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;IIII)V")
@@ -1271,11 +1232,11 @@ public final class WorldMap {
                         if (local31 != null) {
                             for (local35 = 0; local35 < local31.aShortArray59.length; local35++) {
                                 @Pc(46) LocType local46 = locTypeList.list(local31.aShortArray59[local35] & 0xFFFF);
-                                local49 = local46.mapElement;
-                                if (local46.multiLocs != null) {
+                                local49 = local46.mapelement;
+                                if (local46.multiloc != null) {
                                     local46 = local46.getMultiLoc(varDomain);
                                     if (local46 != null) {
-                                        local49 = local46.mapElement;
+                                        local49 = local46.mapelement;
                                     }
                                 }
                                 if (local49 != -1) {
@@ -1288,11 +1249,11 @@ public final class WorldMap {
                         }
                     } else {
                         @Pc(94) LocType local94 = locTypeList.list(local15 - 1);
-                        local35 = local94.mapElement;
-                        if (local94.multiLocs != null) {
+                        local35 = local94.mapelement;
+                        if (local94.multiloc != null) {
                             local94 = local94.getMultiLoc(varDomain);
                             if (local94 != null) {
-                                local35 = local94.mapElement;
+                                local35 = local94.mapelement;
                             }
                         }
                         if (local35 != -1) {
@@ -1314,11 +1275,11 @@ public final class WorldMap {
                             if (local160.aShortArray133 != null) {
                                 for (local49 = 0; local49 < local160.aShortArray133.length; local49++) {
                                     @Pc(177) LocType local177 = locTypeList.list(local160.aShortArray133[local49] & 0xFFFF);
-                                    @Pc(180) int local180 = local177.mapElement;
-                                    if (local177.multiLocs != null) {
+                                    @Pc(180) int local180 = local177.mapelement;
+                                    if (local177.multiloc != null) {
                                         local177 = local177.getMultiLoc(varDomain);
                                         if (local177 != null) {
-                                            local180 = local177.mapElement;
+                                            local180 = local177.mapelement;
                                         }
                                     }
                                     if (local180 != -1) {

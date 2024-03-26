@@ -91,7 +91,7 @@ public final class LocEntity {
         this.shape = shape;
         this.entity = entity;
         this.underwater = underwater;
-        this.hardShadow = toolkit.hardShadow() && type.hardShadow && !this.underwater;
+        this.hardShadow = toolkit.hardShadow() && type.hardshadow && !this.underwater;
         this.animator = new EntityAnimator(entity, false);
         this.animate(1, animation, false);
     }
@@ -142,7 +142,7 @@ public final class LocEntity {
         if (animation == -1) {
             @Pc(21) LocType multiloc = LocTypeList.instance.list(this.id);
             @Pc(23) LocType loc = multiloc;
-            if (multiloc.multiLocs != null) {
+            if (multiloc.multiloc != null) {
                 multiloc = multiloc.getMultiLoc(CutsceneManager.state == 3 ? CutsceneVarDomain.instance : TimedVarDomain.instance);
             }
             if (multiloc == null) {
@@ -157,7 +157,7 @@ public final class LocEntity {
                     return;
                 }
                 if (this.anInt8647 != multiloc.id) {
-                    randomise = multiloc.randomiseAnimations;
+                    randomise = multiloc.randseq;
                 }
 
                 animationId = multiloc.randomAnimation();
@@ -173,7 +173,7 @@ public final class LocEntity {
                 }
 
                 if (this.anInt8647 != multiloc.id) {
-                    randomise = loc.randomiseAnimations;
+                    randomise = loc.randseq;
                 }
 
                 animationId = loc.randomAnimation();
@@ -198,7 +198,7 @@ public final class LocEntity {
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(Lclient!ha;ZZZI)Lclient!ka;")
     public Model model(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) boolean arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) boolean addShadow, @OriginalArg(4) int functionMask) {
         @Pc(11) LocType type = LocTypeList.instance.list(this.id);
-        if (type.multiLocs != null) {
+        if (type.multiloc != null) {
             type = type.getMultiLoc(CutsceneManager.state == 3 ? CutsceneVarDomain.instance : TimedVarDomain.instance);
         }
 
@@ -339,7 +339,7 @@ public final class LocEntity {
         @Pc(14) ModelParticleEffector[] effectors = model.particleEffectors();
         if ((this.particleSystem == null || this.particleSystem.removed) && (emitters != null || effectors != null)) {
             @Pc(37) LocType type = LocTypeList.instance.list(this.id);
-            if (type.multiLocs != null) {
+            if (type.multiloc != null) {
                 type = type.getMultiLoc(CutsceneManager.state == 3 ? CutsceneVarDomain.instance : TimedVarDomain.instance);
             }
             if (type != null) {

@@ -68,13 +68,13 @@ public final class StaticWall extends Wall implements Location {
         super(x, y, z, level, virtualLevel, method6553(rotation, shape));
         super.x = x;
         super.z = z;
-        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
+        this.interactive = type.active != LocInteractivity.NONINTERACTIVE && !underwater;
         this.id = (short) type.id;
         this.shape = (byte) shape;
         this.underwater = underwater;
         this.copyNormals = copyNormals;
         this.rotation = (byte) rotation;
-        this.hardShadow = toolkit.hardShadow() && type.hardShadow && !this.underwater && ClientOptions.instance.hardShadows.getValue() != 0;
+        this.hardShadow = toolkit.hardShadow() && type.hardshadow && !this.underwater && ClientOptions.instance.hardShadows.getValue() != 0;
 
         @Pc(77) int functionMask = 0x800;
         if (this.copyNormals) {

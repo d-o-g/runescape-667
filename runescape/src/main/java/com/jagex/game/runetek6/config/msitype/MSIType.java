@@ -16,7 +16,7 @@ public final class MSIType {
     public MSITypeList myList;
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "I")
-    public int anInt4165;
+    public int colour;
 
     @OriginalMember(owner = "client!ia", name = "d", descriptor = "I")
     public int image;
@@ -25,8 +25,8 @@ public final class MSIType {
     public boolean enlarge = false;
 
     @OriginalMember(owner = "client!ia", name = "a", descriptor = "(ILclient!ha;ZI)Lclient!st;")
-    public Sprite sprite(@OriginalArg(0) int count, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) boolean flipHorizontal) {
-        @Pc(23) long key = toolkit.index << 19 | (flipHorizontal ? 0x40000 : 0) | count << 16 | this.image;
+    public Sprite sprite(@OriginalArg(0) int rotations, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) boolean flipHorizontal) {
+        @Pc(23) long key = toolkit.index << 19 | (flipHorizontal ? 0x40000 : 0) | rotations << 16 | this.image;
         @Pc(31) Sprite sprite = (Sprite) this.myList.spriteCache.get(key);
         if (sprite != null) {
             return sprite;
@@ -42,8 +42,9 @@ public final class MSIType {
             if (flipHorizontal) {
                 image.flipHorizontally();
             }
-            for (@Pc(79) int i = 0; i < count; i++) {
-                image.method9386();
+
+            for (@Pc(79) int i = 0; i < rotations; i++) {
+                image.rotate();
             }
         }
 
@@ -64,7 +65,7 @@ public final class MSIType {
         if (code == 1) {
             this.image = packet.g2();
         } else if (code == 2) {
-            this.anInt4165 = packet.g3();
+            this.colour = packet.g3();
         } else if (code == 3) {
             this.enlarge = true;
         } else if (code == 4) {

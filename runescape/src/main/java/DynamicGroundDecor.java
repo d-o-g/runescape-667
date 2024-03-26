@@ -31,7 +31,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
     public DynamicGroundDecor(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) LocType type, @OriginalArg(2) int level, @OriginalArg(3) int virtualLevel, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z, @OriginalArg(7) boolean underwater, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9) {
         super(x, y, z, level, virtualLevel, type.offsetY);
         this.entity = new LocEntity(toolkit, type, LocShapes.GROUNDDECOR, arg8, level, virtualLevel, this, underwater, arg9);
-        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
+        this.interactive = type.active != LocInteractivity.NONINTERACTIVE && !underwater;
     }
 
     @OriginalMember(owner = "client!hp", name = "a", descriptor = "(IIZLclient!ha;)Z")

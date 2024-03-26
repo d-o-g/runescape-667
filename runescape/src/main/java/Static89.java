@@ -28,19 +28,19 @@ public final class Static89 {
                 local173 = arg5.length;
             }
             local7.soundVolume = arg5.ambientSoundVolume;
-            local7.anInt9356 = arg5.soundDistance << 9;
+            local7.anInt9356 = arg5.soundRange << 9;
             local7.sound = arg5.sound;
-            local7.anInt9354 = arg5.anInt1219;
+            local7.anInt9354 = arg5.soundMaxDelay;
             local7.anInt9349 = arg3 + local176 << 9;
-            local7.anInt9360 = arg5.anInt1249;
+            local7.anInt9360 = arg5.soundMaxRate;
             local7.vorbis = arg5.aBoolean88;
             local7.aBoolean715 = arg5.aBoolean92;
-            local7.anInt9355 = arg5.anInt1221 << 9;
-            local7.anInt9365 = arg5.anInt1231;
-            local7.anInt9359 = arg5.anInt1268;
-            local7.anIntArray718 = arg5.anIntArray116;
+            local7.anInt9355 = arg5.soundSize << 9;
+            local7.anInt9365 = arg5.soundMinDelay;
+            local7.anInt9359 = arg5.soundMinRate;
+            local7.anIntArray718 = arg5.soundRandom;
             local7.anInt9362 = arg2 + local173 << 9;
-            if (arg5.multiLocs != null) {
+            if (arg5.multiloc != null) {
                 local7.multi = true;
                 local7.method8236();
             }

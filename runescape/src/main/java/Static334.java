@@ -20,7 +20,7 @@ public final class Static334 {
         }
         Static665.aToolkit_15.K(Static238.anIntArray307);
         for (@Pc(14) int local14 = 0; local14 < Static537.anIntArray633.length; local14++) {
-            Static665.aToolkit_15.method7998(Static238.anIntArray307[3] - Static238.anIntArray307[1], Static238.anIntArray307[1], -256, Static537.anIntArray633[local14] + Static621.anIntArray766[local14]);
+            Static665.aToolkit_15.verticalLine(Static238.anIntArray307[3] - Static238.anIntArray307[1], Static238.anIntArray307[1], -256, Static537.anIntArray633[local14] + Static621.anIntArray766[local14]);
         }
         for (@Pc(43) int local43 = 0; local43 < Static469.anInt7072; local43++) {
             @Pc(48) LocOccluder local48 = Static560.aLocOccluderArray3[local43];
@@ -33,11 +33,11 @@ public final class Static334 {
                 if (local48.aByte43 == 4) {
                     local136 = -16776961;
                 }
-                Static665.aToolkit_15.method7954(Static9.anIntArray19[1], Static625.anIntArray737[1], Static9.anIntArray19[0], local136, Static625.anIntArray737[0]);
-                Static665.aToolkit_15.method7954(Static574.anIntArray683[1], Static9.anIntArray19[1], Static574.anIntArray683[0], local136, Static9.anIntArray19[0]);
-                Static665.aToolkit_15.method7954(Static300.anIntArray368[1], Static574.anIntArray683[1], Static300.anIntArray368[0], local136, Static574.anIntArray683[0]);
-                Static665.aToolkit_15.method7954(Static625.anIntArray737[1], Static300.anIntArray368[1], Static625.anIntArray737[0], local136, Static300.anIntArray368[0]);
-                Static665.aToolkit_15.method7954(Static574.anIntArray683[1], Static625.anIntArray737[1], Static574.anIntArray683[0], local136, Static625.anIntArray737[0]);
+                Static665.aToolkit_15.line(Static9.anIntArray19[1], Static625.anIntArray737[1], Static9.anIntArray19[0], local136, Static625.anIntArray737[0]);
+                Static665.aToolkit_15.line(Static574.anIntArray683[1], Static9.anIntArray19[1], Static574.anIntArray683[0], local136, Static9.anIntArray19[0]);
+                Static665.aToolkit_15.line(Static300.anIntArray368[1], Static574.anIntArray683[1], Static300.anIntArray368[0], local136, Static574.anIntArray683[0]);
+                Static665.aToolkit_15.line(Static625.anIntArray737[1], Static300.anIntArray368[1], Static625.anIntArray737[0], local136, Static300.anIntArray368[0]);
+                Static665.aToolkit_15.line(Static574.anIntArray683[1], Static625.anIntArray737[1], Static574.anIntArray683[0], local136, Static625.anIntArray737[0]);
             }
         }
         Static242.aFont_7.render(10, 75, "Dynamic: " + Static125.anInt2352 + "/" + 5000, -16777216, -256);

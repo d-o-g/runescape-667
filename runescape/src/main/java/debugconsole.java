@@ -170,7 +170,7 @@ public final class debugconsole {
             colour = 0xFFFFFF;
         }
 
-        toolkit.method7998(12, local9 + 350 - Fonts.b12Metrics.paddingBottom - 11, colour, Fonts.b12Metrics.stringWidth("--> " + Static386.method5439(currententry).substring(0, currententryLength)) + local7 + 10);
+        toolkit.verticalLine(12, local9 + 350 - Fonts.b12Metrics.paddingBottom - 11, colour, Fonts.b12Metrics.stringWidth("--> " + Static386.method5439(currententry).substring(0, currententryLength)) + local7 + 10);
     }
 
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(IZZLjava/lang/String;)V")

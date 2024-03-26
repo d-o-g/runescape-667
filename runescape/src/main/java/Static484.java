@@ -93,7 +93,7 @@ public final class Static484 {
                     local216 += 4;
                 }
                 arg0.KA(0, 0, Static200.anInt3302 * 4 + local214, local216 - -(Static200.anInt3302 * 4));
-                arg0.GA(-16777216);
+                arg0.GA(0xFF000000);
                 @Pc(284) int local284;
                 for (local278 = arg1; local278 <= 3; local278++) {
                     for (local281 = 0; local281 <= Static200.anInt3302; local281++) {
@@ -113,7 +113,7 @@ public final class Static484 {
                                         local365 = local278 - 1;
                                     }
                                     if (local365 >= 0) {
-                                        Static185.method2814(arg0, local37, local336, local340, local214 + local284 * 4, (-local331 + Static200.anInt3302) * 4 + local216 + -4, local365, local177);
+                                        Minimap.drawLocs(arg0, local37, local336, local340, local214 + local284 * 4, (-local331 + Static200.anInt3302) * 4 + local216 + -4, local365, local177);
                                     }
                                 }
                             }
@@ -132,11 +132,11 @@ public final class Static484 {
                             } else if ((local365 & 0x800000) != 0) {
                                 arg0.horizontalLine((Static200.anInt3302 - local331) * 4 + local216 - 4, -1713569622, local214 + local284 * 4, 4);
                             } else if ((local365 & 0x2000000) != 0) {
-                                arg0.method7998(4, local216 + (-local331 + Static200.anInt3302) * 4 - 4, -1713569622, local284 * 4 + local214 + 3);
+                                arg0.verticalLine(4, local216 + (-local331 + Static200.anInt3302) * 4 - 4, -1713569622, local284 * 4 + local214 + 3);
                             } else if ((local365 & 0x8000000) != 0) {
                                 arg0.horizontalLine((Static200.anInt3302 - local331) * 4 + local216 + 3 - 4, -1713569622, local284 * 4 + local214, 4);
                             } else if ((local365 & 0x20000000) != 0) {
-                                arg0.method7998(4, (Static200.anInt3302 - local331) * 4 + local216 - 4, -1713569622, local284 * 4 + local214);
+                                arg0.verticalLine(4, (Static200.anInt3302 - local331) * 4 + local216 - 4, -1713569622, local284 * 4 + local214);
                             }
                         }
                     }
@@ -168,13 +168,13 @@ public final class Static484 {
                             if (local730 != null) {
                                 @Pc(776) LocType local776 = LocTypeList.instance.list(local730.getId());
                                 if (!local776.members || Static174.mapMembers) {
-                                    local238 = local776.mapElement;
-                                    if (local776.multiLocs != null) {
-                                        for (local249 = 0; local249 < local776.multiLocs.length; local249++) {
-                                            if (local776.multiLocs[local249] != -1) {
-                                                @Pc(808) LocType local808 = LocTypeList.instance.list(local776.multiLocs[local249]);
-                                                if (local808.mapElement >= 0) {
-                                                    local238 = local808.mapElement;
+                                    local238 = local776.mapelement;
+                                    if (local776.multiloc != null) {
+                                        for (local249 = 0; local249 < local776.multiloc.length; local249++) {
+                                            if (local776.multiloc[local249] != -1) {
+                                                @Pc(808) LocType local808 = LocTypeList.instance.list(local776.multiloc[local249]);
+                                                if (local808.mapelement >= 0) {
+                                                    local238 = local808.mapelement;
                                                 }
                                             }
                                         }

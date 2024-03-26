@@ -85,13 +85,13 @@ public final class Static694 {
             toolkit.createSprite(Static414.aIndexedImage_2, true).render(local92, height + local101 - imageWidth);
             Static414.aIndexedImage_2.flipHorizontally();
             toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(local92, Static414.aIndexedImage_2.height + local101, imageWidth, height - Static414.aIndexedImage_2.height * 2);
-            Static535.aIndexedImage_3.method9386();
+            Static535.aIndexedImage_3.rotate();
             toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(Static414.aIndexedImage_2.width + local92, local101, width - Static414.aIndexedImage_2.width * 2, imageWidth);
-            Static535.aIndexedImage_3.method9386();
+            Static535.aIndexedImage_3.rotate();
             toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(width + local92 - imageWidth, Static414.aIndexedImage_2.height + local101, imageWidth, height - Static414.aIndexedImage_2.height * 2);
-            Static535.aIndexedImage_3.method9386();
+            Static535.aIndexedImage_3.rotate();
             toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(local92 + Static414.aIndexedImage_2.width, height + (local101 - imageWidth), width - Static414.aIndexedImage_2.width * 2, imageWidth);
-            Static535.aIndexedImage_3.method9386();
+            Static535.aIndexedImage_3.rotate();
             font.renderLines(0, null, Static675.anInt10154 | 0xFF000000, text, null, null, imageWidthPlusBorder + local101, -1, 0, 1, local92 + imageWidthPlusBorder, 1, 0, width - imageWidthPlusBorder * 2, -(imageWidthPlusBorder * 2) + height);
             InterfaceManager.redrawWithin(width, local92, height, local101);
         } else {

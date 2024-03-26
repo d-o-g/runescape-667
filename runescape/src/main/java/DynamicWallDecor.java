@@ -30,7 +30,7 @@ public final class DynamicWallDecor extends WallDecor implements Location {
     public DynamicWallDecor(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) LocType type, @OriginalArg(2) int level, @OriginalArg(3) int virtualLevel, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z, @OriginalArg(7) boolean underwater, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int shape, @OriginalArg(11) int rotation, @OriginalArg(12) int animation) {
         super(x, y, z, level, virtualLevel, arg8, arg9);
         this.entity = new LocEntity(toolkit, type, shape, rotation, super.level, virtualLevel, this, underwater, animation);
-        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
+        this.interactive = type.active != LocInteractivity.NONINTERACTIVE && !underwater;
     }
 
     @OriginalMember(owner = "client!qg", name = "c", descriptor = "(B)I")

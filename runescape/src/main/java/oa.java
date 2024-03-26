@@ -708,7 +708,7 @@ public final class oa extends Toolkit implements Interface5 {
     }
 
     @OriginalMember(owner = "client!oa", name = "U", descriptor = "(IIIII)V")
-    public native void U(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    public native void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!oa", name = "I", descriptor = "()I")
     public native int I();
@@ -749,7 +749,7 @@ public final class oa extends Toolkit implements Interface5 {
     }
 
     @OriginalMember(owner = "client!oa", name = "P", descriptor = "(IIIII)V")
-    public native void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    public native void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override

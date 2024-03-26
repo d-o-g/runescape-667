@@ -1369,8 +1369,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "U", descriptor = "(IIIII)V")
     @Override
-    public final void U(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        this.method7951(arg0, arg1, arg0 + arg2, arg1, arg3, arg4);
+    public final void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
+        this.method7951(x, y, x + height, y, colour, arg4);
     }
 
     @OriginalMember(owner = "client!am", name = "l", descriptor = "(B)Lclient!cw;")
@@ -1709,8 +1709,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "P", descriptor = "(IIIII)V")
     @Override
-    public final void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        this.method7951(arg0, arg1, arg0, arg2 + arg1, arg3, arg4);
+    public final void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
+        this.method7951(x, y, x, width + y, colour, arg4);
     }
 
     @OriginalMember(owner = "client!am", name = "b", descriptor = "(I)V")

@@ -189,9 +189,9 @@ public final class LocTypeList {
         }
         type.postDecode();
 
-        if (type.routingHint) {
-            type.movementPolicy = 0;
-            type.blockRanged = false;
+        if (type.breakroutefinding) {
+            type.blockwalk = 0;
+            type.blockrange = false;
         }
 
         if (!this.allowMembers && type.members) {

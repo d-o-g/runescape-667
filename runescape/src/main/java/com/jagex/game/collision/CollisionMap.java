@@ -6,52 +6,52 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import static com.jagex.game.collision.CollisionFlag.BLOCK_WALK;
+import static com.jagex.game.collision.CollisionFlag.BLOCKWALK;
 import static com.jagex.game.collision.DirectionFlag.EAST;
 import static com.jagex.game.collision.DirectionFlag.NORTH;
 import static com.jagex.game.collision.DirectionFlag.SOUTH;
 import static com.jagex.game.collision.DirectionFlag.WEST;
 import static com.jagex.game.collision.CollisionFlag.GROUND_DECOR;
 import static com.jagex.game.collision.CollisionFlag.LOCATION;
-import static com.jagex.game.collision.CollisionFlag.LOCATION_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.LOCATION_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.LOCATION_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.LOCATION_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL;
 import static com.jagex.game.collision.CollisionFlag.WALL_EAST;
-import static com.jagex.game.collision.CollisionFlag.WALL_EAST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_EAST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_EAST_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_NORTH;
 import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_EAST;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_EAST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_EAST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_EAST_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_WEST;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_WEST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_WEST_BLOCK_ROUTE;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_WEST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_AND_WEST_BREAKROUTEFINDING;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_EAST;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_EAST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_EAST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_EAST_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_WEST;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_WEST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_WEST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_WEST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_WEST_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH;
 import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_EAST;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_EAST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_EAST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_EAST_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_WEST;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_WEST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_WEST_BLOCK_ROUTE;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_WEST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_AND_WEST_BREAKROUTEFINDING;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_EAST;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_EAST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_EAST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_EAST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_EAST_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST_BREAKROUTEFINDING;
 import static com.jagex.game.collision.CollisionFlag.WALL_WEST;
-import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCK_RANGED;
-import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCK_ROUTE;
+import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCKRANGE;
+import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCK_BREAKROUTEFINDING;
 
 @OriginalClass("client!eq")
 public final class CollisionMap {
@@ -69,24 +69,24 @@ public final class CollisionMap {
     public int x;
 
     @OriginalMember(owner = "client!eq", name = "i", descriptor = "I")
-    public int height;
+    public int length;
 
     @OriginalMember(owner = "client!dt", name = "a", descriptor = "(IIB)Lclient!eq;")
-    public static CollisionMap create(@OriginalArg(0) int width, @OriginalArg(1) int height) {
+    public static CollisionMap create(@OriginalArg(0) int width, @OriginalArg(1) int length) {
         @Pc(7) CollisionMap map = new CollisionMap();
         map.x = -1;
         map.z = -1;
         map.width = width + 6;
-        map.height = height + 5 + 1;
-        map.flags = new int[map.width][map.height];
+        map.length = length + 5 + 1;
+        map.flags = new int[map.width][map.length];
         map.reset();
         return map;
     }
 
     @OriginalMember(owner = "client!il", name = "a", descriptor = "(IIIIIIIII)Z")
-    public static boolean isInsideRect(@OriginalArg(2) int x, @OriginalArg(6) int z, @OriginalArg(1) int width, @OriginalArg(8) int height, @OriginalArg(0) int destX, @OriginalArg(7) int destZ, @OriginalArg(4) int destWidth, @OriginalArg(5) int destHeight) {
+    public static boolean isInsideRect(@OriginalArg(2) int x, @OriginalArg(6) int z, @OriginalArg(1) int width, @OriginalArg(8) int length, @OriginalArg(0) int destX, @OriginalArg(7) int destZ, @OriginalArg(4) int destWidth, @OriginalArg(5) int destLength) {
         if (x < destX + destWidth && x + width > destX) {
-            return z < destZ + destHeight && z + height > destZ;
+            return z < destZ + destLength && z + length > destZ;
         } else {
             return false;
         }
@@ -225,11 +225,11 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIBIIIIIII)Z")
-    public boolean isOutsideRect(@OriginalArg(4) int x1, @OriginalArg(8) int z1, @OriginalArg(0) int width, @OriginalArg(3) int height, @OriginalArg(5) int destX1, @OriginalArg(1) int destZ1, @OriginalArg(9) int destWidth, @OriginalArg(7) int destHeight, @OriginalArg(6) int direction) {
+    public boolean isOutsideRect(@OriginalArg(4) int x1, @OriginalArg(8) int z1, @OriginalArg(0) int width, @OriginalArg(3) int length, @OriginalArg(5) int destX1, @OriginalArg(1) int destZ1, @OriginalArg(9) int destWidth, @OriginalArg(7) int destLength, @OriginalArg(6) int direction) {
         @Pc(7) int x2 = x1 + width;
-        @Pc(11) int z2 = z1 + height;
+        @Pc(11) int z2 = z1 + length;
         @Pc(23) int destX2 = destX1 + destWidth;
-        @Pc(27) int destZ2 = destZ1 + destHeight;
+        @Pc(27) int destZ2 = destZ1 + destLength;
 
         if (x1 == destX2 && (direction & EAST) == 0) {
             @Pc(75) int fromZ = z1 > destZ1 ? z1 : destZ1;
@@ -277,7 +277,7 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IZZIIII)V")
-    public void flagWall(@OriginalArg(1) boolean blockRanged, @OriginalArg(2) boolean blockRoute, @OriginalArg(3) int z, @OriginalArg(4) int rotation, @OriginalArg(5) int shape, @OriginalArg(6) int x) {
+    public void flagWall(@OriginalArg(1) boolean blockrange, @OriginalArg(2) boolean breakroutefinding, @OriginalArg(3) int z, @OriginalArg(4) int rotation, @OriginalArg(5) int shape, @OriginalArg(6) int x) {
         @Pc(8) int z1 = z - this.z;
         @Pc(13) int x1 = x - this.x;
 
@@ -340,131 +340,131 @@ public final class CollisionMap {
             }
         }
 
-        if (blockRanged) {
+        if (blockrange) {
             if (shape == LocShapes.WALL_STRAIGHT) {
                 if (rotation == 0) {
-                    this.flag(x1, z1, WALL_WEST_BLOCK_RANGED);
-                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_WEST_BLOCKRANGE);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCKRANGE);
                 }
                 if (rotation == 1) {
-                    this.flag(x1, z1, WALL_NORTH_BLOCK_RANGED);
-                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_NORTH_BLOCKRANGE);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCKRANGE);
                 }
                 if (rotation == 2) {
-                    this.flag(x1, z1, WALL_EAST_BLOCK_RANGED);
-                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_EAST_BLOCKRANGE);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCKRANGE);
                 }
                 if (rotation == 3) {
-                    this.flag(x1, z1, WALL_SOUTH_BLOCK_RANGED);
-                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_SOUTH_BLOCKRANGE);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCKRANGE);
                 }
             }
             if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
                 if (rotation == 0) {
-                    this.flag(x1, z1, WALL_NORTH_WEST_BLOCK_RANGED);
-                    this.flag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_NORTH_WEST_BLOCKRANGE);
+                    this.flag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCKRANGE);
                 }
                 if (rotation == 1) {
-                    this.flag(x1, z1, WALL_NORTH_EAST_BLOCK_RANGED);
-                    this.flag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_NORTH_EAST_BLOCKRANGE);
+                    this.flag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BLOCKRANGE);
                 }
                 if (rotation == 2) {
-                    this.flag(x1, z1, WALL_SOUTH_EAST_BLOCK_RANGED);
-                    this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_SOUTH_EAST_BLOCKRANGE);
+                    this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST_BLOCKRANGE);
                 }
                 if (rotation == 3) {
-                    this.flag(x1, z1, WALL_SOUTH_WEST_BLOCK_RANGED);
-                    this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_SOUTH_WEST_BLOCKRANGE);
+                    this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST_BLOCKRANGE);
                 }
             }
             if (shape == LocShapes.WALL_L) {
                 if (rotation == 0) {
-                    this.flag(x1, z1, WALL_NORTH_AND_WEST_BLOCK_RANGED);
-                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
-                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_NORTH_AND_WEST_BLOCKRANGE);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCKRANGE);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCKRANGE);
                 }
                 if (rotation == 1) {
-                    this.flag(x1, z1, WALL_NORTH_AND_EAST_BLOCK_RANGED);
-                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
-                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_NORTH_AND_EAST_BLOCKRANGE);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCKRANGE);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCKRANGE);
                 }
                 if (rotation == 2) {
-                    this.flag(x1, z1, WALL_SOUTH_AND_EAST_BLOCK_RANGED);
-                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
-                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_SOUTH_AND_EAST_BLOCKRANGE);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCKRANGE);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCKRANGE);
                 }
                 if (rotation == 3) {
-                    this.flag(x1, z1, WALL_SOUTH_AND_WEST_BLOCK_RANGED);
-                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
-                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
+                    this.flag(x1, z1, WALL_SOUTH_AND_WEST_BLOCKRANGE);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCKRANGE);
+                    this.flag(x1 - 1, z1, WALL_EAST_BLOCKRANGE);
                 }
             }
         }
 
-        if (blockRoute) {
+        if (breakroutefinding) {
             if (shape == LocShapes.WALL_STRAIGHT) {
                 if (rotation == 0) {
-                    this.flag(x1, z1, WALL_WEST_BLOCK_ROUTE);
-                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_WEST_BLOCK_BREAKROUTEFINDING);
+                    this.flag(x1 - 1, z1, WALL_EAST_BREAKROUTEFINDING);
                 }
                 if (rotation == 1) {
-                    this.flag(x1, z1, WALL_NORTH_BLOCK_ROUTE);
-                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_NORTH_BREAKROUTEFINDING);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BREAKROUTEFINDING);
                 }
                 if (rotation == 2) {
-                    this.flag(x1, z1, WALL_EAST_BLOCK_ROUTE);
-                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_EAST_BREAKROUTEFINDING);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_BREAKROUTEFINDING);
                 }
                 if (rotation == 3) {
-                    this.flag(x1, z1, WALL_SOUTH_BLOCK_ROUTE);
-                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_SOUTH_BREAKROUTEFINDING);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BREAKROUTEFINDING);
                 }
             }
             if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
                 if (rotation == 0) {
-                    this.flag(x1, z1, WALL_NORTH_WEST_BLOCK_ROUTE);
-                    this.flag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_NORTH_WEST_BREAKROUTEFINDING);
+                    this.flag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BREAKROUTEFINDING);
                 }
                 if (rotation == 1) {
-                    this.flag(x1, z1, WALL_NORTH_EAST_BLOCK_ROUTE);
-                    this.flag(x1 + 1, z1 - -1, WALL_SOUTH_WEST_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_NORTH_EAST_BREAKROUTEFINDING);
+                    this.flag(x1 + 1, z1 - -1, WALL_SOUTH_WEST_BREAKROUTEFINDING);
                 }
                 if (rotation == 2) {
-                    this.flag(x1, z1, WALL_SOUTH_EAST_BLOCK_ROUTE);
-                    this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_SOUTH_EAST_BREAKROUTEFINDING);
+                    this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST_BREAKROUTEFINDING);
                 }
                 if (rotation == 3) {
-                    this.flag(x1, z1, WALL_SOUTH_WEST_BLOCK_ROUTE);
-                    this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_SOUTH_WEST_BREAKROUTEFINDING);
+                    this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST_BREAKROUTEFINDING);
                 }
             }
             if (shape == LocShapes.WALL_L) {
                 if (rotation == 0) {
-                    this.flag(x1, z1, WALL_NORTH_AND_WEST_BLOCK_ROUTE);
-                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
-                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_NORTH_AND_WEST_BREAKROUTEFINDING);
+                    this.flag(x1 - 1, z1, WALL_EAST_BREAKROUTEFINDING);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BREAKROUTEFINDING);
                 }
                 if (rotation == 1) {
-                    this.flag(x1, z1, WALL_NORTH_AND_EAST_BLOCK_ROUTE);
-                    this.flag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
-                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_NORTH_AND_EAST_BREAKROUTEFINDING);
+                    this.flag(x1, z1 + 1, WALL_SOUTH_BREAKROUTEFINDING);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_BREAKROUTEFINDING);
                 }
                 if (rotation == 2) {
-                    this.flag(x1, z1, WALL_SOUTH_AND_EAST_BLOCK_ROUTE);
-                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
-                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_SOUTH_AND_EAST_BREAKROUTEFINDING);
+                    this.flag(x1 + 1, z1, WALL_WEST_BLOCK_BREAKROUTEFINDING);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BREAKROUTEFINDING);
                 }
                 if (rotation == 3) {
-                    this.flag(x1, z1, WALL_SOUTH_AND_WEST_BLOCK_ROUTE);
-                    this.flag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
-                    this.flag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                    this.flag(x1, z1, WALL_SOUTH_AND_WEST_BREAKROUTEFINDING);
+                    this.flag(x1, z1 - 1, WALL_NORTH_BREAKROUTEFINDING);
+                    this.flag(x1 - 1, z1, WALL_EAST_BREAKROUTEFINDING);
                 }
             }
         }
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIBZIZ)V")
-    public void unflagWall(@OriginalArg(0) int z, @OriginalArg(1) int rotation, @OriginalArg(2) int shape, @OriginalArg(4) boolean blockRoute, @OriginalArg(5) int x, @OriginalArg(6) boolean blockRanged) {
+    public void unflagWall(@OriginalArg(0) int z, @OriginalArg(1) int rotation, @OriginalArg(2) int shape, @OriginalArg(4) boolean breakroutefinding, @OriginalArg(5) int x, @OriginalArg(6) boolean blockrange) {
         @Pc(4) int x1 = x - this.x;
         @Pc(17) int z1 = z - this.z;
 
@@ -527,141 +527,141 @@ public final class CollisionMap {
             }
         }
 
-        if (blockRanged) {
+        if (blockrange) {
             if (shape == LocShapes.WALL_STRAIGHT) {
                 if (rotation == 0) {
-                    this.unflag(x1, z1, WALL_WEST_BLOCK_RANGED);
-                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_WEST_BLOCKRANGE);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCKRANGE);
                 }
                 if (rotation == 1) {
-                    this.unflag(x1, z1, WALL_NORTH_BLOCK_RANGED);
-                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_NORTH_BLOCKRANGE);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCKRANGE);
                 }
                 if (rotation == 2) {
-                    this.unflag(x1, z1, WALL_EAST_BLOCK_RANGED);
-                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_EAST_BLOCKRANGE);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCKRANGE);
                 }
                 if (rotation == 3) {
-                    this.unflag(x1, z1, WALL_SOUTH_BLOCK_RANGED);
-                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_SOUTH_BLOCKRANGE);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCKRANGE);
                 }
             }
             if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
                 if (rotation == 0) {
-                    this.unflag(x1, z1, WALL_NORTH_WEST_BLOCK_RANGED);
-                    this.unflag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_NORTH_WEST_BLOCKRANGE);
+                    this.unflag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCKRANGE);
                 }
                 if (rotation == 1) {
-                    this.unflag(x1, z1, WALL_NORTH_EAST_BLOCK_RANGED);
-                    this.unflag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_NORTH_EAST_BLOCKRANGE);
+                    this.unflag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BLOCKRANGE);
                 }
                 if (rotation == 2) {
-                    this.unflag(x1, z1, WALL_SOUTH_EAST_BLOCK_RANGED);
-                    this.unflag(x1 + 1, z1 - 1, WALL_NORTH_WEST_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_SOUTH_EAST_BLOCKRANGE);
+                    this.unflag(x1 + 1, z1 - 1, WALL_NORTH_WEST_BLOCKRANGE);
                 }
                 if (rotation == 3) {
-                    this.unflag(x1, z1, WALL_SOUTH_WEST_BLOCK_RANGED);
-                    this.unflag(x1 - 1, z1 - 1, WALL_NORTH_EAST_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_SOUTH_WEST_BLOCKRANGE);
+                    this.unflag(x1 - 1, z1 - 1, WALL_NORTH_EAST_BLOCKRANGE);
                 }
             }
             if (shape == LocShapes.WALL_L) {
                 if (rotation == 0) {
-                    this.unflag(x1, z1, WALL_NORTH_AND_WEST_BLOCK_RANGED);
-                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
-                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_NORTH_AND_WEST_BLOCKRANGE);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCKRANGE);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCKRANGE);
                 }
                 if (rotation == 1) {
-                    this.unflag(x1, z1, WALL_NORTH_AND_EAST_BLOCK_RANGED);
-                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_RANGED);
-                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_NORTH_AND_EAST_BLOCKRANGE);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCKRANGE);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCKRANGE);
                 }
                 if (rotation == 2) {
-                    this.unflag(x1, z1, WALL_SOUTH_AND_EAST_BLOCK_RANGED);
-                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_RANGED);
-                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_SOUTH_AND_EAST_BLOCKRANGE);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCKRANGE);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCKRANGE);
                 }
                 if (rotation == 3) {
-                    this.unflag(x1, z1, WALL_SOUTH_AND_WEST_BLOCK_RANGED);
-                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_RANGED);
-                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_RANGED);
+                    this.unflag(x1, z1, WALL_SOUTH_AND_WEST_BLOCKRANGE);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCKRANGE);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCKRANGE);
                 }
             }
         }
 
-        if (blockRoute) {
+        if (breakroutefinding) {
             if (shape == LocShapes.WALL_STRAIGHT) {
                 if (rotation == 0) {
-                    this.unflag(x1, z1, WALL_WEST_BLOCK_ROUTE);
-                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_WEST_BLOCK_BREAKROUTEFINDING);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BREAKROUTEFINDING);
                 }
                 if (rotation == 1) {
-                    this.unflag(x1, z1, WALL_NORTH_BLOCK_ROUTE);
-                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_NORTH_BREAKROUTEFINDING);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BREAKROUTEFINDING);
                 }
                 if (rotation == 2) {
-                    this.unflag(x1, z1, WALL_EAST_BLOCK_ROUTE);
-                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_EAST_BREAKROUTEFINDING);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_BREAKROUTEFINDING);
                 }
                 if (rotation == 3) {
-                    this.unflag(x1, z1, WALL_SOUTH_BLOCK_ROUTE);
-                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_SOUTH_BREAKROUTEFINDING);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BREAKROUTEFINDING);
                 }
             }
             if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
                 if (rotation == 0) {
-                    this.unflag(x1, z1, WALL_NORTH_WEST_BLOCK_ROUTE);
-                    this.unflag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_NORTH_WEST_BREAKROUTEFINDING);
+                    this.unflag(x1 - 1, z1 + 1, WALL_SOUTH_EAST_BREAKROUTEFINDING);
                 }
                 if (rotation == 1) {
-                    this.unflag(x1, z1, WALL_NORTH_EAST_BLOCK_ROUTE);
-                    this.unflag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_NORTH_EAST_BREAKROUTEFINDING);
+                    this.unflag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BREAKROUTEFINDING);
                 }
                 if (rotation == 2) {
-                    this.unflag(x1, z1, WALL_SOUTH_EAST_BLOCK_ROUTE);
-                    this.unflag(x1 + 1, z1 - 1, WALL_NORTH_WEST_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_SOUTH_EAST_BREAKROUTEFINDING);
+                    this.unflag(x1 + 1, z1 - 1, WALL_NORTH_WEST_BREAKROUTEFINDING);
                 }
                 if (rotation == 3) {
-                    this.unflag(x1, z1, WALL_SOUTH_WEST_BLOCK_ROUTE);
-                    this.unflag(x1 - 1, z1 - 1, WALL_NORTH_EAST_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_SOUTH_WEST_BREAKROUTEFINDING);
+                    this.unflag(x1 - 1, z1 - 1, WALL_NORTH_EAST_BREAKROUTEFINDING);
                 }
             }
             if (shape == 2) {
                 if (rotation == 0) {
-                    this.unflag(x1, z1, WALL_NORTH_AND_WEST_BLOCK_ROUTE);
-                    this.unflag(x1 - 1, z1, WALL_NORTH_EAST_BLOCK_ROUTE);
-                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_NORTH_AND_WEST_BREAKROUTEFINDING);
+                    this.unflag(x1 - 1, z1, WALL_NORTH_EAST_BREAKROUTEFINDING);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BREAKROUTEFINDING);
                 }
                 if (rotation == 1) {
-                    this.unflag(x1, z1, WALL_NORTH_AND_EAST_BLOCK_ROUTE);
-                    this.unflag(x1, z1 + 1, WALL_SOUTH_BLOCK_ROUTE);
-                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_NORTH_AND_EAST_BREAKROUTEFINDING);
+                    this.unflag(x1, z1 + 1, WALL_SOUTH_BREAKROUTEFINDING);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_BREAKROUTEFINDING);
                 }
                 if (rotation == 2) {
-                    this.unflag(x1, z1, WALL_SOUTH_AND_EAST_BLOCK_ROUTE);
-                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_ROUTE);
-                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_SOUTH_AND_EAST_BREAKROUTEFINDING);
+                    this.unflag(x1 + 1, z1, WALL_WEST_BLOCK_BREAKROUTEFINDING);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BREAKROUTEFINDING);
                 }
                 if (rotation == 3) {
-                    this.unflag(x1, z1, WALL_SOUTH_AND_WEST_BLOCK_ROUTE);
-                    this.unflag(x1, z1 - 1, WALL_NORTH_BLOCK_ROUTE);
-                    this.unflag(x1 - 1, z1, WALL_EAST_BLOCK_ROUTE);
+                    this.unflag(x1, z1, WALL_SOUTH_AND_WEST_BREAKROUTEFINDING);
+                    this.unflag(x1, z1 - 1, WALL_NORTH_BREAKROUTEFINDING);
+                    this.unflag(x1 - 1, z1, WALL_EAST_BREAKROUTEFINDING);
                 }
             }
         }
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIIIIIII)Z")
-    public boolean isInsideOrOutsideRect(@OriginalArg(4) int x1, @OriginalArg(8) int z1, @OriginalArg(5) int size, @OriginalArg(3) int destX1, @OriginalArg(0) int destZ1, @OriginalArg(7) int destWidth, @OriginalArg(6) int destHeight, @OriginalArg(2) int direction) {
+    public boolean isInsideOrOutsideRect(@OriginalArg(4) int x1, @OriginalArg(8) int z1, @OriginalArg(5) int size, @OriginalArg(3) int destX1, @OriginalArg(0) int destZ1, @OriginalArg(7) int destWidth, @OriginalArg(6) int destLength, @OriginalArg(2) int direction) {
         if (size > 1) {
-            if (isInsideRect(x1, z1, size, size, destX1, destZ1, destWidth, destHeight)) {
+            if (isInsideRect(x1, z1, size, size, destX1, destZ1, destWidth, destLength)) {
                 return true;
             } else {
-                return this.isOutsideRect(x1, z1, size, size, destX1, destZ1, destWidth, destHeight, direction);
+                return this.isOutsideRect(x1, z1, size, size, destX1, destZ1, destWidth, destLength, direction);
             }
         }
 
         @Pc(53) int destX2 = destX1 + destWidth - 1;
-        @Pc(59) int destZ2 = destZ1 + destHeight - 1;
+        @Pc(59) int destZ2 = destZ1 + destLength - 1;
 
         if (x1 >= destX1 && x1 <= destX2 && z1 >= destZ1 && z1 <= destZ2) {
             return true;
@@ -932,15 +932,15 @@ public final class CollisionMap {
     public void flagBlocked(@OriginalArg(0) int z, @OriginalArg(1) int x) {
         @Pc(15) int x1 = x - this.x;
         @Pc(20) int z1 = z - this.z;
-        this.flags[x1][z1] |= BLOCK_WALK;
+        this.flags[x1][z1] |= BLOCKWALK;
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(I)V")
     public void reset() {
         for (@Pc(5) int x = 0; x < this.width; x++) {
-            for (@Pc(8) int z = 0; z < this.height; z++) {
-                if (x != 0 && z != 0 && x < this.width - 5 && z < this.height - 5) {
-                    this.flags[x][z] = BLOCK_WALK;
+            for (@Pc(8) int z = 0; z < this.length; z++) {
+                if (x != 0 && z != 0 && x < this.width - 5 && z < this.length - 5) {
+                    this.flags[x][z] = BLOCKWALK;
                 } else {
                     this.flags[x][z] = -1;
                 }
@@ -949,27 +949,27 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(ZZBIIIII)V")
-    public void unflagLoc(@OriginalArg(3) int x, @OriginalArg(7) int z, @OriginalArg(4) int width, @OriginalArg(5) int height, @OriginalArg(6) int rotation, @OriginalArg(0) boolean blockRanged, @OriginalArg(1) boolean blockRoute) {
+    public void unflagLoc(@OriginalArg(3) int x, @OriginalArg(7) int z, @OriginalArg(4) int width, @OriginalArg(5) int length, @OriginalArg(6) int rotation, @OriginalArg(0) boolean blockrange, @OriginalArg(1) boolean breakroutefinding) {
         @Pc(7) int flags = LOCATION;
-        if (blockRanged) {
-            flags |= LOCATION_BLOCK_RANGED;
+        if (blockrange) {
+            flags |= LOCATION_BLOCKRANGE;
         }
-        if (blockRoute) {
-            flags |= LOCATION_BLOCK_ROUTE;
+        if (breakroutefinding) {
+            flags |= LOCATION_BREAKROUTEFINDING;
         }
 
         @Pc(18) int z1 = z - this.z;
         @Pc(23) int x1 = x - this.x;
         if (rotation == 1 || rotation == 3) {
             @Pc(35) int temp = width;
-            width = height;
-            height = temp;
+            width = length;
+            length = temp;
         }
 
         for (@Pc(35) int currX = x1; currX < width + x1; currX++) {
             if (currX >= 0 && currX < this.width) {
-                for (@Pc(69) int currZ = z1; currZ < z1 + height; currZ++) {
-                    if (currZ >= 0 && currZ < this.height) {
+                for (@Pc(69) int currZ = z1; currZ < z1 + length; currZ++) {
+                    if (currZ >= 0 && currZ < this.length) {
                         this.unflag(currX, currZ, flags);
                     }
                 }
@@ -981,7 +981,7 @@ public final class CollisionMap {
     public void unflagBlocked(@OriginalArg(1) int x, @OriginalArg(0) int z) {
         @Pc(11) int z1 = z - this.z;
         @Pc(20) int x1 = x - this.x;
-        this.flags[x1][z1] &= ~BLOCK_WALK;
+        this.flags[x1][z1] &= ~BLOCKWALK;
     }
 
     @OriginalMember(owner = "client!eq", name = "b", descriptor = "(III)V")
@@ -997,21 +997,21 @@ public final class CollisionMap {
     }
 
     @OriginalMember(owner = "client!eq", name = "a", descriptor = "(IIIIZIZ)V")
-    public void flagLoc(@OriginalArg(0) int x, @OriginalArg(3) int z, @OriginalArg(5) int width, @OriginalArg(1) int height, @OriginalArg(6) boolean blockRanged, @OriginalArg(4) boolean blockRoute) {
+    public void flagLoc(@OriginalArg(0) int x, @OriginalArg(3) int z, @OriginalArg(5) int width, @OriginalArg(1) int length, @OriginalArg(6) boolean blockrange, @OriginalArg(4) boolean breakroutefinding) {
         @Pc(5) int flags = LOCATION;
-        if (blockRanged) {
-            flags |= LOCATION_BLOCK_RANGED;
+        if (blockrange) {
+            flags |= LOCATION_BLOCKRANGE;
         }
-        if (blockRoute) {
-            flags |= LOCATION_BLOCK_ROUTE;
+        if (breakroutefinding) {
+            flags |= LOCATION_BREAKROUTEFINDING;
         }
 
         @Pc(22) int z1 = z - this.z;
         @Pc(32) int x1 = x - this.x;
         for (@Pc(34) int currX = x1; currX < x1 + width; currX++) {
             if (currX >= 0 && currX < this.width) {
-                for (@Pc(52) int currZ = z1; currZ < z1 + height; currZ++) {
-                    if (currZ >= 0 && currZ < this.height) {
+                for (@Pc(52) int currZ = z1; currZ < z1 + length; currZ++) {
+                    if (currZ >= 0 && currZ < this.length) {
                         this.flag(currX, currZ, flags);
                     }
                 }

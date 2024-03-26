@@ -1063,23 +1063,23 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "P", descriptor = "(IIIII)V")
     @Override
-    public void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (arg0 < this.anInt4192 || arg0 >= this.anInt4200) {
+    public void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
+        if (x < this.anInt4192 || x >= this.anInt4200) {
             return;
         }
-        if (arg1 < this.anInt4186) {
-            arg2 -= this.anInt4186 - arg1;
-            arg1 = this.anInt4186;
+        if (y < this.anInt4186) {
+            width -= this.anInt4186 - y;
+            y = this.anInt4186;
         }
-        if (arg1 + arg2 > this.anInt4196) {
-            arg2 = this.anInt4196 - arg1;
+        if (y + width > this.anInt4196) {
+            width = this.anInt4196 - y;
         }
-        @Pc(43) int local43 = arg0 + arg1 * this.anInt4207;
-        @Pc(47) int local47 = arg3 >>> 24;
+        @Pc(43) int local43 = x + y * this.anInt4207;
+        @Pc(47) int local47 = colour >>> 24;
         @Pc(61) int local61;
         if (arg4 == 0 || arg4 == 1 && local47 == 255) {
-            for (local61 = 0; local61 < arg2; local61++) {
-                this.anIntArray319[local43 + local61 * this.anInt4207] = arg3;
+            for (local61 = 0; local61 < width; local61++) {
+                this.anIntArray319[local43 + local61 * this.anInt4207] = colour;
             }
             return;
         }
@@ -1087,20 +1087,20 @@ public final class JavaToolkit extends Toolkit {
         @Pc(119) int local119;
         @Pc(124) int local124;
         if (arg4 == 1) {
-            @Pc(105) int local105 = ((arg3 & 0xFF00FF) * local47 >> 8 & 0xFF00FF) + ((arg3 & 0xFF00) * local47 >> 8 & 0xFF00) + (local47 << 24);
+            @Pc(105) int local105 = ((colour & 0xFF00FF) * local47 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local47 >> 8 & 0xFF00) + (local47 << 24);
             local61 = 256 - local47;
-            for (local111 = 0; local111 < arg2; local111++) {
+            for (local111 = 0; local111 < width; local111++) {
                 local119 = local43 + local111 * this.anInt4207;
                 local124 = this.anIntArray319[local119];
                 local124 = ((local124 & 0xFF00FF) * local61 >> 8 & 0xFF00FF) + ((local124 & 0xFF00) * local61 >> 8 & 0xFF00);
                 this.anIntArray319[local119] = local105 + local124;
             }
         } else if (arg4 == 2) {
-            for (local61 = 0; local61 < arg2; local61++) {
+            for (local61 = 0; local61 < width; local61++) {
                 local111 = local43 + local61 * this.anInt4207;
                 local119 = this.anIntArray319[local111];
-                local124 = arg3 + local119;
-                @Pc(187) int local187 = (arg3 & 0xFF00FF) + (local119 & 0xFF00FF);
+                local124 = colour + local119;
+                @Pc(187) int local187 = (colour & 0xFF00FF) + (local119 & 0xFF00FF);
                 @Pc(197) int local197 = (local187 & 0x1000100) + (local124 - local187 & 0x10000);
                 this.anIntArray319[local111] = local124 - local197 | local197 - (local197 >>> 8);
             }
@@ -1139,41 +1139,41 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "U", descriptor = "(IIIII)V")
     @Override
-    public void U(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (arg1 < this.anInt4186 || arg1 >= this.anInt4196) {
+    public void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
+        if (y < this.anInt4186 || y >= this.anInt4196) {
             return;
         }
-        if (arg0 < this.anInt4192) {
-            arg2 -= this.anInt4192 - arg0;
-            arg0 = this.anInt4192;
+        if (x < this.anInt4192) {
+            height -= this.anInt4192 - x;
+            x = this.anInt4192;
         }
-        if (arg0 + arg2 > this.anInt4200) {
-            arg2 = this.anInt4200 - arg0;
+        if (x + height > this.anInt4200) {
+            height = this.anInt4200 - x;
         }
-        @Pc(43) int local43 = arg0 + arg1 * this.anInt4207;
-        @Pc(47) int local47 = arg3 >>> 24;
+        @Pc(43) int local43 = x + y * this.anInt4207;
+        @Pc(47) int local47 = colour >>> 24;
         @Pc(61) int local61;
         if (arg4 == 0 || arg4 == 1 && local47 == 255) {
-            for (local61 = 0; local61 < arg2; local61++) {
-                this.anIntArray319[local43 + local61] = arg3;
+            for (local61 = 0; local61 < height; local61++) {
+                this.anIntArray319[local43 + local61] = colour;
             }
             return;
         }
         @Pc(108) int local108;
         @Pc(116) int local116;
         if (arg4 == 1) {
-            @Pc(102) int local102 = ((arg3 & 0xFF00FF) * local47 >> 8 & 0xFF00FF) + ((arg3 & 0xFF00) * local47 >> 8 & 0xFF00) + (local47 << 24);
+            @Pc(102) int local102 = ((colour & 0xFF00FF) * local47 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local47 >> 8 & 0xFF00) + (local47 << 24);
             local61 = 256 - local47;
-            for (local108 = 0; local108 < arg2; local108++) {
+            for (local108 = 0; local108 < height; local108++) {
                 local116 = this.anIntArray319[local43 + local108];
                 local116 = ((local116 & 0xFF00FF) * local61 >> 8 & 0xFF00FF) + ((local116 & 0xFF00) * local61 >> 8 & 0xFF00);
                 this.anIntArray319[local43 + local108] = local102 + local116;
             }
         } else if (arg4 == 2) {
-            for (local61 = 0; local61 < arg2; local61++) {
+            for (local61 = 0; local61 < height; local61++) {
                 local108 = this.anIntArray319[local43 + local61];
-                local116 = arg3 + local108;
-                @Pc(176) int local176 = (arg3 & 0xFF00FF) + (local108 & 0xFF00FF);
+                local116 = colour + local108;
+                @Pc(176) int local176 = (colour & 0xFF00FF) + (local108 & 0xFF00FF);
                 @Pc(186) int local186 = (local176 & 0x1000100) + (local116 - local176 & 0x10000);
                 this.anIntArray319[local43 + local61] = local116 - local186 | local186 - (local186 >>> 8);
             }

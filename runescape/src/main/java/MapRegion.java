@@ -434,7 +434,7 @@ public final class MapRegion extends Class306 {
 
         @Pc(40) LocType locType = LocTypeList.instance.list(arg1);
         boolean texturesEnabled = ClientOptions.instance.textures.getValue() == 0;
-        if (texturesEnabled && locType.requiresTextures) {
+        if (texturesEnabled && locType.istexture) {
             return;
         }
 
@@ -478,22 +478,22 @@ public final class MapRegion extends Class306 {
         @Pc(179) int absX = (x << 9) + (locWidth << 8);
         @Pc(187) int absZ = (locLength << 8) + (z << 9);
 
-        @Pc(204) boolean copyNormals = Static404.aBoolean465 && !super.underwater && locType.copyNormals;
+        @Pc(204) boolean copyNormals = Static404.aBoolean465 && !super.underwater && locType.sharelight;
 
         if (locType.hasSounds()) {
             Static89.method1714(level, null, x, z, null, locType, rotation);
         }
 
-        @Pc(248) boolean isStatic = animation == -1 && !locType.hasAnimations() && locType.multiLocs == null && !locType.animated && !locType.aBoolean91;
+        @Pc(248) boolean isStatic = animation == -1 && !locType.hasAnimations() && locType.multiloc == null && !locType.animated && !locType.aBoolean91;
 
-        boolean occludeWall = LocShapes.isWall(shape) && locType.locOcclusionMode != LocOcclusionMode.ALL;
-        boolean occludeRoof = LocShapes.isRoof(shape) && locType.locOcclusionMode == LocOcclusionMode.ROOFS;
+        boolean occludeWall = LocShapes.isWall(shape) && locType.occlude != LocOcclusionMode.ALL;
+        boolean occludeRoof = LocShapes.isRoof(shape) && locType.occlude == LocOcclusionMode.ROOFS;
         if (occlude && (occludeWall || occludeRoof)) {
             return;
         }
 
         if (shape == LocShapes.GROUNDDECOR) {
-            if (ClientOptions.instance.groundDecor.getValue() == 0 && locType.interactivity == LocInteractivity.NONINTERACTIVE && locType.movementPolicy != 1 && !locType.obstructiveGround) {
+            if (ClientOptions.instance.groundDecor.getValue() == 0 && locType.active == LocInteractivity.NONINTERACTIVE && locType.blockwalk != 1 && !locType.forcedecor) {
                 return;
             }
 
@@ -512,7 +512,7 @@ public final class MapRegion extends Class306 {
 
             Static61.method1299(level, x, z, decor);
 
-            if (locType.movementPolicy == 1 && collisionMap != null) {
+            if (locType.blockwalk == 1 && collisionMap != null) {
                 collisionMap.flagGroundDecor(x, z);
             }
         } else if (shape == LocShapes.CENTREPIECE_STRAIGHT || shape == LocShapes.CENTREPIECE_DIAGONAL) {
@@ -535,7 +535,7 @@ public final class MapRegion extends Class306 {
                     staticLoc.addShadow(toolkit);
                 }
 
-                if (locType.castsShadow && Static404.aBoolean465) {
+                if (locType.shadow && Static404.aBoolean465) {
                     if (local424 > 30) {
                         local424 = 30;
                     }
@@ -548,8 +548,8 @@ public final class MapRegion extends Class306 {
                 }
             }
 
-            if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagLoc(x, z, locWidth, locLength, locType.blockRanged, !locType.routingHint);
+            if (locType.blockwalk != 0 && collisionMap != null) {
+                collisionMap.flagLoc(x, z, locWidth, locLength, locType.blockrange, !locType.breakroutefinding);
             }
         } else if (shape >= LocShapes.ROOF_STRAIGHT && shape <= LocShapes.ROOF_FLAT || shape >= LocShapes.ROOFEDGE_STRAIGHT && shape <= LocShapes.ROOFEDGE_SQUARECORNER) {
             @Pc(420) PositionEntity loc;
@@ -569,19 +569,19 @@ public final class MapRegion extends Class306 {
 
             Static102.method2026(loc, false);
 
-            boolean occludeRoofs = locType.locOcclusionMode == LocOcclusionMode.ROOFS;
+            boolean occludeRoofs = locType.occlude == LocOcclusionMode.ROOFS;
             if (Static404.aBoolean465 && !super.underwater && shape >= LocShapes.ROOF_STRAIGHT && shape <= LocShapes.ROOF_FLAT && shape != LocShapes.ROOF_DIAGONAL_WITH_ROOFEDGE && level > 0 && !occludeRoofs) {
                 super.occluderFlags[level][x][z] = (byte) (super.occluderFlags[level][x][z] | 0x4);
             }
 
-            if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagLoc(x, z, locWidth, locLength, locType.blockRanged, !locType.routingHint);
+            if (locType.blockwalk != 0 && collisionMap != null) {
+                collisionMap.flagLoc(x, z, locWidth, locLength, locType.blockrange, !locType.breakroutefinding);
             }
         } else if (shape == LocShapes.WALL_STRAIGHT) {
             @Pc(774) Wall wall;
 
-            @Pc(744) int occlusionMode = locType.locOcclusionMode;
-            if (forceOcclusion && locType.locOcclusionMode == LocOcclusionMode.NONE) {
+            @Pc(744) int occlusionMode = locType.occlude;
+            if (forceOcclusion && locType.occlude == LocOcclusionMode.NONE) {
                 occlusionMode = LocOcclusionMode.ALL;
             }
 
@@ -599,7 +599,7 @@ public final class MapRegion extends Class306 {
             Static584.method7665(level, x, z, wall, null);
 
             if (rotation == 0) {
-                if (Static404.aBoolean465 && locType.castsShadow) {
+                if (Static404.aBoolean465 && locType.shadow) {
                     ground.ka(x, z, 50);
                     ground.ka(x, z + 1, 50);
                 }
@@ -608,7 +608,7 @@ public final class MapRegion extends Class306 {
                     Static177.addLocationOccluder(1, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
                 }
             } else if (rotation == 1) {
-                if (Static404.aBoolean465 && locType.castsShadow) {
+                if (Static404.aBoolean465 && locType.shadow) {
                     ground.ka(x, z + 1, 50);
                     ground.ka(x + 1, z - -1, 50);
                 }
@@ -617,7 +617,7 @@ public final class MapRegion extends Class306 {
                     Static177.addLocationOccluder(2, -locType.occlusionOffset, z + 1, x, level, locType.occlusionHeight);
                 }
             } else if (rotation == 2) {
-                if (Static404.aBoolean465 && locType.castsShadow) {
+                if (Static404.aBoolean465 && locType.shadow) {
                     ground.ka(x + 1, z, 50);
                     ground.ka(x + 1, z + 1, 50);
                 }
@@ -626,7 +626,7 @@ public final class MapRegion extends Class306 {
                     Static177.addLocationOccluder(1, -locType.occlusionOffset, z, x + 1, level, locType.occlusionHeight);
                 }
             } else if (rotation == 3) {
-                if (Static404.aBoolean465 && locType.castsShadow) {
+                if (Static404.aBoolean465 && locType.shadow) {
                     ground.ka(x, z, 50);
                     ground.ka(x + 1, z, 50);
                 }
@@ -636,12 +636,12 @@ public final class MapRegion extends Class306 {
                 }
             }
 
-            if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagWall(locType.blockRanged, !locType.routingHint, z, rotation, shape, x);
+            if (locType.blockwalk != 0 && collisionMap != null) {
+                collisionMap.flagWall(locType.blockrange, !locType.breakroutefinding, z, rotation, shape, x);
             }
 
-            if (locType.anInt1243 != 64) {
-                Static411.method5666(level, x, z, locType.anInt1243);
+            if (locType.walloff != 64) {
+                Static411.method5666(level, x, z, locType.walloff);
             }
         } else if (shape == LocShapes.WALL_DIAGONALCORNER) {
             @Pc(1079) Wall wall;
@@ -660,7 +660,7 @@ public final class MapRegion extends Class306 {
 
             Static584.method7665(level, x, z, wall, null);
 
-            if (locType.castsShadow && Static404.aBoolean465) {
+            if (locType.shadow && Static404.aBoolean465) {
                 if (rotation == 0) {
                     ground.ka(x, z + 1, 50);
                 } else if (rotation == 1) {
@@ -672,8 +672,8 @@ public final class MapRegion extends Class306 {
                 }
             }
 
-            if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagWall(locType.blockRanged, !locType.routingHint, z, rotation, shape, x);
+            if (locType.blockwalk != 0 && collisionMap != null) {
+                collisionMap.flagWall(locType.blockrange, !locType.breakroutefinding, z, rotation, shape, x);
             }
         } else if (shape == LocShapes.WALL_L) {
             @Pc(1079) Wall wall;
@@ -703,7 +703,7 @@ public final class MapRegion extends Class306 {
 
             Static584.method7665(level, x, z, wall, adjacentWall);
 
-            boolean occlude = (locType.locOcclusionMode == LocOcclusionMode.ALL) || (forceOcclusion && locType.locOcclusionMode == -1);
+            boolean occlude = (locType.occlude == LocOcclusionMode.ALL) || (forceOcclusion && locType.occlude == -1);
             if (occlude && !super.underwater) {
                 if (rotation == 0) {
                     Static177.addLocationOccluder(1, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
@@ -720,12 +720,12 @@ public final class MapRegion extends Class306 {
                 }
             }
 
-            if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagWall(locType.blockRanged, !locType.routingHint, z, rotation, shape, x);
+            if (locType.blockwalk != 0 && collisionMap != null) {
+                collisionMap.flagWall(locType.blockrange, !locType.breakroutefinding, z, rotation, shape, x);
             }
 
-            if (locType.anInt1243 != 64) {
-                Static411.method5666(level, x, z, locType.anInt1243);
+            if (locType.walloff != 64) {
+                Static411.method5666(level, x, z, locType.walloff);
             }
         } else if (shape == LocShapes.WALL_SQUARECORNER) {
             @Pc(1079) Wall wall;
@@ -744,7 +744,7 @@ public final class MapRegion extends Class306 {
 
             Static584.method7665(level, x, z, wall, null);
 
-            if (locType.castsShadow && Static404.aBoolean465) {
+            if (locType.shadow && Static404.aBoolean465) {
                 if (rotation == 0) {
                     ground.ka(x, z + 1, 50);
                 } else if (rotation == 1) {
@@ -756,8 +756,8 @@ public final class MapRegion extends Class306 {
                 }
             }
 
-            if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagWall(locType.blockRanged, !locType.routingHint, z, rotation, shape, x);
+            if (locType.blockwalk != 0 && collisionMap != null) {
+                collisionMap.flagWall(locType.blockrange, !locType.breakroutefinding, z, rotation, shape, x);
             }
         } else if (shape == LocShapes.WALL_DIAGONAL) {
             @Pc(420) PositionEntity loc;
@@ -776,7 +776,7 @@ public final class MapRegion extends Class306 {
 
             Static102.method2026(loc, false);
 
-            if (locType.locOcclusionMode == 1 && !super.underwater) {
+            if (locType.occlude == 1 && !super.underwater) {
                 @Pc(1723) byte occlusionType;
                 if ((rotation & 0x1) == 0) {
                     occlusionType = 8;
@@ -787,12 +787,12 @@ public final class MapRegion extends Class306 {
                 Static177.addLocationOccluder(occlusionType, 0, z, x, level, locType.occlusionHeight);
             }
 
-            if (locType.movementPolicy != 0 && collisionMap != null) {
-                collisionMap.flagLoc(x, z, locWidth, locLength, locType.blockRanged, !locType.routingHint);
+            if (locType.blockwalk != 0 && collisionMap != null) {
+                collisionMap.flagLoc(x, z, locWidth, locLength, locType.blockrange, !locType.breakroutefinding);
             }
 
-            if (locType.anInt1243 != 64) {
-                Static411.method5666(level, x, z, locType.anInt1243);
+            if (locType.walloff != 64) {
+                Static411.method5666(level, x, z, locType.walloff);
             }
         } else if (shape == LocShapes.WALLDECOR_STRAIGHT_NOOFFSET) {
             @Pc(1813) WallDecor decor;
@@ -816,7 +816,7 @@ public final class MapRegion extends Class306 {
             @Pc(1844) int local1844 = 65;
             @Pc(1850) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local1844 = LocTypeList.instance.list(wall.getId()).anInt1243 + 1;
+                local1844 = LocTypeList.instance.list(wall.getId()).walloff + 1;
             }
 
             if (isStatic) {
@@ -838,7 +838,7 @@ public final class MapRegion extends Class306 {
             @Pc(1844) int local1844 = 33;
             @Pc(1850) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local1844 = (LocTypeList.instance.list(wall.getId()).anInt1243 / 2) + 1;
+                local1844 = (LocTypeList.instance.list(wall.getId()).walloff / 2) + 1;
             }
 
             if (isStatic) {
@@ -875,7 +875,7 @@ public final class MapRegion extends Class306 {
             @Pc(495) int local495 = 33;
             @Pc(2134) Location wall = (Location) Static302.getWall(level, x, z);
             if (wall != null) {
-                local495 = (LocTypeList.instance.list(wall.getId()).anInt1243 / 2) + 1;
+                local495 = (LocTypeList.instance.list(wall.getId()).walloff / 2) + 1;
             }
 
             @Pc(2178) WallDecor primaryDecor;
@@ -1207,10 +1207,10 @@ public final class MapRegion extends Class306 {
         }
         if (arg0 == 0) {
             Static26.method717(arg3, arg4, arg1);
-            if (local22.movementPolicy != 0) {
-                arg2.unflagWall(arg1, local30, local26, !local22.routingHint, arg4, local22.blockRanged);
+            if (local22.blockwalk != 0) {
+                arg2.unflagWall(arg1, local30, local26, !local22.breakroutefinding, arg4, local22.blockrange);
             }
-            if (local22.locOcclusionMode == 1) {
+            if (local22.occlude == 1) {
                 if (local30 == 0) {
                     Static687.method8958(arg4, arg3, 1, arg1);
                 } else if (local30 == 1) {
@@ -1225,8 +1225,8 @@ public final class MapRegion extends Class306 {
             Static173.method2692(arg3, arg4, arg1);
         } else if (arg0 == 2) {
             Static10.method130(arg3, arg4, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
-            if (local22.movementPolicy != 0 && super.width > local22.width + arg4 && super.height > local22.width + arg1 && arg4 + local22.length < super.width && local22.length + arg1 < super.height) {
-                arg2.unflagLoc(arg4, arg1, local22.width, local22.length, local30, local22.blockRanged, !local22.routingHint);
+            if (local22.blockwalk != 0 && super.width > local22.width + arg4 && super.height > local22.width + arg1 && arg4 + local22.length < super.width && local22.length + arg1 < super.height) {
+                arg2.unflagLoc(arg4, arg1, local22.width, local22.length, local30, local22.blockrange, !local22.breakroutefinding);
             }
             if (local26 == 9) {
                 if ((local30 & 0x1) == 0) {
@@ -1237,7 +1237,7 @@ public final class MapRegion extends Class306 {
             }
         } else if (arg0 == 3) {
             Static609.method8212(arg3, arg4, arg1);
-            if (local22.movementPolicy == 1) {
+            if (local22.blockwalk == 1) {
                 arg2.unflagGroundDecor(arg4, arg1);
             }
         }

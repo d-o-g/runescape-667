@@ -456,19 +456,11 @@ public final class IndexedImage {
     }
 
     @OriginalMember(owner = "client!wp", name = "g", descriptor = "()V")
-    public void method9386() {
+    public void rotate() {
         @Pc(6) byte[] raster = new byte[this.width * this.height];
         @Pc(8) int pixel = 0;
 
-        if (this.alpha == null) {
-            for (@Pc(13) int x = 0; x < this.width; x++) {
-                for (@Pc(19) int y = this.height - 1; y >= 0; y--) {
-                    raster[pixel++] = this.raster[x + (y * this.width)];
-                }
-            }
-
-            this.raster = raster;
-        } else {
+        if (this.alpha != null) {
             @Pc(52) byte[] alpha = new byte[this.width * this.height];
             for (@Pc(19) int x = 0; x < this.width; x++) {
                 for (@Pc(60) int y = this.height - 1; y >= 0; y--) {
@@ -479,6 +471,14 @@ public final class IndexedImage {
 
             this.raster = raster;
             this.alpha = alpha;
+        } else {
+            for (@Pc(13) int x = 0; x < this.width; x++) {
+                for (@Pc(19) int y = this.height - 1; y >= 0; y--) {
+                    raster[pixel++] = this.raster[x + (y * this.width)];
+                }
+            }
+
+            this.raster = raster;
         }
 
         @Pc(13) int temp = this.offY1;

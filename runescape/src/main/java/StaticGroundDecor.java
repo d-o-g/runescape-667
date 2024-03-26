@@ -50,11 +50,11 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
         this.id = (short) type.id;
         super.z = z;
         this.rotation = (byte) arg8;
-        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
+        this.interactive = type.active != LocInteractivity.NONINTERACTIVE && !underwater;
         super.x = x;
         this.underwater = underwater;
         this.aBoolean180 = arg9;
-        this.hardShadow = toolkit.hardShadow() && type.hardShadow && !this.underwater && ClientOptions.instance.hardShadows.getValue() != 0;
+        this.hardShadow = toolkit.hardShadow() && type.hardshadow && !this.underwater && ClientOptions.instance.hardShadows.getValue() != 0;
 
         @Pc(68) int functionMask = 0x800;
         if (this.aBoolean180) {

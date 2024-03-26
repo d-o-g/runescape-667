@@ -1206,7 +1206,7 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(BIZ)Lclient!ka;")
     @Override
-    public Model copy(@OriginalArg(0) byte arg0, @OriginalArg(1) int mask, @OriginalArg(2) boolean arg2) {
+    public Model copy(@OriginalArg(0) byte arg0, @OriginalArg(1) int functionMask, @OriginalArg(2) boolean arg2) {
         @Pc(5) boolean local5 = false;
         @Pc(25) Model_Sub2 local25;
         @Pc(24) Model_Sub2 local24;
@@ -1217,7 +1217,7 @@ public final class Model_Sub2 extends Model {
         } else {
             local25 = local24 = new Model_Sub2(this.aClass19_Sub3_24);
         }
-        return this.method4992(local24, local5, arg2, mask, local25);
+        return this.method4992(local24, local5, arg2, functionMask, local25);
     }
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(B)V")

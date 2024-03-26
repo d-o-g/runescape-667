@@ -38,9 +38,9 @@ public final class DynamicLocation extends PositionEntity implements Location {
 
     @OriginalMember(owner = "client!oe", name = "<init>", descriptor = "(Lclient!ha;Lclient!c;IIIIIZIIIIIII)V")
     public DynamicLocation(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) LocType type, @OriginalArg(2) int level, @OriginalArg(3) int virtualLevel, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z, @OriginalArg(7) boolean underwater, @OriginalArg(8) int x1, @OriginalArg(9) int x2, @OriginalArg(10) int z1, @OriginalArg(11) int z2, @OriginalArg(12) int shape, @OriginalArg(13) int rotation, @OriginalArg(14) int animation) {
-        super(level, virtualLevel, x, y, z, x1, x2, z1, z2, type.lb == 1, method8215(shape, rotation));
+        super(level, virtualLevel, x, y, z, x1, x2, z1, z2, type.raiseobject == 1, method8215(shape, rotation));
         this.entity = new LocEntity(toolkit, type, shape, rotation, super.level, virtualLevel, this, underwater, animation);
-        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
+        this.interactive = type.active != LocInteractivity.NONINTERACTIVE && !underwater;
     }
 
     @OriginalMember(owner = "client!oe", name = "a", descriptor = "(IZLclient!ha;IBILclient!eo;)V")

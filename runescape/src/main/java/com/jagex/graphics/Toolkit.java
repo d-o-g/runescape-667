@@ -53,8 +53,11 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "HA", descriptor = "(IIII[I)V")
     public abstract void HA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int[] arg4);
 
+    /**
+     * verticalLine
+     */
     @OriginalMember(owner = "client!ha", name = "P", descriptor = "(IIIII)V")
-    public abstract void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    public abstract void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
 
     /**
      * setZPlanes
@@ -175,7 +178,7 @@ public abstract class Toolkit {
     public abstract Matrix createMatrix();
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(IIIIII)V")
-    public final void method7954(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
+    public final void line(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
         this.method7951(arg4, arg1, arg2, arg0, arg3, 1);
     }
 
@@ -294,8 +297,11 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "()Z")
     public abstract boolean method7983();
 
+    /**
+     * horizontalLine
+     */
     @OriginalMember(owner = "client!ha", name = "U", descriptor = "(IIIII)V")
-    public abstract void U(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    public abstract void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!ha", name = "g", descriptor = "(I)V")
     public final void method7984() throws Exception_Sub1 {
@@ -348,8 +354,8 @@ public abstract class Toolkit {
     public abstract boolean method7990();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIZI)V")
-    public final void horizontalLine(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
-        this.U(arg2, arg0, arg3, arg1, 1);
+    public final void horizontalLine(@OriginalArg(0) int y, @OriginalArg(1) int colour, @OriginalArg(2) int x, @OriginalArg(4) int height) {
+        this.U(x, y, height, colour, 1);
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "()Z")
@@ -371,8 +377,8 @@ public abstract class Toolkit {
     public abstract void method7997(@OriginalArg(0) boolean arg0);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIII)V")
-    public final void method7998(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.P(arg3, arg1, arg0, arg2, 1);
+    public final void verticalLine(@OriginalArg(0) int width, @OriginalArg(1) int y, @OriginalArg(2) int colour, @OriginalArg(3) int x) {
+        this.P(x, y, width, colour, 1);
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!tt;)V")

@@ -2176,15 +2176,15 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "U", descriptor = "(IIIII)V")
     @Override
-    public void U(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
         this.method7026();
         this.method7017(arg4);
-        @Pc(15) float local15 = (float) arg0 + 0.35F;
-        @Pc(20) float local20 = (float) arg1 + 0.35F;
-        OpenGL.glColor4ub((byte) (arg3 >> 16), (byte) (arg3 >> 8), (byte) arg3, (byte) (arg3 >> 24));
+        @Pc(15) float local15 = (float) x + 0.35F;
+        @Pc(20) float local20 = (float) y + 0.35F;
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         OpenGL.glBegin(OpenGL.GL_LINES);
         OpenGL.glVertex2f(local15, local20);
-        OpenGL.glVertex2f((float) arg2 + local15, local20);
+        OpenGL.glVertex2f((float) height + local15, local20);
         OpenGL.glEnd();
     }
 
@@ -3047,15 +3047,15 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "P", descriptor = "(IIIII)V")
     @Override
-    public void P(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
         this.method7026();
         this.method7017(arg4);
-        @Pc(15) float local15 = (float) arg0 + 0.35F;
-        OpenGL.glColor4ub((byte) (arg3 >> 16), (byte) (arg3 >> 8), (byte) arg3, (byte) (arg3 >> 24));
-        @Pc(35) float local35 = (float) arg1 + 0.35F;
+        @Pc(15) float local15 = (float) x + 0.35F;
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
+        @Pc(35) float local35 = (float) y + 0.35F;
         OpenGL.glBegin(OpenGL.GL_LINES);
         OpenGL.glVertex2f(local15, local35);
-        OpenGL.glVertex2f(local15, local35 + (float) arg2);
+        OpenGL.glVertex2f(local15, local35 + (float) width);
         OpenGL.glEnd();
     }
 

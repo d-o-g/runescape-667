@@ -46,7 +46,7 @@ public final class DynamicWall extends Wall implements Location {
     public DynamicWall(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) LocType type, @OriginalArg(2) int level, @OriginalArg(3) int virtualLevel, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z, @OriginalArg(7) boolean underwater, @OriginalArg(8) int shape, @OriginalArg(9) int rotation, @OriginalArg(10) int animation) {
         super(x, y, z, level, virtualLevel, method5290(rotation, shape));
         this.entity = new LocEntity(toolkit, type, shape, rotation, super.level, virtualLevel, this, underwater, animation);
-        this.interactive = type.interactivity != LocInteractivity.NONINTERACTIVE && !underwater;
+        this.interactive = type.active != LocInteractivity.NONINTERACTIVE && !underwater;
     }
 
     @OriginalMember(owner = "client!db", name = "a", descriptor = "(Lclient!gp;I)V")

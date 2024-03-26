@@ -1,9 +1,13 @@
 import com.jagex.core.constants.HintArrowType;
+import com.jagex.core.constants.LocShapes;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.camera.CameraMode;
+import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.msitype.MSIType;
+import com.jagex.game.runetek6.config.msitype.MSITypeList;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.ClippingMask;
@@ -84,13 +88,13 @@ public final class Minimap {
             @Pc(200) int local200 = anIntArray654[i] * 4 + 2 - selfX / 128;
             @Pc(211) int local211 = Static350.anIntArray433[i] * 4 + 2 - selfZ / 128;
             @Pc(287) LocType local287 = LocTypeList.instance.list(Static533.anIntArray628[i]);
-            if (local287.multiLocs != null) {
+            if (local287.multiloc != null) {
                 local287 = local287.getMultiLoc(TimedVarDomain.instance);
-                if (local287 == null || local287.mapElement == -1) {
+                if (local287 == null || local287.mapelement == -1) {
                     continue;
                 }
             }
-            Static620.method8322(local211, screenX, clippingMask, toolkit, local287.mapElement, screenY, local200, component);
+            Static620.method8322(local211, screenX, clippingMask, toolkit, local287.mapelement, screenY, local200, component);
         }
 
         for (@Pc(334) ObjStack stack = (ObjStack) Static497.stacks.first(); stack != null; stack = (ObjStack) Static497.stacks.next()) {
@@ -247,5 +251,179 @@ public final class Minimap {
     public static void reset() {
         sprite = null;
         level = -1;
+    }
+
+    @OriginalMember(owner = "client!fn", name = "a", descriptor = "(Lclient!ha;IIIIIIII)V")
+    public static void drawLocs(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int wallColour, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int drawX, @OriginalArg(5) int drawY, @OriginalArg(7) int arg6, @OriginalArg(8) int doorColour) {
+        @Pc(9) Location loc = (Location) Static302.getWall(arg6, arg2, arg3);
+
+        if (loc != null) {
+            @Pc(20) LocType type = LocTypeList.instance.list(loc.getId());
+            @Pc(26) int rotation = loc.getRotation() & 0x3;
+            @Pc(30) int shape = loc.getShape();
+
+            if (type.msi == -1) {
+                @Pc(45) int colour = wallColour;
+                if (type.active > LocInteractivity.NONINTERACTIVE) {
+                    colour = doorColour;
+                }
+
+                if (shape == LocShapes.WALL_STRAIGHT || shape == LocShapes.WALL_L) {
+                    if (rotation == 0) {
+                        toolkit.verticalLine(4, drawY, colour, drawX);
+                    } else if (rotation == 1) {
+                        toolkit.horizontalLine(drawY, colour, drawX, 4);
+                    } else if (rotation == 2) {
+                        toolkit.verticalLine(4, drawY, colour, drawX + 3);
+                    } else if (rotation == 3) {
+                        toolkit.horizontalLine(drawY + 3, colour, drawX, 4);
+                    }
+                }
+
+                if (shape == LocShapes.WALL_SQUARECORNER) {
+                    if (rotation == 0) {
+                        toolkit.fillRect(drawX, drawY, 1, 1, colour);
+                    } else if (rotation == 1) {
+                        toolkit.fillRect(drawX + 3, drawY, 1, 1, colour);
+                    } else if (rotation == 2) {
+                        toolkit.fillRect(drawX + 3, drawY + 3, 1, 1, colour);
+                    } else if (rotation == 3) {
+                        toolkit.fillRect(drawX, drawY + 3, 1, 1, colour);
+                    }
+                }
+
+                if (shape == LocShapes.WALL_L) {
+                    if (rotation == 0) {
+                        toolkit.horizontalLine(drawY, colour, drawX, 4);
+                    } else if (rotation == 1) {
+                        toolkit.verticalLine(4, drawY, colour, drawX + 3);
+                    } else if (rotation == 2) {
+                        toolkit.horizontalLine(drawY + 3, colour, drawX, 4);
+                    } else if (rotation == 3) {
+                        toolkit.verticalLine(4, drawY, colour, drawX);
+                    }
+                }
+            } else {
+                drawMsi(type, rotation, toolkit, drawX, drawY);
+            }
+        }
+
+        loc = (Location) Static578.getEntity(arg6, arg2, arg3, Static185.locClass == null ? (Static185.locClass = Static185.getClass("Location")) : Static185.locClass);
+        if (loc != null) {
+            @Pc(20) LocType type = LocTypeList.instance.list(loc.getId());
+            @Pc(26) int rotation = loc.getRotation() & 0x3;
+            @Pc(30) int shape = loc.getShape();
+
+            if (type.msi != -1) {
+                drawMsi(type, rotation, toolkit, drawX, drawY);
+            } else if (shape == LocShapes.WALL_DIAGONAL) {
+                @Pc(45) int colour = 0xffEEEEEE;
+                if (type.active > 0) {
+                    colour = 0xFFEE0000;
+                }
+
+                if (rotation == 0 || rotation == 2) {
+                    toolkit.line(drawY, drawY + 3, drawX + 3, colour, drawX);
+                } else {
+                    toolkit.line(drawY + 3, drawY, drawX + 3, colour, drawX);
+                }
+            }
+        }
+
+        loc = (Location) Static687.getGroundDecor(arg6, arg2, arg3);
+        if (loc != null) {
+            @Pc(20) LocType type = LocTypeList.instance.list(loc.getId());
+            @Pc(26) int rotation = loc.getRotation() & 0x3;
+
+            if (type.msi != -1) {
+                drawMsi(type, rotation, toolkit, drawX, drawY);
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!oea", name = "a", descriptor = "(Lclient!c;BILclient!ha;II)V")
+    public static void drawMsi(@OriginalArg(0) LocType locType, @OriginalArg(2) int rotation, @OriginalArg(3) Toolkit arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+        @Pc(9) MSIType msiType = MSITypeList.instance.list(locType.msi);
+        if (msiType.image == -1) {
+            return;
+        }
+
+        if (locType.msirotate) {
+            @Pc(24) int msiRotation = rotation + locType.msiRotateOffset;
+            rotation = msiRotation & 0x3;
+        } else {
+            rotation = 0;
+        }
+
+        @Pc(39) Sprite sprite = msiType.sprite(rotation, arg2, locType.msiflip);
+        if (sprite == null) {
+            return;
+        }
+
+        @Pc(46) int width = locType.width;
+        @Pc(49) int length = locType.length;
+        if ((rotation & 0x1) == 1) {
+            width = locType.length;
+            length = locType.width;
+        }
+
+        @Pc(72) int spriteWidth = sprite.scaleWidth();
+        @Pc(75) int spriteHeight = sprite.scaleHeight();
+        if (msiType.enlarge) {
+            spriteHeight = length * 4;
+            spriteWidth = width * 4;
+        }
+
+        if (msiType.colour != 0) {
+            sprite.render(arg3, arg4 - (length - 1) * 4, spriteWidth, spriteHeight, 0, msiType.colour | 0xFF000000, 1);
+        } else {
+            sprite.render(arg3, arg4 + 4 - length * 4, spriteWidth, spriteHeight);
+        }
+    }
+
+    @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIII[S[B)V")
+    public static void drawMsiMultiple(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int drawX, @OriginalArg(2) int drawY, @OriginalArg(3) int widthMultiplier, @OriginalArg(4) int heightMultiplier, @OriginalArg(5) short[] locIds, @OriginalArg(6) byte[] rotations) {
+        if (locIds == null) {
+            return;
+        }
+
+        for (@Pc(4) int i = 0; i < locIds.length; i++) {
+            @Pc(14) LocType locType = WorldMap.locTypeList.list(locIds[i] & 0xFFFF);
+
+            @Pc(17) int msi = locType.msi;
+            if (msi == -1) {
+                continue;
+            }
+
+            @Pc(25) MSIType msiType = WorldMap.msiTypeList.list(msi);
+            @Pc(49) Sprite sprite = msiType.sprite(locType.msirotate ? ((rotations[i] >> 6) & 0x3) : 0, toolkit, locType.msiflip ? locType.mirror : false);
+
+            if (sprite != null) {
+                @Pc(58) int spriteWidth = (widthMultiplier * sprite.scaleWidth()) >> 2;
+                @Pc(65) int spriteHeight = (heightMultiplier * sprite.scaleHeight()) >> 2;
+
+                if (msiType.enlarge) {
+                    @Pc(71) int locWidth = locType.width;
+                    @Pc(74) int locLength = locType.length;
+
+                    if ((rotations[i] >> 6 & 0x1) == 1) {
+                        @Pc(85) int temp = locWidth;
+                        locWidth = locLength;
+                        locLength = temp;
+                    }
+
+                    spriteWidth = locWidth * widthMultiplier;
+                    spriteHeight = locLength * heightMultiplier;
+                }
+
+                if (spriteWidth != 0 && spriteHeight != 0) {
+                    if (msiType.colour != 0) {
+                        sprite.render(drawX, drawY + heightMultiplier - spriteHeight, spriteWidth, spriteHeight, 0, msiType.colour | 0xFF000000, 1);
+                    } else {
+                        sprite.render(drawX, drawY + heightMultiplier - spriteHeight, spriteWidth, spriteHeight);
+                    }
+                }
+            }
+        }
     }
 }

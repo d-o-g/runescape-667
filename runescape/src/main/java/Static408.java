@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

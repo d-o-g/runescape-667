@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ServerProt;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;

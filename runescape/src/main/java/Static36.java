@@ -1,3 +1,5 @@
+import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.ServerProt;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.util.JavaScript;

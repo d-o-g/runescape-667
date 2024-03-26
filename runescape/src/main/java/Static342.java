@@ -1,3 +1,4 @@
+import com.jagex.Static148;
 import com.jagex.game.collision.CollisionMap;
 import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Toolkit;

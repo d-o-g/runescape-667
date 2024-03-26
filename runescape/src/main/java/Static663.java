@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalMember;
 
 import java.awt.Rectangle;

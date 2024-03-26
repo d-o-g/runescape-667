@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -6,9 +7,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static708 {
-
-    @OriginalMember(owner = "client!wga", name = "b", descriptor = "I")
-    public static int anInt10644;
 
     @OriginalMember(owner = "client!wga", name = "d", descriptor = "[I")
     public static final int[] anIntArray862 = new int[1];

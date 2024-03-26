@@ -1,3 +1,6 @@
+package com.jagex;
+
+import com.jagex.Class27;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

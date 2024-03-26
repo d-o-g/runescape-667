@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.datastruct.key.Deque;
@@ -275,7 +276,7 @@ public final class WorldMap {
             if (Client.displayFps) {
                 @Pc(250) int textX = childWidth + childX - 5;
                 @Pc(256) int textY = childHeight + childY - 8;
-                Fonts.p12.render(textX, "Fps:" + Static652.currentFps, 0xFFFF00, -1, textY);
+                Fonts.p12.render(textX, "Fps:" + GameShell.currentFps, 0xFFFF00, -1, textY);
                 @Pc(273) int memoryTextY = textY - 15;
 
                 @Pc(275) Runtime runtime = Runtime.getRuntime();

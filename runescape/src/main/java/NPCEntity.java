@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ParticleList;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;

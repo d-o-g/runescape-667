@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

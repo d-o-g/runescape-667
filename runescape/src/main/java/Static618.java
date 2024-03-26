@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.vartype.VarcTypeList;

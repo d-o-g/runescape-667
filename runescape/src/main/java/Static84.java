@@ -1,3 +1,5 @@
+import com.jagex.ServerProt;
+import com.jagex.Static148;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import org.openrs2.deob.annotation.OriginalArg;

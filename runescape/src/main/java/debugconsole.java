@@ -1,5 +1,6 @@
 import com.jagex.Class84;
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.Files;
@@ -235,7 +236,7 @@ public final class debugconsole {
 
             try {
                 if (command.equalsIgnoreCase("printfps")) {
-                    addline("FPS: " + Static652.currentFps);
+                    addline("FPS: " + GameShell.currentFps);
                     return;
                 }
                 if (command.equalsIgnoreCase("occlude")) {
@@ -300,7 +301,7 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("unloadnatives")) {
-                    addline(Static501.method6714() ? "Libraries unloaded" : "Library unloading failed!");
+                    addline(GameShell.method6714() ? "Libraries unloaded" : "Library unloading failed!");
                     return;
                 }
                 if (command.equalsIgnoreCase("clientdrop")) {

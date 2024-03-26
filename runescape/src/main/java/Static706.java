@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ServerProt;
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;

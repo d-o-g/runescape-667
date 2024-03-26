@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.PathFinder;
@@ -384,7 +385,7 @@ public final class client extends GameShell {
             ConnectionManager.GAME.send(local179);
         }
         if (!Static503.sentPreferences) {
-            local179 = ClientMessage.create(Static600.A_CLIENT_PROT___108, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(ClientProt.A_CLIENT_PROT___108, ConnectionManager.GAME.cipher);
             local179.bitPacket.p1(0);
             local181 = local179.bitPacket.pos;
             @Pc(810) Packet local810 = ClientOptions.instance.encode();
@@ -1185,12 +1186,12 @@ public final class client extends GameShell {
                 width -= insets.right + insets.left;
             }
 
-            if (Client.frameWid != width || height != Client.frameHei || Static284.aBoolean355) {
+            if (GameShell.frameWid != width || height != GameShell.frameHei || Static284.aBoolean355) {
                 if (Toolkit.active == null || Toolkit.active.method7983()) {
                     Static712.method9329((byte) 11);
                 } else {
-                    Client.frameWid = width;
-                    Client.frameHei = height;
+                    GameShell.frameWid = width;
+                    GameShell.frameHei = height;
                 }
 
                 Static297.aLong153 = SystemTimer.safetime() + 500L;

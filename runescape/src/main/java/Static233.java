@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;

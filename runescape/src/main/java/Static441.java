@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.core.constants.TileFlag;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;

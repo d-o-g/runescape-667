@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
@@ -33,7 +34,7 @@ public final class Class119 implements Runnable {
                     }
                 }
                 TimeUtils.sleep(10L);
-                Static61.method1312(this.aSignLink_2, null);
+                GameShell.method1312(this.aSignLink_2, null);
             }
         } catch (@Pc(49) Exception local49) {
             JagException.sendTrace(local49, null);

@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.constants.ModeGame;
@@ -30,9 +31,6 @@ public final class ClientOptions extends Node {
 
     @OriginalMember(owner = "client!mk", name = "d", descriptor = "Lclient!kv;")
     public static ClientOptions instance;
-
-    @OriginalMember(owner = "client!pk", name = "m", descriptor = "I")
-    public static int cpucount = 1;
 
     @OriginalMember(owner = "client!kv", name = "S", descriptor = "Lclient!hr;")
     public LoadingSequenceOption loadingSequence;
@@ -160,7 +158,7 @@ public final class ClientOptions extends Node {
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ul;I)V")
     public ClientOptions(@OriginalArg(0) ModeGame game, @OriginalArg(1) int toolkit) {
         this.game = game;
-        this.environment = new EnvironmentContext(SignLink.instance.signed, GameShell.maxmemory, cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
+        this.environment = new EnvironmentContext(SignLink.instance.signed, GameShell.maxmemory, GameShell.cpucount, SignLink.osArchRaw.toLowerCase().indexOf("arm") != -1);
         this.toolkit = new ToolkitOption(toolkit, this);
         this.loadDefaults(true);
     }
@@ -168,7 +166,7 @@ public final class ClientOptions extends Node {
     @OriginalMember(owner = "client!kv", name = "<init>", descriptor = "(Lclient!ge;Lclient!ul;I)V")
     public ClientOptions(@OriginalArg(0) Packet packet, @OriginalArg(1) ModeGame game, @OriginalArg(2) int toolkit) {
         this.game = game;
-        this.environment = new EnvironmentContext(SignLink.instance.signed, GameShell.maxmemory, cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
+        this.environment = new EnvironmentContext(SignLink.instance.signed, GameShell.maxmemory, GameShell.cpucount, SignLink.osArchRaw.indexOf("arm") != -1);
         this.toolkit = new ToolkitOption(toolkit, this);
         this.decode(packet);
     }

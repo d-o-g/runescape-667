@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.IndexedImage;
 import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.util.TimeUtils;

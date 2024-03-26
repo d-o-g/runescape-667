@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static376 {
@@ -16,7 +17,7 @@ public final class Static376 {
 
     @OriginalMember(owner = "client!lr", name = "a", descriptor = "(B)V")
     public static void method5313() {
-        if (ClientOptions.cpucount <= 1) {
+        if (GameShell.cpucount <= 1) {
             ClientOptions.instance.update(2, ClientOptions.instance.cpuUsage);
         } else {
             ClientOptions.instance.update(4, ClientOptions.instance.cpuUsage);

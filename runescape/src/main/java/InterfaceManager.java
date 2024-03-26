@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.constants.MiniMenuAction;
@@ -442,11 +443,11 @@ public final class InterfaceManager {
 
                         if (Client.displayFps) {
                             @Pc(744) int fpsColour = 0xFFFFFF00;
-                            if (Static652.currentFps < 20) {
+                            if (GameShell.currentFps < 20) {
                                 fpsColour = 0xFFFF0000;
                             }
 
-                            Fonts.p12.render(drawX, "Fps:" + Static652.currentFps, fpsColour, -1, drawY);
+                            Fonts.p12.render(drawX, "Fps:" + GameShell.currentFps, fpsColour, -1, drawY);
                             drawY += 15;
 
                             @Pc(768) Runtime runtime = Runtime.getRuntime();
@@ -2385,15 +2386,15 @@ public final class InterfaceManager {
 
         @Pc(95) Container topContainer;
         if (GameShell.fsframe != null) {
-            Client.frameHei = height;
-            Client.frameWid = width;
+            GameShell.frameHei = height;
+            GameShell.frameWid = width;
             topContainer = GameShell.fsframe;
         } else if (GameShell.frame != null) {
             @Pc(110) Insets insets = GameShell.frame.getInsets();
-            Client.frameWid = GameShell.frame.getSize().width - insets.right - insets.left;
+            GameShell.frameWid = GameShell.frame.getSize().width - insets.right - insets.left;
 
             @Pc(126) int negativeTop = -insets.top;
-            Client.frameHei = GameShell.frame.getSize().height + negativeTop - insets.bottom;
+            GameShell.frameHei = GameShell.frame.getSize().height + negativeTop - insets.bottom;
             topContainer = GameShell.frame;
         } else {
             if (GameShell.loaderApplet == null) {
@@ -2402,13 +2403,13 @@ public final class InterfaceManager {
                 topContainer = GameShell.loaderApplet;
             }
 
-            Client.frameWid = topContainer.getSize().width;
-            Client.frameHei = topContainer.getSize().height;
+            GameShell.frameWid = topContainer.getSize().width;
+            GameShell.frameHei = topContainer.getSize().height;
         }
 
         if (newMode == WindowMode.FIXED) {
             GameShell.topMargin = 0;
-            GameShell.leftMargin = (Client.frameWid - Client.loadingScreenWidth) / 2;
+            GameShell.leftMargin = (GameShell.frameWid - Client.loadingScreenWidth) / 2;
             GameShell.canvasHei = Client.loadingScreenHeight;
             GameShell.canvasWid = Client.loadingScreenWidth;
         } else {

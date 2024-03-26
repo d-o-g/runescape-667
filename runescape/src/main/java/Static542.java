@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

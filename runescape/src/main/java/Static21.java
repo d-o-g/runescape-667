@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.JavaScript;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Toolkit;

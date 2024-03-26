@@ -1,12 +1,10 @@
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.datastruct.key.Deque;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static307 {
-
-    @OriginalMember(owner = "client!jo", name = "b", descriptor = "Z")
-    public static boolean aBoolean380 = false;
 
     @OriginalMember(owner = "client!jo", name = "c", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___28 = new Deque();
@@ -16,7 +14,7 @@ public final class Static307 {
 
     @OriginalMember(owner = "client!jo", name = "a", descriptor = "(ILclient!e;)V")
     public static synchronized void method4477(@OriginalArg(1) Interface5 arg0) {
-        if (aBoolean380) {
+        if (GameShell.aBoolean380) {
             return;
         }
         if (anInt4924 <= 0) {
@@ -43,11 +41,6 @@ public final class Static307 {
     @OriginalMember(owner = "client!jo", name = "b", descriptor = "(I)V")
     public static synchronized void method4479() {
         anInt4924++;
-    }
-
-    @OriginalMember(owner = "client!jo", name = "a", descriptor = "(ZI)V")
-    public static synchronized void method4480() {
-        aBoolean380 = true;
     }
 
     @OriginalMember(owner = "client!jo", name = "a", descriptor = "(I)V")

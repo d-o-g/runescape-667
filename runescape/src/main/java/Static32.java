@@ -15,9 +15,6 @@ public final class Static32 {
     @OriginalMember(owner = "client!bba", name = "bb", descriptor = "I")
     public static int anInt775;
 
-    @OriginalMember(owner = "client!bba", name = "Z", descriptor = "I")
-    public static int scheduledTicks;
-
     @OriginalMember(owner = "client!bba", name = "D", descriptor = "I")
     public static int anInt773 = 0;
 

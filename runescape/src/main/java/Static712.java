@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Toolkit;
@@ -39,18 +40,18 @@ public final class Static712 {
             } else {
                 local22 = GameShell.loaderApplet;
             }
-            Client.frameWid = local22.getSize().width;
-            Client.frameHei = local22.getSize().height;
+            GameShell.frameWid = local22.getSize().width;
+            GameShell.frameHei = local22.getSize().height;
             @Pc(44) Insets local44;
             if (local22 == GameShell.frame) {
                 local44 = GameShell.frame.getInsets();
-                Client.frameHei -= local44.top + local44.bottom;
-                Client.frameWid -= local44.right + local44.left;
+                GameShell.frameHei -= local44.top + local44.bottom;
+                GameShell.frameWid -= local44.right + local44.left;
             }
             if (InterfaceManager.getWindowMode() == 1) {
                 GameShell.topMargin = 0;
                 GameShell.canvasHei = Client.loadingScreenHeight;
-                GameShell.leftMargin = (Client.frameWid - Client.loadingScreenWidth) / 2;
+                GameShell.leftMargin = (GameShell.frameWid - Client.loadingScreenWidth) / 2;
                 GameShell.canvasWid = Client.loadingScreenWidth;
             } else {
                 Static323.method4625();

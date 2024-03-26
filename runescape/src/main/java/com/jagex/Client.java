@@ -150,12 +150,6 @@ public final class Client {
     @OriginalMember(owner = "client!df", name = "l", descriptor = "Z")
     public static boolean displayFps = false;
 
-    @OriginalMember(owner = "client!bo", name = "g", descriptor = "I")
-    public static int frameWid;
-
-    @OriginalMember(owner = "client!bq", name = "C", descriptor = "I")
-    public static int frameHei;
-
     @OriginalMember(owner = "client!vba", name = "H", descriptor = "Z")
     public static boolean cleanCaches = false;
 

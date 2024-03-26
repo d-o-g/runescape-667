@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.util.TimeUtils;

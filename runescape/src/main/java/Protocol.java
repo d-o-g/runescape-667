@@ -1,6 +1,9 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.ServerProt;
 import com.jagex.SignLink;
+import com.jagex.Static14;
 import com.jagex.core.io.BitPacket;
 import com.jagex.game.camera.Shake;
 import com.jagex.core.constants.ChatLineType;

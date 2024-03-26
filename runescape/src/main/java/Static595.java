@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.IndexedImage;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;

@@ -1,4 +1,6 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.ServerProt;
 import com.jagex.core.datastruct.key.DequeIterator;
 import com.jagex.core.datastruct.key.QueueIterator;
 import org.openrs2.deob.annotation.OriginalMember;

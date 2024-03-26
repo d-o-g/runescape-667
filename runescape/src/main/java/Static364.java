@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.Constants;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.crypto.Isaac;

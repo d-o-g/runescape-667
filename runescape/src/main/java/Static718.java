@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.Toolkit;

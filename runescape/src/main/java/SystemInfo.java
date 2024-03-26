@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.Packet;
@@ -220,7 +221,7 @@ public final class SystemInfo extends Node {
         this.javaUpdate = javaUpdate;
 
         if (this.javaRelease > 3) {
-            this.processorCount = ClientOptions.cpucount;
+            this.processorCount = GameShell.cpucount;
         } else {
             this.processorCount = 0;
         }

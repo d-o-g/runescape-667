@@ -1,3 +1,7 @@
+package com.jagex;
+
+import com.jagex.NativeLibraryList;
+import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 

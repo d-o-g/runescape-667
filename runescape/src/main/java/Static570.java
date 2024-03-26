@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -6,19 +7,6 @@ public final class Static570 {
 
     @OriginalMember(owner = "client!rv", name = "p", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___208 = new ServerProt(99, -1);
-
-    @OriginalMember(owner = "client!rv", name = "c", descriptor = "(I)Lclient!nl;")
-    public static Class27 method7550() {
-        try {
-            return new Class27_Sub3();
-        } catch (@Pc(8) Throwable local8) {
-            try {
-                return (Class27) Class.forName("Class27_Sub2").getDeclaredConstructor().newInstance();
-            } catch (@Pc(16) Throwable local16) {
-                return new Class27_Sub1();
-            }
-        }
-    }
 
     @OriginalMember(owner = "client!rv", name = "b", descriptor = "(I)Lclient!ge;")
     public static Packet method7552() {

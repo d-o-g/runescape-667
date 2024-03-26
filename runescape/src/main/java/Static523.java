@@ -1,4 +1,6 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.NativeLibraryList;
 import com.jagex.SignLink;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
@@ -293,7 +295,7 @@ public final class Static523 {
                 /* empty */
             }
 
-            Static600.aClass27_1 = Static570.method7550();
+            GameShell.aClass27_1 = GameShell.method7550();
             SystemInfo.instance = new SystemInfo(true, SignLink.instance);
         }
         if (LoadState.SETUP_STATIC_SPRITES == Static473.aLoadState_22) {

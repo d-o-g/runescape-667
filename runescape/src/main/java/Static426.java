@@ -1,3 +1,4 @@
+import com.jagex.Static148;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -9,9 +10,6 @@ public final class Static426 {
 
     @OriginalMember(owner = "client!nha", name = "m", descriptor = "I")
     public static final int anInt940 = -1;
-
-    @OriginalMember(owner = "client!nha", name = "a", descriptor = "I")
-    public static int anInt941 = 0;
 
     @OriginalMember(owner = "client!nha", name = "b", descriptor = "Z")
     public static boolean aBoolean72 = true;

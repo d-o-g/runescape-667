@@ -1,5 +1,6 @@
+package com.jagex;
+
 import com.jagex.core.io.FileCache;
-import com.jagex.SignLink;
 import com.jagex.core.io.Files;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

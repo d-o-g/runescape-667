@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static229 {

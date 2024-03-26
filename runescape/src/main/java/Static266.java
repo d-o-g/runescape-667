@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.SignLink;
 import com.jagex.core.constants.AreaMode;
 import com.jagex.core.io.FileOnDisk;

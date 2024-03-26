@@ -1,3 +1,4 @@
+import com.jagex.NativeLibraryList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 

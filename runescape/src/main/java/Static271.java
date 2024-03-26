@@ -1,4 +1,5 @@
 import com.jagex.ChangeLocationRequest;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -9,7 +10,7 @@ public final class Static271 {
 
     @OriginalMember(owner = "client!ij", name = "a", descriptor = "(I)J")
     public static long method3929() {
-        return Static600.aClass27_1.method5602();
+        return GameShell.aClass27_1.method5602();
     }
 
     @OriginalMember(owner = "client!ij", name = "c", descriptor = "(B)V")

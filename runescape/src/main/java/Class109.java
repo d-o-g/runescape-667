@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

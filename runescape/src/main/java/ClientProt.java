@@ -167,6 +167,9 @@ public final class ClientProt {
     @OriginalMember(owner = "client!bj", name = "i", descriptor = "Lclient!ss;")
     public static final ClientProt CUTSCENE_FINISHED = new ClientProt(48, 0);
 
+    @OriginalMember(owner = "client!sv", name = "V", descriptor = "Lclient!ss;")
+    public static final ClientProt A_CLIENT_PROT___108 = new ClientProt(37, -1);
+
     @OriginalMember(owner = "client!ss", name = "g", descriptor = "I")
     public final int opcode;
 

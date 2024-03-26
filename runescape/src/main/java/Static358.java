@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;

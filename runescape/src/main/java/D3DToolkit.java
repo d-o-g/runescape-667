@@ -1,6 +1,7 @@
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
+import com.jagex.Static14;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.PointLight;

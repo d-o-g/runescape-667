@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ServerProt;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base37;
 import org.openrs2.deob.annotation.OriginalArg;

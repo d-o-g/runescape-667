@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.sound.SampleRateConverter;

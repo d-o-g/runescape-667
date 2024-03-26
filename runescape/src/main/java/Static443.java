@@ -1,3 +1,4 @@
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.mouse.MouseLog;

@@ -1,3 +1,5 @@
+import com.jagex.game.runetek6.client.GameShell;
+
 import java.applet.Applet;
 import java.applet.AppletContext;
 import java.applet.AppletStub;

@@ -1,3 +1,5 @@
+import com.jagex.ServerProt;
+import com.jagex.Static14;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;

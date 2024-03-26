@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.DisplayProperties;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeWhat;

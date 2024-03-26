@@ -1,3 +1,4 @@
+import com.jagex.ServerProt;
 import com.jagex.core.datastruct.key.DequeIterator;
 import org.openrs2.deob.annotation.OriginalMember;
 

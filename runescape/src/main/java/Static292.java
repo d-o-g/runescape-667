@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base37;
@@ -49,8 +50,8 @@ public final class Static292 {
         Static524.aServerConnection_3 = ConnectionManager.LOBBY;
         Static299.anInt4825 = 1;
         @Pc(16) String local16 = null;
-        if (client.ssKey != null) {
-            @Pc(23) Packet local23 = new Packet(client.ssKey);
+        if (Client.ssKey != null) {
+            @Pc(23) Packet local23 = new Packet(Client.ssKey);
             local16 = Base37.decode(local23.g8());
             Static430.aLong209 = local23.g8();
         }

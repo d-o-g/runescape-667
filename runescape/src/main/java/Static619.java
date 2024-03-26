@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base37;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -85,8 +86,8 @@ public final class Static619 {
         Static524.aServerConnection_3 = ConnectionManager.GAME;
         Static470.anInt7113 = arg0;
         @Pc(18) String local18 = null;
-        if (client.ssKey != null) {
-            @Pc(25) Packet local25 = new Packet(client.ssKey);
+        if (Client.ssKey != null) {
+            @Pc(25) Packet local25 = new Packet(Client.ssKey);
             local18 = Base37.decode(local25.g8());
             Static430.aLong209 = local25.g8();
         }

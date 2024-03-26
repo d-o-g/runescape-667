@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.game.news.NewsItem;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.Toolkit;
@@ -35,8 +36,8 @@ public final class News implements LoadingScreenOp {
             return;
         }
 
-        @Pc(35) int x = this.instance.horizontalAlignment.align(client.loadingScreenWidth, this.instance.width) + this.instance.x;
-        @Pc(49) int y = this.instance.verticalAlignment.align(client.loadingScreenHeight, this.instance.height) + this.instance.y;
+        @Pc(35) int x = this.instance.horizontalAlignment.align(Client.loadingScreenWidth, this.instance.width) + this.instance.x;
+        @Pc(49) int y = this.instance.verticalAlignment.align(Client.loadingScreenHeight, this.instance.height) + this.instance.y;
 
         if (this.instance.aBoolean454) {
             Toolkit.active.outlineRect(x, y, this.instance.width, this.instance.height, this.instance.lineColour, 0);

@@ -1,5 +1,7 @@
+import com.jagex.Client;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
+import com.jagex.core.io.ConnectionInfo;
 import com.jagex.graphics.Exception_Sub1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -26,29 +28,29 @@ public final class Static430 {
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(IBLjava/lang/String;)Z")
     public static boolean method5817(@OriginalArg(0) int arg0, @OriginalArg(2) String arg1) {
         if (SignLink.instance.signed) {
-            client.gameConnection = new ConnectionInfo();
-            client.gameConnection.id = arg0;
-            client.gameConnection.address = arg1;
-            if (client.modeWhere != ModeWhere.LIVE) {
-                client.gameConnection.defaultPort = client.gameConnection.id + 40000;
-                client.gameConnection.alternatePort = client.gameConnection.id + 50000;
+            Client.gameConnection = new ConnectionInfo();
+            Client.gameConnection.id = arg0;
+            Client.gameConnection.address = arg1;
+            if (Client.modeWhere != ModeWhere.LIVE) {
+                Client.gameConnection.defaultPort = Client.gameConnection.id + 40000;
+                Client.gameConnection.alternatePort = Client.gameConnection.id + 50000;
             }
             for (@Pc(45) int local45 = 0; local45 < WorldList.activeWorlds.length; local45++) {
                 if (WorldList.activeWorlds[local45].id == arg0) {
-                    client.worldFlags = WorldList.activeWorlds[local45].flags;
+                    Client.worldFlags = WorldList.activeWorlds[local45].flags;
                 }
             }
             return true;
         }
         @Pc(73) String local73 = "";
-        if (ModeWhere.LIVE != client.modeWhere) {
+        if (ModeWhere.LIVE != Client.modeWhere) {
             local73 = ":" + (arg0 + 7000);
         }
         @Pc(88) String local88 = "";
-        if (client.settings != null) {
-            local88 = "/p=" + client.settings;
+        if (Client.settings != null) {
+            local88 = "/p=" + Client.settings;
         }
-        @Pc(152) String local152 = "http://" + arg1 + local73 + "/l=" + client.language + "/a=" + client.affid + local88 + "/j" + (client.js ? "1" : "0") + ",o" + (client.objectTag ? "1" : "0") + ",a2";
+        @Pc(152) String local152 = "http://" + arg1 + local73 + "/l=" + Client.language + "/a=" + Client.affid + local88 + "/j" + (Client.js ? "1" : "0") + ",o" + (Client.objectTag ? "1" : "0") + ",a2";
         try {
             client.aClient1.getAppletContext().showDocument(new URL(local152), "_self");
             return true;

@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -75,10 +76,10 @@ public final class MainLogicManager {
                     Static57.method1225(Static597.anInt8821, ClientOptions.instance.loginVolume.getValue(), js5.MIDI_SONGS);
                     Static550.method7266();
                 }
-                client.js5WorkerThread.writeLoggedIn(false);
+                Client.js5WorkerThread.writeLoggedIn(false);
             } else {
                 Static312.method4541();
-                client.js5WorkerThread.writeLoggedIn(true);
+                Client.js5WorkerThread.writeLoggedIn(true);
             }
         }
         if (isBuildingMap(arg0) || arg0 == 14 || arg0 == 15) {

@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -147,7 +148,7 @@ public final class AwtLoadingScreen implements LoadingScreen {
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Z)V")
     public void method8471() {
-        Static305.method4439(Static449.aLoadingScreenRenderer_1.getPercentage(), client.OUTLINE_COLOURS[client.colourId], Static399.aColorArray2[client.colourId], client.FILL_COLOURS[client.colourId], Static449.aLoadingScreenRenderer_1.getText());
+        Static305.method4439(Static449.aLoadingScreenRenderer_1.getPercentage(), Client.OUTLINE_COLOURS[Client.colourId], Static399.aColorArray2[Client.colourId], Client.FILL_COLOURS[Client.colourId], Static449.aLoadingScreenRenderer_1.getText());
     }
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Ljava/lang/Class;Ljava/lang/Object;ZLjava/lang/String;)I")

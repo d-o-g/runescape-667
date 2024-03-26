@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -80,7 +81,7 @@ public final class Static242 {
             }
         }
         if (!local9) {
-            ChatHistory.addPrivateError(LocalisedText.UNABLETOFIND.localise(client.language) + arg0);
+            ChatHistory.addPrivateError(LocalisedText.UNABLETOFIND.localise(Client.language) + arg0);
         }
     }
 }

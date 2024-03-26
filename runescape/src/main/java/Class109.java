@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -27,8 +28,8 @@ public final class Class109 implements LoadingScreenOp {
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(ZI)V")
     @Override
     public void execute() {
-        @Pc(11) int local11 = client.loadingScreenWidth >= GameShell.canvasWid ? client.loadingScreenWidth : GameShell.canvasWid;
-        @Pc(19) int local19 = GameShell.canvasHei <= client.loadingScreenHeight ? client.loadingScreenHeight : GameShell.canvasHei;
+        @Pc(11) int local11 = Client.loadingScreenWidth >= GameShell.canvasWid ? Client.loadingScreenWidth : GameShell.canvasWid;
+        @Pc(19) int local19 = GameShell.canvasHei <= Client.loadingScreenHeight ? Client.loadingScreenHeight : GameShell.canvasHei;
         @Pc(23) int local23 = this.aSprite_9.scaleWidth();
         @Pc(27) int local27 = this.aSprite_9.scaleHeight();
         @Pc(29) int local29 = 0;

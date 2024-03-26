@@ -1,4 +1,5 @@
 import com.jagex.ChangeLocationRequest;
+import com.jagex.Client;
 import com.jagex.SignLink;
 import com.jagex.core.io.BitPacket;
 import com.jagex.game.camera.Shake;
@@ -171,7 +172,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (Static632.A_SERVER_PROT___229 == arg0.currentProt) {
-            Static331.walkText = arg0.currentPacketSize <= 2 ? LocalisedText.WALKHERE.localise(client.language) : bitPacket.gjstr();
+            Static331.walkText = arg0.currentPacketSize <= 2 ? LocalisedText.WALKHERE.localise(Client.language) : bitPacket.gjstr();
             Static331.walkCursor = arg0.currentPacketSize <= 0 ? -1 : bitPacket.g2();
             if (Static331.walkCursor == 65535) {
                 Static331.walkCursor = -1;
@@ -490,7 +491,7 @@ public final class Protocol {
                                         local100--;
                                         for (local526 = 0; local526 < local100; local526++) {
                                             @Pc(1665) boolean local1665 = false;
-                                            if (client.gameConnection.id != FriendsList.worlds[local526] && client.gameConnection.id == FriendsList.worlds[local526 + 1]) {
+                                            if (Client.gameConnection.id != FriendsList.worlds[local526] && Client.gameConnection.id == FriendsList.worlds[local526 + 1]) {
                                                 local1665 = true;
                                             }
                                             if (!local1665 && FriendsList.worlds[local526] == 0 && FriendsList.worlds[local526 + 1] != 0) {
@@ -1545,7 +1546,7 @@ public final class Protocol {
                                                                     bitPacket.readEncrypted(local3044, arg0.currentPacketSize);
                                                                     local627 = Cp1252.decode(0, local3044, arg0.currentPacketSize);
                                                                     local629 = "opensn";
-                                                                    if (!client.js || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
+                                                                    if (!Client.js || Static36.method980(SignLink.instance, local627, local629, 1).status == 2) {
                                                                         Static259.method3693(local627, local629, SignLink.instance, ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, true);
                                                                     }
                                                                     arg0.currentProt = null;
@@ -1673,7 +1674,7 @@ public final class Protocol {
                                                                         local627 = bitPacket.gjstr();
                                                                         local2080 = bitPacket.g1() == 1;
                                                                         Static718.aBoolean823 = local2080;
-                                                                        Static459.aConnectionInfo_2 = client.gameConnection;
+                                                                        Static459.aConnectionInfo_2 = Client.gameConnection;
                                                                         Static430.method5817(local277, local627);
                                                                         MainLogicManager.setStep(15);
                                                                         arg0.currentProt = null;

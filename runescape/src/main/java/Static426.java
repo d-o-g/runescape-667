@@ -16,11 +16,6 @@ public final class Static426 {
     @OriginalMember(owner = "client!nha", name = "b", descriptor = "Z")
     public static boolean aBoolean72 = true;
 
-    @OriginalMember(owner = "client!nha", name = "a", descriptor = "(BLjava/lang/String;)V")
-    public static void method1016(@OriginalArg(1) String arg0) {
-        System.exit(1);
-    }
-
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(IIBIII)Z")
     public static boolean method1017(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         for (@Pc(7) int local7 = arg2; local7 <= arg0; local7++) {

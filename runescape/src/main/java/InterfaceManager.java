@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.constants.MiniMenuAction;
@@ -424,7 +425,7 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY) {
-                        if (!client.displayFps && !Static354.showProfiling) {
+                        if (!Client.displayFps && !Static354.showProfiling) {
                             continue;
                         }
 
@@ -439,7 +440,7 @@ public final class InterfaceManager {
                             }
                         }
 
-                        if (client.displayFps) {
+                        if (Client.displayFps) {
                             @Pc(744) int fpsColour = 0xFFFFFF00;
                             if (Static652.currentFps < 20) {
                                 fpsColour = 0xFFFF0000;
@@ -452,7 +453,7 @@ public final class InterfaceManager {
                             @Pc(777) int memoryUsage = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
                             @Pc(779) int memoryColour = 0xFFFFFF00;
                             if (memoryUsage > 0x18000) {
-                                if (client.force64mb) {
+                                if (Client.force64mb) {
                                     Static664.cacheRemoveSoftReferences();
 
                                     for (@Pc(792) int j = 0; j < 10; j++) {
@@ -486,10 +487,10 @@ public final class InterfaceManager {
                             @Pc(938) int loadedTotal = 0;
                             @Pc(940) int extrasTotal = 0;
                             for (@Pc(942) int archive = 0; archive < 37; archive++) {
-                                if (client.js5ResourceProviders[archive] != null) {
-                                    entryTotal += client.js5ResourceProviders[archive].entryCount();
-                                    loadedTotal += client.js5ResourceProviders[archive].loadedCount();
-                                    extrasTotal += client.js5ResourceProviders[archive].extrasCount();
+                                if (Client.js5ResourceProviders[archive] != null) {
+                                    entryTotal += Client.js5ResourceProviders[archive].entryCount();
+                                    loadedTotal += Client.js5ResourceProviders[archive].loadedCount();
+                                    extrasTotal += Client.js5ResourceProviders[archive].extrasCount();
                                 }
                             }
 
@@ -616,7 +617,7 @@ public final class InterfaceManager {
                             }
 
                             if (child == dialog) {
-                                text = LocalisedText.PLEASEWAIT.localise(client.language);
+                                text = LocalisedText.PLEASEWAIT.localise(Client.language);
                                 colour = child.colour;
                             }
 
@@ -1020,9 +1021,9 @@ public final class InterfaceManager {
         }
 
         if (text.length() > 9) {
-            return " <col=00ff80>" + text.substring(0, text.length() - 8) + LocalisedText.MILLION.localise(client.language) + " (" + text + ")</col>";
+            return " <col=00ff80>" + text.substring(0, text.length() - 8) + LocalisedText.MILLION.localise(Client.language) + " (" + text + ")</col>";
         } else if (text.length() > 6) {
-            return " <col=ffffff>" + text.substring(0, text.length() - 4) + LocalisedText.THOUSAND.localise(client.language) + " (" + text + ")</col>";
+            return " <col=ffffff>" + text.substring(0, text.length() - 4) + LocalisedText.THOUSAND.localise(Client.language) + " (" + text + ")</col>";
         } else {
             return " <col=ffff00>" + text + "</col>";
         }
@@ -1476,8 +1477,8 @@ public final class InterfaceManager {
                                         endTargetMode();
                                     }
                                 } else {
-                                    if (client.modeGame == ModeGame.STELLAR_DAWN) {
-                                        MiniMenu.addEntry(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(client.language), MiniMenuAction.FACE_SQUARE, true, -1, "", 0L, true);
+                                    if (Client.modeGame == ModeGame.STELLAR_DAWN) {
+                                        MiniMenu.addEntry(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(Client.language), MiniMenuAction.FACE_SQUARE, true, -1, "", 0L, true);
                                     }
 
                                     MiniMenu.addEntry(false, -1, 1L, local1191, local1199, Static331.walkText, MiniMenuAction.WALK, true, Static331.walkCursor, "", 0L, true);
@@ -1545,7 +1546,7 @@ public final class InterfaceManager {
                                 }
 
                                 if (Static460.anInt6964 > 0 && !Static1.aBoolean821) {
-                                    if ((Static219.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.entryCount > 2) {
+                                    if ((Client.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.entryCount > 2) {
                                         Static455.method6223(dragStartX, dragStartY);
                                     } else if (MiniMenu.isPopulated()) {
                                         Static455.method6223(dragStartX, dragStartY);
@@ -1903,7 +1904,7 @@ public final class InterfaceManager {
 
                         @Pc(2824) SubInterface sub = (SubInterface) subInterfaces.get(component.slot);
                         if (sub != null) {
-                            if (client.modeGame == ModeGame.RUNESCAPE && sub.type == Component.TYPE_LAYER && !MiniMenu.open && hovered && !testOpacity) {
+                            if (Client.modeGame == ModeGame.RUNESCAPE && sub.type == Component.TYPE_LAYER && !MiniMenu.open && hovered && !testOpacity) {
                                 MiniMenu.reset();
                             }
 
@@ -2384,15 +2385,15 @@ public final class InterfaceManager {
 
         @Pc(95) Container topContainer;
         if (GameShell.fsframe != null) {
-            client.frameHei = height;
-            client.frameWid = width;
+            Client.frameHei = height;
+            Client.frameWid = width;
             topContainer = GameShell.fsframe;
         } else if (GameShell.frame != null) {
             @Pc(110) Insets insets = GameShell.frame.getInsets();
-            client.frameWid = GameShell.frame.getSize().width - insets.right - insets.left;
+            Client.frameWid = GameShell.frame.getSize().width - insets.right - insets.left;
 
             @Pc(126) int negativeTop = -insets.top;
-            client.frameHei = GameShell.frame.getSize().height + negativeTop - insets.bottom;
+            Client.frameHei = GameShell.frame.getSize().height + negativeTop - insets.bottom;
             topContainer = GameShell.frame;
         } else {
             if (GameShell.loaderApplet == null) {
@@ -2401,20 +2402,20 @@ public final class InterfaceManager {
                 topContainer = GameShell.loaderApplet;
             }
 
-            client.frameWid = topContainer.getSize().width;
-            client.frameHei = topContainer.getSize().height;
+            Client.frameWid = topContainer.getSize().width;
+            Client.frameHei = topContainer.getSize().height;
         }
 
         if (newMode == WindowMode.FIXED) {
             GameShell.topMargin = 0;
-            GameShell.leftMargin = (client.frameWid - client.loadingScreenWidth) / 2;
-            GameShell.canvasHei = client.loadingScreenHeight;
-            GameShell.canvasWid = client.loadingScreenWidth;
+            GameShell.leftMargin = (Client.frameWid - Client.loadingScreenWidth) / 2;
+            GameShell.canvasHei = Client.loadingScreenHeight;
+            GameShell.canvasWid = Client.loadingScreenWidth;
         } else {
             Static323.method4625();
         }
 
-        if (client.modeWhere != ModeWhere.LIVE) {
+        if (Client.modeWhere != ModeWhere.LIVE) {
             @Pc(178) boolean tooSmall;
             if (GameShell.canvasWid < 1024 && GameShell.canvasHei < 768) {
                 tooSmall = true;
@@ -2501,7 +2502,7 @@ public final class InterfaceManager {
 
         if (serverActiveProperties(component).isPauseButton()) {
             if (component.pauseText == null) {
-                MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, LocalisedText.CONTINUE.localise(client.language), MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
+                MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, LocalisedText.CONTINUE.localise(Client.language), MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
             } else {
                 MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, component.pauseText, MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
             }

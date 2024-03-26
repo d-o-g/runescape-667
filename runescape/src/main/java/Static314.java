@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -13,7 +14,7 @@ public final class Static314 {
 
     @OriginalMember(owner = "client!jw", name = "b", descriptor = "(B)V")
     public static void method4562() {
-        if (client.modeWhere != ModeWhere.LOCAL) {
+        if (Client.modeWhere != ModeWhere.LOCAL) {
             try {
                 JavaScript.call("tbrefresh", client.aClient1);
             } catch (@Pc(34) Throwable local34) {

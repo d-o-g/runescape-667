@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -36,7 +37,7 @@ public final class WorldComparator {
 
             return populationA - populationB;
         } else if (comparison == COMPARE_BY_LANGUAGE) {
-            return Static540.compare(b.method6717().name, client.language, a.method6717().name);
+            return Static540.compare(b.method6717().name, Client.language, a.method6717().name);
         } else if (comparison == COMPARE_BY_ACTIVITY) {
             if (a.activity.equals("-")) {
                 if (b.activity.equals("-")) {
@@ -49,7 +50,7 @@ public final class WorldComparator {
             } else if (b.activity.equals("-")) {
                 return descending ? 1 : -1;
             } else {
-                return Static540.compare(b.activity, client.language, a.activity);
+                return Static540.compare(b.activity, Client.language, a.activity);
             }
         } else if (comparison == COMPARE_BY_LOOTSHARE) {
             if (a.isLootShare()) {

@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.util.SystemTimer;
 import rs2.client.loading.LoadState;
 import com.jagex.math.IntMath;
@@ -34,7 +35,7 @@ public final class Static709 {
         @Pc(27) LoadState local27 = Static473.aLoadState_22;
         @Pc(35) int local35 = Static523.method3448();
         if (Static473.aLoadState_22 == local27) {
-            Static579.aString106 = Static473.aLoadState_22.stalledText.localise(client.language);
+            Static579.aString106 = Static473.aLoadState_22.stalledText.localise(Client.language);
             if (Static473.aLoadState_22.updatePercentage) {
                 Static376.anInt5919 = Static473.aLoadState_22.startPercentage + local35 * (Static473.aLoadState_22.endPercentage - Static473.aLoadState_22.startPercentage) / 100;
             }
@@ -45,7 +46,7 @@ public final class Static709 {
             Static449.aLoadingScreenRenderer_1 = null;
             MainLogicManager.setStep(3);
         } else {
-            Static579.aString106 = local27.changedText.localise(client.language);
+            Static579.aString106 = local27.changedText.localise(Client.language);
             if (Static473.aLoadState_22.displayPercentage) {
                 Static579.aString106 = Static579.aString106 + local27.endPercentage + "%";
             }

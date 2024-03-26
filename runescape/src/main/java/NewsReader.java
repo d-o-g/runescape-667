@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.constants.ModeWhere;
@@ -72,8 +73,8 @@ public final class NewsReader implements Runnable {
 
         if (this.resource == null) {
             try {
-                @Pc(23) int port = ModeWhere.LIVE == client.modeWhere ? 80 : Login.worldInfo.id + 7000;
-                this.resource = SignLink.instance.openStream(new URL("http://" + Login.worldInfo.address + ":" + port + "/news.ws?game=" + client.modeGame.id));
+                @Pc(23) int port = ModeWhere.LIVE == Client.modeWhere ? 80 : Login.worldInfo.id + 7000;
+                this.resource = SignLink.instance.openStream(new URL("http://" + Login.worldInfo.address + ":" + port + "/news.ws?game=" + Client.modeGame.id));
             } catch (@Pc(54) MalformedURLException ignored) {
                 return true;
             }

@@ -1,4 +1,5 @@
 import com.jagex.Class84;
+import com.jagex.Client;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.Files;
@@ -115,7 +116,7 @@ public final class debugconsole {
             lines[i] = "";
         }
 
-        addline(LocalisedText.DEBUG_CONSOLE_INFO.localise(client.language));
+        addline(LocalisedText.DEBUG_CONSOLE_INFO.localise(Client.language));
     }
 
     @OriginalMember(owner = "client!tca", name = "bb", descriptor = "(I)Z")
@@ -191,8 +192,8 @@ public final class debugconsole {
                 return;
             }
             if (command.equalsIgnoreCase("displayfps")) {
-                client.displayFps = !client.displayFps;
-                if (!client.displayFps) {
+                Client.displayFps = !Client.displayFps;
+                if (!Client.displayFps) {
                     addline("FPS off");
                     return;
                 }
@@ -219,11 +220,11 @@ public final class debugconsole {
                 }
             }
         } catch (@Pc(323) Exception ignored) {
-            addline(LocalisedText.DEBUG_CONSOLE_ERROR.localise(client.language));
+            addline(LocalisedText.DEBUG_CONSOLE_ERROR.localise(Client.language));
             return;
         }
 
-        if (ModeWhere.LIVE != client.modeWhere || Static608.staffModLevel >= 2) {
+        if (ModeWhere.LIVE != Client.modeWhere || Static608.staffModLevel >= 2) {
             if (command.equalsIgnoreCase("errortest")) {
                 throw new RuntimeException();
             }
@@ -249,12 +250,12 @@ public final class debugconsole {
                     }
                 }
                 if (command.equalsIgnoreCase("fpson")) {
-                    client.displayFps = true;
+                    Client.displayFps = true;
                     addline("fps debug enabled");
                     return;
                 }
                 if (command.equalsIgnoreCase("fpsoff")) {
-                    client.displayFps = false;
+                    Client.displayFps = false;
                     addline("fps debug disabled");
                     return;
                 }
@@ -313,17 +314,17 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("rotateconnectmethods")) {
-                    client.gameConnection.rotateMethods();
+                    Client.gameConnection.rotateMethods();
                     addline("Rotated connection methods");
                     return;
                 }
                 if (command.equalsIgnoreCase("clientjs5drop")) {
-                    client.js5WorkerThread.close();
+                    Client.js5WorkerThread.close();
                     addline("Dropped client com.jagex.js5.js5 net queue");
                     return;
                 }
                 if (command.equalsIgnoreCase("serverjs5drop")) {
-                    client.js5WorkerThread.closeServer();
+                    Client.js5WorkerThread.closeServer();
                     addline("Dropped server com.jagex.js5.js5 net queue");
                     return;
                 }
@@ -336,7 +337,7 @@ public final class debugconsole {
                             connection.connection.breakConnection();
                         }
                     }
-                    client.js5WorkerThread.stop();
+                    Client.js5WorkerThread.stop();
                     addline("Breaking new connections for 5 seconds");
                     return;
                 }
@@ -603,7 +604,7 @@ public final class debugconsole {
                 }
 
                 if (command.equals("getworld")) {
-                    addline("w: " + client.gameConnection.id);
+                    addline("w: " + Client.gameConnection.id);
                     return;
                 }
 
@@ -895,18 +896,18 @@ public final class debugconsole {
                     ConnectionManager.GAME.send(local2836);
                 }
 
-                if (command.startsWith("fps ") && client.modeWhere != ModeWhere.LIVE) {
+                if (command.startsWith("fps ") && Client.modeWhere != ModeWhere.LIVE) {
                     GameShell.setspeed(StringTools.parseDecimal(command.substring(4)));
                     return;
                 }
             } catch (@Pc(2894) Exception ignored) {
-                addline(LocalisedText.DEBUG_CONSOLE_ERROR.localise(client.language));
+                addline(LocalisedText.DEBUG_CONSOLE_ERROR.localise(Client.language));
                 return;
             }
         }
 
         if (MainLogicManager.step != 11) {
-            addline(LocalisedText.DEBUG_CONSOLE_UNKNOWNCOMMAND.localise(client.language) + command);
+            addline(LocalisedText.DEBUG_CONSOLE_UNKNOWNCOMMAND.localise(Client.language) + command);
         }
     }
 }

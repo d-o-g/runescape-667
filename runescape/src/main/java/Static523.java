@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.SignLink;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.Animator;
@@ -100,7 +101,7 @@ public final class Static523 {
         }
         if (LoadState.INIT_LOADING_SCREEN_ARCHIVES == Static473.aLoadState_22) {
             if (Static228.js5MasterIndex == null) {
-                Static228.js5MasterIndex = new Js5MasterIndex(client.js5WorkerThread, Static66.aCachedResourceWorker_1, Static442.JS5_RSA_EXPONENT, Static670.JS5_RSA_MODULUS);
+                Static228.js5MasterIndex = new Js5MasterIndex(Client.js5WorkerThread, Static66.aCachedResourceWorker_1, Static442.JS5_RSA_EXPONENT, Static670.JS5_RSA_MODULUS);
             }
             if (!Static228.js5MasterIndex.method5800()) {
                 return 0;
@@ -114,9 +115,9 @@ public final class Static523 {
         @Pc(184) boolean local184;
         if (LoadState.FETCH_LOADING_SCREEN_RESOURCES == Static473.aLoadState_22) {
             local184 = js5.LOADING_SCREENS.isComplete();
-            local74 = client.js5ResourceProviders[33].indexPercentage();
-            local74 += client.js5ResourceProviders[Static297.loadingSpritesRaw ? 34 : 32].indexPercentage();
-            local74 += client.js5ResourceProviders[13].indexPercentage();
+            local74 = Client.js5ResourceProviders[33].indexPercentage();
+            local74 += Client.js5ResourceProviders[Static297.loadingSpritesRaw ? 34 : 32].indexPercentage();
+            local74 += Client.js5ResourceProviders[13].indexPercentage();
             local74 += local184 ? 100 : js5.LOADING_SCREENS.completePercentage();
             if (local74 != 400) {
                 return local74 / 4;
@@ -125,7 +126,7 @@ public final class Static523 {
             Static466.anInt7042 = js5.LOADING_SCREENS.indexCrc();
             Fonts.load(js5.LOADING_SPRITES);
             @Pc(250) int local250 = ClientOptions.instance.loadingSequence.getValue();
-            Static333.aClass279_1 = new Class279(client.modeGame, client.language, js5.LOADING_SCREENS);
+            Static333.aClass279_1 = new Class279(Client.modeGame, Client.language, js5.LOADING_SCREENS);
             @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
             if (local262.length == 0) {
                 local262 = Static333.aClass279_1.method6275(0);
@@ -204,8 +205,8 @@ public final class Static523 {
         if (Static473.aLoadState_22 == LoadState.GET_JS5_INDEXES) {
             local12 = 0;
             for (local74 = 0; local74 < 37; local74++) {
-                if (client.js5ResourceProviders[local74] != null) {
-                    local12 += client.js5ResourceProviders[local74].indexPercentage() * Static462.anIntArray556[local74] / 100;
+                if (Client.js5ResourceProviders[local74] != null) {
+                    local12 += Client.js5ResourceProviders[local74].indexPercentage() * Static462.anIntArray556[local74] / 100;
                 }
             }
             if (local12 != 100) {
@@ -245,37 +246,37 @@ public final class Static523 {
                 return 99;
             }
             Js5TextureSource.instance = new Js5TextureSource(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
-            ParamTypeList.instance = new ParamTypeList(client.modeGame, client.language, js5.CONFIG);
-            BASTypeList.instance = new BASTypeList(client.modeGame, client.language, js5.CONFIG, WearposDefaults.instance);
-            CursorTypeList.instance = new CursorTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
-            EnumTypeList.instance = new EnumTypeList(client.modeGame, client.language, js5.CONFIG_ENUM);
-            FloorOverlayTypeList.instance = new FloorOverlayTypeList(client.modeGame, client.language, js5.CONFIG);
-            FloorUnderlayTypeList.instance = new FloorUnderlayTypeList(client.modeGame, client.language, js5.CONFIG);
-            HitmarkTypeList.instance = new HitmarkTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
-            IDKTypeList.instance = new IDKTypeList(client.modeGame, client.language, js5.CONFIG, js5.MODELS);
-            InvTypeList.instance = new InvTypeList(client.modeGame, client.language, js5.CONFIG);
-            LightTypeList.instance = new LightTypeList(client.modeGame, client.language, js5.CONFIG);
-            LocTypeList.instance = new LocTypeList(client.modeGame, client.language, true, js5.CONFIG_LOC, js5.MODELS);
-            MapElementTypeList.instance = new MapElementTypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
-            MSITypeList.instance = new MSITypeList(client.modeGame, client.language, js5.CONFIG, js5.SPRITES);
-            NPCTypeList.instance = new NPCTypeList(client.modeGame, client.language, true, js5.CONFIG_NPC, js5.MODELS);
-            ObjTypeList.instance = new ObjTypeList(client.modeGame, client.language, true, ParamTypeList.instance, js5.CONFIG_OBJ, js5.MODELS);
-            QuestTypeList.instance = new QuestTypeList(client.modeGame, client.language, js5.CONFIG);
-            SeqTypeList.instance = new SeqTypeList(client.modeGame, client.language, js5.CONFIG_SEQ, js5.ANIMS, js5.BASES);
-            SkyBoxTypeList.instance = new SkyBoxTypeList(client.modeGame, client.language, js5.CONFIG);
-            SkyBoxSphereTypeList.instance = new SkyBoxSphereTypeList(client.modeGame, client.language, js5.CONFIG);
-            SpotAnimationTypeList.instance = new SpotAnimationTypeList(client.modeGame, client.language, js5.CONFIG_SPOT, js5.MODELS);
-            StructTypeList.instance = new StructTypeList(client.modeGame, client.language, js5.CONFIG);
-            VarcstrTypeList.instance = new VarcstrTypeList(client.modeGame, client.language, js5.CONFIG);
-            VarcTypeList.instance = new VarcTypeList(client.modeGame, client.language, js5.CONFIG);
-            VarBitTypeListClient.instance = new VarBitTypeListClient(client.modeGame, client.language, js5.CONFIG_STRUCT);
-            VarPlayerTypeListClient.instance = new VarPlayerTypeListClient(client.modeGame, client.language, js5.CONFIG);
-            VarClanSettingTypeList.instance = new VarClanSettingTypeList(client.modeGame, client.language, js5.CONFIG);
-            VarClanTypeList.instance = new VarClanTypeList(client.modeGame, client.language, js5.CONFIG);
+            ParamTypeList.instance = new ParamTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            BASTypeList.instance = new BASTypeList(Client.modeGame, Client.language, js5.CONFIG, WearposDefaults.instance);
+            CursorTypeList.instance = new CursorTypeList(Client.modeGame, Client.language, js5.CONFIG, js5.SPRITES);
+            EnumTypeList.instance = new EnumTypeList(Client.modeGame, Client.language, js5.CONFIG_ENUM);
+            FloorOverlayTypeList.instance = new FloorOverlayTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            FloorUnderlayTypeList.instance = new FloorUnderlayTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            HitmarkTypeList.instance = new HitmarkTypeList(Client.modeGame, Client.language, js5.CONFIG, js5.SPRITES);
+            IDKTypeList.instance = new IDKTypeList(Client.modeGame, Client.language, js5.CONFIG, js5.MODELS);
+            InvTypeList.instance = new InvTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            LightTypeList.instance = new LightTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            LocTypeList.instance = new LocTypeList(Client.modeGame, Client.language, true, js5.CONFIG_LOC, js5.MODELS);
+            MapElementTypeList.instance = new MapElementTypeList(Client.modeGame, Client.language, js5.CONFIG, js5.SPRITES);
+            MSITypeList.instance = new MSITypeList(Client.modeGame, Client.language, js5.CONFIG, js5.SPRITES);
+            NPCTypeList.instance = new NPCTypeList(Client.modeGame, Client.language, true, js5.CONFIG_NPC, js5.MODELS);
+            ObjTypeList.instance = new ObjTypeList(Client.modeGame, Client.language, true, ParamTypeList.instance, js5.CONFIG_OBJ, js5.MODELS);
+            QuestTypeList.instance = new QuestTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            SeqTypeList.instance = new SeqTypeList(Client.modeGame, Client.language, js5.CONFIG_SEQ, js5.ANIMS, js5.BASES);
+            SkyBoxTypeList.instance = new SkyBoxTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            SkyBoxSphereTypeList.instance = new SkyBoxSphereTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            SpotAnimationTypeList.instance = new SpotAnimationTypeList(Client.modeGame, Client.language, js5.CONFIG_SPOT, js5.MODELS);
+            StructTypeList.instance = new StructTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            VarcstrTypeList.instance = new VarcstrTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            VarcTypeList.instance = new VarcTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            VarBitTypeListClient.instance = new VarBitTypeListClient(Client.modeGame, Client.language, js5.CONFIG_STRUCT);
+            VarPlayerTypeListClient.instance = new VarPlayerTypeListClient(Client.modeGame, Client.language, js5.CONFIG);
+            VarClanSettingTypeList.instance = new VarClanSettingTypeList(Client.modeGame, Client.language, js5.CONFIG);
+            VarClanTypeList.instance = new VarClanTypeList(Client.modeGame, Client.language, js5.CONFIG);
             InterfaceManager.init(js5.INTERFACES, js5.FONTMETRICS, js5.SPRITES, js5.MODELS);
             Static110.setBillboardJs5(js5.CONFIG_BILLBOARD);
-            QuickChatCatTypeList.instance = new QuickChatCatTypeList(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
-            QuickChatPhraseTypeList.instance = new QuickChatPhraseTypeList(client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new SimpleFillerDecoder());
+            QuickChatCatTypeList.instance = new QuickChatCatTypeList(Client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL);
+            QuickChatPhraseTypeList.instance = new QuickChatPhraseTypeList(Client.language, js5.QUICKCHAT, js5.QUICKCHAT_GLOBAL, new SimpleFillerDecoder());
             PlayerEntity.initWornObjIds();
             LocTypeList.instance.setAnimateBackground(ClientOptions.instance.animateBackground.getValue() == 0);
             TimedVarDomain.instance = new TimedVarDomain();
@@ -323,7 +324,7 @@ public final class Static523 {
             js5.FONTMETRICS.clearNames(true, true);
             js5.BINARY.clearNames(true, true);
             js5.CONFIG.discardunpacked = 2;
-            client.cleanCaches = true;
+            Client.cleanCaches = true;
             js5.CONFIG_ENUM.discardunpacked = 2;
             js5.CONFIG_LOC.discardunpacked = 2;
             js5.CONFIG_NPC.discardunpacked = 2;

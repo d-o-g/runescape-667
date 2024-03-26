@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.sound.OggKateStream;
 import com.jagex.graphics.Sprite;
@@ -65,7 +66,7 @@ public final class VideoTypeList {
 
         if (Static234.loadedJagtheora) {
             @Pc(34) VideoType type = new VideoType(id, new Js5Video(4096, js5.VIDEOS, id), arg2, transmitOnEnd);
-            type.js5.setLanguage(Static384.aStringArray31[client.language]);
+            type.js5.setLanguage(Static384.aStringArray31[Client.language]);
             recentUse.put(id, type);
         } else {
             VideoManager.ended(id, transmitOnEnd);

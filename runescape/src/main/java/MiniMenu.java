@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.IndexedImage;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeGame;
@@ -225,7 +226,7 @@ public final class MiniMenu {
                     }
                 } else {
                     if (Static501.aBoolean576) {
-                        addEntry(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(client.language), 11, true, -1, "", local142 | local140 << 0, true);
+                        addEntry(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(Client.language), 11, true, -1, "", local142 | local140 << 0, true);
                     }
                     addEntry(false, -1, 0L, local140, local142, Static331.walkText, 58, true, Static331.walkCursor, "", local142 | local140 << 0, true);
                 }
@@ -572,7 +573,7 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
     public static void setCancelEntry() {
-        cancelEntry = new MiniMenuEntry(LocalisedText.CANCEL.localise(client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
+        cancelEntry = new MiniMenuEntry(LocalisedText.CANCEL.localise(Client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
     }
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "(ILclient!pg;)V")
@@ -643,7 +644,7 @@ public final class MiniMenu {
         }
 
         if (npc.combatLevel != 0) {
-            @Pc(67) String text = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(client.language) : LocalisedText.LEVEL.localise(client.language);
+            @Pc(67) String text = ModeGame.STELLAR_DAWN == Client.modeGame ? LocalisedText.RATING.localise(Client.language) : LocalisedText.LEVEL.localise(Client.language);
             npcName = npcName + colourCode(PlayerEntity.self.combatLevel, npc.combatLevel) + " (" + text + npc.combatLevel + ")";
         }
 
@@ -668,7 +669,7 @@ public final class MiniMenu {
         }
 
         for (@Pc(189) int op = ops.length - 1; op >= 0; op--) {
-            if (ops[op] != null && (type.aByte107 == 0 || !ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) && !ops[op].equalsIgnoreCase(LocalisedText.EXAMINE.localise(client.language)))) {
+            if (ops[op] != null && (type.aByte107 == 0 || !ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) && !ops[op].equalsIgnoreCase(LocalisedText.EXAMINE.localise(Client.language)))) {
                 @Pc(226) short action = 0;
                 @Pc(228) int cursor = Cursor.interaction;
 
@@ -698,13 +699,13 @@ public final class MiniMenu {
                     cursor = type.cursor2;
                 }
 
-                addEntry(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
+                addEntry(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
             }
         }
 
         if (type.aByte107 == 1) {
             for (@Pc(341) int op = 0; op < ops.length; op++) {
-                if (ops[op] != null && (ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) || ops[op].equalsIgnoreCase(LocalisedText.EXAMINE.localise(client.language)))) {
+                if (ops[op] != null && (ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) || ops[op].equalsIgnoreCase(LocalisedText.EXAMINE.localise(Client.language)))) {
                     @Pc(372) short offset = 0;
                     if (npc.combatLevel > PlayerEntity.self.combatLevel) {
                         offset = 2000;
@@ -742,7 +743,7 @@ public final class MiniMenu {
                         cursor = type.cursor2;
                     }
 
-                    addEntry(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
+                    addEntry(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
                 }
             }
         }
@@ -794,7 +795,7 @@ public final class MiniMenu {
 
         @Pc(63) String text;
         if (InterfaceManager.targetMode && entryCount < 2) {
-            text = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(client.language) + InterfaceManager.targetedVerb + " ->";
+            text = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(Client.language) + InterfaceManager.targetedVerb + " ->";
         } else if (Static209.shiftClick && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT) && entryCount > 2) {
             text = getLineText(leftClickEntry);
         } else {
@@ -839,7 +840,7 @@ public final class MiniMenu {
         }
 
         if (entryCount > 2) {
-            text = text + "<col=ffffff> / " + (entryCount - 2) + LocalisedText.MOREOPTIONS.localise(client.language);
+            text = text + "<col=ffffff> / " + (entryCount - 2) + LocalisedText.MOREOPTIONS.localise(Client.language);
         }
 
         if (WorldMap.optionsComponent != null) {
@@ -850,7 +851,7 @@ public final class MiniMenu {
 
             font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.horizontalAlignment, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, Static493.aRandom1, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, icons, Static178.anInt2947, WorldMap.optionsY, WorldMap.optionsComponent.verticalAlignment);
             InterfaceManager.redrawWithin(Static329.anIntArray163[2], Static329.anIntArray163[0], Static329.anIntArray163[3], Static329.anIntArray163[1]);
-        } else if (InterfaceManager.optionsComponent != null && client.modeGame == ModeGame.RUNESCAPE) {
+        } else if (InterfaceManager.optionsComponent != null && Client.modeGame == ModeGame.RUNESCAPE) {
             @Pc(299) int local299 = Fonts.b12.renderRandom(icons, Static178.anInt2947, 0xFFFFFF, InterfaceManager.optionsY + 16, text, iconHeights, 0, Static493.aRandom1, InterfaceManager.optionsX + 4);
             InterfaceManager.redrawWithin(local299 + Fonts.b12Metrics.stringWidth(text), InterfaceManager.optionsX - -4, 16, InterfaceManager.optionsY);
         }
@@ -859,11 +860,11 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!qf", name = "a", descriptor = "(Lclient!pg;B)Ljava/lang/String;")
     public static String getLineText(@OriginalArg(0) MiniMenuEntry entry) {
         if (entry.activeEntry == null || entry.activeEntry.length() == 0) {
-            return entry.opBase == null || entry.opBase.length() <= 0 ? entry.op : entry.op + LocalisedText.MINISEPARATOR.localise(client.language) + entry.opBase;
+            return entry.opBase == null || entry.opBase.length() <= 0 ? entry.op : entry.op + LocalisedText.MINISEPARATOR.localise(Client.language) + entry.opBase;
         } else if (entry.opBase == null || entry.opBase.length() <= 0) {
-            return entry.op + LocalisedText.MINISEPARATOR.localise(client.language) + entry.activeEntry;
+            return entry.op + LocalisedText.MINISEPARATOR.localise(Client.language) + entry.activeEntry;
         } else {
-            return entry.op + LocalisedText.MINISEPARATOR.localise(client.language) + entry.opBase + LocalisedText.MINISEPARATOR.localise(client.language) + entry.activeEntry;
+            return entry.op + LocalisedText.MINISEPARATOR.localise(Client.language) + entry.opBase + LocalisedText.MINISEPARATOR.localise(Client.language) + entry.activeEntry;
         }
     }
 
@@ -1005,13 +1006,13 @@ public final class MiniMenu {
 
         if (player == PlayerEntity.self) {
             if (InterfaceManager.targetMode && (InterfaceManager.targetMask & TargetMask.TGT_SELF) != 0) {
-                addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(client.language), player.id, false);
+                addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Client.language), player.id, false);
             }
         } else {
             @Pc(177) String name;
             if (player.skillRating != 0) {
                 if (player.skillRating != -1) {
-                    name = player.getDisplayName(false, true) + " (" + LocalisedText.SKILL.localise(client.language) + player.skillRating + ")";
+                    name = player.getDisplayName(false, true) + " (" + LocalisedText.SKILL.localise(Client.language) + player.skillRating + ")";
                 } else {
                     name = player.getDisplayName(false, true);
                 }
@@ -1028,7 +1029,7 @@ public final class MiniMenu {
                     }
                 }
 
-                @Pc(129) String prefix = ModeGame.STELLAR_DAWN == client.modeGame ? LocalisedText.RATING.localise(client.language) : LocalisedText.LEVEL.localise(client.language);
+                @Pc(129) String prefix = ModeGame.STELLAR_DAWN == Client.modeGame ? LocalisedText.RATING.localise(Client.language) : LocalisedText.LEVEL.localise(Client.language);
                 if (player.combatLevel >= player.maxCombatLevel) {
                     name = player.getDisplayName(false, true) + (outOfRange ? colourCode(PlayerEntity.self.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + prefix + player.combatLevel + ")";
                 } else {
@@ -1046,7 +1047,7 @@ public final class MiniMenu {
                 for (@Pc(318) int op = 7; op >= 0; op--) {
                     if (playerOps[op] != null) {
                         @Pc(325) short offset = 0;
-                        if (client.modeGame == ModeGame.RUNESCAPE && playerOps[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(client.language))) {
+                        if (Client.modeGame == ModeGame.RUNESCAPE && playerOps[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language))) {
                             if (Static324.reduceAttackPriority && PlayerEntity.self.combatLevel < player.combatLevel) {
                                 offset = 2000;
                             }

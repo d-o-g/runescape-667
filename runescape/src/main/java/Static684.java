@@ -1,4 +1,5 @@
 import com.jagex.ChangeLocationRequest;
+import com.jagex.Client;
 import com.jagex.core.constants.AreaMode;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.camera.CameraMode;
@@ -37,7 +38,7 @@ public final class Static684 {
         }
 
         MainLogicManager.setStep(mainLogicStep);
-        Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language), true, Fonts.p12Metrics, Fonts.p12);
+        Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language), true, Fonts.p12Metrics, Fonts.p12);
 
         @Pc(74) int baseX = WorldMap.areaBaseX;
         WorldMap.areaBaseX = (Static62.areaCenterX - (Static720.mapWidth >> 4)) * 8;

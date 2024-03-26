@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.IndexedImage;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.Font;
@@ -41,8 +42,8 @@ public abstract class Class90 implements LoadingScreenOp {
     @OriginalMember(owner = "client!ea", name = "a", descriptor = "(ZI)V")
     @Override
     public final void execute() {
-        @Pc(18) int local18 = this.aClass138_5.aHorizontalAlignment_10.align(client.loadingScreenWidth, this.aClass138_5.anInt4418) + this.aClass138_5.anInt4423;
-        @Pc(32) int local32 = this.aClass138_5.aVerticalAlignment_10.align(client.loadingScreenHeight, this.aClass138_5.anInt4413) + this.aClass138_5.anInt4412;
+        @Pc(18) int local18 = this.aClass138_5.aHorizontalAlignment_10.align(Client.loadingScreenWidth, this.aClass138_5.anInt4418) + this.aClass138_5.anInt4423;
+        @Pc(32) int local32 = this.aClass138_5.aVerticalAlignment_10.align(Client.loadingScreenHeight, this.aClass138_5.anInt4413) + this.aClass138_5.anInt4412;
         this.method7751(local18, local32);
         this.method7753(local18, local32);
         @Pc(56) String local56 = Static449.aLoadingScreenRenderer_1.getText();

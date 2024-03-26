@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -28,8 +29,8 @@ public final class Static288 {
 
         @Pc(17) int leftMargin = GameShell.leftMargin;
         @Pc(19) int topMargin = GameShell.topMargin;
-        @Pc(27) int rightMargin = client.frameWid - leftMargin - GameShell.canvasWid;
-        @Pc(34) int bottomMargin = client.frameHei - topMargin - GameShell.canvasHei;
+        @Pc(27) int rightMargin = Client.frameWid - leftMargin - GameShell.canvasWid;
+        @Pc(34) int bottomMargin = Client.frameHei - topMargin - GameShell.canvasHei;
         if (leftMargin <= 0 && rightMargin <= 0 && topMargin <= 0 && bottomMargin <= 0) {
             return;
         }
@@ -56,16 +57,16 @@ public final class Static288 {
             graphics.setColor(Color.black);
 
             if (leftMargin > 0) {
-                graphics.fillRect(left, top, leftMargin, client.frameHei);
+                graphics.fillRect(left, top, leftMargin, Client.frameHei);
             }
             if (topMargin > 0) {
-                graphics.fillRect(left, top, client.frameWid, topMargin);
+                graphics.fillRect(left, top, Client.frameWid, topMargin);
             }
             if (rightMargin > 0) {
-                graphics.fillRect(client.frameWid + left - rightMargin, top, rightMargin, client.frameHei);
+                graphics.fillRect(Client.frameWid + left - rightMargin, top, rightMargin, Client.frameHei);
             }
             if (bottomMargin > 0) {
-                graphics.fillRect(left, top + client.frameHei - bottomMargin, client.frameWid, bottomMargin);
+                graphics.fillRect(left, top + Client.frameHei - bottomMargin, Client.frameWid, bottomMargin);
             }
         } catch (@Pc(144) Exception ignored) {
             /* empty */

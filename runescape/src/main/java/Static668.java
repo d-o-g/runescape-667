@@ -1,3 +1,4 @@
+import com.jagex.core.io.ConnectionInfo;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;

@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
@@ -65,7 +66,7 @@ public final class Static352 {
         Component.cacheReset();
         FontTypeList.cacheReset();
         ClientInventory.cacheReset();
-        if (client.modeWhere != ModeWhere.LIVE) {
+        if (Client.modeWhere != ModeWhere.LIVE) {
             for (@Pc(92) int local92 = 0; local92 < Static163.aByteArrayArray36.length; local92++) {
                 Static163.aByteArrayArray36[local92] = null;
             }

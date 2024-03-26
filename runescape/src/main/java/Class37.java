@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.graphics.Sprite;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -33,8 +34,8 @@ public class Class37 implements LoadingScreenOp {
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(ZI)V")
     @Override
     public void execute() {
-        @Pc(19) int local19 = this.aClass160_2.aHorizontalAlignment_9.align(client.loadingScreenWidth, this.aSprite_7.scaleWidth()) + this.aClass160_2.anInt3850;
-        @Pc(34) int local34 = this.aClass160_2.aVerticalAlignment_9.align(client.loadingScreenHeight, this.aSprite_7.scaleHeight()) + this.aClass160_2.anInt3845;
+        @Pc(19) int local19 = this.aClass160_2.aHorizontalAlignment_9.align(Client.loadingScreenWidth, this.aSprite_7.scaleWidth()) + this.aClass160_2.anInt3850;
+        @Pc(34) int local34 = this.aClass160_2.aVerticalAlignment_9.align(Client.loadingScreenHeight, this.aSprite_7.scaleHeight()) + this.aClass160_2.anInt3845;
         this.aSprite_7.render(local19, local34);
     }
 

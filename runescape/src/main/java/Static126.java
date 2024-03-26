@@ -7,9 +7,6 @@ public final class Static126 {
     @OriginalMember(owner = "client!du", name = "f", descriptor = "Lclient!hc;")
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___12 = new CutsceneActionType(52);
 
-    @OriginalMember(owner = "client!du", name = "d", descriptor = "Z")
-    public static boolean aBoolean200 = false;
-
     @OriginalMember(owner = "client!du", name = "a", descriptor = "(BI)V")
     public static void method2226(@OriginalArg(1) int arg0) {
         if (Static96.anInt10171 == 0) {

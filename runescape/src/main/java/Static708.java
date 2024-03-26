@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -14,7 +15,7 @@ public final class Static708 {
 
     @OriginalMember(owner = "client!wga", name = "a", descriptor = "(ILjava/lang/String;)V")
     public static void method9230(@OriginalArg(1) String arg0) {
-        client.settings = arg0;
+        Client.settings = arg0;
         if (GameShell.loaderApplet == null) {
             return;
         }

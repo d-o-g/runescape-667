@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.util.Arrays;
 import com.jagex.game.LocalisedText;
 import com.jagex.js5.js5;
@@ -103,7 +104,7 @@ public final class Static57 {
             }
         }
         if (!local22) {
-            ChatHistory.addPrivateError(LocalisedText.UNABLETOFIND.localise(client.language) + arg0);
+            ChatHistory.addPrivateError(LocalisedText.UNABLETOFIND.localise(Client.language) + arg0);
         }
         if (InterfaceManager.targetMode) {
             InterfaceManager.endTargetMode();

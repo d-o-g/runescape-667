@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.datastruct.key.DequeIterator;
 import com.jagex.core.datastruct.key.QueueIterator;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -61,7 +62,7 @@ public final class Static320 {
             local64 = local204.getType();
         }
         if (!MiniMenu.open) {
-            if (local64 == 0 && (Static219.mouseButtons == 1 && MiniMenu.entryCount > 2 || MiniMenu.topEntryIsIfButtonX1())) {
+            if (local64 == 0 && (Client.mouseButtons == 1 && MiniMenu.entryCount > 2 || MiniMenu.topEntryIsIfButtonX1())) {
                 local64 = 2;
             }
             if (local64 == 2 && MiniMenu.entryCount > 0 && local204 != null) {

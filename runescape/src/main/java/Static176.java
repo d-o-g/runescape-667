@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -23,11 +24,11 @@ public final class Static176 {
     @OriginalMember(owner = "client!fi", name = "a", descriptor = "(ILclient!ge;)V")
     public static void method6690(@OriginalArg(1) Packet arg0) {
         @Pc(6) byte[] local6 = new byte[24];
-        if (client.uidDat != null) {
+        if (Client.uidDat != null) {
             @Pc(18) int local18;
             try {
-                client.uidDat.seek(0L);
-                client.uidDat.read(local6);
+                Client.uidDat.seek(0L);
+                Client.uidDat.read(local6);
                 for (local18 = 0; local18 < 24 && local6[local18] == 0; local18++) {
                 }
                 if (local18 >= 24) {

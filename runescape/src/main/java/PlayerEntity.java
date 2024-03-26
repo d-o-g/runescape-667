@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.Constants;
 import com.jagex.ParticleList;
 import com.jagex.core.constants.ModeWhere;
@@ -562,7 +563,7 @@ public final class PlayerEntity extends PathingEntity {
         this.pkIcon = packet.g1b();
         this.prayerIcon = packet.g1b();
         this.hideOnMap = packet.g1b() == 1;
-        if (ModeWhere.LIVE == client.modeWhere && Static608.staffModLevel >= 2) {
+        if (ModeWhere.LIVE == Client.modeWhere && Static608.staffModLevel >= 2) {
             this.hideOnMap = false;
         }
 
@@ -734,7 +735,7 @@ public final class PlayerEntity extends PathingEntity {
         if (GameShell.maxmemory < 96 && local155 > 50) {
             Static358.method9191();
         }
-        if (ModeWhere.LIVE != client.modeWhere && local155 < 50) {
+        if (ModeWhere.LIVE != Client.modeWhere && local155 < 50) {
             @Pc(181) int local181 = 50 - local155;
             while (Static107.anInt2161 < local181) {
                 Static163.aByteArrayArray36[Static107.anInt2161] = new byte[102400];
@@ -744,7 +745,7 @@ public final class PlayerEntity extends PathingEntity {
                 Static107.anInt2161--;
                 Static163.aByteArrayArray36[Static107.anInt2161] = null;
             }
-        } else if (ModeWhere.LIVE != client.modeWhere) {
+        } else if (ModeWhere.LIVE != Client.modeWhere) {
             Static107.anInt2161 = 0;
             Static163.aByteArrayArray36 = new byte[50][];
         }

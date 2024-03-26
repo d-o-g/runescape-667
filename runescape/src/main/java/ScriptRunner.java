@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.core.constants.MiniMenuAction;
@@ -137,7 +138,7 @@ public final class ScriptRunner {
         if (local4 == null) {
             throw new RuntimeException("sr-c113");
         }
-        @Pc(29) Integer local29 = aClanSettings_7.getExtraSettingVarbit((client.modeGame.id << 16) | local4.baseVar, local4.endBit, local4.startBit);
+        @Pc(29) Integer local29 = aClanSettings_7.getExtraSettingVarbit((Client.modeGame.id << 16) | local4.baseVar, local4.endBit, local4.startBit);
         return local29 == null ? 0 : local29;
     }
 
@@ -147,7 +148,7 @@ public final class ScriptRunner {
         if (local4 == null) {
             throw new RuntimeException("sr-c112");
         }
-        @Pc(24) Integer local24 = aClanSettings_7.getExtraSettingInt(client.modeGame.id << 16 | arg0);
+        @Pc(24) Integer local24 = aClanSettings_7.getExtraSettingInt(Client.modeGame.id << 16 | arg0);
         if (local24 == null) {
             return local4.dataType == 'i' || local4.dataType == '1' ? 0 : -1;
         } else {
@@ -157,7 +158,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "c", descriptor = "(I)J")
     public static long method6413(@OriginalArg(0) int arg0) {
-        @Pc(9) Long local9 = aClanSettings_7.getExtraSettingLong(client.modeGame.id << 16 | arg0);
+        @Pc(9) Long local9 = aClanSettings_7.getExtraSettingLong(Client.modeGame.id << 16 | arg0);
         return local9 == null ? -1L : local9;
     }
 
@@ -1733,7 +1734,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3318) {
-                                        anIntArray578[anInt7142++] = client.gameConnection.id;
+                                        anIntArray578[anInt7142++] = Client.gameConnection.id;
                                         return;
                                     }
                                     if (arg0 == 3321) {
@@ -1761,7 +1762,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3325) {
-                                        anIntArray578[anInt7142++] = Static126.aBoolean200 ? 1 : 0;
+                                        anIntArray578[anInt7142++] = Client.aBoolean200 ? 1 : 0;
                                         return;
                                     }
                                     if (arg0 == 3326) {
@@ -1800,7 +1801,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3335) {
-                                        anIntArray578[anInt7142++] = client.language;
+                                        anIntArray578[anInt7142++] = Client.language;
                                         return;
                                     }
                                     if (arg0 == 3336) {
@@ -1816,7 +1817,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3337) {
-                                        anIntArray578[anInt7142++] = client.affid;
+                                        anIntArray578[anInt7142++] = Client.affid;
                                         return;
                                     }
                                     if (arg0 == 3338) {
@@ -1832,7 +1833,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3341) {
-                                        anIntArray578[anInt7142++] = client.fromBilling ? 1 : 0;
+                                        anIntArray578[anInt7142++] = Client.fromBilling ? 1 : 0;
                                         return;
                                     }
                                     if (arg0 == 3342) {
@@ -2257,7 +2258,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3629) {
-                                            anIntArray578[anInt7142++] = client.country;
+                                            anIntArray578[anInt7142++] = Client.country;
                                             return;
                                         }
                                         if (arg0 == 3630) {
@@ -2708,7 +2709,7 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4104) {
-                                                aStringArray37[anInt7139++] = Static522.method6994(client.language, Static38.method1003(anIntArray578[--anInt7142]));
+                                                aStringArray37[anInt7139++] = Static522.method6994(Client.language, Static38.method1003(anIntArray578[--anInt7142]));
                                                 return;
                                             }
                                             if (arg0 == 4105) {
@@ -2729,7 +2730,7 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4107) {
                                                 anInt7139 -= 2;
-                                                anIntArray578[anInt7142++] = Static540.compare(aStringArray37[anInt7139 + 1], client.language, aStringArray37[anInt7139]);
+                                                anIntArray578[anInt7142++] = Static540.compare(aStringArray37[anInt7139 + 1], Client.language, aStringArray37[anInt7139]);
                                                 return;
                                             }
                                             @Pc(10482) FontMetrics local10482;
@@ -2859,7 +2860,7 @@ public final class ScriptRunner {
                                             if (arg0 == 4124) {
                                                 local575 = anIntArray578[--anInt7142] != 0;
                                                 local21 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = StringTools.formatNumber(client.language, local575, local21, 0);
+                                                aStringArray37[anInt7139++] = StringTools.formatNumber(Client.language, local575, local21, 0);
                                                 return;
                                             }
                                             if (arg0 == 4125) {
@@ -2870,7 +2871,7 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4126) {
-                                                aStringArray37[anInt7139++] = Static647.method8474((long) anIntArray578[--anInt7142] * 60000L, client.language) + " UTC";
+                                                aStringArray37[anInt7139++] = Static647.method8474((long) anIntArray578[--anInt7142] * 60000L, Client.language) + " UTC";
                                                 return;
                                             }
                                             if (arg0 == 4127) {
@@ -4456,7 +4457,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5401) {
                         anInt7142 -= 2;
-                        client.clientpalette[anIntArray578[anInt7142]] = (short) ColourUtils.rgbToHsl(anIntArray578[anInt7142 + 1]);
+                        Client.clientpalette[anIntArray578[anInt7142]] = (short) ColourUtils.rgbToHsl(anIntArray578[anInt7142 + 1]);
                         ObjTypeList.instance.modelCacheReset();
                         ObjTypeList.instance.spriteCacheReset();
                         NPCTypeList.instance.modelCacheReset();
@@ -4501,7 +4502,7 @@ public final class ScriptRunner {
                             System.exit(0);
                             return;
                         }
-                        local95 = client.quitUrl == null ? Static659.method8605() : client.quitUrl;
+                        local95 = Client.quitUrl == null ? Static659.method8605() : Client.quitUrl;
                         Static664.method8655(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local95, false, SignLink.instance);
                         return;
                     }
@@ -4538,13 +4539,13 @@ public final class ScriptRunner {
                         local109 = anIntArray578[--anInt7142];
                         if (local95.length() > 0) {
                             if (Static685.prefixTitles == null) {
-                                Static685.prefixTitles = new String[Static390.anIntArray476[client.modeGame.id]];
+                                Static685.prefixTitles = new String[Static390.anIntArray476[Client.modeGame.id]];
                             }
                             Static685.prefixTitles[local109] = local95;
                         }
                         if (local101.length() > 0) {
                             if (Static377.suffixTitles == null) {
-                                Static377.suffixTitles = new String[Static390.anIntArray476[client.modeGame.id]];
+                                Static377.suffixTitles = new String[Static390.anIntArray476[Client.modeGame.id]];
                             }
                             Static377.suffixTitles[local109] = local101;
                         }
@@ -4647,7 +4648,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5435) {
-                        anIntArray578[anInt7142++] = client.js ? 1 : 0;
+                        anIntArray578[anInt7142++] = Client.js ? 1 : 0;
                         return;
                     }
                     if (arg0 == 5436) {
@@ -4917,7 +4918,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5623) {
-                        if (client.ssKey != null) {
+                        if (Client.ssKey != null) {
                             anIntArray578[anInt7142++] = 1;
                             return;
                         }
@@ -4925,16 +4926,16 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5624) {
-                        anIntArray578[anInt7142++] = (int) (client.userFlow >> 32);
-                        anIntArray578[anInt7142++] = (int) (client.userFlow & 0xFFFFFFFFFFFFFFFFL);
+                        anIntArray578[anInt7142++] = (int) (Client.userFlow >> 32);
+                        anIntArray578[anInt7142++] = (int) (Client.userFlow & 0xFFFFFFFFFFFFFFFFL);
                         return;
                     }
                     if (arg0 == 5625) {
-                        anIntArray578[anInt7142++] = client.under13 ? 1 : 0;
+                        anIntArray578[anInt7142++] = Client.under13 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 5626) {
-                        client.under13 = true;
+                        Client.under13 = true;
                         Static358.method9190();
                         return;
                     }
@@ -5666,11 +5667,11 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6510) {
-                        anIntArray578[anInt7142++] = client.worldFlags;
+                        anIntArray578[anInt7142++] = Client.worldFlags;
                         return;
                     }
                 } else if (arg0 >= 6700) {
-                    if (arg0 < 6800 && client.modeWhat == ModeWhat.WIP) {
+                    if (arg0 < 6800 && Client.modeWhat == ModeWhat.WIP) {
                         if (arg0 == 6700) {
                             local192 = InterfaceManager.subInterfaces.size();
                             if (InterfaceManager.topLevelInterface != -1) {
@@ -6270,7 +6271,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "e", descriptor = "(I)Ljava/lang/String;")
     public static String method6425(@OriginalArg(0) int arg0) {
-        @Pc(9) String local9 = aClanSettings_7.getExtraSettingString(client.modeGame.id << 16 | arg0);
+        @Pc(9) String local9 = aClanSettings_7.getExtraSettingString(Client.modeGame.id << 16 | arg0);
         return local9 == null ? "" : local9;
     }
 
@@ -6317,43 +6318,43 @@ public final class ScriptRunner {
         } else if (local18.startsWith(LocalisedText.CHATCOL11.localise(0))) {
             local20 = 11;
             arg0 = arg0.substring(LocalisedText.CHATCOL11.localise(0).length());
-        } else if (client.language != 0) {
-            if (local18.startsWith(LocalisedText.CHATCOL0.localise(client.language))) {
+        } else if (Client.language != 0) {
+            if (local18.startsWith(LocalisedText.CHATCOL0.localise(Client.language))) {
                 local20 = 0;
-                arg0 = arg0.substring(LocalisedText.CHATCOL0.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL1.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL0.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL1.localise(Client.language))) {
                 local20 = 1;
-                arg0 = arg0.substring(LocalisedText.CHATCOL1.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL2.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL1.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL2.localise(Client.language))) {
                 local20 = 2;
-                arg0 = arg0.substring(LocalisedText.CHATCOL2.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL3.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL2.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL3.localise(Client.language))) {
                 local20 = 3;
-                arg0 = arg0.substring(LocalisedText.CHATCOL3.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL4.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL3.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL4.localise(Client.language))) {
                 local20 = 4;
-                arg0 = arg0.substring(LocalisedText.CHATCOL4.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL5.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL4.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL5.localise(Client.language))) {
                 local20 = 5;
-                arg0 = arg0.substring(LocalisedText.CHATCOL5.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL6.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL5.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL6.localise(Client.language))) {
                 local20 = 6;
-                arg0 = arg0.substring(LocalisedText.CHATCOL6.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL7.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL6.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL7.localise(Client.language))) {
                 local20 = 7;
-                arg0 = arg0.substring(LocalisedText.CHATCOL7.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL8.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL7.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL8.localise(Client.language))) {
                 local20 = 8;
-                arg0 = arg0.substring(LocalisedText.CHATCOL8.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL9.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL8.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL9.localise(Client.language))) {
                 local20 = 9;
-                arg0 = arg0.substring(LocalisedText.CHATCOL9.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL10.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL9.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL10.localise(Client.language))) {
                 local20 = 10;
-                arg0 = arg0.substring(LocalisedText.CHATCOL10.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATCOL11.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATCOL10.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATCOL11.localise(Client.language))) {
                 local20 = 11;
-                arg0 = arg0.substring(LocalisedText.CHATCOL11.localise(client.language).length());
+                arg0 = arg0.substring(LocalisedText.CHATCOL11.localise(Client.language).length());
             }
         }
         local18 = arg0.toLowerCase();
@@ -6373,22 +6374,22 @@ public final class ScriptRunner {
         } else if (local18.startsWith(LocalisedText.CHATEFFECT5.localise(0))) {
             local460 = 5;
             arg0 = arg0.substring(LocalisedText.CHATEFFECT5.localise(0).length());
-        } else if (client.language != 0) {
-            if (local18.startsWith(LocalisedText.CHATEFFECT1.localise(client.language))) {
+        } else if (Client.language != 0) {
+            if (local18.startsWith(LocalisedText.CHATEFFECT1.localise(Client.language))) {
                 local460 = 1;
-                arg0 = arg0.substring(LocalisedText.CHATEFFECT1.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATEFFECT2.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT1.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATEFFECT2.localise(Client.language))) {
                 local460 = 2;
-                arg0 = arg0.substring(LocalisedText.CHATEFFECT2.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATEFFECT3.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT2.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATEFFECT3.localise(Client.language))) {
                 local460 = 3;
-                arg0 = arg0.substring(LocalisedText.CHATEFFECT3.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATEFFECT4.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT3.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATEFFECT4.localise(Client.language))) {
                 local460 = 4;
-                arg0 = arg0.substring(LocalisedText.CHATEFFECT4.localise(client.language).length());
-            } else if (local18.startsWith(LocalisedText.CHATEFFECT5.localise(client.language))) {
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT4.localise(Client.language).length());
+            } else if (local18.startsWith(LocalisedText.CHATEFFECT5.localise(Client.language))) {
                 local460 = 5;
-                arg0 = arg0.substring(LocalisedText.CHATEFFECT5.localise(client.language).length());
+                arg0 = arg0.substring(LocalisedText.CHATEFFECT5.localise(Client.language).length());
             }
         }
         @Pc(650) ServerConnection local650 = ConnectionManager.active();

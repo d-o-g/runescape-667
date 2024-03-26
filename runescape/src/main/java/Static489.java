@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
@@ -202,7 +203,7 @@ public final class Static489 {
             return;
         }
         if (Static213.anInt3472 != 0) {
-            Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
+            Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
         Static557.method7331();
         Static352.cacheReset();

@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -20,7 +21,7 @@ public final class Static104 {
         @Pc(39) int[] local39 = Static664.method8652(local6);
         @Pc(43) int local43 = local6.bitPacket.pos;
         local6.bitPacket.pjstr(arg0);
-        local6.bitPacket.p1(client.language);
+        local6.bitPacket.p1(Client.language);
         local6.bitPacket.pos += 7;
         local6.bitPacket.tinyenc(local39, local43, local6.bitPacket.pos);
         local6.bitPacket.psize2(local6.bitPacket.pos - local28);

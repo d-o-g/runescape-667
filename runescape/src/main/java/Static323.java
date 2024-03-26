@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -61,23 +62,23 @@ public final class Static323 {
         @Pc(34) int local34;
         @Pc(51) int local51;
         if (local5 == 2) {
-            local34 = client.frameWid <= 800 ? client.frameWid : 800;
-            GameShell.leftMargin = (client.frameWid - local34) / 2;
+            local34 = Client.frameWid <= 800 ? Client.frameWid : 800;
+            GameShell.leftMargin = (Client.frameWid - local34) / 2;
             GameShell.canvasWid = local34;
-            local51 = client.frameHei <= 600 ? client.frameHei : 600;
+            local51 = Client.frameHei <= 600 ? Client.frameHei : 600;
             GameShell.topMargin = 0;
             GameShell.canvasHei = local51;
         } else if (local5 == 1) {
-            local34 = client.frameWid <= 1024 ? client.frameWid : 1024;
+            local34 = Client.frameWid <= 1024 ? Client.frameWid : 1024;
             GameShell.canvasWid = local34;
-            local51 = client.frameHei <= 768 ? client.frameHei : 768;
-            GameShell.leftMargin = (client.frameWid - local34) / 2;
+            local51 = Client.frameHei <= 768 ? Client.frameHei : 768;
+            GameShell.leftMargin = (Client.frameWid - local34) / 2;
             GameShell.canvasHei = local51;
             GameShell.topMargin = 0;
         } else {
             GameShell.topMargin = 0;
-            GameShell.canvasHei = client.frameHei;
-            GameShell.canvasWid = client.frameWid;
+            GameShell.canvasHei = Client.frameHei;
+            GameShell.canvasWid = Client.frameWid;
             GameShell.leftMargin = 0;
         }
     }

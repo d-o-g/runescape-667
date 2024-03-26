@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -76,8 +77,8 @@ public final class Static706 {
         if (arg0 == null) {
             return;
         }
-        if (FriendsList.count >= 200 && !Static126.aBoolean200 || FriendsList.count >= 200) {
-            ChatHistory.addPrivateError(LocalisedText.FRIENDLIST_FULL.localise(client.language));
+        if (FriendsList.count >= 200 && !Client.aBoolean200 || FriendsList.count >= 200) {
+            ChatHistory.addPrivateError(LocalisedText.FRIENDLIST_FULL.localise(Client.language));
             return;
         }
         @Pc(34) String local34 = NameTools.format(arg0);
@@ -88,13 +89,13 @@ public final class Static706 {
         for (@Pc(40) int local40 = 0; local40 < FriendsList.count; local40++) {
             @Pc(47) String local47 = NameTools.format(FriendsList.names[local40]);
             if (local47 != null && local47.equals(local34)) {
-                ChatHistory.addPrivateError(arg0 + LocalisedText.FRIENDLISTDUPE.localise(client.language));
+                ChatHistory.addPrivateError(arg0 + LocalisedText.FRIENDLISTDUPE.localise(Client.language));
                 return;
             }
             if (Static572.aStringArray42[local40] != null) {
                 local81 = NameTools.format(Static572.aStringArray42[local40]);
                 if (local81 != null && local81.equals(local34)) {
-                    ChatHistory.addPrivateError(arg0 + LocalisedText.FRIENDLISTDUPE.localise(client.language));
+                    ChatHistory.addPrivateError(arg0 + LocalisedText.FRIENDLISTDUPE.localise(Client.language));
                     return;
                 }
             }
@@ -102,19 +103,19 @@ public final class Static706 {
         for (@Pc(115) int local115 = 0; local115 < Static436.anInt3849; local115++) {
             local81 = NameTools.format(Static632.aStringArray44[local115]);
             if (local81 != null && local81.equals(local34)) {
-                ChatHistory.addPrivateError(LocalisedText.REMOVEIGNORE1.localise(client.language) + arg0 + LocalisedText.REMOVEIGNORE2.localise(client.language));
+                ChatHistory.addPrivateError(LocalisedText.REMOVEIGNORE1.localise(Client.language) + arg0 + LocalisedText.REMOVEIGNORE2.localise(Client.language));
                 return;
             }
             if (Static10.aStringArray1[local115] != null) {
                 @Pc(161) String local161 = NameTools.format(Static10.aStringArray1[local115]);
                 if (local161 != null && local161.equals(local34)) {
-                    ChatHistory.addPrivateError(LocalisedText.REMOVEIGNORE1.localise(client.language) + arg0 + LocalisedText.REMOVEIGNORE2.localise(client.language));
+                    ChatHistory.addPrivateError(LocalisedText.REMOVEIGNORE1.localise(Client.language) + arg0 + LocalisedText.REMOVEIGNORE2.localise(Client.language));
                     return;
                 }
             }
         }
         if (NameTools.format(PlayerEntity.self.accountName).equals(local34)) {
-            ChatHistory.addPrivateError(LocalisedText.FRIENDCANTADDSELF.localise(client.language));
+            ChatHistory.addPrivateError(LocalisedText.FRIENDCANTADDSELF.localise(Client.language));
             return;
         }
         @Pc(230) ServerConnection local230 = ConnectionManager.active();

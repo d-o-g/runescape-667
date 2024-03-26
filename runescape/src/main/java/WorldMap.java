@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.datastruct.key.Deque;
@@ -243,9 +244,9 @@ public final class WorldMap {
             @Pc(38) int x = (childWidth / 2) + childX;
             toolkit.aa(childX, childY, childWidth, childHeight, 0xFF000000, 0);
             @Pc(57) int y = (childY + (childHeight / 2)) - 20 - 18;
-            toolkit.outlineRect(x - 152, y, 304, 34, client.OUTLINE_COLOURS[client.colourId].getRGB(), 0);
-            toolkit.aa(x - 150, y + 2, loadingPercent * 3, 30, client.FILL_COLOURS[client.colourId].getRGB(), 0);
-            Fonts.b12.renderCentre(-1, x, LocalisedText.LOADINGDOTDOTDOT.localise(client.language), y + 20, Static399.aColorArray2[client.colourId].getRGB());
+            toolkit.outlineRect(x - 152, y, 304, 34, Client.OUTLINE_COLOURS[Client.colourId].getRGB(), 0);
+            toolkit.aa(x - 150, y + 2, loadingPercent * 3, 30, Client.FILL_COLOURS[Client.colourId].getRGB(), 0);
+            Fonts.b12.renderCentre(-1, x, LocalisedText.LOADINGDOTDOTDOT.localise(Client.language), y + 20, Static399.aColorArray2[Client.colourId].getRGB());
         } else {
             @Pc(114) int local114 = anInt2809 - (int) ((float) childWidth / currentZoom);
             @Pc(38) int z = anInt9389 + (int) ((float) childHeight / currentZoom);
@@ -271,7 +272,7 @@ public final class WorldMap {
                 }
             }
 
-            if (client.displayFps) {
+            if (Client.displayFps) {
                 @Pc(250) int textX = childWidth + childX - 5;
                 @Pc(256) int textY = childHeight + childY - 8;
                 Fonts.p12.render(textX, "Fps:" + Static652.currentFps, 0xFFFF00, -1, textY);
@@ -325,7 +326,7 @@ public final class WorldMap {
         @Pc(166) int local166 = newHeight + newY - local144 - Static510.anInt7639 * newHeight / areaHeight;
 
         @Pc(168) int colour = 0x88FF0000;
-        if (client.modeGame == ModeGame.STELLAR_DAWN) {
+        if (Client.modeGame == ModeGame.STELLAR_DAWN) {
             colour = 0x88FFFFFF;
         }
 

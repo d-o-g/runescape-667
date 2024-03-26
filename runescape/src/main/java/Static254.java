@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.DelayedStateChange;
@@ -113,8 +114,8 @@ public final class Static254 {
         }
         InterfaceManager.loginOpened();
         Static273.aBoolean339 = true;
-        client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
-        Static331.walkText = LocalisedText.WALKHERE.localise(client.language);
+        Client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
+        Static331.walkText = LocalisedText.WALKHERE.localise(Client.language);
         ClientOptions.instance.update(ClientOptions.instance.removeRoofs.getValue(), ClientOptions.instance.removeRoofsOverride);
         ClientOptions.instance.update(ClientOptions.instance.animateBackgroundDefault.getValue(), ClientOptions.instance.animateBackground);
         Static334.anInt5456 = 0;

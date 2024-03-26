@@ -1,3 +1,4 @@
+import com.jagex.core.io.ConnectionInfo;
 import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

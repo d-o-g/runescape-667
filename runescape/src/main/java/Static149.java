@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Toolkit;
@@ -26,7 +27,7 @@ public final class Static149 {
         @Pc(23) int local23 = local7 + MiniMenu.y;
         @Pc(25) int local25 = MiniMenu.width;
         @Pc(29) int local29 = MiniMenu.height - 3;
-        Static87.method1693(MiniMenu.width, MiniMenu.height, LocalisedText.CHOOSEOPTION.localise(client.language), arg0, local7 + MiniMenu.y, MiniMenu.x - -local5);
+        Static87.method1693(MiniMenu.width, MiniMenu.height, LocalisedText.CHOOSEOPTION.localise(Client.language), arg0, local7 + MiniMenu.y, MiniMenu.x - -local5);
         @Pc(55) int local55 = MouseMonitor.instance.getRecordedX() + local5;
         @Pc(66) int local66 = local7 + MouseMonitor.instance.getRecordedY();
         @Pc(70) int local70;

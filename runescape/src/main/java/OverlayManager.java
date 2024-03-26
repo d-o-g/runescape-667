@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.IndexedImage;
 import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.util.TimeUtils;
@@ -781,7 +782,7 @@ public final class OverlayManager {
             @Pc(1274) int local1274 = local321 + local409;
             @Pc(2654) int local2654 = Fonts.b12Metrics.paddingBottom + screenY + lineY;
 
-            if (Static55.disableChatEffects == 0) {
+            if (Client.disableChatEffects == 0) {
                 @Pc(2663) int rgb = 0xFFFF00;
                 @Pc(2669) int colour = chatLines[i].getColour();
                 if (colour < 6) {

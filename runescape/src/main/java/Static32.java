@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -45,6 +46,6 @@ public final class Static32 {
 
     @OriginalMember(owner = "client!bba", name = "a", descriptor = "(IZZ)V")
     public static void setToolkit(@OriginalArg(0) int toolkit, @OriginalArg(2) boolean arg1) {
-        Static667.setToolkit(arg1, LocalisedText.LOADING.localise(client.language), toolkit);
+        Static667.setToolkit(arg1, LocalisedText.LOADING.localise(Client.language), toolkit);
     }
 }

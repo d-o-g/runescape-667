@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.game.camera.CameraMode;
 import com.jagex.game.camera.Shake;
 import com.jagex.core.io.Packet;
@@ -183,12 +184,12 @@ public final class Static294 {
         Camera.y = local204;
         Camera.yaw = local329;
         Static288.aBoolean356 = false;
-        if (Static426.aBoolean72 && client.js5WorkerThread.urgentCount() == 0) {
+        if (Static426.aBoolean72 && Client.js5WorkerThread.urgentCount() == 0) {
             Static426.aBoolean72 = false;
         }
         if (Static426.aBoolean72) {
             Toolkit.active.fillRect(local153, local159, local155, local161, -16777216);
-            Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(client.language), false, Fonts.p12Metrics, Fonts.p12);
+            Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language), false, Fonts.p12Metrics, Fonts.p12);
         }
         Static501.method6716(false);
     }

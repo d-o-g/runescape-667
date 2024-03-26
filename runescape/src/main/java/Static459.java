@@ -1,3 +1,4 @@
+import com.jagex.core.io.ConnectionInfo;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalMember;
 

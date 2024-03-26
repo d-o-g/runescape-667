@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
@@ -73,7 +74,7 @@ public final class Static603 {
                     if (InterfaceManager.dragTarget != null && Static84.method1657(InterfaceManager.dragSource) != null) {
                         Static710.method6710(InterfaceManager.dragSource, InterfaceManager.dragTarget);
                     }
-                } else if ((Static219.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.entryCount > 2) {
+                } else if ((Client.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.entryCount > 2) {
                     Static455.method6223(InterfaceManager.dragStartX + InterfaceManager.dragLastX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);
                 } else if (MiniMenu.isPopulated()) {
                     Static455.method6223(InterfaceManager.dragLastX + InterfaceManager.dragStartX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);

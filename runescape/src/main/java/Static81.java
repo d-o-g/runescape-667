@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -19,13 +20,13 @@ public final class Static81 {
         @Pc(38) int[] local38 = Static664.method8652(local8);
         @Pc(42) int local42 = local8.bitPacket.pos;
         local8.bitPacket.pjstr(arg0);
-        local8.bitPacket.p2(client.affid);
+        local8.bitPacket.p2(Client.affid);
         local8.bitPacket.pjstr(arg2);
-        local8.bitPacket.p8(client.userFlow);
-        local8.bitPacket.p1(client.language);
-        local8.bitPacket.p1(client.modeGame.id);
+        local8.bitPacket.p8(Client.userFlow);
+        local8.bitPacket.p1(Client.language);
+        local8.bitPacket.p1(Client.modeGame.id);
         Static176.method6690(local8.bitPacket);
-        @Pc(81) String local81 = client.addtionalInfo;
+        @Pc(81) String local81 = Client.addtionalInfo;
         local8.bitPacket.p1(local81 == null ? 0 : 1);
         if (local81 != null) {
             local8.bitPacket.pjstr(local81);
@@ -41,7 +42,7 @@ public final class Static81 {
         Static654.anInt9739 = 0;
         Static6.anInt95 = 1;
         if (arg1 < 13) {
-            client.under13 = true;
+            Client.under13 = true;
             Static358.method9190();
         }
     }

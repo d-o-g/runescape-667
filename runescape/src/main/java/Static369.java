@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
@@ -94,7 +95,7 @@ public final class Static369 {
 
     @OriginalMember(owner = "client!lla", name = "b", descriptor = "(B)V")
     public static void method3852() {
-        if (client.ssKey != null) {
+        if (Client.ssKey != null) {
             Static292.method4615();
         } else if (Static129.anInt2409 == -1) {
             Static616.method8283(Static59.aString63, Static449.aString75);

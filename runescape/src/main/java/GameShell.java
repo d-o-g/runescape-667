@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.Constants;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
@@ -200,11 +201,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             Constants.clientBuild = 667;
 
             canvasWid = 1024;
-            client.frameWid = 1024;
+            Client.frameWid = 1024;
             topMargin = 0;
             leftMargin = 0;
             canvasHei = 768;
-            client.frameHei = 768;
+            Client.frameHei = 768;
 
             instance = this;
 
@@ -215,7 +216,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             frame.setVisible(true);
             frame.toFront();
             @Pc(54) Insets insets = frame.getInsets();
-            frame.setSize(client.frameWid + insets.left + insets.right, insets.bottom + insets.top + client.frameHei);
+            frame.setSize(Client.frameWid + insets.left + insets.right, insets.bottom + insets.top + Client.frameHei);
 
             SignLink.aSignLink_4 = SignLink.instance = new SignLink(arg0, arg1, 37, true);
             @Pc(88) SignedResource resource = SignLink.instance.startThread(this, 1);
@@ -317,11 +318,11 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             if (instance == null) {
                 Constants.sourceApplet = loaderApplet;
                 canvasWid = loadingScreenWidth;
-                client.frameWid = loadingScreenWidth;
+                Client.frameWid = loadingScreenWidth;
                 Constants.clientBuild = build;
                 leftMargin = 0;
                 canvasHei = loadingScreenHeight;
-                client.frameHei = loadingScreenHeight;
+                Client.frameHei = loadingScreenHeight;
                 topMargin = 0;
                 instance = this;
                 SignLink.aSignLink_4 = SignLink.instance = new SignLink(cacheId, game, archiveCount, loaderApplet != null);
@@ -429,7 +430,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
         fullredraw = true;
         if (Static463.aBoolean531 && SystemTimer.safetime() - lastCanvasReplace > 1000L) {
             @Pc(28) Rectangle local28 = arg0.getClipBounds();
-            if (local28 == null || client.frameWid <= local28.width && local28.height >= client.frameHei) {
+            if (local28 == null || Client.frameWid <= local28.width && local28.height >= Client.frameHei) {
                 canvasReplaceRecommended = true;
             }
         }

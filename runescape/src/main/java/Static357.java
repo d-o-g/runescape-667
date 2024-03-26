@@ -12,5 +12,5 @@ public final class Static357 {
     public static int anInt6508 = 1;
 
     @OriginalMember(owner = "client!lea", name = "h", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_30 = new Class155(12);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___30 = new CutsceneActionType(12);
 }

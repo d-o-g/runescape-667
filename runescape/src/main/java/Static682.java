@@ -9,7 +9,7 @@ public final class Static682 {
     public static byte aByte142;
 
     @OriginalMember(owner = "client!vka", name = "f", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_43 = new Class155(61);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___43 = new CutsceneActionType(61);
 
     @OriginalMember(owner = "client!vka", name = "i", descriptor = "[I")
     public static int[] anIntArray817 = new int[2];

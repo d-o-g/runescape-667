@@ -21,7 +21,7 @@ public final class CutsceneAction_Sub8 extends CutsceneAction {
 
     @OriginalMember(owner = "client!gv", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         if (CutsceneManager.cutsceneId != -1) {
             ScriptRunner.executeCutsceneSubtitleTrigger(CutsceneManager.cutsceneId, this.aString39, this.anInt3635);
         }

@@ -42,7 +42,7 @@ public final class ServerProt {
     public static final ServerProt VARP_LARGE = new ServerProt(39, 6);
 
     @OriginalMember(owner = "client!bfa", name = "n", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___18 = new ServerProt(132, -2);
+    public static final ServerProt CUTSCENE = new ServerProt(132, -2);
 
     @OriginalMember(owner = "client!bfa", name = "o", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___19 = new ServerProt(15, 0);

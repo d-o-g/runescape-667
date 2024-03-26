@@ -29,7 +29,7 @@ public final class CutsceneAction_Sub14 extends CutsceneAction {
 
     @OriginalMember(owner = "client!lm", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         Static161.method2586(this.anInt5879, 0, this.anInt5872, this.anInt5874, this.anInt5880);
     }
 }

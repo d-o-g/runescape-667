@@ -38,7 +38,7 @@ public final class CameraSpline extends CutsceneAction {
 
     @OriginalMember(owner = "client!ra", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         Camera.cutsceneSplines[this.posSpline].useSpline(0);
         Camera.cutsceneSplines[this.lookSpline].useSpline(1);
         Camera.splineStart = this.start;
@@ -50,6 +50,6 @@ public final class CameraSpline extends CutsceneAction {
         Camera.splinePosOffset = this.posOffset;
         Camera.splineEnd = this.end;
         Camera.splineTick();
-        Static421.aBoolean480 = true;
+        CutsceneManager.aBoolean480 = true;
     }
 }

@@ -13,12 +13,12 @@ public final class Static187 {
 
     @OriginalMember(owner = "client!fp", name = "a", descriptor = "(Z)V")
     public static void method2842() {
-        Static322.anIntArrayArray265 = null;
+        CutsceneManager.anIntArrayArray265 = null;
         CutsceneManager.cutsceneId = -1;
         Static117.areaMode = AreaMode.STATIC_AREA;
         Static102.lastAreaMode = 0;
         CutsceneManager.state = 0;
-        Static518.aClass2_Sub21_18 = null;
+        CutsceneManager.packet = null;
         Static298.method4385();
         Static525.areaCenterZ = 0;
         WorldMap.areaBaseX = 0;

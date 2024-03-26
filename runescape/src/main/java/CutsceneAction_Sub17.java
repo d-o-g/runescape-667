@@ -32,7 +32,7 @@ public final class CutsceneAction_Sub17 extends CutsceneAction {
 
     @OriginalMember(owner = "client!q", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         @Pc(10) PathingEntity local10 = CutsceneManager.actors[this.anInt7622].entity();
         if (this.anInt7625 == 0) {
             Static651.animate(this.anIntArray611, 0, false, local10);

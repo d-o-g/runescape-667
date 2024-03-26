@@ -432,4 +432,19 @@ public final class Camera {
     private Camera() {
         /* empty */
     }
+
+    @OriginalMember(owner = "client!ot", name = "b", descriptor = "(IIII)V")
+    public static void method6408(@OriginalArg(2) int arg0, @OriginalArg(3) int arg1) {
+        @Pc(11) int local11 = arg1 << 3;
+        @Pc(15) int local15 = arg0 << 3;
+        if (mode == CameraMode.MODE_FIXED) {
+            pitch = local11;
+            roll = 0;
+            yaw = local15;
+        }
+        Static479.aFloat123 = (float) local11;
+        playerCameraYaw = (float) local15;
+        Static723.method9451();
+        Static273.aBoolean339 = true;
+    }
 }

@@ -35,7 +35,7 @@ public final class CutsceneAction_Sub16 extends CutsceneAction {
 
     @OriginalMember(owner = "client!pe", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         Static507.aClass394Array1[this.anInt7273].method9038(this.anInt7278, this.anInt7279, this.anInt7275, this.anInt7280);
     }
 }

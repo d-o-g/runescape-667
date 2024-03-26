@@ -9,7 +9,7 @@ public final class Static12 {
     public static Class123 aClass123_4;
 
     @OriginalMember(owner = "client!ah", name = "f", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_24 = new Class155(13);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___24 = new CutsceneActionType(13);
 
     @OriginalMember(owner = "client!ah", name = "a", descriptor = "(Lclient!ge;I)V")
     public static void method5164(@OriginalArg(0) Packet arg0) {

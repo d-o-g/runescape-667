@@ -21,7 +21,7 @@ public final class CutsceneAction_Sub12 extends CutsceneAction {
 
     @OriginalMember(owner = "client!k", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         CutsceneManager.actors[this.anInt5045].entity().turn(this.anInt5040, true);
     }
 }

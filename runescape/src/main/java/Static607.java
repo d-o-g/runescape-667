@@ -10,9 +10,6 @@ public final class Static607 {
     @OriginalMember(owner = "client!tca", name = "Ci", descriptor = "[I")
     public static final int[] anIntArray711 = new int[1];
 
-    @OriginalMember(owner = "client!tca", name = "eh", descriptor = "I")
-    public static int anInt9251 = -1;
-
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "([BIIIIII[BI)V")
     public static void method8167(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) byte[] arg6, @OriginalArg(8) int arg7) {
         @Pc(10) int local10 = -(arg3 >> 2);

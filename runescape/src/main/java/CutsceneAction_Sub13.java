@@ -26,7 +26,7 @@ public final class CutsceneAction_Sub13 extends CutsceneAction {
 
     @OriginalMember(owner = "client!kha", name = "a", descriptor = "(Z)Z")
     @Override
-    public boolean method9158() {
+    public boolean ready() {
         if (this.aClass2_Sub8_4 == null) {
             this.aClass2_Sub8_4 = Static728.method1153(js5.MIDI_SONGS, this.anInt5431, 0);
         }
@@ -39,7 +39,7 @@ public final class CutsceneAction_Sub13 extends CutsceneAction {
 
     @OriginalMember(owner = "client!kha", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         Static706.method9221(this.aClass2_Sub8_4, this.anInt5433);
     }
 }

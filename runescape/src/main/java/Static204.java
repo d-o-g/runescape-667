@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static204 {
 
     @OriginalMember(owner = "client!gfa", name = "l", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_14 = new Class155(22);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___14 = new CutsceneActionType(22);
 
     @OriginalMember(owner = "client!gfa", name = "u", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___16 = new Deque();

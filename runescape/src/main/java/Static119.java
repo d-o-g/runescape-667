@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static119 {
 
     @OriginalMember(owner = "client!dma", name = "l", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_11 = new Class155(41);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___11 = new CutsceneActionType(41);
 
     @OriginalMember(owner = "client!dma", name = "h", descriptor = "[I")
     public static final int[] anIntArray199 = new int[64];

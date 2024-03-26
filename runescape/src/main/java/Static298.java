@@ -17,7 +17,7 @@ public final class Static298 {
 
     @OriginalMember(owner = "client!ji", name = "b", descriptor = "(I)V")
     public static void method4385() {
-        Static25.A_HASH_TABLE___4.clear();
+        CutsceneVarDomain.cache.clear();
         Static391.A_DEQUE___34.clear();
         Static507.aClass394Array1 = null;
         Camera.cutsceneSplines = null;

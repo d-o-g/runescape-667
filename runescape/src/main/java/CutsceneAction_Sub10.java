@@ -60,7 +60,7 @@ public final class CutsceneAction_Sub10 extends CutsceneAction {
 
     @OriginalMember(owner = "client!hs", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         CutsceneManager.actors[this.anInt4120].entity().hit(this.anInt4126, 0, this.anInt4122, this.anInt4125, TimeUtils.clock, this.anInt4123, this.anInt4119);
     }
 }

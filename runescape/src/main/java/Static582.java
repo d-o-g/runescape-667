@@ -13,7 +13,7 @@ public final class Static582 {
     public static int anInt8629;
 
     @OriginalMember(owner = "client!sfa", name = "h", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_39 = new Class155(3);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___39 = new CutsceneActionType(3);
 
     @OriginalMember(owner = "client!sfa", name = "g", descriptor = "I")
     public static int orthoZoom = 7000;

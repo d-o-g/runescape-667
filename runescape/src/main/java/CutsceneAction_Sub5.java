@@ -22,7 +22,7 @@ public final class CutsceneAction_Sub5 extends CutsceneAction {
 
     @OriginalMember(owner = "client!fka", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         Static323.anInt5120 = CutsceneManager.cutsceneFadeAlpha;
         Static493.anInt7370 = CutsceneManager.cutsceneFadeRed;
         Static582.anInt8628 = CutsceneManager.cutsceneFadeBlue;

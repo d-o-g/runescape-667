@@ -800,22 +800,22 @@ public final class Protocol {
                                             Static265.anIntArray328[Static710.varclanUpdateCount++ & 0x1F] = local277;
                                             arg0.currentProt = null;
                                             return true;
-                                        } else if (ServerProt.A_SERVER_PROT___18 == arg0.currentProt) {
+                                        } else if (ServerProt.CUTSCENE == arg0.currentProt) {
                                             local277 = bitPacket.g2();
-                                            Static607.anInt9251 = -1;
+                                            CutsceneManager.clock = -1;
                                             CutsceneManager.cutsceneId = local277;
                                             CutsceneManager.state = 1;
                                             js5.CUTSCENES.fileready(CutsceneManager.cutsceneId);
                                             local100 = bitPacket.g2();
-                                            Static322.anIntArrayArray265 = new int[local100][4];
+                                            CutsceneManager.anIntArrayArray265 = new int[local100][4];
                                             for (local526 = 0; local526 < local100; local526++) {
                                                 for (local1409 = 0; local1409 < 4; local1409++) {
-                                                    Static322.anIntArrayArray265[local526][local1409] = bitPacket.g4();
+                                                    CutsceneManager.anIntArrayArray265[local526][local1409] = bitPacket.g4();
                                                 }
                                             }
                                             local1409 = bitPacket.g1();
-                                            Static518.aClass2_Sub21_18 = new Packet(local1409);
-                                            Static518.aClass2_Sub21_18.pdata(local1409, bitPacket.data, bitPacket.pos);
+                                            CutsceneManager.packet = new Packet(local1409);
+                                            CutsceneManager.packet.pdata(local1409, bitPacket.data, bitPacket.pos);
                                             bitPacket.pos += local1409;
                                             arg0.currentProt = null;
                                             return false;
@@ -2029,7 +2029,7 @@ public final class Protocol {
                                                                             local277 = bitPacket.g2_alt3();
                                                                             local100 = bitPacket.g2_alt2();
                                                                             Static574.method7573();
-                                                                            Static471.method6408(local100, local277);
+                                                                            Camera.method6408(local100, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (Static404.A_SERVER_PROT___161 == arg0.currentProt) {

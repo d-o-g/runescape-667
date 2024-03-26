@@ -11,7 +11,7 @@ public final class Static89 {
     public static int[] anIntArray169;
 
     @OriginalMember(owner = "client!cp", name = "h", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_9 = new Class155(2);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___9 = new CutsceneActionType(2);
 
     @OriginalMember(owner = "client!cp", name = "a", descriptor = "(ILclient!ca;IILclient!wj;Lclient!c;BI)V")
     public static void method1714(@OriginalArg(0) int arg0, @OriginalArg(1) PlayerEntity arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) NPCEntity arg4, @OriginalArg(5) LocType arg5, @OriginalArg(7) int arg6) {

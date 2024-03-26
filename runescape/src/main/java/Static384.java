@@ -6,7 +6,7 @@ public final class Static384 {
     public static LocOccluder[] aLocOccluderArray2;
 
     @OriginalMember(owner = "client!maa", name = "s", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_26 = new Class155(14);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___26 = new CutsceneActionType(14);
 
     @OriginalMember(owner = "client!maa", name = "u", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___156 = new ServerProt(7, -2);

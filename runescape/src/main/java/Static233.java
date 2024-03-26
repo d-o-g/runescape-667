@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static233 {
 
     @OriginalMember(owner = "client!he", name = "c", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_17 = new Class155(16);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___17 = new CutsceneActionType(16);
 
     @OriginalMember(owner = "client!he", name = "f", descriptor = "[[I")
     public static final int[][] anIntArrayArray90 = new int[][]{{0, 2, 4, 6}, {6, 0, 2, 3, 5, 3}, {6, 0, 2, 4}, {2, 5, 6, 1}, {0, 2, 6}, {6, 0, 2}, {5, 6, 0, 1, 2, 4}, {7, 7, 1, 2, 4, 6}, {2, 4, 4, 7}, {6, 6, 4, 0, 1, 1, 3, 3}, {0, 2, 2, 6, 6, 4}, {0, 2, 2, 3, 7, 0, 4, 3}, {0, 2, 4, 6}};

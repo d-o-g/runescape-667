@@ -35,7 +35,7 @@ public final class CutsceneAction_Sub4 extends CutsceneAction {
 
     @OriginalMember(owner = "client!ega", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         CutsceneManager.actors[this.anInt2532].init(this.anInt2531, this.anInt2528, this.anInt2527, this.anInt2529);
     }
 }

@@ -6,7 +6,7 @@ public final class Static470 {
     public static short aShort82;
 
     @OriginalMember(owner = "client!or", name = "P", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_32 = new Class155(50);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___32 = new CutsceneActionType(50);
 
     @OriginalMember(owner = "client!or", name = "Y", descriptor = "I")
     public static int anInt7112 = -1;

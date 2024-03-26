@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static458 {
 
     @OriginalMember(owner = "client!oi", name = "o", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_31 = new Class155(20);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___31 = new CutsceneActionType(20);
 
     @OriginalMember(owner = "client!oi", name = "a", descriptor = "(Z[[[Lclient!pha;)V")
     public static void method6243(@OriginalArg(1) Tile[][][] arg0) {

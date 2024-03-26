@@ -29,7 +29,7 @@ public final class CutsceneAction_Sub2 extends CutsceneAction {
 
     @OriginalMember(owner = "client!cp", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         CutsceneManager.actors[this.anInt1832].entity().setChatLine(this.anInt1833, this.aString15, 0, this.anInt1834);
     }
 }

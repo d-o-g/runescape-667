@@ -1,6 +1,8 @@
+import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class CutsceneManager {
+
     @OriginalMember(owner = "client!aa", name = "d", descriptor = "I")
     public static int state = 0;
 
@@ -27,4 +29,26 @@ public final class CutsceneManager {
 
     @OriginalMember(owner = "client!gp", name = "a", descriptor = "[Lclient!lw;")
     public static Actor[] actors;
+
+    @OriginalMember(owner = "client!nf", name = "k", descriptor = "Z")
+    public static boolean aBoolean480 = false;
+
+    @OriginalMember(owner = "client!kd", name = "j", descriptor = "[[I")
+    public static int[][] anIntArrayArray265;
+
+    @OriginalMember(owner = "client!qf", name = "C", descriptor = "Lclient!ge;")
+    public static Packet packet;
+
+    @OriginalMember(owner = "client!tca", name = "eh", descriptor = "I")
+    public static int clock = -1;
+
+    @OriginalMember(owner = "client!bc", name = "a", descriptor = "(B)V")
+    public static void method881() {
+        state = 4;
+        anIntArrayArray265 = null;
+        aBoolean480 = false;
+        packet = null;
+        Static298.method4385();
+        ConnectionManager.GAME.send(ClientMessage.create(ClientProt.CUTSCENE_FINISHED, ConnectionManager.GAME.cipher));
+    }
 }

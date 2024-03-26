@@ -82,7 +82,7 @@ public final class Static266 {
                 local118 += local124;
             }
         }
-        local22 = Static322.anIntArrayArray265.length;
+        local22 = CutsceneManager.anIntArrayArray265.length;
         anIntArray615 = new int[local22];
         Static89.anIntArray169 = new int[local22];
         Static319.aByteArrayArray16 = new byte[local22][];
@@ -126,8 +126,8 @@ public final class Static266 {
                 }
             }
         }
-        Static22.anIntArrayArray11 = Static322.anIntArrayArray265;
-        Static322.anIntArrayArray265 = null;
+        Static22.anIntArrayArray11 = CutsceneManager.anIntArrayArray265;
+        CutsceneManager.anIntArrayArray265 = null;
         Static684.updateMapArea(false, Static720.mapWidth >> 4, 12, Static501.mapHeight >> 4);
     }
 

@@ -16,10 +16,10 @@ public final class Static418 {
     public static Class aClass21;
 
     @OriginalMember(owner = "client!nda", name = "F", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_41 = new Class155(17);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___41 = new CutsceneActionType(17);
 
     @OriginalMember(owner = "client!nda", name = "G", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_42 = new Class155(33);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___42 = new CutsceneActionType(33);
 
     @OriginalMember(owner = "client!nda", name = "e", descriptor = "(B)V")
     public static void method7859() {

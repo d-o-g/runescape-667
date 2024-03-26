@@ -27,7 +27,7 @@ public final class CutsceneAction_Sub1_Sub1 extends CutsceneAction_Sub1 {
 
     @OriginalMember(owner = "client!bh", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         @Pc(10) int local10 = this.anInt983 * 512 + 256;
         @Pc(17) int local17 = this.anInt987 * 512 + 256;
         @Pc(30) int local30 = this.anInt986;

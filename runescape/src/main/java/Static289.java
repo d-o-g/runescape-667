@@ -8,7 +8,7 @@ public final class Static289 {
     public static float aFloat84;
 
     @OriginalMember(owner = "client!jba", name = "a", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_19 = new Class155(1);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___19 = new CutsceneActionType(1);
 
     @OriginalMember(owner = "client!jba", name = "a", descriptor = "(IIIII)V")
     public static void method4184(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {

@@ -4717,7 +4717,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5504) {
                         anInt7142 -= 2;
-                        Static471.method6408(anIntArray578[anInt7142 + 1], anIntArray578[anInt7142]);
+                        Camera.method6408(anIntArray578[anInt7142 + 1], anIntArray578[anInt7142]);
                         return;
                     }
                     if (arg0 == 5505) {

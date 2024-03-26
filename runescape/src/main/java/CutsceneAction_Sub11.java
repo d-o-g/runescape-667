@@ -33,9 +33,9 @@ public final class CutsceneAction_Sub11 extends CutsceneAction {
 
     @OriginalMember(owner = "client!ica", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         Camera.moveTo(this.anInt4254, false, 100, this.anInt4253, this.anInt4252, 100);
-        Static471.method6408(this.anInt4251, this.anInt4250);
-        Static421.aBoolean480 = true;
+        Camera.method6408(this.anInt4251, this.anInt4250);
+        CutsceneManager.aBoolean480 = true;
     }
 }

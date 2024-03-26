@@ -12,7 +12,7 @@ public final class Static65 {
     public static final boolean[] aBooleanArray2 = new boolean[100];
 
     @OriginalMember(owner = "client!cba", name = "v", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_8 = new Class155(11);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___8 = new CutsceneActionType(11);
 
     @OriginalMember(owner = "client!cba", name = "c", descriptor = "(B)I")
     public static int profileCpu() {

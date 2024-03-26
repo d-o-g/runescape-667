@@ -14,7 +14,7 @@ public final class Static177 {
     public static Object anObject6;
 
     @OriginalMember(owner = "client!fia", name = "g", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_13 = new Class155(32);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___13 = new CutsceneActionType(32);
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(IBIIIII)V")
     public static void addLocationOccluder(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {

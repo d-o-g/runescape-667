@@ -13,7 +13,7 @@ public final class CutsceneAction_Sub22 extends CutsceneAction {
 
     @OriginalMember(owner = "client!uca", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
-        Static33.method881();
+    public void execute() {
+        CutsceneManager.method881();
     }
 }

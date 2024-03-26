@@ -6,7 +6,7 @@ public final class Static557 {
     public static final ServerProt A_SERVER_PROT___205 = new ServerProt(61, 20);
 
     @OriginalMember(owner = "client!rja", name = "C", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_37 = new Class155(0);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___37 = new CutsceneActionType(0);
 
     @OriginalMember(owner = "client!rja", name = "e", descriptor = "(B)V")
     public static void method7331() {

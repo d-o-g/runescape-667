@@ -89,7 +89,7 @@ public final class CutsceneAction_Sub23 extends CutsceneAction {
 
     @OriginalMember(owner = "client!vca", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         @Pc(18) int level;
 
         @Pc(21) int z1;

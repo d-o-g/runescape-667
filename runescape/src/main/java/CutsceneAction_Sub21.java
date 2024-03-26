@@ -26,7 +26,7 @@ public final class CutsceneAction_Sub21 extends CutsceneAction {
 
     @OriginalMember(owner = "client!sha", name = "b", descriptor = "(I)V")
     @Override
-    public void method9161() {
+    public void execute() {
         @Pc(8) Actor local8 = CutsceneManager.actors[this.anInt8669];
         @Pc(13) Class231 local13 = Static183.aClass231Array1[this.anInt8671];
         local13.method5271(local8, this.anInt8668);

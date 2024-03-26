@@ -576,21 +576,21 @@ public final class client extends GameShell {
                 CutsceneManager.state = 2;
             }
             if (CutsceneManager.state == 2 && MainLogicManager.step != 12) {
-                Static25.A_HASH_TABLE___4.clear();
+                CutsceneVarDomain.cache.clear();
                 Static440.anInt6680 = 0;
-                Static607.anInt9251 = TimeUtils.clock;
+                CutsceneManager.clock = TimeUtils.clock;
                 CutsceneManager.state = 3;
                 Static457.method6231();
             }
             if (CutsceneManager.state == 3) {
-                local80 = TimeUtils.clock - Static607.anInt9251;
+                local80 = TimeUtils.clock - CutsceneManager.clock;
                 if (Static401.aCutsceneActionArray1.length > Static440.anInt6680) {
                     do {
                         @Pc(982) CutsceneAction local982 = Static401.aCutsceneActionArray1[Static440.anInt6680];
-                        if (local982.anInt10553 > local80) {
+                        if (local982.startTime > local80) {
                             break;
                         }
-                        local982.method9161();
+                        local982.execute();
                     } while (CutsceneManager.state == 3 && ++Static440.anInt6680 < Static401.aCutsceneActionArray1.length);
                 }
                 if (CutsceneManager.state == 3) {

@@ -11,7 +11,7 @@ public final class Static719 {
     public static int anInt10504;
 
     @OriginalMember(owner = "client!wq", name = "S", descriptor = "Lclient!hc;")
-    public static final Class155 aClass155_45 = new Class155(60);
+    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___45 = new CutsceneActionType(60);
 
     @OriginalMember(owner = "client!wq", name = "b", descriptor = "(III)I")
     public static int method9118(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {

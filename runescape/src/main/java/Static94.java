@@ -1,3 +1,4 @@
+import com.jagex.game.camera.CameraMode;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -33,9 +34,9 @@ public final class Static94 {
             }
         }
         Static576.method7614();
-        Camera.mode = 1;
-        Static693.anInt10383 = -1;
-        Static692.anInt10376 = -1;
+        Camera.mode = CameraMode.MODE_RESET;
+        Camera.anInt10383 = -1;
+        Camera.anInt10376 = -1;
         MainLogicManager.setStep(11);
         for (@Pc(79) int local79 = 0; local79 < 100; local79++) {
             InterfaceManager.dirtyRectangles[local79] = true;

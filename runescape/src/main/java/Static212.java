@@ -10,12 +10,6 @@ public final class Static212 {
     @OriginalMember(owner = "client!gka", name = "v", descriptor = "Lclient!hc;")
     public static final Class155 aClass155_16 = new Class155(255);
 
-    @OriginalMember(owner = "client!gka", name = "q", descriptor = "[[I")
-    public static final int[][] anIntArrayArray86 = new int[][]{{12, 12, 12, 12}, {12, 12, 12, 12, 12, 5}, {5, 5, 1, 1}, {5, 1, 1, 5}, {5, 5, 5}, {5, 5, 5}, {12, 12, 12, 12, 12, 12}, {1, 12, 12, 12, 12, 12}, {1, 1, 7, 1}, {8, 9, 9, 8, 8, 3, 1, 9}, {8, 8, 9, 8, 9, 9}, {10, 10, 11, 11, 11, 7, 3, 7}, {12, 12, 12, 12}};
-
-    @OriginalMember(owner = "client!gka", name = "p", descriptor = "I")
-    public static int anInt3468 = 0;
-
     @OriginalMember(owner = "client!gka", name = "u", descriptor = "[I")
     public static final int[] anIntArray283 = new int[500];
 

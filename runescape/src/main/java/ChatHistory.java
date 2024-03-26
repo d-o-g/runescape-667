@@ -14,6 +14,11 @@ public final class ChatHistory {
     @OriginalMember(owner = "client!eaa", name = "x", descriptor = "I")
     public static int length;
 
+    @OriginalMember(owner = "client!aea", name = "a", descriptor = "(II)Lclient!pa;")
+    public static ChatLine get(@OriginalArg(0) int index) {
+        return index >= 0 && index < 100 ? lines[index] : null;
+    }
+
     @OriginalMember(owner = "client!cca", name = "a", descriptor = "(ILjava/lang/String;I)V")
     public static void addPrivateError(@OriginalArg(1) String message) {
         add(message, "", 0, "", "", ChatLineType.PRIVATE_ERROR);
@@ -45,5 +50,9 @@ public final class ChatHistory {
         lines[0] = line;
         lastTransmit = World.tick;
         length++;
+    }
+
+    private ChatHistory() {
+        /* empty */
     }
 }

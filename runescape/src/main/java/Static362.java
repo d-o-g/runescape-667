@@ -7,9 +7,6 @@ public final class Static362 {
     @OriginalMember(owner = "client!lha", name = "b", descriptor = "I")
     public static int anInt5828;
 
-    @OriginalMember(owner = "client!lha", name = "a", descriptor = "[I")
-    public static final int[] anIntArray450 = new int[5];
-
     @OriginalMember(owner = "client!lha", name = "f", descriptor = "Lclient!mia;")
     public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___10 = new ClientTriggerType("", 19);
 

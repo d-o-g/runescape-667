@@ -1,3 +1,4 @@
+import com.jagex.game.camera.CameraMode;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -22,14 +23,14 @@ public final class Static114 {
         }
         local37 -= 10;
         @Pc(64) int local64;
-        if (Camera.mode == 4) {
+        if (Camera.mode == CameraMode.MODE_FOUR) {
             local64 = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
             local64 = Camera.yawOffset + (int) Camera.playerCameraYaw & 0x3FFF;
         }
         @Pc(77) int local77 = Trig1.SIN[local64];
         @Pc(81) int local81 = Trig1.COS[local64];
-        if (Camera.mode != 4) {
+        if (Camera.mode != CameraMode.MODE_FOUR) {
             local81 = local81 * 256 / (Camera.scaleOffset + 256);
             local77 = local77 * 256 / (Camera.scaleOffset + 256);
         }

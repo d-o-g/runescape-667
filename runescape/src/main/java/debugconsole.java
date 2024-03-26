@@ -213,8 +213,8 @@ public final class debugconsole {
                 return;
             } else {
                 if (command.equalsIgnoreCase("getcamerapos")) {
-                    addline("Pos: " + PlayerEntity.self.level + "," + ((Camera.x >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ >> 6) + "," + ((Camera.x >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, -29754, Camera.z, Camera.x) - Camera.y));
-                    addline("Look: " + PlayerEntity.self.level + "," + (Camera.lookX + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseZ + Camera.lookZ >> 6) + "," + (WorldMap.areaBaseX + Camera.lookX & 0x3F) + "," + (WorldMap.areaBaseZ + Camera.lookZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, -29754, Camera.lookZ, Camera.lookX) - Camera.lookY));
+                    addline("Pos: " + PlayerEntity.self.level + "," + ((Camera.x >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ >> 6) + "," + ((Camera.x >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.z, Camera.x) - Camera.y));
+                    addline("Look: " + PlayerEntity.self.level + "," + (Camera.lookX + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseZ + Camera.lookZ >> 6) + "," + (WorldMap.areaBaseX + Camera.lookX & 0x3F) + "," + (WorldMap.areaBaseZ + Camera.lookZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.lookZ, Camera.lookX) - Camera.lookY));
                     return;
                 }
             }

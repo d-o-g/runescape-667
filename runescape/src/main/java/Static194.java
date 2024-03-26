@@ -4,9 +4,6 @@ import rs2.client.event.keyboard.KeyLog;
 
 public final class Static194 {
 
-    @OriginalMember(owner = "client!g", name = "j", descriptor = "[I")
-    public static final int[] anIntArray268 = new int[5];
-
     @OriginalMember(owner = "client!g", name = "h", descriptor = "[Lclient!wka;")
     public static final KeyLog[] AN_KEYBOARD_EVENT_ARRAY_1 = new KeyLog[128];
 

@@ -39,7 +39,7 @@ public final class Static231 {
     public static final ClientProt A_CLIENT_PROT___41 = new ClientProt(34, 4);
 
     @OriginalMember(owner = "client!hd", name = "m", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___102 = new ServerProt(34, 6);
+    public static final ServerProt CAMERA_SHAKE = new ServerProt(34, 6);
 
     @OriginalMember(owner = "client!hd", name = "b", descriptor = "(I)V")
     public static void method3375() {

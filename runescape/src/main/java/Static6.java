@@ -1,3 +1,4 @@
+import com.jagex.game.camera.CameraMode;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Sprite;
 import com.jagex.math.Trig1;
@@ -22,7 +23,7 @@ public final class Static6 {
             return;
         }
         @Pc(15) int local15;
-        if (Camera.mode == 4) {
+        if (Camera.mode == CameraMode.MODE_FOUR) {
             local15 = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
             local15 = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
@@ -34,7 +35,7 @@ public final class Static6 {
         }
         @Pc(60) int local60 = Trig1.SIN[local15];
         @Pc(64) int local64 = Trig1.COS[local15];
-        if (Camera.mode != 4) {
+        if (Camera.mode != CameraMode.MODE_FOUR) {
             local60 = local60 * 256 / (Camera.scaleOffset + 256);
             local64 = local64 * 256 / (Camera.scaleOffset + 256);
         }

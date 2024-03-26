@@ -93,6 +93,9 @@ public final class ServerProt {
     @OriginalMember(owner = "client!cn", name = "d", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___37 = new ServerProt(97, -1);
 
+    @OriginalMember(owner = "client!vda", name = "Q", descriptor = "Lclient!lga;")
+    public static final ServerProt CAM_MOVETO = new ServerProt(29, 6);
+
     @OriginalMember(owner = "client!lga", name = "e", descriptor = "I")
     public final int opcode;
 

@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static572 {
 
-    @OriginalMember(owner = "client!s", name = "b", descriptor = "[Z")
-    public static final boolean[] aBooleanArray29 = new boolean[5];
-
     @OriginalMember(owner = "client!s", name = "a", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray42 = new String[200];
 

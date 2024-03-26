@@ -52,7 +52,7 @@ public final class Static84 {
             } else if ((local36.x & 0x1FF) == 256 && (local36.z & 0x1FF) == 256) {
                 continue;
             }
-            local36.y = Static102.averageHeight(local36.level, -29754, local36.z, local36.x);
+            local36.y = Static102.averageHeight(local36.level, local36.z, local36.x);
             Static102.method2026(local36, true);
         }
     }
@@ -136,7 +136,7 @@ public final class Static84 {
                 }
             }
             local36.visible = false;
-            local36.y = Static102.averageHeight(local36.level, -29754, local36.z, local36.x);
+            local36.y = Static102.averageHeight(local36.level, local36.z, local36.x);
             Static102.method2026(local36, true);
         }
     }

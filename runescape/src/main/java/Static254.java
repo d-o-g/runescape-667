@@ -62,16 +62,16 @@ public final class Static254 {
         Static227.customisations = new Deque();
         TimedVarDomain.instance.reset();
         DelayedStateChange.clear();
-        Camera.anInt2333 = 0;
+        Camera.moveToX = 0;
         Camera.lookY = 0;
         Camera.lookZ = 0;
         Camera.lookX = 0;
-        Static314.anInt5035 = 0;
-        Static674.anInt10088 = 0;
-        Static363.anInt6934 = 0;
-        Static179.anInt2991 = 0;
-        Camera.anInt10667 = 0;
-        Static694.anInt10411 = 0;
+        Camera.lookStep = 0;
+        Camera.moveToRate = 0;
+        Camera.moveToY = 0;
+        Camera.lookSpeed = 0;
+        Camera.moveToZ = 0;
+        Camera.moveToStep = 0;
         for (@Pc(8765) int local8765 = 0; local8765 < Static511.varcs.length; local8765++) {
             if (!Static118.permVarcs[local8765]) {
                 Static511.varcs[local8765] = -1;

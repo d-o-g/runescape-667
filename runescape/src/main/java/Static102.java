@@ -28,10 +28,7 @@ public final class Static102 {
     }
 
     @OriginalMember(owner = "client!dd", name = "b", descriptor = "(IIII)I")
-    public static int averageHeight(@OriginalArg(0) int level, @OriginalArg(1) int arg1, @OriginalArg(2) int y, @OriginalArg(3) int x) {
-        if (arg1 != -29754) {
-            method2026(null, false);
-        }
+    public static int averageHeight(@OriginalArg(0) int level, @OriginalArg(2) int y, @OriginalArg(3) int x) {
         if (Static246.ground == null) {
             return 0;
         }

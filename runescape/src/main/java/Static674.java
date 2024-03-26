@@ -7,9 +7,6 @@ import rs2.client.clan.channel.ClanChannel;
 
 public final class Static674 {
 
-    @OriginalMember(owner = "client!vfa", name = "o", descriptor = "I")
-    public static int anInt10088;
-
     @OriginalMember(owner = "client!vfa", name = "Gb", descriptor = "Lclient!rfa;")
     public static ClanChannel aClass2_Sub47_3;
 

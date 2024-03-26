@@ -70,7 +70,7 @@ public final class Static235 {
         } else if (local19 == Static512.aClass155_35) {
             local21 = new CutsceneAction_Sub5(arg0);
         } else if (Static289.aClass155_19 == local19) {
-            local21 = new CutsceneAction_Sub18(arg0);
+            local21 = new CameraSpline(arg0);
         } else if (local19 == Static557.aClass155_37) {
             local21 = new CutsceneAction_Sub11(arg0);
         } else if (Static512.aClass155_34 == local19) {

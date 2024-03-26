@@ -1,53 +1,54 @@
 import com.jagex.core.io.Packet;
+import com.jagex.game.camera.CameraMode;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ra")
-public final class CutsceneAction_Sub18 extends CutsceneAction {
+public final class CameraSpline extends CutsceneAction {
 
     @OriginalMember(owner = "client!ra", name = "i", descriptor = "I")
-    public final int anInt8181;
+    public final int posSpline;
 
     @OriginalMember(owner = "client!ra", name = "l", descriptor = "I")
-    public final int anInt8183;
+    public final int lookSpline;
 
     @OriginalMember(owner = "client!ra", name = "n", descriptor = "I")
-    public final int anInt8180;
+    public final int posOffset;
 
     @OriginalMember(owner = "client!ra", name = "j", descriptor = "I")
-    public final int anInt8182;
+    public final int lookOffset;
 
     @OriginalMember(owner = "client!ra", name = "m", descriptor = "I")
-    public final int anInt8178;
+    public final int start;
 
     @OriginalMember(owner = "client!ra", name = "o", descriptor = "I")
-    public final int anInt8184;
+    public final int end;
 
     @OriginalMember(owner = "client!ra", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public CutsceneAction_Sub18(@OriginalArg(0) Packet arg0) {
-        super(arg0);
-        this.anInt8181 = arg0.g2();
-        this.anInt8183 = arg0.g2();
-        this.anInt8180 = arg0.g2();
-        this.anInt8182 = arg0.g2();
-        this.anInt8178 = arg0.g2();
-        this.anInt8184 = arg0.g2();
+    public CameraSpline(@OriginalArg(0) Packet packet) {
+        super(packet);
+        this.posSpline = packet.g2();
+        this.lookSpline = packet.g2();
+        this.posOffset = packet.g2();
+        this.lookOffset = packet.g2();
+        this.start = packet.g2();
+        this.end = packet.g2();
     }
 
     @OriginalMember(owner = "client!ra", name = "b", descriptor = "(I)V")
     @Override
     public void method9161() {
-        Static75.aClass357Array2[this.anInt8181].method8328(0);
-        Static75.aClass357Array2[this.anInt8183].method8328(1);
-        Camera.splineStart = this.anInt8178;
-        Static197.anInt3260 = 0;
+        Camera.cutsceneSplines[this.posSpline].useSpline(0);
+        Camera.cutsceneSplines[this.lookSpline].useSpline(1);
+        Camera.splineStart = this.start;
+        Camera.posSpline = 0;
         Camera.lookSpline = 1;
-        Camera.mode = 3;
+        Camera.mode = CameraMode.MODE_SPLINE;
         Camera.splineRate = 0;
-        Camera.splineLookOffset = this.anInt8182;
-        Static303.anInt4868 = this.anInt8180;
-        Camera.splineEnd = this.anInt8184;
+        Camera.splineLookOffset = this.lookOffset;
+        Camera.splinePosOffset = this.posOffset;
+        Camera.splineEnd = this.end;
         Camera.splineTick();
         Static421.aBoolean480 = true;
     }

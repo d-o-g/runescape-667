@@ -102,7 +102,7 @@ public final class ProjectileAnimation extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "<init>", descriptor = "(IIIIIIIIIIIIIZI)V")
     public ProjectileAnimation(@OriginalArg(0) int id, @OriginalArg(1) int level, @OriginalArg(2) int virtualLevel, @OriginalArg(3) int x, @OriginalArg(4) int z, @OriginalArg(5) int y1, @OriginalArg(6) int t1, @OriginalArg(7) int t2, @OriginalArg(8) int verticalAngle, @OriginalArg(9) int displacement, @OriginalArg(10) int sourceId, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) boolean groundRelative, @OriginalArg(14) int wornSlot) {
-        super(level, virtualLevel, x, Static102.averageHeight(level, -29754, z, x) - y1, z, x >> 9, x >> 9, z >> 9, z >> 9, false, (byte) 0);
+        super(level, virtualLevel, x, Static102.averageHeight(level, z, x) - y1, z, x >> 9, x >> 9, z >> 9, z >> 9, false, (byte) 0);
         this.y1 = y1;
         this.id = id;
         this.t1 = t1;
@@ -141,7 +141,7 @@ public final class ProjectileAnimation extends PositionEntity {
             this.translateX = ((deltaX * (double) this.displacement) / distance) + (double) super.x;
 
             if (this.groundRelative) {
-                this.translateY = Static102.averageHeight(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.y1;
+                this.translateY = Static102.averageHeight(super.level, (int) this.translateZ, (int) this.translateX) - this.y1;
             } else {
                 this.translateY = super.y;
             }
@@ -248,7 +248,7 @@ public final class ProjectileAnimation extends PositionEntity {
 
         super.z = entity.z;
         super.x = entity.x;
-        super.y = Static102.averageHeight(super.level, -29754, entity.z, entity.x) - this.y1;
+        super.y = Static102.averageHeight(super.level, entity.z, entity.x) - this.y1;
 
         if (this.wornSlot >= 0) {
             @Pc(105) BASType basType = entity.getBASType();
@@ -400,7 +400,7 @@ public final class ProjectileAnimation extends PositionEntity {
         this.translateZ += (double) time * this.speedZ;
 
         if (this.groundRelative) {
-            this.translateY = Static102.averageHeight(super.level, -29754, (int) this.translateZ, (int) this.translateX) - this.y1;
+            this.translateY = Static102.averageHeight(super.level, (int) this.translateZ, (int) this.translateX) - this.y1;
         } else if (this.verticalAngle == -1) {
             this.translateY += this.verticalSpeed * (double) time;
         } else {

@@ -1,3 +1,4 @@
+import com.jagex.game.camera.CameraMode;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
@@ -29,14 +30,14 @@ public final class Static620 {
             @Pc(66) int local66;
             for (local36 = 0; local36 < local34.length / 2; local36++) {
                 @Pc(51) int local51;
-                if (Camera.mode == 4) {
+                if (Camera.mode == CameraMode.MODE_FOUR) {
                     local51 = (int) Camera.playerCameraYaw & 0x3FFF;
                 } else {
                     local51 = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
                 }
                 local62 = Trig1.SIN[local51];
                 local66 = Trig1.COS[local51];
-                if (Camera.mode != 4) {
+                if (Camera.mode != CameraMode.MODE_FOUR) {
                     local62 = local62 * 256 / (Camera.scaleOffset + 256);
                     local66 = local66 * 256 / (Camera.scaleOffset + 256);
                 }

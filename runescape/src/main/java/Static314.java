@@ -8,9 +8,6 @@ import java.io.IOException;
 
 public final class Static314 {
 
-    @OriginalMember(owner = "client!jw", name = "v", descriptor = "I")
-    public static int anInt5035;
-
     @OriginalMember(owner = "client!jw", name = "D", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___132 = new ServerProt(27, 0);
 

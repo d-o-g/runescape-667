@@ -8,9 +8,6 @@ public final class Static303 {
     @OriginalMember(owner = "client!jka", name = "l", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___126 = new ServerProt(9, 10);
 
-    @OriginalMember(owner = "client!jka", name = "r", descriptor = "I")
-    public static int anInt4868 = 0;
-
     @OriginalMember(owner = "client!jka", name = "a", descriptor = "(IB)V")
     public static void method4428(@OriginalArg(0) int arg0) {
         if (!Static470.method6387()) {

@@ -8,9 +8,6 @@ public final class Static75 {
     @OriginalMember(owner = "client!ch", name = "j", descriptor = "Lclient!pg;")
     public static MiniMenuEntry aClass2_Sub2_Sub16_9;
 
-    @OriginalMember(owner = "client!ch", name = "m", descriptor = "[Lclient!tn;")
-    public static Class357[] aClass357Array2;
-
     @OriginalMember(owner = "client!ch", name = "k", descriptor = "Z")
     public static boolean hasOpaqueStationaryEntities = true;
 

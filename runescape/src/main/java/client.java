@@ -1,5 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.game.camera.CameraMode;
+import com.jagex.game.camera.Shake;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.constants.ModeWhat;
 import com.jagex.core.constants.ModeWhere;
@@ -536,9 +538,9 @@ public final class client extends GameShell {
             Static503.sentPreferences = true;
         }
         if (Static334.activeTiles != null) {
-            if (Camera.mode == 2) {
-                Static592.method7761();
-            } else if (Camera.mode == 3) {
+            if (Camera.mode == CameraMode.MODE_MOVE_TO) {
+                Camera.moveToTick();
+            } else if (Camera.mode == CameraMode.MODE_SPLINE) {
                 Camera.splineTick();
             }
         }
@@ -818,7 +820,7 @@ public final class client extends GameShell {
                                             }
                                             Static320.method4598();
                                             for (local541 = 0; local541 < 5; local541++) {
-                                                @Pc(2246) int local2246 = Static194.anIntArray268[local541]++;
+                                                @Pc(2246) int local2246 = Shake.time[local541]++;
                                             }
                                             if (Static624.varcSaveRecommended && Static98.lastVarcSave < SystemTimer.safetime() - 60000L) {
                                                 Static266.saveVarcs();
@@ -835,7 +837,7 @@ public final class client extends GameShell {
                                                 }
                                             }
                                             if (14590 != 14590) {
-                                                Camera.anInt10667 = -107;
+                                                Camera.moveToZ = -107;
                                             }
                                             Static392.anInt6143++;
                                             if (Static392.anInt6143 > 500) {
@@ -1170,11 +1172,12 @@ public final class client extends GameShell {
             }
         }
         if ((MainLogicManager.step == 3 || MainLogicManager.step == 9 || MainLogicManager.step == 7) && (!Static242.method3500() || MainLogicManager.step == 9 && Static169.anInt2855 == 42) && Static6.anInt95 == 0) {
-            if (Camera.mode == 2) {
-                Static592.method7761();
+            if (Camera.mode == CameraMode.MODE_MOVE_TO) {
+                Camera.moveToTick();
             } else {
                 Camera.splineTick();
             }
+
             if (Camera.x >> 9 < 14 || Camera.x >> 9 >= Static720.mapWidth - 14 || Camera.z >> 9 < 14 || Camera.z >> 9 >= Static501.mapHeight - 14) {
                 Static54.method1179();
             }

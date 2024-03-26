@@ -2,6 +2,7 @@ import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeWhat;
+import com.jagex.game.camera.CameraMode;
 import com.jagex.game.compression.huffman.WordPack;
 import com.jagex.game.runetek6.config.enumtype.EnumMapping;
 import com.jagex.game.DelayedStateChange;
@@ -3646,7 +3647,7 @@ public final class ScriptRunner {
             @Pc(196) ChatLine local196;
             if (arg0 == 5003) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.message != null) {
                     local198 = local196.message;
@@ -3656,7 +3657,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5004) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local109 = -1;
                 if (local196 != null) {
                     local109 = local196.type;
@@ -3706,7 +3707,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5010) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.name != null) {
                     local198 = local196.name;
@@ -3716,7 +3717,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5011) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.channel != null) {
                     local198 = local196.channel;
@@ -3726,7 +3727,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5012) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local109 = -1;
                 if (local196 != null) {
                     local109 = local196.quickchatId;
@@ -3753,7 +3754,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5018) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local109 = 0;
                 if (local196 != null) {
                     local109 = local196.flags;
@@ -3763,7 +3764,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5019) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.accountName != null) {
                     local198 = local196.accountName;
@@ -3782,7 +3783,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5023) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local109 = -1;
                 if (local196 != null) {
                     local109 = local196.uid;
@@ -3792,7 +3793,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5024) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local109 = -1;
                 if (local196 != null) {
                     local109 = local196.clock;
@@ -3802,7 +3803,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5025) {
                 local192 = anIntArray578[--anInt7142];
-                local196 = Static8.method122(local192);
+                local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.displayName != null) {
                     local198 = local196.displayName;
@@ -4668,7 +4669,7 @@ public final class ScriptRunner {
                         local834 = anIntArray578[anInt7142 + 1];
                         local109 = anIntArray578[anInt7142 + 2];
                         local115 = anIntArray578[anInt7142 + 3];
-                        Static319.method4595((local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, false, local109, local834 << 2, (local192 & 0x3FFF) - WorldMap.areaBaseZ, local115);
+                        Camera.moveTo((local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, false, local109, local834 << 2, (local192 & 0x3FFF) - WorldMap.areaBaseZ, local115);
                         return;
                     }
                     if (arg0 == 5501) {
@@ -4686,12 +4687,12 @@ public final class ScriptRunner {
                         if (local192 >= 2) {
                             throw new RuntimeException();
                         }
-                        Static197.anInt3260 = local192;
+                        Camera.posSpline = local192;
                         local834 = anIntArray578[anInt7142 + 1];
-                        if (local834 + 1 >= Camera.spline[Static197.anInt3260].length >> 1) {
+                        if (local834 + 1 >= Camera.spline[Camera.posSpline].length >> 1) {
                             throw new RuntimeException();
                         }
-                        Static303.anInt4868 = local834;
+                        Camera.splinePosOffset = local834;
                         Camera.splineRate = 0;
                         Camera.splineStart = anIntArray578[anInt7142 + 2];
                         Camera.splineEnd = anIntArray578[anInt7142 + 3];
@@ -4705,13 +4706,13 @@ public final class ScriptRunner {
                             throw new RuntimeException();
                         }
                         Camera.splineLookOffset = local115;
-                        Camera.mode = 3;
-                        Static693.anInt10383 = -1;
-                        Static692.anInt10376 = -1;
+                        Camera.mode = CameraMode.MODE_SPLINE;
+                        Camera.anInt10383 = -1;
+                        Camera.anInt10376 = -1;
                         return;
                     }
                     if (arg0 == 5503) {
-                        Static693.method9012();
+                        Camera.reset();
                         return;
                     }
                     if (arg0 == 5504) {
@@ -4761,13 +4762,13 @@ public final class ScriptRunner {
                         }
                         Camera.anInt6262 = (local834 << 9) + 256;
                         Camera.anInt4018 = (local109 << 9) + 256;
-                        Camera.mode = 4;
-                        Static693.anInt10383 = -1;
-                        Static692.anInt10376 = -1;
+                        Camera.mode = CameraMode.MODE_FOUR;
+                        Camera.anInt10383 = -1;
+                        Camera.anInt10376 = -1;
                         return;
                     }
                     if (arg0 == 5512) {
-                        Static145.method2409();
+                        Camera.smoothReset();
                         return;
                     }
                     if (arg0 == 5514) {
@@ -4795,16 +4796,16 @@ public final class ScriptRunner {
                             } else if (local109 >= Static501.mapHeight) {
                                 local109 = Static501.mapHeight;
                             }
-                            Static692.anInt10376 = (local834 << 9) + 256;
-                            Static693.anInt10383 = (local109 << 9) + 256;
+                            Camera.anInt10376 = (local834 << 9) + 256;
+                            Camera.anInt10383 = (local109 << 9) + 256;
                             return;
                         }
-                        Static692.anInt10376 = -1;
-                        Static693.anInt10383 = -1;
+                        Camera.anInt10376 = -1;
+                        Camera.anInt10383 = -1;
                         return;
                     }
                     if (arg0 == 5547) {
-                        anIntArray578[anInt7142++] = Camera.mode == 1 ? 1 : 0;
+                        anIntArray578[anInt7142++] = Camera.mode == CameraMode.MODE_RESET ? 1 : 0;
                         return;
                     }
                 } else if (arg0 < 5700) {

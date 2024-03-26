@@ -42,7 +42,7 @@ public final class Static723 {
         }
         @Pc(59) int local59 = Static494.anInt7409 >> 9;
         @Pc(63) int local63 = Static38.anInt920 >> 9;
-        @Pc(77) int local77 = Static102.averageHeight(Camera.renderingLevel, -29754, Static38.anInt920, Static494.anInt7409);
+        @Pc(77) int local77 = Static102.averageHeight(Camera.renderingLevel, Static38.anInt920, Static494.anInt7409);
         @Pc(79) int local79 = 0;
         @Pc(109) int local109;
         if (local59 > 3 && local63 > 3 && Static720.mapWidth - 4 > local59 && local63 < Static501.mapHeight - 4) {

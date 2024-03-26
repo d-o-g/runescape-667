@@ -1,3 +1,5 @@
+import com.jagex.game.camera.CameraMode;
+import com.jagex.game.camera.Shake;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.DelayedStateChange;
@@ -67,28 +69,28 @@ public final class Static294 {
         @Pc(161) int local161 = Static200.anInt3305;
         @Pc(169) int local169;
         @Pc(204) int local204;
-        if (Camera.mode == 1) {
+        if (Camera.mode == CameraMode.MODE_RESET) {
             local169 = (int) Static479.aFloat123;
             if (Static188.anInt3103 >> 8 > local169) {
                 local169 = Static188.anInt3103 >> 8;
             }
-            if (Static572.aBooleanArray29[4] && local169 < Static140.anIntArray222[4] + 128) {
-                local169 = Static140.anIntArray222[4] + 128;
+            if (Shake.enabled[4] && local169 < Shake.amplitude[4] + 128) {
+                local169 = Shake.amplitude[4] + 128;
             }
             local204 = Static288.anInt4621 + (int) Camera.playerCameraYaw & 0x3FFF;
-            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, -29754, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
-        } else if (Camera.mode == 4) {
+            Camera.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
+        } else if (Camera.mode == CameraMode.MODE_FOUR) {
             local169 = (int) Static479.aFloat123;
             if (Static188.anInt3103 >> 8 > local169) {
                 local169 = Static188.anInt3103 >> 8;
             }
-            if (Static572.aBooleanArray29[4] && Static140.anIntArray222[4] + 128 > local169) {
-                local169 = Static140.anIntArray222[4] + 128;
+            if (Shake.enabled[4] && Shake.amplitude[4] + 128 > local169) {
+                local169 = Shake.amplitude[4] + 128;
             }
             local204 = (int) Camera.playerCameraYaw & 0x3FFF;
-            Static292.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, -29754, Camera.anInt4018, Camera.anInt6262) - 200);
-        } else if (Camera.mode == 5) {
-            Static110.method2079(local161);
+            Camera.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, Camera.anInt4018, Camera.anInt6262) - 200);
+        } else if (Camera.mode == CameraMode.MODE_SMOOTH_RESET) {
+            Camera.update(local161);
         }
         local169 = Camera.x;
         local204 = Camera.y;
@@ -96,9 +98,9 @@ public final class Static294 {
         @Pc(327) int local327 = Camera.pitch;
         @Pc(329) int local329 = Camera.yaw;
         @Pc(375) int local375;
-        for (@Pc(331) int local331 = 0; local331 < 5; local331++) {
-            if (Static572.aBooleanArray29[local331]) {
-                local375 = (int) ((double) -Static331.anIntArray403[local331] + (double) (Static331.anIntArray403[local331] * 2 + 1) * Math.random() + Math.sin((double) Static362.anIntArray450[local331] / 100.0D * (double) Static194.anIntArray268[local331]) * (double) Static140.anIntArray222[local331]);
+        for (@Pc(331) int local331 = 0; local331 < Shake.DIRECTIONS; local331++) {
+            if (Shake.enabled[local331]) {
+                local375 = (int) ((double) -Shake.center[local331] + (double) (Shake.center[local331] * 2 + 1) * Math.random() + Math.sin((double) Shake.frequency[local331] / 100.0D * (double) Shake.time[local331]) * (double) Shake.amplitude[local331]);
                 if (local331 == 3) {
                     Camera.yaw = local375 + Camera.yaw & 0x3FFF;
                 }

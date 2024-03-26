@@ -1,5 +1,6 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.SignLink;
+import com.jagex.game.camera.Shake;
 import com.jagex.core.constants.ChatLineType;
 import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.constants.LocLayer;
@@ -762,8 +763,8 @@ public final class Protocol {
                                             local277 = bitPacket.g4_alt1();
                                             Static574.method7573();
                                             if (local277 == -1) {
-                                                Static693.anInt10383 = -1;
-                                                Static692.anInt10376 = -1;
+                                                Camera.anInt10383 = -1;
+                                                Camera.anInt10376 = -1;
                                             } else {
                                                 local100 = local277 >> 14 & 0x3FFF;
                                                 local526 = local277 & 0x3FFF;
@@ -774,13 +775,13 @@ public final class Protocol {
                                                     local100 = Static720.mapWidth;
                                                 }
                                                 local526 -= WorldMap.areaBaseZ;
-                                                Static692.anInt10376 = (local100 << 9) + 256;
+                                                Camera.anInt10376 = (local100 << 9) + 256;
                                                 if (local526 < 0) {
                                                     local526 = 0;
                                                 } else if (local526 >= Static501.mapHeight) {
                                                     local526 = Static501.mapHeight;
                                                 }
-                                                Static693.anInt10383 = (local526 << 9) + 256;
+                                                Camera.anInt10383 = (local526 << 9) + 256;
                                             }
                                             arg0.currentProt = null;
                                             return true;
@@ -1111,18 +1112,18 @@ public final class Protocol {
                                                         DelayedStateChange.setVarcstr(local277, local627);
                                                         arg0.currentProt = null;
                                                         return true;
-                                                    } else if (arg0.currentProt == Static231.A_SERVER_PROT___102) {
+                                                    } else if (arg0.currentProt == Static231.CAMERA_SHAKE) {
                                                         local277 = bitPacket.g1_alt3();
                                                         local100 = bitPacket.g1_alt1();
                                                         local526 = bitPacket.g2_alt3();
                                                         local1409 = bitPacket.g1_alt3();
                                                         local1413 = bitPacket.g1_alt3();
                                                         Static574.method7573();
-                                                        Static572.aBooleanArray29[local100] = true;
-                                                        Static331.anIntArray403[local100] = local1409;
-                                                        Static140.anIntArray222[local100] = local1413;
-                                                        Static362.anIntArray450[local100] = local277;
-                                                        Static194.anIntArray268[local100] = local526;
+                                                        Shake.enabled[local100] = true;
+                                                        Shake.center[local100] = local1409;
+                                                        Shake.amplitude[local100] = local1413;
+                                                        Shake.frequency[local100] = local277;
+                                                        Shake.time[local100] = local526;
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (ServerProt.SOUND_AREA == arg0.currentProt) {
@@ -1373,7 +1374,7 @@ public final class Protocol {
                                                                             if (local653 < 3 && Static441.isBridgeAt(local3502, local657)) {
                                                                                 local667 = local653 + 1;
                                                                             }
-                                                                            @Pc(5334) SpotAnimation local5334 = new SpotAnimation(local2098, local277, local653, local667, local1021, Static102.averageHeight(local653, -29754, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
+                                                                            @Pc(5334) SpotAnimation local5334 = new SpotAnimation(local2098, local277, local653, local667, local1021, Static102.averageHeight(local653, local1097, local1021) - local1413, local1097, local657, local657, local3502, local3502, local992, local4806);
                                                                             Static346.A_HASH_TABLE___29.put(local3502 | local657 << 16, new SpotAnimationNode(local5334));
                                                                         }
                                                                     }
@@ -1396,7 +1397,7 @@ public final class Protocol {
                                                                 return true;
                                                             } else if (Static193.A_SERVER_PROT___74 == arg0.currentProt) {
                                                                 Static574.method7573();
-                                                                Static693.method9012();
+                                                                Camera.reset();
                                                                 arg0.currentProt = null;
                                                                 return true;
                                                             } else {
@@ -1588,7 +1589,7 @@ public final class Protocol {
                                                                     return true;
                                                                 } else if (arg0.currentProt == ServerProt.A_SERVER_PROT___19) {
                                                                     Static574.method7573();
-                                                                    Static145.method2409();
+                                                                    Camera.smoothReset();
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == Static91.A_SERVER_PROT___236) {
@@ -2084,14 +2085,14 @@ public final class Protocol {
                                                                             NPCList.updateNpcs();
                                                                             arg0.currentProt = null;
                                                                             return true;
-                                                                        } else if (Static670.A_SERVER_PROT___245 == arg0.currentProt) {
+                                                                        } else if (ServerProt.CAM_MOVETO == arg0.currentProt) {
                                                                             local277 = bitPacket.g1_alt3();
                                                                             local100 = bitPacket.g1_alt2();
                                                                             local526 = bitPacket.g1_alt2();
                                                                             local1409 = bitPacket.g1_alt2();
                                                                             local1413 = bitPacket.g2_alt3() << 2;
                                                                             Static574.method7573();
-                                                                            Static319.method4595(local526, true, local1409, local1413, local100, local277);
+                                                                            Camera.moveTo(local526, true, local1409, local1413, local100, local277);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == Static451.aServerProt_171) {
@@ -2483,7 +2484,7 @@ public final class Protocol {
                             }
                         }
                         @Pc(1053) ProjectileAnimation local1053 = new ProjectileAnimation(local219, Static87.anInt1810, Static87.anInt1810, local21, local25, local812, local322 + TimeUtils.clock, TimeUtils.clock + local353, local843, local847, local212, local217, local290, local764, local46);
-                        local1053.target(Static102.averageHeight(Static87.anInt1810, -29754, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
+                        local1053.target(Static102.averageHeight(Static87.anInt1810, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
                         Static505.projectiles.addLast(new ProjectileAnimationNode(local1053));
                     }
                 } else if (Static77.A_ZONE_PROT___5 == arg0) {
@@ -2583,7 +2584,7 @@ public final class Protocol {
                         local38 = local38 * 512 + 256;
                         local34 = local34 * 512 + 256;
                         @Pc(1728) ProjectileAnimation projectile = new ProjectileAnimation(local52, Static87.anInt1810, Static87.anInt1810, local25, local34, local537, local217 + TimeUtils.clock, local219 + TimeUtils.clock, local812, local290, 0, local46, local212, local1540, -1);
-                        projectile.target(Static102.averageHeight(Static87.anInt1810, -29754, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
+                        projectile.target(Static102.averageHeight(Static87.anInt1810, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
                         Static505.projectiles.addLast(new ProjectileAnimationNode(projectile));
                     }
                 } else if (Static210.A_ZONE_PROT___9 == arg0) {
@@ -2638,7 +2639,7 @@ public final class Protocol {
                             if (local212 < 3 && Static441.isBridgeAt(local25, local21)) {
                                 local212++;
                             }
-                            @Pc(2065) SpotAnimation local2065 = new SpotAnimation(local34, local42, Static87.anInt1810, local212, local52, Static102.averageHeight(Static87.anInt1810, -29754, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
+                            @Pc(2065) SpotAnimation local2065 = new SpotAnimation(local34, local42, Static87.anInt1810, local212, local52, Static102.averageHeight(Static87.anInt1810, local537, local52) - local38, local537, local21, local21, local25, local25, local46, false);
                             Static346.A_HASH_TABLE___29.put(local21 << 16 | local25, new SpotAnimationNode(local2065));
                         }
                     }

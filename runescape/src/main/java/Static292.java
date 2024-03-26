@@ -5,7 +5,6 @@ import com.jagex.graphics.Ground;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
-import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -42,38 +41,6 @@ public final class Static292 {
         }
         Static261.aSprite_18.render(arg2, arg0 + arg4 - Static261.aSprite_18.getHeight());
         Static561.aSprite_34.render(arg3 + arg2 - Static261.aSprite_18.getWidth(), arg4 + (arg0 - Static261.aSprite_18.getHeight()));
-    }
-
-    @OriginalMember(owner = "client!jea", name = "b", descriptor = "(IIIIIIII)V")
-    public static void method4606(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
-        @Pc(7) int local7 = arg2 - 334;
-        if (local7 < 0) {
-            local7 = 0;
-        } else if (local7 > 100) {
-            local7 = 100;
-        }
-        @Pc(33) int local33 = local7 * (Static502.aShort97 - Static228.aShort45) / 100 + Static228.aShort45;
-        Static582.orthoAngle = Static582.orthoZoom * local33 >> 8;
-        @Pc(45) int local45 = local33 * arg1 >> 8;
-        @Pc(52) int local52 = 16384 - arg0 & 0x3FFF;
-        @Pc(65) int local65 = 16384 - arg4 & 0x3FFF;
-        @Pc(67) int local67 = 0;
-        @Pc(69) int local69 = 0;
-        @Pc(71) int local71 = local45;
-        if (local52 != 0) {
-            local69 = Trig1.SIN[local52] * -local45 >> 14;
-            local71 = local45 * Trig1.COS[local52] >> 14;
-        }
-        if (local65 != 0) {
-            local67 = local71 * Trig1.SIN[local65] >> 14;
-            local71 = Trig1.COS[local65] * local71 >> 14;
-        }
-        Camera.pitch = arg0;
-        Camera.z = arg5 - local71;
-        Camera.x = arg3 - local67;
-        Camera.y = arg6 - local69;
-        Camera.roll = 0;
-        Camera.yaw = arg4;
     }
 
     @OriginalMember(owner = "client!jea", name = "b", descriptor = "(I)V")

@@ -1,6 +1,7 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.core.constants.AreaMode;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.camera.CameraMode;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -179,23 +180,23 @@ public final class Static684 {
 
         if (mainLogicStep != 12) {
             Camera.lookX -= deltaX;
-            Camera.anInt2333 -= deltaX;
-            Camera.anInt10667 -= deltaZ;
+            Camera.moveToX -= deltaX;
+            Camera.moveToZ -= deltaZ;
             Camera.z -= deltaZ * 512;
             Camera.x -= deltaX * 512;
             Camera.lookZ -= deltaZ;
             if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaZ) > Static501.mapHeight) {
                 InterfaceManager.loginOpened();
             }
-        } else if (Camera.mode == 4) {
+        } else if (Camera.mode == CameraMode.MODE_FOUR) {
             Camera.anInt6262 -= deltaX * 512;
             Static38.anInt920 -= deltaZ * 512;
             Camera.anInt4018 -= deltaZ * 512;
             Static494.anInt7409 -= deltaX * 512;
         } else {
-            Static693.anInt10383 = -1;
-            Static692.anInt10376 = -1;
-            Camera.mode = 1;
+            Camera.anInt10383 = -1;
+            Camera.anInt10376 = -1;
+            Camera.mode = CameraMode.MODE_RESET;
         }
         Static533.method7119();
         Minimap.reset();

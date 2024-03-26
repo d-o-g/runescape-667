@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.game.camera.Shake;
 import com.jagex.game.collision.CollisionMap;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
@@ -973,7 +974,7 @@ public class Class306 {
                             local934 = Static586.anIntArrayArray220[local94];
                             local391 = local177 == null ? 0 : Static102.anIntArray183[local94];
                         } else if (local85) {
-                            local930 = Static212.anIntArrayArray86[local94];
+                            local930 = Shake.anIntArrayArray86[local94];
                             local403 = local164 == null ? 0 : Static348.anIntArray424[local94];
                             local917 = Static233.anIntArrayArray90[local94];
                             local911 = Static553.anIntArrayArray206[local94];

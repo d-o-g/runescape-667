@@ -13,9 +13,6 @@ import java.awt.Dimension;
 
 public final class Static363 {
 
-    @OriginalMember(owner = "client!li", name = "e", descriptor = "I")
-    public static int anInt6934;
-
     @OriginalMember(owner = "client!li", name = "h", descriptor = "[[B")
     public static byte[][] aByteArrayArray22;
 

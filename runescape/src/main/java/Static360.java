@@ -32,9 +32,9 @@ public final class Static360 {
                 Static391.A_DEQUE___34.addLast(new Node_Sub35(local46));
             }
             @Pc(78) int local78 = local46.gsmart();
-            Static75.aClass357Array2 = new Class357[local78];
+            Camera.cutsceneSplines = new ScriptedCameraPath[local78];
             for (@Pc(83) int local83 = 0; local83 < local78; local83++) {
-                Static75.aClass357Array2[local83] = new Class357(local46);
+                Camera.cutsceneSplines[local83] = new ScriptedCameraPath(local46);
             }
             @Pc(108) int local108 = local46.gsmart();
             CutsceneManager.actors = new Actor[local108];

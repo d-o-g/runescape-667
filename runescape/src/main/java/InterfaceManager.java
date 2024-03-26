@@ -12,6 +12,7 @@ import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
+import com.jagex.game.camera.CameraMode;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.defaults.WearposDefaults;
@@ -1030,9 +1031,9 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "(JI)V")
     public static void method7930(@OriginalArg(0) long arg0) {
         if (Static334.activeTiles != null) {
-            if (Camera.mode == 1 || Camera.mode == 5) {
+            if (Camera.mode == CameraMode.MODE_RESET || Camera.mode == CameraMode.MODE_SMOOTH_RESET) {
                 Static604.method7903(arg0);
-            } else if (Camera.mode == 4) {
+            } else if (Camera.mode == CameraMode.MODE_FOUR) {
                 Static349.method5121(arg0);
             }
         }
@@ -1439,7 +1440,7 @@ public final class InterfaceManager {
                                 y -= component.height / 2;
 
                                 @Pc(1125) int yaw;
-                                if (Camera.mode == 4) {
+                                if (Camera.mode == CameraMode.MODE_FOUR) {
                                     yaw = (int) Camera.playerCameraYaw & 0x3FFF;
                                 } else {
                                     yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
@@ -1447,7 +1448,7 @@ public final class InterfaceManager {
 
                                 @Pc(1137) int sinYaw = Trig1.SIN[yaw];
                                 @Pc(1141) int cosYaw = Trig1.COS[yaw];
-                                if (Camera.mode != 4) {
+                                if (Camera.mode != CameraMode.MODE_FOUR) {
                                     sinYaw = sinYaw * (Camera.scaleOffset + 256) >> 8;
                                     cosYaw = cosYaw * (Camera.scaleOffset + 256) >> 8;
                                 }
@@ -1457,7 +1458,7 @@ public final class InterfaceManager {
 
                                 @Pc(1191) int local1191;
                                 @Pc(1199) int local1199;
-                                if (Camera.mode == 4) {
+                                if (Camera.mode == CameraMode.MODE_FOUR) {
                                     local1191 = (Camera.anInt6262 >> 9) + (local1170 >> 2);
                                     local1199 = (Camera.anInt4018 >> 9) - (local1180 >> 2);
                                 } else {
@@ -1879,7 +1880,7 @@ public final class InterfaceManager {
                             }
                         }
 
-                        if (Camera.finished && component.onCamFinished != null) {
+                        if (Camera.splineFinished && component.onCamFinished != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onCamFinished;
@@ -2559,9 +2560,9 @@ public final class InterfaceManager {
         Camera.x = 0;
         PlayerEntity.self.pathZ[0] = Static501.mapHeight / 2;
 
-        if (Camera.mode == 2) {
-            Camera.z = Camera.anInt10667 << 9;
-            Camera.x = Camera.anInt2333 << 9;
+        if (Camera.mode == CameraMode.MODE_MOVE_TO) {
+            Camera.z = Camera.moveToZ << 9;
+            Camera.x = Camera.moveToX << 9;
         } else {
             Camera.splineTick();
         }

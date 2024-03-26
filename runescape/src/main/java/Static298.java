@@ -20,7 +20,7 @@ public final class Static298 {
         Static25.A_HASH_TABLE___4.clear();
         Static391.A_DEQUE___34.clear();
         Static507.aClass394Array1 = null;
-        Static75.aClass357Array2 = null;
+        Camera.cutsceneSplines = null;
         CutsceneManager.actors = null;
         Static5.anInt92 = -1;
         Static457.anInt6933 = 1;

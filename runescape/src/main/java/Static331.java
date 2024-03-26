@@ -22,9 +22,6 @@ public final class Static331 {
     @OriginalMember(owner = "client!ki", name = "a", descriptor = "I")
     public static int anInt5441 = -50;
 
-    @OriginalMember(owner = "client!ki", name = "d", descriptor = "[I")
-    public static final int[] anIntArray403 = new int[5];
-
     @OriginalMember(owner = "client!ki", name = "a", descriptor = "(ZLjava/lang/String;B)V")
     public static void method4924(@OriginalArg(0) boolean arg0, @OriginalArg(1) String arg1) {
         Static263.method3855(arg0, -1, -1, arg1);

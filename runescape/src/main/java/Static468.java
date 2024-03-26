@@ -64,7 +64,7 @@ public final class Static468 {
             }
         }
 
-        @Pc(209) int averageHeight = Static102.averageHeight(level, -29754, (zoneZ << 9) + 256, (zoneX << 9) - -256);
+        @Pc(209) int averageHeight = Static102.averageHeight(level, (zoneZ << 9) + 256, (zoneX << 9) - -256);
         entity.level = (byte) level;
         entity.y = averageHeight;
         entity.virtualLevel = (byte) level;

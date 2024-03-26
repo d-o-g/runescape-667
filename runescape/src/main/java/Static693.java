@@ -10,9 +10,6 @@ public final class Static693 {
     @OriginalMember(owner = "client!vu", name = "i", descriptor = "[Lclient!s;")
     public static Ground[] underwaterGround;
 
-    @OriginalMember(owner = "client!vu", name = "b", descriptor = "I")
-    public static int anInt10383;
-
     @OriginalMember(owner = "client!vu", name = "e", descriptor = "I")
     public static int anInt10382 = -1;
 
@@ -58,20 +55,6 @@ public final class Static693 {
                 }
             }
         }
-    }
-
-    @OriginalMember(owner = "client!vu", name = "a", descriptor = "(B)V")
-    public static void method9012() {
-        for (@Pc(1) int local1 = 0; local1 < 5; local1++) {
-            Static572.aBooleanArray29[local1] = false;
-        }
-        Static179.anInt2991 = 0;
-        Camera.lookSpline = -1;
-        Static314.anInt5035 = 0;
-        Static197.anInt3260 = -1;
-        Camera.mode = 1;
-        anInt10383 = -1;
-        Static692.anInt10376 = -1;
     }
 
 }

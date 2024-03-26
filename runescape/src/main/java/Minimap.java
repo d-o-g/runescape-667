@@ -1,6 +1,7 @@
 import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.camera.CameraMode;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCType;
@@ -54,7 +55,7 @@ public final class Minimap {
         @Pc(93) int selfZ;
         @Pc(87) int yaw;
         @Pc(79) int scale;
-        if (Camera.mode == 4) {
+        if (Camera.mode == CameraMode.MODE_FOUR) {
             yaw = (int) -Camera.playerCameraYaw & 0x3FFF;
             scale = 4096;
             selfZ = Camera.anInt4018;

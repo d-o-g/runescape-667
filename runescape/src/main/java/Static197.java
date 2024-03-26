@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static197 {
 
-    @OriginalMember(owner = "client!gba", name = "c", descriptor = "I")
-    public static int anInt3260 = -1;
-
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(Z)V")
     public static void method2949() {
         @Pc(8) ChangeLocationRequest local8;

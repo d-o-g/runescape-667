@@ -4805,7 +4805,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5547) {
-                        anIntArray578[anInt7142++] = Camera.mode == CameraMode.MODE_RESET ? 1 : 0;
+                        anIntArray578[anInt7142++] = Camera.mode == CameraMode.MODE_DEFAULT ? 1 : 0;
                         return;
                     }
                 } else if (arg0 < 5700) {

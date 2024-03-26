@@ -55,7 +55,7 @@ public final class Static276 {
         @Pc(92) int local92 = PlayerEntity.self.x;
         @Pc(95) int local95 = PlayerEntity.self.z;
         @Pc(149) int local149;
-        if (Camera.mode != CameraMode.MODE_RESET && Camera.anInt10376 == -1) {
+        if (Camera.mode != CameraMode.MODE_DEFAULT && Camera.anInt10376 == -1) {
             local149 = Static102.averageHeight(Camera.renderingLevel, Camera.z, Camera.x);
             if (local149 - Camera.y < 3200 && (Static280.tileFlags[Camera.renderingLevel][Camera.x >> 9][Camera.z >> 9] & 0x4) != 0) {
                 Static409.method5656(Camera.z >> 9, Static334.activeTiles, 1, Camera.x >> 9, false);
@@ -63,7 +63,7 @@ public final class Static276 {
             }
             return;
         }
-        if (Camera.mode != CameraMode.MODE_RESET) {
+        if (Camera.mode != CameraMode.MODE_DEFAULT) {
             local92 = Camera.anInt10376;
             local95 = Camera.anInt10383;
         }

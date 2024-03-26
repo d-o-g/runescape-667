@@ -196,7 +196,7 @@ public final class Static684 {
         } else {
             Camera.anInt10383 = -1;
             Camera.anInt10376 = -1;
-            Camera.mode = CameraMode.MODE_RESET;
+            Camera.mode = CameraMode.MODE_DEFAULT;
         }
         Static533.method7119();
         Minimap.reset();

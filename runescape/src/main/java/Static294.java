@@ -69,7 +69,7 @@ public final class Static294 {
         @Pc(161) int local161 = Static200.anInt3305;
         @Pc(169) int local169;
         @Pc(204) int local204;
-        if (Camera.mode == CameraMode.MODE_RESET) {
+        if (Camera.mode == CameraMode.MODE_DEFAULT) {
             local169 = (int) Static479.aFloat123;
             if (Static188.anInt3103 >> 8 > local169) {
                 local169 = Static188.anInt3103 >> 8;

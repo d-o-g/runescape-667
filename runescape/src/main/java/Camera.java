@@ -198,7 +198,7 @@ public final class Camera {
         if (deltaTime >= 100) {
             anInt10383 = -1;
             anInt10376 = -1;
-            mode = CameraMode.MODE_RESET;
+            mode = CameraMode.MODE_DEFAULT;
             return;
         }
 
@@ -276,7 +276,7 @@ public final class Camera {
             Camera.z = (moveToZ * 512) + 256;
             Camera.y = Static102.averageHeight(renderingLevel, Camera.z, Camera.x) - moveToY;
         }
-        mode = CameraMode.MODE_MOVE_TO;
+        mode = CameraMode.MODE_FIXED;
         anInt10383 = -1;
         anInt10376 = -1;
     }
@@ -290,7 +290,7 @@ public final class Camera {
         lookSpline = -1;
         lookStep = 0;
         posSpline = -1;
-        mode = CameraMode.MODE_RESET;
+        mode = CameraMode.MODE_DEFAULT;
         anInt10383 = -1;
         anInt10376 = -1;
     }

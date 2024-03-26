@@ -104,7 +104,7 @@ public final class Static638 {
         }
         Camera.anInt10383 = -1;
         Camera.anInt10376 = -1;
-        Camera.mode = CameraMode.MODE_MOVE_TO;
+        Camera.mode = CameraMode.MODE_FIXED;
     }
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(III)Lclient!nda;")

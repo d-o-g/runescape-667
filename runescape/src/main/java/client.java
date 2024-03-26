@@ -538,7 +538,7 @@ public final class client extends GameShell {
             Static503.sentPreferences = true;
         }
         if (Static334.activeTiles != null) {
-            if (Camera.mode == CameraMode.MODE_MOVE_TO) {
+            if (Camera.mode == CameraMode.MODE_FIXED) {
                 Camera.moveToTick();
             } else if (Camera.mode == CameraMode.MODE_SPLINE) {
                 Camera.splineTick();
@@ -1172,7 +1172,7 @@ public final class client extends GameShell {
             }
         }
         if ((MainLogicManager.step == 3 || MainLogicManager.step == 9 || MainLogicManager.step == 7) && (!Static242.method3500() || MainLogicManager.step == 9 && Static169.anInt2855 == 42) && Static6.anInt95 == 0) {
-            if (Camera.mode == CameraMode.MODE_MOVE_TO) {
+            if (Camera.mode == CameraMode.MODE_FIXED) {
                 Camera.moveToTick();
             } else {
                 Camera.splineTick();

@@ -1031,7 +1031,7 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!vn", name = "a", descriptor = "(JI)V")
     public static void method7930(@OriginalArg(0) long arg0) {
         if (Static334.activeTiles != null) {
-            if (Camera.mode == CameraMode.MODE_RESET || Camera.mode == CameraMode.MODE_SMOOTH_RESET) {
+            if (Camera.mode == CameraMode.MODE_DEFAULT || Camera.mode == CameraMode.MODE_SMOOTH_RESET) {
                 Static604.method7903(arg0);
             } else if (Camera.mode == CameraMode.MODE_FOUR) {
                 Static349.method5121(arg0);
@@ -2560,7 +2560,7 @@ public final class InterfaceManager {
         Camera.x = 0;
         PlayerEntity.self.pathZ[0] = Static501.mapHeight / 2;
 
-        if (Camera.mode == CameraMode.MODE_MOVE_TO) {
+        if (Camera.mode == CameraMode.MODE_FIXED) {
             Camera.z = Camera.moveToZ << 9;
             Camera.x = Camera.moveToX << 9;
         } else {

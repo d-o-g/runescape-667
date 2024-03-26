@@ -34,7 +34,7 @@ public final class Static94 {
             }
         }
         Static576.method7614();
-        Camera.mode = CameraMode.MODE_RESET;
+        Camera.mode = CameraMode.MODE_DEFAULT;
         Camera.anInt10383 = -1;
         Camera.anInt10376 = -1;
         MainLogicManager.setStep(11);

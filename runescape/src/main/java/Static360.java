@@ -1,4 +1,5 @@
 import com.jagex.core.io.Packet;
+import com.jagex.game.PathFinder;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

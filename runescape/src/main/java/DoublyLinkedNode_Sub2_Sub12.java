@@ -75,7 +75,7 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
         if (this.anIntArray331 != null) {
             for (@Pc(15) int local15 = 0; local15 < this.anIntArray331.length; local15++) {
                 local10.append(this.aStringArray23[local15]);
-                local10.append(this.aClass139_1.method2948(this.method3898(local15), arg0.gVarLong(QuickChatDynamicCommand.fromId(this.anIntArray331[local15]).anInt4577), this.anIntArrayArray101[local15]));
+                local10.append(this.aClass139_1.method2948(this.method3898(local15), arg0.gVarLong(QuickChatDynamicCommand.fromId(this.anIntArray331[local15]).readSize), this.anIntArrayArray101[local15]));
             }
         }
         local10.append(this.aStringArray23[this.aStringArray23.length - 1]);
@@ -91,7 +91,7 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
             if (arg1.length <= local15) {
                 return;
             }
-            @Pc(22) int local22 = this.method3898(local15).anInt4576;
+            @Pc(22) int local22 = this.method3898(local15).writeSize;
             if (local22 > 0) {
                 arg0.pVarLong(local22, arg1[local15]);
             }
@@ -135,8 +135,8 @@ public final class DoublyLinkedNode_Sub2_Sub12 extends Node2 {
                 @Pc(75) QuickChatDynamicCommand local75 = QuickChatDynamicCommand.fromId(local71);
                 if (local75 != null) {
                     this.anIntArray331[local27] = local71;
-                    this.anIntArrayArray101[local27] = new int[local75.anInt4573];
-                    for (@Pc(91) int local91 = 0; local91 < local75.anInt4573; local91++) {
+                    this.anIntArrayArray101[local27] = new int[local75.varCount];
+                    for (@Pc(91) int local91 = 0; local91 < local75.varCount; local91++) {
                         this.anIntArrayArray101[local27][local91] = arg0.g2();
                     }
                 }

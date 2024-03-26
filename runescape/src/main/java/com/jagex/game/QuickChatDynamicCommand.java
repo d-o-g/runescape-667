@@ -51,23 +51,23 @@ public final class QuickChatDynamicCommand {
     public static final QuickChatDynamicCommand ACTIVECOMBATLEVEL = new QuickChatDynamicCommand(15, 0, 1, 0);
 
     @OriginalMember(owner = "client!it", name = "b", descriptor = "I")
-    public final int anInt4573;
+    public final int varCount;
 
     @OriginalMember(owner = "client!it", name = "f", descriptor = "I")
     public final int id;
 
     @OriginalMember(owner = "client!it", name = "c", descriptor = "I")
-    public final int anInt4577;
+    public final int readSize;
 
     @OriginalMember(owner = "client!it", name = "a", descriptor = "I")
-    public final int anInt4576;
+    public final int writeSize;
 
     @OriginalMember(owner = "client!it", name = "<init>", descriptor = "(IIII)V")
     public QuickChatDynamicCommand(@OriginalArg(0) int id, @OriginalArg(1) int writeSize, @OriginalArg(2) int readSize, @OriginalArg(3) int varCount) {
-        this.anInt4573 = varCount;
+        this.varCount = varCount;
         this.id = id;
-        this.anInt4577 = readSize;
-        this.anInt4576 = writeSize;
+        this.readSize = readSize;
+        this.writeSize = writeSize;
     }
 
     @OriginalMember(owner = "client!rd", name = "a", descriptor = "(I)[Lclient!it;")

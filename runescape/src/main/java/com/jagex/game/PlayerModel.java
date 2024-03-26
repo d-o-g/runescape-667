@@ -192,9 +192,9 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "([I[I[Lclient!bs;IIZB)V")
-    public void update(@OriginalArg(0) int[] bodycol_d_palette, @OriginalArg(1) int[] identikit, @OriginalArg(2) ObjTypeCustomisation[] customisations, @OriginalArg(3) int npcId, @OriginalArg(4) int basId, @OriginalArg(5) boolean female) {
+    public void update(@OriginalArg(0) int[] clientpalette, @OriginalArg(1) int[] identikit, @OriginalArg(2) ObjTypeCustomisation[] customisations, @OriginalArg(3) int npcId, @OriginalArg(4) int basId, @OriginalArg(5) boolean female) {
         this.customisations = customisations;
-        this.clientpalette = bodycol_d_palette;
+        this.clientpalette = clientpalette;
         this.female = female;
         if (this.basId != basId) {
             this.basId = basId;

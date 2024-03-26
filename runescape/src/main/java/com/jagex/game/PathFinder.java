@@ -1,3 +1,5 @@
+package com.jagex.game;
+
 import com.jagex.core.constants.LocShapes;
 import com.jagex.core.constants.PathDestination;
 import com.jagex.game.collision.CollisionMap;

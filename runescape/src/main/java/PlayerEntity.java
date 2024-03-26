@@ -618,14 +618,14 @@ public final class PlayerEntity extends PathingEntity {
             }
         }
 
-        @Pc(332) int[] bodyColours = new int[10];
+        @Pc(332) int[] clientpalette = new int[10];
         for (@Pc(184) int i = 0; i < 10; i++) {
             @Pc(191) int colour = packet.g1();
             if (i >= PlayerModel.recol_d.length || colour < 0 || PlayerModel.recol_d[i][0].length <= colour) {
                 colour = 0;
             }
 
-            bodyColours[i] = colour;
+            clientpalette[i] = colour;
         }
 
         this.basId = packet.g2();
@@ -682,7 +682,7 @@ public final class PlayerEntity extends PathingEntity {
 
         @Pc(240) int npcIdBefore = this.playerModel.npcId;
         @Pc(603) int[] clientpaletteBefore = this.playerModel.clientpalette;
-        this.playerModel.update(bodyColours, identikit, customisations, npcId, this.getBasId(0), this.gender == 1);
+        this.playerModel.update(clientpalette, identikit, customisations, npcId, this.getBasId(0), this.gender == 1);
 
         if (npcId != npcIdBefore) {
             super.x = (super.pathX[0] << 9) + (this.getSize() << 8);
@@ -690,8 +690,8 @@ public final class PlayerEntity extends PathingEntity {
         }
 
         if (PlayerList.activePlayerSlot == super.id && clientpaletteBefore != null) {
-            for (@Pc(490) int i = 0; i < bodyColours.length; i++) {
-                if (bodyColours[i] != clientpaletteBefore[i]) {
+            for (@Pc(490) int i = 0; i < clientpalette.length; i++) {
+                if (clientpalette[i] != clientpaletteBefore[i]) {
                     ObjTypeList.instance.spriteCacheReset();
                     break;
                 }

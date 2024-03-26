@@ -1,4 +1,5 @@
 import com.jagex.game.DelayedStateChange;
+import com.jagex.game.PathFinder;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

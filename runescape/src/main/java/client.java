@@ -1,5 +1,6 @@
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.game.PathFinder;
 import com.jagex.game.camera.CameraMode;
 import com.jagex.game.camera.Shake;
 import com.jagex.core.constants.ModeGame;

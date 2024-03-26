@@ -7,10 +7,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 import static com.jagex.game.collision.CollisionFlag.BLOCKWALK;
-import static com.jagex.game.collision.DirectionFlag.EAST;
-import static com.jagex.game.collision.DirectionFlag.NORTH;
-import static com.jagex.game.collision.DirectionFlag.SOUTH;
-import static com.jagex.game.collision.DirectionFlag.WEST;
 import static com.jagex.game.collision.CollisionFlag.GROUND_DECOR;
 import static com.jagex.game.collision.CollisionFlag.LOCATION;
 import static com.jagex.game.collision.CollisionFlag.LOCATION_BLOCKRANGE;
@@ -52,6 +48,10 @@ import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_WEST_BREAKROUTEF
 import static com.jagex.game.collision.CollisionFlag.WALL_WEST;
 import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCKRANGE;
 import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCK_BREAKROUTEFINDING;
+import static com.jagex.game.collision.DirectionFlag.EAST;
+import static com.jagex.game.collision.DirectionFlag.NORTH;
+import static com.jagex.game.collision.DirectionFlag.SOUTH;
+import static com.jagex.game.collision.DirectionFlag.WEST;
 
 @OriginalClass("client!eq")
 public final class CollisionMap {
@@ -302,7 +302,7 @@ public final class CollisionMap {
         if (shape == LocShapes.WALL_DIAGONALCORNER || shape == LocShapes.WALL_SQUARECORNER) {
             if (rotation == 0) {
                 this.flag(x1, z1, WALL_NORTH_WEST);
-                this.flag(x1 - 1, z1 - -1, WALL_SOUTH_EAST);
+                this.flag(x1 - 1, z1 + 1, WALL_SOUTH_EAST);
             }
             if (rotation == 1) {
                 this.flag(x1, z1, WALL_NORTH_EAST);
@@ -310,11 +310,11 @@ public final class CollisionMap {
             }
             if (rotation == 2) {
                 this.flag(x1, z1, WALL_SOUTH_EAST);
-                this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST);
+                this.flag(x1 + 1, z1 - 1, WALL_NORTH_WEST);
             }
             if (rotation == 3) {
                 this.flag(x1, z1, WALL_SOUTH_WEST);
-                this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST);
+                this.flag(x1 - 1, z1 - 1, WALL_NORTH_EAST);
             }
         }
         if (shape == LocShapes.WALL_L) {
@@ -370,11 +370,11 @@ public final class CollisionMap {
                 }
                 if (rotation == 2) {
                     this.flag(x1, z1, WALL_SOUTH_EAST_BLOCKRANGE);
-                    this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST_BLOCKRANGE);
+                    this.flag(x1 + 1, z1 - 1, WALL_NORTH_WEST_BLOCKRANGE);
                 }
                 if (rotation == 3) {
                     this.flag(x1, z1, WALL_SOUTH_WEST_BLOCKRANGE);
-                    this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST_BLOCKRANGE);
+                    this.flag(x1 - 1, z1 - 1, WALL_NORTH_EAST_BLOCKRANGE);
                 }
             }
             if (shape == LocShapes.WALL_L) {
@@ -427,15 +427,15 @@ public final class CollisionMap {
                 }
                 if (rotation == 1) {
                     this.flag(x1, z1, WALL_NORTH_EAST_BREAKROUTEFINDING);
-                    this.flag(x1 + 1, z1 - -1, WALL_SOUTH_WEST_BREAKROUTEFINDING);
+                    this.flag(x1 + 1, z1 + 1, WALL_SOUTH_WEST_BREAKROUTEFINDING);
                 }
                 if (rotation == 2) {
                     this.flag(x1, z1, WALL_SOUTH_EAST_BREAKROUTEFINDING);
-                    this.flag(x1 + 1, z1 + -1, WALL_NORTH_WEST_BREAKROUTEFINDING);
+                    this.flag(x1 + 1, z1 - 1, WALL_NORTH_WEST_BREAKROUTEFINDING);
                 }
                 if (rotation == 3) {
                     this.flag(x1, z1, WALL_SOUTH_WEST_BREAKROUTEFINDING);
-                    this.flag(x1 - 1, z1 + -1, WALL_NORTH_EAST_BREAKROUTEFINDING);
+                    this.flag(x1 - 1, z1 - 1, WALL_NORTH_EAST_BREAKROUTEFINDING);
                 }
             }
             if (shape == LocShapes.WALL_L) {

@@ -2,7 +2,6 @@ package com.jagex;
 
 import com.ms.awt.WComponentPeer;
 import com.ms.com.IUnknown;
-import com.ms.com._Guid;
 import com.ms.directX.DDSurfaceDesc;
 import com.ms.directX.DirectDraw;
 import com.ms.directX.IEnumModesCallback;
@@ -17,7 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 @OriginalClass("client!ak")
-public final class Class15 implements IEnumModesCallback {
+public final class MicrosoftFullscreenAdapter implements IEnumModesCallback {
 
     @OriginalMember(owner = "client!ak", name = "b", descriptor = "[I")
     public static int[] anIntArray28;
@@ -26,45 +25,48 @@ public final class Class15 implements IEnumModesCallback {
     public static int anInt240;
 
     @OriginalMember(owner = "client!ak", name = "c", descriptor = "Lcom/ms/directX/DirectDraw;")
-    public final DirectDraw aDirectDraw1 = new DirectDraw();
+    public final DirectDraw draw = new DirectDraw();
 
     @OriginalMember(owner = "client!ak", name = "<init>", descriptor = "()V")
-    public Class15() {
-        this.aDirectDraw1.initialize(null);
+    public MicrosoftFullscreenAdapter() {
+        this.draw.initialize(null);
     }
 
     @OriginalMember(owner = "client!ak", name = "a", descriptor = "(Ljava/awt/Frame;IIIII)V")
-    public void method248(@OriginalArg(0) Frame arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4) {
+    public void enter(@OriginalArg(0) Frame frame, @OriginalArg(1) int bits, @OriginalArg(2) int refreshRate, @OriginalArg(3) int height, @OriginalArg(5) int width) {
         try {
-            arg0.setVisible(true);
+            frame.setVisible(true);
             Method getPeer = Frame.class.getDeclaredMethod("getPeer");
             getPeer.setAccessible(true);
-            @Pc(6) WComponentPeer local6 = (WComponentPeer) getPeer.invoke(arg0);
-            @Pc(9) int local9 = local6.getHwnd();
-            User32.SetWindowLong(local9, -16, Integer.MIN_VALUE);
-            User32.SetWindowLong(local9, -20, 8);
-            this.aDirectDraw1.setCooperativeLevel(arg0, 17);
-            this.aDirectDraw1.setDisplayMode(arg4, arg3, arg1, arg2, 0);
-            arg0.setBounds(0, 0, arg4, arg3);
-            arg0.toFront();
-            arg0.requestFocus();
+            @Pc(6) WComponentPeer local6 = (WComponentPeer) getPeer.invoke(frame);
+
+            @Pc(9) int windowHandle = local6.getHwnd();
+            User32.SetWindowLong(windowHandle, -16, Integer.MIN_VALUE);
+            User32.SetWindowLong(windowHandle, -20, 8);
+
+            this.draw.setCooperativeLevel(frame, 17);
+            this.draw.setDisplayMode(width, height, bits, refreshRate, 0);
+
+            frame.setBounds(0, 0, width, height);
+            frame.toFront();
+            frame.requestFocus();
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     @OriginalMember(owner = "client!ak", name = "a", descriptor = "(Ljava/awt/Frame;I)V")
-    public void method249(@OriginalArg(0) Frame arg0) {
-        this.aDirectDraw1.restoreDisplayMode();
-        this.aDirectDraw1.setCooperativeLevel(arg0, 8);
+    public void exit(@OriginalArg(0) Frame frame) {
+        this.draw.restoreDisplayMode();
+        this.draw.setCooperativeLevel(frame, 8);
     }
 
     @OriginalMember(owner = "client!ak", name = "a", descriptor = "(I)[I")
-    public int[] method250() {
-        this.aDirectDraw1.enumDisplayModes(0, null, null, this);
+    public int[] listmodes() {
+        this.draw.enumDisplayModes(0, null, null, this);
         anIntArray28 = new int[anInt240];
         anInt240 = 0;
-        this.aDirectDraw1.enumDisplayModes(0, null, null, this);
+        this.draw.enumDisplayModes(0, null, null, this);
         @Pc(20) int[] local20 = anIntArray28;
         anIntArray28 = null;
         anInt240 = 0;

@@ -125,7 +125,7 @@ public final class SignLink implements Runnable {
     public Object anObject21;
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "Lclient!ak;")
-    public Class15 aClass15_1;
+    public MicrosoftFullscreenAdapter microsoftFullscreenAdapter;
 
     @OriginalMember(owner = "client!vq", name = "r", descriptor = "Ljava/lang/Object;")
     public Object fullscreenAdapter;
@@ -235,7 +235,7 @@ public final class SignLink implements Runnable {
 
             try {
                 if (this.microsoftjava) {
-                    this.aClass15_1 = new Class15();
+                    this.microsoftFullscreenAdapter = new MicrosoftFullscreenAdapter();
                 } else {
                     this.fullscreenAdapter = Class.forName("com.jagex.graphics.FullscreenAdapter").getDeclaredConstructor().newInstance();
                 }
@@ -472,7 +472,7 @@ public final class SignLink implements Runnable {
         if (!this.signed) {
             return false;
         } else if (this.microsoftjava) {
-            return this.aClass15_1 != null;
+            return this.microsoftFullscreenAdapter != null;
         } else {
             return this.fullscreenAdapter != null;
         }
@@ -613,7 +613,7 @@ public final class SignLink implements Runnable {
                         request.result = InetAddress.getByName((String) request.objectData).getAddress();
                     } else if (type == SignedResourceType.DISPLAY_PROPERTIES) {
                         if (this.microsoftjava) {
-                            request.result = this.aClass15_1.method250();
+                            request.result = this.microsoftFullscreenAdapter.listmodes();
                         } else {
                             request.result = Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("listmodes").invoke(this.fullscreenAdapter);
                         }
@@ -623,13 +623,13 @@ public final class SignLink implements Runnable {
                         frame.setResizable(false);
 
                         if (this.microsoftjava) {
-                            this.aClass15_1.method248(frame, request.intData2 >> 16, request.intData2 & 0xFFFF, request.intData1 & 0xFFFF, request.intData1 >>> 16);
+                            this.microsoftFullscreenAdapter.enter(frame, request.intData2 >> 16, request.intData2 & 0xFFFF, request.intData1 & 0xFFFF, request.intData1 >>> 16);
                         } else {
                             Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("enter", frameClass == null ? (frameClass = Class.forName("java.awt.Frame")) : frameClass, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE).invoke(this.fullscreenAdapter, frame, Integer.valueOf(request.intData1 >>> 16), new Integer(request.intData1 & 0xFFFF), Integer.valueOf(request.intData2 >> 16), new Integer(request.intData2 & 0xFFFF));
                         }
                     } else if (type == SignedResourceType.EXIT_FULLSCREEN) {
                         if (this.microsoftjava) {
-                            this.aClass15_1.method249((Frame) request.objectData);
+                            this.microsoftFullscreenAdapter.exit((Frame) request.objectData);
                         } else {
                             Class.forName("com.jagex.graphics.FullscreenAdapter").getMethod("exit").invoke(this.fullscreenAdapter);
                         }
@@ -672,7 +672,7 @@ public final class SignLink implements Runnable {
                             }
 
                             @Pc(754) String validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*";
-                            for (@Pc(756) int i = 0; url.length() > i; i++) {
+                            for (@Pc(756) int i = 0; i < url.length(); i++) {
                                 if (validChars.indexOf(url.charAt(i)) == -1) {
                                     throw new Exception();
                                 }

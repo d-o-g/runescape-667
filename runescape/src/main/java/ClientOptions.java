@@ -1,3 +1,4 @@
+import com.jagex.SignedResourceStatus;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
@@ -176,11 +177,11 @@ public final class ClientOptions extends Node {
         @Pc(5) FileOnDisk file = null;
         try {
             @Pc(18) SignedResource resource = GameShell.signLink.openPrefs("", true);
-            while (resource.status == 0) {
+            while (resource.status == SignedResourceStatus.IDLE) {
                 TimeUtils.sleep(1L);
             }
 
-            if (resource.status == 1) {
+            if (resource.status == SignedResourceStatus.SUCCESS) {
                 file = (FileOnDisk) resource.result;
                 @Pc(41) Packet packet = instance.encode();
                 file.write(packet.data, 0, packet.pos);

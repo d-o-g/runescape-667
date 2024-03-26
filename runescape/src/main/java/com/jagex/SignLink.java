@@ -283,11 +283,11 @@ public final class SignLink implements Runnable {
         }
 
         @Pc(15) SignedResource resource = signlink.getDisplayProperties();
-        while (resource.status == 0) {
+        while (resource.status == SignedResourceStatus.IDLE) {
             TimeUtils.sleep(10L);
         }
 
-        if (resource.status == 2) {
+        if (resource.status == SignedResourceStatus.ERROR) {
             return new DisplayProperties[0];
         }
 
@@ -691,11 +691,11 @@ public final class SignLink implements Runnable {
                     throw new Exception("");
                 }
 
-                request.status = 1;
+                request.status = SignedResourceStatus.SUCCESS;
             } catch (@Pc(958) ThreadDeath death) {
                 throw death;
-            } catch (@Pc(961) Throwable local961) {
-                request.status = 2;
+            } catch (@Pc(961) Throwable ignored) {
+                request.status = SignedResourceStatus.ERROR;
             }
 
             synchronized (request) {

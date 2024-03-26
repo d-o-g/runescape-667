@@ -2,6 +2,7 @@ import com.jagex.Client;
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.SignedResourceStatus;
 import com.jagex.core.constants.MaxScreenSize;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ComponentClientCode;
@@ -2696,14 +2697,16 @@ public final class InterfaceManager {
     public static void exitFullscreen(@OriginalArg(0) SignLink signLink, @OriginalArg(2) Frame frame) {
         while (true) {
             @Pc(10) SignedResource resource = signLink.exitFullscreen(frame);
-            while (resource.status == 0) {
+            while (resource.status == SignedResourceStatus.IDLE) {
                 TimeUtils.sleep(10L);
             }
-            if (resource.status == 1) {
+
+            if (resource.status == SignedResourceStatus.SUCCESS) {
                 frame.setVisible(false);
                 frame.dispose();
                 return;
             }
+
             TimeUtils.sleep(100L);
         }
     }
@@ -2732,18 +2735,18 @@ public final class InterfaceManager {
         }
 
         @Pc(101) SignedResource resource = signlink.enterFullscreen(width, height, oldWidth, oldHeight);
-        while (resource.status == 0) {
+        while (resource.status == SignedResourceStatus.IDLE) {
             TimeUtils.sleep(10L);
         }
 
-        @Pc(112) Frame local112 = (Frame) resource.result;
-        if (local112 == null) {
+        @Pc(112) Frame frame = (Frame) resource.result;
+        if (frame == null) {
             return null;
-        } else if (resource.status == 2) {
-            exitFullscreen(signlink, local112);
+        } else if (resource.status == SignedResourceStatus.ERROR) {
+            exitFullscreen(signlink, frame);
             return null;
         } else {
-            return local112;
+            return frame;
         }
     }
 

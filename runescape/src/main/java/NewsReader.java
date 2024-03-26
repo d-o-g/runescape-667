@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.SignedResource;
+import com.jagex.SignedResourceStatus;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.datastruct.StringList;
 import com.jagex.game.news.NewsItem;
@@ -80,9 +81,9 @@ public final class NewsReader implements Runnable {
             }
         }
 
-        if (this.resource == null || this.resource.status == 2) {
+        if (this.resource == null || this.resource.status == SignedResourceStatus.ERROR) {
             return true;
-        } else if (this.resource.status == 1) {
+        } else if (this.resource.status == SignedResourceStatus.SUCCESS) {
             if (this.thread == null) {
                 this.thread = new Thread(this);
                 this.thread.start();

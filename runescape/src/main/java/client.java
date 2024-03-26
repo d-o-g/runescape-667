@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.SignedResourceStatus;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.PathFinder;
@@ -910,7 +911,7 @@ public final class client extends GameShell {
             }
 
             if (Client.js5State == Js5State.WAITING_CONNECTION_OPENED) {
-                if (Client.js5Socket.status == 2) {
+                if (Client.js5Socket.status == SignedResourceStatus.ERROR) {
                     if (Client.js5Socket.result != null) {
                         Client.netProxyError = (String) Client.js5Socket.result;
                     }
@@ -919,7 +920,7 @@ public final class client extends GameShell {
                     return;
                 }
 
-                if (Client.js5Socket.status == 1) {
+                if (Client.js5Socket.status == SignedResourceStatus.SUCCESS) {
                     Client.js5State++;
                 }
             }

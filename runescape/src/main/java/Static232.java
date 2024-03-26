@@ -1,4 +1,5 @@
 import com.jagex.ServerProt;
+import com.jagex.SignedResourceStatus;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -78,10 +79,10 @@ public final class Static232 {
             return false;
         }
         for (@Pc(23) int local23 = 0; local23 < local10.anInt10364; local23++) {
-            if (local10.aSignedResourceArray1[local23] != null && local10.aSignedResourceArray1[local23].status == 0) {
+            if (local10.aSignedResourceArray1[local23] != null && local10.aSignedResourceArray1[local23].status == SignedResourceStatus.IDLE) {
                 return false;
             }
-            if (local10.aSignedResourceArray2[local23] != null && local10.aSignedResourceArray2[local23].status == 0) {
+            if (local10.aSignedResourceArray2[local23] != null && local10.aSignedResourceArray2[local23].status == SignedResourceStatus.IDLE) {
                 return false;
             }
         }

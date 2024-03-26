@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.SignedResource;
+import com.jagex.SignedResourceStatus;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
@@ -62,12 +63,13 @@ public final class Static720 {
         @Pc(13) FileOnDisk local13 = null;
         @Pc(19) ClientOptions local19 = new ClientOptions(Client.modeGame, 0);
         try {
-            @Pc(25) SignedResource local25 = GameShell.signLink.openPrefs("", true);
-            while (local25.status == 0) {
+            @Pc(25) SignedResource resource = GameShell.signLink.openPrefs("", true);
+            while (resource.status == SignedResourceStatus.IDLE) {
                 TimeUtils.sleep(1L);
             }
-            if (local25.status == 1) {
-                local13 = (FileOnDisk) local25.result;
+
+            if (resource.status == SignedResourceStatus.SUCCESS) {
+                local13 = (FileOnDisk) resource.result;
                 @Pc(51) byte[] local51 = new byte[(int) local13.length()];
                 @Pc(66) int local66;
                 for (@Pc(53) int local53 = 0; local53 < local51.length; local53 += local66) {

@@ -7,6 +7,7 @@ import com.jagex.Class27_Sub3;
 import com.jagex.NativeLibraryList;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.SignedResourceStatus;
 import com.jagex.Static14;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.JavaScript;
@@ -425,8 +426,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             frame.setSize(frameWid + insets.left + insets.right, insets.bottom + insets.top + frameHei);
 
             SignLink.instance = signLink = new SignLink(arg0, arg1, 37, true);
+
             @Pc(88) SignedResource resource = signLink.startThread(this, 1);
-            while (resource.status == 0) {
+            while (resource.status == SignedResourceStatus.IDLE) {
                 TimeUtils.sleep(10L);
             }
         } catch (@Pc(103) Exception local103) {
@@ -538,8 +540,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 topMargin = 0;
                 instance = this;
                 SignLink.instance = signLink = new SignLink(cacheId, game, archiveCount, loaderApplet != null);
-                @Pc(80) SignedResource local80 = signLink.startThread(this, 1);
-                while (local80.status == 0) {
+
+                @Pc(80) SignedResource resource = signLink.startThread(this, 1);
+                while (resource.status == SignedResourceStatus.IDLE) {
                     TimeUtils.sleep(10L);
                 }
             } else {

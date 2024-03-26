@@ -2,6 +2,7 @@ package com.jagex.core.io;
 
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.SignedResourceStatus;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -230,11 +231,11 @@ public final class BufferedSocket implements Runnable {
         }
 
         if (this.threadReference != null) {
-            while (this.threadReference.status == 0) {
+            while (this.threadReference.status == SignedResourceStatus.IDLE) {
                 TimeUtils.sleep(1L);
             }
 
-            if (this.threadReference.status == 1) {
+            if (this.threadReference.status == SignedResourceStatus.SUCCESS) {
                 try {
                     ((Thread) this.threadReference.result).join();
                 } catch (@Pc(60) InterruptedException ignored) {

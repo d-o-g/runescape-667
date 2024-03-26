@@ -2,6 +2,7 @@ package com.jagex.js5;
 
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
+import com.jagex.SignedResourceStatus;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
@@ -28,10 +29,11 @@ public final class CachedResourceWorker implements Runnable {
     @OriginalMember(owner = "client!iba", name = "<init>", descriptor = "(Lclient!vq;)V")
     public CachedResourceWorker(@OriginalArg(0) SignLink signLink) {
         @Pc(20) SignedResource resource = signLink.startThread(this, 5);
-        while (resource.status == 0) {
+        while (resource.status == SignedResourceStatus.IDLE) {
             TimeUtils.sleep(10L);
         }
-        if (resource.status == 2) {
+
+        if (resource.status == SignedResourceStatus.ERROR) {
             throw new RuntimeException();
         }
         this.thread = (Thread) resource.result;

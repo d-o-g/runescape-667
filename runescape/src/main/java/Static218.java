@@ -1,4 +1,5 @@
 import com.jagex.SignedResource;
+import com.jagex.SignedResourceStatus;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
@@ -27,21 +28,22 @@ public final class Static218 {
     public static void method3189() {
         @Pc(7) FileOnDisk local7 = null;
         try {
-            @Pc(13) SignedResource local13 = GameShell.signLink.openPrefs("2", true);
-            while (local13.status == 0) {
+            @Pc(13) SignedResource resource = GameShell.signLink.openPrefs("2", true);
+            while (resource.status == SignedResourceStatus.IDLE) {
                 TimeUtils.sleep(1L);
             }
-            if (local13.status == 1) {
-                local7 = (FileOnDisk) local13.result;
-                @Pc(41) byte[] local41 = new byte[(int) local7.length()];
+
+            if (resource.status == SignedResourceStatus.SUCCESS) {
+                local7 = (FileOnDisk) resource.result;
+                @Pc(41) byte[] data = new byte[(int) local7.length()];
                 @Pc(57) int local57;
-                for (@Pc(43) int local43 = 0; local43 < local41.length; local43 += local57) {
-                    local57 = local7.read(local41.length - local43, local41, local43);
+                for (@Pc(43) int local43 = 0; local43 < data.length; local43 += local57) {
+                    local57 = local7.read(data.length - local43, data, local43);
                     if (local57 == -1) {
                         throw new IOException("EOF");
                     }
                 }
-                Static618.method8317(new Packet(local41));
+                Static618.method8317(new Packet(data));
             }
         } catch (@Pc(88) Exception local88) {
         }

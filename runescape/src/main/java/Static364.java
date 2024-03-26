@@ -119,10 +119,10 @@ public final class Static364 {
             @Pc(203) int local203;
             @Pc(250) int local250;
             if (Static135.anInt8223 == 2) {
-                if (Static524.aServerConnection_3.gameSocketRequest.status == 2) {
+                if (Static524.aServerConnection_3.gameSocketRequest.status == SignedResourceStatus.ERROR) {
                     throw new IOException();
                 }
-                if (Static524.aServerConnection_3.gameSocketRequest.status != 1) {
+                if (Static524.aServerConnection_3.gameSocketRequest.status != SignedResourceStatus.SUCCESS) {
                     return;
                 }
                 Static524.aServerConnection_3.connection = Static99.method1975((Socket) Static524.aServerConnection_3.gameSocketRequest.result);

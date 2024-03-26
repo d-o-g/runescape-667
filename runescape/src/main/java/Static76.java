@@ -1,3 +1,4 @@
+import com.jagex.SignedResourceStatus;
 import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -50,10 +51,10 @@ public final class Static76 {
                 Static6.anInt95 = 2;
             }
             if (Static6.anInt95 == 2) {
-                if (ConnectionManager.LOBBY.gameSocketRequest.status == 2) {
+                if (ConnectionManager.LOBBY.gameSocketRequest.status == SignedResourceStatus.ERROR) {
                     throw new IOException();
                 }
-                if (ConnectionManager.LOBBY.gameSocketRequest.status != 1) {
+                if (ConnectionManager.LOBBY.gameSocketRequest.status != SignedResourceStatus.SUCCESS) {
                     return;
                 }
                 ConnectionManager.LOBBY.connection = Static99.method1975((Socket) ConnectionManager.LOBBY.gameSocketRequest.result);

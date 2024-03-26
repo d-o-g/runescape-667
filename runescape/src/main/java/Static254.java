@@ -57,7 +57,7 @@ public final class Static254 {
         Static505.projectiles.clear();
         Static346.A_HASH_TABLE___29.clear();
         Static422.textCoords.clear();
-        Static497.stacks.clear();
+        Static497.objStacks.clear();
         Static159.changes = new Deque();
         Static227.customisations = new Deque();
         TimedVarDomain.instance.reset();

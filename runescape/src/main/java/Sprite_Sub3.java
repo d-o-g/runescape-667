@@ -102,11 +102,11 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        @Pc(6) ClippingMask_Sub2 local6 = (ClippingMask_Sub2) arg2;
+    public void method8195(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int offsetX, @OriginalArg(4) int offsetY) {
+        @Pc(6) ClippingMask_Sub2 local6 = (ClippingMask_Sub2) mask;
         @Pc(9) Interface18 local9 = local6.anInterface18_2;
-        @Pc(14) int local14 = arg0 + this.anInt6617;
-        @Pc(19) int local19 = arg1 + this.anInt6624;
+        @Pc(14) int local14 = x + this.anInt6617;
+        @Pc(19) int local19 = y + this.anInt6624;
         this.anInterface18_3.method9041(Static363.aClass259_14);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
@@ -125,7 +125,7 @@ public final class Sprite_Sub3 extends Sprite {
         this.aClass19_Sub1_12.method8080(0, Static188.aClass168_1);
         @Pc(123) Matrix_Sub1 local123 = this.aClass19_Sub1_12.method8082();
         local123.method1884(1.0F, local9.method9050((float) this.anInt6606), local9.method9046((float) this.anInt6626));
-        local123.method1882(0.0F, local9.method9050((float) (local19 - arg4)), local9.method9046((float) (local14 - arg3)));
+        local123.method1882(0.0F, local9.method9050((float) (local19 - offsetY)), local9.method9046((float) (local14 - offsetX)));
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);
         this.aClass19_Sub1_12.method8059();
         this.aClass19_Sub1_12.method8031();

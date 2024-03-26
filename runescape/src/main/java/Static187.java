@@ -34,7 +34,7 @@ public final class Static187 {
         NPCList.localNpcCount = 0;
         NPCList.local.clear();
         NPCList.newNpcCount = 0;
-        Static497.stacks.clear();
+        Static497.objStacks.clear();
         Camera.reset();
         Static334.anInt5456 = 0;
         TimedVarDomain.instance.reset();

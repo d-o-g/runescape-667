@@ -10,7 +10,7 @@ public final class Static497 {
     public static boolean aBoolean564;
 
     @OriginalMember(owner = "client!pla", name = "i", descriptor = "Lclient!av;")
-    public static IterableHashTable stacks = new IterableHashTable(64);
+    public static IterableHashTable objStacks = new IterableHashTable(64);
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method6623(@OriginalArg(1) Toolkit arg0) {

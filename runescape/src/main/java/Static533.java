@@ -6,9 +6,6 @@ public final class Static533 {
     @OriginalMember(owner = "client!qp", name = "d", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___196 = new ServerProt(114, 4);
 
-    @OriginalMember(owner = "client!qp", name = "f", descriptor = "[I")
-    public static final int[] anIntArray628 = new int[1000];
-
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(B)V")
     public static void method7119() {
         for (@Pc(8) MiniMenuEntryInner local8 = (MiniMenuEntryInner) MiniMenu.innerEntries.first(); local8 != null; local8 = (MiniMenuEntryInner) MiniMenu.innerEntries.next()) {

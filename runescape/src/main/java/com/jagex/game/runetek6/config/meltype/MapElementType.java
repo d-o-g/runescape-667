@@ -85,7 +85,7 @@ public final class MapElementType {
     public int sprite = -1;
 
     @OriginalMember(owner = "client!el", name = "A", descriptor = "I")
-    public int anInt2594 = Integer.MIN_VALUE;
+    public int minZ = Integer.MIN_VALUE;
 
     @OriginalMember(owner = "client!el", name = "r", descriptor = "I")
     public int hoverSprite = -1;
@@ -94,13 +94,13 @@ public final class MapElementType {
     public boolean aBoolean214 = true;
 
     @OriginalMember(owner = "client!el", name = "j", descriptor = "Z")
-    public boolean randomlyPlaced = true;
+    public boolean randomise = true;
 
     @OriginalMember(owner = "client!el", name = "u", descriptor = "I")
     public int multiVarp = -1;
 
     @OriginalMember(owner = "client!el", name = "X", descriptor = "I")
-    public int anInt2588 = Integer.MAX_VALUE;
+    public int maxZ = Integer.MAX_VALUE;
 
     @OriginalMember(owner = "client!el", name = "L", descriptor = "I")
     public int category = -1;
@@ -121,10 +121,10 @@ public final class MapElementType {
     public boolean aBoolean218 = false;
 
     @OriginalMember(owner = "client!el", name = "b", descriptor = "I")
-    public int anInt2598 = Integer.MAX_VALUE;
+    public int maxX = Integer.MAX_VALUE;
 
     @OriginalMember(owner = "client!el", name = "C", descriptor = "I")
-    public int anInt2614 = Integer.MIN_VALUE;
+    public int minX = Integer.MIN_VALUE;
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "I")
     public int multiVarBit = -1;
@@ -136,7 +136,7 @@ public final class MapElementType {
     public int worldMapSprite = -1;
 
     @OriginalMember(owner = "client!el", name = "N", descriptor = "I")
-    public int textSize = 0;
+    public int font = 0;
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(BLclient!ge;)V")
     public void decode(@OriginalArg(1) Packet packet) {
@@ -226,16 +226,16 @@ public final class MapElementType {
         }
 
         for (@Pc(16) int i = 0; i < this.landmarkPolygons.length; i += 2) {
-            if (this.landmarkPolygons[i] < this.anInt2598) {
-                this.anInt2598 = this.landmarkPolygons[i];
-            } else if (this.anInt2614 < this.landmarkPolygons[i]) {
-                this.anInt2614 = this.landmarkPolygons[i];
+            if (this.landmarkPolygons[i] < this.maxX) {
+                this.maxX = this.landmarkPolygons[i];
+            } else if (this.minX < this.landmarkPolygons[i]) {
+                this.minX = this.landmarkPolygons[i];
             }
 
-            if (this.anInt2588 > this.landmarkPolygons[i + 1]) {
-                this.anInt2588 = this.landmarkPolygons[i + 1];
-            } else if (this.anInt2594 < this.landmarkPolygons[i + 1]) {
-                this.anInt2594 = this.landmarkPolygons[i + 1];
+            if (this.maxZ > this.landmarkPolygons[i + 1]) {
+                this.maxZ = this.landmarkPolygons[i + 1];
+            } else if (this.minZ < this.landmarkPolygons[i + 1]) {
+                this.minZ = this.landmarkPolygons[i + 1];
             }
         }
     }
@@ -276,7 +276,7 @@ public final class MapElementType {
         } else if (code == 5) {
             this.hoverTextColour = packet.g3();
         } else if (code == 6) {
-            this.textSize = packet.g1();
+            this.font = packet.g1();
         } else if (code == 7) {
             @Pc(74) int flags = packet.g1();
             if ((flags & 0x1) == 0) {
@@ -286,7 +286,7 @@ public final class MapElementType {
                 this.aBoolean218 = true;
             }
         } else if (code == 8) {
-            this.randomlyPlaced = packet.g1() == 1;
+            this.randomise = packet.g1() == 1;
         } else if (code == 9) {
             this.multiVarp = packet.g2();
             if (this.multiVarp == 65535) {

@@ -2553,12 +2553,12 @@ public final class InterfaceManager {
         targetEndCursor = -1;
         Static115.method2136(Cursor.dflt);
         PlayerEntity.self = new PlayerEntity();
-        PlayerEntity.self.z = Static501.mapHeight * 512 / 2;
+        PlayerEntity.self.z = Static501.mapLength * 512 / 2;
         PlayerEntity.self.x = Static720.mapWidth * 512 / 2;
         PlayerEntity.self.pathX[0] = Static720.mapWidth / 2;
         Camera.z = 0;
         Camera.x = 0;
-        PlayerEntity.self.pathZ[0] = Static501.mapHeight / 2;
+        PlayerEntity.self.pathZ[0] = Static501.mapLength / 2;
 
         if (Camera.mode == CameraMode.MODE_FIXED) {
             Camera.z = Camera.moveToZ << 9;

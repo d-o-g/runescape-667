@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ml")
 public final class MapElementTypeList {
 
-    private static final int DEFAULT_CACHE_SIZE = 128;
+    public static final int DEFAULT_CACHE_SIZE = 128;
 
     @OriginalMember(owner = "client!sca", name = "a", descriptor = "Lclient!ml;")
     public static MapElementTypeList instance;

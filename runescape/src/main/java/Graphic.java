@@ -25,12 +25,12 @@ public final class Graphic {
     public final int scaleWidth;
 
     @OriginalMember(owner = "client!he", name = "<init>", descriptor = "(II[I[ILclient!aa;I)V")
-    public Graphic(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) ClippingMask arg4, @OriginalArg(5) int arg5) {
-        this.clippingMask = arg4;
-        this.lineWidths = arg2;
-        this.lineOffsets = arg3;
-        this.scaleHeight = arg1;
-        this.id = arg5;
-        this.scaleWidth = arg0;
+    public Graphic(@OriginalArg(0) int scaleWidth, @OriginalArg(1) int scaleHeight, @OriginalArg(2) int[] lineWidths, @OriginalArg(3) int[] lineOffsets, @OriginalArg(4) ClippingMask clippingMask, @OriginalArg(5) int id) {
+        this.clippingMask = clippingMask;
+        this.lineWidths = lineWidths;
+        this.lineOffsets = lineOffsets;
+        this.scaleHeight = scaleHeight;
+        this.id = id;
+        this.scaleWidth = scaleWidth;
     }
 }

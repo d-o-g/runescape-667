@@ -1146,8 +1146,8 @@ public final class client extends GameShell {
                             @Pc(203) int local203 = local150 + local97.pathZ[0];
                             if (local203 < 0) {
                                 local203 = 0;
-                            } else if (local203 > Static501.mapHeight - local114 - 1) {
-                                local203 = Static501.mapHeight - local114 - 1;
+                            } else if (local203 > Static501.mapLength - local114 - 1) {
+                                local203 = Static501.mapLength - local114 - 1;
                             }
                             @Pc(258) int local258 = PathFinder.findPath(Static577.collisionMaps[local97.level], Static480.anIntArray583, Static70.anIntArray147, local97.pathX[0], local97.pathZ[0], local114, local166, local203, local114, local114, -1, 0, 0, true);
                             if (local258 > 0) {
@@ -1179,7 +1179,7 @@ public final class client extends GameShell {
                 Camera.splineTick();
             }
 
-            if (Camera.x >> 9 < 14 || Camera.x >> 9 >= Static720.mapWidth - 14 || Camera.z >> 9 < 14 || Camera.z >> 9 >= Static501.mapHeight - 14) {
+            if (Camera.x >> 9 < 14 || Camera.x >> 9 >= Static720.mapWidth - 14 || Camera.z >> 9 < 14 || Camera.z >> 9 >= Static501.mapLength - 14) {
                 Static54.method1179();
             }
         }
@@ -1678,7 +1678,7 @@ public final class client extends GameShell {
     public String getErrorTrace() {
         @Pc(5) String trace = null;
         try {
-            trace = "[1)" + WorldMap.areaBaseX + "," + WorldMap.areaBaseZ + "," + Static720.mapWidth + "," + Static501.mapHeight + "|";
+            trace = "[1)" + WorldMap.areaBaseX + "," + WorldMap.areaBaseZ + "," + Static720.mapWidth + "," + Static501.mapLength + "|";
 
             if (PlayerEntity.self != null) {
                 trace = trace + "2)" + Camera.renderingLevel + "," + (PlayerEntity.self.pathX[0] + WorldMap.areaBaseX) + "," + (WorldMap.areaBaseZ + PlayerEntity.self.pathZ[0]) + "|";

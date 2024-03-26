@@ -231,8 +231,8 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) arg2;
+    public void method8195(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int offsetX, @OriginalArg(4) int offsetY) {
+        @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) mask;
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.aClass93_Sub2_Sub1_3.method9438(false);
         this.aClass19_Sub3_28.method7018();
@@ -243,16 +243,16 @@ public final class Sprite_Sub2 extends Sprite {
         this.aClass19_Sub3_28.method7031(8448, 7681);
         this.aClass19_Sub3_28.method7021(34168, 768, 0);
         this.aClass19_Sub3_28.method7017(1);
-        @Pc(62) int local62 = arg0 + this.anInt6041;
-        @Pc(67) int local67 = arg1 + this.anInt6027;
+        @Pc(62) int local62 = x + this.anInt6041;
+        @Pc(67) int local67 = y + this.anInt6027;
         @Pc(73) int local73 = this.aClass93_Sub2_Sub1_3.anInt3259 + local62;
         @Pc(79) int local79 = this.aClass93_Sub2_Sub1_3.anInt3257 + local67;
         @Pc(86) float local86 = local9.aFloat67 / (float) local9.anInt3259;
         @Pc(93) float local93 = local9.aFloat68 / (float) local9.anInt3257;
-        @Pc(100) float local100 = local86 * (float) (local62 - arg3);
-        @Pc(108) float local108 = local86 * (float) (local73 - arg3);
-        @Pc(118) float local118 = local9.aFloat68 - (float) (local67 - arg4) * local93;
-        @Pc(128) float local128 = local9.aFloat68 - local93 * (float) (local79 - arg4);
+        @Pc(100) float local100 = local86 * (float) (local62 - offsetX);
+        @Pc(108) float local108 = local86 * (float) (local73 - offsetX);
+        @Pc(118) float local118 = local9.aFloat68 - (float) (local67 - offsetY) * local93;
+        @Pc(128) float local128 = local9.aFloat68 - local93 * (float) (local79 - offsetY);
         OpenGL.glBegin(OpenGL.GL_QUADS);
         OpenGL.glColor3f(1.0F, 1.0F, 1.0F);
         OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE0, 0.0F, this.aClass93_Sub2_Sub1_3.aFloat68);

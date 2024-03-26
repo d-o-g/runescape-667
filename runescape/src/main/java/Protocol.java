@@ -779,8 +779,8 @@ public final class Protocol {
                                                 Camera.anInt10376 = (local100 << 9) + 256;
                                                 if (local526 < 0) {
                                                     local526 = 0;
-                                                } else if (local526 >= Static501.mapHeight) {
-                                                    local526 = Static501.mapHeight;
+                                                } else if (local526 >= Static501.mapLength) {
+                                                    local526 = Static501.mapLength;
                                                 }
                                                 Camera.anInt10383 = (local526 << 9) + 256;
                                             }
@@ -1361,7 +1361,7 @@ public final class Protocol {
                                                                     local653 = local100 >> 28 & 0x3;
                                                                     local657 = (local100 >> 14 & 0x3FFF) - WorldMap.areaBaseX;
                                                                     local3502 = (local100 & 0x3FFF) - WorldMap.areaBaseZ;
-                                                                    if (local657 >= 0 && local3502 >= 0 && local657 < Static720.mapWidth && local3502 < Static501.mapHeight) {
+                                                                    if (local657 >= 0 && local3502 >= 0 && local657 < Static720.mapWidth && local3502 < Static501.mapLength) {
                                                                         if (local2098 == -1) {
                                                                             @Pc(5270) SpotAnimationNode local5270 = (SpotAnimationNode) Static346.A_HASH_TABLE___29.get(local657 << 16 | local3502);
                                                                             if (local5270 != null) {
@@ -1606,7 +1606,7 @@ public final class Protocol {
                                                                     Static626.anInt9476 = bitPacket.g1b() << 3;
                                                                     Static270.anInt4354 = bitPacket.g1b_alt3() << 3;
                                                                     Static87.anInt1810 = bitPacket.g1();
-                                                                    for (@Pc(6277) ObjStack local6277 = (ObjStack) Static497.stacks.first(); local6277 != null; local6277 = (ObjStack) Static497.stacks.next()) {
+                                                                    for (@Pc(6277) ObjStack local6277 = (ObjStack) Static497.objStacks.first(); local6277 != null; local6277 = (ObjStack) Static497.objStacks.next()) {
                                                                         local100 = (int) (local6277.key >> 28 & 0x3L);
                                                                         local526 = (int) (local6277.key & 0x3FFFL);
                                                                         local1409 = local526 - WorldMap.areaBaseX;
@@ -1614,7 +1614,7 @@ public final class Protocol {
                                                                         local2098 = local1413 - WorldMap.areaBaseZ;
                                                                         if (Static87.anInt1810 == local100 && local1409 >= Static626.anInt9476 && Static626.anInt9476 + 8 > local1409 && local2098 >= Static270.anInt4354 && Static270.anInt4354 + 8 > local2098) {
                                                                             local6277.unlink();
-                                                                            if (local1409 >= 0 && local2098 >= 0 && Static720.mapWidth > local1409 && local2098 < Static501.mapHeight) {
+                                                                            if (local1409 >= 0 && local2098 >= 0 && Static720.mapWidth > local1409 && local2098 < Static501.mapLength) {
                                                                                 Static468.updateObjCount(Static87.anInt1810, local2098, local1409);
                                                                             }
                                                                         }
@@ -2287,8 +2287,8 @@ public final class Protocol {
             local42 = bitPacket.g2();
             local46 = bitPacket.g2();
             local52 = bitPacket.g2();
-            if (Static497.stacks != null) {
-                @Pc(69) ObjStack local69 = (ObjStack) Static497.stacks.get(Static87.anInt1810 << 28 | local25 << 14 | local38);
+            if (Static497.objStacks != null) {
+                @Pc(69) ObjStack local69 = (ObjStack) Static497.objStacks.get(Static87.anInt1810 << 28 | local25 << 14 | local38);
                 if (local69 != null) {
                     for (@Pc(77) ObjStackEntry local77 = (ObjStackEntry) local69.objs.first(); local77 != null; local77 = (ObjStackEntry) local69.objs.next()) {
                         if ((local42 & 0x7FFF) == local77.id && local77.count == local46) {
@@ -2298,7 +2298,7 @@ public final class Protocol {
                             break;
                         }
                     }
-                    if (local34 >= 0 && local21 >= 0 && Static720.mapWidth > local34 && Static501.mapHeight > local21) {
+                    if (local34 >= 0 && local21 >= 0 && Static720.mapWidth > local34 && Static501.mapLength > local21) {
                         Static468.updateObjCount(Static87.anInt1810, local21, local34);
                     }
                 }
@@ -2402,7 +2402,7 @@ public final class Protocol {
                 local52 = bitPacket.g1();
                 local537 = bitPacket.g1();
                 local212 = bitPacket.g2();
-                if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
+                if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapLength > local25) {
                     local217 = local42 + 1;
                     if (local21 - local217 <= PlayerEntity.self.pathX[0] && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathZ[0] >= local25 - local217 && local217 + local25 >= PlayerEntity.self.pathZ[0]) {
                         Static165.method2608(local537, local52, local34, local46, local212, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16));
@@ -2417,7 +2417,7 @@ public final class Protocol {
                 local42 = local34 & 0x3;
                 local46 = LOC_LAYERS_BY_SHAPE[local38];
                 local52 = bitPacket.g2_alt2();
-                if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
+                if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapLength > local25) {
                     Static553.method7289(local42, local52, local46, local21, Static87.anInt1810, local38, local25);
                 }
             } else {
@@ -2449,7 +2449,7 @@ public final class Protocol {
                     if (local843 == 255) {
                         local843 = -1;
                     }
-                    if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth * 2 && local25 < Static720.mapWidth * 2 && local52 >= 0 && local537 >= 0 && Static501.mapHeight * 2 > local52 && Static501.mapHeight * 2 > local537 && local219 != 65535) {
+                    if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth * 2 && local25 < Static720.mapWidth * 2 && local52 >= 0 && local537 >= 0 && Static501.mapLength * 2 > local52 && Static501.mapLength * 2 > local537 && local219 != 65535) {
                         local52 = local52 * 256;
                         local847 <<= 0x2;
                         local25 = local25 * 256;
@@ -2498,7 +2498,7 @@ public final class Protocol {
                     local46 = bitPacket.ig2();
                     local52 = bitPacket.g2();
                     if (local15 != PlayerList.activePlayerSlot) {
-                        @Pc(1151) boolean local1151 = local38 >= 0 && local25 >= 0 && Static720.mapWidth > local38 && local25 < Static501.mapHeight;
+                        @Pc(1151) boolean local1151 = local38 >= 0 && local25 >= 0 && Static720.mapWidth > local38 && local25 < Static501.mapLength;
                         if (local1151 || Static55.method1218(Static117.areaMode)) {
                             Static2.sortAllObjs(Static87.anInt1810, local34, local42, new ObjStackEntry(local46, local52));
                             if (local1151) {
@@ -2520,7 +2520,7 @@ public final class Protocol {
                     local52 = bitPacket.g1();
                     local537 = bitPacket.g1();
                     local212 = bitPacket.g2();
-                    if (local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapHeight > local25) {
+                    if (local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && Static501.mapLength > local25) {
                         local217 = local42 + 1;
                         if (PlayerEntity.self.pathX[0] >= local21 - local217 && local217 + local21 >= PlayerEntity.self.pathX[0] && PlayerEntity.self.pathZ[0] >= local25 - local217 && PlayerEntity.self.pathZ[0] <= local25 + local217) {
                             Static179.method2770(local46, local52, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16), local212, local537, local34);
@@ -2533,7 +2533,7 @@ public final class Protocol {
                     local34 = local25 + WorldMap.areaBaseZ;
                     local38 = (local21 >> 4 & 0x7) + Static626.anInt9476;
                     local42 = local38 + WorldMap.areaBaseX;
-                    @Pc(1389) ObjStack local1389 = (ObjStack) Static497.stacks.get(local34 << 14 | Static87.anInt1810 << 28 | local42);
+                    @Pc(1389) ObjStack local1389 = (ObjStack) Static497.objStacks.get(local34 << 14 | Static87.anInt1810 << 28 | local42);
                     if (local1389 != null) {
                         for (@Pc(1399) ObjStackEntry local1399 = (ObjStackEntry) local1389.objs.first(); local1399 != null; local1399 = (ObjStackEntry) local1389.objs.next()) {
                             if (local1399.id == (local15 & 0x7FFF)) {
@@ -2544,7 +2544,7 @@ public final class Protocol {
                         if (local1389.objs.isEmpty()) {
                             local1389.unlink();
                         }
-                        if (local38 >= 0 && local25 >= 0 && local38 < Static720.mapWidth && local25 < Static501.mapHeight) {
+                        if (local38 >= 0 && local25 >= 0 && local38 < Static720.mapWidth && local25 < Static501.mapLength) {
                             Static468.updateObjCount(Static87.anInt1810, local25, local38);
                         }
                     }
@@ -2576,7 +2576,7 @@ public final class Protocol {
                     if (local812 == 255) {
                         local812 = -1;
                     }
-                    if (local25 >= 0 && local34 >= 0 && Static720.mapWidth > local25 && local34 < Static501.mapHeight && local38 >= 0 && local42 >= 0 && Static720.mapWidth > local38 && local42 < Static501.mapHeight && local52 != 65535) {
+                    if (local25 >= 0 && local34 >= 0 && Static720.mapWidth > local25 && local34 < Static501.mapLength && local38 >= 0 && local42 >= 0 && Static720.mapWidth > local38 && local42 < Static501.mapLength && local52 != 65535) {
                         local42 = local42 * 512 + 256;
                         local290 <<= 0x2;
                         local537 <<= 0x2;
@@ -2596,7 +2596,7 @@ public final class Protocol {
                     local38 = local34 >> 2;
                     local42 = local34 & 0x3;
                     local46 = LOC_LAYERS_BY_SHAPE[local38];
-                    if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && local25 < Static501.mapHeight) {
+                    if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && local25 < Static501.mapLength) {
                         Static553.method7289(local42, -1, local46, local21, Static87.anInt1810, local38, local25);
                     }
                 } else if (Static18.A_ZONE_PROT___2 == arg0) {
@@ -2607,7 +2607,7 @@ public final class Protocol {
                     local38 = WorldMap.areaBaseX + local34;
                     local42 = bitPacket.g2_alt2();
                     local46 = bitPacket.g2();
-                    @Pc(1886) boolean local1886 = local34 >= 0 && local21 >= 0 && local34 < Static720.mapWidth && local21 < Static501.mapHeight;
+                    @Pc(1886) boolean local1886 = local34 >= 0 && local21 >= 0 && local34 < Static720.mapWidth && local21 < Static501.mapLength;
                     if (local1886 || Static55.method1218(Static117.areaMode)) {
                         Static2.sortAllObjs(Static87.anInt1810, local25, local38, new ObjStackEntry(local42, local46));
                         if (local1886) {
@@ -2625,7 +2625,7 @@ public final class Protocol {
                     local38 = bitPacket.g1();
                     local42 = bitPacket.g2();
                     local46 = bitPacket.g1();
-                    if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapHeight > local25) {
+                    if (local21 >= 0 && local25 >= 0 && local21 < Static720.mapWidth && Static501.mapLength > local25) {
                         if (local34 == -1) {
                             @Pc(2004) SpotAnimationNode local2004 = (SpotAnimationNode) Static346.A_HASH_TABLE___29.get(local21 << 16 | local25);
                             if (local2004 != null) {

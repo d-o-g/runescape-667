@@ -47,7 +47,7 @@ public final class Static369 {
                     @Pc(135) int local135 = (Static89.anIntArray169[local13] & 0xFF) * 64 + local108 - WorldMap.areaBaseZ;
                     @Pc(142) NPCType local142 = NPCTypeList.instance.list(local66.g2());
                     @Pc(149) NPCEntityNode local149 = (NPCEntityNode) NPCList.local.get(local88);
-                    if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapHeight) {
+                    if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapLength) {
                         @Pc(197) NPCEntity local197 = new NPCEntity();
                         local197.id = local88;
                         @Pc(205) NPCEntityNode local205 = new NPCEntityNode(local197);

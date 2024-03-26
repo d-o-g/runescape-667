@@ -27,7 +27,7 @@ public final class Static101 {
         for (@Pc(1) int level = 0; level < region.levels; level++) {
             Static557.method7331();
             for (@Pc(6) int chunkX = 0; chunkX < Static720.mapWidth >> 3; chunkX++) {
-                for (@Pc(9) int chunkY = 0; chunkY < Static501.mapHeight >> 3; chunkY++) {
+                for (@Pc(9) int chunkY = 0; chunkY < Static501.mapLength >> 3; chunkY++) {
                     @Pc(18) int chunkData = Static623.zonePointers[level][chunkX][chunkY];
                     if (chunkData != -1) {
                         @Pc(27) int chunkLevel = (chunkData >> 24) & 0x3;

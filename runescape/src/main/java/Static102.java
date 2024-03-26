@@ -35,7 +35,7 @@ public final class Static102 {
 
         @Pc(21) int localX = x >> 9;
         @Pc(25) int localY = y >> 9;
-        if (localX < 0 || localY < 0 || Static720.mapWidth - 1 < localX || Static501.mapHeight - 1 < localY) {
+        if (localX < 0 || localY < 0 || Static720.mapWidth - 1 < localX || Static501.mapLength - 1 < localY) {
             return 0;
         }
 

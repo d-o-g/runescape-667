@@ -156,7 +156,7 @@ public final class Static84 {
                 local39.drawPriority = -1;
             } else {
                 local39.updateBounds();
-                if (local39.x1 >= 0 && local39.z1 >= 0 && local39.x2 < Static720.mapWidth && local39.z2 < Static501.mapHeight) {
+                if (local39.x1 >= 0 && local39.z1 >= 0 && local39.x2 < Static720.mapWidth && local39.z2 < Static501.mapLength) {
                     local39.aBoolean129 = local39.ready ? local30 : false;
                     if (local39 == PlayerEntity.self) {
                         local39.drawPriority = Integer.MAX_VALUE;
@@ -190,7 +190,7 @@ public final class Static84 {
             @Pc(166) NPCEntity local166 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local155])).npc;
             if (local166.hasType() && local166.type.isVisible(TimedVarDomain.instance)) {
                 local166.updateBounds();
-                if (local166.x1 >= 0 && local166.z1 >= 0 && local166.x2 < Static720.mapWidth && local166.z2 < Static501.mapHeight) {
+                if (local166.x1 >= 0 && local166.z1 >= 0 && local166.x2 < Static720.mapWidth && local166.z2 < Static501.mapLength) {
                     @Pc(213) int local213 = 0;
                     if (!local166.visible) {
                         local213++;
@@ -296,7 +296,7 @@ public final class Static84 {
     public static void method1665() {
         for (@Pc(1) int local1 = 0; local1 < Static720.mapWidth; local1++) {
             @Pc(6) int[] local6 = Static341.entityDrawPriorities[local1];
-            for (@Pc(8) int local8 = 0; local8 < Static501.mapHeight; local8++) {
+            for (@Pc(8) int local8 = 0; local8 < Static501.mapLength; local8++) {
                 local6[local8] = 0;
             }
         }

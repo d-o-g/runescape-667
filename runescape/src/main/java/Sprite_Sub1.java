@@ -46,7 +46,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     }
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(IILclient!aa;II)V")
-    public abstract void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4);
+    public abstract void method8195(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int offsetX, @OriginalArg(4) int offsetY);
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "([I)V")
     @Override

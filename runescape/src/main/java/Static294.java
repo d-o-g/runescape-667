@@ -41,7 +41,7 @@ public final class Static294 {
         }
         @Pc(19) boolean local19 = false;
         if (CutsceneManager.state == 0) {
-            if (PlayerEntity.self.x < 0 || PlayerEntity.self.x >= Static720.mapWidth * 512 || PlayerEntity.self.z < 0 || PlayerEntity.self.z >= Static501.mapHeight * 512) {
+            if (PlayerEntity.self.x < 0 || PlayerEntity.self.x >= Static720.mapWidth * 512 || PlayerEntity.self.z < 0 || PlayerEntity.self.z >= Static501.mapLength * 512) {
                 local19 = true;
             }
         } else if (!CutsceneManager.aBoolean480) {

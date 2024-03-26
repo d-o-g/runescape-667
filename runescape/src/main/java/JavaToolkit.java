@@ -258,19 +258,19 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
-        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) arg5;
+    public void method7965(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int offsetX, @OriginalArg(8) int offsetY) {
+        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) mask;
         @Pc(5) int[] local5 = local2.anIntArray334;
         @Pc(8) int[] local8 = local2.anIntArray335;
-        @Pc(18) int local18 = this.anInt4186 > arg7 ? this.anInt4186 : arg7;
-        @Pc(34) int local34 = this.anInt4196 < arg7 + local5.length ? this.anInt4196 : arg7 + local5.length;
-        arg2 -= arg0;
-        arg3 -= arg1;
-        if (arg2 + arg3 < 0) {
-            arg0 += arg2;
-            arg2 = -arg2;
-            arg1 += arg3;
-            arg3 = -arg3;
+        @Pc(18) int local18 = this.anInt4186 > offsetY ? this.anInt4186 : offsetY;
+        @Pc(34) int local34 = this.anInt4196 < offsetY + local5.length ? this.anInt4196 : offsetY + local5.length;
+        x2 -= x1;
+        y2 -= y1;
+        if (x2 + y2 < 0) {
+            x1 += x2;
+            x2 = -x2;
+            y1 += y2;
+            y2 = -y2;
         }
         @Pc(85) int local85;
         @Pc(118) int local118;
@@ -281,94 +281,94 @@ public final class JavaToolkit extends Toolkit {
         @Pc(261) int local261;
         @Pc(266) int local266;
         @Pc(215) int local215;
-        if (arg2 <= arg3) {
-            arg0 <<= 0x10;
-            arg0 += 32768;
-            @Pc(415) int local415 = arg2 << 16;
-            local85 = (int) Math.floor((double) local415 / (double) arg3 + 0.5D);
-            arg3 += arg1;
-            if (arg1 < local18) {
-                arg0 += local85 * (local18 - arg1);
-                arg1 = local18;
+        if (x2 <= y2) {
+            x1 <<= 0x10;
+            x1 += 32768;
+            @Pc(415) int local415 = x2 << 16;
+            local85 = (int) Math.floor((double) local415 / (double) y2 + 0.5D);
+            y2 += y1;
+            if (y1 < local18) {
+                x1 += local85 * (local18 - y1);
+                y1 = local18;
             }
-            if (arg3 >= local34) {
-                arg3 = local34 - 1;
+            if (y2 >= local34) {
+                y2 = local34 - 1;
             }
-            local118 = arg4 >>> 24;
+            local118 = colour >>> 24;
             if (local118 == 255 && true) {
-                while (arg1 <= arg3) {
-                    local136 = arg0 >> 16;
-                    local140 = arg1 - arg7;
-                    local154 = arg6 + local5[local140];
+                while (y1 <= y2) {
+                    local136 = x1 >> 16;
+                    local140 = y1 - offsetY;
+                    local154 = offsetX + local5[local140];
                     if (local136 >= this.anInt4192 && local136 < this.anInt4200 && local136 >= local154 && local136 < local154 + local8[local140]) {
-                        this.anIntArray319[local136 + arg1 * this.anInt4207] = arg4;
+                        this.anIntArray319[local136 + y1 * this.anInt4207] = colour;
                     }
-                    arg0 += local85;
-                    arg1++;
+                    x1 += local85;
+                    y1++;
                 }
             } else {
-                local215 = ((arg4 & 0xFF00FF) * local118 >> 8 & 0xFF00FF) + ((arg4 & 0xFF00) * local118 >> 8 & 0xFF00) + (local118 << 24);
+                local215 = ((colour & 0xFF00FF) * local118 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local118 >> 8 & 0xFF00) + (local118 << 24);
                 local136 = 256 - local118;
-                while (arg1 <= arg3) {
-                    local140 = arg0 >> 16;
-                    local154 = arg1 - arg7;
-                    local242 = arg6 + local5[local154];
+                while (y1 <= y2) {
+                    local140 = x1 >> 16;
+                    local154 = y1 - offsetY;
+                    local242 = offsetX + local5[local154];
                     if (local140 >= this.anInt4192 && local140 < this.anInt4200 && local140 >= local242 && local140 < local242 + local8[local154]) {
-                        local261 = local140 + arg1 * this.anInt4207;
+                        local261 = local140 + y1 * this.anInt4207;
                         local266 = this.anIntArray319[local261];
                         @Pc(629) int local629 = ((local266 & 0xFF00FF) * local136 >> 8 & 0xFF00FF) + ((local266 & 0xFF00) * local136 >> 8 & 0xFF00);
-                        this.anIntArray319[local140 + arg1 * this.anInt4207] = local215 + local629;
+                        this.anIntArray319[local140 + y1 * this.anInt4207] = local215 + local629;
                     }
-                    arg0 += local85;
-                    arg1++;
+                    x1 += local85;
+                    y1++;
                 }
             }
             return;
         }
-        arg1 <<= 0x10;
-        arg1 += 32768;
-        @Pc(75) int local75 = arg3 << 16;
-        local85 = (int) Math.floor((double) local75 / (double) arg2 + 0.5D);
-        arg2 += arg0;
-        if (arg0 < this.anInt4192) {
-            arg1 += local85 * (this.anInt4192 - arg0);
-            arg0 = this.anInt4192;
+        y1 <<= 0x10;
+        y1 += 32768;
+        @Pc(75) int local75 = y2 << 16;
+        local85 = (int) Math.floor((double) local75 / (double) x2 + 0.5D);
+        x2 += x1;
+        if (x1 < this.anInt4192) {
+            y1 += local85 * (this.anInt4192 - x1);
+            x1 = this.anInt4192;
         }
-        if (arg2 >= this.anInt4200) {
-            arg2 = this.anInt4200 - 1;
+        if (x2 >= this.anInt4200) {
+            x2 = this.anInt4200 - 1;
         }
-        local118 = arg4 >>> 24;
+        local118 = colour >>> 24;
         if (local118 == 255 && true) {
-            while (arg0 <= arg2) {
-                local136 = arg1 >> 16;
-                local140 = local136 - arg7;
+            while (x1 <= x2) {
+                local136 = y1 >> 16;
+                local140 = local136 - offsetY;
                 if (local136 >= local18 && local136 < local34) {
-                    local154 = arg6 + local5[local140];
-                    if (arg0 >= local154 && arg0 < local154 + local8[local140]) {
-                        this.anIntArray319[arg0 + local136 * this.anInt4207] = arg4;
+                    local154 = offsetX + local5[local140];
+                    if (x1 >= local154 && x1 < local154 + local8[local140]) {
+                        this.anIntArray319[x1 + local136 * this.anInt4207] = colour;
                     }
                 }
-                arg1 += local85;
-                arg0++;
+                y1 += local85;
+                x1++;
             }
             return;
         }
-        local215 = ((arg4 & 0xFF00FF) * local118 >> 8 & 0xFF00FF) + ((arg4 & 0xFF00) * local118 >> 8 & 0xFF00) + (local118 << 24);
+        local215 = ((colour & 0xFF00FF) * local118 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local118 >> 8 & 0xFF00) + (local118 << 24);
         local136 = 256 - local118;
-        while (arg0 <= arg2) {
-            local140 = arg1 >> 16;
-            local154 = local140 - arg7;
+        while (x1 <= x2) {
+            local140 = y1 >> 16;
+            local154 = local140 - offsetY;
             if (local140 >= local18 && local140 < local34) {
-                local242 = arg6 + local5[local154];
-                if (arg0 >= local242 && arg0 < local242 + local8[local154]) {
-                    local261 = arg0 + local140 * this.anInt4207;
+                local242 = offsetX + local5[local154];
+                if (x1 >= local242 && x1 < local242 + local8[local154]) {
+                    local261 = x1 + local140 * this.anInt4207;
                     local266 = this.anIntArray319[local261];
                     local266 = ((local266 & 0xFF00FF) * local136 >> 8 & 0xFF00FF) + ((local266 & 0xFF00) * local136 >> 8 & 0xFF00);
                     this.anIntArray319[local261] = local215 + local266;
                 }
             }
-            arg1 += local85;
-            arg0++;
+            y1 += local85;
+            x1++;
         }
     }
 
@@ -2522,8 +2522,8 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
-        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) arg5;
+    public void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) mask;
         @Pc(5) int[] local5 = local2.anIntArray334;
         @Pc(8) int[] local8 = local2.anIntArray335;
         @Pc(18) int local18 = this.anInt4186 > arg7 ? this.anInt4186 : arg7;
@@ -2533,22 +2533,22 @@ public final class JavaToolkit extends Toolkit {
         @Pc(46) int local46 = arg9 << 8;
         @Pc(50) int local50 = local42 + local46;
         arg10 = local38 % local50;
-        arg2 -= arg0;
-        arg3 -= arg1;
+        x2 -= x1;
+        y2 -= y1;
         @Pc(79) int local79;
         @Pc(83) int local83;
-        if (arg2 + arg3 < 0) {
-            local79 = (int) (Math.sqrt(arg2 * arg2 + arg3 * arg3) * 256.0D);
+        if (x2 + y2 < 0) {
+            local79 = (int) (Math.sqrt(x2 * x2 + y2 * y2) * 256.0D);
             local83 = local79 % local50;
             local38 = local50 + local42 - arg10 - local83;
             arg10 = local38 % local50;
             if (arg10 < 0) {
                 arg10 += local50;
             }
-            arg0 += arg2;
-            arg2 = -arg2;
-            arg1 += arg3;
-            arg3 = -arg3;
+            x1 += x2;
+            x2 = -x2;
+            y1 += y2;
+            y2 = -y2;
         }
         @Pc(161) int local161;
         @Pc(179) int local179;
@@ -2559,86 +2559,86 @@ public final class JavaToolkit extends Toolkit {
         @Pc(144) int local144;
         @Pc(130) int local130;
         @Pc(283) int local283;
-        if (arg2 <= arg3) {
-            arg0 <<= 0x10;
-            arg0 += 32768;
-            local144 = arg2 << 16;
-            local79 = (int) Math.floor((double) local144 / (double) arg3 + 0.5D);
+        if (x2 <= y2) {
+            x1 <<= 0x10;
+            x1 += 32768;
+            local144 = x2 << 16;
+            local79 = (int) Math.floor((double) local144 / (double) y2 + 0.5D);
             local83 = (int) Math.sqrt((local79 >> 8) * (local79 >> 8) + 65536);
-            local130 = arg3 + arg1;
-            local161 = arg4 >>> 24;
+            local130 = y2 + y1;
+            local161 = colour >>> 24;
             if (local161 == 255 && true) {
-                while (arg1 <= local130) {
-                    local179 = arg0 >> 16;
-                    local183 = arg1 - arg7;
-                    if (arg1 >= local18 && arg1 < local34 && local179 >= this.anInt4192 && local179 < this.anInt4200 && arg10 < local42 && local179 >= arg6 + local5[local183] && local179 < arg6 + local5[local183] + local8[local183]) {
-                        this.anIntArray319[local179 + arg1 * this.anInt4207] = arg4;
+                while (y1 <= local130) {
+                    local179 = x1 >> 16;
+                    local183 = y1 - arg7;
+                    if (y1 >= local18 && y1 < local34 && local179 >= this.anInt4192 && local179 < this.anInt4200 && arg10 < local42 && local179 >= arg6 + local5[local183] && local179 < arg6 + local5[local183] + local8[local183]) {
+                        this.anIntArray319[local179 + y1 * this.anInt4207] = colour;
                     }
-                    arg0 += local79;
-                    arg1++;
+                    x1 += local79;
+                    y1++;
                     local38 = arg10 + local83;
                     arg10 = local38 % local50;
                 }
             } else {
-                local283 = ((arg4 & 0xFF00FF) * local161 >> 8 & 0xFF00FF) + ((arg4 & 0xFF00) * local161 >> 8 & 0xFF00) + (local161 << 24);
+                local283 = ((colour & 0xFF00FF) * local161 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local161 >> 8 & 0xFF00) + (local161 << 24);
                 local179 = 256 - local161;
-                while (arg1 <= local130) {
-                    local183 = arg0 >> 16;
-                    local214 = arg1 - arg7;
-                    if (arg1 >= local18 && arg1 < local34 && local183 >= this.anInt4192 && local183 < this.anInt4200 && arg10 < local42 && local183 >= arg6 + local5[local214] && local183 < arg6 + local5[local214] + local8[local214]) {
-                        local327 = local183 + arg1 * this.anInt4207;
+                while (y1 <= local130) {
+                    local183 = x1 >> 16;
+                    local214 = y1 - arg7;
+                    if (y1 >= local18 && y1 < local34 && local183 >= this.anInt4192 && local183 < this.anInt4200 && arg10 < local42 && local183 >= arg6 + local5[local214] && local183 < arg6 + local5[local214] + local8[local214]) {
+                        local327 = local183 + y1 * this.anInt4207;
                         local346 = this.anIntArray319[local327];
                         @Pc(782) int local782 = ((local346 & 0xFF00FF) * local179 >> 8 & 0xFF00FF) + ((local346 & 0xFF00) * local179 >> 8 & 0xFF00);
-                        this.anIntArray319[local183 + arg1 * this.anInt4207] = local283 + local782;
+                        this.anIntArray319[local183 + y1 * this.anInt4207] = local283 + local782;
                     }
-                    arg0 += local79;
-                    arg1++;
+                    x1 += local79;
+                    y1++;
                     local38 = arg10 + local83;
                     arg10 = local38 % local50;
                 }
             }
             return;
         }
-        arg1 <<= 0x10;
-        arg1 += 32768;
-        local130 = arg3 << 16;
-        local79 = (int) Math.floor((double) local130 / (double) arg2 + 0.5D);
-        local144 = arg2 + arg0;
-        local83 = arg4 >>> 24;
+        y1 <<= 0x10;
+        y1 += 32768;
+        local130 = y2 << 16;
+        local79 = (int) Math.floor((double) local130 / (double) x2 + 0.5D);
+        local144 = x2 + x1;
+        local83 = colour >>> 24;
         local161 = (int) Math.sqrt((local79 >> 8) * (local79 >> 8) + 65536);
         if (local83 == 255 && true) {
-            while (arg0 <= local144) {
-                local179 = arg1 >> 16;
+            while (x1 <= local144) {
+                local179 = y1 >> 16;
                 local183 = local179 - arg7;
-                if (arg0 >= this.anInt4192 && arg0 < this.anInt4200 && local179 >= local18 && local179 < local34 && arg10 < local42) {
+                if (x1 >= this.anInt4192 && x1 < this.anInt4200 && local179 >= local18 && local179 < local34 && arg10 < local42) {
                     local214 = arg6 + local5[local183];
-                    if (arg0 >= local214 && arg0 < local214 + local8[local183]) {
-                        this.anIntArray319[arg0 + local179 * this.anInt4207] = arg4;
+                    if (x1 >= local214 && x1 < local214 + local8[local183]) {
+                        this.anIntArray319[x1 + local179 * this.anInt4207] = colour;
                     }
                 }
-                arg1 += local79;
-                arg0++;
+                y1 += local79;
+                x1++;
                 local38 = arg10 + local161;
                 arg10 = local38 % local50;
             }
             return;
         }
-        local283 = ((arg4 & 0xFF00FF) * local83 >> 8 & 0xFF00FF) + ((arg4 & 0xFF00) * local83 >> 8 & 0xFF00) + (local83 << 24);
+        local283 = ((colour & 0xFF00FF) * local83 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local83 >> 8 & 0xFF00) + (local83 << 24);
         local179 = 256 - local83;
-        while (arg0 <= local144) {
-            local183 = arg1 >> 16;
+        while (x1 <= local144) {
+            local183 = y1 >> 16;
             local214 = local183 - arg7;
-            if (arg0 >= this.anInt4192 && arg0 < this.anInt4200 && local183 >= local18 && local183 < local34 && arg10 < local42) {
+            if (x1 >= this.anInt4192 && x1 < this.anInt4200 && local183 >= local18 && local183 < local34 && arg10 < local42) {
                 local327 = arg6 + local5[local214];
-                if (arg0 >= local327 && arg0 < local327 + local8[local214]) {
-                    local346 = arg0 + local183 * this.anInt4207;
+                if (x1 >= local327 && x1 < local327 + local8[local214]) {
+                    local346 = x1 + local183 * this.anInt4207;
                     @Pc(351) int local351 = this.anIntArray319[local346];
                     @Pc(371) int local371 = ((local351 & 0xFF00FF) * local179 >> 8 & 0xFF00FF) + ((local351 & 0xFF00) * local179 >> 8 & 0xFF00);
                     this.anIntArray319[local346] = local283 + local371;
                 }
             }
-            arg1 += local79;
-            arg0++;
+            y1 += local79;
+            x1++;
             local38 = arg10 + local161;
             arg10 = local38 % local50;
         }

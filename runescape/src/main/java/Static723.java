@@ -45,7 +45,7 @@ public final class Static723 {
         @Pc(77) int local77 = Static102.averageHeight(Camera.renderingLevel, Static38.anInt920, Static494.anInt7409);
         @Pc(79) int local79 = 0;
         @Pc(109) int local109;
-        if (local59 > 3 && local63 > 3 && Static720.mapWidth - 4 > local59 && local63 < Static501.mapHeight - 4) {
+        if (local59 > 3 && local63 > 3 && Static720.mapWidth - 4 > local59 && local63 < Static501.mapLength - 4) {
             for (local109 = local59 - 4; local109 <= local59 + 4; local109++) {
                 for (@Pc(114) int local114 = local63 - 4; local114 <= local63 + 4; local114++) {
                     @Pc(117) int local117 = Camera.renderingLevel;

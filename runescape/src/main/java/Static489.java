@@ -75,7 +75,7 @@ public final class Static489 {
             local16 = Static524.anInt8042;
         }
 
-        if ((entity.x < 512) || (entity.z < 512) || (entity.x >= ((Static720.mapWidth * 512) - 512)) || (entity.z >= ((Static501.mapHeight * 512) - 512))) {
+        if ((entity.x < 512) || (entity.z < 512) || (entity.x >= ((Static720.mapWidth * 512) - 512)) || (entity.z >= ((Static501.mapLength * 512) - 512))) {
             entity.actionAnimator.update(true, -1);
             for (@Pc(107) int local107 = 0; local107 < entity.spotAnims.length; local107++) {
                 entity.spotAnims[local107].id = -1;
@@ -92,7 +92,7 @@ public final class Static489 {
             entity.stopMoving();
         }
 
-        if ((entity == PlayerEntity.self) && ((entity.x < 6144) || (entity.z < 6144) || (entity.x >= ((Static720.mapWidth * 512) - 6144)) || (((Static501.mapHeight * 512) - 6144) <= entity.z))) {
+        if ((entity == PlayerEntity.self) && ((entity.x < 6144) || (entity.z < 6144) || (entity.x >= ((Static720.mapWidth * 512) - 6144)) || (((Static501.mapLength * 512) - 6144) <= entity.z))) {
             entity.actionAnimator.update(true, -1);
             for (@Pc(107) int local107 = 0; local107 < entity.spotAnims.length; local107++) {
                 entity.spotAnims[local107].id = -1;
@@ -157,11 +157,11 @@ public final class Static489 {
                 }
             }
         }
-        if (Static42.aMapElementList_2 == null) {
+        if (Minimap.elements == null) {
             if (Static162.aClass2_Sub2_Sub13_2 == null || !js5.WORLDMAPDATA.groupExists(Static162.aClass2_Sub2_Sub13_2.file + "_staticelements")) {
-                Static42.aMapElementList_2 = new MapElementList(0);
+                Minimap.elements = new MapElementList(0);
             } else if (js5.WORLDMAPDATA.requestgroupdownload(Static162.aClass2_Sub2_Sub13_2.file + "_staticelements")) {
-                Static42.aMapElementList_2 = MapElementList.load(Static174.mapMembers, js5.WORLDMAPDATA, Static162.aClass2_Sub2_Sub13_2.file + "_staticelements");
+                Minimap.elements = MapElementList.load(Static174.mapMembers, js5.WORLDMAPDATA, Static162.aClass2_Sub2_Sub13_2.file + "_staticelements");
             } else {
                 local10 = false;
                 Static593.anInt8763++;
@@ -184,7 +184,7 @@ public final class Static489 {
                     local299 = 10;
                     local310 = 10;
                 }
-                local10 &= Static213.method3141(local287, local299, Static720.mapWidth, local310, Static501.mapHeight);
+                local10 &= Static213.method3141(local287, local299, Static720.mapWidth, local310, Static501.mapLength);
             }
             local287 = Static421.aByteArrayArray19[local282];
             if (local287 != null) {
@@ -194,7 +194,7 @@ public final class Static489 {
                     local310 = 10;
                     local299 = 10;
                 }
-                local10 &= Static213.method3141(local287, local299, Static720.mapWidth, local310, Static501.mapHeight);
+                local10 &= Static213.method3141(local287, local299, Static720.mapWidth, local310, Static501.mapLength);
             }
         }
         if (!local10) {
@@ -227,7 +227,7 @@ public final class Static489 {
             local310++;
         }
 
-        Static21.method8043(Toolkit.active, Static455.anInt6915, Static720.mapWidth, Static501.mapHeight, local310, local430, Toolkit.active.getMaxLights() > 0);
+        Static21.method8043(Toolkit.active, Static455.anInt6915, Static720.mapWidth, Static501.mapLength, local310, local430, Toolkit.active.getMaxLights() > 0);
         Static483.method6490(Static699.w2Debug);
         if (Static699.w2Debug == 0) {
             Static110.method2082(null);
@@ -254,17 +254,17 @@ public final class Static489 {
         Static478.anInt7198 = ClientOptions.instance.animateBackground.getValue() == 1 ? -1 : Static164.areaLevel;
         Static718.aBoolean822 = ClientOptions.instance.groundBlending.getValue() == 1;
         Static196.aBoolean262 = ClientOptions.instance.textures.getValue() == 1;
-        Static2.aMapRegion = new MapRegion(4, Static720.mapWidth, Static501.mapHeight, false);
+        Static2.aMapRegion = new MapRegion(4, Static720.mapWidth, Static501.mapLength, false);
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
             Static73.method9312(Static319.aByteArrayArray16, Static2.aMapRegion);
         } else {
             Static693.method9010(Static319.aByteArrayArray16, Static2.aMapRegion);
         }
-        Static92.method1757(Static720.mapWidth >> 4, Static501.mapHeight >> 4);
+        Static92.method1757(Static720.mapWidth >> 4, Static501.mapLength >> 4);
         Static159.method2575();
         if (local430) {
             Static379.method5355(true);
-            Static134.aMapRegion_3 = new MapRegion(1, Static720.mapWidth, Static501.mapHeight, true);
+            Static134.aMapRegion_3 = new MapRegion(1, Static720.mapWidth, Static501.mapLength, true);
             if (Static117.areaMode == AreaMode.STATIC_AREA) {
                 Static73.method9312(Static177.aByteArrayArray5, Static134.aMapRegion_3);
                 Static314.noTimeout(true);
@@ -327,7 +327,7 @@ public final class Static489 {
         @Pc(858) int local858;
         for (@Pc(852) int local852 = 0; local852 < 4; local852++) {
             for (local855 = 0; local855 < Static720.mapWidth; local855++) {
-                for (local858 = 0; local858 < Static501.mapHeight; local858++) {
+                for (local858 = 0; local858 < Static501.mapLength; local858++) {
                     Static468.updateObjCount(local852, local858, local855);
                 }
             }
@@ -347,8 +347,8 @@ public final class Static489 {
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
             local855 = (Static62.areaCenterX - (Static720.mapWidth >> 4)) / 8;
             local858 = (Static62.areaCenterX + (Static720.mapWidth >> 4)) / 8;
-            @Pc(961) int local961 = (Static525.areaCenterZ - (Static501.mapHeight >> 4)) / 8;
-            @Pc(969) int local969 = ((Static501.mapHeight >> 4) + Static525.areaCenterZ) / 8;
+            @Pc(961) int local961 = (Static525.areaCenterZ - (Static501.mapLength >> 4)) / 8;
+            @Pc(969) int local969 = ((Static501.mapLength >> 4) + Static525.areaCenterZ) / 8;
             for (@Pc(973) int local973 = local855 - 1; local973 <= local858 + 1; local973++) {
                 for (@Pc(978) int local978 = local961 - 1; local978 <= local969 + 1; local978++) {
                     if (local973 < local855 || local973 > local858 || local978 < local961 || local969 < local978) {

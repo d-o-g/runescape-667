@@ -642,14 +642,14 @@ public final class debugconsole {
                 }
 
                 if (command.equals("showcolmap")) {
-                    Static113.drawCollisionMap = true;
+                    Minimap.drawCollisionMap = true;
                     Minimap.reset();
                     addline("colmap is shown");
                     return;
                 }
 
                 if (command.equals("hidecolmap")) {
-                    Static113.drawCollisionMap = false;
+                    Minimap.drawCollisionMap = false;
                     Minimap.reset();
                     addline("colmap is hidden");
                     return;

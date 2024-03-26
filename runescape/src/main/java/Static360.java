@@ -81,7 +81,7 @@ public final class Static360 {
     public static void method5232(@OriginalArg(0) PlayerEntity arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2) {
         @Pc(10) int local10 = arg0.pathX[0];
         @Pc(15) int local15 = arg0.pathZ[0];
-        if (local10 < 0 || local10 >= Static720.mapWidth || local15 < 0 || Static501.mapHeight <= local15 || (arg1 < 0 || arg1 >= Static720.mapWidth || arg2 < 0 || Static501.mapHeight <= arg2)) {
+        if (local10 < 0 || local10 >= Static720.mapWidth || local15 < 0 || Static501.mapLength <= local15 || (arg1 < 0 || arg1 >= Static720.mapWidth || arg2 < 0 || Static501.mapLength <= arg2)) {
             return;
         }
         @Pc(76) int local76 = PathFinder.findPath(Static577.collisionMaps[arg0.level], Static480.anIntArray583, Static70.anIntArray147, local10, local15, arg0.getSize(), arg1, arg2, 0, 0, -4, 0, 0, true);

@@ -27,17 +27,17 @@ public final class Static342 {
             return;
         }
 
-        Static720.mapWidth = Static501.mapHeight = Static238.BUILD_AREAS[buildArea];
+        Static720.mapWidth = Static501.mapLength = Static238.BUILD_AREAS[buildArea];
         Static209.method3110();
-        Static623.zonePointers = new int[4][Static720.mapWidth >> 3][Static501.mapHeight >> 3];
-        Static148.anIntArrayArray64 = new int[Static720.mapWidth][Static501.mapHeight];
-        Static341.entityDrawPriorities = new int[Static720.mapWidth][Static501.mapHeight];
+        Static623.zonePointers = new int[4][Static720.mapWidth >> 3][Static501.mapLength >> 3];
+        Static148.anIntArrayArray64 = new int[Static720.mapWidth][Static501.mapLength];
+        Static341.entityDrawPriorities = new int[Static720.mapWidth][Static501.mapLength];
         for (@Pc(35) int local35 = 0; local35 < 4; local35++) {
-            Static577.collisionMaps[local35] = CollisionMap.create(Static720.mapWidth, Static501.mapHeight);
+            Static577.collisionMaps[local35] = CollisionMap.create(Static720.mapWidth, Static501.mapLength);
         }
-        Static328.aByteArrayArrayArray4 = new byte[4][Static720.mapWidth][Static501.mapHeight];
-        Static708.resetTileFlags(Static720.mapWidth, Static501.mapHeight);
-        Static613.method8239(Toolkit.active, Static501.mapHeight >> 3, Static720.mapWidth >> 3);
+        Static328.aByteArrayArrayArray4 = new byte[4][Static720.mapWidth][Static501.mapLength];
+        Static708.resetTileFlags(Static720.mapWidth, Static501.mapLength);
+        Static613.method8239(Toolkit.active, Static501.mapLength >> 3, Static720.mapWidth >> 3);
         Static537.buildArea = buildArea;
     }
 }

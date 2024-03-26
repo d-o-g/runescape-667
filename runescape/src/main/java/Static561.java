@@ -16,21 +16,21 @@ public final class Static561 {
     public static boolean aBoolean640 = false;
 
     @OriginalMember(owner = "client!rla", name = "a", descriptor = "(IIII)Z")
-    public static boolean method7434(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(5) boolean local5 = true;
-        @Pc(11) Location local11 = (Location) Static302.getWall(arg2, arg0, arg1);
-        if (local11 != null) {
-            local5 = Static449.hasMsi(local11) & true;
+    public static boolean hasMsi(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+        @Pc(5) boolean found = true;
+        @Pc(11) Location loc = (Location) Static302.getWall(arg2, arg0, arg1);
+        if (loc != null) {
+            found = Static449.hasMsi(loc) & true;
         }
-        local11 = (Location) Static578.getEntity(arg2, arg0, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
-        if (local11 != null) {
-            local5 &= Static449.hasMsi(local11);
+        loc = (Location) Static578.getEntity(arg2, arg0, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
+        if (loc != null) {
+            found &= Static449.hasMsi(loc);
         }
-        local11 = (Location) Static687.getGroundDecor(arg2, arg0, arg1);
-        if (local11 != null) {
-            local5 &= Static449.hasMsi(local11);
+        loc = (Location) Static687.getGroundDecor(arg2, arg0, arg1);
+        if (loc != null) {
+            found &= Static449.hasMsi(loc);
         }
-        return local5;
+        return found;
     }
 
     static Class getClass(String name) {

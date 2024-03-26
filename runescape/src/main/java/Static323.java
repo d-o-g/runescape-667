@@ -89,9 +89,9 @@ public final class Static323 {
         } else if (arg1 < 3) {
             @Pc(24) int local24 = arg4 >> 9;
             @Pc(28) int local28 = arg0 >> 9;
-            if (arg2 < 0 || arg3 < 0 || Static720.mapWidth - 1 < arg2 || Static501.mapHeight - 1 < arg3) {
+            if (arg2 < 0 || arg3 < 0 || Static720.mapWidth - 1 < arg2 || Static501.mapLength - 1 < arg3) {
                 return 0;
-            } else if (local24 >= 1 && local28 >= 1 && local24 <= Static720.mapWidth - 1 && local28 <= Static501.mapHeight - 1) {
+            } else if (local24 >= 1 && local28 >= 1 && local24 <= Static720.mapWidth - 1 && local28 <= Static501.mapLength - 1) {
                 @Pc(108) boolean local108 = (Static280.tileFlags[1][arg4 >> 9][arg0 >> 9] & 0x2) != 0;
                 @Pc(136) boolean local136;
                 @Pc(153) boolean local153;

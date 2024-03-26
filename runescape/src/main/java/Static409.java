@@ -130,7 +130,7 @@ public final class Static409 {
                         local61 = local61 + 1 & 0xFFF;
                     }
                     local100++;
-                    if (local100 < Static501.mapHeight) {
+                    if (local100 < Static501.mapLength) {
                         if (local78 - 1 >= 0 && local21 != Static328.aByteArrayArrayArray4[Camera.renderingLevel][local78 - 1][local100] && (Static280.tileFlags[Camera.renderingLevel][local78][local100] & 0x4) == 0 && (Static280.tileFlags[Camera.renderingLevel][local78 - 1][local100 - 1] & 0x4) == 0) {
                             Static278.anIntArray351[local61] = local78 - 1 | 0x120000 | 0x52000000;
                             Static98.anIntArray176[local61] = local100 | 0x130000;

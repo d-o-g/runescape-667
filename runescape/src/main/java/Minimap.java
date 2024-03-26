@@ -1,26 +1,60 @@
 import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.constants.LocShapes;
+import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.camera.CameraMode;
+import com.jagex.game.collision.CollisionMap;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.game.runetek6.config.meltype.MapElementType;
+import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
 import com.jagex.game.runetek6.config.msitype.MSIType;
 import com.jagex.game.runetek6.config.msitype.MSITypeList;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Font;
+import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
+import com.jagex.js5.js5;
+import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
+import static com.jagex.game.collision.CollisionFlag.BLOCKWALK;
+import static com.jagex.game.collision.CollisionFlag.GROUND_DECOR;
+import static com.jagex.game.collision.CollisionFlag.LOCATION;
+import static com.jagex.game.collision.CollisionFlag.LOCATION_BREAKROUTEFINDING;
+import static com.jagex.game.collision.CollisionFlag.UNKNOWN;
+import static com.jagex.game.collision.CollisionFlag.WALL_EAST;
+import static com.jagex.game.collision.CollisionFlag.WALL_EAST_BREAKROUTEFINDING;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH;
+import static com.jagex.game.collision.CollisionFlag.WALL_NORTH_BREAKROUTEFINDING;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH;
+import static com.jagex.game.collision.CollisionFlag.WALL_SOUTH_BREAKROUTEFINDING;
+import static com.jagex.game.collision.CollisionFlag.WALL_WEST;
+import static com.jagex.game.collision.CollisionFlag.WALL_WEST_BLOCK_BREAKROUTEFINDING;
+
 public final class Minimap {
 
     @OriginalMember(owner = "client!rr", name = "F", descriptor = "[I")
-    public static final int[] anIntArray654 = new int[1000];
+    public static final int[] locX = new int[1000];
+
+    @OriginalMember(owner = "client!tg", name = "n", descriptor = "Lclient!sia;")
+    public static final Deque elementCoords = new Deque();
+
+    @OriginalMember(owner = "client!qp", name = "f", descriptor = "[I")
+    public static final int[] locId = new int[1000];
+
+    @OriginalMember(owner = "client!la", name = "u", descriptor = "[I")
+    public static final int[] locZ = new int[1000];
+
+    @OriginalMember(owner = "client!gda", name = "e", descriptor = "I")
+    public static final int anInt3302 = 52;
 
     @OriginalMember(owner = "client!sda", name = "g", descriptor = "I")
     public static int toggle = 0;
@@ -39,6 +73,15 @@ public final class Minimap {
 
     @OriginalMember(owner = "client!ifa", name = "h", descriptor = "Z")
     public static boolean flagSet = true;
+
+    @OriginalMember(owner = "client!bh", name = "u", descriptor = "Lclient!nc;")
+    public static MapElementList elements;
+
+    @OriginalMember(owner = "client!dja", name = "n", descriptor = "Z")
+    public static boolean drawCollisionMap = false;
+
+    @OriginalMember(owner = "client!qt", name = "b", descriptor = "I")
+    public static int locCount = 0;
 
     @OriginalMember(owner = "client!aw", name = "a", descriptor = "(ILclient!ha;ILclient!hda;I)V")
     public static void draw(@OriginalArg(3) Component component, @OriginalArg(1) Toolkit toolkit, @OriginalArg(4) int screenX, @OriginalArg(0) int screenY) {
@@ -72,40 +115,46 @@ public final class Minimap {
         }
 
         @Pc(120) int x = ((selfX / 128) + 208 + 48) - (Static720.mapWidth * 2);
-        @Pc(137) int y = ((Static501.mapHeight * 4) + 48) - (selfZ / 128) - ((Static501.mapHeight - 104) * 2);
-        sprite.renderRotated((float) screenX + ((float) component.width / 2.0F), ((float) component.height / 2.0F) + (float) screenY, (float) x, (float) y, scale, yaw << 2, clippingMask, screenX, screenY);
+        @Pc(137) int z = ((Static501.mapLength * 4) + 48) - (selfZ / 128) - ((Static501.mapLength - 104) * 2);
+        sprite.renderRotated((float) screenX + ((float) component.width / 2.0F), ((float) component.height / 2.0F) + (float) screenY, (float) x, (float) z, scale, yaw << 2, clippingMask, screenX, screenY);
 
-        for (@Pc(171) IntNode node = (IntNode) Static612.A_DEQUE___67.first(); node != null; node = (IntNode) Static612.A_DEQUE___67.next()) {
-            @Pc(178) int local178 = node.value;
-            @Pc(190) int local190 = (Static42.aMapElementList_2.coords[local178] >> 14 & 0x3FFF) - WorldMap.areaBaseX;
-            @Pc(200) int local200 = (Static42.aMapElementList_2.coords[local178] & 0x3FFF) - WorldMap.areaBaseZ;
-            @Pc(211) int local211 = local190 * 4 + 2 - selfX / 128;
-            @Pc(222) int local222 = local200 * 4 + 2 - selfZ / 128;
-            Static620.method8322(local222, screenX, clippingMask, toolkit, Static42.aMapElementList_2.functions[local178], screenY, local211, component);
+        for (@Pc(171) IntNode node = (IntNode) elementCoords.first(); node != null; node = (IntNode) elementCoords.next()) {
+            @Pc(178) int coord = node.value;
+
+            @Pc(190) int local190 = (elements.coords[coord] >> 14 & 0x3FFF) - WorldMap.areaBaseX;
+            @Pc(200) int local200 = (elements.coords[coord] & 0x3FFF) - WorldMap.areaBaseZ;
+
+            @Pc(211) int local211 = ((local190 * 4) + 2) - (selfX / 128);
+            @Pc(222) int local222 = ((local200 * 4) + 2) - (selfZ / 128);
+
+            drawMapElement(local222, screenX, clippingMask, toolkit, elements.functions[coord], screenY, local211, component);
         }
 
-        for (@Pc(190) int i = 0; i < Static536.anInt8148; i++) {
-            @Pc(200) int local200 = anIntArray654[i] * 4 + 2 - selfX / 128;
-            @Pc(211) int local211 = Static350.anIntArray433[i] * 4 + 2 - selfZ / 128;
-            @Pc(287) LocType local287 = LocTypeList.instance.list(Static533.anIntArray628[i]);
-            if (local287.multiloc != null) {
-                local287 = local287.getMultiLoc(TimedVarDomain.instance);
-                if (local287 == null || local287.mapelement == -1) {
+        for (@Pc(190) int i = 0; i < locCount; i++) {
+            @Pc(200) int locX = Minimap.locX[i] * 4 + 2 - selfX / 128;
+            @Pc(211) int locZ = Minimap.locZ[i] * 4 + 2 - selfZ / 128;
+
+            @Pc(287) LocType type = LocTypeList.instance.list(locId[i]);
+            if (type.multiloc != null) {
+                type = type.getMultiLoc(TimedVarDomain.instance);
+
+                if (type == null || type.mapelement == -1) {
                     continue;
                 }
             }
-            Static620.method8322(local211, screenX, clippingMask, toolkit, local287.mapelement, screenY, local200, component);
+
+            drawMapElement(locZ, screenX, clippingMask, toolkit, type.mapelement, screenY, locX, component);
         }
 
-        for (@Pc(334) ObjStack stack = (ObjStack) Static497.stacks.first(); stack != null; stack = (ObjStack) Static497.stacks.next()) {
+        for (@Pc(334) ObjStack stack = (ObjStack) Static497.objStacks.first(); stack != null; stack = (ObjStack) Static497.objStacks.next()) {
             @Pc(211) int stackLevel = (int) (stack.key >> 28 & 0x3L);
 
             if (level == stackLevel) {
                 @Pc(222) int local222 = (int) (stack.key & 0x3FFFL) - WorldMap.areaBaseX;
-                @Pc(370) int local370 = (int) (stack.key >> 14 & 0x3FFFL) - WorldMap.areaBaseZ;
-                @Pc(381) int local381 = local222 * 4 + 2 - selfX / 128;
-                @Pc(392) int local392 = local370 * 4 + 2 - selfZ / 128;
-                Static6.method107(screenY, clippingMask, Sprites.mapdots[0], local392, local381, component, screenX);
+                @Pc(370) int local370 = (int) ((stack.key >> 14) & 0x3FFFL) - WorldMap.areaBaseZ;
+                @Pc(381) int stackX = ((local222 * 4) + 2) - (selfX / 128);
+                @Pc(392) int stackZ = ((local370 * 4) + 2) - (selfZ / 128);
+                drawDot(screenY, clippingMask, Sprites.mapdots[0], stackZ, stackX, component, screenX);
             }
         }
 
@@ -126,10 +175,10 @@ public final class Minimap {
                     @Pc(392) int npcX = (npc.x / 128) - (selfX / 128);
                     @Pc(490) int npcZ = (npc.z / 128) - (selfZ / 128);
 
-                    if (type.mapElement != -1) {
-                        Static620.method8322(npcZ, screenX, clippingMask, toolkit, type.mapElement, screenY, npcX, component);
+                    if (type.mapElement == -1) {
+                        drawDot(screenY, clippingMask, Sprites.mapdots[1], npcZ, npcX, component, screenX);
                     } else {
-                        Static6.method107(screenY, clippingMask, Sprites.mapdots[1], npcZ, npcX, component, screenX);
+                        drawMapElement(npcZ, screenX, clippingMask, toolkit, type.mapElement, screenY, npcX, component);
                     }
                 }
             }
@@ -167,17 +216,17 @@ public final class Minimap {
             }
 
             if (player.showPIcon) {
-                Static6.method107(screenY, clippingMask, Sprites.mapdots[6], playerZ, playerX, component, screenX);
+                drawDot(screenY, clippingMask, Sprites.mapdots[6], playerZ, playerX, component, screenX);
             } else if (teammate) {
-                Static6.method107(screenY, clippingMask, Sprites.mapdots[4], playerZ, playerX, component, screenX);
+                drawDot(screenY, clippingMask, Sprites.mapdots[4], playerZ, playerX, component, screenX);
             } else if (player.clanmate) {
-                Static6.method107(screenY, clippingMask, Sprites.mapdots[7], playerZ, playerX, component, screenX);
+                drawDot(screenY, clippingMask, Sprites.mapdots[7], playerZ, playerX, component, screenX);
             } else if (friend) {
-                Static6.method107(screenY, clippingMask, Sprites.mapdots[3], playerZ, playerX, component, screenX);
+                drawDot(screenY, clippingMask, Sprites.mapdots[3], playerZ, playerX, component, screenX);
             } else if (chatmate) {
-                Static6.method107(screenY, clippingMask, Sprites.mapdots[5], playerZ, playerX, component, screenX);
+                drawDot(screenY, clippingMask, Sprites.mapdots[5], playerZ, playerX, component, screenX);
             } else {
-                Static6.method107(screenY, clippingMask, Sprites.mapdots[2], playerZ, playerX, component, screenX);
+                drawDot(screenY, clippingMask, Sprites.mapdots[2], playerZ, playerX, component, screenX);
             }
         }
 
@@ -196,7 +245,7 @@ public final class Minimap {
                     @Pc(833) NPCEntity npc = node.npc;
                     @Pc(843) int arrowX = (npc.x / 128) - (selfX / 128);
                     @Pc(622) int arrowZ = (npc.z / 128) - (selfZ / 128);
-                    Static114.method2132(arrowX, screenX, 360000L, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
+                    drawHintMapedge(arrowX, screenX, 360000L, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
                 }
             }
 
@@ -205,7 +254,7 @@ public final class Minimap {
                 @Pc(589) int arrowZ = hintArrow.z / 128 - selfZ / 128;
                 @Pc(893) long distance = hintArrow.drawDistance << 7;
                 @Pc(897) long distanceSquared = distance * distance;
-                Static114.method2132(arrowX, screenX, distanceSquared, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
+                drawHintMapedge(arrowX, screenX, distanceSquared, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
             }
 
             if (hintArrow.type == HintArrowType.PLAYER && hintArrow.entity >= 0 && hintArrow.entity < PlayerList.highResolutionPlayers.length) {
@@ -214,16 +263,16 @@ public final class Minimap {
                 if (player != null) {
                     @Pc(589) int arrowX = (player.x / 128) - (selfX / 128);
                     @Pc(843) int arrowZ = (player.z / 128) - (selfZ / 128);
-                    Static114.method2132(arrowX, screenX, 360000L, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
+                    drawHintMapedge(arrowX, screenX, 360000L, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
                 }
             }
         }
 
-        if (Camera.mode != 4) {
+        if (Camera.mode != CameraMode.MODE_FOUR) {
             if (flagX != 0) {
                 @Pc(585) int arrowX = ((flagX * 4) + ((PlayerEntity.self.getSize() - 1) * 2) + 2) - (selfX / 128);
                 @Pc(878) int arrowZ = ((flagY * 4) + (PlayerEntity.self.getSize() * 2) + 2) - (selfZ / 128) - 2;
-                Static6.method107(screenY, clippingMask, Sprites.mapflag[flagSet ? 1 : 0], arrowZ, arrowX, component, screenX);
+                drawDot(screenY, clippingMask, Sprites.mapflag[flagSet ? 1 : 0], arrowZ, arrowX, component, screenX);
             }
 
             if (!PlayerEntity.self.hideOnMap) {
@@ -342,7 +391,7 @@ public final class Minimap {
     }
 
     @OriginalMember(owner = "client!oea", name = "a", descriptor = "(Lclient!c;BILclient!ha;II)V")
-    public static void drawMsi(@OriginalArg(0) LocType locType, @OriginalArg(2) int rotation, @OriginalArg(3) Toolkit arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public static void drawMsi(@OriginalArg(0) LocType locType, @OriginalArg(2) int rotation, @OriginalArg(3) Toolkit arg2, @OriginalArg(4) int drawX, @OriginalArg(5) int drawY) {
         @Pc(9) MSIType msiType = MSITypeList.instance.list(locType.msi);
         if (msiType.image == -1) {
             return;
@@ -375,14 +424,14 @@ public final class Minimap {
         }
 
         if (msiType.colour != 0) {
-            sprite.render(arg3, arg4 - (length - 1) * 4, spriteWidth, spriteHeight, 0, msiType.colour | 0xFF000000, 1);
+            sprite.render(drawX, drawY - (length - 1) * 4, spriteWidth, spriteHeight, 0, msiType.colour | 0xFF000000, 1);
         } else {
-            sprite.render(arg3, arg4 + 4 - length * 4, spriteWidth, spriteHeight);
+            sprite.render(drawX, drawY + 4 - length * 4, spriteWidth, spriteHeight);
         }
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIII[S[B)V")
-    public static void drawMsiMultiple(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int drawX, @OriginalArg(2) int drawY, @OriginalArg(3) int widthMultiplier, @OriginalArg(4) int heightMultiplier, @OriginalArg(5) short[] locIds, @OriginalArg(6) byte[] rotations) {
+    public static void drawMsiMultiple(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int drawX, @OriginalArg(2) int drawY, @OriginalArg(3) int width, @OriginalArg(4) int height, @OriginalArg(5) short[] locIds, @OriginalArg(6) byte[] rotations) {
         if (locIds == null) {
             return;
         }
@@ -399,8 +448,8 @@ public final class Minimap {
             @Pc(49) Sprite sprite = msiType.sprite(locType.msirotate ? ((rotations[i] >> 6) & 0x3) : 0, toolkit, locType.msiflip ? locType.mirror : false);
 
             if (sprite != null) {
-                @Pc(58) int spriteWidth = (widthMultiplier * sprite.scaleWidth()) >> 2;
-                @Pc(65) int spriteHeight = (heightMultiplier * sprite.scaleHeight()) >> 2;
+                @Pc(58) int spriteWidth = (width * sprite.scaleWidth()) >> 2;
+                @Pc(65) int spriteHeight = (height * sprite.scaleHeight()) >> 2;
 
                 if (msiType.enlarge) {
                     @Pc(71) int locWidth = locType.width;
@@ -412,18 +461,451 @@ public final class Minimap {
                         locLength = temp;
                     }
 
-                    spriteWidth = locWidth * widthMultiplier;
-                    spriteHeight = locLength * heightMultiplier;
+                    spriteWidth = locWidth * width;
+                    spriteHeight = locLength * height;
                 }
 
                 if (spriteWidth != 0 && spriteHeight != 0) {
                     if (msiType.colour != 0) {
-                        sprite.render(drawX, drawY + heightMultiplier - spriteHeight, spriteWidth, spriteHeight, 0, msiType.colour | 0xFF000000, 1);
+                        sprite.render(drawX, drawY + height - spriteHeight, spriteWidth, spriteHeight, 0, msiType.colour | 0xFF000000, 1);
                     } else {
-                        sprite.render(drawX, drawY + heightMultiplier - spriteHeight, spriteWidth, spriteHeight);
+                        sprite.render(drawX, drawY + height - spriteHeight, spriteWidth, spriteHeight);
                     }
                 }
             }
         }
+    }
+
+    @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIILclient!aa;Lclient!ha;IIILclient!hda;)V")
+    public static void drawMapElement(@OriginalArg(0) int drawY, @OriginalArg(2) int screenX, @OriginalArg(3) ClippingMask mask, @OriginalArg(4) Toolkit toolkit, @OriginalArg(5) int id, @OriginalArg(6) int screenY, @OriginalArg(7) int drawX, @OriginalArg(8) Component component) {
+        @Pc(10) MapElementType elementType = MapElementTypeList.instance.list(id);
+        if (elementType == null || !elementType.aBoolean218 || !elementType.variableTest(TimedVarDomain.instance)) {
+            return;
+        }
+
+        if (elementType.landmarkPolygons != null) {
+            @Pc(34) int[] local34 = new int[elementType.landmarkPolygons.length];
+
+            for (@Pc(36) int i = 0; i < local34.length / 2; i++) {
+                @Pc(51) int yaw;
+                if (Camera.mode == CameraMode.MODE_FOUR) {
+                    yaw = (int) Camera.playerCameraYaw & 0x3FFF;
+                } else {
+                    yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
+                }
+
+                @Pc(62) int local62 = Trig1.SIN[yaw];
+                @Pc(66) int local66 = Trig1.COS[yaw];
+
+                if (Camera.mode != CameraMode.MODE_FOUR) {
+                    local62 = local62 * 256 / (Camera.scaleOffset + 256);
+                    local66 = local66 * 256 / (Camera.scaleOffset + 256);
+                }
+
+                local34[i * 2] = component.width / 2 + screenX + (local66 * (elementType.landmarkPolygons[i * 2] * 4 + drawX) + local62 * (drawY + elementType.landmarkPolygons[i * 2 + 1] * 4) >> 14);
+                local34[(i * 2) + 1] = screenY + component.height / 2 - (local66 * (drawY + elementType.landmarkPolygons[i * 2 + 1] * 4) - local62 * (drawX + elementType.landmarkPolygons[i * 2] * 4) >> 14);
+            }
+
+            @Pc(187) Graphic graphic = component.graphic(toolkit);
+            if (graphic != null) {
+                Static141.method2377(toolkit, local34, elementType.landmarkBackground, graphic.lineOffsets, graphic.lineWidths);
+            }
+
+            if (elementType.anInt2603 > 0) {
+                @Pc(250) int maxX;
+                @Pc(252) int maxY;
+
+                for (@Pc(62) int local62 = 0; local62 < local34.length / 2 - 1; local62++) {
+                    @Pc(66) int x1 = local34[local62 * 2];
+                    @Pc(223) int y1 = local34[(local62 * 2) + 1];
+
+                    @Pc(231) int x2 = local34[(local62 * 2) + 2];
+                    @Pc(241) int y2 = local34[(local62 * 2) + 2 + 1];
+
+                    if (x1 > x2) {
+                        maxX = x1;
+                        maxY = y1;
+                        x1 = x2;
+                        x2 = maxX;
+                        y1 = y2;
+                        y2 = maxY;
+                    } else if (x1 == x2 && y1 > y2) {
+                        maxX = y1;
+                        y1 = y2;
+                        y2 = maxX;
+                    }
+
+                    toolkit.method7942(x1, y1, x2, y2, elementType.landmarkPalette[elementType.landmarkColorIndices[local62] & 0xFF], mask, screenX, screenY, elementType.anInt2603, elementType.anInt2587, elementType.anInt2607);
+                }
+
+                @Pc(66) int x1 = local34[local34.length - 2];
+                @Pc(223) int y1 = local34[local34.length - 1];
+
+                @Pc(231) int x2 = local34[0];
+                @Pc(241) int y2 = local34[1];
+
+                if (x2 < x1) {
+                    maxX = x1;
+                    maxY = y1;
+                    x1 = x2;
+                    x2 = maxX;
+                    y1 = y2;
+                    y2 = maxY;
+                } else if (x1 == x2 && y1 > y2) {
+                    maxX = y1;
+                    y1 = y2;
+                    y2 = maxX;
+                }
+
+                toolkit.method7942(x1, y1, x2, y2, elementType.landmarkPalette[elementType.landmarkColorIndices[elementType.landmarkColorIndices.length - 1] & 0xFF], mask, screenX, screenY, elementType.anInt2603, elementType.anInt2587, elementType.anInt2607);
+            } else {
+                for (@Pc(62) int i = 0; i < local34.length / 2 - 1; i++) {
+                    toolkit.method7965(local34[i * 2], local34[i * 2 + 1], local34[i * 2 + 2], local34[(i + 1) * 2 + 1], elementType.landmarkPalette[elementType.landmarkColorIndices[i] & 0xFF], mask, screenX, screenY);
+                }
+
+                toolkit.method7965(local34[local34.length - 2], local34[local34.length - 1], local34[0], local34[1], elementType.landmarkPalette[elementType.landmarkColorIndices[elementType.landmarkColorIndices.length - 1] & 0xFF], mask, screenX, screenY);
+            }
+        }
+
+        @Pc(517) Sprite sprite = null;
+        if (elementType.sprite != -1) {
+            sprite = elementType.method2431(false, toolkit);
+
+            if (sprite != null) {
+                drawDot(screenY, mask, sprite, drawY, drawX, component, screenX);
+            }
+        }
+
+        if (elementType.text != null) {
+            @Pc(36) int height = 0;
+            if (sprite != null) {
+                height = sprite.getHeight();
+            }
+
+            @Pc(553) Font font = Fonts.p11;
+            @Pc(555) FontMetrics metrics = Fonts.p11Metrics;
+            if (elementType.font == 1) {
+                font = Fonts.p12;
+                metrics = Fonts.p12Metrics;
+            }
+            if (elementType.font == 2) {
+                metrics = Fonts.b12Metrics;
+                font = Fonts.b12;
+            }
+
+            Static256.method3639(font, elementType.text, metrics, screenX, elementType.textColour, height, component, mask, drawY, screenY, drawX);
+        }
+    }
+
+    @OriginalMember(owner = "client!pea", name = "a", descriptor = "(Lclient!ha;II)Z")
+    public static boolean drawLevel(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int mapLevel) {
+        @Pc(9) int mapX = (Static720.mapWidth - 104) / 2;
+        @Pc(15) int mapZ = (Static501.mapLength - 104) / 2;
+        @Pc(17) boolean hasMsi = true;
+
+        for (@Pc(19) int x = mapX; x < mapX + 104; x++) {
+            for (@Pc(22) int z = mapZ; z < mapZ + 104; z++) {
+                for (@Pc(25) int level = mapLevel; level <= 3; level++) {
+                    if (Static696.isTileVisibleFrom(z, mapLevel, x, level)) {
+                        @Pc(37) int actualLevel = level;
+                        if (Static441.isBridgeAt(z, x)) {
+                            actualLevel = level - 1;
+                        }
+                        if (actualLevel >= 0) {
+                            hasMsi &= Static561.hasMsi(x, z, actualLevel);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!hasMsi) {
+            return false;
+        }
+
+        @Pc(95) int[] colours = new int[262144];
+        for (@Pc(25) int i = 0; i < colours.length; i++) {
+            colours[i] = 0xFF000000;
+        }
+
+        sprite = toolkit.createSprite(512, 512, 512, colours);
+        Static104.method2033();
+
+        @Pc(37) int randomWallColour = (int) (Math.random() * 20.0D) + ((int) (Math.random() * 20.0D) + 238 - 10 << 8) + ((int) (Math.random() * 20.0D) + -10 + 238 << 16) + 238 - 10 | 0xFF000000;
+        @Pc(177) int randomDoorColour = ((int) (Math.random() * 20.0D) + 238 - 10 | 0x9E04FF00) << 16;
+        @Pc(196) int randomFloorColour = (int) (Math.random() * 8.0D) << 16 | (int) (Math.random() * 8.0D) << 8 | (int) (Math.random() * 8.0D);
+        @Pc(206) boolean[][] local206 = new boolean[anInt3302 + 1 + 2][anInt3302 + 3];
+
+        for (@Pc(208) int x = mapX; x < mapX + 104; x += anInt3302) {
+            for (@Pc(211) int z = mapZ; z < mapZ + 104; z += anInt3302) {
+                @Pc(214) int local214 = 0;
+                @Pc(216) int local216 = 0;
+
+                @Pc(218) int local218 = x;
+                if (x > 0) {
+                    local218 = x - 1;
+                    local214 += 4;
+                }
+
+                @Pc(229) int local229 = z;
+                if (z > 0) {
+                    local229 = z - 1;
+                }
+
+                @Pc(238) int local238 = anInt3302 + x;
+                if (local238 < 104) {
+                    local238++;
+                }
+
+                @Pc(249) int local249 = z + anInt3302;
+                if (local249 < 104) {
+                    local249++;
+                    local216 += 4;
+                }
+
+                toolkit.KA(0, 0, (anInt3302 * 4) + local214, local216 + (anInt3302 * 4));
+                toolkit.GA(0xFF000000);
+
+                for (@Pc(278) int level = mapLevel; level <= 3; level++) {
+                    for (@Pc(281) int local281 = 0; local281 <= anInt3302; local281++) {
+                        for (@Pc(284) int local284 = 0; local284 <= anInt3302; local284++) {
+                            local206[local281][local284] = Static696.isTileVisibleFrom(local284 + local229, mapLevel, local218 + local281, level);
+                        }
+                    }
+
+                    Static706.floor[level].method7873(local218, local229, local238, local249, local206);
+
+                    if (!drawCollisionMap) {
+                        for (@Pc(284) int local284 = -4; local284 < anInt3302; local284++) {
+                            for (@Pc(331) int local331 = -4; local331 < anInt3302; local331++) {
+                                @Pc(336) int tileX = local284 + x;
+                                @Pc(340) int tileZ = local331 + z;
+                                if (mapX <= tileX && tileZ >= mapZ && Static696.isTileVisibleFrom(tileZ, mapLevel, tileX, level)) {
+                                    @Pc(365) int actualLevel = level;
+                                    if (Static441.isBridgeAt(tileZ, tileX)) {
+                                        actualLevel = level - 1;
+                                    }
+                                    if (actualLevel >= 0) {
+                                        drawLocs(toolkit, randomWallColour, tileX, tileZ, local214 + local284 * 4, (-local331 + anInt3302) * 4 + local216 + -4, actualLevel, randomDoorColour);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (drawCollisionMap) {
+                    @Pc(435) CollisionMap map = Static577.collisionMaps[mapLevel];
+
+                    for (@Pc(284) int offsetX = 0; offsetX < anInt3302; offsetX++) {
+                        for (@Pc(331) int offsetY = 0; offsetY < anInt3302; offsetY++) {
+                            @Pc(336) int local336 = x + offsetX;
+                            @Pc(340) int local340 = z + offsetY;
+                            @Pc(365) int local365 = map.flags[local336 - map.x][local340 - map.z];
+
+                            if ((local365 & (LOCATION_BREAKROUTEFINDING | BLOCKWALK | GROUND_DECOR)) != 0) {
+                                toolkit.fillRect(local214 + (offsetX * 4), (((anInt3302 - offsetY) * 4) + local216) - 4, 4, 4, 0x99DD00AA);
+                            } else if ((local365 & WALL_NORTH_BREAKROUTEFINDING) != 0) {
+                                toolkit.horizontalLine((((anInt3302 - offsetY) * 4) + local216) - 4, 0x99DD00AA, local214 + (offsetX * 4), 4);
+                            } else if ((local365 & WALL_EAST_BREAKROUTEFINDING) != 0) {
+                                toolkit.verticalLine(4, (local216 + ((-offsetY + anInt3302) * 4)) - 4, 0x99DD00AA, (offsetX * 4) + local214 + 3);
+                            } else if ((local365 & WALL_SOUTH_BREAKROUTEFINDING) != 0) {
+                                toolkit.horizontalLine((((anInt3302 - offsetY) * 4) + local216 + 3) - 4, 0x99DD00AA, (offsetX * 4) + local214, 4);
+                            } else if ((local365 & WALL_WEST_BLOCK_BREAKROUTEFINDING) != 0) {
+                                toolkit.verticalLine(4, (((anInt3302 - offsetY) * 4) + local216) - 4, 0x99DD00AA, (offsetX * 4) + local214);
+                            }
+                        }
+                    }
+                }
+
+                toolkit.aa(local214, local216, anInt3302 * 4, anInt3302 * 4, randomFloorColour, 2);
+                sprite.render((x - mapX) * 4 + 48, -(anInt3302 * 4) + -((z + -mapZ) * 4) + 464, anInt3302 * 4, anInt3302 * 4, local214, local216);
+            }
+        }
+
+        toolkit.la();
+        toolkit.GA(0xFF000001);
+        InterfaceManager.redrawAll();
+        locCount = 0;
+        elementCoords.clear();
+
+        if (!drawCollisionMap) {
+            for (@Pc(211) int x = mapX; x < mapX + 104; x++) {
+                for (@Pc(214) int z = mapZ; z < mapZ + 104; z++) {
+                    for (@Pc(216) int level = mapLevel; level <= mapLevel + 1 && level <= 3; level++) {
+                        if (Static696.isTileVisibleFrom(z, mapLevel, x, level)) {
+                            @Pc(730) Location loc = (Location) Static687.getGroundDecor(level, x, z);
+                            if (loc == null) {
+                                loc = (Location) Static578.getEntity(level, x, z, Static484.aClass19 == null ? (Static484.aClass19 = Static484.getClass("Location")) : Static484.aClass19);
+                            }
+                            if (loc == null) {
+                                loc = (Location) Static302.getWall(level, x, z);
+                            }
+                            if (loc == null) {
+                                loc = Static114.getWallDecor(level, x, z);
+                            }
+                            if (loc == null) {
+                                continue;
+                            }
+
+                            @Pc(776) LocType locType = LocTypeList.instance.list(loc.getId());
+                            if (!locType.members || Static174.mapMembers) {
+                                @Pc(238) int mapelement = locType.mapelement;
+
+                                if (locType.multiloc != null) {
+                                    for (@Pc(249) int i = 0; i < locType.multiloc.length; i++) {
+                                        if (locType.multiloc[i] != -1) {
+                                            @Pc(808) LocType multiLocType = LocTypeList.instance.list(locType.multiloc[i]);
+
+                                            if (multiLocType.mapelement >= 0) {
+                                                mapelement = multiLocType.mapelement;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (mapelement >= 0) {
+                                    @Pc(832) boolean randomise = false;
+                                    if (mapelement >= 0) {
+                                        @Pc(842) MapElementType elementType = MapElementTypeList.instance.list(mapelement);
+                                        if (elementType != null && elementType.randomise) {
+                                            randomise = true;
+                                        }
+                                    }
+
+                                    @Pc(278) int newX = x;
+                                    @Pc(281) int newZ = z;
+
+                                    if (randomise) {
+                                        @Pc(862) int[][] collisionFlags = Static577.collisionMaps[level].flags;
+                                        @Pc(331) int collisionX = Static577.collisionMaps[level].x;
+                                        @Pc(336) int collisionZ = Static577.collisionMaps[level].z;
+
+                                        for (@Pc(340) int i = 0; i < 10; i++) {
+                                            @Pc(25) int random = (int) (Math.random() * 4.0D);
+                                            if (random == 0 && mapX < newX && x - 3 < newX && (collisionFlags[newX - collisionX - 1][newZ - collisionZ] & (BLOCKWALK | UNKNOWN | GROUND_DECOR | LOCATION | WALL_EAST)) == 0) {
+                                                newX--;
+                                            }
+                                            if (random == 1 && mapX + 104 - 1 > newX && x + 3 > newX && (collisionFlags[newX + 1 - collisionX][newZ - collisionZ] & (BLOCKWALK | UNKNOWN | GROUND_DECOR | LOCATION | WALL_WEST)) == 0) {
+                                                newX++;
+                                            }
+                                            if (random == 2 && newZ > mapZ && z - 3 < newZ && (collisionFlags[newX - collisionX][newZ - collisionZ - 1] & (BLOCKWALK | UNKNOWN | GROUND_DECOR | LOCATION | WALL_NORTH)) == 0) {
+                                                newZ--;
+                                            }
+                                            if (random == 3 && newZ < mapZ + 104 - 1 && z + 3 > newZ && (collisionFlags[newX - collisionX][newZ + 1 - collisionZ] & (BLOCKWALK | UNKNOWN | GROUND_DECOR | LOCATION | WALL_SOUTH)) == 0) {
+                                                newZ++;
+                                            }
+                                        }
+                                    }
+
+                                    locId[locCount] = locType.id;
+                                    locX[locCount] = newX;
+                                    locZ[locCount] = newZ;
+                                    locCount++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (elements != null) {
+                js5.CONFIG.discardunpacked = 1;
+                MapElementTypeList.instance.setCaches(1024, 64);
+
+                for (@Pc(214) int i = 0; i < elements.size; i++) {
+                    @Pc(216) int coord = elements.coords[i];
+
+                    if (PlayerEntity.self.level == coord >> 28) {
+                        @Pc(218) int x = (coord >> 14 & 0x3FFF) - WorldMap.areaBaseX;
+                        @Pc(229) int z = (coord & 0x3FFF) - WorldMap.areaBaseZ;
+
+                        if (x >= 0 && x < Static720.mapWidth && z >= 0 && z < Static501.mapLength) {
+                            elementCoords.addLast(new IntNode(i));
+                        } else {
+                            @Pc(1199) MapElementType elementType = MapElementTypeList.instance.list(elements.functions[i]);
+
+                            if (elementType.landmarkPolygons != null && elementType.minX + x >= 0 && x + elementType.maxX < Static720.mapWidth && elementType.minZ + z >= 0 && z + elementType.maxZ < Static501.mapLength) {
+                                elementCoords.addLast(new IntNode(i));
+                            }
+                        }
+                    }
+                }
+
+                MapElementTypeList.instance.setCaches(MapElementTypeList.DEFAULT_CACHE_SIZE, 64);
+                js5.CONFIG.discardunpacked = 2;
+                js5.CONFIG.discardUnpacked();
+            }
+        }
+
+        return true;
+    }
+
+    @OriginalMember(owner = "client!ad", name = "a", descriptor = "(BILclient!aa;Lclient!st;IILclient!hda;I)V")
+    public static void drawDot(@OriginalArg(1) int offsetY, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) Sprite sprite, @OriginalArg(4) int drawY, @OriginalArg(5) int drawX, @OriginalArg(6) Component component, @OriginalArg(7) int offsetX) {
+        if (sprite == null) {
+            return;
+        }
+
+        @Pc(15) int yaw;
+        if (Camera.mode == CameraMode.MODE_FOUR) {
+            yaw = (int) Camera.playerCameraYaw & 0x3FFF;
+        } else {
+            yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
+        }
+
+        @Pc(37) int local37 = Math.max(component.width / 2, component.height / 2) + 10;
+        @Pc(45) int local45 = (drawY * drawY) + (drawX * drawX);
+        if ((local37 * local37) < local45) {
+            return;
+        }
+
+        @Pc(60) int local60 = Trig1.SIN[yaw];
+        @Pc(64) int local64 = Trig1.COS[yaw];
+        if (Camera.mode != CameraMode.MODE_FOUR) {
+            local60 = (local60 * 256) / (Camera.scaleOffset + 256);
+            local64 = (local64 * 256) / (Camera.scaleOffset + 256);
+        }
+
+        @Pc(98) int local98 = ((drawX * local64) + (drawY * local60)) >> 14;
+        @Pc(109) int local109 = ((drawY * local64) - (drawX * local60)) >> 14;
+        sprite.method8195((local98 + (component.width / 2) + offsetX) - (sprite.scaleWidth() / 2), ((component.height / 2) + offsetY) - local109 - (sprite.scaleHeight() / 2), mask, offsetX, offsetY);
+    }
+
+    @OriginalMember(owner = "client!dk", name = "a", descriptor = "(IIBJLclient!aa;IIILclient!hda;)V")
+    public static void drawHintMapedge(@OriginalArg(0) int arrowX, @OriginalArg(1) int offsetX, @OriginalArg(3) long maxDistance, @OriginalArg(4) ClippingMask mask, @OriginalArg(5) int sprite, @OriginalArg(6) int offsetY, @OriginalArg(7) int arrowY, @OriginalArg(8) Component component) {
+        @Pc(16) int distance = (arrowY * arrowY) + (arrowX * arrowX);
+        if ((long) distance > maxDistance) {
+            return;
+        }
+
+        @Pc(37) int local37 = Math.min(component.width / 2, component.height / 2);
+        if (distance <= (local37 * local37)) {
+            drawDot(offsetY, mask, Sprites.hintMapmarkers[sprite], arrowY, arrowX, component, offsetX);
+            return;
+        }
+
+        local37 -= 10;
+
+        @Pc(64) int yaw;
+        if (Camera.mode == CameraMode.MODE_FOUR) {
+            yaw = (int) Camera.playerCameraYaw & 0x3FFF;
+        } else {
+            yaw = Camera.yawOffset + (int) Camera.playerCameraYaw & 0x3FFF;
+        }
+
+        @Pc(77) int local77 = Trig1.SIN[yaw];
+        @Pc(81) int local81 = Trig1.COS[yaw];
+        if (Camera.mode != CameraMode.MODE_FOUR) {
+            local81 = local81 * 256 / (Camera.scaleOffset + 256);
+            local77 = local77 * 256 / (Camera.scaleOffset + 256);
+        }
+
+        @Pc(112) int local112 = ((arrowX * local81) + (arrowY * local77)) >> 14;
+        @Pc(123) int local123 = ((arrowY * local81) - (arrowX * local77)) >> 14;
+        @Pc(129) double local129 = Math.atan2(local112, local123);
+        @Pc(136) int local136 = (int) ((double) local37 * Math.sin(local129));
+        @Pc(143) int local143 = (int) ((double) local37 * Math.cos(local129));
+        Sprites.hintMapedge[sprite].method8186((float) local136 + (float) component.width / 2.0F + (float) offsetX, (float) -local143 + (float) component.height / 2.0F + (float) offsetY, 4096, (int) ((-local129 / 6.283185307179586D) * 65535.0D));
     }
 }

@@ -43,7 +43,7 @@ public final class Static418 {
 
     @OriginalMember(owner = "client!nda", name = "a", descriptor = "(IIIIIZI)V")
     public static void method7860(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(6) int arg4) {
-        if (arg3 < 512 || arg1 < 512 || Static720.mapWidth * 512 - 1024 < arg3 || Static501.mapHeight * 512 - 1024 < arg1) {
+        if (arg3 < 512 || arg1 < 512 || Static720.mapWidth * 512 - 1024 < arg3 || Static501.mapLength * 512 - 1024 < arg1) {
             OverlayManager.hitmarkpos[0] = OverlayManager.hitmarkpos[1] = -1;
             return;
         }

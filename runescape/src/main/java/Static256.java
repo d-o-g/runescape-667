@@ -218,31 +218,34 @@ public final class Static256 {
     }
 
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(Lclient!da;Ljava/lang/String;Lclient!ve;IIIZLclient!hda;Lclient!aa;III)V")
-    public static void method3639(@OriginalArg(0) Font arg0, @OriginalArg(1) String arg1, @OriginalArg(2) FontMetrics arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Component arg6, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
-        @Pc(11) int local11;
+    public static void method3639(@OriginalArg(0) Font font, @OriginalArg(1) String text, @OriginalArg(2) FontMetrics metrics, @OriginalArg(3) int offsetX, @OriginalArg(4) int colour, @OriginalArg(5) int height, @OriginalArg(7) Component component, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int offsetY, @OriginalArg(11) int arg10) {
+        @Pc(11) int yaw;
         if (Camera.mode == CameraMode.MODE_FOUR) {
-            local11 = (int) Camera.playerCameraYaw & 0x3FFF;
+            yaw = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
-            local11 = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
+            yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
         }
-        @Pc(33) int local33 = Math.max(arg6.width / 2, arg6.height / 2) + 10;
-        @Pc(59) int local59 = arg8 * arg8 + arg10 * arg10;
-        if (local33 * local33 < local59) {
+
+        @Pc(33) int local33 = Math.max(component.width / 2, component.height / 2) + 10;
+        @Pc(59) int local59 = (arg8 * arg8) + (arg10 * arg10);
+        if ((local33 * local33) < local59) {
             return;
         }
-        @Pc(74) int local74 = Trig1.SIN[local11];
-        @Pc(78) int local78 = Trig1.COS[local11];
+
+        @Pc(74) int local74 = Trig1.SIN[yaw];
+        @Pc(78) int local78 = Trig1.COS[yaw];
         if (Camera.mode != CameraMode.MODE_FOUR) {
-            local74 = local74 * 256 / (Camera.scaleOffset + 256);
-            local78 = local78 * 256 / (Camera.scaleOffset + 256);
+            local74 = (local74 * 256) / (Camera.scaleOffset + 256);
+            local78 = (local78 * 256) / (Camera.scaleOffset + 256);
         }
-        @Pc(107) int local107 = local78 * arg10 + arg8 * local74 >> 14;
-        @Pc(118) int local118 = arg8 * local78 - arg10 * local74 >> 14;
-        @Pc(125) int local125 = arg2.paraWidth(null, arg1, 100);
-        @Pc(131) int local131 = local107 - local125 / 2;
-        @Pc(139) int local139 = arg2.stringHeight(100, 0, arg1, null);
-        if (local131 >= -arg6.width && arg6.width >= local131 && local118 >= -arg6.height && arg6.height >= local118) {
-            arg0.renderLines(arg9, null, arg4, arg1, arg7, null, arg6.height / 2 + arg9 - local118 - arg5 - local139, 0, arg3, 1, arg6.width / 2 + local131 + arg3, 0, 0, local125, 50);
+
+        @Pc(107) int local107 = ((local78 * arg10) + (arg8 * local74)) >> 14;
+        @Pc(118) int local118 = ((local78 * arg8) - (arg10 * local74)) >> 14;
+        @Pc(125) int paraWidth = metrics.paraWidth(null, text, 100);
+        @Pc(131) int centerX = local107 - paraWidth / 2;
+        @Pc(139) int textHeight = metrics.stringHeight(100, 0, text, null);
+        if (centerX >= -component.width && component.width >= centerX && local118 >= -component.height && component.height >= local118) {
+            font.renderLines(offsetY, null, colour, text, arg7, null, ((component.height / 2) + offsetY) - local118 - height - textHeight, 0, offsetX, 1, (component.width / 2) + centerX + offsetX, 0, 0, paraWidth, 50);
         }
     }
 }

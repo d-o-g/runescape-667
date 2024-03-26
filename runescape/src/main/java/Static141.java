@@ -188,38 +188,45 @@ public final class Static141 {
     }
 
     @OriginalMember(owner = "client!eh", name = "a", descriptor = "(Lclient!ha;[IIII[I[I)V")
-    public static void method2376(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int[] arg4, @OriginalArg(6) int[] arg5) {
+    public static void method2376(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int colour, @OriginalArg(5) int[] arg4, @OriginalArg(6) int[] arg5) {
         @Pc(2) int[] local2 = new int[4];
-        arg0.K(local2);
+        toolkit.K(local2);
         if (arg4 != null && local2[3] - local2[1] != arg4.length) {
             throw new IllegalStateException();
         }
+
         method2369();
         method2374(arg1, arg2);
         method2378(local2[1]);
+
         while (true) {
-            @Pc(36) int local36;
+            @Pc(36) int x;
             @Pc(38) int local38;
-            @Pc(40) int local40;
+            @Pc(40) int y;
             do {
                 if (!method2370(local2[3])) {
                     return;
                 }
-                local36 = anInt2538;
+
+                x = anInt2538;
                 local38 = anInt2540;
-                local40 = anInt2541;
+                y = anInt2541;
+
                 if (arg4 == null) {
                     break;
                 }
-                @Pc(48) int local48 = local40 - local2[1];
-                if (local36 < arg4[local48] + local2[0]) {
-                    local36 = arg4[local48] + local2[0];
+
+                @Pc(48) int local48 = y - local2[1];
+                if (x < arg4[local48] + local2[0]) {
+                    x = arg4[local48] + local2[0];
                 }
+
                 if (local38 > arg4[local48] + arg5[local48] + local2[0]) {
                     local38 = arg4[local48] + arg5[local48] + local2[0];
                 }
-            } while (local38 - local36 <= 0);
-            arg0.U(local36, local40, local38 - local36, arg3, 1);
+            } while (local38 - x <= 0);
+
+            toolkit.U(x, y, local38 - x, colour, 1);
         }
     }
 

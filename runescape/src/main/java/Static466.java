@@ -314,7 +314,7 @@ public final class Static466 {
         @Pc(61) int local61;
         for (@Pc(46) int local46 = 0; local46 < 4; local46++) {
             for (local50 = 0; local50 < Static720.mapWidth >> 3; local50++) {
-                for (local54 = 0; local54 < Static501.mapHeight >> 3; local54++) {
+                for (local54 = 0; local54 < Static501.mapLength >> 3; local54++) {
                     local61 = bitPacket.gbit(1);
                     if (local61 == 1) {
                         Static623.zonePointers[local46][local50][local54] = bitPacket.gbit(26);
@@ -346,7 +346,7 @@ public final class Static466 {
         local50 = 0;
         for (local61 = 0; local61 < 4; local61++) {
             for (@Pc(221) int local221 = 0; local221 < Static720.mapWidth >> 3; local221++) {
-                for (@Pc(225) int local225 = 0; local225 < Static501.mapHeight >> 3; local225++) {
+                for (@Pc(225) int local225 = 0; local225 < Static501.mapLength >> 3; local225++) {
                     @Pc(235) int local235 = Static623.zonePointers[local61][local221][local225];
                     if (local235 != -1) {
                         @Pc(245) int local245 = local235 >> 14 & 0x3FF;

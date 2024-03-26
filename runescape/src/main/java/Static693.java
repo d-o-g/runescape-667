@@ -22,7 +22,7 @@ public final class Static693 {
         for (@Pc(5) int local5 = 0; local5 < arg1.levels; local5++) {
             Static557.method7331();
             for (local10 = 0; local10 < Static720.mapWidth >> 3; local10++) {
-                for (local13 = 0; local13 < Static501.mapHeight >> 3; local13++) {
+                for (local13 = 0; local13 < Static501.mapLength >> 3; local13++) {
                     local22 = Static623.zonePointers[local5][local10][local13];
                     if (local22 != -1) {
                         local32 = local22 >> 24 & 0x3;
@@ -47,7 +47,7 @@ public final class Static693 {
         for (local10 = 0; local10 < arg1.levels; local10++) {
             Static557.method7331();
             for (local13 = 0; local13 < Static720.mapWidth >> 3; local13++) {
-                for (local22 = 0; local22 < Static501.mapHeight >> 3; local22++) {
+                for (local22 = 0; local22 < Static501.mapLength >> 3; local22++) {
                     local32 = Static623.zonePointers[local10][local13][local22];
                     if (local32 == -1) {
                         arg1.method7889(8, local22 * 8, local13 * 8, local10, 8);

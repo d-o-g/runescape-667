@@ -20,7 +20,7 @@ public final class Static501 {
     public static boolean aBoolean576;
 
     @OriginalMember(owner = "client!pq", name = "z", descriptor = "I")
-    public static int mapHeight = 104;
+    public static int mapLength = 104;
 
     @OriginalMember(owner = "client!pq", name = "t", descriptor = "Z")
     public static boolean aBoolean575 = false;

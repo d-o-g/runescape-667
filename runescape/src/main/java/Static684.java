@@ -43,10 +43,10 @@ public final class Static684 {
         WorldMap.areaBaseX = (Static62.areaCenterX - (Static720.mapWidth >> 4)) * 8;
 
         @Pc(85) int baseZ = WorldMap.areaBaseZ;
-        WorldMap.areaBaseZ = (Static525.areaCenterZ - (Static501.mapHeight >> 4)) * 8;
+        WorldMap.areaBaseZ = (Static525.areaCenterZ - (Static501.mapLength >> 4)) * 8;
 
         Static162.aClass2_Sub2_Sub13_2 = WorldMap.method5078(Static62.areaCenterX * 8, Static525.areaCenterZ * 8);
-        Static42.aMapElementList_2 = null;
+        Minimap.elements = null;
 
         @Pc(109) int deltaX = WorldMap.areaBaseX - baseX;
         @Pc(113) int deltaZ = WorldMap.areaBaseZ - baseZ;
@@ -71,7 +71,7 @@ public final class Static684 {
 
             @Pc(120) boolean removed = false;
             @Pc(128) int maxX = (Static720.mapWidth - 1) * 512;
-            @Pc(134) int maxZ = (Static501.mapHeight * 512) - 512;
+            @Pc(134) int maxZ = (Static501.mapLength * 512) - 512;
 
             for (@Pc(136) int i = 0; i < NPCList.newNpcCount; i++) {
                 @Pc(141) NPCEntityNode node = NPCList.localNpcs[i];
@@ -90,7 +90,7 @@ public final class Static684 {
                         npc.pathX[j] -= deltaX;
                         npc.pathZ[j] -= deltaZ;
 
-                        if (npc.pathX[j] < 0 || npc.pathX[j] >= Static720.mapWidth || npc.pathZ[j] < 0 || Static501.mapHeight <= npc.pathZ[j]) {
+                        if (npc.pathX[j] < 0 || npc.pathX[j] >= Static720.mapWidth || npc.pathZ[j] < 0 || Static501.mapLength <= npc.pathZ[j]) {
                             inBounds = false;
                         }
                     }
@@ -142,7 +142,7 @@ public final class Static684 {
             request.x -= deltaX;
             request.z -= deltaZ;
 
-            boolean outOfBounds = request.x < 0 || request.z < 0 || request.x >= Static720.mapWidth || request.z >= Static501.mapHeight;
+            boolean outOfBounds = request.x < 0 || request.z < 0 || request.x >= Static720.mapWidth || request.z >= Static501.mapLength;
             if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS && outOfBounds) {
                 request.unlink();
             }
@@ -152,20 +152,20 @@ public final class Static684 {
             request.z -= deltaZ;
             request.x -= deltaX;
 
-            boolean outOfBounds = request.x < 0 || request.z < 0 || request.x >= Static720.mapWidth || request.z >= Static501.mapHeight;
+            boolean outOfBounds = request.x < 0 || request.z < 0 || request.x >= Static720.mapWidth || request.z >= Static501.mapLength;
             if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS && outOfBounds) {
                 request.unlink();
             }
         }
 
         if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS) {
-            for (@Pc(608) ObjStack stack = (ObjStack) Static497.stacks.first(); stack != null; stack = (ObjStack) Static497.stacks.next()) {
+            for (@Pc(608) ObjStack stack = (ObjStack) Static497.objStacks.first(); stack != null; stack = (ObjStack) Static497.objStacks.next()) {
                 @Pc(615) int absX = (int) (stack.key & 0x3FFFL);
                 @Pc(619) int x = absX - WorldMap.areaBaseX;
                 @Pc(193) int absZ = (int) (stack.key >> 14 & 0x3FFFL);
                 @Pc(632) int z = absZ - WorldMap.areaBaseZ;
 
-                if (x < 0 || z < 0 || x >= Static720.mapWidth || z >= Static501.mapHeight) {
+                if (x < 0 || z < 0 || x >= Static720.mapWidth || z >= Static501.mapLength) {
                     stack.unlink();
                 }
             }
@@ -185,7 +185,7 @@ public final class Static684 {
             Camera.z -= deltaZ * 512;
             Camera.x -= deltaX * 512;
             Camera.lookZ -= deltaZ;
-            if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaZ) > Static501.mapHeight) {
+            if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaZ) > Static501.mapLength) {
                 InterfaceManager.loginOpened();
             }
         } else if (Camera.mode == CameraMode.MODE_FOUR) {

@@ -1,3 +1,4 @@
+import com.jagex.core.constants.TileFlag;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -27,13 +28,13 @@ public final class Static696 {
     }
 
     @OriginalMember(owner = "client!w", name = "a", descriptor = "(IIIII)Z")
-    public static boolean isTileVisibleFrom(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        if ((Static280.tileFlags[0][arg2][arg0] & 0x2) != 0) {
+    public static boolean isTileVisibleFrom(@OriginalArg(0) int z, @OriginalArg(2) int otherLevel, @OriginalArg(3) int x, @OriginalArg(4) int level) {
+        if ((Static280.tileFlags[0][x][z] & TileFlag.BRIDGE) != 0) {
             return true;
-        } else if ((Static280.tileFlags[arg3][arg2][arg0] & 0x10) == 0) {
-            return Static705.method9198(arg0, arg2, arg3) == arg1;
-        } else {
+        } else if ((Static280.tileFlags[level][x][z] & TileFlag.INVISIBLE) != 0) {
             return false;
+        } else {
+            return Static705.method9198(z, x, level) == otherLevel;
         }
     }
 

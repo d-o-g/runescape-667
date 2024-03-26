@@ -4757,8 +4757,8 @@ public final class ScriptRunner {
                         local109 -= WorldMap.areaBaseZ;
                         if (local109 < 0) {
                             local109 = 0;
-                        } else if (local109 >= Static501.mapHeight) {
-                            local109 = Static501.mapHeight;
+                        } else if (local109 >= Static501.mapLength) {
+                            local109 = Static501.mapLength;
                         }
                         Camera.anInt6262 = (local834 << 9) + 256;
                         Camera.anInt4018 = (local109 << 9) + 256;
@@ -4793,8 +4793,8 @@ public final class ScriptRunner {
                             local109 -= WorldMap.areaBaseZ;
                             if (local109 < 0) {
                                 local109 = 0;
-                            } else if (local109 >= Static501.mapHeight) {
-                                local109 = Static501.mapHeight;
+                            } else if (local109 >= Static501.mapLength) {
+                                local109 = Static501.mapLength;
                             }
                             Camera.anInt10376 = (local834 << 9) + 256;
                             Camera.anInt10383 = (local109 << 9) + 256;
@@ -5860,7 +5860,7 @@ public final class ScriptRunner {
                         if (arg0 == 6802) {
                             local192 = anIntArray578[--anInt7142];
                             local8975 = MapElementTypeList.instance.list(local192);
-                            anIntArray578[anInt7142++] = local8975.textSize;
+                            anIntArray578[anInt7142++] = local8975.font;
                             return;
                         }
                         if (arg0 == 6803) {

@@ -9,7 +9,7 @@ public final class Static235 {
 
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "(IIIIIIIII)V")
     public static void method3421(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7) {
-        if (arg3 < 1 || arg0 < 1 || Static720.mapWidth - 2 < arg3 || Static501.mapHeight - 2 < arg0) {
+        if (arg3 < 1 || arg0 < 1 || Static720.mapWidth - 2 < arg3 || Static501.mapLength - 2 < arg0) {
             return;
         }
         @Pc(39) int local39 = arg6;

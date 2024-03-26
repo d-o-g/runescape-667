@@ -28,14 +28,14 @@ public final class Static527 {
                 if (local20.anInt711 > 0) {
                     if (CutsceneManager.state == 3) {
                         @Pc(61) PathingEntity local61 = CutsceneManager.actors[local20.anInt711 - 1].entity();
-                        if (local61 != null && local61.x >= 0 && local61.x < Static720.mapWidth * 512 && local61.z >= 0 && local61.z < Static501.mapHeight * 512) {
+                        if (local61 != null && local61.x >= 0 && local61.x < Static720.mapWidth * 512 && local61.z >= 0 && local61.z < Static501.mapLength * 512) {
                             local20.target(Static102.averageHeight(local20.level, local61.z, local61.x) - local20.lb, TimeUtils.clock, local61.z, local61.x);
                         }
                     } else {
                         @Pc(130) NPCEntityNode local130 = (NPCEntityNode) NPCList.local.get(local20.anInt711 - 1);
                         if (local130 != null) {
                             @Pc(135) NPCEntity local135 = local130.npc;
-                            if (local135.x >= 0 && local135.x < Static720.mapWidth * 512 && local135.z >= 0 && local135.z < Static501.mapHeight * 512) {
+                            if (local135.x >= 0 && local135.x < Static720.mapWidth * 512 && local135.z >= 0 && local135.z < Static501.mapLength * 512) {
                                 local20.target(Static102.averageHeight(local20.level, local135.z, local135.x) - local20.lb, TimeUtils.clock, local135.z, local135.x);
                             }
                         }
@@ -49,7 +49,7 @@ public final class Static527 {
                     } else {
                         local198 = PlayerList.highResolutionPlayers[local193];
                     }
-                    if (local198 != null && local198.x >= 0 && Static720.mapWidth * 512 > local198.x && local198.z >= 0 && Static501.mapHeight * 512 > local198.z) {
+                    if (local198 != null && local198.x >= 0 && Static720.mapWidth * 512 > local198.x && local198.z >= 0 && Static501.mapLength * 512 > local198.z) {
                         local20.target(Static102.averageHeight(local20.level, local198.z, local198.x) - local20.lb, TimeUtils.clock, local198.z, local198.x);
                     }
                 }

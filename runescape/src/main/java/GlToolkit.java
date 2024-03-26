@@ -1762,8 +1762,8 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void method7965(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7) {
-        @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) arg5;
+    public void method7965(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int offsetX, @OriginalArg(8) int offsetY) {
+        @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) mask;
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local6.aClass93_Sub2_Sub1_5);
@@ -1772,17 +1772,17 @@ public final class GlToolkit extends Toolkit {
         this.method7021(34167, 768, 0);
         @Pc(39) float local39 = local9.aFloat67 / (float) local9.anInt3259;
         @Pc(46) float local46 = local9.aFloat68 / (float) local9.anInt3257;
-        @Pc(53) float local53 = (float) -arg0 + (float) arg2;
-        @Pc(59) float local59 = (float) arg3 - (float) arg1;
+        @Pc(53) float local53 = (float) -x1 + (float) x2;
+        @Pc(59) float local59 = (float) y2 - (float) y1;
         @Pc(72) float local72 = (float) (1.0D / Math.sqrt(local59 * local59 + local53 * local53));
-        OpenGL.glColor4ub((byte) (arg4 >> 16), (byte) (arg4 >> 8), (byte) arg4, (byte) (arg4 >> 24));
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         @Pc(91) float local91 = local53 * local72;
         @Pc(95) float local95 = local59 * local72;
         OpenGL.glBegin(OpenGL.GL_LINES);
-        OpenGL.glTexCoord2f((float) (arg0 - arg6) * local39, local46 * (float) (arg1 - arg7));
-        OpenGL.glVertex2f((float) arg0 + 0.35F, (float) arg1 + 0.35F);
-        OpenGL.glTexCoord2f(local39 * (float) (arg2 - arg6), local46 * (float) (arg3 - arg7));
-        OpenGL.glVertex2f(local91 + (float) arg2 + 0.35F, local95 + 0.35F + (float) arg3);
+        OpenGL.glTexCoord2f((float) (x1 - offsetX) * local39, local46 * (float) (y1 - offsetY));
+        OpenGL.glVertex2f((float) x1 + 0.35F, (float) y1 + 0.35F);
+        OpenGL.glTexCoord2f(local39 * (float) (x2 - offsetX), local46 * (float) (y2 - offsetY));
+        OpenGL.glVertex2f(local91 + (float) x2 + 0.35F, local95 + 0.35F + (float) y2);
         OpenGL.glEnd();
         this.method7021(5890, 768, 0);
     }
@@ -2854,11 +2854,11 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public void method7942(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) ClippingMask arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
-        if (arg2 == arg0 && arg1 == arg3) {
+    public void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+        if (x2 == x1 && y1 == y2) {
             return;
         }
-        @Pc(22) ClippingMask_Sub3 local22 = (ClippingMask_Sub3) arg5;
+        @Pc(22) ClippingMask_Sub3 local22 = (ClippingMask_Sub3) mask;
         @Pc(25) Class93_Sub2_Sub1 local25 = local22.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local22.aClass93_Sub2_Sub1_5);
@@ -2867,11 +2867,11 @@ public final class GlToolkit extends Toolkit {
         this.method7021(34167, 768, 0);
         @Pc(55) float local55 = local25.aFloat67 / (float) local25.anInt3259;
         @Pc(62) float local62 = local25.aFloat68 / (float) local25.anInt3257;
-        @Pc(69) float local69 = (float) -arg0 + (float) arg2;
-        @Pc(76) float local76 = (float) -arg1 + (float) arg3;
+        @Pc(69) float local69 = (float) -x1 + (float) x2;
+        @Pc(76) float local76 = (float) -y1 + (float) y2;
         @Pc(89) float local89 = (float) (1.0D / Math.sqrt(local69 * local69 + local76 * local76));
         @Pc(95) int local95 = arg10 % (arg8 + arg9);
-        OpenGL.glColor4ub((byte) (arg4 >> 16), (byte) (arg4 >> 8), (byte) arg4, (byte) (arg4 >> 24));
+        OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         @Pc(114) float local114 = local69 * local89;
         @Pc(118) float local118 = local76 * local89;
         @Pc(123) float local123 = (float) arg8 * local114;
@@ -2887,39 +2887,39 @@ public final class GlToolkit extends Toolkit {
             local136 = local118 * (float) (arg8 - local95);
             local134 = (float) (arg8 - local95) * local114;
         }
-        @Pc(187) float local187 = (float) arg0 + local130 + 0.35F;
-        @Pc(194) float local194 = local132 + (float) arg1 + 0.35F;
+        @Pc(187) float local187 = (float) x1 + local130 + 0.35F;
+        @Pc(194) float local194 = local132 + (float) y1 + 0.35F;
         @Pc(199) float local199 = local114 * (float) arg9;
         @Pc(204) float local204 = (float) arg9 * local118;
         while (true) {
-            if (arg0 >= arg2) {
-                if ((float) arg2 + 0.35F > local187) {
+            if (x1 >= x2) {
+                if ((float) x2 + 0.35F > local187) {
                     break;
                 }
-                if (local134 + local187 < (float) arg2) {
-                    local134 = (float) arg2 - local187;
+                if (local134 + local187 < (float) x2) {
+                    local134 = (float) x2 - local187;
                 }
             } else {
-                if (local187 > (float) arg2 + 0.35F) {
+                if (local187 > (float) x2 + 0.35F) {
                     break;
                 }
-                if ((float) arg2 < local187 + local134) {
-                    local134 = (float) arg2 - local187;
+                if ((float) x2 < local187 + local134) {
+                    local134 = (float) x2 - local187;
                 }
             }
-            if (arg1 >= arg3) {
-                if ((float) arg3 + 0.35F > local194) {
+            if (y1 >= y2) {
+                if ((float) y2 + 0.35F > local194) {
                     break;
                 }
-                if ((float) arg3 > local136 + local194) {
-                    local136 = (float) arg3 - local194;
+                if ((float) y2 > local136 + local194) {
+                    local136 = (float) y2 - local194;
                 }
             } else {
-                if ((float) arg3 + 0.35F < local194) {
+                if ((float) y2 + 0.35F < local194) {
                     break;
                 }
-                if ((float) arg3 < local136 + local194) {
-                    local136 = (float) arg3 - local194;
+                if ((float) y2 < local136 + local194) {
+                    local136 = (float) y2 - local194;
                 }
             }
             OpenGL.glBegin(OpenGL.GL_LINES);

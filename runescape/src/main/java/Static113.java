@@ -10,9 +10,6 @@ public final class Static113 {
     @OriginalMember(owner = "client!dja", name = "h", descriptor = "Lclient!av;")
     public static final IterableHashTable A_HASH_TABLE___12 = new IterableHashTable(16);
 
-    @OriginalMember(owner = "client!dja", name = "n", descriptor = "Z")
-    public static boolean drawCollisionMap = false;
-
     @OriginalMember(owner = "client!dja", name = "b", descriptor = "(II)V")
     public static void method2119(@OriginalArg(1) int arg0) {
         Static524.aServerConnection_3 = ConnectionManager.GAME;

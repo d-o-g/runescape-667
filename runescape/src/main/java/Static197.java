@@ -12,7 +12,7 @@ public final class Static197 {
                 local8.unlink();
             } else {
                 local8.aBoolean310 = true;
-                if (local8.x >= 0 && local8.z >= 0 && Static720.mapWidth > local8.x && Static501.mapHeight > local8.z) {
+                if (local8.x >= 0 && local8.z >= 0 && Static720.mapWidth > local8.x && Static501.mapLength > local8.z) {
                     Static293.method4332(local8);
                 }
             }

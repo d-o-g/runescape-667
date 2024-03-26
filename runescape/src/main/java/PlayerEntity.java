@@ -871,9 +871,9 @@ public final class PlayerEntity extends PathingEntity {
             this.getSize();
         }
         this.turnAngle = -1;
-        if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapHeight <= arg0) {
+        if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapLength <= arg0) {
             this.teleport(arg1, arg0);
-        } else if (super.pathX[0] >= 0 && super.pathX[0] < Static720.mapWidth && super.pathZ[0] >= 0 && Static501.mapHeight > super.pathZ[0]) {
+        } else if (super.pathX[0] >= 0 && super.pathX[0] < Static720.mapWidth && super.pathZ[0] >= 0 && Static501.mapLength > super.pathZ[0]) {
             if (arg2 == 2) {
                 Static360.method5232(this, arg1, arg0);
             }

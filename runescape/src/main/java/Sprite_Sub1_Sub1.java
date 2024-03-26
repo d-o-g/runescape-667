@@ -886,41 +886,41 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
 
     @OriginalMember(owner = "client!ap", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) ClippingMask arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public void method8195(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int offsetX, @OriginalArg(4) int offsetY) {
         if (super.aClass19_Sub2_10.method3785()) {
             throw new IllegalStateException();
         }
-        arg0 += super.anInt9298;
-        arg1 += super.anInt9308;
+        x += super.anInt9298;
+        y += super.anInt9308;
         @Pc(20) int local20 = 0;
         @Pc(24) int local24 = super.aClass19_Sub2_10.anInt4207;
         @Pc(27) int local27 = super.anInt9302;
         @Pc(30) int local30 = super.anInt9306;
         @Pc(34) int local34 = local24 - local27;
         @Pc(36) int local36 = 0;
-        @Pc(42) int local42 = arg0 + arg1 * local24;
+        @Pc(42) int local42 = x + y * local24;
         @Pc(53) int local53;
-        if (arg1 < super.aClass19_Sub2_10.anInt4186) {
-            local53 = super.aClass19_Sub2_10.anInt4186 - arg1;
+        if (y < super.aClass19_Sub2_10.anInt4186) {
+            local53 = super.aClass19_Sub2_10.anInt4186 - y;
             local30 -= local53;
-            arg1 = super.aClass19_Sub2_10.anInt4186;
+            y = super.aClass19_Sub2_10.anInt4186;
             local20 = local53 * local27;
             local42 += local53 * local24;
         }
-        if (arg1 + local30 > super.aClass19_Sub2_10.anInt4196) {
-            local30 -= arg1 + local30 - super.aClass19_Sub2_10.anInt4196;
+        if (y + local30 > super.aClass19_Sub2_10.anInt4196) {
+            local30 -= y + local30 - super.aClass19_Sub2_10.anInt4196;
         }
-        if (arg0 < super.aClass19_Sub2_10.anInt4192) {
-            local53 = super.aClass19_Sub2_10.anInt4192 - arg0;
+        if (x < super.aClass19_Sub2_10.anInt4192) {
+            local53 = super.aClass19_Sub2_10.anInt4192 - x;
             local27 -= local53;
-            arg0 = super.aClass19_Sub2_10.anInt4192;
+            x = super.aClass19_Sub2_10.anInt4192;
             local20 += local53;
             local42 += local53;
             local36 = local53;
             local34 += local53;
         }
-        if (arg0 + local27 > super.aClass19_Sub2_10.anInt4200) {
-            local53 = arg0 + local27 - super.aClass19_Sub2_10.anInt4200;
+        if (x + local27 > super.aClass19_Sub2_10.anInt4200) {
+            local53 = x + local27 - super.aClass19_Sub2_10.anInt4200;
             local27 -= local53;
             local36 += local53;
             local34 += local53;
@@ -928,24 +928,24 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
         if (local27 <= 0 || local30 <= 0) {
             return;
         }
-        @Pc(163) ClippingMask_Sub1 local163 = (ClippingMask_Sub1) arg2;
+        @Pc(163) ClippingMask_Sub1 local163 = (ClippingMask_Sub1) mask;
         @Pc(166) int[] local166 = local163.anIntArray334;
         @Pc(169) int[] local169 = local163.anIntArray335;
         @Pc(173) int[] local173 = super.aClass19_Sub2_10.anIntArray319;
-        @Pc(175) int local175 = arg1;
-        if (arg4 > arg1) {
-            local175 = arg4;
-            local42 += (arg4 - arg1) * local24;
-            local20 += (arg4 - arg1) * super.anInt9302;
+        @Pc(175) int local175 = y;
+        if (offsetY > y) {
+            local175 = offsetY;
+            local42 += (offsetY - y) * local24;
+            local20 += (offsetY - y) * super.anInt9302;
         }
-        @Pc(215) int local215 = arg4 + local166.length < arg1 + local30 ? arg4 + local166.length : arg1 + local30;
+        @Pc(215) int local215 = offsetY + local166.length < y + local30 ? offsetY + local166.length : y + local30;
         for (@Pc(217) int local217 = local175; local217 < local215; local217++) {
-            @Pc(226) int local226 = local166[local217 - arg4] + arg3;
-            @Pc(232) int local232 = local169[local217 - arg4];
+            @Pc(226) int local226 = local166[local217 - offsetY] + offsetX;
+            @Pc(232) int local232 = local169[local217 - offsetY];
             @Pc(234) int local234 = local27;
             @Pc(241) int local241;
-            if (arg0 > local226) {
-                local241 = arg0 - local226;
+            if (x > local226) {
+                local241 = x - local226;
                 if (local241 >= local232) {
                     local20 += local27 + local36;
                     local42 += local27 + local34;
@@ -953,7 +953,7 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
                 }
                 local232 -= local241;
             } else {
-                local241 = local226 - arg0;
+                local241 = local226 - x;
                 if (local241 >= local27) {
                     local20 += local27 + local36;
                     local42 += local27 + local34;

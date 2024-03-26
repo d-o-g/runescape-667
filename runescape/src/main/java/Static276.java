@@ -38,7 +38,7 @@ public final class Static276 {
         @Pc(25) int local25 = Static198.anInt3276 % Static720.mapWidth;
         @Pc(30) int local30;
         for (@Pc(27) int local27 = 0; local27 < 4; local27++) {
-            for (local30 = 0; local30 < Static501.mapHeight; local30++) {
+            for (local30 = 0; local30 < Static501.mapLength; local30++) {
                 Static328.aByteArrayArrayArray4[local27][local25][local30] = local21;
             }
         }
@@ -89,7 +89,7 @@ public final class Static276 {
         } else {
             local186 = local153 - local161;
         }
-        if ((local169 != 0 || local186 != 0) && local169 > (-Static720.mapWidth) && local169 < Static720.mapWidth && -Static501.mapHeight < local186 && Static501.mapHeight > local186) {
+        if ((local169 != 0 || local186 != 0) && local169 > (-Static720.mapWidth) && local169 < Static720.mapWidth && -Static501.mapLength < local186 && Static501.mapLength > local186) {
             @Pc(278) int local278;
             @Pc(280) int local280;
             if (local169 <= local186) {

@@ -18,10 +18,10 @@ public final class Static2 {
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IBIILclient!cv;)V")
     public static void sortAllObjs(@OriginalArg(0) int z, @OriginalArg(2) int level, @OriginalArg(3) int x, @OriginalArg(4) ObjStackEntry entry) {
         @Pc(16) long key = (level << 14) | (z << 28) | x;
-        @Pc(22) ObjStack stack = (ObjStack) Static497.stacks.get(key);
+        @Pc(22) ObjStack stack = (ObjStack) Static497.objStacks.get(key);
         if (stack == null) {
             stack = new ObjStack();
-            Static497.stacks.put(key, stack);
+            Static497.objStacks.put(key, stack);
             stack.objs.addLast(entry);
             return;
         }

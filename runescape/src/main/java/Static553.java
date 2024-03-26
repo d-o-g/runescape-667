@@ -23,7 +23,7 @@ public final class Static553 {
             local7.anInt4010 = arg4;
             local7.z = arg6;
             local7.x = arg3;
-            if (arg3 >= 0 && arg6 >= 0 && Static720.mapWidth > arg3 && arg6 < Static501.mapHeight) {
+            if (arg3 >= 0 && arg6 >= 0 && Static720.mapWidth > arg3 && arg6 < Static501.mapLength) {
                 Static293.method4332(local7);
             }
             Static159.changes.addLast(local7);

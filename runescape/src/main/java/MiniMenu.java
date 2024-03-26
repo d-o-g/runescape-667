@@ -343,7 +343,7 @@ public final class MiniMenu {
                     if (local543.aEntity_18 instanceof ObjStackEntity) {
                         @Pc(1385) int local1385 = local186 + WorldMap.areaBaseX;
                         local614 = WorldMap.areaBaseZ + local584;
-                        @Pc(1406) ObjStack local1406 = (ObjStack) Static497.stacks.get(local614 << 14 | local543.aEntity_18.level << 28 | local1385);
+                        @Pc(1406) ObjStack local1406 = (ObjStack) Static497.objStacks.get(local614 << 14 | local543.aEntity_18.level << 28 | local1385);
                         if (local1406 != null) {
                             local295 = 0;
                             for (@Pc(1416) ObjStackEntry local1416 = (ObjStackEntry) local1406.objs.last(); local1416 != null; local1416 = (ObjStackEntry) local1406.objs.previous()) {

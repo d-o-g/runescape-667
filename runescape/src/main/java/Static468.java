@@ -12,12 +12,12 @@ public final class Static468 {
         @Pc(8) int x = zoneX + WorldMap.areaBaseX;
         @Pc(12) int z = zoneZ + WorldMap.areaBaseZ;
 
-        if (Static334.activeTiles == null || zoneX < 0 || zoneZ < 0 || zoneX >= Static720.mapWidth || Static501.mapHeight <= zoneZ || ClientOptions.instance.animateBackground.getValue() == 0 && level != PlayerEntity.self.level) {
+        if (Static334.activeTiles == null || zoneX < 0 || zoneZ < 0 || zoneX >= Static720.mapWidth || Static501.mapLength <= zoneZ || ClientOptions.instance.animateBackground.getValue() == 0 && level != PlayerEntity.self.level) {
             return;
         }
 
         @Pc(67) long key = (level << 28) | (z << 14) | x;
-        @Pc(73) ObjStack stack = (ObjStack) Static497.stacks.get(key);
+        @Pc(73) ObjStack stack = (ObjStack) Static497.objStacks.get(key);
         if (stack == null) {
             Static638.method8398(level, zoneX, zoneZ);
             return;

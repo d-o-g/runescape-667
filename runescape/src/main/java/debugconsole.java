@@ -757,11 +757,6 @@ public final class debugconsole {
                     return;
                 }
 
-                if (command.startsWith("cammode")) {
-                    addline("cammode" + Camera.mode);
-                    return;
-                }
-
                 if (command.startsWith("ortho ")) {
                     @Pc(501) int space = command.indexOf(' ');
                     if (space < 0) {

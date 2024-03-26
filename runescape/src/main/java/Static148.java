@@ -12,9 +12,6 @@ public final class Static148 {
     @OriginalMember(owner = "client!el", name = "Z", descriptor = "Ljava/lang/Class;")
     public static Class aClass7;
 
-    @OriginalMember(owner = "client!el", name = "T", descriptor = "Z")
-    public static final boolean aBoolean215 = false;
-
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(Z)V")
     public static void method2429() {
         try {

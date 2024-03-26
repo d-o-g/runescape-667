@@ -1,28 +1,30 @@
+package rs2.client.clan.settings.delta;
+
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
-import rs2.client.clan.ClanSettings;
+import rs2.client.clan.settings.ClanSettings;
 
 @OriginalClass("client!ij")
-public final class Node_Sub14_Sub5 extends Node_Sub14 {
+public final class SetMemberRank extends DeltaEntry {
 
     @OriginalMember(owner = "client!ij", name = "m", descriptor = "B")
-    public byte aByte72;
+    public byte rank;
 
     @OriginalMember(owner = "client!ij", name = "p", descriptor = "I")
-    public int anInt4361 = -1;
+    public int member = -1;
 
     @OriginalMember(owner = "client!ij", name = "a", descriptor = "(Lclient!hi;I)V")
     @Override
-    public void method8617(@OriginalArg(0) ClanSettings arg0) {
-        arg0.doSetMemberRank(this.aByte72, this.anInt4361);
+    public void applyTo(@OriginalArg(0) ClanSettings settings) {
+        settings.doSetMemberRank(this.rank, this.member);
     }
 
     @OriginalMember(owner = "client!ij", name = "a", descriptor = "(ILclient!ge;)V")
     @Override
-    public void method8615(@OriginalArg(1) Packet arg0) {
-        this.anInt4361 = arg0.g2();
-        this.aByte72 = arg0.g1b();
+    public void decode(@OriginalArg(1) Packet packet) {
+        this.member = packet.g2();
+        this.rank = packet.g1b();
     }
 }

@@ -1,6 +1,6 @@
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
-import rs2.client.clan.ClanSettings;
+import rs2.client.clan.settings.ClanSettings;
 
 public final class Static91 {
 

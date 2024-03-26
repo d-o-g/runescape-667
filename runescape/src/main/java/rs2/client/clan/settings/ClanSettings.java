@@ -1,4 +1,4 @@
-package rs2.client.clan;
+package rs2.client.clan.settings;
 
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.IterableHashTable;
@@ -17,6 +17,9 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!hi")
 public final class ClanSettings {
+
+    @OriginalMember(owner = "client!el", name = "T", descriptor = "Z")
+    public static final boolean debug = false;
 
     @OriginalMember(owner = "client!hi", name = "O", descriptor = "B")
     public byte coinshare;
@@ -100,20 +103,20 @@ public final class ClanSettings {
     }
 
     @OriginalMember(owner = "client!hi", name = "b", descriptor = "(IIIII)I")
-    public int doSetMemberExtraInfo(@OriginalArg(0) int value, @OriginalArg(1) int id, @OriginalArg(2) int endBit, @OriginalArg(3) int startBit) {
+    public int doSetMemberExtraInfo(@OriginalArg(0) int value, @OriginalArg(1) int member, @OriginalArg(2) int endBit, @OriginalArg(3) int startBit) {
         @Pc(15) int startMask = (0x1 << startBit) - 1;
         @Pc(31) int endMask = endBit == 31 ? -1 : (0x1 << endBit + 1) - 1;
         @Pc(35) int mask = startMask ^ endMask;
         @Pc(39) int valueShifted = value << startBit;
         @Pc(43) int newValue = valueShifted & mask;
-        @Pc(48) int currentValue = this.affinedExtraInfo[id];
+        @Pc(48) int currentValue = this.affinedExtraInfo[member];
 
         if (newValue == (mask & currentValue)) {
             return -1;
         } else {
             currentValue &= ~mask;
-            this.affinedExtraInfo[id] = currentValue | newValue;
-            return id;
+            this.affinedExtraInfo[member] = currentValue | newValue;
+            return member;
         }
     }
 
@@ -155,7 +158,7 @@ public final class ClanSettings {
     }
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(ILjava/lang/String;JI)V")
-    public void doAddMember(@OriginalArg(1) String displayName, @OriginalArg(2) long userHash, @OriginalArg(3) int arg2) {
+    public void doAddMember(@OriginalArg(1) String displayName, @OriginalArg(2) long userHash, @OriginalArg(3) int joinRuneday) {
         if (displayName != null && displayName.length() == 0) {
             displayName = null;
         }
@@ -180,7 +183,7 @@ public final class ClanSettings {
                 this.affinedRanks[this.affinedCount] = 0;
             }
             this.affinedExtraInfo[this.affinedCount] = 0;
-            this.affinedJoinRuneday[this.affinedCount] = arg2;
+            this.affinedJoinRuneday[this.affinedCount] = joinRuneday;
             this.sortedAffinedSlots = null;
             this.affinedCount++;
         }
@@ -446,7 +449,7 @@ public final class ClanSettings {
     }
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(IIIII)Z")
-    public boolean doSetExtraSettingVarbit(@OriginalArg(0) int endBit, @OriginalArg(1) int startBit, @OriginalArg(2) int value, @OriginalArg(3) int id) {
+    public boolean doSetExtraSettingVarbit(@OriginalArg(3) int id, @OriginalArg(2) int value, @OriginalArg(1) int startBit, @OriginalArg(0) int endBit) {
         @Pc(9) int maskLo = (0x1 << startBit) - 1;
         @Pc(23) int maskHi = endBit == 31 ? -1 : (0x1 << endBit + 1) - 1;
 
@@ -483,7 +486,7 @@ public final class ClanSettings {
     public void decode(@OriginalArg(1) Packet packet) {
         @Pc(9) int version = packet.g1();
         if (version < 1 || version > 5) {
-            throw new RuntimeException("Unsupported rs2.client.clan.ClanSettings version: " + version);
+            throw new RuntimeException("Unsupported ClanSettings version: " + version);
         }
 
         @Pc(37) int flags = packet.g1();

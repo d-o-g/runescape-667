@@ -50,7 +50,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.clan.ClanSettings;
+import rs2.client.clan.settings.ClanSettings;
 import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.mouse.MouseMonitor;
 

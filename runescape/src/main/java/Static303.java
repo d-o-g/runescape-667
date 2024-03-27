@@ -11,14 +11,14 @@ public final class Static303 {
 
     @OriginalMember(owner = "client!jka", name = "a", descriptor = "(IB)V")
     public static void method4428(@OriginalArg(0) int arg0) {
-        if (!Static470.method6387()) {
+        if (!LoginManager.isAtLoginScreen()) {
             return;
         }
-        if (Static129.anInt2409 != arg0) {
-            Static319.aString51 = "";
+        if (LoginManager.socialNetworkId != arg0) {
+            LoginManager.previousUsername = "";
         }
-        Static129.anInt2409 = arg0;
-        ConnectionManager.LOBBY.close();
+        LoginManager.socialNetworkId = arg0;
+        ServerConnection.LOBBY.close();
         MainLogicManager.setStep(5);
     }
 

@@ -23,6 +23,9 @@ public class Packet extends Node {
     @OriginalMember(owner = "client!vw", name = "y", descriptor = "[J")
     public static final long[] crc64table = new long[256];
 
+    @OriginalMember(owner = "client!gp", name = "b", descriptor = "[I")
+    public static int[] xteaKey;
+
     static {
         for (@Pc(43) int i = 0; i < 256; i++) {
             @Pc(46) int j = i;
@@ -153,6 +156,22 @@ public class Packet extends Node {
     public Packet(@OriginalArg(0) byte[] data) {
         this.data = data;
         this.pos = 0;
+    }
+
+    @OriginalMember(owner = "client!rv", name = "b", descriptor = "(I)Lclient!ge;")
+    public static Packet createXtea() {
+        @Pc(8) Packet packet = new Packet(518);
+        xteaKey = new int[4];
+        xteaKey[2] = (int) (Math.random() * 9.9999999E7D);
+        xteaKey[0] = (int) (Math.random() * 9.9999999E7D);
+        xteaKey[3] = (int) (Math.random() * 9.9999999E7D);
+        xteaKey[1] = (int) (Math.random() * 9.9999999E7D);
+        packet.p1(10);
+        packet.p4(xteaKey[0]);
+        packet.p4(xteaKey[1]);
+        packet.p4(xteaKey[2]);
+        packet.p4(xteaKey[3]);
+        return packet;
     }
 
     @OriginalMember(owner = "client!ge", name = "v", descriptor = "(I)V")

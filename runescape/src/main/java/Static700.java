@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.graphics.Exception_Sub1;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -26,10 +27,10 @@ public final class Static700 {
     public static void method9152() {
         Static563.method7461();
         for (@Pc(16) int local16 = 0; local16 < 4; local16++) {
-            Static577.collisionMaps[local16].reset();
+            Client.collisionMaps[local16].reset();
         }
-        Minimap.reset();
-        Static352.cacheReset();
+        Minimap.resetSprite();
+        client.cacheReset();
         VideoManager.stop();
         System.gc();
         Toolkit.active.ya();

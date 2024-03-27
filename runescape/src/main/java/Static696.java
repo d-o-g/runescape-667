@@ -10,7 +10,7 @@ public final class Static696 {
 
     @OriginalMember(owner = "client!w", name = "a", descriptor = "(Z)I")
     public static int method9034() {
-        return Static470.anInt7113;
+        return LoginManager.anInt7113;
     }
 
     @OriginalMember(owner = "client!w", name = "a", descriptor = "(B)V")

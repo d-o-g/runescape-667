@@ -1,10 +1,5 @@
-import com.jagex.Client;
-import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
-
-import java.io.IOException;
 
 public final class Static176 {
 
@@ -18,25 +13,4 @@ public final class Static176 {
         return (arg2 & 0x180) != 0;
     }
 
-    @OriginalMember(owner = "client!fi", name = "a", descriptor = "(ILclient!ge;)V")
-    public static void method6690(@OriginalArg(1) Packet arg0) {
-        @Pc(6) byte[] local6 = new byte[24];
-        if (Client.uidDat != null) {
-            @Pc(18) int local18;
-            try {
-                Client.uidDat.seek(0L);
-                Client.uidDat.read(local6);
-                for (local18 = 0; local18 < 24 && local6[local18] == 0; local18++) {
-                }
-                if (local18 >= 24) {
-                    throw new IOException();
-                }
-            } catch (@Pc(44) Exception local44) {
-                for (local18 = 0; local18 < 24; local18++) {
-                    local6[local18] = -1;
-                }
-            }
-        }
-        arg0.pdata(24, local6, 0);
-    }
 }

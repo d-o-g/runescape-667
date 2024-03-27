@@ -11,9 +11,6 @@ public final class Static470 {
     @OriginalMember(owner = "client!or", name = "Y", descriptor = "I")
     public static int currentCursor = -1;
 
-    @OriginalMember(owner = "client!or", name = "Z", descriptor = "I")
-    public static int anInt7113 = -1;
-
     @OriginalMember(owner = "client!or", name = "d", descriptor = "(B)V")
     public static void method6386() {
         if (!Static15.aBoolean17) {
@@ -23,12 +20,4 @@ public final class Static470 {
         }
     }
 
-    @OriginalMember(owner = "client!or", name = "a", descriptor = "(Z)Z")
-    public static boolean method6387() {
-        if (MainLogicManager.step == 3) {
-            return Static135.anInt8223 == 0 && Static6.anInt95 == 0;
-        } else {
-            return false;
-        }
-    }
 }

@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.Static148;
 import com.jagex.game.collision.CollisionMap;
 import com.jagex.graphics.BoundingCylinder;
@@ -13,15 +14,6 @@ public final class Static342 {
         return arg0 == null ? false : Static318.method8557(arg0.x2 - arg0.x1, -arg0.y1 + arg0.y2, arg0.x1, arg0.z1, arg0.y1, arg0.z2 - arg0.z1);
     }
 
-    @OriginalMember(owner = "client!kp", name = "a", descriptor = "(IZ)V")
-    public static void method4464(@OriginalArg(0) int arg0) {
-        if (Static299.anInt4825 == 1) {
-            Static284.anInt4583 = arg0;
-        } else if (Static299.anInt4825 == 2) {
-            Static169.anInt2855 = arg0;
-        }
-    }
-
     @OriginalMember(owner = "client!kp", name = "a", descriptor = "(BI)V")
     public static void setBuildArea(@OriginalArg(1) int buildArea) {
         if (buildArea == Static537.buildArea) {
@@ -34,7 +26,7 @@ public final class Static342 {
         Static148.anIntArrayArray64 = new int[Static720.mapWidth][Static501.mapLength];
         Static341.entityDrawPriorities = new int[Static720.mapWidth][Static501.mapLength];
         for (@Pc(35) int local35 = 0; local35 < 4; local35++) {
-            Static577.collisionMaps[local35] = CollisionMap.create(Static720.mapWidth, Static501.mapLength);
+            Client.collisionMaps[local35] = CollisionMap.create(Static720.mapWidth, Static501.mapLength);
         }
         Static328.aByteArrayArrayArray4 = new byte[4][Static720.mapWidth][Static501.mapLength];
         Static708.resetTileFlags(Static720.mapWidth, Static501.mapLength);

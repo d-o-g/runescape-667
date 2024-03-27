@@ -96,11 +96,11 @@ public final class Static369 {
     @OriginalMember(owner = "client!lla", name = "b", descriptor = "(B)V")
     public static void method3852() {
         if (Client.ssKey != null) {
-            Static292.method4615();
-        } else if (Static129.anInt2409 == -1) {
-            Static616.method8283(Static59.aString63, Static449.aString75);
+            LoginManager.checkLobbySession();
+        } else if (LoginManager.socialNetworkId == -1) {
+            LoginManager.doLobbyLogin(LoginManager.password, LoginManager.username);
         } else {
-            Static695.method9266();
+            LoginManager.doLobbySnLogin();
         }
     }
 }

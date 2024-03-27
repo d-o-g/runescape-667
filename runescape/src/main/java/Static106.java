@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static106 {
 
     @OriginalMember(owner = "client!dfa", name = "e", descriptor = "I")
-    public static int anInt2153;
+    public static int lobbyMembersStats;
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ILclient!ha;)V")
     public static void method2046(@OriginalArg(1) Toolkit arg0) {

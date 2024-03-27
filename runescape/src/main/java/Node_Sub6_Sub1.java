@@ -540,13 +540,13 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(IZI)V")
-    public synchronized void method926(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (arg1 < 0) {
-            for (@Pc(12) int local12 = 0; local12 < 16; local12++) {
-                this.anIntArray42[local12] = arg0;
+    public synchronized void method926(@OriginalArg(0) int level, @OriginalArg(2) int channel) {
+        if (channel < 0) {
+            for (@Pc(12) int c = 0; c < 16; c++) {
+                this.anIntArray42[c] = level;
             }
         } else {
-            this.anIntArray42[arg1] = arg0;
+            this.anIntArray42[channel] = level;
         }
     }
 

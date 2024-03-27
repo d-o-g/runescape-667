@@ -19,8 +19,4 @@ public final class Static550 {
         Static651.animate(local6, arg1, false, arg0);
     }
 
-    @OriginalMember(owner = "client!rf", name = "a", descriptor = "(I)V")
-    public static void method7266() {
-        Static577.method7615(255, -1);
-    }
 }

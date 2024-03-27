@@ -11,7 +11,7 @@ public final class Static346 {
     public static final float[] aFloatArray40 = new float[2];
 
     @OriginalMember(owner = "client!kt", name = "P", descriptor = "Lclient!av;")
-    public static final IterableHashTable A_HASH_TABLE___29 = new IterableHashTable(16);
+    public static final IterableHashTable spotAnimations = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!kt", name = "R", descriptor = "[I")
     public static int[] anIntArray420 = new int[4];

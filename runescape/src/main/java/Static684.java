@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static684 {
 
     @OriginalMember(owner = "client!vla", name = "k", descriptor = "Z")
-    public static boolean aBoolean775;
+    public static boolean autosetupDosetup;
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "[Lclient!qe;")
     public static Class302[] aClass302Array1;
@@ -199,9 +199,9 @@ public final class Static684 {
             Camera.anInt10376 = -1;
             Camera.mode = CameraMode.MODE_DEFAULT;
         }
-        Static533.method7119();
-        Minimap.reset();
-        Static346.A_HASH_TABLE___29.clear();
+        MiniMenu.resetAndClose();
+        Minimap.resetSprite();
+        Static346.spotAnimations.clear();
         Static505.projectiles.clear();
         Static422.textCoords.clear();
         ParticleManager.method2044();

@@ -1,4 +1,4 @@
-import com.jagex.NativeLibraryList;
+import com.jagex.LibraryList;
 import com.jagex.core.constants.LocShapes;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -130,7 +130,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @Override
     public boolean picked(@OriginalArg(0) int y, @OriginalArg(1) int x, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit toolkit) {
         if (arg2) {
-            NativeLibraryList.signLink = null;
+            LibraryList.signLink = null;
         }
 
         @Pc(16) Model model = this.getModel(toolkit, 0x20000);
@@ -262,7 +262,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
     @Override
     public void method9289(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1) {
         if (arg1 != -5) {
-            NativeLibraryList.signLink = null;
+            LibraryList.signLink = null;
         }
     }
 

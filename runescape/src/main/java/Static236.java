@@ -28,7 +28,7 @@ public final class Static236 {
                 local106 = local106 + connection.bitPacket.data[local108] + ",";
             }
             JagException.sendTrace(local29, local106);
-            Login.logout(false);
+            LoginManager.logout(false);
             return true;
         }
     }

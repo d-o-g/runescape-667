@@ -13,7 +13,7 @@ public final class Static298 {
     public static final int[] anIntArray366 = new int[]{2, 1, 1, 1, 2, 2, 2, 1, 3, 3, 3, 2, 0, 4, 0};
 
     @OriginalMember(owner = "client!ji", name = "E", descriptor = "Z")
-    public static boolean aBoolean369 = false;
+    public static boolean parentalAdvertConsent = false;
 
     @OriginalMember(owner = "client!ji", name = "b", descriptor = "(I)V")
     public static void method4385() {

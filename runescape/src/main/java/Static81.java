@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -12,7 +13,7 @@ public final class Static81 {
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(Ljava/lang/String;ILjava/lang/String;ZI)V")
     public static void method1591(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2, @OriginalArg(3) boolean arg3) {
-        @Pc(8) ClientMessage local8 = Static273.method3962();
+        @Pc(8) ClientMessage local8 = ClientMessage.createRaw();
         local8.bitPacket.p1(LoginProt.A_LOGIN_PROT___58.opcode);
         local8.bitPacket.p2(0);
         @Pc(25) int local25 = local8.bitPacket.pos;
@@ -25,7 +26,7 @@ public final class Static81 {
         local8.bitPacket.p8(Client.userFlow);
         local8.bitPacket.p1(Client.language);
         local8.bitPacket.p1(Client.modeGame.id);
-        Static176.method6690(local8.bitPacket);
+        GameShell.pushUID192(local8.bitPacket);
         @Pc(81) String local81 = Client.addtionalInfo;
         local8.bitPacket.p1(local81 == null ? 0 : 1);
         if (local81 != null) {
@@ -36,11 +37,11 @@ public final class Static81 {
         local8.bitPacket.pos += 7;
         local8.bitPacket.tinyenc(local38, local42, local8.bitPacket.pos);
         local8.bitPacket.psize2(local8.bitPacket.pos - local25);
-        ConnectionManager.LOBBY.send(local8);
+        ServerConnection.LOBBY.send(local8);
         Static720.anInt10865 = 0;
         Static580.anInt8621 = -3;
         Static654.anInt9739 = 0;
-        Static6.anInt95 = 1;
+        LobbyManager.step = 1;
         if (arg1 < 13) {
             Client.under13 = true;
             Static358.method9190();

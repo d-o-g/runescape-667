@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static211 {
 
     @OriginalMember(owner = "client!gj", name = "j", descriptor = "Lclient!cja;")
-    public static Node_Sub12 aClass2_Sub12_3;
+    public static Node_Sub12 pingRequest;
 
     @OriginalMember(owner = "client!gj", name = "f", descriptor = "I")
     public static int anInt5574;

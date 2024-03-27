@@ -2,9 +2,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static324 {
 
-    @OriginalMember(owner = "client!ke", name = "l", descriptor = "I")
-    public static int anInt5129;
-
     @OriginalMember(owner = "client!ke", name = "c", descriptor = "Z")
     public static boolean reduceAttackPriority = true;
 

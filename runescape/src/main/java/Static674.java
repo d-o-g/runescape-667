@@ -1,7 +1,6 @@
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.sound.SampleRateConverter;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import rs2.client.clan.channel.ClanChannel;
 
@@ -9,14 +8,6 @@ public final class Static674 {
 
     @OriginalMember(owner = "client!vfa", name = "Gb", descriptor = "Lclient!rfa;")
     public static ClanChannel aClass2_Sub47_3;
-
-    @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(II)V")
-    public static void method8789(@OriginalArg(0) int arg0) {
-        if (MainLogicManager.step == 7 && (Static135.anInt8223 == 0 && Static6.anInt95 == 0)) {
-            Static470.anInt7113 = arg0;
-            MainLogicManager.setStep(9);
-        }
-    }
 
     @OriginalMember(owner = "client!vfa", name = "b", descriptor = "(B)V")
     public static void method8806() {
@@ -27,6 +18,6 @@ public final class Static674 {
         SoundManager.activeStreams = new Node_Sub6_Sub3();
         Static559.aClass56_3.method3582(SoundManager.activeStreams);
         Static681.aSampleRateConverter_2 = new SampleRateConverter(22050, Audio.sampleRate);
-        Static550.method7266();
+        SoundManager.mixBussReset();
     }
 }

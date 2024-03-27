@@ -209,6 +209,9 @@ public final class WorldMap {
     @OriginalMember(owner = "client!tha", name = "e", descriptor = "I")
     public static int anInt9389;
 
+    @OriginalMember(owner = "client!lea", name = "c", descriptor = "I")
+    public static int lastAreaId;
+
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
     public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) MapElementTypeList mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
         WorldMap.data = data;
@@ -1470,7 +1473,7 @@ public final class WorldMap {
     @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
     public static void method1293(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
-            Static668.method8700(false);
+            reset(false);
         } else {
             Static114.toolkitType = ClientOptions.instance.toolkit.getValue();
             Static32.setToolkit(ToolkitType.JAVA, true);
@@ -1486,5 +1489,52 @@ public final class WorldMap {
 
     private WorldMap() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!vca", name = "a", descriptor = "(ZI)V")
+    public static void reset(@OriginalArg(0) boolean saveArea) {
+        if (saveArea && area != null) {
+            lastAreaId = area.id;
+        } else {
+            lastAreaId = -1;
+        }
+
+        aDeque_54 = null;
+        component = null;
+        area = null;
+        loadingPercent = 0;
+        method5070();
+        elements.clear();
+        Static359.aClass327_3 = null;
+        Static484.aClass327_6 = null;
+        staticElements = null;
+        Static651.aClass327_8 = null;
+        Static180.anInt3001 = -1;
+        Static13.aSprite_4 = null;
+        Static142.aClass327_1 = null;
+        Static390.aClass327_5 = null;
+        Static559.aClass327_7 = null;
+        Static364.aClass327_4 = null;
+        Static275.aClass327_2 = null;
+        anInt3181 = -1;
+        if (mapElementTypeList != null) {
+            mapElementTypeList.cacheReset();
+            mapElementTypeList.setCaches(128, 64);
+        }
+        if (msiTypeList != null) {
+            msiTypeList.setCache(64, 64);
+        }
+        if (locTypeList != null) {
+            locTypeList.setRecentUse(64);
+        }
+        VarBitTypeListClient.instance.cacheReset(64);
+    }
+
+    @OriginalMember(owner = "client!tc", name = "e", descriptor = "(I)V")
+    public static void method7934() {
+        if (lastAreaId != -1) {
+            method1293(lastAreaId, false, -1, -1, -11493);
+            lastAreaId = -1;
+        }
     }
 }

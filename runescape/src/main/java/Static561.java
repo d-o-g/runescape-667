@@ -8,9 +8,6 @@ public final class Static561 {
     @OriginalMember(owner = "client!rla", name = "o", descriptor = "Ljava/lang/Class;")
     public static Class locClass;
 
-    @OriginalMember(owner = "client!rla", name = "c", descriptor = "Z")
-    public static boolean aBoolean640 = false;
-
     @OriginalMember(owner = "client!rla", name = "a", descriptor = "(IIII)Z")
     public static boolean hasMsi(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(5) boolean found = true;

@@ -14,13 +14,13 @@ public final class Static218 {
 
     @OriginalMember(owner = "client!go", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;B)V")
     public static void method3188(@OriginalArg(0) String arg0, @OriginalArg(1) String arg1) {
-        if (arg1.length() > 320 || !Static470.method6387()) {
+        if (arg1.length() > 320 || !LoginManager.isAtLoginScreen()) {
             return;
         }
-        ConnectionManager.LOBBY.close();
-        Static367.method5268();
-        Static59.aString63 = arg0;
-        Static449.aString75 = arg1;
+        ServerConnection.LOBBY.close();
+        LoginManager.resetSocialNetwork();
+        LoginManager.password = arg0;
+        LoginManager.username = arg1;
         MainLogicManager.setStep(5);
     }
 

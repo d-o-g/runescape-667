@@ -33,7 +33,7 @@ public final class Static709 {
             Static229.method3368();
         }
         @Pc(27) LoadState local27 = Static473.aLoadState_22;
-        @Pc(35) int local35 = Static523.method3448();
+        @Pc(35) int local35 = Loading.method3448();
         if (Static473.aLoadState_22 == local27) {
             Static579.aString106 = Static473.aLoadState_22.stalledText.localise(Client.language);
             if (Static473.aLoadState_22.updatePercentage) {

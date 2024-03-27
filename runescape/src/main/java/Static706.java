@@ -78,7 +78,7 @@ public final class Static706 {
         if (arg0 == null) {
             return;
         }
-        if (FriendsList.count >= 200 && !Client.aBoolean200 || FriendsList.count >= 200) {
+        if (FriendsList.count >= 200 && !Client.isMember || FriendsList.count >= 200) {
             ChatHistory.addPrivateError(LocalisedText.FRIENDLIST_FULL.localise(Client.language));
             return;
         }

@@ -11,13 +11,13 @@ public final class Static408 {
     @OriginalMember(owner = "client!ms", name = "a", descriptor = "(I)V")
     public static void method5632() {
         client.aClient1.load_jagmisc();
-        Static524.aServerConnection_3.clear();
-        Static524.aServerConnection_3.anInt3646 = 0;
-        Static249.anInt4008 = 0;
-        Static524.aServerConnection_3.antepenultimateProt = null;
-        Static524.aServerConnection_3.penultimateProt = null;
-        Static524.aServerConnection_3.aServerProt_92 = null;
-        Static524.aServerConnection_3.bitPacket.pos = 0;
+        ServerConnection.active.clear();
+        ServerConnection.active.anInt3646 = 0;
+        Static249.rebootTimer = 0;
+        ServerConnection.active.antepenultimateProt = null;
+        ServerConnection.active.penultimateProt = null;
+        ServerConnection.active.aServerProt_92 = null;
+        ServerConnection.active.bitPacket.pos = 0;
         Static102.method2022();
         Static251.anInt4036 = 0;
         Static723.aString129 = null;

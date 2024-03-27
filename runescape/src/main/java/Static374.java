@@ -4,12 +4,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.math.BigInteger;
-
 public final class Static374 {
-
-    @OriginalMember(owner = "client!lp", name = "b", descriptor = "Ljava/math/BigInteger;")
-    public static BigInteger LOGIN_RSA_MODULUS = new BigInteger("a76cba054be8a8cb683bf47c5e5b4950b60647f74da5ea7d87f0ba7d24bb6580dec4809afa07e26db0d0c88ca41bdb697fc6ae0def8afc0bacd841bb57fb8851", 16);
 
     @OriginalMember(owner = "client!lp", name = "c", descriptor = "I")
     public static int anInt5906 = 2;

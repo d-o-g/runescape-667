@@ -41,7 +41,7 @@ public abstract class CutsceneAction {
             action = new CutsceneAction_Sub4(packet);
         } else if (type == Static65.A_CUTSCENE_ACTION_TYPE___8) {
             action = new CutsceneAction_Sub20(packet);
-        } else if (Static357.A_CUTSCENE_ACTION_TYPE___30 == type) {
+        } else if (CutsceneActionType.A_CUTSCENE_ACTION_TYPE___30 == type) {
             action = new CutsceneAction_Sub21(packet);
         } else if (type == Static12.A_CUTSCENE_ACTION_TYPE___24) {
             action = new CutsceneAction_Sub2(packet);
@@ -65,7 +65,7 @@ public abstract class CutsceneAction {
             action = new VarUpdate(packet, false);
         } else if (Static682.A_CUTSCENE_ACTION_TYPE___43 == type) {
             action = new VarUpdate(packet, true);
-        } else if (Static330.A_CUTSCENE_ACTION_TYPE___23 == type) {
+        } else if (CutsceneActionType.A_CUTSCENE_ACTION_TYPE___23 == type) {
             action = new CutsceneAction_Sub8(packet);
         } else if (type == Static212.A_CUTSCENE_ACTION_TYPE___16) {
             action = new CutsceneAction_Sub22(packet);

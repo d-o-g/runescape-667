@@ -1,5 +1,4 @@
 import com.jagex.ServerProt;
-import com.jagex.core.io.BitPacket;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -20,15 +19,6 @@ public final class Static273 {
     public static void method3961(@OriginalArg(0) Node_Sub6_Sub1 arg0, @OriginalArg(3) int arg1, @OriginalArg(4) js5 arg2, @OriginalArg(5) int arg3) {
         Static611.method8229(arg1, arg3, arg2);
         Static117.aClass2_Sub6_Sub1_2 = arg0;
-    }
-
-    @OriginalMember(owner = "client!ik", name = "g", descriptor = "(I)Lclient!fk;")
-    public static ClientMessage method3962() {
-        @Pc(6) ClientMessage local6 = Static119.method2174();
-        local6.aClientProt_32 = null;
-        local6.anInt2986 = 0;
-        local6.bitPacket = new BitPacket(5000);
-        return local6;
     }
 
     @OriginalMember(owner = "client!ik", name = "a", descriptor = "(IIII)I")

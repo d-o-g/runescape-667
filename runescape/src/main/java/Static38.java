@@ -10,7 +10,7 @@ public final class Static38 {
     public static int anInt920;
 
     @OriginalMember(owner = "client!bea", name = "f", descriptor = "I")
-    public static int anInt928 = 0;
+    public static int playerModLevel = 0;
 
     @OriginalMember(owner = "client!bea", name = "a", descriptor = "(IIJI)V")
     public static void findPathToLoc(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1, @OriginalArg(3) int arg2) {

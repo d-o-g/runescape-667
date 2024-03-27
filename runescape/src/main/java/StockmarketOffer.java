@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ho")
-public final class Class171 {
+public final class StockmarketOffer {
 
     @OriginalMember(owner = "client!ho", name = "h", descriptor = "I")
     public int anInt4032;
@@ -25,11 +25,11 @@ public final class Class171 {
     public int anInt4040;
 
     @OriginalMember(owner = "client!ho", name = "<init>", descriptor = "()V")
-    public Class171() {
+    public StockmarketOffer() {
     }
 
     @OriginalMember(owner = "client!ho", name = "<init>", descriptor = "(Lclient!ge;)V")
-    public Class171(@OriginalArg(0) Packet arg0) {
+    public StockmarketOffer(@OriginalArg(0) Packet arg0) {
         this.aByte69 = arg0.g1b();
         this.anInt4033 = arg0.g2();
         this.anInt4040 = arg0.g4();

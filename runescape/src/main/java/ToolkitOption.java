@@ -1,4 +1,4 @@
-import com.jagex.NativeLibraryList;
+import com.jagex.LibraryList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -71,7 +71,7 @@ public final class ToolkitOption extends Option {
     @Override
     public int getCompatibility(@OriginalArg(0) int value) {
         if (super.options.getEnvironment().isSigned()) {
-            return value == 3 && !NativeLibraryList.isLoaded("jagdx") ? 3 : 2;
+            return value == 3 && !LibraryList.isLoaded("jagdx") ? 3 : 2;
         } else {
             return 3;
         }

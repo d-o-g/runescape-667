@@ -7,9 +7,6 @@ public final class Static105 {
     @OriginalMember(owner = "client!df", name = "p", descriptor = "Lclient!fma;")
     public static final Class131 aClass131_3 = new Class131();
 
-    @OriginalMember(owner = "client!df", name = "u", descriptor = "[Lclient!ho;")
-    public static final Class171[] aClass171Array1 = new Class171[6];
-
     @OriginalMember(owner = "client!df", name = "a", descriptor = "(IIII[BII)Z")
     public static boolean method2042(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) byte[] arg3, @OriginalArg(5) int arg4) {
         @Pc(9) int local9 = arg4 % 8;

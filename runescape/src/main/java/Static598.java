@@ -9,7 +9,7 @@ public final class Static598 {
 
     @OriginalMember(owner = "client!ss", name = "a", descriptor = "(Z)V")
     public static void method7827() {
-        for (@Pc(13) SpotAnimationNode node = (SpotAnimationNode) Static346.A_HASH_TABLE___29.first(); node != null; node = (SpotAnimationNode) Static346.A_HASH_TABLE___29.next()) {
+        for (@Pc(13) SpotAnimationNode node = (SpotAnimationNode) Static346.spotAnimations.first(); node != null; node = (SpotAnimationNode) Static346.spotAnimations.next()) {
             @Pc(18) SpotAnimation spotAnimation = node.spotAnimation;
 
             spotAnimation.tick();

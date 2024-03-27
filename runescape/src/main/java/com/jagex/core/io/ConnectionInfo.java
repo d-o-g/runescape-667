@@ -9,6 +9,18 @@ import org.openrs2.deob.annotation.OriginalMember;
 @OriginalClass("client!lja")
 public final class ConnectionInfo {
 
+    @OriginalMember(owner = "client!kr", name = "f", descriptor = "Lclient!lja;")
+    public static ConnectionInfo login;
+
+    @OriginalMember(owner = "client!qka", name = "f", descriptor = "Lclient!lja;")
+    public static ConnectionInfo world;
+
+    @OriginalMember(owner = "client!uu", name = "o", descriptor = "Lclient!lja;")
+    public static ConnectionInfo lobby;
+
+    @OriginalMember(owner = "client!vca", name = "r", descriptor = "Lclient!lja;")
+    public static ConnectionInfo autoWorld;
+
     @OriginalMember(owner = "client!lja", name = "e", descriptor = "I")
     public int id;
 

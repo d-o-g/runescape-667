@@ -8,7 +8,4 @@ public final class Static571 {
     @OriginalMember(owner = "client!rw", name = "A", descriptor = "[I")
     public static final int[] anIntArray682 = new int[]{32, 39, 44, 47};
 
-    @OriginalMember(owner = "client!rw", name = "B", descriptor = "J")
-    public static final long aLong269 = (long) (Math.random() * 9.999999999E9D);
-
 }

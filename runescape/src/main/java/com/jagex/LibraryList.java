@@ -12,7 +12,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Hashtable;
 
-public final class NativeLibraryList {
+public final class LibraryList {
 
     private static boolean debug = false;
 
@@ -37,8 +37,8 @@ public final class NativeLibraryList {
 
     @OriginalMember(owner = "client!qla", name = "a", descriptor = "(ILclient!sb;Lclient!vq;)V")
     public static void init(@OriginalArg(1) js5 dlls, @OriginalArg(2) SignLink signLink) {
-        NativeLibraryList.dlls = dlls;
-        NativeLibraryList.signLink = signLink;
+        LibraryList.dlls = dlls;
+        LibraryList.signLink = signLink;
 
         path = "";
 
@@ -50,7 +50,7 @@ public final class NativeLibraryList {
             path = path + "macos/";
         }
 
-        if (NativeLibraryList.signLink.microsoftjava) {
+        if (LibraryList.signLink.microsoftjava) {
             path = path + "msjava/";
         } else if (ClientInfo.osArch.startsWith("amd64") || ClientInfo.osArch.startsWith("x86_64")) {
             path = path + "x86_64/";
@@ -230,7 +230,12 @@ public final class NativeLibraryList {
         return instance;
     }
 
-    private NativeLibraryList() {
+    @OriginalMember(owner = "client!fm", name = "a", descriptor = "(Ljava/lang/String;Z)Z")
+    public static boolean isNativeLoaded(@OriginalArg(0) String arg0) {
+        return nativeLibraries.containsKey(arg0);
+    }
+
+    private LibraryList() {
         /* empty */
     }
 }

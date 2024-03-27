@@ -2,14 +2,6 @@ import com.jagex.core.io.connection.Connection;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class ConnectionManager {
-    @OriginalMember(owner = "client!mn", name = "q", descriptor = "Lclient!gw;")
-    public static final ServerConnection GAME = new ServerConnection();
-
-    @OriginalMember(owner = "client!mn", name = "k", descriptor = "Lclient!gw;")
-    public static final ServerConnection LOBBY = new ServerConnection();
-
-    @OriginalMember(owner = "client!mn", name = "f", descriptor = "[Lclient!gw;")
-    public static final ServerConnection[] VALUES = new ServerConnection[]{GAME, LOBBY};
 
     @OriginalMember(owner = "client!oo", name = "q", descriptor = "Lclient!vn;")
     public static Connection reconnect;
@@ -17,16 +9,16 @@ public final class ConnectionManager {
     @OriginalMember(owner = "client!lm", name = "b", descriptor = "(Z)V")
     public static void disconnect() {
         if (MainLogicManager.isAtLobbyScreen(MainLogicManager.step)) {
-            Login.logout(false);
+            LoginManager.logout(false);
         } else {
-            reconnect = GAME.connection;
-            GAME.connection = null;
+            reconnect = ServerConnection.GAME.connection;
+            ServerConnection.GAME.connection = null;
             MainLogicManager.setStep(14);
         }
     }
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(B)Lclient!gw;")
     public static ServerConnection active() {
-        return MainLogicManager.isAtLobbyScreen(MainLogicManager.step) ? LOBBY : GAME;
+        return MainLogicManager.isAtLobbyScreen(MainLogicManager.step) ? ServerConnection.LOBBY : ServerConnection.GAME;
     }
 }

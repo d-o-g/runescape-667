@@ -33,8 +33,8 @@ public final class Client implements AppletStub {
         System.out.println("Reading public key from: " + publicKeyPath);
 
         RsaKeyPair keyPair = RsaKeyPair.read(publicKeyPath);
-        Static262.LOGIN_RSA_EXPONENT = keyPair.getExponent();
-        Static374.LOGIN_RSA_MODULUS = keyPair.getModulus();
+        LoginManager.RSA_EXPONENT = keyPair.getExponent();
+        LoginManager.RSA_MODULUS = keyPair.getModulus();
         Static442.JS5_RSA_EXPONENT = keyPair.getExponent();
         Static670.JS5_RSA_MODULUS = keyPair.getModulus();
 

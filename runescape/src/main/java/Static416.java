@@ -5,10 +5,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static416 {
 
     @OriginalMember(owner = "client!nca", name = "t", descriptor = "Ljava/lang/String;")
-    public static String aString71;
+    public static String mapOwner;
 
     @OriginalMember(owner = "client!nca", name = "n", descriptor = "J")
-    public static long aLong207;
+    public static long subscriptionExpiration;
 
     @OriginalMember(owner = "client!nca", name = "s", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___165 = new ServerProt(58, 6);

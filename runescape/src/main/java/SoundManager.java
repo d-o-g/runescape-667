@@ -29,6 +29,9 @@ public final class SoundManager {
     @OriginalMember(owner = "client!kka", name = "d", descriptor = "Lclient!nn;")
     public static Node_Sub6_Sub3 activeStreams;
 
+    @OriginalMember(owner = "client!sj", name = "e", descriptor = "I")
+    public static int midiSong = -1;
+
     @OriginalMember(owner = "client!lka", name = "b", descriptor = "(B)V")
     public static void reset() {
         count = 0;
@@ -394,20 +397,39 @@ public final class SoundManager {
             }
         }
         if (Static501.aBoolean575 && !Static52.method1157(126)) {
-            if (ClientOptions.instance.musicVolume.getValue() != 0 && Static588.anInt8692 != -1) {
+            if (ClientOptions.instance.musicVolume.getValue() != 0 && midiSong != -1) {
                 if (Static8.aClass2_Sub6_Sub1_1 == null) {
-                    Static611.method8229(Static588.anInt8692, ClientOptions.instance.musicVolume.getValue(), js5.MIDI_SONGS);
+                    Static611.method8229(midiSong, ClientOptions.instance.musicVolume.getValue(), js5.MIDI_SONGS);
                 } else {
-                    Static273.method3961(Static8.aClass2_Sub6_Sub1_1, Static588.anInt8692, js5.MIDI_SONGS, ClientOptions.instance.musicVolume.getValue());
+                    Static273.method3961(Static8.aClass2_Sub6_Sub1_1, midiSong, js5.MIDI_SONGS, ClientOptions.instance.musicVolume.getValue());
                 }
             }
             Static8.aClass2_Sub6_Sub1_1 = null;
             Static501.aBoolean575 = false;
-        } else if (ClientOptions.instance.musicVolume.getValue() != 0 && Static588.anInt8692 != -1 && !Static52.method1157(125)) {
-            @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.A_CLIENT_PROT___49, ConnectionManager.GAME.cipher);
-            local551.bitPacket.p4(Static588.anInt8692);
-            ConnectionManager.GAME.send(local551);
-            Static588.anInt8692 = -1;
+        } else if (ClientOptions.instance.musicVolume.getValue() != 0 && midiSong != -1 && !Static52.method1157(125)) {
+            @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.A_CLIENT_PROT___49, ServerConnection.GAME.cipher);
+            local551.bitPacket.p4(midiSong);
+            ServerConnection.GAME.send(local551);
+            midiSong = -1;
         }
+    }
+
+    @OriginalMember(owner = "client!rf", name = "a", descriptor = "(I)V")
+    public static void mixBussReset() {
+        mixBussSetLevel(255, -1);
+    }
+
+    @OriginalMember(owner = "client!sca", name = "a", descriptor = "(III)V")
+    public static void mixBussSetLevel(@OriginalArg(0) int level, @OriginalArg(1) int channel) {
+        if (Static96.anInt10171 != 0) {
+            if (channel >= 0) {
+                Static286.anIntArray358[channel] = level;
+            } else {
+                for (@Pc(23) int c = 0; c < 16; c++) {
+                    Static286.anIntArray358[c] = level;
+                }
+            }
+        }
+        Static581.aClass2_Sub6_Sub1_3.method926(level, channel);
     }
 }

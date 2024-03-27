@@ -84,8 +84,4 @@ public final class Static576 {
         return false;
     }
 
-    @OriginalMember(owner = "client!sba", name = "b", descriptor = "(B)V")
-    public static void method7614() {
-        Static286.A_HASH_TABLE___23.clear();
-    }
 }

@@ -4,11 +4,13 @@ import com.jagex.Canvas_Sub1;
 import com.jagex.Class27;
 import com.jagex.Class27_Sub1;
 import com.jagex.Class27_Sub3;
-import com.jagex.NativeLibraryList;
+import com.jagex.LibraryList;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.SignedResourceStatus;
 import com.jagex.Static14;
+import com.jagex.core.io.BufferedFile;
+import com.jagex.core.io.Packet;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
@@ -35,6 +37,7 @@ import java.awt.event.FocusListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -175,6 +178,9 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     @OriginalMember(owner = "client!pea", name = "i", descriptor = "Ljava/lang/String;")
     public static String loadingTitle = null;
 
+    @OriginalMember(owner = "client!vr", name = "d", descriptor = "Lclient!mj;")
+    public static BufferedFile uidDat;
+
     @OriginalMember(owner = "client!kh", name = "z", descriptor = "Z")
     public boolean jagmiscRunning = false;
 
@@ -199,10 +205,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     @OriginalMember(owner = "client!pq", name = "d", descriptor = "(I)Z")
     public static boolean unloadNatives() {
         @Pc(7) Hashtable local7 = new Hashtable();
-        @Pc(10) Enumeration local10 = NativeLibraryList.nativeLibraries.keys();
+        @Pc(10) Enumeration local10 = LibraryList.nativeLibraries.keys();
         while (local10.hasMoreElements()) {
             @Pc(14) Object local14 = local10.nextElement();
-            local7.put(local14, NativeLibraryList.nativeLibraries.get(local14));
+            local7.put(local14, LibraryList.nativeLibraries.get(local14));
         }
         try {
             @Pc(35) Class local35 = Class.forName("java.lang.reflect.AccessibleObject");
@@ -211,12 +217,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             @Pc(58) Method local58 = local35.getDeclaredMethod("setAccessible", Boolean.TYPE);
             local58.invoke(local46, Boolean.TRUE);
             try {
-                local10 = NativeLibraryList.nativeLibraries.keys();
+                local10 = LibraryList.nativeLibraries.keys();
                 while (local10.hasMoreElements()) {
                     @Pc(76) String local76 = (String) local10.nextElement();
                     try {
-                        @Pc(81) File local81 = (File) NativeLibraryList.libraries.get(local76);
-                        @Pc(86) Class local86 = (Class) NativeLibraryList.nativeLibraries.get(local76);
+                        @Pc(81) File local81 = (File) LibraryList.libraries.get(local76);
+                        @Pc(86) Class local86 = (Class) LibraryList.nativeLibraries.get(local76);
                         @Pc(92) Vector local92 = (Vector) local46.get(local86.getClassLoader());
                         for (@Pc(94) int local94 = 0; local92.size() > local94; local94++) {
                             try {
@@ -253,8 +259,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             local58.invoke(local46, Boolean.FALSE);
         } catch (@Pc(245) Throwable local245) {
         }
-        NativeLibraryList.nativeLibraries = local7;
-        return NativeLibraryList.nativeLibraries.isEmpty();
+        LibraryList.nativeLibraries = local7;
+        return LibraryList.nativeLibraries.isEmpty();
     }
 
     @OriginalMember(owner = "client!nda", name = "e", descriptor = "(B)V")
@@ -323,6 +329,32 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
         } catch (@Pc(50) Exception ignored) {
             /* empty */
         }
+    }
+
+    @OriginalMember(owner = "client!fi", name = "a", descriptor = "(ILclient!ge;)V")
+    public static void pushUID192(@OriginalArg(1) Packet packet) {
+        @Pc(6) byte[] data = new byte[24];
+
+        if (uidDat != null) {
+            try {
+                uidDat.seek(0L);
+                uidDat.read(data);
+
+                @Pc(18) int local18;
+                for (local18 = 0; local18 < 24 && data[local18] == 0; local18++) {
+                }
+
+                if (local18 >= 24) {
+                    throw new IOException();
+                }
+            } catch (@Pc(44) Exception local44) {
+                for (@Pc(18) int local18 = 0; local18 < 24; local18++) {
+                    data[local18] = -1;
+                }
+            }
+        }
+
+        packet.pdata(24, data, 0);
     }
 
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(IZ)V")

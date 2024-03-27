@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static323 {
 
     @OriginalMember(owner = "client!kda", name = "f", descriptor = "I")
-    public static int anInt5118;
+    public static int lastLoginDate;
 
     @OriginalMember(owner = "client!kda", name = "h", descriptor = "I")
     public static int anInt5120;

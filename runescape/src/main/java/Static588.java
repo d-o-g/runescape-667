@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static588 {
 
-    @OriginalMember(owner = "client!sj", name = "e", descriptor = "I")
-    public static int anInt8692 = -1;
-
     @OriginalMember(owner = "client!sj", name = "a", descriptor = "(ZZ)Z")
     public static boolean method7712(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean arg1) {
         return arg0 | arg1;

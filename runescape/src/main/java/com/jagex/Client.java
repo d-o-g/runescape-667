@@ -5,7 +5,7 @@ import com.jagex.core.constants.ModeWhat;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.BufferedFile;
 import com.jagex.core.io.BufferedSocket;
-import com.jagex.core.io.ConnectionInfo;
+import com.jagex.game.collision.CollisionMap;
 import com.jagex.js5.FileSystem_Client;
 import com.jagex.js5.Js5ResourceProvider;
 import com.jagex.js5.Js5WorkerThread;
@@ -39,14 +39,14 @@ public final class Client {
         new Color(0x323232)
     };
 
+    @OriginalMember(owner = "client!sca", name = "d", descriptor = "[Lclient!eq;")
+    public static final CollisionMap[] collisionMaps = new CollisionMap[4];
+
     @OriginalMember(owner = "client!po", name = "h", descriptor = "Lclient!pla;")
     public static Js5WorkerThread js5WorkerThread;
 
     @OriginalMember(owner = "client!lm", name = "r", descriptor = "I")
     public static int netWorkerDelay = 0;
-
-    @OriginalMember(owner = "client!kr", name = "f", descriptor = "Lclient!lja;")
-    public static ConnectionInfo gameConnection;
 
     @OriginalMember(owner = "client!qha", name = "Kf", descriptor = "I")
     public static int js5Errors = 0;
@@ -74,9 +74,6 @@ public final class Client {
 
     @OriginalMember(owner = "client!ila", name = "i", descriptor = "Lclient!af;")
     public static FileSystem_Client metaCache;
-
-    @OriginalMember(owner = "client!vr", name = "d", descriptor = "Lclient!mj;")
-    public static BufferedFile uidDat;
 
     @OriginalMember(owner = "client!uc", name = "n", descriptor = "[S")
     public static short[] clientpalette;
@@ -154,10 +151,10 @@ public final class Client {
     public static boolean cleanCaches = false;
 
     @OriginalMember(owner = "client!q", name = "j", descriptor = "Z")
-    public static boolean isMember = false;
+    public static boolean sitesettingsMember = false;
 
     @OriginalMember(owner = "client!du", name = "d", descriptor = "Z")
-    public static boolean aBoolean200 = false;
+    public static boolean isMember = false;
 
     @OriginalMember(owner = "client!gp", name = "i", descriptor = "I")
     public static int mouseButtons = 0;
@@ -178,4 +175,5 @@ public final class Client {
     public static void error(@OriginalArg(1) String arg0) {
         System.exit(1);
     }
+
 }

@@ -1,8 +1,5 @@
-import com.jagex.core.io.ConnectionInfo;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.keyboard.KeyLog;
@@ -12,50 +9,6 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 
 public final class Static668 {
-
-    @OriginalMember(owner = "client!vca", name = "r", descriptor = "Lclient!lja;")
-    public static ConnectionInfo aConnectionInfo_5;
-
-    @OriginalMember(owner = "client!vca", name = "i", descriptor = "Lclient!pc;")
-    public static final ZoneProt A_ZONE_PROT___16 = new ZoneProt(12, 7);
-
-    @OriginalMember(owner = "client!vca", name = "a", descriptor = "(ZI)V")
-    public static void method8700(@OriginalArg(0) boolean arg0) {
-        if (arg0 && WorldMap.area != null) {
-            Static357.anInt6504 = WorldMap.area.id;
-        } else {
-            Static357.anInt6504 = -1;
-        }
-        WorldMap.aDeque_54 = null;
-        WorldMap.component = null;
-        WorldMap.area = null;
-        WorldMap.loadingPercent = 0;
-        WorldMap.method5070();
-        WorldMap.elements.clear();
-        Static359.aClass327_3 = null;
-        Static484.aClass327_6 = null;
-        WorldMap.staticElements = null;
-        Static651.aClass327_8 = null;
-        Static180.anInt3001 = -1;
-        Static13.aSprite_4 = null;
-        Static142.aClass327_1 = null;
-        Static390.aClass327_5 = null;
-        Static559.aClass327_7 = null;
-        Static364.aClass327_4 = null;
-        Static275.aClass327_2 = null;
-        WorldMap.anInt3181 = -1;
-        if (WorldMap.mapElementTypeList != null) {
-            WorldMap.mapElementTypeList.cacheReset();
-            WorldMap.mapElementTypeList.setCaches(128, 64);
-        }
-        if (WorldMap.msiTypeList != null) {
-            WorldMap.msiTypeList.setCache(64, 64);
-        }
-        if (WorldMap.locTypeList != null) {
-            WorldMap.locTypeList.setRecentUse(64);
-        }
-        VarBitTypeListClient.instance.cacheReset(64);
-    }
 
     @OriginalMember(owner = "client!vca", name = "c", descriptor = "(I)V")
     public static void method8703() {

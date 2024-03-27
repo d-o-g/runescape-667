@@ -113,6 +113,18 @@ public final class ServerProt {
     @OriginalMember(owner = "client!bda", name = "D", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___15 = new ServerProt(70, -2);
 
+    @OriginalMember(owner = "client!rv", name = "p", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___208 = new ServerProt(99, -1);
+
+    @OriginalMember(owner = "client!le", name = "a", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___149 = new ServerProt(2, 6);
+
+    @OriginalMember(owner = "client!qp", name = "d", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___196 = new ServerProt(114, 4);
+
+    @OriginalMember(owner = "client!tba", name = "h", descriptor = "Lclient!lga;")
+    public static final ServerProt A_SERVER_PROT___220 = new ServerProt(108, 12);
+
     @OriginalMember(owner = "client!lga", name = "e", descriptor = "I")
     public final int opcode;
 

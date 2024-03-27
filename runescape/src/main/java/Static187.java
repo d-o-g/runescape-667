@@ -40,10 +40,10 @@ public final class Static187 {
         TimedVarDomain.instance.reset();
         Static91.aClanSettings_9 = null;
         Static128.aClanSettings_8 = null;
-        Static211.aClass2_Sub12_3 = null;
+        Static211.pingRequest = null;
         Static45.aClass2_Sub47_1 = null;
         Static674.aClass2_Sub47_3 = null;
-        Static675.aLong307 = 0L;
+        Static675.nextPing = 0L;
     }
 
 }

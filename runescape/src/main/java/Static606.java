@@ -12,11 +12,4 @@ public final class Static606 {
     @OriginalMember(owner = "client!tc", name = "o", descriptor = "I")
     public static int anInt8954 = 0;
 
-    @OriginalMember(owner = "client!tc", name = "e", descriptor = "(I)V")
-    public static void method7934() {
-        if (Static357.anInt6504 != -1) {
-            WorldMap.method1293(Static357.anInt6504, false, -1, -1, -11493);
-            Static357.anInt6504 = -1;
-        }
-    }
 }

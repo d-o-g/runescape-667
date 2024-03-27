@@ -35,6 +35,6 @@ public final class CutsceneAction_Sub1_Sub1 extends CutsceneAction_Sub1 {
             local30++;
         }
         @Pc(79) SpotAnimation local79 = new SpotAnimation(super.anInt10558, 0, this.anInt986, local30, local10, Static102.averageHeight(this.anInt986, local17, local10) - super.anInt10560, local17, this.anInt983, this.anInt983, this.anInt987, this.anInt987, super.anInt10556, false);
-        Static346.A_HASH_TABLE___29.put(this.anInt983 << 16 | this.anInt987, new SpotAnimationNode(local79));
+        Static346.spotAnimations.put(this.anInt983 << 16 | this.anInt987, new SpotAnimationNode(local79));
     }
 }

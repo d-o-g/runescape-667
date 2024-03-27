@@ -8,7 +8,4 @@ public final class Static6 {
     @OriginalMember(owner = "client!ad", name = "e", descriptor = "J")
     public static long aLong8 = 0L;
 
-    @OriginalMember(owner = "client!ad", name = "a", descriptor = "I")
-    public static int anInt95 = 0;
-
 }

@@ -170,6 +170,18 @@ public final class ClientProt {
     @OriginalMember(owner = "client!sv", name = "V", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___108 = new ClientProt(37, -1);
 
+    @OriginalMember(owner = "client!lea", name = "j", descriptor = "Lclient!ss;")
+    public static final ClientProt A_CLIENT_PROT___82 = new ClientProt(74, -1);
+
+    @OriginalMember(owner = "client!kha", name = "j", descriptor = "Lclient!ss;")
+    public static final ClientProt A_CLIENT_PROT___66 = new ClientProt(3, 4);
+
+    @OriginalMember(owner = "client!le", name = "c", descriptor = "Lclient!ss;")
+    public static final ClientProt A_CLIENT_PROT___67 = new ClientProt(23, 1);
+
+    @OriginalMember(owner = "client!dja", name = "g", descriptor = "Lclient!ss;")
+    public static final ClientProt A_CLIENT_PROT___22 = new ClientProt(17, -1);
+
     @OriginalMember(owner = "client!ss", name = "g", descriptor = "I")
     public final int opcode;
 

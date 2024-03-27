@@ -82,8 +82,8 @@ public final class NPCList {
             local.copyTo(localNpcs);
         }
 
-        if (ConnectionManager.GAME.bitPacket.pos != ConnectionManager.GAME.currentPacketSize) {
-            throw new RuntimeException("gnp1 pos:" + ConnectionManager.GAME.bitPacket.pos + " psize:" + ConnectionManager.GAME.currentPacketSize);
+        if (ServerConnection.GAME.bitPacket.pos != ServerConnection.GAME.currentPacketSize) {
+            throw new RuntimeException("gnp1 pos:" + ServerConnection.GAME.bitPacket.pos + " psize:" + ServerConnection.GAME.currentPacketSize);
         }
 
         for (@Pc(33) int i = 0; i < localNpcCount; i++) {
@@ -105,7 +105,7 @@ public final class NPCList {
 
     @OriginalMember(owner = "client!ica", name = "c", descriptor = "(Z)V")
     public static void iterateNpcs() {
-        @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
+        @Pc(8) BitPacket bitPacket = ServerConnection.GAME.bitPacket;
         bitPacket.enterBitMode();
 
         @Pc(16) int count = bitPacket.gbit(8);
@@ -175,9 +175,9 @@ public final class NPCList {
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(I)V")
     public static void processNewNpcs() {
-        @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
+        @Pc(8) BitPacket bitPacket = ServerConnection.GAME.bitPacket;
 
-        while (bitPacket.bitsRemaining(ConnectionManager.GAME.currentPacketSize) >= 15) {
+        while (bitPacket.bitsRemaining(ServerConnection.GAME.currentPacketSize) >= 15) {
             @Pc(22) int id = bitPacket.gbit(15);
             if (id == 32767) {
                 break;
@@ -245,7 +245,7 @@ public final class NPCList {
 
     @OriginalMember(owner = "client!qv", name = "a", descriptor = "(Z)V")
     public static void processExtendedInfo() {
-        @Pc(15) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
+        @Pc(15) BitPacket bitPacket = ServerConnection.GAME.bitPacket;
 
         for (@Pc(17) int i = 0; i < blockUpdateCount; i++) {
             @Pc(23) int index = pendingBlockUpdate[i];

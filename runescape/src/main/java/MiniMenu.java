@@ -41,6 +41,12 @@ import rs2.client.event.mouse.MouseMonitor;
 
 public final class MiniMenu {
 
+    @OriginalMember(owner = "client!sw", name = "b", descriptor = "[Z")
+    public static final boolean[] playerOpsReducedPriority = new boolean[8];
+
+    @OriginalMember(owner = "client!eka", name = "h", descriptor = "[I")
+    public static final int[] playerOpCursors = new int[8];
+
     private static final int QUEST_ICON_COUNT = 10;
 
     private static final int QUEST_ICON_HEIGHT = 12;
@@ -1170,12 +1176,12 @@ public final class MiniMenu {
                             } else {
                                 offset = 0;
                             }
-                        } else if (Static601.playerOpsReducedPriority[op]) {
+                        } else if (playerOpsReducedPriority[op]) {
                             offset = 2000;
                         }
 
                         @Pc(403) short action = (short) (offset + MiniMenuAction.PLAYER_OPS[op]);
-                        @Pc(416) int cursor = Static147.playerOpCursors[op] != -1 ? Static147.playerOpCursors[op] : Cursor.interaction;
+                        @Pc(416) int cursor = playerOpCursors[op] != -1 ? playerOpCursors[op] : Cursor.interaction;
                         addEntryInner(false, -1, player.id, 0, 0, playerOps[op], action, true, cursor, "<col=ffffff>" + name, player.id, false);
                     }
                 }
@@ -1216,13 +1222,13 @@ public final class MiniMenu {
                 Static616.crossType = 2;
                 Static305.crossY = clickY;
 
-                @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ConnectionManager.GAME.cipher);
+                @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ServerConnection.GAME.cipher);
                 message.bitPacket.p2_alt1(v1);
                 message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
                 message.bitPacket.p2(InterfaceManager.targetInvObj);
                 message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
                 message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
-                ConnectionManager.GAME.send(message);
+                ServerConnection.GAME.send(message);
 
                 Static147.findPath(0, player.pathZ[0], player.getSize(), true, player.pathX[0], 0, -2, player.getSize());
             }
@@ -1234,13 +1240,13 @@ public final class MiniMenu {
             Static481.crossDuration = 0;
             Static676.crossX = clickX;
 
-            @Pc(147) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ConnectionManager.GAME.cipher);
+            @Pc(147) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ServerConnection.GAME.cipher);
             message.bitPacket.p2_alt1(PlayerEntity.self.id);
             message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
             message.bitPacket.p2(InterfaceManager.targetInvObj);
             message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
             message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         }
 
         if (action == MiniMenuAction.TGT_BUTTON) {
@@ -1285,7 +1291,7 @@ public final class MiniMenu {
                     Static676.crossX = clickX;
                 }
 
-                ConnectionManager.GAME.send(message);
+                ServerConnection.GAME.send(message);
 
                 Static147.findPath(0, v3, 1, true, v2, 0, -4, 1);
             }
@@ -1329,10 +1335,10 @@ public final class MiniMenu {
                 Static616.crossType = 2;
                 Static676.crossX = clickX;
 
-                @Pc(494) ClientMessage message = ClientMessage.create(opPlayer, ConnectionManager.GAME.cipher);
+                @Pc(494) ClientMessage message = ClientMessage.create(opPlayer, ServerConnection.GAME.cipher);
                 message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
                 message.bitPacket.p2(v1);
-                ConnectionManager.GAME.send(message);
+                ServerConnection.GAME.send(message);
 
                 Static147.findPath(0, player.pathZ[0], player.getSize(), true, player.pathX[0], 0, -2, player.getSize());
             }
@@ -1359,12 +1365,12 @@ public final class MiniMenu {
             Static616.crossType = 2;
             Static676.crossX = clickX;
 
-            @Pc(494) ClientMessage message = ClientMessage.create(opObj, ConnectionManager.GAME.cipher);
+            @Pc(494) ClientMessage message = ClientMessage.create(opObj, ServerConnection.GAME.cipher);
             message.bitPacket.p2_alt2(v1);
             message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
             message.bitPacket.p2(v3 + WorldMap.areaBaseZ);
             message.bitPacket.p2_alt1(WorldMap.areaBaseX + v2);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
 
             Static414.findPathToObj(v3, v2);
         }
@@ -1378,10 +1384,10 @@ public final class MiniMenu {
                 Static616.crossType = 1;
                 Static305.crossY = clickY;
 
-                @Pc(494) ClientMessage message = ClientMessage.create(ClientProt.FACE_SQUARE, ConnectionManager.GAME.cipher);
+                @Pc(494) ClientMessage message = ClientMessage.create(ClientProt.FACE_SQUARE, ServerConnection.GAME.cipher);
                 message.bitPacket.p2_alt3(v3 + WorldMap.areaBaseZ);
                 message.bitPacket.p2_alt1(WorldMap.areaBaseX + v2);
-                ConnectionManager.GAME.send(message);
+                ServerConnection.GAME.send(message);
             }
         }
 
@@ -1417,10 +1423,10 @@ public final class MiniMenu {
                 Static616.crossType = 2;
                 Static305.crossY = clickY;
                 Static481.crossDuration = 0;
-                @Pc(831) ClientMessage message = ClientMessage.create(opNpc, ConnectionManager.GAME.cipher);
+                @Pc(831) ClientMessage message = ClientMessage.create(opNpc, ServerConnection.GAME.cipher);
                 message.bitPacket.p1_alt1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
                 message.bitPacket.p2_alt2(v1);
-                ConnectionManager.GAME.send(message);
+                ServerConnection.GAME.send(message);
 
                 Static147.findPath(0, npc.pathZ[0], npc.getSize(), true, npc.pathX[0], 0, -2, npc.getSize());
             }
@@ -1447,12 +1453,12 @@ public final class MiniMenu {
             Static481.crossDuration = 0;
             Static676.crossX = clickX;
 
-            @Pc(949) ClientMessage message = ClientMessage.create(opLoc, ConnectionManager.GAME.cipher);
+            @Pc(949) ClientMessage message = ClientMessage.create(opLoc, ServerConnection.GAME.cipher);
             message.bitPacket.p1_alt1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
             message.bitPacket.p2_alt2(WorldMap.areaBaseX + v2);
             message.bitPacket.p2_alt3((int) (v1Long >>> 32) & Integer.MAX_VALUE);
             message.bitPacket.p2_alt1(v3 + WorldMap.areaBaseZ);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
 
             Static38.findPathToLoc(v2, v1Long, v3);
         }
@@ -1467,13 +1473,13 @@ public final class MiniMenu {
             Static305.crossY = clickY;
             Static481.crossDuration = 0;
 
-            @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.APCOORDT, ConnectionManager.GAME.cipher);
+            @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.APCOORDT, ServerConnection.GAME.cipher);
             message.bitPacket.p2_alt2(WorldMap.areaBaseX + v2);
             message.bitPacket.p2_alt1(InterfaceManager.targetInvObj);
             message.bitPacket.p4_alt2(InterfaceManager.targetSlot);
             message.bitPacket.p2_alt2(WorldMap.areaBaseZ + v3);
             message.bitPacket.p2(InterfaceManager.targetComponent);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
 
             Static147.findPath(0, v3, 1, true, v2, 0, -4, 1);
         }
@@ -1484,7 +1490,7 @@ public final class MiniMenu {
             Static305.crossY = clickY;
             Static676.crossX = clickX;
 
-            @Pc(949) ClientMessage message = ClientMessage.create(Static175.A_CLIENT_PROT___31, ConnectionManager.GAME.cipher);
+            @Pc(949) ClientMessage message = ClientMessage.create(Static175.A_CLIENT_PROT___31, ServerConnection.GAME.cipher);
             message.bitPacket.p2(v2 + WorldMap.areaBaseX);
             message.bitPacket.p2(WorldMap.areaBaseZ + v3);
             message.bitPacket.p2_alt3(InterfaceManager.targetInvObj);
@@ -1492,7 +1498,7 @@ public final class MiniMenu {
             message.bitPacket.p2_alt1(InterfaceManager.targetComponent);
             message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
             message.bitPacket.p2_alt1(v1);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
 
             Static414.findPathToObj(v3, v2);
         }
@@ -1508,13 +1514,13 @@ public final class MiniMenu {
                 Static676.crossX = clickX;
                 Static305.crossY = clickY;
 
-                @Pc(1223) ClientMessage message = ClientMessage.create(Static503.A_CLIENT_PROT___94, ConnectionManager.GAME.cipher);
+                @Pc(1223) ClientMessage message = ClientMessage.create(Static503.A_CLIENT_PROT___94, ServerConnection.GAME.cipher);
                 message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
                 message.bitPacket.p2_alt1(InterfaceManager.targetInvObj);
                 message.bitPacket.p2_alt1(v1);
                 message.bitPacket.p4_alt3(InterfaceManager.targetSlot);
                 message.bitPacket.p1(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
-                ConnectionManager.GAME.send(message);
+                ServerConnection.GAME.send(message);
 
                 Static147.findPath(0, npc.pathZ[0], npc.getSize(), true, npc.pathX[0], 0, -2, npc.getSize());
             }
@@ -1530,7 +1536,7 @@ public final class MiniMenu {
             Static305.crossY = clickY;
             Static616.crossType = 2;
 
-            @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.OPLOCT, ConnectionManager.GAME.cipher);
+            @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.OPLOCT, ServerConnection.GAME.cipher);
             message.bitPacket.p1_alt2(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
             message.bitPacket.p2_alt1(WorldMap.areaBaseZ + v3);
             message.bitPacket.p2_alt1(InterfaceManager.targetComponent);
@@ -1538,7 +1544,7 @@ public final class MiniMenu {
             message.bitPacket.p2_alt3(InterfaceManager.targetInvObj);
             message.bitPacket.p2_alt1(v2 + WorldMap.areaBaseX);
             message.bitPacket.p2_alt2(Integer.MAX_VALUE & (int) (v1Long >>> 32));
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
 
             Static38.findPathToLoc(v2, v1Long, v3);
         }
@@ -1554,10 +1560,10 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!pc", name = "a", descriptor = "(IZI)V")
     public static void sendResumePauseButton(@OriginalArg(0) int slot, @OriginalArg(2) int id) {
-        @Pc(13) ClientMessage message = ClientMessage.create(ClientProt.RESUME_PAUSEBUTTON, ConnectionManager.GAME.cipher);
+        @Pc(13) ClientMessage message = ClientMessage.create(ClientProt.RESUME_PAUSEBUTTON, ServerConnection.GAME.cipher);
         message.bitPacket.p4_alt3(id);
         message.bitPacket.p2_alt3(slot);
-        ConnectionManager.GAME.send(message);
+        ServerConnection.GAME.send(message);
     }
 
     @OriginalMember(owner = "client!jt", name = "a", descriptor = "(BLclient!hda;)V")
@@ -1578,14 +1584,14 @@ public final class MiniMenu {
             }
         }
 
-        @Pc(45) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTONT, ConnectionManager.GAME.cipher);
+        @Pc(45) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTONT, ServerConnection.GAME.cipher);
         message.bitPacket.p4_alt2(button.slot);
         message.bitPacket.p2_alt2(InterfaceManager.targetInvObj);
         message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
         message.bitPacket.p4_alt3(InterfaceManager.targetSlot);
         message.bitPacket.p2_alt2(button.invObject);
         message.bitPacket.p2_alt1(button.id);
-        ConnectionManager.GAME.send(message);
+        ServerConnection.GAME.send(message);
     }
 
     @OriginalMember(owner = "client!kca", name = "a", descriptor = "(II)Z")
@@ -2405,6 +2411,36 @@ public final class MiniMenu {
                 return 5;
             }
         }
+    }
+
+    @OriginalMember(owner = "client!kh", name = "g", descriptor = "(I)V")
+    public static void resetSprites() {
+        rightBorderSprite = null;
+        topRightCornerSprite = null;
+        topLeftCornerSprite = null;
+        bottomRightCornerSprite = null;
+        bottomBorderSprite = null;
+        separatorSprite = null;
+        icons = null;
+        bottomLeftCornerSprite = null;
+        leftBorderSprite = null;
+    }
+
+    @OriginalMember(owner = "client!qp", name = "a", descriptor = "(B)V")
+    public static void resetAndClose() {
+        for (@Pc(8) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+            if (entry.size > 1) {
+                entry.size = 0;
+                cache.put(entry, ((MiniMenuEntryInner) entry.innerEntries.sentinel.next2).entryKey);
+                entry.innerEntries.clear();
+            }
+        }
+        entryCount = 0;
+        innerEntryCount = 0;
+        innerEntryQueue.clear();
+        entryTable.clear();
+        entryQueue.clear();
+        open = false;
     }
 
     private MiniMenu() {

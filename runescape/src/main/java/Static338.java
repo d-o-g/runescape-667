@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -17,7 +18,7 @@ public final class Static338 {
                 @Pc(26) int local26 = (Static89.anIntArray169[local8] >> 8) * 64 - WorldMap.areaBaseX;
                 @Pc(36) int local36 = (Static89.anIntArray169[local8] & 0xFF) * 64 - WorldMap.areaBaseZ;
                 Static557.method7331();
-                arg1.loadLocations(local26, local36, Static577.collisionMaps, Toolkit.active, local13);
+                arg1.loadLocations(local26, local36, Client.collisionMaps, Toolkit.active, local13);
             }
         }
     }

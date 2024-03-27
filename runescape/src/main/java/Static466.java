@@ -8,9 +8,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static466 {
 
-    @OriginalMember(owner = "client!om", name = "b", descriptor = "I")
-    public static int anInt7042;
-
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(BIIII[I[III[IZZI[I[[[B[III)V")
     public static void method6324(@OriginalArg(0) byte arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int[] arg9, @OriginalArg(10) boolean arg10, @OriginalArg(12) int arg11, @OriginalArg(13) int[] arg12, @OriginalArg(14) byte[][][] arg13, @OriginalArg(15) int[] arg14, @OriginalArg(16) int arg15) {
         if (Static448.anInt6796 == -1) {
@@ -300,7 +297,7 @@ public final class Static466 {
 
     @OriginalMember(owner = "client!om", name = "b", descriptor = "(Z)V")
     public static void rebuildRegion() {
-        @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
+        @Pc(8) BitPacket bitPacket = ServerConnection.GAME.bitPacket;
         @Pc(12) int zoneZ = bitPacket.g2();
         @Pc(16) int buildArea = bitPacket.g1();
         @Pc(28) boolean forceUpdate = bitPacket.g1_alt3() == 1;
@@ -325,7 +322,7 @@ public final class Static466 {
             }
         }
         bitPacket.exitBitMode();
-        local50 = (ConnectionManager.GAME.currentPacketSize - bitPacket.pos) / 16;
+        local50 = (ServerConnection.GAME.currentPacketSize - bitPacket.pos) / 16;
         Static22.anIntArrayArray11 = new int[local50][4];
         for (local54 = 0; local54 < local50; local54++) {
             for (local61 = 0; local61 < 4; local61++) {

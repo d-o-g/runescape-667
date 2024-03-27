@@ -1,5 +1,6 @@
 import com.jagex.Class84;
 import com.jagex.Client;
+import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;
 import com.jagex.core.constants.ModeWhere;
@@ -309,13 +310,13 @@ public final class debugconsole {
                     if (MainLogicManager.step == 11) {
                         ConnectionManager.disconnect();
                     } else if (MainLogicManager.step == 12) {
-                        ConnectionManager.GAME.errored = true;
+                        ServerConnection.GAME.errored = true;
                         return;
                     }
                     return;
                 }
                 if (command.equalsIgnoreCase("rotateconnectmethods")) {
-                    Client.gameConnection.rotateMethods();
+                    ConnectionInfo.login.rotateMethods();
                     addline("Rotated connection methods");
                     return;
                 }
@@ -331,7 +332,7 @@ public final class debugconsole {
                 }
                 if (command.equalsIgnoreCase("breakcon")) {
                     GameShell.signLink.timeout();
-                    @Pc(723) ServerConnection[] local723 = ConnectionManager.VALUES;
+                    @Pc(723) ServerConnection[] local723 = ServerConnection.VALUES;
                     for (@Pc(725) int local725 = 0; local725 < local723.length; local725++) {
                         @Pc(730) ServerConnection connection = local723[local725];
                         if (connection.connection != null) {
@@ -344,7 +345,7 @@ public final class debugconsole {
                 }
                 if (command.equalsIgnoreCase("rebuild")) {
                     MainLogicManager.mapBuild();
-                    Minimap.reset();
+                    Minimap.resetSprite();
                     addline("Rebuilding map");
                     return;
                 }
@@ -352,7 +353,7 @@ public final class debugconsole {
                     Static690.aLong318 = SystemTimer.safetime();
                     Static28.aBoolean43 = true;
                     MainLogicManager.mapBuild();
-                    Minimap.reset();
+                    Minimap.resetSprite();
                     addline("Rebuilding map (with profiling)");
                     return;
                 }
@@ -524,7 +525,7 @@ public final class debugconsole {
                     js5.SPRITES.discardUnpacked();
                     MSITypeList.instance.cacheReset();
                     MapElementTypeList.instance.cacheReset();
-                    Minimap.reset();
+                    Minimap.resetSprite();
                     addline("Minimap reset");
                     return;
                 }
@@ -592,7 +593,7 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equals("autoworld")) {
-                    Static152.method9273();
+                    Static152.selectAutoWorld();
                     addline("auto world selected");
                     return;
                 }
@@ -605,7 +606,7 @@ public final class debugconsole {
                 }
 
                 if (command.equals("getworld")) {
-                    addline("w: " + Client.gameConnection.id);
+                    addline("w: " + ConnectionInfo.login.id);
                     return;
                 }
 
@@ -645,20 +646,20 @@ public final class debugconsole {
 
                 if (command.equals("showcolmap")) {
                     Minimap.drawCollisionMap = true;
-                    Minimap.reset();
+                    Minimap.resetSprite();
                     addline("colmap is shown");
                     return;
                 }
 
                 if (command.equals("hidecolmap")) {
                     Minimap.drawCollisionMap = false;
-                    Minimap.reset();
+                    Minimap.resetSprite();
                     addline("colmap is hidden");
                     return;
                 }
 
                 if (command.equals("resetcache")) {
-                    Static352.cacheReset();
+                    client.cacheReset();
                     addline("Caches reset");
                     return;
                 }
@@ -684,7 +685,7 @@ public final class debugconsole {
                     @Pc(2083) String[] local2083 = StringTools.split(command.substring(12), ' ');
                     if (local2083.length >= 2) {
                         @Pc(725) int local725 = local2083.length > 2 ? Integer.parseInt(local2083[2]) : 0;
-                        Login.requestLoginWithUsername(local725, local2083[1], local2083[0]);
+                        LoginManager.requestLoginWithUsername(local725, local2083[1], local2083[0]);
                         return;
                     }
                 }
@@ -693,7 +694,7 @@ public final class debugconsole {
                     @Pc(2083) String[] local2083 = StringTools.split(command.substring(8), ' ');
                     @Pc(725) int local725 = Integer.parseInt(local2083[0]);
                     @Pc(521) int local521 = local2083.length == 2 ? Integer.parseInt(local2083[1]) : 0;
-                    Login.requestLoginFromSocialNetwork(local725, local521);
+                    LoginManager.requestLoginFromSocialNetwork(local725, local521);
                     return;
                 }
 
@@ -889,12 +890,12 @@ public final class debugconsole {
                 }
 
                 if (MainLogicManager.step == 11) {
-                    @Pc(2836) ClientMessage local2836 = ClientMessage.create(ClientProt.CLIENT_CHEAT, ConnectionManager.GAME.cipher);
+                    @Pc(2836) ClientMessage local2836 = ClientMessage.create(ClientProt.CLIENT_CHEAT, ServerConnection.GAME.cipher);
                     local2836.bitPacket.p1(command.length() + 3);
                     local2836.bitPacket.p1(automatic ? 1 : 0);
                     local2836.bitPacket.p1(retainText ? 1 : 0);
                     local2836.bitPacket.pjstr(command);
-                    ConnectionManager.GAME.send(local2836);
+                    ServerConnection.GAME.send(local2836);
                 }
 
                 if (command.startsWith("fps ") && Client.modeWhere != ModeWhere.LIVE) {

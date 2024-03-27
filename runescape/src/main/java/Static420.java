@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static420 {
 
     @OriginalMember(owner = "client!nea", name = "f", descriptor = "Z")
-    public static boolean aBoolean479;
+    public static boolean lobbyDobRequested;
 
     @OriginalMember(owner = "client!nea", name = "b", descriptor = "Lclient!tt;")
     public static Matrix aMatrix_7;

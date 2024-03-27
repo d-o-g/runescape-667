@@ -10,16 +10,16 @@ public final class Static434 {
     public static int anInt6565;
 
     @OriginalMember(owner = "client!nla", name = "g", descriptor = "(I)V")
-    public static void method5855() {
+    public static void rebuildNormal() {
         Static117.areaMode = AreaMode.STATIC_AREA;
-        @Pc(8) BitPacket bitPacket = ConnectionManager.GAME.bitPacket;
+        @Pc(8) BitPacket bitPacket = ServerConnection.GAME.bitPacket;
         @Pc(12) int local12 = bitPacket.g1_alt2();
         @Pc(24) boolean local24 = bitPacket.g1() == 1;
         @Pc(28) int local28 = bitPacket.ig2();
         @Pc(32) int local32 = bitPacket.g2();
         Static165.updateLastAreaMode();
         Static342.setBuildArea(local12);
-        @Pc(46) int local46 = (ConnectionManager.GAME.currentPacketSize - bitPacket.pos) / 16;
+        @Pc(46) int local46 = (ServerConnection.GAME.currentPacketSize - bitPacket.pos) / 16;
         Static22.anIntArrayArray11 = new int[local46][4];
         @Pc(55) int local55;
         for (@Pc(52) int local52 = 0; local52 < local46; local52++) {

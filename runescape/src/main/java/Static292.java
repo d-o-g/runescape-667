@@ -1,6 +1,3 @@
-import com.jagex.Client;
-import com.jagex.core.io.Packet;
-import com.jagex.core.stringtools.general.Base37;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Shadow;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -11,24 +8,6 @@ public final class Static292 {
 
     @OriginalMember(owner = "client!jea", name = "l", descriptor = "[I")
     public static int[] anIntArray387 = new int[1];
-
-    @OriginalMember(owner = "client!jea", name = "b", descriptor = "(I)V")
-    public static void method4615() {
-        Static470.anInt7113 = -1;
-        Static524.aServerConnection_3 = ConnectionManager.LOBBY;
-        Static299.anInt4825 = 1;
-        @Pc(16) String local16 = null;
-        if (Client.ssKey != null) {
-            @Pc(23) Packet local23 = new Packet(Client.ssKey);
-            local16 = Base37.decode(local23.g8());
-            Static430.aLong209 = local23.g8();
-        }
-        if (local16 == null) {
-            Static342.method4464(35);
-        } else {
-            Static238.method3471(false, local16, true, "");
-        }
-    }
 
     @OriginalMember(owner = "client!jea", name = "a", descriptor = "(Lclient!r;III[Z)V")
     public static void method4618(@OriginalArg(0) Shadow arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean[] arg4) {

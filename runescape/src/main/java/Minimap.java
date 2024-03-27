@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.constants.LocShapes;
 import com.jagex.core.datastruct.key.Deque;
@@ -297,7 +298,7 @@ public final class Minimap {
     }
 
     @OriginalMember(owner = "client!hk", name = "a", descriptor = "(I)V")
-    public static void reset() {
+    public static void resetSprite() {
         sprite = null;
         level = -1;
     }
@@ -695,7 +696,7 @@ public final class Minimap {
                 }
 
                 if (drawCollisionMap) {
-                    @Pc(435) CollisionMap map = Static577.collisionMaps[mapLevel];
+                    @Pc(435) CollisionMap map = Client.collisionMaps[mapLevel];
 
                     for (@Pc(284) int offsetX = 0; offsetX < anInt3302; offsetX++) {
                         for (@Pc(331) int offsetY = 0; offsetY < anInt3302; offsetY++) {
@@ -777,9 +778,9 @@ public final class Minimap {
                                     @Pc(281) int newZ = z;
 
                                     if (randomise) {
-                                        @Pc(862) int[][] collisionFlags = Static577.collisionMaps[level].flags;
-                                        @Pc(331) int collisionX = Static577.collisionMaps[level].x;
-                                        @Pc(336) int collisionZ = Static577.collisionMaps[level].z;
+                                        @Pc(862) int[][] collisionFlags = Client.collisionMaps[level].flags;
+                                        @Pc(331) int collisionX = Client.collisionMaps[level].x;
+                                        @Pc(336) int collisionZ = Client.collisionMaps[level].z;
 
                                         for (@Pc(340) int i = 0; i < 10; i++) {
                                             @Pc(25) int random = (int) (Math.random() * 4.0D);
@@ -907,5 +908,20 @@ public final class Minimap {
         @Pc(136) int local136 = (int) ((double) local37 * Math.sin(local129));
         @Pc(143) int local143 = (int) ((double) local37 * Math.cos(local129));
         Sprites.hintMapedge[sprite].method8186((float) local136 + (float) component.width / 2.0F + (float) offsetX, (float) -local143 + (float) component.height / 2.0F + (float) offsetY, 4096, (int) ((-local129 / 6.283185307179586D) * 65535.0D));
+    }
+
+    @OriginalMember(owner = "client!ns", name = "a", descriptor = "(B)V")
+    public static void reset() {
+        flagY = -1;
+        level = -1;
+        flagX = -1;
+        toggle = 0;
+    }
+
+    @OriginalMember(owner = "client!tba", name = "b", descriptor = "(B)V")
+    public static void resetFlag() {
+        flagX = -1;
+        toggle = 0;
+        flagY = -1;
     }
 }

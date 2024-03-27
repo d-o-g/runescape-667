@@ -16,7 +16,7 @@ public final class Static667 {
         FontTypeList.method7549(Toolkit.active);
         Fonts.init(Toolkit.active);
         Sprites.init(js5.SPRITES, Toolkit.active);
-        Static329.method1649();
+        MiniMenu.resetSprites();
         MiniMenu.setIcons(Sprites.nameIcons);
         InterfaceManager.redrawAll();
         Static296.updateFeatureMask();

@@ -7,12 +7,33 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class MainLogicManager {
+    public static final int STEP_LOADING = 0;
+    public static final int STEP_LOADING_1 = 1;
+    public static final int STEP_LOADING_2 = 2;
+    public static final int STEP_LOGIN_SCREEN = 3;
+    public static final int STEP_LOGIN_SCREEN_MAP_BUILD = 4;
+    public static final int STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_LOBBY = 5;
+    public static final int STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_GAME = 6;
+    public static final int STEP_LOBBY_SCREEN = 7;
+    public static final int STEP_LOBBY_SCREEN_MAP_BUILD = 8;
+    public static final int STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME = 9;
+    public static final int STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME_MAP_BUILD = 10;
+    public static final int STEP_GAME_SCREEN = 11;
+    public static final int STEP_GAME_SCREEN_MAP_BUILD = 12;
+    public static final int STEP_LOGGING_IN_FROM_GAMESCREEN_TO_LOBBY = 13;
+    public static final int STEP_RECONNECTING = 14;
+    public static final int STEP_SWITCH_WORLD = 15;
+    public static final int STEP_ERROR = 16;
+
     @OriginalMember(owner = "client!it", name = "g", descriptor = "I")
     public static int step = 0;
 
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(BI)Z")
-    public static boolean isAtLobbyScreen(@OriginalArg(1) int arg0) {
-        return arg0 == 7 || arg0 == 8 || arg0 == 9 || arg0 == 10;
+    public static boolean isAtLobbyScreen(@OriginalArg(1) int step) {
+        return step == STEP_LOBBY_SCREEN
+            || step == STEP_LOBBY_SCREEN_MAP_BUILD
+            || step == STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME
+            || step == STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME_MAP_BUILD;
     }
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(IB)V")
@@ -53,7 +74,7 @@ public final class MainLogicManager {
             Static440.anInt6683 = 1;
             Static213.anInt3472 = 0;
             Static13.anInt150 = 0;
-            Static668.method8700(true);
+            WorldMap.reset(true);
             js5.CONFIG.discardunpacked = 1;
             js5.CONFIG_ENUM.discardunpacked = 1;
             js5.CONFIG_LOC.discardunpacked = 1;
@@ -69,12 +90,12 @@ public final class MainLogicManager {
         @Pc(235) boolean local235 = step == 2 || Static41.method1027(step) || isAtLobbyScreen(step);
         if (local235 != local213) {
             if (local213) {
-                Static588.anInt8692 = Static597.anInt8821;
+                SoundManager.midiSong = Static597.anInt8821;
                 if (ClientOptions.instance.loginVolume.getValue() == 0) {
                     Static312.method4541();
                 } else {
                     Static57.method1225(Static597.anInt8821, ClientOptions.instance.loginVolume.getValue(), js5.MIDI_SONGS);
-                    Static550.method7266();
+                    SoundManager.mixBussReset();
                 }
                 Client.js5WorkerThread.writeLoggedIn(false);
             } else {
@@ -123,6 +144,21 @@ public final class MainLogicManager {
             setStep(10);
         } else if (step == 11) {
             setStep(12);
+        }
+    }
+
+    @OriginalMember(owner = "client!rp", name = "b", descriptor = "(B)V")
+    public static void method7465() {
+        if (Static656.method6691(step)) {
+            if (ServerConnection.LOBBY.connection == null) {
+                setStep(5);
+            } else {
+                setStep(7);
+            }
+        } else if (step == 5 || step == 6) {
+            setStep(3);
+        } else if (step == 13) {
+            setStep(3);
         }
     }
 }

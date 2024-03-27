@@ -17,9 +17,6 @@ public final class Static430 {
     @OriginalMember(owner = "client!nja", name = "K", descriptor = "F")
     public static float aFloat120;
 
-    @OriginalMember(owner = "client!nja", name = "N", descriptor = "J")
-    public static long aLong209 = 0L;
-
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(I[[I)V")
     public static void method5815(@OriginalArg(1) int[][] arg0) {
         Static723.anIntArrayArray266 = arg0;
@@ -28,12 +25,12 @@ public final class Static430 {
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(IBLjava/lang/String;)Z")
     public static boolean method5817(@OriginalArg(0) int arg0, @OriginalArg(2) String arg1) {
         if (GameShell.signLink.signed) {
-            Client.gameConnection = new ConnectionInfo();
-            Client.gameConnection.id = arg0;
-            Client.gameConnection.address = arg1;
+            ConnectionInfo.login = new ConnectionInfo();
+            ConnectionInfo.login.id = arg0;
+            ConnectionInfo.login.address = arg1;
             if (Client.modeWhere != ModeWhere.LIVE) {
-                Client.gameConnection.defaultPort = Client.gameConnection.id + 40000;
-                Client.gameConnection.alternatePort = Client.gameConnection.id + 50000;
+                ConnectionInfo.login.defaultPort = ConnectionInfo.login.id + 40000;
+                ConnectionInfo.login.alternatePort = ConnectionInfo.login.id + 50000;
             }
             for (@Pc(45) int local45 = 0; local45 < WorldList.activeWorlds.length; local45++) {
                 if (WorldList.activeWorlds[local45].id == arg0) {

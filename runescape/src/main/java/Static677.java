@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static677 {
 
     @OriginalMember(owner = "client!vi", name = "F", descriptor = "I")
-    public static int anInt10234;
+    public static int recoverySetDate;
 
     @OriginalMember(owner = "client!vi", name = "L", descriptor = "Lclient!d;")
     public static TextureSource anTextureSource_11;

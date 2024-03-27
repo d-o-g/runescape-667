@@ -53,15 +53,15 @@ public final class Static231 {
         }
         Static514.aClass213_2.method5010();
         Static563.method7461();
-        Minimap.reset();
-        Static329.method1649();
+        Minimap.resetSprite();
+        MiniMenu.resetSprites();
         Static638.method8393();
         Static65.method1472();
         Static81.method1589();
-        Static352.cacheReset();
+        client.cacheReset();
         Static203.resetStaticSprites();
         Static143.method3572();
-        Static668.method8700(false);
+        WorldMap.reset(false);
         for (@Pc(34) int local34 = 0; local34 < 2048; local34++) {
             @Pc(39) PlayerEntity local39 = PlayerList.highResolutionPlayers[local34];
             if (local39 != null) {
@@ -158,7 +158,7 @@ public final class Static231 {
             return;
         }
         @Pc(216) ServerConnection local216 = ConnectionManager.active();
-        @Pc(222) ClientMessage local222 = ClientMessage.create(Static113.A_CLIENT_PROT___22, local216.cipher);
+        @Pc(222) ClientMessage local222 = ClientMessage.create(ClientProt.A_CLIENT_PROT___22, local216.cipher);
         local222.bitPacket.p1(method3379(arg1) + 1);
         local222.bitPacket.pjstr(arg1);
         local222.bitPacket.p1(arg0 ? 1 : 0);

@@ -13,7 +13,7 @@ public final class Static104 {
 
     @OriginalMember(owner = "client!de", name = "a", descriptor = "(BLjava/lang/String;)V")
     public static void method2029(@OriginalArg(1) String arg0) {
-        @Pc(6) ClientMessage local6 = Static273.method3962();
+        @Pc(6) ClientMessage local6 = ClientMessage.createRaw();
         local6.bitPacket.p1(LoginProt.A_LOGIN_PROT___63.opcode);
         local6.bitPacket.p2(0);
         @Pc(28) int local28 = local6.bitPacket.pos;
@@ -25,10 +25,10 @@ public final class Static104 {
         local6.bitPacket.pos += 7;
         local6.bitPacket.tinyenc(local39, local43, local6.bitPacket.pos);
         local6.bitPacket.psize2(local6.bitPacket.pos - local28);
-        ConnectionManager.LOBBY.send(local6);
+        ServerConnection.LOBBY.send(local6);
         Static580.anInt8621 = -3;
         Static654.anInt9739 = 0;
-        Static6.anInt95 = 1;
+        LobbyManager.step = 1;
         Static720.anInt10865 = 0;
     }
 

@@ -29,11 +29,6 @@ public final class Static242 {
         }
     }
 
-    @OriginalMember(owner = "client!hj", name = "a", descriptor = "(I)Z")
-    public static boolean method3500() {
-        return Static135.anInt8223 != 0;
-    }
-
     @OriginalMember(owner = "client!hj", name = "a", descriptor = "(IZ)I")
     public static int method3503(@OriginalArg(1) boolean arg0) {
         @Pc(5) int local5 = Static448.anInt6796;
@@ -71,10 +66,10 @@ public final class Static242 {
                     local47 = ClientProt.OPPLAYER9;
                 }
                 if (local47 != null) {
-                    @Pc(108) ClientMessage local108 = ClientMessage.create(local47, ConnectionManager.GAME.cipher);
+                    @Pc(108) ClientMessage local108 = ClientMessage.create(local47, ServerConnection.GAME.cipher);
                     local108.bitPacket.p1(0);
                     local108.bitPacket.p2(local7[local19]);
-                    ConnectionManager.GAME.send(local108);
+                    ServerConnection.GAME.send(local108);
                 }
                 local9 = true;
                 break;

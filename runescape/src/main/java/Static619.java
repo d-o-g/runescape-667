@@ -1,7 +1,4 @@
-import com.jagex.Client;
 import com.jagex.ServerProt;
-import com.jagex.core.io.Packet;
-import com.jagex.core.stringtools.general.Base37;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -81,21 +78,4 @@ public final class Static619 {
         return local7 == null ? null : local7.adjacentWall;
     }
 
-    @OriginalMember(owner = "client!tk", name = "a", descriptor = "(II)V")
-    public static void method1512(@OriginalArg(0) int arg0) {
-        Static299.anInt4825 = 2;
-        Static524.aServerConnection_3 = ConnectionManager.GAME;
-        Static470.anInt7113 = arg0;
-        @Pc(18) String local18 = null;
-        if (Client.ssKey != null) {
-            @Pc(25) Packet local25 = new Packet(Client.ssKey);
-            local18 = Base37.decode(local25.g8());
-            Static430.aLong209 = local25.g8();
-        }
-        if (local18 == null) {
-            Static342.method4464(35);
-        } else {
-            Static238.method3471(false, local18, true, "");
-        }
-    }
 }

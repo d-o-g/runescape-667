@@ -65,19 +65,4 @@ public final class Static329 {
     @OriginalMember(owner = "client!kh", name = "cb", descriptor = "[I")
     public static final int[] anIntArray163 = new int[4];
 
-    @OriginalMember(owner = "client!kh", name = "hb", descriptor = "I")
-    public static int anInt1749 = -1;
-
-    @OriginalMember(owner = "client!kh", name = "g", descriptor = "(I)V")
-    public static void method1649() {
-        MiniMenu.rightBorderSprite = null;
-        MiniMenu.topRightCornerSprite = null;
-        MiniMenu.topLeftCornerSprite = null;
-        MiniMenu.bottomRightCornerSprite = null;
-        MiniMenu.bottomBorderSprite = null;
-        MiniMenu.separatorSprite = null;
-        MiniMenu.icons = null;
-        MiniMenu.bottomLeftCornerSprite = null;
-        MiniMenu.leftBorderSprite = null;
-    }
 }

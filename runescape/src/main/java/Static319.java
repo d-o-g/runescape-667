@@ -9,9 +9,6 @@ public final class Static319 {
     @OriginalMember(owner = "client!kba", name = "R", descriptor = "I")
     public static int anInt5080;
 
-    @OriginalMember(owner = "client!kba", name = "P", descriptor = "Ljava/lang/String;")
-    public static String aString51 = "";
-
     @OriginalMember(owner = "client!kba", name = "N", descriptor = "[I")
     public static final int[] anIntArray384 = new int[6];
 

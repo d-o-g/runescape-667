@@ -17,9 +17,6 @@ public final class Static449 {
     @OriginalMember(owner = "client!od", name = "e", descriptor = "Z")
     public static boolean aBoolean511 = false;
 
-    @OriginalMember(owner = "client!od", name = "d", descriptor = "Ljava/lang/String;")
-    public static String aString75 = "";
-
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(ILclient!uv;)Z")
     public static boolean hasMsi(@OriginalArg(1) Location location) {
         @Pc(17) LocType locType = LocTypeList.instance.list(location.getId());

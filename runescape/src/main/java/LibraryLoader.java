@@ -1,4 +1,4 @@
-import com.jagex.NativeLibraryList;
+import com.jagex.LibraryList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -27,7 +27,7 @@ public final class LibraryLoader implements Loader {
             return 100;
         }
 
-        @Pc(14) int percentage = NativeLibraryList.loadLibrary(this.name);
+        @Pc(14) int percentage = LibraryList.loadLibrary(this.name);
         if (percentage >= 0 && percentage <= 100) {
             return percentage;
         } else {

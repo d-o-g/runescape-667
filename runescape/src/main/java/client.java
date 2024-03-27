@@ -1,5 +1,7 @@
 import com.jagex.Client;
+import com.jagex.ServerProt;
 import com.jagex.SignedResourceStatus;
+import com.jagex.Static14;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.PathFinder;
@@ -21,6 +23,8 @@ import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.cursortype.CursorTypeList;
+import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
+import com.jagex.game.runetek6.config.emittertype.ParticleEmitterTypeList;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;
@@ -95,10 +99,10 @@ public final class client extends GameShell {
             if (arg0.length != 6) {
                 Client.error("Argument count");
             }
-            Login.worldInfo = new ConnectionInfo();
-            Login.worldInfo.id = Integer.parseInt(arg0[0]);
-            Login.lobbyInfo = new ConnectionInfo();
-            Login.lobbyInfo.id = Integer.parseInt(arg0[1]);
+            ConnectionInfo.world = new ConnectionInfo();
+            ConnectionInfo.world.id = Integer.parseInt(arg0[0]);
+            ConnectionInfo.lobby = new ConnectionInfo();
+            ConnectionInfo.lobby.id = Integer.parseInt(arg0[1]);
             Client.modeWhere = ModeWhere.LOCAL;
             if (arg0[3].equals("live")) {
                 Client.modeWhat = ModeWhat.LIVE;
@@ -135,8 +139,8 @@ public final class client extends GameShell {
             Client.affid = 0;
             Client.worldFlags = 0;
             Client.fromBilling = false;
+            Client.sitesettingsMember = true;
             Client.isMember = true;
-            Client.aBoolean200 = true;
             Client.force64mb = false;
             Client.addtionalInfo = null;
             Client.colourId = Client.modeGame.id;
@@ -221,19 +225,19 @@ public final class client extends GameShell {
 
     @OriginalMember(owner = "client!wh", name = "i", descriptor = "(I)V")
     public static void method9254() {
-        if (Static249.anInt4008 > 1) {
-            Static249.anInt4008--;
+        if (Static249.rebootTimer > 1) {
+            Static249.rebootTimer--;
             Static321.lastMiscTransmit = World.tick;
         }
-        if (ConnectionManager.GAME.errored) {
-            ConnectionManager.GAME.errored = false;
+        if (ServerConnection.GAME.errored) {
+            ServerConnection.GAME.errored = false;
             ConnectionManager.disconnect();
             return;
         }
         if (!MiniMenu.open) {
             MiniMenu.reset();
         }
-        for (@Pc(34) int local34 = 0; local34 < 100 && Static236.readPacket(ConnectionManager.GAME); local34++) {
+        for (@Pc(34) int local34 = 0; local34 < 100 && Static236.readPacket(ServerConnection.GAME); local34++) {
         }
         if (MainLogicManager.step != 11) {
             return;
@@ -241,23 +245,23 @@ public final class client extends GameShell {
         @Pc(71) ClientMessage local71;
         @Pc(80) int local80;
         while (Static232.method3400()) {
-            local71 = ClientMessage.create(ClientProt.A_CLIENT_PROT___110, ConnectionManager.GAME.cipher);
+            local71 = ClientMessage.create(ClientProt.A_CLIENT_PROT___110, ServerConnection.GAME.cipher);
             local71.bitPacket.p1(0);
             local80 = local71.bitPacket.pos;
             Static437.method5915(local71.bitPacket);
             local71.bitPacket.psize1(local71.bitPacket.pos - local80);
-            ConnectionManager.GAME.send(local71);
+            ServerConnection.GAME.send(local71);
         }
-        if (Static211.aClass2_Sub12_3 == null) {
-            if (Static675.aLong307 <= SystemTimer.safetime()) {
-                Static211.aClass2_Sub12_3 = Static151.aClass226_20.method5245(Client.gameConnection.address);
+        if (Static211.pingRequest == null) {
+            if (Static675.nextPing <= SystemTimer.safetime()) {
+                Static211.pingRequest = Static151.aClass226_20.method5245(ConnectionInfo.login.address);
             }
-        } else if (Static211.aClass2_Sub12_3.anInt1631 != -1) {
-            local71 = ClientMessage.create(Static50.A_CLIENT_PROT___90, ConnectionManager.GAME.cipher);
-            local71.bitPacket.p2(Static211.aClass2_Sub12_3.anInt1631);
-            ConnectionManager.GAME.send(local71);
-            Static211.aClass2_Sub12_3 = null;
-            Static675.aLong307 = SystemTimer.safetime() + 30000L;
+        } else if (Static211.pingRequest.anInt1631 != -1) {
+            local71 = ClientMessage.create(Static50.A_CLIENT_PROT___90, ServerConnection.GAME.cipher);
+            local71.bitPacket.p2(Static211.pingRequest.anInt1631);
+            ServerConnection.GAME.send(local71);
+            Static211.pingRequest = null;
+            Static675.nextPing = SystemTimer.safetime() + 30000L;
         }
         @Pc(166) MouseLog local166 = (MouseLog) Static226.mouseLogs.first();
         @Pc(181) int local181;
@@ -286,7 +290,7 @@ public final class client extends GameShell {
                 }
                 if (Static172.anInt2890 != local226 || local208 != Static634.anInt9516) {
                     if (local179 == null) {
-                        local179 = ClientMessage.create(Static603.A_CLIENT_PROT___109, ConnectionManager.GAME.cipher);
+                        local179 = ClientMessage.create(Static603.A_CLIENT_PROT___109, ServerConnection.GAME.cipher);
                         local179.bitPacket.p1(0);
                         local181 = local179.bitPacket.pos;
                     }
@@ -324,7 +328,7 @@ public final class client extends GameShell {
             }
             if (local179 != null) {
                 local179.bitPacket.psize1(local179.bitPacket.pos - local181);
-                ConnectionManager.GAME.send(local179);
+                ServerConnection.GAME.send(local179);
             }
         }
         @Pc(541) int local541;
@@ -351,14 +355,14 @@ public final class client extends GameShell {
                 local581 = 1;
             }
             local282 = (int) local527;
-            @Pc(603) ClientMessage local603 = ClientMessage.create(Static111.A_CLIENT_PROT___21, ConnectionManager.GAME.cipher);
+            @Pc(603) ClientMessage local603 = ClientMessage.create(Static111.A_CLIENT_PROT___21, ServerConnection.GAME.cipher);
             local603.bitPacket.p2_alt3(local581 << 15 | local282);
             local603.bitPacket.p4_alt2(local208 | local541 << 16);
-            ConnectionManager.GAME.send(local603);
+            ServerConnection.GAME.send(local603);
         }
         @Pc(660) long local660;
         if (Static216.anInt3530 > 0) {
-            local179 = ClientMessage.create(Static187.A_CLIENT_PROT___36, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(Static187.A_CLIENT_PROT___36, ServerConnection.GAME.cipher);
             local179.bitPacket.p1(Static216.anInt3530 * 3);
             for (local181 = 0; local181 < Static216.anInt3530; local181++) {
                 @Pc(652) KeyLog local652 = Static591.AN_KEYBOARD_EVENT_ARRAY_2[local181];
@@ -370,7 +374,7 @@ public final class client extends GameShell {
                 local179.bitPacket.p1(local652.getKeyCode());
                 local179.bitPacket.p2((int) local660);
             }
-            ConnectionManager.GAME.send(local179);
+            ServerConnection.GAME.send(local179);
         }
         if (Static232.anInt3764 > 0) {
             Static232.anInt3764--;
@@ -378,25 +382,25 @@ public final class client extends GameShell {
         if (Static273.aBoolean339 && Static232.anInt3764 <= 0) {
             Static273.aBoolean339 = false;
             Static232.anInt3764 = 20;
-            local179 = ClientMessage.create(ClientProt.A_CLIENT_PROT___47, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(ClientProt.A_CLIENT_PROT___47, ServerConnection.GAME.cipher);
             local179.bitPacket.p2((int) Static479.aFloat123 >> 3);
             local179.bitPacket.p2((int) Camera.playerCameraYaw >> 3);
-            ConnectionManager.GAME.send(local179);
+            ServerConnection.GAME.send(local179);
         }
         if (focus != Static50.aBoolean565) {
             Static50.aBoolean565 = focus;
-            local179 = ClientMessage.create(Static621.A_CLIENT_PROT___113, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(Static621.A_CLIENT_PROT___113, ServerConnection.GAME.cipher);
             local179.bitPacket.p1(focus ? 1 : 0);
-            ConnectionManager.GAME.send(local179);
+            ServerConnection.GAME.send(local179);
         }
         if (!Static503.sentPreferences) {
-            local179 = ClientMessage.create(ClientProt.A_CLIENT_PROT___108, ConnectionManager.GAME.cipher);
+            local179 = ClientMessage.create(ClientProt.A_CLIENT_PROT___108, ServerConnection.GAME.cipher);
             local179.bitPacket.p1(0);
             local181 = local179.bitPacket.pos;
             @Pc(810) Packet local810 = ClientOptions.instance.encode();
             local179.bitPacket.pdata(local810.pos, local810.data, 0);
             local179.bitPacket.psize1(local179.bitPacket.pos - local181);
-            ConnectionManager.GAME.send(local179);
+            ServerConnection.GAME.send(local179);
             Static503.sentPreferences = true;
         }
         if (Static334.activeTiles != null) {
@@ -423,8 +427,8 @@ public final class client extends GameShell {
         Static159.method2575();
         Static271.method3930();
         SoundManager.method918();
-        ConnectionManager.GAME.anInt3646++;
-        if (ConnectionManager.GAME.anInt3646 > 750) {
+        ServerConnection.GAME.anInt3646++;
+        if (ServerConnection.GAME.anInt3646 > 750) {
             ConnectionManager.disconnect();
             return;
         }
@@ -645,9 +649,9 @@ public final class client extends GameShell {
         Static443.method5981();
         World.tick++;
         if (WorldMap.clicked) {
-            @Pc(1980) ClientMessage local1980 = ClientMessage.create(Static133.A_CLIENT_PROT___26, ConnectionManager.GAME.cipher);
+            @Pc(1980) ClientMessage local1980 = ClientMessage.create(Static133.A_CLIENT_PROT___26, ServerConnection.GAME.cipher);
             local1980.bitPacket.p4_alt3(WorldMap.clickedY | WorldMap.clickedLevel << 28 | WorldMap.clickedX << 14);
-            ConnectionManager.GAME.send(local1980);
+            ServerConnection.GAME.send(local1980);
             WorldMap.clicked = false;
         }
         while (true) {
@@ -753,20 +757,20 @@ public final class client extends GameShell {
                                             if (Camera.scaleOffset < -20) {
                                                 Static171.anInt2887 = 1;
                                             }
-                                            ConnectionManager.GAME.idleWriteTicks++;
+                                            ServerConnection.GAME.idleWriteTicks++;
                                             if (Camera.scaleOffset > 10) {
                                                 Static171.anInt2887 = -1;
                                             }
-                                            if (ConnectionManager.GAME.idleWriteTicks > 50) {
-                                                @Pc(2571) ClientMessage local2571 = ClientMessage.create(ClientProt.NO_TIMEOUT, ConnectionManager.GAME.cipher);
-                                                ConnectionManager.GAME.send(local2571);
+                                            if (ServerConnection.GAME.idleWriteTicks > 50) {
+                                                @Pc(2571) ClientMessage local2571 = ClientMessage.create(ClientProt.NO_TIMEOUT, ServerConnection.GAME.cipher);
+                                                ServerConnection.GAME.send(local2571);
                                             }
                                             if (Static252.aBoolean316) {
                                                 Static143.method3571();
                                                 Static252.aBoolean316 = false;
                                             }
                                             try {
-                                                ConnectionManager.GAME.flush();
+                                                ServerConnection.GAME.flush();
                                                 return;
                                             } catch (@Pc(2588) IOException local2588) {
                                                 ConnectionManager.disconnect();
@@ -799,6 +803,95 @@ public final class client extends GameShell {
             } while (local2026 == null || local2026.staticComponents == null || local2026.staticComponents.length <= local2011.id || local2026.staticComponents[local2011.id] != local2011);
             ScriptRunner.executeHookInner(local2006);
         }
+    }
+
+    @OriginalMember(owner = "client!lc", name = "c", descriptor = "(B)V")
+    public static void cacheReset() {
+        FloorOverlayTypeList.instance.cacheReset();
+        FloorUnderlayTypeList.instance.cacheReset();
+        IDKTypeList.instance.cacheReset();
+        LocTypeList.instance.cacheReset();
+        NPCTypeList.instance.cacheReset();
+        ObjTypeList.instance.cacheReset();
+        SeqTypeList.instance.cacheReset();
+        SpotAnimationTypeList.instance.cacheReset();
+        VarBitTypeListClient.instance.cacheReset();
+        VarPlayerTypeListClient.instance.cacheReset();
+        VarClanSettingTypeList.instance.cacheReset();
+        VarClanTypeList.instance.cacheReset();
+        BASTypeList.instance.cacheReset();
+        MSITypeList.instance.cacheReset();
+        MapElementTypeList.instance.cacheReset();
+        QuestTypeList.instance.cacheReset();
+        ParamTypeList.instance.cacheReset();
+        SkyBoxTypeList.instance.cacheReset();
+        SkyBoxSphereTypeList.instance.cacheReset();
+        LightTypeList.instance.cacheReset();
+        CursorTypeList.instance.cacheReset();
+        StructTypeList.instance.cacheReset();
+        HitmarkTypeList.instance.cacheReset();
+        PlayerModel.cacheReset();
+        Component.cacheReset();
+        FontTypeList.cacheReset();
+        ClientInventory.cacheReset();
+        if (Client.modeWhere != ModeWhere.LIVE) {
+            for (@Pc(92) int local92 = 0; local92 < Static163.aByteArrayArray36.length; local92++) {
+                Static163.aByteArrayArray36[local92] = null;
+            }
+            Static107.anInt2161 = 0;
+        }
+        Environment.cacheReset();
+        PlayerEntity.cacheReset();
+        ShadowList.cacheReset();
+        ParticleEmitterTypeList.cacheReset();
+        ParticleEffectorTypeList.cacheReset();
+        ScriptRunner.A_WEIGHTED_CACHE___156.reset();
+        Toolkit.active.cacheReset();
+        ClientScriptList.cacheReset();
+        Static112.method2109();
+        js5.ANIMS.discardUnpacked();
+        js5.BASES.discardUnpacked();
+        js5.CONFIG.discardUnpacked();
+        js5.INTERFACES.discardUnpacked();
+        js5.SYNTH_SOUNDS.discardUnpacked();
+        js5.MAPS.discardUnpacked();
+        js5.MIDI_SONGS.discardUnpacked();
+        js5.MODELS.discardUnpacked();
+        js5.SPRITES.discardUnpacked();
+        js5.TEXTURES.discardUnpacked();
+        js5.BINARY.discardUnpacked();
+        js5.MIDI_JINGLES.discardUnpacked();
+        js5.CLIENTSCRIPTS.discardUnpacked();
+        js5.FONTMETRICS.discardUnpacked();
+        js5.VORBIS.discardUnpacked();
+        js5.js5_15.discardUnpacked();
+        js5.CONFIG_LOC.discardUnpacked();
+        js5.CONFIG_ENUM.discardUnpacked();
+        js5.CONFIG_NPC.discardUnpacked();
+        js5.CONFIG_OBJ.discardUnpacked();
+        js5.CONFIG_SEQ.discardUnpacked();
+        js5.CONFIG_SPOT.discardUnpacked();
+        js5.CONFIG_STRUCT.discardUnpacked();
+        js5.WORLDMAPDATA.discardUnpacked();
+        js5.QUICKCHAT.discardUnpacked();
+        js5.QUICKCHAT_GLOBAL.discardUnpacked();
+        js5.MATERIALS.discardUnpacked();
+        js5.CONFIG_PARTICLE.discardUnpacked();
+        js5.DEFAULTS.discardUnpacked();
+        js5.CUTSCENES.discardUnpacked();
+        js5.CONFIG_BILLBOARD.discardUnpacked();
+        js5.DLLS.discardUnpacked();
+        js5.SHADERS.discardUnpacked();
+        js5.VIDEOS.discardUnpacked();
+        Sprites.hitbarCache.reset();
+        Sprites.timerbarCache.reset();
+        Sprites.mobilisingArmiesCache.reset();
+        MiniMenu.questCache.reset();
+    }
+
+    @OriginalMember(owner = "client!sh", name = "b", descriptor = "(B)[Lclient!lga;")
+    public static ServerProt[] values() {
+        return new ServerProt[]{ServerProt.A_SERVER_PROT___252, Static273.A_SERVER_PROT___113, ServerProt.A_SERVER_PROT___149, Static155.A_SERVER_PROT___60, Static370.A_SERVER_PROT___152, ServerProt.A_SERVER_PROT___49, Static269.A_SERVER_PROT___111, Static384.A_SERVER_PROT___156, ServerProt.A_SERVER_PROT___185, Static303.A_SERVER_PROT___126, Static193.A_SERVER_PROT___74, Static137.A_SERVER_PROT___56, Static451.aServerProt_171, Static671.A_SERVER_PROT___246, ServerProt.VARBIT_SMALL, ServerProt.A_SERVER_PROT___19, Static504.A_SERVER_PROT___188, Static481.A_SERVER_PROT___178, ServerProt.A_SERVER_PROT___237, Static287.A_SERVER_PROT___119, Static441.A_SERVER_PROT___168, Static641.A_SERVER_PROT___234, Static161.A_SERVER_PROT___62, Static207.A_SERVER_PROT___127, Static137.A_SERVER_PROT___57, Static590.A_SERVER_PROT___217, Static31.A_SERVER_PROT___14, Static314.A_SERVER_PROT___132, Static84.A_SERVER_PROT___36, ServerProt.CAM_MOVETO, Static353.A_SERVER_PROT___233, Static606.A_SERVER_PROT___221, Static286.A_SERVER_PROT___117, ServerProt.A_SERVER_PROT___45, Static231.CAMERA_SHAKE, Static207.A_SERVER_PROT___128, Static331.A_SERVER_PROT___138, ServerProt.A_SERVER_PROT___43, Static232.A_SERVER_PROT___103, ServerProt.VARP_LARGE, Static616.A_SERVER_PROT___223, ServerProt.A_SERVER_PROT___63, Static444.A_SERVER_PROT___169, Static651.A_SERVER_PROT___235, Static452.A_SERVER_PROT___173, Static464.A_SERVER_PROT___176, Static157.A_SERVER_PROT___61, Static347.A_SERVER_PROT___146, Static18.A_SERVER_PROT___7, Static479.A_SERVER_PROT___177, Static383.A_SERVER_PROT___155, ServerProt.A_SERVER_PROT___147, ServerProt.A_SERVER_PROT___11, Static390.A_SERVER_PROT___158, Static51.A_SERVER_PROT___30, Static215.A_SERVER_PROT___86, Static309.A_SERVER_PROT___130, Static225.A_SERVER_PROT___90, Static416.A_SERVER_PROT___165, Static432.A_SERVER_PROT___10, ServerProt.A_SERVER_PROT___52, Static557.A_SERVER_PROT___205, Static722.A_SERVER_PROT___260, Static679.A_SERVER_PROT___247, Static14.A_SERVER_PROT___5, ServerProt.SOUND_AREA, ServerProt.A_SERVER_PROT___125, Static608.A_SERVER_PROT___222, Static619.A_SERVER_PROT___34, Static91.A_SERVER_PROT___236, ServerProt.A_SERVER_PROT___15, Static334.A_SERVER_PROT___140, Static250.A_SERVER_PROT___105, Static586.A_SERVER_PROT___215, ServerProt.A_SERVER_PROT___16, ServerProt.A_SERVER_PROT___53, ServerProt.A_SERVER_PROT___257, ServerProt.MESSAGE_PRIVATE_ECHO, Static526.A_SERVER_PROT___194, Static229.A_SERVER_PROT___101, Static526.A_SERVER_PROT___195, Static618.A_SERVER_PROT___227, Static587.A_SERVER_PROT___216, Static211.A_SERVER_PROT___143, ServerProt.VARBIT_LARGE, Static320.A_SERVER_PROT___135, Static283.A_SERVER_PROT___115, Static446.A_SERVER_PROT___170, Static688.A_SERVER_PROT___250, Static632.A_SERVER_PROT___229, Static133.A_SERVER_PROT___55, ServerProt.A_SERVER_PROT___54, Static344.A_SERVER_PROT___144, Static636.A_SERVER_PROT___230, Static629.A_SERVER_PROT___228, Static286.A_SERVER_PROT___118, Static41.A_SERVER_PROT___20, ServerProt.A_SERVER_PROT___37, Static9.A_SERVER_PROT___3, ServerProt.A_SERVER_PROT___208, ServerProt.A_SERVER_PROT___76, ServerProt.VARP_SMALL, Static408.A_SERVER_PROT___162, Static491.A_SERVER_PROT___254, Static542.A_SERVER_PROT___199, Static706.A_SERVER_PROT___255, Static19.A_SERVER_PROT___8, Static707.A_SERVER_PROT___256, ServerProt.A_SERVER_PROT___220, Static266.A_SERVER_PROT___192, ServerProt.A_SERVER_PROT___175, Static617.A_SERVER_PROT___224, Static312.A_SERVER_PROT___131, Static208.A_SERVER_PROT___83, ServerProt.A_SERVER_PROT___196, Static233.A_SERVER_PROT___104, Static550.A_SERVER_PROT___200, ServerProt.A_SERVER_PROT___239, Static331.A_SERVER_PROT___139, ServerProt.A_SERVER_PROT___219, Static663.A_SERVER_PROT___241, Static389.aServerProt_157, Static721.A_SERVER_PROT___259, Static428.A_SERVER_PROT___167, Static346.A_SERVER_PROT___145, Static72.A_SERVER_PROT___35, Static404.A_SERVER_PROT___161, Static563.A_SERVER_PROT___207, Static291.A_SERVER_PROT___123, Static663.A_SERVER_PROT___240, Static410.A_SERVER_PROT___163, Static224.A_SERVER_PROT___89, ServerProt.CUTSCENE, Static718.A_SERVER_PROT___258, ServerProt.A_SERVER_PROT___129, Static411.A_SERVER_PROT___164, Static201.A_SERVER_PROT___206, ServerProt.A_SERVER_PROT___47, Static266.A_SERVER_PROT___191, ServerProt.A_SERVER_PROT___251, Static454.A_SERVER_PROT___174, Static618.A_SERVER_PROT___226, Static491.A_SERVER_PROT___253, Static272.A_SERVER_PROT___112, ServerProt.A_SERVER_PROT___85};
     }
 
     @OriginalMember(owner = "client!client", name = "i", descriptor = "(I)V")
@@ -837,8 +930,8 @@ public final class client extends GameShell {
             GameShell.fsframe = null;
         }
 
-        ConnectionManager.GAME.close();
-        ConnectionManager.LOBBY.close();
+        ServerConnection.GAME.close();
+        ServerConnection.LOBBY.close();
         Static173.method2690();
         Client.js5WorkerThread.close();
         Static66.aCachedResourceWorker_1.close();
@@ -854,7 +947,7 @@ public final class client extends GameShell {
                 Client.cacheIndexFiles[i].close();
             }
             Client.metaFile.close();
-            Client.uidDat.close();
+            GameShell.uidDat.close();
             Static314.method4567();
         } catch (@Pc(91) Exception local91) {
         }
@@ -863,7 +956,7 @@ public final class client extends GameShell {
     @OriginalMember(owner = "client!client", name = "q", descriptor = "(I)V")
     public void js5Tick() {
         if (Client.js5Errors < Client.js5WorkerThread.errors) {
-            Client.gameConnection.rotateMethods();
+            ConnectionInfo.login.rotateMethods();
 
             Client.netWorkerDelay = ((Client.js5WorkerThread.errors * 50) - 50) * 5;
             if (Client.netWorkerDelay > 3000) {
@@ -906,7 +999,7 @@ public final class client extends GameShell {
 
         try {
             if (Client.js5State == Js5State.INIT) {
-                Client.js5Socket = Client.gameConnection.openSocket(GameShell.signLink);
+                Client.js5Socket = ConnectionInfo.login.openSocket(GameShell.signLink);
                 Client.js5State++;
             }
 
@@ -971,15 +1064,15 @@ public final class client extends GameShell {
     @OriginalMember(owner = "client!client", name = "p", descriptor = "(I)V")
     public void method1658() {
         @Pc(46) int local46;
-        if (MainLogicManager.step == 7 && !Static242.method3500() || MainLogicManager.step == 9 && Static169.anInt2855 == 42) {
-            if (Static249.anInt4008 > 1) {
-                Static249.anInt4008--;
+        if (MainLogicManager.step == 7 && !LoginManager.inProgress() || MainLogicManager.step == 9 && LoginManager.gameLoginResponse == 42) {
+            if (Static249.rebootTimer > 1) {
+                Static249.rebootTimer--;
                 Static321.lastMiscTransmit = World.tick;
             }
             if (!MiniMenu.open) {
                 MiniMenu.reset();
             }
-            for (local46 = 0; local46 < 100 && Static236.readPacket(ConnectionManager.LOBBY); local46++) {
+            for (local46 = 0; local46 < 100 && Static236.readPacket(ServerConnection.LOBBY); local46++) {
             }
         }
         Static35.currentTick++;
@@ -1010,7 +1103,7 @@ public final class client extends GameShell {
                             } else if (local203 > Static501.mapLength - local114 - 1) {
                                 local203 = Static501.mapLength - local114 - 1;
                             }
-                            @Pc(258) int local258 = PathFinder.findPath(Static577.collisionMaps[local97.level], Static480.anIntArray583, Static70.anIntArray147, local97.pathX[0], local97.pathZ[0], local114, local166, local203, local114, local114, -1, 0, 0, true);
+                            @Pc(258) int local258 = PathFinder.findPath(Client.collisionMaps[local97.level], Static480.anIntArray583, Static70.anIntArray147, local97.pathX[0], local97.pathZ[0], local114, local166, local203, local114, local114, -1, 0, 0, true);
                             if (local258 > 0) {
                                 if (local258 > 9) {
                                     local258 = 9;
@@ -1033,7 +1126,7 @@ public final class client extends GameShell {
                 }
             }
         }
-        if ((MainLogicManager.step == 3 || MainLogicManager.step == 9 || MainLogicManager.step == 7) && (!Static242.method3500() || MainLogicManager.step == 9 && Static169.anInt2855 == 42) && Static6.anInt95 == 0) {
+        if ((MainLogicManager.step == 3 || MainLogicManager.step == 9 || MainLogicManager.step == 7) && (!LoginManager.inProgress() || MainLogicManager.step == 9 && LoginManager.gameLoginResponse == 42) && LobbyManager.step == 0) {
             if (Camera.mode == CameraMode.MODE_FIXED) {
                 Camera.moveToTick();
             } else {
@@ -1065,7 +1158,7 @@ public final class client extends GameShell {
                                             if (TimeUtils.clock % 1500 == 0) {
                                                 Static314.method4562();
                                             }
-                                            if (MainLogicManager.step == 7 && !Static242.method3500() || MainLogicManager.step == 9 && Static169.anInt2855 == 42) {
+                                            if (MainLogicManager.step == 7 && !LoginManager.inProgress() || MainLogicManager.step == 9 && LoginManager.gameLoginResponse == 42) {
                                                 MiniMenu.update();
                                             }
                                             Static587.method7704();
@@ -1083,26 +1176,26 @@ public final class client extends GameShell {
                                                     local672.unlink();
                                                 }
                                             }
-                                            if (MainLogicManager.step == 7 && !Static242.method3500() || MainLogicManager.step == 9 && Static169.anInt2855 == 42) {
-                                                if (MainLogicManager.step != 9 && ConnectionManager.LOBBY.connection == null) {
-                                                    Login.logout(false);
+                                            if (MainLogicManager.step == 7 && !LoginManager.inProgress() || MainLogicManager.step == 9 && LoginManager.gameLoginResponse == 42) {
+                                                if (MainLogicManager.step != 9 && ServerConnection.LOBBY.connection == null) {
+                                                    LoginManager.logout(false);
                                                     return;
                                                 }
-                                                if (ConnectionManager.LOBBY != null) {
-                                                    ConnectionManager.LOBBY.idleWriteTicks++;
-                                                    if (ConnectionManager.LOBBY.idleWriteTicks > 50) {
-                                                        @Pc(823) ClientMessage local823 = ClientMessage.create(ClientProt.NO_TIMEOUT, ConnectionManager.LOBBY.cipher);
-                                                        ConnectionManager.LOBBY.send(local823);
+                                                if (ServerConnection.LOBBY != null) {
+                                                    ServerConnection.LOBBY.idleWriteTicks++;
+                                                    if (ServerConnection.LOBBY.idleWriteTicks > 50) {
+                                                        @Pc(823) ClientMessage local823 = ClientMessage.create(ClientProt.NO_TIMEOUT, ServerConnection.LOBBY.cipher);
+                                                        ServerConnection.LOBBY.send(local823);
                                                     }
                                                     try {
-                                                        ConnectionManager.LOBBY.flush();
+                                                        ServerConnection.LOBBY.flush();
                                                         return;
                                                     } catch (@Pc(832) IOException local832) {
                                                         if (MainLogicManager.step != 9) {
-                                                            Login.logout(false);
+                                                            LoginManager.logout(false);
                                                             return;
                                                         }
-                                                        ConnectionManager.LOBBY.close();
+                                                        ServerConnection.LOBBY.close();
                                                         return;
                                                     }
                                                 }
@@ -1371,8 +1464,8 @@ public final class client extends GameShell {
             Static178.anInt2947 = local27.get(11) * 600 + local27.get(12) * 10 + local27.get(13) / 6;
             Static493.aRandom1.setSeed(Static178.anInt2947);
         }
-        ConnectionManager.GAME.recordStats();
-        ConnectionManager.LOBBY.recordStats();
+        ServerConnection.GAME.recordStats();
+        ServerConnection.LOBBY.recordStats();
         this.tickJs5();
         if (Static228.js5MasterIndex != null) {
             Static228.js5MasterIndex.process();
@@ -1432,30 +1525,30 @@ public final class client extends GameShell {
         if (Static41.method1027(MainLogicManager.step) && !MainLogicManager.isBuildingMap(MainLogicManager.step)) {
             this.method1658();
             Static76.method1555();
-            Static364.method5253();
+            LoginManager.changeMainState();
         } else if (MainLogicManager.isAtLobbyScreen(MainLogicManager.step) && !MainLogicManager.isBuildingMap(MainLogicManager.step)) {
             this.method1658();
-            Static364.method5253();
+            LoginManager.changeMainState();
         } else if (MainLogicManager.step == 13) {
-            Static364.method5253();
+            LoginManager.changeMainState();
         } else if (MainLogicManager.isAtGameScreen(MainLogicManager.step) && !MainLogicManager.isBuildingMap(MainLogicManager.step)) {
             method9254();
         } else if (MainLogicManager.step == 14 || MainLogicManager.step == 15) {
-            Static364.method5253();
-            if (Static169.anInt2855 != -3 && Static169.anInt2855 != 2 && Static169.anInt2855 != 15) {
+            LoginManager.changeMainState();
+            if (LoginManager.gameLoginResponse != -3 && LoginManager.gameLoginResponse != 2 && LoginManager.gameLoginResponse != 15) {
                 if (MainLogicManager.step == 15) {
-                    Static78.anInt1626 = Static169.anInt2855;
-                    Static673.anInt10079 = Static356.anInt5780;
-                    Static383.anInt6001 = Static329.anInt1749;
+                    Static78.anInt1626 = LoginManager.gameLoginResponse;
+                    Static673.anInt10079 = LoginManager.disallowTrigger;
+                    Static383.anInt6001 = LoginManager.disallowResult;
                     if (Static718.aBoolean823) {
                         Static430.method5817(Static459.aConnectionInfo_2.id, Static459.aConnectionInfo_2.address);
-                        ConnectionManager.GAME.connection = null;
+                        ServerConnection.GAME.connection = null;
                         MainLogicManager.setStep(14);
                     } else {
-                        Login.logout(InterfaceManager.lobbyOpened);
+                        LoginManager.logout(InterfaceManager.lobbyOpened);
                     }
                 } else {
-                    Login.logout(false);
+                    LoginManager.logout(false);
                 }
             }
         }
@@ -1486,23 +1579,23 @@ public final class client extends GameShell {
         ClientOptions.instance = Static720.method9398();
 
         if (Client.modeWhere == ModeWhere.LIVE) {
-            Login.worldInfo.address = this.getCodeBase().getHost();
+            ConnectionInfo.world.address = this.getCodeBase().getHost();
         } else if (ModeWhere.isPrivate(Client.modeWhere)) {
-            Login.worldInfo.address = this.getCodeBase().getHost();
-            Login.worldInfo.defaultPort = Login.worldInfo.id + 40000;
-            Login.worldInfo.alternatePort = Login.worldInfo.id + 50000;
-            Login.lobbyInfo.defaultPort = Login.lobbyInfo.id + 40000;
-            Login.lobbyInfo.alternatePort = Login.lobbyInfo.id + 50000;
+            ConnectionInfo.world.address = this.getCodeBase().getHost();
+            ConnectionInfo.world.defaultPort = ConnectionInfo.world.id + 40000;
+            ConnectionInfo.world.alternatePort = ConnectionInfo.world.id + 50000;
+            ConnectionInfo.lobby.defaultPort = ConnectionInfo.lobby.id + 40000;
+            ConnectionInfo.lobby.alternatePort = ConnectionInfo.lobby.id + 50000;
         } else if (ModeWhere.LOCAL == Client.modeWhere) {
-            Login.worldInfo.address = "127.0.0.1";
-            Login.worldInfo.defaultPort = Login.worldInfo.id + 40000;
-            Login.lobbyInfo.address = "127.0.0.1";
-            Login.worldInfo.alternatePort = Login.worldInfo.id + 50000;
-            Login.lobbyInfo.defaultPort = Login.lobbyInfo.id + 40000;
-            Login.lobbyInfo.alternatePort = Login.lobbyInfo.id + 50000;
+            ConnectionInfo.world.address = "127.0.0.1";
+            ConnectionInfo.world.defaultPort = ConnectionInfo.world.id + 40000;
+            ConnectionInfo.lobby.address = "127.0.0.1";
+            ConnectionInfo.world.alternatePort = ConnectionInfo.world.id + 50000;
+            ConnectionInfo.lobby.defaultPort = ConnectionInfo.lobby.id + 40000;
+            ConnectionInfo.lobby.alternatePort = ConnectionInfo.lobby.id + 50000;
         }
 
-        Client.gameConnection = Login.worldInfo;
+        ConnectionInfo.login = ConnectionInfo.world;
         Client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
 
         if (Client.modeGame == ModeGame.RUNESCAPE) {
@@ -1526,7 +1619,7 @@ public final class client extends GameShell {
                 }
                 Client.metaFile = new BufferedFile(GameShell.signLink.masterIndex, 6000, 0);
                 Client.metaCache = new FileSystem_Client(Js5Archive.ARCHIVESET, Client.cacheDat, Client.metaFile, 500000);
-                Client.uidDat = new BufferedFile(GameShell.signLink.uidFile, 24, 0);
+                GameShell.uidDat = new BufferedFile(GameShell.signLink.uidFile, 24, 0);
                 GameShell.signLink.masterIndex = null;
                 GameShell.signLink.cacheIndex = null;
                 GameShell.signLink.cacheDat = null;
@@ -1535,7 +1628,7 @@ public final class client extends GameShell {
         } catch (@Pc(275) IOException ignored) {
             Client.metaFile = null;
             Client.metaCache = null;
-            Client.uidDat = null;
+            GameShell.uidDat = null;
             Client.cacheDat = null;
         }
 
@@ -1614,12 +1707,12 @@ public final class client extends GameShell {
             return;
         }
 
-        Login.worldInfo = new ConnectionInfo();
-        Login.worldInfo.id = Integer.parseInt(this.getParameter("worldid"));
+        ConnectionInfo.world = new ConnectionInfo();
+        ConnectionInfo.world.id = Integer.parseInt(this.getParameter("worldid"));
 
-        Login.lobbyInfo = new ConnectionInfo();
-        Login.lobbyInfo.id = Integer.parseInt(this.getParameter("lobbyid"));
-        Login.lobbyInfo.address = this.getParameter("lobbyaddress");
+        ConnectionInfo.lobby = new ConnectionInfo();
+        ConnectionInfo.lobby.id = Integer.parseInt(this.getParameter("lobbyid"));
+        ConnectionInfo.lobby.address = this.getParameter("lobbyaddress");
 
         Client.modeWhere = ModeWhere.fromId(Integer.parseInt(this.getParameter("modewhere")));
         if (ModeWhere.LOCAL == Client.modeWhere) {
@@ -1703,8 +1796,8 @@ public final class client extends GameShell {
         }
 
         if (Integer.parseInt(this.getParameter("sitesettings_member")) == 1) {
+            Client.sitesettingsMember = true;
             Client.isMember = true;
-            Client.aBoolean200 = true;
         }
 
         @Pc(336) String fromBillingParam = this.getParameter("frombilling");

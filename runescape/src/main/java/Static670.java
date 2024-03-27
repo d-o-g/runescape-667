@@ -21,11 +21,11 @@ public final class Static670 {
     @OriginalMember(owner = "client!vda", name = "g", descriptor = "(I)V")
     public static void method8735() {
         if (Client.ssKey != null) {
-            Static619.method1512(Static470.anInt7113);
-        } else if (Static129.anInt2409 == -1) {
-            Static192.method2877(Static59.aString63, Static470.anInt7113, Static449.aString75);
+            LoginManager.checkGameSession(LoginManager.anInt7113);
+        } else if (LoginManager.socialNetworkId == -1) {
+            LoginManager.doGameLogin(LoginManager.password, LoginManager.anInt7113, LoginManager.username);
         } else {
-            Static113.method2119(Static470.anInt7113);
+            LoginManager.doGameSnLogin(LoginManager.anInt7113);
         }
     }
 }

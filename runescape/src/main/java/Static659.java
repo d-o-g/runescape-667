@@ -1,6 +1,5 @@
 import com.jagex.Client;
 import com.jagex.core.constants.ModeWhere;
-import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -38,14 +37,4 @@ public final class Static659 {
         return "http://" + local15 + "." + Client.modeGame.domainName + ".com/l=" + Client.language + "/a=" + Client.affid + local44 + "/";
     }
 
-    @OriginalMember(owner = "client!ut", name = "d", descriptor = "(B)Lclient!ge;")
-    public static Packet method8608() {
-        @Pc(6) Packet local6 = Static570.method7552();
-        local6.p8(0L);
-        local6.pjstr(Static59.aString63);
-        local6.p8(Static430.aLong209);
-        local6.p8(Static571.aLong269);
-        local6.rsaenc(Static374.LOGIN_RSA_MODULUS, Static262.LOGIN_RSA_EXPONENT);
-        return local6;
-    }
 }

@@ -9,7 +9,7 @@ public final class Static675 {
     public static int anInt10155;
 
     @OriginalMember(owner = "client!vga", name = "m", descriptor = "J")
-    public static long aLong307;
+    public static long nextPing;
 
     @OriginalMember(owner = "client!vga", name = "c", descriptor = "I")
     public static int anInt10157;

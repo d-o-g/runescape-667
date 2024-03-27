@@ -1,4 +1,5 @@
 import com.jagex.SignedResourceStatus;
+import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -8,9 +9,6 @@ import java.io.IOException;
 import java.net.Socket;
 
 public final class Static76 {
-
-    @OriginalMember(owner = "client!cha", name = "h", descriptor = "I")
-    public static int anInt1601 = 0;
 
     @OriginalMember(owner = "client!cha", name = "d", descriptor = "I")
     public static int anInt1604 = 0;
@@ -30,54 +28,54 @@ public final class Static76 {
 
     @OriginalMember(owner = "client!cha", name = "b", descriptor = "(B)V")
     public static void method1555() {
-        if (Static6.anInt95 == 0) {
+        if (LobbyManager.step == 0) {
             return;
         }
         try {
             if (++Static654.anInt9739 > 2000) {
-                ConnectionManager.LOBBY.close();
+                ServerConnection.LOBBY.close();
                 if (Static720.anInt10865 >= 2) {
-                    Static6.anInt95 = 0;
+                    LobbyManager.step = 0;
                     Static580.anInt8621 = -5;
                     return;
                 }
-                Login.lobbyInfo.rotateMethods();
-                Static6.anInt95 = 1;
+                ConnectionInfo.lobby.rotateMethods();
+                LobbyManager.step = 1;
                 Static654.anInt9739 = 0;
                 Static720.anInt10865++;
             }
-            if (Static6.anInt95 == 1) {
-                ConnectionManager.LOBBY.gameSocketRequest = Login.lobbyInfo.openSocket(GameShell.signLink);
-                Static6.anInt95 = 2;
+            if (LobbyManager.step == 1) {
+                ServerConnection.LOBBY.gameSocketRequest = ConnectionInfo.lobby.openSocket(GameShell.signLink);
+                LobbyManager.step = 2;
             }
-            if (Static6.anInt95 == 2) {
-                if (ConnectionManager.LOBBY.gameSocketRequest.status == SignedResourceStatus.ERROR) {
+            if (LobbyManager.step == 2) {
+                if (ServerConnection.LOBBY.gameSocketRequest.status == SignedResourceStatus.ERROR) {
                     throw new IOException();
                 }
-                if (ConnectionManager.LOBBY.gameSocketRequest.status != SignedResourceStatus.SUCCESS) {
+                if (ServerConnection.LOBBY.gameSocketRequest.status != SignedResourceStatus.SUCCESS) {
                     return;
                 }
-                ConnectionManager.LOBBY.connection = Static99.method1975((Socket) ConnectionManager.LOBBY.gameSocketRequest.result);
-                ConnectionManager.LOBBY.gameSocketRequest = null;
-                ConnectionManager.LOBBY.flush();
-                Static6.anInt95 = 4;
+                ServerConnection.LOBBY.connection = Static99.method1975((Socket) ServerConnection.LOBBY.gameSocketRequest.result);
+                ServerConnection.LOBBY.gameSocketRequest = null;
+                ServerConnection.LOBBY.flush();
+                LobbyManager.step = 4;
             }
-            if (Static6.anInt95 == 4 && ConnectionManager.LOBBY.connection.hasAvailable(1)) {
-                ConnectionManager.LOBBY.connection.read(ConnectionManager.LOBBY.bitPacket.data, 1, 0);
-                @Pc(139) int local139 = ConnectionManager.LOBBY.bitPacket.data[0] & 0xFF;
-                Static6.anInt95 = 0;
+            if (LobbyManager.step == 4 && ServerConnection.LOBBY.connection.hasAvailable(1)) {
+                ServerConnection.LOBBY.connection.read(ServerConnection.LOBBY.bitPacket.data, 1, 0);
+                @Pc(139) int local139 = ServerConnection.LOBBY.bitPacket.data[0] & 0xFF;
+                LobbyManager.step = 0;
                 Static580.anInt8621 = local139;
-                ConnectionManager.LOBBY.close();
+                ServerConnection.LOBBY.close();
             }
         } catch (@Pc(148) IOException local148) {
-            ConnectionManager.LOBBY.close();
+            ServerConnection.LOBBY.close();
             if (Static720.anInt10865 < 2) {
-                Login.lobbyInfo.rotateMethods();
+                ConnectionInfo.lobby.rotateMethods();
                 Static720.anInt10865++;
                 Static654.anInt9739 = 0;
-                Static6.anInt95 = 1;
+                LobbyManager.step = 1;
             } else {
-                Static6.anInt95 = 0;
+                LobbyManager.step = 0;
                 Static580.anInt8621 = -4;
             }
         }

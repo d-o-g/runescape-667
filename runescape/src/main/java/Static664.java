@@ -48,7 +48,7 @@ public final class Static664 {
             local8.p4((int) (Math.random() * 9.9999999E7D));
         }
         local8.p2((int) (Math.random() * 9.9999999E7D));
-        local8.rsaenc(Static374.LOGIN_RSA_MODULUS, Static262.LOGIN_RSA_EXPONENT);
+        local8.rsaenc(LoginManager.RSA_MODULUS, LoginManager.RSA_EXPONENT);
         arg0.bitPacket.pdata(local8.pos, local8.data, 0);
         return local11;
     }

@@ -10,9 +10,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static311 {
 
-    @OriginalMember(owner = "client!js", name = "P", descriptor = "Z")
-    public static boolean aBoolean384 = false;
-
     @OriginalMember(owner = "client!js", name = "a", descriptor = "(Lclient!bn;I)Z")
     public static boolean method4537(@OriginalArg(0) MidiSong arg0) {
         if (arg0 == null) {

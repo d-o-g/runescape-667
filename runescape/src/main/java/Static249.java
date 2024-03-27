@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static249 {
 
     @OriginalMember(owner = "client!hma", name = "B", descriptor = "I")
-    public static int anInt4008 = 0;
+    public static int rebootTimer = 0;
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(IBIIIII)V")
     public static void method3535(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {

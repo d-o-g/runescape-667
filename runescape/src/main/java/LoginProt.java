@@ -7,15 +7,15 @@ import org.openrs2.deob.annotation.Pc;
 public final class LoginProt {
 
     @OriginalMember(owner = "client!s", name = "g", descriptor = "Lclient!hja;")
-    public static final LoginProt A_LOGIN_PROT___53 = new LoginProt(14, 0);
+    public static final LoginProt INIT_GAME_CONNECTION = new LoginProt(14, 0);
     @OriginalMember(owner = "client!s", name = "y", descriptor = "Lclient!hja;")
     public static final LoginProt INIT_JS5REMOTE_CONNECTION = new LoginProt(15, 4);
     @OriginalMember(owner = "client!s", name = "u", descriptor = "Lclient!hja;")
-    public static final LoginProt A_LOGIN_PROT___55 = new LoginProt(16, -2);
+    public static final LoginProt GAMELOGIN = new LoginProt(16, -2);
     @OriginalMember(owner = "client!s", name = "z", descriptor = "Lclient!hja;")
     public static final LoginProt A_LOGIN_PROT___56 = new LoginProt(17, 0);
     @OriginalMember(owner = "client!s", name = "r", descriptor = "Lclient!hja;")
-    public static final LoginProt A_LOGIN_PROT___57 = new LoginProt(19, -2);
+    public static final LoginProt LOBBYLOGIN = new LoginProt(19, -2);
     @OriginalMember(owner = "client!s", name = "q", descriptor = "Lclient!hja;")
     public static final LoginProt A_LOGIN_PROT___58 = new LoginProt(22, -2);
     @OriginalMember(owner = "client!s", name = "v", descriptor = "Lclient!hja;")
@@ -29,9 +29,9 @@ public final class LoginProt {
     @OriginalMember(owner = "client!s", name = "f", descriptor = "Lclient!hja;")
     public static final LoginProt A_LOGIN_PROT___63 = new LoginProt(28, -2);
     @OriginalMember(owner = "client!s", name = "l", descriptor = "Lclient!hja;")
-    public static final LoginProt A_LOGIN_PROT___64 = new LoginProt(29, -2);
+    public static final LoginProt INIT_SOCIAL_NETWORK_CONNECTION = new LoginProt(29, -2);
     @OriginalMember(owner = "client!s", name = "j", descriptor = "Lclient!hja;")
-    public static final LoginProt A_LOGIN_PROT___65 = new LoginProt(30, -2);
+    public static final LoginProt SOCIAL_NETWORK_LOGIN = new LoginProt(30, -2);
     @OriginalMember(owner = "client!s", name = "w", descriptor = "[Lclient!hja;")
     public static final LoginProt[] A_LOGIN_PROT_ARRAY_5 = new LoginProt[32];
 

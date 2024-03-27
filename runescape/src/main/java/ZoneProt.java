@@ -14,6 +14,9 @@ public final class ZoneProt {
     @OriginalMember(owner = "client!ci", name = "g", descriptor = "Lclient!pc;")
     public static final ZoneProt A_ZONE_PROT___5 = new ZoneProt(13, 7);
 
+    @OriginalMember(owner = "client!vca", name = "i", descriptor = "Lclient!pc;")
+    public static final ZoneProt A_ZONE_PROT___16 = new ZoneProt(12, 7);
+
     @OriginalMember(owner = "client!pc", name = "<init>", descriptor = "(II)V")
     public ZoneProt(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
     }

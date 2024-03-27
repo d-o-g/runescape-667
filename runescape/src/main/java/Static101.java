@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,7 +25,7 @@ public final class Static101 {
                             @Pc(65) int regionId = (regionZ / 8) + ((regionX / 8) << 8);
                             for (@Pc(67) int local67 = 0; local67 < Static89.anIntArray169.length; local67++) {
                                 if (Static89.anIntArray169[local67] == regionId && arg0[local67] != null) {
-                                    region.loadChunkLocations((regionX & 0x7) * 8, Static577.collisionMaps, level, Toolkit.active, chunkX * 8, chunkY * 8, arg0[local67], regionDirection, chunkLevel, (regionZ & 0x7) * 8);
+                                    region.loadChunkLocations((regionX & 0x7) * 8, Client.collisionMaps, level, Toolkit.active, chunkX * 8, chunkY * 8, arg0[local67], regionDirection, chunkLevel, (regionZ & 0x7) * 8);
                                     break;
                                 }
                             }

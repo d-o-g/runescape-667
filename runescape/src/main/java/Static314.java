@@ -50,7 +50,7 @@ public final class Static314 {
             return;
         }
 
-        @Pc(13) ServerConnection[] connections = ConnectionManager.VALUES;
+        @Pc(13) ServerConnection[] connections = ServerConnection.VALUES;
         for (@Pc(15) int i = 0; i < connections.length; i++) {
             @Pc(20) ServerConnection connection = connections[i];
 

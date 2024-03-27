@@ -160,7 +160,7 @@ public final class Static489 {
             Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
         Static557.method7331();
-        Static352.cacheReset();
+        client.cacheReset();
         VideoManager.stop();
         @Pc(430) boolean local430 = false;
         if (Toolkit.active.method7990() && ClientOptions.instance.waterDetail.getValue() == 2) {
@@ -191,7 +191,7 @@ public final class Static489 {
         }
 
         for (@Pc(519) int local519 = 0; local519 < 4; local519++) {
-            Static577.collisionMaps[local519].reset();
+            Client.collisionMaps[local519].reset();
         }
 
         Static305.method4441();
@@ -231,7 +231,7 @@ public final class Static489 {
             Static134.aMapRegion_3.method7881(null, Toolkit.active, null);
             Static379.method5355(false);
         }
-        Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Static577.collisionMaps);
+        Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Client.collisionMaps);
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
             Static314.noTimeout(true);
             Static338.method4994(Static118.aByteArrayArray3, Static2.aMapRegion);
@@ -242,7 +242,7 @@ public final class Static489 {
             Static314.noTimeout(true);
             Static101.method2001(Static118.aByteArrayArray3, Static2.aMapRegion);
         }
-        Static352.cacheReset();
+        client.cacheReset();
         if (GameShell.maxmemory < 96) {
             Static358.method9191();
         }
@@ -258,7 +258,7 @@ public final class Static489 {
             } else {
                 Static101.method2001(Static421.aByteArrayArray19, Static134.aMapRegion_3);
             }
-            Static352.cacheReset();
+            client.cacheReset();
             Static314.noTimeout(true);
             Static134.aMapRegion_3.method7888(Toolkit.active, null, Static706.floor[0]);
             Static134.aMapRegion_3.method7898(true, Toolkit.active);
@@ -290,13 +290,13 @@ public final class Static489 {
         Static77.method1561();
         Static557.method7331();
         Static197.method2949();
-        Static352.cacheReset();
+        client.cacheReset();
         Static442.method5969();
         @Pc(920) ClientMessage local920;
-        if (GameShell.frame != null && ConnectionManager.GAME.connection != null && MainLogicManager.step == 12) {
-            local920 = ClientMessage.create(Static694.A_CLIENT_PROT___122, ConnectionManager.GAME.cipher);
+        if (GameShell.frame != null && ServerConnection.GAME.connection != null && MainLogicManager.step == 12) {
+            local920 = ClientMessage.create(Static694.A_CLIENT_PROT___122, ServerConnection.GAME.cipher);
             local920.bitPacket.p4(1057001181);
-            ConnectionManager.GAME.send(local920);
+            ServerConnection.GAME.send(local920);
         }
 
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
@@ -322,12 +322,12 @@ public final class Static489 {
             MainLogicManager.setStep(9);
         } else {
             MainLogicManager.setStep(11);
-            if (ConnectionManager.GAME.connection != null) {
-                local920 = ClientMessage.create(Static161.A_CLIENT_PROT___29, ConnectionManager.GAME.cipher);
-                ConnectionManager.GAME.send(local920);
+            if (ServerConnection.GAME.connection != null) {
+                local920 = ClientMessage.create(Static161.A_CLIENT_PROT___29, ServerConnection.GAME.cipher);
+                ServerConnection.GAME.send(local920);
             }
         }
-        Static606.method7934();
+        WorldMap.method7934();
         Static557.method7331();
         Static199.doneslowupdate();
         Static75.hasOpaqueStationaryEntities = true;

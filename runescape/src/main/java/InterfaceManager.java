@@ -479,10 +479,10 @@ public final class InterfaceManager {
                             Fonts.p12.render(drawX, "Mem:" + memoryUsage + "k", memoryColour, 0xFFFFFFFF, drawY);
                             drawY += 15;
 
-                            Fonts.p12.render(drawX, "Game: In:" + ConnectionManager.GAME.readRate + "B/s Out:" + ConnectionManager.GAME.writeRate + "B/s", 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            Fonts.p12.render(drawX, "Game: In:" + ServerConnection.GAME.readRate + "B/s Out:" + ServerConnection.GAME.writeRate + "B/s", 0xFFFFFF00, 0xFFFFFFFF, drawY);
                             drawY += 15;
 
-                            Fonts.p12.render(drawX, "Lobby: In:" + ConnectionManager.LOBBY.readRate + "B/s Out:" + ConnectionManager.LOBBY.writeRate + "B/s", 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            Fonts.p12.render(drawX, "Lobby: In:" + ServerConnection.LOBBY.readRate + "B/s Out:" + ServerConnection.LOBBY.writeRate + "B/s", 0xFFFFFF00, 0xFFFFFFFF, drawY);
                             drawY += 15;
 
                             @Pc(792) int offheap = Toolkit.active.E() / 1024;
@@ -1954,45 +1954,45 @@ public final class InterfaceManager {
         }
 
         if (op == 1) {
-            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON1, ConnectionManager.GAME.cipher);
+            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON1, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 2) {
-            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON2, ConnectionManager.GAME.cipher);
+            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON2, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 3) {
-            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON3, ConnectionManager.GAME.cipher);
+            @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON3, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 4) {
-            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON4, ConnectionManager.GAME.cipher);
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON4, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 5) {
-            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON5, ConnectionManager.GAME.cipher);
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON5, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 6) {
-            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON6, ConnectionManager.GAME.cipher);
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON6, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 7) {
-            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON7, ConnectionManager.GAME.cipher);
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON7, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 8) {
-            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON8, ConnectionManager.GAME.cipher);
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON8, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 9) {
-            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON9, ConnectionManager.GAME.cipher);
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON9, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         } else if (op == 10) {
-            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON10, ConnectionManager.GAME.cipher);
+            @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON10, ServerConnection.GAME.cipher);
             ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
-            ConnectionManager.GAME.send(message);
+            ServerConnection.GAME.send(message);
         }
     }
 
@@ -2461,7 +2461,7 @@ public final class InterfaceManager {
             refreshTopLevelInterface(true);
         }
 
-        if (ConnectionManager.GAME.connection != null && MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
+        if (ServerConnection.GAME.connection != null && MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
             Protocol.sendWindowStatus();
         }
 
@@ -2674,8 +2674,8 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!ci", name = "a", descriptor = "(IZ)V")
     public static void method1557() {
-        @Pc(13) ClientMessage local13 = ClientMessage.create(Static317.A_CLIENT_PROT___62, ConnectionManager.GAME.cipher);
-        ConnectionManager.GAME.send(local13);
+        @Pc(13) ClientMessage local13 = ClientMessage.create(Static317.A_CLIENT_PROT___62, ServerConnection.GAME.cipher);
+        ServerConnection.GAME.send(local13);
         for (@Pc(22) SubInterface local22 = (SubInterface) subInterfaces.first(); local22 != null; local22 = (SubInterface) subInterfaces.next()) {
             if (!local22.isLinked()) {
                 local22 = (SubInterface) subInterfaces.first();

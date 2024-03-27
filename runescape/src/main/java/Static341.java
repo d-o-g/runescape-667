@@ -50,10 +50,10 @@ public final class Static341 {
     @OriginalMember(owner = "client!ko", name = "a", descriptor = "(ZIIIII)V")
     public static void method5034(@OriginalArg(0) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(20) long local20 = (arg0 ? Integer.MIN_VALUE : 0) | arg4;
-        @Pc(26) ClientInventory local26 = (ClientInventory) Static286.A_HASH_TABLE___23.get(local20);
+        @Pc(26) ClientInventory local26 = (ClientInventory) ClientInventoryList.recentUse.get(local20);
         if (local26 == null) {
             local26 = new ClientInventory();
-            Static286.A_HASH_TABLE___23.put(local20, local26);
+            ClientInventoryList.recentUse.put(local20, local26);
         }
         if (arg2 >= local26.anIntArray278.length) {
             @Pc(47) int[] local47 = new int[arg2 + 1];

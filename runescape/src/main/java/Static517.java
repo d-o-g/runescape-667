@@ -80,7 +80,7 @@ public final class Static517 {
         }
         @Pc(225) int local225;
         if (Static546.anInt8244 > 0) {
-            Static590.method7745(Static48.aEntityArray3, 0, Static546.anInt8244 - 1);
+            Static590.quicksort(Static48.aEntityArray3, 0, Static546.anInt8244 - 1);
             for (local225 = 0; local225 < Static546.anInt8244; local225++) {
                 Static632.method8368(Static48.aEntityArray3[local225], arg6);
             }

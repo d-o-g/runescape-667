@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ServerProt;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -25,7 +26,7 @@ public final class Node_Sub1_Sub18 extends TextureOp {
             super.monochrome = arg1.g1() == 1;
         }
         if (arg0) {
-            Static389.aServerProt_157 = null;
+            ServerProt.aServerProt_157 = null;
         }
     }
 

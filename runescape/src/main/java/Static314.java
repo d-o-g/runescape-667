@@ -1,5 +1,4 @@
 import com.jagex.Client;
-import com.jagex.ServerProt;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -10,11 +9,8 @@ import java.io.IOException;
 
 public final class Static314 {
 
-    @OriginalMember(owner = "client!jw", name = "D", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___132 = new ServerProt(27, 0);
-
     @OriginalMember(owner = "client!jw", name = "b", descriptor = "(B)V")
-    public static void method4562() {
+    public static void tbrefresh() {
         if (Client.modeWhere != ModeWhere.LOCAL) {
             try {
                 JavaScript.call("tbrefresh", client.aClient1);

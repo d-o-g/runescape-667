@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.Static148;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
@@ -11,12 +10,6 @@ public final class Static84 {
     // $FF: synthetic field
     @OriginalMember(owner = "client!client", name = "Eb", descriptor = "Ljava/lang/Class;")
     public static Class aClass5;
-
-    @OriginalMember(owner = "client!client", name = "vb", descriptor = "Lclient!pc;")
-    public static final ZoneProt A_ZONE_PROT___6 = new ZoneProt(11, 8);
-
-    @OriginalMember(owner = "client!client", name = "tb", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___36 = new ServerProt(28, 4);
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "()V")
     public static void method1652() {

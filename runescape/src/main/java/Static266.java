@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.SignLink;
 import com.jagex.core.constants.AreaMode;
 import com.jagex.core.io.FileOnDisk;
@@ -12,12 +11,6 @@ public final class Static266 {
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "[I")
     public static int[] anIntArray615;
-
-    @OriginalMember(owner = "client!ifa", name = "g", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___191 = new ServerProt(138, -1);
-
-    @OriginalMember(owner = "client!ifa", name = "i", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___192 = new ServerProt(109, 10);
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(I)V")
     public static void method6774() {

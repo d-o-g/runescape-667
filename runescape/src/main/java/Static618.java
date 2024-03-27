@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.vartype.VarcTypeList;
@@ -12,14 +11,8 @@ public final class Static618 {
     @OriginalMember(owner = "client!tja", name = "B", descriptor = "I")
     public static int anInt9449;
 
-    @OriginalMember(owner = "client!tja", name = "I", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___226 = new ServerProt(141, 2);
-
     @OriginalMember(owner = "client!tja", name = "G", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___68 = new Deque();
-
-    @OriginalMember(owner = "client!tja", name = "z", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___227 = new ServerProt(81, 12);
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(III)Z")
     public static boolean method8316(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {

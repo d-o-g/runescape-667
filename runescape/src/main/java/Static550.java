@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -8,9 +7,6 @@ public final class Static550 {
 
     @OriginalMember(owner = "client!rf", name = "n", descriptor = "I")
     public static int anInt8271;
-
-    @OriginalMember(owner = "client!rf", name = "t", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___200 = new ServerProt(116, -1);
 
     @OriginalMember(owner = "client!rf", name = "a", descriptor = "(BLclient!ca;II)V")
     public static void method7260(@OriginalArg(1) PlayerEntity arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {

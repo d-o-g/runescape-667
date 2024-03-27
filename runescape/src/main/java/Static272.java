@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -15,9 +14,6 @@ public final class Static272 {
 
     @OriginalMember(owner = "client!ija", name = "k", descriptor = "I")
     public static int anInt4374;
-
-    @OriginalMember(owner = "client!ija", name = "i", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___112 = new ServerProt(143, -2);
 
     @OriginalMember(owner = "client!ija", name = "a", descriptor = "(BF)F")
     public static float method3936(@OriginalArg(1) float arg0) {

@@ -1,18 +1,14 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static590 {
 
-    @OriginalMember(owner = "client!ska", name = "P", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___217 = new ServerProt(25, 0);
-
     @OriginalMember(owner = "client!ska", name = "H", descriptor = "[I")
     public static int[] anIntArray695 = new int[6];
 
     @OriginalMember(owner = "client!ska", name = "a", descriptor = "([Lclient!eo;II)V")
-    public static void method7745(@OriginalArg(0) Entity[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public static void quicksort(@OriginalArg(0) Entity[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         if (arg1 >= arg2) {
             return;
         }
@@ -31,8 +27,8 @@ public final class Static590 {
         }
         arg0[arg2] = arg0[local10];
         arg0[local10] = local14;
-        method7745(arg0, arg1, local10 - 1);
-        method7745(arg0, local10 + 1, arg2);
+        quicksort(arg0, arg1, local10 - 1);
+        quicksort(arg0, local10 + 1, arg2);
     }
 
     @OriginalMember(owner = "client!ska", name = "c", descriptor = "(III)Z")

@@ -99,7 +99,7 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
         while (arg0 != this.aDeque_36.sentinel && ((Node_Sub3) arg0).anInt101 <= arg1.anInt101) {
             arg0 = arg0.next;
         }
-        Static201.addBefore(arg0, arg1);
+        Node.addBefore(arg0, arg1);
         this.anInt6604 = ((Node_Sub3) this.aDeque_36.sentinel.next).anInt101;
     }
 

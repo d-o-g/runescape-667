@@ -1,3 +1,4 @@
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -37,7 +38,7 @@ public final class Static2 {
                 otherTotalCost *= other.count + 1;
             }
             if (totalCost > otherTotalCost) {
-                Static201.addBefore(other, entry);
+                Node.addBefore(other, entry);
                 return;
             }
         }

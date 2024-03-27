@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
@@ -13,9 +12,6 @@ public final class Static390 {
 
     @OriginalMember(owner = "client!mda", name = "x", descriptor = "[I")
     public static final int[] anIntArray476 = new int[]{1, 4, 1, 2, 1};
-
-    @OriginalMember(owner = "client!mda", name = "z", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___158 = new ServerProt(53, -1);
 
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ZI)Lclient!rt;")
     public static Class327 method5493(@OriginalArg(1) int arg0) {

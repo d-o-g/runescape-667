@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.LibraryList;
+import com.jagex.ServerProt;
 import com.jagex.SignedResourceStatus;
 import com.jagex.core.constants.LoginResponseCode;
 import com.jagex.core.constants.LoginStep;
@@ -733,7 +734,7 @@ public final class LoginManager {
                         ServerConnection.active.connection.read(bitPacket.data, 1, 3);
                     }
 
-                    ServerConnection.active.currentProt = client.values()[bitPacket.readOpcode()];
+                    ServerConnection.active.currentProt = ServerProt.values()[bitPacket.readOpcode()];
                     ServerConnection.active.currentPacketSize = bitPacket.g2();
                     step = LoginStep.WAIT_FOR_PLAYER_PACKET;
                 }
@@ -753,7 +754,7 @@ public final class LoginManager {
                     PlayerList.getSnapShotPlayer(ServerConnection.active.bitPacket);
                     Static62.areaCenterX = -1;
 
-                    if (ServerConnection.active.currentProt == Static291.A_SERVER_PROT___123) {
+                    if (ServerConnection.active.currentProt == ServerProt.A_SERVER_PROT___123) {
                         Static466.rebuildRegion();
                     } else {
                         Static434.rebuildNormal();

@@ -1,5 +1,4 @@
 import com.jagex.DisplayProperties;
-import com.jagex.ServerProt;
 import com.jagex.SignLink;
 import com.jagex.core.constants.MaxScreenSize;
 import com.jagex.core.util.Arrays;
@@ -18,14 +17,8 @@ public final class Static587 {
     @OriginalMember(owner = "client!sia", name = "n", descriptor = "Z")
     public static boolean aBoolean663 = false;
 
-    @OriginalMember(owner = "client!sia", name = "w", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___216 = new ServerProt(82, 6);
-
     @OriginalMember(owner = "client!sia", name = "b", descriptor = "[I")
     public static final int[] anIntArray689 = new int[]{16776960, 16711680, 65280, 65535, 16711935, 16777215};
-
-    @OriginalMember(owner = "client!sia", name = "a", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___105 = new ClientProt(87, 6);
 
     @OriginalMember(owner = "client!sia", name = "b", descriptor = "(I)V")
     public static void method7704() {

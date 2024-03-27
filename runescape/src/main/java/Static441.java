@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.core.constants.TileFlag;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -9,9 +8,6 @@ public final class Static441 {
 
     @OriginalMember(owner = "client!nu", name = "g", descriptor = "I")
     public static int anInt6691;
-
-    @OriginalMember(owner = "client!nu", name = "c", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___168 = new ServerProt(20, -1);
 
     @OriginalMember(owner = "client!nu", name = "a", descriptor = "(ILclient!cg;)V")
     public static void exactMoveTick1(@OriginalArg(1) PathingEntity entity) {

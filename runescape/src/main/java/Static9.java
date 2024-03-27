@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -14,9 +13,6 @@ public final class Static9 {
 
     @OriginalMember(owner = "client!af", name = "d", descriptor = "[I")
     public static int[] anIntArray18 = new int[2];
-
-    @OriginalMember(owner = "client!af", name = "n", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___3 = new ServerProt(98, 6);
 
     @OriginalMember(owner = "client!af", name = "b", descriptor = "[I")
     public static final int[] anIntArray19 = new int[3];

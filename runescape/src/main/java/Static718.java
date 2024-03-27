@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.Toolkit;
@@ -10,9 +9,6 @@ public final class Static718 {
 
     @OriginalMember(owner = "client!wo", name = "x", descriptor = "Z")
     public static boolean aBoolean823;
-
-    @OriginalMember(owner = "client!wo", name = "E", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___258 = new ServerProt(133, -1);
 
     @OriginalMember(owner = "client!wo", name = "r", descriptor = "Z")
     public static boolean aBoolean822 = false;

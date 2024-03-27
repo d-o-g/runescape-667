@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.SignedResourceStatus;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -11,9 +10,6 @@ public final class Static232 {
 
     @OriginalMember(owner = "client!hda", name = "id", descriptor = "I")
     public static int anInt3829;
-
-    @OriginalMember(owner = "client!hda", name = "i", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___103 = new ServerProt(38, 0);
 
     @OriginalMember(owner = "client!hda", name = "sd", descriptor = "I")
     public static int anInt3764 = 0;

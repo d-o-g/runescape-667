@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static671 {
@@ -9,9 +8,4 @@ public final class Static671 {
     @OriginalMember(owner = "client!ve", name = "e", descriptor = "I")
     public static int anInt10026 = 0;
 
-    @OriginalMember(owner = "client!ve", name = "c", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___117 = new ClientProt(26, 16);
-
-    @OriginalMember(owner = "client!ve", name = "r", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___246 = new ServerProt(13, 1);
 }

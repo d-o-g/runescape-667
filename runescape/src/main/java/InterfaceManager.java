@@ -1860,7 +1860,7 @@ public final class InterfaceManager {
                             Static521.A_DEQUE___44.addLast(hook);
                         }
 
-                        if (Static526.lastStockTransmit > component.lastScriptTransmit && component.onStockTransmit != null) {
+                        if (StockmarketManager.lastStockTransmit > component.lastScriptTransmit && component.onStockTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onStockTransmit;

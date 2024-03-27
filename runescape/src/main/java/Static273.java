@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -8,9 +7,6 @@ public final class Static273 {
 
     @OriginalMember(owner = "client!ik", name = "M", descriptor = "I")
     public static int anInt4395 = 100;
-
-    @OriginalMember(owner = "client!ik", name = "u", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___113 = new ServerProt(1, -1);
 
     @OriginalMember(owner = "client!ik", name = "I", descriptor = "Z")
     public static boolean aBoolean339 = true;

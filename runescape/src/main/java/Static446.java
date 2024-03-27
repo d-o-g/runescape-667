@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,9 +6,6 @@ public final class Static446 {
 
     @OriginalMember(owner = "client!oaa", name = "p", descriptor = "[[[I")
     public static int[][][] anIntArrayArrayArray9;
-
-    @OriginalMember(owner = "client!oaa", name = "n", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___170 = new ServerProt(87, -2);
 
     @OriginalMember(owner = "client!oaa", name = "g", descriptor = "[Ljava/lang/String;")
     public static final String[] aStringArray35 = new String[100];

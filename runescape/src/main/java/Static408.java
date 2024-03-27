@@ -1,12 +1,8 @@
-import com.jagex.ServerProt;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static408 {
-
-    @OriginalMember(owner = "client!ms", name = "d", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___162 = new ServerProt(102, -1);
 
     @OriginalMember(owner = "client!ms", name = "a", descriptor = "(I)V")
     public static void method5632() {

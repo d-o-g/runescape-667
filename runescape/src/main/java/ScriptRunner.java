@@ -1490,7 +1490,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3106) {
                                         local4911 = aStringArray37[--anInt7139];
-                                        local5005 = ClientMessage.create(Static137.A_CLIENT_PROT___28, ServerConnection.GAME.cipher);
+                                        local5005 = ClientMessage.create(ClientProt.A_CLIENT_PROT___28, ServerConnection.GAME.cipher);
                                         local5005.bitPacket.p1(local4911.length() + 1);
                                         local5005.bitPacket.pjstr(local4911);
                                         ServerConnection.GAME.send(local5005);
@@ -4449,7 +4449,7 @@ public final class ScriptRunner {
                         local101 = aStringArray37[anInt7139 + 1];
                         local109 = anIntArray578[--anInt7142];
                         @Pc(3411) ServerConnection local3411 = ConnectionManager.active();
-                        @Pc(3417) ClientMessage local3417 = ClientMessage.create(Static563.A_CLIENT_PROT___102, local3411.cipher);
+                        @Pc(3417) ClientMessage local3417 = ClientMessage.create(ClientProt.A_CLIENT_PROT___102, local3411.cipher);
                         local3417.bitPacket.p1(Static231.method3379(local95) + Static231.method3379(local101) + 1);
                         local3417.bitPacket.pjstr(local95);
                         local3417.bitPacket.pjstr(local101);

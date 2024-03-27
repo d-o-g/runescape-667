@@ -1,12 +1,8 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static411 {
-
-    @OriginalMember(owner = "client!mv", name = "h", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___164 = new ServerProt(135, 0);
 
     @OriginalMember(owner = "client!mv", name = "a", descriptor = "(IIII)V")
     public static void method5666(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {

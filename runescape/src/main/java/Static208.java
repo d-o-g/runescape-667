@@ -1,5 +1,4 @@
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.ServerProt;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -10,9 +9,6 @@ import rs2.client.event.mouse.MouseMonitor;
 import java.awt.Color;
 
 public final class Static208 {
-
-    @OriginalMember(owner = "client!gha", name = "w", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___83 = new ServerProt(113, 3);
 
     @OriginalMember(owner = "client!gha", name = "b", descriptor = "(IIIII)V")
     public static void method3105(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {

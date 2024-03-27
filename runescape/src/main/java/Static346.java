@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -15,8 +14,5 @@ public final class Static346 {
 
     @OriginalMember(owner = "client!kt", name = "R", descriptor = "[I")
     public static int[] anIntArray420 = new int[4];
-
-    @OriginalMember(owner = "client!kt", name = "S", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___145 = new ServerProt(124, 1);
 
 }

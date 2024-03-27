@@ -1,13 +1,6 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static557 {
-
-    @OriginalMember(owner = "client!rja", name = "G", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___205 = new ServerProt(61, 20);
-
-    @OriginalMember(owner = "client!rja", name = "C", descriptor = "Lclient!hc;")
-    public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___37 = new CutsceneActionType(0);
 
     @OriginalMember(owner = "client!rja", name = "e", descriptor = "(B)V")
     public static void method7331() {

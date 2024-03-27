@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -9,9 +8,6 @@ public final class Static416 {
 
     @OriginalMember(owner = "client!nca", name = "n", descriptor = "J")
     public static long subscriptionExpiration;
-
-    @OriginalMember(owner = "client!nca", name = "s", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___165 = new ServerProt(58, 6);
 
     @OriginalMember(owner = "client!nca", name = "o", descriptor = "Z")
     public static boolean aBoolean472 = false;

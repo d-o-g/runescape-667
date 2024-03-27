@@ -84,7 +84,7 @@ public final class MainLogicManager {
             js5.CONFIG_SPOT.discardunpacked = 1;
         }
         if (arg0 == 12 || arg0 == 3) {
-            Static314.method4562();
+            Static314.tbrefresh();
         }
         @Pc(213) boolean local213 = arg0 == 2 || Static41.method1027(arg0) || isAtLobbyScreen(arg0);
         @Pc(235) boolean local235 = step == 2 || Static41.method1027(step) || isAtLobbyScreen(step);

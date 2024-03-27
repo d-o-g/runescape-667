@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -11,14 +10,8 @@ public final class Static331 {
     @OriginalMember(owner = "client!ki", name = "h", descriptor = "Lclient!sb;")
     public static js5 aJs5_65;
 
-    @OriginalMember(owner = "client!ki", name = "e", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___138 = new ServerProt(36, 4);
-
     @OriginalMember(owner = "client!ki", name = "i", descriptor = "I")
     public static int walkCursor = -1;
-
-    @OriginalMember(owner = "client!ki", name = "g", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___139 = new ServerProt(118, -2);
 
     @OriginalMember(owner = "client!ki", name = "a", descriptor = "I")
     public static int anInt5441 = -50;

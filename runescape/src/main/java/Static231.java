@@ -1,5 +1,4 @@
 import com.jagex.Client;
-import com.jagex.ServerProt;
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Toolkit;
@@ -39,9 +38,6 @@ public final class Static231 {
 
     @OriginalMember(owner = "client!hd", name = "e", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___41 = new ClientProt(34, 4);
-
-    @OriginalMember(owner = "client!hd", name = "m", descriptor = "Lclient!lga;")
-    public static final ServerProt CAMERA_SHAKE = new ServerProt(34, 6);
 
     @OriginalMember(owner = "client!hd", name = "b", descriptor = "(I)V")
     public static void method3375() {

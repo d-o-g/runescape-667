@@ -9,7 +9,7 @@ public final class Static710 {
 
     @OriginalMember(owner = "client!wha", name = "a", descriptor = "(ILclient!hda;Lclient!hda;)V")
     public static void method6710(@OriginalArg(1) Component arg0, @OriginalArg(2) Component arg1) {
-        @Pc(15) ClientMessage local15 = ClientMessage.create(Static671.A_CLIENT_PROT___117, ServerConnection.GAME.cipher);
+        @Pc(15) ClientMessage local15 = ClientMessage.create(ClientProt.A_CLIENT_PROT___117, ServerConnection.GAME.cipher);
         local15.bitPacket.p2(arg1.invObject);
         local15.bitPacket.p2_alt1(arg0.id);
         local15.bitPacket.p2_alt2(arg0.invObject);

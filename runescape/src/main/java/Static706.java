@@ -1,5 +1,4 @@
 import com.jagex.Client;
-import com.jagex.ServerProt;
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -16,9 +15,6 @@ public final class Static706 {
 
     @OriginalMember(owner = "client!wfa", name = "U", descriptor = "[Lclient!s;")
     public static Ground[] floor;
-
-    @OriginalMember(owner = "client!wfa", name = "Q", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___255 = new ServerProt(105, -1);
 
     @OriginalMember(owner = "client!wfa", name = "a", descriptor = "(IILclient!gp;III)V")
     public static void method9220(@OriginalArg(0) int arg0, @OriginalArg(2) LocTypeCustomisation arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {

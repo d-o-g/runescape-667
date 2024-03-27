@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.Static14;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -17,9 +16,6 @@ public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "p", descriptor = "[Lclient!gaa;")
     public static Interface9[] anInterface9Array1;
-
-    @OriginalMember(owner = "client!uja", name = "h", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___235 = new ServerProt(43, -2);
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
     public static void basTick(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) PathingEntity arg3) {

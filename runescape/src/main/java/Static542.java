@@ -1,13 +1,9 @@
-import com.jagex.ServerProt;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static542 {
-
-    @OriginalMember(owner = "client!rb", name = "c", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___199 = new ServerProt(104, 8);
 
     @OriginalMember(owner = "client!rb", name = "a", descriptor = "([Ljava/lang/Object;B[JII)V")
     public static void method7200(@OriginalArg(0) Object[] arg0, @OriginalArg(2) long[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {

@@ -1,14 +1,7 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static370 {
-
-    @OriginalMember(owner = "client!lm", name = "l", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___152 = new ServerProt(4, 0);
-
-    @OriginalMember(owner = "client!lm", name = "j", descriptor = "Lclient!pc;")
-    public static final ZoneProt A_ZONE_PROT___11 = new ZoneProt(9, -1);
 
     @OriginalMember(owner = "client!lm", name = "d", descriptor = "(I)V")
     public static void method5280() {

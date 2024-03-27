@@ -19,7 +19,7 @@ public abstract class CutsceneAction {
             action = new CutsceneAction_Sub3(packet);
         } else if (Static204.A_CUTSCENE_ACTION_TYPE___14 == type) {
             action = new CutsceneAction_Sub7(packet);
-        } else if (type == Static586.A_CUTSCENE_ACTION_TYPE___40) {
+        } else if (type == CutsceneActionType.A_CUTSCENE_ACTION_TYPE___40) {
             action = new CutsceneAction_Sub13(packet);
         } else if (Static432.A_CUTSCENE_ACTION_TYPE___3 == type) {
             action = new CutsceneAction_Sub14(packet);
@@ -35,7 +35,7 @@ public abstract class CutsceneAction {
             action = new CutsceneAction_Sub5(packet);
         } else if (Static289.A_CUTSCENE_ACTION_TYPE___19 == type) {
             action = new CameraSpline(packet);
-        } else if (type == Static557.A_CUTSCENE_ACTION_TYPE___37) {
+        } else if (type == CutsceneActionType.A_CUTSCENE_ACTION_TYPE___37) {
             action = new CutsceneAction_Sub11(packet);
         } else if (Static512.A_CUTSCENE_ACTION_TYPE___34 == type) {
             action = new CutsceneAction_Sub4(packet);
@@ -49,7 +49,7 @@ public abstract class CutsceneAction {
             action = new CutsceneAction_Sub17(packet);
         } else if (type == Static517.A_CUTSCENE_ACTION_TYPE___36) {
             action = new CutsceneAction_Sub10(packet);
-        } else if (Static233.A_CUTSCENE_ACTION_TYPE___17 == type) {
+        } else if (CutsceneActionType.A_CUTSCENE_ACTION_TYPE___17 == type) {
             action = new CutsceneAction_Sub12(packet);
         } else if (Static418.A_CUTSCENE_ACTION_TYPE___41 == type) {
             action = new CutsceneAction_Sub1_Sub2(packet);

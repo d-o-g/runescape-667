@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,9 +6,6 @@ public final class Static334 {
 
     @OriginalMember(owner = "client!kja", name = "e", descriptor = "[[[Lclient!pha;")
     public static Tile[][][] activeTiles;
-
-    @OriginalMember(owner = "client!kja", name = "c", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___140 = new ServerProt(71, 2);
 
     @OriginalMember(owner = "client!kja", name = "a", descriptor = "I")
     public static int anInt5456 = 0;

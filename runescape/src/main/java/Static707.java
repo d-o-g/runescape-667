@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,9 +6,6 @@ public final class Static707 {
 
     @OriginalMember(owner = "client!wg", name = "c", descriptor = "I")
     public static int anInt10641;
-
-    @OriginalMember(owner = "client!wg", name = "b", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___256 = new ServerProt(107, 4);
 
     @OriginalMember(owner = "client!wg", name = "a", descriptor = "(I[ILclient!qha;[III)Lclient!wl;")
     public static ClippingMask_Sub3 method9228(@OriginalArg(1) int[] arg0, @OriginalArg(2) GlToolkit arg1, @OriginalArg(3) int[] arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {

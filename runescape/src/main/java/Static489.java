@@ -323,7 +323,7 @@ public final class Static489 {
         } else {
             MainLogicManager.setStep(11);
             if (ServerConnection.GAME.connection != null) {
-                local920 = ClientMessage.create(Static161.A_CLIENT_PROT___29, ServerConnection.GAME.cipher);
+                local920 = ClientMessage.create(ClientProt.A_CLIENT_PROT___29, ServerConnection.GAME.cipher);
                 ServerConnection.GAME.send(local920);
             }
         }

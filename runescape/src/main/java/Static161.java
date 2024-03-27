@@ -1,4 +1,3 @@
-import com.jagex.ServerProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -7,12 +6,6 @@ public final class Static161 {
 
     @OriginalMember(owner = "client!fa", name = "b", descriptor = "[[[J")
     public static long[][][] tileLightFlags;
-
-    @OriginalMember(owner = "client!fa", name = "n", descriptor = "Lclient!lga;")
-    public static final ServerProt A_SERVER_PROT___62 = new ServerProt(22, 10);
-
-    @OriginalMember(owner = "client!fa", name = "q", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___29 = new ClientProt(33, 0);
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IIIIII)V")
     public static void method2586(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {

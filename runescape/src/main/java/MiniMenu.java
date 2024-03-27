@@ -41,15 +41,21 @@ import rs2.client.event.mouse.MouseMonitor;
 
 public final class MiniMenu {
 
+    private static final int QUEST_ICON_COUNT = 10;
+
+    private static final int QUEST_ICON_HEIGHT = 12;
+
+    private static final int SPRITE_TOP_HEIGHT = 33;
+
+    private static final int TOP_HEIGHT = 31;
+
+    private static final int ENTRY_HEIGHT = 16;
+
     @OriginalMember(owner = "client!gfa", name = "u", descriptor = "Lclient!sia;")
     public static final Deque otherInnerEntries = new Deque();
 
     @OriginalMember(owner = "client!hha", name = "b", descriptor = "Lclient!sia;")
     public static final Deque targetInnerEntries = new Deque();
-
-    private static final int QUEST_ICON_COUNT = 10;
-
-    private static final int QUEST_ICON_HEIGHT = 12;
 
     @OriginalMember(owner = "client!vu", name = "f", descriptor = "Lclient!sia;")
     public static final Deque innerEntryQueue = new Deque();
@@ -1639,10 +1645,10 @@ public final class MiniMenu {
             @Pc(70) int count = 0;
 
             for (@Pc(77) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
-                @Pc(89) int entryY = menuY + (count * 16) + 13 + 20;
+                @Pc(89) int entryY = menuY + (count * ENTRY_HEIGHT) + 13 + 20;
 
                 if (mouseX > offsetX + x && mouseX < offsetX + x + width && mouseY > entryY - 13 && mouseY < entryY + 4 && (entry.size > 1 || ((MiniMenuEntryInner) entry.innerEntries.sentinel.next2).aBoolean552)) {
-                    toolkit.aa(offsetX + x, entryY - 12, width, 16, ((255 - spriteBodyOpacity) << 24) | spriteBodyColour, 1);
+                    toolkit.aa(offsetX + x, entryY - 12, width, ENTRY_HEIGHT, ((255 - spriteBodyOpacity) << 24) | spriteBodyColour, 1);
                 }
 
                 count++;
@@ -1653,10 +1659,12 @@ public final class MiniMenu {
 
                 count = 0;
                 for (@Pc(190) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
-                    @Pc(202) int local202 = openedEntryY + count * 16 + 13 + 20;
-                    if (openedEntryX < mouseX && openedEntryX + openedEntryWidth > mouseX && mouseY > local202 - 13 && mouseY < local202 + 4 && inner.aBoolean552) {
-                        toolkit.aa(openedEntryX, local202 - 12, openedEntryWidth, 16, 255 - spriteBodyOpacity << 24 | spriteBodyColour, 1);
+                    @Pc(202) int innerY = openedEntryY + (count * ENTRY_HEIGHT) + 13 + 20;
+
+                    if (openedEntryX < mouseX && openedEntryX + openedEntryWidth > mouseX && mouseY > innerY - 13 && mouseY < innerY + 4 && inner.aBoolean552) {
+                        toolkit.aa(openedEntryX, innerY - 12, openedEntryWidth, ENTRY_HEIGHT, 255 - spriteBodyOpacity << 24 | spriteBodyColour, 1);
                     }
+
                     count++;
                 }
 
@@ -1666,10 +1674,11 @@ public final class MiniMenu {
             @Pc(70) int count = 0;
 
             for (@Pc(281) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
-                @Pc(202) int innerY = (innerEntryCount - count - 1) * 16 + menuY + 33;
+                @Pc(202) int innerY = ((innerEntryCount - count - 1) * ENTRY_HEIGHT) + menuY + SPRITE_TOP_HEIGHT;
                 count++;
+
                 if (offsetX + x < mouseX && offsetX + x + width > mouseX && mouseY > innerY - 13 && innerY + 4 > mouseY && inner.aBoolean552) {
-                    toolkit.aa(offsetX + x, innerY - 12, width, 16, spriteBodyColour | 255 - spriteBodyOpacity << 24, 1);
+                    toolkit.aa(offsetX + x, innerY - 12, width, ENTRY_HEIGHT, spriteBodyColour | 255 - spriteBodyOpacity << 24, 1);
                 }
             }
         }
@@ -1680,7 +1689,7 @@ public final class MiniMenu {
             @Pc(70) int count = 0;
 
             for (@Pc(77) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
-                @Pc(202) int entryY = count * 16 + offsetY + y + 33;
+                @Pc(202) int entryY = (count * ENTRY_HEIGHT) + offsetY + y + SPRITE_TOP_HEIGHT;
 
                 if (entry.size == 1) {
                     drawEntryInner(toolkit, (MiniMenuEntryInner) entry.innerEntries.sentinel.next2, x + offsetX, y + offsetY, width, height, mouseX, mouseY, textColour | 0xFF000000, spriteHighlightColour | 0xFF000000, entryY);
@@ -1695,7 +1704,7 @@ public final class MiniMenu {
                 count = 0;
 
                 for (@Pc(190) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
-                    @Pc(202) int innerY = openedEntryY + (count * 16) + 20 + 13;
+                    @Pc(202) int innerY = openedEntryY + (count * ENTRY_HEIGHT) + 20 + 13;
                     drawEntryInner(toolkit, inner, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight, mouseX, mouseY, textColour | 0xFF000000, spriteHighlightColour | 0xFF000000, innerY);
                     count++;
                 }
@@ -1706,7 +1715,7 @@ public final class MiniMenu {
             @Pc(70) int count = 0;
 
             for (@Pc(281) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
-                @Pc(89) int innerY = menuY + (innerEntryCount - count - 1) * 16 + 13 + 20;
+                @Pc(89) int innerY = menuY + (innerEntryCount - count - 1) * ENTRY_HEIGHT + 13 + 20;
                 count++;
                 drawEntryInner(toolkit, inner, menuX, menuY, menuWidth, menuHeight, mouseX, mouseY, textColour | 0xFF000000, spriteHighlightColour | 0xFF000000, innerY);
             }
@@ -1734,7 +1743,7 @@ public final class MiniMenu {
             @Pc(80) int count = 0;
 
             for (@Pc(137) MiniMenuEntry inner = (MiniMenuEntry) entryQueue.first(); inner != null; inner = (MiniMenuEntry) entryQueue.next()) {
-                @Pc(101) int innerY = offsetY + y + count * 16 + 31;
+                @Pc(101) int innerY = offsetY + y + (count * ENTRY_HEIGHT) + 31;
 
                 if (inner.size == 1) {
                     drawEntryInner(toolkit, (MiniMenuEntryInner) inner.innerEntries.sentinel.next2, offsetX + x, y + offsetY, width, height, mouseX, mouseY, -1, -256, innerY);
@@ -1752,7 +1761,7 @@ public final class MiniMenu {
                 Fonts.b12.render(openedEntryX + 3, openedEntryY + 14, openedEntry.title, -1, 0xFF5D5447);
 
                 for (@Pc(239) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
-                    @Pc(251) int innerY = count * 16 + openedEntryY + 31;
+                    @Pc(251) int innerY = (count * ENTRY_HEIGHT) + openedEntryY + 31;
                     count++;
                     drawEntryInner(toolkit, inner, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight, mouseX, mouseY, -1, -256, innerY);
                 }
@@ -1763,7 +1772,7 @@ public final class MiniMenu {
             @Pc(80) int count = 0;
 
             for (@Pc(85) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
-                @Pc(101) int innerY = ((innerEntryCount - count - 1) * 16) + offsetY + y + 31;
+                @Pc(101) int innerY = ((innerEntryCount - count - 1) * ENTRY_HEIGHT) + offsetY + y + 31;
                 count++;
                 drawEntryInner(toolkit, inner, offsetX + x, y + offsetY, width, height, mouseX, mouseY, -1, -256, innerY);
             }
@@ -1841,7 +1850,7 @@ public final class MiniMenu {
             @Pc(145) int sideTiles = (height - bottomLeftCornerSprite.getHeight() - 20) / leftBorderSprite.getHeight();
             for (@Pc(147) int i = 0; i < sideTiles; i++) {
                 leftBorderSprite.render(x, y + leftBorderSprite.getHeight() * i + 20);
-                rightBorderSprite.render(width + x - rightBorderSprite.getWidth(), y - -20 + leftBorderSprite.getHeight() * i);
+                rightBorderSprite.render(width + x - rightBorderSprite.getWidth(), y + 20 + leftBorderSprite.getHeight() * i);
             }
 
             bottomLeftCornerSprite.render(x, y + height - bottomLeftCornerSprite.getHeight());
@@ -1852,14 +1861,14 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!daa", name = "a", descriptor = "(IZIIILclient!ha;II)V")
     public static void drawFrame(@OriginalArg(5) Toolkit toolkit, @OriginalArg(2) int x, @OriginalArg(0) int y, @OriginalArg(7) int width, @OriginalArg(3) int height) {
         toolkit.fillRect(x, y, width, height, 0xFF5D5447);
-        toolkit.fillRect(x + 1, y + 1, width - 2, 16, 0xFF000000);
-        toolkit.outlineRect(x + 1, y + 16 + 2, width - 2, height - 16 + 3, 0xFF000000);
+        toolkit.fillRect(x + 1, y + 1, width - 2, ENTRY_HEIGHT, 0xFF000000);
+        toolkit.outlineRect(x + 1, y + ENTRY_HEIGHT + 2, width - 2, height - ENTRY_HEIGHT + 3, 0xFF000000);
     }
 
     @OriginalMember(owner = "client!kc", name = "a", descriptor = "(Z)V")
     public static void update() {
         if (!open) {
-            collapsed = ((collapseAtCount != -1) && (innerEntryCount >= collapseAtCount)) || (((innerEntryCount * 16) + (useSprites ? 26 : 22)) > GameShell.canvasHei);
+            collapsed = ((collapseAtCount != -1) && (innerEntryCount >= collapseAtCount)) || (((innerEntryCount * ENTRY_HEIGHT) + (useSprites ? 26 : 22)) > GameShell.canvasHei);
         }
 
         otherInnerEntries.clear();
@@ -1947,7 +1956,7 @@ public final class MiniMenu {
 
                     for (@Pc(430) int i = 0; i < entryCount; i++) {
                         if (useSprites) {
-                            @Pc(444) int entryY = i * 16 + y + 33;
+                            @Pc(444) int entryY = (i * ENTRY_HEIGHT) + y + SPRITE_TOP_HEIGHT;
 
                             if (mouseY > entryY - 13 && entryY + 4 > mouseY) {
                                 openEntryIndex = i;
@@ -1955,7 +1964,7 @@ public final class MiniMenu {
                                 break;
                             }
                         } else {
-                            @Pc(444) int entryY = i * 16 + y + 31;
+                            @Pc(444) int entryY = (i * ENTRY_HEIGHT) + y + TOP_HEIGHT;
 
                             if (entryY - 13 < mouseY && mouseY < entryY + 3) {
                                 openEntryY = entryY - 13;
@@ -1991,13 +2000,13 @@ public final class MiniMenu {
 
                 for (@Pc(426) int i = 0; i < openedEntry.size; i++) {
                     if (useSprites) {
-                        @Pc(428) int entryY = i * 16 + openedEntryY + 33;
+                        @Pc(428) int entryY = (i * ENTRY_HEIGHT) + openedEntryY + SPRITE_TOP_HEIGHT;
 
-                        if (mouseY > entryY - 13 && entryY + 4 > mouseY) {
+                        if (mouseY > entryY - 13 && mouseY < entryY + 4) {
                             openEntryIndex = i;
                         }
                     } else {
-                        @Pc(428) int openEntryY = i * 16 + openedEntryY + 31;
+                        @Pc(428) int openEntryY = (i * ENTRY_HEIGHT) + openedEntryY + TOP_HEIGHT;
 
                         if (mouseY > openEntryY - 13 && mouseY < openEntryY + 3) {
                             openEntryIndex = i;
@@ -2031,15 +2040,15 @@ public final class MiniMenu {
                 @Pc(661) int innerEntryIndex = -1;
                 for (@Pc(426) int i = 0; i < innerEntryCount; i++) {
                     if (useSprites) {
-                        @Pc(428) int innerEntryY = (innerEntryCount - i - 1) * 16 + y + 33;
+                        @Pc(428) int innerEntryY = y + SPRITE_TOP_HEIGHT + ((innerEntryCount - i - 1) * ENTRY_HEIGHT);
 
                         if (mouseY > innerEntryY - 13 && mouseY < innerEntryY + 4) {
                             innerEntryIndex = i;
                         }
                     } else {
-                        @Pc(428) int innerEntryY = y + (-i + innerEntryCount + -1) * 16 + 31;
+                        @Pc(428) int innerEntryY = y + TOP_HEIGHT + ((innerEntryCount - i - 1) * ENTRY_HEIGHT);
 
-                        if (mouseY > innerEntryY - 13 && innerEntryY + 3 > mouseY) {
+                        if (mouseY > innerEntryY - 13 && mouseY < innerEntryY + 3) {
                             innerEntryIndex = i;
                         }
                     }
@@ -2064,16 +2073,16 @@ public final class MiniMenu {
 
                 for (@Pc(426) int i = 0; i < entryCount; i++) {
                     if (useSprites) {
-                        @Pc(428) int entryY = i * 16 + y + 33;
+                        @Pc(428) int entryY = y + SPRITE_TOP_HEIGHT + (i * ENTRY_HEIGHT);
 
                         if (entryY - 13 < mouseY && mouseY < entryY + 4) {
                             entryIndex = i;
                             break;
                         }
                     } else {
-                        @Pc(428) int local428 = y + i * 16 + 31;
+                        @Pc(428) int entryY = y + TOP_HEIGHT + (i * ENTRY_HEIGHT);
 
-                        if (mouseY > local428 - 13 && mouseY < local428 + 3) {
+                        if (mouseY > entryY - 13 && mouseY < entryY + 3) {
                             entryIndex = i;
                             break;
                         }
@@ -2118,8 +2127,8 @@ public final class MiniMenu {
             }
 
             menuWidth += 8;
-            height = (useSprites ? 26 : 22) + entryCount * 16;
-            menuHeight = entryCount * 16 + 21;
+            height = (useSprites ? 26 : 22) + (entryCount * ENTRY_HEIGHT);
+            menuHeight = (entryCount * ENTRY_HEIGHT) + 21;
         } else {
             for (@Pc(74) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
                 @Pc(27) int local27 = getLineWidth(inner);
@@ -2129,8 +2138,8 @@ public final class MiniMenu {
             }
 
             menuWidth += 8;
-            height = (useSprites ? 26 : 22) + innerEntryCount * 16;
-            menuHeight = innerEntryCount * 16 + 21;
+            height = (useSprites ? 26 : 22) + (innerEntryCount * ENTRY_HEIGHT);
+            menuHeight = (innerEntryCount * ENTRY_HEIGHT) + 21;
         }
 
         @Pc(118) int menuX = x - menuWidth / 2;
@@ -2170,14 +2179,15 @@ public final class MiniMenu {
         @Pc(11) int entryWidth = 0;
         for (@Pc(17) MiniMenuEntryInner inner = (MiniMenuEntryInner) entry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) entry.innerEntries.next()) {
             @Pc(23) int lineWidth = getLineWidth(inner);
+
             if (lineWidth > entryWidth) {
                 entryWidth = lineWidth;
             }
         }
         entryWidth += 8;
 
-        @Pc(23) int entryHeight = entry.size * 16 + 21;
-        openedEntryHeight = (useSprites ? 26 : 22) + entry.size * 16;
+        @Pc(23) int entryHeight = (entry.size * ENTRY_HEIGHT) + 21;
+        openedEntryHeight = (useSprites ? 26 : 22) + (entry.size * ENTRY_HEIGHT);
 
         @Pc(71) int entryX = entryWidth + x;
         if (entryX + entryWidth > GameShell.canvasWid) {
@@ -2187,8 +2197,8 @@ public final class MiniMenu {
             entryX = 0;
         }
 
-        @Pc(91) int topHeight = useSprites ? 33 : 31;
-        @Pc(98) int entryY = y + 13 - topHeight;
+        @Pc(91) int topHeight = useSprites ? SPRITE_TOP_HEIGHT : TOP_HEIGHT;
+        @Pc(98) int entryY = (y + 13) - topHeight;
         if (GameShell.canvasHei < entryHeight + entryY) {
             entryY = GameShell.canvasHei - entryHeight;
         }

@@ -44,7 +44,7 @@ public final class ServerConnection {
     public ServerProt antepenultimateProt;
 
     @OriginalMember(owner = "client!gw", name = "o", descriptor = "Lclient!lga;")
-    public ServerProt aServerProt_92;
+    public ServerProt lastProt;
 
     @OriginalMember(owner = "client!gw", name = "B", descriptor = "I")
     public int read;
@@ -86,7 +86,7 @@ public final class ServerConnection {
     public boolean needsOpcode = true;
 
     @OriginalMember(owner = "client!gw", name = "n", descriptor = "I")
-    public int anInt3646 = 0;
+    public int idleReadTicks = 0;
 
     @OriginalMember(owner = "client!gw", name = "b", descriptor = "(I)V")
     public void recordStats() {

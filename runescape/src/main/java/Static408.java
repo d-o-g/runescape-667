@@ -8,11 +8,11 @@ public final class Static408 {
     public static void method5632() {
         client.aClient1.load_jagmisc();
         ServerConnection.active.clear();
-        ServerConnection.active.anInt3646 = 0;
+        ServerConnection.active.idleReadTicks = 0;
         Static249.rebootTimer = 0;
         ServerConnection.active.antepenultimateProt = null;
         ServerConnection.active.penultimateProt = null;
-        ServerConnection.active.aServerProt_92 = null;
+        ServerConnection.active.lastProt = null;
         ServerConnection.active.bitPacket.pos = 0;
         Static102.method2022();
         Static251.anInt4036 = 0;

@@ -426,8 +426,8 @@ public final class client extends GameShell {
         Static159.method2575();
         Static271.method3930();
         SoundManager.method918();
-        ServerConnection.GAME.anInt3646++;
-        if (ServerConnection.GAME.anInt3646 > 750) {
+        ServerConnection.GAME.idleReadTicks++;
+        if (ServerConnection.GAME.idleReadTicks > 750) {
             ConnectionManager.disconnect();
             return;
         }

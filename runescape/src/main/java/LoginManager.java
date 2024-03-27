@@ -1046,12 +1046,12 @@ public final class LoginManager {
         ServerConnection.active.clear();
         ServerConnection.active.currentProt = null;
         ServerConnection.active.bitPacket.pos = 0;
-        ServerConnection.active.anInt3646 = 0;
+        ServerConnection.active.idleReadTicks = 0;
         ServerConnection.active.antepenultimateProt = null;
         ServerConnection.active.penultimateProt = null;
         ServerConnection.active.currentPacketSize = 0;
         Static249.rebootTimer = 0;
-        ServerConnection.active.aServerProt_92 = null;
+        ServerConnection.active.lastProt = null;
         MiniMenu.resetAndClose();
         Minimap.resetFlag();
 

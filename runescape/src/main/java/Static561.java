@@ -1,12 +1,8 @@
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static561 {
-
-    @OriginalMember(owner = "client!rla", name = "f", descriptor = "Lclient!st;")
-    public static Sprite aSprite_34;
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!rla", name = "o", descriptor = "Ljava/lang/Class;")

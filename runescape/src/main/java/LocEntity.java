@@ -306,7 +306,7 @@ public final class LocEntity {
     @Override
     public void finalize() {
         if (this.particleSystem != null) {
-            this.particleSystem.run();
+            this.particleSystem.stopped();
         }
     }
 

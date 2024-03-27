@@ -171,6 +171,9 @@ public final class Client {
     @OriginalMember(owner = "client!jea", name = "t", descriptor = "J")
     public static long playerDisplayNameEncoded;
 
+    @OriginalMember(owner = "client!td", name = "n", descriptor = "I")
+    public static int staffModLevel = 0;
+
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(BLjava/lang/String;)V")
     public static void error(@OriginalArg(1) String arg0) {
         System.exit(1);

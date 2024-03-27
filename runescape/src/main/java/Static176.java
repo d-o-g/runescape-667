@@ -8,9 +8,6 @@ import java.io.IOException;
 
 public final class Static176 {
 
-    @OriginalMember(owner = "client!fi", name = "h", descriptor = "I")
-    public static int anInt7532;
-
     @OriginalMember(owner = "client!fi", name = "a", descriptor = "()V")
     public static void method6688() {
         Static374.method5303(Static299.tileMaxLevel);

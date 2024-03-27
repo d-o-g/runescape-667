@@ -671,7 +671,7 @@ public final class client extends GameShell {
                                             if (InterfaceManager.dragSource != null) {
                                                 Static603.method7899();
                                             }
-                                            if (Static608.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(82) && KeyboardMonitor.instance.isPressed(81) && Static611.mouseWheelRotation != 0) {
+                                            if (Client.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(82) && KeyboardMonitor.instance.isPressed(81) && Static611.mouseWheelRotation != 0) {
                                                 local541 = PlayerEntity.self.level - Static611.mouseWheelRotation;
                                                 if (local541 < 0) {
                                                     local541 = 0;
@@ -680,7 +680,7 @@ public final class client extends GameShell {
                                                 }
                                                 Static624.teleport(local541, PlayerEntity.self.pathZ[0] + WorldMap.areaBaseZ, WorldMap.areaBaseX - -PlayerEntity.self.pathX[0]);
                                             }
-                                            Static320.method4598();
+                                            MiniMenu.update();
                                             for (local541 = 0; local541 < 5; local541++) {
                                                 @Pc(2246) int local2246 = Shake.time[local541]++;
                                             }
@@ -1066,7 +1066,7 @@ public final class client extends GameShell {
                                                 Static314.method4562();
                                             }
                                             if (MainLogicManager.step == 7 && !Static242.method3500() || MainLogicManager.step == 9 && Static169.anInt2855 == 42) {
-                                                Static320.method4598();
+                                                MiniMenu.update();
                                             }
                                             Static587.method7704();
                                             if (Static624.varcSaveRecommended && SystemTimer.safetime() - 60000L > Static98.lastVarcSave) {
@@ -1260,11 +1260,11 @@ public final class client extends GameShell {
                 @Pc(478) Rectangle rectangle = InterfaceManager.rectangles[local110];
 
                 if (InterfaceManager.currentlyDirtyRect[local110]) {
-                    Toolkit.active.method7945(rectangle.y, 0xFFFF00FF, rectangle.width, rectangle.height, rectangle.x);
+                    Toolkit.active.outlineRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height, 0xFFFF00FF);
                 } else if (InterfaceManager.flipDirtyRect[local110]) {
-                    Toolkit.active.method7945(rectangle.y, 0xFFFF0000, rectangle.width, rectangle.height, rectangle.x);
+                    Toolkit.active.outlineRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height, 0xFFFF0000);
                 } else {
-                    Toolkit.active.method7945(rectangle.y, 0xFF00FF00, rectangle.width, rectangle.height, rectangle.x);
+                    Toolkit.active.outlineRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height, 0xFF00FF00);
                 }
             }
         }

@@ -15,9 +15,9 @@ public final class Static455 {
             MiniMenu.doAction(arg1, Static75.aClass2_Sub2_Sub16_9, arg0);
         } else if (Static536.anInt8149 == 2) {
             if (InterfaceManager.aBoolean210) {
-                Static572.method7876(Static422.method5771() + arg1, arg0 - -Static130.method2283());
+                MiniMenu.openAt(arg0 - -Static130.method2283(), Static422.method5771() + arg1);
             } else {
-                Static572.method7876(arg1, arg0);
+                MiniMenu.openAt(arg0, arg1);
             }
         }
         Static75.aClass2_Sub2_Sub16_9 = null;

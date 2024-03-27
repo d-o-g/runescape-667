@@ -21,9 +21,9 @@ public final class Static251 {
             return false;
         }
         @Pc(44) Component local44 = InterfaceList.interfaces[local12][local23];
-        @Pc(57) MiniMenuEntry local57;
+        @Pc(57) MiniMenuEntryInner local57;
         if (arg1 == -1 && local44.type == 0) {
-            for (local57 = (MiniMenuEntry) MiniMenu.entries.first(); local57 != null; local57 = (MiniMenuEntry) MiniMenu.entries.next()) {
+            for (local57 = (MiniMenuEntryInner) MiniMenu.innerEntryQueue.first(); local57 != null; local57 = (MiniMenuEntryInner) MiniMenu.innerEntryQueue.next()) {
                 if (local57.action == 18 || local57.action == 1002 || local57.action == 12 || local57.action == 20 || local57.action == 10) {
                     for (@Pc(160) Component local160 = InterfaceList.list(local57.v3); local160 != null; local160 = Static556.method7299(local160)) {
                         if (local160.slot == local44.slot) {
@@ -33,7 +33,7 @@ public final class Static251 {
                 }
             }
         } else {
-            for (local57 = (MiniMenuEntry) MiniMenu.entries.first(); local57 != null; local57 = (MiniMenuEntry) MiniMenu.entries.next()) {
+            for (local57 = (MiniMenuEntryInner) MiniMenu.innerEntryQueue.first(); local57 != null; local57 = (MiniMenuEntryInner) MiniMenu.innerEntryQueue.next()) {
                 if (local57.v2 == arg1 && local44.slot == local57.v3 && (local57.action == 18 || local57.action == 1002 || local57.action == 12 || local57.action == 20 || local57.action == 10)) {
                     return true;
                 }

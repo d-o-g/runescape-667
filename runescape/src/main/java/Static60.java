@@ -8,7 +8,4 @@ public final class Static60 {
     @OriginalMember(owner = "client!bw", name = "Q", descriptor = "Z")
     public static boolean aBoolean86 = false;
 
-    @OriginalMember(owner = "client!bw", name = "I", descriptor = "Z")
-    public static boolean aBoolean87 = false;
-
 }

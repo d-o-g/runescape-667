@@ -49,7 +49,7 @@ public final class PathFinder {
     private static int pathEndZ;
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(IIZIII[IBIIILclient!eq;[III)I")
-    public static int findPath(@OriginalArg(11) CollisionMap map, @OriginalArg(6) int[] pathX, @OriginalArg(12) int[] pathZ, @OriginalArg(4) int startX, @OriginalArg(9) int startZ, @OriginalArg(1) int size, @OriginalArg(13) int destX, @OriginalArg(0) int destZ, @OriginalArg(8) int destWidth, @OriginalArg(5) int destHeight, @OriginalArg(10) int destination, @OriginalArg(14) int rotation, @OriginalArg(3) int direction, @OriginalArg(2) boolean approximate) {
+    public static int findPath(@OriginalArg(11) CollisionMap map, @OriginalArg(6) int[] pathX, @OriginalArg(12) int[] pathZ, @OriginalArg(4) int startX, @OriginalArg(9) int startZ, @OriginalArg(1) int size, @OriginalArg(13) int destX, @OriginalArg(0) int destZ, @OriginalArg(8) int destWidth, @OriginalArg(5) int destLength, @OriginalArg(10) int destination, @OriginalArg(14) int rotation, @OriginalArg(3) int direction, @OriginalArg(2) boolean approximate) {
         for (@Pc(5) int x = 0; x < GRID_SIZE; x++) {
             for (@Pc(8) int z = 0; z < GRID_SIZE; z++) {
                 parent[x][z] = PARENT_NULL;
@@ -59,11 +59,11 @@ public final class PathFinder {
 
         @Pc(51) boolean found;
         if (size == 1) {
-            found = findPath1(map, startX, startZ, destX, destZ, destWidth, destHeight, destination, rotation, direction);
+            found = findPath1(map, startX, startZ, destX, destZ, destWidth, destLength, destination, rotation, direction);
         } else if (size == 2) {
-            found = findPath2(map, startX, startZ, destX, destZ, destWidth, destHeight, destination, rotation, direction);
+            found = findPath2(map, startX, startZ, destX, destZ, destWidth, destLength, destination, rotation, direction);
         } else {
-            found = findPathN(map, startX, startZ, size, destX, destZ, destWidth, destHeight, destination, rotation, direction);
+            found = findPathN(map, startX, startZ, size, destX, destZ, destWidth, destLength, destination, rotation, direction);
         }
 
         @Pc(87) int offsetX = startX - GRID_CENTER;
@@ -96,8 +96,8 @@ public final class PathFinder {
                         @Pc(198) int deltaZ = 0;
                         if (z < destZ) {
                             deltaZ = destZ - z;
-                        } else if (z > destZ + destHeight - 1) {
-                            deltaZ = z + 1 - destZ - destHeight;
+                        } else if (z > destZ + destLength - 1) {
+                            deltaZ = z + 1 - destZ - destLength;
                         }
 
                         @Pc(235) int distance = (deltaX * deltaX) + (deltaZ * deltaZ);
@@ -164,7 +164,7 @@ public final class PathFinder {
     }
 
     @OriginalMember(owner = "client!fq", name = "a", descriptor = "(IIILclient!eq;IIIIIII)Z")
-    public static boolean findPath1(@OriginalArg(3) CollisionMap map, @OriginalArg(4) int startX, @OriginalArg(6) int startZ, @OriginalArg(7) int destX, @OriginalArg(8) int destZ, @OriginalArg(0) int destWidth, @OriginalArg(1) int destHeight, @OriginalArg(2) int destination, @OriginalArg(9) int rotation, @OriginalArg(10) int direction) {
+    public static boolean findPath1(@OriginalArg(3) CollisionMap map, @OriginalArg(4) int startX, @OriginalArg(6) int startZ, @OriginalArg(7) int destX, @OriginalArg(8) int destZ, @OriginalArg(0) int destWidth, @OriginalArg(1) int destLength, @OriginalArg(2) int destination, @OriginalArg(9) int rotation, @OriginalArg(10) int direction) {
         @Pc(5) int x = startX;
         @Pc(7) int z = startZ;
         @Pc(16) int offsetX = startX - GRID_CENTER;
@@ -199,19 +199,19 @@ public final class PathFinder {
                     return true;
                 }
             } else if (destination == PathDestination.INSIDE) {
-                if (CollisionMap.isInsideRect(x, z, 1, 1, destX, destZ, destWidth, destHeight)) {
+                if (CollisionMap.isInsideRect(x, z, 1, 1, destX, destZ, destWidth, destLength)) {
                     pathEndX = x;
                     pathEndZ = z;
                     return true;
                 }
             } else if (destination == PathDestination.OUTSIDE) {
-                if (map.isOutsideRect(x, z, 1, 1, destX, destZ, destWidth, destHeight, direction)) {
+                if (map.isOutsideRect(x, z, 1, 1, destX, destZ, destWidth, destLength, direction)) {
                     pathEndZ = z;
                     pathEndX = x;
                     return true;
                 }
             } else if (destination == PathDestination.INSIDE_OR_OUTSIDE) {
-                if (map.isInsideOrOutsideRect(x, z, 1, destX, destZ, destWidth, destHeight, direction)) {
+                if (map.isInsideOrOutsideRect(x, z, 1, destX, destZ, destWidth, destLength, direction)) {
                     pathEndZ = z;
                     pathEndX = x;
                     return true;
@@ -301,7 +301,7 @@ public final class PathFinder {
     }
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(IIIIIIIIZILclient!eq;)Z")
-    public static boolean findPath2(@OriginalArg(10) CollisionMap map, @OriginalArg(1) int startX, @OriginalArg(9) int startZ, @OriginalArg(3) int destX, @OriginalArg(7) int destZ, @OriginalArg(6) int destWidth, @OriginalArg(2) int destHeight, @OriginalArg(5) int destination, @OriginalArg(4) int rotation, @OriginalArg(0) int direction) {
+    public static boolean findPath2(@OriginalArg(10) CollisionMap map, @OriginalArg(1) int startX, @OriginalArg(9) int startZ, @OriginalArg(3) int destX, @OriginalArg(7) int destZ, @OriginalArg(6) int destWidth, @OriginalArg(2) int destLength, @OriginalArg(5) int destination, @OriginalArg(4) int rotation, @OriginalArg(0) int direction) {
         @Pc(5) int x = startX;
         @Pc(7) int z = startZ;
         @Pc(16) int offsetX = startX - GRID_CENTER;
@@ -336,19 +336,19 @@ public final class PathFinder {
                     return true;
                 }
             } else if (destination == PathDestination.INSIDE) {
-                if (CollisionMap.isInsideRect(x, z, 2, 2, destX, destZ, destWidth, destHeight)) {
+                if (CollisionMap.isInsideRect(x, z, 2, 2, destX, destZ, destWidth, destLength)) {
                     pathEndZ = z;
                     pathEndX = x;
                     return true;
                 }
             } else if (destination == PathDestination.OUTSIDE) {
-                if (map.isOutsideRect(x, z, 2, 2, destX, destZ, destWidth, destHeight, direction)) {
+                if (map.isOutsideRect(x, z, 2, 2, destX, destZ, destWidth, destLength, direction)) {
                     pathEndZ = z;
                     pathEndX = x;
                     return true;
                 }
             } else if (destination == PathDestination.INSIDE_OR_OUTSIDE) {
-                if (map.isInsideOrOutsideRect(x, z, 2, destX, destZ, destWidth, destHeight, direction)) {
+                if (map.isInsideOrOutsideRect(x, z, 2, destX, destZ, destWidth, destLength, direction)) {
                     pathEndZ = z;
                     pathEndX = x;
                     return true;
@@ -438,7 +438,7 @@ public final class PathFinder {
     }
 
     @OriginalMember(owner = "client!nla", name = "a", descriptor = "(ILclient!eq;IIIIIIIIII)Z")
-    public static boolean findPathN(@OriginalArg(1) CollisionMap arg1, @OriginalArg(2) int startX, @OriginalArg(5) int startZ, @OriginalArg(9) int size, @OriginalArg(7) int destX, @OriginalArg(8) int destZ, @OriginalArg(3) int destWidth, @OriginalArg(11) int destHeight, @OriginalArg(4) int destination, @OriginalArg(0) int rotation, @OriginalArg(6) int direction) {
+    public static boolean findPathN(@OriginalArg(1) CollisionMap arg1, @OriginalArg(2) int startX, @OriginalArg(5) int startZ, @OriginalArg(9) int size, @OriginalArg(7) int destX, @OriginalArg(8) int destZ, @OriginalArg(3) int destWidth, @OriginalArg(11) int destLength, @OriginalArg(4) int destination, @OriginalArg(0) int rotation, @OriginalArg(6) int direction) {
         @Pc(5) int local5 = startX;
         @Pc(7) int local7 = startZ;
         @Pc(16) int local16 = startX - GRID_CENTER;
@@ -484,19 +484,19 @@ public final class PathFinder {
                                         return true;
                                     }
                                 } else if (destination == PathDestination.INSIDE) {
-                                    if (CollisionMap.isInsideRect(local5, local7, size, size, destX, destZ, destWidth, destHeight)) {
+                                    if (CollisionMap.isInsideRect(local5, local7, size, size, destX, destZ, destWidth, destLength)) {
                                         pathEndZ = local7;
                                         pathEndX = local5;
                                         return true;
                                     }
                                 } else if (destination == PathDestination.OUTSIDE) {
-                                    if (arg1.isOutsideRect(local5, local7, size, size, destX, destZ, destWidth, destHeight, direction)) {
+                                    if (arg1.isOutsideRect(local5, local7, size, size, destX, destZ, destWidth, destLength, direction)) {
                                         pathEndZ = local7;
                                         pathEndX = local5;
                                         return true;
                                     }
                                 } else if (destination == PathDestination.INSIDE_OR_OUTSIDE) {
-                                    if (arg1.isInsideOrOutsideRect(local5, local7, size, destX, destZ, destWidth, destHeight, direction)) {
+                                    if (arg1.isInsideOrOutsideRect(local5, local7, size, destX, destZ, destWidth, destLength, direction)) {
                                         pathEndZ = local7;
                                         pathEndX = local5;
                                         return true;

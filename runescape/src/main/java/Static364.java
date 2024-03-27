@@ -419,7 +419,7 @@ public final class Static364 {
                         }
                         Static524.aServerConnection_3.connection.read(local1435.data, Static94.anInt1961, 0);
                         local1435.pos = 0;
-                        Static608.staffModLevel = local1435.g1();
+                        Client.staffModLevel = local1435.g1();
                         Static38.anInt928 = local1435.g1();
                         Static389.aBoolean459 = local1435.g1() == 1;
                         Static34.aBoolean62 = local1435.g1() == 1;
@@ -436,7 +436,7 @@ public final class Static364 {
                     } else if (Static524.aServerConnection_3.connection.hasAvailable(Static94.anInt1961)) {
                         Static524.aServerConnection_3.connection.read(local1435.data, Static94.anInt1961, 0);
                         local1435.pos = 0;
-                        Static608.staffModLevel = local1435.g1();
+                        Client.staffModLevel = local1435.g1();
                         Static38.anInt928 = local1435.g1();
                         Static389.aBoolean459 = local1435.g1() == 1;
                         Static34.aBoolean62 = local1435.g1() == 1;
@@ -472,7 +472,7 @@ public final class Static364 {
                             Static668.aConnectionInfo_5.defaultPort = Static668.aConnectionInfo_5.id + 40000;
                             Static668.aConnectionInfo_5.alternatePort = Static668.aConnectionInfo_5.id + 50000;
                         }
-                        if (ModeWhere.LOCAL != Client.modeWhere && (Client.modeWhere != ModeWhere.WTQA || Static608.staffModLevel < 2) && Client.gameConnection.equalTo(Login.worldInfo)) {
+                        if (ModeWhere.LOCAL != Client.modeWhere && (Client.modeWhere != ModeWhere.WTQA || Client.staffModLevel < 2) && Client.gameConnection.equalTo(Login.worldInfo)) {
                             Static152.method9273();
                         }
                     } else {

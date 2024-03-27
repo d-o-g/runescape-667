@@ -563,7 +563,7 @@ public final class PlayerEntity extends PathingEntity {
         this.pkIcon = packet.g1b();
         this.prayerIcon = packet.g1b();
         this.hideOnMap = packet.g1b() == 1;
-        if (ModeWhere.LIVE == Client.modeWhere && Static608.staffModLevel >= 2) {
+        if (ModeWhere.LIVE == Client.modeWhere && Client.staffModLevel >= 2) {
             this.hideOnMap = false;
         }
 

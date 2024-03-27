@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.key.Deque;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -6,9 +5,6 @@ public final class Static204 {
 
     @OriginalMember(owner = "client!gfa", name = "l", descriptor = "Lclient!hc;")
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___14 = new CutsceneActionType(22);
-
-    @OriginalMember(owner = "client!gfa", name = "u", descriptor = "Lclient!sia;")
-    public static final Deque A_DEQUE___16 = new Deque();
 
     @OriginalMember(owner = "client!kb", name = "n", descriptor = "[B")
     public static final byte[] aByteArray103;

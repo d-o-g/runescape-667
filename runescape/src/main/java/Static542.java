@@ -1,14 +1,10 @@
 import com.jagex.ServerProt;
-import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static542 {
-
-    @OriginalMember(owner = "client!rb", name = "a", descriptor = "Lclient!st;")
-    public static Sprite aSprite_33;
 
     @OriginalMember(owner = "client!rb", name = "c", descriptor = "Lclient!lga;")
     public static final ServerProt A_SERVER_PROT___199 = new ServerProt(104, 8);

@@ -31,7 +31,7 @@ public final class Static720 {
             arg6.fillRect(local14, local18, arg5 + 10, arg0 * arg4.method7536() + 1 + arg7 + -local18, arg3.fillColour);
         }
         if (arg3.outlineColour != 0) {
-            arg6.method7945(local18, arg3.outlineColour, arg5 + 10, arg4.method7536() * arg0 + 1 + arg7 + -local18, local14);
+            arg6.outlineRect(local14, local18, arg5 + 10, arg4.method7536() * arg0 + 1 + arg7 + -local18, arg3.outlineColour);
         }
         @Pc(73) int local73 = arg3.textColour;
         if (arg1.aBoolean256 && arg3.hoverTextColour != -1) {

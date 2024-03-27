@@ -70,14 +70,14 @@ public final class Static329 {
 
     @OriginalMember(owner = "client!kh", name = "g", descriptor = "(I)V")
     public static void method1649() {
-        Static542.aSprite_33 = null;
-        Static608.aSprite_41 = null;
-        Static1.aSprite_42 = null;
-        Static561.aSprite_34 = null;
-        Static26.aSprite_5 = null;
-        Static459.aSprite_31 = null;
+        MiniMenu.rightBorderSprite = null;
+        MiniMenu.topRightCornerSprite = null;
+        MiniMenu.topLeftCornerSprite = null;
+        MiniMenu.bottomRightCornerSprite = null;
+        MiniMenu.bottomBorderSprite = null;
+        MiniMenu.separatorSprite = null;
         MiniMenu.icons = null;
-        Static261.aSprite_18 = null;
-        Static63.aSprite_8 = null;
+        MiniMenu.bottomLeftCornerSprite = null;
+        MiniMenu.leftBorderSprite = null;
     }
 }

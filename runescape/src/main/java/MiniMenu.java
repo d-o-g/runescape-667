@@ -4,13 +4,16 @@ import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.datastruct.key.Deque;
+import com.jagex.core.datastruct.key.DequeIterator;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.datastruct.key.Queue;
+import com.jagex.core.datastruct.key.QueueIterator;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.TargetMask;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -33,18 +36,26 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.event.keyboard.KeyboardMonitor;
 import rs2.client.event.keyboard.SimpleKeyboardMonitor;
+import rs2.client.event.mouse.MouseLog;
+import rs2.client.event.mouse.MouseMonitor;
 
 public final class MiniMenu {
+
+    @OriginalMember(owner = "client!gfa", name = "u", descriptor = "Lclient!sia;")
+    public static final Deque otherInnerEntries = new Deque();
+
+    @OriginalMember(owner = "client!hha", name = "b", descriptor = "Lclient!sia;")
+    public static final Deque targetInnerEntries = new Deque();
 
     private static final int QUEST_ICON_COUNT = 10;
 
     private static final int QUEST_ICON_HEIGHT = 12;
 
     @OriginalMember(owner = "client!vu", name = "f", descriptor = "Lclient!sia;")
-    public static final Deque entries = new Deque();
+    public static final Deque innerEntryQueue = new Deque();
 
     @OriginalMember(owner = "client!pha", name = "m", descriptor = "Lclient!av;")
-    public static final IterableHashTable categories = new IterableHashTable(16);
+    public static final IterableHashTable entryTable = new IterableHashTable(16);
 
     @OriginalMember(owner = "client!wn", name = "k", descriptor = "Lclient!dla;")
     public static final ReferenceCache cache = new ReferenceCache(30);
@@ -53,7 +64,7 @@ public final class MiniMenu {
     public static final ReferenceCache questCache = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!la", name = "v", descriptor = "Lclient!jga;")
-    public static final Queue innerEntries = new Queue();
+    public static final Queue entryQueue = new Queue();
 
     @OriginalMember(owner = "client!fp", name = "T", descriptor = "Z")
     public static final boolean debugOps = false;
@@ -65,19 +76,19 @@ public final class MiniMenu {
     public static boolean open = false;
 
     @OriginalMember(owner = "client!sn", name = "j", descriptor = "I")
-    public static int entryCount = 0;
+    public static int innerEntryCount = 0;
 
     @OriginalMember(owner = "client!bb", name = "c", descriptor = "I")
-    public static int innerCount = 0;
+    public static int entryCount = 0;
 
     @OriginalMember(owner = "client!qja", name = "c", descriptor = "Lclient!pg;")
-    public static MiniMenuEntry cancelEntry;
+    public static MiniMenuEntryInner cancelEntry;
 
     @OriginalMember(owner = "client!da", name = "o", descriptor = "Lclient!pg;")
-    public static MiniMenuEntry topEntry;
+    public static MiniMenuEntryInner topEntry;
 
     @OriginalMember(owner = "client!or", name = "F", descriptor = "Lclient!pg;")
-    public static MiniMenuEntry leftClickEntry;
+    public static MiniMenuEntryInner leftClickEntry;
 
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "[Lclient!st;")
     public static Sprite[] icons;
@@ -101,37 +112,106 @@ public final class MiniMenu {
     public static int y;
 
     @OriginalMember(owner = "client!eg", name = "j", descriptor = "Lclient!cba;")
-    public static MiniMenuEntryInner openedInner = null;
+    public static MiniMenuEntry openedEntry = null;
 
     @OriginalMember(owner = "client!pj", name = "p", descriptor = "I")
-    public static int openedInnerY;
+    public static int openedEntryY;
 
     @OriginalMember(owner = "client!cm", name = "o", descriptor = "I")
-    public static int openedInnerWidth;
+    public static int openedEntryWidth;
 
     @OriginalMember(owner = "client!vt", name = "c", descriptor = "I")
-    public static int openedInnerX;
+    public static int openedEntryX;
 
     @OriginalMember(owner = "client!as", name = "g", descriptor = "I")
-    public static int openedInnerHeight;
+    public static int openedEntryHeight;
 
     @OriginalMember(owner = "client!ik", name = "w", descriptor = "Z")
     public static boolean ignorePlayerLevels = true;
 
+    @OriginalMember(owner = "client!bw", name = "I", descriptor = "Z")
+    public static boolean useSprites = false;
+
+    @OriginalMember(owner = "client!fi", name = "h", descriptor = "I")
+    public static int verticalBorderSpriteId;
+
+    @OriginalMember(owner = "client!caa", name = "b", descriptor = "Lclient!st;")
+    public static Sprite leftBorderSprite;
+
+    @OriginalMember(owner = "client!caa", name = "c", descriptor = "I")
+    public static int separatorSpriteId;
+
+    @OriginalMember(owner = "client!rb", name = "a", descriptor = "Lclient!st;")
+    public static Sprite rightBorderSprite;
+
+    @OriginalMember(owner = "client!at", name = "j", descriptor = "Lclient!st;")
+    public static Sprite bottomBorderSprite;
+
+    @OriginalMember(owner = "client!ic", name = "a", descriptor = "Lclient!st;")
+    public static Sprite bottomLeftCornerSprite;
+
+    @OriginalMember(owner = "client!rla", name = "f", descriptor = "Lclient!st;")
+    public static Sprite bottomRightCornerSprite;
+
+    @OriginalMember(owner = "client!wq", name = "T", descriptor = "I")
+    public static int topColour;
+
+    @OriginalMember(owner = "client!qca", name = "w", descriptor = "I")
+    public static int topOpacity;
+
+    @OriginalMember(owner = "client!fm", name = "l", descriptor = "I")
+    public static int spriteBodyColour;
+
+    @OriginalMember(owner = "client!mn", name = "m", descriptor = "I")
+    public static int spriteBodyOpacity;
+
+    @OriginalMember(owner = "client!is", name = "f", descriptor = "I")
+    public static int topCornerSpriteId;
+
+    @OriginalMember(owner = "client!is", name = "m", descriptor = "I")
+    public static int bottomCornerSpriteId;
+
+    @OriginalMember(owner = "client!kla", name = "Hc", descriptor = "I")
+    public static int horizontalBorderSpriteId;
+
+    @OriginalMember(owner = "client!ro", name = "f", descriptor = "I")
+    public static int textColour;
+
+    @OriginalMember(owner = "client!uaa", name = "c", descriptor = "I")
+    public static int spriteHighlightColour;
+
+    @OriginalMember(owner = "client!oia", name = "f", descriptor = "Lclient!st;")
+    public static Sprite separatorSprite;
+
+    @OriginalMember(owner = "client!aa", name = "b", descriptor = "Lclient!st;")
+    public static Sprite topLeftCornerSprite;
+
+    @OriginalMember(owner = "client!td", name = "r", descriptor = "Lclient!st;")
+    public static Sprite topRightCornerSprite;
+
+    @OriginalMember(owner = "client!hfa", name = "r", descriptor = "Z")
+    public static boolean collapsed = false;
+
+    @OriginalMember(owner = "client!eia", name = "y", descriptor = "I")
+    public static int collapseAtCount = -1;
+
+    @OriginalMember(owner = "client!gi", name = "d", descriptor = "Z")
+    public static boolean shiftClick = false;
+
     @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
     public static void reset() {
-        for (@Pc(10) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) innerEntries.next()) {
-            if (inner.size > 1) {
-                inner.size = 0;
-                cache.put(inner, ((MiniMenuEntry) inner.entries.sentinel.next2).entryKey);
-                inner.entries.clear();
+        for (@Pc(10) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+            if (entry.size > 1) {
+                entry.size = 0;
+                cache.put(entry, ((MiniMenuEntryInner) entry.innerEntries.sentinel.next2).entryKey);
+                entry.innerEntries.clear();
             }
         }
+        innerEntryCount = 0;
         entryCount = 0;
-        innerCount = 0;
-        entries.clear();
-        categories.clear();
-        innerEntries.clear();
+        innerEntryQueue.clear();
+        entryTable.clear();
+        entryQueue.clear();
         addEntryInner(cancelEntry);
     }
 
@@ -225,13 +305,13 @@ public final class MiniMenu {
                     if (local453 == null) {
                         InterfaceManager.endTargetMode();
                     } else {
-                        addEntry(false, -1, 0L, local140, local142, InterfaceManager.targetVerb, 21, true, InterfaceManager.targetEnterCursor, " ->", local140 << 0 | local142, true);
+                        addEntryInner(false, -1, 0L, local140, local142, InterfaceManager.targetVerb, 21, true, InterfaceManager.targetEnterCursor, " ->", local140 << 0 | local142, true);
                     }
                 } else {
                     if (Static501.aBoolean576) {
-                        addEntry(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(Client.language), 11, true, -1, "", local142 | local140 << 0, true);
+                        addEntryInner(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(Client.language), 11, true, -1, "", local142 | local140 << 0, true);
                     }
-                    addEntry(false, -1, 0L, local140, local142, Static331.walkText, 58, true, Static331.walkCursor, "", local142 | local140 << 0, true);
+                    addEntryInner(false, -1, 0L, local140, local142, Static331.walkText, 58, true, Static331.walkCursor, "", local142 | local140 << 0, true);
                 }
             }
         }
@@ -277,7 +357,7 @@ public final class MiniMenu {
                                         local723 = local695.x - (local695.type.size - 1 << 8);
                                         local735 = local695.z - (local695.type.size - 1 << 8);
                                         if (local286 <= local723 && local695.type.size <= local610.getSize() - (local723 - local286 >> 9) && local735 >= local295 && local695.type.size <= local610.getSize() - (local735 - local295 >> 9)) {
-                                            method8517(local543.aEntity_18.level != PlayerEntity.self.level, local695);
+                                            addNpcEntries(local543.aEntity_18.level != PlayerEntity.self.level, local695);
                                             local695.anInt10743 = TimeUtils.clock;
                                         }
                                     }
@@ -317,7 +397,7 @@ public final class MiniMenu {
                                             local370 = local1086.x - (local1086.type.size - 1 << 8);
                                             local723 = local1086.z - (local1086.type.size - 1 << 8);
                                             if (local614 <= local370 && local988.type.size - (local370 - local614 >> 9) >= local1086.type.size && local723 >= local286 && local1086.type.size <= local988.type.size - (local723 - local286 >> 9)) {
-                                                method8517(PlayerEntity.self.level != local543.aEntity_18.level, local1086);
+                                                addNpcEntries(PlayerEntity.self.level != local543.aEntity_18.level, local1086);
                                                 local1086.anInt10743 = TimeUtils.clock;
                                             }
                                         }
@@ -340,7 +420,7 @@ public final class MiniMenu {
                             if (TimeUtils.clock == local988.anInt10743) {
                                 continue;
                             }
-                            method8517(PlayerEntity.self.level != local543.aEntity_18.level, local988);
+                            addNpcEntries(PlayerEntity.self.level != local543.aEntity_18.level, local988);
                             local988.anInt10743 = TimeUtils.clock;
                         }
                     }
@@ -355,7 +435,7 @@ public final class MiniMenu {
                                 if (InterfaceManager.targetMode && PlayerEntity.self.level == local543.aEntity_18.level) {
                                     @Pc(1451) ParamType local1451 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
                                     if ((InterfaceManager.targetMask & 0x1) != 0 && (local1451 == null || local1424.param(InterfaceManager.targetParam, local1451.defaultint) != local1451.defaultint)) {
-                                        addEntry(false, -1, local1416.id, local186, local584, InterfaceManager.targetVerb, 17, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ff9040>" + local1424.name, local295, false);
+                                        addEntryInner(false, -1, local1416.id, local186, local584, InterfaceManager.targetVerb, 17, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ff9040>" + local1424.name, local295, false);
                                     }
                                 }
                                 if (local543.aEntity_18.level == PlayerEntity.self.level) {
@@ -388,7 +468,7 @@ public final class MiniMenu {
                                             if (local723 == local1424.cursor2op) {
                                                 local864 = local1424.cursor2;
                                             }
-                                            addEntry(false, -1, local1416.id, local186, local584, local1525[local723], local1540, true, local864, "<col=ff9040>" + local1424.name, local295, false);
+                                            addEntryInner(false, -1, local1416.id, local186, local584, local1525[local723], local1540, true, local864, "<col=ff9040>" + local1424.name, local295, false);
                                         }
                                     }
                                 }
@@ -406,7 +486,7 @@ public final class MiniMenu {
                             if (InterfaceManager.targetMode && PlayerEntity.self.level == local543.aEntity_18.level) {
                                 @Pc(1697) ParamType local1697 = InterfaceManager.targetParam == -1 ? null : ParamTypeList.instance.list(InterfaceManager.targetParam);
                                 if ((InterfaceManager.targetMask & 0x4) != 0 && (local1697 == null || local1661.param(local1697.defaultint, InterfaceManager.targetParam) != local1697.defaultint)) {
-                                    addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, InterfaceManager.targetVerb, 60, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=00ffff>" + local1661.name, local1654.hashCode(), false);
+                                    addEntryInner(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, InterfaceManager.targetVerb, 60, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=00ffff>" + local1661.name, local1654.hashCode(), false);
                                 }
                             }
                             if (PlayerEntity.self.level == local543.aEntity_18.level) {
@@ -440,7 +520,7 @@ public final class MiniMenu {
                                             if (local1661.cursor2Op == local295) {
                                                 local317 = local1661.cursor2;
                                             }
-                                            addEntry(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, local1763[local295], local1780, true, local317, "<col=00ffff>" + local1661.name, local1654.hashCode(), false);
+                                            addEntryInner(false, -1, Static277.method4042(local1654, local584, local186), local186, local584, local1763[local295], local1780, true, local317, "<col=00ffff>" + local1661.name, local1654.hashCode(), false);
                                         }
                                     }
                                 }
@@ -457,24 +537,24 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(Lclient!cg;I)V")
-    public static void addEntityEntries(@OriginalArg(0) PathingEntity arg0) {
-        if (arg0 instanceof NPCEntity) {
-            @Pc(5) NPCEntity npc = (NPCEntity) arg0;
+    public static void addEntityEntries(@OriginalArg(0) PathingEntity entity) {
+        if (entity instanceof NPCEntity) {
+            @Pc(5) NPCEntity npc = (NPCEntity) entity;
             if (npc.type != null) {
-                method8517(PlayerEntity.self.level != npc.level, npc);
+                addNpcEntries(PlayerEntity.self.level != npc.level, npc);
             }
-        } else if (arg0 instanceof PlayerEntity) {
-            @Pc(33) PlayerEntity player = (PlayerEntity) arg0;
+        } else if (entity instanceof PlayerEntity) {
+            @Pc(33) PlayerEntity player = (PlayerEntity) entity;
             addPlayerEntries(player.level != PlayerEntity.self.level, player);
         }
     }
 
     @OriginalMember(owner = "client!nca", name = "a", descriptor = "(ZIJIILjava/lang/String;IZILjava/lang/String;JBZ)V")
-    public static void addEntry(@OriginalArg(0) boolean differentLevel, @OriginalArg(1) int invObject, @OriginalArg(2) long v1, @OriginalArg(3) int v2, @OriginalArg(4) int v3, @OriginalArg(5) String targetVerb, @OriginalArg(6) int action, @OriginalArg(7) boolean arg7, @OriginalArg(8) int cursor, @OriginalArg(9) String opBase, @OriginalArg(10) long key, @OriginalArg(12) boolean independent) {
-        if (!open && entryCount < 500) {
+    public static void addEntryInner(@OriginalArg(0) boolean differentLevel, @OriginalArg(1) int invObject, @OriginalArg(2) long v1, @OriginalArg(3) int v2, @OriginalArg(4) int v3, @OriginalArg(5) String targetVerb, @OriginalArg(6) int action, @OriginalArg(7) boolean arg7, @OriginalArg(8) int cursor, @OriginalArg(9) String opBase, @OriginalArg(10) long key, @OriginalArg(12) boolean independent) {
+        if (!open && innerEntryCount < 500) {
             @Pc(20) int targetEndCursor = cursor != -1 ? cursor : InterfaceManager.targetEndCursor;
-            @Pc(36) MiniMenuEntry entry = new MiniMenuEntry(targetVerb, opBase, targetEndCursor, action, invObject, v1, v2, v3, arg7, differentLevel, key, independent);
-            addEntryInner(entry);
+            @Pc(36) MiniMenuEntryInner inner = new MiniMenuEntryInner(targetVerb, opBase, targetEndCursor, action, invObject, v1, v2, v3, arg7, differentLevel, key, independent);
+            addEntryInner(inner);
         }
     }
 
@@ -492,70 +572,70 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!ci", name = "a", descriptor = "(I)Z")
     public static boolean isPopulated() {
-        return entryCount > 0;
+        return innerEntryCount > 0;
     }
 
     @OriginalMember(owner = "client!cv", name = "b", descriptor = "(B)V")
     public static void openButtons() {
-        for (@Pc(4) MiniMenuEntry entry = (MiniMenuEntry) entries.first(); entry != null; entry = (MiniMenuEntry) entries.next()) {
+        for (@Pc(4) MiniMenuEntryInner entry = (MiniMenuEntryInner) innerEntryQueue.first(); entry != null; entry = (MiniMenuEntryInner) innerEntryQueue.next()) {
             if (MiniMenuAction.isButtonOp(entry.action)) {
-                open(entry);
+                openInner(entry);
             }
         }
     }
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "(BLclient!pg;)V")
-    public static void addEntryInner(@OriginalArg(1) MiniMenuEntry entry) {
-        if (entry == null) {
+    public static void addEntryInner(@OriginalArg(1) MiniMenuEntryInner inner) {
+        if (inner == null) {
             return;
         }
 
-        entries.addLast(entry);
-        entryCount++;
+        innerEntryQueue.addLast(inner);
+        innerEntryCount++;
 
-        @Pc(33) MiniMenuEntryInner inner;
-        if (entry.independent || "".equals(entry.opBase)) {
-            inner = new MiniMenuEntryInner(entry.opBase);
-            innerCount++;
+        @Pc(33) MiniMenuEntry entry;
+        if (inner.independent || "".equals(inner.opBase)) {
+            entry = new MiniMenuEntry(inner.opBase);
+            entryCount++;
         } else {
-            @Pc(41) long key = entry.entryKey;
-            for (inner = (MiniMenuEntryInner) categories.get(key); inner != null && !inner.title.equals(entry.opBase); inner = (MiniMenuEntryInner) categories.nextWithSameKey()) {
+            @Pc(41) long key = inner.entryKey;
+            for (entry = (MiniMenuEntry) entryTable.get(key); entry != null && !entry.title.equals(inner.opBase); entry = (MiniMenuEntry) entryTable.nextWithSameKey()) {
             }
 
-            if (inner == null) {
-                inner = (MiniMenuEntryInner) cache.get(key);
-                if (inner != null && !inner.title.equals(entry.opBase)) {
-                    inner = null;
+            if (entry == null) {
+                entry = (MiniMenuEntry) cache.get(key);
+                if (entry != null && !entry.title.equals(inner.opBase)) {
+                    entry = null;
                 }
-                if (inner == null) {
-                    inner = new MiniMenuEntryInner(entry.opBase);
+                if (entry == null) {
+                    entry = new MiniMenuEntry(inner.opBase);
                 }
 
-                categories.put(key, inner);
-                innerCount++;
+                entryTable.put(key, entry);
+                entryCount++;
             }
         }
 
-        if (inner.add(entry)) {
-            reposition(inner);
+        if (entry.add(inner)) {
+            reposition(entry);
         }
     }
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(Lclient!cba;B)V")
-    public static void reposition(@OriginalArg(0) MiniMenuEntryInner inner) {
+    public static void reposition(@OriginalArg(0) MiniMenuEntry entry) {
         @Pc(5) boolean inserted = false;
-        inner.unlink2();
+        entry.unlink2();
 
-        for (@Pc(21) MiniMenuEntryInner child = (MiniMenuEntryInner) innerEntries.first(); child != null; child = (MiniMenuEntryInner) innerEntries.next()) {
-            if (isActionBefore(inner.getAction(), child.getAction())) {
+        for (@Pc(21) MiniMenuEntry other = (MiniMenuEntry) entryQueue.first(); other != null; other = (MiniMenuEntry) entryQueue.next()) {
+            if (isActionBefore(entry.getAction(), other.getAction())) {
                 inserted = true;
-                Node2.attachAfter(child, inner);
+                Node2.attachAfter(other, entry);
                 break;
             }
         }
 
         if (!inserted) {
-            innerEntries.add(inner);
+            entryQueue.add(entry);
         }
     }
 
@@ -576,31 +656,31 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!hj", name = "c", descriptor = "(I)V")
     public static void setCancelEntry() {
-        cancelEntry = new MiniMenuEntry(LocalisedText.CANCEL.localise(Client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
+        cancelEntry = new MiniMenuEntryInner(LocalisedText.CANCEL.localise(Client.language), "", InterfaceManager.targetEndCursor, 1012, -1, 0L, 0, 0, true, false, 0L, true);
     }
 
     @OriginalMember(owner = "client!vj", name = "a", descriptor = "(ILclient!pg;)V")
-    public static void open(@OriginalArg(1) MiniMenuEntry entry) {
+    public static void openInner(@OriginalArg(1) MiniMenuEntryInner inner) {
         if (open) {
             return;
         }
 
-        entry.unlink();
-        entryCount--;
+        inner.unlink();
+        innerEntryCount--;
 
-        if (entry.independent) {
-            for (@Pc(22) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) innerEntries.next()) {
-                if (!inner.title.equals(entry.opBase)) {
+        if (inner.independent) {
+            for (@Pc(22) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+                if (!entry.title.equals(inner.opBase)) {
                     continue;
                 }
 
                 @Pc(31) boolean found = false;
-                for (@Pc(37) MiniMenuEntry other = (MiniMenuEntry) inner.entries.first(); other != null; other = (MiniMenuEntry) inner.entries.next()) {
-                    if (other == entry) {
+                for (@Pc(37) MiniMenuEntryInner other = (MiniMenuEntryInner) entry.innerEntries.first(); other != null; other = (MiniMenuEntryInner) entry.innerEntries.next()) {
+                    if (other == inner) {
                         found = true;
 
-                        if (inner.remove(entry)) {
-                            reposition(inner);
+                        if (entry.remove(inner)) {
+                            reposition(entry);
                         }
 
                         break;
@@ -612,23 +692,24 @@ public final class MiniMenu {
                 }
             }
         } else {
-            @Pc(79) long key = entry.entryKey;
-            @Pc(85) MiniMenuEntryInner inner;
-            for (inner = (MiniMenuEntryInner) categories.get(key); inner != null; inner = (MiniMenuEntryInner) categories.nextWithSameKey()) {
-                if (inner.title.equals(entry.opBase)) {
+            @Pc(79) long key = inner.entryKey;
+            @Pc(85) MiniMenuEntry entry;
+
+            for (entry = (MiniMenuEntry) entryTable.get(key); entry != null; entry = (MiniMenuEntry) entryTable.nextWithSameKey()) {
+                if (entry.title.equals(inner.opBase)) {
                     break;
                 }
             }
 
-            if (inner != null && inner.remove(entry)) {
-                reposition(inner);
+            if (entry != null && entry.remove(inner)) {
+                reposition(entry);
             }
         }
     }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IZLclient!wj;)V")
-    public static void method8517(@OriginalArg(1) boolean differentLevel, @OriginalArg(2) NPCEntity npc) {
-        if (entryCount >= 400) {
+    public static void addNpcEntries(@OriginalArg(1) boolean differentLevel, @OriginalArg(2) NPCEntity npc) {
+        if (innerEntryCount >= 400) {
             return;
         }
 
@@ -655,7 +736,7 @@ public final class MiniMenu {
             @Pc(113) ParamType param = InterfaceManager.targetParam != -1 ? ParamTypeList.instance.list(InterfaceManager.targetParam) : null;
 
             if ((InterfaceManager.targetMask & TargetMask.TGT_NPC) != 0 && (param == null || type.param(InterfaceManager.targetParam, param.defaultint) != param.defaultint)) {
-                addEntry(false, -1, npc.id, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_NPC, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + npcName, npc.id, false);
+                addEntryInner(false, -1, npc.id, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_NPC, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + npcName, npc.id, false);
             }
         }
 
@@ -702,7 +783,7 @@ public final class MiniMenu {
                     cursor = type.cursor2;
                 }
 
-                addEntry(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
+                addEntryInner(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
             }
         }
 
@@ -746,7 +827,7 @@ public final class MiniMenu {
                         cursor = type.cursor2;
                     }
 
-                    addEntry(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
+                    addEntryInner(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
                 }
             }
         }
@@ -791,18 +872,18 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(Lclient!ha;I)V")
-    public static void method7301(@OriginalArg(0) Toolkit toolkit) {
-        if (entryCount < 2 && !InterfaceManager.targetMode || InterfaceManager.dragSource != null) {
+    public static void drawPreview(@OriginalArg(0) Toolkit toolkit) {
+        if ((innerEntryCount < 2 && !InterfaceManager.targetMode) || InterfaceManager.dragSource != null) {
             return;
         }
 
         @Pc(63) String text;
-        if (InterfaceManager.targetMode && entryCount < 2) {
+        if (InterfaceManager.targetMode && innerEntryCount < 2) {
             text = InterfaceManager.targetVerb + LocalisedText.MINISEPARATOR.localise(Client.language) + InterfaceManager.targetedVerb + " ->";
-        } else if (Static209.shiftClick && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT) && entryCount > 2) {
+        } else if (shiftClick && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT) && innerEntryCount > 2) {
             text = getLineText(leftClickEntry);
         } else {
-            @Pc(55) MiniMenuEntry entry = leftClickEntry;
+            @Pc(55) MiniMenuEntryInner entry = leftClickEntry;
             if (entry == null) {
                 return;
             }
@@ -819,10 +900,12 @@ public final class MiniMenu {
 
                 if (node != null) {
                     @Pc(98) NPCEntity entity = node.npc;
+
                     @Pc(101) NPCType type = entity.type;
                     if (type.multinpcs != null) {
                         type = type.getMultiNPC(TimedVarDomain.instance);
                     }
+
                     if (type != null) {
                         quests = type.quests;
                     }
@@ -832,6 +915,7 @@ public final class MiniMenu {
                 if (type.multiloc != null) {
                     type = type.getMultiLoc(TimedVarDomain.instance);
                 }
+
                 if (type != null) {
                     quests = type.quests;
                 }
@@ -842,8 +926,8 @@ public final class MiniMenu {
             }
         }
 
-        if (entryCount > 2) {
-            text = text + "<col=ffffff> / " + (entryCount - 2) + LocalisedText.MOREOPTIONS.localise(Client.language);
+        if (innerEntryCount > 2) {
+            text = text + "<col=ffffff> / " + (innerEntryCount - 2) + LocalisedText.MOREOPTIONS.localise(Client.language);
         }
 
         if (WorldMap.optionsComponent != null) {
@@ -853,15 +937,15 @@ public final class MiniMenu {
             }
 
             font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.horizontalAlignment, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, Static493.aRandom1, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, icons, Static178.anInt2947, WorldMap.optionsY, WorldMap.optionsComponent.verticalAlignment);
-            InterfaceManager.redrawWithin(Static329.anIntArray163[2], Static329.anIntArray163[0], Static329.anIntArray163[3], Static329.anIntArray163[1]);
+            InterfaceManager.redrawWithin(Static329.anIntArray163[0], Static329.anIntArray163[1], Static329.anIntArray163[2], Static329.anIntArray163[3]);
         } else if (InterfaceManager.optionsComponent != null && Client.modeGame == ModeGame.RUNESCAPE) {
-            @Pc(299) int local299 = Fonts.b12.renderRandom(icons, Static178.anInt2947, 0xFFFFFF, InterfaceManager.optionsY + 16, text, iconHeights, 0, Static493.aRandom1, InterfaceManager.optionsX + 4);
-            InterfaceManager.redrawWithin(local299 + Fonts.b12Metrics.stringWidth(text), InterfaceManager.optionsX - -4, 16, InterfaceManager.optionsY);
+            @Pc(299) int width = Fonts.b12.renderRandom(icons, Static178.anInt2947, 0xFFFFFF, InterfaceManager.optionsY + 16, text, iconHeights, 0, Static493.aRandom1, InterfaceManager.optionsX + 4);
+            InterfaceManager.redrawWithin(InterfaceManager.optionsX + 4, InterfaceManager.optionsY, width + Fonts.b12Metrics.stringWidth(text), 16);
         }
     }
 
     @OriginalMember(owner = "client!qf", name = "a", descriptor = "(Lclient!pg;B)Ljava/lang/String;")
-    public static String getLineText(@OriginalArg(0) MiniMenuEntry entry) {
+    public static String getLineText(@OriginalArg(0) MiniMenuEntryInner entry) {
         if (entry.activeEntry == null || entry.activeEntry.length() == 0) {
             return entry.opBase == null || entry.opBase.length() <= 0 ? entry.op : entry.op + LocalisedText.MINISEPARATOR.localise(Client.language) + entry.opBase;
         } else if (entry.opBase == null || entry.opBase.length() <= 0) {
@@ -872,50 +956,54 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(Lclient!ha;IIIIILclient!pg;IIIII)V")
-    public static void method3387(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int y, @OriginalArg(5) int arg5, @OriginalArg(6) MiniMenuEntry arg6, @OriginalArg(7) int textColour, @OriginalArg(8) int arg8, @OriginalArg(9) int x, @OriginalArg(10) int arg10) {
-        if (x < arg10 && arg1 + x > arg10 && arg8 > y - 13 && y + 3 > arg8 && arg6.aBoolean552) {
-            textColour = arg5;
-        }
-        @Pc(49) int[] local49 = null;
-        if (MiniMenuAction.isObjOp(arg6.action)) {
-            local49 = ObjTypeList.instance.list((int) arg6.v1).quests;
-        } else if (arg6.objId != -1) {
-            local49 = ObjTypeList.instance.list(arg6.objId).quests;
-        } else if (MiniMenuAction.isNpcOp(arg6.action)) {
-            @Pc(110) NPCEntityNode local110 = (NPCEntityNode) NPCList.local.get((int) arg6.v1);
-            if (local110 != null) {
-                @Pc(115) NPCEntity local115 = local110.npc;
-                @Pc(118) NPCType local118 = local115.type;
-                if (local118.multinpcs != null) {
-                    local118 = local118.getMultiNPC(TimedVarDomain.instance);
-                }
-                if (local118 != null) {
-                    local49 = local118.quests;
-                }
-            }
-        } else if (MiniMenuAction.isLocOp(arg6.action)) {
-            @Pc(87) LocType local87 = LocTypeList.instance.list((int) (arg6.v1 >>> 32 & 0x7FFFFFFFL));
-            if (local87.multiloc != null) {
-                local87 = local87.getMultiLoc(TimedVarDomain.instance);
-            }
-            if (local87 != null) {
-                local49 = local87.quests;
-            }
-        }
-        @Pc(154) String text = getLineText(arg6);
-        if (local49 != null) {
-            text = text + questIcon(local49);
+    public static void drawEntryInner(@OriginalArg(0) Toolkit toolkit, @OriginalArg(6) MiniMenuEntryInner entry, @OriginalArg(9) int x, @OriginalArg(3) int y, @OriginalArg(1) int width, @OriginalArg(2) int height, @OriginalArg(10) int mouseX, @OriginalArg(8) int mouseY, @OriginalArg(7) int textColour, @OriginalArg(5) int highlightColour, @OriginalArg(4) int innerY) {
+        if (mouseX > x && mouseX < width + x && mouseY > innerY - 13 && mouseY < innerY + 3 && entry.aBoolean552) {
+            textColour = highlightColour;
         }
 
-        Fonts.b12.render(textColour, 0, y, text, x + 3, icons, iconHeights);
+        @Pc(49) int[] quests = null;
+        if (MiniMenuAction.isObjOp(entry.action)) {
+            quests = ObjTypeList.instance.list((int) entry.v1).quests;
+        } else if (entry.objId != -1) {
+            quests = ObjTypeList.instance.list(entry.objId).quests;
+        } else if (MiniMenuAction.isNpcOp(entry.action)) {
+            @Pc(110) NPCEntityNode node = (NPCEntityNode) NPCList.local.get((int) entry.v1);
 
-        if (arg6.differentLevel) {
-            Sprites.otherlevel.render(x + Fonts.b12Metrics.stringWidth(text) + 5, y + -12);
+            if (node != null) {
+                @Pc(115) NPCEntity npc = node.npc;
+                @Pc(118) NPCType type = npc.type;
+                if (type.multinpcs != null) {
+                    type = type.getMultiNPC(TimedVarDomain.instance);
+                }
+
+                if (type != null) {
+                    quests = type.quests;
+                }
+            }
+        } else if (MiniMenuAction.isLocOp(entry.action)) {
+            @Pc(87) LocType type = LocTypeList.instance.list((int) (entry.v1 >>> 32 & 0x7FFFFFFFL));
+            if (type.multiloc != null) {
+                type = type.getMultiLoc(TimedVarDomain.instance);
+            }
+            if (type != null) {
+                quests = type.quests;
+            }
+        }
+
+        @Pc(154) String text = getLineText(entry);
+        if (quests != null) {
+            text = text + questIcon(quests);
+        }
+
+        Fonts.b12.render(textColour, 0, innerY, text, x + 3, icons, iconHeights);
+
+        if (entry.differentLevel) {
+            Sprites.otherlevel.render(x + Fonts.b12Metrics.stringWidth(text) + 5, innerY - 12);
         }
     }
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BLclient!pg;)I")
-    public static int getLineWidth(@OriginalArg(1) MiniMenuEntry entry) {
+    public static int getLineWidth(@OriginalArg(1) MiniMenuEntryInner entry) {
         @Pc(15) String text = getLineText(entry);
         @Pc(17) int[] quests = null;
 
@@ -932,6 +1020,7 @@ public final class MiniMenu {
                 if (type.multinpcs != null) {
                     type = type.getMultiNPC(TimedVarDomain.instance);
                 }
+
                 if (type != null) {
                     quests = type.quests;
                 }
@@ -941,6 +1030,7 @@ public final class MiniMenu {
             if (type.multiloc != null) {
                 type = type.getMultiLoc(TimedVarDomain.instance);
             }
+
             if (type != null) {
                 quests = type.quests;
             }
@@ -961,6 +1051,7 @@ public final class MiniMenu {
     public static String questIcon(@OriginalArg(1) int[] quests) {
         @Pc(7) StringBuffer buffer = new StringBuffer();
         @Pc(9) int id = nameIconsCount;
+
         for (@Pc(11) int i = 0; i < quests.length; i++) {
             @Pc(19) QuestType type = QuestTypeList.instance.list(quests[i]);
 
@@ -1003,13 +1094,13 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!nba", name = "a", descriptor = "(ZLclient!ca;I)V")
     public static void addPlayerEntries(@OriginalArg(0) boolean diffentLevel, @OriginalArg(1) PlayerEntity player) {
-        if (entryCount >= 400) {
+        if (innerEntryCount >= 400) {
             return;
         }
 
         if (player == PlayerEntity.self) {
             if (InterfaceManager.targetMode && (InterfaceManager.targetMask & TargetMask.TGT_SELF) != 0) {
-                addEntry(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Client.language), player.id, false);
+                addEntryInner(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Client.language), player.id, false);
             }
         } else {
             @Pc(177) String name;
@@ -1041,11 +1132,11 @@ public final class MiniMenu {
             }
 
             if (InterfaceManager.targetMode && !diffentLevel && (InterfaceManager.targetMask & 0x8) != 0) {
-                addEntry(false, -1, player.id, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_PLAYER, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + name, player.id, false);
+                addEntryInner(false, -1, player.id, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_PLAYER, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + name, player.id, false);
             }
 
             if (diffentLevel) {
-                addEntry(true, 0, 0L, 0, 0, "<col=cccccc>" + name, -1, false, -1, "", player.id, false);
+                addEntryInner(true, 0, 0L, 0, 0, "<col=cccccc>" + name, -1, false, -1, "", player.id, false);
             } else {
                 for (@Pc(318) int op = 7; op >= 0; op--) {
                     if (playerOps[op] != null) {
@@ -1070,13 +1161,13 @@ public final class MiniMenu {
 
                         @Pc(403) short action = (short) (offset + MiniMenuAction.PLAYER_OPS[op]);
                         @Pc(416) int cursor = Static147.playerOpCursors[op] != -1 ? Static147.playerOpCursors[op] : Cursor.interaction;
-                        addEntry(false, -1, player.id, 0, 0, playerOps[op], action, true, cursor, "<col=ffffff>" + name, player.id, false);
+                        addEntryInner(false, -1, player.id, 0, 0, playerOps[op], action, true, cursor, "<col=ffffff>" + name, player.id, false);
                     }
                 }
             }
 
             if (!diffentLevel) {
-                for (@Pc(484) MiniMenuEntry entry = (MiniMenuEntry) entries.first(); entry != null; entry = (MiniMenuEntry) entries.next()) {
+                for (@Pc(484) MiniMenuEntryInner entry = (MiniMenuEntryInner) innerEntryQueue.first(); entry != null; entry = (MiniMenuEntryInner) innerEntryQueue.next()) {
                     if (entry.action == MiniMenuAction.WALK) {
                         entry.activeEntry = "<col=ffffff>" + name;
                         return;
@@ -1087,8 +1178,8 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!br", name = "a", descriptor = "(IILclient!pg;I)V")
-    public static void doAction(@OriginalArg(0) int clickY, @OriginalArg(2) MiniMenuEntry entry, @OriginalArg(3) int clickX) {
-        if (entry == null || entry == entries.sentinel) {
+    public static void doAction(@OriginalArg(0) int clickY, @OriginalArg(2) MiniMenuEntryInner entry, @OriginalArg(3) int clickX) {
+        if (entry == null || entry == innerEntryQueue.sentinel) {
             return;
         }
 
@@ -1114,7 +1205,7 @@ public final class MiniMenu {
                 message.bitPacket.p2_alt1(v1);
                 message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
                 message.bitPacket.p2(InterfaceManager.targetInvObj);
-                message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
+                message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
                 message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
                 ConnectionManager.GAME.send(message);
 
@@ -1132,7 +1223,7 @@ public final class MiniMenu {
             message.bitPacket.p2_alt1(PlayerEntity.self.id);
             message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
             message.bitPacket.p2(InterfaceManager.targetInvObj);
-            message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(82) ? 1 : 0);
+            message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
             message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
             ConnectionManager.GAME.send(message);
         }
@@ -1156,7 +1247,7 @@ public final class MiniMenu {
         }
 
         if (action == MiniMenuAction.WALK) {
-            if (Static608.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT)) {
+            if (Client.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT)) {
                 Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseZ + v3, WorldMap.areaBaseX + v2);
             } else {
                 @Pc(147) ClientMessage message = Static32.moveMessage(v2, v3, v1);
@@ -1264,7 +1355,7 @@ public final class MiniMenu {
         }
 
         if (action == MiniMenuAction.FACE_SQUARE) {
-            if (Static608.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT)) {
+            if (Client.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT)) {
                 Static624.teleport(PlayerEntity.self.level, WorldMap.areaBaseZ + v3, WorldMap.areaBaseX + v2);
             } else {
                 Static481.crossDuration = 0;
@@ -1484,7 +1575,7 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!kca", name = "a", descriptor = "(II)Z")
     public static boolean hasNpcOp(@OriginalArg(0) int index) {
-        for (@Pc(8) MiniMenuEntry entry = (MiniMenuEntry) entries.first(); entry != null; entry = (MiniMenuEntry) entries.next()) {
+        for (@Pc(8) MiniMenuEntryInner entry = (MiniMenuEntryInner) innerEntryQueue.first(); entry != null; entry = (MiniMenuEntryInner) innerEntryQueue.next()) {
             if (MiniMenuAction.isNpcOp(entry.action) && entry.v1 == (long) index) {
                 return true;
             }
@@ -1494,16 +1585,620 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!pga", name = "c", descriptor = "(I)V")
     public static void close() {
-        closeInner();
+        closeOpenedEntry();
         open = false;
-        InterfaceManager.redrawWithin(width, x, height, y);
+        InterfaceManager.redrawWithin(x, y, width, height);
     }
 
     @OriginalMember(owner = "client!kh", name = "b", descriptor = "(B)V")
-    public static void closeInner() {
-        if (openedInner != null) {
-            openedInner = null;
-            InterfaceManager.redrawWithin(openedInnerWidth, openedInnerX, openedInnerHeight, openedInnerY);
+    public static void closeOpenedEntry() {
+        if (openedEntry != null) {
+            openedEntry = null;
+            InterfaceManager.redrawWithin(openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
         }
+    }
+
+    @OriginalMember(owner = "client!vha", name = "a", descriptor = "(Lclient!ha;Z)V")
+    public static void draw(@OriginalArg(0) Toolkit toolkit) {
+        if (open) {
+            drawFull(toolkit);
+        } else {
+            drawPreview(toolkit);
+        }
+    }
+
+    @OriginalMember(owner = "client!bf", name = "a", descriptor = "(ILclient!ha;)V")
+    public static void drawFull(@OriginalArg(1) Toolkit toolkit) {
+        if (useSprites) {
+            drawWithSprites(toolkit);
+        } else {
+            drawWithoutSprites(toolkit);
+        }
+    }
+
+    @OriginalMember(owner = "client!ema", name = "a", descriptor = "(Lclient!ha;I)V")
+    public static void drawWithSprites(@OriginalArg(0) Toolkit toolkit) {
+        @Pc(5) int offsetX = 0;
+        @Pc(7) int offsetY = 0;
+        if (InterfaceManager.aBoolean210) {
+            offsetX = Static130.method2283();
+            offsetY = Static422.method5771();
+        }
+
+        @Pc(19) int menuX = x + offsetX;
+        @Pc(23) int menuY = y + offsetY;
+        @Pc(25) int menuWidth = width;
+        @Pc(29) int menuHeight = height - 3;
+
+        drawTop(width, height, LocalisedText.CHOOSEOPTION.localise(Client.language), toolkit, offsetY + y, x + offsetX);
+
+        @Pc(55) int mouseX = MouseMonitor.instance.getRecordedX() + offsetX;
+        @Pc(66) int mouseY = MouseMonitor.instance.getRecordedY() + offsetY;
+
+        if (collapsed) {
+            @Pc(70) int count = 0;
+
+            for (@Pc(77) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+                @Pc(89) int entryY = menuY + (count * 16) + 13 + 20;
+
+                if (mouseX > offsetX + x && mouseX < offsetX + x + width && mouseY > entryY - 13 && mouseY < entryY + 4 && (entry.size > 1 || ((MiniMenuEntryInner) entry.innerEntries.sentinel.next2).aBoolean552)) {
+                    toolkit.aa(offsetX + x, entryY - 12, width, 16, ((255 - spriteBodyOpacity) << 24) | spriteBodyColour, 1);
+                }
+
+                count++;
+            }
+
+            if (openedEntry != null) {
+                drawTop(openedEntryWidth, openedEntryHeight, openedEntry.title, toolkit, openedEntryY, openedEntryX);
+
+                count = 0;
+                for (@Pc(190) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
+                    @Pc(202) int local202 = openedEntryY + count * 16 + 13 + 20;
+                    if (openedEntryX < mouseX && openedEntryX + openedEntryWidth > mouseX && mouseY > local202 - 13 && mouseY < local202 + 4 && inner.aBoolean552) {
+                        toolkit.aa(openedEntryX, local202 - 12, openedEntryWidth, 16, 255 - spriteBodyOpacity << 24 | spriteBodyColour, 1);
+                    }
+                    count++;
+                }
+
+                drawBorder(openedEntryY, toolkit, openedEntryX, openedEntryWidth, openedEntryHeight);
+            }
+        } else {
+            @Pc(70) int count = 0;
+
+            for (@Pc(281) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
+                @Pc(202) int innerY = (innerEntryCount - count - 1) * 16 + menuY + 33;
+                count++;
+                if (offsetX + x < mouseX && offsetX + x + width > mouseX && mouseY > innerY - 13 && innerY + 4 > mouseY && inner.aBoolean552) {
+                    toolkit.aa(offsetX + x, innerY - 12, width, 16, spriteBodyColour | 255 - spriteBodyOpacity << 24, 1);
+                }
+            }
+        }
+
+        drawBorder(offsetY + y, toolkit, x + offsetX, width, height);
+
+        if (collapsed) {
+            @Pc(70) int count = 0;
+
+            for (@Pc(77) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+                @Pc(202) int entryY = count * 16 + offsetY + y + 33;
+
+                if (entry.size == 1) {
+                    drawEntryInner(toolkit, (MiniMenuEntryInner) entry.innerEntries.sentinel.next2, x + offsetX, y + offsetY, width, height, mouseX, mouseY, textColour | 0xFF000000, spriteHighlightColour | 0xFF000000, entryY);
+                } else {
+                    drawEntry(toolkit, entry, offsetX + x, entryY, width, height, mouseX, mouseY, textColour | 0xFF000000, spriteHighlightColour | 0xFF000000, offsetY + y);
+                }
+
+                count++;
+            }
+
+            if (openedEntry != null) {
+                count = 0;
+
+                for (@Pc(190) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
+                    @Pc(202) int innerY = openedEntryY + (count * 16) + 20 + 13;
+                    drawEntryInner(toolkit, inner, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight, mouseX, mouseY, textColour | 0xFF000000, spriteHighlightColour | 0xFF000000, innerY);
+                    count++;
+                }
+
+                InterfaceManager.method5773(openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
+            }
+        } else {
+            @Pc(70) int count = 0;
+
+            for (@Pc(281) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
+                @Pc(89) int innerY = menuY + (innerEntryCount - count - 1) * 16 + 13 + 20;
+                count++;
+                drawEntryInner(toolkit, inner, menuX, menuY, menuWidth, menuHeight, mouseX, mouseY, textColour | 0xFF000000, spriteHighlightColour | 0xFF000000, innerY);
+            }
+        }
+
+        InterfaceManager.method5773(x + offsetX, y + offsetY, width, height);
+    }
+
+    @OriginalMember(owner = "client!ew", name = "a", descriptor = "(Lclient!ha;B)V")
+    public static void drawWithoutSprites(@OriginalArg(0) Toolkit toolkit) {
+        @Pc(7) int offsetX = 0;
+        @Pc(9) int offsetY = 0;
+        if (InterfaceManager.aBoolean210) {
+            offsetX = Static130.method2283();
+            offsetY = Static422.method5771();
+        }
+
+        drawFrame(toolkit, x + offsetX, y + offsetY, width, height);
+        Fonts.b12.render(x + offsetX + 3, y + offsetY + 14, LocalisedText.CHOOSEOPTION.localise(Client.language), 0xFFFFFFFF, 0xFF5D5447);
+
+        @Pc(69) int mouseX = MouseMonitor.instance.getRecordedX() + offsetX;
+        @Pc(76) int mouseY = MouseMonitor.instance.getRecordedY() + offsetY;
+
+        if (collapsed) {
+            @Pc(80) int count = 0;
+
+            for (@Pc(137) MiniMenuEntry inner = (MiniMenuEntry) entryQueue.first(); inner != null; inner = (MiniMenuEntry) entryQueue.next()) {
+                @Pc(101) int innerY = offsetY + y + count * 16 + 31;
+
+                if (inner.size == 1) {
+                    drawEntryInner(toolkit, (MiniMenuEntryInner) inner.innerEntries.sentinel.next2, offsetX + x, y + offsetY, width, height, mouseX, mouseY, -1, -256, innerY);
+                } else {
+                    drawEntry(toolkit, inner, offsetX + x, innerY, width, height, mouseX, mouseY, -1, -256, y + offsetY);
+                }
+
+                count++;
+            }
+
+            if (openedEntry != null) {
+                drawFrame(toolkit, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
+
+                count = 0;
+                Fonts.b12.render(openedEntryX + 3, openedEntryY + 14, openedEntry.title, -1, 0xFF5D5447);
+
+                for (@Pc(239) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
+                    @Pc(251) int innerY = count * 16 + openedEntryY + 31;
+                    count++;
+                    drawEntryInner(toolkit, inner, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight, mouseX, mouseY, -1, -256, innerY);
+                }
+
+                InterfaceManager.method5773(openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
+            }
+        } else {
+            @Pc(80) int count = 0;
+
+            for (@Pc(85) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
+                @Pc(101) int innerY = ((innerEntryCount - count - 1) * 16) + offsetY + y + 31;
+                count++;
+                drawEntryInner(toolkit, inner, offsetX + x, y + offsetY, width, height, mouseX, mouseY, -1, -256, innerY);
+            }
+        }
+
+        InterfaceManager.method5773(offsetX + x, offsetY + y, width, height);
+    }
+
+    @OriginalMember(owner = "client!qda", name = "a", descriptor = "(IIIIILclient!ha;IIIIILclient!cba;)V")
+    public static void drawEntry(@OriginalArg(5) Toolkit toolkit, @OriginalArg(11) MiniMenuEntry inner, @OriginalArg(9) int x, @OriginalArg(2) int y, @OriginalArg(1) int width, @OriginalArg(10) int height, @OriginalArg(6) int mouseX, @OriginalArg(0) int mouseY, @OriginalArg(7) int colour, @OriginalArg(4) int highlightColour, @OriginalArg(8) int entryHeight) {
+        if (mouseX > x && mouseX < x + width && mouseY > y - 13 && mouseY < y + 3) {
+            colour = highlightColour;
+        }
+
+        @Pc(41) String text = entryTitle(inner);
+        Fonts.b12.render(colour, 0, y, text, x + 3, icons, iconHeights);
+    }
+
+    @OriginalMember(owner = "client!fu", name = "a", descriptor = "(Lclient!cba;B)Ljava/lang/String;")
+    public static String entryTitle(@OriginalArg(0) MiniMenuEntry entry) {
+        return entry.title + " <col=ffffff>>";
+    }
+
+    @OriginalMember(owner = "client!cn", name = "a", descriptor = "(IILjava/lang/String;Lclient!ha;BIII)V")
+    public static void drawTop(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) String text, @OriginalArg(3) Toolkit toolkit, @OriginalArg(5) int y, @OriginalArg(6) int x) {
+        if (separatorSprite == null || topLeftCornerSprite == null) {
+            if (js5.SPRITES.fileready(separatorSpriteId) && js5.SPRITES.fileready(topCornerSpriteId)) {
+                separatorSprite = toolkit.createSprite(IndexedImage.loadFirst(js5.SPRITES, separatorSpriteId, 0), true);
+
+                @Pc(49) IndexedImage corner = IndexedImage.loadFirst(js5.SPRITES, topCornerSpriteId, 0);
+                topLeftCornerSprite = toolkit.createSprite(corner, true);
+                corner.flipVertically();
+                topRightCornerSprite = toolkit.createSprite(corner, true);
+            } else {
+                toolkit.aa(x, y, width, 20, topColour | ((255 - topOpacity) << 24), 1);
+            }
+        }
+
+        if (separatorSprite != null && topLeftCornerSprite != null) {
+            @Pc(82) int tiles = (width - topLeftCornerSprite.getWidth() * 2) / separatorSprite.getWidth();
+            for (@Pc(84) int i = 0; i < tiles; i++) {
+                separatorSprite.render(x + topLeftCornerSprite.getWidth() + i * separatorSprite.getWidth(), y);
+            }
+
+            topLeftCornerSprite.render(x, y);
+            topRightCornerSprite.render(width + x - topRightCornerSprite.getWidth(), y);
+        }
+
+        Fonts.b12.render(x + 3, y + 14, text, -1, 0xFF000000 | textColour);
+        toolkit.aa(x, y + 20, width, height - 20, ((0xFF - topOpacity) << 24) | topColour, 1);
+    }
+
+    @OriginalMember(owner = "client!jea", name = "a", descriptor = "(ILclient!ha;IIIBI)V")
+    public static void drawBorder(@OriginalArg(0) int y, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int x, @OriginalArg(3) int width, @OriginalArg(6) int height) {
+        if ((bottomBorderSprite == null || leftBorderSprite == null || bottomLeftCornerSprite == null) && js5.SPRITES.fileready(horizontalBorderSpriteId) && js5.SPRITES.fileready(verticalBorderSpriteId) && js5.SPRITES.fileready(bottomCornerSpriteId)) {
+            @Pc(46) IndexedImage border = IndexedImage.loadFirst(js5.SPRITES, verticalBorderSpriteId, 0);
+            leftBorderSprite = toolkit.createSprite(border, true);
+            border.flipVertically();
+            rightBorderSprite = toolkit.createSprite(border, true);
+
+            bottomBorderSprite = toolkit.createSprite(IndexedImage.loadFirst(js5.SPRITES, horizontalBorderSpriteId, 0), true);
+
+            @Pc(71) IndexedImage corner = IndexedImage.loadFirst(js5.SPRITES, bottomCornerSpriteId, 0);
+            bottomLeftCornerSprite = toolkit.createSprite(corner, true);
+            corner.flipVertically();
+            bottomRightCornerSprite = toolkit.createSprite(corner, true);
+        }
+
+        if (bottomBorderSprite != null && leftBorderSprite != null && bottomLeftCornerSprite != null) {
+            @Pc(103) int bottomTiles = (width - bottomLeftCornerSprite.getWidth() * 2) / bottomBorderSprite.getWidth();
+            for (@Pc(105) int i = 0; i < bottomTiles; i++) {
+                bottomBorderSprite.render(bottomLeftCornerSprite.getWidth() + x + bottomBorderSprite.getWidth() * i, -bottomBorderSprite.getHeight() + height + y);
+            }
+
+            @Pc(145) int sideTiles = (height - bottomLeftCornerSprite.getHeight() - 20) / leftBorderSprite.getHeight();
+            for (@Pc(147) int i = 0; i < sideTiles; i++) {
+                leftBorderSprite.render(x, y + leftBorderSprite.getHeight() * i + 20);
+                rightBorderSprite.render(width + x - rightBorderSprite.getWidth(), y - -20 + leftBorderSprite.getHeight() * i);
+            }
+
+            bottomLeftCornerSprite.render(x, y + height - bottomLeftCornerSprite.getHeight());
+            bottomRightCornerSprite.render(width + x - bottomLeftCornerSprite.getWidth(), height + (y - bottomLeftCornerSprite.getHeight()));
+        }
+    }
+
+    @OriginalMember(owner = "client!daa", name = "a", descriptor = "(IZIIILclient!ha;II)V")
+    public static void drawFrame(@OriginalArg(5) Toolkit toolkit, @OriginalArg(2) int x, @OriginalArg(0) int y, @OriginalArg(7) int width, @OriginalArg(3) int height) {
+        toolkit.fillRect(x, y, width, height, 0xFF5D5447);
+        toolkit.fillRect(x + 1, y + 1, width - 2, 16, 0xFF000000);
+        toolkit.outlineRect(x + 1, y + 16 + 2, width - 2, height - 16 + 3, 0xFF000000);
+    }
+
+    @OriginalMember(owner = "client!kc", name = "a", descriptor = "(Z)V")
+    public static void update() {
+        if (!open) {
+            collapsed = ((collapseAtCount != -1) && (innerEntryCount >= collapseAtCount)) || (((innerEntryCount * 16) + (useSprites ? 26 : 22)) > GameShell.canvasHei);
+        }
+
+        otherInnerEntries.clear();
+        targetInnerEntries.clear();
+
+        for (@Pc(57) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
+            @Pc(64) int action = inner.action;
+            if (action < 1000) {
+                inner.unlink();
+
+                if (action == MiniMenuAction.TGT_GROUND || action == MiniMenuAction.TGT_LOC || action == MiniMenuAction.TGT_NPC || action == MiniMenuAction.TGT_OBJ || action == MiniMenuAction.TGT_PLAYER || action == MiniMenuAction.TGT_SELF || action == MiniMenuAction.IF_BUTTONT) {
+                    targetInnerEntries.addLast(inner);
+                } else {
+                    otherInnerEntries.addLast(inner);
+                }
+            }
+        }
+
+        otherInnerEntries.appendTo(innerEntryQueue);
+        targetInnerEntries.appendTo(innerEntryQueue);
+
+        if (innerEntryCount <= 1) {
+            leftClickEntry = null;
+            topEntry = null;
+        } else {
+            if (shiftClick && KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_SHIFT) && innerEntryCount > 2) {
+                leftClickEntry = (MiniMenuEntryInner) innerEntryQueue.sentinel.prev.prev;
+            } else {
+                leftClickEntry = (MiniMenuEntryInner) innerEntryQueue.sentinel.prev;
+            }
+
+            topEntry = (MiniMenuEntryInner) innerEntryQueue.sentinel.prev;
+        }
+
+        @Pc(64) int mouseLogType = -1;
+        @Pc(204) MouseLog log = (MouseLog) Static226.mouseLogs.first();
+        if (log != null) {
+            mouseLogType = log.getType();
+        }
+
+        if (!open) {
+            if (mouseLogType == MouseLog.TYPE_PRESS_LEFT && (Client.mouseButtons == 1 && innerEntryCount > 2 || topEntryIsIfButtonX1())) {
+                mouseLogType = MouseLog.TYPE_PRESS_RIGHT;
+            }
+
+            if (mouseLogType == MouseLog.TYPE_PRESS_RIGHT && innerEntryCount > 0 && log != null) {
+                if (InterfaceManager.dragSource == null && Static460.anInt6964 == 0) {
+                    openAt(log.getX(), log.getY());
+                } else {
+                    Static536.anInt8149 = 2;
+                }
+            }
+
+            if (mouseLogType == MouseLog.TYPE_PRESS_LEFT) {
+                if (leftClickEntry != null) {
+                    Static407.method5628();
+                } else if (InterfaceManager.targetMode) {
+                    InterfaceManager.endTargetMode();
+                }
+            }
+
+            if (InterfaceManager.dragSource == null && Static460.anInt6964 == 0) {
+                Static75.aClass2_Sub2_Sub16_9 = null;
+                Static536.anInt8149 = 0;
+            }
+        } else if (mouseLogType == MouseLog.TYPE_RESET) {
+            @Pc(317) int mouseX = MouseMonitor.instance.getRecordedX();
+            @Pc(321) int mouseY = MouseMonitor.instance.getRecordedY();
+
+            @Pc(323) boolean openEntry = false;
+            if (openedEntry != null) {
+                if (mouseX >= openedEntryX - 10 && mouseX <= openedEntryX + openedEntryWidth + 10 && openedEntryY - 10 <= mouseY && mouseY <= openedEntryY + openedEntryHeight + 10) {
+                    openEntry = true;
+                } else {
+                    closeOpenedEntry();
+                }
+            }
+
+            if (!openEntry) {
+                if (x - 10 > mouseX || x + width + 10 < mouseX || y - 10 > mouseY || mouseY > height + y + 10) {
+                    close();
+                } else if (collapsed) {
+                    @Pc(426) int openEntryIndex = -1;
+                    @Pc(428) int openEntryY = -1;
+
+                    for (@Pc(430) int i = 0; i < entryCount; i++) {
+                        if (useSprites) {
+                            @Pc(444) int entryY = i * 16 + y + 33;
+
+                            if (mouseY > entryY - 13 && entryY + 4 > mouseY) {
+                                openEntryIndex = i;
+                                openEntryY = entryY - 13;
+                                break;
+                            }
+                        } else {
+                            @Pc(444) int entryY = i * 16 + y + 31;
+
+                            if (entryY - 13 < mouseY && mouseY < entryY + 3) {
+                                openEntryY = entryY - 13;
+                                openEntryIndex = i;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (openEntryIndex != -1) {
+                        @Pc(444) int index = 0;
+                        @Pc(525) QueueIterator iterator = new QueueIterator(entryQueue);
+
+                        for (@Pc(530) MiniMenuEntry entry = (MiniMenuEntry) iterator.first(); entry != null; entry = (MiniMenuEntry) iterator.next()) {
+                            if (index == openEntryIndex) {
+                                if (entry.size > 1) {
+                                    openEntry(entry, openEntryY, mouseY);
+                                }
+                                break;
+                            }
+
+                            index++;
+                        }
+                    }
+                }
+            }
+        } else if (mouseLogType == MouseLog.TYPE_PRESS_LEFT) {
+            @Pc(317) int mouseX = log.getX();
+            @Pc(321) int mouseY = log.getY();
+
+            if (openedEntry != null && openedEntryX <= mouseX && openedEntryWidth + openedEntryX >= mouseX && mouseY >= openedEntryY && openedEntryY + openedEntryHeight >= mouseY) {
+                @Pc(661) int openEntryIndex = -1;
+
+                for (@Pc(426) int i = 0; i < openedEntry.size; i++) {
+                    if (useSprites) {
+                        @Pc(428) int entryY = i * 16 + openedEntryY + 33;
+
+                        if (mouseY > entryY - 13 && entryY + 4 > mouseY) {
+                            openEntryIndex = i;
+                        }
+                    } else {
+                        @Pc(428) int openEntryY = i * 16 + openedEntryY + 31;
+
+                        if (mouseY > openEntryY - 13 && mouseY < openEntryY + 3) {
+                            openEntryIndex = i;
+                        }
+                    }
+                }
+
+                if (openEntryIndex != -1) {
+                    @Pc(428) int index = 0;
+                    @Pc(886) QueueIterator iterator = new QueueIterator(openedEntry.innerEntries);
+
+                    for (@Pc(762) MiniMenuEntryInner inner = (MiniMenuEntryInner) iterator.first(); inner != null; inner = (MiniMenuEntryInner) iterator.next()) {
+                        if (openEntryIndex == index) {
+                            doAction(mouseY, inner, mouseX);
+                            break;
+                        }
+
+                        index++;
+                    }
+                }
+
+                close();
+                return;
+            }
+
+            if (x > mouseX || x + width < mouseX || y > mouseY || mouseY > height + y) {
+                return;
+            }
+
+            if (!collapsed) {
+                @Pc(661) int innerEntryIndex = -1;
+                for (@Pc(426) int i = 0; i < innerEntryCount; i++) {
+                    if (useSprites) {
+                        @Pc(428) int innerEntryY = (innerEntryCount - i - 1) * 16 + y + 33;
+
+                        if (mouseY > innerEntryY - 13 && mouseY < innerEntryY + 4) {
+                            innerEntryIndex = i;
+                        }
+                    } else {
+                        @Pc(428) int innerEntryY = y + (-i + innerEntryCount + -1) * 16 + 31;
+
+                        if (mouseY > innerEntryY - 13 && innerEntryY + 3 > mouseY) {
+                            innerEntryIndex = i;
+                        }
+                    }
+                }
+
+                if (innerEntryIndex != -1) {
+                    @Pc(428) int index = 0;
+                    @Pc(757) DequeIterator iterator = new DequeIterator(innerEntryQueue);
+
+                    for (@Pc(762) MiniMenuEntryInner inner = (MiniMenuEntryInner) iterator.first(); inner != null; inner = (MiniMenuEntryInner) iterator.next()) {
+                        if (innerEntryIndex == index) {
+                            doAction(mouseY, inner, mouseX);
+                            break;
+                        }
+                        index++;
+                    }
+                }
+
+                close();
+            } else {
+                @Pc(661) int entryIndex = -1;
+
+                for (@Pc(426) int i = 0; i < entryCount; i++) {
+                    if (useSprites) {
+                        @Pc(428) int entryY = i * 16 + y + 33;
+
+                        if (entryY - 13 < mouseY && mouseY < entryY + 4) {
+                            entryIndex = i;
+                            break;
+                        }
+                    } else {
+                        @Pc(428) int local428 = y + i * 16 + 31;
+
+                        if (mouseY > local428 - 13 && mouseY < local428 + 3) {
+                            entryIndex = i;
+                            break;
+                        }
+                    }
+                }
+
+                if (entryIndex != -1) {
+                    @Pc(428) int index = 0;
+                    @Pc(886) QueueIterator iterator = new QueueIterator(entryQueue);
+
+                    for (@Pc(891) MiniMenuEntry entry = (MiniMenuEntry) iterator.first(); entry != null; entry = (MiniMenuEntry) iterator.next()) {
+                        if (index == entryIndex) {
+                            doAction(mouseY, (MiniMenuEntryInner) entry.innerEntries.sentinel.next2, mouseX);
+                            close();
+                            break;
+                        }
+
+                        index++;
+                    }
+                }
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!s", name = "b", descriptor = "(III)V")
+    public static void openAt(@OriginalArg(2) int x, @OriginalArg(1) int y) {
+        @Pc(11) int menuWidth = Fonts.b12Metrics.stringWidth(LocalisedText.CHOOSEOPTION.localise(Client.language));
+        @Pc(68) int menuHeight;
+
+        if (collapsed) {
+            for (@Pc(18) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+                @Pc(27) int width;
+                if (entry.size == 1) {
+                    width = getLineWidth((MiniMenuEntryInner) entry.innerEntries.sentinel.next2);
+                } else {
+                    width = getEntryWidth(entry);
+                }
+
+                if (width > menuWidth) {
+                    menuWidth = width;
+                }
+            }
+
+            menuWidth += 8;
+            height = (useSprites ? 26 : 22) + entryCount * 16;
+            menuHeight = entryCount * 16 + 21;
+        } else {
+            for (@Pc(74) MiniMenuEntryInner inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
+                @Pc(27) int local27 = getLineWidth(inner);
+                if (menuWidth < local27) {
+                    menuWidth = local27;
+                }
+            }
+
+            menuWidth += 8;
+            height = (useSprites ? 26 : 22) + innerEntryCount * 16;
+            menuHeight = innerEntryCount * 16 + 21;
+        }
+
+        @Pc(118) int menuX = x - menuWidth / 2;
+        if (menuWidth + menuX > GameShell.canvasWid) {
+            menuX = GameShell.canvasWid - menuWidth;
+        }
+        if (menuX < 0) {
+            menuX = 0;
+        }
+
+        @Pc(146) int menuY = y;
+        if (y + menuHeight > GameShell.canvasHei) {
+            menuY = GameShell.canvasHei - menuHeight;
+        }
+        if (menuY < 0) {
+            menuY = 0;
+        }
+
+        MiniMenu.x = menuX;
+        MiniMenu.open = true;
+        MiniMenu.y = menuY;
+        MiniMenu.width = menuWidth;
+    }
+
+    @OriginalMember(owner = "client!fu", name = "a", descriptor = "(Lclient!cba;I)I")
+    public static int getEntryWidth(@OriginalArg(0) MiniMenuEntry entry) {
+        @Pc(14) String text = entryTitle(entry);
+        return Fonts.b12Metrics.stringWidth(icons, text);
+    }
+
+    @OriginalMember(owner = "client!tea", name = "a", descriptor = "(IIILclient!cba;)V")
+    public static void openEntry(@OriginalArg(3) MiniMenuEntry entry, @OriginalArg(0) int y, @OriginalArg(2) int mouseY) {
+        if (!open) {
+            return;
+        }
+
+        @Pc(11) int entryWidth = 0;
+        for (@Pc(17) MiniMenuEntryInner inner = (MiniMenuEntryInner) entry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) entry.innerEntries.next()) {
+            @Pc(23) int lineWidth = getLineWidth(inner);
+            if (lineWidth > entryWidth) {
+                entryWidth = lineWidth;
+            }
+        }
+        entryWidth += 8;
+
+        @Pc(23) int entryHeight = entry.size * 16 + 21;
+        openedEntryHeight = (useSprites ? 26 : 22) + entry.size * 16;
+
+        @Pc(71) int entryX = entryWidth + x;
+        if (entryX + entryWidth > GameShell.canvasWid) {
+            entryX = x - entryWidth;
+        }
+        if (entryX < 0) {
+            entryX = 0;
+        }
+
+        @Pc(91) int topHeight = useSprites ? 33 : 31;
+        @Pc(98) int entryY = y + 13 - topHeight;
+        if (GameShell.canvasHei < entryHeight + entryY) {
+            entryY = GameShell.canvasHei - entryHeight;
+        }
+        if (entryY < 0) {
+            entryY = 0;
+        }
+
+        openedEntryX = entryX;
+        openedEntryWidth = entryWidth;
+        openedEntry = entry;
+        openedEntryY = entryY;
     }
 }

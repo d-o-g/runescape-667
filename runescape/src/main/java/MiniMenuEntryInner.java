@@ -1,74 +1,63 @@
-import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.datastruct.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
-@OriginalClass("client!cba")
+@OriginalClass("client!pg")
 public final class MiniMenuEntryInner extends Node2 {
 
-    @OriginalMember(owner = "client!cba", name = "C", descriptor = "I")
-    public int size;
+    @OriginalMember(owner = "client!pg", name = "C", descriptor = "Ljava/lang/String;")
+    public String activeEntry;
 
-    @OriginalMember(owner = "client!cba", name = "x", descriptor = "Ljava/lang/String;")
-    public final String title;
+    @OriginalMember(owner = "client!pg", name = "v", descriptor = "J")
+    public final long v1;
 
-    @OriginalMember(owner = "client!cba", name = "A", descriptor = "Lclient!jga;")
-    public final Queue entries;
+    @OriginalMember(owner = "client!pg", name = "t", descriptor = "Z")
+    public final boolean aBoolean552;
 
-    @OriginalMember(owner = "client!cba", name = "<init>", descriptor = "(Ljava/lang/String;)V")
-    public MiniMenuEntryInner(@OriginalArg(0) String title) {
-        this.title = title;
-        this.entries = new Queue();
-    }
+    @OriginalMember(owner = "client!pg", name = "D", descriptor = "I")
+    public final int cursor;
 
-    @OriginalMember(owner = "client!cba", name = "d", descriptor = "(B)I")
-    public int getAction() {
-        return this.entries.sentinel.next2 == this.entries.sentinel ? -1 : ((MiniMenuEntry) this.entries.sentinel.next2).action;
-    }
+    @OriginalMember(owner = "client!pg", name = "x", descriptor = "I")
+    public final int objId;
 
-    @OriginalMember(owner = "client!cba", name = "b", descriptor = "(ILclient!pg;)Z")
-    public boolean remove(@OriginalArg(1) MiniMenuEntry entry) {
-        @Pc(15) int action = this.getAction();
-        entry.unlink2();
-        this.size--;
+    @OriginalMember(owner = "client!pg", name = "G", descriptor = "I")
+    public final int v3;
 
-        if (this.size != 0) {
-            return action != this.getAction();
-        }
+    @OriginalMember(owner = "client!pg", name = "z", descriptor = "I")
+    public int action;
 
-        this.unlink();
-        this.unlink2();
-        MiniMenu.innerCount--;
-        MiniMenu.cache.put(this, entry.entryKey);
-        return false;
-    }
+    @OriginalMember(owner = "client!pg", name = "u", descriptor = "Ljava/lang/String;")
+    public final String op;
 
-    @OriginalMember(owner = "client!cba", name = "a", descriptor = "(ILclient!pg;)Z")
-    public boolean add(@OriginalArg(1) MiniMenuEntry entry) {
-        @Pc(5) boolean changedTypes = true;
-        entry.unlink2();
+    @OriginalMember(owner = "client!pg", name = "B", descriptor = "J")
+    public final long entryKey;
 
-        @Pc(21) MiniMenuEntry existing = (MiniMenuEntry) this.entries.first();
-        while (existing != null) {
-            if (MiniMenu.isActionBefore(entry.action, existing.action)) {
-                Node2.attachBefore(entry, existing);
-                this.size++;
+    @OriginalMember(owner = "client!pg", name = "w", descriptor = "Ljava/lang/String;")
+    public final String opBase;
 
-                if (changedTypes) {
-                    return false;
-                }
+    @OriginalMember(owner = "client!pg", name = "F", descriptor = "I")
+    public final int v2;
 
-                return true;
-            }
+    @OriginalMember(owner = "client!pg", name = "E", descriptor = "Z")
+    public final boolean differentLevel;
 
-            existing = (MiniMenuEntry) this.entries.next();
-            changedTypes = false;
-        }
+    @OriginalMember(owner = "client!pg", name = "H", descriptor = "Z")
+    public final boolean independent;
 
-        this.entries.add(entry);
-        this.size++;
-        return changedTypes;
+    @OriginalMember(owner = "client!pg", name = "<init>", descriptor = "(Ljava/lang/String;Ljava/lang/String;IIIJIIZZJZ)V")
+    public MiniMenuEntryInner(@OriginalArg(0) String op, @OriginalArg(1) String opBase, @OriginalArg(2) int cursor, @OriginalArg(3) int action, @OriginalArg(4) int objId, @OriginalArg(5) long v1, @OriginalArg(6) int v2, @OriginalArg(7) int v3, @OriginalArg(8) boolean arg8, @OriginalArg(9) boolean differentLevel, @OriginalArg(10) long key, @OriginalArg(11) boolean independent) {
+        this.v1 = v1;
+        this.aBoolean552 = arg8;
+        this.cursor = cursor;
+        this.objId = objId;
+        this.v3 = v3;
+        this.action = action;
+        this.op = op;
+        this.entryKey = key;
+        this.opBase = opBase;
+        this.v2 = v2;
+        this.differentLevel = differentLevel;
+        this.independent = independent;
     }
 }

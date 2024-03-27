@@ -94,14 +94,14 @@ public final class Static694 {
             toolkit.createSprite(Static535.aIndexedImage_3, true).method8198(local92 + Static414.aIndexedImage_2.width, height + (local101 - imageWidth), width - Static414.aIndexedImage_2.width * 2, imageWidth);
             Static535.aIndexedImage_3.rotate();
             font.renderLines(0, null, Static675.anInt10154 | 0xFF000000, text, null, null, imageWidthPlusBorder + local101, -1, 0, 1, local92 + imageWidthPlusBorder, 1, 0, width - imageWidthPlusBorder * 2, -(imageWidthPlusBorder * 2) + height);
-            InterfaceManager.redrawWithin(width, local92, height, local101);
+            InterfaceManager.redrawWithin(local92, local101, width, height);
         } else {
             @Pc(40) int paraWidth = p12Metrics.paraWidth(null, text, 250);
             @Pc(49) int paraHeight = p12Metrics.paraHeight(text, null, 250) * 13;
             toolkit.aa(6, 6, paraWidth + 4 + 4, paraHeight + 4 + 4, 0xFF000000, 0);
             toolkit.outlineRect(6, 6, paraWidth + 8, 4 + 4 + paraHeight, -1, 0);
             p12.renderLines(0, null, 0xFFFFFFFF, text, null, null, 10, -1, 0, 1, 10, 1, 0, paraWidth, paraHeight);
-            InterfaceManager.redrawWithin(paraWidth + 8, 6, paraHeight + 4 + 4, 6);
+            InterfaceManager.redrawWithin(6, 6, paraWidth + 8, paraHeight + 4 + 4);
         }
 
         if (!arg2) {

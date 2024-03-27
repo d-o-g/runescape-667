@@ -73,8 +73,8 @@ public final class MovingParticle extends Particle {
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(JI)V")
-    public void method6694(@OriginalArg(0) long arg0, @OriginalArg(1) int arg1) {
-        this.aShort96 = (short) (this.aShort96 - arg1);
+    public void method6694(@OriginalArg(0) long arg0, @OriginalArg(1) int elapsedTime) {
+        this.aShort96 = (short) (this.aShort96 - elapsedTime);
         if (this.aShort96 <= 0) {
             this.remove();
             return;
@@ -87,9 +87,9 @@ public final class MovingParticle extends Particle {
         if (local35.fadeColour != 0) {
             @Pc(65) int local65;
             if (this.aShort93 - this.aShort96 <= local35.anInt9901) {
-                local65 = (super.anInt7539 >> 8 & 0xFF00) + (this.anInt7541 >> 16 & 0xFF) + local35.anInt9931 * arg1;
-                @Pc(82) int local82 = (super.anInt7539 & 0xFF00) + (this.anInt7541 >> 8 & 0xFF) + local35.anInt9920 * arg1;
-                @Pc(99) int local99 = ((super.anInt7539 & 0xFF) << 8) + (this.anInt7541 & 0xFF) + local35.anInt9916 * arg1;
+                local65 = (super.anInt7539 >> 8 & 0xFF00) + (this.anInt7541 >> 16 & 0xFF) + local35.anInt9931 * elapsedTime;
+                @Pc(82) int local82 = (super.anInt7539 & 0xFF00) + (this.anInt7541 >> 8 & 0xFF) + local35.anInt9920 * elapsedTime;
+                @Pc(99) int local99 = ((super.anInt7539 & 0xFF) << 8) + (this.anInt7541 & 0xFF) + local35.anInt9916 * elapsedTime;
                 if (local65 < 0) {
                     local65 = 0;
                 } else if (local65 > 65535) {
@@ -111,7 +111,7 @@ public final class MovingParticle extends Particle {
                 this.anInt7541 |= ((local65 & 0xFF) << 16) + ((local82 & 0xFF) << 8) + (local99 & 0xFF);
             }
             if (this.aShort93 - this.aShort96 <= local35.anInt9925) {
-                local65 = (super.anInt7539 >> 16 & 0xFF00) + (this.anInt7541 >> 24 & 0xFF) + local35.anInt9887 * arg1;
+                local65 = (super.anInt7539 >> 16 & 0xFF00) + (this.anInt7541 >> 24 & 0xFF) + local35.anInt9887 * elapsedTime;
                 if (local65 < 0) {
                     local65 = 0;
                 } else if (local65 > 65535) {
@@ -124,10 +124,10 @@ public final class MovingParticle extends Particle {
             }
         }
         if (local35.endSpeed != -1 && this.aShort93 - this.aShort96 <= local35.lb) {
-            this.anInt7542 += local35.anInt9889 * arg1;
+            this.anInt7542 += local35.anInt9889 * elapsedTime;
         }
         if (local35.endSize != -1 && this.aShort93 - this.aShort96 <= local35.anInt9909) {
-            super.anInt7535 += local35.anInt9910 * arg1;
+            super.anInt7535 += local35.anInt9910 * elapsedTime;
         }
         @Pc(296) double local296 = this.aShort92;
         @Pc(300) double local300 = this.aShort95;
@@ -139,18 +139,18 @@ public final class MovingParticle extends Particle {
         @Pc(348) int local348;
         @Pc(356) long local356;
         if (local35.decelerationType == 1) {
-            local317 = local17 - this.emitter.aParticleEmitterRelated_1.anInt4271;
-            local324 = local22 - this.emitter.aParticleEmitterRelated_1.anInt4278;
-            local331 = local27 - this.emitter.aParticleEmitterRelated_1.anInt4273;
+            local317 = local17 - this.emitter.related1.anInt4271;
+            local324 = local22 - this.emitter.related1.anInt4278;
+            local331 = local27 - this.emitter.related1.anInt4273;
             local348 = (int) Math.sqrt(local317 * local317 + local324 * local324 + local331 * local331) >> 2;
-            local356 = local35.decelerationRate * local348 * arg1;
+            local356 = local35.decelerationRate * local348 * elapsedTime;
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 18));
         } else if (local35.decelerationType == 2) {
-            local317 = local17 - this.emitter.aParticleEmitterRelated_1.anInt4271;
-            local324 = local22 - this.emitter.aParticleEmitterRelated_1.anInt4278;
-            local331 = local27 - this.emitter.aParticleEmitterRelated_1.anInt4273;
+            local317 = local17 - this.emitter.related1.anInt4271;
+            local324 = local22 - this.emitter.related1.anInt4278;
+            local331 = local27 - this.emitter.related1.anInt4273;
             local348 = local317 * local317 + local324 * local324 + local331 * local331;
-            local356 = local35.decelerationRate * local348 * arg1;
+            local356 = local35.decelerationRate * local348 * elapsedTime;
             this.anInt7542 = (int) ((long) this.anInt7542 - ((long) this.anInt7542 * local356 >> 28));
         }
         if (local35.localEffectors != null) {
@@ -189,24 +189,24 @@ public final class MovingParticle extends Particle {
                                     @Pc(686) double local686 = local486 / local513 * (double) local447.dirLength;
                                     @Pc(694) double local694 = local492 / local513 * (double) local447.dirLength;
                                     if (local447.constantSpeed == 0) {
-                                        local296 += local678 * (double) arg1;
-                                        local300 += local686 * (double) arg1;
-                                        local304 += local694 * (double) arg1;
+                                        local296 += local678 * (double) elapsedTime;
+                                        local300 += local686 * (double) elapsedTime;
+                                        local304 += local694 * (double) elapsedTime;
                                         local306 = true;
                                     } else {
-                                        super.anInt7537 = (int) ((double) super.anInt7537 + local678 * (double) arg1);
-                                        super.anInt7534 = (int) ((double) super.anInt7534 + local686 * (double) arg1);
-                                        super.anInt7536 = (int) ((double) super.anInt7536 + local694 * (double) arg1);
+                                        super.anInt7537 = (int) ((double) super.anInt7537 + local678 * (double) elapsedTime);
+                                        super.anInt7534 = (int) ((double) super.anInt7534 + local686 * (double) elapsedTime);
+                                        super.anInt7536 = (int) ((double) super.anInt7536 + local694 * (double) elapsedTime);
                                     }
                                 } else if (local447.constantSpeed == 0) {
-                                    local296 += ((double) local444.directionZ - local553) * (double) arg1;
-                                    local300 += ((double) local447.dirY - local553) * (double) arg1;
-                                    local304 += ((double) local444.directionX - local553) * (double) arg1;
+                                    local296 += ((double) local444.directionZ - local553) * (double) elapsedTime;
+                                    local300 += ((double) local447.dirY - local553) * (double) elapsedTime;
+                                    local304 += ((double) local444.directionX - local553) * (double) elapsedTime;
                                     local306 = true;
                                 } else {
-                                    super.anInt7537 = (int) ((double) super.anInt7537 + ((double) local444.directionZ - local553) * (double) arg1);
-                                    super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local447.dirY - local553) * (double) arg1);
-                                    super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local444.directionX - local553) * (double) arg1);
+                                    super.anInt7537 = (int) ((double) super.anInt7537 + ((double) local444.directionZ - local553) * (double) elapsedTime);
+                                    super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local447.dirY - local553) * (double) elapsedTime);
+                                    super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local444.directionX - local553) * (double) elapsedTime);
                                 }
                             }
                         }
@@ -245,24 +245,24 @@ public final class MovingParticle extends Particle {
                                 @Pc(1004) double local1004 = local792 / local825 * (double) local780.dirLength;
                                 @Pc(1012) double local1012 = local798 / local825 * (double) local780.dirLength;
                                 if (local780.constantSpeed == 0) {
-                                    local296 += local996 * (double) arg1;
-                                    local300 += local1004 * (double) arg1;
-                                    local304 += local1012 * (double) arg1;
+                                    local296 += local996 * (double) elapsedTime;
+                                    local300 += local1004 * (double) elapsedTime;
+                                    local304 += local1012 * (double) elapsedTime;
                                     local306 = true;
                                 } else {
-                                    super.anInt7537 = (int) ((double) super.anInt7537 + local996 * (double) arg1);
-                                    super.anInt7534 = (int) ((double) super.anInt7534 + local1004 * (double) arg1);
-                                    super.anInt7536 = (int) ((double) super.anInt7536 + local1012 * (double) arg1);
+                                    super.anInt7537 = (int) ((double) super.anInt7537 + local996 * (double) elapsedTime);
+                                    super.anInt7534 = (int) ((double) super.anInt7534 + local1004 * (double) elapsedTime);
+                                    super.anInt7536 = (int) ((double) super.anInt7536 + local1012 * (double) elapsedTime);
                                 }
                             } else if (local780.constantSpeed == 0) {
-                                local296 += ((double) local776.directionZ - local871) * (double) arg1;
-                                local300 += ((double) local780.dirY - local871) * (double) arg1;
-                                local304 += ((double) local776.directionX - local871) * (double) arg1;
+                                local296 += ((double) local776.directionZ - local871) * (double) elapsedTime;
+                                local300 += ((double) local780.dirY - local871) * (double) elapsedTime;
+                                local304 += ((double) local776.directionX - local871) * (double) elapsedTime;
                                 local306 = true;
                             } else {
-                                super.anInt7537 = (int) ((double) super.anInt7537 + ((double) local776.directionZ - local871) * (double) arg1);
-                                super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local780.dirY - local871) * (double) arg1);
-                                super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local776.directionX - local871) * (double) arg1);
+                                super.anInt7537 = (int) ((double) super.anInt7537 + ((double) local776.directionZ - local871) * (double) elapsedTime);
+                                super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local780.dirY - local871) * (double) elapsedTime);
+                                super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local776.directionX - local871) * (double) elapsedTime);
                             }
                             local776 = (ParticleEffector) ParticleManager.effectorsCache.method3096();
                         }
@@ -281,14 +281,14 @@ public final class MovingParticle extends Particle {
             for (local317 = 0; local317 < local35.anIntArray774.length; local317++) {
                 @Pc(1137) ParticleEffectorType local1137 = ParticleEffectorTypeList.types[local35.anIntArray774[local317]];
                 if (local1137.constantSpeed == 0) {
-                    local296 += local1137.dirX * arg1;
-                    local300 += local1137.dirY * arg1;
-                    local304 += local1137.dirZ * arg1;
+                    local296 += local1137.dirX * elapsedTime;
+                    local300 += local1137.dirY * elapsedTime;
+                    local304 += local1137.dirZ * elapsedTime;
                     local306 = true;
                 } else {
-                    super.anInt7537 += local1137.dirX * arg1;
-                    super.anInt7534 += local1137.dirY * arg1;
-                    super.anInt7536 += local1137.dirZ * arg1;
+                    super.anInt7537 += local1137.dirX * elapsedTime;
+                    super.anInt7534 += local1137.dirY * elapsedTime;
+                    super.anInt7536 += local1137.dirZ * elapsedTime;
                 }
             }
         }
@@ -306,9 +306,9 @@ public final class MovingParticle extends Particle {
                 this.anInt7542 <<= 0x1;
             }
         }
-        super.anInt7537 = (int) ((long) super.anInt7537 + ((long) this.aShort92 * (long) (this.anInt7542 << 2) >> 23) * (long) arg1);
-        super.anInt7534 = (int) ((long) super.anInt7534 + ((long) this.aShort95 * (long) (this.anInt7542 << 2) >> 23) * (long) arg1);
-        super.anInt7536 = (int) ((long) super.anInt7536 + ((long) this.aShort94 * (long) (this.anInt7542 << 2) >> 23) * (long) arg1);
+        super.anInt7537 = (int) ((long) super.anInt7537 + ((long) this.aShort92 * (long) (this.anInt7542 << 2) >> 23) * (long) elapsedTime);
+        super.anInt7534 = (int) ((long) super.anInt7534 + ((long) this.aShort95 * (long) (this.anInt7542 << 2) >> 23) * (long) elapsedTime);
+        super.anInt7536 = (int) ((long) super.anInt7536 + ((long) this.aShort94 * (long) (this.anInt7542 << 2) >> 23) * (long) elapsedTime);
     }
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(Lclient!ha;J)V")

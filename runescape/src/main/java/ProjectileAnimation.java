@@ -206,7 +206,7 @@ public final class ProjectileAnimation extends PositionEntity {
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(I)V")
     public void method815() {
         if (this.particleSystem != null) {
-            this.particleSystem.run();
+            this.particleSystem.stopped();
         }
     }
 
@@ -380,7 +380,7 @@ public final class ProjectileAnimation extends PositionEntity {
     @Override
     public void finalize() {
         if (this.particleSystem != null) {
-            this.particleSystem.run();
+            this.particleSystem.stopped();
         }
     }
 

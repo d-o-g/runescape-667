@@ -33,7 +33,6 @@ public final class ParticleManager {
     @OriginalMember(owner = "client!pw", name = "G", descriptor = "I")
     public static int option = 2;
 
-
     @OriginalMember(owner = "client!jga", name = "l", descriptor = "I")
     public static int systemNextPtr = 0;
 
@@ -55,24 +54,28 @@ public final class ParticleManager {
     @OriginalMember(owner = "client!ula", name = "F", descriptor = "I")
     public static int effectorCount = 0;
 
+    @OriginalMember(owner = "client!oea", name = "v", descriptor = "I")
+    public static int previousParticleCount = 0;
+
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(JILclient!ha;)V")
-    public static void method2421(@OriginalArg(0) long clock, @OriginalArg(2) Toolkit arg1) {
-        ParticleLimits.particleLimit = particleCount;
+    public static void tick(@OriginalArg(0) long clock, @OriginalArg(2) Toolkit toolkit) {
+        previousParticleCount = particleCount;
+
         emitterCount = 0;
         runningParticleCount = 0;
         particleCount = 0;
 
-        @Pc(16) long before = SystemTimer.safetime();
+        @Pc(16) long startTime = SystemTimer.safetime();
 
         for (@Pc(21) ParticleSystem system = (ParticleSystem) systemsCache.first(); system != null; system = (ParticleSystem) systemsCache.next()) {
-            if (system.isRunning(arg1, clock)) {
+            if (system.tick(toolkit, clock)) {
                 runningParticleCount++;
             }
         }
 
         if (debug && ((clock % 100L) == 0L)) {
             System.out.println("Particle system count: " + systemsCache.size() + ", running: " + runningParticleCount);
-            System.out.println("Emitters: " + emitterCount + " Particles: " + particleCount + ". Time taken: " + (SystemTimer.safetime() - before) + "ms");
+            System.out.println("Emitters: " + emitterCount + " Particles: " + particleCount + ". Time taken: " + (SystemTimer.safetime() - startTime) + "ms");
         }
     }
 
@@ -83,7 +86,7 @@ public final class ParticleManager {
         }
 
         ParticleManager.option = option;
-        ParticleManager.systems = new ParticleSystem[ParticleLimits.anIntArray265[ParticleManager.option] + 1];
+        ParticleManager.systems = new ParticleSystem[ParticleLimits.SYSTEMS[ParticleManager.option] + 1];
         ParticleManager.systemNextPtr = 0;
         ParticleManager.systemFreePtr = 0;
     }
@@ -94,7 +97,7 @@ public final class ParticleManager {
         particleNextPtr = 0;
         systemsCache = new LinkedList();
         particles = new MovingParticle[1024];
-        systems = new ParticleSystem[ParticleLimits.anIntArray265[option] + 1];
+        systems = new ParticleSystem[ParticleLimits.SYSTEMS[option] + 1];
         systemFreePtr = 0;
         systemNextPtr = 0;
         ParticleEmitterTypeList.setConfigClient(configClient);

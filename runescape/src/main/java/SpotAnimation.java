@@ -92,7 +92,7 @@ public final class SpotAnimation extends PositionEntity {
     @Override
     public void finalize() {
         if (this.particleSystem != null) {
-            this.particleSystem.run();
+            this.particleSystem.stopped();
         }
     }
 
@@ -173,9 +173,9 @@ public final class SpotAnimation extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!pja", name = "c", descriptor = "(I)V")
-    public void runParticleSystem() {
+    public void stopParticleSystem() {
         if (this.particleSystem != null) {
-            this.particleSystem.run();
+            this.particleSystem.stopped();
         }
     }
 

@@ -116,7 +116,7 @@ public final class Static397 {
         @Pc(102) int local102 = local94 + arg6 % 4 * 18;
         local27.render(local83, local102);
         if (arg2 == arg1) {
-            Toolkit.active.method7945(local102 - 1, -256, 18, 18, local83 - 1);
+            Toolkit.active.outlineRect(local83 - 1, local102 - 1, 18, 18, -256);
         }
         Static682.method8927(local102 - 1, local102 - -18, local83 - 1, local83 - -18);
         @Pc(140) Class8_Sub1 local140 = Static192.method2876();

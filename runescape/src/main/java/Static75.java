@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static75 {
 
     @OriginalMember(owner = "client!ch", name = "j", descriptor = "Lclient!pg;")
-    public static MiniMenuEntry aClass2_Sub2_Sub16_9;
+    public static MiniMenuEntryInner aClass2_Sub2_Sub16_9;
 
     @OriginalMember(owner = "client!ch", name = "k", descriptor = "Z")
     public static boolean hasOpaqueStationaryEntities = true;

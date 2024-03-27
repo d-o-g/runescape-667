@@ -1,12 +1,8 @@
-import com.jagex.core.datastruct.key.Deque;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static239 {
-
-    @OriginalMember(owner = "client!hha", name = "b", descriptor = "Lclient!sia;")
-    public static final Deque A_DEQUE___19 = new Deque();
 
     @OriginalMember(owner = "client!hha", name = "a", descriptor = "(II)I")
     public static int method3474(@OriginalArg(1) int arg0) {

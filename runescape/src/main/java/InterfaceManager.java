@@ -232,7 +232,7 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(IIBII)V")
-    public static void redrawWithin(@OriginalArg(0) int width, @OriginalArg(1) int x, @OriginalArg(3) int height, @OriginalArg(4) int y) {
+    public static void redrawWithin(@OriginalArg(1) int x, @OriginalArg(4) int y, @OriginalArg(0) int width, @OriginalArg(3) int height) {
         for (@Pc(1) int i = 0; i < rectangleCount; i++) {
             @Pc(6) Rectangle rectangle = rectangles[i];
 
@@ -1045,7 +1045,7 @@ public final class InterfaceManager {
             }
         }
 
-        ParticleManager.method2421(TimeUtils.clock, Toolkit.active);
+        ParticleManager.tick(TimeUtils.clock, Toolkit.active);
 
         if (topLevelInterface != -1) {
             animate(topLevelInterface);
@@ -1069,7 +1069,7 @@ public final class InterfaceManager {
         }
 
         Toolkit.active.la();
-        Static676.method8859(Toolkit.active);
+        MiniMenu.draw(Toolkit.active);
 
         @Pc(116) int cursor = Static679.method8909();
         if (cursor == -1) {
@@ -1127,7 +1127,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!aq", name = "a", descriptor = "(I)V")
     public static void method680() {
-        ParticleManager.method2421(TimeUtils.clock, Toolkit.active);
+        ParticleManager.tick(TimeUtils.clock, Toolkit.active);
         if (topLevelInterface != -1) {
             animate(topLevelInterface);
         }
@@ -1144,7 +1144,7 @@ public final class InterfaceManager {
             method3833();
         }
         Toolkit.active.la();
-        Static676.method8859(Toolkit.active);
+        MiniMenu.draw(Toolkit.active);
         @Pc(77) int local77 = Static679.method8909();
         if (local77 == -1) {
             local77 = targetEndCursor;
@@ -1478,16 +1478,16 @@ public final class InterfaceManager {
                                     @Pc(1243) Component target = InterfaceList.getComponent(targetComponent, targetSlot);
 
                                     if (target != null) {
-                                        MiniMenu.addEntry(false, component.invObject, 1L, local1191, local1199, targetVerb, MiniMenuAction.TGT_GROUND, true, targetEnterCursor, " ->", (component.id << 0) | component.slot, true);
+                                        MiniMenu.addEntryInner(false, component.invObject, 1L, local1191, local1199, targetVerb, MiniMenuAction.TGT_GROUND, true, targetEnterCursor, " ->", (component.id << 0) | component.slot, true);
                                     } else {
                                         endTargetMode();
                                     }
                                 } else {
                                     if (Client.modeGame == ModeGame.STELLAR_DAWN) {
-                                        MiniMenu.addEntry(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(Client.language), MiniMenuAction.FACE_SQUARE, true, -1, "", 0L, true);
+                                        MiniMenu.addEntryInner(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(Client.language), MiniMenuAction.FACE_SQUARE, true, -1, "", 0L, true);
                                     }
 
-                                    MiniMenu.addEntry(false, -1, 1L, local1191, local1199, Static331.walkText, MiniMenuAction.WALK, true, Static331.walkCursor, "", 0L, true);
+                                    MiniMenu.addEntryInner(false, -1, 1L, local1191, local1199, Static331.walkText, MiniMenuAction.WALK, true, Static331.walkCursor, "", 0L, true);
                                 }
 
                                 continue;
@@ -1519,7 +1519,7 @@ public final class InterfaceManager {
                                         int y = local1388[2];
                                         int x = local1388[1];
 
-                                        if (KeyboardMonitor.instance.isPressed(82) && Static608.staffModLevel > 0) {
+                                        if (KeyboardMonitor.instance.isPressed(82) && Client.staffModLevel > 0) {
                                             Static624.teleport(level, y, x);
                                             continue;
                                         }
@@ -1552,7 +1552,7 @@ public final class InterfaceManager {
                                 }
 
                                 if (Static460.anInt6964 > 0 && !Static1.aBoolean821) {
-                                    if ((Client.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.entryCount > 2) {
+                                    if ((Client.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.innerEntryCount > 2) {
                                         Static455.method6223(dragStartX, dragStartY);
                                     } else if (MiniMenu.isPopulated()) {
                                         Static455.method6223(dragStartX, dragStartY);
@@ -2483,7 +2483,7 @@ public final class InterfaceManager {
             @Pc(16) ParamType param = targetParam == -1 ? null : ParamTypeList.instance.list(targetParam);
 
             if (serverActiveProperties(component).isUseTarget() && (targetMask & TargetMask.TGT_BUTTON) != 0 && (param == null || component.param(param.defaultint, targetParam) != param.defaultint)) {
-                MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, targetVerb, MiniMenuAction.IF_BUTTONT, true, targetEnterCursor, targetedVerb + " -> " + component.opBase, (component.id << 0) | component.slot, false);
+                MiniMenu.addEntryInner(false, component.invObject, 0L, component.id, component.slot, targetVerb, MiniMenuAction.IF_BUTTONT, true, targetEnterCursor, targetedVerb + " -> " + component.opBase, (component.id << 0) | component.slot, false);
             }
         }
 
@@ -2491,28 +2491,28 @@ public final class InterfaceManager {
             @Pc(106) String op = getOp(component, i);
 
             if (op != null) {
-                MiniMenu.addEntry(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX2, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
+                MiniMenu.addEntryInner(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX2, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
             }
         }
 
         @Pc(106) String targetVerb = getComponentTargetVerb(component);
         if (targetVerb != null) {
-            MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, targetVerb, MiniMenuAction.TGT_BUTTON, true, component.targetOpCursor, component.opBase, (component.id << 0) | component.slot, false);
+            MiniMenu.addEntryInner(false, component.invObject, 0L, component.id, component.slot, targetVerb, MiniMenuAction.TGT_BUTTON, true, component.targetOpCursor, component.opBase, (component.id << 0) | component.slot, false);
         }
 
         for (@Pc(193) int i = 4; i >= 0; i--) {
             @Pc(204) String op = getOp(component, i);
 
             if (op != null) {
-                MiniMenu.addEntry(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX1, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
+                MiniMenu.addEntryInner(false, component.invObject, i + 1, component.id, component.slot, op, MiniMenuAction.IF_BUTTONX1, true, opCursor(i, component), component.opBase, (component.id << 0) | component.slot, false);
             }
         }
 
         if (serverActiveProperties(component).isPauseButton()) {
             if (component.pauseText == null) {
-                MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, LocalisedText.CONTINUE.localise(Client.language), MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
+                MiniMenu.addEntryInner(false, component.invObject, 0L, component.id, component.slot, LocalisedText.CONTINUE.localise(Client.language), MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
             } else {
-                MiniMenu.addEntry(false, component.invObject, 0L, component.id, component.slot, component.pauseText, MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
+                MiniMenu.addEntryInner(false, component.invObject, 0L, component.id, component.slot, component.pauseText, MiniMenuAction.PAUSE_BUTTON, true, -1, "", (component.id << 0) | component.slot, false);
             }
         }
     }
@@ -2777,5 +2777,16 @@ public final class InterfaceManager {
             GameShell.canvasWid = GameShell.frameWid;
             GameShell.leftMargin = 0;
         }
+    }
+
+    @OriginalMember(owner = "client!nfa", name = "a", descriptor = "(IIIII)V")
+    public static void method5773(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+        for (@Pc(5) int i = 0; i < rectangleCount; i++) {
+            @Pc(10) Rectangle rectangle = rectangles[i];
+            if (arg0 < rectangle.x + rectangle.width && rectangle.x < arg2 + arg0 && rectangle.height + rectangle.y > arg1 && rectangle.y < arg1 + arg3) {
+                flipDirtyRect[i] = true;
+            }
+        }
+        Static682.method8927(arg1, arg3 + arg1, arg0, arg0 + arg2);
     }
 }

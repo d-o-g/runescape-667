@@ -1,4 +1,3 @@
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -6,9 +5,6 @@ public final class Static1 {
 
     @OriginalMember(owner = "client!aa", name = "c", descriptor = "I")
     public static int anInt10797;
-
-    @OriginalMember(owner = "client!aa", name = "b", descriptor = "Lclient!st;")
-    public static Sprite aSprite_42;
 
     @OriginalMember(owner = "client!aa", name = "a", descriptor = "Z")
     public static boolean aBoolean821 = false;

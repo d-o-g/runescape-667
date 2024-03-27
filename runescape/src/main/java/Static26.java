@@ -1,12 +1,8 @@
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static26 {
-
-    @OriginalMember(owner = "client!at", name = "j", descriptor = "Lclient!st;")
-    public static Sprite aSprite_5;
 
     @OriginalMember(owner = "client!at", name = "a", descriptor = "(III)V")
     public static void method717(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {

@@ -42,13 +42,13 @@ public final class Static679 {
         @Pc(55) int local55;
         @Pc(71) int local71;
 
-        @Pc(134) MiniMenuEntry local134;
-        if (Static236.aBoolean304) {
+        @Pc(134) MiniMenuEntryInner local134;
+        if (MiniMenu.collapsed) {
             @Pc(262) QueueIterator local262;
             if (MiniMenu.x < recordedX && MiniMenu.x + MiniMenu.width > recordedX) {
                 local53 = -1;
-                for (local55 = 0; local55 < MiniMenu.innerCount; local55++) {
-                    if (Static60.aBoolean87) {
+                for (local55 = 0; local55 < MiniMenu.entryCount; local55++) {
+                    if (MiniMenu.useSprites) {
                         local71 = MiniMenu.y + local55 * 16 + 33;
                         if (recordedY > local71 - 13 && recordedY <= local71 + 3) {
                             local53 = local55;
@@ -63,23 +63,23 @@ public final class Static679 {
 
                 if (local53 != -1) {
                     local71 = 0;
-                    local262 = new QueueIterator(MiniMenu.innerEntries);
-                    for (@Pc(368) MiniMenuEntryInner local368 = (MiniMenuEntryInner) local262.first(); local368 != null; local368 = (MiniMenuEntryInner) local262.next()) {
+                    local262 = new QueueIterator(MiniMenu.entryQueue);
+                    for (@Pc(368) MiniMenuEntry local368 = (MiniMenuEntry) local262.first(); local368 != null; local368 = (MiniMenuEntry) local262.next()) {
                         if (local71++ == local53) {
-                            return ((MiniMenuEntry) local368.entries.sentinel.next2).cursor;
+                            return ((MiniMenuEntryInner) local368.innerEntries.sentinel.next2).cursor;
                         }
                     }
                 }
-            } else if (MiniMenu.openedInner != null && MiniMenu.openedInnerX < recordedX && recordedX < MiniMenu.openedInnerWidth + MiniMenu.openedInnerX) {
+            } else if (MiniMenu.openedEntry != null && MiniMenu.openedEntryX < recordedX && recordedX < MiniMenu.openedEntryWidth + MiniMenu.openedEntryX) {
                 local53 = -1;
-                for (local55 = 0; local55 < MiniMenu.openedInner.size; local55++) {
-                    if (Static60.aBoolean87) {
-                        local71 = local55 * 16 + MiniMenu.openedInnerY + 33;
+                for (local55 = 0; local55 < MiniMenu.openedEntry.size; local55++) {
+                    if (MiniMenu.useSprites) {
+                        local71 = local55 * 16 + MiniMenu.openedEntryY + 33;
                         if (local71 - 13 < recordedY && local71 + 3 >= recordedY) {
                             local53 = local55;
                         }
                     } else {
-                        local71 = MiniMenu.openedInnerY + local55 * 16 + 31;
+                        local71 = MiniMenu.openedEntryY + local55 * 16 + 31;
                         if (recordedY > local71 - 13 && recordedY <= local71 + 3) {
                             local53 = local55;
                         }
@@ -87,8 +87,8 @@ public final class Static679 {
                 }
                 if (local53 != -1) {
                     local71 = 0;
-                    local262 = new QueueIterator(MiniMenu.openedInner.entries);
-                    for (local134 = (MiniMenuEntry) local262.first(); local134 != null; local134 = (MiniMenuEntry) local262.next()) {
+                    local262 = new QueueIterator(MiniMenu.openedEntry.innerEntries);
+                    for (local134 = (MiniMenuEntryInner) local262.first(); local134 != null; local134 = (MiniMenuEntryInner) local262.next()) {
                         if (local71++ == local53) {
                             return local134.cursor;
                         }
@@ -97,14 +97,14 @@ public final class Static679 {
             }
         } else if (recordedX > MiniMenu.x && MiniMenu.x + MiniMenu.width > recordedX) {
             local53 = -1;
-            for (local55 = 0; local55 < MiniMenu.entryCount; local55++) {
-                if (Static60.aBoolean87) {
-                    local71 = (MiniMenu.entryCount - local55 - 1) * 16 + MiniMenu.y + 33;
+            for (local55 = 0; local55 < MiniMenu.innerEntryCount; local55++) {
+                if (MiniMenu.useSprites) {
+                    local71 = (MiniMenu.innerEntryCount - local55 - 1) * 16 + MiniMenu.y + 33;
                     if (recordedY > local71 - 13 && local71 + 3 >= recordedY) {
                         local53 = local55;
                     }
                 } else {
-                    local71 = MiniMenu.y + (-local55 + MiniMenu.entryCount + -1) * 16 + 31;
+                    local71 = MiniMenu.y + (-local55 + MiniMenu.innerEntryCount + -1) * 16 + 31;
                     if (recordedY > local71 - 13 && local71 + 3 >= recordedY) {
                         local53 = local55;
                     }
@@ -112,8 +112,8 @@ public final class Static679 {
             }
             if (local53 != -1) {
                 local71 = 0;
-                @Pc(129) DequeIterator local129 = new DequeIterator(MiniMenu.entries);
-                for (local134 = (MiniMenuEntry) local129.first(); local134 != null; local134 = (MiniMenuEntry) local129.next()) {
+                @Pc(129) DequeIterator local129 = new DequeIterator(MiniMenu.innerEntryQueue);
+                for (local134 = (MiniMenuEntryInner) local129.first(); local134 != null; local134 = (MiniMenuEntryInner) local129.next()) {
                     if (local53 == local71++) {
                         return local134.cursor;
                     }

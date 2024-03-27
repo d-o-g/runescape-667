@@ -6,9 +6,6 @@ public final class Static209 {
     @OriginalMember(owner = "client!gi", name = "c", descriptor = "F")
     public static float aFloat70;
 
-    @OriginalMember(owner = "client!gi", name = "d", descriptor = "Z")
-    public static boolean shiftClick = false;
-
     @OriginalMember(owner = "client!gi", name = "e", descriptor = "Lclient!ss;")
     public static final ClientProt A_CLIENT_PROT___37 = new ClientProt(13, 2);
 

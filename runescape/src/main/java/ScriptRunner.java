@@ -1722,8 +1722,8 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3316) {
-                                        if (Static608.staffModLevel >= 2) {
-                                            anIntArray578[anInt7142++] = Static608.staffModLevel;
+                                        if (Client.staffModLevel >= 2) {
+                                            anIntArray578[anInt7142++] = Client.staffModLevel;
                                             return;
                                         }
                                         anIntArray578[anInt7142++] = 0;
@@ -3693,7 +3693,7 @@ public final class ScriptRunner {
                 anInt7139 -= 2;
                 local95 = aStringArray37[anInt7139];
                 local101 = aStringArray37[anInt7139 + 1];
-                if (Static608.staffModLevel != 0 || (!Static389.aBoolean459 || Static34.aBoolean62) && !Static617.aBoolean724) {
+                if (Client.staffModLevel != 0 || (!Static389.aBoolean459 || Static34.aBoolean62) && !Static617.aBoolean724) {
                     @Pc(360) ServerConnection local360 = ConnectionManager.active();
                     @Pc(366) ClientMessage local366 = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, local360.cipher);
                     local366.bitPacket.p2(0);
@@ -4557,36 +4557,36 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5424) {
                         anInt7142 -= 11;
-                        Static719.anInt10504 = anIntArray578[anInt7142];
-                        Static514.anInt7677 = anIntArray578[anInt7142 + 1];
-                        Static183.anInt3022 = anIntArray578[anInt7142 + 2];
-                        Static405.anInt6255 = anIntArray578[anInt7142 + 3];
-                        Static63.anInt1474 = anIntArray578[anInt7142 + 4];
-                        Static282.anInt4417 = anIntArray578[anInt7142 + 5];
-                        Static337.anInt5561 = anIntArray578[anInt7142 + 6];
-                        Static176.anInt7532 = anIntArray578[anInt7142 + 7];
-                        Static282.anInt4419 = anIntArray578[anInt7142 + 8];
-                        Static563.anInt8455 = anIntArray578[anInt7142 + 9];
-                        Static634.anInt9510 = anIntArray578[anInt7142 + 10];
-                        js5.SPRITES.fileready(Static63.anInt1474);
-                        js5.SPRITES.fileready(Static282.anInt4417);
-                        js5.SPRITES.fileready(Static337.anInt5561);
-                        js5.SPRITES.fileready(Static176.anInt7532);
-                        js5.SPRITES.fileready(Static282.anInt4419);
-                        Static26.aSprite_5 = null;
-                        Static561.aSprite_34 = null;
-                        Static261.aSprite_18 = null;
-                        Static608.aSprite_41 = null;
-                        Static1.aSprite_42 = null;
-                        Static459.aSprite_31 = null;
-                        Static542.aSprite_33 = null;
-                        Static63.aSprite_8 = null;
-                        Static60.aBoolean87 = true;
+                        MiniMenu.topColour = anIntArray578[anInt7142];
+                        MiniMenu.topOpacity = anIntArray578[anInt7142 + 1];
+                        MiniMenu.spriteBodyColour = anIntArray578[anInt7142 + 2];
+                        MiniMenu.spriteBodyOpacity = anIntArray578[anInt7142 + 3];
+                        MiniMenu.separatorSpriteId = anIntArray578[anInt7142 + 4];
+                        MiniMenu.topCornerSpriteId = anIntArray578[anInt7142 + 5];
+                        MiniMenu.horizontalBorderSpriteId = anIntArray578[anInt7142 + 6];
+                        MiniMenu.verticalBorderSpriteId = anIntArray578[anInt7142 + 7];
+                        MiniMenu.bottomCornerSpriteId = anIntArray578[anInt7142 + 8];
+                        MiniMenu.textColour = anIntArray578[anInt7142 + 9];
+                        MiniMenu.spriteHighlightColour = anIntArray578[anInt7142 + 10];
+                        js5.SPRITES.fileready(MiniMenu.separatorSpriteId);
+                        js5.SPRITES.fileready(MiniMenu.topCornerSpriteId);
+                        js5.SPRITES.fileready(MiniMenu.horizontalBorderSpriteId);
+                        js5.SPRITES.fileready(MiniMenu.verticalBorderSpriteId);
+                        js5.SPRITES.fileready(MiniMenu.bottomCornerSpriteId);
+                        MiniMenu.bottomBorderSprite = null;
+                        MiniMenu.bottomRightCornerSprite = null;
+                        MiniMenu.bottomLeftCornerSprite = null;
+                        MiniMenu.topRightCornerSprite = null;
+                        MiniMenu.topLeftCornerSprite = null;
+                        MiniMenu.separatorSprite = null;
+                        MiniMenu.rightBorderSprite = null;
+                        MiniMenu.leftBorderSprite = null;
+                        MiniMenu.useSprites = true;
                         return;
                     }
                     if (arg0 == 5425) {
                         Static329.method1649();
-                        Static60.aBoolean87 = false;
+                        MiniMenu.useSprites = false;
                         return;
                     }
                     if (arg0 == 5426) {
@@ -4644,7 +4644,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5433) {
-                        Static143.anInt4059 = anIntArray578[--anInt7142];
+                        MiniMenu.collapseAtCount = anIntArray578[--anInt7142];
                         return;
                     }
                     if (arg0 == 5435) {
@@ -6277,7 +6277,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Ljava/lang/String;I)V")
     public static void method6426(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        if (Static608.staffModLevel == 0 && (Static389.aBoolean459 && !Static34.aBoolean62 || Static617.aBoolean724)) {
+        if (Client.staffModLevel == 0 && (Static389.aBoolean459 && !Static34.aBoolean62 || Static617.aBoolean724)) {
             return;
         }
         @Pc(18) String local18 = arg0.toLowerCase();

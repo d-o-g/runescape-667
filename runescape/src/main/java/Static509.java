@@ -62,19 +62,19 @@ public final class Static509 {
             if (local197.method5553(arg0, arg1)) {
                 if (local206.ops != null) {
                     if (local206.ops[4] != null) {
-                        MiniMenu.addEntry(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[4], 1004, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
+                        MiniMenu.addEntryInner(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[4], 1004, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
                     }
                     if (local206.ops[3] != null) {
-                        MiniMenu.addEntry(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[3], 1009, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
+                        MiniMenu.addEntryInner(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[3], 1009, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
                     }
                     if (local206.ops[2] != null) {
-                        MiniMenu.addEntry(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[2], 1006, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
+                        MiniMenu.addEntryInner(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[2], 1006, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
                     }
                     if (local206.ops[1] != null) {
-                        MiniMenu.addEntry(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[1], 1001, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
+                        MiniMenu.addEntryInner(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[1], 1001, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
                     }
                     if (local206.ops[0] != null) {
-                        MiniMenu.addEntry(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[0], 1003, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
+                        MiniMenu.addEntryInner(false, -1, local197.aClass2_Sub20_1.id, local206.category, 0, local206.ops[0], 1003, true, -1, local206.opBase, local197.aClass2_Sub20_1.id, false);
                     }
                 }
                 if (!local197.aClass2_Sub20_1.aBoolean256) {

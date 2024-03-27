@@ -7,9 +7,6 @@ public final class Static719 {
     @OriginalMember(owner = "client!wq", name = "V", descriptor = "Lclient!cd;")
     public static Class56 aClass56_5;
 
-    @OriginalMember(owner = "client!wq", name = "T", descriptor = "I")
-    public static int anInt10504;
-
     @OriginalMember(owner = "client!wq", name = "S", descriptor = "Lclient!hc;")
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___45 = new CutsceneActionType(60);
 

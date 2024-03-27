@@ -26,14 +26,14 @@ public final class ParticleSystem extends Node {
             return new ParticleSystem(arg0, arg1);
         } else {
             @Pc(6) ParticleSystem system = ParticleManager.systems[ParticleManager.systemNextPtr];
-            ParticleManager.systemNextPtr = ParticleManager.systemNextPtr + 1 & ParticleLimits.anIntArray265[ParticleManager.option];
+            ParticleManager.systemNextPtr = ParticleManager.systemNextPtr + 1 & ParticleLimits.SYSTEMS[ParticleManager.option];
             system.init(arg0, arg1);
             return system;
         }
     }
 
     @OriginalMember(owner = "client!hv", name = "u", descriptor = "J")
-    public long lastRunningCheck;
+    public long lastTick;
 
     @OriginalMember(owner = "client!hv", name = "m", descriptor = "J")
     public long clock;
@@ -45,7 +45,7 @@ public final class ParticleSystem extends Node {
     public boolean removed = false;
 
     @OriginalMember(owner = "client!hv", name = "s", descriptor = "Z")
-    public boolean running = false;
+    public boolean stopped = false;
 
     @OriginalMember(owner = "client!hv", name = "l", descriptor = "I")
     public int anInt4147 = 0;
@@ -60,7 +60,7 @@ public final class ParticleSystem extends Node {
     public Deque effectorCache = new Deque();
 
     @OriginalMember(owner = "client!hv", name = "j", descriptor = "Z")
-    public boolean aBoolean326 = false;
+    public boolean awaitingStartup = false;
 
     @OriginalMember(owner = "client!hv", name = "g", descriptor = "Z")
     public boolean aBoolean325 = false;
@@ -89,8 +89,8 @@ public final class ParticleSystem extends Node {
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "()V")
-    public void run() {
-        this.running = true;
+    public void stopped() {
+        this.stopped = true;
     }
 
     @OriginalMember(owner = "client!hv", name = "e", descriptor = "()Lclient!lk;")
@@ -102,7 +102,7 @@ public final class ParticleSystem extends Node {
     public void method3646(@OriginalArg(0) Toolkit arg0) {
         this.list.particles.clear();
         for (@Pc(10) ParticleEmitter local10 = (ParticleEmitter) this.emitterCache.first(); local10 != null; local10 = (ParticleEmitter) this.emitterCache.next()) {
-            local10.method7263(this.lastRunningCheck, arg0);
+            local10.method7263(this.lastTick, arg0);
         }
     }
 
@@ -236,15 +236,15 @@ public final class ParticleSystem extends Node {
         this.effectorCount = 0;
         this.unlink();
         ParticleManager.systems[ParticleManager.systemFreePtr] = this;
-        ParticleManager.systemFreePtr = ParticleManager.systemFreePtr + 1 & ParticleLimits.anIntArray265[ParticleManager.option];
+        ParticleManager.systemFreePtr = ParticleManager.systemFreePtr + 1 & ParticleLimits.SYSTEMS[ParticleManager.option];
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(Lclient!ha;J)Z")
-    public boolean isRunning(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) long time) {
-        if (this.clock == this.lastRunningCheck) {
-            this.stop();
+    public boolean tick(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) long time) {
+        if (this.clock == this.lastTick) {
+            this.running();
         } else {
-            this.run();
+            this.stopped();
         }
 
         if (time - this.clock > 750L) {
@@ -252,42 +252,42 @@ public final class ParticleSystem extends Node {
             return false;
         }
 
-        @Pc(27) int timeSinceLastRunningCheck = (int) (time - this.lastRunningCheck);
+        @Pc(27) int elapsedTime = (int) (time - this.lastTick);
         @Pc(36) ParticleEmitter emitter;
 
-        if (this.aBoolean326) {
+        if (this.awaitingStartup) {
             for (emitter = (ParticleEmitter) this.emitterCache.first(); emitter != null; emitter = (ParticleEmitter) this.emitterCache.next()) {
                 for (@Pc(39) int i = 0; i < emitter.type.startupTicks; i++) {
-                    emitter.method7261(1, !this.running, time, toolkit);
+                    emitter.tick(1, !this.stopped, time, toolkit);
                 }
             }
-            this.aBoolean326 = false;
+            this.awaitingStartup = false;
         }
 
         for (emitter = (ParticleEmitter) this.emitterCache.first(); emitter != null; emitter = (ParticleEmitter) this.emitterCache.next()) {
-            emitter.method7261(timeSinceLastRunningCheck, !this.running, time, toolkit);
+            emitter.tick(elapsedTime, !this.stopped, time, toolkit);
         }
 
-        this.lastRunningCheck = time;
+        this.lastTick = time;
         return true;
     }
 
     @OriginalMember(owner = "client!hv", name = "c", descriptor = "()V")
-    public void stop() {
-        this.running = false;
+    public void running() {
+        this.stopped = false;
     }
 
     @OriginalMember(owner = "client!hv", name = "f", descriptor = "()V")
     public void restart() {
-        this.aBoolean326 = true;
+        this.awaitingStartup = true;
     }
 
     @OriginalMember(owner = "client!hv", name = "a", descriptor = "(IZ)V")
     public void init(@OriginalArg(0) int clock, @OriginalArg(1) boolean arg1) {
         ParticleManager.systemsCache.add(this);
         this.clock = clock;
-        this.lastRunningCheck = clock;
-        this.aBoolean326 = true;
+        this.lastTick = clock;
+        this.awaitingStartup = true;
         this.aBoolean325 = arg1;
     }
 

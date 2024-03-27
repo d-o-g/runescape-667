@@ -225,7 +225,7 @@ public final class debugconsole {
             return;
         }
 
-        if (ModeWhere.LIVE != Client.modeWhere || Static608.staffModLevel >= 2) {
+        if (ModeWhere.LIVE != Client.modeWhere || Client.staffModLevel >= 2) {
             if (command.equalsIgnoreCase("errortest")) {
                 throw new RuntimeException();
             }
@@ -502,13 +502,13 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("shiftclick")) {
-                    if (Static209.shiftClick) {
+                    if (MiniMenu.shiftClick) {
                         addline("Shift-click disabled.");
-                        Static209.shiftClick = false;
+                        MiniMenu.shiftClick = false;
                         return;
                     }
                     addline("Shift-click ENABLED!");
-                    Static209.shiftClick = true;
+                    MiniMenu.shiftClick = true;
                     return;
                 }
                 if (command.equalsIgnoreCase("getcgcoord")) {

@@ -1371,7 +1371,7 @@ public final class Protocol {
                                                                         if (local2098 == -1) {
                                                                             @Pc(5270) SpotAnimationNode local5270 = (SpotAnimationNode) Static346.A_HASH_TABLE___29.get(local657 << 16 | local3502);
                                                                             if (local5270 != null) {
-                                                                                local5270.spotAnimation.runParticleSystem();
+                                                                                local5270.spotAnimation.stopParticleSystem();
                                                                                 local5270.unlink();
                                                                             }
                                                                         } else {
@@ -2635,7 +2635,7 @@ public final class Protocol {
                         if (local34 == -1) {
                             @Pc(2004) SpotAnimationNode local2004 = (SpotAnimationNode) Static346.A_HASH_TABLE___29.get(local21 << 16 | local25);
                             if (local2004 != null) {
-                                local2004.spotAnimation.runParticleSystem();
+                                local2004.spotAnimation.stopParticleSystem();
                                 local2004.unlink();
                                 return;
                             }

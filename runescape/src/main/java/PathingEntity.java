@@ -870,7 +870,7 @@ public abstract class PathingEntity extends PositionEntity {
     @Override
     public final void finalize() {
         if (this.particleSystem != null) {
-            this.particleSystem.run();
+            this.particleSystem.stopped();
         }
     }
 

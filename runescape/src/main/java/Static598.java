@@ -16,7 +16,7 @@ public final class Static598 {
 
             if (spotAnimation.isFinished()) {
                 node.unlink();
-                spotAnimation.runParticleSystem();
+                spotAnimation.stopParticleSystem();
             } else if (Static334.activeTiles != null && spotAnimation.isAnimating()) {
                 Static102.method2026(spotAnimation, true);
             }

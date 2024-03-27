@@ -9,18 +9,18 @@ public final class Static533 {
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(B)V")
     public static void method7119() {
-        for (@Pc(8) MiniMenuEntryInner local8 = (MiniMenuEntryInner) MiniMenu.innerEntries.first(); local8 != null; local8 = (MiniMenuEntryInner) MiniMenu.innerEntries.next()) {
+        for (@Pc(8) MiniMenuEntry local8 = (MiniMenuEntry) MiniMenu.entryQueue.first(); local8 != null; local8 = (MiniMenuEntry) MiniMenu.entryQueue.next()) {
             if (local8.size > 1) {
                 local8.size = 0;
-                MiniMenu.cache.put(local8, ((MiniMenuEntry) local8.entries.sentinel.next2).entryKey);
-                local8.entries.clear();
+                MiniMenu.cache.put(local8, ((MiniMenuEntryInner) local8.innerEntries.sentinel.next2).entryKey);
+                local8.innerEntries.clear();
             }
         }
-        MiniMenu.innerCount = 0;
         MiniMenu.entryCount = 0;
-        MiniMenu.entries.clear();
-        MiniMenu.categories.clear();
-        MiniMenu.innerEntries.clear();
+        MiniMenu.innerEntryCount = 0;
+        MiniMenu.innerEntryQueue.clear();
+        MiniMenu.entryTable.clear();
+        MiniMenu.entryQueue.clear();
         MiniMenu.open = false;
     }
 }

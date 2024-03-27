@@ -8,6 +8,4 @@ public final class Static18 {
     @OriginalMember(owner = "client!aka", name = "o", descriptor = "Z")
     public static boolean occlude = true;
 
-    @OriginalMember(owner = "client!aka", name = "j", descriptor = "Lclient!pc;")
-    public static final ZoneProt A_ZONE_PROT___2 = new ZoneProt(14, 5);
 }

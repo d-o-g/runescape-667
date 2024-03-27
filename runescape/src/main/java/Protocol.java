@@ -2,6 +2,7 @@ import com.jagex.ChangeLocationRequest;
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.SignedResourceStatus;
+import com.jagex.ZoneProt;
 import com.jagex.core.io.ConnectionInfo;
 import rs2.client.web.OpenUrlType;
 import com.jagex.game.runetek6.client.GameShell;
@@ -159,11 +160,11 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (ServerProt.MAP_PROJANIM_HALFSQ == arg0.currentProt) {
-            method7912(Static3.A_ZONE_PROT___1);
+            method7912(ZoneProt.MAP_PROJANIM_HALFSQ);
             arg0.currentProt = null;
             return true;
         } else if (ServerProt.OBJ_REVEAL == arg0.currentProt) {
-            method7912(ZoneProt.A_ZONE_PROT___5);
+            method7912(ZoneProt.OBJ_REVEAL);
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == ServerProt.IF_SETHIDE) {
@@ -174,7 +175,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (ServerProt.LOC_ANIM == arg0.currentProt) {
-            method7912(Static420.A_ZONE_PROT___13);
+            method7912(ZoneProt.LOC_ANIM);
             arg0.currentProt = null;
             return true;
         } else if (ServerProt.SET_MOVEACTION == arg0.currentProt) {
@@ -186,7 +187,7 @@ public final class Protocol {
             arg0.currentProt = null;
             return true;
         } else if (arg0.currentProt == ServerProt.OBJ_DEL) {
-            method7912(ZoneProt.A_ZONE_PROT___8);
+            method7912(ZoneProt.OBJ_DEL);
             arg0.currentProt = null;
             return true;
         } else {
@@ -413,7 +414,7 @@ public final class Protocol {
                                 arg0.currentProt = null;
                                 return true;
                             } else if (arg0.currentProt == ServerProt.TEXT_COORD) {
-                                method7912(ZoneProt.A_ZONE_PROT___11);
+                                method7912(ZoneProt.TEXT_COORD);
                                 arg0.currentProt = null;
                                 return true;
                             } else if (ServerProt.LOGOUT == arg0.currentProt) {
@@ -1076,7 +1077,7 @@ public final class Protocol {
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else if (ServerProt.MAP_ANIM == arg0.currentProt) {
-                                                    method7912(ZoneProt.A_ZONE_PROT___16);
+                                                    method7912(ZoneProt.MAP_ANIM);
                                                     arg0.currentProt = null;
                                                     return true;
                                                 } else {
@@ -1135,7 +1136,7 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (ServerProt.SOUND_AREA == arg0.currentProt) {
-                                                        method7912(ZoneProt.A_ZONE_PROT___15);
+                                                        method7912(ZoneProt.SOUND_AREA);
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (ServerProt.UPDATE_IGNORELIST == arg0.currentProt) {
@@ -1157,7 +1158,7 @@ public final class Protocol {
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (ServerProt.LOC_CUSTOMISE == arg0.currentProt) {
-                                                        method7912(Static379.A_ZONE_PROT___12);
+                                                        method7912(ZoneProt.LOC_CUSTOMISE);
                                                         arg0.currentProt = null;
                                                         return true;
                                                     } else if (ServerProt.SET_PLAYER_OP == arg0.currentProt) {
@@ -1229,7 +1230,7 @@ public final class Protocol {
                                                             arg0.currentProt = null;
                                                             return true;
                                                         } else if (arg0.currentProt == ServerProt.LOC_PREFETCH) {
-                                                            method7912(Static328.A_ZONE_PROT___10);
+                                                            method7912(ZoneProt.LOC_PREFETCH);
                                                             arg0.currentProt = null;
                                                             return true;
                                                         } else {
@@ -1581,7 +1582,7 @@ public final class Protocol {
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (arg0.currentProt == ServerProt.SOUND_VORBIS_AREA) {
-                                                                    method7912(ZoneProt.A_ZONE_PROT___6);
+                                                                    method7912(ZoneProt.SOUND_VORBIS_AREA);
                                                                     arg0.currentProt = null;
                                                                     return true;
                                                                 } else if (ServerProt.VORBIS_SPEECH_SOUND == arg0.currentProt) {
@@ -1720,7 +1721,7 @@ public final class Protocol {
                                                                         Static87.anInt1810 = bitPacket.g1_alt1();
                                                                         Static270.anInt4354 = bitPacket.g1b() << 3;
                                                                         while (bitPacket.pos < arg0.currentPacketSize) {
-                                                                            @Pc(6873) ZoneProt local6873 = Static559.method7419()[bitPacket.g1()];
+                                                                            @Pc(6873) ZoneProt local6873 = ZoneProt.values()[bitPacket.g1()];
                                                                             method7912(local6873);
                                                                         }
                                                                         arg0.currentProt = null;
@@ -1824,7 +1825,7 @@ public final class Protocol {
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else if (arg0.currentProt == ServerProt.LOC_ADD_CHANGE) {
-                                                                        method7912(Static450.A_ZONE_PROT___14);
+                                                                        method7912(ZoneProt.LOC_ADD_CHANGE);
                                                                         arg0.currentProt = null;
                                                                         return true;
                                                                     } else {
@@ -2022,7 +2023,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (ServerProt.OBJ_ADD == arg0.currentProt) {
-                                                                            method7912(Static18.A_ZONE_PROT___2);
+                                                                            method7912(ZoneProt.OBJ_ADD);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (ServerProt.IF_SETANIM == arg0.currentProt) {
@@ -2086,7 +2087,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.LOC_DEL) {
-                                                                            method7912(Static210.A_ZONE_PROT___9);
+                                                                            method7912(ZoneProt.LOC_DEL);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.NPC_INFO) {
@@ -2179,7 +2180,7 @@ public final class Protocol {
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.OBJ_COUNT) {
-                                                                            method7912(Static704.A_ZONE_PROT___17);
+                                                                            method7912(ZoneProt.OBJ_COUNT);
                                                                             arg0.currentProt = null;
                                                                             return true;
                                                                         } else if (arg0.currentProt == ServerProt.VARCLAN_STRING) {
@@ -2285,7 +2286,7 @@ public final class Protocol {
         @Pc(42) int local42;
         @Pc(46) int local46;
         @Pc(52) int local52;
-        if (arg0 == Static704.A_ZONE_PROT___17) {
+        if (arg0 == ZoneProt.OBJ_COUNT) {
             local15 = bitPacket.g1();
             local21 = (local15 & 0x7) + Static270.anInt4354;
             local25 = WorldMap.areaBaseZ + local21;
@@ -2318,7 +2319,7 @@ public final class Protocol {
         @Pc(353) int local353;
         @Pc(217) int local217;
         @Pc(322) int local322;
-        if (Static379.A_ZONE_PROT___12 == arg0) {
+        if (ZoneProt.LOC_CUSTOMISE == arg0) {
             local15 = bitPacket.g1_alt1();
             local21 = local15 >> 2;
             local25 = LOC_LAYERS_BY_SHAPE[local21];
@@ -2376,7 +2377,7 @@ public final class Protocol {
                 }
                 Static296.method4361(new LocTypeCustomisation(Static356.aLong177++, local278, local310, local343), Static87.anInt1810, local25, local42, local46);
             }
-        } else if (arg0 == Static420.A_ZONE_PROT___13) {
+        } else if (arg0 == ZoneProt.LOC_ANIM) {
             local15 = bitPacket.g2_alt3();
             if (local15 == 65535) {
                 local15 = -1;
@@ -2389,13 +2390,13 @@ public final class Protocol {
             local46 = local38 & 0x3;
             local52 = LOC_LAYERS_BY_SHAPE[local42];
             Static198.method2953(Static87.anInt1810, local34, local42, local15, local25, local46, local52);
-        } else if (arg0 == Static328.A_ZONE_PROT___10) {
+        } else if (arg0 == ZoneProt.LOC_PREFETCH) {
             local15 = bitPacket.g2();
             local21 = bitPacket.g1();
             LocTypeList.instance.list(local15).loadedModels(local21);
         } else {
             @Pc(537) int local537;
-            if (arg0 == ZoneProt.A_ZONE_PROT___15) {
+            if (arg0 == ZoneProt.SOUND_AREA) {
                 local15 = bitPacket.g1();
                 local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                 local25 = (local15 & 0x7) + Static270.anInt4354;
@@ -2415,7 +2416,7 @@ public final class Protocol {
                         Static165.method2608(local537, local52, local34, local46, local212, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16));
                     }
                 }
-            } else if (arg0 == Static450.A_ZONE_PROT___14) {
+            } else if (arg0 == ZoneProt.LOC_ADD_CHANGE) {
                 local15 = bitPacket.g1();
                 local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                 local25 = (local15 & 0x7) + Static270.anInt4354;
@@ -2429,7 +2430,7 @@ public final class Protocol {
                 }
             } else {
                 @Pc(812) int local812;
-                if (arg0 == Static3.A_ZONE_PROT___1) {
+                if (arg0 == ZoneProt.MAP_PROJANIM_HALFSQ) {
                     local15 = bitPacket.g1();
                     local21 = Static626.anInt9476 * 2 + (local15 >> 4 & 0xF);
                     local25 = (local15 & 0xF) + Static270.anInt4354 * 2;
@@ -2495,7 +2496,7 @@ public final class Protocol {
                         local1053.target(Static102.averageHeight(Static87.anInt1810, local537, local52) - local290, local322 + TimeUtils.clock, local537, local52);
                         Static505.projectiles.addLast(new ProjectileAnimationNode(local1053));
                     }
-                } else if (ZoneProt.A_ZONE_PROT___5 == arg0) {
+                } else if (ZoneProt.OBJ_REVEAL == arg0) {
                     local15 = bitPacket.g2_alt2();
                     local21 = bitPacket.g1_alt1();
                     local25 = Static270.anInt4354 + (local21 & 0x7);
@@ -2513,7 +2514,7 @@ public final class Protocol {
                             }
                         }
                     }
-                } else if (ZoneProt.A_ZONE_PROT___6 == arg0) {
+                } else if (ZoneProt.SOUND_VORBIS_AREA == arg0) {
                     local15 = bitPacket.g1();
                     local21 = (local15 >> 4 & 0x7) + Static626.anInt9476;
                     local25 = (local15 & 0x7) + Static270.anInt4354;
@@ -2533,7 +2534,7 @@ public final class Protocol {
                             Static179.method2770(local46, local52, local42 + (local25 << 8) + (Static87.anInt1810 << 24) + (local21 << 16), local212, local537, local34);
                         }
                     }
-                } else if (arg0 == ZoneProt.A_ZONE_PROT___8) {
+                } else if (arg0 == ZoneProt.OBJ_DEL) {
                     local15 = bitPacket.g2();
                     local21 = bitPacket.g1();
                     local25 = (local21 & 0x7) + Static270.anInt4354;
@@ -2555,7 +2556,7 @@ public final class Protocol {
                             Static468.updateObjCount(Static87.anInt1810, local25, local38);
                         }
                     }
-                } else if (ZoneProt.A_ZONE_PROT___11 == arg0) {
+                } else if (ZoneProt.TEXT_COORD == arg0) {
                     bitPacket.g1();
                     local15 = bitPacket.g1();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
@@ -2595,7 +2596,7 @@ public final class Protocol {
                         projectile.target(Static102.averageHeight(Static87.anInt1810, local42, local38) - local212, TimeUtils.clock + local217, local42, local38);
                         Static505.projectiles.addLast(new ProjectileAnimationNode(projectile));
                     }
-                } else if (Static210.A_ZONE_PROT___9 == arg0) {
+                } else if (ZoneProt.LOC_DEL == arg0) {
                     local15 = bitPacket.g1_alt2();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                     local25 = (local15 & 0x7) + Static270.anInt4354;
@@ -2606,7 +2607,7 @@ public final class Protocol {
                     if (Static55.method1218(Static117.areaMode) || local21 >= 0 && local25 >= 0 && Static720.mapWidth > local21 && local25 < Static501.mapLength) {
                         Static553.method7289(local42, -1, local46, local21, Static87.anInt1810, local38, local25);
                     }
-                } else if (Static18.A_ZONE_PROT___2 == arg0) {
+                } else if (ZoneProt.OBJ_ADD == arg0) {
                     local15 = bitPacket.g1_alt2();
                     local21 = Static270.anInt4354 + (local15 & 0x7);
                     local25 = local21 + WorldMap.areaBaseZ;
@@ -2621,7 +2622,7 @@ public final class Protocol {
                             Static468.updateObjCount(Static87.anInt1810, local21, local34);
                         }
                     }
-                } else if (arg0 == ZoneProt.A_ZONE_PROT___16) {
+                } else if (arg0 == ZoneProt.MAP_ANIM) {
                     local15 = bitPacket.g1();
                     local21 = Static626.anInt9476 + (local15 >> 4 & 0x7);
                     local25 = (local15 & 0x7) + Static270.anInt4354;

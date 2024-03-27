@@ -118,9 +118,6 @@ public final class Node_Sub1_Sub11 extends TextureOp {
         } else if (arg2 == 7) {
             this.anInt4532 = arg1.g2();
         }
-        if (arg0) {
-            ClientProt.MESSAGE_PUBLIC = null;
-        }
     }
 
     @OriginalMember(owner = "client!in", name = "c", descriptor = "(I)V")

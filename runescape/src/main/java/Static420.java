@@ -14,9 +14,6 @@ public final class Static420 {
     @OriginalMember(owner = "client!nea", name = "g", descriptor = "[[[Lclient!pha;")
     public static Tile[][][] aTileArrayArrayArray2;
 
-    @OriginalMember(owner = "client!nea", name = "c", descriptor = "Lclient!pc;")
-    public static final ZoneProt A_ZONE_PROT___13 = new ZoneProt(3, 4);
-
     @OriginalMember(owner = "client!nea", name = "a", descriptor = "I")
     public static int anInt6436 = 1;
 

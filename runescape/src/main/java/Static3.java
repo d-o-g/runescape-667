@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static3 {
 
-    @OriginalMember(owner = "client!ab", name = "u", descriptor = "Lclient!pc;")
-    public static final ZoneProt A_ZONE_PROT___1 = new ZoneProt(10, 19);
-
     @OriginalMember(owner = "client!ab", name = "w", descriptor = "Z")
     public static boolean chooseSafeMode = false;
 

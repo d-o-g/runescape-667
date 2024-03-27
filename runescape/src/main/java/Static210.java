@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static210 {
 
-    @OriginalMember(owner = "client!gia", name = "t", descriptor = "Lclient!pc;")
-    public static final ZoneProt A_ZONE_PROT___9 = new ZoneProt(7, 2);
-
     @OriginalMember(owner = "client!gia", name = "q", descriptor = "Ljava/lang/Object;")
     public static volatile Object anObject8 = null;
 

@@ -1,3 +1,4 @@
+import com.jagex.ClientProt;
 import com.jagex.core.stringtools.general.NameTools;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -31,7 +32,7 @@ public final class Static726 {
                 }
                 Static344.lastFriendTransmit = World.tick;
                 @Pc(101) ServerConnection local101 = ConnectionManager.active();
-                @Pc(107) ClientMessage local107 = ClientMessage.create(Static8.A_CLIENT_PROT___1, local101.cipher);
+                @Pc(107) ClientMessage local107 = ClientMessage.create(ClientProt.IGNORELIST_DEL, local101.cipher);
                 local107.bitPacket.p1(Static231.method3379(arg0));
                 local107.bitPacket.pjstr(arg0);
                 local101.send(local107);

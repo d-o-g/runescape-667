@@ -9,9 +9,6 @@ import rs2.client.event.mouse.MouseMonitor;
 
 public final class Static603 {
 
-    @OriginalMember(owner = "client!taa", name = "E", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___109 = new ClientProt(29, -1);
-
     @OriginalMember(owner = "client!taa", name = "b", descriptor = "(Z)V")
     public static void method7899() {
         InterfaceManager.redraw(InterfaceManager.dragSource);

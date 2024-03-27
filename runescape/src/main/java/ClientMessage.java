@@ -1,3 +1,4 @@
+import com.jagex.ClientProt;
 import com.jagex.core.crypto.Isaac;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.BitPacket;

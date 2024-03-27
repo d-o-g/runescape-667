@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
@@ -2674,7 +2675,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!ci", name = "a", descriptor = "(IZ)V")
     public static void method1557() {
-        @Pc(13) ClientMessage local13 = ClientMessage.create(Static317.A_CLIENT_PROT___62, ServerConnection.GAME.cipher);
+        @Pc(13) ClientMessage local13 = ClientMessage.create(ClientProt.CLOSE_MODAL, ServerConnection.GAME.cipher);
         ServerConnection.GAME.send(local13);
         for (@Pc(22) SubInterface local22 = (SubInterface) subInterfaces.first(); local22 != null; local22 = (SubInterface) subInterfaces.next()) {
             if (!local22.isLinked()) {

@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
@@ -116,7 +117,7 @@ public final class Static706 {
             return;
         }
         @Pc(230) ServerConnection local230 = ConnectionManager.active();
-        @Pc(236) ClientMessage local236 = ClientMessage.create(Static669.A_CLIENT_PROT___116, local230.cipher);
+        @Pc(236) ClientMessage local236 = ClientMessage.create(ClientProt.FRIENDLIST_ADD, local230.cipher);
         local236.bitPacket.p1(Static231.method3379(arg0));
         local236.bitPacket.pjstr(arg0);
         local230.send(local236);

@@ -446,7 +446,6 @@ public final class ServerProt {
     @OriginalMember(owner = "client!gla", name = "y", descriptor = "Lclient!lga;")
     public static final ServerProt LOYALTY_UPDATE = new ServerProt(144, 5);
 
-
     @OriginalMember(owner = "client!sh", name = "b", descriptor = "(B)[Lclient!lga;")
     public static ServerProt[] values() {
         return new ServerProt[]{

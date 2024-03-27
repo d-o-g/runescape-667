@@ -1,5 +1,6 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.SignedResourceStatus;
 import com.jagex.core.io.ConnectionInfo;
 import rs2.client.web.OpenUrlType;
@@ -1816,7 +1817,7 @@ public final class Protocol {
                                                                     } else if (arg0.currentProt == ServerProt.SEND_PING) {
                                                                         local277 = bitPacket.g4();
                                                                         local100 = bitPacket.g4();
-                                                                        @Pc(7309) ClientMessage local7309 = ClientMessage.create(Static128.A_CLIENT_PROT___106, arg0.cipher);
+                                                                        @Pc(7309) ClientMessage local7309 = ClientMessage.create(ClientProt.SEND_PING_REPLY, arg0.cipher);
                                                                         local7309.bitPacket.p4(local277);
                                                                         local7309.bitPacket.p4(local100);
                                                                         arg0.send(local7309);
@@ -2265,7 +2266,7 @@ public final class Protocol {
 
     @OriginalMember(owner = "client!lma", name = "b", descriptor = "(I)V")
     public static void sendWindowStatus() {
-        @Pc(22) ClientMessage local22 = ClientMessage.create(ClientProt.A_CLIENT_PROT___105, ServerConnection.GAME.cipher);
+        @Pc(22) ClientMessage local22 = ClientMessage.create(ClientProt.WINDOW_STATUS, ServerConnection.GAME.cipher);
         local22.bitPacket.p1(InterfaceManager.getWindowMode());
         local22.bitPacket.p2(GameShell.canvasWid);
         local22.bitPacket.p2(GameShell.canvasHei);

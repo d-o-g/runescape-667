@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.AreaMode;
 import com.jagex.core.util.SystemTimer;
@@ -294,7 +295,7 @@ public final class Static489 {
         Static442.method5969();
         @Pc(920) ClientMessage local920;
         if (GameShell.frame != null && ServerConnection.GAME.connection != null && MainLogicManager.step == 12) {
-            local920 = ClientMessage.create(Static694.A_CLIENT_PROT___122, ServerConnection.GAME.cipher);
+            local920 = ClientMessage.create(ClientProt.DETECT_MODIFIED_CLIENT, ServerConnection.GAME.cipher);
             local920.bitPacket.p4(1057001181);
             ServerConnection.GAME.send(local920);
         }
@@ -323,7 +324,7 @@ public final class Static489 {
         } else {
             MainLogicManager.setStep(11);
             if (ServerConnection.GAME.connection != null) {
-                local920 = ClientMessage.create(ClientProt.A_CLIENT_PROT___29, ServerConnection.GAME.cipher);
+                local920 = ClientMessage.create(ClientProt.MAP_BUILD_COMPLETE, ServerConnection.GAME.cipher);
                 ServerConnection.GAME.send(local920);
             }
         }

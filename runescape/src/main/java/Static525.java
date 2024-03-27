@@ -1,3 +1,4 @@
+import com.jagex.ClientProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -21,7 +22,7 @@ public final class Static525 {
         }
         @Pc(53) String local53 = local43.displayName;
         @Pc(56) ServerConnection local56 = ConnectionManager.active();
-        @Pc(62) ClientMessage local62 = ClientMessage.create(Static457.A_CLIENT_PROT___86, local56.cipher);
+        @Pc(62) ClientMessage local62 = ClientMessage.create(ClientProt.CLANCHANNEL_KICKUSER, local56.cipher);
         local62.bitPacket.p1(Static231.method3379(local53) + 3);
         local62.bitPacket.p1(arg0 ? 1 : 0);
         local62.bitPacket.p2(arg1);

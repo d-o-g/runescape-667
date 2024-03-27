@@ -6,9 +6,6 @@ public final class Static209 {
     @OriginalMember(owner = "client!gi", name = "c", descriptor = "F")
     public static float aFloat70;
 
-    @OriginalMember(owner = "client!gi", name = "e", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___37 = new ClientProt(13, 2);
-
     @OriginalMember(owner = "client!gi", name = "a", descriptor = "Lclient!fba;")
     public static final Class121 aClass121_4 = new Class121();
 

@@ -1,3 +1,4 @@
+import com.jagex.ClientProt;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -407,7 +408,7 @@ public final class SoundManager {
             Static8.aClass2_Sub6_Sub1_1 = null;
             Static501.aBoolean575 = false;
         } else if (ClientOptions.instance.musicVolume.getValue() != 0 && midiSong != -1 && !Static52.method1157(125)) {
-            @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.A_CLIENT_PROT___49, ServerConnection.GAME.cipher);
+            @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.SOUND_SONGEND, ServerConnection.GAME.cipher);
             local551.bitPacket.p4(midiSong);
             ServerConnection.GAME.send(local551);
             midiSong = -1;

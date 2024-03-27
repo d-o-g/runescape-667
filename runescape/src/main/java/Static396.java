@@ -1,3 +1,4 @@
+import com.jagex.ClientProt;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -16,7 +17,7 @@ public final class Static396 {
     @OriginalMember(owner = "client!mi", name = "a", descriptor = "(I)V")
     public static void method5551() {
         @Pc(10) ServerConnection local10 = ConnectionManager.active();
-        @Pc(18) ClientMessage local18 = ClientMessage.create(Static244.A_CLIENT_PROT___53, local10.cipher);
+        @Pc(18) ClientMessage local18 = ClientMessage.create(ClientProt.FRIENDS_CHAT_CHANGE, local10.cipher);
         local18.bitPacket.p1(0);
         local10.send(local18);
     }

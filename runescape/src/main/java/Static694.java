@@ -14,9 +14,6 @@ public final class Static694 {
     @OriginalMember(owner = "client!vv", name = "z", descriptor = "I")
     public static int anInt10405;
 
-    @OriginalMember(owner = "client!vv", name = "D", descriptor = "Lclient!ss;")
-    public static final ClientProt A_CLIENT_PROT___122 = new ClientProt(71, 4);
-
     @OriginalMember(owner = "client!vv", name = "F", descriptor = "Lclient!fma;")
     public static final Class131 aClass131_6 = new Class131();
 

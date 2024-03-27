@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.core.util.Arrays;
 import com.jagex.game.LocalisedText;
 import com.jagex.js5.js5;

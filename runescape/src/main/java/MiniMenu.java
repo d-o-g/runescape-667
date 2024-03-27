@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.IndexedImage;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeGame;
@@ -1490,7 +1491,7 @@ public final class MiniMenu {
             Static305.crossY = clickY;
             Static676.crossX = clickX;
 
-            @Pc(949) ClientMessage message = ClientMessage.create(Static175.A_CLIENT_PROT___31, ServerConnection.GAME.cipher);
+            @Pc(949) ClientMessage message = ClientMessage.create(ClientProt.OPOBJT, ServerConnection.GAME.cipher);
             message.bitPacket.p2(v2 + WorldMap.areaBaseX);
             message.bitPacket.p2(WorldMap.areaBaseZ + v3);
             message.bitPacket.p2_alt3(InterfaceManager.targetInvObj);
@@ -1514,7 +1515,7 @@ public final class MiniMenu {
                 Static676.crossX = clickX;
                 Static305.crossY = clickY;
 
-                @Pc(1223) ClientMessage message = ClientMessage.create(Static503.A_CLIENT_PROT___94, ServerConnection.GAME.cipher);
+                @Pc(1223) ClientMessage message = ClientMessage.create(ClientProt.OPNPCT, ServerConnection.GAME.cipher);
                 message.bitPacket.p2_alt3(InterfaceManager.targetComponent);
                 message.bitPacket.p2_alt1(InterfaceManager.targetInvObj);
                 message.bitPacket.p2_alt1(v1);

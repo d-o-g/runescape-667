@@ -1,5 +1,6 @@
 import com.jagex.Class84;
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.SignLink;

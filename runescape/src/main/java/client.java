@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.SignedResourceStatus;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.io.ConnectionInfo;
@@ -243,7 +244,7 @@ public final class client extends GameShell {
         @Pc(71) ClientMessage local71;
         @Pc(80) int local80;
         while (Static232.method3400()) {
-            local71 = ClientMessage.create(ClientProt.A_CLIENT_PROT___110, ServerConnection.GAME.cipher);
+            local71 = ClientMessage.create(ClientProt.REFLECTION_CHECK_REPLY, ServerConnection.GAME.cipher);
             local71.bitPacket.p1(0);
             local80 = local71.bitPacket.pos;
             Static437.method5915(local71.bitPacket);
@@ -255,7 +256,7 @@ public final class client extends GameShell {
                 Static211.pingRequest = Static151.aClass226_20.method5245(ConnectionInfo.login.address);
             }
         } else if (Static211.pingRequest.anInt1631 != -1) {
-            local71 = ClientMessage.create(Static50.A_CLIENT_PROT___90, ServerConnection.GAME.cipher);
+            local71 = ClientMessage.create(ClientProt.PING_STATISTICS, ServerConnection.GAME.cipher);
             local71.bitPacket.p2(Static211.pingRequest.anInt1631);
             ServerConnection.GAME.send(local71);
             Static211.pingRequest = null;
@@ -288,7 +289,7 @@ public final class client extends GameShell {
                 }
                 if (Static172.anInt2890 != local226 || local208 != Static634.anInt9516) {
                     if (local179 == null) {
-                        local179 = ClientMessage.create(Static603.A_CLIENT_PROT___109, ServerConnection.GAME.cipher);
+                        local179 = ClientMessage.create(ClientProt.EVENT_MOUSE_MOVE, ServerConnection.GAME.cipher);
                         local179.bitPacket.p1(0);
                         local181 = local179.bitPacket.pos;
                     }
@@ -353,14 +354,14 @@ public final class client extends GameShell {
                 local581 = 1;
             }
             local282 = (int) local527;
-            @Pc(603) ClientMessage local603 = ClientMessage.create(Static111.A_CLIENT_PROT___21, ServerConnection.GAME.cipher);
+            @Pc(603) ClientMessage local603 = ClientMessage.create(ClientProt.EVENT_MOUSE_CLICK, ServerConnection.GAME.cipher);
             local603.bitPacket.p2_alt3(local581 << 15 | local282);
             local603.bitPacket.p4_alt2(local208 | local541 << 16);
             ServerConnection.GAME.send(local603);
         }
         @Pc(660) long local660;
         if (Static216.anInt3530 > 0) {
-            local179 = ClientMessage.create(Static187.A_CLIENT_PROT___36, ServerConnection.GAME.cipher);
+            local179 = ClientMessage.create(ClientProt.EVENT_KEYBOARD, ServerConnection.GAME.cipher);
             local179.bitPacket.p1(Static216.anInt3530 * 3);
             for (local181 = 0; local181 < Static216.anInt3530; local181++) {
                 @Pc(652) KeyLog local652 = Static591.AN_KEYBOARD_EVENT_ARRAY_2[local181];
@@ -380,19 +381,19 @@ public final class client extends GameShell {
         if (Static273.aBoolean339 && Static232.anInt3764 <= 0) {
             Static273.aBoolean339 = false;
             Static232.anInt3764 = 20;
-            local179 = ClientMessage.create(ClientProt.A_CLIENT_PROT___47, ServerConnection.GAME.cipher);
+            local179 = ClientMessage.create(ClientProt.EVENT_CAMERA_POSITION, ServerConnection.GAME.cipher);
             local179.bitPacket.p2((int) Static479.aFloat123 >> 3);
             local179.bitPacket.p2((int) Camera.playerCameraYaw >> 3);
             ServerConnection.GAME.send(local179);
         }
         if (focus != Static50.aBoolean565) {
             Static50.aBoolean565 = focus;
-            local179 = ClientMessage.create(Static621.A_CLIENT_PROT___113, ServerConnection.GAME.cipher);
+            local179 = ClientMessage.create(ClientProt.EVENT_APPLET_FOCUS, ServerConnection.GAME.cipher);
             local179.bitPacket.p1(focus ? 1 : 0);
             ServerConnection.GAME.send(local179);
         }
         if (!Static503.sentPreferences) {
-            local179 = ClientMessage.create(ClientProt.A_CLIENT_PROT___108, ServerConnection.GAME.cipher);
+            local179 = ClientMessage.create(ClientProt.CLIENT_DETAILOPTIONS_STATUS, ServerConnection.GAME.cipher);
             local179.bitPacket.p1(0);
             local181 = local179.bitPacket.pos;
             @Pc(810) Packet local810 = ClientOptions.instance.encode();
@@ -647,7 +648,7 @@ public final class client extends GameShell {
         Static443.method5981();
         World.tick++;
         if (WorldMap.clicked) {
-            @Pc(1980) ClientMessage local1980 = ClientMessage.create(ClientProt.A_CLIENT_PROT___26, ServerConnection.GAME.cipher);
+            @Pc(1980) ClientMessage local1980 = ClientMessage.create(ClientProt.CLICKWORLDMAP, ServerConnection.GAME.cipher);
             local1980.bitPacket.p4_alt3(WorldMap.clickedY | WorldMap.clickedLevel << 28 | WorldMap.clickedX << 14);
             ServerConnection.GAME.send(local1980);
             WorldMap.clicked = false;

@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
 import com.jagex.LibraryList;
 import com.jagex.core.io.ConnectionInfo;
@@ -1475,14 +1476,14 @@ public final class ScriptRunner {
                                         if (StringTools.isDecimal(local4911)) {
                                             local21 = StringTools.parseDecimal(local4911);
                                         }
-                                        @Pc(4974) ClientMessage local4974 = ClientMessage.create(ClientProt.A_CLIENT_PROT___66, ServerConnection.GAME.cipher);
+                                        @Pc(4974) ClientMessage local4974 = ClientMessage.create(ClientProt.RESUME_P_COUNTDIALOG, ServerConnection.GAME.cipher);
                                         local4974.bitPacket.p4(local21);
                                         ServerConnection.GAME.send(local4974);
                                         return;
                                     }
                                     if (arg0 == 3105) {
                                         local4911 = aStringArray37[--anInt7139];
-                                        local5005 = ClientMessage.create(Static276.A_CLIENT_PROT___56, ServerConnection.GAME.cipher);
+                                        local5005 = ClientMessage.create(ClientProt.RESUME_P_STRINGDIALOG, ServerConnection.GAME.cipher);
                                         local5005.bitPacket.p1(local4911.length() + 1);
                                         local5005.bitPacket.pjstr(local4911);
                                         ServerConnection.GAME.send(local5005);
@@ -1490,7 +1491,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3106) {
                                         local4911 = aStringArray37[--anInt7139];
-                                        local5005 = ClientMessage.create(ClientProt.A_CLIENT_PROT___28, ServerConnection.GAME.cipher);
+                                        local5005 = ClientMessage.create(ClientProt.RESUME_P_NAMEDIALOG, ServerConnection.GAME.cipher);
                                         local5005.bitPacket.p1(local4911.length() + 1);
                                         local5005.bitPacket.pjstr(local4911);
                                         ServerConnection.GAME.send(local5005);
@@ -1521,7 +1522,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3110) {
                                         local15 = anIntArray578[--anInt7142];
-                                        local5005 = ClientMessage.create(Static209.A_CLIENT_PROT___37, ServerConnection.GAME.cipher);
+                                        local5005 = ClientMessage.create(ClientProt.RESUME_P_OBJDIALOG, ServerConnection.GAME.cipher);
                                         local5005.bitPacket.p2(local15);
                                         ServerConnection.GAME.send(local5005);
                                         return;
@@ -1567,7 +1568,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3116) {
                                         local15 = anIntArray578[--anInt7142];
-                                        local5005 = ClientMessage.create(Static436.A_CLIENT_PROT___44, ServerConnection.GAME.cipher);
+                                        local5005 = ClientMessage.create(ClientProt.RESUME_P_HSLDIALOG, ServerConnection.GAME.cipher);
                                         local5005.bitPacket.p2(local15);
                                         ServerConnection.GAME.send(local5005);
                                         return;
@@ -3092,7 +3093,7 @@ public final class ScriptRunner {
                                                         return;
                                                     }
                                                     Static486.aByte115 = -1;
-                                                    local5005 = ClientMessage.create(Static429.A_CLIENT_PROT___81, ServerConnection.LOBBY.cipher);
+                                                    local5005 = ClientMessage.create(ClientProt.CLIENT_PROT_90, ServerConnection.LOBBY.cipher);
                                                     local5005.bitPacket.p1(0);
                                                     local27 = local5005.bitPacket.pos;
                                                     local5005.bitPacket.pjstr(local4911);
@@ -3617,7 +3618,7 @@ public final class ScriptRunner {
                 }
                 Static87.anInt1806 = anIntArray578[anInt7142 + 2];
                 local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(Static98.A_CLIENT_PROT___20, local57.cipher);
+                local63 = ClientMessage.create(ClientProt.SET_CHATFILTERSETTINGS, local57.cipher);
                 local63.bitPacket.p1(Static133.anInt2458);
                 local63.bitPacket.p1(Static726.aClass280_7.anInt7039);
                 local63.bitPacket.p1(Static87.anInt1806);
@@ -3638,7 +3639,7 @@ public final class ScriptRunner {
                     local101 = local101.substring(0, 80);
                 }
                 @Pc(135) ServerConnection local135 = ConnectionManager.active();
-                @Pc(141) ClientMessage local141 = ClientMessage.create(Static245.A_CLIENT_PROT___114, local135.cipher);
+                @Pc(141) ClientMessage local141 = ClientMessage.create(ClientProt.SEND_SNAPSHOT, local135.cipher);
                 local141.bitPacket.p1(Static231.method3379(local95) + Static231.method3379(local101) + 2);
                 local141.bitPacket.pjstr(local95);
                 local141.bitPacket.p1(local109 - 1);
@@ -3681,7 +3682,7 @@ public final class ScriptRunner {
             if (arg0 == 5006) {
                 local192 = anIntArray578[--anInt7142];
                 local289 = ConnectionManager.active();
-                local295 = ClientMessage.create(ClientProt.A_CLIENT_PROT___67, local289.cipher);
+                local295 = ClientMessage.create(ClientProt.CHAT_SETMODE, local289.cipher);
                 local295.bitPacket.p1(local192);
                 local289.send(local295);
                 return;
@@ -3887,7 +3888,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5059) {
                 local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(Static456.A_CLIENT_PROT___85, local57.cipher);
+                local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
                 local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(0);
@@ -3900,7 +3901,7 @@ public final class ScriptRunner {
             if (arg0 == 5060) {
                 local95 = aStringArray37[--anInt7139];
                 local289 = ConnectionManager.active();
-                local295 = ClientMessage.create(Static234.A_CLIENT_PROT___46, local289.cipher);
+                local295 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PRIVATE, local289.cipher);
                 local295.bitPacket.p1(0);
                 local115 = local295.bitPacket.pos;
                 local295.bitPacket.pjstr(local95);
@@ -3912,7 +3913,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5061) {
                 local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(Static456.A_CLIENT_PROT___85, local57.cipher);
+                local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
                 local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(1);
@@ -4018,7 +4019,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5074) {
                 local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(Static456.A_CLIENT_PROT___85, local57.cipher);
+                local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
                 local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(2);
@@ -4030,7 +4031,7 @@ public final class ScriptRunner {
             }
             if (arg0 == 5075) {
                 local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(Static456.A_CLIENT_PROT___85, local57.cipher);
+                local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
                 local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(3);
@@ -4449,7 +4450,7 @@ public final class ScriptRunner {
                         local101 = aStringArray37[anInt7139 + 1];
                         local109 = anIntArray578[--anInt7142];
                         @Pc(3411) ServerConnection local3411 = ConnectionManager.active();
-                        @Pc(3417) ClientMessage local3417 = ClientMessage.create(ClientProt.A_CLIENT_PROT___102, local3411.cipher);
+                        @Pc(3417) ClientMessage local3417 = ClientMessage.create(ClientProt.URL_REQUEST, local3411.cipher);
                         local3417.bitPacket.p1(Static231.method3379(local95) + Static231.method3379(local101) + 1);
                         local3417.bitPacket.pjstr(local95);
                         local3417.bitPacket.pjstr(local101);
@@ -5556,7 +5557,7 @@ public final class ScriptRunner {
                                 return;
                             }
                             WorldList.fetching = true;
-                            @Pc(7662) ClientMessage local7662 = ClientMessage.create(Static231.A_CLIENT_PROT___41, ServerConnection.LOBBY.cipher);
+                            @Pc(7662) ClientMessage local7662 = ClientMessage.create(ClientProt.WORLDLIST_FETCH, ServerConnection.LOBBY.cipher);
                             local7662.bitPacket.p4(WorldList.checksum);
                             ServerConnection.LOBBY.send(local7662);
                             anIntArray578[anInt7142++] = 0;
@@ -6395,7 +6396,7 @@ public final class ScriptRunner {
             }
         }
         @Pc(650) ServerConnection local650 = ConnectionManager.active();
-        @Pc(656) ClientMessage local656 = ClientMessage.create(Static278.aClientProt_57, local650.cipher);
+        @Pc(656) ClientMessage local656 = ClientMessage.create(ClientProt.MESSAGE_PUBLIC, local650.cipher);
         local656.bitPacket.p1(0);
         @Pc(665) int local665 = local656.bitPacket.pos;
         local656.bitPacket.p1(local20);

@@ -9,9 +9,6 @@ public final class Static278 {
     @OriginalMember(owner = "client!in", name = "J", descriptor = "[I")
     public static int[] anIntArray351 = new int[4096];
 
-    @OriginalMember(owner = "client!in", name = "R", descriptor = "Lclient!ss;")
-    public static ClientProt aClientProt_57 = new ClientProt(36, -1);
-
     @OriginalMember(owner = "client!in", name = "a", descriptor = "(ZD)V")
     public static void method4068(@OriginalArg(1) double arg0) {
         Static203.aMatrix_4.method7128(Static420.aMatrix_7);

@@ -1,3 +1,4 @@
+import com.jagex.ClientProt;
 import com.jagex.core.util.JagException;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -69,7 +70,7 @@ public final class VideoManager {
     @OriginalMember(owner = "client!ub", name = "a", descriptor = "(IZB)V")
     public static void ended(@OriginalArg(0) int id, @OriginalArg(1) boolean transmit) {
         if (transmit) {
-            @Pc(26) ClientMessage message = ClientMessage.create(Static321.VIDEO_END, ServerConnection.GAME.cipher);
+            @Pc(26) ClientMessage message = ClientMessage.create(ClientProt.VIDEO_END, ServerConnection.GAME.cipher);
             message.bitPacket.p2(id);
             ServerConnection.GAME.send(message);
         } else {

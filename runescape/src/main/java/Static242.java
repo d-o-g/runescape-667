@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.ClientProt;
 import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;

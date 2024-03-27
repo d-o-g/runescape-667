@@ -6,9 +6,6 @@ public final class Static632 {
     @OriginalMember(owner = "client!u", name = "k", descriptor = "I")
     public static int anInt9503;
 
-    @OriginalMember(owner = "client!u", name = "l", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray44 = new String[100];
-
     @OriginalMember(owner = "client!u", name = "e", descriptor = "[F")
     public static final float[] aFloatArray70 = new float[4];
 

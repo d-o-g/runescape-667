@@ -704,9 +704,7 @@ public abstract class PathingEntity extends PositionEntity {
 
                     if (replayMode == SeqReplayMode.STOP) {
                         return;
-                    }
-
-                    if (replayMode == SeqReplayMode.RESTART_LOOP) {
+                    } else if (replayMode == SeqReplayMode.RESTART_LOOP) {
                         spotAnim.animator.restartLoop();
                         return;
                     }
@@ -728,7 +726,7 @@ public abstract class PathingEntity extends PositionEntity {
 
         @Pc(118) byte loopMode = 0;
         if (id != -1 && !SpotAnimationTypeList.instance.list(id).loopSeq) {
-            loopMode = 2;
+            loopMode =  2;
         }
 
         spotAnim.rotation = rotation;
@@ -751,7 +749,7 @@ public abstract class PathingEntity extends PositionEntity {
     public abstract boolean enableMessages();
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(ILjava/lang/String;ZII)V")
-    public final void setChatLine(@OriginalArg(0) int duration, @OriginalArg(1) String text, @OriginalArg(3) int effect, @OriginalArg(4) int colour) {
+    public final void setChatLine(@OriginalArg(1) String text, @OriginalArg(3) int effect, @OriginalArg(4) int colour, @OriginalArg(0) int duration) {
         if (this.line == null) {
             this.line = new EntityChatLine();
         }

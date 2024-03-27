@@ -82,12 +82,12 @@ public final class Static323 {
                 if (local108) {
                     arg1++;
                 }
-                return Static246.ground[arg1].averageHeight(arg0, arg4);
+                return Static246.ground[arg1].averageHeight(arg4, arg0);
             } else {
                 return 0;
             }
         } else {
-            return Static246.ground[arg1].averageHeight(arg0, arg4);
+            return Static246.ground[arg1].averageHeight(arg4, arg0);
         }
     }
 }

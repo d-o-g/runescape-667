@@ -6,9 +6,6 @@ public final class Static344 {
     @OriginalMember(owner = "client!kr", name = "i", descriptor = "I")
     public static int anInt5617 = -50;
 
-    @OriginalMember(owner = "client!kr", name = "o", descriptor = "I")
-    public static int lastFriendTransmit = 0;
-
     @OriginalMember(owner = "client!kr", name = "l", descriptor = "J")
     public static long aLong169 = 0L;
 

@@ -81,7 +81,7 @@ public final class TimedVarDomain implements VarDomain {
     }
 
     @OriginalMember(owner = "client!qga", name = "b", descriptor = "(III)V")
-    public void updateVarBitValue(@OriginalArg(0) int value, @OriginalArg(1) int id) {
+    public void updateVarBitValue(@OriginalArg(1) int id, @OriginalArg(0) int value) {
         // g.trace("Incoming varbit from server: {}", (Object)Integer.valueOf(var1.id));
         @Pc(8) VarBitType type = VarBitTypeListClient.instance.list(id);
         @Pc(11) int baseVar = type.baseVar;

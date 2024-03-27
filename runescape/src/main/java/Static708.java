@@ -12,7 +12,7 @@ public final class Static708 {
     public static final int[] anIntArray862 = new int[1];
 
     @OriginalMember(owner = "client!wga", name = "a", descriptor = "(ILjava/lang/String;)V")
-    public static void method9230(@OriginalArg(1) String arg0) {
+    public static void updateSiteSettings(@OriginalArg(1) String arg0) {
         Client.settings = arg0;
         if (GameShell.loaderApplet == null) {
             return;

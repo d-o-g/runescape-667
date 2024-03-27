@@ -80,16 +80,16 @@ public final class ProjectileAnimation extends PositionEntity {
     public boolean groundRelative;
 
     @OriginalMember(owner = "client!b", name = "eb", descriptor = "I")
-    public final int anInt711;
+    public final int entity2;
 
     @OriginalMember(owner = "client!b", name = "hb", descriptor = "I")
     public final int t2;
 
     @OriginalMember(owner = "client!b", name = "lb", descriptor = "I")
-    public final int lb;
+    public final int y2;
 
     @OriginalMember(owner = "client!b", name = "xb", descriptor = "I")
-    public final int sourceId;
+    public final int entity1;
 
     @OriginalMember(owner = "client!b", name = "S", descriptor = "I")
     public final int verticalAngle;
@@ -101,18 +101,18 @@ public final class ProjectileAnimation extends PositionEntity {
     public final Animator animator;
 
     @OriginalMember(owner = "client!b", name = "<init>", descriptor = "(IIIIIIIIIIIIIZI)V")
-    public ProjectileAnimation(@OriginalArg(0) int id, @OriginalArg(1) int level, @OriginalArg(2) int virtualLevel, @OriginalArg(3) int x, @OriginalArg(4) int z, @OriginalArg(5) int y1, @OriginalArg(6) int t1, @OriginalArg(7) int t2, @OriginalArg(8) int verticalAngle, @OriginalArg(9) int displacement, @OriginalArg(10) int sourceId, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) boolean groundRelative, @OriginalArg(14) int wornSlot) {
-        super(level, virtualLevel, x, Static102.averageHeight(level, z, x) - y1, z, x >> 9, x >> 9, z >> 9, z >> 9, false, (byte) 0);
+    public ProjectileAnimation(@OriginalArg(0) int id, @OriginalArg(1) int level, @OriginalArg(2) int virtualLevel, @OriginalArg(3) int x, @OriginalArg(4) int z, @OriginalArg(10) int entity1, @OriginalArg(11) int entity2, @OriginalArg(5) int y1, @OriginalArg(12) int y2, @OriginalArg(6) int t1, @OriginalArg(7) int t2, @OriginalArg(8) int verticalAngle, @OriginalArg(9) int displacement, @OriginalArg(13) boolean groundRelative, @OriginalArg(14) int wornSlot) {
+        super(level, virtualLevel, x, Static102.averageHeight(level, x, z) - y1, z, x >> 9, x >> 9, z >> 9, z >> 9, false, (byte) 0);
         this.y1 = y1;
         this.id = id;
         this.t1 = t1;
         this.wornSlot = wornSlot;
         this.groundRelative = groundRelative;
-        this.anInt711 = arg11;
+        this.entity2 = entity2;
         this.ticked = false;
         this.t2 = t2;
-        this.lb = arg12;
-        this.sourceId = sourceId;
+        this.y2 = y2;
+        this.entity1 = entity1;
         this.verticalAngle = verticalAngle;
         this.displacement = displacement;
 
@@ -141,7 +141,7 @@ public final class ProjectileAnimation extends PositionEntity {
             this.translateX = ((deltaX * (double) this.displacement) / distance) + (double) super.x;
 
             if (this.groundRelative) {
-                this.translateY = Static102.averageHeight(super.level, (int) this.translateZ, (int) this.translateX) - this.y1;
+                this.translateY = Static102.averageHeight(super.level, (int) this.translateX, (int) this.translateZ) - this.y1;
             } else {
                 this.translateY = super.y;
             }
@@ -218,15 +218,15 @@ public final class ProjectileAnimation extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "c", descriptor = "(Z)V")
     public void method816() {
-        if (this.ticked || this.sourceId == 0) {
+        if (this.ticked || this.entity1 == 0) {
             return;
         }
 
         @Pc(21) PathingEntity entity = null;
         if (CutsceneManager.state == 3) {
-            entity = CutsceneManager.actors[this.sourceId - 1].entity();
-        } else if (this.sourceId < 0) {
-            @Pc(35) int index = -this.sourceId - 1;
+            entity = CutsceneManager.actors[this.entity1 - 1].entity();
+        } else if (this.entity1 < 0) {
+            @Pc(35) int index = -this.entity1 - 1;
 
             if (PlayerList.activePlayerSlot == index) {
                 entity = PlayerEntity.self;
@@ -234,7 +234,7 @@ public final class ProjectileAnimation extends PositionEntity {
                 entity = PlayerList.highResolutionPlayers[index];
             }
         } else {
-            @Pc(35) int index = this.sourceId - 1;
+            @Pc(35) int index = this.entity1 - 1;
             @Pc(58) NPCEntityNode npc = (NPCEntityNode) NPCList.local.get(index);
 
             if (npc != null) {
@@ -248,7 +248,7 @@ public final class ProjectileAnimation extends PositionEntity {
 
         super.z = entity.z;
         super.x = entity.x;
-        super.y = Static102.averageHeight(super.level, entity.z, entity.x) - this.y1;
+        super.y = Static102.averageHeight(super.level, entity.x, entity.z) - this.y1;
 
         if (this.wornSlot >= 0) {
             @Pc(105) BASType basType = entity.getBASType();
@@ -400,7 +400,7 @@ public final class ProjectileAnimation extends PositionEntity {
         this.translateZ += (double) time * this.speedZ;
 
         if (this.groundRelative) {
-            this.translateY = Static102.averageHeight(super.level, (int) this.translateZ, (int) this.translateX) - this.y1;
+            this.translateY = Static102.averageHeight(super.level, (int) this.translateX, (int) this.translateZ) - this.y1;
         } else if (this.verticalAngle == -1) {
             this.translateY += this.verticalSpeed * (double) time;
         } else {

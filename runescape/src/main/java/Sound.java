@@ -31,30 +31,30 @@ public final class Sound {
     public final int id;
 
     @OriginalMember(owner = "client!eka", name = "e", descriptor = "I")
-    public int range;
+    public int delay;
 
     @OriginalMember(owner = "client!eka", name = "k", descriptor = "I")
-    public final int delay;
+    public final int coord;
 
     @OriginalMember(owner = "client!eka", name = "b", descriptor = "I")
-    public final int volume;
+    public final int loops;
 
     @OriginalMember(owner = "client!eka", name = "j", descriptor = "Lclient!eo;")
     public final Entity entity;
 
     @OriginalMember(owner = "client!eka", name = "r", descriptor = "I")
-    public final int loops;
+    public final int volume;
 
     @OriginalMember(owner = "client!eka", name = "<init>", descriptor = "(BIIIIIILclient!eo;)V")
-    public Sound(@OriginalArg(0) byte type, @OriginalArg(1) int id, @OriginalArg(2) int volume, @OriginalArg(3) int range, @OriginalArg(4) int loops, @OriginalArg(5) int delay, @OriginalArg(6) int rate, @OriginalArg(7) Entity entity) {
+    public Sound(@OriginalArg(0) byte type, @OriginalArg(1) int id, @OriginalArg(2) int loops, @OriginalArg(3) int delay, @OriginalArg(4) int volume, @OriginalArg(6) int rate, @OriginalArg(5) int coord, @OriginalArg(7) Entity entity) {
         this.rate = rate;
         this.type = type;
         this.id = id;
-        this.range = range;
         this.delay = delay;
-        this.volume = volume;
-        this.entity = entity;
+        this.coord = coord;
         this.loops = loops;
+        this.entity = entity;
+        this.volume = volume;
     }
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(B)Z")

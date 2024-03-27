@@ -21,19 +21,19 @@ public final class ChangeLocationRequest extends Node {
     public int originalShape;
 
     @OriginalMember(owner = "client!hma", name = "o", descriptor = "I")
-    public int anInt4010;
+    public int level;
 
     @OriginalMember(owner = "client!hma", name = "z", descriptor = "I")
     public int layer;
 
     @OriginalMember(owner = "client!hma", name = "w", descriptor = "I")
-    public int anInt4012;
+    public int rotation;
 
     @OriginalMember(owner = "client!hma", name = "p", descriptor = "I")
-    public int anInt4013;
+    public int shape;
 
     @OriginalMember(owner = "client!hma", name = "q", descriptor = "I")
-    public int anInt4014;
+    public int id;
 
     @OriginalMember(owner = "client!hma", name = "y", descriptor = "I")
     public int originalRotation;
@@ -42,7 +42,7 @@ public final class ChangeLocationRequest extends Node {
     public int x;
 
     @OriginalMember(owner = "client!hma", name = "r", descriptor = "Z")
-    public boolean aBoolean309 = false;
+    public boolean pendingRemoval = false;
 
     @OriginalMember(owner = "client!hma", name = "C", descriptor = "Z")
     public boolean aBoolean310 = true;

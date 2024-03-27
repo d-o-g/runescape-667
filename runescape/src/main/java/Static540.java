@@ -1,5 +1,4 @@
 import com.jagex.core.stringtools.general.StringTools;
-import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -81,16 +80,4 @@ public final class Static540 {
         return 0;
     }
 
-    @OriginalMember(owner = "client!r", name = "a", descriptor = "(IIILjava/lang/String;IIII)V")
-    public static void method6539(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) String arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
-        @Pc(7) Class8_Sub3 local7 = new Class8_Sub3();
-        local7.anInt958 = arg0;
-        local7.anInt954 = arg6;
-        local7.anInt957 = arg3;
-        local7.aString3 = arg2;
-        local7.anInt959 = arg5;
-        local7.anInt953 = TimeUtils.clock + arg1;
-        local7.anInt956 = arg4;
-        Static422.textCoords.add(local7);
-    }
 }

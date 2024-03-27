@@ -2,12 +2,8 @@ import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.sound.SampleRateConverter;
 import org.openrs2.deob.annotation.OriginalMember;
-import rs2.client.clan.channel.ClanChannel;
 
 public final class Static674 {
-
-    @OriginalMember(owner = "client!vfa", name = "Gb", descriptor = "Lclient!rfa;")
-    public static ClanChannel aClass2_Sub47_3;
 
     @OriginalMember(owner = "client!vfa", name = "b", descriptor = "(B)V")
     public static void method8806() {

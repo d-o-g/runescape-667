@@ -7,7 +7,7 @@ public final class Static279 {
     public static boolean[] aBooleanArray11;
 
     @OriginalMember(owner = "client!io", name = "a", descriptor = "[Ljava/lang/Object;")
-    public static Object[] anObjectArray35;
+    public static Object[] clanVars;
 
     @OriginalMember(owner = "client!io", name = "e", descriptor = "F")
     public static float aFloat82;

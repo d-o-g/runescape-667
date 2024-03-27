@@ -28,23 +28,23 @@ public final class Static102 {
     }
 
     @OriginalMember(owner = "client!dd", name = "b", descriptor = "(IIII)I")
-    public static int averageHeight(@OriginalArg(0) int level, @OriginalArg(2) int y, @OriginalArg(3) int x) {
+    public static int averageHeight(@OriginalArg(0) int level, @OriginalArg(3) int x, @OriginalArg(2) int z) {
         if (Static246.ground == null) {
             return 0;
         }
 
         @Pc(21) int localX = x >> 9;
-        @Pc(25) int localY = y >> 9;
-        if (localX < 0 || localY < 0 || Static720.mapWidth - 1 < localX || Static501.mapLength - 1 < localY) {
+        @Pc(25) int localZ = z >> 9;
+        if (localX < 0 || localZ < 0 || Static720.mapWidth - 1 < localX || Static501.mapLength - 1 < localZ) {
             return 0;
         }
 
         @Pc(56) int virtualLevel = level;
-        if (level < 3 && (Static280.tileFlags[1][localX][localY] & TileFlag.BRIDGE) != 0) {
+        if (level < 3 && (Static280.tileFlags[1][localX][localZ] & TileFlag.BRIDGE) != 0) {
             virtualLevel = level + 1;
         }
 
-        return Static246.ground[virtualLevel].averageHeight(y, x);
+        return Static246.ground[virtualLevel].averageHeight(x, z);
     }
 
     @OriginalMember(owner = "client!dd", name = "a", descriptor = "(Lclient!qf;Z)Z")

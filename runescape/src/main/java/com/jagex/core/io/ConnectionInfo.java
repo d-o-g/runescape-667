@@ -13,16 +13,19 @@ public final class ConnectionInfo {
     public static ConnectionInfo login;
 
     @OriginalMember(owner = "client!qka", name = "f", descriptor = "Lclient!lja;")
-    public static ConnectionInfo world;
+    public static ConnectionInfo game;
 
     @OriginalMember(owner = "client!uu", name = "o", descriptor = "Lclient!lja;")
     public static ConnectionInfo lobby;
 
     @OriginalMember(owner = "client!vca", name = "r", descriptor = "Lclient!lja;")
-    public static ConnectionInfo autoWorld;
+    public static ConnectionInfo auto;
+
+    @OriginalMember(owner = "client!oia", name = "n", descriptor = "Lclient!lja;")
+    public static ConnectionInfo previous;
 
     @OriginalMember(owner = "client!lja", name = "e", descriptor = "I")
-    public int id;
+    public int world;
 
     @OriginalMember(owner = "client!lja", name = "i", descriptor = "Ljava/lang/String;")
     public String address;
@@ -61,7 +64,7 @@ public final class ConnectionInfo {
         if (other == null) {
             return false;
         } else {
-            return other.id == this.id && this.address.equals(other.address);
+            return other.world == this.world && this.address.equals(other.address);
         }
     }
 }

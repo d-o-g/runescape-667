@@ -82,7 +82,7 @@ public abstract class Ground {
     public abstract void method7877(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6);
 
     @OriginalMember(owner = "client!s", name = "a", descriptor = "(III)I")
-    public final int averageHeight(@OriginalArg(0) int z, @OriginalArg(2) int x) {
+    public final int averageHeight(@OriginalArg(2) int x, @OriginalArg(0) int z) {
         @Pc(8) int x1 = x >> this.anInt8895;
         @Pc(13) int z1 = z >> this.anInt8895;
         if (x1 < 0 || z1 < 0 || this.anInt8894 - 1 < x1 || this.anInt8892 - 1 < z1) {

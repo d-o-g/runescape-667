@@ -17,9 +17,6 @@ public final class Static232 {
     @OriginalMember(owner = "client!hda", name = "ob", descriptor = "Lclient!av;")
     public static final IterableHashTable A_HASH_TABLE___18 = new IterableHashTable(8);
 
-    @OriginalMember(owner = "client!hda", name = "u", descriptor = "Lclient!mia;")
-    public static final ClientTriggerType A_CLIENT_TRIGGER_TYPE___6 = new ClientTriggerType("", 21);
-
     @OriginalMember(owner = "client!hda", name = "c", descriptor = "(I)V")
     public static void method3392() {
         try {

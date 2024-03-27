@@ -9,30 +9,30 @@ public final class Static553 {
     public static final int[][] anIntArrayArray206 = new int[][]{{0, 1, 2, 3}, {1, -1, -1, 0}, {-1, 2, -1, 0}, {-1, 0, -1, 2}, {0, 1, -1, 2}, {1, 2, -1, 0}, {-1, 4, -1, 1}, {-1, 3, 4, -1}, {-1, 0, 2, -1}, {-1, -1, 2, 0}, {0, 2, 5, 3}, {0, -1, 6, -1}, {0, 1, 2, 3}};
 
     @OriginalMember(owner = "client!rga", name = "a", descriptor = "(IIIIIIIZ)V")
-    public static void method7289(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
+    public static void changeLocation(@OriginalArg(3) int x, @OriginalArg(6) int z, @OriginalArg(4) int level, @OriginalArg(5) int shape, @OriginalArg(0) int rotation, @OriginalArg(2) int layer, @OriginalArg(1) int id) {
         @Pc(7) ChangeLocationRequest local7 = null;
         for (@Pc(12) ChangeLocationRequest local12 = (ChangeLocationRequest) Static159.changes.first(); local12 != null; local12 = (ChangeLocationRequest) Static159.changes.next()) {
-            if (arg4 == local12.anInt4010 && local12.x == arg3 && arg6 == local12.z && local12.layer == arg2) {
+            if (level == local12.level && local12.x == x && z == local12.z && local12.layer == layer) {
                 local7 = local12;
                 break;
             }
         }
         if (local7 == null) {
             local7 = new ChangeLocationRequest();
-            local7.layer = arg2;
-            local7.anInt4010 = arg4;
-            local7.z = arg6;
-            local7.x = arg3;
-            if (arg3 >= 0 && arg6 >= 0 && Static720.mapWidth > arg3 && arg6 < Static501.mapLength) {
-                Static293.method4332(local7);
+            local7.layer = layer;
+            local7.level = level;
+            local7.z = z;
+            local7.x = x;
+            if (x >= 0 && z >= 0 && Static720.mapWidth > x && z < Static501.mapLength) {
+                Static293.snapshotOriginal(local7);
             }
             Static159.changes.addLast(local7);
         }
         local7.aBoolean310 = true;
-        local7.anInt4012 = arg0;
-        local7.anInt4013 = arg5;
-        local7.aBoolean309 = false;
-        local7.anInt4014 = arg1;
+        local7.rotation = rotation;
+        local7.shape = shape;
+        local7.pendingRemoval = false;
+        local7.id = id;
     }
 
 }

@@ -1,3 +1,4 @@
+import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
@@ -20,8 +21,59 @@ public final class ClientInventory extends Node {
     @OriginalMember(owner = "client!fca", name = "g", descriptor = "Lclient!dla;")
     public static final ReferenceCache modelCache = new ReferenceCache(10);
 
+    @OriginalMember(owner = "client!iw", name = "c", descriptor = "Lclient!av;")
+    public static final IterableHashTable recentUse = new IterableHashTable(32);
+
+    @OriginalMember(owner = "client!kd", name = "c", descriptor = "[I")
+    public static final int[] updates = new int[32];
+
     @OriginalMember(owner = "client!sga", name = "k", descriptor = "I")
     public static int featureMask;
+
+    @OriginalMember(owner = "client!oe", name = "N", descriptor = "I")
+    public static int updateCount = 0;
+
+    @OriginalMember(owner = "client!sba", name = "b", descriptor = "(B)V")
+    public static void cacheClear() {
+        recentUse.clear();
+    }
+
+    @OriginalMember(owner = "client!gg", name = "a", descriptor = "(IZB)V")
+    public static void empty(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
+        @Pc(10) ClientInventory local10 = Static556.method7303(arg0, arg1);
+        if (local10 != null) {
+            for (@Pc(16) int local16 = 0; local16 < local10.anIntArray278.length; local16++) {
+                local10.anIntArray278[local16] = -1;
+                local10.anIntArray279[local16] = 0;
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!ko", name = "a", descriptor = "(ZIIIII)V")
+    public static void setSlot(@OriginalArg(0) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+        @Pc(20) long local20 = (arg0 ? Integer.MIN_VALUE : 0) | arg4;
+        @Pc(26) ClientInventory local26 = (ClientInventory) recentUse.get(local20);
+        if (local26 == null) {
+            local26 = new ClientInventory();
+            recentUse.put(local20, local26);
+        }
+        if (arg2 >= local26.anIntArray278.length) {
+            @Pc(47) int[] local47 = new int[arg2 + 1];
+            @Pc(52) int[] local52 = new int[arg2 + 1];
+            for (@Pc(54) int local54 = 0; local54 < local26.anIntArray278.length; local54++) {
+                local47[local54] = local26.anIntArray278[local54];
+                local52[local54] = local26.anIntArray279[local54];
+            }
+            for (@Pc(86) int local86 = local26.anIntArray278.length; local86 < arg2; local86++) {
+                local47[local86] = -1;
+                local52[local86] = 0;
+            }
+            local26.anIntArray279 = local52;
+            local26.anIntArray278 = local47;
+        }
+        local26.anIntArray278[arg2] = arg3;
+        local26.anIntArray279[arg2] = arg1;
+    }
 
     @OriginalMember(owner = "client!fea", name = "a", descriptor = "(IB)V")
     public static void setFeatureMask(@OriginalArg(0) int featureMask) {
@@ -39,6 +91,14 @@ public final class ClientInventory extends Node {
 
     @OriginalMember(owner = "client!gfa", name = "n", descriptor = "[I")
     public int[] anIntArray279 = new int[1];
+
+    @OriginalMember(owner = "client!wba", name = "a", descriptor = "(ZII)V")
+    public static void delete(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1) {
+        @Pc(12) ClientInventory local12 = Static556.method7303(arg1, arg0);
+        if (local12 != null) {
+            local12.unlink();
+        }
+    }
 
     @OriginalMember(owner = "client!gfa", name = "a", descriptor = "(ZI[I[IZ)J")
     public long method3077(@OriginalArg(0) boolean female, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3) {

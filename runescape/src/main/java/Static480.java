@@ -76,7 +76,7 @@ public final class Static480 {
     }
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(ILclient!ge;Lclient!vq;I)V")
-    public static void method6468(@OriginalArg(1) Packet arg0, @OriginalArg(2) SignLink arg1, @OriginalArg(3) int arg2) {
+    public static void runReflectionChecker(@OriginalArg(1) Packet arg0, @OriginalArg(2) SignLink arg1, @OriginalArg(3) int arg2) {
         @Pc(23) Node_Sub57 local23 = new Node_Sub57();
         local23.anInt10364 = arg0.g1();
         local23.anInt10366 = arg0.g4();

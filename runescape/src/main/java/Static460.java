@@ -98,7 +98,7 @@ public final class Static460 {
                 client.aClient1.load_jagmisc();
             }
             if (!((LibraryLoader) LoadingRequirement.NL_JAGTHEORA.getLoader()).isDone()) {
-                Static234.loadedJagtheora = client.aClient1.load_jagtheora();
+                VideoTypeList.loadedJagtheora = client.aClient1.load_jagtheora();
             }
             Static522.aLoadingRequirementArray1 = null;
         }

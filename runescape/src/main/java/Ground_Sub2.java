@@ -492,7 +492,7 @@ public final class Ground_Sub2 extends Ground {
                                 }
                                 if (this.aClass19_Sub3_33.aBoolean618) {
                                     local183.a((float) local512);
-                                    local183.a((float) (local549 + this.averageHeight(local522, local512)));
+                                    local183.a((float) (local549 + this.averageHeight(local512, local522)));
                                     local183.a((float) local522);
                                     local183.d((byte) (local972 >> 16));
                                     local183.d((byte) (local972 >> 8));
@@ -510,7 +510,7 @@ public final class Ground_Sub2 extends Ground {
                                     }
                                 } else {
                                     local183.b((float) local512);
-                                    local183.b((float) (local549 + this.averageHeight(local522, local512)));
+                                    local183.b((float) (local549 + this.averageHeight(local512, local522)));
                                     local183.b((float) local522);
                                     local183.d((byte) (local972 >> 16));
                                     local183.d((byte) (local972 >> 8));

@@ -6,8 +6,8 @@ public final class Static152 {
 
     @OriginalMember(owner = "client!ep", name = "f", descriptor = "(I)V")
     public static void selectAutoWorld() {
-        if (GameShell.signLink.signed && ConnectionInfo.autoWorld.id != -1) {
-            Static430.method5817(ConnectionInfo.autoWorld.id, ConnectionInfo.autoWorld.address);
+        if (GameShell.signLink.signed && ConnectionInfo.auto.world != -1) {
+            client.connectTo(ConnectionInfo.auto.world, ConnectionInfo.auto.address);
         }
     }
 }

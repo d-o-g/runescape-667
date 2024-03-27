@@ -11,7 +11,7 @@ public final class Static133 {
     public static final Deque A_DEQUE___13 = new Deque();
 
     @OriginalMember(owner = "client!ed", name = "b", descriptor = "I")
-    public static int anInt2458 = 0;
+    public static int publicChatFilter = 0;
 
     @OriginalMember(owner = "client!ed", name = "a", descriptor = "(I)V")
     public static void method2316() {

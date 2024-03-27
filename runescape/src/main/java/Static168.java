@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.LinkedList;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -13,9 +12,6 @@ public final class Static168 {
 
     @OriginalMember(owner = "client!fda", name = "f", descriptor = "I")
     public static int anInt2842;
-
-    @OriginalMember(owner = "client!fda", name = "c", descriptor = "Lclient!fla;")
-    public static final LinkedList A_ENTITY_LIST___5 = new LinkedList();
 
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(I[B)Lclient!st;")
     public static Sprite method2634(@OriginalArg(1) byte[] data) {

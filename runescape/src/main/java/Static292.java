@@ -14,12 +14,12 @@ public final class Static292 {
         if (Static246.ground == Static693.underwaterGround) {
             return;
         }
-        @Pc(10) int local10 = Static706.floor[arg1].averageHeight(arg3, arg2);
+        @Pc(10) int local10 = Static706.floor[arg1].averageHeight(arg2, arg3);
         for (@Pc(12) int local12 = 0; local12 <= arg1; local12++) {
             if (arg4 == null || arg4[local12]) {
                 @Pc(25) Ground local25 = Static706.floor[local12];
                 if (local25 != null) {
-                    local25.wa(arg0, arg2, local10 - local25.averageHeight(arg3, arg2), arg3, 0, false);
+                    local25.wa(arg0, arg2, local10 - local25.averageHeight(arg2, arg3), arg3, 0, false);
                 }
             }
         }

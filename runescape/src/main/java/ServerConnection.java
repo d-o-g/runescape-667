@@ -16,9 +16,6 @@ import java.io.IOException;
 @OriginalClass("client!gw")
 public final class ServerConnection {
 
-    @OriginalMember(owner = "client!qia", name = "f", descriptor = "Lclient!gw;")
-    public static ServerConnection active;
-
     @OriginalMember(owner = "client!mn", name = "q", descriptor = "Lclient!gw;")
     public static final ServerConnection GAME = new ServerConnection();
 
@@ -27,6 +24,9 @@ public final class ServerConnection {
 
     @OriginalMember(owner = "client!mn", name = "f", descriptor = "[Lclient!gw;")
     public static final ServerConnection[] VALUES = {GAME, LOBBY};
+
+    @OriginalMember(owner = "client!qia", name = "f", descriptor = "Lclient!gw;")
+    public static ServerConnection active;
 
     @OriginalMember(owner = "client!gw", name = "s", descriptor = "Lclient!vn;")
     public Connection connection;

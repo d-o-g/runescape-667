@@ -16,7 +16,7 @@ public final class Static470 {
         if (!Static15.aBoolean17) {
             Static552.aFloat207 += (-Static552.aFloat207 - 24.0F) / 2.0F;
             Static15.aBoolean17 = true;
-            Static273.aBoolean339 = true;
+            Camera.angleUpdated = true;
         }
     }
 

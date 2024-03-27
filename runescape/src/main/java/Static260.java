@@ -1,7 +1,4 @@
-import com.jagex.core.io.Packet;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -20,11 +17,4 @@ public final class Static260 {
     @OriginalMember(owner = "client!iba", name = "o", descriptor = "Ljava/util/Calendar;")
     public static final Calendar aCalendar2 = Calendar.getInstance();
 
-    @OriginalMember(owner = "client!iba", name = "a", descriptor = "(Lclient!ge;Z)Lclient!an;")
-    public static Class21 method3828(@OriginalArg(0) Packet arg0) {
-        @Pc(14) Class21 local14 = new Class21();
-        local14.anInt521 = arg0.g2();
-        local14.aClass2_Sub2_Sub12_1 = QuickChatPhraseTypeList.instance.get(local14.anInt521);
-        return local14;
-    }
 }

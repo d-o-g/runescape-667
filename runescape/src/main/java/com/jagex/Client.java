@@ -11,6 +11,7 @@ import com.jagex.js5.Js5ResourceProvider;
 import com.jagex.js5.Js5WorkerThread;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
+import org.openrs2.deob.annotation.Pc;
 
 import java.awt.Color;
 
@@ -41,6 +42,9 @@ public final class Client {
 
     @OriginalMember(owner = "client!sca", name = "d", descriptor = "[Lclient!eq;")
     public static final CollisionMap[] collisionMaps = new CollisionMap[4];
+
+    @OriginalMember(owner = "client!maa", name = "r", descriptor = "[Ljava/lang/String;")
+    public static final String[] LANGUAGE_CODES = {"en", "de", "fr", "pt", "nl"};
 
     @OriginalMember(owner = "client!po", name = "h", descriptor = "Lclient!pla;")
     public static Js5WorkerThread js5WorkerThread;
@@ -176,4 +180,13 @@ public final class Client {
         System.exit(1);
     }
 
+    @OriginalMember(owner = "client!ra", name = "a", descriptor = "(Ljava/lang/String;Z)I")
+    public static int languageIndex(@OriginalArg(0) String language) {
+        for (@Pc(7) int i = 0; i < LANGUAGE_CODES.length; i++) {
+            if (LANGUAGE_CODES[i].equalsIgnoreCase(language)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

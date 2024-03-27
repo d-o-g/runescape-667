@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static341 {
 
@@ -47,29 +46,4 @@ public final class Static341 {
         }
     }
 
-    @OriginalMember(owner = "client!ko", name = "a", descriptor = "(ZIIIII)V")
-    public static void method5034(@OriginalArg(0) boolean arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        @Pc(20) long local20 = (arg0 ? Integer.MIN_VALUE : 0) | arg4;
-        @Pc(26) ClientInventory local26 = (ClientInventory) ClientInventoryList.recentUse.get(local20);
-        if (local26 == null) {
-            local26 = new ClientInventory();
-            ClientInventoryList.recentUse.put(local20, local26);
-        }
-        if (arg2 >= local26.anIntArray278.length) {
-            @Pc(47) int[] local47 = new int[arg2 + 1];
-            @Pc(52) int[] local52 = new int[arg2 + 1];
-            for (@Pc(54) int local54 = 0; local54 < local26.anIntArray278.length; local54++) {
-                local47[local54] = local26.anIntArray278[local54];
-                local52[local54] = local26.anIntArray279[local54];
-            }
-            for (@Pc(86) int local86 = local26.anIntArray278.length; local86 < arg2; local86++) {
-                local47[local86] = -1;
-                local52[local86] = 0;
-            }
-            local26.anIntArray279 = local52;
-            local26.anIntArray278 = local47;
-        }
-        local26.anIntArray278[arg2] = arg3;
-        local26.anIntArray279[arg2] = arg1;
-    }
 }

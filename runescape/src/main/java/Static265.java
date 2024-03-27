@@ -8,7 +8,7 @@ public final class Static265 {
     public static EnvironmentLight[] aEnvironmentLightArray1;
 
     @OriginalMember(owner = "client!iea", name = "a", descriptor = "[I")
-    public static final int[] anIntArray328 = new int[32];
+    public static final int[] varclanUpdates = new int[32];
 
     @OriginalMember(owner = "client!iea", name = "a", descriptor = "(IIZIIIFI)[I")
     public static int[] method3857(@OriginalArg(6) float arg0) {

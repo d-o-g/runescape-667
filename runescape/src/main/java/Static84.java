@@ -47,7 +47,7 @@ public final class Static84 {
             } else if ((local36.x & 0x1FF) == 256 && (local36.z & 0x1FF) == 256) {
                 continue;
             }
-            local36.y = Static102.averageHeight(local36.level, local36.z, local36.x);
+            local36.y = Static102.averageHeight(local36.level, local36.x, local36.z);
             Static102.method2026(local36, true);
         }
     }
@@ -131,7 +131,7 @@ public final class Static84 {
                 }
             }
             local36.visible = false;
-            local36.y = Static102.averageHeight(local36.level, local36.z, local36.x);
+            local36.y = Static102.averageHeight(local36.level, local36.x, local36.z);
             Static102.method2026(local36, true);
         }
     }
@@ -167,7 +167,7 @@ public final class Static84 {
                         if (local39.showPIcon || local39.clanmate) {
                             local103 += 512;
                         } else {
-                            if (Static150.anInt2632 == 0) {
+                            if (Static150.drawOrder == 0) {
                                 local103 += 32;
                             } else {
                                 local103 += 128;
@@ -194,13 +194,13 @@ public final class Static84 {
                         local213 += 2;
                     }
                     local213 += 5 - local166.getSize() << 2;
-                    if (Static150.anInt2632 == 0) {
+                    if (Static150.drawOrder == 0) {
                         if (local166.type.isFollower) {
                             local213 += 64;
                         } else {
                             local213 += 128;
                         }
-                    } else if (Static150.anInt2632 == 1) {
+                    } else if (Static150.drawOrder == 1) {
                         if (local166.type.isFollower) {
                             local213 += 32;
                         } else {

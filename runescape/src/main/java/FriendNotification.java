@@ -5,20 +5,20 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ne")
-public final class Class8_Sub4_Sub1 extends Node2 {
+public final class FriendNotification extends Node2 {
 
     @OriginalMember(owner = "client!ne", name = "q", descriptor = "I")
-    public final int anInt6433 = (int) (SystemTimer.safetime() / 1000L);
+    public final int arrivalTime = (int) (SystemTimer.safetime() / 1000L);
 
     @OriginalMember(owner = "client!ne", name = "s", descriptor = "Ljava/lang/String;")
-    public final String aString72;
+    public final String name;
 
     @OriginalMember(owner = "client!ne", name = "r", descriptor = "S")
-    public final short aShort74;
+    public final short world;
 
     @OriginalMember(owner = "client!ne", name = "<init>", descriptor = "(Ljava/lang/String;I)V")
-    public Class8_Sub4_Sub1(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        this.aString72 = arg0;
-        this.aShort74 = (short) arg1;
+    public FriendNotification(@OriginalArg(0) String name, @OriginalArg(1) int world) {
+        this.name = name;
+        this.world = (short) world;
     }
 }

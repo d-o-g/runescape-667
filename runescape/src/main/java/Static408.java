@@ -1,6 +1,7 @@
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.clan.settings.ClanSettings;
 
 public final class Static408 {
 
@@ -15,11 +16,11 @@ public final class Static408 {
         ServerConnection.active.lastProt = null;
         ServerConnection.active.bitPacket.pos = 0;
         Static102.method2022();
-        Static251.anInt4036 = 0;
-        Static723.aString129 = null;
+        FriendsList.status = 0;
+        FriendChat.name = null;
         FriendsList.count = 0;
-        Static91.aClanSettings_9 = null;
-        Static128.aClanSettings_8 = null;
+        ClanSettings.listened = null;
+        ClanSettings.affined = null;
         FriendChat.count = 0;
         FriendChat.users = null;
     }

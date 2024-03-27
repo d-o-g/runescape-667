@@ -9,7 +9,7 @@ public final class Static468 {
     public static Entity[] dynamicEntities;
 
     @OriginalMember(owner = "client!op", name = "a", descriptor = "(ZIII)V")
-    public static void updateObjCount(@OriginalArg(1) int level, @OriginalArg(2) int zoneZ, @OriginalArg(3) int zoneX) {
+    public static void updateObjCount(@OriginalArg(1) int level, @OriginalArg(3) int zoneX, @OriginalArg(2) int zoneZ) {
         @Pc(8) int x = zoneX + WorldMap.areaBaseX;
         @Pc(12) int z = zoneZ + WorldMap.areaBaseZ;
 
@@ -65,7 +65,7 @@ public final class Static468 {
             }
         }
 
-        @Pc(209) int averageHeight = Static102.averageHeight(level, (zoneZ << 9) + 256, (zoneX << 9) - -256);
+        @Pc(209) int averageHeight = Static102.averageHeight(level, (zoneX << 9) - -256, (zoneZ << 9) + 256);
         entity.level = (byte) level;
         entity.y = averageHeight;
         entity.virtualLevel = (byte) level;

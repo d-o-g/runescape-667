@@ -9,9 +9,6 @@ public final class Static623 {
     @OriginalMember(owner = "client!tm", name = "b", descriptor = "[[[I")
     public static int[][][] zonePointers;
 
-    @OriginalMember(owner = "client!tm", name = "a", descriptor = "[Z")
-    public static final boolean[] aBooleanArray30 = new boolean[200];
-
     @OriginalMember(owner = "client!tm", name = "a", descriptor = "(IILjava/util/Random;)I")
     public static int method8326(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Random arg2) {
         if (arg1 <= 0) {

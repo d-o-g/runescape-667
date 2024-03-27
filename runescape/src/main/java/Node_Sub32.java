@@ -232,7 +232,7 @@ public final class Node_Sub32 extends Node {
         @Pc(7) long local7 = -1L;
         @Pc(15) int local15 = (arg3 << this.aClass178_Sub1_1.anInt8895) + arg4;
         @Pc(23) int local23 = (arg1 << this.aClass178_Sub1_1.anInt8895) + arg2;
-        @Pc(30) int local30 = this.aClass178_Sub1_1.averageHeight(local23, local15);
+        @Pc(30) int local30 = this.aClass178_Sub1_1.averageHeight(local15, local23);
         if ((arg4 & 0x7F) == 0 || (arg2 & 0x7F) == 0) {
             local7 = (long) local15 & 0xFFFFL | 0xFFFFL << 16 & (long) local23 << 16;
             @Pc(63) Node local63 = this.aIterableHashTable_25.get(local7);

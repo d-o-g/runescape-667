@@ -169,7 +169,7 @@ public final class Component {
     public Object[] onStockTransmit;
 
     @OriginalMember(owner = "client!hda", name = "zc", descriptor = "I")
-    public int anInt3774;
+    public int serverTriggers;
 
     @OriginalMember(owner = "client!hda", name = "K", descriptor = "[Ljava/lang/Object;")
     public Object[] onOpT;

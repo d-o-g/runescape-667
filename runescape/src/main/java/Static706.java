@@ -25,7 +25,7 @@ public final class Static706 {
         if (Static334.activeTiles == null) {
             return;
         }
-        @Pc(52) Location local52 = Static2.aMapRegion.getLoc(arg4, arg2, arg3, arg0);
+        @Pc(52) Location local52 = MapRegion.active.getLoc(arg3, arg4, arg2, arg0);
         if (local52 == null) {
             return;
         }
@@ -90,22 +90,22 @@ public final class Static706 {
                 ChatHistory.addPrivateError(arg0 + LocalisedText.FRIENDLISTDUPE.localise(Client.language));
                 return;
             }
-            if (Static572.aStringArray42[local40] != null) {
-                local81 = NameTools.format(Static572.aStringArray42[local40]);
+            if (FriendsList.formerNames[local40] != null) {
+                local81 = NameTools.format(FriendsList.formerNames[local40]);
                 if (local81 != null && local81.equals(local34)) {
                     ChatHistory.addPrivateError(arg0 + LocalisedText.FRIENDLISTDUPE.localise(Client.language));
                     return;
                 }
             }
         }
-        for (@Pc(115) int local115 = 0; local115 < Static436.anInt3849; local115++) {
-            local81 = NameTools.format(Static632.aStringArray44[local115]);
+        for (@Pc(115) int local115 = 0; local115 < IgnoreList.count; local115++) {
+            local81 = NameTools.format(IgnoreList.names[local115]);
             if (local81 != null && local81.equals(local34)) {
                 ChatHistory.addPrivateError(LocalisedText.REMOVEIGNORE1.localise(Client.language) + arg0 + LocalisedText.REMOVEIGNORE2.localise(Client.language));
                 return;
             }
-            if (Static10.aStringArray1[local115] != null) {
-                @Pc(161) String local161 = NameTools.format(Static10.aStringArray1[local115]);
+            if (IgnoreList.formerNames[local115] != null) {
+                @Pc(161) String local161 = NameTools.format(IgnoreList.formerNames[local115]);
                 if (local161 != null && local161.equals(local34)) {
                     ChatHistory.addPrivateError(LocalisedText.REMOVEIGNORE1.localise(Client.language) + arg0 + LocalisedText.REMOVEIGNORE2.localise(Client.language));
                     return;

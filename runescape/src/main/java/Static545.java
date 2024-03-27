@@ -39,14 +39,14 @@ public final class Static545 {
                 FriendsList.count--;
                 for (@Pc(44) int local44 = local22; local44 < FriendsList.count; local44++) {
                     FriendsList.names[local44] = FriendsList.names[local44 + 1];
-                    Static572.aStringArray42[local44] = Static572.aStringArray42[local44 + 1];
+                    FriendsList.formerNames[local44] = FriendsList.formerNames[local44 + 1];
                     FriendsList.worlds[local44] = FriendsList.worlds[local44 + 1];
-                    Static419.aStringArray33[local44] = Static419.aStringArray33[local44 + 1];
-                    Static715.anIntArray881[local44] = Static715.anIntArray881[local44 + 1];
-                    Static623.aBooleanArray30[local44] = Static623.aBooleanArray30[local44 + 1];
-                    Static429.aBooleanArray21[local44] = Static429.aBooleanArray21[local44 + 1];
+                    FriendsList.worldNames[local44] = FriendsList.worldNames[local44 + 1];
+                    FriendsList.ranks[local44] = FriendsList.ranks[local44 + 1];
+                    FriendsList.sameGameFlags[local44] = FriendsList.sameGameFlags[local44 + 1];
+                    FriendsList.referredFlags[local44] = FriendsList.referredFlags[local44 + 1];
                 }
-                Static344.lastFriendTransmit = World.tick;
+                FriendsList.lastTransmit = World.tick;
                 @Pc(118) ServerConnection local118 = ConnectionManager.active();
                 @Pc(124) ClientMessage local124 = ClientMessage.create(ClientProt.FRIENDLIST_DEL, local118.cipher);
                 local124.bitPacket.p1(Static231.method3379(arg0));

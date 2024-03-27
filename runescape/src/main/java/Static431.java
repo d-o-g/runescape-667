@@ -32,16 +32,16 @@ public final class Static431 {
         if (local93 == 0) {
             if (arg2 == PlayerEntity.self) {
                 if (!arg0.vorbisSound) {
-                    Static161.method2586(local80, 0, local55, local61, local134);
+                    SoundManager.playSynthSound(local55, local61, 0, local134, local80);
                     return;
                 }
-                Static186.method2818(local55, local61, local80, 0, local134, false);
+                SoundManager.playVorbisSound(local55, local61, 0, local134, local80, false);
             }
         } else if (ClientOptions.instance.backgroundSoundVolume.getValue() != 0) {
             @Pc(184) int local184 = arg2.x - 256 >> 9;
             @Pc(191) int local191 = arg2.z - 256 >> 9;
             @Pc(212) int local212 = arg2 == PlayerEntity.self ? 0 : local93 + (local191 << 8) + (local184 << 16) + (arg2.level << 24);
-            SoundManager.sounds[SoundManager.count++] = new Sound((byte) (arg0.vorbisSound ? 2 : 1), local55, local61, 0, local134, local212, local80, arg2);
+            SoundManager.sounds[SoundManager.count++] = new Sound((byte) (arg0.vorbisSound ? 2 : 1), local55, local61, 0, local134, local80, local212, arg2);
         }
     }
 }

@@ -109,7 +109,7 @@ public final class Static231 {
         if (arg1 == null) {
             return;
         }
-        if (Static436.anInt3849 >= 100) {
+        if (IgnoreList.count >= 100) {
             ChatHistory.addPrivateError(LocalisedText.IGNORELISTFULL.localise(Client.language));
             return;
         }
@@ -119,14 +119,14 @@ public final class Static231 {
         }
 
         @Pc(76) String local76;
-        for (@Pc(33) int local33 = 0; local33 < Static436.anInt3849; local33++) {
-            @Pc(40) String local40 = NameTools.format(Static632.aStringArray44[local33]);
+        for (@Pc(33) int local33 = 0; local33 < IgnoreList.count; local33++) {
+            @Pc(40) String local40 = NameTools.format(IgnoreList.names[local33]);
             if (local40 != null && local40.equals(local27)) {
                 ChatHistory.addPrivateError(arg1 + LocalisedText.IGNORELISTDUPE.localise(Client.language));
                 return;
             }
-            if (Static10.aStringArray1[local33] != null) {
-                local76 = NameTools.format(Static10.aStringArray1[local33]);
+            if (IgnoreList.formerNames[local33] != null) {
+                local76 = NameTools.format(IgnoreList.formerNames[local33]);
                 if (local76 != null && local76.equals(local27)) {
                     ChatHistory.addPrivateError(arg1 + LocalisedText.IGNORELISTDUPE.localise(Client.language));
                     return;
@@ -139,8 +139,8 @@ public final class Static231 {
                 ChatHistory.addPrivateError(LocalisedText.REMOVEFRIEND1.localise(Client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(Client.language));
                 return;
             }
-            if (Static572.aStringArray42[local106] != null) {
-                @Pc(154) String local154 = NameTools.format(Static572.aStringArray42[local106]);
+            if (FriendsList.formerNames[local106] != null) {
+                @Pc(154) String local154 = NameTools.format(FriendsList.formerNames[local106]);
                 if (local154 != null && local154.equals(local27)) {
                     ChatHistory.addPrivateError(LocalisedText.REMOVEFRIEND1.localise(Client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(Client.language));
                     return;

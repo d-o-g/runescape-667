@@ -41,6 +41,6 @@ public final class Static556 {
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(IBZ)Lclient!gfa;")
     public static ClientInventory method7303(@OriginalArg(0) int arg0, @OriginalArg(2) boolean arg1) {
         @Pc(19) long local19 = arg0 | (arg1 ? Integer.MIN_VALUE : 0);
-        return (ClientInventory) ClientInventoryList.recentUse.get(local19);
+        return (ClientInventory) ClientInventory.recentUse.get(local19);
     }
 }

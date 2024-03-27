@@ -237,21 +237,21 @@ public final class StringTools {
     }
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(ILjava/lang/String;)J")
-    public static long longHash(@OriginalArg(1) String text) {
-        @Pc(15) int length = text.length();
+    public static long longHash(@OriginalArg(1) String string) {
+        @Pc(15) int length = string.length();
         @Pc(17) long hash = 0L;
         for (@Pc(19) int i = 0; i < length; i++) {
-            hash = (long) text.charAt(i) + (hash << 5) - hash;
+            hash = (long) string.charAt(i) + (hash << 5) - hash;
         }
         return hash;
     }
 
     @OriginalMember(owner = "client!gla", name = "a", descriptor = "(Ljava/lang/String;B)I")
-    public static int intHash(@OriginalArg(0) String text) {
-        @Pc(8) int length = text.length();
+    public static int intHash(@OriginalArg(0) String string) {
+        @Pc(8) int length = string.length();
         @Pc(17) int hash = 0;
         for (@Pc(19) int i = 0; i < length; i++) {
-            hash = text.charAt(i) + (hash << 5) - hash;
+            hash = string.charAt(i) + (hash << 5) - hash;
         }
         return hash;
     }
@@ -267,11 +267,11 @@ public final class StringTools {
     }
 
     @OriginalMember(owner = "client!cw", name = "a", descriptor = "(ZLjava/lang/String;)I")
-    public static int intHashCp1252(@OriginalArg(1) String text) {
-        @Pc(12) int length = text.length();
+    public static int intHashCp1252(@OriginalArg(1) String string) {
+        @Pc(12) int length = string.length();
         @Pc(14) int hash = 0;
         for (@Pc(16) int i = 0; i < length; i++) {
-            hash = (hash << 5) + Cp1252.encode(text.charAt(i)) - hash;
+            hash = (hash << 5) + Cp1252.encode(string.charAt(i)) - hash;
         }
         return hash;
     }
@@ -346,6 +346,34 @@ public final class StringTools {
         } else {
             return '\u0000';
         }
+    }
+
+    @OriginalMember(owner = "client!eb", name = "a", descriptor = "(ZLjava/lang/String;)Ljava/lang/String;")
+    public static String escapeBrackets(@OriginalArg(1) String string) {
+        @Pc(6) int length = string.length();
+
+        @Pc(8) int bracketLength = 0;
+        for (@Pc(10) int i = 0; i < length; i++) {
+            @Pc(15) char c = string.charAt(i);
+
+            if (c == '<' || c == '>') {
+                bracketLength += 3;
+            }
+        }
+
+        @Pc(42) StringBuffer buffer = new StringBuffer(length + bracketLength);
+        for (@Pc(44) int i = 0; i < length; i++) {
+            @Pc(49) char c = string.charAt(i);
+
+            if (c == '<') {
+                buffer.append("<lt>");
+            } else if (c == '>') {
+                buffer.append("<gt>");
+            } else {
+                buffer.append(c);
+            }
+        }
+        return buffer.toString();
     }
 
     private StringTools() {

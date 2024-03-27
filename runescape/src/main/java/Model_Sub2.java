@@ -3771,7 +3771,7 @@ public final class Model_Sub2 extends Model {
         @Pc(314) int local314;
         if (hillType == 1) {
             for (local314 = 0; local314 < this.anInt5543; local314++) {
-                this.anIntArray409[local314] = this.anIntArray409[local314] + floor.averageHeight(z + this.anIntArray412[local314], x + this.anIntArray410[local314]) - y;
+                this.anIntArray409[local314] = this.anIntArray409[local314] + floor.averageHeight(x + this.anIntArray410[local314], z + this.anIntArray412[local314]) - y;
             }
         } else {
             @Pc(240) int local240;
@@ -3784,7 +3784,7 @@ public final class Model_Sub2 extends Model {
                 for (local240 = 0; local240 < this.anInt5543; local240++) {
                     local251 = (this.anIntArray409[local240] << 16) / local231;
                     if (local251 < hillValue) {
-                        this.anIntArray409[local240] += (floor.averageHeight(this.anIntArray412[local240] + z, this.anIntArray410[local240] + x) - y) * (hillValue - local251) / hillValue;
+                        this.anIntArray409[local240] += (floor.averageHeight(this.anIntArray410[local240] + x, this.anIntArray412[local240] + z) - y) * (hillValue - local251) / hillValue;
                     }
                 }
             } else {
@@ -3801,15 +3801,15 @@ public final class Model_Sub2 extends Model {
                 } else if (hillType == 4) {
                     local314 = this.aShort68 - this.aShort63;
                     for (local240 = 0; local240 < this.anInt5543; local240++) {
-                        this.anIntArray409[local240] = local314 + this.anIntArray409[local240] + ceiling.averageHeight(this.anIntArray412[local240] + z, x + this.anIntArray410[local240]) - y;
+                        this.anIntArray409[local240] = local314 + this.anIntArray409[local240] + ceiling.averageHeight(x + this.anIntArray410[local240], this.anIntArray412[local240] + z) - y;
                     }
                 } else if (hillType == 5) {
                     local314 = this.aShort68 - this.aShort63;
                     for (local240 = 0; local240 < this.anInt5543; local240++) {
                         local251 = x + this.anIntArray410[local240];
                         local338 = this.anIntArray412[local240] + z;
-                        @Pc(454) int local454 = floor.averageHeight(local338, local251);
-                        @Pc(460) int local460 = ceiling.averageHeight(local338, local251);
+                        @Pc(454) int local454 = floor.averageHeight(local251, local338);
+                        @Pc(460) int local460 = ceiling.averageHeight(local251, local338);
                         @Pc(468) int local468 = local454 - local460 - hillValue;
                         this.anIntArray409[local240] = (local468 * ((this.anIntArray409[local240] << 8) / local314) >> 8) + local454 - y;
                     }

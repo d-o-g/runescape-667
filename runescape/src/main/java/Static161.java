@@ -7,13 +7,6 @@ public final class Static161 {
     @OriginalMember(owner = "client!fa", name = "b", descriptor = "[[[J")
     public static long[][][] tileLightFlags;
 
-    @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IIIIII)V")
-    public static void method2586(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
-        if (ClientOptions.instance.soundVolume.getValue() != 0 && arg3 != 0 && SoundManager.count < 50 && arg2 != -1) {
-            SoundManager.sounds[SoundManager.count++] = new Sound((byte) 1, arg2, arg3, arg1, arg4, 0, arg0, null);
-        }
-    }
-
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IFFF)I")
     public static int method2589(@OriginalArg(1) float arg0, @OriginalArg(2) float arg1, @OriginalArg(3) float arg2) {
         @Pc(20) float local20 = arg1 < 0.0F ? -arg1 : arg1;

@@ -161,4 +161,11 @@ public final class MainLogicManager {
             setStep(3);
         }
     }
+
+    @OriginalMember(owner = "client!kd", name = "a", descriptor = "(Z)V")
+    public static void forceMapRebuild() {
+        setStep(STEP_GAME_SCREEN_MAP_BUILD);
+        Static300.method4393();
+        System.gc();
+    }
 }

@@ -220,6 +220,9 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!oj", name = "t", descriptor = "I")
     public static int anInt6964 = 0;
 
+    @OriginalMember(owner = "client!pq", name = "x", descriptor = "Z")
+    public static boolean showFaceHere;
+
     @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
     public static void reset() {
         for (@Pc(10) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
@@ -330,10 +333,10 @@ public final class MiniMenu {
                         addEntryInner(false, -1, 0L, local140, local142, InterfaceManager.targetVerb, 21, true, InterfaceManager.targetEnterCursor, " ->", local140 << 0 | local142, true);
                     }
                 } else {
-                    if (Static501.aBoolean576) {
+                    if (showFaceHere) {
                         addEntryInner(false, -1, 0L, local140, local142, LocalisedText.FACEHERE.localise(Client.language), 11, true, -1, "", local142 | local140 << 0, true);
                     }
-                    addEntryInner(false, -1, 0L, local140, local142, Static331.walkText, 58, true, Static331.walkCursor, "", local142 | local140 << 0, true);
+                    addEntryInner(false, -1, 0L, local140, local142, Static331.moveText, 58, true, Static331.moveCursor, "", local142 | local140 << 0, true);
                 }
             }
         }

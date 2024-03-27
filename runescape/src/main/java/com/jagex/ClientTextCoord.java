@@ -1,28 +1,30 @@
+package com.jagex;
+
 import com.jagex.core.datastruct.Node;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!bfa")
-public final class Class8_Sub3 extends Node {
+public final class ClientTextCoord extends Node {
 
     @OriginalMember(owner = "client!bfa", name = "m", descriptor = "I")
-    public int anInt953;
+    public int end;
 
     @OriginalMember(owner = "client!bfa", name = "g", descriptor = "I")
-    public int anInt954;
+    public int z;
 
     @OriginalMember(owner = "client!bfa", name = "k", descriptor = "I")
-    public int anInt956;
+    public int y;
 
     @OriginalMember(owner = "client!bfa", name = "q", descriptor = "I")
-    public int anInt957;
+    public int colour;
 
     @OriginalMember(owner = "client!bfa", name = "f", descriptor = "Ljava/lang/String;")
-    public String aString3;
+    public String text;
 
     @OriginalMember(owner = "client!bfa", name = "i", descriptor = "I")
-    public int anInt958;
+    public int level;
 
     @OriginalMember(owner = "client!bfa", name = "h", descriptor = "I")
-    public int anInt959;
+    public int x;
 }

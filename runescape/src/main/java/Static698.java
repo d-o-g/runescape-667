@@ -11,14 +11,6 @@ public final class Static698 {
     @OriginalMember(owner = "client!wba", name = "b", descriptor = "Z")
     public static boolean aBoolean792 = false;
 
-    @OriginalMember(owner = "client!wba", name = "a", descriptor = "(ZII)V")
-    public static void method9123(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1) {
-        @Pc(12) ClientInventory local12 = Static556.method7303(arg1, arg0);
-        if (local12 != null) {
-            local12.unlink();
-        }
-    }
-
     @OriginalMember(owner = "client!wba", name = "a", descriptor = "(ILjava/lang/String;)V")
     public static void method9124(@OriginalArg(1) String arg0) {
         if (arg0.equals("")) {

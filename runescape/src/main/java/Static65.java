@@ -8,9 +8,6 @@ import java.awt.Canvas;
 
 public final class Static65 {
 
-    @OriginalMember(owner = "client!cba", name = "D", descriptor = "[Z")
-    public static final boolean[] aBooleanArray2 = new boolean[100];
-
     @OriginalMember(owner = "client!cba", name = "v", descriptor = "Lclient!hc;")
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___8 = new CutsceneActionType(11);
 

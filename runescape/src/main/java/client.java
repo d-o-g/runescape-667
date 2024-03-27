@@ -80,6 +80,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.Socket;
+import java.net.URL;
 import java.util.GregorianCalendar;
 import java.util.Vector;
 
@@ -98,10 +99,10 @@ public final class client extends GameShell {
             if (arg0.length != 6) {
                 Client.error("Argument count");
             }
-            ConnectionInfo.world = new ConnectionInfo();
-            ConnectionInfo.world.id = Integer.parseInt(arg0[0]);
+            ConnectionInfo.game = new ConnectionInfo();
+            ConnectionInfo.game.world = Integer.parseInt(arg0[0]);
             ConnectionInfo.lobby = new ConnectionInfo();
-            ConnectionInfo.lobby.id = Integer.parseInt(arg0[1]);
+            ConnectionInfo.lobby.world = Integer.parseInt(arg0[1]);
             Client.modeWhere = ModeWhere.LOCAL;
             if (arg0[3].equals("live")) {
                 Client.modeWhat = ModeWhat.LIVE;
@@ -112,7 +113,7 @@ public final class client extends GameShell {
             } else {
                 Client.error("modewhat");
             }
-            Client.language = Static541.method7198(arg0[4]);
+            Client.language = Client.languageIndex(arg0[4]);
             if (Client.language == -1) {
                 if (arg0[4].equals("english")) {
                     Client.language = 0;
@@ -378,11 +379,11 @@ public final class client extends GameShell {
         if (Static232.anInt3764 > 0) {
             Static232.anInt3764--;
         }
-        if (Static273.aBoolean339 && Static232.anInt3764 <= 0) {
-            Static273.aBoolean339 = false;
+        if (Camera.angleUpdated && Static232.anInt3764 <= 0) {
+            Camera.angleUpdated = false;
             Static232.anInt3764 = 20;
             local179 = ClientMessage.create(ClientProt.EVENT_CAMERA_POSITION, ServerConnection.GAME.cipher);
-            local179.bitPacket.p2((int) Static479.aFloat123 >> 3);
+            local179.bitPacket.p2((int) Camera.playerCameraPitch >> 3);
             local179.bitPacket.p2((int) Camera.playerCameraYaw >> 3);
             ServerConnection.GAME.send(local179);
         }
@@ -435,7 +436,7 @@ public final class client extends GameShell {
             Static82.method1593();
             Static13.method158();
         } else {
-            if (CutsceneManager.state == 1 && Static360.method5230(CutsceneManager.cutsceneId)) {
+            if (CutsceneManager.state == 1 && Static360.method5230(CutsceneManager.id)) {
                 Static266.method6774();
                 CutsceneManager.state = 2;
             }
@@ -690,13 +691,13 @@ public final class client extends GameShell {
                                             if (Static624.varcSaveRecommended && Static98.lastVarcSave < SystemTimer.safetime() - 60000L) {
                                                 Static266.saveVarcs();
                                             }
-                                            for (@Pc(2281) Class8_Sub4_Sub1 local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local2281 != null; local2281 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
-                                                if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.anInt6433) {
-                                                    if (local2281.aShort74 > 0) {
-                                                        ChatHistory.add(local2281.aString72 + LocalisedText.FRIENDLOGIN.localise(Client.language), "", 0, "", "", 5);
+                                            for (@Pc(2281) FriendNotification local2281 = (FriendNotification) FriendsList.notifications.first(); local2281 != null; local2281 = (FriendNotification) FriendsList.notifications.next()) {
+                                                if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.arrivalTime) {
+                                                    if (local2281.world > 0) {
+                                                        ChatHistory.add(local2281.name + LocalisedText.FRIENDLOGIN.localise(Client.language), "", 0, "", "", 5);
                                                     }
-                                                    if (local2281.aShort74 == 0) {
-                                                        ChatHistory.add(local2281.aString72 + LocalisedText.FRIENDLOGOUT.localise(Client.language), "", 0, "", "", 5);
+                                                    if (local2281.world == 0) {
+                                                        ChatHistory.add(local2281.name + LocalisedText.FRIENDLOGOUT.localise(Client.language), "", 0, "", "", 5);
                                                     }
                                                     local2281.unlink();
                                                 }
@@ -886,6 +887,45 @@ public final class client extends GameShell {
         Sprites.timerbarCache.reset();
         Sprites.mobilisingArmiesCache.reset();
         MiniMenu.questCache.reset();
+    }
+
+    @OriginalMember(owner = "client!nja", name = "a", descriptor = "(IBLjava/lang/String;)Z")
+    public static boolean connectTo(@OriginalArg(0) int world, @OriginalArg(2) String address) {
+        if (signLink.signed) {
+            ConnectionInfo.login = new ConnectionInfo();
+            ConnectionInfo.login.world = world;
+            ConnectionInfo.login.address = address;
+
+            if (Client.modeWhere != ModeWhere.LIVE) {
+                ConnectionInfo.login.defaultPort = ConnectionInfo.login.world + 40000;
+                ConnectionInfo.login.alternatePort = ConnectionInfo.login.world + 50000;
+            }
+
+            for (@Pc(45) int i = 0; i < WorldList.activeWorlds.length; i++) {
+                if (WorldList.activeWorlds[i].id == world) {
+                    Client.worldFlags = WorldList.activeWorlds[i].flags;
+                }
+            }
+            return true;
+        }
+
+        @Pc(73) String port = "";
+        if (ModeWhere.LIVE != Client.modeWhere) {
+            port = ":" + (world + 7000);
+        }
+
+        @Pc(88) String settings = "";
+        if (Client.settings != null) {
+            settings = "/p=" + Client.settings;
+        }
+
+        @Pc(152) String url = "http://" + address + port + "/l=" + Client.language + "/a=" + Client.affid + settings + "/j" + (Client.js ? "1" : "0") + ",o" + (Client.objectTag ? "1" : "0") + ",a2";
+        try {
+            aClient1.getAppletContext().showDocument(new URL(url), "_self");
+            return true;
+        } catch (@Pc(164) Exception local164) {
+            return false;
+        }
     }
 
     @OriginalMember(owner = "client!client", name = "i", descriptor = "(I)V")
@@ -1159,13 +1199,13 @@ public final class client extends GameShell {
                                             if (Static624.varcSaveRecommended && SystemTimer.safetime() - 60000L > Static98.lastVarcSave) {
                                                 Static266.saveVarcs();
                                             }
-                                            for (@Pc(672) Class8_Sub4_Sub1 local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.first(); local672 != null; local672 = (Class8_Sub4_Sub1) Static168.A_ENTITY_LIST___5.next()) {
-                                                if ((long) local672.anInt6433 < SystemTimer.safetime() / 1000L - 5L) {
-                                                    if (local672.aShort74 > 0) {
-                                                        ChatHistory.add(local672.aString72 + LocalisedText.FRIENDLOGIN.localise(Client.language), "", 0, "", "", 5);
+                                            for (@Pc(672) FriendNotification local672 = (FriendNotification) FriendsList.notifications.first(); local672 != null; local672 = (FriendNotification) FriendsList.notifications.next()) {
+                                                if ((long) local672.arrivalTime < SystemTimer.safetime() / 1000L - 5L) {
+                                                    if (local672.world > 0) {
+                                                        ChatHistory.add(local672.name + LocalisedText.FRIENDLOGIN.localise(Client.language), "", 0, "", "", 5);
                                                     }
-                                                    if (local672.aShort74 == 0) {
-                                                        ChatHistory.add(local672.aString72 + LocalisedText.FRIENDLOGOUT.localise(Client.language), "", 0, "", "", 5);
+                                                    if (local672.world == 0) {
+                                                        ChatHistory.add(local672.name + LocalisedText.FRIENDLOGOUT.localise(Client.language), "", 0, "", "", 5);
                                                     }
                                                     local672.unlink();
                                                 }
@@ -1534,8 +1574,8 @@ public final class client extends GameShell {
                     Static78.anInt1626 = LoginManager.gameLoginResponse;
                     Static673.anInt10079 = LoginManager.disallowTrigger;
                     Static383.anInt6001 = LoginManager.disallowResult;
-                    if (Static718.aBoolean823) {
-                        Static430.method5817(Static459.aConnectionInfo_2.id, Static459.aConnectionInfo_2.address);
+                    if (Static718.reconnectToPrevious) {
+                        connectTo(ConnectionInfo.previous.world, ConnectionInfo.previous.address);
                         ServerConnection.GAME.connection = null;
                         MainLogicManager.setStep(14);
                     } else {
@@ -1573,23 +1613,23 @@ public final class client extends GameShell {
         ClientOptions.instance = Static720.method9398();
 
         if (Client.modeWhere == ModeWhere.LIVE) {
-            ConnectionInfo.world.address = this.getCodeBase().getHost();
+            ConnectionInfo.game.address = this.getCodeBase().getHost();
         } else if (ModeWhere.isPrivate(Client.modeWhere)) {
-            ConnectionInfo.world.address = this.getCodeBase().getHost();
-            ConnectionInfo.world.defaultPort = ConnectionInfo.world.id + 40000;
-            ConnectionInfo.world.alternatePort = ConnectionInfo.world.id + 50000;
-            ConnectionInfo.lobby.defaultPort = ConnectionInfo.lobby.id + 40000;
-            ConnectionInfo.lobby.alternatePort = ConnectionInfo.lobby.id + 50000;
+            ConnectionInfo.game.address = this.getCodeBase().getHost();
+            ConnectionInfo.game.defaultPort = ConnectionInfo.game.world + 40000;
+            ConnectionInfo.game.alternatePort = ConnectionInfo.game.world + 50000;
+            ConnectionInfo.lobby.defaultPort = ConnectionInfo.lobby.world + 40000;
+            ConnectionInfo.lobby.alternatePort = ConnectionInfo.lobby.world + 50000;
         } else if (ModeWhere.LOCAL == Client.modeWhere) {
-            ConnectionInfo.world.address = "127.0.0.1";
-            ConnectionInfo.world.defaultPort = ConnectionInfo.world.id + 40000;
+            ConnectionInfo.game.address = "127.0.0.1";
+            ConnectionInfo.game.defaultPort = ConnectionInfo.game.world + 40000;
             ConnectionInfo.lobby.address = "127.0.0.1";
-            ConnectionInfo.world.alternatePort = ConnectionInfo.world.id + 50000;
-            ConnectionInfo.lobby.defaultPort = ConnectionInfo.lobby.id + 40000;
-            ConnectionInfo.lobby.alternatePort = ConnectionInfo.lobby.id + 50000;
+            ConnectionInfo.game.alternatePort = ConnectionInfo.game.world + 50000;
+            ConnectionInfo.lobby.defaultPort = ConnectionInfo.lobby.world + 40000;
+            ConnectionInfo.lobby.alternatePort = ConnectionInfo.lobby.world + 50000;
         }
 
-        ConnectionInfo.login = ConnectionInfo.world;
+        ConnectionInfo.login = ConnectionInfo.game;
         Client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
 
         if (Client.modeGame == ModeGame.RUNESCAPE) {
@@ -1701,11 +1741,11 @@ public final class client extends GameShell {
             return;
         }
 
-        ConnectionInfo.world = new ConnectionInfo();
-        ConnectionInfo.world.id = Integer.parseInt(this.getParameter("worldid"));
+        ConnectionInfo.game = new ConnectionInfo();
+        ConnectionInfo.game.world = Integer.parseInt(this.getParameter("worldid"));
 
         ConnectionInfo.lobby = new ConnectionInfo();
-        ConnectionInfo.lobby.id = Integer.parseInt(this.getParameter("lobbyid"));
+        ConnectionInfo.lobby.world = Integer.parseInt(this.getParameter("lobbyid"));
         ConnectionInfo.lobby.address = this.getParameter("lobbyaddress");
 
         Client.modeWhere = ModeWhere.fromId(Integer.parseInt(this.getParameter("modewhere")));

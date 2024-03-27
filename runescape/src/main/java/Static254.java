@@ -13,7 +13,7 @@ public final class Static254 {
     @OriginalMember(owner = "client!hr", name = "b", descriptor = "(I)V")
     public static void method3606() {
         if (!Static15.aBoolean17) {
-            Static273.aBoolean339 = true;
+            Camera.angleUpdated = true;
             Static15.aBoolean17 = true;
             Static552.aFloat207 += (24.0F - Static552.aFloat207) / 2.0F;
         }

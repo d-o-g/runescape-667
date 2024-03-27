@@ -1056,8 +1056,8 @@ public final class SoundStream extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!haa", name = "j", descriptor = "(I)V")
-    public synchronized void setVolume(@OriginalArg(0) int arg0) {
-        this.volume = arg0;
+    public synchronized void setVolume(@OriginalArg(0) int volume) {
+        this.volume = volume;
     }
 
     @OriginalMember(owner = "client!haa", name = "i", descriptor = "(I)V")

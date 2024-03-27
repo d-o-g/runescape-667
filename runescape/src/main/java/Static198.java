@@ -1,3 +1,5 @@
+import com.jagex.core.constants.LocLayer;
+import com.jagex.core.constants.LocShapes;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -12,69 +14,77 @@ public final class Static198 {
     public static int anInt3276 = 0;
 
     @OriginalMember(owner = "client!gca", name = "a", descriptor = "(IIIIIIII)V")
-    public static void method2953(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(7) int arg6) {
-        if (arg4 < 0 || arg1 < 0 || Static720.mapWidth - 1 <= arg4 || Static501.mapLength - 1 <= arg1) {
+    public static void animateLocation(@OriginalArg(0) int level, @OriginalArg(4) int x, @OriginalArg(1) int z, @OriginalArg(2) int shape, @OriginalArg(5) int rotation, @OriginalArg(7) int layer, @OriginalArg(3) int animation) {
+        if (x < 0 || z < 0 || x >= Static720.mapWidth - 1 || z >= Static501.mapLength - 1) {
             return;
         }
+
         if (Static334.activeTiles == null) {
             return;
         }
-        @Pc(52) Location local52;
-        if (arg6 == 0) {
-            local52 = (Location) Static302.getWall(arg0, arg4, arg1);
-            @Pc(58) Location local58 = (Location) Static619.method1510(arg0, arg4, arg1);
-            if (local52 != null && arg2 != 2) {
-                if (local52 instanceof DynamicWall) {
-                    ((DynamicWall) local52).entity.method7672(arg3);
+
+        if (layer == LocLayer.WALL) {
+            @Pc(52) Location wall = (Location) Static302.getWall(level, x, z);
+            @Pc(58) Location adjacentWall = (Location) Static619.method1510(level, x, z);
+
+            if (wall != null && shape != LocShapes.WALL_L) {
+                if (wall instanceof DynamicWall) {
+                    ((DynamicWall) wall).entity.animate(animation);
                 } else {
-                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId());
+                    Static235.setLocChange(x, z, level, wall.getId(), shape, rotation, animation, layer);
                 }
             }
-            if (local58 != null) {
-                if (local58 instanceof DynamicWall) {
-                    ((DynamicWall) local58).entity.method7672(arg3);
+
+            if (adjacentWall != null) {
+                if (adjacentWall instanceof DynamicWall) {
+                    ((DynamicWall) adjacentWall).entity.animate(animation);
                 } else {
-                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local58.getId());
+                    Static235.setLocChange(x, z, level, adjacentWall.getId(), shape, rotation, animation, layer);
                 }
             }
-        } else if (arg6 == 1) {
-            local52 = Static114.getWallDecor(arg0, arg4, arg1);
-            if (local52 != null) {
-                if (local52 instanceof DynamicWallDecor) {
-                    ((DynamicWallDecor) local52).entity.method7672(arg3);
+        } else if (layer == LocLayer.WALLDECOR) {
+            @Pc(52) Location wallDecor = Static114.getWallDecor(level, x, z);
+
+            if (wallDecor != null) {
+                if (wallDecor instanceof DynamicWallDecor) {
+                    ((DynamicWallDecor) wallDecor).entity.animate(animation);
                 } else {
-                    @Pc(279) int local279 = local52.getId();
-                    if (arg2 == 4 || arg2 == 5) {
-                        Static235.method3421(arg1, 4, arg5, arg4, arg3, arg6, arg0, local279);
-                    } else if (arg2 == 6) {
-                        Static235.method3421(arg1, 4, arg5 + 4, arg4, arg3, arg6, arg0, local279);
-                    } else if (arg2 == 7) {
-                        Static235.method3421(arg1, 4, (arg5 + 2 & 0x3) + 4, arg4, arg3, arg6, arg0, local279);
-                    } else if (arg2 == 8) {
-                        Static235.method3421(arg1, 4, arg5 + 4, arg4, arg3, arg6, arg0, local279);
-                        Static235.method3421(arg1, 4, (arg5 + 2 & 0x3) + 4, arg4, arg3, arg6, arg0, local279);
+                    @Pc(279) int id = wallDecor.getId();
+
+                    if (shape == LocShapes.WALLDECOR_STRAIGHT_NOOFFSET || shape == LocShapes.WALLDECOR_STRAIGHT_OFFSET) {
+                        Static235.setLocChange(x, z, level, id, LocShapes.WALLDECOR_STRAIGHT_NOOFFSET, rotation, animation, layer);
+                    } else if (shape == 6) {
+                        Static235.setLocChange(x, z, level, id, LocShapes.WALLDECOR_STRAIGHT_NOOFFSET, rotation + 4, animation, layer);
+                    } else if (shape == 7) {
+                        Static235.setLocChange(x, z, level, id, LocShapes.WALLDECOR_STRAIGHT_NOOFFSET, (rotation + 2 & 0x3) + 4, animation, layer);
+                    } else if (shape == 8) {
+                        Static235.setLocChange(x, z, level, id, LocShapes.WALLDECOR_STRAIGHT_NOOFFSET, rotation + 4, animation, layer);
+                        Static235.setLocChange(x, z, level, id, LocShapes.WALLDECOR_STRAIGHT_NOOFFSET, (rotation + 2 & 0x3) + 4, animation, layer);
                     }
                 }
             }
-        } else if (arg6 == 2) {
-            local52 = (Location) Static578.getEntity(arg0, arg4, arg1, aClass9 == null ? (aClass9 = getClass("Location")) : aClass9);
-            if (local52 != null) {
-                if (arg2 == 11) {
-                    arg2 = 10;
+        } else if (layer == LocLayer.GROUND) {
+            @Pc(52) Location centrepiece = (Location) Static578.getEntity(level, x, z, aClass9 == null ? (aClass9 = getClass("Location")) : aClass9);
+
+            if (centrepiece != null) {
+                if (shape == LocShapes.CENTREPIECE_DIAGONAL) {
+                    shape = LocShapes.CENTREPIECE_STRAIGHT;
                 }
-                if (local52 instanceof DynamicLocation) {
-                    ((DynamicLocation) local52).entity.method7672(arg3);
+
+                if (centrepiece instanceof DynamicLocation) {
+                    ((DynamicLocation) centrepiece).entity.animate(animation);
                 } else {
-                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId());
+                    Static235.setLocChange(x, z, level, centrepiece.getId(), shape, rotation, animation, layer);
                 }
             }
-        } else if (arg6 == 3) {
-            local52 = (Location) Static687.getGroundDecor(arg0, arg4, arg1);
-            if (local52 != null) {
-                if (local52 instanceof DynamicGroundDecor) {
-                    ((DynamicGroundDecor) local52).entity.method7672(arg3);
+        } else if (layer == LocLayer.GROUNDDECOR) {
+            @Pc(52) Location groundDecor = (Location) Static687.getGroundDecor(level, x, z);
+
+            if (groundDecor != null) {
+                if (groundDecor instanceof DynamicGroundDecor) {
+                    ((DynamicGroundDecor) groundDecor).entity.animate(animation);
                 } else {
-                    Static235.method3421(arg1, arg2, arg5, arg4, arg3, arg6, arg0, local52.getId());
+                    Static235.setLocChange(x, z, level, groundDecor.getId(), shape, rotation, animation, layer);
                 }
             }
         }

@@ -5,20 +5,20 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class FriendChatUser {
 
     @OriginalMember(owner = "client!mga", name = "a", descriptor = "B")
-    public byte aByte99;
+    public byte rank;
 
     @OriginalMember(owner = "client!mga", name = "d", descriptor = "Ljava/lang/String;")
-    public String aString65;
+    public String worldName;
 
     @OriginalMember(owner = "client!mga", name = "b", descriptor = "I")
-    public int anInt6148;
+    public int world;
 
     @OriginalMember(owner = "client!mga", name = "e", descriptor = "Ljava/lang/String;")
     public String accountName;
 
     @OriginalMember(owner = "client!mga", name = "c", descriptor = "Ljava/lang/String;")
-    public String aString67;
+    public String name;
 
     @OriginalMember(owner = "client!mga", name = "f", descriptor = "Ljava/lang/String;")
-    public String aString68;
+    public String accountNameFormatted;
 }

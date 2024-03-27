@@ -2,6 +2,7 @@ import com.jagex.Client;
 import com.jagex.LibraryList;
 import com.jagex.ServerProt;
 import com.jagex.SignedResourceStatus;
+import com.jagex.StockmarketOffer;
 import com.jagex.core.constants.LoginResponseCode;
 import com.jagex.core.constants.LoginStep;
 import com.jagex.core.constants.ModeWhere;
@@ -656,19 +657,19 @@ public final class LoginManager {
                         Static438.lobbyLoyaltyBalance = bitPacket.g4();
                         Static587.aBoolean663 = bitPacket.g1() == 1;
 
-                        ConnectionInfo.autoWorld = new ConnectionInfo();
-                        ConnectionInfo.autoWorld.id = bitPacket.g2();
-                        if (ConnectionInfo.autoWorld.id == 65535) {
-                            ConnectionInfo.autoWorld.id = -1;
+                        ConnectionInfo.auto = new ConnectionInfo();
+                        ConnectionInfo.auto.world = bitPacket.g2();
+                        if (ConnectionInfo.auto.world == 65535) {
+                            ConnectionInfo.auto.world = -1;
                         }
-                        ConnectionInfo.autoWorld.address = bitPacket.gjstr2();
+                        ConnectionInfo.auto.address = bitPacket.gjstr2();
 
                         if (ModeWhere.LIVE != Client.modeWhere) {
-                            ConnectionInfo.autoWorld.defaultPort = ConnectionInfo.autoWorld.id + 40000;
-                            ConnectionInfo.autoWorld.alternatePort = ConnectionInfo.autoWorld.id + 50000;
+                            ConnectionInfo.auto.defaultPort = ConnectionInfo.auto.world + 40000;
+                            ConnectionInfo.auto.alternatePort = ConnectionInfo.auto.world + 50000;
                         }
 
-                        if (ModeWhere.LOCAL != Client.modeWhere && (Client.modeWhere != ModeWhere.WTQA || Client.staffModLevel < 2) && ConnectionInfo.login.equalTo(ConnectionInfo.world)) {
+                        if (ModeWhere.LOCAL != Client.modeWhere && (Client.modeWhere != ModeWhere.WTQA || Client.staffModLevel < 2) && ConnectionInfo.login.equalTo(ConnectionInfo.game)) {
                             Static152.selectAutoWorld();
                         }
                     }
@@ -961,7 +962,7 @@ public final class LoginManager {
         NPCList.local.clear();
         Static505.projectiles.clear();
         Static346.spotAnimations.clear();
-        Static422.textCoords.clear();
+        TextCoordList.textCoords.clear();
         Static497.objStacks.clear();
         Static159.changes = new Deque();
         Static227.customisations = new Deque();
@@ -997,7 +998,7 @@ public final class LoginManager {
                 }
             }
 
-            InterfaceManager.closeSubInterface(false, true, sub);
+            InterfaceManager.closeSubInterface(sub, true, false);
         }
 
         InterfaceManager.topLevelInterface = -1;
@@ -1010,7 +1011,7 @@ public final class LoginManager {
             MiniMenu.playerOpCursors[i] = -1;
         }
 
-        ClientInventoryList.cacheClear();
+        ClientInventory.cacheClear();
         Static426.aBoolean72 = true;
 
         for (@Pc(8877) int i = 0; i < 100; i++) {
@@ -1028,9 +1029,9 @@ public final class LoginManager {
         }
 
         InterfaceManager.loginOpened();
-        Static273.aBoolean339 = true;
+        Camera.angleUpdated = true;
         Client.clientpalette = LocType.clientpalette = NPCType.clientpalette = ObjType.clientpalette = new short[256];
-        Static331.walkText = LocalisedText.WALKHERE.localise(Client.language);
+        Static331.moveText = LocalisedText.WALKHERE.localise(Client.language);
         ClientOptions.instance.update(ClientOptions.instance.removeRoofs.getValue(), ClientOptions.instance.removeRoofsOverride);
         ClientOptions.instance.update(ClientOptions.instance.animateBackgroundDefault.getValue(), ClientOptions.instance.animateBackground);
         Static334.anInt5456 = 0;
@@ -1068,7 +1069,7 @@ public final class LoginManager {
             }
         }
 
-        ClientInventoryList.cacheClear();
+        ClientInventory.cacheClear();
         Camera.mode = CameraMode.MODE_DEFAULT;
         Camera.anInt10383 = -1;
         Camera.anInt10376 = -1;

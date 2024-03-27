@@ -34,8 +34,8 @@ public final class CutsceneAction_Sub11 extends CutsceneAction {
     @OriginalMember(owner = "client!ica", name = "b", descriptor = "(I)V")
     @Override
     public void execute() {
-        Camera.moveTo(this.anInt4254, false, 100, this.anInt4253, this.anInt4252, 100);
-        Camera.method6408(this.anInt4251, this.anInt4250);
+        Camera.moveTo(this.anInt4254, this.anInt4253, this.anInt4252, 100, 100, false);
+        Camera.forceAngle(this.anInt4250, this.anInt4251, 0);
         CutsceneManager.aBoolean480 = true;
     }
 }

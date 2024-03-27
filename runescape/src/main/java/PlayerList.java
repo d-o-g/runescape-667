@@ -380,7 +380,7 @@ public final class PlayerList {
                 ChatHistory.add(message, player.getDisplayName(false, true), 0, player.displayName, player.getAccountName(), ChatLineType.PUBLIC);
             }
 
-            player.method1413(0, 0, message);
+            player.setChatLine(message, 0, 0);
         }
 
         if ((flags & PlayerExtendedInfoFlag.P_ICON) != 0) {

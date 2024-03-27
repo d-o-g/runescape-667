@@ -255,8 +255,8 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(IILjava/lang/String;B)V")
-    public void method1413(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) String arg2) {
-        this.setChatLine(GameShell.speed() * GraphicsDefaults.instance.playerChatTimeout, arg2, arg1, arg0);
+    public void setChatLine(@OriginalArg(2) String text, @OriginalArg(0) int colour, @OriginalArg(1) int effect) {
+        this.setChatLine(text, effect, colour, GameShell.speed() * GraphicsDefaults.instance.playerChatTimeout);
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(BIIILclient!ka;Lclient!tt;Lclient!ha;I)V")
@@ -846,7 +846,7 @@ public final class PlayerEntity extends PathingEntity {
             if (super.line.text == null) {
                 return null;
             }
-            if (Static133.anInt2458 == 0 || Static133.anInt2458 == 3 || Static133.anInt2458 == 1 && Static362.method5241(arg0 + 3109, this.accountName)) {
+            if (Static133.publicChatFilter == 0 || Static133.publicChatFilter == 3 || Static133.publicChatFilter == 1 && FriendsList.method5241(arg0 + 3109, this.accountName)) {
                 return super.line;
             }
         }

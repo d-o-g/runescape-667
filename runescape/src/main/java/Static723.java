@@ -9,9 +9,6 @@ public final class Static723 {
     @OriginalMember(owner = "client!wu", name = "C", descriptor = "I")
     public static int anInt10929;
 
-    @OriginalMember(owner = "client!wu", name = "z", descriptor = "Ljava/lang/String;")
-    public static String aString129 = null;
-
     @OriginalMember(owner = "client!wu", name = "e", descriptor = "(I)V")
     public static void method9450() {
         Static268.A_HASH_TABLE___22.clear();
@@ -28,21 +25,21 @@ public final class Static723 {
             }
             local7 = 4096;
         }
-        if (Static479.aFloat123 < (float) local5) {
-            Static479.aFloat123 = local5;
+        if (Camera.playerCameraPitch < (float) local5) {
+            Camera.playerCameraPitch = local5;
         }
         while (Camera.playerCameraYaw >= 16384.0F) {
             Camera.playerCameraYaw -= 16384.0F;
         }
-        if ((float) local7 < Static479.aFloat123) {
-            Static479.aFloat123 = local7;
+        if ((float) local7 < Camera.playerCameraPitch) {
+            Camera.playerCameraPitch = local7;
         }
         while (Camera.playerCameraYaw < 0.0F) {
             Camera.playerCameraYaw += 16384.0F;
         }
         @Pc(59) int local59 = Static494.anInt7409 >> 9;
         @Pc(63) int local63 = Static38.anInt920 >> 9;
-        @Pc(77) int local77 = Static102.averageHeight(Camera.renderingLevel, Static38.anInt920, Static494.anInt7409);
+        @Pc(77) int local77 = Static102.averageHeight(Camera.renderingLevel, Static494.anInt7409, Static38.anInt920);
         @Pc(79) int local79 = 0;
         @Pc(109) int local109;
         if (local59 > 3 && local63 > 3 && Static720.mapWidth - 4 > local59 && local63 < Static501.mapLength - 4) {
@@ -53,8 +50,8 @@ public final class Static723 {
                         local117++;
                     }
                     @Pc(132) int local132 = 0;
-                    if (Static2.aMapRegion.aByteArrayArrayArray12 != null && Static2.aMapRegion.aByteArrayArrayArray12[local117] != null) {
-                        local132 = (Static2.aMapRegion.aByteArrayArrayArray12[local117][local109][local114] & 0xFF) * 8 << 2;
+                    if (MapRegion.active.aByteArrayArrayArray12 != null && MapRegion.active.aByteArrayArrayArray12[local117] != null) {
+                        local132 = (MapRegion.active.aByteArrayArrayArray12[local117][local109][local114] & 0xFF) * 8 << 2;
                     }
                     if (Static246.ground != null && Static246.ground[local117] != null) {
                         @Pc(177) int local177 = local132 + local77 - Static246.ground[local117].getHeight(local114, local109);

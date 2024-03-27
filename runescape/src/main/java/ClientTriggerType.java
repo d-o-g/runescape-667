@@ -23,6 +23,12 @@ public final class ClientTriggerType implements TriggerType {
     @OriginalMember(owner = "client!bb", name = "b", descriptor = "Lclient!mia;")
     public static final ClientTriggerType OP_MAPELEMENT5 = new ClientTriggerType("", 14);
 
+    @OriginalMember(owner = "client!hda", name = "u", descriptor = "Lclient!mia;")
+    public static final ClientTriggerType LOYALTY_UPDATED = new ClientTriggerType("", 21);
+
+    @OriginalMember(owner = "client!lha", name = "f", descriptor = "Lclient!mia;")
+    public static final ClientTriggerType JCOINS_UPDATE = new ClientTriggerType("", 19);
+
     @OriginalMember(owner = "client!mia", name = "a", descriptor = "I")
     public final int id;
 

@@ -29,6 +29,10 @@ public final class MapRegion extends Class306 {
     // $FF: synthetic field
     @OriginalMember(owner = "client!taa", name = "O", descriptor = "Ljava/lang/Class;")
     public static Class locClass;
+
+    @OriginalMember(owner = "client!aaa", name = "L", descriptor = "Lclient!taa;")
+    public static MapRegion active;
+
     @OriginalMember(owner = "client!taa", name = "K", descriptor = "I")
     public int maxLevel = 99;
 
@@ -223,7 +227,7 @@ public final class MapRegion extends Class306 {
                             collisionMap = arg2[actualLevel];
                         }
                     }
-                    this.loadLocation(locShape, id, collisionMap, z, toolkit, x, locRotation, locLevel, locLevel, -1);
+                    this.loadLocation(x, z, locLevel, locLevel, id, locShape, locRotation, -1, collisionMap, toolkit);
                 }
             }
         }
@@ -421,7 +425,7 @@ public final class MapRegion extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IILclient!eq;ILclient!ha;IIIIII)V")
-    public void loadLocation(@OriginalArg(0) int shape, @OriginalArg(1) int arg1, @OriginalArg(2) CollisionMap collisionMap, @OriginalArg(3) int z, @OriginalArg(4) Toolkit toolkit, @OriginalArg(5) int x, @OriginalArg(6) int rotation, @OriginalArg(8) int virtualLevel, @OriginalArg(9) int level, @OriginalArg(10) int animation) {
+    public void loadLocation(@OriginalArg(5) int x, @OriginalArg(3) int z, @OriginalArg(9) int level, @OriginalArg(8) int virtualLevel, @OriginalArg(1) int id, @OriginalArg(0) int shape, @OriginalArg(6) int rotation, @OriginalArg(10) int animation, @OriginalArg(2) CollisionMap collisionMap, @OriginalArg(4) Toolkit toolkit) {
         boolean animatingBackground = ClientOptions.instance.animateBackground.getValue() != 0;
         boolean tileVisible = Static696.isTileVisibleFrom(z, Static164.areaLevel, x, virtualLevel);
         if (!animatingBackground && !tileVisible) {
@@ -432,7 +436,7 @@ public final class MapRegion extends Class306 {
             this.maxLevel = level;
         }
 
-        @Pc(40) LocType locType = LocTypeList.instance.list(arg1);
+        @Pc(40) LocType locType = LocTypeList.instance.list(id);
         boolean texturesEnabled = ClientOptions.instance.textures.getValue() == 0;
         if (texturesEnabled && locType.istexture) {
             return;
@@ -1053,7 +1057,7 @@ public final class MapRegion extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "b", descriptor = "(IIIII)Lclient!uv;")
-    public Location getLoc(@OriginalArg(0) int x, @OriginalArg(1) int z, @OriginalArg(2) int level, @OriginalArg(3) int layer) {
+    public Location getLoc(@OriginalArg(2) int level, @OriginalArg(0) int x, @OriginalArg(1) int z, @OriginalArg(3) int layer) {
         @Pc(5) Location location = null;
         if (layer == LocLayer.WALL) {
             location = (Location) Static302.getWall(level, x, z);
@@ -1110,7 +1114,7 @@ public final class MapRegion extends Class306 {
                                 collisionMap = collisionMaps[actualLevel];
                             }
                         }
-                        this.loadLocation(locShape, id, collisionMap, rz, toolkit, rx, (regionRotation + locRotation) & 0x3, level, level, -1);
+                        this.loadLocation(rx, rz, level, level, id, locShape, (regionRotation + locRotation) & 0x3, -1, collisionMap, toolkit);
                     }
                 }
             }
@@ -1191,8 +1195,8 @@ public final class MapRegion extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IBILclient!eq;IILclient!ha;)V")
-    public void method7901(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) CollisionMap arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) Toolkit arg5) {
-        @Pc(13) Location local13 = this.getLoc(arg4, arg1, arg3, arg0);
+    public void removeLoc(@OriginalArg(4) int level, @OriginalArg(5) int x, @OriginalArg(2) int z, @OriginalArg(0) int layer, @OriginalArg(3) CollisionMap collisionMap, @OriginalArg(6) Toolkit toolkit) {
+        @Pc(13) Location local13 = this.getLoc(level, x, z, layer);
         if (local13 == null) {
             return;
         }
@@ -1200,45 +1204,45 @@ public final class MapRegion extends Class306 {
         @Pc(26) int local26 = local13.getShape();
         @Pc(30) int local30 = local13.getRotation();
         if (local22.hasSounds()) {
-            SoundManager.method8312(arg4, arg1, arg3, local22);
+            SoundManager.method8312(x, z, level, local22);
         }
         if (local13.hardShadow()) {
-            local13.removeShadow(arg5);
+            local13.removeShadow(toolkit);
         }
-        if (arg0 == 0) {
-            Static26.method717(arg3, arg4, arg1);
+        if (layer == 0) {
+            Static26.method717(level, x, z);
             if (local22.blockwalk != 0) {
-                arg2.unflagWall(arg1, local30, local26, !local22.breakroutefinding, arg4, local22.blockrange);
+                collisionMap.unflagWall(z, local30, local26, !local22.breakroutefinding, x, local22.blockrange);
             }
             if (local22.occlude == 1) {
                 if (local30 == 0) {
-                    Static687.method8958(arg4, arg3, 1, arg1);
+                    Static687.method8958(x, level, 1, z);
                 } else if (local30 == 1) {
-                    Static687.method8958(arg4, arg3, 2, arg1 + 1);
+                    Static687.method8958(x, level, 2, z + 1);
                 } else if (local30 == 2) {
-                    Static687.method8958(arg4 + 1, arg3, 1, arg1);
+                    Static687.method8958(x + 1, level, 1, z);
                 } else if (local30 == 3) {
-                    Static687.method8958(arg4, arg3, 2, arg1);
+                    Static687.method8958(x, level, 2, z);
                 }
             }
-        } else if (arg0 == 1) {
-            Static173.method2692(arg3, arg4, arg1);
-        } else if (arg0 == 2) {
-            Static10.method130(arg3, arg4, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
-            if (local22.blockwalk != 0 && super.width > local22.width + arg4 && super.height > local22.width + arg1 && arg4 + local22.length < super.width && local22.length + arg1 < super.height) {
-                arg2.unflagLoc(arg4, arg1, local22.width, local22.length, local30, local22.blockrange, !local22.breakroutefinding);
+        } else if (layer == 1) {
+            Static173.method2692(level, x, z);
+        } else if (layer == 2) {
+            Static10.method130(level, x, z, locClass == null ? (locClass = getClass("Location")) : locClass);
+            if (local22.blockwalk != 0 && super.width > local22.width + x && super.height > local22.width + z && x + local22.length < super.width && local22.length + z < super.height) {
+                collisionMap.unflagLoc(x, z, local22.width, local22.length, local30, local22.blockrange, !local22.breakroutefinding);
             }
             if (local26 == 9) {
                 if ((local30 & 0x1) == 0) {
-                    Static687.method8958(arg4, arg3, 8, arg1);
+                    Static687.method8958(x, level, 8, z);
                 } else {
-                    Static687.method8958(arg4, arg3, 16, arg1);
+                    Static687.method8958(x, level, 16, z);
                 }
             }
-        } else if (arg0 == 3) {
-            Static609.method8212(arg3, arg4, arg1);
+        } else if (layer == 3) {
+            Static609.method8212(level, x, z);
             if (local22.blockwalk == 1) {
-                arg2.unflagGroundDecor(arg4, arg1);
+                collisionMap.unflagGroundDecor(x, z);
             }
         }
     }

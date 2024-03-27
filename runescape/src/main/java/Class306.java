@@ -262,17 +262,17 @@ public class Class306 {
                             if (local363 != null && Static499.aBooleanArrayArray7[local28][local377]) {
                                 local477 = local352[local377] + (local1 << 9);
                                 local485 = (local4 << 9) + local355[local377];
-                                local363[local377] = arg3.averageHeight(local485, local477) - arg4.averageHeight(local485, local477);
+                                local363[local377] = arg3.averageHeight(local477, local485) - arg4.averageHeight(local477, local485);
                             }
                             if (local375 != null) {
                                 if (arg3 != null && !Static499.aBooleanArrayArray7[local28][local377]) {
                                     local477 = local352[local377] + (local1 << 9);
                                     local485 = (local4 << 9) + local355[local377];
-                                    local375[local377] = arg4.averageHeight(local485, local477) - arg3.averageHeight(local485, local477);
+                                    local375[local377] = arg4.averageHeight(local477, local485) - arg3.averageHeight(local477, local485);
                                 } else if (arg5 != null && !Static355.aBooleanArrayArray4[local28][local377]) {
                                     local477 = (local1 << 9) + local352[local377];
                                     local485 = local355[local377] + (local4 << 9);
-                                    local375[local377] = arg5.averageHeight(local485, local477) - arg4.averageHeight(local485, local477);
+                                    local375[local377] = arg5.averageHeight(local477, local485) - arg4.averageHeight(local477, local485);
                                 }
                             }
                         }
@@ -1097,17 +1097,17 @@ public class Class306 {
                                         if (local1099 != null && Static499.aBooleanArrayArray7[local94][local1416]) {
                                             local1501 = local1452 + (local33 << 9);
                                             local1508 = (local49 << 9) + local1448;
-                                            local1099[local1064] = arg0.averageHeight(local1508, local1501) - arg3.averageHeight(local1508, local1501);
+                                            local1099[local1064] = arg0.averageHeight(local1501, local1508) - arg3.averageHeight(local1501, local1508);
                                         }
                                         if (local1111 != null) {
                                             if (arg0 != null && !Static499.aBooleanArrayArray7[local94][local1416]) {
                                                 local1501 = local1452 + (local33 << 9);
                                                 local1508 = (local49 << 9) + local1448;
-                                                local1111[local1064] = arg3.averageHeight(local1508, local1501) - arg0.averageHeight(local1508, local1501);
+                                                local1111[local1064] = arg3.averageHeight(local1501, local1508) - arg0.averageHeight(local1501, local1508);
                                             } else if (arg2 != null && !Static355.aBooleanArrayArray4[local94][local1416]) {
                                                 local1501 = local1452 + (local33 << 9);
                                                 local1508 = local1448 + (local49 << 9);
-                                                local1111[local1064] = arg2.averageHeight(local1508, local1501) - arg3.averageHeight(local1508, local1501);
+                                                local1111[local1064] = arg2.averageHeight(local1501, local1508) - arg3.averageHeight(local1501, local1508);
                                             }
                                         }
                                         if (local1416 < 8 && Static615.anIntArray719[local1425] > local164.blendPriority) {
@@ -1222,17 +1222,17 @@ public class Class306 {
                                         if (local1099 != null && Static499.aBooleanArrayArray7[local94][local1452]) {
                                             local2106 = local1501 + (local33 << 9);
                                             local2112 = local2056 + (local49 << 9);
-                                            local1099[local1064] = arg0.averageHeight(local2112, local2106) - arg3.averageHeight(local2112, local2106);
+                                            local1099[local1064] = arg0.averageHeight(local2106, local2112) - arg3.averageHeight(local2106, local2112);
                                         }
                                         if (local1111 != null) {
                                             if (arg0 != null && !Static499.aBooleanArrayArray7[local94][local1452]) {
                                                 local2106 = (local33 << 9) + local1501;
                                                 local2112 = local2056 + (local49 << 9);
-                                                local1111[local1064] = arg3.averageHeight(local2112, local2106) - arg0.averageHeight(local2112, local2106);
+                                                local1111[local1064] = arg3.averageHeight(local2106, local2112) - arg0.averageHeight(local2106, local2112);
                                             } else if (arg2 != null && !Static355.aBooleanArrayArray4[local94][local1452]) {
                                                 local2106 = local1501 + (local33 << 9);
                                                 local2112 = (local49 << 9) + local2056;
-                                                local1111[local1064] = arg2.averageHeight(local2112, local2106) - arg3.averageHeight(local2112, local2106);
+                                                local1111[local1064] = arg2.averageHeight(local2106, local2112) - arg3.averageHeight(local2106, local2112);
                                             }
                                         }
                                         if (local1452 < 8 && Static615.anIntArray719[local1435] >= 0) {

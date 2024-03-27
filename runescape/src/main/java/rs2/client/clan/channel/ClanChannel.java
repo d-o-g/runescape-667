@@ -15,6 +15,12 @@ public final class ClanChannel extends Node {
     @OriginalMember(owner = "client!oia", name = "t", descriptor = "Z")
     public static final boolean debug = false;
 
+    @OriginalMember(owner = "client!bj", name = "u", descriptor = "Lclient!rfa;")
+    public static ClanChannel affined;
+
+    @OriginalMember(owner = "client!vfa", name = "Gb", descriptor = "Lclient!rfa;")
+    public static ClanChannel listened;
+
     @OriginalMember(owner = "client!rfa", name = "x", descriptor = "B")
     public byte kickRank;
 

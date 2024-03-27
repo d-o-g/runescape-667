@@ -13,6 +13,9 @@ public final class VideoTypeList {
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "Lclient!av;")
     public static final IterableHashTable recentUse = new IterableHashTable(4);
 
+    @OriginalMember(owner = "client!hea", name = "s", descriptor = "Z")
+    public static boolean loadedJagtheora = false;
+
     @OriginalMember(owner = "client!ek", name = "a", descriptor = "(II)Ljava/lang/String;")
     public static String subtitles(@OriginalArg(1) int id) {
         @Pc(16) VideoType type = (VideoType) recentUse.get(id);
@@ -64,9 +67,9 @@ public final class VideoTypeList {
             return;
         }
 
-        if (Static234.loadedJagtheora) {
+        if (loadedJagtheora) {
             @Pc(34) VideoType type = new VideoType(id, new Js5Video(4096, js5.VIDEOS, id), arg2, transmitOnEnd);
-            type.js5.setLanguage(Static384.aStringArray31[Client.language]);
+            type.js5.setLanguage(Client.LANGUAGE_CODES[Client.language]);
             recentUse.put(id, type);
         } else {
             VideoManager.ended(id, transmitOnEnd);

@@ -2,6 +2,8 @@ import com.jagex.core.constants.AreaMode;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.channel.ClanChannel;
+import rs2.client.clan.settings.ClanSettings;
 
 public final class Static187 {
 
@@ -11,7 +13,7 @@ public final class Static187 {
     @OriginalMember(owner = "client!fp", name = "a", descriptor = "(Z)V")
     public static void method2842() {
         CutsceneManager.anIntArrayArray265 = null;
-        CutsceneManager.cutsceneId = -1;
+        CutsceneManager.id = -1;
         Static117.areaMode = AreaMode.STATIC_AREA;
         Static102.lastAreaMode = 0;
         CutsceneManager.state = 0;
@@ -35,11 +37,11 @@ public final class Static187 {
         Camera.reset();
         Static334.anInt5456 = 0;
         TimedVarDomain.instance.reset();
-        Static91.aClanSettings_9 = null;
-        Static128.aClanSettings_8 = null;
+        ClanSettings.listened = null;
+        ClanSettings.affined = null;
         Static211.pingRequest = null;
-        Static45.aClass2_Sub47_1 = null;
-        Static674.aClass2_Sub47_3 = null;
+        ClanChannel.affined = null;
+        ClanChannel.listened = null;
         Static675.nextPing = 0L;
     }
 

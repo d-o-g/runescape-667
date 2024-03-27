@@ -9,7 +9,7 @@ public final class Static494 {
     public static int anInt7409;
 
     @OriginalMember(owner = "client!pja", name = "rb", descriptor = "I")
-    public static int anInt7404 = 0;
+    public static int runWeight = 0;
 
     @OriginalMember(owner = "client!pja", name = "K", descriptor = "Z")
     public static boolean aBoolean563 = false;
@@ -17,7 +17,7 @@ public final class Static494 {
     @OriginalMember(owner = "client!pja", name = "e", descriptor = "(I)V")
     public static void method6596() {
         if (!aBoolean563) {
-            Static273.aBoolean339 = true;
+            Camera.angleUpdated = true;
             Static288.aFloat83 += (-12.0F - Static288.aFloat83) / 2.0F;
             aBoolean563 = true;
         }
@@ -48,8 +48,8 @@ public final class Static494 {
         @Pc(29) int local29 = (arg1 ? QuickChatPhraseTypeList.instance.anInt3261 : QuickChatPhraseTypeList.instance.anInt3264) + local18;
         @Pc(80) int local80;
         for (@Pc(31) int local31 = local18; local31 < local29; local31++) {
-            @Pc(37) DoublyLinkedNode_Sub2_Sub12 local37 = QuickChatPhraseTypeList.instance.get(local31);
-            if (local37.aBoolean334 && local37.method3906().toLowerCase().indexOf(local6) != -1) {
+            @Pc(37) QuickChatPhraseType local37 = QuickChatPhraseTypeList.instance.get(local31);
+            if (local37.searchable && local37.getText().toLowerCase().indexOf(local6) != -1) {
                 if (local11 >= 50) {
                     Static256.aShortArray63 = null;
                     Static606.anInt8947 = -1;
@@ -70,7 +70,7 @@ public final class Static494 {
         Static256.aShortArray63 = local9;
         @Pc(120) String[] local120 = new String[Static606.anInt8947];
         for (local80 = 0; local80 < Static606.anInt8947; local80++) {
-            local120[local80] = QuickChatPhraseTypeList.instance.get(local9[local80]).method3906();
+            local120[local80] = QuickChatPhraseTypeList.instance.get(local9[local80]).getText();
         }
         Static554.method7292(local120, Static256.aShortArray63);
     }

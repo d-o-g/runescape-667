@@ -1,6 +1,7 @@
 import com.jagex.ParticleList;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
+import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.graphics.BoundingCylinder;
@@ -49,9 +50,9 @@ public final class SpotAnimation extends PositionEntity {
         @Pc(39) int animation = type.seq;
         if (animation != -1) {
             this.animator = new EntityAnimator(this, false);
-            @Pc(59) int loopMode = type.loopSeq ? 0 : 2;
+            @Pc(59) int loopMode = type.loopSeq ? SeqReplayMode.STOP : SeqReplayMode.RESTART_LOOP;
             if (multipleAnims) {
-                loopMode = 1;
+                loopMode = SeqReplayMode.RESET;
             }
 
             this.animator.update(animation, delay, loopMode, false);

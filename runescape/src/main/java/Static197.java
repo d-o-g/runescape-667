@@ -8,17 +8,17 @@ public final class Static197 {
     public static void method2949() {
         @Pc(8) ChangeLocationRequest local8;
         for (local8 = (ChangeLocationRequest) Static159.changes.first(); local8 != null; local8 = (ChangeLocationRequest) Static159.changes.next()) {
-            if (local8.aBoolean309) {
+            if (local8.pendingRemoval) {
                 local8.unlink();
             } else {
                 local8.aBoolean310 = true;
                 if (local8.x >= 0 && local8.z >= 0 && Static720.mapWidth > local8.x && Static501.mapLength > local8.z) {
-                    Static293.method4332(local8);
+                    Static293.snapshotOriginal(local8);
                 }
             }
         }
         for (local8 = (ChangeLocationRequest) Static227.customisations.first(); local8 != null; local8 = (ChangeLocationRequest) Static227.customisations.next()) {
-            if (local8.aBoolean309) {
+            if (local8.pendingRemoval) {
                 local8.unlink();
             } else {
                 local8.aBoolean310 = true;

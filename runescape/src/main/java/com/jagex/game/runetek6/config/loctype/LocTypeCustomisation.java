@@ -7,6 +7,9 @@ import org.openrs2.deob.annotation.OriginalMember;
 @OriginalClass("client!gp")
 public final class LocTypeCustomisation {
 
+    @OriginalMember(owner = "client!le", name = "h", descriptor = "J")
+    public static long uid = 1L;
+
     @OriginalMember(owner = "client!gp", name = "e", descriptor = "[I")
     public int[] models;
 

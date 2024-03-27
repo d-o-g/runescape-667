@@ -1,7 +1,6 @@
 import com.jagex.IndexedImage;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -9,22 +8,6 @@ public final class Static71 {
 
     @OriginalMember(owner = "client!cea", name = "w", descriptor = "Ljava/lang/Object;")
     public static Object anObject4;
-
-    @OriginalMember(owner = "client!cea", name = "a", descriptor = "(ILjava/lang/String;)Z")
-    public static boolean method1524(@OriginalArg(1) String arg0) {
-        if (arg0 == null) {
-            return false;
-        }
-        for (@Pc(16) int local16 = 0; local16 < Static436.anInt3849; local16++) {
-            if (arg0.equalsIgnoreCase(Static446.aStringArray35[local16])) {
-                return true;
-            }
-            if (arg0.equalsIgnoreCase(Static316.aStringArray41[local16])) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     @OriginalMember(owner = "client!cea", name = "b", descriptor = "(I)Z")
     public static boolean method1525() {

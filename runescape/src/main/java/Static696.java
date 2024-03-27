@@ -13,20 +13,6 @@ public final class Static696 {
         return LoginManager.anInt7113;
     }
 
-    @OriginalMember(owner = "client!w", name = "a", descriptor = "(B)V")
-    public static void method9035() {
-        for (@Pc(1) int local1 = 0; local1 < SoundManager.count; local1++) {
-            @Pc(6) Sound local6 = SoundManager.sounds[local1];
-            if (local6.type == 3) {
-                if (local6.stream == null) {
-                    local6.range = Integer.MIN_VALUE;
-                } else {
-                    SoundManager.activeStreams.remove(local6.stream);
-                }
-            }
-        }
-    }
-
     @OriginalMember(owner = "client!w", name = "a", descriptor = "(IIIII)Z")
     public static boolean isTileVisibleFrom(@OriginalArg(0) int z, @OriginalArg(2) int otherLevel, @OriginalArg(3) int x, @OriginalArg(4) int level) {
         if ((Static280.tileFlags[0][x][z] & TileFlag.BRIDGE) != 0) {

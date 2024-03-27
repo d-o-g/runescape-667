@@ -11,9 +11,6 @@ public final class Static158 {
     @OriginalMember(owner = "client!ev", name = "g", descriptor = "Ljava/lang/Object;")
     public static Object anObject5;
 
-    @OriginalMember(owner = "client!ev", name = "b", descriptor = "Ljava/lang/String;")
-    public static String aString28 = null;
-
     @OriginalMember(owner = "client!ev", name = "a", descriptor = "(IIIII)V")
     public static void method2571(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         @Pc(14) int local14 = 0;

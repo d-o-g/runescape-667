@@ -49,7 +49,7 @@ public final class Static604 {
             }
             Static38.anInt920 += local76;
         }
-        Static479.aFloat123 += Static288.aFloat83 * (float) arg0 / 6.0F;
+        Camera.playerCameraPitch += Static288.aFloat83 * (float) arg0 / 6.0F;
         Camera.playerCameraYaw += (float) arg0 * Static552.aFloat207 / 6.0F;
         Static723.method9451();
     }

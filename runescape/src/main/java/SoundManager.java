@@ -12,6 +12,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class SoundManager {
+
     @OriginalMember(owner = "client!oj", name = "n", descriptor = "Lclient!sia;")
     public static final Deque locSounds = new Deque();
 
@@ -290,9 +291,9 @@ public final class SoundManager {
             local63 = method2572(arg1.anIntArray154[arg0], arg1.anIntArray155[arg0]);
         }
         if (arg1.vorbisSound) {
-            Static186.method2818(local46, local81, local63, 0, 255, false);
+            playVorbisSound(local46, local81, 0, 255, local63, false);
         } else {
-            Static161.method2586(local63, 0, local46, local81, 255);
+            playSynthSound(local46, local81, 0, 255, local63);
         }
     }
 
@@ -303,8 +304,8 @@ public final class SoundManager {
             @Pc(15) boolean local15 = false;
             @Pc(179) int local179;
             if (local13.stream == null) {
-                local13.range--;
-                if (local13.range < (local13.isVorbis() ? -1500 : -10)) {
+                local13.delay--;
+                if (local13.delay < (local13.isVorbis() ? -1500 : -10)) {
                     local15 = true;
                 } else {
                     if (local13.type == 1 && local13.synth == null) {
@@ -312,7 +313,7 @@ public final class SoundManager {
                         if (local13.synth == null) {
                             continue;
                         }
-                        local13.range += local13.synth.delay();
+                        local13.delay += local13.synth.delay();
                     } else if (local13.isVorbis() && (local13.vorbis == null || local13.packet == null)) {
                         if (local13.vorbis == null) {
                             local13.vorbis = VorbisSound.create(js5.VORBIS, local13.id);
@@ -327,28 +328,28 @@ public final class SoundManager {
                             }
                         }
                     }
-                    if (local13.range < 0) {
+                    if (local13.delay < 0) {
                         @Pc(154) int local154 = 8192;
-                        if (local13.delay == 0) {
-                            local179 = local13.loops * (local13.type == 3 ? ClientOptions.instance.speechVolume.getValue() : ClientOptions.instance.soundVolume.getValue()) >> 2;
+                        if (local13.coord == 0) {
+                            local179 = local13.volume * (local13.type == 3 ? ClientOptions.instance.speechVolume.getValue() : ClientOptions.instance.soundVolume.getValue()) >> 2;
                         } else {
-                            @Pc(188) int local188 = local13.delay >> 24 & 0x3;
+                            @Pc(188) int local188 = local13.coord >> 24 & 0x3;
                             if (local188 == PlayerEntity.self.level) {
-                                @Pc(199) int local199 = (local13.delay & 0xFF) << 9;
+                                @Pc(199) int soundLevel = (local13.coord & 0xFF) << 9;
                                 @Pc(205) int local205 = PlayerEntity.self.getSize() << 8;
-                                @Pc(212) int local212 = local13.delay >> 16 & 0xFF;
-                                @Pc(224) int local224 = (local212 << 9) + local205 + 256 - PlayerEntity.self.x;
-                                @Pc(231) int local231 = local13.delay >> 8 & 0xFF;
-                                @Pc(243) int local243 = local205 + (local231 << 9) + 256 - PlayerEntity.self.z;
+                                @Pc(212) int soundX = local13.coord >> 16 & 0xFF;
+                                @Pc(224) int local224 = (soundX << 9) + local205 + 256 - PlayerEntity.self.x;
+                                @Pc(231) int soundZ = local13.coord >> 8 & 0xFF;
+                                @Pc(243) int local243 = local205 + (soundZ << 9) + 256 - PlayerEntity.self.z;
                                 @Pc(251) int local251 = Math.abs(local224) + Math.abs(local243) - 512;
-                                if (local199 < local251) {
-                                    local13.range = -99999;
+                                if (soundLevel < local251) {
+                                    local13.delay = -99999;
                                     continue;
                                 }
                                 if (local251 < 0) {
                                     local251 = 0;
                                 }
-                                local179 = ClientOptions.instance.backgroundSoundVolume.getValue() * (local199 - local251) * local13.loops / local199 >> 2;
+                                local179 = ClientOptions.instance.backgroundSoundVolume.getValue() * (soundLevel - local251) * local13.volume / soundLevel >> 2;
                                 if (local13.entity != null && local13.entity instanceof PositionEntity) {
                                     @Pc(301) PositionEntity local301 = (PositionEntity) local13.entity;
                                     @Pc(304) short local304 = local301.z1;
@@ -381,7 +382,7 @@ public final class SoundManager {
                                 local392 = local13.packet;
                             }
                             @Pc(422) SoundStream stream = local13.stream = SoundStream.create(local392, local13.rate, local179, local154);
-                            stream.setVolume(local13.volume - 1);
+                            stream.setVolume(local13.loops - 1);
                             activeStreams.addFirst(stream);
                         }
                     }
@@ -432,5 +433,79 @@ public final class SoundManager {
             }
         }
         Static581.aClass2_Sub6_Sub1_3.method926(level, channel);
+    }
+
+    @OriginalMember(owner = "client!fo", name = "a", descriptor = "(IIIBIIZ)V")
+    public static void playVorbisSound(@OriginalArg(0) int id, @OriginalArg(1) int loops, @OriginalArg(4) int delay, @OriginalArg(5) int volume, @OriginalArg(2) int rate, @OriginalArg(6) boolean speech) {
+        if ((speech ? ClientOptions.instance.speechVolume.getValue() : ClientOptions.instance.soundVolume.getValue()) != 0 && loops != 0 && count < 50 && id != -1) {
+            sounds[count++] = new Sound((byte) (speech ? 3 : 2), id, loops, delay, volume, rate, 0, null);
+        }
+    }
+
+    @OriginalMember(owner = "client!w", name = "a", descriptor = "(B)V")
+    public static void stopVorbisSpeech() {
+        for (@Pc(1) int i = 0; i < count; i++) {
+            @Pc(6) Sound sound = sounds[i];
+
+            if (sound.type == 3) {
+                if (sound.stream == null) {
+                    sound.delay = Integer.MIN_VALUE;
+                } else {
+                    activeStreams.remove(sound.stream);
+                }
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!caa", name = "a", descriptor = "(IIII)V")
+    public static void playMidiSong(@OriginalArg(0) int volume, @OriginalArg(2) int id, @OriginalArg(3) int delay) {
+        @Pc(12) int local12 = volume * ClientOptions.instance.musicVolume.getValue() >> 8;
+        if (id == -1 && !Static501.aBoolean575) {
+            Static100.method1988();
+        } else if (id != -1 && (midiSong != id || !Static52.method1157(-122)) && local12 != 0 && !Static501.aBoolean575) {
+            Static618.method8318(js5.MIDI_SONGS, local12, id, delay);
+            mixBussReset();
+        }
+        if (midiSong != id) {
+            Static8.aClass2_Sub6_Sub1_1 = null;
+        }
+        midiSong = id;
+    }
+
+    @OriginalMember(owner = "client!pda", name = "a", descriptor = "(IIIB)V")
+    public static void playMidiJingle(@OriginalArg(0) int volume, @OriginalArg(1) int id, @OriginalArg(2) int delay) {
+        @Pc(12) int local12 = ClientOptions.instance.musicVolume.getValue() * volume >> 8;
+        if (local12 == 0 || id == -1) {
+            return;
+        }
+        if (!Static501.aBoolean575 && midiSong != -1 && Static52.method1157(0x6E ^ 0x11) && !Static203.method3070()) {
+            Static8.aClass2_Sub6_Sub1_1 = Static426.method1018();
+            @Pc(52) Node_Sub6_Sub1 local52 = Static48.method1100(Static8.aClass2_Sub6_Sub1_1);
+            Static697.method9120(local52);
+        }
+        Static611.method8229(id, local12, js5.MIDI_JINGLES);
+        mixBussSetLevel(255, -1);
+        Static501.aBoolean575 = true;
+    }
+
+    @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IIIIII)V")
+    public static void playSynthSound(@OriginalArg(2) int id, @OriginalArg(3) int loops, @OriginalArg(1) int delay, @OriginalArg(4) int volume, @OriginalArg(0) int rate) {
+        if (ClientOptions.instance.soundVolume.getValue() != 0 && loops != 0 && count < 50 && id != -1) {
+            sounds[count++] = new Sound((byte) 1, id, loops, delay, volume, rate, 0, null);
+        }
+    }
+
+    @OriginalMember(owner = "client!fc", name = "a", descriptor = "(IIBIIII)V")
+    public static void playSynthSoundArea(@OriginalArg(3) int id, @OriginalArg(4) int loops, @OriginalArg(1) int delay, @OriginalArg(0) int volume, @OriginalArg(5) int rate, @OriginalArg(6) int coord) {
+        if (ClientOptions.instance.soundVolume.getValue() != 0 && loops != 0 && count < 50 && id != -1) {
+            sounds[count++] = new Sound((byte) 1, id, loops, delay, volume, rate, coord, null);
+        }
+    }
+
+    @OriginalMember(owner = "client!fk", name = "a", descriptor = "(IIIIZIII)V")
+    public static void playVorbisSoundArea(@OriginalArg(7) int id, @OriginalArg(0) int loops, @OriginalArg(1) int delay, @OriginalArg(6) int volume, @OriginalArg(5) int rate, @OriginalArg(2) int coord) {
+        if (ClientOptions.instance.soundVolume.getValue() != 0 && loops != 0 && count < 50 && id != -1) {
+            sounds[count++] = new Sound((byte) 2, id, loops, delay, volume, rate, coord, null);
+        }
     }
 }

@@ -71,7 +71,7 @@ public final class Static294 {
         @Pc(169) int local169;
         @Pc(204) int local204;
         if (Camera.mode == CameraMode.MODE_DEFAULT) {
-            local169 = (int) Static479.aFloat123;
+            local169 = (int) Camera.playerCameraPitch;
             if (Static188.anInt3103 >> 8 > local169) {
                 local169 = Static188.anInt3103 >> 8;
             }
@@ -79,9 +79,9 @@ public final class Static294 {
                 local169 = Shake.amplitude[4] + 128;
             }
             local204 = Static288.anInt4621 + (int) Camera.playerCameraYaw & 0x3FFF;
-            Camera.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
+            Camera.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, PlayerEntity.self.x, PlayerEntity.self.z) - 200);
         } else if (Camera.mode == CameraMode.MODE_FOUR) {
-            local169 = (int) Static479.aFloat123;
+            local169 = (int) Camera.playerCameraPitch;
             if (Static188.anInt3103 >> 8 > local169) {
                 local169 = Static188.anInt3103 >> 8;
             }
@@ -89,7 +89,7 @@ public final class Static294 {
                 local169 = Shake.amplitude[4] + 128;
             }
             local204 = (int) Camera.playerCameraYaw & 0x3FFF;
-            Camera.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, Camera.anInt4018, Camera.anInt6262) - 200);
+            Camera.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, Camera.anInt6262, Camera.anInt4018) - 200);
         } else if (Camera.mode == CameraMode.MODE_SMOOTH_RESET) {
             Camera.update(local161);
         }

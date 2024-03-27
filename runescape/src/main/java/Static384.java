@@ -8,7 +8,4 @@ public final class Static384 {
     @OriginalMember(owner = "client!maa", name = "s", descriptor = "Lclient!hc;")
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___26 = new CutsceneActionType(14);
 
-    @OriginalMember(owner = "client!maa", name = "r", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray31 = new String[]{"en", "de", "fr", "pt", "nl"};
-
 }

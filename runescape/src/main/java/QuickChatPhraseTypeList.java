@@ -46,7 +46,7 @@ public final class QuickChatPhraseTypeList {
     }
 
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(Lclient!it;J[II)Ljava/lang/String;")
-    public String method2948(@OriginalArg(0) QuickChatDynamicCommand arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int[] arg2) {
+    public String getFillter(@OriginalArg(0) QuickChatDynamicCommand arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int[] arg2) {
         if (this.anQuickChatFillerDecoder_1 != null) {
             @Pc(22) String local22 = this.anQuickChatFillerDecoder_1.decode(arg1, arg0, arg2);
             if (local22 != null) {
@@ -57,8 +57,8 @@ public final class QuickChatPhraseTypeList {
     }
 
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(IZ)Lclient!ih;")
-    public DoublyLinkedNode_Sub2_Sub12 get(@OriginalArg(0) int arg0) {
-        @Pc(11) DoublyLinkedNode_Sub2_Sub12 local11 = (DoublyLinkedNode_Sub2_Sub12) this.aReferenceCache_70.get(arg0);
+    public QuickChatPhraseType get(@OriginalArg(0) int arg0) {
+        @Pc(11) QuickChatPhraseType local11 = (QuickChatPhraseType) this.aReferenceCache_70.get(arg0);
         if (local11 != null) {
             return local11;
         }
@@ -68,10 +68,10 @@ public final class QuickChatPhraseTypeList {
         } else {
             local28 = this.aJs5_40.getfile(arg0, 1);
         }
-        local11 = new DoublyLinkedNode_Sub2_Sub12();
-        local11.aClass139_1 = this;
+        local11 = new QuickChatPhraseType();
+        local11.typeList = this;
         if (local28 != null) {
-            local11.method3899(new Packet(local28));
+            local11.decode(new Packet(local28));
         }
         if (arg0 >= 32768) {
             local11.method3902();

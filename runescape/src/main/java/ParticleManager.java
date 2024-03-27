@@ -117,4 +117,9 @@ public final class ParticleManager {
     private ParticleManager() {
         /* empty */
     }
+
+    @OriginalMember(owner = "client!no", name = "c", descriptor = "(I)I")
+    public static int getOption() {
+        return option;
+    }
 }

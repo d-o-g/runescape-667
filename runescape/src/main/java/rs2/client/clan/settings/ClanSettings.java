@@ -21,6 +21,12 @@ public final class ClanSettings {
     @OriginalMember(owner = "client!el", name = "T", descriptor = "Z")
     public static final boolean debug = false;
 
+    @OriginalMember(owner = "client!ea", name = "m", descriptor = "Lclient!hi;")
+    public static ClanSettings affined;
+
+    @OriginalMember(owner = "client!cr", name = "d", descriptor = "Lclient!hi;")
+    public static ClanSettings listened;
+
     @OriginalMember(owner = "client!hi", name = "O", descriptor = "B")
     public byte coinshare;
 
@@ -46,7 +52,7 @@ public final class ClanSettings {
     public boolean useDisplayNames;
 
     @OriginalMember(owner = "client!hi", name = "h", descriptor = "J")
-    public long aLong125;
+    public long owner;
 
     @OriginalMember(owner = "client!hi", name = "i", descriptor = "B")
     public byte rankKick;

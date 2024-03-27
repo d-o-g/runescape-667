@@ -12,7 +12,7 @@ public final class Static150 {
     public static int[] femaleTitleEnums;
 
     @OriginalMember(owner = "client!en", name = "i", descriptor = "I")
-    public static int anInt2632 = 0;
+    public static int drawOrder = 0;
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(B)V")
     public static void method2455() {

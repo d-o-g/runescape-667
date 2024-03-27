@@ -20,7 +20,7 @@ public final class Static418 {
             OverlayManager.hitmarkpos[0] = OverlayManager.hitmarkpos[1] = -1;
             return;
         }
-        @Pc(58) int local58 = Static102.averageHeight(arg0, arg1, arg3) - arg2;
+        @Pc(58) int local58 = Static102.averageHeight(arg0, arg3, arg1) - arg2;
         if (InterfaceManager.aBoolean210) {
             Static713.method9331(true);
         } else {

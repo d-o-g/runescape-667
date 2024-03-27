@@ -7,7 +7,7 @@ public final class Static711 {
     public static int anInt10684;
 
     @OriginalMember(owner = "client!wia", name = "a", descriptor = "(IBI)V")
-    public static void method9271(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
+    public static void mixBussSetLevel(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         SoundManager.mixBussSetLevel(arg1, arg0);
     }
 

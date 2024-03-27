@@ -9,9 +9,6 @@ public final class Static501 {
     @OriginalMember(owner = "client!pq", name = "v", descriptor = "[I")
     public static int[] anIntArray606;
 
-    @OriginalMember(owner = "client!pq", name = "x", descriptor = "Z")
-    public static boolean aBoolean576;
-
     @OriginalMember(owner = "client!pq", name = "z", descriptor = "I")
     public static int mapLength = 104;
 

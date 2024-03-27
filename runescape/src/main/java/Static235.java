@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.core.constants.LocShapes;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.graphics.Toolkit;
@@ -9,39 +10,44 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static235 {
 
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "(IIIIIIIII)V")
-    public static void method3421(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7) {
-        if (arg3 < 1 || arg0 < 1 || Static720.mapWidth - 2 < arg3 || Static501.mapLength - 2 < arg0) {
+    public static void setLocChange(@OriginalArg(3) int x, @OriginalArg(0) int z, @OriginalArg(6) int level, @OriginalArg(8) int id, @OriginalArg(1) int shape, @OriginalArg(2) int rotation, @OriginalArg(4) int animation, @OriginalArg(5) int layer) {
+        if (x < 1 || z < 1 || Static720.mapWidth - 2 < x || Static501.mapLength - 2 < z) {
             return;
         }
-        @Pc(39) int local39 = arg6;
-        if (arg6 < 3 && Static441.isBridgeAt(arg0, arg3)) {
-            local39 = arg6 + 1;
+
+        @Pc(39) int virtualLevel = level;
+        if (level < 3 && Static441.isBridgeAt(z, x)) {
+            virtualLevel = level + 1;
         }
-        if (ClientOptions.instance.animateBackground.getValue() == 0 && !Static696.isTileVisibleFrom(arg0, Static164.areaLevel, arg3, local39)) {
+
+        if (ClientOptions.instance.animateBackground.getValue() == 0 && !Static696.isTileVisibleFrom(z, Static164.areaLevel, x, virtualLevel)) {
             return;
         }
+
         if (Static334.activeTiles == null) {
             return;
         }
-        Static2.aMapRegion.method7901(arg5, arg0, Client.collisionMaps[arg6], arg6, arg3, Toolkit.active);
-        if (arg7 >= 0) {
-            @Pc(93) int local93 = ClientOptions.instance.groundDecor.getValue();
+
+        MapRegion.active.removeLoc(level, x, z, layer, Client.collisionMaps[level], Toolkit.active);
+
+        if (id >= 0) {
+            @Pc(93) int valueBefore = ClientOptions.instance.groundDecor.getValue();
             ClientOptions.instance.update(1, ClientOptions.instance.groundDecor);
-            Static2.aMapRegion.loadLocation(arg1, arg7, Client.collisionMaps[arg6], arg0, Toolkit.active, arg3, arg2, local39, arg6, arg4);
-            ClientOptions.instance.update(local93, ClientOptions.instance.groundDecor);
+            MapRegion.active.loadLocation(x, z, level, virtualLevel, id, shape, rotation, animation, Client.collisionMaps[level], Toolkit.active);
+            ClientOptions.instance.update(valueBefore, ClientOptions.instance.groundDecor);
         }
     }
 
     @OriginalMember(owner = "client!hf", name = "b", descriptor = "(III)Z")
-    public static boolean method3424(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (arg1 == 11) {
-            arg1 = 10;
+    public static boolean loadedModels(@OriginalArg(0) int id, @OriginalArg(2) int shape) {
+        if (shape == LocShapes.CENTREPIECE_DIAGONAL) {
+            shape = LocShapes.CENTREPIECE_STRAIGHT;
         }
-        @Pc(19) LocType local19 = LocTypeList.instance.list(arg0);
-        if (arg1 >= 5 && arg1 <= 8) {
-            arg1 = 4;
+        @Pc(19) LocType locType = LocTypeList.instance.list(id);
+        if (shape >= LocShapes.WALLDECOR_STRAIGHT_OFFSET && shape <= LocShapes.WALLDECOR_DIAGONAL_BOTH) {
+            shape = LocShapes.WALLDECOR_STRAIGHT_NOOFFSET;
         }
-        return local19.loadedModels(arg1);
+        return locType.loadedModels(shape);
     }
 
     @OriginalMember(owner = "client!hf", name = "a", descriptor = "(III)I")

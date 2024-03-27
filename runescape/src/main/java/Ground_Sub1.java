@@ -502,7 +502,7 @@ public final class Ground_Sub1 extends Ground {
                                 }
                                 if (Stream.b()) {
                                     local198.a((float) local535);
-                                    local198.a((float) (local572 + this.averageHeight(local545, local535)));
+                                    local198.a((float) (local572 + this.averageHeight(local535, local545)));
                                     local198.a((float) local545);
                                     local198.a((float) local535);
                                     local198.a((float) local545);
@@ -516,7 +516,7 @@ public final class Ground_Sub1 extends Ground {
                                     }
                                 } else {
                                     local198.b((float) local535);
-                                    local198.b((float) (this.averageHeight(local545, local535) + local572));
+                                    local198.b((float) (this.averageHeight(local535, local545) + local572));
                                     local198.b((float) local545);
                                     local198.b((float) local535);
                                     local198.b((float) local545);

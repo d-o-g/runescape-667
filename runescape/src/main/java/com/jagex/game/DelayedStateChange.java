@@ -104,7 +104,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!r", name = "a", descriptor = "(IBI)V")
-    public static void setVarc(@OriginalArg(0) int value, @OriginalArg(2) int id) {
+    public static void setVarc(@OriginalArg(2) int id, @OriginalArg(0) int value) {
         @Pc(16) DelayedStateChange change = getOrAdd(TYPE_SETVARC, id);
         change.setClientServerUpdate();
         change.primaryData = value;
@@ -143,7 +143,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!pc", name = "a", descriptor = "(IIIII)V")
-    public static void method6462(@OriginalArg(0) int obj, @OriginalArg(1) int objType, @OriginalArg(2) int objData, @OriginalArg(3) int idAndSlot) {
+    public static void interfaceSetModel(@OriginalArg(3) int idAndSlot, @OriginalArg(1) int objType, @OriginalArg(0) int obj, @OriginalArg(2) int objData) {
         @Pc(9) DelayedStateChange change = getOrAdd(TYPE_IF_SETMODEL, idAndSlot);
         change.setClientServerUpdate();
         change.tertiaryData = objData;
@@ -171,7 +171,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!aaa", name = "d", descriptor = "(III)V")
-    public static void interfaceSetColour(@OriginalArg(1) int colour, @OriginalArg(2) int idAndSlot) {
+    public static void interfaceSetColour(@OriginalArg(2) int idAndSlot, @OriginalArg(1) int colour) {
         @Pc(9) DelayedStateChange change = getOrAdd(TYPE_IF_SETCOLOUR, idAndSlot);
         change.setClientServerUpdate();
         change.primaryData = colour;
@@ -184,8 +184,8 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!oda", name = "a", descriptor = "(BII)V")
-    public static void interfaceSetHide(@OriginalArg(1) int visible, @OriginalArg(2) int arg1) {
-        @Pc(16) DelayedStateChange change = getOrAdd(TYPE_IF_SETHIDE, arg1);
+    public static void interfaceSetHide(@OriginalArg(2) int idAndSlot, @OriginalArg(1) int visible) {
+        @Pc(16) DelayedStateChange change = getOrAdd(TYPE_IF_SETHIDE, idAndSlot);
         change.setClientServerUpdate();
         change.primaryData = visible;
     }
@@ -197,12 +197,12 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(IIIII)V")
-    public static void interfaceSetModelAngle(@OriginalArg(0) int modelAngleX, @OriginalArg(1) int modelZoom, @OriginalArg(3) int idAndSlot, @OriginalArg(4) int modelAngleY) {
+    public static void interfaceSetModelAngle(@OriginalArg(3) int idAndSlot, @OriginalArg(0) int xan2d, @OriginalArg(4) int yan2d, @OriginalArg(1) int zoom2d) {
         @Pc(9) DelayedStateChange change = getOrAdd(TYPE_IF_SETMODELANGLE, idAndSlot);
         change.setClientServerUpdate();
-        change.secondaryData = modelAngleY;
-        change.tertiaryData = modelZoom;
-        change.primaryData = modelAngleX;
+        change.secondaryData = yan2d;
+        change.tertiaryData = zoom2d;
+        change.primaryData = xan2d;
     }
 
     @OriginalMember(owner = "client!kh", name = "a", descriptor = "(BI)V")
@@ -226,12 +226,12 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!ql", name = "a", descriptor = "(BIIII)V")
-    public static void interfaceSetModelOffset(@OriginalArg(1) int modelZoom, @OriginalArg(2) int idAndSlot, @OriginalArg(3) int modelOffsetY, @OriginalArg(4) int modelOffsetX) {
+    public static void interfaceSetModelOffset(@OriginalArg(2) int idAndSlot, @OriginalArg(4) int xof2d, @OriginalArg(3) int yof2d, @OriginalArg(1) int zan2d) {
         @Pc(9) DelayedStateChange change = getOrAdd(TYPE_IF_SETMODELOFFSET, idAndSlot);
         change.setClientServerUpdate();
-        change.secondaryData = modelOffsetY;
-        change.primaryData = modelOffsetX;
-        change.tertiaryData = modelZoom;
+        change.secondaryData = yof2d;
+        change.primaryData = xof2d;
+        change.tertiaryData = zan2d;
     }
 
     @OriginalMember(owner = "client!nc", name = "a", descriptor = "(II)V")
@@ -241,7 +241,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!ria", name = "a", descriptor = "(IIII)V")
-    public static void interfaceSetPosition(@OriginalArg(0) int x, @OriginalArg(2) int y, @OriginalArg(3) int idAndSlot) {
+    public static void interfaceSetPosition(@OriginalArg(3) int idAndSlot, @OriginalArg(0) int x, @OriginalArg(2) int y) {
         @Pc(14) DelayedStateChange change = getOrAdd(TYPE_IF_SETPOSITION, idAndSlot);
         change.setClientServerUpdate();
         change.primaryData = x;
@@ -255,7 +255,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!m", name = "a", descriptor = "(BII)V")
-    public static void interfaceSetScrollPosition(@OriginalArg(1) int position, @OriginalArg(2) int idAndSlot) {
+    public static void interfaceSetScrollPosition(@OriginalArg(2) int idAndSlot, @OriginalArg(1) int position) {
         @Pc(14) DelayedStateChange change = getOrAdd(TYPE_IF_SETSCROLLPOS, idAndSlot);
         change.setClientServerUpdate();
         change.primaryData = position;
@@ -288,7 +288,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!bm", name = "a", descriptor = "(IIB)V")
-    public static void setMapFlag(@OriginalArg(0) int y, @OriginalArg(1) int x) {
+    public static void setMapFlag(@OriginalArg(1) int x, @OriginalArg(0) int y) {
         @Pc(8) DelayedStateChange change = getOrAdd(TYPE_SETMAPFLAG, 0L);
         change.setClientServerUpdate();
         change.primaryData = x;
@@ -315,7 +315,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(III)V")
-    public static void interfaceSetVideo(@OriginalArg(1) int video, @OriginalArg(2) int idAndSlot) {
+    public static void interfaceSetVideo(@OriginalArg(2) int idAndSlot, @OriginalArg(1) int video) {
         @Pc(9) DelayedStateChange change = getOrAdd(TYPE_IF_SETVIDEO, idAndSlot);
         change.setClientServerUpdate();
         change.primaryData = video;
@@ -328,7 +328,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!gu", name = "a", descriptor = "(IIIII)V")
-    public static void interfaceSetRecol(@OriginalArg(0) int index, @OriginalArg(1) int destination, @OriginalArg(3) int idAndSlot, @OriginalArg(4) int source) {
+    public static void interfaceSetRecol(@OriginalArg(3) int idAndSlot, @OriginalArg(0) int index, @OriginalArg(4) int source, @OriginalArg(1) int destination) {
         @Pc(22) DelayedStateChange change = getOrAdd(TYPE_IF_SETRECOL, ((long) index << 32) | (long) idAndSlot);
         change.setClientServerUpdate();
         change.primaryData = source;
@@ -342,7 +342,7 @@ public final class DelayedStateChange extends Node2 {
     }
 
     @OriginalMember(owner = "client!fd", name = "a", descriptor = "(IIIII)V")
-    public static void interfaceSetRetex(@OriginalArg(1) int source, @OriginalArg(2) int index, @OriginalArg(3) int idAndSlot, @OriginalArg(4) int destination) {
+    public static void interfaceSetRetex(@OriginalArg(3) int idAndSlot, @OriginalArg(2) int index, @OriginalArg(1) int source, @OriginalArg(4) int destination) {
         @Pc(14) DelayedStateChange change = getOrAdd(TYPE_IF_SETRETEX, ((long) index << 32) | (long) idAndSlot);
         change.setClientServerUpdate();
         change.primaryData = source;

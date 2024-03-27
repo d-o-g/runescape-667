@@ -13,7 +13,7 @@ public final class Static236 {
     @OriginalMember(owner = "client!hfa", name = "a", descriptor = "(Lclient!gw;I)Z")
     public static boolean readPacket(@OriginalArg(0) ServerConnection connection) {
         try {
-            return Protocol.readServerMessage(connection);
+            return Protocol.decodeServerProt(connection);
         } catch (@Pc(15) IOException local15) {
             if (MainLogicManager.step == 9) {
                 connection.connection = null;

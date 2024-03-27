@@ -14,23 +14,23 @@ public final class Static293 {
     public static Class aClass10;
 
     @OriginalMember(owner = "client!jfa", name = "a", descriptor = "(ILclient!hma;)V")
-    public static void method4332(@OriginalArg(1) ChangeLocationRequest request) {
+    public static void snapshotOriginal(@OriginalArg(1) ChangeLocationRequest request) {
         if (Static334.activeTiles == null) {
             return;
         }
 
         @Pc(9) Location location = null;
         if (request.layer == LocLayer.WALL) {
-            location = (Location) Static302.getWall(request.anInt4010, request.x, request.z);
+            location = (Location) Static302.getWall(request.level, request.x, request.z);
         }
         if (request.layer == LocLayer.WALLDECOR) {
-            location = Static114.getWallDecor(request.anInt4010, request.x, request.z);
+            location = Static114.getWallDecor(request.level, request.x, request.z);
         }
         if (request.layer == LocLayer.GROUND) {
-            location = (Location) Static578.getEntity(request.anInt4010, request.x, request.z, aClass10 == null ? (aClass10 = getClass("Location")) : aClass10);
+            location = (Location) Static578.getEntity(request.level, request.x, request.z, aClass10 == null ? (aClass10 = getClass("Location")) : aClass10);
         }
         if (request.layer == LocLayer.GROUNDDECOR) {
-            location = (Location) Static687.getGroundDecor(request.anInt4010, request.x, request.z);
+            location = (Location) Static687.getGroundDecor(request.level, request.x, request.z);
         }
 
         if (location == null) {

@@ -446,7 +446,7 @@ public final class NPCEntity extends PathingEntity {
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(IILjava/lang/String;B)V")
     public void chat(@OriginalArg(0) int colour, @OriginalArg(1) int effect, @OriginalArg(2) String text) {
         @Pc(17) int duration = GameShell.speed() * GraphicsDefaults.instance.npcChatTimeout;
-        this.setChatLine(duration, text, effect, colour);
+        this.setChatLine(text, effect, colour, duration);
     }
 
     @OriginalMember(owner = "client!wj", name = "d", descriptor = "(Lclient!ha;I)V")

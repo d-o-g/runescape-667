@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static718 {
 
     @OriginalMember(owner = "client!wo", name = "x", descriptor = "Z")
-    public static boolean aBoolean823;
+    public static boolean reconnectToPrevious;
 
     @OriginalMember(owner = "client!wo", name = "r", descriptor = "Z")
     public static boolean aBoolean822 = false;

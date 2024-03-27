@@ -116,7 +116,7 @@ public final class LocEntity {
     }
 
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(II)V")
-    public void method7672(@OriginalArg(0) int arg0) {
+    public void animate(@OriginalArg(0) int arg0) {
         this.animated = true;
         this.animate(1, arg0, false);
     }
@@ -243,7 +243,7 @@ public final class LocEntity {
                 functionMask |= 0x40000;
             }
 
-            model = type.wallModel(this.shape == LocShapes.CENTREPIECE_DIAGONAL ? this.rotation + 4 : this.rotation, this.entity.z, this.shape == 11 ? 10 : this.shape, this.entity.x, ceiling, this.animator, toolkit, floor, this.customisation, functionMask, floor.averageHeight(this.entity.z, this.entity.x));
+            model = type.wallModel(this.shape == LocShapes.CENTREPIECE_DIAGONAL ? this.rotation + 4 : this.rotation, this.entity.z, this.shape == 11 ? 10 : this.shape, this.entity.x, ceiling, this.animator, toolkit, floor, this.customisation, functionMask, floor.averageHeight(this.entity.x, this.entity.z));
 
             if (model == null) {
                 this.aBooleanArray27 = null;
@@ -271,7 +271,7 @@ public final class LocEntity {
                 functionMask |= this.model.ua();
             }
 
-            @Pc(389) ModelAndShadow modelAndShadow = type.modelAndShadow(this.shape == LocShapes.CENTREPIECE_DIAGONAL ? this.rotation + 4 : this.rotation, this.entity.z, this.entity.x, floor, addShadow, floor.averageHeight(this.entity.z, this.entity.x), this.shape == LocShapes.CENTREPIECE_DIAGONAL ? LocShapes.CENTREPIECE_STRAIGHT : this.shape, toolkit, this.customisation, functionMask, ceiling);
+            @Pc(389) ModelAndShadow modelAndShadow = type.modelAndShadow(this.shape == LocShapes.CENTREPIECE_DIAGONAL ? this.rotation + 4 : this.rotation, this.entity.z, this.entity.x, floor, addShadow, floor.averageHeight(this.entity.x, this.entity.z), this.shape == LocShapes.CENTREPIECE_DIAGONAL ? LocShapes.CENTREPIECE_STRAIGHT : this.shape, toolkit, this.customisation, functionMask, ceiling);
             if (modelAndShadow == null) {
                 this.sphereRadius = 0;
                 this.aBooleanArray27 = null;

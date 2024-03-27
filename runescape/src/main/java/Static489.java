@@ -210,11 +210,11 @@ public final class Static489 {
         Static478.anInt7198 = ClientOptions.instance.animateBackground.getValue() == 1 ? -1 : Static164.areaLevel;
         Static718.aBoolean822 = ClientOptions.instance.groundBlending.getValue() == 1;
         Static196.aBoolean262 = ClientOptions.instance.textures.getValue() == 1;
-        Static2.aMapRegion = new MapRegion(4, Static720.mapWidth, Static501.mapLength, false);
+        MapRegion.active = new MapRegion(4, Static720.mapWidth, Static501.mapLength, false);
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
-            Static73.method9312(Static319.aByteArrayArray16, Static2.aMapRegion);
+            Static73.method9312(Static319.aByteArrayArray16, MapRegion.active);
         } else {
-            Static693.method9010(Static319.aByteArrayArray16, Static2.aMapRegion);
+            Static693.method9010(Static319.aByteArrayArray16, MapRegion.active);
         }
         Static92.method1757(Static720.mapWidth >> 4, Static501.mapLength >> 4);
         Static159.method2575();
@@ -228,28 +228,28 @@ public final class Static489 {
                 Static693.method9010(Static177.aByteArrayArray5, Static134.aMapRegion_3);
                 Static314.noTimeout(true);
             }
-            Static134.aMapRegion_3.method7885(Static2.aMapRegion.tileHeights[0]);
+            Static134.aMapRegion_3.method7885(MapRegion.active.tileHeights[0]);
             Static134.aMapRegion_3.method7881(null, Toolkit.active, null);
             Static379.method5355(false);
         }
-        Static2.aMapRegion.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Client.collisionMaps);
+        MapRegion.active.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Client.collisionMaps);
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
             Static314.noTimeout(true);
-            Static338.method4994(Static118.aByteArrayArray3, Static2.aMapRegion);
+            Static338.method4994(Static118.aByteArrayArray3, MapRegion.active);
             if (Static363.aByteArrayArray22 != null) {
                 Static369.method3847();
             }
         } else {
             Static314.noTimeout(true);
-            Static101.method2001(Static118.aByteArrayArray3, Static2.aMapRegion);
+            Static101.method2001(Static118.aByteArrayArray3, MapRegion.active);
         }
         client.cacheReset();
         if (GameShell.maxmemory < 96) {
             Static358.method9191();
         }
         Static314.noTimeout(true);
-        Static2.aMapRegion.method7888(Toolkit.active, local430 ? Static693.underwaterGround[0] : null, null);
-        Static2.aMapRegion.method7898(false, Toolkit.active);
+        MapRegion.active.method7888(Toolkit.active, local430 ? Static693.underwaterGround[0] : null, null);
+        MapRegion.active.method7898(false, Toolkit.active);
         Static314.noTimeout(true);
         if (local430) {
             Static379.method5355(true);
@@ -267,7 +267,7 @@ public final class Static489 {
             Static379.method5355(false);
         }
         Static207.method4432();
-        @Pc(825) int local825 = Static2.aMapRegion.maxLevel;
+        @Pc(825) int local825 = MapRegion.active.maxLevel;
         if (local825 > Camera.renderingLevel) {
             local825 = Camera.renderingLevel;
         }
@@ -284,7 +284,7 @@ public final class Static489 {
         for (@Pc(852) int local852 = 0; local852 < 4; local852++) {
             for (local855 = 0; local855 < Static720.mapWidth; local855++) {
                 for (local858 = 0; local858 < Static501.mapLength; local858++) {
-                    Static468.updateObjCount(local852, local858, local855);
+                    Static468.updateObjCount(local852, local855, local858);
                 }
             }
         }

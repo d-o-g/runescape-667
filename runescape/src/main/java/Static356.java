@@ -9,9 +9,6 @@ public final class Static356 {
     @OriginalMember(owner = "client!le", name = "d", descriptor = "I")
     public static int anInt5773;
 
-    @OriginalMember(owner = "client!le", name = "h", descriptor = "J")
-    public static long aLong177 = 1L;
-
     @OriginalMember(owner = "client!le", name = "a", descriptor = "(IJ)V")
     public static void method5196(@OriginalArg(1) long arg0) {
         Static260.aCalendar1.setTime(new Date(arg0));

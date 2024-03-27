@@ -354,7 +354,7 @@ public final class Ground_Sub3 extends Ground {
                 local410 = (arg1 << super.anInt8895) + local214;
                 local147.aShortArray116[local205] = (short) local210;
                 local147.aShortArray113[local205] = (short) local214;
-                local147.aShortArray117[local205] = (short) (this.averageHeight(local410, local363) + (arg3 == null ? 0 : arg3[local205]));
+                local147.aShortArray117[local205] = (short) (this.averageHeight(local363, local410) + (arg3 == null ? 0 : arg3[local205]));
                 if (local236 < 0) {
                     local236 = 0;
                 }
@@ -496,7 +496,7 @@ public final class Ground_Sub3 extends Ground {
                 local2008 = (arg1 << super.anInt8895) + local530;
                 local1760.aShortArray142[local410] = (short) local498;
                 local1760.aShortArray141[local410] = (short) local530;
-                local1760.aShortArray143[local410] = (short) (this.averageHeight(local2008, local1961) + (arg3 == null ? 0 : arg3[local410]));
+                local1760.aShortArray143[local410] = (short) (this.averageHeight(local1961, local2008) + (arg3 == null ? 0 : arg3[local410]));
                 if (local1834 < 0) {
                     local1834 = 0;
                 }
@@ -1338,7 +1338,7 @@ public final class Ground_Sub3 extends Ground {
                 local370 = (arg1 << super.anInt8895) + local156;
                 local118.aShortArray32[local147] = (short) local152;
                 local118.aShortArray38[local147] = (short) local156;
-                local118.aShortArray33[local147] = (short) (this.averageHeight(local370, local323) + (arg3 == null ? 0 : arg3[local147]));
+                local118.aShortArray33[local147] = (short) (this.averageHeight(local323, local370) + (arg3 == null ? 0 : arg3[local147]));
                 if (local118.aShortArray35[local147] < 2) {
                     local118.aShortArray35[local147] = 2;
                 }

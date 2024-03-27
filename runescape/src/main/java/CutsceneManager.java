@@ -26,7 +26,7 @@ public final class CutsceneManager {
     public static int cutsceneFadeStart = -1;
 
     @OriginalMember(owner = "client!wn", name = "j", descriptor = "I")
-    public static int cutsceneId = -1;
+    public static int id = -1;
 
     @OriginalMember(owner = "client!gp", name = "a", descriptor = "[Lclient!lw;")
     public static Actor[] actors;

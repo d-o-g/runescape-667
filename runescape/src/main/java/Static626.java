@@ -6,7 +6,7 @@ public final class Static626 {
     public static int creditCardExpiry;
 
     @OriginalMember(owner = "client!tq", name = "i", descriptor = "I")
-    public static int anInt9476;
+    public static int updateZoneX;
 
     @OriginalMember(owner = "client!tq", name = "f", descriptor = "F")
     public static float aFloat199 = 1.0F;

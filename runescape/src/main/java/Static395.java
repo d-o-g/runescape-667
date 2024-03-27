@@ -9,7 +9,7 @@ public final class Static395 {
     public static Entity[] aEntityArray11;
 
     @OriginalMember(owner = "client!mha", name = "j", descriptor = "[I")
-    public static final int[] anIntArray833 = new int[32];
+    public static final int[] statUpdates = new int[32];
 
     @OriginalMember(owner = "client!mha", name = "c", descriptor = "(I)V")
     public static void method9162() {

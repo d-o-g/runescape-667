@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static245 {
 
     @OriginalMember(owner = "client!hka", name = "h", descriptor = "[I")
-    public static final int[] anIntArray773 = new int[]{99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 120};
+    public static final int[] MAX_LEVELS = new int[]{99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 120};
 
     @OriginalMember(owner = "client!hka", name = "a", descriptor = "(Ljava/lang/String;Lclient!qha;II)Lclient!mfa;")
     public static Class240 method8629(@OriginalArg(0) String arg0, @OriginalArg(1) GlToolkit arg1, @OriginalArg(3) int arg2) {

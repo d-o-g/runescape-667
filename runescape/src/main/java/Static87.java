@@ -5,10 +5,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static87 {
 
     @OriginalMember(owner = "client!cn", name = "c", descriptor = "I")
-    public static int anInt1810;
+    public static int updateZoneLevel;
 
     @OriginalMember(owner = "client!cn", name = "h", descriptor = "I")
-    public static int anInt1806 = 0;
+    public static int tradeChatFilter = 0;
 
     @OriginalMember(owner = "client!cn", name = "a", descriptor = "(IIIII)V")
     public static void method1692(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {

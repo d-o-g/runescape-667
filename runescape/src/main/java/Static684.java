@@ -23,7 +23,7 @@ public final class Static684 {
     public static void updateMapArea(@OriginalArg(0) boolean force, @OriginalArg(1) int centerX, @OriginalArg(2) int mainLogicStep, @OriginalArg(3) int centerZ) {
         if (CutsceneManager.state == 4) {
             CutsceneManager.state = 0;
-            CutsceneManager.cutsceneId = -1;
+            CutsceneManager.id = -1;
         }
 
         if (!force && Static62.areaCenterX == centerX && Static525.areaCenterZ == centerZ && (Static164.areaLevel == Camera.renderingLevel || ClientOptions.instance.animateBackground.getValue() == 1)) {
@@ -203,7 +203,7 @@ public final class Static684 {
         Minimap.resetSprite();
         Static346.spotAnimations.clear();
         Static505.projectiles.clear();
-        Static422.textCoords.clear();
+        TextCoordList.textCoords.clear();
         ParticleManager.method2044();
     }
 }

@@ -1,6 +1,5 @@
 import com.jagex.SignLink;
 import com.jagex.core.datastruct.LinkedList;
-import com.jagex.game.camera.CameraMode;
 import com.jagex.game.runetek6.sound.Audio;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -75,36 +74,6 @@ public final class Static638 {
                 }
             }
         }
-    }
-
-    @OriginalMember(owner = "client!uca", name = "a", descriptor = "(IIIIII)V")
-    public static void method8397(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        Camera.lookZ = arg1;
-        Camera.lookY = arg3;
-        Camera.lookStep = arg0;
-        Camera.lookSpeed = arg4;
-        Camera.lookX = arg2;
-        if (Camera.lookSpeed >= 100) {
-            @Pc(22) int local22 = Camera.lookX * 512 + 256;
-            @Pc(28) int local28 = Camera.lookZ * 512 + 256;
-            @Pc(36) int local36 = Static102.averageHeight(Camera.renderingLevel, local28, local22) - Camera.lookY;
-            @Pc(41) int local41 = local22 - Camera.x;
-            @Pc(46) int local46 = local36 - Camera.y;
-            @Pc(51) int local51 = local28 - Camera.z;
-            @Pc(62) int local62 = (int) Math.sqrt(local51 * local51 + local41 * local41);
-            Camera.pitch = (int) (Math.atan2(local46, local62) * 2607.5945876176133D) & 0x3FFF;
-            Camera.yaw = (int) (-2607.5945876176133D * Math.atan2(local41, local51)) & 0x3FFF;
-            if (Camera.pitch < 1024) {
-                Camera.pitch = 1024;
-            }
-            Camera.roll = 0;
-            if (Camera.pitch > 3072) {
-                Camera.pitch = 3072;
-            }
-        }
-        Camera.anInt10383 = -1;
-        Camera.anInt10376 = -1;
-        Camera.mode = CameraMode.MODE_FIXED;
     }
 
     @OriginalMember(owner = "client!uca", name = "a", descriptor = "(III)Lclient!nda;")

@@ -1488,7 +1488,7 @@ public final class InterfaceManager {
                                         MiniMenu.addEntryInner(false, -1, 1L, local1191, local1199, LocalisedText.FACEHERE.localise(Client.language), MiniMenuAction.FACE_SQUARE, true, -1, "", 0L, true);
                                     }
 
-                                    MiniMenu.addEntryInner(false, -1, 1L, local1191, local1199, Static331.walkText, MiniMenuAction.WALK, true, Static331.walkCursor, "", 0L, true);
+                                    MiniMenu.addEntryInner(false, -1, 1L, local1191, local1199, Static331.moveText, MiniMenuAction.WALK, true, Static331.moveCursor, "", 0L, true);
                                 }
 
                                 continue;
@@ -1748,16 +1748,16 @@ public final class InterfaceManager {
                             component.lastVarpUpdate = Static635.varpUpdateCount;
                         }
 
-                        if (component.onInvTransmit != null && Static451.invUpdateCount > component.lastInvUpdate) {
-                            if (component.inventoryTriggers == null || Static451.invUpdateCount - component.lastInvUpdate > 32) {
+                        if (component.onInvTransmit != null && ClientInventory.updateCount > component.lastInvUpdate) {
+                            if (component.inventoryTriggers == null || ClientInventory.updateCount - component.lastInvUpdate > 32) {
                                 @Pc(877) HookRequest hook = new HookRequest();
                                 hook.source = component;
                                 hook.arguments = component.onInvTransmit;
                                 Static521.A_DEQUE___44.addLast(hook);
                             } else {
                                 label696:
-                                for (@Pc(402) int j = component.lastInvUpdate; j < Static451.invUpdateCount; j++) {
-                                    @Pc(549) int local549 = Static322.anIntArray889[j & 0x1F];
+                                for (@Pc(402) int j = component.lastInvUpdate; j < ClientInventory.updateCount; j++) {
+                                    @Pc(549) int local549 = ClientInventory.updates[j & 0x1F];
 
                                     for (@Pc(555) int k = 0; k < component.inventoryTriggers.length; k++) {
                                         if (component.inventoryTriggers[k] == local549) {
@@ -1771,7 +1771,7 @@ public final class InterfaceManager {
                                 }
                             }
 
-                            component.lastInvUpdate = Static451.invUpdateCount;
+                            component.lastInvUpdate = ClientInventory.updateCount;
                         }
 
                         if (component.onStatTransmit != null && Static366.statUpdateCount > component.lastStatUpdate) {
@@ -1783,7 +1783,7 @@ public final class InterfaceManager {
                             } else {
                                 label672:
                                 for (@Pc(402) int j = component.lastStatUpdate; j < Static366.statUpdateCount; j++) {
-                                    @Pc(549) int local549 = Static395.anIntArray833[j & 0x1F];
+                                    @Pc(549) int local549 = Static395.statUpdates[j & 0x1F];
 
                                     for (@Pc(555) int k = 0; k < component.statTriggers.length; k++) {
                                         if (component.statTriggers[k] == local549) {
@@ -1809,7 +1809,7 @@ public final class InterfaceManager {
                             } else {
                                 label648:
                                 for (@Pc(402) int j = component.lastVarclanUpdate; j < Static710.varclanUpdateCount; j++) {
-                                    @Pc(549) int local549 = Static265.anIntArray328[j & 0x1F];
+                                    @Pc(549) int local549 = Static265.varclanUpdates[j & 0x1F];
 
                                     for (@Pc(555) int k = 0; k < component.varclanTriggers.length; k++) {
                                         if (component.varclanTriggers[k] == local549) {
@@ -1833,7 +1833,7 @@ public final class InterfaceManager {
                             Static521.A_DEQUE___44.addLast(hook);
                         }
 
-                        if (Static344.lastFriendTransmit > component.lastScriptTransmit && component.onFriendTransmit != null) {
+                        if (FriendsList.lastTransmit > component.lastScriptTransmit && component.onFriendTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onFriendTransmit;
@@ -1861,7 +1861,7 @@ public final class InterfaceManager {
                             Static521.A_DEQUE___44.addLast(hook);
                         }
 
-                        if (StockmarketManager.lastStockTransmit > component.lastScriptTransmit && component.onStockTransmit != null) {
+                        if (StockmarketManager.lastTransmit > component.lastScriptTransmit && component.onStockTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onStockTransmit;
@@ -2545,7 +2545,7 @@ public final class InterfaceManager {
                     }
                 }
 
-                closeSubInterface(false, true, sub);
+                closeSubInterface(sub, true, false);
             }
 
             topLevelInterface = -1;
@@ -2601,7 +2601,7 @@ public final class InterfaceManager {
                     }
                 }
 
-                closeSubInterface(false, true, sub);
+                closeSubInterface(sub, true, false);
             }
 
             topLevelInterface = -1;
@@ -2627,7 +2627,7 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!od", name = "a", descriptor = "(BZZLclient!aha;)V")
-    public static void closeSubInterface(@OriginalArg(1) boolean fromClient, @OriginalArg(2) boolean discard, @OriginalArg(3) SubInterface sub) {
+    public static void closeSubInterface(@OriginalArg(3) SubInterface sub, @OriginalArg(2) boolean discard, @OriginalArg(1) boolean fromClient) {
         @Pc(6) int subId = sub.id;
         @Pc(10) int idAndSlot = (int) sub.key;
         sub.unlink();
@@ -2663,7 +2663,7 @@ public final class InterfaceManager {
                 @Pc(84) int key = (int) child.key;
 
                 if (subId == key >>> 16) {
-                    closeSubInterface(fromClient, true, child);
+                    closeSubInterface(child, true, fromClient);
                 }
             }
         }
@@ -2685,7 +2685,7 @@ public final class InterfaceManager {
                 }
             }
             if (local22.type == 0) {
-                closeSubInterface(true, true, local22);
+                closeSubInterface(local22, true, true);
             }
         }
         if (dialog != null) {

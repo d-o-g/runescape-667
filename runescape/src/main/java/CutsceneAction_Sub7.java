@@ -24,6 +24,6 @@ public final class CutsceneAction_Sub7 extends CutsceneAction {
     @Override
     public void execute() {
         @Pc(8) Class394 local8 = Static507.aClass394Array1[this.anInt3415];
-        Static198.method2953(local8.anInt10416, local8.anInt10422, local8.anInt10415, this.anInt3414, local8.anInt10419, local8.anInt10412, Static461.LOC_LAYERS_BY_SHAPE[local8.anInt10415]);
+        Static198.animateLocation(local8.anInt10416, local8.anInt10419, local8.anInt10422, local8.anInt10415, local8.anInt10412, Static461.LOC_LAYERS_BY_SHAPE[local8.anInt10415], this.anInt3414);
     }
 }

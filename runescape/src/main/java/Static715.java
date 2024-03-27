@@ -8,9 +8,6 @@ public final class Static715 {
     @OriginalMember(owner = "client!wla", name = "j", descriptor = "I")
     public static int anInt10810;
 
-    @OriginalMember(owner = "client!wla", name = "p", descriptor = "[I")
-    public static final int[] anIntArray881 = new int[200];
-
     @OriginalMember(owner = "client!wla", name = "a", descriptor = "(BLclient!ge;)Lclient!rk;")
     public static Class138_Sub1 method9346(@OriginalArg(1) Packet arg0) {
         @Pc(7) Class138 local7 = Class138.method8359(arg0);

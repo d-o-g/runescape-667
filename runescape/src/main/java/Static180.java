@@ -2,6 +2,7 @@ import com.jagex.ClientProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.clan.channel.ClanChannel;
 import rs2.client.clan.channel.ClanChannelUser;
 
 public final class Static180 {
@@ -20,10 +21,10 @@ public final class Static180 {
 
     @OriginalMember(owner = "client!fka", name = "a", descriptor = "(II)V")
     public static void method2775(@OriginalArg(1) int arg0) {
-        if (Static45.aClass2_Sub47_1 == null || (arg0 < 0 || arg0 >= Static45.aClass2_Sub47_1.userCount)) {
+        if (ClanChannel.affined == null || (arg0 < 0 || arg0 >= ClanChannel.affined.userCount)) {
             return;
         }
-        @Pc(29) ClanChannelUser local29 = Static45.aClass2_Sub47_1.users[arg0];
+        @Pc(29) ClanChannelUser local29 = ClanChannel.affined.users[arg0];
         if (local29.rank != -1) {
             return;
         }

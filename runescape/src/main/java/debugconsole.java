@@ -217,8 +217,8 @@ public final class debugconsole {
                 return;
             } else {
                 if (command.equalsIgnoreCase("getcamerapos")) {
-                    addline("Pos: " + PlayerEntity.self.level + "," + ((Camera.x >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ >> 6) + "," + ((Camera.x >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.z, Camera.x) - Camera.y));
-                    addline("Look: " + PlayerEntity.self.level + "," + (Camera.lookX + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseZ + Camera.lookZ >> 6) + "," + (WorldMap.areaBaseX + Camera.lookX & 0x3F) + "," + (WorldMap.areaBaseZ + Camera.lookZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.lookZ, Camera.lookX) - Camera.lookY));
+                    addline("Pos: " + PlayerEntity.self.level + "," + ((Camera.x >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ >> 6) + "," + ((Camera.x >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.x, Camera.z) - Camera.y));
+                    addline("Look: " + PlayerEntity.self.level + "," + (Camera.lookX + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseZ + Camera.lookZ >> 6) + "," + (WorldMap.areaBaseX + Camera.lookX & 0x3F) + "," + (WorldMap.areaBaseZ + Camera.lookZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.lookX, Camera.lookZ) - Camera.lookY));
                     return;
                 }
             }
@@ -271,7 +271,7 @@ public final class debugconsole {
                     }
                 }
                 if (command.equalsIgnoreCase("cleartext")) {
-                    Static422.textCoords.clear();
+                    TextCoordList.textCoords.clear();
                     addline("Text coords cleared");
                     return;
                 }
@@ -601,13 +601,13 @@ public final class debugconsole {
 
                 if (command.startsWith("switchworld")) {
                     @Pc(501) int id = Integer.parseInt(command.substring(12));
-                    Static430.method5817(id, WorldList.list(id).address);
+                    client.connectTo(id, WorldList.list(id).address);
                     addline("switched");
                     return;
                 }
 
                 if (command.equals("getworld")) {
-                    addline("w: " + ConnectionInfo.login.id);
+                    addline("w: " + ConnectionInfo.login.world);
                     return;
                 }
 

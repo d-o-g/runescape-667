@@ -15,13 +15,13 @@ public final class Static630 {
         @Pc(1) boolean found = false;
 
         if (Static246.ground != Static693.underwaterGround) {
-            @Pc(12) int averageHeight = Static706.floor[maxLevel].averageHeight(z, x);
+            @Pc(12) int averageHeight = Static706.floor[maxLevel].averageHeight(x, z);
 
             for (@Pc(14) int level = 0; level <= maxLevel; level++) {
                 @Pc(19) Ground ground = Static706.floor[level];
 
                 if (ground != null) {
-                    @Pc(29) int deltaHeight = averageHeight - ground.averageHeight(z, x);
+                    @Pc(29) int deltaHeight = averageHeight - ground.averageHeight(x, z);
 
                     if (arg4 != null) {
                         arg4[level] = ground.method7874(shadow, x, deltaHeight, z);

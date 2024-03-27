@@ -179,19 +179,19 @@ public final class ObjStackEntity extends Class8_Sub2_Sub5 {
 
             @Pc(122) int southWestX = -local115 / 2;
             @Pc(127) int southWestZ = -local115 / 2;
-            @Pc(139) int southWestHeight = ground.averageHeight(super.z + southWestZ, southWestX + super.x);
+            @Pc(139) int southWestHeight = ground.averageHeight(southWestX + super.x, super.z + southWestZ);
 
             @Pc(143) int southEastX = local115 / 2;
             @Pc(148) int southEastZ = -local115 / 2;
-            @Pc(161) int southEastHeight = ground.averageHeight(super.z + southEastZ, southEastX + super.x);
+            @Pc(161) int southEastHeight = ground.averageHeight(southEastX + super.x, super.z + southEastZ);
 
             @Pc(166) int northWestX = -local115 / 2;
             @Pc(170) int northWestZ = local115 / 2;
-            @Pc(182) int northWestHeight = ground.averageHeight(northWestZ + super.z, super.x + northWestX);
+            @Pc(182) int northWestHeight = ground.averageHeight(super.x + northWestX, northWestZ + super.z);
 
             @Pc(186) int northEastX = local115 / 2;
             @Pc(190) int northEastZ = local115 / 2;
-            @Pc(203) int northEastHeight = ground.averageHeight(super.z + northEastZ, northEastX + super.x);
+            @Pc(203) int northEastHeight = ground.averageHeight(northEastX + super.x, super.z + northEastZ);
 
             @Pc(215) int southHeightMin = southWestHeight < southEastHeight ? southWestHeight : southEastHeight;
             @Pc(223) int northHeightMin = northWestHeight < northEastHeight ? northWestHeight : northEastHeight;

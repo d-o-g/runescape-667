@@ -6,9 +6,6 @@ public final class Static322 {
     @OriginalMember(owner = "client!kd", name = "m", descriptor = "S")
     public static short aShort135;
 
-    @OriginalMember(owner = "client!kd", name = "c", descriptor = "[I")
-    public static final int[] anIntArray889 = new int[32];
-
     @OriginalMember(owner = "client!kd", name = "a", descriptor = "(IIC)C")
     public static char method9436(@OriginalArg(1) int language, @OriginalArg(2) char c) {
         if (c >= 'À' && c <= 'ÿ') {
@@ -68,13 +65,6 @@ public final class Static322 {
         } else {
             return c;
         }
-    }
-
-    @OriginalMember(owner = "client!kd", name = "a", descriptor = "(Z)V")
-    public static void method9441() {
-        MainLogicManager.setStep(12);
-        Static300.method4393();
-        System.gc();
     }
 
 }

@@ -134,6 +134,12 @@ public final class Camera {
     @OriginalMember(owner = "client!jw", name = "v", descriptor = "I")
     public static int lookStep;
 
+    @OriginalMember(owner = "client!pc", name = "a", descriptor = "F")
+    public static float playerCameraPitch = 1024.0F;
+
+    @OriginalMember(owner = "client!ik", name = "I", descriptor = "Z")
+    public static boolean angleUpdated = true;
+
     @OriginalMember(owner = "client!sg", name = "a", descriptor = "(I)V")
     public static void splineTick() {
         if (posSpline == -1 || lookSpline == -1) {
@@ -202,7 +208,7 @@ public final class Camera {
             return;
         }
 
-        @Pc(28) int local28 = (int) Static479.aFloat123;
+        @Pc(28) int local28 = (int) playerCameraPitch;
         if (Static188.anInt3103 >> 8 > local28) {
             local28 = Static188.anInt3103 >> 8;
         }
@@ -211,7 +217,7 @@ public final class Camera {
         }
 
         @Pc(63) int local63 = (int) playerCameraYaw + Static288.anInt4621 & 0x3FFF;
-        method4606(local28, (local28 >> 3) * 3 + 600 << 2, arg0, Static494.anInt7409, local63, Static38.anInt920, Static102.averageHeight(renderingLevel, PlayerEntity.self.z, PlayerEntity.self.x) - 200);
+        method4606(local28, (local28 >> 3) * 3 + 600 << 2, arg0, Static494.anInt7409, local63, Static38.anInt920, Static102.averageHeight(renderingLevel, PlayerEntity.self.x, PlayerEntity.self.z) - 200);
 
         @Pc(107) float local107 = 1.0F - (float) ((100 - deltaTime) * (-deltaTime + 100) * (100 - deltaTime)) / 1000000.0F;
         x = (int) ((float) (x - lastX) * local107 + (float) lastX);
@@ -265,7 +271,7 @@ public final class Camera {
     }
 
     @OriginalMember(owner = "client!kba", name = "a", descriptor = "(IZIBIII)V")
-    public static void moveTo(@OriginalArg(0) int x, @OriginalArg(1) boolean snap, @OriginalArg(2) int step, @OriginalArg(4) int y, @OriginalArg(5) int z, @OriginalArg(6) int rate) {
+    public static void moveTo(@OriginalArg(0) int x, @OriginalArg(4) int y, @OriginalArg(5) int z, @OriginalArg(2) int step, @OriginalArg(6) int rate, @OriginalArg(1) boolean snap) {
         moveToY = y;
         moveToStep = step;
         moveToRate = rate;
@@ -274,7 +280,7 @@ public final class Camera {
         if (snap && moveToRate >= 100) {
             Camera.x = (moveToX * 512) + 256;
             Camera.z = (moveToZ * 512) + 256;
-            Camera.y = Static102.averageHeight(renderingLevel, Camera.z, Camera.x) - moveToY;
+            Camera.y = Static102.averageHeight(renderingLevel, Camera.x, Camera.z) - moveToY;
         }
         mode = CameraMode.MODE_FIXED;
         anInt10383 = -1;
@@ -319,12 +325,12 @@ public final class Camera {
     public static void moveToTick() {
         @Pc(9) int local9 = (moveToX * 512) + 256;
         @Pc(15) int local15 = (moveToZ * 512) + 256;
-        @Pc(24) int local24 = Static102.averageHeight(renderingLevel, local15, local9) - moveToY;
+        @Pc(24) int local24 = Static102.averageHeight(renderingLevel, local9, local15) - moveToY;
 
         if (moveToRate >= 100) {
             x = moveToX * 512 + 256;
             z = moveToZ * 512 + 256;
-            y = Static102.averageHeight(renderingLevel, z, x) - moveToY;
+            y = Static102.averageHeight(renderingLevel, x, z) - moveToY;
         } else {
             if (x < local9) {
                 x += moveToStep + (local9 - x) * moveToRate / 1000;
@@ -366,7 +372,7 @@ public final class Camera {
 
         local15 = lookZ * 512 + 256;
         local9 = lookX * 512 + 256;
-        local24 = Static102.averageHeight(renderingLevel, local15, local9) - lookY;
+        local24 = Static102.averageHeight(renderingLevel, local9, local15) - lookY;
 
         @Pc(259) int local259 = local9 - x;
         @Pc(264) int local264 = local24 - y;
@@ -434,17 +440,52 @@ public final class Camera {
     }
 
     @OriginalMember(owner = "client!ot", name = "b", descriptor = "(IIII)V")
-    public static void method6408(@OriginalArg(2) int arg0, @OriginalArg(3) int arg1) {
-        @Pc(11) int local11 = arg1 << 3;
-        @Pc(15) int local15 = arg0 << 3;
+    public static void forceAngle(@OriginalArg(3) int pitch, @OriginalArg(2) int yaw, @OriginalArg(1) int roll) {
+        @Pc(11) int shiftedPitch = pitch << 3;
+        @Pc(15) int shiftedYaw = yaw << 3;
+        int shiftedRoll = roll << 3;
         if (mode == CameraMode.MODE_FIXED) {
-            pitch = local11;
-            roll = 0;
-            yaw = local15;
+            Camera.pitch = shiftedPitch;
+            Camera.roll = shiftedRoll;
+            Camera.yaw = shiftedYaw;
         }
-        Static479.aFloat123 = (float) local11;
-        playerCameraYaw = (float) local15;
+        playerCameraPitch = (float) shiftedPitch;
+        playerCameraYaw = (float) shiftedYaw;
         Static723.method9451();
-        Static273.aBoolean339 = true;
+        angleUpdated = true;
+    }
+
+    @OriginalMember(owner = "client!uca", name = "a", descriptor = "(IIIIII)V")
+    public static void lookAt(@OriginalArg(3) int x, @OriginalArg(4) int y, @OriginalArg(1) int z, @OriginalArg(0) int step, @OriginalArg(5) int speed) {
+        lookZ = z;
+        lookY = y;
+        lookStep = step;
+        lookSpeed = speed;
+        lookX = x;
+
+        if (lookSpeed >= 100) {
+            @Pc(22) int worldX = lookX * 512 + 256;
+            @Pc(28) int worldZ = lookZ * 512 + 256;
+            @Pc(36) int worldY = Static102.averageHeight(renderingLevel, worldX, worldZ) - lookY;
+            @Pc(41) int deltaX = worldX - Camera.x;
+            @Pc(46) int deltaY = worldY - Camera.y;
+            @Pc(51) int deltaZ = worldZ - Camera.z;
+            @Pc(62) int distance = (int) Math.sqrt((deltaZ * deltaZ) + (deltaX * deltaX));
+
+            pitch = (int) (Math.atan2(deltaY, distance) * 2607.5945876176133D) & 0x3FFF;
+            yaw = (int) (-2607.5945876176133D * Math.atan2(deltaX, deltaZ)) & 0x3FFF;
+            roll = 0;
+
+            if (pitch < 1024) {
+                pitch = 1024;
+            }
+            if (pitch > 3072) {
+                pitch = 3072;
+            }
+        }
+
+        anInt10383 = -1;
+        anInt10376 = -1;
+        mode = CameraMode.MODE_FIXED;
     }
 }

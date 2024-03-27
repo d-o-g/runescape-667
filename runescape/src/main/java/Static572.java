@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static572 {
 
-    @OriginalMember(owner = "client!s", name = "a", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray42 = new String[200];
-
     @OriginalMember(owner = "client!s", name = "a", descriptor = "(IIII)I")
     public static int method7867(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         @Pc(15) int local15 = 255 - arg2;

@@ -121,7 +121,7 @@ public final class CutsceneAction_Sub23 extends CutsceneAction {
         }
 
         @Pc(91) int local91 = this.displacement << 2;
-        @Pc(128) ProjectileAnimation projectile = new ProjectileAnimation(this.id, level, level, x1, z1, this.y1 << 2, TimeUtils.clock, TimeUtils.clock + this.duration, this.verticalAngle, local91, this.origin + 1, this.target + 1, this.y2 << 2, false, 0);
+        @Pc(128) ProjectileAnimation projectile = new ProjectileAnimation(this.id, level, level, x1, z1, this.origin + 1, this.target + 1, this.y1 << 2, this.y2 << 2, TimeUtils.clock, TimeUtils.clock + this.duration, this.verticalAngle, local91, false, 0);
         projectile.target(this.y2 << 2, this.duration + TimeUtils.clock, z2, x2);
         Static505.projectiles.addLast(new ProjectileAnimationNode(projectile));
     }

@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static83 {
 
     @OriginalMember(owner = "client!cla", name = "a", descriptor = "(IILclient!ge;)V")
-    public static void method1608(@OriginalArg(1) int arg0, @OriginalArg(2) Packet arg1) {
+    public static void writeUid(@OriginalArg(1) int arg0, @OriginalArg(2) Packet arg1) {
         if (GameShell.uidDat == null) {
             return;
         }

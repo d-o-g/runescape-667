@@ -2,12 +2,8 @@ import com.jagex.ClientProt;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.clan.settings.ClanSettings;
 
 public final class Static128 {
-
-    @OriginalMember(owner = "client!ea", name = "m", descriptor = "Lclient!hi;")
-    public static ClanSettings aClanSettings_8;
 
     @OriginalMember(owner = "client!ea", name = "a", descriptor = "(ILjava/lang/String;)V")
     public static void method7754(@OriginalArg(1) String arg0) {

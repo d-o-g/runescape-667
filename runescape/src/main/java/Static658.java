@@ -25,7 +25,7 @@ public final class Static658 {
                 local6 = arg0.x >> Static52.anInt1066;
                 local28 = arg0.z >> Static52.anInt1066;
             }
-            Static665.aToolkit_15.EA(Static706.floor[0].averageHeight(arg0.z, arg0.x), Static100.method1987(local6, local28), Static350.method5124(local6, local28), Static339.method5005(local6, local28));
+            Static665.aToolkit_15.EA(Static706.floor[0].averageHeight(arg0.x, arg0.z), Static100.method1987(local6, local28), Static350.method5124(local6, local28), Static339.method5005(local6, local28));
         }
         @Pc(64) PickableEntity local64 = arg0.render(Static665.aToolkit_15);
         if (local64 == null) {

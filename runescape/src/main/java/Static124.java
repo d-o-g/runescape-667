@@ -23,8 +23,4 @@ public final class Static124 {
         Static483.aBoolean546 = true;
     }
 
-    @OriginalMember(owner = "client!ds", name = "a", descriptor = "(IB)Z")
-    public static boolean method2218(@OriginalArg(0) int arg0) {
-        return arg0 == 2 || arg0 == 22 || arg0 == 52 || arg0 == 30 || arg0 == 53 || arg0 == 9 || arg0 == 51 || arg0 == 15 || arg0 == 48 || arg0 == 16 || arg0 == 44;
-    }
 }

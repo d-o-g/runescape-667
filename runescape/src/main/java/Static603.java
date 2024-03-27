@@ -75,9 +75,9 @@ public final class Static603 {
                         Static710.method6710(InterfaceManager.dragSource, InterfaceManager.dragTarget);
                     }
                 } else if ((Client.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.innerEntryCount > 2) {
-                    Static455.method6223(InterfaceManager.dragStartX + InterfaceManager.dragLastX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);
+                    MiniMenu.method6223(InterfaceManager.dragStartX + InterfaceManager.dragLastX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);
                 } else if (MiniMenu.isPopulated()) {
-                    Static455.method6223(InterfaceManager.dragLastX + InterfaceManager.dragStartX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);
+                    MiniMenu.method6223(InterfaceManager.dragLastX + InterfaceManager.dragStartX, InterfaceManager.dragLastY + InterfaceManager.dragStartY);
                 }
                 InterfaceManager.dragSource = null;
             }

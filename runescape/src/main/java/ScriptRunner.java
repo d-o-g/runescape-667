@@ -1845,19 +1845,19 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3344) {
-                                        aStringArray37[anInt7139++] = Static130.method2281();
+                                        aStringArray37[anInt7139++] = MiniMenu.secondEntry();
                                         return;
                                     }
                                     if (arg0 == 3345) {
-                                        aStringArray37[anInt7139++] = Static690.method8998();
+                                        aStringArray37[anInt7139++] = MiniMenu.activeEntry();
                                         return;
                                     }
                                     if (arg0 == 3346) {
-                                        anIntArray578[anInt7142++] = Static338.method4995();
+                                        anIntArray578[anInt7142++] = MiniMenu.length();
                                         return;
                                     }
                                     if (arg0 == 3347) {
-                                        anIntArray578[anInt7142++] = Static470.anInt7112;
+                                        anIntArray578[anInt7142++] = Static470.currentCursor;
                                         return;
                                     }
                                     if (arg0 == 3349) {

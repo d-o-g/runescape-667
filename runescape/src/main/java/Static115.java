@@ -21,7 +21,7 @@ public final class Static115 {
         if (ClientOptions.instance.customCursors.getValue() == 0) {
             arg0 = -1;
         }
-        if (arg0 == Static470.anInt7112) {
+        if (arg0 == Static470.currentCursor) {
             return;
         }
         if (arg0 != -1) {
@@ -31,12 +31,12 @@ public final class Static115 {
                 arg0 = -1;
             } else {
                 GameShell.signLink.method8995(GameShell.canvas, local32.method9383(), new Point(local28.hotspotx, local28.hotspoty), local32.offsetX(), local32.offsetY());
-                Static470.anInt7112 = arg0;
+                Static470.currentCursor = arg0;
             }
         }
-        if (arg0 == -1 && Static470.anInt7112 != -1) {
+        if (arg0 == -1 && Static470.currentCursor != -1) {
             GameShell.signLink.method8995(GameShell.canvas, null, new Point(), -1, -1);
-            Static470.anInt7112 = -1;
+            Static470.currentCursor = -1;
         }
     }
 }

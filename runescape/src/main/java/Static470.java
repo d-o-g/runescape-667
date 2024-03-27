@@ -9,7 +9,7 @@ public final class Static470 {
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___32 = new CutsceneActionType(50);
 
     @OriginalMember(owner = "client!or", name = "Y", descriptor = "I")
-    public static int anInt7112 = -1;
+    public static int currentCursor = -1;
 
     @OriginalMember(owner = "client!or", name = "Z", descriptor = "I")
     public static int anInt7113 = -1;

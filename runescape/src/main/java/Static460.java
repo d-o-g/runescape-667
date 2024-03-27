@@ -13,9 +13,6 @@ public final class Static460 {
     @OriginalMember(owner = "client!oj", name = "s", descriptor = "I")
     public static int anInt6970;
 
-    @OriginalMember(owner = "client!oj", name = "t", descriptor = "I")
-    public static int anInt6964 = 0;
-
     @OriginalMember(owner = "client!rr", name = "j", descriptor = "I")
     public static int anInt8472 = 0;
 

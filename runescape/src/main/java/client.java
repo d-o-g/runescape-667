@@ -666,7 +666,7 @@ public final class client extends GameShell {
                                         local2006 = (HookRequest) Static521.A_DEQUE___44.removeFirst();
                                         if (local2006 == null) {
                                             if (WorldMap.component == null) {
-                                                Static460.anInt6964 = 0;
+                                                MiniMenu.anInt6964 = 0;
                                             }
                                             if (InterfaceManager.dragSource != null) {
                                                 Static603.method7899();

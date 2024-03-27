@@ -1,4 +1,3 @@
-import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -23,29 +22,4 @@ public final class Static338 {
         }
     }
 
-    @OriginalMember(owner = "client!km", name = "a", descriptor = "(I)I")
-    public static int method4995() {
-        if (MiniMenu.open) {
-            return 6;
-        } else if (MiniMenu.leftClickEntry == null) {
-            return 0;
-        } else {
-            @Pc(23) int local23 = MiniMenu.leftClickEntry.action;
-            if (MiniMenuAction.isButtonOp(local23)) {
-                return 1;
-            } else if (MiniMenuAction.isObjOp(local23)) {
-                return 2;
-            } else if (MiniMenuAction.isLocOp(local23)) {
-                return 3;
-            } else if (MiniMenuAction.isNpcOp(local23)) {
-                return 4;
-            } else if (Static124.method2218(local23)) {
-                return 7;
-            } else if (local23 == 4) {
-                return 8;
-            } else {
-                return 5;
-            }
-        }
-    }
 }

@@ -8,8 +8,4 @@ public final class Static690 {
     @OriginalMember(owner = "client!vr", name = "c", descriptor = "Lclient!dfa;")
     public static final Class77 aClass77_7 = new Class77();
 
-    @OriginalMember(owner = "client!vr", name = "a", descriptor = "(Z)Ljava/lang/String;")
-    public static String method8998() {
-        return MiniMenu.open || MiniMenu.leftClickEntry == null ? "" : MiniMenu.leftClickEntry.op;
-    }
 }

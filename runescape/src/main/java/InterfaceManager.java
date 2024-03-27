@@ -1071,7 +1071,7 @@ public final class InterfaceManager {
         Toolkit.active.la();
         MiniMenu.draw(Toolkit.active);
 
-        @Pc(116) int cursor = Static679.method8909();
+        @Pc(116) int cursor = MiniMenu.cursor();
         if (cursor == -1) {
             cursor = targetEndCursor;
         }
@@ -1145,7 +1145,7 @@ public final class InterfaceManager {
         }
         Toolkit.active.la();
         MiniMenu.draw(Toolkit.active);
-        @Pc(77) int local77 = Static679.method8909();
+        @Pc(77) int local77 = MiniMenu.cursor();
         if (local77 == -1) {
             local77 = targetEndCursor;
         }
@@ -1256,7 +1256,7 @@ public final class InterfaceManager {
                             dragLayer = null;
                         }
 
-                        Static460.anInt6964 = 0;
+                        MiniMenu.anInt6964 = 0;
                         WorldMap.hovered = false;
                         WorldMap.clicked = false;
 
@@ -1401,7 +1401,7 @@ public final class InterfaceManager {
                         if (dragSource != null) {
                             clicked = false;
                             pressedOver = false;
-                        } else if (MiniMenu.open || component.clientcode != ComponentClientCode.WORLD_MAP && Static460.anInt6964 > 0) {
+                        } else if (MiniMenu.open || (component.clientcode != ComponentClientCode.WORLD_MAP && MiniMenu.anInt6964 > 0)) {
                             clicked = false;
                             pressedOver = false;
                             hovered = false;
@@ -1530,20 +1530,20 @@ public final class InterfaceManager {
                                         WorldMap.clickedY = y;
                                     }
 
-                                    Static460.anInt6964 = 1;
+                                    MiniMenu.anInt6964 = 1;
                                     Static1.aBoolean821 = false;
                                     dragStartX = MouseMonitor.instance.getRecordedX();
                                     dragStartY = MouseMonitor.instance.getRecordedY();
                                     continue;
                                 }
 
-                                if (pressedOver && Static460.anInt6964 > 0) {
-                                    if (Static460.anInt6964 == 1 && (dragStartX != MouseMonitor.instance.getRecordedX() || dragStartY != MouseMonitor.instance.getRecordedY())) {
+                                if (pressedOver && MiniMenu.anInt6964 > 0) {
+                                    if (MiniMenu.anInt6964 == 1 && (dragStartX != MouseMonitor.instance.getRecordedX() || dragStartY != MouseMonitor.instance.getRecordedY())) {
                                         Static661.anInt6055 = WorldMap.anInt2809;
                                         Static417.anInt6399 = WorldMap.anInt9389;
-                                        Static460.anInt6964 = 2;
+                                        MiniMenu.anInt6964 = 2;
                                     }
-                                    if (Static460.anInt6964 == 2) {
+                                    if (MiniMenu.anInt6964 == 2) {
                                         Static1.aBoolean821 = true;
                                         Static669.method8711(Static661.anInt6055 + (int) ((double) (dragStartX - MouseMonitor.instance.getRecordedX()) * 2.0D / (double) WorldMap.targetZoom));
                                         Static182.method2786(Static417.anInt6399 - (int) ((double) (dragStartY - MouseMonitor.instance.getRecordedY()) * 2.0D / (double) WorldMap.targetZoom));
@@ -1551,15 +1551,15 @@ public final class InterfaceManager {
                                     continue;
                                 }
 
-                                if (Static460.anInt6964 > 0 && !Static1.aBoolean821) {
+                                if (MiniMenu.anInt6964 > 0 && !Static1.aBoolean821) {
                                     if ((Client.mouseButtons == 1 || MiniMenu.topEntryIsIfButtonX1()) && MiniMenu.innerEntryCount > 2) {
-                                        Static455.method6223(dragStartX, dragStartY);
+                                        MiniMenu.method6223(dragStartX, dragStartY);
                                     } else if (MiniMenu.isPopulated()) {
-                                        Static455.method6223(dragStartX, dragStartY);
+                                        MiniMenu.method6223(dragStartX, dragStartY);
                                     }
                                 }
 
-                                Static460.anInt6964 = 0;
+                                MiniMenu.anInt6964 = 0;
                                 continue;
                             }
 

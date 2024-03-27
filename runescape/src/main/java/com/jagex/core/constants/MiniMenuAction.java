@@ -160,6 +160,21 @@ public final class MiniMenuAction {
             || action == TGT_OBJ;
     }
 
+    @OriginalMember(owner = "client!ds", name = "a", descriptor = "(IB)Z")
+    public static boolean isPlayerOp(@OriginalArg(0) int action) {
+        return action == OPPLAYER1
+            || action == OPPLAYER2
+            || action == OPPLAYER3
+            || action == OPPLAYER4
+            || action == OPPLAYER5
+            || action == OPPLAYER6
+            || action == OPPLAYER7
+            || action == OPPLAYER8
+            || action == OPPLAYER9
+            || action == OPPLAYER10
+            || action == TGT_PLAYER;
+    }
+
     @OriginalMember(owner = "client!kv", name = "a", descriptor = "(II)Z")
     public static boolean isTarget(@OriginalArg(1) int action) {
         return action == TGT_GROUND

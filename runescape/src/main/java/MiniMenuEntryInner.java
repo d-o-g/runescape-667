@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class MiniMenuEntryInner extends Node2 {
 
     @OriginalMember(owner = "client!pg", name = "C", descriptor = "Ljava/lang/String;")
-    public String activeEntry;
+    public String second;
 
     @OriginalMember(owner = "client!pg", name = "v", descriptor = "J")
     public final long v1;

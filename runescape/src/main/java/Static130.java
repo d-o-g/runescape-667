@@ -28,17 +28,6 @@ public final class Static130 {
         return local42.toString();
     }
 
-    @OriginalMember(owner = "client!eb", name = "a", descriptor = "(B)Ljava/lang/String;")
-    public static String method2281() {
-        if (MiniMenu.open || MiniMenu.leftClickEntry == null) {
-            return "";
-        } else if ((MiniMenu.leftClickEntry.opBase == null || MiniMenu.leftClickEntry.opBase.length() == 0) && MiniMenu.leftClickEntry.activeEntry != null && MiniMenu.leftClickEntry.activeEntry.length() > 0) {
-            return MiniMenu.leftClickEntry.activeEntry;
-        } else {
-            return MiniMenu.leftClickEntry.opBase;
-        }
-    }
-
     @OriginalMember(owner = "client!eb", name = "a", descriptor = "(I)I")
     public static int method2283() {
         return Static448.anInt6796 == 1 ? Static2.anInt45 : 0;

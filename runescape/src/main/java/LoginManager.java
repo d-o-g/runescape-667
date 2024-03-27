@@ -754,7 +754,7 @@ public final class LoginManager {
                     PlayerList.getSnapShotPlayer(ServerConnection.active.bitPacket);
                     Static62.areaCenterX = -1;
 
-                    if (ServerConnection.active.currentProt == ServerProt.A_SERVER_PROT___123) {
+                    if (ServerConnection.active.currentProt == ServerProt.REBUILD_REGION) {
                         Static466.rebuildRegion();
                     } else {
                         Static434.rebuildNormal();

@@ -26,7 +26,7 @@ public final class Node_Sub1_Sub18 extends TextureOp {
             super.monochrome = arg1.g1() == 1;
         }
         if (arg0) {
-            ServerProt.aServerProt_157 = null;
+            ServerProt.VORBIS_SPEECH_SOUND = null;
         }
     }
 

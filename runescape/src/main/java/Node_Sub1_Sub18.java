@@ -25,9 +25,6 @@ public final class Node_Sub1_Sub18 extends TextureOp {
         } else if (arg2 == 1) {
             super.monochrome = arg1.g1() == 1;
         }
-        if (arg0) {
-            ServerProt.VORBIS_SPEECH_SOUND = null;
-        }
     }
 
     @OriginalMember(owner = "client!md", name = "a", descriptor = "(II)[I")

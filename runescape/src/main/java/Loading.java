@@ -259,8 +259,8 @@ public final class Loading {
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(I)I")
     public static int essentials() {
         if (ClientOptions.instance.safeMode.getValue() == 0) {
-            for (@Pc(12) int local12 = 0; local12 < Static671.anInt10026; local12++) {
-                if (Static194.AN_KEYBOARD_EVENT_ARRAY_1[local12].getKeyChar() == 's' || Static194.AN_KEYBOARD_EVENT_ARRAY_1[local12].getKeyChar() == 'S') {
+            for (@Pc(12) int i = 0; i < Static671.anInt10026; i++) {
+                if (Static194.AN_KEYBOARD_EVENT_ARRAY_1[i].getKeyChar() == 's' || Static194.AN_KEYBOARD_EVENT_ARRAY_1[i].getKeyChar() == 'S') {
                     ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
                     Static416.aBoolean472 = true;
                     break;

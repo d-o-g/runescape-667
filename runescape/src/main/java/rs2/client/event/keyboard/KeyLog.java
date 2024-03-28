@@ -7,8 +7,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 public interface KeyLog {
 
     public static final int TYPE_UNFOCUSED = -1;
+    public static final int TYPE_PRESSED = 0;
     public static final int TYPE_RELEASED = 1;
-    public static final int TYPE_KEY_TYPED = 3;
+    public static final int TYPE_HELD = 2;
+    public static final int TYPE_TYPED = 3;
 
     @OriginalMember(owner = "client!wka", name = "a", descriptor = "(I)I")
     int getKeyCode();

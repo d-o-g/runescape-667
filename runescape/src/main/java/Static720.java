@@ -20,9 +20,6 @@ public final class Static720 {
     @OriginalMember(owner = "client!wr", name = "n", descriptor = "I")
     public static int mapWidth = 104;
 
-    @OriginalMember(owner = "client!wr", name = "G", descriptor = "I")
-    public static int anInt10865 = 0;
-
     @OriginalMember(owner = "client!wr", name = "a", descriptor = "(ILclient!fu;ILclient!el;Lclient!rt;IBLclient!ha;I)V")
     public static void method9396(@OriginalArg(0) int arg0, @OriginalArg(1) MapElementListEntry arg1, @OriginalArg(2) int arg2, @OriginalArg(3) MapElementType arg3, @OriginalArg(4) Class327 arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) int arg7) {
         @Pc(14) int local14 = arg2 - arg5 / 2 - 5;

@@ -6,6 +6,7 @@ import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.FontMetrics;
+import com.jagex.graphics.JavaObjSprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
@@ -68,28 +69,31 @@ public final class Static369 {
     }
 
     @OriginalMember(owner = "client!lla", name = "a", descriptor = "(Lclient!ha;I)V")
-    public static void method3851(@OriginalArg(0) Toolkit arg0) {
-        if (Static133.A_DEQUE___13.size() == 0) {
+    public static void updateObjSprites(@OriginalArg(0) Toolkit toolkit) {
+        if (JavaToolkit.objSprites.size() == 0) {
             return;
         }
-        @Pc(31) Node_Sub36 local31;
+
         if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
-            for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-                ObjTypeList.instance.sprite(local31.anInt5893, arg0, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.p11, local31.anInt5895);
-                local31.unlink();
+            for (@Pc(31) JavaObjSprite sprite = (JavaObjSprite) JavaToolkit.objSprites.first(); sprite != null; sprite = (JavaObjSprite) JavaToolkit.objSprites.next()) {
+                ObjTypeList.instance.sprite(sprite.outline, toolkit, toolkit, sprite.objWearCol ? PlayerEntity.self.playerModel : null, false, sprite.graphicShadow, sprite.invCount, false, sprite.objNumMode, Fonts.p11, sprite.objId);
+                sprite.unlink();
             }
+
             InterfaceManager.redrawAll();
             return;
         }
-        if (Static158.aToolkit_5 == null) {
-            @Pc(85) Canvas local85 = new Canvas();
-            local85.setSize(36, 32);
-            Static158.aToolkit_5 = Static255.create(ToolkitType.JAVA, js5.SHADERS, local85, Js5TextureSource.instance, 0);
-            Fonts.aFont_11 = Static158.aToolkit_5.createFont(FontMetrics.loadGroup(Fonts.p11FullGroup, js5.FONTMETRICS), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
+
+        if (Static158.objSpriteToolkit == null) {
+            @Pc(85) Canvas canvas = new Canvas();
+            canvas.setSize(36, 32);
+            Static158.objSpriteToolkit = Static255.create(ToolkitType.JAVA, js5.SHADERS, canvas, Js5TextureSource.instance, 0);
+            Fonts.objSpriteFont = Static158.objSpriteToolkit.createFont(FontMetrics.loadGroup(Fonts.p11FullGroup, js5.FONTMETRICS), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
         }
-        for (local31 = (Node_Sub36) Static133.A_DEQUE___13.first(); local31 != null; local31 = (Node_Sub36) Static133.A_DEQUE___13.next()) {
-            ObjTypeList.instance.sprite(local31.anInt5893, Static158.aToolkit_5, arg0, local31.aBoolean451 ? PlayerEntity.self.playerModel : null, false, local31.anInt5891, local31.anInt5888, false, local31.anInt5890, Fonts.aFont_11, local31.anInt5895);
-            local31.unlink();
+
+        for (@Pc(31) JavaObjSprite sprite = (JavaObjSprite) JavaToolkit.objSprites.first(); sprite != null; sprite = (JavaObjSprite) JavaToolkit.objSprites.next()) {
+            ObjTypeList.instance.sprite(sprite.outline, Static158.objSpriteToolkit, toolkit, sprite.objWearCol ? PlayerEntity.self.playerModel : null, false, sprite.graphicShadow, sprite.invCount, false, sprite.objNumMode, Fonts.objSpriteFont, sprite.objId);
+            sprite.unlink();
         }
     }
 

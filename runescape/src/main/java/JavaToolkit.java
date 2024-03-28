@@ -3,6 +3,7 @@ import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.Class84;
 import com.jagex.Interface26;
+import com.jagex.core.datastruct.key.Deque;
 import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.Node2;
 import com.jagex.core.datastruct.key.IterableHashTable;
@@ -37,6 +38,9 @@ import java.awt.Rectangle;
 
 @OriginalClass("client!iaa")
 public final class JavaToolkit extends Toolkit {
+
+    @OriginalMember(owner = "client!ed", name = "g", descriptor = "Lclient!sia;")
+    public static final Deque objSprites = new Deque();
 
     @OriginalMember(owner = "client!uf", name = "a", descriptor = "(IILclient!d;ILjava/awt/Canvas;)Lclient!ha;")
     public static Toolkit create(@OriginalArg(4) Canvas canvas, @OriginalArg(2) TextureSource textureSource, @OriginalArg(0) int width, @OriginalArg(3) int height) {
@@ -188,7 +192,7 @@ public final class JavaToolkit extends Toolkit {
     public Matrix_Sub2 aClass73_Sub2_1;
 
     @OriginalMember(owner = "client!iaa", name = "eb", descriptor = "I")
-    public int anInt4184;
+    public int lastTickTime;
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Lclient!d;)V")
     public JavaToolkit(@OriginalArg(0) TextureSource arg0) {
@@ -220,7 +224,7 @@ public final class JavaToolkit extends Toolkit {
             this.method8020(0);
             ColourUtils.init(true, true);
             this.aBoolean330 = true;
-            this.anInt4184 = (int) SystemTimer.safetime();
+            this.lastTickTime = (int) SystemTimer.safetime();
         } catch (@Pc(99) Throwable local99) {
             local99.printStackTrace();
             this.free();
@@ -1223,7 +1227,7 @@ public final class JavaToolkit extends Toolkit {
                 this.aReferenceCache_89.put(local14, (long) arg0 | Long.MIN_VALUE);
             }
         }
-        local14.aBoolean341 = true;
+        local14.awaitingTick = true;
         return local14.method3972();
     }
 
@@ -1899,22 +1903,27 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "e", descriptor = "(I)V")
     @Override
-    public void method7977(@OriginalArg(0) int arg0) {
-        @Pc(4) int local4 = arg0 - this.anInt4184;
-        for (@Pc(9) Object local9 = this.aReferenceCache_89.first(); local9 != null; local9 = this.aReferenceCache_89.next()) {
-            @Pc(13) Node_Sub29 local13 = (Node_Sub29) local9;
-            if (local13.aBoolean341) {
-                local13.anInt4409 += local4;
-                @Pc(27) int local27 = local13.anInt4409 / 20;
-                if (local27 > 0) {
-                    @Pc(36) TextureMetrics local36 = super.textureSource.getMetrics(local13.anInt4408);
-                    local13.method3973(local36.speedU * local4 * 50 / 1000, local36.speedV * local4 * 50 / 1000);
-                    local13.anInt4409 -= local27 * 20;
+    public void tick(@OriginalArg(0) int time) {
+        @Pc(4) int elapsed = time - this.lastTickTime;
+
+        for (@Pc(9) Object object = this.aReferenceCache_89.first(); object != null; object = this.aReferenceCache_89.next()) {
+            @Pc(13) Node_Sub29 local13 = (Node_Sub29) object;
+
+            if (local13.awaitingTick) {
+                local13.runningTime += elapsed;
+
+                @Pc(27) int frames = local13.runningTime / 20;
+                if (frames > 0) {
+                    @Pc(36) TextureMetrics metrics = super.textureSource.getMetrics(local13.anInt4408);
+                    local13.method3973((metrics.speedU * elapsed * 50) / 1000, (metrics.speedV * elapsed * 50) / 1000);
+                    local13.runningTime -= frames * 20;
                 }
-                local13.aBoolean341 = false;
+
+                local13.awaitingTick = false;
             }
         }
-        this.anInt4184 = arg0;
+
+        this.lastTickTime = time;
         this.aReferenceCache_88.clean(5);
         this.aReferenceCache_89.clean(5);
     }
@@ -2243,7 +2252,7 @@ public final class JavaToolkit extends Toolkit {
                 this.aReferenceCache_89.put(local12, arg0);
             }
         }
-        local12.aBoolean341 = true;
+        local12.awaitingTick = true;
         return local12.method3972();
     }
 

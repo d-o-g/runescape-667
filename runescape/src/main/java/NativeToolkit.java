@@ -2335,11 +2335,11 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "e", descriptor = "(I)V")
     @Override
-    public void method7977(@OriginalArg(0) int arg0) {
+    public void tick(@OriginalArg(0) int time) {
         if (this.aClass334_3 != null) {
             this.aClass334_3.method7655();
         }
-        this.anInt9164 = arg0 & Integer.MAX_VALUE;
+        this.anInt9164 = time & Integer.MAX_VALUE;
     }
 
     @OriginalMember(owner = "client!am", name = "d", descriptor = "(IZ)V")

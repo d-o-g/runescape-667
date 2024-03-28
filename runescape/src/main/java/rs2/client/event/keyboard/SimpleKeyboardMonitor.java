@@ -168,7 +168,7 @@ public final class SimpleKeyboardMonitor extends KeyboardMonitor implements KeyL
         for (@Pc(22) SimpleKeyLog log = (SimpleKeyLog) this.logged.removeFirst(); log != null; log = (SimpleKeyLog) this.logged.removeFirst()) {
             log.modifierFlags = this.modifierFlags();
 
-            if (log.type == 0) {
+            if (log.type == KeyLog.TYPE_PRESSED) {
                 if (!this.pressed[log.keyCode]) {
                     @Pc(152) SimpleKeyLog recordedLog = new SimpleKeyLog();
                     recordedLog.keyChar = '\u0000';
@@ -180,7 +180,7 @@ public final class SimpleKeyboardMonitor extends KeyboardMonitor implements KeyL
                     this.pressed[log.keyCode] = true;
                 }
 
-                log.type = 2;
+                log.type = KeyLog.TYPE_HELD;
                 this.recorded.addLast(log);
             } else if (log.type == KeyLog.TYPE_RELEASED) {
                 if (this.pressed[log.keyCode]) {
@@ -200,7 +200,7 @@ public final class SimpleKeyboardMonitor extends KeyboardMonitor implements KeyL
                         this.pressed[keyCode] = false;
                     }
                 }
-            } else if (log.type == KeyLog.TYPE_KEY_TYPED) {
+            } else if (log.type == KeyLog.TYPE_TYPED) {
                 this.recorded.addLast(log);
             }
         }
@@ -284,7 +284,7 @@ public final class SimpleKeyboardMonitor extends KeyboardMonitor implements KeyL
         @Pc(6) char keyChar = event.getKeyChar();
 
         if (keyChar != '\u0000' && Cp1252.contains(keyChar)) {
-            this.log(keyChar, -1, KeyLog.TYPE_KEY_TYPED);
+            this.log(keyChar, -1, KeyLog.TYPE_TYPED);
             event.consume();
         }
     }

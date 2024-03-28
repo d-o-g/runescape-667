@@ -7,9 +7,6 @@ public final class Static580 {
     @OriginalMember(owner = "client!sea", name = "x", descriptor = "F")
     public static float aFloat176;
 
-    @OriginalMember(owner = "client!sea", name = "z", descriptor = "I")
-    public static int anInt8621 = -2;
-
     @OriginalMember(owner = "client!sea", name = "a", descriptor = "(IZ)I")
     public static int method7649(@OriginalArg(1) boolean arg0) {
         @Pc(13) int local13 = Static448.anInt6796;

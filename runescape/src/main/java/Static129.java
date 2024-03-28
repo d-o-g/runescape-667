@@ -12,9 +12,4 @@ public final class Static129 {
     @OriginalMember(owner = "client!eaa", name = "b", descriptor = "Z")
     public static boolean orthoCameraLock = true;
 
-    @OriginalMember(owner = "client!eaa", name = "a", descriptor = "(B)V")
-    public static void method2279() {
-        debugconsole.open = false;
-        InterfaceManager.redrawAll();
-    }
 }

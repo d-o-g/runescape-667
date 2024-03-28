@@ -42,6 +42,8 @@ import rs2.client.event.keyboard.SimpleKeyboardMonitor;
 import rs2.client.event.mouse.MouseLog;
 import rs2.client.event.mouse.MouseMonitor;
 
+import java.util.Random;
+
 public final class MiniMenu {
 
     @OriginalMember(owner = "client!sw", name = "b", descriptor = "[Z")
@@ -49,6 +51,9 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!eka", name = "h", descriptor = "[I")
     public static final int[] playerOpCursors = new int[8];
+
+    @OriginalMember(owner = "client!pj", name = "f", descriptor = "Ljava/util/Random;")
+    public static final Random random = new Random();
 
     private static final int QUEST_ICON_COUNT = 10;
 
@@ -224,6 +229,9 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!pq", name = "x", descriptor = "Z")
     public static boolean showFaceHere;
+
+    @OriginalMember(owner = "client!fj", name = "z", descriptor = "I")
+    public static int randomSeed;
 
     @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
     public static void reset() {
@@ -963,10 +971,10 @@ public final class MiniMenu {
                 font = Fonts.b12;
             }
 
-            font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.horizontalAlignment, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, Static493.aRandom1, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, icons, Static178.anInt2947, WorldMap.optionsY, WorldMap.optionsComponent.verticalAlignment);
+            font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.horizontalAlignment, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, random, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, icons, randomSeed, WorldMap.optionsY, WorldMap.optionsComponent.verticalAlignment);
             InterfaceManager.redrawWithin(Static329.anIntArray163[0], Static329.anIntArray163[1], Static329.anIntArray163[2], Static329.anIntArray163[3]);
         } else if (InterfaceManager.optionsComponent != null && Client.modeGame == ModeGame.RUNESCAPE) {
-            @Pc(299) int width = Fonts.b12.renderRandom(icons, Static178.anInt2947, 0xFFFFFF, InterfaceManager.optionsY + 16, text, iconHeights, 0, Static493.aRandom1, InterfaceManager.optionsX + 4);
+            @Pc(299) int width = Fonts.b12.renderRandom(icons, randomSeed, 0xFFFFFF, InterfaceManager.optionsY + 16, text, iconHeights, 0, random, InterfaceManager.optionsX + 4);
             InterfaceManager.redrawWithin(InterfaceManager.optionsX + 4, InterfaceManager.optionsY, width + Fonts.b12Metrics.stringWidth(text), 16);
         }
     }

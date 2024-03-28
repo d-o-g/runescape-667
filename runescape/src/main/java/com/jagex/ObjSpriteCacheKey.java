@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rla")
-public final class SpriteCacheKey implements CacheKey {
+public final class ObjSpriteCacheKey implements CacheKey {
 
     @OriginalMember(owner = "client!rla", name = "n", descriptor = "I")
     public int invCount;
@@ -29,7 +29,7 @@ public final class SpriteCacheKey implements CacheKey {
     public int graphicShadow;
 
     @OriginalMember(owner = "client!rla", name = "l", descriptor = "Z")
-    public boolean useAppearance;
+    public boolean objWearCol;
 
     @OriginalMember(owner = "client!rla", name = "a", descriptor = "(I)J")
     @Override
@@ -50,7 +50,7 @@ public final class SpriteCacheKey implements CacheKey {
         @Pc(193) long hash12 = (hash11 >>> 8) ^ crc64[(int) ((hash11 ^ (long) (this.graphicShadow >> 8)) & 0xFFL)];
         @Pc(208) long hash13 = (hash12 >>> 8) ^ crc64[(int) ((hash12 ^ (long) this.graphicShadow) & 0xFFL)];
         @Pc(223) long hash14 = (hash13 >>> 8) ^ crc64[(int) ((hash13 ^ (long) (this.objNumMode)) & 0xFFL)];
-                 long hash15 = (hash14 >>> 8) ^ crc64[(int) ((hash14 ^ (long) (this.useAppearance ? 1 : 0)) & 0xFFL)];
+                 long hash15 = (hash14 >>> 8) ^ crc64[(int) ((hash14 ^ (long) (this.objWearCol ? 1 : 0)) & 0xFFL)];
         // @formatter:on
         return hash15;
     }
@@ -58,11 +58,11 @@ public final class SpriteCacheKey implements CacheKey {
     @OriginalMember(owner = "client!rla", name = "a", descriptor = "(ILclient!uq;)Z")
     @Override
     public boolean matches(@OriginalArg(1) CacheKey other) {
-        if (!(other instanceof SpriteCacheKey)) {
+        if (!(other instanceof ObjSpriteCacheKey)) {
             return false;
         }
 
-        @Pc(12) SpriteCacheKey data = (SpriteCacheKey) other;
+        @Pc(12) ObjSpriteCacheKey data = (ObjSpriteCacheKey) other;
         if (this.toolkitIndex != data.toolkitIndex) {
             return false;
         } else if (data.objId != this.objId) {
@@ -75,7 +75,7 @@ public final class SpriteCacheKey implements CacheKey {
             return false;
         } else if (this.objNumMode != data.objNumMode) {
             return false;
-        } else if (data.useAppearance != this.useAppearance) {
+        } else if (data.objWearCol != this.objWearCol) {
             return false;
         } else {
             return true;

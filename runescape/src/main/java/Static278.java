@@ -16,8 +16,4 @@ public final class Static278 {
         Static74.aToolkit_4.setCamera(Static203.aMatrix_4);
     }
 
-    @OriginalMember(owner = "client!in", name = "b", descriptor = "(II)Z")
-    public static boolean method4070(@OriginalArg(0) int arg0) {
-        return arg0 == 0 || arg0 == 1 || arg0 == 2;
-    }
 }

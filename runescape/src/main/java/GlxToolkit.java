@@ -485,9 +485,9 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "e", descriptor = "(I)V")
     @Override
-    public synchronized void method7977(@OriginalArg(0) int arg0) {
+    public synchronized void tick(@OriginalArg(0) int time) {
         @Pc(7) int local7 = 0;
-        @Pc(11) int local11 = arg0 & Integer.MAX_VALUE;
+        @Pc(11) int local11 = time & Integer.MAX_VALUE;
         @Pc(19) IntNode local19;
         while (!this.aDeque_61.isEmpty()) {
             local19 = (IntNode) this.aDeque_61.removeFirst();
@@ -560,7 +560,7 @@ public final class GlxToolkit extends NativeToolkit {
             System.gc();
             this.aLong279 = SystemTimer.safetime();
         }
-        super.method7977(local11);
+        super.tick(local11);
     }
 
     @OriginalMember(owner = "client!tca", name = "d", descriptor = "(B)V")

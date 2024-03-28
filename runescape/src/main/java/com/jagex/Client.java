@@ -138,7 +138,7 @@ public final class Client {
     public static long userFlow = 0L;
 
     @OriginalMember(owner = "client!md", name = "G", descriptor = "Ljava/lang/String;")
-    public static String addtionalInfo = null;
+    public static String additionalInfo = null;
 
     @OriginalMember(owner = "client!nca", name = "k", descriptor = "Z")
     public static boolean hc = false;

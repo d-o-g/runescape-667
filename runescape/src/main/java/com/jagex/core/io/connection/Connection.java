@@ -5,9 +5,15 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 import java.io.IOException;
+import java.net.Socket;
 
 @OriginalClass("client!vn")
 public abstract class Connection {
+
+    @OriginalMember(owner = "client!dba", name = "a", descriptor = "(Ljava/net/Socket;IB)Lclient!vn;")
+    public static Connection create(@OriginalArg(0) Socket socket) throws IOException {
+        return new AsyncDuplexConnection(socket, 15000);
+    }
 
     @OriginalMember(owner = "client!vn", name = "<init>", descriptor = "()V")
     protected Connection() {

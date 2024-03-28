@@ -70,10 +70,10 @@ public final class Static112 {
 
     @OriginalMember(owner = "client!dj", name = "e", descriptor = "(I)V")
     public static void method2109() {
-        if (Static158.aToolkit_5 != null) {
-            Static158.aToolkit_5.free();
-            Fonts.aFont_11 = null;
-            Static158.aToolkit_5 = null;
+        if (Static158.objSpriteToolkit != null) {
+            Static158.objSpriteToolkit.free();
+            Fonts.objSpriteFont = null;
+            Static158.objSpriteToolkit = null;
         }
     }
 }

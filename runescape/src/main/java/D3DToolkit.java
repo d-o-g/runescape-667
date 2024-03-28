@@ -253,9 +253,9 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "e", descriptor = "(I)V")
     @Override
-    public synchronized void method7977(@OriginalArg(0) int arg0) {
+    public synchronized void tick(@OriginalArg(0) int time) {
         this.aTi1.c(-104);
-        super.method7977(arg0);
+        super.tick(time);
     }
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(IIII)V")

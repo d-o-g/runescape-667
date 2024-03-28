@@ -1,14 +1,10 @@
 import com.jagex.core.constants.MaxScreenSize;
-import com.jagex.core.datastruct.key.Deque;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static133 {
 
     @OriginalMember(owner = "client!ed", name = "e", descriptor = "F")
     public static float aFloat63;
-
-    @OriginalMember(owner = "client!ed", name = "g", descriptor = "Lclient!sia;")
-    public static final Deque A_DEQUE___13 = new Deque();
 
     @OriginalMember(owner = "client!ed", name = "b", descriptor = "I")
     public static int publicChatFilter = 0;

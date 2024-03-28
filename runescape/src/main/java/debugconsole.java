@@ -65,6 +65,9 @@ public final class debugconsole {
     @OriginalMember(owner = "client!ufa", name = "h", descriptor = "I")
     public static int b12VerticalPadding;
 
+    @OriginalMember(owner = "client!rr", name = "j", descriptor = "I")
+    public static int anInt8472 = 0;
+
     @OriginalMember(owner = "client!cn", name = "a", descriptor = "(Ljava/lang/String;B)V")
     public static void set(@OriginalArg(0) String currententry) {
         debugconsole.currententry = currententry;
@@ -136,7 +139,7 @@ public final class debugconsole {
             local9 = Static422.method5771();
         }
         toolkit.KA(local7, local9, GameShell.canvasWid + local7, local9 + 350);
-        toolkit.aa(local7, local9, GameShell.canvasWid, 350, Static460.anInt8472 << 24 | 0x332277, 1);
+        toolkit.aa(local7, local9, GameShell.canvasWid, 350, anInt8472 << 24 | 0x332277, 1);
         Static682.method8927(local9, local9 + 350, local7, GameShell.canvasWid + local7);
 
         @Pc(54) int local54 = 350 / p12VerticalPadding;
@@ -148,7 +151,7 @@ public final class debugconsole {
             if (lineCount > 1) {
                 local77 = (lineCount - anInt3471 - 1) * (local65 + -local75) / (lineCount - 1) + 4;
             }
-            toolkit.aa(local7 + GameShell.canvasWid - 16, local9 + local77, 12, local75, Static460.anInt8472 << 24 | 0x332277, 2);
+            toolkit.aa(local7 + GameShell.canvasWid - 16, local9 + local77, 12, local75, anInt8472 << 24 | 0x332277, 2);
 
             for (@Pc(119) int local119 = anInt3471; anInt3471 + local54 > local119 && lineCount > local119; local119++) {
                 @Pc(128) String[] local128 = StringTools.split(lines[local119], '\b');
@@ -912,5 +915,25 @@ public final class debugconsole {
         if (MainLogicManager.step != 11) {
             addline(LocalisedText.DEBUG_CONSOLE_UNKNOWNCOMMAND.localise(Client.language) + command);
         }
+    }
+
+    @OriginalMember(owner = "client!eaa", name = "a", descriptor = "(B)V")
+    public static void close() {
+        open = false;
+        InterfaceManager.redrawAll();
+    }
+
+    @OriginalMember(owner = "client!oga", name = "a", descriptor = "(I)V")
+    public static void open() {
+        if (!MainLogicManager.isNotLoading()) {
+            return;
+        }
+
+        if (lines == null) {
+            reset();
+        }
+
+        anInt8472 = 0;
+        open = true;
     }
 }

@@ -274,7 +274,7 @@ public abstract class Toolkit {
     public abstract void outlineRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode);
 
     @OriginalMember(owner = "client!ha", name = "e", descriptor = "(I)V")
-    public abstract void method7977(@OriginalArg(0) int arg0);
+    public abstract void tick(@OriginalArg(0) int time);
 
     @OriginalMember(owner = "client!ha", name = "l", descriptor = "()Z")
     public abstract boolean method7978();

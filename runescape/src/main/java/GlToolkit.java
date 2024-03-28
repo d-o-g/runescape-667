@@ -2678,8 +2678,8 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "e", descriptor = "(I)V")
     @Override
-    public synchronized void method7977(@OriginalArg(0) int arg0) {
-        @Pc(9) int local9 = arg0 & Integer.MAX_VALUE;
+    public synchronized void tick(@OriginalArg(0) int time) {
+        @Pc(9) int local9 = time & Integer.MAX_VALUE;
         @Pc(11) int local11 = 0;
         @Pc(19) IntNode local19;
         while (!this.aDeque_48.isEmpty()) {

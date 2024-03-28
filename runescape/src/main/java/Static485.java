@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
+import com.jagex.graphics.JavaObjSprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -10,11 +11,11 @@ public final class Static485 {
     public static int[] anIntArray886;
 
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(Lclient!hda;ILclient!ha;)V")
-    public static void method9415(@OriginalArg(0) Component arg0, @OriginalArg(2) Toolkit arg1) {
-        @Pc(38) boolean local38 = ObjTypeList.instance.getCachedSprite(arg0.objWearCol ? PlayerEntity.self.playerModel : null, arg1, arg0.objNumMode, arg0.invObject, arg0.outline, arg0.invCount, arg0.shadow | 0xFF000000) == null;
+    public static void method9415(@OriginalArg(0) Component component, @OriginalArg(2) Toolkit toolkit) {
+        @Pc(38) boolean local38 = ObjTypeList.instance.getCachedSprite(component.objWearCol ? PlayerEntity.self.playerModel : null, toolkit, component.objNumMode, component.invObject, component.outline, component.invCount, component.shadow | 0xFF000000) == null;
         if (local38) {
-            Static133.A_DEQUE___13.addLast(new Node_Sub36(arg0.invObject, arg0.invCount, arg0.outline, arg0.shadow | 0xFF000000, arg0.objNumMode, arg0.objWearCol));
-            InterfaceManager.redraw(arg0);
+            JavaToolkit.objSprites.addLast(new JavaObjSprite(component.invObject, component.invCount, component.outline, component.shadow | 0xFF000000, component.objNumMode, component.objWearCol));
+            InterfaceManager.redraw(component);
         }
     }
 

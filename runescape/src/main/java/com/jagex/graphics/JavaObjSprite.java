@@ -1,36 +1,38 @@
+package com.jagex.graphics;
+
 import com.jagex.core.datastruct.key.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ln")
-public final class Node_Sub36 extends Node {
+public final class JavaObjSprite extends Node {
 
     @OriginalMember(owner = "client!ln", name = "k", descriptor = "I")
-    public final int anInt5890;
+    public final int objNumMode;
 
     @OriginalMember(owner = "client!ln", name = "p", descriptor = "I")
-    public final int anInt5888;
+    public final int invCount;
 
     @OriginalMember(owner = "client!ln", name = "s", descriptor = "Z")
-    public final boolean aBoolean451;
+    public final boolean objWearCol;
 
     @OriginalMember(owner = "client!ln", name = "r", descriptor = "I")
-    public final int anInt5891;
+    public final int graphicShadow;
 
     @OriginalMember(owner = "client!ln", name = "v", descriptor = "I")
-    public final int anInt5895;
+    public final int objId;
 
     @OriginalMember(owner = "client!ln", name = "u", descriptor = "I")
-    public final int anInt5893;
+    public final int outline;
 
     @OriginalMember(owner = "client!ln", name = "<init>", descriptor = "(IIIIIZ)V")
-    public Node_Sub36(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5) {
-        this.anInt5890 = arg4;
-        this.anInt5888 = arg1;
-        this.aBoolean451 = arg5;
-        this.anInt5891 = arg3;
-        this.anInt5895 = arg0;
-        this.anInt5893 = arg2;
+    public JavaObjSprite(@OriginalArg(0) int objId, @OriginalArg(1) int invCount, @OriginalArg(2) int outline, @OriginalArg(3) int graphicShadow, @OriginalArg(4) int objNumMode, @OriginalArg(5) boolean objWearCol) {
+        this.objNumMode = objNumMode;
+        this.invCount = invCount;
+        this.objWearCol = objWearCol;
+        this.graphicShadow = graphicShadow;
+        this.objId = objId;
+        this.outline = outline;
     }
 }

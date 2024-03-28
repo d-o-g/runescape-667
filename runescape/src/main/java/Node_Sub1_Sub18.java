@@ -33,7 +33,7 @@ public final class Node_Sub1_Sub18 extends TextureOp {
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.monochromeCache.get(arg1);
         if (arg0 <= 107) {
-            Client.addtionalInfo = null;
+            Client.additionalInfo = null;
         }
         if (super.monochromeCache.dirty) {
             @Pc(28) int[] local28 = this.method9422(arg1, 0);

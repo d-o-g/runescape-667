@@ -1,6 +1,6 @@
 package com.jagex.game.runetek6.config.objtype;
 
-import com.jagex.SpriteCacheKey;
+import com.jagex.ObjSpriteCacheKey;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.datastruct.ref.key.KeyedReferenceCache;
@@ -50,7 +50,7 @@ public final class ObjTypeList {
     public final KeyedReferenceCache spriteCache = new KeyedReferenceCache(250);
 
     @OriginalMember(owner = "client!es", name = "j", descriptor = "Lclient!rla;")
-    public final SpriteCacheKey spriteCacheKey = new SpriteCacheKey();
+    public final ObjSpriteCacheKey spriteCacheKey = new ObjSpriteCacheKey();
 
     @OriginalMember(owner = "client!es", name = "m", descriptor = "I")
     public final int languageId;
@@ -143,8 +143,8 @@ public final class ObjTypeList {
     }
 
     @OriginalMember(owner = "client!es", name = "a", descriptor = "(ILclient!ha;Lclient!ha;Lclient!ju;ZIIZILclient!da;II)Lclient!st;")
-    public Sprite sprite(@OriginalArg(0) int outline, @OriginalArg(1) Toolkit scratchToolkit, @OriginalArg(2) Toolkit realToolkit, @OriginalArg(3) PlayerModel useAppearance, @OriginalArg(4) boolean temporary, @OriginalArg(5) int graphicShadow, @OriginalArg(6) int invCount, @OriginalArg(7) boolean arg7, @OriginalArg(8) int objNumMode, @OriginalArg(9) Font arg9, @OriginalArg(10) int objId) {
-        @Pc(24) Sprite cachedSprite = this.getCachedSprite(useAppearance, realToolkit, objNumMode, objId, outline, invCount, graphicShadow);
+    public Sprite sprite(@OriginalArg(0) int outline, @OriginalArg(1) Toolkit scratchToolkit, @OriginalArg(2) Toolkit realToolkit, @OriginalArg(3) PlayerModel playerModel, @OriginalArg(4) boolean temporary, @OriginalArg(5) int graphicShadow, @OriginalArg(6) int invCount, @OriginalArg(7) boolean arg7, @OriginalArg(8) int objNumMode, @OriginalArg(9) Font font, @OriginalArg(10) int objId) {
+        @Pc(24) Sprite cachedSprite = this.getCachedSprite(playerModel, realToolkit, objNumMode, objId, outline, invCount, graphicShadow);
         if (cachedSprite != null) {
             return cachedSprite;
         }
@@ -163,7 +163,7 @@ public final class ObjTypeList {
             }
         }
 
-        @Pc(101) int[] image = type.sprite(objNumMode, realToolkit, invCount, graphicShadow, arg7, useAppearance, scratchToolkit, arg9, outline);
+        @Pc(101) int[] image = type.sprite(objNumMode, realToolkit, invCount, graphicShadow, arg7, playerModel, scratchToolkit, font, outline);
         if (image == null) {
             return null;
         }
@@ -176,9 +176,9 @@ public final class ObjTypeList {
         }
 
         if (!temporary) {
-            @Pc(136) SpriteCacheKey cacheKey = new SpriteCacheKey();
+            @Pc(136) ObjSpriteCacheKey cacheKey = new ObjSpriteCacheKey();
             cacheKey.objNumMode = objNumMode;
-            cacheKey.useAppearance = useAppearance != null;
+            cacheKey.objWearCol = playerModel != null;
             cacheKey.toolkitIndex = realToolkit.index;
             cacheKey.invCount = invCount;
             cacheKey.outline = outline;
@@ -250,7 +250,7 @@ public final class ObjTypeList {
         this.spriteCacheKey.toolkitIndex = toolkit.index;
         this.spriteCacheKey.objNumMode = objNumMode;
         this.spriteCacheKey.graphicShadow = graphicShadow;
-        this.spriteCacheKey.useAppearance = playerModel != null;
+        this.spriteCacheKey.objWearCol = playerModel != null;
         this.spriteCacheKey.outline = outline;
         this.spriteCacheKey.objId = objId;
         return (Sprite) this.spriteCache.get(this.spriteCacheKey);

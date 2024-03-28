@@ -1,5 +1,7 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
+import com.jagex.LoginProt;
+import com.jagex.core.constants.LoginResponseCode;
 import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.game.runetek6.client.GameShell;
@@ -79,6 +81,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.Socket;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Vector;
 
@@ -140,7 +143,7 @@ public final class client extends GameShell {
             Client.sitesettingsMember = true;
             Client.isMember = true;
             Client.force64mb = false;
-            Client.addtionalInfo = null;
+            Client.additionalInfo = null;
             Client.colourId = Client.modeGame.id;
             Client.settings = "";
             Client.ssKey = null;
@@ -494,7 +497,7 @@ public final class client extends GameShell {
     }
 
     @OriginalMember(owner = "client!client", name = "p", descriptor = "(I)V")
-    public void method1658() {
+    public void lobbyTick() {
         @Pc(46) int local46;
         if (MainLogicManager.step == 7 && !LoginManager.inProgress() || MainLogicManager.step == 9 && LoginManager.gameLoginResponse == 42) {
             if (Static249.rebootTimer > 1) {
@@ -892,16 +895,17 @@ public final class client extends GameShell {
         }
 
         TimeUtils.clock++;
-        if (TimeUtils.clock % 1000 == 1) {
-            @Pc(27) GregorianCalendar local27 = new GregorianCalendar();
-            Static178.anInt2947 = local27.get(11) * 600 + local27.get(12) * 10 + local27.get(13) / 6;
-            Static493.aRandom1.setSeed(Static178.anInt2947);
+
+        if ((TimeUtils.clock % 1000) == 1) {
+            @Pc(27) GregorianCalendar calendar = new GregorianCalendar();
+            MiniMenu.randomSeed = (calendar.get(Calendar.HOUR_OF_DAY) * 600) + (calendar.get(Calendar.MINUTE) * 10) + (calendar.get(Calendar.SECOND) / 6);
+            MiniMenu.random.setSeed(MiniMenu.randomSeed);
         }
 
         ServerConnection.GAME.recordStats();
         ServerConnection.LOBBY.recordStats();
-
         this.tickJs5();
+
         if (Static228.js5MasterIndex != null) {
             Static228.js5MasterIndex.process();
         }
@@ -910,41 +914,48 @@ public final class client extends GameShell {
         VideoManager.tick();
         KeyboardMonitor.instance.record();
         MouseMonitor.instance.record();
+
         if (Toolkit.active != null) {
-            Toolkit.active.method7977((int) SystemTimer.safetime());
+            Toolkit.active.tick((int) SystemTimer.safetime());
         }
+
         ClientURLTools.tick();
         Static671.anInt10026 = 0;
         Static216.keyPressCount = 0;
-        for (@Pc(94) KeyLog local94 = KeyboardMonitor.instance.removeFirstRecorded(); local94 != null; local94 = KeyboardMonitor.instance.removeFirstRecorded()) {
-            @Pc(102) int local102 = local94.getType();
-            if (local102 == 2 || local102 == 3) {
-                @Pc(118) char local118 = local94.getKeyChar();
-                if (Static647.method8468() && (local118 == '`' || local118 == '§' || local118 == '²')) {
+
+        for (@Pc(94) KeyLog log = KeyboardMonitor.instance.removeFirstRecorded(); log != null; log = KeyboardMonitor.instance.removeFirstRecorded()) {
+            @Pc(102) int type = log.getType();
+
+            if (type == KeyLog.TYPE_HELD || type == KeyLog.TYPE_TYPED) {
+                @Pc(118) char keyChar = log.getKeyChar();
+
+                if (MainLogicManager.isNotLoading() && (keyChar == '`' || keyChar == '§' || keyChar == '²')) {
                     if (debugconsole.isOpen()) {
-                        Static129.method2279();
+                        debugconsole.close();
                     } else {
-                        Static455.method6224();
+                        debugconsole.open();
                     }
                 } else if (Static671.anInt10026 < 128) {
-                    Static194.AN_KEYBOARD_EVENT_ARRAY_1[Static671.anInt10026] = local94;
+                    Static194.AN_KEYBOARD_EVENT_ARRAY_1[Static671.anInt10026] = log;
                     Static671.anInt10026++;
                 }
-            } else if (local102 == 0 && Static216.keyPressCount < 75) {
-                Static591.AN_KEYBOARD_EVENT_ARRAY_2[Static216.keyPressCount] = local94;
+            } else if (type == 0 && Static216.keyPressCount < 75) {
+                Static591.AN_KEYBOARD_EVENT_ARRAY_2[Static216.keyPressCount] = log;
                 Static216.keyPressCount++;
             }
         }
 
         Static611.mouseWheelRotation = 0;
-        for (@Pc(214) MouseLog local214 = MouseMonitor.instance.removeFirstLog(); local214 != null; local214 = MouseMonitor.instance.removeFirstLog()) {
-            @Pc(222) int local222 = local214.getType();
-            if (local222 == -1) {
-                Static677.mouseMovements.addLast(local214);
-            } else if (local222 == 6) {
-                Static611.mouseWheelRotation += local214.getExtra();
-            } else if (Static278.method4070(local222)) {
-                Static226.mouseLogs.addLast(local214);
+        for (@Pc(214) MouseLog log = MouseMonitor.instance.removeFirstLog(); log != null; log = MouseMonitor.instance.removeFirstLog()) {
+            @Pc(222) int type = log.getType();
+
+            if (type == MouseLog.TYPE_RESET) {
+                Static677.mouseMovements.addLast(log);
+            } else if (type == MouseLog.TYPE_SCROLL) {
+                Static611.mouseWheelRotation += log.getExtra();
+            } else if (MouseLog.isPress(type)) {
+                Static226.mouseLogs.addLast(log);
+
                 if (Static226.mouseLogs.size() > 10) {
                     Static226.mouseLogs.removeFirst();
                 }
@@ -963,27 +974,29 @@ public final class client extends GameShell {
         }
 
         if (MainLogicStep.isLoggedOut(MainLogicManager.step) && !MainLogicStep.isBuildingMap(MainLogicManager.step)) {
-            this.method1658();
-            Static76.method1555();
+            this.lobbyTick();
+            LobbyManager.changeMainState();
             LoginManager.changeMainState();
         } else if (MainLogicStep.isAtLobbyScreen(MainLogicManager.step) && !MainLogicStep.isBuildingMap(MainLogicManager.step)) {
-            this.method1658();
+            this.lobbyTick();
             LoginManager.changeMainState();
-        } else if (MainLogicManager.step == 13) {
+        } else if (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_GAMESCREEN_TO_LOBBY) {
             LoginManager.changeMainState();
         } else if (MainLogicStep.isAtGameScreen(MainLogicManager.step) && !MainLogicStep.isBuildingMap(MainLogicManager.step)) {
             MainLogicManager.changeMainState();
-        } else if (MainLogicManager.step == 14 || MainLogicManager.step == 15) {
+        } else if (MainLogicManager.step == MainLogicStep.STEP_RECONNECTING || MainLogicManager.step == MainLogicStep.STEP_SWITCH_WORLD) {
             LoginManager.changeMainState();
-            if (LoginManager.gameLoginResponse != -3 && LoginManager.gameLoginResponse != 2 && LoginManager.gameLoginResponse != 15) {
-                if (MainLogicManager.step == 15) {
-                    Static78.anInt1626 = LoginManager.gameLoginResponse;
-                    Static673.anInt10079 = LoginManager.disallowTrigger;
-                    Static383.anInt6001 = LoginManager.disallowResult;
-                    if (Static718.reconnectToPrevious) {
+
+            if (LoginManager.gameLoginResponse != LoginResponseCode.LOGGING_IN && LoginManager.gameLoginResponse != LoginResponseCode.OK && LoginManager.gameLoginResponse != LoginResponseCode.RECONNECT_OK) {
+                if (MainLogicManager.step == MainLogicStep.STEP_SWITCH_WORLD) {
+                    LoginManager.lastGameLoginResponse = LoginManager.gameLoginResponse;
+                    LoginManager.lastDisallowTrigger = LoginManager.disallowTrigger;
+                    LoginManager.lastDisallowResult = LoginManager.disallowResult;
+
+                    if (LoginManager.reconnectToPrevious) {
                         connectTo(ConnectionInfo.previous.world, ConnectionInfo.previous.address);
                         ServerConnection.GAME.connection = null;
-                        MainLogicManager.setStep(14);
+                        MainLogicManager.setStep(MainLogicStep.STEP_RECONNECTING);
                     } else {
                         LoginManager.logout(InterfaceManager.lobbyOpened);
                     }
@@ -992,7 +1005,8 @@ public final class client extends GameShell {
                 }
             }
         }
-        Static369.method3851(Toolkit.active);
+
+        Static369.updateObjSprites(Toolkit.active);
         Static226.mouseLogs.removeFirst();
     }
 
@@ -1277,9 +1291,9 @@ public final class client extends GameShell {
             }
         }
 
-        Client.addtionalInfo = this.getParameter("additionalInfo");
-        if (Client.addtionalInfo != null && Client.addtionalInfo.length() > 50) {
-            Client.addtionalInfo = null;
+        Client.additionalInfo = this.getParameter("additionalInfo");
+        if (Client.additionalInfo != null && Client.additionalInfo.length() > 50) {
+            Client.additionalInfo = null;
         }
 
         if (ModeGame.RUNESCAPE == Client.modeGame) {

@@ -1786,7 +1786,7 @@ public final class Protocol {
             @Pc(627) String address = bitPacket.gjstr();
             // g.trace("logout transfer to world " + var18 + " on " + var26);
             @Pc(2080) boolean reconnect = bitPacket.g1() == 1;
-            Static718.reconnectToPrevious = reconnect;
+            LoginManager.reconnectToPrevious = reconnect;
             ConnectionInfo.previous = ConnectionInfo.login;
             client.connectTo(world, address);
             MainLogicManager.setStep(MainLogicStep.STEP_SWITCH_WORLD);

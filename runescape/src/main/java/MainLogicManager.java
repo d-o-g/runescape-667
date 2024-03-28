@@ -783,4 +783,9 @@ public final class MainLogicManager {
             ScriptRunner.executeHookInner(local2006);
         }
     }
+
+    @OriginalMember(owner = "client!uh", name = "a", descriptor = "(B)Z")
+    public static boolean isNotLoading() {
+        return step >= MainLogicStep.STEP_LOADING_1;
+    }
 }

@@ -8,10 +8,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Node_Sub29 extends Node {
 
     @OriginalMember(owner = "client!ika", name = "m", descriptor = "I")
-    public int anInt4409;
+    public int runningTime;
 
     @OriginalMember(owner = "client!ika", name = "o", descriptor = "Z")
-    public boolean aBoolean341;
+    public boolean awaitingTick;
 
     @OriginalMember(owner = "client!ika", name = "l", descriptor = "I")
     public final int anInt4408;

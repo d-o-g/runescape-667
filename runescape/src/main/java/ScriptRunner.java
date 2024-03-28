@@ -4840,7 +4840,7 @@ public final class ScriptRunner {
                             return;
                         }
                         if (!LoginManager.inProgress() && LobbyManager.step == 0) {
-                            Static104.method2029(aStringArray37[anInt7139]);
+                            LobbyManager.checkEmail(aStringArray37[anInt7139]);
                             return;
                         }
                         return;
@@ -4852,14 +4852,14 @@ public final class ScriptRunner {
                             return;
                         }
                         if (!LoginManager.inProgress() && LobbyManager.step == 0) {
-                            Static81.method1591(aStringArray37[anInt7139], anIntArray578[anInt7142], aStringArray37[anInt7139 + 1], anIntArray578[anInt7142 + 1] == 1);
+                            LobbyManager.createAccount(aStringArray37[anInt7139], anIntArray578[anInt7142], aStringArray37[anInt7139 + 1], anIntArray578[anInt7142 + 1] == 1);
                             return;
                         }
                         return;
                     }
                     if (arg0 == 5606) {
                         if (LobbyManager.step == 0) {
-                            Static580.anInt8621 = -2;
+                            LobbyManager.response = LobbyManager.LOBBY_RESPONSE_DEFAULT;
                         }
                         return;
                     }
@@ -4872,7 +4872,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5609) {
-                        anIntArray578[anInt7142++] = Static580.anInt8621;
+                        anIntArray578[anInt7142++] = LobbyManager.response;
                         return;
                     }
                     if (arg0 == 5611) {
@@ -4942,16 +4942,16 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5626) {
                         Client.under13 = true;
-                        Static358.method9190();
+                        Static358.setUnderageCookie();
                         return;
                     }
                     if (arg0 == 5627) {
-                        anIntArray578[anInt7142++] = Static78.anInt1626;
-                        anIntArray578[anInt7142++] = Static383.anInt6001;
-                        anIntArray578[anInt7142++] = Static673.anInt10079;
-                        Static78.anInt1626 = -2;
-                        Static383.anInt6001 = -1;
-                        Static673.anInt10079 = -1;
+                        anIntArray578[anInt7142++] = LoginManager.lastGameLoginResponse;
+                        anIntArray578[anInt7142++] = LoginManager.lastDisallowResult;
+                        anIntArray578[anInt7142++] = LoginManager.lastDisallowTrigger;
+                        LoginManager.lastGameLoginResponse = -2;
+                        LoginManager.lastDisallowResult = -1;
+                        LoginManager.lastDisallowTrigger = -1;
                         return;
                     }
                     if (arg0 == 5628) {

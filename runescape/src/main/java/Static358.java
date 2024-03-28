@@ -10,6 +10,8 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static358 {
 
+    public static final long MILLISECONDS_PER_DAY = 86400000L;
+
     // $FF: synthetic field
     @OriginalMember(owner = "client!lf", name = "d", descriptor = "Ljava/lang/Class;")
     public static Class aClass28;
@@ -127,16 +129,18 @@ public final class Static358 {
     }
 
     @OriginalMember(owner = "client!lf", name = "e", descriptor = "(I)V")
-    public static void method9190() {
+    public static void setUnderageCookie() {
         if (GameShell.loaderApplet == null) {
             return;
         }
+
         try {
-            @Pc(23) String local23 = GameShell.loaderApplet.getParameter("cookiehost");
-            @Pc(31) int local31 = (int) (SystemTimer.safetime() / 86400000L) - 11745;
-            @Pc(47) String local47 = "usrdob=" + local31 + "; version=1; path=/; domain=" + local23;
-            JavaScript.eval("document.cookie=\"" + local47 + "\"", GameShell.loaderApplet);
-        } catch (@Pc(63) Throwable local63) {
+            @Pc(23) String domain = GameShell.loaderApplet.getParameter("cookiehost");
+            @Pc(31) int dob = (int) (SystemTimer.safetime() / MILLISECONDS_PER_DAY) - 11745;
+            @Pc(47) String cookie = "usrdob=" + dob + "; version=1; path=/; domain=" + domain;
+            JavaScript.eval("document.cookie=\"" + cookie + "\"", GameShell.loaderApplet);
+        } catch (@Pc(63) Throwable ignored) {
+            /* empty */
         }
     }
 

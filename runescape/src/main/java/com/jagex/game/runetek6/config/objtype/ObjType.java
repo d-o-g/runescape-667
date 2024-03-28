@@ -525,7 +525,7 @@ public final class ObjType {
     }
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(ILclient!ha;IBIZLclient!ju;Lclient!ha;Lclient!da;I)[I")
-    public int[] sprite(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) PlayerModel appearance, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Font font, @OriginalArg(9) int outline) {
+    public int[] sprite(@OriginalArg(0) int objNumMode, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int invCount, @OriginalArg(4) int graphicShadow, @OriginalArg(5) boolean arg4, @OriginalArg(6) PlayerModel playerModel, @OriginalArg(7) Toolkit scratchToolkit, @OriginalArg(8) Font font, @OriginalArg(9) int outline) {
         @Pc(14) Mesh mesh = Mesh.load(this.mesh, this.myList.meshes);
         if (mesh == null) {
             return null;
@@ -552,11 +552,11 @@ public final class ObjType {
             }
         }
 
-        if (appearance != null) {
+        if (playerModel != null) {
             for (i = 0; i < 10; i++) {
                 for (@Pc(138) int local138 = 0; local138 < PlayerModel.recol_s[i].length; local138++) {
-                    if (appearance.clientpalette[i] < PlayerModel.recol_d[i][local138].length) {
-                        mesh.recolour(PlayerModel.recol_s[i][local138], PlayerModel.recol_d[i][local138][appearance.clientpalette[i]]);
+                    if (playerModel.clientpalette[i] < PlayerModel.recol_d[i][local138].length) {
+                        mesh.recolour(PlayerModel.recol_s[i][local138], PlayerModel.recol_d[i][local138][playerModel.clientpalette[i]]);
                     }
                 }
             }
@@ -580,17 +580,17 @@ public final class ObjType {
 
         @Pc(272) Sprite sprite = null;
         if (this.certtemplate != -1) {
-            sprite = this.myList.sprite(1, scratchToolkit, toolkit, appearance, true, 0, 10, true, SHOWCOUNT_NEVER, font, this.certlink);
+            sprite = this.myList.sprite(1, scratchToolkit, toolkit, playerModel, true, 0, 10, true, SHOWCOUNT_NEVER, font, this.certlink);
             if (sprite == null) {
                 return null;
             }
         } else if (this.lenttemplate != -1) {
-            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, appearance, true, graphicShadow, invCount, false, SHOWCOUNT_NEVER, font, this.lentlink);
+            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, playerModel, true, graphicShadow, invCount, false, SHOWCOUNT_NEVER, font, this.lentlink);
             if (sprite == null) {
                 return null;
             }
         } else if (this.boughttemplate != -1) {
-            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, appearance, true, graphicShadow, invCount, false, SHOWCOUNT_NEVER, font, this.boughtlink);
+            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, playerModel, true, graphicShadow, invCount, false, SHOWCOUNT_NEVER, font, this.boughtlink);
             if (sprite == null) {
                 return null;
             }

@@ -12,8 +12,8 @@ public final class Static668 {
 
     @OriginalMember(owner = "client!vca", name = "c", descriptor = "(I)V")
     public static void method8703() {
-        if (Static460.anInt8472 < 102) {
-            Static460.anInt8472 += 6;
+        if (debugconsole.anInt8472 < 102) {
+            debugconsole.anInt8472 += 6;
         }
         @Pc(26) int local26;
         if (Static523.anInt3885 != -1 && Static305.aLong157 < SystemTimer.safetime()) {

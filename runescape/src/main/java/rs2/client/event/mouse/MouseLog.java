@@ -1,6 +1,7 @@
 package rs2.client.event.mouse;
 
 import com.jagex.core.datastruct.key.Node;
+import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -22,6 +23,13 @@ public abstract class MouseLog extends Node {
     public static final int TYPE_RELEASE_RIGHT = 5;
 
     public static final int TYPE_SCROLL = 6;
+
+    @OriginalMember(owner = "client!in", name = "b", descriptor = "(II)Z")
+    public static boolean isPress(@OriginalArg(0) int type) {
+        return type == TYPE_PRESS_LEFT
+            || type == TYPE_PRESS_MIDDLE
+            || type == TYPE_PRESS_RIGHT;
+    }
 
     @OriginalMember(owner = "client!bv", name = "a", descriptor = "(Z)I")
     public abstract int getType();

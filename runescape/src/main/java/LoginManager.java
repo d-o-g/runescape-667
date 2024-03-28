@@ -1,6 +1,8 @@
 import com.jagex.Client;
 import com.jagex.LibraryList;
+import com.jagex.LoginProt;
 import com.jagex.ServerProt;
+import com.jagex.core.io.connection.Connection;
 import com.jagex.sign.SignedResourceStatus;
 import com.jagex.StockmarketOffer;
 import com.jagex.core.constants.LoginResponseCode;
@@ -112,6 +114,18 @@ public final class LoginManager {
 
     @OriginalMember(owner = "client!rla", name = "c", descriptor = "Z")
     public static boolean aBoolean640 = false;
+
+    @OriginalMember(owner = "client!cj", name = "o", descriptor = "I")
+    public static int lastGameLoginResponse = -2;
+
+    @OriginalMember(owner = "client!vf", name = "F", descriptor = "I")
+    public static int lastDisallowTrigger = -1;
+
+    @OriginalMember(owner = "client!ma", name = "o", descriptor = "I")
+    public static int lastDisallowResult = -1;
+
+    @OriginalMember(owner = "client!wo", name = "x", descriptor = "Z")
+    public static boolean reconnectToPrevious;
 
     @OriginalMember(owner = "client!he", name = "a", descriptor = "(IZ)V")
     public static void logout(@OriginalArg(1) boolean toLobby) {
@@ -268,7 +282,7 @@ public final class LoginManager {
                     return;
                 }
 
-                ServerConnection.active.connection = Static99.method1975((Socket) ServerConnection.active.gameSocketRequest.result);
+                ServerConnection.active.connection = Connection.create((Socket) ServerConnection.active.gameSocketRequest.result);
                 ServerConnection.active.gameSocketRequest = null;
                 ServerConnection.active.clear();
 
@@ -432,9 +446,9 @@ public final class LoginManager {
                     bitPacket.pdata(systemInfo.data.length, systemInfo.data, 0);
                     bitPacket.p4(Static334.anInt5456);
                     bitPacket.p8(Client.userFlow);
-                    bitPacket.p1(Client.addtionalInfo != null ? 1 : 0);
-                    if (Client.addtionalInfo != null) {
-                        bitPacket.pjstr(Client.addtionalInfo);
+                    bitPacket.p1(Client.additionalInfo != null ? 1 : 0);
+                    if (Client.additionalInfo != null) {
+                        bitPacket.pjstr(Client.additionalInfo);
                     }
                     bitPacket.p1(LibraryList.isNativeLoaded("jagtheora") ? 1 : 0);
                     bitPacket.p1(Client.js ? 1 : 0);
@@ -1158,10 +1172,6 @@ public final class LoginManager {
         doLogin(previousUsername.equals(""), previousUsername, true, "");
     }
 
-    private LoginManager() {
-        /* empty */
-    }
-
     @OriginalMember(owner = "client!vda", name = "g", descriptor = "(I)V")
     public static void loginToGame() {
         if (Client.ssKey != null) {
@@ -1171,5 +1181,31 @@ public final class LoginManager {
         } else {
             doGameSnLogin(anInt7113);
         }
+    }
+
+    @OriginalMember(owner = "client!vaa", name = "a", descriptor = "(ILclient!fk;)[I")
+    public static int[] pushXtea(@OriginalArg(1) ClientMessage message) {
+        @Pc(8) Packet packet = new Packet(518);
+        @Pc(11) int[] parts = new int[4];
+        for (@Pc(13) int i = 0; i < 4; i++) {
+            parts[i] = (int) (Math.random() * 9.9999999E7D);
+        }
+
+        packet.p1(10);
+        packet.p4(parts[0]);
+        packet.p4(parts[1]);
+        packet.p4(parts[2]);
+        packet.p4(parts[3]);
+        for (@Pc(70) int i = 0; i < 10; i++) {
+            packet.p4((int) (Math.random() * 9.9999999E7D));
+        }
+        packet.p2((int) (Math.random() * 9.9999999E7D));
+        packet.rsaenc(RSA_MODULUS, RSA_EXPONENT);
+        message.bitPacket.pdata(packet.pos, packet.data, 0);
+        return parts;
+    }
+
+    private LoginManager() {
+        /* empty */
     }
 }

@@ -20,7 +20,7 @@ public final class Fonts {
     public static int b12FullGroup;
 
     @OriginalMember(owner = "client!tu", name = "i", descriptor = "Lclient!da;")
-    public static Font aFont_11;
+    public static Font objSpriteFont;
 
     @OriginalMember(owner = "client!vb", name = "y", descriptor = "Lclient!da;")
     public static Font p11;

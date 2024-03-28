@@ -126,9 +126,9 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "e", descriptor = "(I)V")
     @Override
-    public void method7977(@OriginalArg(0) int arg0) {
+    public void tick(@OriginalArg(0) int time) {
         SoftwareMemoryManager.freeAll();
-        this.d(arg0);
+        this.d(time);
         for (@Pc(10) ya local10 = (ya) this.aDeque_38.first(); local10 != null; local10 = (ya) this.aDeque_38.next()) {
             local10.r();
         }

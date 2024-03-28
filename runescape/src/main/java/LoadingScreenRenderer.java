@@ -1,3 +1,4 @@
+import rs2.client.loading.screen.LoadingScreen;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
@@ -63,7 +64,7 @@ public final class LoadingScreenRenderer implements Runnable {
     }
 
     @OriginalMember(owner = "client!uaa", name = "c", descriptor = "(I)V")
-    public void method8372() {
+    public void complete() {
         this.stopped = true;
     }
 
@@ -90,7 +91,7 @@ public final class LoadingScreenRenderer implements Runnable {
         @Pc(22) int local22 = this.state.getStep();
         if (this.state.updatePercentage && this.state.endPercentage > this.percentage) {
             return this.percentage + 1;
-        } else if (local22 >= 0 && local22 < Static655.aLoadStateArray1.length - 1) {
+        } else if (local22 >= 0 && local22 < Loading.states.length - 1) {
             return this.percentage == this.state.startPercentage ? this.state.endPercentage : this.state.startPercentage;
         } else {
             return 100;
@@ -127,7 +128,7 @@ public final class LoadingScreenRenderer implements Runnable {
                     } else {
                         @Pc(25) long now = SystemTimer.safetime();
 
-                        if (Toolkit.active == null || this.lastScreen == null || this.lastScreen.method8462() == 0 || this.transitionStart < now - (long) this.lastScreen.method8462()) {
+                        if (Toolkit.active == null || this.lastScreen == null || this.lastScreen.getFadeDuration() == 0 || this.transitionStart < now - (long) this.lastScreen.getFadeDuration()) {
                             if (this.lastScreen != null) {
                                 this.fullRepaint = true;
                                 this.lastScreen.method8461();
@@ -144,7 +145,7 @@ public final class LoadingScreenRenderer implements Runnable {
 
                             this.currentScreen.render(this.fullRepaint || Toolkit.active != null && Toolkit.active.method8001());
                         } else {
-                            @Pc(72) int colour = (int) ((now - this.transitionStart) * 255L / (long) this.lastScreen.method8462());
+                            @Pc(72) int colour = (int) ((now - this.transitionStart) * 255L / (long) this.lastScreen.getFadeDuration());
                             @Pc(77) int prevColour = 255 - colour;
                             Static288.repaintMargins();
                             @Pc(85) int prevColourOrWhite = (prevColour << 24) | 0xFFFFFF;

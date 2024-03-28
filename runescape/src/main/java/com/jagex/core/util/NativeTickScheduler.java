@@ -1,6 +1,6 @@
-package com.jagex;
+package com.jagex.core.util;
 
-import com.jagex.Class27;
+import com.jagex.core.util.TickScheduler;
 import jagex3.jagmisc.jagmisc;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!mp")
-public final class Class27_Sub3 extends Class27 {
+public final class NativeTickScheduler extends TickScheduler {
 
     @OriginalMember(owner = "client!mp", name = "l", descriptor = "J")
     public long aLong201 = 0L;
@@ -29,7 +29,7 @@ public final class Class27_Sub3 extends Class27 {
     public int anInt6264 = 1;
 
     @OriginalMember(owner = "client!mp", name = "<init>", descriptor = "()V")
-    public Class27_Sub3() {
+    public NativeTickScheduler() {
         this.aLong201 = this.aLong202 = jagmisc.nanoTime();
         if (this.aLong202 == 0L) {
             throw new RuntimeException();
@@ -66,20 +66,20 @@ public final class Class27_Sub3 extends Class27 {
 
     @OriginalMember(owner = "client!mp", name = "b", descriptor = "(I)J")
     @Override
-    public long method5602() {
+    public long getTickTime() {
         return this.aLong202;
     }
 
     @OriginalMember(owner = "client!mp", name = "b", descriptor = "(B)J")
     @Override
-    protected long method5599() {
+    protected long getDelay() {
         this.aLong202 += this.method5603();
         return this.aLong201 > this.aLong202 ? (this.aLong201 - this.aLong202) / 1000000L : 0L;
     }
 
     @OriginalMember(owner = "client!mp", name = "a", descriptor = "(BJ)I")
     @Override
-    protected int method5596(@OriginalArg(1) long arg0) {
+    protected int schedule(@OriginalArg(1) long arg0) {
         if (this.aLong201 > this.aLong202) {
             this.aLong203 += this.aLong201 - this.aLong202;
             this.aLong202 += this.aLong201 - this.aLong202;

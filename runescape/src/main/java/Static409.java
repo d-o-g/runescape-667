@@ -1,4 +1,5 @@
 import com.jagex.core.constants.LocShapes;
+import com.jagex.game.Location;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

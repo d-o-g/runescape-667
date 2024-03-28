@@ -8,9 +8,6 @@ public final class Static150 {
     @OriginalMember(owner = "client!en", name = "h", descriptor = "I")
     public static int anInt2634;
 
-    @OriginalMember(owner = "client!en", name = "d", descriptor = "[I")
-    public static int[] femaleTitleEnums;
-
     @OriginalMember(owner = "client!en", name = "i", descriptor = "I")
     public static int drawOrder = 0;
 

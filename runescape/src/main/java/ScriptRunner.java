@@ -10,6 +10,7 @@ import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeWhat;
 import com.jagex.game.camera.CameraMode;
 import com.jagex.game.compression.huffman.WordPack;
+import com.jagex.game.runetek6.config.defaults.AudioDefaults;
 import com.jagex.game.runetek6.config.enumtype.EnumMapping;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
@@ -3462,14 +3463,14 @@ public final class ScriptRunner {
                             }
                             anIntArrayArray177[local96][local706] = anIntArray578[anInt7142 + 1];
                         } else if (local34 == 47) {
-                            @Pc(843) String local843 = Static37.aStringArray4[local11[local5]];
+                            @Pc(843) String local843 = Static37.varcstrs[local11[local5]];
                             if (local843 == null) {
                                 local843 = "null";
                             }
                             aStringArray37[anInt7139++] = local843;
                         } else if (local34 == 48) {
                             local96 = local11[local5];
-                            Static37.aStringArray4[local96] = aStringArray37[--anInt7139];
+                            Static37.varcstrs[local96] = aStringArray37[--anInt7139];
                             DelayedStateChange.resetVarcstr(local96);
                         } else if (local34 == 51) {
                             @Pc(889) IterableHashTable local889 = arg0.aIterableHashTableArray1[local11[local5]];
@@ -5213,7 +5214,7 @@ public final class ScriptRunner {
                     if (arg0 == 6038) {
                         local192 = anIntArray578[--anInt7142];
                         local834 = ClientOptions.instance.loginVolume.getValue();
-                        if (local192 != local834 && SongManager.playing == Static597.themeMusic) {
+                        if (local192 != local834 && SongManager.playing == AudioDefaults.themeMusic) {
                             if (!MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
                                 if (local834 == 0) {
                                     SongManager.method8229(SongManager.playing, local192, js5.MIDI_SONGS);

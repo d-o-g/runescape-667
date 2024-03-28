@@ -1547,7 +1547,7 @@ public final class InterfaceManager {
                                     }
                                     if (MiniMenu.anInt6964 == 2) {
                                         Static1.aBoolean821 = true;
-                                        Static669.method8711(Static661.anInt6055 + (int) ((double) (dragStartX - MouseMonitor.instance.getRecordedX()) * 2.0D / (double) WorldMap.targetZoom));
+                                        WorldMap.method8711(Static661.anInt6055 + (int) ((double) (dragStartX - MouseMonitor.instance.getRecordedX()) * 2.0D / (double) WorldMap.targetZoom));
                                         Static182.method2786(Static417.anInt6399 - (int) ((double) (dragStartY - MouseMonitor.instance.getRecordedY()) * 2.0D / (double) WorldMap.targetZoom));
                                     }
                                     continue;

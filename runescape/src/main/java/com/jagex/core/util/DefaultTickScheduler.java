@@ -1,14 +1,14 @@
-package com.jagex;
+package com.jagex.core.util;
 
-import com.jagex.Class27;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TickScheduler;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!au")
-public final class Class27_Sub1 extends Class27 {
+public final class DefaultTickScheduler extends TickScheduler {
 
     @OriginalMember(owner = "client!au", name = "j", descriptor = "J")
     public long aLong18 = 0L;
@@ -39,20 +39,20 @@ public final class Class27_Sub1 extends Class27 {
 
     @OriginalMember(owner = "client!au", name = "b", descriptor = "(B)J")
     @Override
-    protected long method5599() {
+    protected long getDelay() {
         this.aLong18 += this.method734();
         return this.aLong18 < this.aLong19 ? (this.aLong19 - this.aLong18) / 1000000L : 0L;
     }
 
     @OriginalMember(owner = "client!au", name = "b", descriptor = "(I)J")
     @Override
-    public long method5602() {
+    public long getTickTime() {
         return this.aLong18;
     }
 
     @OriginalMember(owner = "client!au", name = "a", descriptor = "(BJ)I")
     @Override
-    protected int method5596(@OriginalArg(1) long arg0) {
+    protected int schedule(@OriginalArg(1) long arg0) {
         if (this.aLong19 > this.aLong18) {
             this.aLong20 += this.aLong19 - this.aLong18;
             this.aLong18 += this.aLong19 - this.aLong18;

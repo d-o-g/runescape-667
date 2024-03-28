@@ -21,7 +21,7 @@ public final class Class90_Sub3 extends Class90 {
     @Override
     public void init() {
         super.init();
-        this.aSprite_28 = Static652.method8533(((Class138_Sub2) super.aClass138_5).anInt3438, super.aJs5_109);
+        this.aSprite_28 = Loading.sprite(((Class138_Sub2) super.aClass138_5).anInt3438, super.aJs5_109);
     }
 
     @OriginalMember(owner = "client!lq", name = "a", descriptor = "(ZIBI)V")

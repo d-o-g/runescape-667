@@ -1,3 +1,4 @@
+import com.jagex.game.Location;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.msitype.MSIType;
@@ -7,12 +8,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static449 {
-
-    @OriginalMember(owner = "client!od", name = "h", descriptor = "Lclient!uaa;")
-    public static LoadingScreenRenderer aLoadingScreenRenderer_1;
-
-    @OriginalMember(owner = "client!od", name = "c", descriptor = "[I")
-    public static int[] anIntArray546;
 
     @OriginalMember(owner = "client!od", name = "e", descriptor = "Z")
     public static boolean aBoolean511 = false;

@@ -4,6 +4,7 @@ import com.jagex.core.constants.LocShapes;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.game.Location;
 import com.jagex.game.camera.CameraMode;
 import com.jagex.game.collision.CollisionMap;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
@@ -358,7 +359,7 @@ public final class Minimap {
             }
         }
 
-        loc = (Location) Static578.getEntity(arg6, arg2, arg3, Static185.locClass == null ? (Static185.locClass = Static185.getClass("Location")) : Static185.locClass);
+        loc = (Location) Static578.getEntity(arg6, arg2, arg3, Static185.locClass == null ? (Static185.locClass = Static185.getClass("com.jagex.game.Location")) : Static185.locClass);
         if (loc != null) {
             @Pc(20) LocType type = LocTypeList.instance.list(loc.getId());
             @Pc(26) int rotation = loc.getRotation() & 0x3;
@@ -737,7 +738,7 @@ public final class Minimap {
                         if (Static696.isTileVisibleFrom(z, mapLevel, x, level)) {
                             @Pc(730) Location loc = (Location) Static687.getGroundDecor(level, x, z);
                             if (loc == null) {
-                                loc = (Location) Static578.getEntity(level, x, z, Static484.aClass19 == null ? (Static484.aClass19 = Static484.getClass("Location")) : Static484.aClass19);
+                                loc = (Location) Static578.getEntity(level, x, z, Static484.aClass19 == null ? (Static484.aClass19 = Static484.getClass("com.jagex.game.Location")) : Static484.aClass19);
                             }
                             if (loc == null) {
                                 loc = (Location) Static302.getWall(level, x, z);

@@ -3,6 +3,7 @@ import com.jagex.core.constants.LocLayer;
 import com.jagex.core.constants.LocShapes;
 import com.jagex.core.constants.TileFlag;
 import com.jagex.core.io.Packet;
+import com.jagex.game.Location;
 import com.jagex.game.collision.CollisionMap;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
@@ -1068,7 +1069,7 @@ public final class MapRegion extends Class306 {
             location = Static114.getWallDecor(level, x, z);
         }
         if (layer == LocLayer.GROUND) {
-            location = (Location) Static578.getEntity(level, x, z, locClass == null ? (locClass = getClass("Location")) : locClass);
+            location = (Location) Static578.getEntity(level, x, z, locClass == null ? (locClass = getClass("com.jagex.game.Location")) : locClass);
         }
         if (layer == LocLayer.GROUNDDECOR) {
             location = (Location) Static687.getGroundDecor(level, x, z);
@@ -1230,7 +1231,7 @@ public final class MapRegion extends Class306 {
         } else if (layer == 1) {
             Static173.method2692(level, x, z);
         } else if (layer == 2) {
-            Static10.method130(level, x, z, locClass == null ? (locClass = getClass("Location")) : locClass);
+            Static10.method130(level, x, z, locClass == null ? (locClass = getClass("com.jagex.game.Location")) : locClass);
             if (local22.blockwalk != 0 && super.width > local22.width + x && super.height > local22.width + z && x + local22.length < super.width && local22.length + z < super.height) {
                 collisionMap.unflagLoc(x, z, local22.width, local22.length, local30, local22.blockrange, !local22.breakroutefinding);
             }

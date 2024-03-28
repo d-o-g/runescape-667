@@ -15,7 +15,7 @@ public final class Node_Sub6_Sub5 extends AudioBuss {
     public static final LruCache recentUse = new LruCache(64);
 
     @OriginalMember(owner = "client!ka", name = "f", descriptor = "Z")
-    public static boolean aBoolean644;
+    public static boolean stereo;
 
     @OriginalMember(owner = "client!wc", name = "o", descriptor = "Z")
     public boolean aBoolean794;
@@ -175,7 +175,7 @@ public final class Node_Sub6_Sub5 extends AudioBuss {
         }
         if (this.method9145() != null) {
             @Pc(32) int local32 = arg2 + arg1;
-            if (aBoolean644) {
+            if (stereo) {
                 local32 <<= 0x1;
             }
             @Pc(42) byte local42 = 0;
@@ -189,7 +189,7 @@ public final class Node_Sub6_Sub5 extends AudioBuss {
                 }
                 @Pc(62) short[][] local62 = local56.aShortArrayArray3;
                 while (local32 > arg1 && this.anInt10536 < local62[0].length) {
-                    if (aBoolean644) {
+                    if (stereo) {
                         arg0[arg1++] = local62[0][this.anInt10536] * this.anInt10534;
                         arg0[arg1++] = this.anInt10537 * local62[local42][this.anInt10536];
                     } else {

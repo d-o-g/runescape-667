@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static297 {
 
-    @OriginalMember(owner = "client!jha", name = "n", descriptor = "Z")
-    public static boolean loadingSpritesRaw;
-
     @OriginalMember(owner = "client!jha", name = "i", descriptor = "J")
     public static long aLong153 = 0L;
 

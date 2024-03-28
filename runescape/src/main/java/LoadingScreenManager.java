@@ -12,7 +12,10 @@ import rs2.client.loading.screen.op.LoadingScreenOpType;
 import java.util.Random;
 
 @OriginalClass("client!oka")
-public final class Class279 {
+public final class LoadingScreenManager {
+
+    @OriginalMember(owner = "client!kj", name = "b", descriptor = "Lclient!oka;")
+    public static LoadingScreenManager instance;
 
     private final ModeGame game;
 
@@ -24,7 +27,7 @@ public final class Class279 {
     private final int num;
 
     @OriginalMember(owner = "client!oka", name = "d", descriptor = "I")
-    public final int anInt6994;
+    public final int defaultScreen;
 
     @OriginalMember(owner = "client!oka", name = "f", descriptor = "[[I")
     public final int[][] anIntArrayArray171;
@@ -33,7 +36,7 @@ public final class Class279 {
     public final boolean[] aBooleanArray22;
 
     @OriginalMember(owner = "client!oka", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;)V")
-    public Class279(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
+    public LoadingScreenManager(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient) {
         this.game = game;
         this.languageId = languageId;
         this.configClient = configClient;
@@ -43,7 +46,7 @@ public final class Class279 {
         @Pc(26) int local26 = local22.g1();
         if (local26 > 3) {
             this.aBooleanArray22 = new boolean[0];
-            this.anInt6994 = -1;
+            this.defaultScreen = -1;
             this.anIntArrayArray171 = new int[0][];
         } else {
             @Pc(33) int local33 = local22.g1();
@@ -66,9 +69,9 @@ public final class Class279 {
                 local44 = local22.g1();
                 local50 = local22.g1();
                 if (local26 > 2) {
-                    this.anInt6994 = local22.g2s();
+                    this.defaultScreen = local22.g2s();
                 } else {
-                    this.anInt6994 = -1;
+                    this.defaultScreen = -1;
                 }
                 this.anIntArrayArray171 = new int[local50 + 1][];
                 this.aBooleanArray22 = new boolean[local50 + 1];
@@ -78,14 +81,14 @@ public final class Class279 {
                     this.aBooleanArray22[local128] = local22.g1() == 1;
                     @Pc(147) int local147 = local22.g2();
                     @Pc(169) int local169;
-                    if (this.anInt6994 == -1) {
+                    if (this.defaultScreen == -1) {
                         this.anIntArrayArray171[local128] = new int[local147];
                         for (local169 = 0; local169 < local147; local169++) {
                             this.anIntArrayArray171[local128][local169] = local22.g2();
                         }
                     } else {
                         this.anIntArrayArray171[local128] = new int[local147 + 1];
-                        this.anIntArrayArray171[local128][0] = this.anInt6994;
+                        this.anIntArrayArray171[local128][0] = this.defaultScreen;
                         for (local169 = 0; local169 < local147; local169++) {
                             this.anIntArrayArray171[local128][local169 + 1] = local22.g2();
                         }
@@ -93,27 +96,27 @@ public final class Class279 {
                 }
                 for (local128 = 0; local128 < local50 + 1; local128++) {
                     if (this.anIntArrayArray171[local128] == null) {
-                        if (this.anInt6994 == -1) {
+                        if (this.defaultScreen == -1) {
                             this.anIntArrayArray171[local128] = new int[0];
                         } else {
-                            this.anIntArrayArray171[local128] = new int[]{this.anInt6994};
+                            this.anIntArrayArray171[local128] = new int[]{this.defaultScreen};
                         }
                     }
                 }
             } else {
                 this.aBooleanArray22 = new boolean[0];
                 this.anIntArrayArray171 = new int[0][];
-                this.anInt6994 = -1;
+                this.defaultScreen = -1;
             }
         }
     }
 
     @OriginalMember(owner = "client!oka", name = "a", descriptor = "(IB)[I")
-    public int[] method6275(@OriginalArg(0) int arg0) {
+    public int[] getSequence(@OriginalArg(0) int arg0) {
         if (arg0 < 0 || this.anIntArrayArray171.length <= arg0) {
-            return this.anInt6994 == -1 ? new int[0] : new int[]{this.anInt6994};
+            return this.defaultScreen == -1 ? new int[0] : new int[]{this.defaultScreen};
         } else if (this.aBooleanArray22[arg0] && this.anIntArrayArray171[arg0].length > 1) {
-            @Pc(66) int local66 = this.anInt6994 == -1 ? 0 : 1;
+            @Pc(66) int local66 = this.defaultScreen == -1 ? 0 : 1;
             @Pc(70) Random local70 = new Random();
             @Pc(77) int[] local77 = new int[this.anIntArrayArray171[arg0].length];
             Arrays.copy(this.anIntArrayArray171[arg0], 0, local77, 0, local77.length);
@@ -130,15 +133,15 @@ public final class Class279 {
     }
 
     @OriginalMember(owner = "client!oka", name = "a", descriptor = "(Z)Z")
-    public boolean method6276() {
-        return this.anInt6994 != -1;
+    public boolean hasDefault() {
+        return this.defaultScreen != -1;
     }
 
     @OriginalMember(owner = "client!oka", name = "a", descriptor = "(IZ)Lclient!de;")
-    public Class76 method6277(@OriginalArg(0) int arg0) {
-        @Pc(10) byte[] data = this.configClient.getfile(arg0, 1);
-        @Pc(14) Class76 local14 = new Class76();
-        local14.decode(new Packet(data));
-        return local14;
+    public LoadingScreenType get(@OriginalArg(0) int id) {
+        @Pc(10) byte[] data = this.configClient.getfile(id, 1);
+        @Pc(14) LoadingScreenType type = new LoadingScreenType();
+        type.decode(new Packet(data));
+        return type;
     }
 }

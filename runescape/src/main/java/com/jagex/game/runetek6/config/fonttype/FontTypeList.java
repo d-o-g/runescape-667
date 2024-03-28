@@ -27,7 +27,7 @@ public final class FontTypeList {
     private static js5 spritesJs5;
 
     @OriginalMember(owner = "client!lt", name = "z", descriptor = "[Lclient!cl;")
-    private static FontType[] aFontTypeArray1 = null;
+    private static FontType[] fontTypes = null;
 
     @OriginalMember(owner = "client!cl", name = "a", descriptor = "(BLclient!sb;Lclient!sb;[I)V")
     public static void init(@OriginalArg(1) js5 metricsJs5, @OriginalArg(2) js5 spritesJs5, @OriginalArg(3) int[] groups) {
@@ -48,7 +48,7 @@ public final class FontTypeList {
         if (groups != null) {
             for (@Pc(14) int i = 0; i < groups.length; i++) {
                 if (groups[i] == group) {
-                    return aFontTypeArray1[i];
+                    return fontTypes[i];
                 }
             }
         }
@@ -111,7 +111,7 @@ public final class FontTypeList {
     public static int readyCount(@OriginalArg(0) boolean arg0) {
         if (groups == null) {
             return 0;
-        } else if (arg0 || aFontTypeArray1 == null) {
+        } else if (arg0 || fontTypes == null) {
             @Pc(29) int count = 0;
 
             for (@Pc(31) int i = 0; i < groups.length; i++) {
@@ -139,18 +139,18 @@ public final class FontTypeList {
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(BLclient!ha;)V")
     public static void method7549(@OriginalArg(1) Toolkit toolkit) {
-        aFontTypeArray1 = new FontType[groups.length];
+        fontTypes = new FontType[groups.length];
         for (@Pc(14) int i = 0; i < groups.length; i++) {
             @Pc(19) int group = groups[i];
             @Pc(24) FontMetrics metrics = FontMetrics.loadFile(group, metricsJs5);
             @Pc(32) Font font = toolkit.createFont(metrics, IndexedImage.load(spritesJs5, group), true);
-            aFontTypeArray1[i] = new FontType(font, metrics);
+            fontTypes[i] = new FontType(font, metrics);
         }
     }
 
     @OriginalMember(owner = "client!ev", name = "b", descriptor = "(I)V")
     public static void method2569() {
-        aFontTypeArray1 = null;
+        fontTypes = null;
     }
 
     private FontTypeList() {

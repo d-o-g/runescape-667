@@ -10,7 +10,7 @@ public final class Static271 {
 
     @OriginalMember(owner = "client!ij", name = "a", descriptor = "(I)J")
     public static long method3929() {
-        return GameShell.aClass27_1.method5602();
+        return GameShell.tickScheduler.getTickTime();
     }
 
     @OriginalMember(owner = "client!ij", name = "c", descriptor = "(B)V")

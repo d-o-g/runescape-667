@@ -7,16 +7,16 @@ import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
 import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!no")
-public class Class160 implements LoadingScreenOpInstance {
+public class ImageInstance implements LoadingScreenOpInstance {
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(Lclient!ge;B)Lclient!no;")
-    public static Class160 decode(@OriginalArg(0) Packet packet) {
+    public static ImageInstance decode(@OriginalArg(0) Packet packet) {
         @Pc(15) int local15 = packet.g2();
         @Pc(22) HorizontalAlignment local22 = HorizontalAlignment.values()[packet.g1()];
         @Pc(29) VerticalAlignment local29 = VerticalAlignment.values()[packet.g1()];
         @Pc(35) int local35 = packet.g2s();
         @Pc(39) int local39 = packet.g2s();
-        return new Class160(local15, local22, local29, local35, local39);
+        return new ImageInstance(local15, local22, local29, local35, local39);
     }
 
     @OriginalMember(owner = "client!no", name = "l", descriptor = "Lclient!ek;")
@@ -35,7 +35,7 @@ public class Class160 implements LoadingScreenOpInstance {
     public final int anInt3845;
 
     @OriginalMember(owner = "client!no", name = "<init>", descriptor = "(ILclient!wk;Lclient!ek;II)V")
-    public Class160(@OriginalArg(0) int arg0, @OriginalArg(1) HorizontalAlignment arg1, @OriginalArg(2) VerticalAlignment arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public ImageInstance(@OriginalArg(0) int arg0, @OriginalArg(1) HorizontalAlignment arg1, @OriginalArg(2) VerticalAlignment arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         this.aVerticalAlignment_9 = arg2;
         this.anInt3850 = arg3;
         this.anInt3851 = arg0;

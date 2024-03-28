@@ -240,7 +240,7 @@ public class Class56 {
     @OriginalMember(owner = "client!cd", name = "a", descriptor = "([II)V")
     public void method3595(@OriginalArg(0) int[] arg0) {
         @Pc(1) short local1 = 256;
-        if (Node_Sub6_Sub5.aBoolean644) {
+        if (Node_Sub6_Sub5.stereo) {
             local1 = 512;
         }
         Arrays.clear(arg0, 0, local1);

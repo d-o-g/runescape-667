@@ -81,12 +81,12 @@ public class Class90_Sub2 extends Class90 {
     public final void init() {
         super.init();
         @Pc(10) Class138_Sub1 local10 = (Class138_Sub1) super.aClass138_5;
-        this.aSprite_40 = Static652.method8533(local10.anInt3188, super.aJs5_109);
-        this.aSprite_39 = Static652.method8533(local10.anInt3190, super.aJs5_109);
-        this.aSprite_36 = Static652.method8533(local10.anInt3189, super.aJs5_109);
-        this.aSprite_35 = Static652.method8533(local10.anInt3185, super.aJs5_109);
-        this.aSprite_37 = Static652.method8533(local10.anInt3183, super.aJs5_109);
-        this.aSprite_38 = Static652.method8533(local10.anInt3182, super.aJs5_109);
+        this.aSprite_40 = Loading.sprite(local10.anInt3188, super.aJs5_109);
+        this.aSprite_39 = Loading.sprite(local10.anInt3190, super.aJs5_109);
+        this.aSprite_36 = Loading.sprite(local10.anInt3189, super.aJs5_109);
+        this.aSprite_35 = Loading.sprite(local10.anInt3185, super.aJs5_109);
+        this.aSprite_37 = Loading.sprite(local10.anInt3183, super.aJs5_109);
+        this.aSprite_38 = Loading.sprite(local10.anInt3182, super.aJs5_109);
     }
 
     @OriginalMember(owner = "client!gr", name = "b", descriptor = "(I)Z")

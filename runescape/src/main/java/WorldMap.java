@@ -1537,4 +1537,12 @@ public final class WorldMap {
             lastAreaId = -1;
         }
     }
+
+    @OriginalMember(owner = "client!vd", name = "a", descriptor = "(II)V")
+    public static void method8711(@OriginalArg(0) int arg0) {
+        Static180.anInt3001 = -1;
+        anInt3181 = -1;
+        anInt2809 = arg0;
+        method5440();
+    }
 }

@@ -1,5 +1,6 @@
 import com.jagex.core.constants.LocLayer;
 import com.jagex.core.constants.LocShapes;
+import com.jagex.game.Location;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -64,7 +65,7 @@ public final class Static198 {
                 }
             }
         } else if (layer == LocLayer.GROUND) {
-            @Pc(52) Location centrepiece = (Location) Static578.getEntity(level, x, z, aClass9 == null ? (aClass9 = getClass("Location")) : aClass9);
+            @Pc(52) Location centrepiece = (Location) Static578.getEntity(level, x, z, aClass9 == null ? (aClass9 = getClass("com.jagex.game.Location")) : aClass9);
 
             if (centrepiece != null) {
                 if (shape == LocShapes.CENTREPIECE_DIAGONAL) {

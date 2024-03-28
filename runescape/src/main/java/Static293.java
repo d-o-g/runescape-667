@@ -1,5 +1,6 @@
 import com.jagex.ChangeLocationRequest;
 import com.jagex.core.constants.LocLayer;
+import com.jagex.game.Location;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -27,7 +28,7 @@ public final class Static293 {
             location = Static114.getWallDecor(request.level, request.x, request.z);
         }
         if (request.layer == LocLayer.GROUND) {
-            location = (Location) Static578.getEntity(request.level, request.x, request.z, aClass10 == null ? (aClass10 = getClass("Location")) : aClass10);
+            location = (Location) Static578.getEntity(request.level, request.x, request.z, aClass10 == null ? (aClass10 = getClass("com.jagex.game.Location")) : aClass10);
         }
         if (request.layer == LocLayer.GROUNDDECOR) {
             location = (Location) Static687.getGroundDecor(request.level, request.x, request.z);

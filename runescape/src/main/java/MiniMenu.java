@@ -15,6 +15,7 @@ import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.Location;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.TargetMask;

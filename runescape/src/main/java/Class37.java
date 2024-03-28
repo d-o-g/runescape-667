@@ -11,37 +11,37 @@ import rs2.client.loading.screen.op.LoadingScreenOp;
 public class Class37 implements LoadingScreenOp {
 
     @OriginalMember(owner = "client!nha", name = "i", descriptor = "Lclient!st;")
-    protected Sprite aSprite_7;
+    protected Sprite sprite;
 
     @OriginalMember(owner = "client!nha", name = "f", descriptor = "Lclient!no;")
-    protected final Class160 aClass160_2;
+    protected final ImageInstance instance;
 
     @OriginalMember(owner = "client!nha", name = "n", descriptor = "Lclient!sb;")
-    public final js5 aJs5_8;
+    public final js5 loadingSprites;
 
     @OriginalMember(owner = "client!nha", name = "<init>", descriptor = "(Lclient!sb;Lclient!no;)V")
-    public Class37(@OriginalArg(0) js5 arg0, @OriginalArg(1) Class160 arg1) {
-        this.aClass160_2 = arg1;
-        this.aJs5_8 = arg0;
+    public Class37(@OriginalArg(0) js5 loadingSprites, @OriginalArg(1) ImageInstance instance) {
+        this.instance = instance;
+        this.loadingSprites = loadingSprites;
     }
 
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(I)V")
     @Override
     public final void init() {
-        this.aSprite_7 = Static652.method8533(this.aClass160_2.anInt3851, this.aJs5_8);
+        this.sprite = Loading.sprite(this.instance.anInt3851, this.loadingSprites);
     }
 
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(ZI)V")
     @Override
     public void execute() {
-        @Pc(19) int local19 = this.aClass160_2.aHorizontalAlignment_9.align(Client.loadingScreenWidth, this.aSprite_7.scaleWidth()) + this.aClass160_2.anInt3850;
-        @Pc(34) int local34 = this.aClass160_2.aVerticalAlignment_9.align(Client.loadingScreenHeight, this.aSprite_7.scaleHeight()) + this.aClass160_2.anInt3845;
-        this.aSprite_7.render(local19, local34);
+        @Pc(19) int x = this.instance.aHorizontalAlignment_9.align(Client.loadingScreenWidth, this.sprite.scaleWidth()) + this.instance.anInt3850;
+        @Pc(34) int y = this.instance.aVerticalAlignment_9.align(Client.loadingScreenHeight, this.sprite.scaleHeight()) + this.instance.anInt3845;
+        this.sprite.render(x, y);
     }
 
     @OriginalMember(owner = "client!nha", name = "b", descriptor = "(I)Z")
     @Override
     public final boolean ready() {
-        return this.aJs5_8.fileready(this.aClass160_2.anInt3851);
+        return this.loadingSprites.fileready(this.instance.anInt3851);
     }
 }

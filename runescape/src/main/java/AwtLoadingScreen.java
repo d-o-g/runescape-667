@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import rs2.client.loading.screen.LoadingScreen;
 import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -97,7 +98,7 @@ public final class AwtLoadingScreen implements LoadingScreen {
 
     @OriginalMember(owner = "client!uh", name = "c", descriptor = "(I)I")
     @Override
-    public int method8462() {
+    public int getFadeDuration() {
         return 0;
     }
 
@@ -149,7 +150,7 @@ public final class AwtLoadingScreen implements LoadingScreen {
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Z)V")
     public void method8471() {
-        Static305.method4439(Static449.aLoadingScreenRenderer_1.getPercentage(), Client.OUTLINE_COLOURS[Client.colourId], Static399.aColorArray2[Client.colourId], Client.FILL_COLOURS[Client.colourId], Static449.aLoadingScreenRenderer_1.getText());
+        Static305.method4439(Loading.renderer.getPercentage(), Client.OUTLINE_COLOURS[Client.colourId], Static399.aColorArray2[Client.colourId], Client.FILL_COLOURS[Client.colourId], Loading.renderer.getText());
     }
 
     @OriginalMember(owner = "client!uh", name = "a", descriptor = "(Ljava/lang/Class;Ljava/lang/Object;ZLjava/lang/String;)I")
@@ -174,7 +175,7 @@ public final class AwtLoadingScreen implements LoadingScreen {
 
     @OriginalMember(owner = "client!uh", name = "d", descriptor = "(I)I")
     @Override
-    public int method8460() {
+    public int percentage() {
         return 100;
     }
 
@@ -202,8 +203,8 @@ public final class AwtLoadingScreen implements LoadingScreen {
             return;
         }
         try {
-            @Pc(63) int local63 = Static449.aLoadingScreenRenderer_1.getPercentage();
-            @Pc(67) String local67 = Static449.aLoadingScreenRenderer_1.getText();
+            @Pc(63) int local63 = Loading.renderer.getPercentage();
+            @Pc(67) String local67 = Loading.renderer.getText();
             if (Static103.anImage1 == null) {
                 Static103.anImage1 = GameShell.canvas.createImage(GameShell.canvasWid, GameShell.canvasHei);
             }

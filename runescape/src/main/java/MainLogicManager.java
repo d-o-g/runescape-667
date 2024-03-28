@@ -10,6 +10,7 @@ import com.jagex.game.LocalisedText;
 import com.jagex.game.camera.CameraMode;
 import com.jagex.game.camera.Shake;
 import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.game.runetek6.config.defaults.AudioDefaults;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
@@ -94,12 +95,12 @@ public final class MainLogicManager {
 
         if (loggedOut != loggingOut) {
             if (loggingOut) {
-                SongManager.playing = Static597.themeMusic;
+                SongManager.playing = AudioDefaults.themeMusic;
 
                 if (ClientOptions.instance.loginVolume.getValue() == 0) {
                     SongManager.stop();
                 } else {
-                    SongManager.reset(Static597.themeMusic, ClientOptions.instance.loginVolume.getValue(), js5.MIDI_SONGS);
+                    SongManager.reset(AudioDefaults.themeMusic, ClientOptions.instance.loginVolume.getValue(), js5.MIDI_SONGS);
                     AudioRenderer.mixBussReset();
                 }
 
@@ -464,7 +465,7 @@ public final class MainLogicManager {
                 Static624.varcSaveRecommended |= Static118.permVarcs[(int) local660];
                 Static278.anIntArray350[Static52.varcUpdateCount++ & 0x1F] = (int) local660;
             } else if (local541 == 2) {
-                Static37.aStringArray4[(int) local660] = change.stringData;
+                Static37.varcstrs[(int) local660] = change.stringData;
                 Static268.anIntArray332[Static455.varcstrUpdateCount++ & 0x1F] = (int) local660;
             } else {
                 @Pc(1143) Component local1143;

@@ -14,13 +14,13 @@ public final class Static517 {
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___36 = new CutsceneActionType(15);
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(ZIII)V")
-    public static void method6822(@OriginalArg(0) boolean arg0) {
+    public static void method6822(@OriginalArg(0) boolean stereo) {
         if (22050 > 48000) {
             throw new IllegalArgumentException();
         }
         Static156.anInt2679 = 2;
         Audio.sampleRate = 22050;
-        Node_Sub6_Sub5.aBoolean644 = arg0;
+        Node_Sub6_Sub5.stereo = stereo;
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Z[[[BIBIIZ)V")

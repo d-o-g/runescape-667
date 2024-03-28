@@ -1,4 +1,5 @@
 import com.jagex.ClientProt;
+import rs2.client.loading.screen.LoadingScreen;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -23,10 +24,10 @@ public final class Static143 {
 
     @OriginalMember(owner = "client!eia", name = "e", descriptor = "(B)V")
     public static void method3572() {
-        if (Static234.anLoadingScreenArray1 == null) {
+        if (Loading.screens == null) {
             return;
         }
-        @Pc(14) LoadingScreen[] local14 = Static234.anLoadingScreenArray1;
+        @Pc(14) LoadingScreen[] local14 = Loading.screens;
         for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
             @Pc(21) LoadingScreen local21 = local14[local16];
             local21.method8464();

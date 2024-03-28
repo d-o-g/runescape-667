@@ -11,9 +11,6 @@ public final class Static242 {
     @OriginalMember(owner = "client!hj", name = "k", descriptor = "Lclient!da;")
     public static Font aFont_7;
 
-    @OriginalMember(owner = "client!hj", name = "b", descriptor = "Ljava/lang/Thread;")
-    public static Thread aThread1;
-
     @OriginalMember(owner = "client!hj", name = "i", descriptor = "I")
     public static int anInt3971 = 0;
 

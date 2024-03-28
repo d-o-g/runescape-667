@@ -1,7 +1,13 @@
 import com.jagex.Client;
+import com.jagex.IndexedImage;
 import com.jagex.LibraryList;
+import com.jagex.core.compress.GzipDecompressor;
+import com.jagex.core.constants.MainLogicStep;
+import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TickScheduler;
 import com.jagex.game.Animator;
+import rs2.client.loading.screen.LoadingScreen;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.SimpleFillerDecoder;
 import com.jagex.game.collision.CollisionMap;
@@ -10,8 +16,10 @@ import com.jagex.game.compression.huffman.WordPack;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.cursortype.CursorTypeList;
+import com.jagex.game.runetek6.config.defaults.AudioDefaults;
 import com.jagex.game.runetek6.config.defaults.DefaultsGroup;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
+import com.jagex.game.runetek6.config.defaults.MapDefaults;
 import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
@@ -40,23 +48,146 @@ import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanTypeList;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
+import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.Js5Archive;
 import com.jagex.js5.Js5MasterIndex;
 import com.jagex.js5.js5;
 import jagex3.jagmisc.jagmisc;
+import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.loading.LoadState;
 
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.image.PixelGrabber;
+
 public final class Loading {
+
+    @OriginalMember(owner = "client!sn", name = "g", descriptor = "Lclient!dla;")
+    public static final ReferenceCache spriteCache = new ReferenceCache(128, 4);
+
+    @OriginalMember(owner = "client!av", name = "j", descriptor = "[B")
+    public static final byte[] COMPRESSED_SPRITE = {
+        31, -117, 8, 0, 0, 0, 0, 0, 0, 0, -5, 127, -29, -1, 109, 6, 103, 6, 14,
+        54, 54, 118, 54, 86, 14, 118, 118, 118, 78, 78, 14, 46, 30, 17, 94, 30,
+        110, 110, 30, 73, 33, 97, 126, 17, 89, 41, 121, 57, 89, 41, 25, 25, 5,
+        21, 61, 117, 5, 37, 29, 101, 25, 25, 13, 115, 77, 29, 3, 67, 19, 19,
+        19, 121, 117, 75, 91, 11, 35, 27, 61, 99, 19, 35, -112, 33, -116, -100,
+        -100, -100, 60, -36, 60, 18, -68, -68, 18, 70, -118, 50, -118, 70, 36,
+        -125, -1, 7, 24, 68, 56, 24, 24, 25, 24, 89, 24, -107, 24, -104, 4, 25,
+        -103, 5, 25, 89, -108, 24, -2, 31, 97, -112, 103, 96, 96, 100, 101, 4,
+        3, 6, 40, 96, 100, 98, 102, 97, 101, 99, -25, -32, -28, -30, 6, 42,
+        -40, 42, -64, -64, -60, -56, -52, -52, -60, -62, -52, -54, -54, -62, 2,
+        -108, -83, 5, -54, 51, -80, 8, -78, 10, 41, 26, 58, -78, 9, 7, 38, -78,
+        43, 21, -118, 24, 53, 78, 92, -56, -95, -20, -76, -15, -96, 104, -48,
+        -59, 15, 42, -58, 73, 69, 77, -100, 92, 98, -30, 18, -110, 82, -86,
+        106, -22, 26, -102, 90, 38, -90, 102, -26, 22, -106, 86, -50, 46, -82,
+        110, -18, 30, -98, 94, -63, 33, -95, 97, -31, 17, -111, 81, -55, 41,
+        -87, 105, -23, 25, -103, 89, -59, 37, -91, 101, -27, 21, -107, 85, -51,
+        45, -83, 109, -19, 29, -99, 93, -109, 38, 79, -103, 58, 109, -6, -116,
+        -103, -77, 22, 45, 94, -78, 116, -39, -14, 21, 43, 87, 109, -38, -68,
+        101, -21, -74, -19, 59, 118, -18, 58, 116, -8, -56, -47, 99, -57, 79,
+        -100, 60, 117, -23, -14, -107, -85, -41, -82, -33, -72, 121, -21, -31,
+        -93, -57, 79, -98, 62, 123, -2, -30, -27, -85, -113, -97, 62, 127, -7,
+        -6, -19, -5, -113, -97, -65, 64, -2, 98, 100, 96, 102, -124, 1, -84,
+        -2, 18, 4, -6, -117, -119, -123, -123, -103, -123, 29, -28, 47, 70,
+        -90, 114, -112, 2, 65, 22, 86, 69, 67, 54, 33, -57, 64, -10, -60, 66,
+        97, 37, -93, 70, 14, 17, -89, -119, 11, 55, 30, -28, 84, 54, 14, -6,
+        32, -102, 84, 116, -111, 75, 76, -59, -28, -95, -22, 71, -112, -41,
+        -64, 62, 35, -50, 99, 77, 100, -7, 12, -18, 49, -124, -65, 110, 49,
+        -16, -79, 48, 2, -29, 15, -24, 78, 6, 6, 123, -122, -97, -1, -70, 52,
+        22, -16, -49, 127, -79, -88, -21, -1, 77, 0, 38, 27, -28, 10, 110, 2,
+        0, 0
+    };
+
+    @OriginalMember(owner = "client!ok", name = "g", descriptor = "[I")
+    public static final int[] JS5_PERCENTAGES = {
+        4,
+        4,
+        1,
+        2,
+        6,
+        4,
+        2,
+        44,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+    };
 
     @OriginalMember(owner = "client!ke", name = "l", descriptor = "I")
     public static int spritesCrc;
 
     @OriginalMember(owner = "client!om", name = "b", descriptor = "I")
     public static int screensCrc;
+
+    @OriginalMember(owner = "client!jha", name = "n", descriptor = "Z")
+    public static boolean loadingSpritesRaw;
+
+    @OriginalMember(owner = "client!ad", name = "e", descriptor = "J")
+    public static long lastMemoryCheck = 0L;
+
+    @OriginalMember(owner = "client!rea", name = "f", descriptor = "J")
+    public static long lastGc = 0L;
+
+    @OriginalMember(owner = "client!hea", name = "r", descriptor = "[Lclient!uha;")
+    public static LoadingScreen[] screens;
+
+    @OriginalMember(owner = "client!ov", name = "a", descriptor = "Lclient!gca;")
+    public static LoadState state;
+
+    @OriginalMember(owner = "client!vd", name = "m", descriptor = "I")
+    public static int anInt9996 = -1;
+
+    @OriginalMember(owner = "client!od", name = "h", descriptor = "Lclient!uaa;")
+    public static LoadingScreenRenderer renderer;
+
+    @OriginalMember(owner = "client!hj", name = "b", descriptor = "Ljava/lang/Thread;")
+    public static Thread rendererThread;
+
+    @OriginalMember(owner = "client!cf", name = "c", descriptor = "J")
+    public static long lastRendererUpdate;
+
+    @OriginalMember(owner = "client!un", name = "K", descriptor = "[Lclient!gca;")
+    public static LoadState[] states;
+
+    @OriginalMember(owner = "client!se", name = "q", descriptor = "Ljava/lang/String;")
+    public static String text;
+
+    @OriginalMember(owner = "client!lr", name = "f", descriptor = "I")
+    public static int percentage;
+
+    @OriginalMember(owner = "client!gla", name = "I", descriptor = "I")
+    public static int screen = -1;
 
     @OriginalMember(owner = "client!fs", name = "a", descriptor = "(I)I")
     public static int getSpritesCrc() {
@@ -68,11 +199,67 @@ public final class Loading {
         return screensCrc;
     }
 
+    @OriginalMember(owner = "client!af", name = "a", descriptor = "(B)V")
+    public static void cacheReset() {
+        spriteCache.reset();
+    }
+
+    @OriginalMember(owner = "client!uka", name = "a", descriptor = "(BILclient!sb;)Lclient!st;")
+    public static Sprite sprite(@OriginalArg(1) int id, @OriginalArg(2) js5 loadingSprites) {
+        @Pc(16) Sprite sprite = (Sprite) spriteCache.get(id);
+        if (sprite == null) {
+            if (loadingSpritesRaw) {
+                sprite = Toolkit.active.createSprite(IndexedImage.loadFirst(loadingSprites, id), true);
+            } else {
+                sprite = method2634(loadingSprites.getfile(id));
+            }
+            spriteCache.put(sprite, id);
+        }
+        return sprite;
+    }
+
+    @OriginalMember(owner = "client!fda", name = "a", descriptor = "(I[B)Lclient!st;")
+    public static Sprite method2634(@OriginalArg(1) byte[] data) {
+        if (data == null) {
+            throw new RuntimeException("");
+        }
+
+        while (true) {
+            try {
+                @Pc(22) Image image = java.awt.Toolkit.getDefaultToolkit().createImage(data);
+                @Pc(27) MediaTracker tracker = new MediaTracker(client.aClient1);
+                tracker.addImage(image, 0);
+                tracker.waitForAll();
+                @Pc(37) int width = image.getWidth(client.aClient1);
+                @Pc(41) int height = image.getHeight(client.aClient1);
+                if (!tracker.isErrorAny() && width >= 0 && height >= 0) {
+                    @Pc(66) int[] pixels = new int[height * width];
+                    @Pc(78) PixelGrabber grabber = new PixelGrabber(image, 0, 0, width, height, pixels, 0, width);
+                    grabber.grabPixels();
+                    return Toolkit.active.createSprite(width, width, height, pixels);
+                }
+                throw new RuntimeException("");
+            } catch (@Pc(91) InterruptedException local91) {
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!sk", name = "b", descriptor = "(I)Z")
+    public static boolean method7721() {
+        try {
+            @Pc(7) GzipDecompressor gzipDecompressor = new GzipDecompressor();
+            @Pc(12) byte[] data = gzipDecompressor.decompress(COMPRESSED_SPRITE);
+            method2634(data);
+            return true;
+        } catch (@Pc(28) Exception local28) {
+            return false;
+        }
+    }
+
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(I)I")
-    public static int method3448() {
-        @Pc(12) int local12;
+    public static int essentials() {
         if (ClientOptions.instance.safeMode.getValue() == 0) {
-            for (local12 = 0; local12 < Static671.anInt10026; local12++) {
+            for (@Pc(12) int local12 = 0; local12 < Static671.anInt10026; local12++) {
                 if (Static194.AN_KEYBOARD_EVENT_ARRAY_1[local12].getKeyChar() == 's' || Static194.AN_KEYBOARD_EVENT_ARRAY_1[local12].getKeyChar() == 'S') {
                     ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
                     Static416.aBoolean472 = true;
@@ -80,91 +267,108 @@ public final class Loading {
                 }
             }
         }
-        @Pc(74) int local74;
-        if (LoadState.WAIT_FOR_MEMORY == Static473.aLoadState_22) {
-            @Pc(65) Runtime local65 = Runtime.getRuntime();
-            local74 = (int) ((local65.totalMemory() - local65.freeMemory()) / 1024L);
-            @Pc(77) long local77 = SystemTimer.safetime();
-            if (Static6.aLong8 == 0L) {
-                Static6.aLong8 = local77;
+
+        if (LoadState.WAIT_FOR_MEMORY == state) {
+            @Pc(65) Runtime runtime = Runtime.getRuntime();
+            @Pc(74) int usedMemory = (int) ((runtime.totalMemory() - runtime.freeMemory()) / 1024L);
+            @Pc(77) long now = SystemTimer.safetime();
+            if (lastMemoryCheck == 0L) {
+                lastMemoryCheck = now;
             }
-            if (local74 > 16384 && local77 - Static6.aLong8 < 5000L) {
-                if (local77 - Static549.aLong282 > 1000L) {
+
+            if (usedMemory > 16384 && now - lastMemoryCheck < 5000L) {
+                if (now - lastGc > 1000L) {
                     System.gc();
-                    Static549.aLong282 = local77;
+                    lastGc = now;
                 }
+
                 return 0;
             }
         }
-        if (LoadState.INIT_LOADING_SCREEN_ARCHIVES == Static473.aLoadState_22) {
+
+        if (LoadState.INIT_LOADING_SCREEN_ARCHIVES == state) {
             if (Static228.js5MasterIndex == null) {
                 Static228.js5MasterIndex = new Js5MasterIndex(Client.js5WorkerThread, Static66.aCachedResourceWorker_1, Static442.JS5_RSA_EXPONENT, Static670.JS5_RSA_MODULUS);
             }
+
             if (!Static228.js5MasterIndex.method5800()) {
                 return 0;
             }
+
             Static595.setToolkit(null, true, 0);
-            Static297.loadingSpritesRaw = !Static589.method7721();
-            js5.LOADING_SPRITES = client.createJs5(false, Static297.loadingSpritesRaw ? Js5Archive.LOADING_SPRITES_RAW : Js5Archive.LOADING_SPRITES, 1);
+            loadingSpritesRaw = !method7721();
+            js5.LOADING_SPRITES = client.createJs5(false, loadingSpritesRaw ? Js5Archive.LOADING_SPRITES_RAW : Js5Archive.LOADING_SPRITES, 1);
             js5.LOADING_SCREENS = client.createJs5(false, Js5Archive.LOADING_SCREENS, 1);
             js5.FONTMETRICS = client.createJs5(false, Js5Archive.FONTMETRICS, 1);
         }
-        @Pc(184) boolean local184;
-        if (LoadState.FETCH_LOADING_SCREEN_RESOURCES == Static473.aLoadState_22) {
-            local184 = js5.LOADING_SCREENS.isComplete();
-            local74 = Client.js5ResourceProviders[33].indexPercentage();
-            local74 += Client.js5ResourceProviders[Static297.loadingSpritesRaw ? 34 : 32].indexPercentage();
-            local74 += Client.js5ResourceProviders[13].indexPercentage();
-            local74 += local184 ? 100 : js5.LOADING_SCREENS.completePercentage();
-            if (local74 != 400) {
-                return local74 / 4;
+
+        if (LoadState.FETCH_LOADING_SCREEN_RESOURCES == state) {
+            @Pc(184) boolean complete = js5.LOADING_SCREENS.isComplete();
+
+            @Pc(74) int totalPercentage = Client.js5ResourceProviders[33].indexPercentage();
+            totalPercentage += Client.js5ResourceProviders[loadingSpritesRaw ? Js5Archive.LOADING_SPRITES_RAW : Js5Archive.LOADING_SPRITES].indexPercentage();
+            totalPercentage += Client.js5ResourceProviders[13].indexPercentage();
+            totalPercentage += complete ? 100 : js5.LOADING_SCREENS.completePercentage();
+            if (totalPercentage != 400) {
+                return totalPercentage / 4;
             }
+
             spritesCrc = js5.LOADING_SPRITES.indexCrc();
             screensCrc = js5.LOADING_SCREENS.indexCrc();
             Fonts.load(js5.LOADING_SPRITES);
-            @Pc(250) int local250 = ClientOptions.instance.loadingSequence.getValue();
-            Static333.aClass279_1 = new Class279(Client.modeGame, Client.language, js5.LOADING_SCREENS);
-            @Pc(262) int[] local262 = Static333.aClass279_1.method6275(local250);
-            if (local262.length == 0) {
-                local262 = Static333.aClass279_1.method6275(0);
+
+            @Pc(250) int loadingSequence = ClientOptions.instance.loadingSequence.getValue();
+            LoadingScreenManager.instance = new LoadingScreenManager(Client.modeGame, Client.language, js5.LOADING_SCREENS);
+            @Pc(262) int[] sequence = LoadingScreenManager.instance.getSequence(loadingSequence);
+            if (sequence.length == 0) {
+                sequence = LoadingScreenManager.instance.getSequence(0);
             }
-            @Pc(276) LoadingScreenOpFactory local276 = new LoadingScreenOpFactory(js5.LOADING_SPRITES, js5.FONTMETRICS);
-            if (local262.length > 0) {
-                Static234.anLoadingScreenArray1 = new LoadingScreen[local262.length];
-                for (@Pc(285) int local285 = 0; local285 < Static234.anLoadingScreenArray1.length; local285++) {
-                    Static234.anLoadingScreenArray1[local285] = new Class354(Static333.aClass279_1.method6277(local262[local285]), local276);
+
+            @Pc(276) LoadingScreenOpFactory opFactory = new LoadingScreenOpFactory(js5.LOADING_SPRITES, js5.FONTMETRICS);
+            if (sequence.length > 0) {
+                screens = new LoadingScreen[sequence.length];
+
+                for (@Pc(285) int i = 0; i < screens.length; i++) {
+                    screens[i] = new ProceduralLoadingScreen(LoadingScreenManager.instance.get(sequence[i]), opFactory);
                 }
             }
         }
-        if (LoadState.INIT_FONT_INFO == Static473.aLoadState_22) {
+
+        if (LoadState.INIT_FONT_INFO == state) {
             FontTypeList.init(js5.FONTMETRICS, js5.LOADING_SPRITES, Fonts.groups());
         }
-        if (LoadState.LOAD_FONTS == Static473.aLoadState_22) {
-            local12 = FontTypeList.readyCount();
-            local74 = FontTypeList.totalCount();
-            if (local74 > local12) {
-                return local12 * 100 / local74;
+
+        if (LoadState.LOAD_FONTS == state) {
+            @Pc(12) int ready = FontTypeList.readyCount();
+            @Pc(74) int total = FontTypeList.totalCount();
+
+            if (total > ready) {
+                return (ready * 100) / total;
             }
         }
-        if (LoadState.FETCH_FONTS == Static473.aLoadState_22) {
-            if (Static234.anLoadingScreenArray1 != null && Static234.anLoadingScreenArray1.length > 0) {
-                if (Static234.anLoadingScreenArray1[0].method8460() < 100) {
+
+        if (LoadState.FETCH_FONTS == state) {
+            if (screens != null && screens.length > 0) {
+                if (screens[0].percentage() < 100) {
                     return 0;
                 }
-                if (Static234.anLoadingScreenArray1.length > 1 && Static333.aClass279_1.method6276() && Static234.anLoadingScreenArray1[1].method8460() < 100) {
+                if (screens.length > 1 && LoadingScreenManager.instance.hasDefault() && screens[1].percentage() < 100) {
                     return 0;
                 }
             }
+
             FontTypeList.method7549(Toolkit.active);
             Fonts.init(Toolkit.active);
-            MainLogicManager.setStep(1);
+            MainLogicManager.setStep(MainLogicStep.STEP_LOADING_1);
         }
-        if (LoadState.CREATE_COLLISION_MAPS == Static473.aLoadState_22) {
-            for (local12 = 0; local12 < 4; local12++) {
+
+        if (LoadState.CREATE_COLLISION_MAPS == state) {
+            for (@Pc(12) int local12 = 0; local12 < 4; local12++) {
                 Client.collisionMaps[local12] = CollisionMap.create(Static720.mapWidth, Static501.mapLength);
             }
         }
-        if (Static473.aLoadState_22 == LoadState.OPEN_JS5_ARCHIVES) {
+
+        if (state == LoadState.OPEN_JS5_ARCHIVES) {
             js5.SPRITES = client.createJs5(false, Js5Archive.SPRITES, 1);
             js5.ANIMS = client.createJs5(false, Js5Archive.ANIMS, 1);
             js5.BASES = client.createJs5(false, Js5Archive.BASES, 1);
@@ -199,49 +403,59 @@ public final class Loading {
             js5.SHADERS = client.createJs5(true, Js5Archive.SHADERS, 1);
             js5.VIDEOS = client.createJs5(true, 36, 2);
         }
-        if (Static473.aLoadState_22 == LoadState.GET_JS5_INDEXES) {
-            local12 = 0;
-            for (local74 = 0; local74 < 37; local74++) {
-                if (Client.js5ResourceProviders[local74] != null) {
-                    local12 += Client.js5ResourceProviders[local74].indexPercentage() * Static462.anIntArray556[local74] / 100;
+
+        if (state == LoadState.GET_JS5_INDEXES) {
+            @Pc(12) int percentage = 0;
+            for (@Pc(74) int i = 0; i < Js5Archive.COUNT; i++) {
+                if (Client.js5ResourceProviders[i] != null) {
+                    percentage += (Client.js5ResourceProviders[i].indexPercentage() * JS5_PERCENTAGES[i]) / 100;
                 }
             }
-            if (local12 != 100) {
-                if (Static669.anInt9996 < 0) {
-                    Static669.anInt9996 = local12;
+
+            if (percentage != 100) {
+                if (anInt9996 < 0) {
+                    anInt9996 = percentage;
                 }
-                return (local12 - Static669.anInt9996) * 100 / (100 - Static669.anInt9996);
+                return (percentage - anInt9996) * 100 / (100 - anInt9996);
             }
+
             Sprites.getJs5Indexes(js5.SPRITES);
             FontTypeList.init(js5.FONTMETRICS, js5.SPRITES, Fonts.groups());
         }
-        if (Static473.aLoadState_22 == LoadState.PLAY_THEME_MUSIC) {
-            @Pc(746) byte[] local746 = js5.DEFAULTS.getfile(4);
-            if (local746 == null) {
+
+        if (state == LoadState.PLAY_THEME_MUSIC) {
+            @Pc(746) byte[] data = js5.DEFAULTS.getfile(DefaultsGroup.AUDIO);
+            if (data == null) {
                 return 0;
             }
-            Static9.method124(local746);
+            AudioDefaults.decode(data);
+
             Static674.method8806();
-            MainLogicManager.setStep(2);
+            MainLogicManager.setStep(MainLogicStep.STEP_LOADING_2);
         }
-        if (LoadState.SETUP_LIB_PATH == Static473.aLoadState_22) {
+
+        if (LoadState.SETUP_LIB_PATH == state) {
             LibraryList.init(js5.DLLS, GameShell.signLink);
         }
-        if (LoadState.DOWNLOAD_STUFF == Static473.aLoadState_22) {
-            local12 = Static460.method6266();
-            if (local12 < 100) {
-                return local12;
+
+        if (LoadState.DOWNLOAD_STUFF == state) {
+            @Pc(12) int percentage = LoadingManager.changeMainState();
+            if (percentage < 100) {
+                return percentage;
             }
-            Static502.decodeMapDefaults(js5.DEFAULTS.getfile(DefaultsGroup.MAP));
+
+            MapDefaults.decode(js5.DEFAULTS.getfile(DefaultsGroup.MAP));
             GraphicsDefaults.instance = new GraphicsDefaults(js5.DEFAULTS);
             PlayerModel.recol_s = GraphicsDefaults.instance.recol_s;
             PlayerModel.recol_d = GraphicsDefaults.instance.recol_d;
             WearposDefaults.instance = new WearposDefaults(js5.DEFAULTS);
         }
-        if (LoadState.SETUP_CONFIG_DECODERS == Static473.aLoadState_22) {
+
+        if (LoadState.SETUP_CONFIG_DECODERS == state) {
             if (GraphicsDefaults.instance.profilingModel != -1 && !js5.MODELS.requestdownload(0, GraphicsDefaults.instance.profilingModel)) {
                 return 99;
             }
+
             Js5TextureSource.instance = new Js5TextureSource(js5.MATERIALS, js5.TEXTURES, js5.SPRITES);
             ParamTypeList.instance = new ParamTypeList(Client.modeGame, Client.language, js5.CONFIG);
             BASTypeList.instance = new BASTypeList(Client.modeGame, Client.language, js5.CONFIG, WearposDefaults.instance);
@@ -290,31 +504,34 @@ public final class Loading {
                 /* empty */
             }
 
-            GameShell.aClass27_1 = GameShell.method7550();
+            GameShell.tickScheduler = TickScheduler.create();
             SystemInfo.instance = new SystemInfo(true, GameShell.signLink);
         }
-        if (LoadState.SETUP_STATIC_SPRITES == Static473.aLoadState_22) {
-            local12 = Sprites.readyCount(js5.SPRITES) + FontTypeList.readyCount(true);
-            local74 = Sprites.totalCount() + FontTypeList.totalCount();
-            if (local12 < local74) {
-                return local12 * 100 / local74;
+
+        if (LoadState.SETUP_STATIC_SPRITES == state) {
+            @Pc(12) int ready = Sprites.readyCount(js5.SPRITES) + FontTypeList.readyCount(true);
+            @Pc(74) int total = Sprites.totalCount() + FontTypeList.totalCount();
+            if (ready < total) {
+                return (ready * 100) / total;
             }
         }
-        if (LoadState.SETUP_WORLD_MAP == Static473.aLoadState_22) {
+
+        if (LoadState.SETUP_WORLD_MAP == state) {
             WorldMap.init(js5.WORLDMAPDATA, FloorOverlayTypeList.instance, FloorUnderlayTypeList.instance, LocTypeList.instance, MapElementTypeList.instance, MSITypeList.instance, TimedVarDomain.instance);
         }
-        if (LoadState.SETUP_VARC_SYSTEM == Static473.aLoadState_22) {
-            Static37.aStringArray4 = new String[VarcstrTypeList.instance.num];
+
+        if (LoadState.SETUP_VARC_SYSTEM == state) {
+            Static37.varcstrs = new String[VarcstrTypeList.instance.num];
             Static511.varcs = new int[VarcTypeList.instance.num];
             Static118.permVarcs = new boolean[VarcTypeList.instance.num];
-            for (local12 = 0; local12 < VarcTypeList.instance.num; local12++) {
+            for (@Pc(12) int local12 = 0; local12 < VarcTypeList.instance.num; local12++) {
                 if (VarcTypeList.instance.list(local12).temporary == 0) {
                     Static118.permVarcs[local12] = true;
                     Static319.permVarcCount++;
                 }
                 Static511.varcs[local12] = -1;
             }
-            Static218.method3189();
+            Static218.readVarcs();
             js5.MAPS.clearNames(false, true);
             js5.MIDI_SONGS.clearNames(true, true);
             js5.SPRITES.clearNames(true, true);
@@ -329,38 +546,46 @@ public final class Loading {
             js5.CONFIG_SEQ.discardunpacked = 2;
             js5.CONFIG_SPOT.discardunpacked = 2;
         }
-        if (Static473.aLoadState_22 == LoadState.LOAD_LOGIN_WINDOW) {
+
+        if (state == LoadState.LOAD_LOGIN_WINDOW) {
             if (!InterfaceList.load(GraphicsDefaults.instance.login_interface)) {
                 return 0;
             }
-            local184 = true;
-            for (local74 = 0; local74 < InterfaceList.interfaces[GraphicsDefaults.instance.login_interface].length; local74++) {
-                @Pc(1315) Component local1315 = InterfaceList.interfaces[GraphicsDefaults.instance.login_interface][local74];
-                if (local1315.type == 5 && local1315.graphic != -1 && !js5.SPRITES.requestdownload(0, local1315.graphic)) {
-                    local184 = false;
+
+            @Pc(184) boolean ready = true;
+            for (@Pc(74) int i = 0; i < InterfaceList.interfaces[GraphicsDefaults.instance.login_interface].length; i++) {
+                @Pc(1315) Component component = InterfaceList.interfaces[GraphicsDefaults.instance.login_interface][i];
+
+                if (component.type == Component.TYPE_GRAPHIC && component.graphic != -1 && !js5.SPRITES.requestdownload(0, component.graphic)) {
+                    ready = false;
                 }
             }
-            if (!local184) {
+
+            if (!ready) {
                 return 0;
             }
         }
-        if (LoadState.SHOW_LOGIN_WINDOW == Static473.aLoadState_22) {
+
+        if (LoadState.SHOW_LOGIN_WINDOW == state) {
             InterfaceManager.openLogin(true);
         }
-        if (LoadState.CLEANUP == Static473.aLoadState_22) {
-            Static449.aLoadingScreenRenderer_1.method8372();
+
+        if (LoadState.CLEANUP == state) {
+            renderer.complete();
+
             try {
-                Static242.aThread1.join();
+                rendererThread.join();
             } catch (@Pc(1370) InterruptedException local1370) {
                 return 0;
             }
-            Static234.anLoadingScreenArray1 = null;
-            Static449.aLoadingScreenRenderer_1 = null;
+
+            screens = null;
+            renderer = null;
             js5.LOADING_SPRITES = null;
             js5.LOADING_SCREENS = null;
-            Static242.aThread1 = null;
-            Static333.aClass279_1 = null;
-            Static9.method123();
+            rendererThread = null;
+            LoadingScreenManager.instance = null;
+            cacheReset();
             Static3.chooseSafeMode = ClientOptions.instance.safeMode.getValue() == 1;
             ClientOptions.instance.update(1, ClientOptions.instance.safeMode);
             if (Static3.chooseSafeMode) {
@@ -380,6 +605,88 @@ public final class Loading {
             Sprites.init(js5.SPRITES, Toolkit.active);
             MiniMenu.setIcons(Sprites.nameIcons);
         }
+
         return Static694.method9030();
+    }
+
+    @OriginalMember(owner = "client!hc", name = "a", descriptor = "(I)V")
+    public static void startRenderer() {
+        if (state != null) {
+            renderer = new LoadingScreenRenderer();
+            renderer.updateState(state.startPercentage, state.stalledText.localise(Client.language), state, lastRendererUpdate);
+
+            rendererThread = new Thread(renderer, "");
+            rendererThread.start();
+        }
+    }
+
+    @OriginalMember(owner = "client!wh", name = "g", descriptor = "(I)V")
+    public static void update() {
+        if (states == null) {
+            states = LoadState.values();
+            state = states[0];
+            lastRendererUpdate = SystemTimer.safetime();
+        }
+
+        if (renderer == null) {
+            startRenderer();
+        }
+
+        @Pc(27) LoadState oldState = state;
+        @Pc(35) int essentials = essentials();
+
+        if (state == oldState) {
+            text = state.stalledText.localise(Client.language);
+
+            if (state.updatePercentage) {
+                percentage = state.startPercentage + ((essentials * (state.endPercentage - state.startPercentage)) / 100);
+            }
+
+            if (state.displayPercentage) {
+                text = text + percentage + "%";
+            }
+        } else if (state == LoadState.COMPLETE) {
+            renderer = null;
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGIN_SCREEN);
+        } else {
+            text = oldState.changedText.localise(Client.language);
+            if (state.displayPercentage) {
+                text = text + oldState.endPercentage + "%";
+            }
+
+            percentage = oldState.endPercentage;
+            if (state.updatePercentage || oldState.updatePercentage) {
+                lastRendererUpdate = SystemTimer.safetime();
+            }
+        }
+
+        if (renderer == null) {
+            return;
+        }
+
+        renderer.updateState(percentage, text, state, lastRendererUpdate);
+
+        if (screens == null) {
+            return;
+        }
+
+        for (@Pc(157) int i = screen + 1; i < screens.length; i++) {
+            if (screens[i].percentage() >= 100 && screen == i - 1 && MainLogicManager.step >= MainLogicStep.STEP_LOADING_1 && renderer.method8376()) {
+                try {
+                    screens[i].method8464();
+                } catch (@Pc(197) Exception ignored) {
+                    screens = null;
+                    return;
+                }
+
+                renderer.change(screens[i]);
+
+                screen++;
+
+                if (screen >= screens.length - 1 && screens.length > 1) {
+                    screen = LoadingScreenManager.instance.hasDefault() ? 0 : -1;
+                }
+            }
+        }
     }
 }

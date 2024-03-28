@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.game.news.NewsItem;
+import com.jagex.game.news.NewsReader;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;

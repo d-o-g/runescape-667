@@ -1,3 +1,5 @@
+package com.jagex.game.news;
+
 import com.jagex.Client;
 import com.jagex.sign.SignedResource;
 import com.jagex.sign.SignedResourceStatus;

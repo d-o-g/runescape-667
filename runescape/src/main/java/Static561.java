@@ -1,3 +1,4 @@
+import com.jagex.game.Location;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -15,7 +16,7 @@ public final class Static561 {
         if (loc != null) {
             found = Static449.hasMsi(loc) & true;
         }
-        loc = (Location) Static578.getEntity(arg2, arg0, arg1, locClass == null ? (locClass = getClass("Location")) : locClass);
+        loc = (Location) Static578.getEntity(arg2, arg0, arg1, locClass == null ? (locClass = getClass("com.jagex.game.Location")) : locClass);
         if (loc != null) {
             found &= Static449.hasMsi(loc);
         }

@@ -890,18 +890,22 @@ public final class client extends GameShell {
         if (MainLogicManager.step == 16) {
             return;
         }
+
         TimeUtils.clock++;
         if (TimeUtils.clock % 1000 == 1) {
             @Pc(27) GregorianCalendar local27 = new GregorianCalendar();
             Static178.anInt2947 = local27.get(11) * 600 + local27.get(12) * 10 + local27.get(13) / 6;
             Static493.aRandom1.setSeed(Static178.anInt2947);
         }
+
         ServerConnection.GAME.recordStats();
         ServerConnection.LOBBY.recordStats();
+
         this.tickJs5();
         if (Static228.js5MasterIndex != null) {
             Static228.js5MasterIndex.process();
         }
+
         Static601.method7865();
         VideoManager.tick();
         KeyboardMonitor.instance.record();
@@ -931,6 +935,7 @@ public final class client extends GameShell {
                 Static216.keyPressCount++;
             }
         }
+
         Static611.mouseWheelRotation = 0;
         for (@Pc(214) MouseLog local214 = MouseMonitor.instance.removeFirstLog(); local214 != null; local214 = MouseMonitor.instance.removeFirstLog()) {
             @Pc(222) int local222 = local214.getType();
@@ -945,15 +950,18 @@ public final class client extends GameShell {
                 }
             }
         }
+
         if (debugconsole.isOpen()) {
             Static668.method8703();
         }
+
         if (MainLogicStep.isLoading(MainLogicManager.step)) {
-            Static709.method9252();
+            Loading.update();
             Static199.doneslowupdate();
         } else if (MainLogicStep.isBuildingMap(MainLogicManager.step)) {
             Static489.method6548();
         }
+
         if (MainLogicStep.isLoggedOut(MainLogicManager.step) && !MainLogicStep.isBuildingMap(MainLogicManager.step)) {
             this.method1658();
             Static76.method1555();

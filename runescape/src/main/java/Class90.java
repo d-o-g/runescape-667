@@ -46,9 +46,9 @@ public abstract class Class90 implements LoadingScreenOp {
         @Pc(32) int local32 = this.aClass138_5.aVerticalAlignment_10.align(Client.loadingScreenHeight, this.aClass138_5.anInt4413) + this.aClass138_5.anInt4412;
         this.method7751(local18, local32);
         this.method7753(local18, local32);
-        @Pc(56) String local56 = Static449.aLoadingScreenRenderer_1.getText();
+        @Pc(56) String local56 = Loading.renderer.getText();
         if (SystemTimer.safetime() - this.aLong274 > 10000L) {
-            local56 = local56 + " (" + Static449.aLoadingScreenRenderer_1.getState().getStep() + ")";
+            local56 = local56 + " (" + Loading.renderer.getState().getStep() + ")";
         }
         this.aFont_10.renderCentre(-1, local18 + this.aClass138_5.anInt4418 / 2, local56, local32 + this.aClass138_5.anInt4413 / 2 + this.aClass138_5.anInt4416 + 4, this.aClass138_5.anInt4421);
     }
@@ -58,12 +58,12 @@ public abstract class Class90 implements LoadingScreenOp {
 
     @OriginalMember(owner = "client!ea", name = "c", descriptor = "(I)I")
     protected final int method7752() {
-        @Pc(9) int local9 = Static449.aLoadingScreenRenderer_1.getPercentage();
+        @Pc(9) int local9 = Loading.renderer.getPercentage();
         @Pc(13) int local13 = local9 * 100;
         if (local9 == this.anInt8730 && local9 != 0) {
-            @Pc(40) int local40 = Static449.aLoadingScreenRenderer_1.method8375();
+            @Pc(40) int local40 = Loading.renderer.method8375();
             if (local9 < local40) {
-                @Pc(55) long local55 = this.aLong274 - Static449.aLoadingScreenRenderer_1.getLastUpdate();
+                @Pc(55) long local55 = this.aLong274 - Loading.renderer.getLastUpdate();
                 if (local55 > 0L) {
                     @Pc(72) long local72 = (long) (local40 - local9) * (local55 * 10000L / (long) local9);
                     @Pc(81) long local81 = (SystemTimer.safetime() - this.aLong274) * 10000L;

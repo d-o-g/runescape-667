@@ -13,6 +13,7 @@ import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
+import com.jagex.game.runetek6.config.defaults.MapDefaults;
 import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.enumtype.EnumType;
 import com.jagex.game.runetek6.config.enumtype.EnumTypeList;
@@ -810,10 +811,10 @@ public final class PlayerEntity extends PathingEntity {
         }
 
         @Pc(40) int[] enums;
-        if (this.gender == 1 && Static150.femaleTitleEnums != null) {
-            enums = Static150.femaleTitleEnums;
+        if (this.gender == 1 && MapDefaults.femaleTitleEnums != null) {
+            enums = MapDefaults.femaleTitleEnums;
         } else {
-            enums = Static406.maleTitleEnums;
+            enums = MapDefaults.maleTitleEnums;
         }
 
         if (enums != null && enums[this.titleEnum] != -1) {

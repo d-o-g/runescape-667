@@ -25,8 +25,8 @@ public final class Static218 {
     }
 
     @OriginalMember(owner = "client!go", name = "b", descriptor = "(I)V")
-    public static void method3189() {
-        @Pc(7) FileOnDisk local7 = null;
+    public static void readVarcs() {
+        @Pc(7) FileOnDisk file = null;
         try {
             @Pc(13) SignedResource resource = GameShell.signLink.openPrefs("2", true);
             while (resource.status == SignedResourceStatus.IDLE) {
@@ -34,24 +34,30 @@ public final class Static218 {
             }
 
             if (resource.status == SignedResourceStatus.SUCCESS) {
-                local7 = (FileOnDisk) resource.result;
-                @Pc(41) byte[] data = new byte[(int) local7.length()];
-                @Pc(57) int local57;
-                for (@Pc(43) int local43 = 0; local43 < data.length; local43 += local57) {
-                    local57 = local7.read(data.length - local43, data, local43);
-                    if (local57 == -1) {
+                file = (FileOnDisk) resource.result;
+                @Pc(41) byte[] data = new byte[(int) file.length()];
+
+                @Pc(57) int read;
+                for (@Pc(43) int i = 0; i < data.length; i += read) {
+                    read = file.read(data.length - i, data, i);
+
+                    if (read == -1) {
                         throw new IOException("EOF");
                     }
                 }
-                Static618.method8317(new Packet(data));
+
+                Static618.decodeVarcs(new Packet(data));
             }
-        } catch (@Pc(88) Exception local88) {
+        } catch (@Pc(88) Exception ignored) {
+            /* empty */
         }
+
         try {
-            if (local7 != null) {
-                local7.close();
+            if (file != null) {
+                file.close();
             }
-        } catch (@Pc(100) Exception local100) {
+        } catch (@Pc(100) Exception ignored) {
+            /* empty */
         }
     }
 }

@@ -17,15 +17,15 @@ public final class Static419 {
 
     @OriginalMember(owner = "client!ne", name = "b", descriptor = "(I)V")
     public static void method5757() {
-        if (Static449.aLoadingScreenRenderer_1 != null) {
-            Static449.aLoadingScreenRenderer_1.method8372();
+        if (Loading.renderer != null) {
+            Loading.renderer.complete();
         }
-        if (Static242.aThread1 == null) {
+        if (Loading.rendererThread == null) {
             return;
         }
         while (true) {
             try {
-                Static242.aThread1.join();
+                Loading.rendererThread.join();
                 return;
             } catch (@Pc(26) InterruptedException local26) {
             }

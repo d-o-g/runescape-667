@@ -1,9 +1,7 @@
 package com.jagex.game.runetek6.client;
 
 import com.jagex.Canvas_Sub1;
-import com.jagex.Class27;
-import com.jagex.Class27_Sub1;
-import com.jagex.Class27_Sub3;
+import com.jagex.core.util.TickScheduler;
 import com.jagex.LibraryList;
 import com.jagex.sign.SignLink;
 import com.jagex.sign.SignedResource;
@@ -132,7 +130,7 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     public static int cpucount = 1;
 
     @OriginalMember(owner = "client!sv", name = "hb", descriptor = "Lclient!nl;")
-    public static Class27 aClass27_1;
+    public static TickScheduler tickScheduler;
 
     @OriginalMember(owner = "client!bba", name = "Z", descriptor = "I")
     public static int scheduledTicks;
@@ -296,19 +294,6 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
                 }
             }
         } catch (@Pc(43) Exception local43) {
-        }
-    }
-
-    @OriginalMember(owner = "client!rv", name = "c", descriptor = "(I)Lclient!nl;")
-    public static Class27 method7550() {
-        try {
-            return new Class27_Sub3();
-        } catch (@Pc(8) Throwable local8) {
-            try {
-                return (Class27) Class.forName("Class27_Sub2").getDeclaredConstructor().newInstance();
-            } catch (@Pc(16) Throwable local16) {
-                return new Class27_Sub1();
-            }
         }
     }
 
@@ -648,13 +633,15 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             this.addcanvas();
             // logger.debug("maininit");
             this.maininit();
-            aClass27_1 = method7550();
+            tickScheduler = TickScheduler.create();
 
             while (killtime == 0L || SystemTimer.safetime() < killtime) {
-                scheduledTicks = aClass27_1.method5598(logicUpdateInterval);
+                scheduledTicks = tickScheduler.scheduleDelayed(logicUpdateInterval);
+
                 for (@Pc(213) int tick = 0; tick < scheduledTicks; tick++) {
                     this.tick0();
                 }
+
                 this.draw0();
                 waitForEvents(signLink, canvas);
             }

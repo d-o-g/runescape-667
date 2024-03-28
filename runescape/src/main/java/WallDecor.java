@@ -1,4 +1,5 @@
 import com.jagex.Entity;
+import com.jagex.game.Location;
 import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;

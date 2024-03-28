@@ -6,7 +6,7 @@ public final class Static199 {
 
     @OriginalMember(owner = "client!gd", name = "g", descriptor = "(I)V")
     public static void doneslowupdate() {
-        GameShell.aClass27_1.reset();
+        GameShell.tickScheduler.reset();
         for (@Pc(8) int local8 = 0; local8 < 32; local8++) {
             GameShell.drawTimes[local8] = 0L;
         }

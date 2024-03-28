@@ -49,7 +49,7 @@ public final class Class109 implements LoadingScreenOp {
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(I)V")
     @Override
     public void init() {
-        this.aSprite_9 = Static652.method8533(this.aClass200_1.anInt4996, this.aJs5_27);
+        this.aSprite_9 = Loading.sprite(this.aClass200_1.anInt4996, this.aJs5_27);
     }
 
     @OriginalMember(owner = "client!en", name = "b", descriptor = "(I)Z")

@@ -20,23 +20,27 @@ public final class Static618 {
     }
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(BLclient!ge;)V")
-    public static void method8317(@OriginalArg(1) Packet arg0) {
-        if (arg0.data.length - arg0.pos < 1) {
+    public static void decodeVarcs(@OriginalArg(1) Packet packet) {
+        if (packet.data.length - packet.pos < 1) {
             return;
         }
-        @Pc(21) int local21 = arg0.g1();
-        if (local21 < 0 || local21 > 1 || arg0.data.length - arg0.pos < 2) {
+
+        @Pc(21) int version = packet.g1();
+        if (version < 0 || version > 1 || packet.data.length - packet.pos < 2) {
             return;
         }
-        @Pc(62) int local62 = arg0.g2();
-        if (local62 * 6 > arg0.data.length - arg0.pos) {
+
+        @Pc(62) int count = packet.g2();
+        if ((count * 6) > (packet.data.length - packet.pos)) {
             return;
         }
-        for (@Pc(80) int local80 = 0; local80 < local62; local80++) {
-            @Pc(86) int local86 = arg0.g2();
-            @Pc(90) int local90 = arg0.g4();
-            if (local86 < Static511.varcs.length && Static118.permVarcs[local86] && (VarcTypeList.instance.list(local86).dataType != '1' || local90 >= -1 && local90 <= 1)) {
-                Static511.varcs[local86] = local90;
+
+        for (@Pc(80) int i = 0; i < count; i++) {
+            @Pc(86) int id = packet.g2();
+            @Pc(90) int value = packet.g4();
+
+            if (id < Static511.varcs.length && Static118.permVarcs[id] && (VarcTypeList.instance.list(id).dataType != '1' || value >= -1 && value <= 1)) {
+                Static511.varcs[id] = value;
             }
         }
     }

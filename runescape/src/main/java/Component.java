@@ -1,33 +1,33 @@
 import com.jagex.IndexedImage;
-import com.jagex.core.datastruct.key.Node;
-import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
+import com.jagex.core.datastruct.key.IterableHashTable;
+import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.game.Animator;
-import com.jagex.game.runetek6.config.iftype.DragRender;
-import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
-import com.jagex.graphics.Font;
-import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.PlayerModel;
-import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
+import com.jagex.game.runetek6.config.iftype.DragRender;
+import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
+import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
 import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
+import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.graphics.ClippingMask;
+import com.jagex.graphics.Font;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
-import com.jagex.graphics.particles.ModelParticleEmitter;
-import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.particles.ModelParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.skybox.SkyBox;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -70,10 +70,10 @@ public final class Component {
     public static final ReferenceCache modelCache = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!od", name = "l", descriptor = "Lclient!dla;")
-    public static final ReferenceCache graphics = new ReferenceCache(8);
+    public static final ReferenceCache graphicCache = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!o", name = "x", descriptor = "Lclient!dla;")
-    public static final ReferenceCache skyBoxes = new ReferenceCache(4);
+    public static final ReferenceCache skyboxCache = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!ica", name = "m", descriptor = "Lclient!sb;")
     public static js5 spritesJs5;
@@ -94,24 +94,24 @@ public final class Component {
     public static void cacheClean(@OriginalArg(0) int maxAge) {
         spriteCache.clean(maxAge);
         modelCache.clean(maxAge);
-        graphics.clean(maxAge);
-        skyBoxes.clean(maxAge);
+        graphicCache.clean(maxAge);
+        skyboxCache.clean(maxAge);
     }
 
     @OriginalMember(owner = "client!vga", name = "c", descriptor = "(I)V")
     public static void cacheReset() {
         spriteCache.reset();
         modelCache.reset();
-        graphics.reset();
-        skyBoxes.reset();
+        graphicCache.reset();
+        skyboxCache.reset();
     }
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(I)V")
     public static void cacheRemoveSoftReferences() {
         spriteCache.removeSoftReferences();
         modelCache.removeSoftReferences();
-        graphics.removeSoftReferences();
-        skyBoxes.removeSoftReferences();
+        graphicCache.removeSoftReferences();
+        skyboxCache.removeSoftReferences();
     }
 
     @OriginalMember(owner = "client!hda", name = "M", descriptor = "[Ljava/lang/Object;")
@@ -1023,11 +1023,11 @@ public final class Component {
     public Graphic graphic(@OriginalArg(0) Toolkit toolkit) {
         @Pc(15) long key = ((long) this.id & 0xFFFFFFFFL) | ((long) this.slot << 32);
 
-        @Pc(21) Graphic graphic = (Graphic) graphics.get(key);
+        @Pc(21) Graphic graphic = (Graphic) graphicCache.get(key);
         if (graphic != null) {
             if (graphic.id != this.graphic) {
                 graphic = null;
-                graphics.remove(key);
+                graphicCache.remove(key);
             }
             if (graphic != null) {
                 return graphic;
@@ -1071,7 +1071,7 @@ public final class Component {
         }
 
         graphic = new Graphic(newWidth, newHeight, widths, offsets, mask, this.graphic);
-        graphics.put(graphic, key);
+        graphicCache.put(graphic, key);
         return graphic;
     }
 
@@ -1341,10 +1341,10 @@ public final class Component {
             return null;
         }
         @Pc(48) long key = (long) this.skyBox & 0xFFFFL | ((long) this.skyBoxSphereOffsetZ & 0xFFFFL) << 16 | ((long) this.skyBoxSphereOffsetX & 0xFFFFL) << 48 | 0xFFFFL << 32 & (long) this.skyBoxSphereOffsetY << 32;
-        @Pc(54) SkyBox skyBox = (SkyBox) skyBoxes.get(key);
+        @Pc(54) SkyBox skyBox = (SkyBox) skyboxCache.get(key);
         if (skyBox == null) {
             skyBox = typeList.skyBox(sphereTypeList, this.skyBoxSphereOffsetZ, this.skyBox, this.skyBoxSphereOffsetY, this.skyBoxSphereOffsetX);
-            skyBoxes.put(skyBox, key);
+            skyboxCache.put(skyBox, key);
         }
         return skyBox;
     }

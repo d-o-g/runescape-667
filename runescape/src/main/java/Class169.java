@@ -43,7 +43,7 @@ public final class Class169 {
             @Pc(33) TextureMetrics local33 = this.anTextureSource_4.getMetrics(arg0);
             @Pc(52) int local52 = local33.small ? 64 : this.aClass19_Sub3_17.anInt7981;
             @Pc(90) Class93_Sub2 local90;
-            if (local33.aBoolean237 && this.aClass19_Sub3_17.method8014()) {
+            if (local33.aBoolean237 && this.aClass19_Sub3_17.bloom()) {
                 @Pc(71) float[] local71 = this.anTextureSource_4.floatArgbOutput(local52, arg0, 0.7F, local52);
                 local90 = new Class93_Sub2(this.aClass19_Sub3_17, 3553, 34842, local52, local52, local33.aByte53 != 0, local71, 6408);
             } else {

@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static266 {
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "[I")
-    public static int[] anIntArray615;
+    public static int[] locationGroups;
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(I)V")
     public static void method6774() {
@@ -77,16 +77,16 @@ public final class Static266 {
             }
         }
         local22 = CutsceneManager.anIntArrayArray265.length;
-        anIntArray615 = new int[local22];
+        locationGroups = new int[local22];
         Static89.zoneIds = new int[local22];
         Static319.aByteArrayArray16 = new byte[local22][];
-        Static298.anIntArray367 = new int[local22];
+        Static298.underwaterLocationGroups = new int[local22];
         Static363.aByteArrayArray22 = null;
         Static118.aByteArrayArray3 = new byte[local22][];
         Static177.aByteArrayArray5 = new byte[local22][];
-        Static267.anIntArray329 = new int[local22];
-        Static68.anIntArray316 = new int[local22];
-        Static376.anIntArray458 = null;
+        Static267.mapGroups = new int[local22];
+        Static68.underwaterMapGroups = new int[local22];
+        Static376.npcGroups = null;
         Static421.aByteArrayArray19 = new byte[local22][];
         local22 = 0;
         for (@Pc(312) Node_Sub35 local312 = (Node_Sub35) Static391.A_DEQUE___34.first(); local312 != null; local312 = (Node_Sub35) Static391.A_DEQUE___34.next()) {
@@ -112,10 +112,10 @@ public final class Static266 {
                         }
                     }
                     Static89.zoneIds[local22] = local113;
-                    Static267.anIntArray329[local22] = js5.MAPS.getgroupid("m" + local107 + "_" + local110);
-                    anIntArray615[local22] = js5.MAPS.getgroupid("l" + local107 + "_" + local110);
-                    Static68.anIntArray316[local22] = js5.MAPS.getgroupid("um" + local107 + "_" + local110);
-                    Static298.anIntArray367[local22] = js5.MAPS.getgroupid("ul" + local107 + "_" + local110);
+                    Static267.mapGroups[local22] = js5.MAPS.getgroupid("m" + local107 + "_" + local110);
+                    locationGroups[local22] = js5.MAPS.getgroupid("l" + local107 + "_" + local110);
+                    Static68.underwaterMapGroups[local22] = js5.MAPS.getgroupid("um" + local107 + "_" + local110);
+                    Static298.underwaterLocationGroups[local22] = js5.MAPS.getgroupid("ul" + local107 + "_" + local110);
                     local22++;
                 }
             }

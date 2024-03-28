@@ -734,7 +734,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "m", descriptor = "()Z")
     @Override
-    public boolean method7970() {
+    public boolean supportsBloom() {
         return false;
     }
 
@@ -805,7 +805,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "f", descriptor = "()V")
     @Override
-    public void method7980() {
+    public void stopBloom() {
     }
 
     @OriginalMember(owner = "client!kea", name = "u", descriptor = "(I)V")
@@ -929,7 +929,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "w", descriptor = "()Z")
     @Override
-    public boolean method8014() {
+    public boolean bloom() {
         return false;
     }
 

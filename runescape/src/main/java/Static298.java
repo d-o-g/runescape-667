@@ -7,7 +7,7 @@ public final class Static298 {
     public static int occludedGroundCount;
 
     @OriginalMember(owner = "client!ji", name = "H", descriptor = "[I")
-    public static int[] anIntArray367;
+    public static int[] underwaterLocationGroups;
 
     @OriginalMember(owner = "client!ji", name = "I", descriptor = "[I")
     public static final int[] anIntArray366 = new int[]{2, 1, 1, 1, 2, 2, 2, 1, 3, 3, 3, 2, 0, 4, 0};

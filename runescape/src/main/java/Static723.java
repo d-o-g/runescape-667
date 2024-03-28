@@ -54,7 +54,7 @@ public final class Static723 {
                         local132 = (MapRegion.active.aByteArrayArrayArray12[local117][local109][local114] & 0xFF) * 8 << 2;
                     }
                     if (Static246.ground != null && Static246.ground[local117] != null) {
-                        @Pc(177) int local177 = local132 + local77 - Static246.ground[local117].getHeight(local114, local109);
+                        @Pc(177) int local177 = local132 + local77 - Static246.ground[local117].getHeight(local109, local114);
                         if (local79 < local177) {
                             local79 = local177;
                         }

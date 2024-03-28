@@ -2,6 +2,7 @@ import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.LoginProt;
 import com.jagex.core.constants.LoginResponseCode;
+import com.jagex.game.MoveSpeed;
 import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.game.runetek6.client.GameShell;
@@ -498,80 +499,95 @@ public final class client extends GameShell {
 
     @OriginalMember(owner = "client!client", name = "p", descriptor = "(I)V")
     public void lobbyTick() {
-        @Pc(46) int local46;
         if (MainLogicManager.step == 7 && !LoginManager.inProgress() || MainLogicManager.step == 9 && LoginManager.gameLoginResponse == 42) {
             if (Static249.rebootTimer > 1) {
                 Static249.rebootTimer--;
                 Static321.lastMiscTransmit = World.tick;
             }
+
             if (!MiniMenu.open) {
                 MiniMenu.reset();
             }
-            for (local46 = 0; local46 < 100 && Static236.readPacket(ServerConnection.LOBBY); local46++) {
+
+            for (@Pc(46) int local46 = 0; local46 < 100; local46++) {
+                if (!Static236.readPacket(ServerConnection.LOBBY)) {
+                    break;
+                }
             }
         }
+
         Static35.currentTick++;
         InterfaceManager.setOptions(-1, -1, null);
         WorldMap.setOptions(-1, -1, null);
         Static443.method5981();
         World.tick++;
-        for (local46 = 0; local46 < NPCList.newNpcCount; local46++) {
-            @Pc(97) NPCEntity local97 = NPCList.localNpcs[local46].npc;
-            if (local97 != null) {
-                @Pc(103) byte local103 = local97.type.movementCapabilities;
-                if ((local103 & 0x1) != 0) {
-                    @Pc(114) int local114 = local97.getSize();
-                    @Pc(142) int local142;
-                    if ((local103 & 0x2) != 0 && local97.pathPointer == 0 && Math.random() * 1000.0D < 10.0D) {
-                        local142 = (int) Math.round(Math.random() * 10.0D - 5.0D);
-                        @Pc(150) int local150 = (int) Math.round(Math.random() * 10.0D - 5.0D);
-                        if (local142 != 0 || local150 != 0) {
-                            @Pc(166) int local166 = local142 + local97.pathX[0];
-                            if (local166 < 0) {
-                                local166 = 0;
-                            } else if (local166 > Static720.mapWidth - local114 - 1) {
-                                local166 = Static720.mapWidth - local114 - 1;
+
+        for (@Pc(46) int i = 0; i < NPCList.newNpcCount; i++) {
+            @Pc(97) NPCEntity npc = NPCList.localNpcs[i].npc;
+
+            if (npc != null) {
+                @Pc(103) byte movementCapabilities = npc.type.movementCapabilities;
+
+                if ((movementCapabilities & 0x1) != 0) {
+                    @Pc(114) int size = npc.getSize();
+
+                    if ((movementCapabilities & 0x2) != 0 && npc.pathPointer == 0 && Math.random() * 1000.0D < 10.0D) {
+                        @Pc(142) int deltaX = (int) Math.round(Math.random() * 10.0D - 5.0D);
+                        @Pc(150) int deltaZ = (int) Math.round(Math.random() * 10.0D - 5.0D);
+                        if (deltaX != 0 || deltaZ != 0) {
+                            @Pc(166) int destX = deltaX + npc.pathX[0];
+                            if (destX < 0) {
+                                destX = 0;
+                            } else if (destX > Static720.mapWidth - size - 1) {
+                                destX = Static720.mapWidth - size - 1;
                             }
-                            @Pc(203) int local203 = local150 + local97.pathZ[0];
-                            if (local203 < 0) {
-                                local203 = 0;
-                            } else if (local203 > Static501.mapLength - local114 - 1) {
-                                local203 = Static501.mapLength - local114 - 1;
+
+                            @Pc(203) int destZ = deltaZ + npc.pathZ[0];
+                            if (destZ < 0) {
+                                destZ = 0;
+                            } else if (destZ > Static501.mapLength - size - 1) {
+                                destZ = Static501.mapLength - size - 1;
                             }
-                            @Pc(258) int local258 = PathFinder.findPath(Client.collisionMaps[local97.level], Static480.anIntArray583, Static70.anIntArray147, local97.pathX[0], local97.pathZ[0], local114, local166, local203, local114, local114, -1, 0, 0, true);
-                            if (local258 > 0) {
-                                if (local258 > 9) {
-                                    local258 = 9;
+
+                            @Pc(258) int pathLength = PathFinder.findPath(Client.collisionMaps[npc.level], Static480.anIntArray583, Static70.anIntArray147, npc.pathX[0], npc.pathZ[0], size, destX, destZ, size, size, -1, 0, 0, true);
+                            if (pathLength > 0) {
+                                if (pathLength > 9) {
+                                    pathLength = 9;
                                 }
-                                for (@Pc(274) int local274 = 0; local274 < local258; local274++) {
-                                    local97.pathX[local274] = Static70.anIntArray147[local258 - local274 - 1];
-                                    local97.pathZ[local274] = Static480.anIntArray583[local258 - local274 - 1];
-                                    local97.pathSpeed[local274] = 1;
+
+                                for (@Pc(274) int j = 0; j < pathLength; j++) {
+                                    npc.pathX[j] = Static70.anIntArray147[pathLength - j - 1];
+                                    npc.pathZ[j] = Static480.anIntArray583[pathLength - j - 1];
+                                    npc.pathSpeed[j] = MoveSpeed.WALK;
                                 }
-                                local97.pathPointer = local258;
+
+                                npc.pathPointer = pathLength;
                             }
                         }
                     }
-                    Static256.movementTick(local97, true);
-                    local142 = Static112.turnTick(local97);
-                    Static145.wornTargetTick(local97);
-                    Static651.basTick(Static521.anInt7756, local142, Static524.anInt8042, local97);
-                    Static702.updateActionAnimator(local97, Static521.anInt7756);
-                    Static50.animationTick(local97);
+
+                    Static256.movementTick(npc, true);
+                    @Pc(142) int deltaYaw = Static112.turnTick(npc);
+                    Static145.wornTargetTick(npc);
+                    Static651.basTick(Static521.entityMoveSpeed, deltaYaw, Static524.entityMoveFlags, npc);
+                    Static702.updateActionAnimator(npc, Static521.entityMoveSpeed);
+                    Static50.animationTick(npc);
                 }
             }
         }
-        if ((MainLogicManager.step == 3 || MainLogicManager.step == 9 || MainLogicManager.step == 7) && (!LoginManager.inProgress() || MainLogicManager.step == 9 && LoginManager.gameLoginResponse == 42) && LobbyManager.step == 0) {
+
+        if (((MainLogicManager.step == MainLogicStep.STEP_LOGIN_SCREEN) || (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME) || (MainLogicManager.step == MainLogicStep.STEP_LOBBY_SCREEN)) && (!LoginManager.inProgress() || ((MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME) && (LoginManager.gameLoginResponse == LoginResponseCode.IN_QUEUE))) && (LobbyManager.step == 0)) {
             if (Camera.mode == CameraMode.MODE_FIXED) {
                 Camera.moveToTick();
             } else {
                 Camera.splineTick();
             }
 
-            if (Camera.x >> 9 < 14 || Camera.x >> 9 >= Static720.mapWidth - 14 || Camera.z >> 9 < 14 || Camera.z >> 9 >= Static501.mapLength - 14) {
+            if (((Camera.x >> 9) < 14) || ((Camera.x >> 9) >= (Static720.mapWidth - 14)) || ((Camera.z >> 9) < 14) || ((Camera.z >> 9) >= (Static501.mapLength - 14))) {
                 Static54.method1179();
             }
         }
+
         while (true) {
             @Pc(453) HookRequest local453;
             @Pc(458) Component local458;

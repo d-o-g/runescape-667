@@ -17,7 +17,7 @@ public final class Static73 {
         } else if (Static588.method7714(arg1, arg3, arg0)) {
             @Pc(31) int local31 = arg0 << EnvironmentLight.anInt1066;
             @Pc(35) int local35 = arg1 << EnvironmentLight.anInt1066;
-            @Pc(45) int local45 = Static246.ground[arg3].getHeight(arg1, arg0) - 1;
+            @Pc(45) int local45 = Static246.ground[arg3].getHeight(arg0, arg1) - 1;
             @Pc(51) int local51 = arg2.getMinY(2) + local45;
             if (arg2.aShort58 == 1) {
                 if (!Static172.method2674(local31, local35, local51, local51, local45, local35, Static340.anInt5586 + local35, local31, local31)) {

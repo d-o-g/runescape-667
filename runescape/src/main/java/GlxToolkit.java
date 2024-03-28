@@ -591,7 +591,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "m", descriptor = "()Z")
     @Override
-    public boolean method7970() {
+    public boolean supportsBloom() {
         return false;
     }
 
@@ -860,7 +860,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "w", descriptor = "()Z")
     @Override
-    public boolean method8014() {
+    public boolean bloom() {
         return false;
     }
 
@@ -954,7 +954,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "f", descriptor = "()V")
     @Override
-    public void method7980() {
+    public void stopBloom() {
     }
 
     @OriginalMember(owner = "client!tca", name = "na", descriptor = "(IIII)[I")

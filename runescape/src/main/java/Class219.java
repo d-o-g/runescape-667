@@ -3006,7 +3006,7 @@ public final class Class219 {
                 this.method5141((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.lb;
+            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5735 = this.anInt5730 - 1;
             this.anInt5728 = this.aClass19_Sub2_5.method3795(arg22);
             this.aBoolean438 = this.aClass19_Sub2_5.method3796(arg22);
@@ -4945,7 +4945,7 @@ public final class Class219 {
                 this.method5143((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.lb;
+            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5735 = this.anInt5730 - 1;
             this.anInt5728 = this.aClass19_Sub2_5.method3795(arg22);
             this.aBoolean438 = this.aClass19_Sub2_5.method3796(arg22);
@@ -5913,7 +5913,7 @@ public final class Class219 {
                 this.method5141((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.lb;
+            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5735 = this.anInt5730 - 1;
             this.anInt5728 = this.aClass19_Sub2_5.method3795(arg22);
         }
@@ -5924,7 +5924,7 @@ public final class Class219 {
                 this.method5141((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5734 = this.aClass19_Sub2_5.method3798(arg24) ? 64 : this.aClass19_Sub2_5.lb;
+            this.anInt5734 = this.aClass19_Sub2_5.method3798(arg24) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5733 = this.anInt5734 - 1;
         }
         this.aFloat108 = arg25;
@@ -5934,7 +5934,7 @@ public final class Class219 {
                 this.method5141((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5727 = this.aClass19_Sub2_5.method3798(arg26) ? 64 : this.aClass19_Sub2_5.lb;
+            this.anInt5727 = this.aClass19_Sub2_5.method3798(arg26) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5731 = this.anInt5727 - 1;
         }
         this.aFloat110 = arg27;

@@ -251,10 +251,11 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!eka", name = "a", descriptor = "(IIILclient!ha;)V")
-    public static void addEntries3DView(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Toolkit arg2) {
-        if (arg1 < 0 || arg0 < 0 || Static240.anInt3955 == 0 || Static275.anInt4424 == 0) {
+    public static void addEntries3DView(@OriginalArg(3) Toolkit toolkit, @OriginalArg(2) int mouseX, @OriginalArg(0) int mouseY) {
+        if (mouseX < 0 || mouseY < 0 || Static240.anInt3955 == 0 || Static275.anInt4424 == 0) {
             return;
         }
+
         @Pc(38) Matrix local38;
         @Pc(57) int local57;
         @Pc(45) int local45;
@@ -264,26 +265,26 @@ public final class MiniMenu {
         @Pc(69) int local69;
         if (InterfaceManager.aBoolean210) {
             Static713.method9331(false);
-            local38 = arg2.method8017();
-            @Pc(41) int[] local41 = arg2.Y();
+            local38 = toolkit.method8017();
+            @Pc(41) int[] local41 = toolkit.Y();
             local45 = local41[1];
             local49 = local41[2];
             local53 = local41[3];
             local57 = local41[0];
-            local63 = Static242.method3503(false) + arg1;
-            local69 = Static580.method7649(false) + arg0;
+            local63 = Static242.method3503(false) + mouseX;
+            local69 = Static580.method7649(false) + mouseY;
         } else {
-            arg2.DA(Static168.anInt2842, Static232.anInt3829, Static240.anInt3955, Static275.anInt4424);
+            toolkit.DA(Static168.anInt2842, Static232.anInt3829, Static240.anInt3955, Static275.anInt4424);
             local49 = Static240.anInt3955;
             local53 = Static275.anInt4424;
             local45 = Static232.anInt3829;
             local57 = Static168.anInt2842;
-            arg2.KA(InterfaceManager.optionsX, InterfaceManager.optionsY, Static240.anInt3955, Static275.anInt4424);
-            local38 = arg2.createMatrix();
+            toolkit.KA(InterfaceManager.optionsX, InterfaceManager.optionsY, Static240.anInt3955, Static275.anInt4424);
+            local38 = toolkit.createMatrix();
             local38.method7135(Static428.anInt6487, Static427.anInt6480, Static523.anInt3888, Static524.anInt8044, Static271.anInt4363, Static707.anInt10641);
-            local63 = arg1;
-            arg2.setCamera(local38);
-            local69 = arg0;
+            local63 = mouseX;
+            toolkit.setCamera(local38);
+            local69 = mouseY;
         }
         Static501.method6716(true);
         if (local53 == 0) {
@@ -304,8 +305,8 @@ public final class MiniMenu {
         if (Static706.floor != null && (!InterfaceManager.targetMode || (InterfaceManager.targetMask & 0x40) != 0)) {
             local140 = -1;
             @Pc(142) int local142 = -1;
-            @Pc(145) int local145 = arg2.i();
-            local148 = arg2.XA();
+            @Pc(145) int local145 = toolkit.i();
+            local148 = toolkit.XA();
             @Pc(159) int local159;
             @Pc(168) int local168;
             if (Static504.renderOrtho) {
@@ -356,16 +357,16 @@ public final class MiniMenu {
         for (local140 = 0; local140 < (InterfaceManager.aBoolean210 ? 2 : 1); local140++) {
             @Pc(503) boolean local503 = local140 == 0;
             @Pc(510) Class213 local510 = local503 ? Static514.aClass213_2 : Static10.aClass213_1;
-            local148 = arg1;
-            local177 = arg0;
+            local148 = mouseX;
+            local177 = mouseY;
             if (InterfaceManager.aBoolean210) {
                 Static713.method9331(local503);
-                local148 = arg1 + Static242.method3503(local503);
-                local177 = arg0 + Static580.method7649(local503);
+                local148 = mouseX + Static242.method3503(local503);
+                local177 = mouseY + Static580.method7649(local503);
             }
             @Pc(538) LinkedList local538 = local510.aLinkedList_8;
             for (@Pc(543) PickableEntity local543 = (PickableEntity) local538.first(); local543 != null; local543 = (PickableEntity) local538.next()) {
-                if ((ignorePlayerLevels || local543.aEntity_18.level == PlayerEntity.self.level) && local543.method6496(arg2, local177, local148)) {
+                if ((ignorePlayerLevels || local543.aEntity_18.level == PlayerEntity.self.level) && local543.method6496(toolkit, local177, local148)) {
                     @Pc(584) int local584;
                     if (local543.aEntity_18 instanceof PositionEntity) {
                         local186 = ((PositionEntity) local543.aEntity_18).x1;

@@ -59,8 +59,8 @@ public final class Static283 {
                     if (local112 >= 0 && local118 >= 0 && local112 < Static619.tileMaxX && local118 < Static662.tileMaxZ) {
                         local138 = local112 << EnvironmentLight.anInt1066;
                         @Pc(142) int local142 = local118 << EnvironmentLight.anInt1066;
-                        @Pc(159) int local159 = Static706.floor[Static706.floor.length - 1].getHeight(local118, local112) - (0x3E8 << EnvironmentLight.anInt1066 - 7);
-                        @Pc(188) int local188 = (Static693.underwaterGround == null ? Static706.floor[0].getHeight(local118, local112) + Static340.anInt5586 : Static693.underwaterGround[0].getHeight(local118, local112) + Static340.anInt5586) + (0x3E8 << EnvironmentLight.anInt1066 - 7);
+                        @Pc(159) int local159 = Static706.floor[Static706.floor.length - 1].getHeight(local112, local118) - (0x3E8 << EnvironmentLight.anInt1066 - 7);
+                        @Pc(188) int local188 = (Static693.underwaterGround == null ? Static706.floor[0].getHeight(local112, local118) + Static340.anInt5586 : Static693.underwaterGround[0].getHeight(local112, local118) + Static340.anInt5586) + (0x3E8 << EnvironmentLight.anInt1066 - 7);
                         local90 = arg15 >= 0 ? Static665.aToolkit_15.r(local138, local159, local142, local138, local188, local142, arg15) : Static665.aToolkit_15.JA(local138, local159, local142, local138, local188, local142);
                         Static142.aBooleanArrayArray1[local85][local92] = local90 == 0;
                     } else {

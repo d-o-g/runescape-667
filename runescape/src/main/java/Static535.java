@@ -38,7 +38,7 @@ public final class Static535 {
                         continue;
                     }
 
-                    @Pc(163) int tileHeight = (Static246.ground[curLevel].getHeight(curZ, curX) + Static246.ground[curLevel].getHeight(curZ, curX + 1) + Static246.ground[curLevel].getHeight(curZ + 1, curX) + Static246.ground[curLevel].getHeight(curZ + 1, curX + 1)) / 4 - (Static246.ground[level].getHeight(z, x) + Static246.ground[level].getHeight(z, x + 1) + Static246.ground[level].getHeight(z + 1, x) + Static246.ground[level].getHeight(z + 1, x + 1)) / 4;
+                    @Pc(163) int tileHeight = (Static246.ground[curLevel].getHeight(curX, curZ) + Static246.ground[curLevel].getHeight(curX + 1, curZ) + Static246.ground[curLevel].getHeight(curX, curZ + 1) + Static246.ground[curLevel].getHeight(curX + 1, curZ + 1)) / 4 - (Static246.ground[level].getHeight(x, z) + Static246.ground[level].getHeight(x + 1, z) + Static246.ground[level].getHeight(x, z + 1) + Static246.ground[level].getHeight(x + 1, z + 1)) / 4;
                     @Pc(166) Wall wall = tile.wall;
                     @Pc(169) Wall adjacentWall = tile.adjacentWall;
                     if (wall != null && wall.method9290(0)) {

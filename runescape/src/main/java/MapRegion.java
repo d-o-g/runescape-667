@@ -478,10 +478,10 @@ public final class MapRegion extends Class306 {
         }
 
         @Pc(143) Ground ground = Static246.ground[virtualLevel];
-        int bottomLeftHeight = ground.getHeight(z0, x0);
-        int bottomRightHeight = ground.getHeight(z0, x1);
-        int topLeftHeight = ground.getHeight(z1, x0);
-        int topRightHeight = ground.getHeight(z1, x1);
+        int bottomLeftHeight = ground.getHeight(x0, z0);
+        int bottomRightHeight = ground.getHeight(x1, z0);
+        int topLeftHeight = ground.getHeight(x0, z1);
+        int topRightHeight = ground.getHeight(x1, z1);
         @Pc(170) int averageHeight = (bottomLeftHeight + bottomRightHeight + topLeftHeight + topRightHeight) >> 2;
 
         @Pc(179) int absX = (x << 9) + (locWidth << 8);

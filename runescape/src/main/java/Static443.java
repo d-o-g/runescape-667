@@ -11,22 +11,25 @@ public final class Static443 {
         if (InterfaceManager.topLevelInterface == -1) {
             return;
         }
-        @Pc(13) int local13 = MouseMonitor.instance.getRecordedX();
-        @Pc(22) int local22 = MouseMonitor.instance.getRecordedY();
-        @Pc(27) MouseLog local27 = (MouseLog) Static226.mouseLogs.first();
-        if (local27 != null) {
-            local13 = local27.getX();
-            local22 = local27.getY();
+
+        @Pc(13) int mouseX = MouseMonitor.instance.getRecordedX();
+        @Pc(22) int mouseY = MouseMonitor.instance.getRecordedY();
+        @Pc(27) MouseLog log = (MouseLog) Static226.mouseLogs.first();
+        if (log != null) {
+            mouseX = log.getX();
+            mouseY = log.getY();
         }
-        @Pc(44) int local44 = 0;
-        @Pc(46) int local46 = 0;
+
+        @Pc(44) int parentX = 0;
+        @Pc(46) int parentY = 0;
         if (InterfaceManager.aBoolean210) {
-            local44 = Static130.method2283();
-            local46 = Static422.method5771();
+            parentX = Static130.method2283();
+            parentY = Static422.method5771();
         }
-        InterfaceManager.mainLogic(local46 + GameShell.canvasHei, local46, local46, local22, local22 + local46, local44 + GameShell.canvasWid, local44, InterfaceManager.topLevelInterface, local13, local44 + local13, local44);
+
+        InterfaceManager.mainLogic(InterfaceManager.topLevelInterface, parentX, parentY, parentX + mouseX, parentY + GameShell.canvasHei, parentX, parentY, mouseX, mouseY, mouseY + parentY, parentX + GameShell.canvasWid);
         if (WorldMap.component != null) {
-            Static509.method6759(local13 + local44, local22 - -local46);
+            Static509.method6759(mouseX + parentX, mouseY - -parentY);
         }
     }
 

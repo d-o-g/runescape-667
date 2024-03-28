@@ -376,6 +376,41 @@ public final class StringTools {
         return buffer.toString();
     }
 
+    @OriginalMember(owner = "client!lja", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;BC)Ljava/lang/String;")
+    public static String replace(@OriginalArg(0) String original, @OriginalArg(1) String replacement, @OriginalArg(4) char target) {
+        @Pc(14) int originalLength = original.length();
+        @Pc(17) int replacementLength = replacement.length();
+        @Pc(19) int newLength = originalLength;
+
+        @Pc(23) int extraChars = replacementLength - 1;
+        if (extraChars != 0) {
+            @Pc(27) int last = 0;
+
+            while (true) {
+                last = original.indexOf(target, last);
+                if (last < 0) {
+                    break;
+                }
+
+                newLength += extraChars;
+                last++;
+            }
+        }
+
+        @Pc(48) StringBuffer buffer = new StringBuffer(newLength);
+        @Pc(50) int last = 0;
+        while (true) {
+            @Pc(55) int index = original.indexOf(target, last);
+            if (index < 0) {
+                buffer.append(original.substring(last));
+                return buffer.toString();
+            }
+            buffer.append(original.substring(last, index));
+            last = index + 1;
+            buffer.append(replacement);
+        }
+    }
+
     private StringTools() {
         /* empty */
     }

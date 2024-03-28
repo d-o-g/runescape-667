@@ -1138,7 +1138,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "w", descriptor = "()Z")
     @Override
-    public boolean method8014() {
+    public boolean bloom() {
         return this.aClass2_Sub31_Sub1_1 != null && this.aClass2_Sub31_Sub1_1.method4616();
     }
 
@@ -1449,7 +1449,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "m", descriptor = "()Z")
     @Override
-    public boolean method7970() {
+    public boolean supportsBloom() {
         if (this.aClass2_Sub31_Sub1_1 == null) {
             return false;
         }
@@ -2576,7 +2576,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "f", descriptor = "()V")
     @Override
-    public void method7980() {
+    public void stopBloom() {
         if (this.aClass2_Sub31_Sub1_1 != null && this.aClass2_Sub31_Sub1_1.method4616()) {
             this.aClass276_1.method6251(this.aClass2_Sub31_Sub1_1);
             this.aClass169_1.method3527();
@@ -3256,7 +3256,7 @@ public final class GlToolkit extends Toolkit {
     @OriginalMember(owner = "client!qha", name = "t", descriptor = "()Z")
     @Override
     public boolean method8015() {
-        return this.aBoolean615 && (!this.method8014() || this.aBoolean614);
+        return this.aBoolean615 && (!this.bloom() || this.aBoolean614);
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIII)V")

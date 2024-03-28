@@ -120,13 +120,12 @@ public final class PathFinder {
             return 0;
         }
 
-        @Pc(318) byte local318 = 0;
-        @Pc(106) int pathLength = local318 + 1;
+        @Pc(106) int pathLength = 0;
         @Pc(340) int lastDirection;
         @Pc(108) int currentDirection = lastDirection = parent[endX - offsetX][endZ - offsetZ];
 
-        queueX[0] = endX;
-        queueZ[0] = endZ;
+        queueX[pathLength] = endX;
+        queueZ[pathLength++] = endZ;
 
         while (endX != startX || startZ != endZ) {
             if (currentDirection != lastDirection) {

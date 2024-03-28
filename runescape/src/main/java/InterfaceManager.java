@@ -530,7 +530,7 @@ public final class InterfaceManager {
                 }
 
                 if (child.type == Component.TYPE_LAYER) {
-                    if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER && Toolkit.active.method8014()) {
+                    if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER && Toolkit.active.bloom()) {
                         Toolkit.active.method7959(screenX, screenY, child.width, child.height);
                     }
 
@@ -546,7 +546,7 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER) {
-                        if (Toolkit.active.method8014()) {
+                        if (Toolkit.active.bloom()) {
                             Toolkit.active.method7974();
                         }
 
@@ -1192,7 +1192,7 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "([Lclient!hda;IIIIIIIIIII)V")
-    public static void logicComponentList(@OriginalArg(0) Component[] components, @OriginalArg(1) int layer, @OriginalArg(2) int parentX1, @OriginalArg(3) int parentY1, @OriginalArg(4) int parentX2, @OriginalArg(5) int parentY2, @OriginalArg(6) int scrollDeltaX, @OriginalArg(7) int scrollDeltaY, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int mouseX2, @OriginalArg(11) int mouseY2) {
+    public static void logicComponentList(@OriginalArg(0) Component[] components, @OriginalArg(1) int layer, @OriginalArg(2) int parentX1, @OriginalArg(3) int parentY1, @OriginalArg(4) int parentX2, @OriginalArg(5) int parentY2, @OriginalArg(6) int scrollDeltaX, @OriginalArg(7) int scrollDeltaY, @OriginalArg(8) int mouseX1, @OriginalArg(9) int mouseY1, @OriginalArg(10) int mouseX2, @OriginalArg(11) int mouseY2) {
         for (@Pc(1) int i = 0; i < components.length; i++) {
             @Pc(6) Component component = components[i];
             if (component == null || component.layer != layer) {
@@ -1421,7 +1421,7 @@ public final class InterfaceManager {
                                         continue;
                                     }
 
-                                    MiniMenu.addEntries3DView(arg9, arg8, Toolkit.active);
+                                    MiniMenu.addEntries3DView(Toolkit.active, mouseX1, mouseY1);
 
                                     for (@Pc(991) Class8_Sub1 local991 = (Class8_Sub1) Static149.A_ENTITY_LIST___4.first(); local991 != null; local991 = (Class8_Sub1) Static149.A_ENTITY_LIST___4.next()) {
                                         if (mouseX2 >= local991.anInt108 && mouseX2 < local991.anInt109 && mouseY2 >= local991.anInt112 && mouseY2 < local991.anInt111) {
@@ -1904,10 +1904,10 @@ public final class InterfaceManager {
                     Static542.prefetchSprite(component);
 
                     if (component.type == 0) {
-                        logicComponentList(components, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, arg8, arg9, mouseX2, mouseY2);
+                        logicComponentList(components, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, mouseX1, mouseY1, mouseX2, mouseY2);
 
                         if (component.dynamicComponents != null) {
-                            logicComponentList(component.dynamicComponents, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, arg8, arg9, mouseX2, mouseY2);
+                            logicComponentList(component.dynamicComponents, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, mouseX1, mouseY1, mouseX2, mouseY2);
                         }
 
                         @Pc(2824) SubInterface sub = (SubInterface) subInterfaces.get(component.slot);
@@ -1916,7 +1916,7 @@ public final class InterfaceManager {
                                 MiniMenu.reset();
                             }
 
-                            mainLogic(y2, startY, y1, arg9, mouseY2, x2, startX, sub.id, arg8, mouseX2, x1);
+                            mainLogic(sub.id, x1, y1, mouseX2, y2, startX, startY, mouseX1, mouseY1, mouseY2, x2);
                         }
                     }
                 }
@@ -2060,15 +2060,15 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!nk", name = "a", descriptor = "(IIIIIIIIIIII)V")
-    public static void mainLogic(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
-        if (!InterfaceList.load(arg7)) {
+    public static void mainLogic(@OriginalArg(8) int id, @OriginalArg(11) int parentX1, @OriginalArg(3) int parentY1, @OriginalArg(10) int mouseX2, @OriginalArg(0) int parentY2, @OriginalArg(7) int scrollDeltaX, @OriginalArg(1) int scrollDeltaY, @OriginalArg(9) int mouseX1, @OriginalArg(4) int mouseY1, @OriginalArg(5) int mouseY2, @OriginalArg(6) int parentX2) {
+        if (!InterfaceList.load(id)) {
             return;
         }
 
-        if (InterfaceList.cache[arg7] == null) {
-            logicComponentList(InterfaceList.interfaces[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
+        if (InterfaceList.cache[id] == null) {
+            logicComponentList(InterfaceList.interfaces[id], -1, parentX1, parentY1, parentX2, parentY2, scrollDeltaX, scrollDeltaY, mouseX1, mouseY1, mouseX2, mouseY2);
         } else {
-            logicComponentList(InterfaceList.cache[arg7], -1, arg10, arg2, arg5, arg0, arg6, arg1, arg8, arg3, arg9, arg4);
+            logicComponentList(InterfaceList.cache[id], -1, parentX1, parentY1, parentX2, parentY2, scrollDeltaX, scrollDeltaY, mouseX1, mouseY1, mouseX2, mouseY2);
         }
     }
 

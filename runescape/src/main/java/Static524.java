@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static524 {
 
     @OriginalMember(owner = "client!qia", name = "k", descriptor = "I")
-    public static int anInt8042;
+    public static int entityMoveFlags;
 
     @OriginalMember(owner = "client!qia", name = "e", descriptor = "I")
     public static int anInt8043;

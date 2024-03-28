@@ -275,10 +275,10 @@ public class Class306 {
                                 }
                             }
                         }
-                        local383 = arg4.getHeight(local4, local1);
-                        local388 = arg4.getHeight(local4, local1 + 1);
-                        local477 = arg4.getHeight(local4 + 1, local1 - -1);
-                        local485 = arg4.getHeight(local4 + 1, local1);
+                        local383 = arg4.getHeight(local1, local4);
+                        local388 = arg4.getHeight(local1 + 1, local4);
+                        local477 = arg4.getHeight(local1 - -1, local4 + 1);
+                        local485 = arg4.getHeight(local1, local4 + 1);
                         @Pc(633) boolean local633 = Static441.isBridgeAt(local4, local1);
                         if (local633 && arg0 > 1 || !local633 && arg0 > 0) {
                             @Pc(652) boolean local652 = true;
@@ -915,11 +915,11 @@ public class Class306 {
                                 local403 = -local403;
                             }
                             if (local391 == local403) {
-                                local391 = arg3.getHeight(local49, local33) - arg3.getHeight(local67, local47);
+                                local391 = arg3.getHeight(local33, local49) - arg3.getHeight(local47, local67);
                                 if (local391 < 0) {
                                     local391 = -local391;
                                 }
-                                local403 = arg3.getHeight(local49, local47) - arg3.getHeight(local67, local33);
+                                local403 = arg3.getHeight(local47, local49) - arg3.getHeight(local33, local67);
                                 if (local403 < 0) {
                                     local403 = -local403;
                                 }
@@ -1304,10 +1304,10 @@ public class Class306 {
                                     local83 = true;
                                 }
                             }
-                            local1162 = arg3.getHeight(local49, local33);
-                            local1164 = arg3.getHeight(local49, local47);
-                            local1411 = arg3.getHeight(local67, local47);
-                            local1416 = arg3.getHeight(local67, local33);
+                            local1162 = arg3.getHeight(local33, local49);
+                            local1164 = arg3.getHeight(local47, local49);
+                            local1411 = arg3.getHeight(local47, local67);
+                            local1416 = arg3.getHeight(local33, local67);
                             @Pc(2560) boolean local2560 = Static441.isBridgeAt(local49, local33);
                             if (local2560 && arg5 > 1 || !local2560 && arg5 > 0) {
                                 @Pc(2579) boolean local2579 = true;

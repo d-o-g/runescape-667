@@ -24,7 +24,7 @@ public final class Static700 {
         for (@Pc(16) int local16 = 0; local16 < 4; local16++) {
             Client.collisionMaps[local16].reset();
         }
-        Minimap.resetSprite();
+        Minimap.reset();
         client.cacheReset();
         VideoManager.stop();
         System.gc();

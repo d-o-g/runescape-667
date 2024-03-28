@@ -47,8 +47,8 @@ public final class Static177 {
             local26 = local22 - Static340.anInt5586;
             local30 = arg2 << EnvironmentLight.anInt1066;
             local34 = local30 + Static340.anInt5586;
-            local42 = Static706.floor[arg4].getHeight(arg2, arg3 + 1);
-            local54 = Static706.floor[arg4].getHeight(arg2 + 1, arg3);
+            local42 = Static706.floor[arg4].getHeight(arg3 + 1, arg2);
+            local54 = Static706.floor[arg4].getHeight(arg3, arg2 + 1);
             Static285.aLocOccluderArray1[Static150.anInt2634++] = new LocOccluder(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, local42 - arg5, local30, local34, local34, local30);
             return;
         }
@@ -56,8 +56,8 @@ public final class Static177 {
         local26 = Static340.anInt5586 + local22;
         local30 = arg2 << EnvironmentLight.anInt1066;
         local34 = local30 + Static340.anInt5586;
-        local42 = Static706.floor[arg4].getHeight(arg2, arg3);
-        local54 = Static706.floor[arg4].getHeight(arg2 + 1, arg3 - -1);
+        local42 = Static706.floor[arg4].getHeight(arg3, arg2);
+        local54 = Static706.floor[arg4].getHeight(arg3 - -1, arg2 + 1);
         Static285.aLocOccluderArray1[Static150.anInt2634++] = new LocOccluder(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, -arg5 + local42, local30, local34, local34, local30);
     }
 

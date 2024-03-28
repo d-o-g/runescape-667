@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static519 {
 
     @OriginalMember(owner = "client!qfa", name = "b", descriptor = "(B)I")
-    public static int method6831() {
+    public static int autosetup() {
         @Pc(5) boolean local5 = false;
         @Pc(7) boolean local7 = false;
         @Pc(9) boolean local9 = false;
@@ -43,13 +43,13 @@ public final class Static519 {
         @Pc(86) int local86 = -1;
         if (local5) {
             try {
-                local82 = Static363.method6235(1000, 2);
+                local82 = Static363.profileToolkit(1000, 2);
             } catch (@Pc(95) Exception local95) {
             }
         }
         if (local9) {
             try {
-                local86 = Static363.method6235(1000, 3);
+                local86 = Static363.profileToolkit(1000, 3);
                 if (ClientOptions.instance.toolkit.getValue() == ToolkitType.D3D) {
                     @Pc(114) Renderer local114 = Toolkit.active.renderer();
                     @Pc(119) long local119 = local114.driverVersion & 0xFFFFFFFFFFFFL;
@@ -65,7 +65,7 @@ public final class Static519 {
         }
         if (local7) {
             try {
-                local84 = Static363.method6235(1000, 1);
+                local84 = Static363.profileToolkit(1000, 1);
             } catch (@Pc(171) Exception local171) {
             }
         }

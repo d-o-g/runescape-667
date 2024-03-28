@@ -152,6 +152,9 @@ public final class Camera {
     @OriginalMember(owner = "client!rg", name = "d", descriptor = "F")
     public static float angleAxisX = 0.0F;
 
+    @OriginalMember(owner = "client!pr", name = "k", descriptor = "S")
+    public static short zoom = 320;
+
     @OriginalMember(owner = "client!sg", name = "a", descriptor = "(I)V")
     public static void splineTick() {
         if (posSpline == -1 || lookSpline == -1) {
@@ -256,7 +259,7 @@ public final class Camera {
         } else if (local7 > 100) {
             local7 = 100;
         }
-        @Pc(33) int local33 = local7 * (Static502.aShort97 - Static228.aShort45) / 100 + Static228.aShort45;
+        @Pc(33) int local33 = local7 * (zoom - Static228.aShort45) / 100 + Static228.aShort45;
         Static582.orthoAngle = Static582.orthoZoom * local33 >> 8;
 
         @Pc(45) int local45 = local33 * arg1 >> 8;

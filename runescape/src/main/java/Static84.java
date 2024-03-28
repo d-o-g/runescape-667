@@ -19,7 +19,7 @@ public final class Static84 {
         if (CutsceneManager.state == 3) {
             local9 = CutsceneManager.actors.length;
         } else {
-            local9 = Static353.aBoolean734 ? local1 : local1 + NPCList.localNpcCount;
+            local9 = Static353.noNpcs ? local1 : local1 + NPCList.localNpcCount;
         }
         for (@Pc(21) int local21 = 0; local21 < local9; local21++) {
             @Pc(36) PathingEntity local36;
@@ -60,7 +60,7 @@ public final class Static84 {
         if (CutsceneManager.state == 3) {
             local9 = CutsceneManager.actors.length;
         } else {
-            local9 = Static353.aBoolean734 ? local1 : local1 + NPCList.localNpcCount;
+            local9 = Static353.noNpcs ? local1 : local1 + NPCList.localNpcCount;
         }
         for (@Pc(21) int local21 = 0; local21 < local9; local21++) {
             @Pc(36) PathingEntity local36;

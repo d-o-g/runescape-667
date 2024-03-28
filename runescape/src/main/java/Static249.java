@@ -32,20 +32,22 @@ public final class Static249 {
     }
 
     @OriginalMember(owner = "client!hma", name = "a", descriptor = "(BZ)Z")
-    public static boolean method3537(@OriginalArg(1) boolean arg0) {
-        @Pc(13) boolean local13 = Toolkit.active.method8014();
-        if (local13 == arg0) {
+    public static boolean setBloom(@OriginalArg(1) boolean bloom) {
+        @Pc(13) boolean current = Toolkit.active.bloom();
+        if (current == bloom) {
             return true;
         }
-        if (!arg0) {
-            Toolkit.active.method7980();
-        } else if (!Toolkit.active.method7970()) {
-            arg0 = false;
+
+        if (!bloom) {
+            Toolkit.active.stopBloom();
+        } else if (!Toolkit.active.supportsBloom()) {
+            bloom = false;
         }
-        if (arg0 == local13) {
+
+        if (bloom == current) {
             return false;
         } else {
-            ClientOptions.instance.update(arg0 ? 1 : 0, ClientOptions.instance.bloom);
+            ClientOptions.instance.update(bloom ? 1 : 0, ClientOptions.instance.bloom);
             ClientOptions.save();
             return true;
         }

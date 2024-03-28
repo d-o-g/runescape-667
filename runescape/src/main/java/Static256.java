@@ -1,3 +1,4 @@
+import com.jagex.game.MoveSpeed;
 import com.jagex.game.camera.CameraMode;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
@@ -22,23 +23,23 @@ public final class Static256 {
         @Pc(9) BASType basType = entity.getBASType();
         if (entity.pathPointer == 0) {
             entity.delayedWalkingTicks = 0;
-            Static524.anInt8042 = 0;
-            Static521.anInt7756 = -1;
+            Static524.entityMoveFlags = 0;
+            Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
             return;
         }
 
         if (entity.actionAnimator.isAnimating() && !entity.actionAnimator.isDelayed()) {
             @Pc(41) SeqType local41 = entity.actionAnimator.getAnimation();
             if (entity.animationPathPointer > 0 && local41.animatingPrecedence == 0) {
-                Static524.anInt8042 = 0;
-                Static521.anInt7756 = -1;
+                Static524.entityMoveFlags = 0;
+                Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
                 entity.delayedWalkingTicks++;
                 return;
             }
             if (entity.animationPathPointer <= 0 && local41.walkingPrecedence == 0) {
-                Static521.anInt7756 = -1;
+                Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
                 entity.delayedWalkingTicks++;
-                Static524.anInt8042 = 0;
+                Static524.entityMoveFlags = 0;
                 return;
             }
         }
@@ -48,15 +49,15 @@ public final class Static256 {
                 if (local117.loopSeq && local117.seq != -1) {
                     @Pc(133) SeqType local133 = SeqTypeList.instance.list(local117.seq);
                     if (entity.animationPathPointer > 0 && local133.animatingPrecedence == 0) {
-                        Static521.anInt7756 = -1;
+                        Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
                         entity.delayedWalkingTicks++;
-                        Static524.anInt8042 = 0;
+                        Static524.entityMoveFlags = 0;
                         return;
                     }
                     if (entity.animationPathPointer <= 0 && local133.walkingPrecedence == 0) {
-                        Static521.anInt7756 = -1;
+                        Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
                         entity.delayedWalkingTicks++;
-                        Static524.anInt8042 = 0;
+                        Static524.entityMoveFlags = 0;
                         return;
                     }
                 }
@@ -87,16 +88,16 @@ public final class Static256 {
         } else {
             entity.turn(4096);
         }
-        @Pc(348) byte local348 = entity.pathSpeed[entity.pathPointer - 1];
+        @Pc(348) byte moveSpeed = entity.pathSpeed[entity.pathPointer - 1];
         if (!cutscene && (local206 - local186 > 1024 || local206 - local186 < -1024 || local222 - local189 > 1024 || local222 - local189 < -1024)) {
             entity.z = local222;
             entity.x = local206;
             entity.turn(entity.yawTarget, false);
-            Static524.anInt8042 = 0;
+            Static524.entityMoveFlags = 0;
             if (entity.animationPathPointer > 0) {
                 entity.animationPathPointer--;
             }
-            Static521.anInt7756 = -1;
+            Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
             entity.pathPointer--;
             return;
         }
@@ -129,9 +130,9 @@ public final class Static256 {
             entity.delayedWalkingTicks--;
             local422 = 32;
         }
-        if (local348 == 2) {
+        if (moveSpeed == 2) {
             local422 <<= 0x1;
-        } else if (local348 == 0) {
+        } else if (moveSpeed == 0) {
             local422 >>= 0x1;
         }
         if (basType.movementAcceleration != -1) {
@@ -171,37 +172,37 @@ public final class Static256 {
                 local422 = 1;
             }
         }
-        Static524.anInt8042 = 0;
+        Static524.entityMoveFlags = 0;
         if (local206 == local186 && local189 == local222) {
-            Static521.anInt7756 = -1;
+            Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
         } else {
             if (local206 > local186) {
                 entity.x += local422;
-                Static524.anInt8042 |= 0x4;
+                Static524.entityMoveFlags |= 0x4;
                 if (entity.x > local206) {
                     entity.x = local206;
                 }
             } else if (local206 < local186) {
                 entity.x -= local422;
-                Static524.anInt8042 |= 0x8;
+                Static524.entityMoveFlags |= 0x8;
                 if (local206 > entity.x) {
                     entity.x = local206;
                 }
             }
             if (local422 >= 32) {
-                Static521.anInt7756 = 2;
+                Static521.entityMoveSpeed = MoveSpeed.RUN;
             } else {
-                Static521.anInt7756 = local348;
+                Static521.entityMoveSpeed = moveSpeed;
             }
             if (local222 > local189) {
-                Static524.anInt8042 |= 0x1;
+                Static524.entityMoveFlags |= 0x1;
                 entity.z += local422;
                 if (local222 < entity.z) {
                     entity.z = local222;
                 }
             } else if (local222 < local189) {
                 entity.z -= local422;
-                Static524.anInt8042 |= 0x2;
+                Static524.entityMoveFlags |= 0x2;
                 if (local222 > entity.z) {
                     entity.z = local222;
                 }

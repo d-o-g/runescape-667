@@ -33,7 +33,7 @@ public final class Static468 {
 
         @Pc(103) ObjStackEntity entity = (ObjStackEntity) Static638.method8398(level, zoneX, zoneZ);
         if (entity == null) {
-            entity = new ObjStackEntity(zoneX << 9, Static246.ground[level].getHeight(zoneZ, zoneX), zoneZ << 9, level, level);
+            entity = new ObjStackEntity(zoneX << 9, Static246.ground[level].getHeight(zoneX, zoneZ), zoneZ << 9, level, level);
         } else {
             entity.secondId = entity.thirdId = -1;
         }

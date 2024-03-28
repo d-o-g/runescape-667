@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.graphics.Renderer;
 import com.jagex.Client;
 import com.jagex.ClientProt;
@@ -218,12 +219,11 @@ public final class debugconsole {
             if (command.equals("heap")) {
                 addline("Heap: " + GameShell.maxmemory + "MB");
                 return;
-            } else {
-                if (command.equalsIgnoreCase("getcamerapos")) {
-                    addline("Pos: " + PlayerEntity.self.level + "," + ((Camera.x >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ >> 6) + "," + ((Camera.x >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.x, Camera.z) - Camera.y));
-                    addline("Look: " + PlayerEntity.self.level + "," + (Camera.lookX + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseZ + Camera.lookZ >> 6) + "," + (WorldMap.areaBaseX + Camera.lookX & 0x3F) + "," + (WorldMap.areaBaseZ + Camera.lookZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.lookX, Camera.lookZ) - Camera.lookY));
-                    return;
-                }
+            }
+            if (command.equalsIgnoreCase("getcamerapos")) {
+                addline("Pos: " + PlayerEntity.self.level + "," + ((Camera.x >> 9) + WorldMap.areaBaseX >> 6) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ >> 6) + "," + ((Camera.x >> 9) + WorldMap.areaBaseX & 0x3F) + "," + ((Camera.z >> 9) + WorldMap.areaBaseZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.x, Camera.z) - Camera.y));
+                addline("Look: " + PlayerEntity.self.level + "," + (Camera.lookX + WorldMap.areaBaseX >> 6) + "," + (WorldMap.areaBaseZ + Camera.lookZ >> 6) + "," + (WorldMap.areaBaseX + Camera.lookX & 0x3F) + "," + (WorldMap.areaBaseZ + Camera.lookZ & 0x3F) + " Height: " + (Static102.averageHeight(PlayerEntity.self.level, Camera.lookX, Camera.lookZ) - Camera.lookY));
+                return;
             }
         } catch (@Pc(323) Exception ignored) {
             addline(LocalisedText.DEBUG_CONSOLE_ERROR.localise(Client.language));
@@ -311,9 +311,9 @@ public final class debugconsole {
                 }
                 if (command.equalsIgnoreCase("clientdrop")) {
                     addline("Dropped client connection");
-                    if (MainLogicManager.step == 11) {
+                    if (MainLogicManager.step == MainLogicStep.STEP_GAME_SCREEN) {
                         ConnectionManager.disconnect();
-                    } else if (MainLogicManager.step == 12) {
+                    } else if (MainLogicManager.step == MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD) {
                         ServerConnection.GAME.errored = true;
                         return;
                     }
@@ -326,19 +326,19 @@ public final class debugconsole {
                 }
                 if (command.equalsIgnoreCase("clientjs5drop")) {
                     Client.js5WorkerThread.close();
-                    addline("Dropped client com.jagex.js5.js5 net queue");
+                    addline("Dropped client js5 net queue");
                     return;
                 }
                 if (command.equalsIgnoreCase("serverjs5drop")) {
-                    Client.js5WorkerThread.closeServer();
-                    addline("Dropped server com.jagex.js5.js5 net queue");
+                    Client.js5WorkerThread.disconnect();
+                    addline("Dropped server js5 net queue");
                     return;
                 }
                 if (command.equalsIgnoreCase("breakcon")) {
                     GameShell.signLink.timeout();
-                    @Pc(723) ServerConnection[] local723 = ServerConnection.VALUES;
-                    for (@Pc(725) int local725 = 0; local725 < local723.length; local725++) {
-                        @Pc(730) ServerConnection connection = local723[local725];
+                    @Pc(723) ServerConnection[] connections = ServerConnection.VALUES;
+                    for (@Pc(725) int i = 0; i < connections.length; i++) {
+                        @Pc(730) ServerConnection connection = connections[i];
                         if (connection.connection != null) {
                             connection.connection.breakConnection();
                         }
@@ -349,7 +349,7 @@ public final class debugconsole {
                 }
                 if (command.equalsIgnoreCase("rebuild")) {
                     MainLogicManager.mapBuild();
-                    Minimap.resetSprite();
+                    Minimap.reset();
                     addline("Rebuilding map");
                     return;
                 }
@@ -357,7 +357,7 @@ public final class debugconsole {
                     Static690.aLong318 = SystemTimer.safetime();
                     Static28.aBoolean43 = true;
                     MainLogicManager.mapBuild();
-                    Minimap.resetSprite();
+                    Minimap.reset();
                     addline("Rebuilding map (with profiling)");
                     return;
                 }
@@ -453,9 +453,9 @@ public final class debugconsole {
                         addline("Invalid buildarea value");
                         return;
                     }
-                    @Pc(501) int local501 = StringTools.parseDecimal(command.substring(6));
-                    if (local501 >= 0 && local501 <= Static461.method6268(GameShell.maxmemory)) {
-                        ClientOptions.instance.update(local501, ClientOptions.instance.buildArea);
+                    @Pc(501) int buildArea = StringTools.parseDecimal(command.substring(6));
+                    if (buildArea >= 0 && buildArea <= Static461.method6268(GameShell.maxmemory)) {
+                        ClientOptions.instance.update(buildArea, ClientOptions.instance.buildArea);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         addline("maxbuildarea=" + ClientOptions.instance.buildArea.getValue());
@@ -484,9 +484,9 @@ public final class debugconsole {
                     return;
                 }
                 if (command.startsWith("bloom")) {
-                    @Pc(1264) boolean local1264 = Toolkit.active.method8014();
-                    if (Static249.method3537(!local1264)) {
-                        if (local1264) {
+                    @Pc(1264) boolean bloom = Toolkit.active.bloom();
+                    if (Static249.setBloom(!bloom)) {
+                        if (bloom) {
                             addline("Bloom disabled");
                             return;
                         }
@@ -521,7 +521,7 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("getheight")) {
-                    addline("Height: " + Static246.ground[PlayerEntity.self.level].getHeight(PlayerEntity.self.z >> 9, PlayerEntity.self.x >> 9));
+                    addline("Height: " + Static246.ground[PlayerEntity.self.level].getHeight(PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9));
                     return;
                 }
                 if (command.equalsIgnoreCase("resetminimap")) {
@@ -529,7 +529,7 @@ public final class debugconsole {
                     js5.SPRITES.discardUnpacked();
                     MSITypeList.instance.cacheReset();
                     MapElementTypeList.instance.cacheReset();
-                    Minimap.resetSprite();
+                    Minimap.reset();
                     addline("Minimap reset");
                     return;
                 }
@@ -550,8 +550,8 @@ public final class debugconsole {
                     return;
                 }
                 if (command.startsWith("cachespace")) {
-                    addline("I(s): " + Component.sprites.remaining() + "/" + Component.sprites.capacity());
-                    addline("I(m): " + Component.models.remaining() + "/" + Component.models.capacity());
+                    addline("I(s): " + Component.spriteCache.remaining() + "/" + Component.spriteCache.capacity());
+                    addline("I(m): " + Component.modelCache.remaining() + "/" + Component.modelCache.capacity());
                     addline("O(s): " + ObjTypeList.instance.spriteCache.remaining() + "/" + ObjTypeList.instance.spriteCache.capacity());
                     return;
                 }
@@ -563,47 +563,57 @@ public final class debugconsole {
                     return;
                 }
                 if (command.startsWith("performancetest")) {
-                    @Pc(501) int local501 = -1;
-                    @Pc(725) int local725 = 1000;
-                    if (command.length() > 15) {
-                        @Pc(1621) String[] local1621 = StringTools.split(command, ' ');
+                    @Pc(501) int toolkit = -1;
+                    @Pc(725) int iterations = 1000;
+
+                    if (command.length() > "performancetest".length()) {
+                        @Pc(1621) String[] args = StringTools.split(command, ' ');
+
                         try {
-                            if (local1621.length > 1) {
-                                local725 = Integer.parseInt(local1621[1]);
+                            if (args.length > 1) {
+                                iterations = Integer.parseInt(args[1]);
                             }
-                        } catch (@Pc(1634) Throwable local1634) {
+                        } catch (@Pc(1634) Throwable ignored) {
+                            /* empty */
                         }
+
                         try {
-                            if (local1621.length > 2) {
-                                local501 = Integer.parseInt(local1621[2]);
+                            if (args.length > 2) {
+                                toolkit = Integer.parseInt(args[2]);
                             }
-                        } catch (@Pc(1645) Throwable local1645) {
+                        } catch (@Pc(1645) Throwable ignored) {
+                            /* empty */
                         }
                     }
-                    if (local501 != -1) {
-                        addline("Performance: " + Static363.method6235(local725, local501));
+
+                    if (toolkit != -1) {
+                        addline("Performance: " + Static363.profileToolkit(iterations, toolkit));
                         return;
                     }
-                    addline("Java toolkit: " + Static363.method6235(local725, ToolkitType.JAVA));
-                    addline("SSE toolkit:  " + Static363.method6235(local725, ToolkitType.SSE));
-                    addline("D3D toolkit:  " + Static363.method6235(local725, ToolkitType.D3D));
-                    addline("GL toolkit:   " + Static363.method6235(local725, ToolkitType.GL));
-                    addline("GLX toolkit:  " + Static363.method6235(local725, ToolkitType.GLX));
+
+                    addline("Java toolkit: " + Static363.profileToolkit(iterations, ToolkitType.JAVA));
+                    addline("SSE toolkit:  " + Static363.profileToolkit(iterations, ToolkitType.SSE));
+                    addline("D3D toolkit:  " + Static363.profileToolkit(iterations, ToolkitType.D3D));
+                    addline("GL toolkit:   " + Static363.profileToolkit(iterations, ToolkitType.GL));
+                    addline("GLX toolkit:  " + Static363.profileToolkit(iterations, ToolkitType.GLX));
                     return;
                 }
+
                 if (command.equals("nonpcs")) {
-                    Static353.aBoolean734 = !Static353.aBoolean734;
-                    addline("nonpcs=" + Static353.aBoolean734);
+                    Static353.noNpcs = !Static353.noNpcs;
+                    addline("nonpcs=" + Static353.noNpcs);
                     return;
                 }
+
                 if (command.equals("autoworld")) {
                     Static152.selectAutoWorld();
                     addline("auto world selected");
                     return;
                 }
 
+
                 if (command.startsWith("switchworld")) {
-                    @Pc(501) int id = Integer.parseInt(command.substring(12));
+                    @Pc(501) int id = Integer.parseInt(command.substring("switchworld ".length()));
                     client.connectTo(id, WorldList.list(id).address);
                     addline("switched");
                     return;
@@ -650,14 +660,14 @@ public final class debugconsole {
 
                 if (command.equals("showcolmap")) {
                     Minimap.drawCollisionMap = true;
-                    Minimap.resetSprite();
+                    Minimap.reset();
                     addline("colmap is shown");
                     return;
                 }
 
                 if (command.equals("hidecolmap")) {
                     Minimap.drawCollisionMap = false;
-                    Minimap.resetSprite();
+                    Minimap.reset();
                     addline("colmap is hidden");
                     return;
                 }
@@ -686,7 +696,7 @@ public final class debugconsole {
                 }
 
                 if (command.startsWith("directlogin")) {
-                    @Pc(2083) String[] local2083 = StringTools.split(command.substring(12), ' ');
+                    @Pc(2083) String[] local2083 = StringTools.split(command.substring("directlogin ".length()), ' ');
                     if (local2083.length >= 2) {
                         @Pc(725) int local725 = local2083.length > 2 ? Integer.parseInt(local2083[2]) : 0;
                         LoginManager.requestLoginWithUsername(local725, local2083[1], local2083[0]);
@@ -695,7 +705,7 @@ public final class debugconsole {
                 }
 
                 if (command.startsWith("snlogin ")) {
-                    @Pc(2083) String[] local2083 = StringTools.split(command.substring(8), ' ');
+                    @Pc(2083) String[] local2083 = StringTools.split(command.substring("snlogin ".length()), ' ');
                     @Pc(725) int local725 = Integer.parseInt(local2083[0]);
                     @Pc(521) int local521 = local2083.length == 2 ? Integer.parseInt(local2083[1]) : 0;
                     LoginManager.requestLoginFromSocialNetwork(local725, local521);
@@ -718,8 +728,8 @@ public final class debugconsole {
                 }
 
                 if (command.startsWith("texsize")) {
-                    @Pc(501) int local501 = Integer.parseInt(command.substring(8));
-                    Toolkit.active.setTextureSize(local501);
+                    @Pc(501) int size = Integer.parseInt(command.substring("texsize ".length()));
+                    Toolkit.active.setTextureSize(size);
                     return;
                 }
 
@@ -729,7 +739,7 @@ public final class debugconsole {
                 }
 
                 if (command.equals("autosetup")) {
-                    Static519.method6831();
+                    Static519.autosetup();
                     addline("Complete. Toolkit now: " + ClientOptions.instance.toolkit.getValue());
                     return;
                 }
@@ -757,8 +767,8 @@ public final class debugconsole {
                 }
 
                 if (command.startsWith("w2debug")) {
-                    @Pc(501) int local501 = Integer.parseInt(command.substring(8, 9));
-                    Static699.w2Debug = local501;
+                    @Pc(501) int mode = Integer.parseInt(command.substring(8, 9));
+                    Static699.w2Debug = mode;
                     MainLogicManager.mapBuild();
                     addline("Toggled!");
                     return;
@@ -792,14 +802,14 @@ public final class debugconsole {
                         return;
                     }
 
-                    @Pc(501) int local501 = StringTools.parseDecimal(command.substring(command.indexOf(32) + 1));
+                    @Pc(501) int local501 = StringTools.parseDecimal(command.substring(command.indexOf(' ') + 1));
                     Static582.orthoZoom = local501;
                     addline("orthozoom=" + Static582.orthoZoom);
                     return;
                 }
 
                 if (command.startsWith("orthotilesize ")) {
-                    @Pc(501) int size = StringTools.parseDecimal(command.substring(command.indexOf(32) + 1));
+                    @Pc(501) int size = StringTools.parseDecimal(command.substring(command.indexOf(' ') + 1));
                     Static288.anInt4620 = size;
                     Static32.anInt777 = size;
                     addline("ortho tile size=" + size);
@@ -814,8 +824,8 @@ public final class debugconsole {
                 }
 
                 if (command.startsWith("skydetail ")) {
-                    @Pc(501) int local501 = StringTools.parseDecimal(command.substring(command.indexOf(32) + 1));
-                    ClientOptions.instance.update(local501, ClientOptions.instance.skydetail);
+                    @Pc(501) int value = StringTools.parseDecimal(command.substring(command.indexOf(' ') + 1));
+                    ClientOptions.instance.update(value, ClientOptions.instance.skydetail);
                     addline("skydetail is " + (ClientOptions.instance.skydetail.getValue() == 0 ? "low" : "high"));
                     return;
                 }
@@ -868,32 +878,32 @@ public final class debugconsole {
                         addline("Failed to read file");
                         return;
                     }
-                    @Pc(1621) String[] local1621 = StringTools.split(Static366.method5261(Cp1252.decode(local2712), ""), '\n');
+                    @Pc(1621) String[] local1621 = StringTools.split(StringTools.replace(Cp1252.decode(local2712), "", '\r'), '\n');
                     Static363.method6234(local1621);
                 }
 
                 if (command.startsWith("zoom ")) {
-                    @Pc(2748) short local2748 = (short) StringTools.parseDecimal(command.substring(5));
-                    if (local2748 > 0) {
-                        Static502.aShort97 = local2748;
+                    @Pc(2748) short zoom = (short) StringTools.parseDecimal(command.substring("zoom ".length()));
+                    if (zoom > 0) {
+                        Camera.zoom = zoom;
                     }
                     return;
                 }
 
                 if (command.startsWith("cs2debug")) {
-                    if (command.length() > 9 && command.charAt(8) == ' ') {
-                        ScriptRunner.aString76 = command.substring(9);
-                        ScriptRunner.aBoolean538 = true;
-                        addline("cs2debug: (" + ScriptRunner.aString76 + ")");
+                    if (command.length() > "cs2debug ".length() && command.charAt("cs2debug".length()) == ' ') {
+                        ScriptRunner.debugName = command.substring(9);
+                        ScriptRunner.debug = true;
+                        addline("cs2debug: (" + ScriptRunner.debugName + ")");
                         return;
                     }
-                    ScriptRunner.aString76 = null;
-                    ScriptRunner.aBoolean538 = !ScriptRunner.aBoolean538;
-                    addline("cs2debug:" + ScriptRunner.aBoolean538);
+                    ScriptRunner.debugName = null;
+                    ScriptRunner.debug = !ScriptRunner.debug;
+                    addline("cs2debug:" + ScriptRunner.debug);
                     return;
                 }
 
-                if (MainLogicManager.step == 11) {
+                if (MainLogicManager.step == MainLogicStep.STEP_GAME_SCREEN) {
                     @Pc(2836) ClientMessage local2836 = ClientMessage.create(ClientProt.CLIENT_CHEAT, ServerConnection.GAME.cipher);
                     local2836.bitPacket.p1(command.length() + 3);
                     local2836.bitPacket.p1(automatic ? 1 : 0);
@@ -912,7 +922,7 @@ public final class debugconsole {
             }
         }
 
-        if (MainLogicManager.step != 11) {
+        if (MainLogicManager.step != MainLogicStep.STEP_GAME_SCREEN) {
             addline(LocalisedText.DEBUG_CONSOLE_UNKNOWNCOMMAND.localise(Client.language) + command);
         }
     }

@@ -64,10 +64,10 @@ public final class Component {
     public static int featureMask;
 
     @OriginalMember(owner = "client!ov", name = "c", descriptor = "Lclient!dla;")
-    public static final ReferenceCache sprites = new ReferenceCache(3000000, 200);
+    public static final ReferenceCache spriteCache = new ReferenceCache(3000000, 200);
 
     @OriginalMember(owner = "client!jt", name = "a", descriptor = "Lclient!dla;")
-    public static final ReferenceCache models = new ReferenceCache(50);
+    public static final ReferenceCache modelCache = new ReferenceCache(50);
 
     @OriginalMember(owner = "client!od", name = "l", descriptor = "Lclient!dla;")
     public static final ReferenceCache graphics = new ReferenceCache(8);
@@ -87,29 +87,29 @@ public final class Component {
     @OriginalMember(owner = "client!kk", name = "a", descriptor = "(II)V")
     public static void setFeatureMask(@OriginalArg(1) int featureMask) {
         Component.featureMask = featureMask;
-        models.reset();
+        modelCache.reset();
     }
 
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IB)V")
     public static void cacheClean(@OriginalArg(0) int maxAge) {
-        sprites.clean(maxAge);
-        models.clean(maxAge);
+        spriteCache.clean(maxAge);
+        modelCache.clean(maxAge);
         graphics.clean(maxAge);
         skyBoxes.clean(maxAge);
     }
 
     @OriginalMember(owner = "client!vga", name = "c", descriptor = "(I)V")
     public static void cacheReset() {
-        sprites.reset();
-        models.reset();
+        spriteCache.reset();
+        modelCache.reset();
         graphics.reset();
         skyBoxes.reset();
     }
 
     @OriginalMember(owner = "client!rv", name = "a", descriptor = "(I)V")
     public static void cacheRemoveSoftReferences() {
-        sprites.removeSoftReferences();
-        models.removeSoftReferences();
+        spriteCache.removeSoftReferences();
+        modelCache.removeSoftReferences();
         graphics.removeSoftReferences();
         skyBoxes.removeSoftReferences();
     }
@@ -599,7 +599,7 @@ public final class Component {
             + ((this.flipVertical ? 1L : 0L) << 39)
             + ((long) this.shadow << 40);
 
-        @Pc(60) Sprite sprite = (Sprite) sprites.get(key);
+        @Pc(60) Sprite sprite = (Sprite) spriteCache.get(key);
         if (sprite != null) {
             return sprite;
         }
@@ -635,7 +635,7 @@ public final class Component {
         }
 
         sprite = toolkit.createSprite(image, true);
-        sprites.put(key, sprite, sprite.getWidth() * sprite.getHeight() * 4);
+        spriteCache.put(key, sprite, sprite.getWidth() * sprite.getHeight() * 4);
         return sprite;
     }
 
@@ -1205,7 +1205,7 @@ public final class Component {
             }
 
             @Pc(271) long key = crc & 0x3FFFFFFFFFL | (long) this.obj << 38 | (long) this.objType << 54 | (long) toolkit.index << 59;
-            @Pc(277) Model model = (Model) models.get(key);
+            @Pc(277) Model model = (Model) modelCache.get(key);
 
             if (model == null || toolkit.compareFunctionMasks(model.ua(), functionMask) != 0) {
                 if (model != null) {
@@ -1235,7 +1235,7 @@ public final class Component {
                     }
                 }
 
-                models.put(model, key);
+                modelCache.put(model, key);
             }
 
             if (animator != null) {

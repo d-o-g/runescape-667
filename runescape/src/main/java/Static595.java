@@ -115,7 +115,7 @@ public final class Static595 {
         Static209.method3110();
         Toolkit.active.method7997(ClientOptions.instance.smallTextures.getValue() == 1);
         if (Toolkit.active.method7936()) {
-            Static249.method3537(ClientOptions.instance.bloom.getValue() == 1);
+            Static249.setBloom(ClientOptions.instance.bloom.getValue() == 1);
         }
         Static613.method8239(Toolkit.active, Static501.mapLength >> 3, Static720.mapWidth >> 3);
         InterfaceManager.loginOpened();

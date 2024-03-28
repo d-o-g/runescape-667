@@ -1234,7 +1234,7 @@ public final class Model_Sub2 extends Model {
         for (@Pc(49) int local49 = 0; local49 < this.anInt5533; local49++) {
             @Pc(58) Class97 local58 = this.aClass97Array1[local49];
             @Pc(63) Class223 local63 = this.aClass223Array1[local49];
-            if (!local58.aBoolean211 || !this.aClass19_Sub3_24.method8014()) {
+            if (!local58.aBoolean211 || !this.aClass19_Sub3_24.bloom()) {
                 @Pc(94) float local94 = (float) (this.anIntArray410[local58.anInt2516] + this.anIntArray410[local58.anInt2511] + this.anIntArray410[local58.anInt2515]) * 0.3333333F;
                 @Pc(115) float local115 = (float) (this.anIntArray409[local58.anInt2511] + this.anIntArray409[local58.anInt2515] + this.anIntArray409[local58.anInt2516]) * 0.3333333F;
                 @Pc(138) float local138 = (float) (this.anIntArray412[local58.anInt2511] + this.anIntArray412[local58.anInt2515] + this.anIntArray412[local58.anInt2516]) * 0.3333333F;
@@ -3765,7 +3765,7 @@ public final class Model_Sub2 extends Model {
             local24 = local24 + floor.anInt8888 - 1 >> floor.anInt8895;
             local29 >>= floor.anInt8895;
             local34 = floor.anInt8888 + local34 - 1 >> floor.anInt8895;
-            if (floor.getHeight(local29, local18) == y && y == floor.getHeight(local29, local24) && floor.getHeight(local34, local18) == y && y == floor.getHeight(local34, local24)) {
+            if (floor.getHeight(local18, local29) == y && y == floor.getHeight(local24, local29) && floor.getHeight(local18, local34) == y && y == floor.getHeight(local24, local34)) {
                 return;
             }
         }

@@ -7,7 +7,7 @@ public final class Static376 {
     public static float aFloat113;
 
     @OriginalMember(owner = "client!lr", name = "g", descriptor = "[I")
-    public static int[] anIntArray458;
+    public static int[] npcGroups;
 
     @OriginalMember(owner = "client!lr", name = "d", descriptor = "[F")
     public static final float[] aFloatArray42 = new float[4];

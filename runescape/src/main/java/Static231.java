@@ -47,7 +47,7 @@ public final class Static231 {
         }
         Static514.aClass213_2.method5010();
         Static563.method7461();
-        Minimap.resetSprite();
+        Minimap.reset();
         MiniMenu.resetSprites();
         Static638.method8393();
         Static65.method1472();

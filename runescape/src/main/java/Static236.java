@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.util.JagException;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -15,7 +16,7 @@ public final class Static236 {
         try {
             return Protocol.decodeServerProt(connection);
         } catch (@Pc(15) IOException local15) {
-            if (MainLogicManager.step == 9) {
+            if (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME) {
                 connection.connection = null;
                 return false;
             } else {

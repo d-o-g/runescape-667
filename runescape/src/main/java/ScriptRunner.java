@@ -130,13 +130,13 @@ public final class ScriptRunner {
     public static final ReferenceCache A_WEIGHTED_CACHE___156 = new ReferenceCache(4);
 
     @OriginalMember(owner = "client!ou", name = "q", descriptor = "Z")
-    public static boolean aBoolean538 = false;
+    public static boolean debug = false;
 
     @OriginalMember(owner = "client!ou", name = "o", descriptor = "I")
     public static int anInt7153 = 0;
 
     @OriginalMember(owner = "client!ou", name = "s", descriptor = "Ljava/lang/String;")
-    public static String aString76 = null;
+    public static String debugName = null;
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(I)I")
     public static int method6411(@OriginalArg(0) int arg0) {
@@ -3284,7 +3284,7 @@ public final class ScriptRunner {
                 }
                 local5++;
                 @Pc(34) int local34 = local8[local5];
-                if (aBoolean538 && (aString76 == null || arg0.aString31 != null && arg0.aString31.indexOf(aString76) != -1)) {
+                if (debug && (debugName == null || arg0.aString31 != null && arg0.aString31.indexOf(debugName) != -1)) {
                     System.out.println(arg0.aString31 + ": " + local34);
                 }
                 if (local34 >= 150) {
@@ -5141,7 +5141,7 @@ public final class ScriptRunner {
                         if (local192 < 0 || local192 > 1) {
                             local192 = 0;
                         }
-                        Static249.method3537(local192 == 1);
+                        Static249.setBloom(local192 == 1);
                         return;
                     }
                     if (arg0 == 6028) {
@@ -5378,7 +5378,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6138) {
-                        anIntArray578[anInt7142++] = Static363.method6235(200, ClientOptions.instance.toolkit.getValue());
+                        anIntArray578[anInt7142++] = Static363.profileToolkit(200, ClientOptions.instance.toolkit.getValue());
                         return;
                     }
                     if (arg0 == 6139) {
@@ -5436,9 +5436,9 @@ public final class ScriptRunner {
                         if (Static228.aShort45 <= 0) {
                             Static228.aShort45 = 256;
                         }
-                        Static502.aShort97 = (short) anIntArray578[anInt7142 + 1];
-                        if (Static502.aShort97 <= 0) {
-                            Static502.aShort97 = 320;
+                        Camera.zoom = (short) anIntArray578[anInt7142 + 1];
+                        if (Camera.zoom <= 0) {
+                            Camera.zoom = 320;
                         }
                         return;
                     }
@@ -5476,7 +5476,7 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6204) {
                         anIntArray578[anInt7142++] = Static228.aShort45;
-                        anIntArray578[anInt7142++] = Static502.aShort97;
+                        anIntArray578[anInt7142++] = Camera.zoom;
                         return;
                     }
                     if (arg0 == 6205) {
@@ -5965,7 +5965,7 @@ public final class ScriptRunner {
                         }
                     } else if (arg0 < 7100) {
                         if (arg0 == 7000) {
-                            local192 = Static519.method6831();
+                            local192 = Static519.autosetup();
                             anIntArray578[anInt7142++] = Static165.anInt2810 = ClientOptions.instance.toolkit.getValue();
                             anIntArray578[anInt7142++] = local192;
                             MainLogicManager.mapBuild();

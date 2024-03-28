@@ -968,7 +968,7 @@ public final class LoginManager {
         Camera.scaleOffset = (int) (Math.random() * 30.0D) - 20;
         Static508.anInt7627 = (int) (Math.random() * 100.0D) - 50;
         Camera.playerCameraYaw = (float) ((int) (Math.random() * 160.0D) - 80 & 0x3FFF);
-        Minimap.reset();
+        Minimap.resetToggle();
         for (@Pc(8697) int local8697 = 0; local8697 < PlayerList.MAX_PLAYER_COUNT; local8697++) {
             PlayerList.highResolutionPlayers[local8697] = null;
         }

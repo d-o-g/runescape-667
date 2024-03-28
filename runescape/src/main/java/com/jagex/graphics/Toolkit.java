@@ -244,7 +244,7 @@ public abstract class Toolkit {
     public abstract void method7969();
 
     @OriginalMember(owner = "client!ha", name = "m", descriptor = "()Z")
-    public abstract boolean method7970();
+    public abstract boolean supportsBloom();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIBII)V")
     public final void fillRect(@OriginalArg(4) int x, @OriginalArg(2) int y, @OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(5) int colour) {
@@ -291,7 +291,7 @@ public abstract class Toolkit {
     public abstract int[] na(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!ha", name = "f", descriptor = "()V")
-    public abstract void method7980();
+    public abstract void stopBloom();
 
     @OriginalMember(owner = "client!ha", name = "c", descriptor = "()Lclient!dp;")
     public abstract Renderer renderer();
@@ -472,7 +472,7 @@ public abstract class Toolkit {
     public abstract int i();
 
     @OriginalMember(owner = "client!ha", name = "w", descriptor = "()Z")
-    public abstract boolean method8014();
+    public abstract boolean bloom();
 
     @OriginalMember(owner = "client!ha", name = "t", descriptor = "()Z")
     public abstract boolean method8015();

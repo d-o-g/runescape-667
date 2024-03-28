@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static502 {
 
-    @OriginalMember(owner = "client!pr", name = "k", descriptor = "S")
-    public static short aShort97 = 320;
-
     @OriginalMember(owner = "client!pr", name = "a", descriptor = "(BLclient!ge;)Lclient!il;")
     public static Class138_Sub3 method6720(@OriginalArg(1) Packet arg0) {
         @Pc(7) Class138 local7 = Class138.method8359(arg0);

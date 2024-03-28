@@ -106,7 +106,7 @@ public final class Static409 {
                     }
                 }
                 if (local133) {
-                    local139 = Static246.ground[Camera.renderingLevel + 1].getHeight(local100, local78);
+                    local139 = Static246.ground[Camera.renderingLevel + 1].getHeight(local78, local100);
                     if (Static482.anIntArray588[arg2] < local139) {
                         Static482.anIntArray588[arg2] = local139;
                     }

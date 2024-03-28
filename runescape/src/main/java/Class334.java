@@ -38,7 +38,7 @@ public final class Class334 {
             @Pc(35) TextureMetrics local35 = this.anTextureSource_9.getMetrics(arg0);
             @Pc(45) int local45 = local35.small ? 64 : this.aClass19_Sub1_20.anInt9183;
             @Pc(105) Interface18 local105;
-            if (local35.aBoolean237 && this.aClass19_Sub1_20.method8014()) {
+            if (local35.aBoolean237 && this.aClass19_Sub1_20.bloom()) {
                 @Pc(116) float[] local116 = this.anTextureSource_9.floatArgbOutput(local45, arg0, 0.7F, local45);
                 local105 = this.aClass19_Sub1_20.method8121(local45, local116, Static172.aClass92_8, local35.aByte53 != 0, local45);
             } else {

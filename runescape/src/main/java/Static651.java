@@ -1,5 +1,6 @@
 import com.jagex.Static14;
 import com.jagex.game.Animator;
+import com.jagex.game.MoveSpeed;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
@@ -18,92 +19,103 @@ public final class Static651 {
     public static Interface9[] anInterface9Array1;
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
-    public static void basTick(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) PathingEntity arg3) {
-        @Pc(9) BASType local9 = arg3.getBASType();
-        @Pc(19) Animator local19 = arg3.animator;
-        @Pc(29) int local29 = arg3.yawTarget - arg3.yaw.value & 0x3FFF;
-        if (arg0 == -1) {
-            if (local29 == 0 && arg3.anInt10749 <= 25) {
-                if (!arg3.ready || !local9.isReady(local19.getAnimationId())) {
-                    local19.update(true, local9.ready());
-                    arg3.ready = local19.isAnimating();
+    public static void basTick(@OriginalArg(0) int moveSpeed, @OriginalArg(1) int deltaYaw, @OriginalArg(2) int motionFlags, @OriginalArg(4) PathingEntity entity) {
+        @Pc(9) BASType basType = entity.getBASType();
+        @Pc(19) Animator animator = entity.animator;
+        @Pc(29) int turnRemaining = entity.yawTarget - entity.yaw.value & 0x3FFF;
+
+        if (moveSpeed == MoveSpeed.STATIONARY) {
+            if (turnRemaining == 0 && entity.anInt10749 <= 25) {
+                if (!entity.ready || !basType.isReady(animator.getAnimationId())) {
+                    animator.update(true, basType.ready());
+                    entity.ready = animator.isAnimating();
                 }
-            } else if (arg1 < 0 && local9.readyTurnCcw != -1) {
-                local19.update(true, local9.readyTurnCcw);
-                arg3.ready = false;
-            } else if (arg1 > 0 && local9.readyTurnCw != -1) {
-                local19.update(true, local9.readyTurnCw);
-                arg3.ready = false;
-            } else if (!arg3.ready || !local9.isReady(local19.getAnimationId())) {
-                local19.update(true, local9.ready());
-                arg3.ready = arg3.animator.isAnimating();
-            }
-        } else if (arg3.target != -1 && (local29 >= 10240 || local29 <= 2048)) {
-            @Pc(172) int local172 = Static464.anIntArray561[arg2] - arg3.yaw.value & 0x3FFF;
-            if (arg0 == 2 && local9.run != -1) {
-                if (local172 > 2048 && local172 <= 6144 && local9.runFollowTurnCw != -1) {
-                    local19.update(true, local9.runFollowTurnCw);
-                } else if (local172 >= 10240 && local172 < 14336 && local9.runFollowTurnCcw != -1) {
-                    local19.update(true, local9.runFollowTurnCcw);
-                } else if (local172 <= 6144 || local172 >= 10240 || local9.runFollowTurn180 == -1) {
-                    local19.update(true, local9.run);
-                } else {
-                    local19.update(true, local9.runFollowTurn180);
-                }
-            } else if (arg0 == 0 && local9.crawl != -1) {
-                if (local172 > 2048 && local172 <= 6144 && local9.crawlFollowTurnCw != -1) {
-                    local19.update(true, local9.crawlFollowTurnCw);
-                } else if (local172 >= 10240 && local172 < 14336 && local9.crawlFollowTurnCcw != -1) {
-                    local19.update(true, local9.crawlFollowTurnCcw);
-                } else if (local172 <= 6144 || local172 >= 10240 || local9.crawlFollowTurn180 == -1) {
-                    local19.update(true, local9.crawl);
-                } else {
-                    local19.update(true, local9.crawlFollowTurn180);
-                }
-            } else if (local172 > 2048 && local172 <= 6144 && local9.walkFollowTurnCw != -1) {
-                local19.update(true, local9.walkFollowTurnCw);
-            } else if (local172 >= 10240 && local172 < 14336 && local9.walkFollowTurnCcw != -1) {
-                local19.update(true, local9.walkFollowTurnCcw);
-            } else if (local172 <= 6144 || local172 >= 10240 || local9.walkFollowTurn180 == -1) {
-                local19.update(true, local9.walk);
             } else {
-                local19.update(true, local9.walkFollowTurn180);
+                if (deltaYaw < 0 && basType.readyTurnCcw != -1) {
+                    animator.update(true, basType.readyTurnCcw);
+                    entity.ready = false;
+                } else if (deltaYaw > 0 && basType.readyTurnCw != -1) {
+                    animator.update(true, basType.readyTurnCw);
+                    entity.ready = false;
+                } else if (!entity.ready || !basType.isReady(animator.getAnimationId())) {
+                    animator.update(true, basType.ready());
+                    entity.ready = entity.animator.isAnimating();
+                }
             }
-            arg3.ready = false;
-        } else if (local29 == 0 && arg3.anInt10749 <= 25) {
-            if (arg0 == 2 && local9.run != -1) {
-                local19.update(true, local9.run);
-            } else if (arg0 == 0 && local9.crawl != -1) {
-                local19.update(true, local9.crawl);
+        } else if (entity.target != -1 && (turnRemaining >= 10240 || turnRemaining <= 2048)) {
+            @Pc(172) int delta = Static464.anIntArray561[motionFlags] - entity.yaw.value & 0x3FFF;
+
+            if (moveSpeed == MoveSpeed.RUN && basType.run != -1) {
+                if (delta > 2048 && delta <= 6144 && basType.runFollowTurnCw != -1) {
+                    animator.update(true, basType.runFollowTurnCw);
+                } else if (delta >= 10240 && delta < 14336 && basType.runFollowTurnCcw != -1) {
+                    animator.update(true, basType.runFollowTurnCcw);
+                } else if (delta <= 6144 || delta >= 10240 || basType.runFollowTurn180 == -1) {
+                    animator.update(true, basType.run);
+                } else {
+                    animator.update(true, basType.runFollowTurn180);
+                }
+            } else if (moveSpeed == MoveSpeed.CRAWL && basType.crawl != -1) {
+                if (delta > 2048 && delta <= 6144 && basType.crawlFollowTurnCw != -1) {
+                    animator.update(true, basType.crawlFollowTurnCw);
+                } else if (delta >= 10240 && delta < 14336 && basType.crawlFollowTurnCcw != -1) {
+                    animator.update(true, basType.crawlFollowTurnCcw);
+                } else if (delta <= 6144 || delta >= 10240 || basType.crawlFollowTurn180 == -1) {
+                    animator.update(true, basType.crawl);
+                } else {
+                    animator.update(true, basType.crawlFollowTurn180);
+                }
             } else {
-                local19.update(true, local9.walk);
+                if (delta > 2048 && delta <= 6144 && basType.walkFollowTurnCw != -1) {
+                    animator.update(true, basType.walkFollowTurnCw);
+                } else if (delta >= 10240 && delta < 14336 && basType.walkFollowTurnCcw != -1) {
+                    animator.update(true, basType.walkFollowTurnCcw);
+                } else if (delta <= 6144 || delta >= 10240 || basType.walkFollowTurn180 == -1) {
+                    animator.update(true, basType.walk);
+                } else {
+                    animator.update(true, basType.walkFollowTurn180);
+                }
             }
-            arg3.ready = false;
+
+            entity.ready = false;
+        } else if (turnRemaining == 0 && entity.anInt10749 <= 25) {
+            if (moveSpeed == MoveSpeed.RUN && basType.run != -1) {
+                animator.update(true, basType.run);
+            } else if (moveSpeed == MoveSpeed.CRAWL && basType.crawl != -1) {
+                animator.update(true, basType.crawl);
+            } else {
+                animator.update(true, basType.walk);
+            }
+
+            entity.ready = false;
         } else {
-            if (arg0 == 2 && local9.run != -1) {
-                if (arg1 < 0 && local9.runTurnCcw != -1) {
-                    local19.update(true, local9.runTurnCcw);
-                } else if (arg1 <= 0 || local9.runTurnCw == -1) {
-                    local19.update(true, local9.run);
+            if (moveSpeed == MoveSpeed.RUN && basType.run != -1) {
+                if (deltaYaw < 0 && basType.runTurnCcw != -1) {
+                    animator.update(true, basType.runTurnCcw);
+                } else if (deltaYaw <= 0 || basType.runTurnCw == -1) {
+                    animator.update(true, basType.run);
                 } else {
-                    local19.update(true, local9.runTurnCw);
+                    animator.update(true, basType.runTurnCw);
                 }
-            } else if (arg0 == 0 && local9.crawl != -1) {
-                if (arg1 < 0 && local9.crawlTurnCcw != -1) {
-                    local19.update(true, local9.crawlTurnCcw);
-                } else if (arg1 <= 0 || local9.crawlTurnCw == -1) {
-                    local19.update(true, local9.crawl);
+            } else if (moveSpeed == MoveSpeed.CRAWL && basType.crawl != -1) {
+                if (deltaYaw < 0 && basType.crawlTurnCcw != -1) {
+                    animator.update(true, basType.crawlTurnCcw);
+                } else if (deltaYaw <= 0 || basType.crawlTurnCw == -1) {
+                    animator.update(true, basType.crawl);
                 } else {
-                    local19.update(true, local9.crawlTurnCw);
+                    animator.update(true, basType.crawlTurnCw);
                 }
-            } else if (arg1 < 0 && local9.walkTurnCcw != -1) {
-                local19.update(true, local9.walkTurnCcw);
-            } else if (arg1 <= 0 || local9.walkTurnCw == -1) {
-                local19.update(true, local9.walk);
             } else {
-                local19.update(true, local9.walkTurnCw);
+                if (deltaYaw < 0 && basType.walkTurnCcw != -1) {
+                    animator.update(true, basType.walkTurnCcw);
+                } else if (deltaYaw <= 0 || basType.walkTurnCw == -1) {
+                    animator.update(true, basType.walk);
+                } else {
+                    animator.update(true, basType.walkTurnCw);
+                }
             }
-            arg3.ready = false;
+
+            entity.ready = false;
         }
     }
 

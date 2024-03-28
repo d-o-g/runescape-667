@@ -104,10 +104,10 @@ public final class MainLogicManager {
                     AudioRenderer.mixBussReset();
                 }
 
-                Client.js5WorkerThread.writeLoggedIn(false);
+                Client.js5WorkerThread.loggedIn(false);
             } else {
                 SongManager.stop();
-                Client.js5WorkerThread.writeLoggedIn(true);
+                Client.js5WorkerThread.loggedIn(true);
             }
         }
 

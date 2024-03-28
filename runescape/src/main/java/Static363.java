@@ -48,7 +48,7 @@ public final class Static363 {
     }
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(III)I")
-    public static int method6235(@OriginalArg(0) int arg0, @OriginalArg(1) int toolkit) {
+    public static int profileToolkit(@OriginalArg(0) int arg0, @OriginalArg(1) int toolkit) {
         if (GraphicsDefaults.instance.profilingModel == -1) {
             return 1;
         }

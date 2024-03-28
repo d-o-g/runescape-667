@@ -150,7 +150,7 @@ public final class JavaToolkit extends Toolkit {
     public int anInt4199;
 
     @OriginalMember(owner = "client!iaa", name = "lb", descriptor = "I")
-    public int lb;
+    public int textureSize;
 
     @OriginalMember(owner = "client!iaa", name = "y", descriptor = "I")
     public int anInt4196;
@@ -205,7 +205,7 @@ public final class JavaToolkit extends Toolkit {
         this.anInt4202 = 75518;
         this.anInt4200 = 0;
         this.anInt4199 = 3500;
-        this.lb = 128;
+        this.textureSize = 128;
         this.anInt4196 = 0;
         this.anInt4191 = 45823;
         this.anInt4192 = 0;
@@ -641,7 +641,7 @@ public final class JavaToolkit extends Toolkit {
                 if (local40 == null) {
                     return;
                 }
-                @Pc(54) int local54 = this.method3798(local2) ? 64 : this.lb;
+                @Pc(54) int local54 = this.method3798(local2) ? 64 : this.textureSize;
                 local34 = this.createSprite(local54, local54, local54, local40);
                 this.aReferenceCache_88.put(local34, local2);
             }
@@ -1222,7 +1222,7 @@ public final class JavaToolkit extends Toolkit {
                     return null;
                 }
                 @Pc(36) TextureMetrics local36 = super.textureSource.getMetrics(arg0);
-                @Pc(50) int local50 = local36.small || this.aBoolean332 ? 64 : this.lb;
+                @Pc(50) int local50 = local36.small || this.aBoolean332 ? 64 : this.textureSize;
                 local14 = new Node_Sub29(arg0, local50, super.textureSource.argbOutput(0.7F, arg0, local50, local50), local36.alphaBlendMode != 1);
                 this.aReferenceCache_89.put(local14, (long) arg0 | Long.MIN_VALUE);
             }
@@ -1233,7 +1233,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "f", descriptor = "()V")
     @Override
-    public void method7980() {
+    public void stopBloom() {
     }
 
     @OriginalMember(owner = "client!iaa", name = "A", descriptor = "(ILclient!aa;II)V")
@@ -1437,7 +1437,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "f", descriptor = "(I)V")
     @Override
     public void setTextureSize(@OriginalArg(0) int size) {
-        this.lb = size;
+        this.textureSize = size;
         this.aReferenceCache_89.reset();
     }
 
@@ -1949,7 +1949,7 @@ public final class JavaToolkit extends Toolkit {
                 if (local39 == null) {
                     return;
                 }
-                @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.lb;
+                @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.textureSize;
                 local33 = this.createSprite(local53, local53, local53, local39);
                 this.aReferenceCache_88.put(local33, arg6);
             }
@@ -2247,7 +2247,7 @@ public final class JavaToolkit extends Toolkit {
                     return null;
                 }
                 @Pc(34) TextureMetrics local34 = super.textureSource.getMetrics(arg0);
-                @Pc(48) int local48 = local34.small || this.aBoolean332 ? 64 : this.lb;
+                @Pc(48) int local48 = local34.small || this.aBoolean332 ? 64 : this.textureSize;
                 local12 = new Node_Sub29(arg0, local48, super.textureSource.rgbOutput(local48, true, local48, arg0, 0.7F), local34.alphaBlendMode != 1);
                 this.aReferenceCache_89.put(local12, arg0);
             }
@@ -2525,7 +2525,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "m", descriptor = "()Z")
     @Override
-    public boolean method7970() {
+    public boolean supportsBloom() {
         return false;
     }
 
@@ -2777,7 +2777,7 @@ public final class JavaToolkit extends Toolkit {
                 if (local39 == null) {
                     return;
                 }
-                @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.lb;
+                @Pc(53) int local53 = this.method3798(arg6) ? 64 : this.textureSize;
                 local33 = this.createSprite(local53, local53, local53, local39);
                 this.aReferenceCache_88.put(local33, arg6);
             }
@@ -2804,7 +2804,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "w", descriptor = "()Z")
     @Override
-    public boolean method8014() {
+    public boolean bloom() {
         return false;
     }
 

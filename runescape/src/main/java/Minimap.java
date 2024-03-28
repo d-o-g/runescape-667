@@ -299,7 +299,7 @@ public final class Minimap {
     }
 
     @OriginalMember(owner = "client!hk", name = "a", descriptor = "(I)V")
-    public static void resetSprite() {
+    public static void reset() {
         sprite = null;
         level = -1;
     }
@@ -912,7 +912,7 @@ public final class Minimap {
     }
 
     @OriginalMember(owner = "client!ns", name = "a", descriptor = "(B)V")
-    public static void reset() {
+    public static void resetToggle() {
         flagY = -1;
         level = -1;
         flagX = -1;

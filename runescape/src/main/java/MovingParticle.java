@@ -329,10 +329,10 @@ public final class MovingParticle extends Particle {
         if (local58 != null) {
             local49 = local58.level;
         }
-        @Pc(71) int local71 = local46[local49].getHeight(local13, local6);
+        @Pc(71) int local71 = local46[local49].getHeight(local6, local13);
         @Pc(86) int local86;
         if (local49 < Static299.tileMaxLevel - 1) {
-            local86 = local46[local49 + 1].getHeight(local13, local6);
+            local86 = local46[local49 + 1].getHeight(local6, local13);
         } else {
             local86 = local71 - (0x8 << EnvironmentLight.anInt1066);
         }
@@ -341,7 +341,7 @@ public final class MovingParticle extends Particle {
                 this.remove();
                 return;
             }
-            if (local44.minHeightLevel >= 0 && local18 > local46[local44.minHeightLevel].getHeight(local13, local6)) {
+            if (local44.minHeightLevel >= 0 && local18 > local46[local44.minHeightLevel].getHeight(local6, local13)) {
                 this.remove();
                 return;
             }
@@ -349,17 +349,17 @@ public final class MovingParticle extends Particle {
                 this.remove();
                 return;
             }
-            if (local44.maxHeightLevel >= 0 && local18 < local46[local44.maxHeightLevel + 1].getHeight(local13, local6)) {
+            if (local44.maxHeightLevel >= 0 && local18 < local46[local44.maxHeightLevel + 1].getHeight(local6, local13)) {
                 this.remove();
                 return;
             }
         }
         @Pc(154) int local154;
-        for (local154 = Static299.tileMaxLevel - 1; local154 > 0 && local18 > local46[local154].getHeight(local13, local6); local154--) {
+        for (local154 = Static299.tileMaxLevel - 1; local154 > 0 && local18 > local46[local154].getHeight(local6, local13); local154--) {
         }
-        if (local44.collidesWithGround && local154 == 0 && local18 > local46[0].getHeight(local13, local6)) {
+        if (local44.collidesWithGround && local154 == 0 && local18 > local46[0].getHeight(local6, local13)) {
             this.remove();
-        } else if (local154 == Static299.tileMaxLevel - 1 && local46[local154].getHeight(local13, local6) - local18 > 0x8 << EnvironmentLight.anInt1066) {
+        } else if (local154 == Static299.tileMaxLevel - 1 && local46[local154].getHeight(local6, local13) - local18 > 0x8 << EnvironmentLight.anInt1066) {
             this.remove();
         } else {
             local58 = Static334.activeTiles[local154][local6][local13];

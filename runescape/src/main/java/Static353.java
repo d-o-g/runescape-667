@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static353 {
 
     @OriginalMember(owner = "client!lca", name = "k", descriptor = "Z")
-    public static boolean aBoolean734 = false;
+    public static boolean noNpcs = false;
 
     @OriginalMember(owner = "client!lca", name = "a", descriptor = "(Lclient!ge;B)Lclient!fw;")
     public static Class138_Sub1_Sub1 method8430(@OriginalArg(0) Packet arg0) {

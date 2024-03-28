@@ -20,7 +20,7 @@ public final class Static684 {
     public static int w2debug = 0;
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "(ZIIIB)V")
-    public static void updateMapArea(@OriginalArg(0) boolean force, @OriginalArg(1) int centerX, @OriginalArg(2) int mainLogicStep, @OriginalArg(3) int centerZ) {
+    public static void updateMapArea(@OriginalArg(0) boolean force, @OriginalArg(1) int centerX, @OriginalArg(2) int buildStep, @OriginalArg(3) int centerZ) {
         if (CutsceneManager.state == 4) {
             CutsceneManager.state = 0;
             CutsceneManager.id = -1;
@@ -37,7 +37,7 @@ public final class Static684 {
             Static164.areaLevel = 0;
         }
 
-        MainLogicManager.setStep(mainLogicStep);
+        MainLogicManager.setStep(buildStep);
         Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language), true, Fonts.p12Metrics, Fonts.p12);
 
         @Pc(74) int baseX = WorldMap.areaBaseX;
@@ -52,7 +52,7 @@ public final class Static684 {
         @Pc(109) int deltaX = WorldMap.areaBaseX - baseX;
         @Pc(113) int deltaZ = WorldMap.areaBaseZ - baseZ;
 
-        if (mainLogicStep == 12) {
+        if (buildStep == 12) {
             for (@Pc(308) int i = 0; i < NPCList.newNpcCount; i++) {
                 @Pc(313) NPCEntityNode node = NPCList.localNpcs[i];
 
@@ -179,7 +179,7 @@ public final class Static684 {
 
         SoundManager.reset();
 
-        if (mainLogicStep != 12) {
+        if (buildStep != 12) {
             Camera.lookX -= deltaX;
             Camera.moveToX -= deltaX;
             Camera.moveToZ -= deltaZ;
@@ -200,7 +200,7 @@ public final class Static684 {
             Camera.mode = CameraMode.MODE_DEFAULT;
         }
         MiniMenu.resetAndClose();
-        Minimap.resetSprite();
+        Minimap.reset();
         Static346.spotAnimations.clear();
         Static505.projectiles.clear();
         TextCoordList.textCoords.clear();

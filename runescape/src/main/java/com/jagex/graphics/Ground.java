@@ -47,8 +47,8 @@ public abstract class Ground {
     public abstract void method7868(@OriginalArg(0) PointLight arg0, @OriginalArg(1) int[] arg1);
 
     @OriginalMember(owner = "client!s", name = "a", descriptor = "(IIB)I")
-    public final int getHeight(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        return this.tileHeights[arg1][arg0];
+    public final int getHeight(@OriginalArg(1) int x, @OriginalArg(0) int z) {
+        return this.tileHeights[x][z];
     }
 
     @OriginalMember(owner = "client!s", name = "a", descriptor = "(III[[ZZI)V")

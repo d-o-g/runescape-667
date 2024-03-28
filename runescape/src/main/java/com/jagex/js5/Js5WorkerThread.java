@@ -73,7 +73,7 @@ public final class Js5WorkerThread {
     }
 
     @OriginalMember(owner = "client!pla", name = "c", descriptor = "(B)V")
-    public void writeConnected() {
+    public void connected() {
         if (this.socket == null) {
             return;
         }
@@ -287,7 +287,7 @@ public final class Js5WorkerThread {
     }
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ZI)V")
-    public void writeLoggedIn(@OriginalArg(0) boolean loggedIn) {
+    public void loggedIn(@OriginalArg(0) boolean loggedIn) {
         if (this.socket == null) {
             return;
         }
@@ -320,8 +320,8 @@ public final class Js5WorkerThread {
         }
 
         this.socket = socket;
-        this.writeConnected();
-        this.writeLoggedIn(loggedIn);
+        this.connected();
+        this.loggedIn(loggedIn);
         this.current = null;
         this.read.pos = 0;
 
@@ -371,7 +371,7 @@ public final class Js5WorkerThread {
     }
 
     @OriginalMember(owner = "client!pla", name = "c", descriptor = "(I)V")
-    public void closeServer() {
+    public void disconnect() {
         if (this.socket == null) {
             return;
         }

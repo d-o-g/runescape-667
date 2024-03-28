@@ -32,7 +32,7 @@ public final class Static203 {
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(I)Z")
     public static boolean method3070() {
-        return Static96.anInt10171 != 0;
+        return SongManager.anInt10171 != 0;
     }
 
 }

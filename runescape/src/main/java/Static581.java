@@ -1,4 +1,4 @@
-import com.jagex.sound.Node_Sub6_Sub1;
+import com.jagex.sound.MixBuss;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static581 {
@@ -7,7 +7,7 @@ public final class Static581 {
     public static boolean aBoolean657;
 
     @OriginalMember(owner = "client!sf", name = "a", descriptor = "Lclient!bd;")
-    public static Node_Sub6_Sub1 aClass2_Sub6_Sub1_3;
+    public static MixBuss mixBuss;
 
     @OriginalMember(owner = "client!sf", name = "e", descriptor = "[I")
     public static final int[] anIntArray687 = new int[1];

@@ -94,18 +94,18 @@ public final class MainLogicManager {
 
         if (loggedOut != loggingOut) {
             if (loggingOut) {
-                SoundManager.midiSong = Static597.themeMusic;
+                SongManager.playing = Static597.themeMusic;
 
                 if (ClientOptions.instance.loginVolume.getValue() == 0) {
-                    Static312.method4541();
+                    SongManager.stop();
                 } else {
-                    Static57.method1225(Static597.themeMusic, ClientOptions.instance.loginVolume.getValue(), js5.MIDI_SONGS);
-                    SoundManager.mixBussReset();
+                    SongManager.reset(Static597.themeMusic, ClientOptions.instance.loginVolume.getValue(), js5.MIDI_SONGS);
+                    AudioRenderer.mixBussReset();
                 }
 
                 Client.js5WorkerThread.writeLoggedIn(false);
             } else {
-                Static312.method4541();
+                SongManager.stop();
                 Client.js5WorkerThread.writeLoggedIn(true);
             }
         }
@@ -402,7 +402,7 @@ public final class MainLogicManager {
 
         Static159.method2575();
         Static271.processLocChanges();
-        SoundManager.tick();
+        AudioRenderer.render();
         ServerConnection.GAME.idleReadTicks++;
 
         if (ServerConnection.GAME.idleReadTicks > 750) {

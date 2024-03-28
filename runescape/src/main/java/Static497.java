@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static497 {
 
-    @OriginalMember(owner = "client!pla", name = "E", descriptor = "Z")
-    public static boolean aBoolean564;
-
     @OriginalMember(owner = "client!pla", name = "i", descriptor = "Lclient!av;")
     public static IterableHashTable objStacks = new IterableHashTable(64);
 

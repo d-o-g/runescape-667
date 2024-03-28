@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static296 {
 
     @OriginalMember(owner = "client!jh", name = "n", descriptor = "Lclient!sb;")
-    public static js5 aJs5_61;
+    public static js5 vorbisJs5;
 
     @OriginalMember(owner = "client!jh", name = "k", descriptor = "I")
     public static int tileMinLevel = 0;

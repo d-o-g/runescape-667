@@ -17,21 +17,21 @@ public final class Static311 {
             return true;
         }
         Static62.aClass2_Sub8_3 = null;
-        Static96.anInt10171 = 0;
+        SongManager.anInt10171 = 0;
         Static12.aClass123_4 = null;
-        Static117.aClass2_Sub6_Sub1_2 = null;
+        SongManager.aClass2_Sub6_Sub1_2 = null;
         if (arg0 != Static62.aClass2_Sub8_2) {
             Static159.anInt2788 = 0;
             Static62.aClass2_Sub8_2 = arg0;
         }
-        Static676.midiSongs = null;
+        SongManager.midiSongs = null;
         if (Static159.anInt2788 == 0) {
-            Static270.aClass123_2 = new Class123(Static91.aJs5_117, Static296.aJs5_61);
-            Static581.aClass2_Sub6_Sub1_3.method927();
+            Static270.aClass123_2 = new Class123(Static91.synthSoundsJs5, Static296.vorbisJs5);
+            Static581.mixBuss.method927();
             Static159.anInt2788 = 1;
         }
         if (Static159.anInt2788 == 1) {
-            if (!Static581.aClass2_Sub6_Sub1_3.method944(Static270.aClass123_2, Static86.aJs5_13, arg0)) {
+            if (!Static581.mixBuss.method944(Static270.aClass123_2, Static86.js5_15, arg0)) {
                 return false;
             }
             Static270.aClass123_2 = null;

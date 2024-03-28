@@ -8,7 +8,7 @@ public final class Static52 {
 
     @OriginalMember(owner = "client!bo", name = "b", descriptor = "(I)Z")
     public static boolean method1157(@OriginalArg(0) int arg0) {
-        return Static96.anInt10171 == 0 ? Static581.aClass2_Sub6_Sub1_3.method922() : true;
+        return SongManager.anInt10171 == 0 ? Static581.mixBuss.isPlaying() : true;
     }
 
 }

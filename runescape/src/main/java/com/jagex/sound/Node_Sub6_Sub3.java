@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!nn")
-public final class Node_Sub6_Sub3 extends Node_Sub6 {
+public final class Node_Sub6_Sub3 extends AudioBuss {
 
     @OriginalMember(owner = "client!nn", name = "p", descriptor = "Lclient!sia;")
     public final Deque aDeque_35 = new Deque();
@@ -67,33 +67,33 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(Lclient!dea;)V")
-    public synchronized void addFirst(@OriginalArg(0) Node_Sub6 arg0) {
+    public synchronized void addFirst(@OriginalArg(0) AudioBuss arg0) {
         this.aDeque_35.addFirst(arg0);
     }
 
     @OriginalMember(owner = "client!nn", name = "b", descriptor = "(Lclient!dea;)V")
-    public synchronized void remove(@OriginalArg(0) Node_Sub6 arg0) {
+    public synchronized void remove(@OriginalArg(0) AudioBuss arg0) {
         arg0.unlink();
     }
 
     @OriginalMember(owner = "client!nn", name = "b", descriptor = "(I)V")
     public void method5884(@OriginalArg(0) int arg0) {
-        for (@Pc(5) Node_Sub6 local5 = (Node_Sub6) this.aDeque_35.first(); local5 != null; local5 = (Node_Sub6) this.aDeque_35.next()) {
+        for (@Pc(5) AudioBuss local5 = (AudioBuss) this.aDeque_35.first(); local5 != null; local5 = (AudioBuss) this.aDeque_35.next()) {
             local5.method9130(arg0);
         }
     }
 
     @OriginalMember(owner = "client!nn", name = "c", descriptor = "([III)V")
     public void method5885(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        for (@Pc(5) Node_Sub6 local5 = (Node_Sub6) this.aDeque_35.first(); local5 != null; local5 = (Node_Sub6) this.aDeque_35.next()) {
+        for (@Pc(5) AudioBuss local5 = (AudioBuss) this.aDeque_35.first(); local5 != null; local5 = (AudioBuss) this.aDeque_35.next()) {
             local5.method9134(arg0, arg1, arg2);
         }
     }
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "()Lclient!dea;")
     @Override
-    public Node_Sub6 method9135() {
-        return (Node_Sub6) this.aDeque_35.next();
+    public AudioBuss method9135() {
+        return (AudioBuss) this.aDeque_35.next();
     }
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(Lclient!ie;Lclient!ada;)V")
@@ -107,8 +107,8 @@ public final class Node_Sub6_Sub3 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!nn", name = "c", descriptor = "()Lclient!dea;")
     @Override
-    public Node_Sub6 method9133() {
-        return (Node_Sub6) this.aDeque_35.first();
+    public AudioBuss method9133() {
+        return (AudioBuss) this.aDeque_35.first();
     }
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(I)V")

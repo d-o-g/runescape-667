@@ -1,14 +1,8 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static184 {
-
-    @OriginalMember(owner = "client!fma", name = "a", descriptor = "(JZIIIILclient!sb;)V")
-    public static void method2797(@OriginalArg(0) long arg0, @OriginalArg(3) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) js5 arg3) {
-        Static349.method5119(arg3, arg2, arg1, arg0);
-    }
 
     @OriginalMember(owner = "client!fma", name = "a", descriptor = "(IIII)Lclient!cg;")
     public static PathingEntity method2798(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {

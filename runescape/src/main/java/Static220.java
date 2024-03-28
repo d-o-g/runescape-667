@@ -2,7 +2,7 @@ import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.js5.js5;
-import com.jagex.sound.Node_Sub6_Sub1;
+import com.jagex.sound.MixBuss;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -140,13 +140,13 @@ public final class Static220 {
     }
 
     @OriginalMember(owner = "client!gq", name = "a", descriptor = "(Lclient!cd;Lclient!sb;Lclient!sb;Lclient!sb;ILclient!bd;)Z")
-    public static boolean method3201(@OriginalArg(0) Class56 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(2) js5 arg2, @OriginalArg(3) js5 arg3, @OriginalArg(5) Node_Sub6_Sub1 arg4) {
-        Static581.aClass2_Sub6_Sub1_3 = arg4;
-        Static296.aJs5_61 = arg1;
-        Static91.aJs5_117 = arg2;
+    public static boolean method3201(@OriginalArg(0) Class56 arg0, @OriginalArg(1) js5 vorbis, @OriginalArg(2) js5 synthSounds, @OriginalArg(3) js5 js5_15, @OriginalArg(5) MixBuss mixBuss) {
+        Static581.mixBuss = mixBuss;
+        Static296.vorbisJs5 = vorbis;
+        Static91.synthSoundsJs5 = synthSounds;
         Static286.anIntArray358 = new int[16];
         Static426.aClass56_2 = arg0;
-        Static86.aJs5_13 = arg3;
+        Static86.js5_15 = js5_15;
         for (@Pc(25) int local25 = 0; local25 < 16; local25++) {
             Static286.anIntArray358[local25] = 255;
         }

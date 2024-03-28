@@ -1,13 +1,13 @@
-import com.jagex.ClientProt;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.js5.js5;
-import com.jagex.sound.Node_Sub6_Sub1;
+import com.jagex.sound.MixBuss;
 import com.jagex.sound.Node_Sub6_Sub3;
 import com.jagex.sound.Sound;
 import com.jagex.sound.SoundStream;
+import com.jagex.sound.SoundType;
 import com.jagex.sound.SynthSound;
 import com.jagex.sound.VariableRateSoundPacket;
 import com.jagex.sound.vorbis.VorbisSound;
@@ -34,9 +34,6 @@ public final class SoundManager {
 
     @OriginalMember(owner = "client!kka", name = "d", descriptor = "Lclient!nn;")
     public static Node_Sub6_Sub3 activeStreams;
-
-    @OriginalMember(owner = "client!sj", name = "e", descriptor = "I")
-    public static int midiSong = -1;
 
     @OriginalMember(owner = "client!lka", name = "b", descriptor = "(B)V")
     public static void reset() {
@@ -185,8 +182,8 @@ public final class SoundManager {
         }
 
         if (sound.stream != null) {
-            sound.stream.setRange(soundRange);
-            sound.stream.setRangeY(soundRangeY);
+            sound.stream.setVolume(soundRange);
+            sound.stream.setRange(soundRangeY);
         } else if (sound.id >= 0) {
             @Pc(264) int rate = sound.rateMax == 256 && sound.rateMin == 256 ? 256 : method2572(sound.rateMin, sound.rateMax);
 
@@ -202,7 +199,7 @@ public final class SoundManager {
 
                     if (sound.packet != null) {
                         @Pc(391) SoundStream stream = SoundStream.create(sound.packet, rate, soundRange << 6, soundRangeY);
-                        stream.setVolume(-1);
+                        stream.setLoops(-1);
                         activeStreams.addFirst(stream);
                         sound.stream = stream;
                     }
@@ -213,7 +210,7 @@ public final class SoundManager {
                 if (synth != null) {
                     @Pc(415) VariableRateSoundPacket packet = synth.sample().resample(Static681.aSampleRateConverter_2);
                     @Pc(423) SoundStream stream = SoundStream.create(packet, rate, soundRange << 6, soundRangeY);
-                    stream.setVolume(-1);
+                    stream.setLoops(-1);
                     activeStreams.addFirst(stream);
                     sound.stream = stream;
                 }
@@ -221,8 +218,8 @@ public final class SoundManager {
         }
 
         if (sound.randomStream != null) {
-            sound.randomStream.setRange(soundRange);
-            sound.randomStream.setRangeY(soundRangeY);
+            sound.randomStream.setVolume(soundRange);
+            sound.randomStream.setRange(soundRangeY);
 
             if (!sound.randomStream.isLinked()) {
                 sound.randomStream = null;
@@ -245,7 +242,7 @@ public final class SoundManager {
 
                     if (sound.randomPacket != null) {
                         @Pc(391) SoundStream stream = SoundStream.create(sound.randomPacket, rate, soundRange << 6, soundRangeY);
-                        stream.setVolume(0);
+                        stream.setLoops(0);
                         activeStreams.addFirst(stream);
                         sound.randomDelay = (int) ((double) (sound.delayMax - sound.delayMin) * Math.random()) + sound.delayMin;
                         sound.randomStream = stream;
@@ -258,7 +255,7 @@ public final class SoundManager {
                 if (synth != null) {
                     @Pc(543) VariableRateSoundPacket packet = synth.sample().resample(Static681.aSampleRateConverter_2);
                     @Pc(551) SoundStream stream = SoundStream.create(packet, rate, soundRange << 6, soundRangeY);
-                    stream.setVolume(0);
+                    stream.setLoops(0);
                     activeStreams.addFirst(stream);
                     sound.randomDelay = (int) (Math.random() * (double) (sound.delayMax - sound.delayMin)) + sound.delayMin;
                     sound.randomStream = stream;
@@ -301,153 +298,10 @@ public final class SoundManager {
         }
     }
 
-    @OriginalMember(owner = "client!bd", name = "c", descriptor = "(I)V")
-    public static void tick() {
-        for (@Pc(7) int local7 = 0; local7 < count; local7++) {
-            @Pc(13) Sound local13 = sounds[local7];
-            @Pc(15) boolean local15 = false;
-
-            @Pc(179) int local179;
-            if (local13.stream == null) {
-                local13.delay--;
-                if (local13.delay < (local13.isVorbis() ? -1500 : -10)) {
-                    local15 = true;
-                } else {
-                    if (local13.type == 1 && local13.synth == null) {
-                        local13.synth = SynthSound.get(js5.SYNTH_SOUNDS, local13.id, 0);
-                        if (local13.synth == null) {
-                            continue;
-                        }
-                        local13.delay += local13.synth.delay();
-                    } else if (local13.isVorbis() && (local13.vorbis == null || local13.packet == null)) {
-                        if (local13.vorbis == null) {
-                            local13.vorbis = VorbisSound.create(js5.VORBIS, local13.id);
-                        }
-                        if (local13.vorbis == null) {
-                            continue;
-                        }
-                        if (local13.packet == null) {
-                            local13.packet = local13.vorbis.method8502(new int[]{22050});
-                            if (local13.packet == null) {
-                                continue;
-                            }
-                        }
-                    }
-                    if (local13.delay < 0) {
-                        @Pc(154) int local154 = 8192;
-                        if (local13.coord == 0) {
-                            local179 = local13.volume * (local13.type == 3 ? ClientOptions.instance.speechVolume.getValue() : ClientOptions.instance.soundVolume.getValue()) >> 2;
-                        } else {
-                            @Pc(188) int local188 = local13.coord >> 24 & 0x3;
-                            if (local188 == PlayerEntity.self.level) {
-                                @Pc(199) int soundLevel = (local13.coord & 0xFF) << 9;
-                                @Pc(205) int local205 = PlayerEntity.self.getSize() << 8;
-                                @Pc(212) int soundX = local13.coord >> 16 & 0xFF;
-                                @Pc(224) int local224 = (soundX << 9) + local205 + 256 - PlayerEntity.self.x;
-                                @Pc(231) int soundZ = local13.coord >> 8 & 0xFF;
-                                @Pc(243) int local243 = local205 + (soundZ << 9) + 256 - PlayerEntity.self.z;
-                                @Pc(251) int local251 = Math.abs(local224) + Math.abs(local243) - 512;
-                                if (soundLevel < local251) {
-                                    local13.delay = -99999;
-                                    continue;
-                                }
-                                if (local251 < 0) {
-                                    local251 = 0;
-                                }
-                                local179 = ClientOptions.instance.backgroundSoundVolume.getValue() * (soundLevel - local251) * local13.volume / soundLevel >> 2;
-                                if (local13.entity != null && local13.entity instanceof PositionEntity) {
-                                    @Pc(301) PositionEntity local301 = (PositionEntity) local13.entity;
-                                    @Pc(304) short local304 = local301.z1;
-                                    @Pc(307) short local307 = local301.x1;
-                                }
-                                if (local224 != 0 || local243 != 0) {
-                                    @Pc(336) int local336 = -Camera.yaw - (int) (Math.atan2(local224, local243) * 2607.5945876176133D) - 4096 & 0x3FFF;
-                                    if (local336 > 8192) {
-                                        local336 = 16384 - local336;
-                                    }
-                                    @Pc(355) int local355;
-                                    if (local251 <= 0) {
-                                        local355 = 8192;
-                                    } else if (local251 >= 4096) {
-                                        local355 = 16384;
-                                    } else {
-                                        local355 = (8192 - local251) / 4096 + 8192;
-                                    }
-                                    local154 = (16384 - local355 >> 1) + local336 * local355 / 8192;
-                                }
-                            } else {
-                                local179 = 0;
-                            }
-                        }
-                        if (local179 > 0) {
-                            @Pc(392) VariableRateSoundPacket packet = null;
-                            if (local13.type == 1) {
-                                packet = local13.synth.sample().resample(Static681.aSampleRateConverter_2);
-                            } else if (local13.isVorbis()) {
-                                packet = local13.packet;
-                            }
-
-                            @Pc(422) SoundStream stream = local13.stream = SoundStream.create(packet, local13.rate, local179, local154);
-                            stream.setVolume(local13.loops - 1);
-                            activeStreams.addFirst(stream);
-                        }
-                    }
-                }
-            } else if (!local13.stream.isLinked()) {
-                local15 = true;
-            }
-
-            if (local15) {
-                count--;
-                for (local179 = local7; local179 < count; local179++) {
-                    sounds[local179] = sounds[local179 + 1];
-                }
-                local7--;
-            }
-        }
-
-        if (Static501.aBoolean575 && !Static52.method1157(126)) {
-            if (ClientOptions.instance.musicVolume.getValue() != 0 && midiSong != -1) {
-                if (Static8.aClass2_Sub6_Sub1_1 == null) {
-                    Static611.method8229(midiSong, ClientOptions.instance.musicVolume.getValue(), js5.MIDI_SONGS);
-                } else {
-                    Static273.method3961(Static8.aClass2_Sub6_Sub1_1, midiSong, js5.MIDI_SONGS, ClientOptions.instance.musicVolume.getValue());
-                }
-            }
-
-            Static8.aClass2_Sub6_Sub1_1 = null;
-            Static501.aBoolean575 = false;
-        } else if (ClientOptions.instance.musicVolume.getValue() != 0 && midiSong != -1 && !Static52.method1157(125)) {
-            @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.SOUND_SONGEND, ServerConnection.GAME.cipher);
-            local551.bitPacket.p4(midiSong);
-            ServerConnection.GAME.send(local551);
-            midiSong = -1;
-        }
-    }
-
-    @OriginalMember(owner = "client!rf", name = "a", descriptor = "(I)V")
-    public static void mixBussReset() {
-        mixBussSetLevel(255, -1);
-    }
-
-    @OriginalMember(owner = "client!sca", name = "a", descriptor = "(III)V")
-    public static void mixBussSetLevel(@OriginalArg(0) int level, @OriginalArg(1) int channel) {
-        if (Static96.anInt10171 != 0) {
-            if (channel >= 0) {
-                Static286.anIntArray358[channel] = level;
-            } else {
-                for (@Pc(23) int c = 0; c < 16; c++) {
-                    Static286.anIntArray358[c] = level;
-                }
-            }
-        }
-        Static581.aClass2_Sub6_Sub1_3.method926(level, channel);
-    }
-
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(IIIBIIZ)V")
     public static void playVorbisSound(@OriginalArg(0) int id, @OriginalArg(1) int loops, @OriginalArg(4) int delay, @OriginalArg(5) int volume, @OriginalArg(2) int rate, @OriginalArg(6) boolean speech) {
         if ((speech ? ClientOptions.instance.speechVolume.getValue() : ClientOptions.instance.soundVolume.getValue()) != 0 && loops != 0 && count < 50 && id != -1) {
-            sounds[count++] = new Sound((byte) (speech ? 3 : 2), id, loops, delay, volume, rate, 0, null);
+            sounds[count++] = new Sound((byte) (speech ? SoundType.VORBIS_VOICE_OVER : SoundType.VORBIS), id, loops, delay, volume, rate, 0, null);
         }
     }
 
@@ -456,7 +310,7 @@ public final class SoundManager {
         for (@Pc(1) int i = 0; i < count; i++) {
             @Pc(6) Sound sound = sounds[i];
 
-            if (sound.type == 3) {
+            if (sound.type == SoundType.VORBIS_VOICE_OVER) {
                 if (sound.stream == null) {
                     sound.delay = Integer.MIN_VALUE;
                 } else {
@@ -471,14 +325,14 @@ public final class SoundManager {
         @Pc(12) int local12 = volume * ClientOptions.instance.musicVolume.getValue() >> 8;
         if (id == -1 && !Static501.aBoolean575) {
             Static100.method1988();
-        } else if (id != -1 && (midiSong != id || !Static52.method1157(-122)) && local12 != 0 && !Static501.aBoolean575) {
+        } else if (id != -1 && (SongManager.playing != id || !Static52.method1157(-122)) && local12 != 0 && !Static501.aBoolean575) {
             Static618.method8318(js5.MIDI_SONGS, local12, id, delay);
-            mixBussReset();
+            AudioRenderer.mixBussReset();
         }
-        if (midiSong != id) {
+        if (SongManager.playing != id) {
             Static8.aClass2_Sub6_Sub1_1 = null;
         }
-        midiSong = id;
+        SongManager.playing = id;
     }
 
     @OriginalMember(owner = "client!pda", name = "a", descriptor = "(IIIB)V")
@@ -487,34 +341,34 @@ public final class SoundManager {
         if (local12 == 0 || id == -1) {
             return;
         }
-        if (!Static501.aBoolean575 && midiSong != -1 && Static52.method1157(0x6E ^ 0x11) && !Static203.method3070()) {
+        if (!Static501.aBoolean575 && SongManager.playing != -1 && Static52.method1157(0x6E ^ 0x11) && !Static203.method3070()) {
             Static8.aClass2_Sub6_Sub1_1 = Static426.method1018();
-            @Pc(52) Node_Sub6_Sub1 local52 = Static48.method1100(Static8.aClass2_Sub6_Sub1_1);
+            @Pc(52) MixBuss local52 = Static48.method1100(Static8.aClass2_Sub6_Sub1_1);
             Static697.method9120(local52);
         }
-        Static611.method8229(id, local12, js5.MIDI_JINGLES);
-        mixBussSetLevel(255, -1);
+        SongManager.method8229(id, local12, js5.MIDI_JINGLES);
+        AudioRenderer.mixBussSetLevel(255, -1);
         Static501.aBoolean575 = true;
     }
 
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IIIIII)V")
     public static void playSynthSound(@OriginalArg(2) int id, @OriginalArg(3) int loops, @OriginalArg(1) int delay, @OriginalArg(4) int volume, @OriginalArg(0) int rate) {
         if (ClientOptions.instance.soundVolume.getValue() != 0 && loops != 0 && count < 50 && id != -1) {
-            sounds[count++] = new Sound((byte) 1, id, loops, delay, volume, rate, 0, null);
+            sounds[count++] = new Sound((byte) SoundType.SYNTH, id, loops, delay, volume, rate, 0, null);
         }
     }
 
     @OriginalMember(owner = "client!fc", name = "a", descriptor = "(IIBIIII)V")
     public static void playSynthSoundArea(@OriginalArg(3) int id, @OriginalArg(4) int loops, @OriginalArg(1) int delay, @OriginalArg(0) int volume, @OriginalArg(5) int rate, @OriginalArg(6) int coord) {
         if (ClientOptions.instance.soundVolume.getValue() != 0 && loops != 0 && count < 50 && id != -1) {
-            sounds[count++] = new Sound((byte) 1, id, loops, delay, volume, rate, coord, null);
+            sounds[count++] = new Sound((byte) SoundType.SYNTH, id, loops, delay, volume, rate, coord, null);
         }
     }
 
     @OriginalMember(owner = "client!fk", name = "a", descriptor = "(IIIIZIII)V")
     public static void playVorbisSoundArea(@OriginalArg(7) int id, @OriginalArg(0) int loops, @OriginalArg(1) int delay, @OriginalArg(6) int volume, @OriginalArg(5) int rate, @OriginalArg(2) int coord) {
         if (ClientOptions.instance.soundVolume.getValue() != 0 && loops != 0 && count < 50 && id != -1) {
-            sounds[count++] = new Sound((byte) 2, id, loops, delay, volume, rate, coord, null);
+            sounds[count++] = new Sound((byte) SoundType.VORBIS, id, loops, delay, volume, rate, coord, null);
         }
     }
 }

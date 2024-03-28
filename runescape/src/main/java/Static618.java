@@ -44,19 +44,19 @@ public final class Static618 {
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(Lclient!sb;IZIIIZ)V")
     public static void method8318(@OriginalArg(0) js5 midiSongs, @OriginalArg(1) int volume, @OriginalArg(4) int id, @OriginalArg(5) int arg3) {
         if (arg3 <= 0) {
-            Static611.method8229(id, volume, midiSongs);
+            SongManager.method8229(id, volume, midiSongs);
             return;
         }
-        Static24.midiVolume = volume;
-        Static96.anInt10171 = 1;
-        Static676.midiSongs = midiSongs;
-        Static497.aBoolean564 = false;
-        Static117.aClass2_Sub6_Sub1_2 = null;
-        Static99.midiGroupId = id;
-        Static174.midiFileId = 0;
-        Static190.anInt3112 = Static581.aClass2_Sub6_Sub1_3.method948() / arg3;
-        if (Static190.anInt3112 < 1) {
-            Static190.anInt3112 = 1;
+        SongManager.volume = volume;
+        SongManager.anInt10171 = 1;
+        SongManager.midiSongs = midiSongs;
+        SongManager.aBoolean564 = false;
+        SongManager.aClass2_Sub6_Sub1_2 = null;
+        SongManager.groupId = id;
+        SongManager.midiFileId = 0;
+        SongManager.anInt3112 = Static581.mixBuss.getVolume() / arg3;
+        if (SongManager.anInt3112 < 1) {
+            SongManager.anInt3112 = 1;
         }
     }
 

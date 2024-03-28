@@ -132,10 +132,10 @@ public final class LoginManager {
         WorldMap.reset(false);
         System.gc();
 
-        Static312.method4541();
-        SoundManager.midiSong = -1;
+        SongManager.stop();
+        SongManager.playing = -1;
         Static501.aBoolean575 = false;
-        SoundManager.mixBussReset();
+        AudioRenderer.mixBussReset();
         SoundManager.removeActiveStreams(true);
         Static300.method4393();
         Static723.method9450();

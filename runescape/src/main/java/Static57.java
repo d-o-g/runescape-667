@@ -2,7 +2,6 @@ import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.core.util.Arrays;
 import com.jagex.game.LocalisedText;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -56,18 +55,6 @@ public final class Static57 {
         }
         arg5[1] = local126;
         arg5[0] = local133;
-    }
-
-    @OriginalMember(owner = "client!bt", name = "a", descriptor = "(IIIZILclient!sb;Z)V")
-    public static void method1225(@OriginalArg(1) int id, @OriginalArg(4) int volume, @OriginalArg(5) js5 midiSongs) {
-        Static676.midiSongs = midiSongs;
-        Static497.aBoolean564 = false;
-        Static190.anInt3112 = 2;
-        Static117.aClass2_Sub6_Sub1_2 = null;
-        Static24.midiVolume = volume;
-        Static96.anInt10171 = 1;
-        Static174.midiFileId = 0;
-        Static99.midiGroupId = id;
     }
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "([SB)[S")

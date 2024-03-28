@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static96 {
 
-    @OriginalMember(owner = "client!da", name = "q", descriptor = "I")
-    public static int anInt10171 = 0;
-
     @OriginalMember(owner = "client!da", name = "a", descriptor = "(II)Lclient!pf;")
     public static TextureOp method8821(@OriginalArg(0) int arg0) {
         if (arg0 == 0) {

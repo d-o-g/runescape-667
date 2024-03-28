@@ -2,7 +2,7 @@ import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.sound.Audio;
-import com.jagex.sound.Node_Sub6;
+import com.jagex.sound.AudioBuss;
 import com.jagex.sound.Node_Sub6_Sub5;
 import com.jagex.sound.SoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -21,7 +21,7 @@ public class Class56 {
     public int[] anIntArray315;
 
     @OriginalMember(owner = "client!cd", name = "A", descriptor = "Lclient!dea;")
-    public Node_Sub6 aClass2_Sub6_6;
+    public AudioBuss aClass2_Sub6_6;
 
     @OriginalMember(owner = "client!cd", name = "B", descriptor = "I")
     public int anInt4097;
@@ -48,7 +48,7 @@ public class Class56 {
     public int anInt4099 = 0;
 
     @OriginalMember(owner = "client!cd", name = "p", descriptor = "[Lclient!dea;")
-    public final Node_Sub6[] aClass2_Sub6Array5 = new Node_Sub6[8];
+    public final AudioBuss[] aClass2_Sub6Array5 = new AudioBuss[8];
 
     @OriginalMember(owner = "client!cd", name = "z", descriptor = "I")
     public int anInt4101 = 0;
@@ -63,13 +63,13 @@ public class Class56 {
     public boolean aBoolean320 = true;
 
     @OriginalMember(owner = "client!cd", name = "u", descriptor = "[Lclient!dea;")
-    public final Node_Sub6[] aClass2_Sub6Array6 = new Node_Sub6[8];
+    public final AudioBuss[] aClass2_Sub6Array6 = new AudioBuss[8];
 
     @OriginalMember(owner = "client!cd", name = "G", descriptor = "I")
     public int anInt4102 = 0;
 
     @OriginalMember(owner = "client!cd", name = "a", descriptor = "(ILclient!dea;)V")
-    public final synchronized void method3582(@OriginalArg(1) Node_Sub6 arg0) {
+    public final synchronized void method3582(@OriginalArg(1) AudioBuss arg0) {
         this.aClass2_Sub6_6 = arg0;
     }
 
@@ -127,9 +127,9 @@ public class Class56 {
     }
 
     @OriginalMember(owner = "client!cd", name = "a", descriptor = "(ZILclient!dea;)V")
-    public void method3591(@OriginalArg(1) int arg0, @OriginalArg(2) Node_Sub6 arg1) {
+    public void method3591(@OriginalArg(1) int arg0, @OriginalArg(2) AudioBuss arg1) {
         @Pc(7) int local7 = arg0 >> 5;
-        @Pc(12) Node_Sub6 local12 = this.aClass2_Sub6Array5[local7];
+        @Pc(12) AudioBuss local12 = this.aClass2_Sub6Array5[local7];
         if (local12 == null) {
             this.aClass2_Sub6Array6[local7] = arg1;
         } else {
@@ -266,8 +266,8 @@ public class Class56 {
                 for (@Pc(74) int local74 = local49 >>> local58 & 0x11111111; local74 != 0; local74 >>>= 0x4) {
                     if ((local74 & 0x1) != 0) {
                         local49 &= ~(0x1 << local58);
-                        @Pc(92) Node_Sub6 local92 = null;
-                        @Pc(97) Node_Sub6 local97 = this.aClass2_Sub6Array6[local58];
+                        @Pc(92) AudioBuss local92 = null;
+                        @Pc(97) AudioBuss local97 = this.aClass2_Sub6Array6[local58];
                         label97:
                         while (true) {
                             while (true) {
@@ -285,7 +285,7 @@ public class Class56 {
                                     if (local47 >= this.anInt4087) {
                                         break label103;
                                     }
-                                    @Pc(148) Node_Sub6 local148 = local97.method9133();
+                                    @Pc(148) AudioBuss local148 = local97.method9133();
                                     if (local148 != null) {
                                         if (debug && local101 != null && local97.method9133() != null) {
                                             System.out.println("Warning: a pcm_stream with substreams has set its \'w\' - this can cause");
@@ -300,7 +300,7 @@ public class Class56 {
                                             local148 = local97.method9135();
                                         }
                                     }
-                                    @Pc(172) Node_Sub6 local172 = local97.aClass2_Sub6_9;
+                                    @Pc(172) AudioBuss local172 = local97.aClass2_Sub6_9;
                                     local97.aClass2_Sub6_9 = null;
                                     if (local92 == null) {
                                         this.aClass2_Sub6Array6[local58] = local172;
@@ -325,10 +325,10 @@ public class Class56 {
                 local51--;
             }
             for (local58 = 0; local58 < 8; local58++) {
-                @Pc(218) Node_Sub6 local218 = this.aClass2_Sub6Array6[local58];
+                @Pc(218) AudioBuss local218 = this.aClass2_Sub6Array6[local58];
                 this.aClass2_Sub6Array6[local58] = this.aClass2_Sub6Array5[local58] = null;
                 while (local218 != null) {
-                    @Pc(232) Node_Sub6 local232 = local218.aClass2_Sub6_9;
+                    @Pc(232) AudioBuss local232 = local218.aClass2_Sub6_9;
                     local218.aClass2_Sub6_9 = null;
                     local218 = local232;
                 }

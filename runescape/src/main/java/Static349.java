@@ -1,23 +1,8 @@
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static349 {
-
-    @OriginalMember(owner = "client!kw", name = "a", descriptor = "(IILclient!sb;IZIJB)V")
-    public static void method5119(@OriginalArg(2) js5 arg0, @OriginalArg(3) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) long arg3) {
-        Static24.midiVolume = arg1;
-        Static96.anInt10171 = 1;
-        Static611.anInt9335 = 0;
-        Static99.midiGroupId = arg2;
-        Static497.aBoolean564 = false;
-        Static190.anInt3112 = 10000;
-        Static117.aClass2_Sub6_Sub1_2 = null;
-        Static174.midiFileId = 0;
-        Static146.aLong95 = arg3;
-        Static676.midiSongs = arg0;
-    }
 
     @OriginalMember(owner = "client!kw", name = "a", descriptor = "(ZJ)V")
     public static void method5121(@OriginalArg(1) long arg0) {

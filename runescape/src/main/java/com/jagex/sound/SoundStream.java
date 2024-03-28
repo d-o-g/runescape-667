@@ -6,11 +6,11 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!haa")
-public final class SoundStream extends Node_Sub6 {
+public final class SoundStream extends AudioBuss {
 
     @OriginalMember(owner = "client!haa", name = "a", descriptor = "(Lclient!sq;III)Lclient!haa;")
-    public static SoundStream create(@OriginalArg(0) VariableRateSoundPacket packet, @OriginalArg(1) int rate, @OriginalArg(2) int rangeXZ, @OriginalArg(3) int rangeY) {
-        return packet.data == null || packet.data.length == 0 ? null : new SoundStream(packet, rate, rangeXZ, rangeY);
+    public static SoundStream create(@OriginalArg(0) VariableRateSoundPacket packet, @OriginalArg(1) int rate, @OriginalArg(2) int volume, @OriginalArg(3) int range) {
+        return packet.data == null || packet.data.length == 0 ? null : new SoundStream(packet, rate, volume, range);
     }
 
     @OriginalMember(owner = "client!haa", name = "a", descriptor = "([B[IIIIIIILclient!haa;)I")
@@ -765,7 +765,7 @@ public final class SoundStream extends Node_Sub6 {
     public int anInt3687;
 
     @OriginalMember(owner = "client!haa", name = "B", descriptor = "I")
-    public int volume;
+    public int loops;
 
     @OriginalMember(owner = "client!haa", name = "z", descriptor = "I")
     public final int nominalBitRate;
@@ -780,23 +780,23 @@ public final class SoundStream extends Node_Sub6 {
     public int rate;
 
     @OriginalMember(owner = "client!haa", name = "x", descriptor = "I")
-    public int rangeXZ;
+    public int volume;
 
     @OriginalMember(owner = "client!haa", name = "t", descriptor = "I")
-    public int rangeY;
+    public int range;
 
     @OriginalMember(owner = "client!haa", name = "y", descriptor = "I")
     public int anInt3686;
 
     @OriginalMember(owner = "client!haa", name = "<init>", descriptor = "(Lclient!sq;III)V")
-    public SoundStream(@OriginalArg(0) VariableRateSoundPacket packet, @OriginalArg(1) int rate, @OriginalArg(2) int rangeXZ, @OriginalArg(3) int rangeY) {
+    public SoundStream(@OriginalArg(0) VariableRateSoundPacket packet, @OriginalArg(1) int rate, @OriginalArg(2) int volume, @OriginalArg(3) int range) {
         super.aClass2_Sub49_6 = packet;
         this.nominalBitRate = packet.nominalBitRate;
         this.minBitRate = packet.minBitRate;
         this.aBoolean281 = packet.aBoolean668;
         this.rate = rate;
-        this.rangeXZ = rangeXZ;
-        this.rangeY = rangeY;
+        this.volume = volume;
+        this.range = range;
         this.anInt3686 = 0;
         this.method3314();
     }
@@ -843,7 +843,7 @@ public final class SoundStream extends Node_Sub6 {
     @OriginalMember(owner = "client!haa", name = "b", descriptor = "([III)V")
     @Override
     public synchronized void method9131(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (this.rangeXZ == 0 && this.anInt3684 == 0) {
+        if (this.volume == 0 && this.anInt3684 == 0) {
             this.method9130(arg2);
             return;
         }
@@ -853,7 +853,7 @@ public final class SoundStream extends Node_Sub6 {
         @Pc(29) int local29 = local13.data.length << 8;
         @Pc(33) int local33 = local23 - local18;
         if (local33 <= 0) {
-            this.volume = 0;
+            this.loops = 0;
         }
         @Pc(40) int local40 = arg1;
         @Pc(44) int local44 = arg2 + arg1;
@@ -873,8 +873,8 @@ public final class SoundStream extends Node_Sub6 {
             }
             this.anInt3686 = local29 - 1;
         }
-        if (this.volume >= 0) {
-            if (this.volume > 0) {
+        if (this.loops >= 0) {
+            if (this.loops > 0) {
                 if (this.aBoolean281) {
                     label130:
                     {
@@ -885,7 +885,7 @@ public final class SoundStream extends Node_Sub6 {
                             }
                             this.anInt3686 = local18 + local18 - this.anInt3686 - 1;
                             this.rate = -this.rate;
-                            if (--this.volume == 0) {
+                            if (--this.loops == 0) {
                                 break label130;
                             }
                         }
@@ -896,7 +896,7 @@ public final class SoundStream extends Node_Sub6 {
                             }
                             this.anInt3686 = local23 + local23 - this.anInt3686 - 1;
                             this.rate = -this.rate;
-                            if (--this.volume == 0) {
+                            if (--this.loops == 0) {
                                 break;
                             }
                             local40 = this.method3309(arg0, local40, local18, local44, local13.data[this.nominalBitRate]);
@@ -905,7 +905,7 @@ public final class SoundStream extends Node_Sub6 {
                             }
                             this.anInt3686 = local18 + local18 - this.anInt3686 - 1;
                             this.rate = -this.rate;
-                        } while (--this.volume != 0);
+                        } while (--this.loops != 0);
                     }
                 } else {
                     @Pc(416) int local416;
@@ -916,13 +916,13 @@ public final class SoundStream extends Node_Sub6 {
                                 return;
                             }
                             local416 = (local23 - this.anInt3686 - 1) / local33;
-                            if (local416 >= this.volume) {
-                                this.anInt3686 += local33 * this.volume;
-                                this.volume = 0;
+                            if (local416 >= this.loops) {
+                                this.anInt3686 += local33 * this.loops;
+                                this.loops = 0;
                                 break;
                             }
                             this.anInt3686 += local33 * local416;
-                            this.volume -= local416;
+                            this.loops -= local416;
                         }
                     } else {
                         while (true) {
@@ -931,13 +931,13 @@ public final class SoundStream extends Node_Sub6 {
                                 return;
                             }
                             local416 = (this.anInt3686 - local18) / local33;
-                            if (local416 >= this.volume) {
-                                this.anInt3686 -= local33 * this.volume;
-                                this.volume = 0;
+                            if (local416 >= this.loops) {
+                                this.anInt3686 -= local33 * this.loops;
+                                this.loops = 0;
                                 break;
                             }
                             this.anInt3686 -= local33 * local416;
-                            this.volume -= local416;
+                            this.loops -= local416;
                         }
                     }
                 }
@@ -1007,14 +1007,14 @@ public final class SoundStream extends Node_Sub6 {
 
     @OriginalMember(owner = "client!haa", name = "j", descriptor = "()V")
     public void method3314() {
-        this.anInt3676 = this.rangeXZ;
-        this.anInt3680 = method3330(this.rangeXZ, this.rangeY);
-        this.anInt3677 = method3328(this.rangeXZ, this.rangeY);
+        this.anInt3676 = this.volume;
+        this.anInt3680 = method3330(this.volume, this.range);
+        this.anInt3677 = method3328(this.volume, this.range);
     }
 
     @OriginalMember(owner = "client!haa", name = "d", descriptor = "(II)V")
     public synchronized void method3315(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        this.method3338(arg0, arg1, this.getRangeY());
+        this.method3338(arg0, arg1, this.getRange());
     }
 
     @OriginalMember(owner = "client!haa", name = "b", descriptor = "([IIIII)I")
@@ -1057,8 +1057,8 @@ public final class SoundStream extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!haa", name = "j", descriptor = "(I)V")
-    public synchronized void setVolume(@OriginalArg(0) int volume) {
-        this.volume = volume;
+    public synchronized void setLoops(@OriginalArg(0) int loops) {
+        this.loops = loops;
     }
 
     @OriginalMember(owner = "client!haa", name = "i", descriptor = "(I)V")
@@ -1077,7 +1077,7 @@ public final class SoundStream extends Node_Sub6 {
             this.unlink();
         } else if (this.anInt3680 == 0 && this.anInt3677 == 0) {
             this.anInt3684 = 0;
-            this.rangeXZ = 0;
+            this.volume = 0;
             this.anInt3676 = 0;
             this.unlink();
         } else {
@@ -1101,7 +1101,7 @@ public final class SoundStream extends Node_Sub6 {
                 arg0 = local31;
             }
             this.anInt3684 = arg0;
-            this.rangeXZ = Integer.MIN_VALUE;
+            this.volume = Integer.MIN_VALUE;
             this.anInt3678 = -this.anInt3676 / arg0;
             this.anInt3683 = -this.anInt3680 / arg0;
             this.anInt3687 = -this.anInt3677 / arg0;
@@ -1110,7 +1110,7 @@ public final class SoundStream extends Node_Sub6 {
 
     @OriginalMember(owner = "client!haa", name = "h", descriptor = "(I)V")
     public synchronized void method3322() {
-        this.setRange(0, this.getRangeY());
+        this.update(0, this.getRange());
     }
 
     @OriginalMember(owner = "client!haa", name = "a", descriptor = "(Z)V")
@@ -1121,18 +1121,18 @@ public final class SoundStream extends Node_Sub6 {
 
     @OriginalMember(owner = "client!haa", name = "c", descriptor = "()Lclient!dea;")
     @Override
-    public Node_Sub6 method9133() {
+    public AudioBuss method9133() {
         return null;
     }
 
     @OriginalMember(owner = "client!haa", name = "g", descriptor = "(I)V")
-    public synchronized void setRange(@OriginalArg(0) int arg0) {
-        this.setRange(arg0 << 6, this.getRangeY());
+    public synchronized void setVolume(@OriginalArg(0) int volume) {
+        this.update(volume << 6, this.getRange());
     }
 
     @OriginalMember(owner = "client!haa", name = "d", descriptor = "(I)V")
-    public synchronized void setRangeY(@OriginalArg(0) int y) {
-        this.setRange(this.getRangeXZ(), y);
+    public synchronized void setRange(@OriginalArg(0) int range) {
+        this.update(this.getVolume(), range);
     }
 
     @OriginalMember(owner = "client!haa", name = "i", descriptor = "()V")
@@ -1140,8 +1140,8 @@ public final class SoundStream extends Node_Sub6 {
         if (this.anInt3684 == 0) {
             return;
         }
-        if (this.rangeXZ == Integer.MIN_VALUE) {
-            this.rangeXZ = 0;
+        if (this.volume == Integer.MIN_VALUE) {
+            this.volume = 0;
         }
         this.anInt3684 = 0;
         this.method3314();
@@ -1153,9 +1153,9 @@ public final class SoundStream extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!haa", name = "c", descriptor = "(II)V")
-    public synchronized void setRange(@OriginalArg(0) int rangeXZ, @OriginalArg(1) int rangeY) {
-        this.rangeXZ = rangeXZ;
-        this.rangeY = rangeY;
+    public synchronized void update(@OriginalArg(0) int volume, @OriginalArg(1) int range) {
+        this.volume = volume;
+        this.range = range;
         this.anInt3684 = 0;
         this.method3314();
     }
@@ -1163,7 +1163,7 @@ public final class SoundStream extends Node_Sub6 {
     @OriginalMember(owner = "client!haa", name = "a", descriptor = "(III)V")
     public synchronized void method3338(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         if (arg0 == 0) {
-            this.setRange(arg1, arg2);
+            this.update(arg1, arg2);
             return;
         }
         @Pc(10) int local10 = method3330(arg1, arg2);
@@ -1192,8 +1192,8 @@ public final class SoundStream extends Node_Sub6 {
             arg0 = local31;
         }
         this.anInt3684 = arg0;
-        this.rangeXZ = arg1;
-        this.rangeY = arg2;
+        this.volume = arg1;
+        this.range = arg2;
         this.anInt3678 = (arg1 - this.anInt3676) / arg0;
         this.anInt3683 = (local10 - this.anInt3680) / arg0;
         this.anInt3687 = (local14 - this.anInt3677) / arg0;
@@ -1202,7 +1202,7 @@ public final class SoundStream extends Node_Sub6 {
     @OriginalMember(owner = "client!haa", name = "b", descriptor = "()I")
     @Override
     public int method9132() {
-        return this.rangeXZ == 0 && this.anInt3684 == 0 ? 0 : 1;
+        return this.volume == 0 && this.anInt3684 == 0 ? 0 : 1;
     }
 
     @OriginalMember(owner = "client!haa", name = "l", descriptor = "()I")
@@ -1211,8 +1211,8 @@ public final class SoundStream extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!haa", name = "h", descriptor = "()I")
-    public synchronized int getRangeXZ() {
-        return this.rangeXZ == Integer.MIN_VALUE ? 0 : this.rangeXZ;
+    public synchronized int getVolume() {
+        return this.volume == Integer.MIN_VALUE ? 0 : this.volume;
     }
 
     @OriginalMember(owner = "client!haa", name = "a", descriptor = "(I)V")
@@ -1220,8 +1220,8 @@ public final class SoundStream extends Node_Sub6 {
     public synchronized void method9130(@OriginalArg(0) int arg0) {
         if (this.anInt3684 > 0) {
             if (arg0 >= this.anInt3684) {
-                if (this.rangeXZ == Integer.MIN_VALUE) {
-                    this.rangeXZ = 0;
+                if (this.volume == Integer.MIN_VALUE) {
+                    this.volume = 0;
                     this.anInt3676 = this.anInt3680 = this.anInt3677 = 0;
                     this.unlink();
                     arg0 = this.anInt3684;
@@ -1241,7 +1241,7 @@ public final class SoundStream extends Node_Sub6 {
         @Pc(87) int local87 = local71.data.length << 8;
         @Pc(91) int local91 = local81 - local76;
         if (local91 <= 0) {
-            this.volume = 0;
+            this.loops = 0;
         }
         if (this.anInt3686 < 0) {
             if (this.rate <= 0) {
@@ -1260,8 +1260,8 @@ public final class SoundStream extends Node_Sub6 {
             this.anInt3686 = local87 - 1;
         }
         this.anInt3686 += this.rate * arg0;
-        if (this.volume >= 0) {
-            if (this.volume > 0) {
+        if (this.loops >= 0) {
+            if (this.loops > 0) {
                 if (this.aBoolean281) {
                     label125:
                     {
@@ -1271,7 +1271,7 @@ public final class SoundStream extends Node_Sub6 {
                             }
                             this.anInt3686 = local76 + local76 - this.anInt3686 - 1;
                             this.rate = -this.rate;
-                            if (--this.volume == 0) {
+                            if (--this.loops == 0) {
                                 break label125;
                             }
                         }
@@ -1281,7 +1281,7 @@ public final class SoundStream extends Node_Sub6 {
                             }
                             this.anInt3686 = local81 + local81 - this.anInt3686 - 1;
                             this.rate = -this.rate;
-                            if (--this.volume == 0) {
+                            if (--this.loops == 0) {
                                 break;
                             }
                             if (this.anInt3686 >= local76) {
@@ -1289,7 +1289,7 @@ public final class SoundStream extends Node_Sub6 {
                             }
                             this.anInt3686 = local76 + local76 - this.anInt3686 - 1;
                             this.rate = -this.rate;
-                        } while (--this.volume != 0);
+                        } while (--this.loops != 0);
                     }
                 } else {
                     @Pc(361) int local361;
@@ -1298,22 +1298,22 @@ public final class SoundStream extends Node_Sub6 {
                             return;
                         }
                         local361 = (local81 - this.anInt3686 - 1) / local91;
-                        if (local361 < this.volume) {
+                        if (local361 < this.loops) {
                             this.anInt3686 += local91 * local361;
-                            this.volume -= local361;
+                            this.loops -= local361;
                             return;
                         }
-                        this.anInt3686 += local91 * this.volume;
-                        this.volume = 0;
+                        this.anInt3686 += local91 * this.loops;
+                        this.loops = 0;
                     } else if (this.anInt3686 >= local81) {
                         local361 = (this.anInt3686 - local76) / local91;
-                        if (local361 < this.volume) {
+                        if (local361 < this.loops) {
                             this.anInt3686 -= local91 * local361;
-                            this.volume -= local361;
+                            this.loops -= local361;
                             return;
                         }
-                        this.anInt3686 -= local91 * this.volume;
-                        this.volume = 0;
+                        this.anInt3686 -= local91 * this.loops;
+                        this.loops = 0;
                     } else {
                         return;
                     }
@@ -1371,13 +1371,13 @@ public final class SoundStream extends Node_Sub6 {
 
     @OriginalMember(owner = "client!haa", name = "a", descriptor = "()Lclient!dea;")
     @Override
-    public Node_Sub6 method9135() {
+    public AudioBuss method9135() {
         return null;
     }
 
     @OriginalMember(owner = "client!haa", name = "g", descriptor = "()Z")
     public boolean method3345() {
-        @Pc(2) int local2 = this.rangeXZ;
+        @Pc(2) int local2 = this.volume;
         @Pc(10) int local10;
         @Pc(8) int local8;
         if (local2 == Integer.MIN_VALUE) {
@@ -1385,8 +1385,8 @@ public final class SoundStream extends Node_Sub6 {
             local10 = 0;
             local2 = 0;
         } else {
-            local10 = method3330(local2, this.rangeY);
-            local8 = method3328(local2, this.rangeY);
+            local10 = method3330(local2, this.range);
+            local8 = method3328(local2, this.range);
         }
         if (this.anInt3676 != local2 || this.anInt3680 != local10 || this.anInt3677 != local8) {
             if (this.anInt3676 < local2) {
@@ -1425,8 +1425,8 @@ public final class SoundStream extends Node_Sub6 {
                 this.anInt3687 = 0;
             }
             return false;
-        } else if (this.rangeXZ == Integer.MIN_VALUE) {
-            this.rangeXZ = 0;
+        } else if (this.volume == Integer.MIN_VALUE) {
+            this.volume = 0;
             this.anInt3676 = this.anInt3680 = this.anInt3677 = 0;
             this.unlink();
             return true;
@@ -1441,16 +1441,16 @@ public final class SoundStream extends Node_Sub6 {
     public int method9136() {
         @Pc(6) int local6 = this.anInt3676 * 3 >> 6;
         local6 = (local6 ^ local6 >> 31) + (local6 >>> 31);
-        if (this.volume == 0) {
+        if (this.loops == 0) {
             local6 -= local6 * this.anInt3686 / (((VariableRateSoundPacket) super.aClass2_Sub49_6).data.length << 8);
-        } else if (this.volume >= 0) {
+        } else if (this.loops >= 0) {
             local6 -= local6 * this.nominalBitRate / ((VariableRateSoundPacket) super.aClass2_Sub49_6).data.length;
         }
         return local6 > 255 ? 255 : local6;
     }
 
     @OriginalMember(owner = "client!haa", name = "k", descriptor = "()I")
-    public synchronized int getRangeY() {
-        return this.rangeY < 0 ? -1 : this.rangeY;
+    public synchronized int getRange() {
+        return this.range < 0 ? -1 : this.range;
     }
 }

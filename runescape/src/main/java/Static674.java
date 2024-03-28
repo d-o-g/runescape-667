@@ -15,6 +15,6 @@ public final class Static674 {
         SoundManager.activeStreams = new Node_Sub6_Sub3();
         Static559.aClass56_3.method3582(SoundManager.activeStreams);
         Static681.aSampleRateConverter_2 = new SampleRateConverter(22050, Audio.sampleRate);
-        SoundManager.mixBussReset();
+        AudioRenderer.mixBussReset();
     }
 }

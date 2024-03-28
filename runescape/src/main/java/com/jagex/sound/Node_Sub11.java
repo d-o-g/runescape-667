@@ -39,7 +39,7 @@ public final class Node_Sub11 extends Node {
     }
 
     @OriginalMember(owner = "client!cea", name = "<init>", descriptor = "([B)V")
-    public Node_Sub11(@OriginalArg(0) byte[] arg0) {
+    public Node_Sub11(@OriginalArg(0) byte[] data) {
         this.aClass269Array1 = new Class269[128];
         this.aClass2_Sub49_Sub1Array1 = new VariableRateSoundPacket[128];
         this.anIntArray149 = new int[128];
@@ -47,7 +47,7 @@ public final class Node_Sub11 extends Node {
         this.aByteArray19 = new byte[128];
         this.aShortArray16 = new short[128];
         this.aByteArray18 = new byte[128];
-        @Pc(34) Packet local34 = new Packet(arg0);
+        @Pc(34) Packet local34 = new Packet(data);
         @Pc(36) int local36;
         for (local36 = 0; local34.data[local36 + local34.pos] != 0; local36++) {
         }
@@ -401,20 +401,20 @@ public final class Node_Sub11 extends Node {
     }
 
     @OriginalMember(owner = "client!cea", name = "a", descriptor = "(BLclient!fca;[I[B)Z")
-    public boolean method1526(@OriginalArg(1) Class123 arg0, @OriginalArg(2) int[] arg1, @OriginalArg(3) byte[] arg2) {
+    public boolean method1526(@OriginalArg(1) Class123 arg0, @OriginalArg(2) int[] maxSamples, @OriginalArg(3) byte[] notes) {
         @Pc(5) boolean local5 = true;
         @Pc(7) int local7 = 0;
         @Pc(9) VariableRateSoundPacket local9 = null;
         for (@Pc(11) int local11 = 0; local11 < 128; local11++) {
-            if (arg2 == null || arg2[local11] != 0) {
+            if (notes == null || notes[local11] != 0) {
                 @Pc(33) int local33 = this.anIntArray149[local11];
                 if (local33 != 0) {
                     if (local33 != local7) {
                         local7 = local33--;
                         if ((local33 & 0x1) == 0) {
-                            local9 = arg0.aIterableHashTable_15.method2614(arg1, local33 >> 2, arg0);
+                            local9 = arg0.aIterableHashTable_15.method2614(maxSamples, local33 >> 2, arg0);
                         } else {
-                            local9 = arg0.method2615(arg1, local33 >> 2);
+                            local9 = arg0.method2615(maxSamples, local33 >> 2);
                         }
                         if (local9 == null) {
                             local5 = false;

@@ -8,7 +8,4 @@ public final class Static24 {
     @OriginalMember(owner = "client!aq", name = "f", descriptor = "[I")
     public static int[] anIntArray33;
 
-    @OriginalMember(owner = "client!aq", name = "i", descriptor = "I")
-    public static int midiVolume;
-
 }

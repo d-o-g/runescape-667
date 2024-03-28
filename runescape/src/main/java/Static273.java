@@ -1,5 +1,3 @@
-import com.jagex.js5.js5;
-import com.jagex.sound.Node_Sub6_Sub1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -8,12 +6,6 @@ public final class Static273 {
 
     @OriginalMember(owner = "client!ik", name = "M", descriptor = "I")
     public static int anInt4395 = 100;
-
-    @OriginalMember(owner = "client!ik", name = "a", descriptor = "(Lclient!bd;ZIILclient!sb;II)V")
-    public static void method3961(@OriginalArg(0) Node_Sub6_Sub1 arg0, @OriginalArg(3) int arg1, @OriginalArg(4) js5 arg2, @OriginalArg(5) int arg3) {
-        Static611.method8229(arg1, arg3, arg2);
-        Static117.aClass2_Sub6_Sub1_2 = arg0;
-    }
 
     @OriginalMember(owner = "client!ik", name = "a", descriptor = "(IIII)I")
     public static int method3966(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {

@@ -22,14 +22,14 @@ public final class Static522 {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(ILclient!bn;)V")
     public static void method7041(@OriginalArg(1) MidiSong arg0) {
-        Static581.aClass2_Sub6_Sub1_3.method934(arg0, false);
+        Static581.mixBuss.method934(arg0, false);
         if (Static426.aClass56_2 != null) {
-            Static426.aClass56_2.method3582(Static581.aClass2_Sub6_Sub1_3);
+            Static426.aClass56_2.method3582(Static581.mixBuss);
         }
         Static62.aClass2_Sub8_3 = null;
-        Static96.anInt10171 = 0;
-        Static117.aClass2_Sub6_Sub1_2 = null;
+        SongManager.anInt10171 = 0;
+        SongManager.aClass2_Sub6_Sub1_2 = null;
         Static12.aClass123_4 = null;
-        Static676.midiSongs = null;
+        SongManager.midiSongs = null;
     }
 }

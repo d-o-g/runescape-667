@@ -10,9 +10,9 @@ public final class Static100 {
 
     @OriginalMember(owner = "client!dc", name = "b", descriptor = "(I)V")
     public static void method1988() {
-        Static581.aClass2_Sub6_Sub1_3.method912();
-        Static676.midiSongs = null;
-        Static117.aClass2_Sub6_Sub1_2 = null;
-        Static96.anInt10171 = 1;
+        Static581.mixBuss.method912();
+        SongManager.midiSongs = null;
+        SongManager.aClass2_Sub6_Sub1_2 = null;
+        SongManager.anInt10171 = 1;
     }
 }

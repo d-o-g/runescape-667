@@ -20,47 +20,54 @@ public final class Static232 {
     @OriginalMember(owner = "client!hda", name = "c", descriptor = "(I)V")
     public static void method3392() {
         try {
-            @Pc(14) int local14;
-            if (Static96.anInt10171 == 1) {
-                local14 = Static581.aClass2_Sub6_Sub1_3.method948();
-                if (local14 > 0 && Static581.aClass2_Sub6_Sub1_3.method922()) {
-                    local14 -= Static190.anInt3112;
-                    if (local14 < 0) {
-                        local14 = 0;
+            @Pc(14) int volume;
+            if (SongManager.anInt10171 == 1) {
+                volume = Static581.mixBuss.getVolume();
+                if (volume > 0 && Static581.mixBuss.isPlaying()) {
+                    volume -= SongManager.anInt3112;
+                    if (volume < 0) {
+                        volume = 0;
                     }
-                    Static581.aClass2_Sub6_Sub1_3.method916(local14);
+                    Static581.mixBuss.setVolume(volume);
                     return;
                 }
-                Static581.aClass2_Sub6_Sub1_3.method912();
-                Static581.aClass2_Sub6_Sub1_3.method927();
+
+                Static581.mixBuss.method912();
+                Static581.mixBuss.method927();
+
                 Static12.aClass123_4 = null;
                 Static62.aClass2_Sub8_3 = null;
-                if (Static676.midiSongs == null) {
-                    Static96.anInt10171 = 0;
+
+                if (SongManager.midiSongs == null) {
+                    SongManager.anInt10171 = 0;
                 } else {
-                    Static96.anInt10171 = 2;
+                    SongManager.anInt10171 = 2;
                 }
             }
-            if (Static96.anInt10171 == 3) {
-                local14 = Static581.aClass2_Sub6_Sub1_3.method948();
-                if (local14 < Static24.midiVolume && Static581.aClass2_Sub6_Sub1_3.method922()) {
-                    local14 += Static611.anInt9335;
-                    if (local14 > Static24.midiVolume) {
-                        local14 = Static24.midiVolume;
+
+            if (SongManager.anInt10171 == 3) {
+                volume = Static581.mixBuss.getVolume();
+
+                if (volume < SongManager.volume && Static581.mixBuss.isPlaying()) {
+                    volume += SongManager.anInt9335;
+
+                    if (volume > SongManager.volume) {
+                        volume = SongManager.volume;
                     }
-                    Static581.aClass2_Sub6_Sub1_3.method916(local14);
+
+                    Static581.mixBuss.setVolume(volume);
                 } else {
-                    Static611.anInt9335 = 0;
-                    Static96.anInt10171 = 0;
+                    SongManager.anInt9335 = 0;
+                    SongManager.anInt10171 = 0;
                 }
             }
         } catch (@Pc(103) Exception local103) {
             local103.printStackTrace();
-            Static581.aClass2_Sub6_Sub1_3.method912();
-            Static117.aClass2_Sub6_Sub1_2 = null;
+            Static581.mixBuss.method912();
+            SongManager.aClass2_Sub6_Sub1_2 = null;
             Static62.aClass2_Sub8_3 = null;
-            Static96.anInt10171 = 0;
-            Static676.midiSongs = null;
+            SongManager.anInt10171 = 0;
+            SongManager.midiSongs = null;
             Static12.aClass123_4 = null;
         }
     }

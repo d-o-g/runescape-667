@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wc")
-public final class Node_Sub6_Sub5 extends Node_Sub6 {
+public final class Node_Sub6_Sub5 extends AudioBuss {
 
     @OriginalMember(owner = "client!ko", name = "H", descriptor = "Lclient!ts;")
     public static final LruCache recentUse = new LruCache(64);
@@ -64,7 +64,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "()Lclient!dea;")
     @Override
-    public Node_Sub6 method9135() {
+    public AudioBuss method9135() {
         return null;
     }
 
@@ -147,7 +147,7 @@ public final class Node_Sub6_Sub5 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!wc", name = "c", descriptor = "()Lclient!dea;")
     @Override
-    public Node_Sub6 method9133() {
+    public AudioBuss method9133() {
         return null;
     }
 

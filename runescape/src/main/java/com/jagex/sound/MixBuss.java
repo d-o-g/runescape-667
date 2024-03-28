@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!bd")
-public final class Node_Sub6_Sub1 extends Node_Sub6 {
+public final class MixBuss extends AudioBuss {
 
     @OriginalMember(owner = "client!bd", name = "ab", descriptor = "J")
     public long aLong28;
@@ -75,7 +75,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     public final int[] anIntArray46 = new int[16];
 
     @OriginalMember(owner = "client!bd", name = "xb", descriptor = "I")
-    public int anInt812 = 256;
+    public int volume = 256;
 
     @OriginalMember(owner = "client!bd", name = "v", descriptor = "[I")
     public final int[] anIntArray49 = new int[16];
@@ -99,7 +99,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     public final int[] anIntArray54 = new int[16];
 
     @OriginalMember(owner = "client!bd", name = "vb", descriptor = "Lclient!bha;")
-    public final MidiSequence aMidiSequence_1 = new MidiSequence();
+    public final MidiSequence midiSequence = new MidiSequence();
 
     @OriginalMember(owner = "client!bd", name = "rb", descriptor = "Lclient!uka;")
     public final Node_Sub6_Sub4 aClass2_Sub6_Sub4_1 = new Node_Sub6_Sub4(this);
@@ -108,23 +108,23 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     public final IterableHashTable aIterableHashTable_7;
 
     @OriginalMember(owner = "client!bd", name = "<init>", descriptor = "()V")
-    public Node_Sub6_Sub1() {
+    public MixBuss() {
         this.aIterableHashTable_7 = new IterableHashTable(128);
         this.method926(256, -1);
         this.method942(true);
     }
 
     @OriginalMember(owner = "client!bd", name = "<init>", descriptor = "(Lclient!bd;)V")
-    public Node_Sub6_Sub1(@OriginalArg(0) Node_Sub6_Sub1 arg0) {
+    public MixBuss(@OriginalArg(0) MixBuss arg0) {
         this.aIterableHashTable_7 = arg0.aIterableHashTable_7;
         this.method926(256, -1);
         this.method942(true);
     }
 
     @OriginalMember(owner = "client!vja", name = "a", descriptor = "(Lclient!sb;IZ)Lclient!cea;")
-    public static Node_Sub11 method8917(@OriginalArg(0) js5 arg0, @OriginalArg(1) int arg1) {
-        @Pc(8) byte[] local8 = arg0.getfile(arg1);
-        return local8 == null ? null : new Node_Sub11(local8);
+    public static Node_Sub11 method8917(@OriginalArg(0) js5 js5, @OriginalArg(1) int id) {
+        @Pc(8) byte[] data = js5.getfile(id);
+        return data == null ? null : new Node_Sub11(data);
     }
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(IJ)V")
@@ -134,32 +134,32 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             @Pc(17) int local17 = this.anInt841;
             @Pc(20) long local20 = this.aLong28;
             while (local17 == this.anInt841) {
-                while (this.aMidiSequence_1.trackDeltas[local14] == local17) {
-                    this.aMidiSequence_1.switchTrack(local14);
-                    @Pc(33) int local33 = this.aMidiSequence_1.nextEvent(local14);
+                while (this.midiSequence.trackDeltas[local14] == local17) {
+                    this.midiSequence.switchTrack(local14);
+                    @Pc(33) int local33 = this.midiSequence.nextEvent(local14);
                     if (local33 == 1) {
-                        this.aMidiSequence_1.endTrack();
-                        this.aMidiSequence_1.updatePosition(local14);
-                        if (this.aMidiSequence_1.isComplete()) {
+                        this.midiSequence.endTrack();
+                        this.midiSequence.updatePosition(local14);
+                        if (this.midiSequence.isComplete()) {
                             if (!this.aBoolean65 || local17 == 0) {
                                 this.method942(true);
-                                this.aMidiSequence_1.finish();
+                                this.midiSequence.finish();
                                 return;
                             }
-                            this.aMidiSequence_1.reset(local20);
+                            this.midiSequence.reset(local20);
                         }
                         break;
                     }
                     if ((local33 & 0x80) != 0 && (local33 & 0xF0) != 144) {
                         this.method924(local33);
                     }
-                    this.aMidiSequence_1.step(local14);
-                    this.aMidiSequence_1.updatePosition(local14);
+                    this.midiSequence.step(local14);
+                    this.midiSequence.updatePosition(local14);
                 }
                 this.aLong29 = local20;
-                local14 = this.aMidiSequence_1.activeTrack();
-                local17 = this.aMidiSequence_1.trackDeltas[local14];
-                local20 = this.aMidiSequence_1.delayForDelta(local17);
+                local14 = this.midiSequence.activeTrack();
+                local17 = this.midiSequence.trackDeltas[local14];
+                local20 = this.midiSequence.delayForDelta(local17);
             }
             this.anInt841 = local17;
             this.anInt840 = local14;
@@ -169,7 +169,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(BZ)V")
     public synchronized void method911(@OriginalArg(1) boolean arg0) {
-        this.aMidiSequence_1.finish();
+        this.midiSequence.finish();
         this.aClass2_Sub8_1 = null;
         this.method942(arg0);
     }
@@ -177,8 +177,8 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "([III)V")
     @Override
     public synchronized void method9131(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (this.aMidiSequence_1.isPlaying()) {
-            @Pc(14) int local14 = this.aMidiSequence_1.timeDivision * this.anInt815 / Audio.sampleRate;
+        if (this.midiSequence.isPlaying()) {
+            @Pc(14) int local14 = this.midiSequence.timeDivision * this.anInt815 / Audio.sampleRate;
             do {
                 @Pc(24) long local24 = this.aLong29 + (long) arg2 * (long) local14;
                 if (this.aLong28 - local24 >= 0L) {
@@ -191,14 +191,14 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
                 arg1 += local55;
                 this.method932((byte) -89);
                 arg2 -= local55;
-            } while (this.aMidiSequence_1.isPlaying());
+            } while (this.midiSequence.isPlaying());
         }
         this.aClass2_Sub6_Sub4_1.method9131(arg0, arg1, arg2);
     }
 
     @OriginalMember(owner = "client!bd", name = "c", descriptor = "()Lclient!dea;")
     @Override
-    public synchronized Node_Sub6 method9133() {
+    public synchronized AudioBuss method9133() {
         return this.aClass2_Sub6_Sub4_1;
     }
 
@@ -210,21 +210,21 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(ZZLclient!bn;I)V")
     public synchronized void method913(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) MidiSong arg2) {
         this.method911(arg1);
-        this.aMidiSequence_1.decode(arg2.midiData);
+        this.midiSequence.decode(arg2.midiData);
         this.aLong29 = 0L;
         this.aBoolean65 = arg0;
-        @Pc(24) int local24 = this.aMidiSequence_1.trackCount();
+        @Pc(24) int local24 = this.midiSequence.trackCount();
         for (@Pc(26) int local26 = 0; local26 < local24; local26++) {
-            this.aMidiSequence_1.switchTrack(local26);
-            this.aMidiSequence_1.step(local26);
-            this.aMidiSequence_1.updatePosition(local26);
+            this.midiSequence.switchTrack(local26);
+            this.midiSequence.step(local26);
+            this.midiSequence.updatePosition(local26);
         }
         if (18429 != 18429) {
             this.method917(68, 61);
         }
-        this.anInt840 = this.aMidiSequence_1.activeTrack();
-        this.anInt841 = this.aMidiSequence_1.trackDeltas[this.anInt840];
-        this.aLong28 = this.aMidiSequence_1.delayForDelta(this.anInt841);
+        this.anInt840 = this.midiSequence.activeTrack();
+        this.anInt841 = this.midiSequence.trackDeltas[this.anInt840];
+        this.aLong28 = this.midiSequence.delayForDelta(this.anInt841);
     }
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(ILclient!dha;)I")
@@ -267,8 +267,8 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(II)V")
-    public synchronized void method916(@OriginalArg(1) int arg0) {
-        this.anInt812 = arg0;
+    public synchronized void setVolume(@OriginalArg(1) int volume) {
+        this.volume = volume;
     }
 
     @OriginalMember(owner = "client!bd", name = "c", descriptor = "(II)V")
@@ -317,7 +317,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         @Pc(34) int local34 = this.anIntArray45[arg0.anInt2187] * this.anIntArray53[arg0.anInt2187] + 4096 >> 13;
         @Pc(42) int local42 = local34 * local34 + 16384 >> 15;
         @Pc(51) int local51 = arg0.anInt2199 * local42 + 16384 >> 15;
-        @Pc(60) int local60 = this.anInt812 * local51 + 128 >> 8;
+        @Pc(60) int local60 = this.volume * local51 + 128 >> 8;
         local34 = local60 * this.anIntArray42[arg0.anInt2187] + 128 >> 8;
         if (local18.anInt6771 > 0) {
             local34 = (int) ((double) local34 * Math.pow(0.5D, (double) arg0.anInt2204 * 1.953125E-5D * (double) local18.anInt6771) + 0.5D);
@@ -371,13 +371,13 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "()Lclient!dea;")
     @Override
-    public synchronized Node_Sub6 method9135() {
+    public synchronized AudioBuss method9135() {
         return null;
     }
 
     @OriginalMember(owner = "client!bd", name = "d", descriptor = "(B)Z")
-    public synchronized boolean method922() {
-        return this.aMidiSequence_1.isPlaying();
+    public synchronized boolean isPlaying() {
+        return this.midiSequence.isPlaying();
     }
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(ILclient!dha;)I")
@@ -543,7 +543,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(Lclient!bn;ZIJZ)V")
     public synchronized void method925(@OriginalArg(0) MidiSong arg0, @OriginalArg(1) boolean arg1, @OriginalArg(3) long arg2) {
         this.method913(arg1, true, arg0);
-        this.method910(arg2 * (long) this.aMidiSequence_1.timeDivision);
+        this.method910(arg2 * (long) this.midiSequence.timeDivision);
     }
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(IZI)V")
@@ -605,13 +605,13 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             return;
         }
         while (this.anInt841 == local11) {
-            while (this.aMidiSequence_1.trackDeltas[local8] == local11) {
-                this.aMidiSequence_1.switchTrack(local8);
-                @Pc(50) int local50 = this.aMidiSequence_1.nextEvent(local8);
+            while (this.midiSequence.trackDeltas[local8] == local11) {
+                this.midiSequence.switchTrack(local8);
+                @Pc(50) int local50 = this.midiSequence.nextEvent(local8);
                 if (local50 == 1) {
-                    this.aMidiSequence_1.endTrack();
-                    this.aMidiSequence_1.updatePosition(local8);
-                    if (this.aMidiSequence_1.isComplete()) {
+                    this.midiSequence.endTrack();
+                    this.midiSequence.updatePosition(local8);
+                    if (this.midiSequence.isComplete()) {
                         if (this.aClass2_Sub8_1 != null) {
                             this.method934(this.aClass2_Sub8_1, this.aBoolean65);
                             this.method932((byte) -119);
@@ -619,22 +619,22 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
                         }
                         if (!this.aBoolean65 || local11 == 0) {
                             this.method942(true);
-                            this.aMidiSequence_1.finish();
+                            this.midiSequence.finish();
                             return;
                         }
-                        this.aMidiSequence_1.reset(local14);
+                        this.midiSequence.reset(local14);
                     }
                     break;
                 }
                 if ((local50 & 0x80) != 0) {
                     this.method924(local50);
                 }
-                this.aMidiSequence_1.step(local8);
-                this.aMidiSequence_1.updatePosition(local8);
+                this.midiSequence.step(local8);
+                this.midiSequence.updatePosition(local8);
             }
-            local8 = this.aMidiSequence_1.activeTrack();
-            local11 = this.aMidiSequence_1.trackDeltas[local8];
-            local14 = this.aMidiSequence_1.delayForDelta(local11);
+            local8 = this.midiSequence.activeTrack();
+            local11 = this.midiSequence.trackDeltas[local8];
+            local14 = this.midiSequence.delayForDelta(local11);
         }
         if (arg0 >= -19) {
             this.anInt841 = -58;
@@ -645,7 +645,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         if (this.aClass2_Sub8_1 != null && local11 > this.anInt842) {
             this.anInt841 = this.anInt842;
             this.anInt840 = -1;
-            this.aLong28 = this.aMidiSequence_1.delayForDelta(this.anInt841);
+            this.aLong28 = this.midiSequence.delayForDelta(this.anInt841);
         }
     }
 
@@ -708,7 +708,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             this.method943(local117.aShortArray16[arg1] < 0, local142);
         }
         if (local117.aShortArray16[arg1] < 0) {
-            local142.aClass2_Sub6_Sub2_1.setVolume(-1);
+            local142.aClass2_Sub6_Sub2_1.setLoops(-1);
         }
         if (local142.anInt2198 >= 0) {
             @Pc(297) Node_Sub16 local297 = this.aClass2_Sub16ArrayArray2[arg0][local142.anInt2198];
@@ -798,36 +798,40 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(Lclient!fca;Lclient!sb;IILclient!bn;)Z")
-    public synchronized boolean method944(@OriginalArg(0) Class123 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(4) MidiSong arg2) {
-        arg2.computePrograms();
-        @Pc(15) boolean local15 = true;
-        @Pc(29) int[] local29 = new int[]{22050};
-        for (@Pc(35) MidiProgramNode local35 = (MidiProgramNode) arg2.programs.first(); local35 != null; local35 = (MidiProgramNode) arg2.programs.next()) {
-            @Pc(40) int local40 = (int) local35.key;
-            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aIterableHashTable_7.get(local40);
+    public synchronized boolean method944(@OriginalArg(0) Class123 arg0, @OriginalArg(1) js5 arg1, @OriginalArg(4) MidiSong song) {
+        song.computePrograms();
+
+        @Pc(15) boolean ready = true;
+        @Pc(29) int[] maxSamples = new int[]{22050};
+        for (@Pc(35) MidiProgramNode node = (MidiProgramNode) song.programs.first(); node != null; node = (MidiProgramNode) song.programs.next()) {
+            @Pc(40) int program = (int) node.key;
+            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aIterableHashTable_7.get(program);
             if (local48 == null) {
-                local48 = method8917(arg1, local40);
+                local48 = method8917(arg1, program);
                 if (local48 == null) {
-                    local15 = false;
+                    ready = false;
                     continue;
                 }
-                this.aIterableHashTable_7.put(local40, local48);
+                this.aIterableHashTable_7.put(program, local48);
             }
-            if (!local48.method1526(arg0, local29, local35.notes)) {
-                local15 = false;
+
+            if (!local48.method1526(arg0, maxSamples, node.notes)) {
+                ready = false;
             }
         }
-        if (local15) {
-            arg2.resetPrograms();
+
+        if (ready) {
+            song.resetPrograms();
         }
-        return local15;
+
+        return ready;
     }
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(I)V")
     @Override
     public synchronized void method9130(@OriginalArg(0) int arg0) {
-        if (this.aMidiSequence_1.isPlaying()) {
-            @Pc(18) int local18 = this.aMidiSequence_1.timeDivision * this.anInt815 / Audio.sampleRate;
+        if (this.midiSequence.isPlaying()) {
+            @Pc(18) int local18 = this.midiSequence.timeDivision * this.anInt815 / Audio.sampleRate;
             do {
                 @Pc(27) long local27 = (long) arg0 * (long) local18 + this.aLong29;
                 if (this.aLong28 - local27 >= 0L) {
@@ -839,7 +843,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
                 this.aClass2_Sub6_Sub4_1.method9130(local58);
                 arg0 -= local58;
                 this.method932((byte) -117);
-            } while (this.aMidiSequence_1.isPlaying());
+            } while (this.midiSequence.isPlaying());
         }
         this.aClass2_Sub6_Sub4_1.method9130(arg0);
     }
@@ -943,7 +947,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
     }
 
     @OriginalMember(owner = "client!bd", name = "g", descriptor = "(I)I")
-    public int method948() {
-        return this.anInt812;
+    public int getVolume() {
+        return this.volume;
     }
 }

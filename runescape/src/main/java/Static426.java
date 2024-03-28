@@ -1,5 +1,5 @@
 import com.jagex.Static148;
-import com.jagex.sound.Node_Sub6_Sub1;
+import com.jagex.sound.MixBuss;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -28,7 +28,7 @@ public final class Static426 {
     }
 
     @OriginalMember(owner = "client!nha", name = "b", descriptor = "(B)Lclient!bd;")
-    public static Node_Sub6_Sub1 method1018() {
-        return Static581.aClass2_Sub6_Sub1_3;
+    public static MixBuss method1018() {
+        return Static581.mixBuss;
     }
 }

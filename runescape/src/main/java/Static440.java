@@ -1,4 +1,4 @@
-import com.jagex.sound.Node_Sub6;
+import com.jagex.sound.AudioBuss;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -15,12 +15,12 @@ public final class Static440 {
     public static final int[] anIntArray529 = new int[2];
 
     @OriginalMember(owner = "client!nt", name = "a", descriptor = "(ILclient!dea;)V")
-    public static void method5964(@OriginalArg(1) Node_Sub6 arg0) {
+    public static void method5964(@OriginalArg(1) AudioBuss arg0) {
         if (arg0.aClass2_Sub49_6 != null) {
             arg0.aClass2_Sub49_6.anInt8817 = 0;
         }
         arg0.aBoolean793 = false;
-        for (@Pc(25) Node_Sub6 local25 = arg0.method9133(); local25 != null; local25 = arg0.method9135()) {
+        for (@Pc(25) AudioBuss local25 = arg0.method9133(); local25 != null; local25 = arg0.method9135()) {
             method5964(local25);
         }
     }

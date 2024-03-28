@@ -1,13 +1,9 @@
 import com.jagex.graphics.ToolkitType;
-import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static611 {
-
-    @OriginalMember(owner = "client!tfa", name = "g", descriptor = "I")
-    public static int anInt9335;
 
     @OriginalMember(owner = "client!tfa", name = "i", descriptor = "I")
     public static int mouseWheelRotation = 0;
@@ -38,8 +34,4 @@ public final class Static611 {
         return local8;
     }
 
-    @OriginalMember(owner = "client!tfa", name = "a", descriptor = "(IIILclient!sb;ZI)V")
-    public static void method8229(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) js5 arg2) {
-        Static184.method2797(0L, arg0, arg1, arg2);
-    }
 }

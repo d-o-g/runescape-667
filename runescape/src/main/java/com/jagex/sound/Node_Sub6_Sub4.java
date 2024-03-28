@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!uka")
-public final class Node_Sub6_Sub4 extends Node_Sub6 {
+public final class Node_Sub6_Sub4 extends AudioBuss {
 
     @OriginalMember(owner = "client!uka", name = "t", descriptor = "Lclient!sia;")
     public final Deque aDeque_72 = new Deque();
@@ -17,10 +17,10 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
     public final Node_Sub6_Sub3 aClass2_Sub6_Sub3_2 = new Node_Sub6_Sub3();
 
     @OriginalMember(owner = "client!uka", name = "D", descriptor = "Lclient!bd;")
-    public final Node_Sub6_Sub1 aClass2_Sub6_Sub1_4;
+    public final MixBuss aClass2_Sub6_Sub1_4;
 
     @OriginalMember(owner = "client!uka", name = "<init>", descriptor = "(Lclient!bd;)V")
-    public Node_Sub6_Sub4(@OriginalArg(0) Node_Sub6_Sub1 arg0) {
+    public Node_Sub6_Sub4(@OriginalArg(0) MixBuss arg0) {
         this.aClass2_Sub6_Sub1_4 = arg0;
     }
 
@@ -52,13 +52,13 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
             arg0.anInt2183 = arg0.anInt2183 + local28 * arg1 & 0xFFFFF;
             if (local37 <= arg1) {
                 if (this.aClass2_Sub6_Sub1_4.anIntArray49[arg0.anInt2187] == 0) {
-                    arg0.aClass2_Sub6_Sub2_1 = SoundStream.create(arg0.aClass2_Sub49_Sub1_1, arg0.aClass2_Sub6_Sub2_1.method3340(), arg0.aClass2_Sub6_Sub2_1.getRangeXZ(), arg0.aClass2_Sub6_Sub2_1.getRangeY());
+                    arg0.aClass2_Sub6_Sub2_1 = SoundStream.create(arg0.aClass2_Sub49_Sub1_1, arg0.aClass2_Sub6_Sub2_1.method3340(), arg0.aClass2_Sub6_Sub2_1.getVolume(), arg0.aClass2_Sub6_Sub2_1.getRange());
                 } else {
-                    arg0.aClass2_Sub6_Sub2_1 = SoundStream.create(arg0.aClass2_Sub49_Sub1_1, arg0.aClass2_Sub6_Sub2_1.method3340(), 0, arg0.aClass2_Sub6_Sub2_1.getRangeY());
+                    arg0.aClass2_Sub6_Sub2_1 = SoundStream.create(arg0.aClass2_Sub49_Sub1_1, arg0.aClass2_Sub6_Sub2_1.method3340(), 0, arg0.aClass2_Sub6_Sub2_1.getRange());
                     this.aClass2_Sub6_Sub1_4.method943(arg0.aClass2_Sub11_1.aShortArray16[arg0.anInt2196] < 0, arg0);
                 }
                 if (arg0.aClass2_Sub11_1.aShortArray16[arg0.anInt2196] < 0) {
-                    arg0.aClass2_Sub6_Sub2_1.setVolume(-1);
+                    arg0.aClass2_Sub6_Sub2_1.setLoops(-1);
                 }
                 arg1 = arg0.anInt2183 / local28;
             }
@@ -74,7 +74,7 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!uka", name = "a", descriptor = "()Lclient!dea;")
     @Override
-    public Node_Sub6 method9135() {
+    public AudioBuss method9135() {
         @Pc(11) Node_Sub16 local11;
         do {
             local11 = (Node_Sub16) this.aDeque_72.next();
@@ -87,7 +87,7 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
 
     @OriginalMember(owner = "client!uka", name = "c", descriptor = "()Lclient!dea;")
     @Override
-    public Node_Sub6 method9133() {
+    public AudioBuss method9133() {
         @Pc(9) Node_Sub16 local9 = (Node_Sub16) this.aDeque_72.first();
         if (local9 == null) {
             return null;
@@ -119,14 +119,14 @@ public final class Node_Sub6_Sub4 extends Node_Sub6 {
                 }
                 @Pc(91) SoundStream local91 = arg1.aClass2_Sub6_Sub2_1;
                 if (this.aClass2_Sub6_Sub1_4.anIntArray49[arg1.anInt2187] == 0) {
-                    arg1.aClass2_Sub6_Sub2_1 = SoundStream.create(arg1.aClass2_Sub49_Sub1_1, local91.method3340(), local91.getRangeXZ(), local91.getRangeY());
+                    arg1.aClass2_Sub6_Sub2_1 = SoundStream.create(arg1.aClass2_Sub49_Sub1_1, local91.method3340(), local91.getVolume(), local91.getRange());
                 } else {
-                    arg1.aClass2_Sub6_Sub2_1 = SoundStream.create(arg1.aClass2_Sub49_Sub1_1, local91.method3340(), 0, local91.getRangeY());
+                    arg1.aClass2_Sub6_Sub2_1 = SoundStream.create(arg1.aClass2_Sub49_Sub1_1, local91.method3340(), 0, local91.getRange());
                     this.aClass2_Sub6_Sub1_4.method943(arg1.aClass2_Sub11_1.aShortArray16[arg1.anInt2196] < 0, arg1);
-                    arg1.aClass2_Sub6_Sub2_1.method3315(local75, local91.getRangeXZ());
+                    arg1.aClass2_Sub6_Sub2_1.method3315(local75, local91.getVolume());
                 }
                 if (arg1.aClass2_Sub11_1.aShortArray16[arg1.anInt2196] < 0) {
-                    arg1.aClass2_Sub6_Sub2_1.setVolume(-1);
+                    arg1.aClass2_Sub6_Sub2_1.setLoops(-1);
                 }
                 local91.method3320(local75);
                 local91.method9131(arg0, arg4, arg2 - arg4);

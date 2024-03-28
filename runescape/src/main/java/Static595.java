@@ -2,6 +2,7 @@ import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.IndexedImage;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Node_Sub13;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;

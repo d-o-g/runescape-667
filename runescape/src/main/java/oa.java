@@ -758,7 +758,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     @Override
     public Sprite createSprite(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1) {
         @Pc(17) j local17 = new j(this, arg0.palette, arg0.raster, arg0.alpha, 0, arg0.width, arg0.width, arg0.height);
-        local17.method8184(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
+        local17.setOffsets(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
         return local17;
     }
 

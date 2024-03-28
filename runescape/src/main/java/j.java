@@ -34,13 +34,13 @@ public final class j extends Sprite implements SoftwareObject {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
-    protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
-        this.UA(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5, 1, ((na) arg6).nativeid, arg7, arg8);
+    protected void renderParallelogramImpl(@OriginalArg(0) float centerX, @OriginalArg(1) float centerY, @OriginalArg(2) float x1, @OriginalArg(3) float y1, @OriginalArg(4) float x2, @OriginalArg(5) float y2, @OriginalArg(7) ClippingMask mask, @OriginalArg(8) int maskX, @OriginalArg(9) int maskY) {
+        this.UA(this.nativeid, centerX, centerY, x1, y1, x2, y2, 1, ((na) mask).nativeid, maskX, maskY);
     }
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(IIIIIIII)V")
     @Override
-    protected void method8190(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
+    protected void renderImpl(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
         this.RA(this.nativeid, x, y, width, height, op, colour, mode, 1);
     }
 
@@ -67,14 +67,14 @@ public final class j extends Sprite implements SoftwareObject {
 
     @OriginalMember(owner = "client!j", name = "b", descriptor = "(IIIIIII)V")
     @Override
-    public void method8189(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
+    public void renderTiled(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
         this.P(this.nativeid, x, y, width, height, op, colour, mode);
     }
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "([I)V")
     @Override
-    public void projectOffsets(@OriginalArg(0) int[] arg0) {
-        this.CA(this.nativeid, arg0);
+    public void projectOffsets(@OriginalArg(0) int[] destination) {
+        this.CA(this.nativeid, destination);
     }
 
     @OriginalMember(owner = "client!j", name = "RA", descriptor = "(JIIIIIIII)V")
@@ -111,8 +111,8 @@ public final class j extends Sprite implements SoftwareObject {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(FFFFFFIIII)V")
     @Override
-    protected void render(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int arg7) {
-        this.b(this.nativeid, x, y, width, height, op, colour, mode, arg7, 1, 1);
+    protected void renderImpl(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int filter) {
+        this.b(this.nativeid, x, y, width, height, op, colour, mode, filter, 1, 1);
     }
 
     @OriginalMember(owner = "client!j", name = "ua", descriptor = "(Lclient!oa;[IIIIIZ)V")
@@ -141,8 +141,8 @@ public final class j extends Sprite implements SoftwareObject {
 
     @OriginalMember(owner = "client!j", name = "c", descriptor = "(IIII)V")
     @Override
-    public void method8184(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.A(this.nativeid, arg0, arg1, arg2, arg3);
+    public void setOffsets(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2) {
+        this.A(this.nativeid, x1, y1, x2, y2);
     }
 
     @OriginalMember(owner = "client!j", name = "CA", descriptor = "(J[I)V")
@@ -150,7 +150,7 @@ public final class j extends Sprite implements SoftwareObject {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
+    public void copyRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
         this.YA(this.nativeid, x, y, width, height, op, colour);
     }
 
@@ -171,14 +171,14 @@ public final class j extends Sprite implements SoftwareObject {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(III)V")
     @Override
-    public void method8196() {
+    public void copyAlpha(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int channel) {
         this.N(this.nativeid, 0, 0, 3);
     }
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int offsetX, @OriginalArg(4) int offsetY) {
-        this.V(this.nativeid, x, y, ((na) mask).nativeid, offsetX, offsetY);
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int maskX, @OriginalArg(4) int maskY) {
+        this.V(this.nativeid, x, y, ((na) mask).nativeid, maskX, maskY);
     }
 
     @OriginalMember(owner = "client!j", name = "I", descriptor = "(J)I")

@@ -30,6 +30,7 @@ import com.jagex.game.runetek6.config.questtype.QuestType;
 import com.jagex.game.runetek6.config.questtype.QuestTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;

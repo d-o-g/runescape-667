@@ -4,10 +4,14 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.instance.ImageInstance;
 import rs2.client.loading.screen.instance.ClearScreenInstance;
 import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
+import rs2.client.loading.screen.instance.NewsInstance;
+import rs2.client.loading.screen.instance.RotatingImageInstance;
 import rs2.client.loading.screen.op.LoadingScreenOp;
 import rs2.client.loading.screen.op.LoadingScreenOpType;
+import rs2.client.loading.screen.op.News;
 
 @OriginalClass("client!we")
 public final class LoadingScreenOpFactory {
@@ -38,9 +42,9 @@ public final class LoadingScreenOpFactory {
         } else if (type == LoadingScreenOpType.NEWS) {
             return new News(this.newsReader(), (NewsInstance) instance);
         } else if (type == LoadingScreenOpType.IMAGE) {
-            return new Class37(this.loadingSprites, (ImageInstance) instance);
+            return new Image(this.loadingSprites, (ImageInstance) instance);
         } else if (LoadingScreenOpType.ROTATING_IMAGE == type) {
-            return new Class37_Sub1(this.loadingSprites, (RotatingImageInstance) instance);
+            return new RotatingImage(this.loadingSprites, (RotatingImageInstance) instance);
         } else if (LoadingScreenOpType.SOLID_PROGRESS_BAR == type) {
             return new Class90_Sub1(this.loadingSprites, this.fontMetrics, (Class138_Sub3) instance);
         } else if (LoadingScreenOpType.IMAGE_PROGRESS_BAR == type) {

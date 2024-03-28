@@ -23,10 +23,10 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(IIIII)V")
     @Override
     public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
-        if (super.aClass19_Sub2_10.method3785()) {
+        if (super.toolkit.method3785()) {
             throw new IllegalStateException();
         }
-        @Pc(12) int local12 = super.aClass19_Sub2_10.anInt4207;
+        @Pc(12) int local12 = super.toolkit.anInt4207;
         x += super.anInt9298;
         y += super.anInt9308;
         @Pc(28) int local28 = y * local12 + x;
@@ -36,27 +36,27 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         @Pc(40) int local40 = local12 - local36;
         @Pc(42) int local42 = 0;
         @Pc(53) int local53;
-        if (y < super.aClass19_Sub2_10.anInt4186) {
-            local53 = super.aClass19_Sub2_10.anInt4186 - y;
+        if (y < super.toolkit.anInt4186) {
+            local53 = super.toolkit.anInt4186 - y;
             local33 -= local53;
-            y = super.aClass19_Sub2_10.anInt4186;
+            y = super.toolkit.anInt4186;
             local30 = local53 * local36;
             local28 += local53 * local12;
         }
-        if (y + local33 > super.aClass19_Sub2_10.anInt4196) {
-            local33 -= y + local33 - super.aClass19_Sub2_10.anInt4196;
+        if (y + local33 > super.toolkit.anInt4196) {
+            local33 -= y + local33 - super.toolkit.anInt4196;
         }
-        if (x < super.aClass19_Sub2_10.anInt4192) {
-            local53 = super.aClass19_Sub2_10.anInt4192 - x;
+        if (x < super.toolkit.anInt4192) {
+            local53 = super.toolkit.anInt4192 - x;
             local36 -= local53;
-            x = super.aClass19_Sub2_10.anInt4192;
+            x = super.toolkit.anInt4192;
             local30 += local53;
             local28 += local53;
             local42 = local53;
             local40 += local53;
         }
-        if (x + local36 > super.aClass19_Sub2_10.anInt4200) {
-            local53 = x + local36 - super.aClass19_Sub2_10.anInt4200;
+        if (x + local36 > super.toolkit.anInt4200) {
+            local53 = x + local36 - super.toolkit.anInt4200;
             local36 -= local53;
             local42 += local53;
             local40 += local53;
@@ -64,7 +64,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (local36 <= 0 || local33 <= 0) {
             return;
         }
-        @Pc(164) int[] local164 = super.aClass19_Sub2_10.anIntArray319;
+        @Pc(164) int[] local164 = super.toolkit.anIntArray319;
         @Pc(174) int local174;
         @Pc(181) int local181;
         @Pc(292) int local292;
@@ -355,7 +355,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     @OriginalMember(owner = "client!te", name = "a", descriptor = "([I[III)V")
     @Override
     protected void method8210(@OriginalArg(0) int[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        @Pc(3) int[] local3 = super.aClass19_Sub2_10.anIntArray319;
+        @Pc(3) int[] local3 = super.toolkit.anIntArray319;
         @Pc(206) int local206;
         @Pc(11) int local11;
         @Pc(16) int local16;
@@ -897,7 +897,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     @OriginalMember(owner = "client!te", name = "b", descriptor = "(II)V")
     @Override
     protected void method8209(@OriginalArg(0) int arg0) {
-        @Pc(3) int[] local3 = super.aClass19_Sub2_10.anIntArray319;
+        @Pc(3) int[] local3 = super.toolkit.anIntArray319;
         @Pc(963) int local963;
         @Pc(11) int local11;
         @Pc(14) int local14;
@@ -1698,13 +1698,13 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
 
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
+    public void copyRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
         throw new IllegalStateException();
     }
 
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(III)V")
     @Override
-    public void method8196() {
+    public void copyAlpha(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int channel) {
         throw new IllegalStateException();
     }
 
@@ -1737,32 +1737,32 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (super.anInt9306 < local29) {
             arg4 = ((super.anInt9306 << 16) + local41 - local11 - 1) / local41;
         }
-        local55 = arg0 + arg1 * super.aClass19_Sub2_10.anInt4207;
-        @Pc(147) int local147 = super.aClass19_Sub2_10.anInt4207 - arg3;
-        if (arg1 + arg4 > super.aClass19_Sub2_10.anInt4196) {
-            arg4 -= arg1 + arg4 - super.aClass19_Sub2_10.anInt4196;
+        local55 = arg0 + arg1 * super.toolkit.anInt4207;
+        @Pc(147) int local147 = super.toolkit.anInt4207 - arg3;
+        if (arg1 + arg4 > super.toolkit.anInt4196) {
+            arg4 -= arg1 + arg4 - super.toolkit.anInt4196;
         }
         @Pc(175) int local175;
-        if (arg1 < super.aClass19_Sub2_10.anInt4186) {
-            local175 = super.aClass19_Sub2_10.anInt4186 - arg1;
+        if (arg1 < super.toolkit.anInt4186) {
+            local175 = super.toolkit.anInt4186 - arg1;
             arg4 -= local175;
-            local55 += local175 * super.aClass19_Sub2_10.anInt4207;
+            local55 += local175 * super.toolkit.anInt4207;
             local11 += local41 * local175;
         }
-        if (arg0 + arg3 > super.aClass19_Sub2_10.anInt4200) {
-            local175 = arg0 + arg3 - super.aClass19_Sub2_10.anInt4200;
+        if (arg0 + arg3 > super.toolkit.anInt4200) {
+            local175 = arg0 + arg3 - super.toolkit.anInt4200;
             arg3 -= local175;
             local147 += local175;
         }
-        if (arg0 < super.aClass19_Sub2_10.anInt4192) {
-            local175 = super.aClass19_Sub2_10.anInt4192 - arg0;
+        if (arg0 < super.toolkit.anInt4192) {
+            local175 = super.toolkit.anInt4192 - arg0;
             arg3 -= local175;
             local55 += local175;
             local9 += local35 * local175;
             local147 += local175;
         }
-        @Pc(249) float[] local249 = super.aClass19_Sub2_10.aFloatArray24;
-        @Pc(253) int[] local253 = super.aClass19_Sub2_10.anIntArray319;
+        @Pc(249) float[] local249 = super.toolkit.aFloatArray24;
+        @Pc(253) int[] local253 = super.toolkit.anIntArray319;
         @Pc(262) int local262;
         @Pc(265) int local265;
         @Pc(273) int local273;
@@ -2162,32 +2162,32 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (super.anInt9306 < local29) {
             arg4 = ((super.anInt9306 << 16) + local41 - local11 - 1) / local41;
         }
-        local55 = arg0 + arg1 * super.aClass19_Sub2_10.anInt4207;
-        @Pc(147) int local147 = super.aClass19_Sub2_10.anInt4207 - arg3;
-        if (arg1 + arg4 > super.aClass19_Sub2_10.anInt4196) {
-            arg4 -= arg1 + arg4 - super.aClass19_Sub2_10.anInt4196;
+        local55 = arg0 + arg1 * super.toolkit.anInt4207;
+        @Pc(147) int local147 = super.toolkit.anInt4207 - arg3;
+        if (arg1 + arg4 > super.toolkit.anInt4196) {
+            arg4 -= arg1 + arg4 - super.toolkit.anInt4196;
         }
         @Pc(175) int local175;
-        if (arg1 < super.aClass19_Sub2_10.anInt4186) {
-            local175 = super.aClass19_Sub2_10.anInt4186 - arg1;
+        if (arg1 < super.toolkit.anInt4186) {
+            local175 = super.toolkit.anInt4186 - arg1;
             arg4 -= local175;
-            local55 += local175 * super.aClass19_Sub2_10.anInt4207;
+            local55 += local175 * super.toolkit.anInt4207;
             local11 += local41 * local175;
         }
-        if (arg0 + arg3 > super.aClass19_Sub2_10.anInt4200) {
-            local175 = arg0 + arg3 - super.aClass19_Sub2_10.anInt4200;
+        if (arg0 + arg3 > super.toolkit.anInt4200) {
+            local175 = arg0 + arg3 - super.toolkit.anInt4200;
             arg3 -= local175;
             local147 += local175;
         }
-        if (arg0 < super.aClass19_Sub2_10.anInt4192) {
-            local175 = super.aClass19_Sub2_10.anInt4192 - arg0;
+        if (arg0 < super.toolkit.anInt4192) {
+            local175 = super.toolkit.anInt4192 - arg0;
             arg3 -= local175;
             local55 += local175;
             local9 += local35 * local175;
             local147 += local175;
         }
-        @Pc(249) float[] local249 = super.aClass19_Sub2_10.aFloatArray24;
-        @Pc(253) int[] local253 = super.aClass19_Sub2_10.anIntArray319;
+        @Pc(249) float[] local249 = super.toolkit.aFloatArray24;
+        @Pc(253) int[] local253 = super.toolkit.anIntArray319;
         @Pc(262) int local262;
         @Pc(265) int local265;
         @Pc(273) int local273;
@@ -2560,41 +2560,41 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
 
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int offsetX, @OriginalArg(4) int offsetY) {
-        if (super.aClass19_Sub2_10.method3785()) {
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int maskX, @OriginalArg(4) int maskY) {
+        if (super.toolkit.method3785()) {
             throw new IllegalStateException();
         }
         x += super.anInt9298;
         y += super.anInt9308;
         @Pc(20) int local20 = 0;
-        @Pc(24) int local24 = super.aClass19_Sub2_10.anInt4207;
+        @Pc(24) int local24 = super.toolkit.anInt4207;
         @Pc(27) int local27 = super.anInt9302;
         @Pc(30) int local30 = super.anInt9306;
         @Pc(34) int local34 = local24 - local27;
         @Pc(36) int local36 = 0;
         @Pc(42) int local42 = x + y * local24;
         @Pc(53) int local53;
-        if (y < super.aClass19_Sub2_10.anInt4186) {
-            local53 = super.aClass19_Sub2_10.anInt4186 - y;
+        if (y < super.toolkit.anInt4186) {
+            local53 = super.toolkit.anInt4186 - y;
             local30 -= local53;
-            y = super.aClass19_Sub2_10.anInt4186;
+            y = super.toolkit.anInt4186;
             local20 = local53 * local27;
             local42 += local53 * local24;
         }
-        if (y + local30 > super.aClass19_Sub2_10.anInt4196) {
-            local30 -= y + local30 - super.aClass19_Sub2_10.anInt4196;
+        if (y + local30 > super.toolkit.anInt4196) {
+            local30 -= y + local30 - super.toolkit.anInt4196;
         }
-        if (x < super.aClass19_Sub2_10.anInt4192) {
-            local53 = super.aClass19_Sub2_10.anInt4192 - x;
+        if (x < super.toolkit.anInt4192) {
+            local53 = super.toolkit.anInt4192 - x;
             local27 -= local53;
-            x = super.aClass19_Sub2_10.anInt4192;
+            x = super.toolkit.anInt4192;
             local20 += local53;
             local42 += local53;
             local36 = local53;
             local34 += local53;
         }
-        if (x + local27 > super.aClass19_Sub2_10.anInt4200) {
-            local53 = x + local27 - super.aClass19_Sub2_10.anInt4200;
+        if (x + local27 > super.toolkit.anInt4200) {
+            local53 = x + local27 - super.toolkit.anInt4200;
             local27 -= local53;
             local36 += local53;
             local34 += local53;
@@ -2605,17 +2605,17 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         @Pc(163) ClippingMask_Sub1 local163 = (ClippingMask_Sub1) mask;
         @Pc(166) int[] local166 = local163.anIntArray334;
         @Pc(169) int[] local169 = local163.anIntArray335;
-        @Pc(173) int[] local173 = super.aClass19_Sub2_10.anIntArray319;
+        @Pc(173) int[] local173 = super.toolkit.anIntArray319;
         @Pc(175) int local175 = y;
-        if (offsetY > y) {
-            local175 = offsetY;
-            local42 += (offsetY - y) * local24;
-            local20 += (offsetY - y) * super.anInt9302;
+        if (maskY > y) {
+            local175 = maskY;
+            local42 += (maskY - y) * local24;
+            local20 += (maskY - y) * super.anInt9302;
         }
-        @Pc(215) int local215 = offsetY + local166.length < y + local30 ? offsetY + local166.length : y + local30;
+        @Pc(215) int local215 = maskY + local166.length < y + local30 ? maskY + local166.length : y + local30;
         for (@Pc(217) int local217 = local175; local217 < local215; local217++) {
-            @Pc(226) int local226 = local166[local217 - offsetY] + offsetX;
-            @Pc(232) int local232 = local169[local217 - offsetY];
+            @Pc(226) int local226 = local166[local217 - maskY] + maskX;
+            @Pc(232) int local232 = local169[local217 - maskY];
             @Pc(234) int local234 = local27;
             @Pc(241) int local241;
             if (x > local226) {
@@ -2658,13 +2658,13 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
 
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(IIIIIIII)V")
     @Override
-    protected void method8190(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
-        if (super.aClass19_Sub2_10.method3785()) {
+    protected void renderImpl(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
+        if (super.toolkit.method3785()) {
             throw new IllegalStateException();
         } else if (width > 0 && height > 0) {
             @Pc(18) int local18 = 0;
             @Pc(20) int local20 = 0;
-            @Pc(24) int local24 = super.aClass19_Sub2_10.anInt4207;
+            @Pc(24) int local24 = super.toolkit.anInt4207;
             @Pc(33) int local33 = super.anInt9298 + super.anInt9302 + super.anInt9295;
             @Pc(42) int local42 = super.anInt9308 + super.anInt9306 + super.anInt9294;
             @Pc(48) int local48 = (local33 << 16) / width;
@@ -2688,29 +2688,29 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
             }
             local68 = x + y * local24;
             @Pc(156) int local156 = local24 - width;
-            if (y + height > super.aClass19_Sub2_10.anInt4196) {
-                height -= y + height - super.aClass19_Sub2_10.anInt4196;
+            if (y + height > super.toolkit.anInt4196) {
+                height -= y + height - super.toolkit.anInt4196;
             }
             @Pc(184) int local184;
-            if (y < super.aClass19_Sub2_10.anInt4186) {
-                local184 = super.aClass19_Sub2_10.anInt4186 - y;
+            if (y < super.toolkit.anInt4186) {
+                local184 = super.toolkit.anInt4186 - y;
                 height -= local184;
                 local68 += local184 * local24;
                 local20 += local54 * local184;
             }
-            if (x + width > super.aClass19_Sub2_10.anInt4200) {
-                local184 = x + width - super.aClass19_Sub2_10.anInt4200;
+            if (x + width > super.toolkit.anInt4200) {
+                local184 = x + width - super.toolkit.anInt4200;
                 width -= local184;
                 local156 += local184;
             }
-            if (x < super.aClass19_Sub2_10.anInt4192) {
-                local184 = super.aClass19_Sub2_10.anInt4192 - x;
+            if (x < super.toolkit.anInt4192) {
+                local184 = super.toolkit.anInt4192 - x;
                 width -= local184;
                 local68 += local184;
                 local18 += local48 * local184;
                 local156 += local184;
             }
-            @Pc(256) int[] local256 = super.aClass19_Sub2_10.anIntArray319;
+            @Pc(256) int[] local256 = super.toolkit.anIntArray319;
             @Pc(265) int local265;
             @Pc(268) int local268;
             @Pc(276) int local276;

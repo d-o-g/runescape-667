@@ -7,6 +7,7 @@ import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TickScheduler;
 import com.jagex.game.Animator;
+import com.jagex.graphics.Fonts;
 import rs2.client.loading.screen.LoadingScreen;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.SimpleFillerDecoder;

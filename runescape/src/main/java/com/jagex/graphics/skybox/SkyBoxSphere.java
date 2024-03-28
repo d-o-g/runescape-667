@@ -256,7 +256,7 @@ public final class SkyBoxSphere {
         arg0.ya();
         arg0.aa(0, 0, this.anInt5638, this.anInt5638, 0, 0);
         aSprite_25.render(0, 0, this.anInt5638, this.anInt5638, 1, 0, 0);
-        this.aSprite_24.method8196();
+        this.aSprite_24.copyAlpha(0, 0, 3);
         arg0.DA(local190[0], local190[1], local190[2], local190[3]);
         arg0.KA(anIntArray418[0], anIntArray418[1], anIntArray418[2], anIntArray418[3]);
     }
@@ -320,7 +320,7 @@ public final class SkyBoxSphere {
         local238.applyTranslation(0, 0, arg0.i() - local190.HA());
         local190.renderOrtho(local238, null, arg0.i(), 1);
         this.aSprite_24 = arg0.createSprite(0, 0, this.anInt5638, this.anInt5638, true);
-        this.aSprite_24.method8196();
+        this.aSprite_24.copyAlpha(0, 0, 3);
         arg0.DA(local219[0], local219[1], local219[2], local219[3]);
         arg0.KA(anIntArray418[0], anIntArray418[1], anIntArray418[2], anIntArray418[3]);
     }

@@ -44,7 +44,7 @@ public final class Class90_Sub3 extends Class90 {
         @Pc(24) int[] local24 = new int[4];
         Toolkit.active.K(local24);
         Toolkit.active.KA(arg0, arg1 + 2, arg0 - -local13, arg1 + super.aClass138_5.anInt4413);
-        this.aSprite_28.method8198(arg0, arg1 + 2, super.aClass138_5.anInt4418, super.aClass138_5.anInt4413);
+        this.aSprite_28.renderTiled(arg0, arg1 + 2, super.aClass138_5.anInt4418, super.aClass138_5.anInt4413);
         Toolkit.active.KA(local24[0], local24[1], local24[2], local24[3]);
     }
 }

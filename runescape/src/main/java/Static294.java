@@ -5,6 +5,7 @@ import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.texture.TextureOp;
 import jaggl.OpenGL;

@@ -24,7 +24,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     public int[] anIntArray713;
 
     @OriginalMember(owner = "client!qc", name = "o", descriptor = "Lclient!iaa;")
-    protected final JavaToolkit aClass19_Sub2_10;
+    protected final JavaToolkit toolkit;
 
     @OriginalMember(owner = "client!qc", name = "z", descriptor = "I")
     public final int anInt9302;
@@ -34,7 +34,7 @@ public abstract class Sprite_Sub1 extends Sprite {
 
     @OriginalMember(owner = "client!qc", name = "<init>", descriptor = "(Lclient!iaa;II)V")
     public Sprite_Sub1(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        this.aClass19_Sub2_10 = arg0;
+        this.toolkit = arg0;
         this.anInt9302 = arg1;
         this.anInt9306 = arg2;
     }
@@ -46,15 +46,15 @@ public abstract class Sprite_Sub1 extends Sprite {
     }
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(IILclient!aa;II)V")
-    public abstract void method8195(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int offsetX, @OriginalArg(4) int offsetY);
+    public abstract void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int maskX, @OriginalArg(4) int maskY);
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "([I)V")
     @Override
-    public final void projectOffsets(@OriginalArg(0) int[] arg0) {
-        arg0[0] = this.anInt9298;
-        arg0[1] = this.anInt9308;
-        arg0[2] = this.anInt9295;
-        arg0[3] = this.anInt9294;
+    public final void projectOffsets(@OriginalArg(0) int[] destination) {
+        destination[0] = this.anInt9298;
+        destination[1] = this.anInt9308;
+        destination[2] = this.anInt9295;
+        destination[3] = this.anInt9294;
     }
 
     @OriginalMember(owner = "client!qc", name = "d", descriptor = "()I")
@@ -64,7 +64,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     }
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(IIIIIIII)V")
-    protected abstract void method8190(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode);
+    protected abstract void renderImpl(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode);
 
     @OriginalMember(owner = "client!qc", name = "b", descriptor = "(IIIIIIIII)V")
     public abstract void method8207(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7);
@@ -80,34 +80,34 @@ public abstract class Sprite_Sub1 extends Sprite {
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
-    protected final void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
-        if (this.aClass19_Sub2_10.method3785()) {
+    protected final void renderParallelogramImpl(@OriginalArg(0) float centerX, @OriginalArg(1) float centerY, @OriginalArg(2) float x1, @OriginalArg(3) float y1, @OriginalArg(4) float x2, @OriginalArg(5) float y2, @OriginalArg(7) ClippingMask mask, @OriginalArg(8) int maskX, @OriginalArg(9) int maskY) {
+        if (this.toolkit.method3785()) {
             throw new IllegalStateException();
-        } else if (this.method8211(arg0, arg1, arg2, arg3, arg4, arg5)) {
-            @Pc(22) ClippingMask_Sub1 local22 = (ClippingMask_Sub1) arg6;
-            this.method8210(local22.anIntArray334, local22.anIntArray335, Static513.anInt9301 - arg7, -arg8 - (Static513.anInt9297 - Static513.anInt9314));
+        } else if (this.method8211(centerX, centerY, x1, y1, x2, y2)) {
+            @Pc(22) ClippingMask_Sub1 local22 = (ClippingMask_Sub1) mask;
+            this.method8210(local22.anIntArray334, local22.anIntArray335, Static513.anInt9301 - maskX, -maskY - (Static513.anInt9297 - Static513.anInt9314));
         }
     }
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(FFFFFFIIII)V")
     @Override
-    protected final void render(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int arg7) {
-        if (this.aClass19_Sub2_10.method3785()) {
+    protected final void renderImpl(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int filter) {
+        if (this.toolkit.method3785()) {
             throw new IllegalStateException();
         } else if (this.method8211(x, y, width, height, op, colour)) {
-            Static513.anInt9313 = arg7;
+            Static513.anInt9313 = filter;
             if (mode != 1) {
-                Static513.anInt9304 = arg7 >>> 24;
+                Static513.anInt9304 = filter >>> 24;
                 Static513.anInt9312 = 256 - Static513.anInt9304;
                 if (mode == 0) {
-                    Static513.anInt9319 = arg7 >> 16 & 0xFF;
-                    Static513.anInt9299 = arg7 >> 8 & 0xFF;
-                    Static513.anInt9315 = arg7 & 0xFF;
+                    Static513.anInt9319 = filter >> 16 & 0xFF;
+                    Static513.anInt9299 = filter >> 8 & 0xFF;
+                    Static513.anInt9315 = filter & 0xFF;
                 } else if (mode == 2) {
-                    Static513.anInt9296 = arg7 >>> 24;
+                    Static513.anInt9296 = filter >>> 24;
                     Static513.anInt9300 = 256 - Static513.anInt9296;
-                    @Pc(73) int local73 = (arg7 & 0xFF00FF) * Static513.anInt9300 & 0xFF00FF00;
-                    @Pc(81) int local81 = (arg7 & 0xFF00) * Static513.anInt9300 & 0xFF0000;
+                    @Pc(73) int local73 = (filter & 0xFF00FF) * Static513.anInt9300 & 0xFF00FF00;
+                    @Pc(81) int local81 = (filter & 0xFF00) * Static513.anInt9300 & 0xFF0000;
                     Static513.anInt9305 = (local73 | local81) >>> 8;
                 }
             }
@@ -131,11 +131,11 @@ public abstract class Sprite_Sub1 extends Sprite {
 
     @OriginalMember(owner = "client!qc", name = "c", descriptor = "(IIII)V")
     @Override
-    public final void method8184(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.anInt9298 = arg0;
-        this.anInt9308 = arg1;
-        this.anInt9295 = arg2;
-        this.anInt9294 = arg3;
+    public final void setOffsets(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2) {
+        this.anInt9298 = x1;
+        this.anInt9308 = y1;
+        this.anInt9295 = x2;
+        this.anInt9294 = y2;
     }
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(IIIII)V")
@@ -143,15 +143,15 @@ public abstract class Sprite_Sub1 extends Sprite {
 
     @OriginalMember(owner = "client!qc", name = "b", descriptor = "(IIIIIII)V")
     @Override
-    public final void method8189(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
-        if (this.aClass19_Sub2_10.method3785()) {
+    public final void renderTiled(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
+        if (this.toolkit.method3785()) {
             throw new IllegalStateException();
         }
         if (this.anIntArray713 == null) {
             this.anIntArray713 = new int[4];
         }
-        this.aClass19_Sub2_10.K(this.anIntArray713);
-        this.aClass19_Sub2_10.T(this.aClass19_Sub2_10.anInt4192, this.aClass19_Sub2_10.anInt4186, x + width, y + height);
+        this.toolkit.K(this.anIntArray713);
+        this.toolkit.T(this.toolkit.anInt4192, this.toolkit.anInt4186, x + width, y + height);
         @Pc(40) int local40 = this.scaleWidth();
         @Pc(43) int local43 = this.scaleHeight();
         @Pc(51) int local51 = (width + local40 - 1) / local40;
@@ -162,7 +162,7 @@ public abstract class Sprite_Sub1 extends Sprite {
                 this.render(x + local68 * local40, y + local66, op, colour, mode);
             }
         }
-        this.aClass19_Sub2_10.KA(this.anIntArray713[0], this.anIntArray713[1], this.anIntArray713[2], this.anIntArray713[3]);
+        this.toolkit.KA(this.anIntArray713[0], this.anIntArray713[1], this.anIntArray713[2], this.anIntArray713[3]);
     }
 
     @OriginalMember(owner = "client!qc", name = "b", descriptor = "(II)V")
@@ -243,17 +243,17 @@ public abstract class Sprite_Sub1 extends Sprite {
         if (local41 > local67) {
             local67 = local41;
         }
-        if (local48 < (float) this.aClass19_Sub2_10.anInt4192) {
-            local48 = (float) this.aClass19_Sub2_10.anInt4192;
+        if (local48 < (float) this.toolkit.anInt4192) {
+            local48 = (float) this.toolkit.anInt4192;
         }
-        if (local55 > (float) this.aClass19_Sub2_10.anInt4200) {
-            local55 = (float) this.aClass19_Sub2_10.anInt4200;
+        if (local55 > (float) this.toolkit.anInt4200) {
+            local55 = (float) this.toolkit.anInt4200;
         }
-        if (local61 < (float) this.aClass19_Sub2_10.anInt4186) {
-            local61 = (float) this.aClass19_Sub2_10.anInt4186;
+        if (local61 < (float) this.toolkit.anInt4186) {
+            local61 = (float) this.toolkit.anInt4186;
         }
-        if (local67 > (float) this.aClass19_Sub2_10.anInt4196) {
-            local67 = (float) this.aClass19_Sub2_10.anInt4196;
+        if (local67 > (float) this.toolkit.anInt4196) {
+            local67 = (float) this.toolkit.anInt4196;
         }
         local55 = local48 - local55;
         if (local55 >= 0.0F) {
@@ -263,7 +263,7 @@ public abstract class Sprite_Sub1 extends Sprite {
         if (local67 >= 0.0F) {
             return false;
         }
-        Static513.anInt9291 = this.aClass19_Sub2_10.anInt4207;
+        Static513.anInt9291 = this.toolkit.anInt4207;
         Static513.anInt9292 = (int) ((float) ((int) local61 * Static513.anInt9291) + local48);
         local73 = (arg2 - arg0) * (arg5 - arg1) - (arg3 - arg1) * (arg4 - arg0);
         local79 = (arg4 - arg0) * (arg3 - arg1) - (arg5 - arg1) * (arg2 - arg0);

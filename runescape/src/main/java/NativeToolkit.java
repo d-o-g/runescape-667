@@ -1051,7 +1051,7 @@ public abstract class NativeToolkit extends Toolkit {
     @Override
     public final Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         @Pc(11) Sprite_Sub3 local11 = new Sprite_Sub3(this, arg2, arg3, arg4);
-        local11.render(0, 0, arg2, arg3, arg0, arg1);
+        local11.copyRect(0, 0, arg2, arg3, arg0, arg1);
         return local11;
     }
 
@@ -1482,7 +1482,7 @@ public abstract class NativeToolkit extends Toolkit {
             }
             local141 = this.createSprite(arg0.width, arg0.width, arg0.height, local23);
         }
-        local141.method8184(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
+        local141.setOffsets(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
         return local141;
     }
 

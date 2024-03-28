@@ -4,6 +4,7 @@ import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;

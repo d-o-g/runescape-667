@@ -1,3 +1,4 @@
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalMember;
 

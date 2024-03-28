@@ -1,5 +1,6 @@
 import com.jagex.ClientTextCoord;
 import com.jagex.core.util.TimeUtils;
+import com.jagex.graphics.Fonts;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

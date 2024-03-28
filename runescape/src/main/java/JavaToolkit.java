@@ -2045,7 +2045,7 @@ public final class JavaToolkit extends Toolkit {
                 local80 = new Sprite_Sub1_Sub2(this, local22, local8, local11);
             }
         }
-        local80.method8184(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
+        local80.setOffsets(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
         return local80;
     }
 

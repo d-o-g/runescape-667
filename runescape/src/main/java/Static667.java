@@ -1,4 +1,5 @@
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

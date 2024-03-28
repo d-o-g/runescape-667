@@ -1,9 +1,12 @@
+package rs2.client.loading.screen.instance;
+
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.HorizontalAlignment;
+import com.jagex.graphics.VerticalAlignment;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
 import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!lv")

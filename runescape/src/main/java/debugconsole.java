@@ -1,4 +1,5 @@
 import com.jagex.core.constants.MainLogicStep;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Renderer;
 import com.jagex.Client;
 import com.jagex.ClientProt;

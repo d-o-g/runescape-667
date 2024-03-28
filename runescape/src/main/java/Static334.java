@@ -1,3 +1,4 @@
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

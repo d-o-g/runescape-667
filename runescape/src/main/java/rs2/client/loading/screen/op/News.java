@@ -1,12 +1,16 @@
+package rs2.client.loading.screen.op;
+
 import com.jagex.Client;
 import com.jagex.game.news.NewsItem;
 import com.jagex.game.news.NewsReader;
 import com.jagex.graphics.Font;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.instance.NewsInstance;
 import rs2.client.loading.screen.op.LoadingScreenOp;
 
 @OriginalClass("client!pga")

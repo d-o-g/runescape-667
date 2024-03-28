@@ -1317,7 +1317,7 @@ public final class GlToolkit extends Toolkit {
             }
         }
         @Pc(127) Sprite local127 = this.createSprite(arg0.width, arg0.width, arg0.height, local12);
-        local127.method8184(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
+        local127.setOffsets(arg0.offX1, arg0.offY1, arg0.offX2, arg0.offY2);
         return local127;
     }
 
@@ -2442,7 +2442,7 @@ public final class GlToolkit extends Toolkit {
             this.aClass406_6.method9363(8);
             this.method6993(this.aClass406_6);
         } else if (this.aBoolean612) {
-            this.aClass23_Sub2_1.render(0, 0, this.anInt7869, this.anInt7956, 0, 0);
+            this.aClass23_Sub2_1.copyRect(0, 0, this.anInt7869, this.anInt7956, 0, 0);
             this.anOpenGL1.setSurface(this.aLong246);
         } else {
             throw new RuntimeException("");

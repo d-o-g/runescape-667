@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -131,7 +132,7 @@ public final class Static603 {
             local34 = WorldMap.anInt5646 - local15;
         }
         local78 = (int) (Math.atan2(local31 - arg0.anInt3130, local34 - arg0.anInt3122) / 3.141592653589793D * 32767.0D) & 0xFFFF;
-        local8.method8186((float) local31 + (float) local15 / 2.0F, (float) local34 + (float) local15 / 2.0F, 4096, local78);
+        local8.renderRotated((float) local31 + (float) local15 / 2.0F, (float) local34 + (float) local15 / 2.0F, 4096, local78);
         @Pc(246) int local246 = -2;
         @Pc(248) int local248 = -2;
         @Pc(257) int local257 = -2;

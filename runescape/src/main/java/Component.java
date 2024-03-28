@@ -21,6 +21,7 @@ import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Font;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;

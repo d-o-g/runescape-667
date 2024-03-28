@@ -3,8 +3,10 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.instance.ImageInstance;
 import rs2.client.loading.screen.instance.ClearScreenInstance;
 import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
+import rs2.client.loading.screen.instance.NewsInstance;
 import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!de")

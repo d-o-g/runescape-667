@@ -1,3 +1,5 @@
+package com.jagex.graphics;
+
 import com.jagex.game.runetek6.config.fonttype.FontType;
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;
 import com.jagex.graphics.Font;

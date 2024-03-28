@@ -3,6 +3,7 @@ import com.jagex.Client;
 import com.jagex.core.constants.AreaMode;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.camera.CameraMode;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

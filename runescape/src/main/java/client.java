@@ -3,6 +3,7 @@ import com.jagex.ClientProt;
 import com.jagex.LoginProt;
 import com.jagex.core.constants.LoginResponseCode;
 import com.jagex.game.MoveSpeed;
+import com.jagex.graphics.Fonts;
 import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.game.runetek6.client.GameShell;

@@ -19,6 +19,7 @@ import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -294,7 +295,7 @@ public final class Minimap {
         if (toggle >= 3) {
             Toolkit.active.A(-16777216, graphic.clippingMask, arg1, arg2);
         } else {
-            Sprites.compass.method8183((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Camera.playerCameraYaw & 0x3FFF) << 2, graphic.clippingMask, arg1, arg2);
+            Sprites.compass.renderRotated((float) component.width / 2.0F + (float) arg1, (float) component.height / 2.0F + (float) arg2, ((int) -Camera.playerCameraYaw & 0x3FFF) << 2, graphic.clippingMask, arg1, arg2);
         }
     }
 
@@ -721,7 +722,7 @@ public final class Minimap {
                 }
 
                 toolkit.aa(local214, local216, anInt3302 * 4, anInt3302 * 4, randomFloorColour, 2);
-                sprite.render((x - mapX) * 4 + 48, -(anInt3302 * 4) + -((z + -mapZ) * 4) + 464, anInt3302 * 4, anInt3302 * 4, local214, local216);
+                sprite.copyRect((x - mapX) * 4 + 48, -(anInt3302 * 4) + -((z + -mapZ) * 4) + 464, anInt3302 * 4, anInt3302 * 4, local214, local216);
             }
         }
 
@@ -871,7 +872,7 @@ public final class Minimap {
 
         @Pc(98) int local98 = ((drawX * local64) + (drawY * local60)) >> 14;
         @Pc(109) int local109 = ((drawY * local64) - (drawX * local60)) >> 14;
-        sprite.method8195((local98 + (component.width / 2) + offsetX) - (sprite.scaleWidth() / 2), ((component.height / 2) + offsetY) - local109 - (sprite.scaleHeight() / 2), mask, offsetX, offsetY);
+        sprite.render((local98 + (component.width / 2) + offsetX) - (sprite.scaleWidth() / 2), ((component.height / 2) + offsetY) - local109 - (sprite.scaleHeight() / 2), mask, offsetX, offsetY);
     }
 
     @OriginalMember(owner = "client!dk", name = "a", descriptor = "(IIBJLclient!aa;IIILclient!hda;)V")
@@ -908,7 +909,7 @@ public final class Minimap {
         @Pc(129) double local129 = Math.atan2(local112, local123);
         @Pc(136) int local136 = (int) ((double) local37 * Math.sin(local129));
         @Pc(143) int local143 = (int) ((double) local37 * Math.cos(local129));
-        Sprites.hintMapedge[sprite].method8186((float) local136 + (float) component.width / 2.0F + (float) offsetX, (float) -local143 + (float) component.height / 2.0F + (float) offsetY, 4096, (int) ((-local129 / 6.283185307179586D) * 65535.0D));
+        Sprites.hintMapedge[sprite].renderRotated((float) local136 + (float) component.width / 2.0F + (float) offsetX, (float) -local143 + (float) component.height / 2.0F + (float) offsetY, 4096, (int) ((-local129 / 6.283185307179586D) * 65535.0D));
     }
 
     @OriginalMember(owner = "client!ns", name = "a", descriptor = "(B)V")

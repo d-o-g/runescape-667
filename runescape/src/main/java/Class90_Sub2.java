@@ -45,10 +45,10 @@ public class Class90_Sub2 extends Class90 {
         this.aSprite_36.render(arg0, (super.aClass138_5.anInt4413 - local34) / 2 + arg1);
         this.aSprite_35.render(super.aClass138_5.anInt4418 + arg0 - local38, (-local42 + super.aClass138_5.anInt4413) / 2 + arg1);
         Toolkit.active.KA(arg0, arg1, super.aClass138_5.anInt4418 + arg0, this.aSprite_37.scaleHeight() + arg1);
-        this.aSprite_37.method8198(local30 + arg0, arg1, super.aClass138_5.anInt4418 - local38 - local30, super.aClass138_5.anInt4413);
+        this.aSprite_37.renderTiled(local30 + arg0, arg1, super.aClass138_5.anInt4418 - local38 - local30, super.aClass138_5.anInt4413);
         @Pc(112) int local112 = this.aSprite_38.scaleHeight();
         Toolkit.active.KA(arg0, super.aClass138_5.anInt4413 + arg1 - local112, arg0 + super.aClass138_5.anInt4418, arg1 + super.aClass138_5.anInt4413);
-        this.aSprite_38.method8198(local30 + arg0, super.aClass138_5.anInt4413 + arg1 + -local112, super.aClass138_5.anInt4418 - local30 - local38, super.aClass138_5.anInt4413);
+        this.aSprite_38.renderTiled(local30 + arg0, super.aClass138_5.anInt4413 + arg1 + -local112, super.aClass138_5.anInt4418 - local30 - local38, super.aClass138_5.anInt4413);
         Toolkit.active.KA(local8[0], local8[1], local8[2], local8[3]);
     }
 
@@ -67,13 +67,13 @@ public class Class90_Sub2 extends Class90 {
         Toolkit.active.KA(local9, local33, local63 + local9, local45);
         this.method7756(local33, local9, local50, local55);
         Toolkit.active.KA(local63 + local9, local33, local27, local45);
-        this.aSprite_39.method8198(local9, local33, local50, local55);
+        this.aSprite_39.renderTiled(local9, local33, local50, local55);
         Toolkit.active.KA(local66[0], local66[1], local66[2], local66[3]);
     }
 
     @OriginalMember(owner = "client!gr", name = "a", descriptor = "(IIIII)V")
     protected void method7756(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        this.aSprite_40.method8198(arg1, arg0, arg2, arg3);
+        this.aSprite_40.renderTiled(arg1, arg0, arg2, arg3);
     }
 
     @OriginalMember(owner = "client!gr", name = "a", descriptor = "(I)V")

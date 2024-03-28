@@ -1,6 +1,7 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
+import com.jagex.graphics.Fonts;
 import com.jagex.sign.SignLink;
 import com.jagex.sign.SignedResource;
 import com.jagex.sign.SignedResourceStatus;
@@ -692,17 +693,17 @@ public final class InterfaceManager {
                                         for (@Pc(792) int x = 0; x < newWidth; x++) {
                                             for (@Pc(936) int y = 0; y < newHeight; y++) {
                                                 if (child.colour != 0) {
-                                                    sprite.method8187((float) (x * scaleWidth + screenX) + ((float) scaleWidth / 2.0F), (float) scaleHeight / 2.0F + (float) (y * scaleHeight + screenY), 4096, child.angle2d, backgroundColour);
+                                                    sprite.renderRotated((float) (x * scaleWidth + screenX) + ((float) scaleWidth / 2.0F), (float) scaleHeight / 2.0F + (float) (y * scaleHeight + screenY), 4096, child.angle2d, backgroundColour);
                                                 } else {
-                                                    sprite.method8186((float) (x * scaleWidth + screenX) + ((float) scaleWidth / 2.0F), (float) (screenY + scaleHeight * y) + (float) scaleHeight / 2.0F, 4096, child.angle2d);
+                                                    sprite.renderRotated((float) (x * scaleWidth + screenX) + ((float) scaleWidth / 2.0F), (float) (screenY + scaleHeight * y) + (float) scaleHeight / 2.0F, 4096, child.angle2d);
                                                 }
                                             }
                                         }
                                     } else {
                                         if (child.colour != 0 || transparency != 0) {
-                                            sprite.method8189(screenX, screenY, child.width, child.height, 0, backgroundColour, 1);
+                                            sprite.renderTiled(screenX, screenY, child.width, child.height, 0, backgroundColour, 1);
                                         } else {
-                                            sprite.method8198(screenX, screenY, child.width, child.height);
+                                            sprite.renderTiled(screenX, screenY, child.width, child.height);
                                         }
                                     }
 
@@ -710,7 +711,7 @@ public final class InterfaceManager {
                                 } else {
                                     if (child.colour != 0 || transparency != 0) {
                                         if (child.angle2d != 0) {
-                                            sprite.method8187(((float) child.width / 2.0F) + (float) screenX, (float) child.height / 2.0F + (float) screenY, child.width * 4096 / scaleWidth, child.angle2d, backgroundColour);
+                                            sprite.renderRotated(((float) child.width / 2.0F) + (float) screenX, (float) child.height / 2.0F + (float) screenY, child.width * 4096 / scaleWidth, child.angle2d, backgroundColour);
                                         } else if (scaleWidth == child.width && scaleHeight == child.height) {
                                             sprite.render(screenX, screenY, 0, backgroundColour, 1);
                                         } else {
@@ -718,7 +719,7 @@ public final class InterfaceManager {
                                         }
                                     } else {
                                         if (child.angle2d != 0) {
-                                            sprite.method8186(((float) child.width / 2.0F) + (float) screenX, (float) screenY + (float) child.height / 2.0F, child.width * 4096 / scaleWidth, child.angle2d);
+                                            sprite.renderRotated(((float) child.width / 2.0F) + (float) screenX, (float) screenY + (float) child.height / 2.0F, child.width * 4096 / scaleWidth, child.angle2d);
                                         } else if (scaleWidth == child.width && scaleHeight == child.height) {
                                             sprite.render(screenX, screenY);
                                         } else {

@@ -2,6 +2,8 @@ import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.instance.ImageInstance;
+import rs2.client.loading.screen.instance.RotatingImageInstance;
 
 public final class Static464 {
 
@@ -15,6 +17,6 @@ public final class Static464 {
     public static RotatingImageInstance method6301(@OriginalArg(0) Packet arg0) {
         @Pc(16) ImageInstance local16 = ImageInstance.decode(arg0);
         @Pc(20) int local20 = arg0.g3s();
-        return new RotatingImageInstance(local16.anInt3851, local16.aHorizontalAlignment_9, local16.aVerticalAlignment_9, local16.anInt3850, local16.anInt3845, local20);
+        return new RotatingImageInstance(local16.spriteId, local16.horizontalAlignment, local16.verticalAlignment, local16.x, local16.y, local20);
     }
 }

@@ -6,6 +6,7 @@ import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.FontMetrics;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.JavaObjSprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;

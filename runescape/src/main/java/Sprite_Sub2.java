@@ -56,7 +56,7 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(III)V")
     @Override
-    public void method8196() {
+    public void copyAlpha(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int channel) {
         OpenGL.glPixelTransferf(OpenGL.GL_RED_SCALE, 0.5F);
         OpenGL.glPixelTransferf(OpenGL.GL_RED_BIAS, 0.499F);
         OpenGL.glPixelTransferf(OpenGL.GL_GREEN_SCALE, 0.5F);
@@ -75,7 +75,7 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(IIIIIIII)V")
     @Override
-    protected void method8190(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
+    protected void renderImpl(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
         this.aClass93_Sub2_Sub1_3.method9438(true);
         this.aClass19_Sub3_28.method7018();
         this.aClass19_Sub3_28.method7017(mode);
@@ -167,8 +167,8 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
-    protected void method8194(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(7) ClippingMask arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8) {
-        @Pc(7) Class93_Sub2_Sub1 local7 = ((ClippingMask_Sub3) arg6).aClass93_Sub2_Sub1_5;
+    protected void renderParallelogramImpl(@OriginalArg(0) float centerX, @OriginalArg(1) float centerY, @OriginalArg(2) float x1, @OriginalArg(3) float y1, @OriginalArg(4) float x2, @OriginalArg(5) float y2, @OriginalArg(7) ClippingMask mask, @OriginalArg(8) int maskX, @OriginalArg(9) int maskY) {
+        @Pc(7) Class93_Sub2_Sub1 local7 = ((ClippingMask_Sub3) mask).aClass93_Sub2_Sub1_5;
         @Pc(14) float local14;
         @Pc(18) float local18;
         @Pc(25) float local25;
@@ -176,10 +176,10 @@ public final class Sprite_Sub2 extends Sprite {
         if (this.aBoolean456) {
             local14 = (float) this.scaleWidth();
             local18 = (float) this.scaleHeight();
-            local25 = (arg2 - arg0) / local14;
-            local32 = (arg3 - arg1) / local14;
-            @Pc(39) float local39 = (arg4 - arg0) / local18;
-            @Pc(46) float local46 = (arg5 - arg1) / local18;
+            local25 = (x1 - centerX) / local14;
+            local32 = (y1 - centerY) / local14;
+            @Pc(39) float local39 = (x2 - centerX) / local18;
+            @Pc(46) float local46 = (y2 - centerY) / local18;
             @Pc(52) float local52 = local39 * (float) this.anInt6027;
             @Pc(58) float local58 = (float) this.anInt6027 * local46;
             @Pc(64) float local64 = (float) this.anInt6041 * local25;
@@ -187,16 +187,16 @@ public final class Sprite_Sub2 extends Sprite {
             @Pc(77) float local77 = -local25 * (float) this.anInt6037;
             @Pc(84) float local84 = (float) this.anInt6037 * -local32;
             @Pc(91) float local91 = (float) this.anInt6040 * -local39;
-            arg3 = arg3 + local84 + local58;
-            arg0 = local52 + local64 + arg0;
+            y1 = y1 + local84 + local58;
+            centerX = local52 + local64 + centerX;
             @Pc(110) float local110 = -local46 * (float) this.anInt6040;
-            arg2 = local52 + local77 + arg2;
-            arg4 = local91 + arg4 + local64;
-            arg1 = local70 + arg1 + local58;
-            arg5 = local110 + local70 + arg5;
+            x1 = local52 + local77 + x1;
+            x2 = local91 + x2 + local64;
+            centerY = local70 + centerY + local58;
+            y2 = local110 + local70 + y2;
         }
-        local14 = arg4 + arg2 - arg0;
-        local18 = arg5 + arg3 - arg1;
+        local14 = x2 + x1 - centerX;
+        local18 = y2 + y1 - centerY;
         this.aClass93_Sub2_Sub1_3.method9438(true);
         this.aClass19_Sub3_28.method7018();
         this.aClass19_Sub3_28.method7001(this.aClass93_Sub2_Sub1_3);
@@ -211,17 +211,17 @@ public final class Sprite_Sub2 extends Sprite {
         OpenGL.glBegin(OpenGL.GL_QUADS);
         OpenGL.glColor3f(1.0F, 1.0F, 1.0F);
         OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE0, 0.0F, this.aClass93_Sub2_Sub1_3.aFloat68);
-        OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, local25 * (arg0 - (float) arg7), local7.aFloat68 - (arg1 - (float) arg8) * local32);
-        OpenGL.glVertex2f(arg0, arg1);
+        OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, local25 * (centerX - (float) maskX), local7.aFloat68 - (centerY - (float) maskY) * local32);
+        OpenGL.glVertex2f(centerX, centerY);
         OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE0, 0.0F, 0.0F);
-        OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, ((float) -arg7 + arg4) * local25, local7.aFloat68 - local32 * ((float) -arg8 + arg5));
-        OpenGL.glVertex2f(arg4, arg5);
+        OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, ((float) -maskX + x2) * local25, local7.aFloat68 - local32 * ((float) -maskY + y2));
+        OpenGL.glVertex2f(x2, y2);
         OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE0, this.aClass93_Sub2_Sub1_3.aFloat67, 0.0F);
-        OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, ((float) -arg7 + local14) * local25, local7.aFloat68 - ((float) -arg8 + local18) * local32);
+        OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, ((float) -maskX + local14) * local25, local7.aFloat68 - ((float) -maskY + local18) * local32);
         OpenGL.glVertex2f(local14, local18);
         OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE0, this.aClass93_Sub2_Sub1_3.aFloat67, this.aClass93_Sub2_Sub1_3.aFloat68);
-        OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, local25 * ((float) -arg7 + arg2), local7.aFloat68 - (arg3 - (float) arg8) * local32);
-        OpenGL.glVertex2f(arg2, arg3);
+        OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, local25 * ((float) -maskX + x1), local7.aFloat68 - (y1 - (float) maskY) * local32);
+        OpenGL.glVertex2f(x1, y1);
         OpenGL.glEnd();
         this.aClass19_Sub3_28.method7021(5890, 768, 0);
         this.aClass19_Sub3_28.method6991(0);
@@ -231,7 +231,7 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
-    public void method8195(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int offsetX, @OriginalArg(4) int offsetY) {
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int maskX, @OriginalArg(4) int maskY) {
         @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) mask;
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.aClass93_Sub2_Sub1_3.method9438(false);
@@ -249,10 +249,10 @@ public final class Sprite_Sub2 extends Sprite {
         @Pc(79) int local79 = this.aClass93_Sub2_Sub1_3.anInt3257 + local67;
         @Pc(86) float local86 = local9.aFloat67 / (float) local9.anInt3259;
         @Pc(93) float local93 = local9.aFloat68 / (float) local9.anInt3257;
-        @Pc(100) float local100 = local86 * (float) (local62 - offsetX);
-        @Pc(108) float local108 = local86 * (float) (local73 - offsetX);
-        @Pc(118) float local118 = local9.aFloat68 - (float) (local67 - offsetY) * local93;
-        @Pc(128) float local128 = local9.aFloat68 - local93 * (float) (local79 - offsetY);
+        @Pc(100) float local100 = local86 * (float) (local62 - maskX);
+        @Pc(108) float local108 = local86 * (float) (local73 - maskX);
+        @Pc(118) float local118 = local9.aFloat68 - (float) (local67 - maskY) * local93;
+        @Pc(128) float local128 = local9.aFloat68 - local93 * (float) (local79 - maskY);
         OpenGL.glBegin(OpenGL.GL_QUADS);
         OpenGL.glColor3f(1.0F, 1.0F, 1.0F);
         OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE0, 0.0F, this.aClass93_Sub2_Sub1_3.aFloat68);
@@ -276,20 +276,20 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "([I)V")
     @Override
-    public void projectOffsets(@OriginalArg(0) int[] arg0) {
-        arg0[2] = this.anInt6037;
-        arg0[3] = this.anInt6040;
-        arg0[1] = this.anInt6027;
-        arg0[0] = this.anInt6041;
+    public void projectOffsets(@OriginalArg(0) int[] destination) {
+        destination[2] = this.anInt6037;
+        destination[3] = this.anInt6040;
+        destination[1] = this.anInt6027;
+        destination[0] = this.anInt6041;
     }
 
     @OriginalMember(owner = "client!mb", name = "c", descriptor = "(IIII)V")
     @Override
-    public void method8184(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.anInt6027 = arg1;
-        this.anInt6041 = arg0;
-        this.anInt6037 = arg2;
-        this.anInt6040 = arg3;
+    public void setOffsets(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2) {
+        this.anInt6027 = y1;
+        this.anInt6041 = x1;
+        this.anInt6037 = x2;
+        this.anInt6040 = y2;
         this.aBoolean456 = this.anInt6041 != 0 || this.anInt6027 != 0 || this.anInt6037 != 0 || this.anInt6040 != 0;
     }
 
@@ -344,7 +344,7 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(FFFFFFIIII)V")
     @Override
-    protected void render(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int arg7) {
+    protected void renderImpl(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int filter) {
         @Pc(6) float local6;
         @Pc(10) float local10;
         if (this.aBoolean456) {
@@ -376,7 +376,7 @@ public final class Sprite_Sub2 extends Sprite {
         this.aClass19_Sub3_28.method7001(this.aClass93_Sub2_Sub1_3);
         this.aClass19_Sub3_28.method7017(1);
         this.aClass19_Sub3_28.method6991(mode);
-        OpenGL.glColor4ub((byte) (arg7 >> 16), (byte) (arg7 >> 8), (byte) arg7, (byte) (arg7 >> 24));
+        OpenGL.glColor4ub((byte) (filter >> 16), (byte) (filter >> 8), (byte) filter, (byte) (filter >> 24));
         OpenGL.glBegin(OpenGL.GL_QUADS);
         OpenGL.glTexCoord2f(0.0F, this.aClass93_Sub2_Sub1_3.aFloat68);
         OpenGL.glVertex2f(x, y);
@@ -402,7 +402,7 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "b", descriptor = "(IIIIIII)V")
     @Override
-    public void method8189(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
+    public void renderTiled(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
         @Pc(9) int local9 = width + x;
         this.aClass93_Sub2_Sub1_3.method9438(false);
         @Pc(18) int local18 = height + y;
@@ -503,7 +503,7 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
+    public void copyRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour) {
         if (!this.aClass19_Sub3_28.aBoolean604) {
             this.aClass93_Sub2_Sub1_3.method2943(height, x, y, colour, op, width);
             return;

@@ -1,5 +1,5 @@
 import com.jagex.ServerProt;
-import com.jagex.SignedResource;
+import com.jagex.sign.SignedResource;
 import com.jagex.core.crypto.Isaac;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.io.BitPacket;

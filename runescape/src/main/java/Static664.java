@@ -1,4 +1,4 @@
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.core.io.Packet;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;

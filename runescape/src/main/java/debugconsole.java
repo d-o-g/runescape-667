@@ -3,7 +3,7 @@ import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.io.Files;
 import com.jagex.core.stringtools.general.Cp1252;

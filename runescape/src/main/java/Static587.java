@@ -1,5 +1,5 @@
 import com.jagex.DisplayProperties;
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.core.constants.MaxScreenSize;
 import com.jagex.core.util.Arrays;
 import com.jagex.game.runetek6.client.GameShell;

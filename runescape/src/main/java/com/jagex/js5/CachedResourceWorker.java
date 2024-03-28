@@ -1,8 +1,8 @@
 package com.jagex.js5;
 
-import com.jagex.SignLink;
-import com.jagex.SignedResource;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;

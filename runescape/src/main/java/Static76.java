@@ -1,4 +1,4 @@
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;

@@ -1,4 +1,4 @@
-import com.jagex.SignedResource;
+import com.jagex.sign.SignedResource;
 import com.jagex.core.datastruct.key.Node;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

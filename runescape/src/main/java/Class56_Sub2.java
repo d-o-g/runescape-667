@@ -1,4 +1,4 @@
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.sound.Node_Sub6_Sub5;
 import org.openrs2.deob.annotation.OriginalArg;

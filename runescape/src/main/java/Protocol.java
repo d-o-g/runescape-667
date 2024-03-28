@@ -3,7 +3,7 @@ import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.PrivateChatMode;
 import com.jagex.ServerProt;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.StockmarketOffer;
 import com.jagex.ZoneProt;
 import com.jagex.core.constants.AreaMode;

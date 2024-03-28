@@ -1,5 +1,5 @@
-import com.jagex.SignLink;
-import com.jagex.SignedResource;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import jaggl.OpenGL;

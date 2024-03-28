@@ -1,5 +1,5 @@
 import com.jagex.Class84;
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;

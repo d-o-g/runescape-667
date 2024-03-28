@@ -1,5 +1,5 @@
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalClass;

@@ -1,5 +1,6 @@
-package com.jagex;
+package com.jagex.sign;
 
+import com.jagex.DisplayProperties;
 import com.jagex.core.constants.FileStore;
 import com.jagex.core.constants.SignedResourceType;
 import com.jagex.core.io.FileCache;

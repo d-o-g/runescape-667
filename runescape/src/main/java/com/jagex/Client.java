@@ -9,6 +9,7 @@ import com.jagex.game.collision.CollisionMap;
 import com.jagex.js5.FileSystem_Client;
 import com.jagex.js5.Js5ResourceProvider;
 import com.jagex.js5.Js5WorkerThread;
+import com.jagex.sign.SignedResource;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

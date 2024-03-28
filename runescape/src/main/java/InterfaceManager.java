@@ -1,9 +1,9 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
-import com.jagex.SignLink;
-import com.jagex.SignedResource;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.MaxScreenSize;
 import com.jagex.game.runetek6.client.GameShell;

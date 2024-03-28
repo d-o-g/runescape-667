@@ -1,4 +1,4 @@
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.core.constants.AreaMode;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;

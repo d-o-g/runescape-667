@@ -1,5 +1,5 @@
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.Packet;
 import jaclib.hardware_info.HardwareInfo;

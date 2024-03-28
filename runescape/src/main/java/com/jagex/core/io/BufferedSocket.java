@@ -1,8 +1,8 @@
 package com.jagex.core.io;
 
-import com.jagex.SignLink;
-import com.jagex.SignedResource;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
 import org.openrs2.deob.annotation.OriginalArg;

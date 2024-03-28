@@ -1,4 +1,4 @@
-import com.jagex.SignedResource;
+import com.jagex.sign.SignedResource;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static439 {

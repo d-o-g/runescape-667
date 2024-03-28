@@ -1,4 +1,4 @@
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.MonochromeImageCache;
 import com.jagex.graphics.texture.TextureOp;

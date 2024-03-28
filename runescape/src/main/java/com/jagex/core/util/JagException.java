@@ -1,9 +1,9 @@
 package com.jagex.core.util;
 
 import com.jagex.Client;
-import com.jagex.SignLink;
-import com.jagex.SignedResource;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;

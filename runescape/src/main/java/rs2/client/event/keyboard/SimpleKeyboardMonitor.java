@@ -1,6 +1,6 @@
 package rs2.client.event.keyboard;
 
-import com.jagex.SignLink;
+import com.jagex.sign.SignLink;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.stringtools.general.Cp1252;
 import com.jagex.core.util.SystemTimer;

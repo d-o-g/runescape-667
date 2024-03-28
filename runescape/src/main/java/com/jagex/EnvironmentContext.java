@@ -1,3 +1,5 @@
+package com.jagex;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -18,11 +20,11 @@ public final class EnvironmentContext {
     public final int heapSize;
 
     @OriginalMember(owner = "client!le", name = "<init>", descriptor = "(ZIIZ)V")
-    public EnvironmentContext(@OriginalArg(0) boolean arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
-        this.signed = arg0;
-        this.cpuCount = arg2;
-        this.armCpu = arg3;
-        this.heapSize = arg1;
+    public EnvironmentContext(@OriginalArg(0) boolean signed, @OriginalArg(1) int heapSize, @OriginalArg(2) int cpuCount, @OriginalArg(3) boolean armCpu) {
+        this.signed = signed;
+        this.cpuCount = cpuCount;
+        this.armCpu = armCpu;
+        this.heapSize = heapSize;
     }
 
     @OriginalMember(owner = "client!le", name = "d", descriptor = "(B)I")

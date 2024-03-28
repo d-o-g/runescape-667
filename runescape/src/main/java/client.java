@@ -1,6 +1,6 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.io.ConnectionInfo;

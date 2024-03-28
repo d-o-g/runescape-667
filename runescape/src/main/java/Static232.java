@@ -1,4 +1,4 @@
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

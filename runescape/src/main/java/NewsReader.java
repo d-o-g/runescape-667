@@ -1,6 +1,6 @@
 import com.jagex.Client;
-import com.jagex.SignedResource;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.datastruct.StringList;
 import com.jagex.core.io.ConnectionInfo;

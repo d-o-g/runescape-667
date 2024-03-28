@@ -1,7 +1,8 @@
-import com.jagex.SignedResourceStatus;
+import com.jagex.EnvironmentContext;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.SignLink;
-import com.jagex.SignedResource;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.FileOnDisk;

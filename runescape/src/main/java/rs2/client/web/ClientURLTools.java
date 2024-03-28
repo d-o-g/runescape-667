@@ -1,8 +1,8 @@
 package rs2.client.web;
 
-import com.jagex.SignLink;
-import com.jagex.SignedResource;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.util.JavaScript;
 import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;

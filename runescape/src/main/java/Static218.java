@@ -1,5 +1,5 @@
-import com.jagex.SignedResource;
-import com.jagex.SignedResourceStatus;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;

@@ -36,7 +36,7 @@ public final class Static89 {
             sound.z2 = z + length << 9;
             sound.rateMax = locType.soundRateMax;
             sound.vorbis = locType.vorbis;
-            sound.random = locType.randsound;
+            sound.random = locType.randomsound;
             sound.minRange = locType.soundSize << 9;
             sound.delayMin = locType.soundDelayMin;
             sound.rateMin = locType.soundRateMin;

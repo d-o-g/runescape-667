@@ -158,7 +158,7 @@ public final class LocEntity {
                     return;
                 }
                 if (this.anInt8647 != multiloc.id) {
-                    randomise = multiloc.randseq;
+                    randomise = multiloc.randomanimframe;
                 }
 
                 animationId = multiloc.randomAnimation();
@@ -174,7 +174,7 @@ public final class LocEntity {
                 }
 
                 if (this.anInt8647 != multiloc.id) {
-                    randomise = loc.randseq;
+                    randomise = loc.randomanimframe;
                 }
 
                 animationId = loc.randomAnimation();

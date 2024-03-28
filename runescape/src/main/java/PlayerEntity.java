@@ -293,7 +293,7 @@ public final class PlayerEntity extends PathingEntity {
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(IIZLclient!ha;)Z")
     @Override
     public boolean picked(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) boolean arg2, @OriginalArg(3) Toolkit toolkit) {
-        if (this.playerModel == null || !this.method1421(131072, toolkit)) {
+        if (this.playerModel == null || !this.method1421(0x20000, toolkit)) {
             return false;
         }
         @Pc(22) Matrix local22 = toolkit.scratchMatrix();
@@ -429,7 +429,7 @@ public final class PlayerEntity extends PathingEntity {
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ILclient!ha;)Lclient!pea;")
     @Override
     public PickableEntity render(@OriginalArg(1) Toolkit arg0) {
-        if (this.playerModel == null || !this.method1421(2048, arg0)) {
+        if (this.playerModel == null || !this.method1421(0x800, arg0)) {
             return null;
         }
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
@@ -719,22 +719,25 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(IILclient!ha;)Z")
-    public boolean method1421(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit toolkit) {
-        @Pc(5) int local5 = arg0;
-        @Pc(15) BASType local15 = this.getBASType();
-        @Pc(33) Animator local33 = super.actionAnimator.isAnimating() && !super.actionAnimator.isDelayed() ? super.actionAnimator : null;
-        @Pc(58) Animator local58 = !super.animator.isAnimating() || this.aBoolean129 || super.ready && local33 != null ? null : super.animator;
-        @Pc(61) int local61 = local15.hillWidth;
-        @Pc(64) int local64 = local15.hillHeight;
-        if (local61 != 0 || local64 != 0 || local15.rollTargetAngle != 0 || local15.pitchTargetAngle != 0) {
-            arg0 |= 0x7;
+    public boolean method1421(@OriginalArg(0) int functionMask, @OriginalArg(2) Toolkit toolkit) {
+        @Pc(5) int functionMaskBefore = functionMask;
+        @Pc(15) BASType basType = this.getBASType();
+        @Pc(33) Animator actionAnimator = super.actionAnimator.isAnimating() && !super.actionAnimator.isDelayed() ? super.actionAnimator : null;
+        @Pc(58) Animator animator = !super.animator.isAnimating() || this.aBoolean129 || super.ready && actionAnimator != null ? null : super.animator;
+
+        @Pc(61) int hillWidth = basType.hillWidth;
+        @Pc(64) int hillHeight = basType.hillHeight;
+        if (hillWidth != 0 || hillHeight != 0 || basType.rollTargetAngle != 0 || basType.pitchTargetAngle != 0) {
+            functionMask |= 0x7;
         }
+
         @Pc(95) int yaw = super.yaw.getValue(16383);
-        @Pc(119) boolean local119 = super.recolScale != 0 && TimeUtils.clock >= super.recolStart && TimeUtils.clock < super.recolEnd;
-        if (local119) {
-            arg0 |= 0x80000;
+        @Pc(119) boolean recol = super.recolScale != 0 && TimeUtils.clock >= super.recolStart && TimeUtils.clock < super.recolEnd;
+        if (recol) {
+            functionMask |= 0x80000;
         }
-        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(ObjTypeList.instance, local33, BASTypeList.instance, SeqTypeList.instance, arg0, super.wornRotation, WearposDefaults.instance, IDKTypeList.instance, toolkit, NPCTypeList.instance, super.wornAnimators, yaw, local58, TimedVarDomain.instance);
+
+        @Pc(152) Model local152 = super.aModelArray3[0] = this.playerModel.bodyModel(ObjTypeList.instance, actionAnimator, BASTypeList.instance, SeqTypeList.instance, functionMask, super.wornRotation, WearposDefaults.instance, IDKTypeList.instance, toolkit, NPCTypeList.instance, super.wornAnimators, yaw, animator, TimedVarDomain.instance);
         @Pc(155) int local155 = PlayerModel.cacheHardReferenceCount();
         if (GameShell.maxmemory < 96 && local155 > 50) {
             Static358.method9191();
@@ -761,10 +764,10 @@ public final class PlayerEntity extends PathingEntity {
         super.sphereRadius = local152.ma();
 
         this.method9306(local152);
-        if (local61 == 0 && local64 == 0) {
+        if (hillWidth == 0 && hillHeight == 0) {
             this.method9314(yaw, 0, 0, this.getSize() << 9, this.getSize() << 9, -81);
         } else {
-            this.method9314(yaw, local15.hillMaxAngleX, local15.hillMaxAngleY, local61, local64, -104);
+            this.method9314(yaw, basType.hillMaxAngleX, basType.hillMaxAngleY, hillWidth, hillHeight, -104);
 
             if (super.modelRotateX != 0) {
                 local152.FA(super.modelRotateX);
@@ -777,12 +780,12 @@ public final class PlayerEntity extends PathingEntity {
             }
         }
 
-        if (local119) {
+        if (recol) {
             local152.adjustColours(super.recolHue, super.recolSaturation, super.recolLightness, super.recolScale & 0xFF);
         }
 
         if (!this.aBoolean129) {
-            this.method9297(local5, local64, toolkit, local15, yaw, local61);
+            this.method9297(functionMaskBefore, hillHeight, toolkit, basType, yaw, hillWidth);
         }
 
         return true;

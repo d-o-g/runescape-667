@@ -436,7 +436,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     }
 
     @OriginalMember(owner = "client!oa", name = "ZA", descriptor = "(IFFFFF)V")
-    public native void ZA(@OriginalArg(0) int arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5);
+    public native void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5);
 
     @OriginalMember(owner = "client!oa", name = "q", descriptor = "()V")
     @Override

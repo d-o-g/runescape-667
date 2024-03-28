@@ -535,9 +535,8 @@ public final class ObjType {
             mesh.upscale();
         }
 
-        @Pc(36) int i;
         if (this.recol_s != null) {
-            for (i = 0; i < this.recol_s.length; i++) {
+            for (@Pc(36) int i = 0; i < this.recol_s.length; i++) {
                 if (this.recol_d_palette == null || i >= this.recol_d_palette.length) {
                     mesh.recolour(this.recol_s[i], this.recol_d[i]);
                 } else {
@@ -547,16 +546,16 @@ public final class ObjType {
         }
 
         if (this.retex_s != null) {
-            for (i = 0; i < this.retex_s.length; i++) {
+            for (@Pc(36) int i = 0; i < this.retex_s.length; i++) {
                 mesh.retexture(this.retex_s[i], this.retex_d[i]);
             }
         }
 
         if (playerModel != null) {
-            for (i = 0; i < 10; i++) {
-                for (@Pc(138) int local138 = 0; local138 < PlayerModel.recol_s[i].length; local138++) {
-                    if (playerModel.clientpalette[i] < PlayerModel.recol_d[i][local138].length) {
-                        mesh.recolour(PlayerModel.recol_s[i][local138], PlayerModel.recol_d[i][local138][playerModel.clientpalette[i]]);
+            for (@Pc(36) int i = 0; i < 10; i++) {
+                for (@Pc(138) int j = 0; j < PlayerModel.recol_s[j].length; j++) {
+                    if (playerModel.clientpalette[j] < PlayerModel.recol_d[j][j].length) {
+                        mesh.recolour(PlayerModel.recol_s[j][j], PlayerModel.recol_d[j][j][playerModel.clientpalette[j]]);
                     }
                 }
             }
@@ -611,7 +610,7 @@ public final class ObjType {
         matrix.makeIdentity();
         scratchToolkit.setCamera(matrix);
         scratchToolkit.xa(1.0F);
-        scratchToolkit.ZA(16777215, 1.0F, 1.0F, -50.0F, -10.0F, -50.0F);
+        scratchToolkit.ZA(0xFFFFFF, 1.0F, 1.0F, -50.0F, -10.0F, -50.0F);
 
         @Pc(414) Matrix scratch = scratchToolkit.scratchMatrix();
         scratch.makeRotationZ(-this.zan2d << 3);

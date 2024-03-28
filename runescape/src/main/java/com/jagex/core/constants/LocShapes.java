@@ -4,19 +4,8 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class LocShapes {
-    @OriginalMember(owner = "client!pf", name = "q", descriptor = "[I")
-    public static final int[] WALLDECOR_STRAIGHT_XOFFSET = {1, 0, -1, 0};
 
-    @OriginalMember(owner = "client!tea", name = "g", descriptor = "[I")
-    public static final int[] WALLDECOR_STRAIGHT_ZOFFSET = {0, -1, 0, 1};
-
-    @OriginalMember(owner = "client!mr", name = "e", descriptor = "[I")
-    public static final int[] WALLDECOR_DIAGONAL_XOFFSET = {1, -1, -1, 1};
-
-    @OriginalMember(owner = "client!uba", name = "e", descriptor = "[I")
-    public static final int[] WALLDECOR_DIAGONAL_ZOFFSET = {-1, -1, 1, 1};
-
-	public static final int WALL_STRAIGHT = 0;
+    public static final int WALL_STRAIGHT = 0;
 	public static final int WALL_DIAGONALCORNER = 1;
 	public static final int WALL_L = 2;
 	public static final int WALL_SQUARECORNER = 3;

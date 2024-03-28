@@ -541,10 +541,10 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "ZA", descriptor = "(IFFFFF)V")
     @Override
-    public final void ZA(@OriginalArg(0) int arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
-        @Pc(12) boolean local12 = arg0 != this.anInt9162;
+    public final void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
+        @Pc(12) boolean local12 = colour != this.anInt9162;
         if (local12 || this.aFloat181 != arg1 || arg2 != this.aFloat180) {
-            this.anInt9162 = arg0;
+            this.anInt9162 = colour;
             this.aFloat180 = arg2;
             this.aFloat181 = arg1;
             if (local12) {

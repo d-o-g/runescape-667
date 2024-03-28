@@ -1188,7 +1188,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "ZA", descriptor = "(IFFFFF)V")
     @Override
-    public void ZA(@OriginalArg(0) int arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
+    public void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
         this.anInt4191 = (int) (arg1 * 65535.0F);
         this.anInt4187 = (int) (arg2 * 65535.0F);
         @Pc(26) float local26 = (float) Math.sqrt(arg3 * arg3 + arg4 * arg4 + arg5 * arg5);

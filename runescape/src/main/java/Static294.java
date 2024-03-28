@@ -157,7 +157,7 @@ public final class Static294 {
             Toolkit.active.ya();
         } else {
             Toolkit.active.xa(1.0F);
-            Toolkit.active.ZA(16777215, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F);
+            Toolkit.active.ZA(0xFFFFFF, 0.0F, 0.0F, 1.0F, 0.0F, 0.0F);
             Static456.aSkyBox_3.method3159(local159, Toolkit.active, Camera.yaw, local155, local375, Camera.roll, local161, local153, Static436.anInt3852 << 3, Camera.pitch);
         }
         Static557.method7331();

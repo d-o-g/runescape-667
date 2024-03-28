@@ -5,6 +5,7 @@ import com.jagex.LibraryList;
 import com.jagex.PrivateChatMode;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.io.ConnectionInfo;
+import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeWhat;
@@ -379,14 +380,14 @@ public final class ScriptRunner {
                     if (PlayerEntity.self.playerModel == null) {
                         return;
                     }
-                    for (local27 = 0; local27 < Static698.anIntArray831.length; local27++) {
-                        if (Static698.anIntArray831[local27] == local15) {
+                    for (local27 = 0; local27 < PlayerModel.PRIMARY_BODY_PARTS.length; local27++) {
+                        if (PlayerModel.PRIMARY_BODY_PARTS[local27] == local15) {
                             PlayerEntity.self.playerModel.setIDKPart(local21, IDKTypeList.instance, local27);
                             return;
                         }
                     }
-                    for (local506 = 0; local506 < Static540.anIntArray594.length; local506++) {
-                        if (Static540.anIntArray594[local506] == local15) {
+                    for (local506 = 0; local506 < PlayerModel.SECONDARY_BODY_PARTS.length; local506++) {
+                        if (PlayerModel.SECONDARY_BODY_PARTS[local506] == local15) {
                             PlayerEntity.self.playerModel.setIDKPart(local21, IDKTypeList.instance, local506);
                             return;
                         }
@@ -408,7 +409,7 @@ public final class ScriptRunner {
                     if (PlayerEntity.self.playerModel == null) {
                         return;
                     }
-                    PlayerEntity.self.playerModel.setGender(local575);
+                    PlayerEntity.self.playerModel.setFemale(local575);
                     return;
                 }
                 if (arg0 == 411) {

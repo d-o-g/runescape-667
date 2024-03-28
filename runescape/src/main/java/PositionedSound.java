@@ -125,7 +125,7 @@ public final class PositionedSound extends Node {
                 this.delayMax = locType.soundDelayMax;
                 this.id = locType.sound;
                 this.randomIds = locType.randomSoundIds;
-                this.random = locType.randsound;
+                this.random = locType.randomsound;
                 this.delayMin = locType.soundDelayMin;
             }
         } else if (this.npc != null) {

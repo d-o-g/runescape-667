@@ -2245,11 +2245,11 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "ZA", descriptor = "(IFFFFF)V")
     @Override
-    public void ZA(@OriginalArg(0) int arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
-        @Pc(16) boolean local16 = arg0 != this.anInt8011;
+    public void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
+        @Pc(16) boolean local16 = colour != this.anInt8011;
         if (local16 || this.aFloat129 != arg1 || arg2 != this.aFloat130) {
             this.aFloat129 = arg1;
-            this.anInt8011 = arg0;
+            this.anInt8011 = colour;
             this.aFloat130 = arg2;
             if (local16) {
                 this.aFloat137 = (float) (this.anInt8011 & 0xFF) / 255.0F;

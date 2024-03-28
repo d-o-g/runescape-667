@@ -24,6 +24,12 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!ju")
 public final class PlayerModel {
 
+    @OriginalMember(owner = "client!wba", name = "f", descriptor = "[I")
+    public static final int[] PRIMARY_BODY_PARTS = {0, 1, 2, 3, 4, 5, 6, 14};
+
+    @OriginalMember(owner = "client!r", name = "t", descriptor = "[I")
+    public static final int[] SECONDARY_BODY_PARTS = {7, 8, 9, 10, 11, 12, 13, 15};
+
     @OriginalMember(owner = "client!ie", name = "g", descriptor = "[I")
     private static final int[] BASE_PART_MAP = {8, 11, 4, 6, 9, 7, 10, 0};
 
@@ -205,37 +211,43 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!es;Lclient!gu;IZLclient!qp;Lclient!bp;I[ILclient!vl;Lclient!kr;Lclient!ha;Lclient!ql;[Lclient!gu;ILclient!gu;Lclient!uk;)Lclient!ka;")
-    public Model bodyModel(@OriginalArg(0) ObjTypeList objTypeList, @OriginalArg(1) Animator animator, @OriginalArg(4) BASTypeList basTypeList, @OriginalArg(5) SeqTypeList arg3, @OriginalArg(6) int functionMask, @OriginalArg(7) int[] arg5, @OriginalArg(8) WearposDefaults wearposDefaults, @OriginalArg(9) IDKTypeList idkTypeList, @OriginalArg(10) Toolkit toolkit, @OriginalArg(11) NPCTypeList npcTypeList, @OriginalArg(12) Animator[] animators, @OriginalArg(13) int arg11, @OriginalArg(14) Animator arg12, @OriginalArg(15) VarDomain varDomain) {
+    public Model bodyModel(@OriginalArg(0) ObjTypeList objTypeList, @OriginalArg(1) Animator actionAnimator, @OriginalArg(4) BASTypeList basTypeList, @OriginalArg(5) SeqTypeList seqTypeList, @OriginalArg(6) int functionMask, @OriginalArg(7) int[] wornRotation, @OriginalArg(8) WearposDefaults wearposDefaults, @OriginalArg(9) IDKTypeList idkTypeList, @OriginalArg(10) Toolkit toolkit, @OriginalArg(11) NPCTypeList npcTypeList, @OriginalArg(12) Animator[] animators, @OriginalArg(13) int yaw, @OriginalArg(14) Animator animator, @OriginalArg(15) VarDomain varDomain) {
         if (this.npcId != -1) {
-            return npcTypeList.list(this.npcId).getModel(varDomain, toolkit, basTypeList, animator, arg11, arg5, null, arg12, functionMask, animators);
+            return npcTypeList.list(this.npcId).getModel(varDomain, toolkit, basTypeList, actionAnimator, yaw, wornRotation, null, animator, functionMask, animators);
         }
+
         @Pc(28) int newFunctionMask = functionMask;
         @Pc(31) long hash = this.hash;
         @Pc(34) int[] identikit = this.identikit;
         @Pc(36) boolean leftHand = false;
         @Pc(44) boolean rightHand = false;
-        @Pc(72) int local72;
-        @Pc(116) int local116;
-        if (animator != null) {
-            @Pc(50) SeqType animation = animator.getAnimation();
+
+        if (actionAnimator != null) {
+            @Pc(50) SeqType animation = actionAnimator.getAnimation();
+
             if (animation != null && (animation.playerLeftHand >= 0 || animation.playerRightHand >= 0)) {
                 identikit = new int[this.identikit.length];
-                for (local72 = 0; local72 < identikit.length; local72++) {
-                    identikit[local72] = this.identikit[local72];
+
+                for (@Pc(72) int i = 0; i < identikit.length; i++) {
+                    identikit[i] = this.identikit[i];
                 }
 
                 if (animation.playerLeftHand >= 0 && wearposDefaults.leftHandSlot != -1) {
-                    if (animation.playerLeftHand == 65535) {
+                    if (animation.playerLeftHand == 0xffff) {
                         identikit[wearposDefaults.leftHandSlot] = 0;
-                        for (local116 = 0; local116 < wearposDefaults.animationHiddenLeftHandSlots.length; local116++) {
-                            identikit[wearposDefaults.animationHiddenLeftHandSlots[local116]] = 0;
+
+                        for (@Pc(116) int i = 0; i < wearposDefaults.animationHiddenLeftHandSlots.length; i++) {
+                            identikit[wearposDefaults.animationHiddenLeftHandSlots[i]] = 0;
                         }
+
                         hash ^= 0xFFFFFFFF00000000L;
                     } else {
                         identikit[wearposDefaults.leftHandSlot] = animation.playerLeftHand | 0x40000000;
-                        for (local116 = 0; local116 < wearposDefaults.animationHiddenLeftHandSlots.length; local116++) {
-                            identikit[wearposDefaults.animationHiddenLeftHandSlots[local116]] = 0;
+
+                        for (@Pc(116) int i = 0; i < wearposDefaults.animationHiddenLeftHandSlots.length; i++) {
+                            identikit[wearposDefaults.animationHiddenLeftHandSlots[i]] = 0;
                         }
+
                         hash ^= (long) identikit[wearposDefaults.leftHandSlot] << 32;
                     }
 
@@ -247,15 +259,19 @@ public final class PlayerModel {
 
                     if (animation.playerRightHand == 65535) {
                         identikit[wearposDefaults.rightHandSlot] = 0;
-                        for (local116 = 0; local116 < wearposDefaults.animationHiddenRightHandSlots.length; local116++) {
-                            identikit[wearposDefaults.animationHiddenRightHandSlots[local116]] = 0;
+
+                        for (@Pc(116) int i = 0; i < wearposDefaults.animationHiddenRightHandSlots.length; i++) {
+                            identikit[wearposDefaults.animationHiddenRightHandSlots[i]] = 0;
                         }
+
                         hash ^= 0xFFFFFFFFL;
                     } else {
                         identikit[wearposDefaults.rightHandSlot] = animation.playerRightHand | 0x40000000;
-                        for (local116 = 0; local116 < wearposDefaults.animationHiddenRightHandSlots.length; local116++) {
-                            identikit[wearposDefaults.animationHiddenRightHandSlots[local116]] = 0;
+
+                        for (@Pc(116) int i = 0; i < wearposDefaults.animationHiddenRightHandSlots.length; i++) {
+                            identikit[wearposDefaults.animationHiddenRightHandSlots[i]] = 0;
                         }
+
                         hash ^= identikit[wearposDefaults.rightHandSlot];
                     }
                 }
@@ -263,29 +279,29 @@ public final class PlayerModel {
         }
 
         @Pc(257) boolean animated = false;
-        local72 = animators == null ? 0 : animators.length;
-        for (local116 = 0; local116 < local72; local116++) {
-            if (animators[local116] != null) {
-                newFunctionMask |= animators[local116].functionMask();
+        @Pc(72) int animatorCount = animators == null ? 0 : animators.length;
+        for (@Pc(116) int i = 0; i < animatorCount; i++) {
+            if (animators[i] != null) {
+                newFunctionMask |= animators[i].functionMask();
                 animated = true;
             }
         }
 
+        if (actionAnimator != null) {
+            newFunctionMask |= actionAnimator.functionMask();
+            animated = true;
+        }
+
         if (animator != null) {
+            animated = true;
             newFunctionMask |= animator.functionMask();
-            animated = true;
         }
 
-        if (arg12 != null) {
-            animated = true;
-            newFunctionMask |= arg12.functionMask();
-        }
-
-        @Pc(310) boolean local310 = false;
-        if (arg5 != null) {
-            for (@Pc(314) int local314 = 0; local314 < arg5.length; local314++) {
-                if (arg5[local314] != -1) {
-                    local310 = true;
+        @Pc(310) boolean rotated = false;
+        if (wornRotation != null) {
+            for (@Pc(314) int i = 0; i < wornRotation.length; i++) {
+                if (wornRotation[i] != -1) {
+                    rotated = true;
                     newFunctionMask |= 0x20;
                 }
             }
@@ -302,152 +318,151 @@ public final class PlayerModel {
             basType = basTypeList.list(this.basId);
         }
 
-        @Pc(390) int local390;
-        @Pc(395) int local395;
-        @Pc(586) int local586;
-        @Pc(591) int local591;
         if (model == null || toolkit.compareFunctionMasks(model.ua(), newFunctionMask) != 0) {
             if (model != null) {
                 newFunctionMask = toolkit.combineFunctionMasks(newFunctionMask, model.ua());
             }
 
-            @Pc(388) boolean local388 = false;
-            local390 = 0;
-            while (true) {
-                @Pc(409) int i;
-                if (local390 >= identikit.length) {
-                    if (local388) {
-                        if (this.aLong159 != -1L) {
-                            @Pc(552) ReferenceCache local552 = recentUse;
-                            synchronized (recentUse) {
-                                model = (Model) recentUse.get(this.aLong159);
-                            }
-                        }
-                        if (model == null || toolkit.compareFunctionMasks(model.ua(), newFunctionMask) != 0) {
-                            return null;
-                        }
-                    } else {
-                        @Pc(584) Mesh[] meshes = new Mesh[identikit.length];
-                        for (local586 = 0; local586 < identikit.length; local586++) {
-                            local591 = identikit[local586];
-                            @Pc(593) ObjTypeCustomisation customisation = null;
-                            @Pc(614) boolean local614 = local586 == 5 && leftHand || local586 == 3 && rightHand;
-                            @Pc(633) Mesh local633;
-                            if ((local591 & 0x40000000) != 0) {
-                                if (!local614 && this.customisations != null && this.customisations[local586] != null) {
-                                    customisation = this.customisations[local586];
-                                }
-                                local633 = objTypeList.list(local591 & 0x3FFFFFFF).playerModel(customisation, this.female);
-                                if (local633 != null) {
-                                    meshes[local586] = local633;
-                                }
-                            } else if ((Integer.MIN_VALUE & local591) != 0) {
-                                local633 = idkTypeList.list(local591 & 0x3FFFFFFF).model();
-                                if (local633 != null) {
-                                    meshes[local586] = local633;
-                                }
-                            }
-                        }
+            @Pc(388) boolean loadModels = false;
 
-                        @Pc(709) int j;
-                        if (basType != null && basType.wornTransformations != null) {
-                            for (local591 = 0; local591 < basType.wornTransformations.length; local591++) {
-                                if (meshes[local591] != null) {
-                                    i = 0;
-                                    j = 0;
-                                    @Pc(711) int tz = 0;
-                                    @Pc(713) int rx = 0;
-                                    @Pc(715) int ry = 0;
-                                    @Pc(717) int rz = 0;
-                                    if (basType.wornTransformations[local591] != null) {
-                                        i = basType.wornTransformations[local591][0];
-                                        j = basType.wornTransformations[local591][1];
-                                        tz = basType.wornTransformations[local591][2];
-                                        rx = basType.wornTransformations[local591][3] << 3;
-                                        ry = basType.wornTransformations[local591][4] << 3;
-                                        rz = basType.wornTransformations[local591][5] << 3;
-                                    }
-                                    if (rx != 0 || ry != 0 || rz != 0) {
-                                        meshes[local591].rotate(rz, rx, ry);
-                                    }
-                                    if (i != 0 || j != 0 || tz != 0) {
-                                        meshes[local591].translate(i, j, tz);
-                                    }
-                                }
-                            }
-                        }
-
-                        @Pc(826) int local826 = newFunctionMask | 0x4000;
-                        @Pc(833) Mesh mesh = new Mesh(meshes, meshes.length);
-                        model = toolkit.createModel(mesh, local826, featureMask, 64, 850);
-
-                        for (i = 0; i < 10; i++) {
-                            for (j = 0; j < recol_s[i].length; j++) {
-                                if (recol_d[i][j].length > this.clientpalette[i]) {
-                                    model.ia(recol_s[i][j], recol_d[i][j][this.clientpalette[i]]);
-                                }
-                            }
-                        }
-
-                        model.s(newFunctionMask);
-
-                        @Pc(903) ReferenceCache local903 = recentUse;
-                        synchronized (recentUse) {
-                            recentUse.put(model, hash);
-                        }
-
-                        this.aLong159 = hash;
-                    }
-                    break;
-                }
-
-                local395 = identikit[local390];
+            for (@Pc(390) int identikitIndex = 0; identikitIndex < identikit.length; identikitIndex++) {
+                @Pc(395) int kit = identikit[identikitIndex];
                 @Pc(397) ObjTypeCustomisation customisation = null;
+                @Pc(399) boolean found = false;
 
-                @Pc(399) boolean local399 = false;
                 if (leftHand) {
-                    if (wearposDefaults.leftHandSlot == local390) {
-                        local399 = true;
+                    if (wearposDefaults.leftHandSlot == identikitIndex) {
+                        found = true;
                     } else {
-                        for (i = 0; i < wearposDefaults.animationHiddenLeftHandSlots.length; i++) {
-                            if (local390 == wearposDefaults.animationHiddenLeftHandSlots[i]) {
-                                local399 = true;
+                        for (@Pc(409) int i = 0; i < wearposDefaults.animationHiddenLeftHandSlots.length; i++) {
+                            if (identikitIndex == wearposDefaults.animationHiddenLeftHandSlots[i]) {
+                                found = true;
                                 break;
                             }
                         }
                     }
                 }
+
                 if (rightHand) {
-                    if (wearposDefaults.rightHandSlot == local390) {
-                        local399 = true;
+                    if (wearposDefaults.rightHandSlot == identikitIndex) {
+                        found = true;
                     } else {
-                        for (i = 0; i < wearposDefaults.animationHiddenRightHandSlots.length; i++) {
-                            if (wearposDefaults.animationHiddenRightHandSlots[i] == local390) {
-                                local399 = true;
+                        for (@Pc(409) int i = 0; i < wearposDefaults.animationHiddenRightHandSlots.length; i++) {
+                            if (wearposDefaults.animationHiddenRightHandSlots[i] == identikitIndex) {
+                                found = true;
                                 break;
                             }
                         }
                     }
                 }
 
-                if ((local395 & 0x40000000) != 0) {
-                    if (!local399 && this.customisations != null && this.customisations[local390] != null) {
-                        customisation = this.customisations[local390];
+                if ((kit & 0x40000000) != 0) {
+                    if (!found && this.customisations != null && this.customisations[identikitIndex] != null) {
+                        customisation = this.customisations[identikitIndex];
                     }
 
-                    if (!objTypeList.list(local395 & 0x3FFFFFFF).loadedModels(this.female, customisation)) {
-                        local388 = true;
+                    if (!objTypeList.list(kit & 0x3FFFFFFF).loadedModels(this.female, customisation)) {
+                        loadModels = true;
                     }
-                } else if ((Integer.MIN_VALUE & local395) != 0 && !idkTypeList.list(local395 & 0x3FFFFFFF).isModelLoaded()) {
-                    local388 = true;
+                } else if ((Integer.MIN_VALUE & kit) != 0 && !idkTypeList.list(kit & 0x3FFFFFFF).isModelLoaded()) {
+                    loadModels = true;
+                }
+            }
+
+            if (loadModels) {
+                if (this.aLong159 != -1L) {
+                    @Pc(552) ReferenceCache local552 = recentUse;
+                    synchronized (recentUse) {
+                        model = (Model) recentUse.get(this.aLong159);
+                    }
                 }
 
-                local390++;
+                if (model == null || toolkit.compareFunctionMasks(model.ua(), newFunctionMask) != 0) {
+                    return null;
+                }
+            } else {
+                @Pc(584) Mesh[] meshes = new Mesh[identikit.length];
+
+                for (@Pc(586) int i = 0; i < identikit.length; i++) {
+                    @Pc(591) int kit = identikit[i];
+                    @Pc(593) ObjTypeCustomisation customisation = null;
+                    @Pc(614) boolean inHand = i == 5 && leftHand || i == 3 && rightHand;
+
+                    @Pc(633) Mesh mesh;
+                    if ((kit & 0x40000000) != 0) {
+                        if (!inHand && this.customisations != null && this.customisations[i] != null) {
+                            customisation = this.customisations[i];
+                        }
+
+                        mesh = objTypeList.list(kit & 0x3FFFFFFF).playerModel(customisation, this.female);
+
+                        if (mesh != null) {
+                            meshes[i] = mesh;
+                        }
+                    } else if ((Integer.MIN_VALUE & kit) != 0) {
+                        mesh = idkTypeList.list(kit & 0x3FFFFFFF).model();
+
+                        if (mesh != null) {
+                            meshes[i] = mesh;
+                        }
+                    }
+                }
+
+                if (basType != null && basType.wornTransformations != null) {
+                    for (@Pc(591) int i = 0; i < basType.wornTransformations.length; i++) {
+                        if (meshes[i] != null) {
+                            @Pc(409) int translateX = 0;
+                            @Pc(709) int translateY = 0;
+                            @Pc(711) int translateZ = 0;
+                            @Pc(713) int rotateX = 0;
+                            @Pc(715) int rotateY = 0;
+                            @Pc(717) int rotateZ = 0;
+
+                            if (basType.wornTransformations[i] != null) {
+                                translateX = basType.wornTransformations[i][0];
+                                translateY = basType.wornTransformations[i][1];
+                                translateZ = basType.wornTransformations[i][2];
+                                rotateX = basType.wornTransformations[i][3] << 3;
+                                rotateY = basType.wornTransformations[i][4] << 3;
+                                rotateZ = basType.wornTransformations[i][5] << 3;
+                            }
+
+                            if (rotateX != 0 || rotateY != 0 || rotateZ != 0) {
+                                meshes[i].rotate(rotateZ, rotateX, rotateY);
+                            }
+
+                            if (translateX != 0 || translateY != 0 || translateZ != 0) {
+                                meshes[i].translate(translateX, translateY, translateZ);
+                            }
+                        }
+                    }
+                }
+
+                @Pc(826) int recolFunctionMask = newFunctionMask | 0x4000;
+                @Pc(833) Mesh mesh = new Mesh(meshes, meshes.length);
+                model = toolkit.createModel(mesh, recolFunctionMask, featureMask, 64, 850);
+
+                for (@Pc(409) int i = 0; i < 10; i++) {
+                    for (@Pc(709) int j = 0; j < recol_s[i].length; j++) {
+                        if (recol_d[i][j].length > this.clientpalette[i]) {
+                            model.ia(recol_s[i][j], recol_d[i][j][this.clientpalette[i]]);
+                        }
+                    }
+                }
+
+                model.s(newFunctionMask);
+
+                @Pc(903) ReferenceCache local903 = recentUse;
+                synchronized (recentUse) {
+                    recentUse.put(model, hash);
+                }
+
+                this.aLong159 = hash;
             }
         }
 
         @Pc(925) Model bodyModel = model.copy((byte) 4, newFunctionMask, true);
-        if (!animated && !local310) {
+        if (!animated && !rotated) {
             return bodyModel;
         }
 
@@ -456,17 +471,17 @@ public final class PlayerModel {
             matrices = basType.transformMatrices(toolkit);
         }
 
-        if (local310 && matrices != null) {
-            for (local390 = 0; local390 < arg5.length; local390++) {
-                if (matrices[local390] != null) {
-                    bodyModel.transform(matrices[local390], 0x1 << local390, true);
+        if (rotated && matrices != null) {
+            for (@Pc(390) int i = 0; i < wornRotation.length; i++) {
+                if (matrices[i] != null) {
+                    bodyModel.transform(matrices[i], 0x1 << i, true);
                 }
             }
         }
 
-        local390 = 0;
-        local395 = 1;
-        while (local390 < local72) {
+        @Pc(390) int local390 = 0;
+        @Pc(395) int local395 = 1;
+        while (local390 < animatorCount) {
             if (animators[local390] != null) {
                 animators[local390].animatePartial(local395, bodyModel);
             }
@@ -474,10 +489,10 @@ public final class PlayerModel {
             local395 <<= 0x1;
         }
 
-        if (local310) {
-            for (local586 = 0; local586 < arg5.length; local586++) {
-                if (arg5[local586] != -1) {
-                    local591 = arg5[local586] - arg11;
+        if (rotated) {
+            for (@Pc(586) int local586 = 0; local586 < wornRotation.length; local586++) {
+                if (wornRotation[local586] != -1) {
+                    @Pc(591) int local591 = wornRotation[local586] - yaw;
                     local591 &= 0x3FFF;
                     @Pc(1034) Matrix matrix = toolkit.createMatrix();
                     matrix.rotate(local591);
@@ -486,27 +501,27 @@ public final class PlayerModel {
             }
         }
 
-        if (local310 && matrices != null) {
-            for (local586 = 0; local586 < arg5.length; local586++) {
+        if (rotated && matrices != null) {
+            for (@Pc(586) int local586 = 0; local586 < wornRotation.length; local586++) {
                 if (matrices[local586] != null) {
                     bodyModel.transform(matrices[local586], 0x1 << local586, false);
                 }
             }
         }
 
-        if (animator != null && arg12 != null) {
-            Animator.blend(animator, bodyModel, arg12);
+        if (actionAnimator != null && animator != null) {
+            Animator.blend(actionAnimator, bodyModel, animator);
+        } else if (actionAnimator != null) {
+            actionAnimator.animate(bodyModel, 0);
         } else if (animator != null) {
             animator.animate(bodyModel, 0);
-        } else if (arg12 != null) {
-            arg12.animate(bodyModel, 0);
         }
 
         return bodyModel;
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(IZ)V")
-    public void setGender(@OriginalArg(1) boolean female) {
+    public void setFemale(@OriginalArg(1) boolean female) {
         this.female = female;
         this.computeHash();
     }
@@ -527,9 +542,10 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(Lclient!gu;IILclient!bp;Lclient!ha;BLclient!kr;II)Lclient!ka;")
-    public Model headModel(@OriginalArg(0) Animator animator, @OriginalArg(1) int ki1, @OriginalArg(2) int kit3, @OriginalArg(3) SeqTypeList seqTypeList, @OriginalArg(4) Toolkit toolkit, @OriginalArg(6) IDKTypeList idkTypeList, @OriginalArg(7) int kit2) {
+    public Model headModel(@OriginalArg(0) Animator animator, @OriginalArg(1) int kit1, @OriginalArg(2) int kit3, @OriginalArg(3) SeqTypeList seqTypeList, @OriginalArg(4) Toolkit toolkit, @OriginalArg(6) IDKTypeList idkTypeList, @OriginalArg(7) int kit2) {
         @Pc(16) int functionMask = animator == null ? 2048 : animator.functionMask() | 0x800;
-        @Pc(29) long key = (long) ki1 | (long) kit3 << 32 | (long) (kit2 << 16);
+        @Pc(29) long key = (long) kit3 << 32 | (long) (kit2 << 16) | (long) kit1;
+
         @Pc(31) ReferenceCache local31 = modelCache;
         @Pc(39) Model model;
         synchronized (modelCache) {
@@ -543,11 +559,11 @@ public final class PlayerModel {
 
             @Pc(70) Mesh[] meshes = new Mesh[3];
             @Pc(72) int local72 = 0;
-            if (!idkTypeList.list(ki1).isHeadLoaded() || !idkTypeList.list(kit2).isHeadLoaded() || !idkTypeList.list(kit3).isHeadLoaded()) {
+            if (!idkTypeList.list(kit1).isHeadLoaded() || !idkTypeList.list(kit2).isHeadLoaded() || !idkTypeList.list(kit3).isHeadLoaded()) {
                 return null;
             }
 
-            @Pc(107) Mesh mesh = idkTypeList.list(ki1).headModel();
+            @Pc(107) Mesh mesh = idkTypeList.list(kit1).headModel();
             if (mesh != null) {
                 local72++;
                 meshes[0] = mesh;
@@ -566,10 +582,10 @@ public final class PlayerModel {
             @Pc(152) int local152 = functionMask | 0x4000;
             mesh = new Mesh(meshes, local72);
             model = toolkit.createModel(mesh, local152, featureMask, 64, 768);
-            for (@Pc(168) int local168 = 0; local168 < 10; local168++) {
-                for (@Pc(172) int local172 = 0; local172 < recol_s[local168].length; local172++) {
-                    if (this.clientpalette[local168] < recol_d[local168][local172].length) {
-                        model.ia(recol_s[local168][local172], recol_d[local168][local172][this.clientpalette[local168]]);
+            for (@Pc(168) int i = 0; i < 10; i++) {
+                for (@Pc(172) int j = 0; j < recol_s[i].length; j++) {
+                    if (this.clientpalette[i] < recol_d[i][j].length) {
+                        model.ia(recol_s[i][j], recol_d[i][j][this.clientpalette[i]]);
                     }
                 }
             }

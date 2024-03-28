@@ -25,10 +25,24 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!taa")
 public final class MapRegion extends Class306 {
 
+    @OriginalMember(owner = "client!pf", name = "q", descriptor = "[I")
+    public static final int[] WALLDECOR_STRAIGHT_XOFFSET = {1, 0, -1, 0};
+
+    @OriginalMember(owner = "client!tea", name = "g", descriptor = "[I")
+    public static final int[] WALLDECOR_STRAIGHT_ZOFFSET = {0, -1, 0, 1};
+
+    @OriginalMember(owner = "client!mr", name = "e", descriptor = "[I")
+    public static final int[] WALLDECOR_DIAGONAL_XOFFSET = {1, -1, -1, 1};
+
+    @OriginalMember(owner = "client!uba", name = "e", descriptor = "[I")
+    public static final int[] WALLDECOR_DIAGONAL_ZOFFSET = {-1, -1, 1, 1};
+
     @OriginalMember(owner = "client!th", name = "b", descriptor = "Z")
     public static final boolean occlude = false;
+
     @OriginalMember(owner = "client!ui", name = "m", descriptor = "Z")
     public static final boolean forceOcclusion = false;
+
     // $FF: synthetic field
     @OriginalMember(owner = "client!taa", name = "O", descriptor = "Ljava/lang/Class;")
     public static Class locClass;
@@ -829,7 +843,7 @@ public final class MapRegion extends Class306 {
             }
 
             if (isStatic) {
-                @Pc(1916) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, LocShapes.WALLDECOR_STRAIGHT_XOFFSET[rotation] * local1844, LocShapes.WALLDECOR_STRAIGHT_ZOFFSET[rotation] * local1844, shape, rotation);
+                @Pc(1916) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, WALLDECOR_STRAIGHT_XOFFSET[rotation] * local1844, WALLDECOR_STRAIGHT_ZOFFSET[rotation] * local1844, shape, rotation);
 
                 if (staticDecor.hardShadow()) {
                     staticDecor.addShadow(toolkit);
@@ -837,7 +851,7 @@ public final class MapRegion extends Class306 {
 
                 decor = staticDecor;
             } else {
-                decor = new DynamicWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, LocShapes.WALLDECOR_STRAIGHT_XOFFSET[rotation] * local1844, local1844 * LocShapes.WALLDECOR_STRAIGHT_ZOFFSET[rotation], shape, rotation, animation);
+                decor = new DynamicWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, WALLDECOR_STRAIGHT_XOFFSET[rotation] * local1844, local1844 * WALLDECOR_STRAIGHT_ZOFFSET[rotation], shape, rotation, animation);
             }
 
             Static177.setWallDecor(level, x, z, decor, null);
@@ -851,14 +865,14 @@ public final class MapRegion extends Class306 {
             }
 
             if (isStatic) {
-                @Pc(1916) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, LocShapes.WALLDECOR_STRAIGHT_XOFFSET[rotation] * local1844, local1844 * LocShapes.WALLDECOR_STRAIGHT_ZOFFSET[rotation], shape, rotation + 4);
+                @Pc(1916) StaticWallDecor staticDecor = new StaticWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, WALLDECOR_STRAIGHT_XOFFSET[rotation] * local1844, local1844 * WALLDECOR_STRAIGHT_ZOFFSET[rotation], shape, rotation + 4);
                 decor = staticDecor;
 
                 if (staticDecor.hardShadow()) {
                     staticDecor.addShadow(toolkit);
                 }
             } else {
-                decor = new DynamicWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, LocShapes.WALLDECOR_DIAGONAL_XOFFSET[rotation] * local1844, LocShapes.WALLDECOR_DIAGONAL_ZOFFSET[rotation] * local1844, shape, rotation + 4, animation);
+                decor = new DynamicWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, WALLDECOR_DIAGONAL_XOFFSET[rotation] * local1844, WALLDECOR_DIAGONAL_ZOFFSET[rotation] * local1844, shape, rotation + 4, animation);
             }
 
             Static177.setWallDecor(level, x, z, decor, null);
@@ -890,7 +904,7 @@ public final class MapRegion extends Class306 {
             @Pc(2178) WallDecor primaryDecor;
             @Pc(2200) WallDecor secondaryDecor;
             if (isStatic) {
-                primaryDecor = new StaticWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, LocShapes.WALLDECOR_DIAGONAL_XOFFSET[rotation] * local495, LocShapes.WALLDECOR_DIAGONAL_ZOFFSET[rotation] * local495, shape, rotation + 4);
+                primaryDecor = new StaticWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, WALLDECOR_DIAGONAL_XOFFSET[rotation] * local495, WALLDECOR_DIAGONAL_ZOFFSET[rotation] * local495, shape, rotation + 4);
                 secondaryDecor = new StaticWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, 0, 0, shape, oppositeRotation + 4);
 
                 if (primaryDecor.hardShadow()) {
@@ -901,7 +915,7 @@ public final class MapRegion extends Class306 {
                     secondaryDecor.addShadow(toolkit);
                 }
             } else {
-                primaryDecor = new DynamicWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, LocShapes.WALLDECOR_DIAGONAL_XOFFSET[rotation] * local495, LocShapes.WALLDECOR_DIAGONAL_ZOFFSET[rotation] * local495, shape, rotation + 4, animation);
+                primaryDecor = new DynamicWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, WALLDECOR_DIAGONAL_XOFFSET[rotation] * local495, WALLDECOR_DIAGONAL_ZOFFSET[rotation] * local495, shape, rotation + 4, animation);
                 secondaryDecor = new DynamicWallDecor(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, 0, 0, shape, oppositeRotation + 4, animation);
             }
 

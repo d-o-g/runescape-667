@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static540 {
 
-    @OriginalMember(owner = "client!r", name = "t", descriptor = "[I")
-    public static final int[] anIntArray594 = new int[]{7, 8, 9, 10, 11, 12, 13, 15};
-
     @OriginalMember(owner = "client!r", name = "a", descriptor = "(Ljava/lang/String;BILjava/lang/String;)I")
     public static int compare(@OriginalArg(0) String b, @OriginalArg(2) int language, @OriginalArg(3) String a) {
         @Pc(6) int lengthA = a.length();

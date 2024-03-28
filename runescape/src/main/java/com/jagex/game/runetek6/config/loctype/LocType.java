@@ -184,7 +184,7 @@ public final class LocType {
     public int occlusionHeight = 960;
 
     @OriginalMember(owner = "client!c", name = "W", descriptor = "Z")
-    public boolean randseq = true;
+    public boolean randomanimframe = true;
 
     @OriginalMember(owner = "client!c", name = "U", descriptor = "I")
     public int walloff = 64;
@@ -211,7 +211,7 @@ public final class LocType {
     public int blockwalk = 2;
 
     @OriginalMember(owner = "client!c", name = "bb", descriptor = "Z")
-    public boolean randsound = false;
+    public boolean randomsound = false;
 
     @OriginalMember(owner = "client!c", name = "N", descriptor = "Z")
     public boolean animated = false;
@@ -434,7 +434,7 @@ public final class LocType {
         } else if (code == 88) {
             this.hardshadow = false;
         } else if (code == 89) {
-            this.randseq = false;
+            this.randomanimframe = false;
         } else if (code == 91) {
             this.members = true;
         } else if (code == 93) {
@@ -518,7 +518,7 @@ public final class LocType {
         } else if (code == 168) {
             this.vorbis = true;
         } else if (code == 169) {
-            this.randsound = true;
+            this.randomsound = true;
         } else if (code == 170) {
             this.occlusionHeight = packet.gsmart();
         } else if (code == 171) {

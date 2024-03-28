@@ -18,7 +18,7 @@ public final class Static54 {
         Static267.anIntArray329 = new int[18];
         Static68.anIntArray316 = new int[18];
         Static266.anIntArray615 = new int[18];
-        Static89.anIntArray169 = new int[18];
+        Static89.zoneIds = new int[18];
         Static421.aByteArrayArray19 = new byte[18][];
         Static298.anIntArray367 = new int[18];
         Static376.anIntArray458 = new int[18];
@@ -29,7 +29,7 @@ public final class Static54 {
         for (@Pc(88) int local88 = (local19 - (Static720.mapWidth >> 4)) / 8; local88 <= (local19 + (Static720.mapWidth >> 4)) / 8; local88++) {
             for (local99 = (local28 - (Static501.mapLength >> 4)) / 8; local99 <= ((Static501.mapLength >> 4) + local28) / 8; local99++) {
                 @Pc(107) int local107 = local99 + (local88 << 8);
-                Static89.anIntArray169[local79] = local107;
+                Static89.zoneIds[local79] = local107;
                 Static267.anIntArray329[local79] = js5.MAPS.getgroupid("m" + local88 + "_" + local99);
                 Static266.anIntArray615[local79] = js5.MAPS.getgroupid("l" + local88 + "_" + local99);
                 Static376.anIntArray458[local79] = js5.MAPS.getgroupid("n" + local88 + "_" + local99);

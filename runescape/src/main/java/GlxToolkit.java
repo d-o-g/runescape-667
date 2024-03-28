@@ -1,5 +1,6 @@
 import com.jagex.Class67;
-import com.jagex.Class84;
+import com.jagex.core.constants.PciVendorId;
+import com.jagex.graphics.Renderer;
 import com.jagex.Interface26;
 import com.jagex.Static14;
 import com.jagex.core.datastruct.key.Deque;
@@ -974,16 +975,16 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "c", descriptor = "()Lclient!dp;")
     @Override
-    public Class84 method7981() {
-        @Pc(7) int local7 = -1;
+    public Renderer renderer() {
+        @Pc(7) int vendor = -1;
         if (this.aString109.indexOf("nvidia") != -1) {
-            local7 = 4318;
+            vendor = PciVendorId.NVIDIA;
         } else if (this.aString109.indexOf("intel") != -1) {
-            local7 = 32902;
+            vendor = PciVendorId.INTEL;
         } else if (this.aString109.indexOf("ati") != -1) {
-            local7 = 4098;
+            vendor = PciVendorId.AMD;
         }
-        return new Class84(local7, "OpenGL", this.anInt9278, this.aString110, 0L);
+        return new Renderer(vendor, "OpenGL", this.anInt9278, this.aString110, 0L);
     }
 
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(IIII)V")

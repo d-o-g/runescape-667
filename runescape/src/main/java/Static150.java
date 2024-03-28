@@ -15,10 +15,10 @@ public final class Static150 {
     public static void method2455() {
         Static173.method2690();
         Static517.method6822(ClientOptions.instance.stereoSound.getValue() == 1);
-        Static719.aClass56_5 = Static638.method8394(GameShell.signLink, 0, 22050, GameShell.canvas);
+        Static719.aPcmPlayer_5 = Static638.method8394(GameShell.signLink, 0, 22050, GameShell.canvas);
         Static697.method9120(Static48.method1100(null));
-        Static559.aClass56_3 = Static638.method8394(GameShell.signLink, 1, 2048, GameShell.canvas);
-        Static559.aClass56_3.method3582(SoundManager.activeStreams);
+        Static559.aPcmPlayer_3 = Static638.method8394(GameShell.signLink, 1, 2048, GameShell.canvas);
+        Static559.aPcmPlayer_3.method3582(SoundManager.activeStreams);
     }
 
     @OriginalMember(owner = "client!en", name = "a", descriptor = "(BLclient!ge;)Lclient!hba;")

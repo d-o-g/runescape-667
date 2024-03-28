@@ -1,4 +1,4 @@
-import com.jagex.Class84;
+import com.jagex.graphics.Renderer;
 import com.jagex.sign.SignLink;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.Toolkit;
@@ -51,9 +51,9 @@ public final class Static519 {
             try {
                 local86 = Static363.method6235(1000, 3);
                 if (ClientOptions.instance.toolkit.getValue() == ToolkitType.D3D) {
-                    @Pc(114) Class84 local114 = Toolkit.active.method7981();
-                    @Pc(119) long local119 = local114.aLong91 & 0xFFFFFFFFFFFFL;
-                    @Pc(122) int local122 = local114.anInt2329;
+                    @Pc(114) Renderer local114 = Toolkit.active.renderer();
+                    @Pc(119) long local119 = local114.driverVersion & 0xFFFFFFFFFFFFL;
+                    @Pc(122) int local122 = local114.vendor;
                     if (local122 == 4318) {
                         local7 &= local119 >= 64425238954L;
                     } else if (local122 == 4098) {

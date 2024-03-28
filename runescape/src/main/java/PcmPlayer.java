@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.Pc;
 import java.awt.Component;
 
 @OriginalClass("client!cd")
-public class Class56 {
+public class PcmPlayer {
 
     private static boolean debug;
 
@@ -93,10 +93,10 @@ public class Class56 {
         if (Static232.aClass119_1 != null) {
             @Pc(11) boolean local11 = true;
             for (@Pc(13) int local13 = 0; local13 < 2; local13++) {
-                if (Static232.aClass119_1.aClass56Array1[local13] == this) {
-                    Static232.aClass119_1.aClass56Array1[local13] = null;
+                if (Static232.aClass119_1.aPcmPlayerArray1[local13] == this) {
+                    Static232.aClass119_1.aPcmPlayerArray1[local13] = null;
                 }
-                if (Static232.aClass119_1.aClass56Array1[local13] != null) {
+                if (Static232.aClass119_1.aPcmPlayerArray1[local13] != null) {
                     local11 = false;
                 }
             }

@@ -1,7 +1,8 @@
 import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
-import com.jagex.Class84;
+import com.jagex.core.constants.PciVendorId;
+import com.jagex.graphics.Renderer;
 import com.jagex.Interface26;
 import com.jagex.Static14;
 import com.jagex.math.ColourUtils;
@@ -59,8 +60,8 @@ public final class GlToolkit extends Toolkit {
     static {
         @Pc(433) double d = 3.834951969714103E-4D;
         for (@Pc(435) int i = 0; i < 16384; i++) {
-            GlToolkit.SIN[i] = (float) Math.sin(d * (double) i);
-            GlToolkit.COS[i] = (float) Math.cos((double) i * d);
+            SIN[i] = (float) Math.sin(d * (double) i);
+            COS[i] = (float) Math.cos((double) i * d);
         }
     }
 
@@ -1976,16 +1977,16 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "c", descriptor = "()Lclient!dp;")
     @Override
-    public Class84 method7981() {
-        @Pc(7) int local7 = -1;
+    public Renderer renderer() {
+        @Pc(7) int vendor = -1;
         if (this.aString98.indexOf("nvidia") != -1) {
-            local7 = 4318;
+            vendor = PciVendorId.NVIDIA;
         } else if (this.aString98.indexOf("intel") != -1) {
-            local7 = 32902;
+            vendor = PciVendorId.INTEL;
         } else if (this.aString98.indexOf("ati") != -1) {
-            local7 = 4098;
+            vendor = PciVendorId.AMD;
         }
-        return new Class84(local7, "OpenGL", this.anInt8020, this.aString99, 0L);
+        return new Renderer(vendor, "OpenGL", this.anInt8020, this.aString99, 0L);
     }
 
     @OriginalMember(owner = "client!qha", name = "T", descriptor = "(IIII)V")
@@ -3343,7 +3344,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "p", descriptor = "()Z")
     @Override
-    public boolean method7968() {
+    public boolean increaseRenderDistance() {
         return true;
     }
 }

@@ -1329,7 +1329,7 @@ public final class WorldMap {
         for (@Pc(4) int local4 = 0; local4 < staticElements.size; local4++) {
             @Pc(32) boolean local32 = area.method4088(local2, staticElements.coords[local4] & 0x3FFF, staticElements.coords[local4] >> 28 & 0x3, staticElements.coords[local4] >> 14 & 0x3FFF);
             if (local32) {
-                @Pc(42) MapElementListEntry local42 = new MapElementListEntry(staticElements.functions[local4]);
+                @Pc(42) MapElementListEntry local42 = new MapElementListEntry(staticElements.elements[local4]);
                 local42.x = local2[1] - areaX;
                 local42.y = local2[2] - areaY;
                 elements.addLast(local42);

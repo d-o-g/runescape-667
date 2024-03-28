@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static426 {
 
     @OriginalMember(owner = "client!nha", name = "e", descriptor = "Lclient!cd;")
-    public static Class56 aClass56_2;
+    public static PcmPlayer aPcmPlayer_2;
 
     @OriginalMember(owner = "client!nha", name = "m", descriptor = "I")
     public static final int anInt940 = -1;

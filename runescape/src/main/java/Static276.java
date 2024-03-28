@@ -17,7 +17,7 @@ public final class Static276 {
         Static444.anInt6751 = 0;
         Static607.aLocOccluderArray4 = new LocOccluder[2000];
         Static285.aLocOccluderArray1 = new LocOccluder[1000];
-        Static469.anInt7072 = 0;
+        Static469.activeOccluderCount = 0;
         Static560.aLocOccluderArray3 = new LocOccluder[500];
         if (Static665.aToolkit_15 instanceof oa) {
             Static18.occlude = false;

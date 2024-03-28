@@ -3,7 +3,6 @@ package com.jagex.graphics;
 import com.jagex.ParticleList;
 import com.jagex.Class67;
 import com.jagex.IndexedImage;
-import com.jagex.Class84;
 import com.jagex.Interface26;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -239,7 +238,7 @@ public abstract class Toolkit {
     public abstract void renderOrtho(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!ha", name = "p", descriptor = "()Z")
-    public abstract boolean method7968();
+    public abstract boolean increaseRenderDistance();
 
     @OriginalMember(owner = "client!ha", name = "h", descriptor = "()V")
     public abstract void method7969();
@@ -295,7 +294,7 @@ public abstract class Toolkit {
     public abstract void method7980();
 
     @OriginalMember(owner = "client!ha", name = "c", descriptor = "()Lclient!dp;")
-    public abstract Class84 method7981();
+    public abstract Renderer renderer();
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "()Z")
     public abstract boolean method7983();

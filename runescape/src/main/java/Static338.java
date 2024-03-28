@@ -15,8 +15,8 @@ public final class Static338 {
         for (@Pc(8) int local8 = 0; local8 < local6; local8++) {
             @Pc(13) byte[] local13 = arg0[local8];
             if (local13 != null) {
-                @Pc(26) int local26 = (Static89.anIntArray169[local8] >> 8) * 64 - WorldMap.areaBaseX;
-                @Pc(36) int local36 = (Static89.anIntArray169[local8] & 0xFF) * 64 - WorldMap.areaBaseZ;
+                @Pc(26) int local26 = (Static89.zoneIds[local8] >> 8) * 64 - WorldMap.areaBaseX;
+                @Pc(36) int local36 = (Static89.zoneIds[local8] & 0xFF) * 64 - WorldMap.areaBaseZ;
                 Static557.method7331();
                 arg1.loadLocations(local26, local36, Client.collisionMaps, Toolkit.active, local13);
             }

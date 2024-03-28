@@ -8,13 +8,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 import java.awt.Component;
 
 @OriginalClass("client!hq")
-public final class Class56_Sub2 extends Class56 {
+public final class PcmPlayer_Sub2 extends PcmPlayer {
 
     @OriginalMember(owner = "client!hq", name = "J", descriptor = "I")
     public final int anInt4104;
 
     @OriginalMember(owner = "client!hq", name = "<init>", descriptor = "(Lclient!vq;I)V")
-    public Class56_Sub2(@OriginalArg(0) SignLink arg0, @OriginalArg(1) int arg1) {
+    public PcmPlayer_Sub2(@OriginalArg(0) SignLink arg0, @OriginalArg(1) int arg1) {
         Static253.anInterface7_1 = (Interface7) arg0.method8976();
         this.anInt4104 = arg1;
     }

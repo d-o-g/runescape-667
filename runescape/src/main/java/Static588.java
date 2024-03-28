@@ -21,7 +21,7 @@ public final class Static588 {
     public static boolean method7714(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
         if (!Static18.occlude || !Static29.aBoolean60) {
             return false;
-        } else if (Static432.anInt525 < 100) {
+        } else if (Static432.occludedPixelCount < 100) {
             return false;
         } else {
             @Pc(37) int local37 = Static446.anIntArrayArrayArray9[arg1][arg2][arg0];
@@ -35,7 +35,7 @@ public final class Static588 {
                 @Pc(64) int local64 = arg2 << EnvironmentLight.anInt1066;
                 @Pc(68) int local68 = arg0 << EnvironmentLight.anInt1066;
                 if (Static172.method2674(local64 + Static340.anInt5586 - 1, local68 + 1, Static246.ground[arg1].getHeight(arg0 + 1, arg2 + 1), Static246.ground[arg1].getHeight(arg0 + 1, arg2), Static246.ground[arg1].getHeight(arg0, arg2), local68 + Static340.anInt5586 - 1, Static340.anInt5586 + local68 + -1, local64 + 1, local64 + 1) && Static172.method2674(Static340.anInt5586 + local64 - 1, local68 + 1, Static246.ground[arg1].getHeight(arg0, arg2 + 1), Static246.ground[arg1].getHeight(arg0 + 1, arg2 + 1), Static246.ground[arg1].getHeight(arg0, arg2), local68 + 1, Static340.anInt5586 + local68 + -1, local64 + 1, Static340.anInt5586 + -1 + local64)) {
-                    Static298.anInt4811++;
+                    Static298.occludedGroundCount++;
                     Static446.anIntArrayArrayArray9[arg1][arg2][arg0] = Static675.anInt10155;
                     return true;
                 } else {

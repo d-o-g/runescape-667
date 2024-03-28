@@ -1,15 +1,11 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
-import com.jagex.graphics.Font;
 import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static242 {
-
-    @OriginalMember(owner = "client!hj", name = "k", descriptor = "Lclient!da;")
-    public static Font aFont_7;
 
     @OriginalMember(owner = "client!hj", name = "i", descriptor = "I")
     public static int anInt3971 = 0;

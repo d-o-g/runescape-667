@@ -61,8 +61,8 @@ public final class Static576 {
                             Static581.mixBuss.method925(Static62.aClass2_Sub8_3, SongManager.aBoolean564, SongManager.aLong95);
                         }
                     }
-                    if (Static426.aClass56_2 != null) {
-                        Static426.aClass56_2.method3582(Static581.mixBuss);
+                    if (Static426.aPcmPlayer_2 != null) {
+                        Static426.aPcmPlayer_2.method3582(Static581.mixBuss);
                     }
                     SongManager.aLong95 = 0L;
                     Static12.aClass123_4 = null;

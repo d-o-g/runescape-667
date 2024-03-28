@@ -193,7 +193,7 @@ public final class StaticLocation extends PositionEntity implements Location {
     }
 
     @OriginalMember(owner = "client!jda", name = "m", descriptor = "(I)I")
-    public int method4222() {
+    public int shadowValue() {
         return this.model == null ? 15 : this.model.na() / 4;
     }
 

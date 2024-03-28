@@ -6,5 +6,5 @@ public final class Static432 {
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___3 = new CutsceneActionType(31);
 
     @OriginalMember(owner = "client!nka", name = "b", descriptor = "I")
-    public static int anInt525 = 0;
+    public static int occludedPixelCount = 0;
 }

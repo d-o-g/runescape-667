@@ -105,7 +105,7 @@ public final class Static102 {
         }
 
         if (dynamic) {
-            Static679.aPositionEntity[Static125.anInt2352++] = entity;
+            Static679.aPositionEntity[Static125.dynamicEntityCount++] = entity;
         } else {
             @Pc(48) int ground = Static246.ground == Static693.underwaterGround ? 1 : 0;
 

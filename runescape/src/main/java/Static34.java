@@ -52,7 +52,7 @@ public final class Static34 {
         @Pc(74) int local74;
         @Pc(61) int local61;
         if (Static254.anInt4115 == 1) {
-            Static432.anInt525 += local41;
+            Static432.occludedPixelCount += local41;
             while (true) {
                 local41--;
                 if (local41 < 0) {

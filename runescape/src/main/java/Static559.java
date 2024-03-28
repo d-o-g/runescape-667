@@ -6,6 +6,6 @@ public final class Static559 {
     public static Class327 aClass327_7;
 
     @OriginalMember(owner = "client!rka", name = "Qb", descriptor = "Lclient!cd;")
-    public static Class56 aClass56_3;
+    public static PcmPlayer aPcmPlayer_3;
 
 }

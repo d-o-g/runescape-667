@@ -1,4 +1,4 @@
-import com.jagex.Class84;
+import com.jagex.graphics.Renderer;
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.core.io.ConnectionInfo;
@@ -207,12 +207,12 @@ public final class debugconsole {
                 return;
             }
             if (command.equals("renderer")) {
-                @Pc(103) Class84 local103 = Toolkit.active.method7981();
-                addline("Vendor: " + local103.anInt2329);
-                addline("Name: " + local103.aString22);
-                addline("Version: " + local103.anInt2331);
-                addline("Device: " + local103.aString21);
-                addline("Driver Version: " + local103.aLong91);
+                @Pc(103) Renderer renderer = Toolkit.active.renderer();
+                addline("Vendor: " + renderer.vendor);
+                addline("Name: " + renderer.name);
+                addline("Version: " + renderer.version);
+                addline("Device: " + renderer.device);
+                addline("Driver Version: " + renderer.driverVersion);
                 return;
             }
             if (command.equals("heap")) {
@@ -935,5 +935,19 @@ public final class debugconsole {
 
         anInt8472 = 0;
         open = true;
+    }
+
+    @OriginalMember(owner = "client!iia", name = "a", descriptor = "(ZI)V")
+    public static void method3920(@OriginalArg(0) boolean arg0) {
+        if (currententry.length() == 0) {
+            return;
+        }
+        addline("--> " + currententry);
+        executeComand(false, arg0, currententry);
+        Static625.anInt9472 = 0;
+        if (!arg0) {
+            currententryLength = 0;
+            currententry = "";
+        }
     }
 }

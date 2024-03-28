@@ -105,7 +105,7 @@ public final class Static494 {
                         local410 *= -1.0F;
                     }
                     if (!((float) Static86.anInt1803 > local410) && (Static219.method3190(0, arg1) && (Static219.method3190(1, arg1) && (Static219.method3190(2, arg1) && Static219.method3190(3, arg1))))) {
-                        Static560.aLocOccluderArray3[Static469.anInt7072++] = arg1;
+                        Static560.aLocOccluderArray3[Static469.activeOccluderCount++] = arg1;
                     }
                 }
             }
@@ -137,7 +137,7 @@ public final class Static494 {
                         local410 *= -1.0F;
                     }
                     if (!(local410 < (float) Static86.anInt1803) && (Static219.method3190(0, arg1) && (Static219.method3190(1, arg1) && (Static219.method3190(2, arg1) && Static219.method3190(3, arg1))))) {
-                        Static560.aLocOccluderArray3[Static469.anInt7072++] = arg1;
+                        Static560.aLocOccluderArray3[Static469.activeOccluderCount++] = arg1;
                     }
                 }
             }
@@ -155,7 +155,7 @@ public final class Static494 {
                         local714 *= -1.0F;
                     }
                     if ((!((float) Static86.anInt1803 > local697) || !((float) Static86.anInt1803 > local714)) && (Static219.method3190(0, arg1) && (Static219.method3190(1, arg1) && (Static219.method3190(2, arg1) && Static219.method3190(3, arg1))))) {
-                        Static560.aLocOccluderArray3[Static469.anInt7072++] = arg1;
+                        Static560.aLocOccluderArray3[Static469.activeOccluderCount++] = arg1;
                     }
                 }
             }
@@ -197,7 +197,7 @@ public final class Static494 {
                     }
                 }
                 if (local900 && (Static219.method3190(0, arg1) && (Static219.method3190(1, arg1) && (Static219.method3190(2, arg1) && Static219.method3190(3, arg1))))) {
-                    Static560.aLocOccluderArray3[Static469.anInt7072++] = arg1;
+                    Static560.aLocOccluderArray3[Static469.activeOccluderCount++] = arg1;
                 }
             }
         }

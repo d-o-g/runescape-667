@@ -1,5 +1,5 @@
 import com.jagex.Class67;
-import com.jagex.Class84;
+import com.jagex.graphics.Renderer;
 import com.jagex.Interface26;
 import com.jagex.Static14;
 import com.jagex.graphics.Exception_Sub1;
@@ -333,9 +333,9 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "c", descriptor = "()Lclient!dp;")
     @Override
-    public Class84 method7981() {
-        @Pc(6) D3DADAPTER_IDENTIFIER local6 = this.anIDirect3D1.b(this.anInt5369, 0);
-        return new Class84(local6.VendorID, "Direct3D", 9, local6.Description, local6.DriverVersion);
+    public Renderer renderer() {
+        @Pc(6) D3DADAPTER_IDENTIFIER identifier = this.anIDirect3D1.b(this.anInt5369, 0);
+        return new Renderer(identifier.VendorID, "Direct3D", 9, identifier.Description, identifier.DriverVersion);
     }
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(IBLclient!hla;Z)V")

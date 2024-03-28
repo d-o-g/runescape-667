@@ -20,8 +20,8 @@ public final class Static522 {
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(ILclient!bn;)V")
     public static void method7041(@OriginalArg(1) MidiSong arg0) {
         Static581.mixBuss.method934(arg0, false);
-        if (Static426.aClass56_2 != null) {
-            Static426.aClass56_2.method3582(Static581.mixBuss);
+        if (Static426.aPcmPlayer_2 != null) {
+            Static426.aPcmPlayer_2.method3582(Static581.mixBuss);
         }
         Static62.aClass2_Sub8_3 = null;
         SongManager.anInt10171 = 0;

@@ -14,7 +14,7 @@ import javax.sound.sampled.SourceDataLine;
 import java.awt.Component;
 
 @OriginalClass("client!cb")
-public final class Class56_Sub1 extends Class56 {
+public final class PcmPlayer_Sub1 extends PcmPlayer {
 
     @OriginalMember(owner = "client!cb", name = "J", descriptor = "Ljavax/sound/sampled/SourceDataLine;")
     public SourceDataLine aSourceDataLine1;

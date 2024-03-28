@@ -19,8 +19,8 @@ public final class Static21 {
     public static Class aClass23;
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!ha;IIIIIIZZ)V")
-    public static void method8043(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(7) boolean arg5, @OriginalArg(8) boolean arg6) {
-        Static665.aToolkit_15 = arg0;
+    public static void method8043(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(7) boolean arg5, @OriginalArg(8) boolean arg6) {
+        Static665.aToolkit_15 = toolkit;
         Static32.anInt772 = arg1;
         Static661.aBoolean457 = Static32.anInt772 > 1 && Static665.aToolkit_15.method7979();
         EnvironmentLight.anInt1066 = 9;
@@ -64,11 +64,11 @@ public final class Static21 {
         Static398.transparentStationaryEntities = new Entity[2];
         Static468.dynamicEntities = new Entity[2];
         Static48.aEntityArray3 = new Entity[10000];
-        Static546.anInt8244 = 0;
+        Static546.onscreenOpaqueEntityCount = 0;
         Static395.aEntityArray11 = new Entity[5000];
-        Static645.anInt9611 = 0;
+        Static645.onscreenTransparentEntityCount = 0;
         Static679.aPositionEntity = new PositionEntity[5000];
-        Static125.anInt2352 = 0;
+        Static125.dynamicEntityCount = 0;
         Static258.aBooleanArrayArray3 = new boolean[Static35.anInt813 + Static35.anInt813 + 1][Static35.anInt813 + Static35.anInt813 + 1];
         Static142.aBooleanArrayArray1 = new boolean[Static35.anInt813 + Static35.anInt813 + 2][Static35.anInt813 + Static35.anInt813 + 2];
         Static102.anIntArray184 = new int[Static35.anInt813 + Static35.anInt813 + 2];

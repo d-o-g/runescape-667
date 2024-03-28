@@ -6,6 +6,6 @@ public final class Static571 {
     public static int anInt8534;
 
     @OriginalMember(owner = "client!rw", name = "A", descriptor = "[I")
-    public static final int[] anIntArray682 = new int[]{32, 39, 44, 47};
+    public static final int[] FOG_RENDER_DISTANCE = new int[]{32, 39, 44, 47};
 
 }

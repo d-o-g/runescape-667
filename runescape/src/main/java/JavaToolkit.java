@@ -1,7 +1,7 @@
 import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
-import com.jagex.Class84;
+import com.jagex.graphics.Renderer;
 import com.jagex.Interface26;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.math.ColourUtils;
@@ -1430,8 +1430,8 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "c", descriptor = "()Lclient!dp;")
     @Override
-    public Class84 method7981() {
-        return new Class84(0, "Pure Java", 1, "CPU", 0L);
+    public Renderer renderer() {
+        return new Renderer(0, "Pure Java", 1, "CPU", 0L);
     }
 
     @OriginalMember(owner = "client!iaa", name = "f", descriptor = "(I)V")
@@ -1481,7 +1481,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "p", descriptor = "()Z")
     @Override
-    public boolean method7968() {
+    public boolean increaseRenderDistance() {
         return false;
     }
 

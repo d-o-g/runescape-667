@@ -78,7 +78,7 @@ public final class Static266 {
         }
         local22 = CutsceneManager.anIntArrayArray265.length;
         anIntArray615 = new int[local22];
-        Static89.anIntArray169 = new int[local22];
+        Static89.zoneIds = new int[local22];
         Static319.aByteArrayArray16 = new byte[local22][];
         Static298.anIntArray367 = new int[local22];
         Static363.aByteArrayArray22 = null;
@@ -107,11 +107,11 @@ public final class Static266 {
                 for (local110 = local98 >>> 3; local110 <= local104; local110++) {
                     local113 = local107 << 8 | local110;
                     for (local116 = 0; local116 < local22; local116++) {
-                        if (local113 == Static89.anIntArray169[local116]) {
+                        if (local113 == Static89.zoneIds[local116]) {
                             continue label82;
                         }
                     }
-                    Static89.anIntArray169[local22] = local113;
+                    Static89.zoneIds[local22] = local113;
                     Static267.anIntArray329[local22] = js5.MAPS.getgroupid("m" + local107 + "_" + local110);
                     anIntArray615[local22] = js5.MAPS.getgroupid("l" + local107 + "_" + local110);
                     Static68.anIntArray316[local22] = js5.MAPS.getgroupid("um" + local107 + "_" + local110);

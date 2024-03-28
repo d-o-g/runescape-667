@@ -169,6 +169,6 @@ public final class Static283 {
             Static258.aBooleanArrayArray3 = local79;
             Static142.aBooleanArrayArray1 = local81;
         }
-        Static334.method4937();
+        Static334.w2debug();
     }
 }

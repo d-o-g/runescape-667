@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static506 {
 
     @OriginalMember(owner = "client!pv", name = "v", descriptor = "[I")
-    public static final int[] anIntArray728 = new int[]{28, 35, 40, 44};
+    public static final int[] RENDER_DISTANCE = new int[]{28, 35, 40, 44};
 
     @OriginalMember(owner = "client!pv", name = "d", descriptor = "(B)V")
     public static void method8313() {

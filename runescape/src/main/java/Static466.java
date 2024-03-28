@@ -335,7 +335,7 @@ public final class Static466 {
         Static177.aByteArrayArray5 = new byte[local50][];
         Static266.anIntArray615 = new int[local50];
         Static376.anIntArray458 = null;
-        Static89.anIntArray169 = new int[local50];
+        Static89.zoneIds = new int[local50];
         Static298.anIntArray367 = new int[local50];
         Static421.aByteArrayArray19 = new byte[local50][];
         Static267.anIntArray329 = new int[local50];
@@ -352,13 +352,13 @@ public final class Static466 {
                         @Pc(251) int local251 = local235 >> 3 & 0x7FF;
                         @Pc(261) int local261 = local251 / 8 + (local245 / 8 << 8);
                         for (@Pc(263) int local263 = 0; local263 < local50; local263++) {
-                            if (Static89.anIntArray169[local263] == local261) {
+                            if (Static89.zoneIds[local263] == local261) {
                                 local261 = -1;
                                 break;
                             }
                         }
                         if (local261 != -1) {
-                            Static89.anIntArray169[local50] = local261;
+                            Static89.zoneIds[local50] = local261;
                             @Pc(299) int local299 = local261 >> 8 & 0xFF;
                             @Pc(303) int local303 = local261 & 0xFF;
                             Static267.anIntArray329[local50] = js5.MAPS.getgroupid("m" + local299 + "_" + local303);

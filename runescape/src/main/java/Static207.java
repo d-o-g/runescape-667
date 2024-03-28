@@ -12,6 +12,6 @@ public final class Static207 {
         Static501.anIntArray606 = null;
         Static418.anIntArray704 = null;
         Static359.anIntArray449 = null;
-        Static404.aBoolean465 = false;
+        Static404.renderShadows = false;
     }
 }

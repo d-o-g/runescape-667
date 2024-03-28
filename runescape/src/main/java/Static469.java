@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static469 {
 
     @OriginalMember(owner = "client!oq", name = "f", descriptor = "I")
-    public static int anInt7072 = 0;
+    public static int activeOccluderCount = 0;
 
     @OriginalMember(owner = "client!oq", name = "a", descriptor = "(III[BILclient!qha;IZ)Lclient!gb;")
     public static Class93_Sub2_Sub1 method6359(@OriginalArg(0) int arg0, @OriginalArg(3) byte[] arg1, @OriginalArg(5) GlToolkit arg2, @OriginalArg(6) int arg3) {

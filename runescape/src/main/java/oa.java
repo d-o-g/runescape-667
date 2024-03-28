@@ -1,7 +1,7 @@
 import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
-import com.jagex.Class84;
+import com.jagex.graphics.Renderer;
 import com.jagex.Interface26;
 import com.jagex.Static14;
 import com.jagex.graphics.sw.SoftwareMemoryManager;
@@ -423,7 +423,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "p", descriptor = "()Z")
     @Override
-    public boolean method7968() {
+    public boolean increaseRenderDistance() {
         return true;
     }
 
@@ -536,8 +536,8 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "c", descriptor = "()Lclient!dp;")
     @Override
-    public Class84 method7981() {
-        return new Class84(0, "SSE", 1, "CPU", 0L);
+    public Renderer renderer() {
+        return new Renderer(0, "SSE", 1, "CPU", 0L);
     }
 
     @OriginalMember(owner = "client!oa", name = "t", descriptor = "()Z")

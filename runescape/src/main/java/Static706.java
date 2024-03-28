@@ -53,7 +53,7 @@ public final class Static706 {
         if (arg0 == null) {
             Static100.method1988();
         }
-        Static719.aClass56_5.method3592();
+        Static719.aPcmPlayer_5.method3592();
         Static522.method7041(arg0);
     }
 

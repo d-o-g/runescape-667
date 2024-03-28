@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static89 {
 
     @OriginalMember(owner = "client!cp", name = "n", descriptor = "[I")
-    public static int[] anIntArray169;
+    public static int[] zoneIds;
 
     @OriginalMember(owner = "client!cp", name = "h", descriptor = "Lclient!hc;")
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___9 = new CutsceneActionType(2);

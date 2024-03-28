@@ -2317,7 +2317,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "p", descriptor = "()Z")
     @Override
-    public final boolean method7968() {
+    public final boolean increaseRenderDistance() {
         return true;
     }
 

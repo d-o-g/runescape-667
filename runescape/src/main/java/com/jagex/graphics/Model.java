@@ -258,6 +258,9 @@ public abstract class Model {
     @OriginalMember(owner = "client!ka", name = "NA", descriptor = "()Z")
     protected abstract boolean NA();
 
+    /**
+     * cylinderRadius
+     */
     @OriginalMember(owner = "client!ka", name = "na", descriptor = "()I")
     public abstract int na();
 

@@ -28,13 +28,13 @@ public final class Static369 {
             if (Static363.aByteArrayArray22[local13] != null) {
                 @Pc(20) int local20 = -1;
                 for (@Pc(22) int local22 = 0; local22 < Static183.anInt3024; local22++) {
-                    if (Static89.anIntArray169[local13] == Static119.anIntArray199[local22]) {
+                    if (Static89.zoneIds[local13] == Static119.anIntArray199[local22]) {
                         local20 = local22;
                         break;
                     }
                 }
                 if (local20 == -1) {
-                    Static119.anIntArray199[Static183.anInt3024] = Static89.anIntArray169[local13];
+                    Static119.anIntArray199[Static183.anInt3024] = Static89.zoneIds[local13];
                     local20 = Static183.anInt3024++;
                 }
                 @Pc(66) Packet local66 = new Packet(Static363.aByteArrayArray22[local13]);
@@ -45,8 +45,8 @@ public final class Static369 {
                     @Pc(98) int local98 = local94 >> 14;
                     @Pc(104) int local104 = local94 >> 7 & 0x3F;
                     @Pc(108) int local108 = local94 & 0x3F;
-                    @Pc(121) int local121 = local104 + (Static89.anIntArray169[local13] >> 8) * 64 - WorldMap.areaBaseX;
-                    @Pc(135) int local135 = (Static89.anIntArray169[local13] & 0xFF) * 64 + local108 - WorldMap.areaBaseZ;
+                    @Pc(121) int local121 = local104 + (Static89.zoneIds[local13] >> 8) * 64 - WorldMap.areaBaseX;
+                    @Pc(135) int local135 = (Static89.zoneIds[local13] & 0xFF) * 64 + local108 - WorldMap.areaBaseZ;
                     @Pc(142) NPCType local142 = NPCTypeList.instance.list(local66.g2());
                     @Pc(149) NPCEntityNode local149 = (NPCEntityNode) NPCList.local.get(local88);
                     if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapLength) {

@@ -50,10 +50,10 @@ public final class Static563 {
         Static275.aBooleanArrayArrayArray4 = null;
         Static370.method5280();
         if (Static679.aPositionEntity != null) {
-            for (local3 = 0; local3 < Static125.anInt2352; local3++) {
+            for (local3 = 0; local3 < Static125.dynamicEntityCount; local3++) {
                 Static679.aPositionEntity[local3] = null;
             }
-            Static125.anInt2352 = 0;
+            Static125.dynamicEntityCount = 0;
         }
         Static576.opaqueStationaryEntities = null;
         Static398.transparentStationaryEntities = null;
@@ -62,13 +62,13 @@ public final class Static563 {
             for (local3 = 0; local3 < Static48.aEntityArray3.length; local3++) {
                 Static48.aEntityArray3[local3] = null;
             }
-            Static546.anInt8244 = 0;
+            Static546.onscreenOpaqueEntityCount = 0;
         }
         if (Static395.aEntityArray11 != null) {
             for (local3 = 0; local3 < Static395.aEntityArray11.length; local3++) {
                 Static395.aEntityArray11[local3] = null;
             }
-            Static645.anInt9611 = 0;
+            Static645.onscreenTransparentEntityCount = 0;
         }
         if (EnvironmentLight.aEnvironmentLightArray1 != null) {
             for (local3 = 0; local3 < Static319.anInt5080; local3++) {

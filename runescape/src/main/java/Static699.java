@@ -10,6 +10,6 @@ public final class Static699 {
 
     @OriginalMember(owner = "client!wc", name = "c", descriptor = "(I)V")
     public static void method9139() {
-        Static404.aBoolean465 = true;
+        Static404.renderShadows = true;
     }
 }

@@ -15,43 +15,46 @@ public final class Static693 {
     public static int anInt10382 = -1;
 
     @OriginalMember(owner = "client!vu", name = "a", descriptor = "([[BBLclient!taa;)V")
-    public static void method9010(@OriginalArg(0) byte[][] arg0, @OriginalArg(2) MapRegion arg1) {
-        @Pc(10) int local10;
-        @Pc(13) int local13;
-        @Pc(22) int local22;
-        @Pc(32) int local32;
-        for (@Pc(5) int local5 = 0; local5 < arg1.levels; local5++) {
+    public static void decodeDynamicArea(@OriginalArg(0) byte[][] data, @OriginalArg(2) MapRegion region) {
+        for (@Pc(5) int level = 0; level < region.levels; level++) {
             Static557.method7331();
-            for (local10 = 0; local10 < Static720.mapWidth >> 3; local10++) {
-                for (local13 = 0; local13 < Static501.mapLength >> 3; local13++) {
-                    local22 = Static623.zonePointers[local5][local10][local13];
-                    if (local22 != -1) {
-                        local32 = local22 >> 24 & 0x3;
-                        if (!arg1.underwater || local32 == 0) {
-                            @Pc(48) int local48 = local22 >> 1 & 0x3;
-                            @Pc(54) int local54 = local22 >> 14 & 0x3FF;
-                            @Pc(60) int local60 = local22 >> 3 & 0x7FF;
-                            @Pc(70) int local70 = local60 / 8 + (local54 / 8 << 8);
-                            for (@Pc(72) int local72 = 0; local72 < Static89.anIntArray169.length; local72++) {
-                                if (local70 == Static89.anIntArray169[local72] && arg0[local72] != null) {
-                                    @Pc(91) Packet local91 = new Packet(arg0[local72]);
-                                    arg1.method7891(local5, local32, local10 * 8, local60, local13 * 8, local91, local48, local54, Client.collisionMaps);
-                                    arg1.decodeEnvironmentZone(local10 * 8, Toolkit.active, local60, local91, local5, local54, local48, local32, local13 * 8);
-                                    break;
-                                }
-                            }
+
+            for (@Pc(10) int zoneX = 0; zoneX < Static720.mapWidth >> 3; zoneX++) {
+                for (@Pc(13) int zoneZ = 0; zoneZ < Static501.mapLength >> 3; zoneZ++) {
+                    @Pc(22) int pointer = Static623.zonePointers[level][zoneX][zoneZ];
+                    if (pointer == -1) {
+                        continue;
+                    }
+
+                    @Pc(32) int pointerLevel = pointer >> 24 & 0x3;
+                    if (region.underwater && pointerLevel != 0) {
+                        continue;
+                    }
+
+                    @Pc(48) int pointerRotation = (pointer >> 1) & 0x3;
+                    @Pc(54) int pointerX = (pointer >> 14) & 0x3FF;
+                    @Pc(60) int pointerY = (pointer >> 3) & 0x7FF;
+                    @Pc(70) int pointerZone = (pointerY / 8) + ((pointerX / 8) << 8);
+                    for (@Pc(72) int zone = 0; zone < Static89.zoneIds.length; zone++) {
+                        if (pointerZone == Static89.zoneIds[zone] && data[zone] != null) {
+                            @Pc(91) Packet packet = new Packet(data[zone]);
+                            region.decodeZone(zoneX * 8, zoneZ * 8, level, pointerX, pointerY, pointerLevel, pointerRotation, packet, Client.collisionMaps);
+                            region.decodeEnvironment(zoneX * 8, Toolkit.active, pointerY, packet, level, pointerX, pointerRotation, pointerLevel, zoneZ * 8);
+                            break;
                         }
                     }
                 }
             }
         }
-        for (local10 = 0; local10 < arg1.levels; local10++) {
+
+        for (@Pc(10) int local10 = 0; local10 < region.levels; local10++) {
             Static557.method7331();
-            for (local13 = 0; local13 < Static720.mapWidth >> 3; local13++) {
-                for (local22 = 0; local22 < Static501.mapLength >> 3; local22++) {
-                    local32 = Static623.zonePointers[local10][local13][local22];
+            for (@Pc(13) int local13 = 0; local13 < Static720.mapWidth >> 3; local13++) {
+                for (@Pc(22) int local22 = 0; local22 < Static501.mapLength >> 3; local22++) {
+                    @Pc(32) int local32 = Static623.zonePointers[local10][local13][local22];
+
                     if (local32 == -1) {
-                        arg1.method7889(8, local22 * 8, local13 * 8, local10, 8);
+                        region.setTileHeights(local13 * 8, local22 * 8, local10, 8, 8);
                     }
                 }
             }

@@ -9,7 +9,7 @@ public final class Static282 {
     public static boolean method3976(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
         if (!Static18.occlude || !Static29.aBoolean60) {
             return false;
-        } else if (Static432.anInt525 < 100) {
+        } else if (Static432.occludedPixelCount < 100) {
             return false;
         } else if (Static588.method7714(arg3, arg1, arg2)) {
             @Pc(38) int local38 = arg2 << EnvironmentLight.anInt1066;

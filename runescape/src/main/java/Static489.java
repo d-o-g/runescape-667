@@ -72,6 +72,7 @@ public final class Static489 {
     public static void method6548() {
         Static314.noTimeout(false);
         Static593.anInt8763 = 0;
+
         @Pc(10) boolean local10 = true;
         for (@Pc(12) int local12 = 0; local12 < Static319.aByteArrayArray16.length; local12++) {
             if (Static267.anIntArray329[local12] != -1 && Static319.aByteArrayArray16[local12] == null) {
@@ -81,6 +82,7 @@ public final class Static489 {
                     local10 = false;
                 }
             }
+
             if (Static266.anIntArray615[local12] != -1 && Static118.aByteArrayArray3[local12] == null) {
                 Static118.aByteArrayArray3[local12] = js5.MAPS.getfile(Static22.anIntArrayArray11[local12], 0, Static266.anIntArray615[local12]);
                 if (Static118.aByteArrayArray3[local12] == null) {
@@ -88,6 +90,7 @@ public final class Static489 {
                     Static593.anInt8763++;
                 }
             }
+
             if (Static68.anIntArray316[local12] != -1 && Static177.aByteArrayArray5[local12] == null) {
                 Static177.aByteArrayArray5[local12] = js5.MAPS.getfile(0, Static68.anIntArray316[local12]);
                 if (Static177.aByteArrayArray5[local12] == null) {
@@ -95,6 +98,7 @@ public final class Static489 {
                     local10 = false;
                 }
             }
+
             if (Static298.anIntArray367[local12] != -1 && Static421.aByteArrayArray19[local12] == null) {
                 Static421.aByteArrayArray19[local12] = js5.MAPS.getfile(0, Static298.anIntArray367[local12]);
                 if (Static421.aByteArrayArray19[local12] == null) {
@@ -102,6 +106,7 @@ public final class Static489 {
                     local10 = false;
                 }
             }
+
             if (Static376.anIntArray458 != null && Static363.aByteArrayArray22[local12] == null && Static376.anIntArray458[local12] != -1) {
                 Static363.aByteArrayArray22[local12] = js5.MAPS.getfile(Static22.anIntArrayArray11[local12], 0, Static376.anIntArray458[local12]);
                 if (Static363.aByteArrayArray22[local12] == null) {
@@ -110,6 +115,7 @@ public final class Static489 {
                 }
             }
         }
+
         if (Minimap.elements == null) {
             if (Static162.aClass2_Sub2_Sub13_2 == null || !js5.WORLDMAPDATA.groupExists(Static162.aClass2_Sub2_Sub13_2.file + "_staticelements")) {
                 Minimap.elements = new MapElementList(0);
@@ -120,49 +126,60 @@ public final class Static489 {
                 Static593.anInt8763++;
             }
         }
+
         if (!local10) {
             Static213.anInt3472 = 1;
             return;
         }
+
         local10 = true;
         Static13.anInt150 = 0;
-        @Pc(310) int local310;
         for (@Pc(282) int local282 = 0; local282 < Static319.aByteArrayArray16.length; local282++) {
             @Pc(287) byte[] local287 = Static118.aByteArrayArray3[local282];
             @Pc(299) int local299;
+
             if (local287 != null) {
-                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - WorldMap.areaBaseX;
-                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseZ;
+                local299 = (Static89.zoneIds[local282] >> 8) * 64 - WorldMap.areaBaseX;
+                @Pc(310) int local310 = (Static89.zoneIds[local282] & 0xFF) * 64 - WorldMap.areaBaseZ;
+
                 if (Static117.areaMode != AreaMode.STATIC_AREA) {
                     local299 = 10;
                     local310 = 10;
                 }
+
                 local10 &= Static213.method3141(local287, local299, Static720.mapWidth, local310, Static501.mapLength);
             }
+
             local287 = Static421.aByteArrayArray19[local282];
             if (local287 != null) {
-                local299 = (Static89.anIntArray169[local282] >> 8) * 64 - WorldMap.areaBaseX;
-                local310 = (Static89.anIntArray169[local282] & 0xFF) * 64 - WorldMap.areaBaseZ;
+                local299 = (Static89.zoneIds[local282] >> 8) * 64 - WorldMap.areaBaseX;
+                @Pc(310) int local310 = (Static89.zoneIds[local282] & 0xFF) * 64 - WorldMap.areaBaseZ;
+
                 if (Static117.areaMode != AreaMode.STATIC_AREA) {
                     local310 = 10;
                     local299 = 10;
                 }
+
                 local10 &= Static213.method3141(local287, local299, Static720.mapWidth, local310, Static501.mapLength);
             }
         }
+
         if (!local10) {
             Static213.anInt3472 = 2;
             return;
         }
+
         if (Static213.anInt3472 != 0) {
             Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
+
         Static557.method7331();
         client.cacheReset();
         VideoManager.stop();
+
         @Pc(430) boolean local430 = false;
         if (Toolkit.active.method7990() && ClientOptions.instance.waterDetail.getValue() == 2) {
-            for (local310 = 0; local310 < Static319.aByteArrayArray16.length; local310++) {
+            for (@Pc(310) int local310 = 0; local310 < Static319.aByteArrayArray16.length; local310++) {
                 if (Static421.aByteArrayArray19[local310] != null || Static177.aByteArrayArray5[local310] != null) {
                     local430 = true;
                     break;
@@ -170,29 +187,29 @@ public final class Static489 {
             }
         }
 
+        @Pc(310) int renderDistance;
         if (ClientOptions.instance.fog.getValue() == 1) {
-            local310 = Static571.anIntArray682[Static537.buildArea];
+            renderDistance = Static571.FOG_RENDER_DISTANCE[Static537.buildArea];
         } else {
-            local310 = Static506.anIntArray728[Static537.buildArea];
+            renderDistance = Static506.RENDER_DISTANCE[Static537.buildArea];
+        }
+        if (Toolkit.active.increaseRenderDistance()) {
+            renderDistance++;
         }
 
-        if (Toolkit.active.method7968()) {
-            local310++;
-        }
-
-        Static21.method8043(Toolkit.active, Static455.anInt6915, Static720.mapWidth, Static501.mapLength, local310, local430, Toolkit.active.getMaxLights() > 0);
+        Static21.method8043(Toolkit.active, Static455.anInt6915, Static720.mapWidth, Static501.mapLength, renderDistance, local430, Toolkit.active.getMaxLights() > 0);
         Static483.method6490(Static699.w2Debug);
-        if (Static699.w2Debug == 0) {
-            Static110.method2082(null);
+        if (Static699.w2Debug != 0) {
+            Fonts.setDebugFont(Fonts.p11);
         } else {
-            Static110.method2082(Fonts.p11);
+            Fonts.setDebugFont(null);
         }
 
-        for (@Pc(519) int local519 = 0; local519 < 4; local519++) {
-            Client.collisionMaps[local519].reset();
+        for (@Pc(519) int level = 0; level < 4; level++) {
+            Client.collisionMaps[level].reset();
         }
 
-        Static305.method4441();
+        Static305.resetTileFlags();
         SoundManager.removeActiveStreams(false);
         Static508.method6750();
         Static112.aBoolean197 = false;
@@ -209,26 +226,28 @@ public final class Static489 {
         Static196.aBoolean262 = ClientOptions.instance.textures.getValue() == 1;
         MapRegion.active = new MapRegion(4, Static720.mapWidth, Static501.mapLength, false);
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
-            Static73.method9312(Static319.aByteArrayArray16, MapRegion.active);
+            Static73.decodeStaticArea(Static319.aByteArrayArray16, MapRegion.active);
         } else {
-            Static693.method9010(Static319.aByteArrayArray16, MapRegion.active);
+            Static693.decodeDynamicArea(Static319.aByteArrayArray16, MapRegion.active);
         }
         Static92.method1757(Static720.mapWidth >> 4, Static501.mapLength >> 4);
         Static159.method2575();
+
         if (local430) {
             Static379.method5355(true);
             Static134.aMapRegion_3 = new MapRegion(1, Static720.mapWidth, Static501.mapLength, true);
             if (Static117.areaMode == AreaMode.STATIC_AREA) {
-                Static73.method9312(Static177.aByteArrayArray5, Static134.aMapRegion_3);
+                Static73.decodeStaticArea(Static177.aByteArrayArray5, Static134.aMapRegion_3);
                 Static314.noTimeout(true);
             } else {
-                Static693.method9010(Static177.aByteArrayArray5, Static134.aMapRegion_3);
+                Static693.decodeDynamicArea(Static177.aByteArrayArray5, Static134.aMapRegion_3);
                 Static314.noTimeout(true);
             }
             Static134.aMapRegion_3.method7885(MapRegion.active.tileHeights[0]);
             Static134.aMapRegion_3.method7881(null, Toolkit.active, null);
             Static379.method5355(false);
         }
+
         MapRegion.active.method7881(local430 ? Static134.aMapRegion_3.tileHeights : null, Toolkit.active, Client.collisionMaps);
         if (Static117.areaMode == AreaMode.STATIC_AREA) {
             Static314.noTimeout(true);

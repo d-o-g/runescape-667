@@ -17,7 +17,7 @@ public final class Static684 {
     public static Class302[] aClass302Array1;
 
     @OriginalMember(owner = "client!vla", name = "i", descriptor = "I")
-    public static int anInt10304 = 0;
+    public static int w2debug = 0;
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "(ZIIIB)V")
     public static void updateMapArea(@OriginalArg(0) boolean force, @OriginalArg(1) int centerX, @OriginalArg(2) int mainLogicStep, @OriginalArg(3) int centerZ) {
@@ -58,9 +58,9 @@ public final class Static684 {
 
                 if (node != null) {
                     @Pc(318) NPCEntity npc = node.npc;
-                    for (@Pc(136) int local136 = 0; local136 < npc.pathX.length; local136++) {
-                        npc.pathX[local136] -= deltaX;
-                        npc.pathZ[local136] -= deltaZ;
+                    for (@Pc(136) int step = 0; step < npc.pathX.length; step++) {
+                        npc.pathX[step] -= deltaX;
+                        npc.pathZ[step] -= deltaZ;
                     }
 
                     npc.x -= deltaX * 512;

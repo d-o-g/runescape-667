@@ -53,7 +53,7 @@ public final class FontTypeList {
             }
         }
 
-        @Pc(54) FontType type = (FontType) recentUse.get((monospaced ? 1 : 0) | group << 1);
+        @Pc(54) FontType type = (FontType) recentUse.get((group << 1) | (monospaced ? 1 : 0));
         if (type != null) {
             if (loadMetrics && type.metrics == null) {
                 @Pc(70) FontMetrics metrics = FontMetrics.loadFile(group, metricsJs5);
@@ -83,7 +83,7 @@ public final class FontTypeList {
             type = new FontType(toolkit.createFont(metrics, images, monospaced));
         }
 
-        recentUse.put(type, group << 1 | (monospaced ? 1 : 0));
+        recentUse.put(type, (group << 1) | (monospaced ? 1 : 0));
         return type;
     }
 

@@ -14,7 +14,7 @@ public final class Static209 {
         Static329.anInt1752 = (int) ((double) Static720.mapWidth * 34.46D);
         Static32.anInt775 = 200;
         Static329.anInt1752 <<= 0x2;
-        if (Toolkit.active.method7968()) {
+        if (Toolkit.active.increaseRenderDistance()) {
             Static329.anInt1752 += 512;
         }
         Static501.method6716(false);

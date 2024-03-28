@@ -13,7 +13,7 @@ public final class Class119 implements Runnable {
     public SignLink aSignLink_2;
 
     @OriginalMember(owner = "client!faa", name = "f", descriptor = "[Lclient!cd;")
-    public final Class56[] aClass56Array1 = new Class56[2];
+    public final PcmPlayer[] aPcmPlayerArray1 = new PcmPlayer[2];
 
     @OriginalMember(owner = "client!faa", name = "h", descriptor = "Z")
     public volatile boolean aBoolean241 = false;
@@ -28,7 +28,7 @@ public final class Class119 implements Runnable {
         try {
             while (!this.aBoolean241) {
                 for (@Pc(12) int local12 = 0; local12 < 2; local12++) {
-                    @Pc(21) Class56 local21 = this.aClass56Array1[local12];
+                    @Pc(21) PcmPlayer local21 = this.aPcmPlayerArray1[local12];
                     if (local21 != null) {
                         local21.method3594();
                     }

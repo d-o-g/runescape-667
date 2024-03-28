@@ -10,7 +10,7 @@ public final class Static679 {
     public static PositionEntity[] aPositionEntity;
 
     @OriginalMember(owner = "client!vj", name = "t", descriptor = "I")
-    public static int anInt10278;
+    public static int occludedWallCount;
 
     @OriginalMember(owner = "client!vj", name = "H", descriptor = "[Lclient!oga;")
     public static DisplayProperties[] aDisplayPropertiesArray1;

@@ -307,7 +307,7 @@ public final class Loading {
 
             @Pc(74) int totalPercentage = Client.js5ResourceProviders[33].indexPercentage();
             totalPercentage += Client.js5ResourceProviders[loadingSpritesRaw ? Js5Archive.LOADING_SPRITES_RAW : Js5Archive.LOADING_SPRITES].indexPercentage();
-            totalPercentage += Client.js5ResourceProviders[13].indexPercentage();
+            totalPercentage += Client.js5ResourceProviders[Js5Archive.FONTMETRICS].indexPercentage();
             totalPercentage += complete ? 100 : js5.LOADING_SCREENS.completePercentage();
             if (totalPercentage != 400) {
                 return totalPercentage / 4;

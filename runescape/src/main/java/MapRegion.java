@@ -40,35 +40,35 @@ public final class MapRegion extends Class306 {
     public int maxLevel = 99;
 
     @OriginalMember(owner = "client!taa", name = "<init>", descriptor = "(IIIZ)V")
-    public MapRegion(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3) {
-        super(arg0, arg1, arg2, arg3, FloorOverlayTypeList.instance, FloorUnderlayTypeList.instance);
+    public MapRegion(@OriginalArg(0) int levels, @OriginalArg(1) int mapWidth, @OriginalArg(2) int mapLength, @OriginalArg(3) boolean underwater) {
+        super(levels, mapWidth, mapLength, underwater, FloorOverlayTypeList.instance, FloorUnderlayTypeList.instance);
     }
 
     @OriginalMember(owner = "client!aq", name = "a", descriptor = "(ZIII)I")
-    public static int rotateLightX(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(3) int local3 = arg2 & 0x3;
-        if (local3 == 0) {
-            return arg0;
-        } else if (local3 == 1) {
-            return arg1;
-        } else if (local3 == 2) {
-            return 4095 - arg0;
+    public static int rotateLightX(@OriginalArg(1) int x, @OriginalArg(2) int z, @OriginalArg(3) int rotation) {
+        @Pc(3) int maskedRotation = rotation & 0x3;
+        if (maskedRotation == 0) {
+            return x;
+        } else if (maskedRotation == 1) {
+            return z;
+        } else if (maskedRotation == 2) {
+            return 4095 - x;
         } else {
-            return 4095 - arg1;
+            return 4095 - z;
         }
     }
 
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(IIII)I")
-    public static int rotateLightZ(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(3) int local3 = arg1 & 0x3;
-        if (local3 == 0) {
-            return arg0;
-        } else if (local3 == 1) {
-            return 4095 - arg2;
-        } else if (local3 == 2) {
-            return 4095 - arg0;
+    public static int rotateLightZ(@OriginalArg(2) int x, @OriginalArg(0) int z, @OriginalArg(1) int rotation) {
+        @Pc(3) int maskedRotation = rotation & 0x3;
+        if (maskedRotation == 0) {
+            return z;
+        } else if (maskedRotation == 1) {
+            return 4095 - x;
+        } else if (maskedRotation == 2) {
+            return 4095 - z;
         } else {
-            return arg2;
+            return x;
         }
     }
 
@@ -127,68 +127,70 @@ public final class MapRegion extends Class306 {
     }
 
     @OriginalMember(owner = "client!ua", name = "a", descriptor = "(IIII)I")
-    public static int rotateZoneX(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(3) int local3 = arg2 & 0x3;
-        if (local3 == 0) {
-            return arg0;
-        } else if (local3 == 1) {
-            return arg1;
-        } else if (local3 == 2) {
-            return 7 - arg0;
+    public static int rotateZoneX(@OriginalArg(0) int x, @OriginalArg(1) int z, @OriginalArg(3) int rotation) {
+        @Pc(3) int maskedRotation = rotation & 0x3;
+        if (maskedRotation == 0) {
+            return x;
+        } else if (maskedRotation == 1) {
+            return z;
+        } else if (maskedRotation == 2) {
+            return 7 - x;
         } else {
-            return 7 - arg1;
+            return 7 - z;
         }
     }
 
     @OriginalMember(owner = "client!qm", name = "a", descriptor = "(IIBI)I")
-    public static int rotateZoneY(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2) {
-        @Pc(7) int local7 = arg2 & 0x3;
-        if (local7 == 0) {
-            return arg0;
-        } else if (local7 == 1) {
-            return 7 - arg1;
-        } else if (local7 == 2) {
-            return 7 - arg0;
+    public static int rotateZoneY(@OriginalArg(1) int x, @OriginalArg(0) int z, @OriginalArg(3) int rotation) {
+        @Pc(7) int maskedRotation = rotation & 0x3;
+        if (maskedRotation == 0) {
+            return z;
+        } else if (maskedRotation == 1) {
+            return 7 - x;
+        } else if (maskedRotation == 2) {
+            return 7 - z;
         } else {
-            return arg1;
+            return x;
         }
     }
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "(IIBIIII)I")
-    public static int rotateLocX(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
-        @Pc(3) int local3 = arg5 & 0x3;
-        if ((arg3 & 0x1) == 1) {
-            @Pc(10) int local10 = arg0;
-            arg0 = arg2;
-            arg2 = local10;
+    public static int rotateLocX(@OriginalArg(5) int x, @OriginalArg(1) int z, @OriginalArg(0) int width, @OriginalArg(3) int length, @OriginalArg(6) int rotation, @OriginalArg(4) int locRotation) {
+        @Pc(3) int maskedRotation = rotation & 0x3;
+        if ((locRotation & 0x1) == 1) {
+            @Pc(10) int temp = width;
+            width = length;
+            length = temp;
         }
-        if (local3 == 0) {
-            return arg4;
-        } else if (local3 == 1) {
-            return arg1;
-        } else if (local3 == 2) {
-            return 7 + 1 - arg4 - arg0;
+
+        if (maskedRotation == 0) {
+            return x;
+        } else if (maskedRotation == 1) {
+            return z;
+        } else if (maskedRotation == 2) {
+            return 7 + 1 - x - width;
         } else {
-            return 7 + 1 - arg1 - arg2;
+            return 7 + 1 - z - length;
         }
     }
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(IIIIIII)I")
-    public static int rotateLocZ(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        if ((arg3 & 0x1) == 1) {
-            @Pc(12) int local12 = arg4;
-            arg4 = arg2;
-            arg2 = local12;
+    public static int rotateLocZ(@OriginalArg(5) int x, @OriginalArg(1) int z, @OriginalArg(4) int width, @OriginalArg(2) int length, @OriginalArg(0) int rotation, @OriginalArg(3) int locRotation) {
+        if ((locRotation & 0x1) == 1) {
+            @Pc(12) int temp = width;
+            width = length;
+            length = temp;
         }
-        @Pc(20) int local20 = arg0 & 0x3;
-        if (local20 == 0) {
-            return arg1;
-        } else if (local20 == 1) {
-            return 1 + 7 - arg4 - arg5;
-        } else if (local20 == 2) {
-            return 1 + 7 - arg2 - arg1;
+
+        @Pc(20) int maskedRotation = rotation & 0x3;
+        if (maskedRotation == 0) {
+            return z;
+        } else if (maskedRotation == 1) {
+            return 1 + 7 - width - x;
+        } else if (maskedRotation == 2) {
+            return 1 + 7 - length - z;
         } else {
-            return arg5;
+            return x;
         }
     }
 
@@ -219,7 +221,7 @@ public final class MapRegion extends Class306 {
                 @Pc(68) int locRotation = shapeAndRotation & 0x3;
                 @Pc(73) int x = locX + offsetX;
                 @Pc(77) int z = locZ + offsetZ;
-                if (x > 0 && z > 0 && x < super.width - 1 && z < super.height - 1) {
+                if (x > 0 && z > 0 && x < super.width - 1 && z < super.length - 1) {
                     @Pc(102) CollisionMap collisionMap = null;
                     if (!super.underwater) {
                         @Pc(107) int actualLevel = locLevel;
@@ -273,7 +275,7 @@ public final class MapRegion extends Class306 {
                                                 local153 = (arg0 << 9) + local543.getZ();
                                                 local290 = local149 >> 9;
                                                 @Pc(567) int local567 = local153 >> 9;
-                                                if (local290 >= 0 && local567 >= 0 && super.width > local290 && super.height > local567) {
+                                                if (local290 >= 0 && local567 >= 0 && super.width > local290 && super.length > local567) {
                                                     local543.setPosition(local149, local153, super.tileHeights[local512.level][local290][local567] - local543.getY());
                                                     method9122(local512);
                                                 }
@@ -309,8 +311,8 @@ public final class MapRegion extends Class306 {
                                             }
                                             if (arg0 < 0) {
                                                 local149 = 0;
-                                            } else if (arg0 >= super.height) {
-                                                local149 = super.height;
+                                            } else if (arg0 >= super.length) {
+                                                local149 = super.length;
                                             }
                                             if (local147 < 0) {
                                                 local147 = 0;
@@ -319,8 +321,8 @@ public final class MapRegion extends Class306 {
                                             }
                                             if (local153 < 0) {
                                                 local153 = 0;
-                                            } else if (local153 >= super.height) {
-                                                local153 = super.height;
+                                            } else if (local153 >= super.length) {
+                                                local153 = super.length;
                                             }
                                             while (local147 > local143) {
                                                 while (local149 < local153) {
@@ -331,14 +333,14 @@ public final class MapRegion extends Class306 {
                                             }
                                         } else if (local91 == 1) {
                                             if (super.aByteArrayArrayArray12[local86] == null) {
-                                                super.aByteArrayArrayArray12[local86] = new byte[super.width + 1][super.height + 1];
+                                                super.aByteArrayArrayArray12[local86] = new byte[super.width + 1][super.length + 1];
                                             }
                                             for (local143 = 0; local143 < 64; local143 += 4) {
                                                 for (local147 = 0; local147 < 64; local147 += 4) {
                                                     @Pc(280) byte local280 = arg1.g1b();
                                                     for (local153 = local143 + arg2; local153 < local143 + arg2 + 4; local153++) {
                                                         for (local290 = arg0 + local147; local290 < arg0 + local147 + 4; local290++) {
-                                                            if (local153 >= 0 && super.width > local153 && local290 >= 0 && super.height > local290) {
+                                                            if (local153 >= 0 && super.width > local153 && local290 >= 0 && super.length > local290) {
                                                                 super.aByteArrayArrayArray12[local86][local153][local290] = local280;
                                                             }
                                                         }
@@ -347,7 +349,7 @@ public final class MapRegion extends Class306 {
                                             }
                                         } else if (local91 == 2) {
                                             if (super.aByteArrayArrayArray12[local86] == null) {
-                                                super.aByteArrayArrayArray12[local86] = new byte[super.width + 1][super.height + 1];
+                                                super.aByteArrayArrayArray12[local86] = new byte[super.width + 1][super.length + 1];
                                             }
                                             if (local86 > 0) {
                                                 local143 = arg2;
@@ -366,13 +368,13 @@ public final class MapRegion extends Class306 {
                                                 }
                                                 if (arg0 < 0) {
                                                     local149 = 0;
-                                                } else if (arg0 >= super.height) {
-                                                    local149 = super.height;
+                                                } else if (arg0 >= super.length) {
+                                                    local149 = super.length;
                                                 }
                                                 if (local153 < 0) {
                                                     local153 = 0;
-                                                } else if (local153 >= super.height) {
-                                                    local153 = super.height;
+                                                } else if (local153 >= super.length) {
+                                                    local153 = super.length;
                                                 }
                                                 while (local143 < local147) {
                                                     while (local153 > local149) {
@@ -398,7 +400,7 @@ public final class MapRegion extends Class306 {
                                 for (local86 = 0; local86 < 8; local86++) {
                                     local504 = local28 + (arg2 >> 3);
                                     local143 = local86 + (arg0 >> 3);
-                                    if (local504 >= 0 && super.width >> 3 > local504 && local143 >= 0 && super.height >> 3 > local143) {
+                                    if (local504 >= 0 && super.width >> 3 > local504 && local143 >= 0 && super.length >> 3 > local143) {
                                         Static108.method2064(local143, local504, local12);
                                     }
                                 }
@@ -467,7 +469,7 @@ public final class MapRegion extends Class306 {
 
         @Pc(123) int z0;
         @Pc(121) int z1;
-        if (super.height < locLength + z) {
+        if (super.length < locLength + z) {
             z1 = z + 1;
             z0 = z;
         } else {
@@ -485,7 +487,7 @@ public final class MapRegion extends Class306 {
         @Pc(179) int absX = (x << 9) + (locWidth << 8);
         @Pc(187) int absZ = (locLength << 8) + (z << 9);
 
-        @Pc(204) boolean copyNormals = Static404.aBoolean465 && !super.underwater && locType.sharelight;
+        @Pc(204) boolean copyNormals = Static404.renderShadows && !super.underwater && locType.sharelight;
 
         if (locType.hasSounds()) {
             Static89.method1714(level, null, x, z, null, locType, rotation);
@@ -525,15 +527,15 @@ public final class MapRegion extends Class306 {
         } else if (shape == LocShapes.CENTREPIECE_STRAIGHT || shape == LocShapes.CENTREPIECE_DIAGONAL) {
             @Pc(420) PositionEntity loc;
             @Pc(384) StaticLocation staticLoc = null;
-            @Pc(424) int local424;
 
+            @Pc(424) int shadowValue;
             if (isStatic) {
                 @Pc(416) StaticLocation staticLocation = new StaticLocation(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, x, x + locWidth - 1, z, z + locLength - 1, shape, rotation, copyNormals);
                 staticLoc = staticLocation;
                 loc = staticLocation;
-                local424 = staticLocation.method4222();
+                shadowValue = staticLocation.shadowValue();
             } else {
-                local424 = 15;
+                shadowValue = 15;
                 loc = new DynamicLocation(toolkit, locType, level, virtualLevel, absX, averageHeight, absZ, super.underwater, x, x + locWidth - 1, z, z + locLength - 1, shape, rotation, animation);
             }
 
@@ -542,14 +544,14 @@ public final class MapRegion extends Class306 {
                     staticLoc.addShadow(toolkit);
                 }
 
-                if (locType.shadow && Static404.aBoolean465) {
-                    if (local424 > 30) {
-                        local424 = 30;
+                if (locType.shadow && Static404.renderShadows) {
+                    if (shadowValue > 30) {
+                        shadowValue = 30;
                     }
 
                     for (@Pc(492) int locX = 0; locX <= locWidth; locX++) {
                         for (@Pc(495) int locZ = 0; locZ <= locLength; locZ++) {
-                            ground.ka(locX + locX, locZ + locZ, local424);
+                            ground.ka(locX + locX, locZ + locZ, shadowValue);
                         }
                     }
                 }
@@ -577,7 +579,7 @@ public final class MapRegion extends Class306 {
             Static102.method2026(loc, false);
 
             boolean occludeRoofs = locType.occlude == LocOcclusionMode.ROOFS;
-            if (Static404.aBoolean465 && !super.underwater && shape >= LocShapes.ROOF_STRAIGHT && shape <= LocShapes.ROOF_FLAT && shape != LocShapes.ROOF_DIAGONAL_WITH_ROOFEDGE && level > 0 && !occludeRoofs) {
+            if (Static404.renderShadows && !super.underwater && shape >= LocShapes.ROOF_STRAIGHT && shape <= LocShapes.ROOF_FLAT && shape != LocShapes.ROOF_DIAGONAL_WITH_ROOFEDGE && level > 0 && !occludeRoofs) {
                 super.occluderFlags[level][x][z] = (byte) (super.occluderFlags[level][x][z] | 0x4);
             }
 
@@ -606,7 +608,7 @@ public final class MapRegion extends Class306 {
             Static584.method7665(level, x, z, wall, null);
 
             if (rotation == 0) {
-                if (Static404.aBoolean465 && locType.shadow) {
+                if (Static404.renderShadows && locType.shadow) {
                     ground.ka(x, z, 50);
                     ground.ka(x, z + 1, 50);
                 }
@@ -615,7 +617,7 @@ public final class MapRegion extends Class306 {
                     Static177.addLocationOccluder(1, locType.occlusionOffset, z, x, level, locType.occlusionHeight);
                 }
             } else if (rotation == 1) {
-                if (Static404.aBoolean465 && locType.shadow) {
+                if (Static404.renderShadows && locType.shadow) {
                     ground.ka(x, z + 1, 50);
                     ground.ka(x + 1, z - -1, 50);
                 }
@@ -624,7 +626,7 @@ public final class MapRegion extends Class306 {
                     Static177.addLocationOccluder(2, -locType.occlusionOffset, z + 1, x, level, locType.occlusionHeight);
                 }
             } else if (rotation == 2) {
-                if (Static404.aBoolean465 && locType.shadow) {
+                if (Static404.renderShadows && locType.shadow) {
                     ground.ka(x + 1, z, 50);
                     ground.ka(x + 1, z + 1, 50);
                 }
@@ -633,7 +635,7 @@ public final class MapRegion extends Class306 {
                     Static177.addLocationOccluder(1, -locType.occlusionOffset, z, x + 1, level, locType.occlusionHeight);
                 }
             } else if (rotation == 3) {
-                if (Static404.aBoolean465 && locType.shadow) {
+                if (Static404.renderShadows && locType.shadow) {
                     ground.ka(x, z, 50);
                     ground.ka(x + 1, z, 50);
                 }
@@ -667,7 +669,7 @@ public final class MapRegion extends Class306 {
 
             Static584.method7665(level, x, z, wall, null);
 
-            if (locType.shadow && Static404.aBoolean465) {
+            if (locType.shadow && Static404.renderShadows) {
                 if (rotation == 0) {
                     ground.ka(x, z + 1, 50);
                 } else if (rotation == 1) {
@@ -751,7 +753,7 @@ public final class MapRegion extends Class306 {
 
             Static584.method7665(level, x, z, wall, null);
 
-            if (locType.shadow && Static404.aBoolean465) {
+            if (locType.shadow && Static404.renderShadows) {
                 if (rotation == 0) {
                     ground.ka(x, z + 1, 50);
                 } else if (rotation == 1) {
@@ -908,7 +910,7 @@ public final class MapRegion extends Class306 {
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(IILclient!ha;ILclient!ge;IIIII)V")
-    public void decodeEnvironmentZone(@OriginalArg(0) int x, @OriginalArg(2) Toolkit toolkit, @OriginalArg(3) int pointerZ, @OriginalArg(4) Packet packet, @OriginalArg(5) int level, @OriginalArg(6) int pointerX, @OriginalArg(7) int pointerRotation, @OriginalArg(8) int pointerLevel, @OriginalArg(9) int z) {
+    public void decodeEnvironment(@OriginalArg(0) int x, @OriginalArg(2) Toolkit toolkit, @OriginalArg(3) int pointerZ, @OriginalArg(4) Packet packet, @OriginalArg(5) int level, @OriginalArg(6) int pointerX, @OriginalArg(7) int pointerRotation, @OriginalArg(8) int pointerLevel, @OriginalArg(9) int z) {
         if (super.underwater) {
             return;
         }
@@ -948,10 +950,10 @@ public final class MapRegion extends Class306 {
                                 @Pc(176) int rx = (x << 9) + rotateLightX(light.getX() & 0xFFF, light.getZ() & 0xFFF, pointerRotation);
                                 lightX = rx >> 9;
 
-                                @Pc(200) int rz = (z << 9) + rotateLightZ(light.getZ() & 0xFFF, pointerRotation, light.getX() & 0xFFF);
+                                @Pc(200) int rz = (z << 9) + rotateLightZ(light.getX() & 0xFFF, light.getZ() & 0xFFF, pointerRotation);
                                 lightZ = rz >> 9;
 
-                                if (lightX >= 0 && lightZ >= 0 && lightX < super.width && lightZ < super.height) {
+                                if (lightX >= 0 && lightZ >= 0 && lightX < super.width && lightZ < super.length) {
                                     light.setPosition(rx, rz, super.tileHeights[pointerLevel][lightX][lightZ] - light.getY());
                                     method9122(envLight);
                                 }
@@ -993,14 +995,14 @@ public final class MapRegion extends Class306 {
                                 @Pc(122) int local122 = z + 7;
                                 if (z < 0) {
                                     local116 = 0;
-                                } else if (z >= super.height) {
-                                    local116 = super.height;
+                                } else if (z >= super.length) {
+                                    local116 = super.length;
                                 }
 
                                 if (local122 < 0) {
                                     local122 = 0;
-                                } else if (super.height <= local122) {
-                                    local122 = super.height;
+                                } else if (super.length <= local122) {
+                                    local122 = super.length;
                                 }
                                 while (local331 > local327) {
                                     while (local122 > local116) {
@@ -1012,7 +1014,7 @@ public final class MapRegion extends Class306 {
                             }
                         } else if (local311 == 1) {
                             if (super.aByteArrayArrayArray12[level] == null) {
-                                super.aByteArrayArrayArray12[level] = new byte[super.width + 1][super.height + 1];
+                                super.aByteArrayArrayArray12[level] = new byte[super.width + 1][super.length + 1];
                             }
 
                             for (@Pc(327) int local327 = 0; local327 < 64; local327 += 4) {
@@ -1023,8 +1025,8 @@ public final class MapRegion extends Class306 {
                                             for (@Pc(176) int local176 = local331; local176 < local331 + 4; local176++) {
                                                 if (local122 >= absX && absX + 8 > local122 && local176 >= absZ && absZ + 8 > local176) {
                                                     @Pc(200) int rx = x + rotateZoneX(local122 & 0x7, local176 & 0x7, pointerRotation);
-                                                    @Pc(534) int ry = z + rotateZoneY(local176 & 0x7, local122 & 0x7, pointerRotation);
-                                                    if (rx >= 0 && rx < super.width && ry >= 0 && ry < super.height) {
+                                                    @Pc(534) int ry = z + rotateZoneY(local122 & 0x7, local176 & 0x7, pointerRotation);
+                                                    if (rx >= 0 && rx < super.width && ry >= 0 && ry < super.length) {
                                                         super.aByteArrayArrayArray12[level][rx][ry] = local466;
                                                         local10 = true;
                                                     }
@@ -1104,9 +1106,9 @@ public final class MapRegion extends Class306 {
                 @Pc(81) int locRotation = shapeAndRotation & 0x3;
                 if ((locLevel == regionLevel) && (locX >= regionX) && (locX < (regionX + 8)) && (locZ >= regionZ) && (locZ < (regionZ + 8))) {
                     @Pc(113) LocType locType = LocTypeList.instance.list(id);
-                    @Pc(130) int rx = rotateLocX(locType.width, locZ & 0x7, locType.length, locRotation, locX & 0x7, regionRotation) + x;
-                    @Pc(147) int rz = rotateLocZ(regionRotation, locZ & 0x7, locType.length, locRotation, locType.width, locX & 0x7) + z;
-                    if (rx > 0 && rz > 0 && rx < super.width - 1 && rz < super.height - 1) {
+                    @Pc(130) int rx = rotateLocX(locX & 0x7, locZ & 0x7, locType.width, locType.length, regionRotation, locRotation) + x;
+                    @Pc(147) int rz = rotateLocZ(locX & 0x7, locZ & 0x7, locType.width, locType.length, regionRotation, locRotation) + z;
+                    if (rx > 0 && rz > 0 && rx < super.width - 1 && rz < super.length - 1) {
                         @Pc(173) CollisionMap collisionMap = null;
                         if (!super.underwater) {
                             @Pc(178) int actualLevel = level;
@@ -1131,7 +1133,7 @@ public final class MapRegion extends Class306 {
         if (!arg0) {
             if (super.levels > 1) {
                 for (@Pc(23) int x = 0; x < super.width; x++) {
-                    for (@Pc(26) int z = 0; super.height > z; z++) {
+                    for (@Pc(26) int z = 0; super.length > z; z++) {
                         if ((Static280.tileFlags[1][x][z] & TileFlag.BRIDGE) == 2) {
                             Static646.method8453(x, z);
                         }
@@ -1140,7 +1142,7 @@ public final class MapRegion extends Class306 {
             }
 
             for (@Pc(23) int level = 0; super.levels > level; level++) {
-                for (@Pc(26) int z = 0; super.height >= z; z++) {
+                for (@Pc(26) int z = 0; super.length >= z; z++) {
                     for (@Pc(71) int x = 0; x <= super.width; x++) {
                         if ((super.occluderFlags[level][x][z] & TileFlag.REMOVE_ROOF) != 0) {
                             @Pc(88) int x1 = x;
@@ -1151,7 +1153,7 @@ public final class MapRegion extends Class306 {
                             while (z1 > 0 && (super.occluderFlags[level][x][z1 - 1] & 0x4) != 0 && z - z1 < 10) {
                                 z1--;
                             }
-                            while (z2 < super.height && (super.occluderFlags[level][x][z2 + 1] & 0x4) != 0 && z2 - z1 < 10) {
+                            while (z2 < super.length && (super.occluderFlags[level][x][z2 + 1] & 0x4) != 0 && z2 - z1 < 10) {
                                 z2++;
                             }
 
@@ -1232,7 +1234,7 @@ public final class MapRegion extends Class306 {
             Static173.method2692(level, x, z);
         } else if (layer == 2) {
             Static10.method130(level, x, z, locClass == null ? (locClass = getClass("com.jagex.game.Location")) : locClass);
-            if (local22.blockwalk != 0 && super.width > local22.width + x && super.height > local22.width + z && x + local22.length < super.width && local22.length + z < super.height) {
+            if (local22.blockwalk != 0 && super.width > local22.width + x && super.length > local22.width + z && x + local22.length < super.width && local22.length + z < super.length) {
                 collisionMap.unflagLoc(x, z, local22.width, local22.length, local30, local22.blockrange, !local22.breakroutefinding);
             }
             if (local26 == 9) {

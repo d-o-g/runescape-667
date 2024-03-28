@@ -96,11 +96,11 @@ public final class Static305 {
     }
 
     @OriginalMember(owner = "client!jm", name = "a", descriptor = "(I)V")
-    public static void method4441() {
-        for (@Pc(12) int local12 = 0; local12 < Static280.tileFlags.length; local12++) {
-            for (@Pc(15) int local15 = 0; local15 < Static280.tileFlags[0].length; local15++) {
-                for (@Pc(18) int local18 = 0; local18 < Static280.tileFlags[0][0].length; local18++) {
-                    Static280.tileFlags[local12][local15][local18] = 0;
+    public static void resetTileFlags() {
+        for (@Pc(12) int level = 0; level < Static280.tileFlags.length; level++) {
+            for (@Pc(15) int x = 0; x < Static280.tileFlags[0].length; x++) {
+                for (@Pc(18) int z = 0; z < Static280.tileFlags[0][0].length; z++) {
+                    Static280.tileFlags[level][x][z] = 0;
                 }
             }
         }

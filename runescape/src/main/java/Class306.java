@@ -28,7 +28,7 @@ public class Class306 {
     public final FloorUnderlayTypeList aFloorUnderlayTypeList_8;
 
     @OriginalMember(owner = "client!qja", name = "q", descriptor = "I")
-    protected final int height;
+    protected final int length;
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "I")
     public final int levels;
@@ -43,74 +43,73 @@ public class Class306 {
     public final FloorOverlayTypeList aFloorOverlayTypeList_6;
 
     @OriginalMember(owner = "client!qja", name = "x", descriptor = "[[[B")
-    public final byte[][][] aByteArrayArrayArray13;
+    public final byte[][][] tileDirections;
 
     @OriginalMember(owner = "client!qja", name = "g", descriptor = "[[[B")
-    public final byte[][][] aByteArrayArrayArray17;
+    public final byte[][][] underlay;
 
     @OriginalMember(owner = "client!qja", name = "u", descriptor = "[[[B")
     protected byte[][][] occluderFlags;
 
     @OriginalMember(owner = "client!qja", name = "s", descriptor = "[[[B")
-    public final byte[][][] aByteArrayArrayArray15;
+    public final byte[][][] overlay;
 
     @OriginalMember(owner = "client!qja", name = "C", descriptor = "[[[B")
-    public final byte[][][] aByteArrayArrayArray16;
+    public final byte[][][] tileShapes;
 
     @OriginalMember(owner = "client!qja", name = "A", descriptor = "[[[I")
     public final int[][][] tileHeights;
 
     @OriginalMember(owner = "client!qja", name = "<init>", descriptor = "(IIIZLclient!ef;Lclient!dh;)V")
-    protected Class306(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) FloorOverlayTypeList arg4, @OriginalArg(5) FloorUnderlayTypeList arg5) {
+    protected Class306(@OriginalArg(0) int levels, @OriginalArg(1) int width, @OriginalArg(2) int length, @OriginalArg(3) boolean underwater, @OriginalArg(4) FloorOverlayTypeList arg4, @OriginalArg(5) FloorUnderlayTypeList arg5) {
         this.aFloorUnderlayTypeList_8 = arg5;
-        this.height = arg2;
-        this.levels = arg0;
-        this.underwater = arg3;
-        this.width = arg1;
+        this.length = length;
+        this.levels = levels;
+        this.underwater = underwater;
+        this.width = width;
         this.aFloorOverlayTypeList_6 = arg4;
-        this.aByteArrayArrayArray13 = new byte[this.levels][this.width][this.height];
-        this.aByteArrayArrayArray17 = new byte[this.levels][this.width][this.height];
-        this.occluderFlags = new byte[this.levels][this.width + 1][this.height + 1];
-        this.aByteArrayArrayArray15 = new byte[this.levels][this.width][this.height];
-        this.aByteArrayArrayArray16 = new byte[this.levels][this.width][this.height];
-        this.tileHeights = new int[this.levels][this.width + 1][this.height + 1];
+        this.tileDirections = new byte[this.levels][this.width][this.length];
+        this.underlay = new byte[this.levels][this.width][this.length];
+        this.occluderFlags = new byte[this.levels][this.width + 1][this.length + 1];
+        this.overlay = new byte[this.levels][this.width][this.length];
+        this.tileShapes = new byte[this.levels][this.width][this.length];
+        this.tileHeights = new int[this.levels][this.width + 1][this.length + 1];
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(Lclient!ge;I[Lclient!eq;IBII)V")
-    public final void method7879(@OriginalArg(0) Packet arg0, @OriginalArg(1) int arg1, @OriginalArg(2) CollisionMap[] arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
-        @Pc(4) int local4;
-        @Pc(11) int local11;
-        @Pc(14) int local14;
-        @Pc(19) int local19;
+    public final void decodeMapSquare(@OriginalArg(0) Packet packet, @OriginalArg(2) CollisionMap[] collisionMaps, @OriginalArg(6) int absX, @OriginalArg(1) int absZ, @OriginalArg(5) int areaBaseX, @OriginalArg(3) int areaBaseZ) {
         if (!this.underwater) {
-            for (local4 = 0; local4 < 4; local4++) {
-                @Pc(9) CollisionMap local9 = arg2[local4];
-                for (local11 = 0; local11 < 64; local11++) {
-                    for (local14 = 0; local14 < 64; local14++) {
-                        local19 = local11 + arg5;
-                        @Pc(23) int local23 = local14 + arg1;
-                        if (local19 >= 0 && this.width > local19 && local23 >= 0 && local23 < this.height) {
-                            local9.unflagBlocked(local19, local23);
+            for (@Pc(4) int level = 0; level < 4; level++) {
+                @Pc(9) CollisionMap collisionMap = collisionMaps[level];
+
+                for (@Pc(11) int localX = 0; localX < 64; localX++) {
+                    for (@Pc(14) int localZ = 0; localZ < 64; localZ++) {
+                        @Pc(19) int x = localX + absX;
+                        @Pc(23) int z = localZ + absZ;
+
+                        if (x >= 0 && this.width > x && z >= 0 && z < this.length) {
+                            collisionMap.unflagBlocked(x, z);
                         }
                     }
                 }
             }
         }
-        local4 = arg5 + arg4;
-        @Pc(84) int local84 = arg3 + arg1;
-        for (local11 = 0; local11 < this.levels; local11++) {
-            for (local14 = 0; local14 < 64; local14++) {
-                for (local19 = 0; local19 < 64; local19++) {
-                    this.method7887(0, arg1 + local19, 0, local14 + arg5, local4 + local14, arg0, 0, local19 + local84, local11, false);
+
+        @Pc(4) int x = absX + areaBaseX;
+        @Pc(84) int z = absZ + areaBaseZ;
+        for (@Pc(11) int level = 0; level < this.levels; level++) {
+            for (@Pc(14) int localX = 0; localX < 64; localX++) {
+                for (@Pc(19) int localZ = 0; localZ < 64; localZ++) {
+                    this.decodeTile(packet, localX + absX, absZ + localZ, x + localX, z + localZ, 0, 0, level, 0, false);
                 }
             }
         }
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(IIIII)V")
-    public final void method7880(@OriginalArg(2) int arg0, @OriginalArg(4) int arg1) {
-        for (@Pc(1) int local1 = 0; local1 < this.levels; local1++) {
-            this.method7889(64, arg1, arg0, local1, 64);
+    public final void method7880(@OriginalArg(2) int x, @OriginalArg(4) int z) {
+        for (@Pc(1) int level = 0; level < this.levels; level++) {
+            this.setTileHeights(x, z, level, 64, 64);
         }
     }
 
@@ -122,7 +121,7 @@ public class Class306 {
         if (!this.underwater) {
             for (local4 = 0; local4 < 4; local4++) {
                 for (local7 = 0; local7 < this.width; local7++) {
-                    for (local10 = 0; local10 < this.height; local10++) {
+                    for (local10 = 0; local10 < this.length; local10++) {
                         if ((Static280.tileFlags[local4][local7][local10] & 0x1) != 0) {
                             @Pc(26) int local26 = local4;
                             if ((Static280.tileFlags[1][local7][local10] & 0x2) != 0) {
@@ -160,19 +159,19 @@ public class Class306 {
                 local10 |= 0x20;
             }
             @Pc(165) int[][] local165 = arg0 == null || local4 >= arg0.length ? this.tileHeights[local4] : arg0[local4];
-            Static429.method5805(local4, arg1.createGround(this.width, this.height, this.tileHeights[local4], local165, local7, local10));
+            Static429.method5805(local4, arg1.createGround(this.width, this.length, this.tileHeights[local4], local165, local7, local10));
         }
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(IBLclient!ha;[[ILclient!s;Lclient!s;Lclient!s;)V")
     public void method7882(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int[][] arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Ground arg4, @OriginalArg(6) Ground arg5) {
         for (@Pc(1) int local1 = 0; local1 < this.width; local1++) {
-            for (@Pc(4) int local4 = 0; local4 < this.height; local4++) {
+            for (@Pc(4) int local4 = 0; local4 < this.length; local4++) {
                 if (Static478.anInt7198 == -1 || Static696.isTileVisibleFrom(local4, Static478.anInt7198, local1, arg0)) {
-                    @Pc(28) byte local28 = this.aByteArrayArrayArray16[arg0][local1][local4];
-                    @Pc(37) byte local37 = this.aByteArrayArrayArray13[arg0][local1][local4];
-                    @Pc(48) int local48 = this.aByteArrayArrayArray15[arg0][local1][local4] & 0xFF;
-                    @Pc(59) int local59 = this.aByteArrayArrayArray17[arg0][local1][local4] & 0xFF;
+                    @Pc(28) byte local28 = this.tileShapes[arg0][local1][local4];
+                    @Pc(37) byte local37 = this.tileDirections[arg0][local1][local4];
+                    @Pc(48) int local48 = this.overlay[arg0][local1][local4] & 0xFF;
+                    @Pc(59) int local59 = this.underlay[arg0][local1][local4] & 0xFF;
                     @Pc(72) FloorOverlayType local72 = local48 == 0 ? null : this.aFloorOverlayTypeList_6.list(local48 - 1);
                     if (local28 == 0 && local72 == null) {
                         local28 = 12;
@@ -583,101 +582,106 @@ public class Class306 {
     public final void method7885(@OriginalArg(0) int[][] arg0) {
         @Pc(16) int[][] local16 = this.tileHeights[0];
         for (@Pc(18) int local18 = 0; local18 < this.width + 1; local18++) {
-            for (@Pc(21) int local21 = 0; local21 < this.height + 1; local21++) {
+            for (@Pc(21) int local21 = 0; local21 < this.length + 1; local21++) {
                 local16[local18][local21] += arg0[local18][local21];
             }
         }
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(IIIIILclient!ge;IIIIZ)V")
-    public void method7887(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) Packet arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(10) boolean arg9) {
-        if (arg0 == 1) {
-            arg2 = 1;
-        } else if (arg0 == 2) {
-            arg6 = 1;
-            arg2 = 1;
-        } else if (arg0 == 3) {
-            arg6 = 1;
+    public void decodeTile(@OriginalArg(5) Packet packet, @OriginalArg(3) int x, @OriginalArg(1) int z, @OriginalArg(4) int localX, @OriginalArg(7) int localZ, @OriginalArg(6) int offsetX, @OriginalArg(2) int offsetZ, @OriginalArg(8) int level, @OriginalArg(0) int rotation, @OriginalArg(10) boolean arg9) {
+        if (rotation == 1) {
+            offsetZ = 1;
+        } else if (rotation == 2) {
+            offsetX = 1;
+            offsetZ = 1;
+        } else if (rotation == 3) {
+            offsetX = 1;
         }
-        @Pc(50) int local50;
-        if (arg3 < 0 || this.width <= arg3 || arg1 < 0 || arg1 >= this.height) {
+
+        if (x < 0 || x >= this.width || z < 0 || z >= this.length) {
             while (true) {
-                local50 = arg5.g1();
-                if (local50 == 0) {
+                @Pc(50) int code = packet.g1();
+                if (code == 0) {
                     break;
                 }
-                if (local50 == 1) {
-                    arg5.g1();
+
+                if (code == 1) {
+                    packet.g1();
                     break;
                 }
-                if (local50 <= 49) {
-                    arg5.g1();
+                if (code <= 49) {
+                    packet.g1();
                 }
             }
             return;
         }
+
         if (!this.underwater && !arg9) {
-            Static280.tileFlags[arg8][arg3][arg1] = 0;
+            Static280.tileFlags[level][x][z] = 0;
         }
+
         while (true) {
-            local50 = arg5.g1();
-            if (local50 == 0) {
+            @Pc(50) int code = packet.g1();
+            if (code == 0) {
                 if (this.underwater) {
-                    this.tileHeights[0][arg6 + arg3][arg1 + arg2] = 0;
-                } else if (arg8 == 0) {
-                    this.tileHeights[0][arg3 + arg6][arg1 + arg2] = -Static144.method2406(arg4 + 932731, arg7 + 556238) * 8 << 2;
+                    this.tileHeights[0][x + offsetX][z + offsetZ] = 0;
+                } else if (level == 0) {
+                    this.tileHeights[0][x + offsetX][z + offsetZ] = -Static144.method2406(localX + 932731, localZ + 556238) * 8 << 2;
                 } else {
-                    this.tileHeights[arg8][arg6 + arg3][arg2 + arg1] = this.tileHeights[arg8 - 1][arg3 + arg6][arg1 + arg2] - 960;
+                    this.tileHeights[level][x + offsetX][z + offsetZ] = this.tileHeights[level - 1][x + offsetX][z + offsetZ] - 960;
                 }
                 break;
             }
-            if (local50 == 1) {
-                @Pc(194) int local194 = arg5.g1();
+
+            if (code == 1) {
+                @Pc(194) int local194 = packet.g1();
                 if (this.underwater) {
-                    this.tileHeights[0][arg6 + arg3][arg2 + arg1] = local194 * 8 << 2;
+                    this.tileHeights[0][offsetX + x][offsetZ + z] = local194 * 8 << 2;
                 } else {
                     if (local194 == 1) {
                         local194 = 0;
                     }
-                    if (arg8 == 0) {
-                        this.tileHeights[0][arg6 + arg3][arg2 + arg1] = -local194 * 8 << 2;
+                    if (level == 0) {
+                        this.tileHeights[0][offsetX + x][offsetZ + z] = -local194 * 8 << 2;
                     } else {
-                        this.tileHeights[arg8][arg6 + arg3][arg1 + arg2] = this.tileHeights[arg8 - 1][arg3 + arg6][arg2 + arg1] - (local194 * 8 << 2);
+                        this.tileHeights[level][offsetX + x][z + offsetZ] = this.tileHeights[level - 1][x + offsetX][offsetZ + z] - (local194 * 8 << 2);
                     }
                 }
                 break;
             }
-            if (local50 <= 49) {
+
+            if (code <= 49) {
                 if (arg9) {
-                    arg5.g1();
+                    packet.g1();
                 } else {
-                    this.aByteArrayArrayArray15[arg8][arg3][arg1] = arg5.g1b();
-                    this.aByteArrayArrayArray16[arg8][arg3][arg1] = (byte) ((local50 - 2) / 4);
-                    this.aByteArrayArrayArray13[arg8][arg3][arg1] = (byte) (local50 + arg0 - 2 & 0x3);
+                    this.overlay[level][x][z] = packet.g1b();
+                    this.tileShapes[level][x][z] = (byte) ((code - 2) / 4);
+                    this.tileDirections[level][x][z] = (byte) (code + rotation - 2 & 0x3);
                 }
-            } else if (local50 <= 81) {
+            } else if (code <= 81) {
                 if (!this.underwater && !arg9) {
-                    Static280.tileFlags[arg8][arg3][arg1] = (byte) (local50 - 49);
+                    Static280.tileFlags[level][x][z] = (byte) (code - 49);
                 }
             } else if (!arg9) {
-                this.aByteArrayArrayArray17[arg8][arg3][arg1] = (byte) (local50 - 81);
+                this.underlay[level][x][z] = (byte) (code - 81);
             }
         }
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(BLclient!ha;Lclient!s;Lclient!s;)V")
     public final void method7888(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) Ground arg1, @OriginalArg(3) Ground arg2) {
-        if (Static397.anIntArray482 == null || this.height != Static397.anIntArray482.length) {
-            Static501.anIntArray606 = new int[this.height];
-            Static418.anIntArray704 = new int[this.height];
-            Static397.anIntArray482 = new int[this.height];
-            Static359.anIntArray449 = new int[this.height];
-            Static467.anIntArray568 = new int[this.height];
+        if (Static397.anIntArray482 == null || this.length != Static397.anIntArray482.length) {
+            Static501.anIntArray606 = new int[this.length];
+            Static418.anIntArray704 = new int[this.length];
+            Static397.anIntArray482 = new int[this.length];
+            Static359.anIntArray449 = new int[this.length];
+            Static467.anIntArray568 = new int[this.length];
         }
-        @Pc(45) int[][] local45 = new int[this.width][this.height];
+        @Pc(45) int[][] local45 = new int[this.width][this.length];
         @Pc(50) int local50;
         for (@Pc(47) int local47 = 0; local47 < this.levels; local47++) {
-            for (local50 = 0; local50 < this.height; local50++) {
+            for (local50 = 0; local50 < this.length; local50++) {
                 Static397.anIntArray482[local50] = 0;
                 Static467.anIntArray568[local50] = 0;
                 Static501.anIntArray606[local50] = 0;
@@ -688,11 +692,11 @@ public class Class306 {
                 @Pc(86) int local86;
                 @Pc(101) int local101;
                 @Pc(170) int local170;
-                for (@Pc(81) int local81 = 0; local81 < this.height; local81++) {
+                for (@Pc(81) int local81 = 0; local81 < this.length; local81++) {
                     local86 = local78 + 5;
                     @Pc(150) int local150;
                     if (local86 < this.width) {
-                        local101 = this.aByteArrayArrayArray17[local47][local86][local81] & 0xFF;
+                        local101 = this.underlay[local47][local86][local81] & 0xFF;
                         if (local101 > 0) {
                             @Pc(114) FloorUnderlayType local114 = this.aFloorUnderlayTypeList_8.list(local101 - 1);
                             Static397.anIntArray482[local81] += local114.anInt6630;
@@ -704,7 +708,7 @@ public class Class306 {
                     }
                     local101 = local78 - 5;
                     if (local101 >= 0) {
-                        local170 = this.aByteArrayArrayArray17[local47][local101][local81] & 0xFF;
+                        local170 = this.underlay[local47][local101][local81] & 0xFF;
                         if (local170 > 0) {
                             @Pc(180) FloorUnderlayType local180 = this.aFloorUnderlayTypeList_8.list(local170 - 1);
                             Static397.anIntArray482[local81] -= local180.anInt6630;
@@ -721,9 +725,9 @@ public class Class306 {
                     local170 = 0;
                     @Pc(240) int local240 = 0;
                     @Pc(242) int local242 = 0;
-                    for (@Pc(244) int local244 = -5; local244 < this.height; local244++) {
+                    for (@Pc(244) int local244 = -5; local244 < this.length; local244++) {
                         @Pc(249) int local249 = local244 + 5;
-                        if (this.height > local249) {
+                        if (this.length > local249) {
                             local101 += Static467.anIntArray568[local249];
                             local86 += Static397.anIntArray482[local249];
                             local240 += Static359.anIntArray449[local249];
@@ -749,10 +753,10 @@ public class Class306 {
             } else {
                 this.method7882(local47, arg0, local45, local47 == 0 ? arg2 : null, Static246.ground[local47], local47 == 0 ? arg1 : null);
             }
-            this.aByteArrayArrayArray17[local47] = null;
-            this.aByteArrayArrayArray15[local47] = null;
-            this.aByteArrayArrayArray16[local47] = null;
-            this.aByteArrayArrayArray13[local47] = null;
+            this.underlay[local47] = null;
+            this.overlay[local47] = null;
+            this.tileShapes[local47] = null;
+            this.tileDirections[local47] = null;
         }
         if (!this.underwater) {
             if (Static439.anInt6674 != 0) {
@@ -768,71 +772,77 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(IIIIII)V")
-    public final void method7889(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
-        @Pc(8) int local8;
-        for (@Pc(5) int local5 = arg1; local5 < arg0 + arg1; local5++) {
-            for (local8 = arg2; local8 < arg2 + arg4; local8++) {
-                if (local8 >= 0 && this.width > local8 && local5 >= 0 && local5 < this.height) {
-                    this.tileHeights[arg3][local8][local5] = arg3 <= 0 ? 0 : this.tileHeights[arg3 - 1][local8][local5] - 960;
+    public final void setTileHeights(@OriginalArg(3) int x, @OriginalArg(2) int z, @OriginalArg(4) int level, @OriginalArg(5) int width, @OriginalArg(1) int length) {
+        for (@Pc(5) int tileZ = z; tileZ < length + z; tileZ++) {
+            for (@Pc(8) int tileX = x; tileX < x + width; tileX++) {
+                if (tileX >= 0 && this.width > tileX && tileZ >= 0 && tileZ < this.length) {
+                    this.tileHeights[level][tileX][tileZ] = level <= 0 ? 0 : this.tileHeights[level - 1][tileX][tileZ] - 960;
                 }
             }
         }
-        if (arg2 > 0 && arg2 < this.width) {
-            for (local8 = arg1 + 1; local8 < arg1 + arg0; local8++) {
-                if (local8 >= 0 && local8 < this.height) {
-                    this.tileHeights[arg3][arg2][local8] = this.tileHeights[arg3][arg2 - 1][local8];
+
+        if (x > 0 && x < this.width) {
+            for (@Pc(8) int localZ = z + 1; localZ < z + length; localZ++) {
+                if (localZ >= 0 && localZ < this.length) {
+                    this.tileHeights[level][x][localZ] = this.tileHeights[level][x - 1][localZ];
                 }
             }
         }
-        if (arg1 > 0 && arg1 < this.height) {
-            for (local8 = arg2 + 1; local8 < arg2 + arg4; local8++) {
-                if (local8 >= 0 && local8 < this.width) {
-                    this.tileHeights[arg3][local8][arg1] = this.tileHeights[arg3][local8][arg1 - 1];
+
+        if (z > 0 && z < this.length) {
+            for (@Pc(8) int localX = x + 1; localX < x + width; localX++) {
+                if (localX >= 0 && localX < this.width) {
+                    this.tileHeights[level][localX][z] = this.tileHeights[level][localX][z - 1];
                 }
             }
         }
-        if (arg2 < 0 || arg1 < 0 || this.width <= arg2 || this.height <= arg1) {
+
+        if (x < 0 || z < 0 || this.width <= x || this.length <= z) {
             return;
         }
-        if (arg3 == 0) {
-            if (arg2 > 0 && this.tileHeights[arg3][arg2 - 1][arg1] != 0) {
-                this.tileHeights[arg3][arg2][arg1] = this.tileHeights[arg3][arg2 - 1][arg1];
+
+        if (level == 0) {
+            if (x > 0 && this.tileHeights[level][x - 1][z] != 0) {
+                this.tileHeights[level][x][z] = this.tileHeights[level][x - 1][z];
                 return;
             }
-            if (arg1 > 0 && this.tileHeights[arg3][arg2][arg1 - 1] != 0) {
-                this.tileHeights[arg3][arg2][arg1] = this.tileHeights[arg3][arg2][arg1 - 1];
+            if (z > 0 && this.tileHeights[level][x][z - 1] != 0) {
+                this.tileHeights[level][x][z] = this.tileHeights[level][x][z - 1];
                 return;
             }
-            if (arg2 > 0 && arg1 > 0 && this.tileHeights[arg3][arg2 - 1][arg1 - 1] != 0) {
-                this.tileHeights[arg3][arg2][arg1] = this.tileHeights[arg3][arg2 - 1][arg1 - 1];
+            if (x > 0 && z > 0 && this.tileHeights[level][x - 1][z - 1] != 0) {
+                this.tileHeights[level][x][z] = this.tileHeights[level][x - 1][z - 1];
                 return;
             }
             return;
         }
-        if (arg2 > 0 && this.tileHeights[arg3][arg2 - 1][arg1] != this.tileHeights[arg3 - 1][arg2 - 1][arg1]) {
-            this.tileHeights[arg3][arg2][arg1] = this.tileHeights[arg3][arg2 - 1][arg1];
+
+        if (x > 0 && this.tileHeights[level][x - 1][z] != this.tileHeights[level - 1][x - 1][z]) {
+            this.tileHeights[level][x][z] = this.tileHeights[level][x - 1][z];
             return;
         }
-        if (arg1 > 0 && this.tileHeights[arg3][arg2][arg1 - 1] != this.tileHeights[arg3 - 1][arg2][arg1 - 1]) {
-            this.tileHeights[arg3][arg2][arg1] = this.tileHeights[arg3][arg2][arg1 - 1];
+
+        if (z > 0 && this.tileHeights[level][x][z - 1] != this.tileHeights[level - 1][x][z - 1]) {
+            this.tileHeights[level][x][z] = this.tileHeights[level][x][z - 1];
             return;
         }
-        if (arg2 > 0 && arg1 > 0 && this.tileHeights[arg3 - 1][arg2 - 1][arg1 - 1] != this.tileHeights[arg3][arg2 - 1][arg1 - 1]) {
-            this.tileHeights[arg3][arg2][arg1] = this.tileHeights[arg3][arg2 - 1][arg1 - 1];
+
+        if (x > 0 && z > 0 && this.tileHeights[level - 1][x - 1][z - 1] != this.tileHeights[level][x - 1][z - 1]) {
+            this.tileHeights[level][x][z] = this.tileHeights[level][x - 1][z - 1];
             return;
         }
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(Lclient!s;Z[[ILclient!s;Lclient!s;Lclient!ha;I)V")
     public void method7890(@OriginalArg(0) Ground arg0, @OriginalArg(2) int[][] arg1, @OriginalArg(3) Ground arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5) {
-        @Pc(8) byte[][] local8 = this.aByteArrayArrayArray16[arg5];
-        @Pc(13) byte[][] local13 = this.aByteArrayArrayArray13[arg5];
-        @Pc(26) byte[][] local26 = this.aByteArrayArrayArray17[arg5];
-        @Pc(31) byte[][] local31 = this.aByteArrayArrayArray15[arg5];
+        @Pc(8) byte[][] local8 = this.tileShapes[arg5];
+        @Pc(13) byte[][] local13 = this.tileDirections[arg5];
+        @Pc(26) byte[][] local26 = this.underlay[arg5];
+        @Pc(31) byte[][] local31 = this.overlay[arg5];
         for (@Pc(33) int local33 = 0; local33 < this.width; local33++) {
             @Pc(47) int local47 = this.width - 1 > local33 ? local33 + 1 : local33;
-            for (@Pc(49) int local49 = 0; local49 < this.height; local49++) {
-                @Pc(67) int local67 = local49 < this.height - 1 ? local49 + 1 : local49;
+            for (@Pc(49) int local49 = 0; local49 < this.length; local49++) {
+                @Pc(67) int local67 = local49 < this.length - 1 ? local49 + 1 : local49;
                 if (Static478.anInt7198 == -1 || Static696.isTileVisibleFrom(local49, Static478.anInt7198, local33, arg5)) {
                     @Pc(83) boolean local83 = false;
                     @Pc(85) boolean local85 = false;
@@ -863,7 +873,7 @@ public class Class306 {
                         @Pc(345) int local345;
                         @Pc(391) int local391;
                         @Pc(403) int local403;
-                        if ((local94 == 0 || local94 == 12) && local33 > 0 && local49 > 0 && local33 < this.width && this.height > local49) {
+                        if ((local94 == 0 || local94 == 12) && local33 > 0 && local49 > 0 && local33 < this.width && this.length > local49) {
                             @Pc(276) int local276 = local116 == local26[local47][local49 - 1] ? 1 : -1;
                             local294 = local26[local33 - 1][local49 - 1] == local116 ? 1 : -1;
                             @Pc(308) int local308 = local116 == local26[local47][local67] ? 1 : -1;
@@ -921,7 +931,7 @@ public class Class306 {
                             Static248.anIntArray313[local294] = 1;
                         }
                         @Pc(496) boolean[] local496 = local164 != null && local164.blendable ? Static463.aBooleanArrayArray6[local94] : Static435.aBooleanArrayArray5[local94];
-                        this.method7883(local94, local164, local13, this.width, local33, local100, this.height, arg4, local49, local88, local177, local8, local31);
+                        this.method7883(local94, local164, local13, this.width, local33, local100, this.length, arg4, local49, local88, local177, local8, local31);
                         @Pc(532) boolean local532 = local164 != null && local164.colour != local164.blendColour;
                         if (!local532) {
                             for (local345 = 0; local345 < 8; local345++) {
@@ -1330,99 +1340,107 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(IIIIILclient!ge;II[Lclient!eq;B)V")
-    public final void method7891(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) Packet arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) CollisionMap[] arg8) {
-        @Pc(17) int local17 = (arg7 & 0x7) * 8;
-        @Pc(23) int local23 = (arg3 & 0x7) * 8;
-        @Pc(32) int local32;
-        @Pc(61) int local61;
+    public final void decodeZone(@OriginalArg(2) int x, @OriginalArg(4) int z, @OriginalArg(0) int level, @OriginalArg(7) int pointerX, @OriginalArg(3) int pointerZ, @OriginalArg(1) int pointerLevel, @OriginalArg(6) int pointerRotation, @OriginalArg(5) Packet packet, @OriginalArg(8) CollisionMap[] collisionMaps) {
+        @Pc(17) int pointerSquareX = (pointerX & 0x7) * 8;
+        @Pc(23) int pointerSquareZ = (pointerZ & 0x7) * 8;
+
         if (!this.underwater) {
-            @Pc(30) CollisionMap local30 = arg8[arg0];
-            for (local32 = 0; local32 < 8; local32++) {
-                for (@Pc(35) int local35 = 0; local35 < 8; local35++) {
-                    @Pc(49) int local49 = arg2 + MapRegion.rotateZoneX(local32 & 0x7, local35 & 0x7, arg6);
-                    local61 = arg4 + MapRegion.rotateZoneY(local35 & 0x7, local32 & 0x7, arg6);
-                    if (local49 > 0 && this.width - 1 > local49 && local61 > 0 && local61 < this.height - 1) {
-                        local30.unflagBlocked(local49, local61);
+            @Pc(30) CollisionMap collisionMap = collisionMaps[level];
+            for (@Pc(32) int zoneX = 0; zoneX < 8; zoneX++) {
+                for (@Pc(35) int zoneZ = 0; zoneZ < 8; zoneZ++) {
+                    @Pc(49) int tileX = x + MapRegion.rotateZoneX(zoneX & 0x7, zoneZ & 0x7, pointerRotation);
+                    @Pc(61) int tileZ = z + MapRegion.rotateZoneY(zoneX & 0x7, zoneZ & 0x7, pointerRotation);
+
+                    if (tileX > 0 && this.width - 1 > tileX && tileZ > 0 && tileZ < this.length - 1) {
+                        collisionMap.unflagBlocked(tileX, tileZ);
                     }
                 }
             }
         }
-        @Pc(117) int local117 = (arg7 & 0xFFFFFFF8) << 3;
-        local32 = (arg3 & 0xFFFFFFF8) << 3;
-        @Pc(125) byte local125 = 0;
-        @Pc(127) byte local127 = 0;
-        if (arg6 == 1) {
-            local127 = 1;
-        } else if (arg6 == 2) {
-            local127 = 1;
-            local125 = 1;
-        } else if (arg6 == 3) {
-            local125 = 1;
+
+        @Pc(117) int local117 = (pointerX & ~0x7) << 3;
+        @Pc(32) int local32 = (pointerZ & ~0x7) << 3;
+        @Pc(125) byte offsetX = 0;
+        @Pc(127) byte offsetZ = 0;
+        if (pointerRotation == 1) {
+            offsetZ = 1;
+        } else if (pointerRotation == 2) {
+            offsetZ = 1;
+            offsetX = 1;
+        } else if (pointerRotation == 3) {
+            offsetX = 1;
         }
-        for (local61 = 0; local61 < this.levels; local61++) {
-            for (@Pc(153) int local153 = 0; local153 < 64; local153++) {
-                for (@Pc(156) int local156 = 0; local156 < 64; local156++) {
-                    if (arg1 == local61 && local153 >= local17 && local153 <= local17 + 8 && local23 <= local156 && local156 <= local23 + 8) {
-                        @Pc(243) int local243;
-                        @Pc(252) int local252;
-                        if (local17 + 8 == local153 || local156 == local23 + 8) {
-                            if (arg6 == 0) {
-                                local243 = arg2 + local153 - local17;
-                                local252 = arg4 + local156 - local23;
-                            } else if (arg6 == 1) {
-                                local243 = arg2 + local156 - local23;
-                                local252 = local17 + arg4 + 8 - local153;
-                            } else if (arg6 == 2) {
-                                local243 = arg2 + local17 + 8 - local153;
-                                local252 = local23 + arg4 + 8 - local156;
+
+        for (@Pc(61) int squareLevel = 0; squareLevel < this.levels; squareLevel++) {
+            for (@Pc(153) int squareX = 0; squareX < 64; squareX++) {
+                for (@Pc(156) int squareZ = 0; squareZ < 64; squareZ++) {
+                    if (pointerLevel == squareLevel && squareX >= pointerSquareX && squareX <= pointerSquareX + 8 && pointerSquareZ <= squareZ && squareZ <= pointerSquareZ + 8) {
+                        @Pc(243) int zoneX;
+                        @Pc(252) int zoneZ;
+
+                        if (pointerSquareX + 8 == squareX || squareZ == pointerSquareZ + 8) {
+                            if (pointerRotation == 0) {
+                                zoneX = x + squareX - pointerSquareX;
+                                zoneZ = z + squareZ - pointerSquareZ;
+                            } else if (pointerRotation == 1) {
+                                zoneX = x + squareZ - pointerSquareZ;
+                                zoneZ = pointerSquareX + z + 8 - squareX;
+                            } else if (pointerRotation == 2) {
+                                zoneX = x + pointerSquareX + 8 - squareX;
+                                zoneZ = pointerSquareZ + z + 8 - squareZ;
                             } else {
-                                local252 = local153 + arg4 - local17;
-                                local243 = arg2 + local23 + 8 - local156;
+                                zoneZ = squareX + z - pointerSquareX;
+                                zoneX = x + pointerSquareZ + 8 - squareZ;
                             }
-                            this.method7887(0, local252, 0, local243, local153 + local117, arg5, 0, local156 + local32, arg0, true);
+
+                            this.decodeTile(packet, zoneX, zoneZ, squareX + local117, squareZ + local32, 0, 0, level, 0, true);
                         } else {
-                            local243 = arg2 + MapRegion.rotateZoneX(local153 & 0x7, local156 & 0x7, arg6);
-                            local252 = MapRegion.rotateZoneY(local156 & 0x7, local153 & 0x7, arg6) + arg4;
-                            this.method7887(arg6, local252, local127, local243, local153 + local117, arg5, local125, local156 + local32, arg0, false);
+                            zoneX = x + MapRegion.rotateZoneX(squareX & 0x7, squareZ & 0x7, pointerRotation);
+                            zoneZ = MapRegion.rotateZoneY(squareX & 0x7, squareZ & 0x7, pointerRotation) + z;
+                            this.decodeTile(packet, zoneX, zoneZ, squareX + local117, squareZ + local32, offsetX, offsetZ, level, pointerRotation, false);
                         }
-                        if (local153 == 63 || local156 == 63) {
-                            @Pc(376) byte local376 = 1;
-                            if (local153 == 63 && local156 == 63) {
-                                local376 = 3;
+
+                        if (squareX == 63 || squareZ == 63) {
+                            @Pc(376) byte rotations = 1;
+                            if (squareX == 63 && squareZ == 63) {
+                                rotations = 3;
                             }
-                            for (@Pc(390) int local390 = 0; local390 < local376; local390++) {
-                                @Pc(393) int local393 = local153;
-                                @Pc(395) int local395 = local156;
-                                if (local390 == 0) {
-                                    local395 = local156 == 63 ? 64 : local156;
-                                    local393 = local153 == 63 ? 64 : local153;
-                                } else if (local390 == 1) {
-                                    local393 = 64;
-                                } else if (local390 == 2) {
-                                    local395 = 64;
+
+                            for (@Pc(390) int rotation = 0; rotation < rotations; rotation++) {
+                                @Pc(393) int x2 = squareX;
+                                @Pc(395) int z2 = squareZ;
+                                if (rotation == 0) {
+                                    z2 = squareZ == 63 ? 64 : squareZ;
+                                    x2 = squareX == 63 ? 64 : squareX;
+                                } else if (rotation == 1) {
+                                    x2 = 64;
+                                } else if (rotation == 2) {
+                                    z2 = 64;
                                 }
-                                @Pc(450) int local450;
-                                @Pc(442) int local442;
-                                if (arg6 == 0) {
-                                    local442 = arg4 + local395 - local23;
-                                    local450 = local393 + arg2 - local17;
-                                } else if (arg6 == 1) {
-                                    local450 = local395 + arg2 - local23;
-                                    local442 = arg4 + local17 + 8 - local393;
-                                } else if (arg6 == 2) {
-                                    local442 = local23 + arg4 + 8 - local395;
-                                    local450 = local17 + arg2 + 8 - local393;
+
+                                @Pc(450) int x1;
+                                @Pc(442) int z1;
+                                if (pointerRotation == 0) {
+                                    z1 = z + z2 - pointerSquareZ;
+                                    x1 = x2 + x - pointerSquareX;
+                                } else if (pointerRotation == 1) {
+                                    x1 = z2 + x - pointerSquareZ;
+                                    z1 = z + pointerSquareX + 8 - x2;
+                                } else if (pointerRotation == 2) {
+                                    z1 = pointerSquareZ + z + 8 - z2;
+                                    x1 = pointerSquareX + x + 8 - x2;
                                 } else {
-                                    local442 = arg4 + local393 - local17;
-                                    local450 = arg2 + local23 + 8 - local395;
+                                    z1 = z + x2 - pointerSquareX;
+                                    x1 = x + pointerSquareZ + 8 - z2;
                                 }
-                                if (local450 >= 0 && this.width > local450 && local442 >= 0 && this.height > local442) {
-                                    this.tileHeights[arg0][local450][local442] = this.tileHeights[arg0][local125 + local243][local252 + local127];
+
+                                if (x1 >= 0 && x1 < this.width && z1 >= 0 && z1 < this.length) {
+                                    this.tileHeights[level][x1][z1] = this.tileHeights[level][offsetX + zoneX][zoneZ + offsetZ];
                                 }
                             }
                         }
                     } else {
-                        this.method7887(0, -1, 0, -1, 0, arg5, 0, 0, 0, false);
+                        this.decodeTile(packet, -1, -1, 0, 0, 0, 0, 0, 0, false);
                     }
                 }
             }

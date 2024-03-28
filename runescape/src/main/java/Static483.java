@@ -16,8 +16,8 @@ public final class Static483 {
     }
 
     @OriginalMember(owner = "client!pe", name = "c", descriptor = "(I)V")
-    public static void method6490(@OriginalArg(0) int arg0) {
-        Static684.anInt10304 = arg0;
+    public static void method6490(@OriginalArg(0) int w2debug) {
+        Static684.w2debug = w2debug;
     }
 
     @OriginalMember(owner = "client!pe", name = "a", descriptor = "(I[BIBII)V")

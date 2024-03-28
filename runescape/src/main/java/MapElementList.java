@@ -30,7 +30,7 @@ public final class MapElementList {
                 list.size--;
             } else {
                 list.coords[i] = coord;
-                list.functions[i] = function;
+                list.elements[i] = function;
                 i++;
             }
         }
@@ -45,12 +45,12 @@ public final class MapElementList {
     public final int[] coords;
 
     @OriginalMember(owner = "client!nc", name = "b", descriptor = "[I")
-    public final int[] functions;
+    public final int[] elements;
 
     @OriginalMember(owner = "client!nc", name = "<init>", descriptor = "(I)V")
     public MapElementList(@OriginalArg(0) int size) {
         this.size = size;
         this.coords = new int[this.size];
-        this.functions = new int[this.size];
+        this.elements = new int[this.size];
     }
 }

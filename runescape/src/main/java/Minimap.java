@@ -129,7 +129,7 @@ public final class Minimap {
             @Pc(211) int local211 = ((local190 * 4) + 2) - (selfX / 128);
             @Pc(222) int local222 = ((local200 * 4) + 2) - (selfZ / 128);
 
-            drawMapElement(local222, screenX, clippingMask, toolkit, elements.functions[coord], screenY, local211, component);
+            drawMapElement(local222, screenX, clippingMask, toolkit, elements.elements[coord], screenY, local211, component);
         }
 
         for (@Pc(190) int i = 0; i < locCount; i++) {
@@ -177,10 +177,10 @@ public final class Minimap {
                     @Pc(392) int npcX = (npc.x / 128) - (selfX / 128);
                     @Pc(490) int npcZ = (npc.z / 128) - (selfZ / 128);
 
-                    if (type.mapElement == -1) {
-                        drawDot(screenY, clippingMask, Sprites.mapdots[1], npcZ, npcX, component, screenX);
-                    } else {
+                    if (type.mapElement != -1) {
                         drawMapElement(npcZ, screenX, clippingMask, toolkit, type.mapElement, screenY, npcX, component);
+                    } else {
+                        drawDot(screenY, clippingMask, Sprites.mapdots[1], npcZ, npcX, component, screenX);
                     }
                 }
             }
@@ -252,8 +252,8 @@ public final class Minimap {
             }
 
             if (hintArrow.type == HintArrowType.TILE_CENTRE) {
-                @Pc(878) int arrowX = hintArrow.x / 128 - selfX / 128;
-                @Pc(589) int arrowZ = hintArrow.z / 128 - selfZ / 128;
+                @Pc(878) int arrowX = (hintArrow.x / 128) - (selfX / 128);
+                @Pc(589) int arrowZ = (hintArrow.z / 128) - (selfZ / 128);
                 @Pc(893) long distance = hintArrow.drawDistance << 7;
                 @Pc(897) long distanceSquared = distance * distance;
                 drawHintMapedge(arrowX, screenX, distanceSquared, clippingMask, hintArrow.sprite, screenY, arrowZ, component);
@@ -825,7 +825,7 @@ public final class Minimap {
                         if (x >= 0 && x < Static720.mapWidth && z >= 0 && z < Static501.mapLength) {
                             elementCoords.addLast(new IntNode(i));
                         } else {
-                            @Pc(1199) MapElementType elementType = MapElementTypeList.instance.list(elements.functions[i]);
+                            @Pc(1199) MapElementType elementType = MapElementTypeList.instance.list(elements.elements[i]);
 
                             if (elementType.landmarkPolygons != null && elementType.minX + x >= 0 && x + elementType.maxX < Static720.mapWidth && elementType.minZ + z >= 0 && z + elementType.maxZ < Static501.mapLength) {
                                 elementCoords.addLast(new IntNode(i));

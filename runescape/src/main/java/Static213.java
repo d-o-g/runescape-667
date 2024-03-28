@@ -1,3 +1,4 @@
+import com.jagex.core.constants.LocShapes;
 import com.jagex.core.io.Packet;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocType;
@@ -43,7 +44,7 @@ public final class Static213 {
                     @Pc(79) int local79 = local59 + arg3;
                     if (local75 > 0 && local79 > 0 && arg2 - 1 > local75 && arg4 - 1 > local79) {
                         @Pc(111) LocType local111 = LocTypeList.instance.list(local12);
-                        if (local71 != 22 || ClientOptions.instance.groundDecor.getValue() != 0 || local111.active != LocInteractivity.NONINTERACTIVE || local111.blockwalk == 1 || local111.forcedecor) {
+                        if (local71 != LocShapes.GROUNDDECOR || ClientOptions.instance.groundDecor.getValue() != 0 || local111.active != LocInteractivity.NONINTERACTIVE || local111.blockwalk == 1 || local111.forcedecor) {
                             local26 = true;
                             if (!local111.isLoaded()) {
                                 local5 = false;

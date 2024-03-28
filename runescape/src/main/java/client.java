@@ -690,8 +690,8 @@ public final class client extends GameShell {
         Static206.aLong114 = Static271.method3929() / 1000000L;
 
         @Pc(28) boolean local28 = Static576.method7611();
-        if (local28 && Static501.aBoolean575 && Static719.aClass56_5 != null) {
-            Static719.aClass56_5.method3592();
+        if (local28 && Static501.aBoolean575 && Static719.aPcmPlayer_5 != null) {
+            Static719.aPcmPlayer_5.method3592();
         }
 
         if (Static475.method6445(MainLogicManager.step)) {

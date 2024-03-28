@@ -30,7 +30,7 @@ public final class Static668 {
                     return;
                 }
                 debugconsole.currententry = Static144.aStringArray7[local26];
-                Static270.method3920(false);
+                debugconsole.method3920(false);
             }
             Static523.anInt3885 = -1;
         }
@@ -50,10 +50,10 @@ public final class Static668 {
             @Pc(155) char local155 = local147.getKeyChar();
             @Pc(159) int local159 = local147.getModifierFlags();
             if (local151 == 84) {
-                Static270.method3920(false);
+                debugconsole.method3920(false);
             }
             if (local151 == 80) {
-                Static270.method3920(true);
+                debugconsole.method3920(true);
             } else if (local151 == 66 && (local159 & 0x4) != 0) {
                 if (client.clipboard != null) {
                     @Pc(467) String local467 = "";

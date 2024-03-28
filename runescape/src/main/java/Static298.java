@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static298 {
 
     @OriginalMember(owner = "client!ji", name = "t", descriptor = "I")
-    public static int anInt4811;
+    public static int occludedGroundCount;
 
     @OriginalMember(owner = "client!ji", name = "H", descriptor = "[I")
     public static int[] anIntArray367;

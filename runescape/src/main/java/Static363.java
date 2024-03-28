@@ -43,7 +43,7 @@ public final class Static363 {
                 return;
             }
             debugconsole.currententry = arg0[local41];
-            Static270.method3920(false);
+            debugconsole.method3920(false);
         }
     }
 

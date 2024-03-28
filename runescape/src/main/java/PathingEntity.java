@@ -12,6 +12,7 @@ import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.graphics.particles.ModelParticleEffector;
@@ -189,10 +190,10 @@ public abstract class PathingEntity extends PositionEntity {
     public final Orientation yaw;
 
     @OriginalMember(owner = "client!cg", name = "Eb", descriptor = "Lclient!ffa;")
-    public final Orientation aOrientation_8;
+    public final Orientation roll;
 
     @OriginalMember(owner = "client!cg", name = "Mb", descriptor = "Lclient!ffa;")
-    public final Orientation aOrientation_9;
+    public final Orientation pitch;
 
     @OriginalMember(owner = "client!cg", name = "xb", descriptor = "I")
     public int animationPathPointer;
@@ -263,8 +264,8 @@ public abstract class PathingEntity extends PositionEntity {
         this.recolScale = 0;
         this.recolStart = -1;
         this.yaw = new Orientation();
-        this.aOrientation_8 = new Orientation();
-        this.aOrientation_9 = new Orientation();
+        this.roll = new Orientation();
+        this.pitch = new Orientation();
         this.animationPathPointer = 0;
         this.delayedWalkingTicks = 0;
         this.pathPointer = 0;
@@ -427,7 +428,7 @@ public abstract class PathingEntity extends PositionEntity {
         } else {
             local31 = -this.minY;
         }
-        @Pc(55) Tile local55 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
+        @Pc(55) Tile local55 = Static334.activeTiles[super.level][super.x >> EnvironmentLight.anInt1066][super.z >> EnvironmentLight.anInt1066];
         return local55 == null || local55.groundDecor == null ? local31 : local31 + local55.groundDecor.offsetY;
     }
 
@@ -552,26 +553,26 @@ public abstract class PathingEntity extends PositionEntity {
         if (local30) {
             if (basType.rollAcceleration != 0) {
                 if (deltaYaw > 0) {
-                    this.aOrientation_8.tick(basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
+                    this.roll.tick(basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
                 } else {
-                    this.aOrientation_8.tick(-basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
+                    this.roll.tick(-basType.rollTargetAngle, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
                 }
             }
 
             if (basType.pitchAcceleration != 0) {
-                this.aOrientation_9.tick(basType.pitchTargetAngle, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
+                this.pitch.tick(basType.pitchTargetAngle, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
             }
         } else {
             if (basType.rollAcceleration == 0) {
-                this.aOrientation_8.setValue(0);
+                this.roll.setValue(0);
             } else {
-                this.aOrientation_8.tick(0, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
+                this.roll.tick(0, basType.rollMaxSpeed, -21712, basType.rollAcceleration);
             }
 
             if (basType.pitchAcceleration == 0) {
-                this.aOrientation_9.setValue(0);
+                this.pitch.setValue(0);
             } else {
-                this.aOrientation_9.tick(0, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
+                this.pitch.tick(0, basType.pitchMaxSpeed, -21712, basType.pitchAcceleration);
             }
         }
 
@@ -600,8 +601,8 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(Lclient!ka;Z)V")
     protected final void method9306(@OriginalArg(0) Model model) {
-        @Pc(15) int rotateZ = this.aOrientation_8.value;
-        @Pc(19) int rotateX = this.aOrientation_9.value;
+        @Pc(15) int rotateZ = this.roll.value;
+        @Pc(19) int rotateX = this.pitch.value;
         if (rotateZ == 0 && rotateX == 0) {
             return;
         }

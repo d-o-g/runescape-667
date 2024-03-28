@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static597 {
 
     @OriginalMember(owner = "client!sr", name = "a", descriptor = "I")
-    public static int anInt8821 = -1;
+    public static int themeMusic = -1;
 
     @OriginalMember(owner = "client!sr", name = "a", descriptor = "(IIIZ)I")
     public static int method7822(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) boolean arg2) {

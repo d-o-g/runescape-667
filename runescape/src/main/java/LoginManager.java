@@ -5,6 +5,7 @@ import com.jagex.SignedResourceStatus;
 import com.jagex.StockmarketOffer;
 import com.jagex.core.constants.LoginResponseCode;
 import com.jagex.core.constants.LoginStep;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.crypto.Isaac;
 import com.jagex.core.datastruct.key.Deque;
@@ -141,9 +142,9 @@ public final class LoginManager {
         Static187.method2842();
 
         if (toLobby) {
-            MainLogicManager.setStep(MainLogicManager.STEP_LOGGING_IN_FROM_GAMESCREEN_TO_LOBBY);
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_GAMESCREEN_TO_LOBBY);
         } else {
-            MainLogicManager.setStep(MainLogicManager.STEP_LOGIN_SCREEN);
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGIN_SCREEN);
 
             try {
                 JavaScript.call("loggedout", GameShell.loaderApplet);
@@ -163,7 +164,7 @@ public final class LoginManager {
             previousUsername = "";
         }
         LoginManager.socialNetworkId = socialNetworkId;
-        MainLogicManager.setStep(MainLogicManager.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_GAME);
+        MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_GAME);
     }
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(ILjava/lang/String;Ljava/lang/String;I)V")
@@ -176,7 +177,7 @@ public final class LoginManager {
         LoginManager.anInt7113 = anInt7113;
         LoginManager.password = password;
         LoginManager.username = username;
-        MainLogicManager.setStep(MainLogicManager.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_GAME);
+        MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_GAME);
     }
 
     @OriginalMember(owner = "client!wg", name = "a", descriptor = "(B)V")
@@ -188,7 +189,7 @@ public final class LoginManager {
 
     @OriginalMember(owner = "client!or", name = "a", descriptor = "(Z)Z")
     public static boolean isAtLoginScreen() {
-        if (MainLogicManager.step == MainLogicManager.STEP_LOGIN_SCREEN) {
+        if (MainLogicManager.step == MainLogicStep.STEP_LOGIN_SCREEN) {
             return step == LoginStep.DELAY && LobbyManager.step == LoginStep.DELAY;
         } else {
             return false;
@@ -279,7 +280,7 @@ public final class LoginManager {
                     @Pc(203) int pos = message.bitPacket.pos;
                     message.bitPacket.p4(Client.BUILD);
                     if (type == TYPE_GAME) {
-                        message.bitPacket.p1(MainLogicManager.step == MainLogicManager.STEP_RECONNECTING ? 1 : 0);
+                        message.bitPacket.p1(MainLogicManager.step == MainLogicStep.STEP_RECONNECTING ? 1 : 0);
                     }
 
                     @Pc(229) Packet packet = Packet.createXtea();
@@ -403,7 +404,7 @@ public final class LoginManager {
                     @Pc(646) int credentialsPos = bitPacket.pos;
                     if (!socialNetworkLogin) {
                         bitPacket.p4(Client.BUILD);
-                        bitPacket.p1(MainLogicManager.step == MainLogicManager.STEP_RECONNECTING ? 1 : 0);
+                        bitPacket.p1(MainLogicManager.step == MainLogicStep.STEP_RECONNECTING ? 1 : 0);
                         credentialsPos = bitPacket.pos;
 
                         @Pc(672) Packet credentials = credentialsPacket();
@@ -706,7 +707,7 @@ public final class LoginManager {
                         step = LoginStep.DELAY;
                         setLoginResponse(LoginResponseCode.OK);
                         Static249.method3538();
-                        MainLogicManager.setStep(MainLogicManager.STEP_LOBBY_SCREEN);
+                        MainLogicManager.setStep(MainLogicStep.STEP_LOBBY_SCREEN);
                         ServerConnection.active.currentProt = null;
                         return;
                     }
@@ -832,9 +833,9 @@ public final class LoginManager {
 
     @OriginalMember(owner = "client!vfa", name = "a", descriptor = "(II)V")
     public static void loginToGame(@OriginalArg(0) int arg0) {
-        if (MainLogicManager.step == MainLogicManager.STEP_LOBBY_SCREEN && (step == LoginStep.DELAY && LobbyManager.step == LoginStep.DELAY)) {
+        if (MainLogicManager.step == MainLogicStep.STEP_LOBBY_SCREEN && (step == LoginStep.DELAY && LobbyManager.step == LoginStep.DELAY)) {
             anInt7113 = arg0;
-            MainLogicManager.setStep(MainLogicManager.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME);
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME);
         }
     }
 
@@ -930,7 +931,7 @@ public final class LoginManager {
     @OriginalMember(owner = "client!hr", name = "c", descriptor = "(I)V")
     public static void connected() {
         js5.CONFIG.discardunpacked = 1;
-        if (MainLogicManager.step == MainLogicManager.STEP_SWITCH_WORLD) {
+        if (MainLogicManager.step == MainLogicStep.STEP_SWITCH_WORLD) {
             Static187.method2842();
         }
         Static408.method5632();
@@ -939,7 +940,7 @@ public final class LoginManager {
         ObjType.shadowCount = 0;
         Static373.anInt5903 = 0;
         ServerConnection.LOBBY.close();
-        Static50.aBoolean565 = true;
+        Static50.previousFocus = true;
         GameShell.focus = true;
         Static230.method3374();
         for (@Pc(8628) int i = 0; i < Static527.hintArrows.length; i++) {
@@ -1074,7 +1075,7 @@ public final class LoginManager {
         Camera.anInt10383 = -1;
         Camera.anInt10376 = -1;
 
-        MainLogicManager.setStep(MainLogicManager.STEP_GAME_SCREEN);
+        MainLogicManager.setStep(MainLogicStep.STEP_GAME_SCREEN);
 
         for (@Pc(79) int i = 0; i < 100; i++) {
             InterfaceManager.dirtyRectangles[i] = true;
@@ -1159,5 +1160,16 @@ public final class LoginManager {
 
     private LoginManager() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!vda", name = "g", descriptor = "(I)V")
+    public static void loginToGame() {
+        if (Client.ssKey != null) {
+            checkGameSession(anInt7113);
+        } else if (socialNetworkId == -1) {
+            doGameLogin(password, anInt7113, username);
+        } else {
+            doGameSnLogin(anInt7113);
+        }
     }
 }

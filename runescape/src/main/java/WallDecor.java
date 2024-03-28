@@ -1,3 +1,5 @@
+import com.jagex.Entity;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -30,7 +32,7 @@ public abstract class WallDecor extends Entity implements Location {
         if (arg0 != 59) {
             this.aShort101 = -126;
         }
-        return Static282.method3976(this.getMinY(2), super.virtualLevel, super.x >> Static52.anInt1066, super.z >> Static52.anInt1066);
+        return Static282.method3976(this.getMinY(2), super.virtualLevel, super.x >> EnvironmentLight.anInt1066, super.z >> EnvironmentLight.anInt1066);
     }
 
     @OriginalMember(owner = "client!tla", name = "j", descriptor = "(I)V")
@@ -62,12 +64,12 @@ public abstract class WallDecor extends Entity implements Location {
     @OriginalMember(owner = "client!tla", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
     public final int method9288(@OriginalArg(0) PointLight[] arg0) {
-        return this.findLightsAt(arg0, super.z >> Static52.anInt1066, super.x >> Static52.anInt1066);
+        return this.findLightsAt(arg0, super.z >> EnvironmentLight.anInt1066, super.x >> EnvironmentLight.anInt1066);
     }
 
     @OriginalMember(owner = "client!tla", name = "g", descriptor = "(I)Z")
     @Override
     public final boolean method9275() {
-        return Static258.aBooleanArrayArray3[(super.x >> Static52.anInt1066) + Static35.anInt813 - Static403.anInt6246][(super.z >> Static52.anInt1066) + Static35.anInt813 - Static550.anInt8271];
+        return Static258.aBooleanArrayArray3[(super.x >> EnvironmentLight.anInt1066) + Static35.anInt813 - Static403.anInt6246][(super.z >> EnvironmentLight.anInt1066) + Static35.anInt813 - Static550.anInt8271];
     }
 }

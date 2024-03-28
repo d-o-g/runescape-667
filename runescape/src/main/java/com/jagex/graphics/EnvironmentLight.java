@@ -1,3 +1,6 @@
+package com.jagex.graphics;
+
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import com.jagex.math.ColourUtils;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.PointLight;
@@ -10,6 +13,36 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!th")
 public final class EnvironmentLight {
+
+    @OriginalMember(owner = "client!vw", name = "u", descriptor = "[I")
+    public static int[] anIntArray868;
+
+    @OriginalMember(owner = "client!bo", name = "f", descriptor = "I")
+    public static int anInt1066;
+
+    @OriginalMember(owner = "client!hla", name = "d", descriptor = "I")
+    public static int anInt3993;
+
+    @OriginalMember(owner = "client!td", name = "j", descriptor = "I")
+    public static int anInt9289;
+
+    @OriginalMember(owner = "client!bq", name = "E", descriptor = "[I")
+    public static int[] anIntArray92;
+
+    @OriginalMember(owner = "client!sba", name = "g", descriptor = "I")
+    public static int anInt8580;
+
+    @OriginalMember(owner = "client!vga", name = "c", descriptor = "I")
+    public static int anInt10157;
+
+    @OriginalMember(owner = "client!aaa", name = "I", descriptor = "I")
+    public static int anInt53;
+
+    @OriginalMember(owner = "client!ph", name = "K", descriptor = "I")
+    public static int anInt7343;
+
+    @OriginalMember(owner = "client!iea", name = "o", descriptor = "[Lclient!th;")
+    public static EnvironmentLight[] aEnvironmentLightArray1;
 
     @OriginalMember(owner = "client!th", name = "a", descriptor = "Z")
     public boolean aBoolean716;
@@ -46,16 +79,16 @@ public final class EnvironmentLight {
 
     @OriginalMember(owner = "client!th", name = "<init>", descriptor = "()V")
     public EnvironmentLight() {
-        if (Static695.anIntArray868 == null) {
-            Static344.method5043();
+        if (anIntArray868 == null) {
+            method5043();
         }
         this.method8247();
     }
 
     @OriginalMember(owner = "client!th", name = "<init>", descriptor = "(Lclient!ha;Lclient!ge;I)V")
     public EnvironmentLight(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
-        if (Static695.anIntArray868 == null) {
-            Static344.method5043();
+        if (anIntArray868 == null) {
+            method5043();
         }
         this.level = arg1.g1();
         this.aBoolean716 = (this.level & 0x10) != 0;
@@ -80,7 +113,7 @@ public final class EnvironmentLight {
             }
             this.aShortArray131[local75] = (short) (local100 | local85 << 8);
         }
-        local63 = (local63 << Static52.anInt1066) + Static247.anInt3993;
+        local63 = (local63 << anInt1066) + anInt3993;
         @Pc(160) int local160 = ColourUtils.HSL_TO_RGB == null ? ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(arg1.g2()) & 0xFFFF] : ColourUtils.HSL_TO_RGB[arg1.g2()];
         local85 = arg1.g1();
         this.anInt9371 = (local85 & 0xE0) << 3;
@@ -89,6 +122,54 @@ public final class EnvironmentLight {
             this.method8247();
         }
         this.method8246(arg0, local53, local59, local47, local160, local63);
+    }
+
+    @OriginalMember(owner = "client!kr", name = "a", descriptor = "(B)V")
+    public static void method5043() {
+        anIntArray868 = method3857(0.4F);
+    }
+
+    @OriginalMember(owner = "client!iea", name = "a", descriptor = "(IIZIIIFI)[I")
+    public static int[] method3857(@OriginalArg(6) float arg0) {
+        @Pc(6) int[] local6 = new int[2048];
+        @Pc(10) Node_Sub1_Sub27 local10 = new Node_Sub1_Sub27();
+        local10.anInt8799 = (int) (arg0 * 4096.0F);
+        local10.aBoolean667 = true;
+        local10.anInt8809 = 35;
+        local10.anInt8805 = 8;
+        local10.anInt8810 = 8;
+        local10.anInt8803 = 4;
+        local10.method9421();
+        method2313(1, 2048);
+        local10.method7809(0, local6);
+        return local6;
+    }
+
+    @OriginalMember(owner = "client!ec", name = "a", descriptor = "(III)V")
+    public static void method2313(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
+        @Pc(7) int local7;
+        if (anInt9289 != arg1) {
+            anIntArray92 = new int[arg1];
+            for (local7 = 0; local7 < arg1; local7++) {
+                anIntArray92[local7] = (local7 << 12) / arg1;
+            }
+            anInt8580 = arg1 - 1;
+            anInt9289 = arg1;
+            anInt10157 = arg1 * 32;
+        }
+        if (arg0 == anInt53) {
+            return;
+        }
+        if (anInt9289 == arg0) {
+            MonochromeImageCache.anIntArray341 = anIntArray92;
+        } else {
+            MonochromeImageCache.anIntArray341 = new int[arg0];
+            for (local7 = 0; local7 < arg0; local7++) {
+                MonochromeImageCache.anIntArray341[local7] = (local7 << 12) / arg0;
+            }
+        }
+        anInt7343 = arg0 - 1;
+        anInt53 = arg0;
     }
 
     @OriginalMember(owner = "client!th", name = "a", descriptor = "(ZIB)V")
@@ -102,7 +183,7 @@ public final class EnvironmentLight {
             if (local30 == 1) {
                 local71 = (Trig1.SIN[local27 << 3] >> 4) + 1024;
             } else if (local30 == 3) {
-                local71 = Static695.anIntArray868[local27] >> 1;
+                local71 = anIntArray868[local27] >> 1;
             } else if (local30 == 4) {
                 local71 = local27 >> 10 << 11;
             } else if (local30 == 2) {

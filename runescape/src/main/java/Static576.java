@@ -1,11 +1,11 @@
+import com.jagex.Entity;
+import com.jagex.sound.Class123;
+import com.jagex.sound.Node_Sub6_Sub1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static576 {
-
-    @OriginalMember(owner = "client!sba", name = "g", descriptor = "I")
-    public static int anInt8580;
 
     @OriginalMember(owner = "client!sba", name = "e", descriptor = "[Lclient!eo;")
     public static Entity[] opaqueStationaryEntities;
@@ -23,7 +23,7 @@ public final class Static576 {
         try {
             if (Static96.anInt10171 == 2) {
                 if (Static62.aClass2_Sub8_3 == null) {
-                    Static62.aClass2_Sub8_3 = Static728.method1153(Static676.aJs5_121, Static99.anInt2077, Static174.anInt2918);
+                    Static62.aClass2_Sub8_3 = Static728.method1153(Static676.midiSongs, Static99.midiGroupId, Static174.midiFileId);
                     if (Static62.aClass2_Sub8_3 == null) {
                         return false;
                     }
@@ -41,14 +41,14 @@ public final class Static576 {
                     @Pc(65) int local65;
                     if (Static611.anInt9335 <= 0) {
                         Static96.anInt10171 = 0;
-                        Static581.aClass2_Sub6_Sub1_3.method916(Static24.anInt595);
+                        Static581.aClass2_Sub6_Sub1_3.method916(Static24.midiVolume);
                         for (local65 = 0; local65 < Static286.anIntArray358.length; local65++) {
                             Static581.aClass2_Sub6_Sub1_3.method926(Static286.anIntArray358[local65], local65);
                             Static286.anIntArray358[local65] = 255;
                         }
                     } else {
                         Static96.anInt10171 = 3;
-                        Static581.aClass2_Sub6_Sub1_3.method916(Static24.anInt595 < Static611.anInt9335 ? Static24.anInt595 : Static611.anInt9335);
+                        Static581.aClass2_Sub6_Sub1_3.method916(Static24.midiVolume < Static611.anInt9335 ? Static24.midiVolume : Static611.anInt9335);
                         for (local65 = 0; local65 < Static286.anIntArray358.length; local65++) {
                             Static581.aClass2_Sub6_Sub1_3.method926(Static286.anIntArray358[local65], local65);
                             Static286.anIntArray358[local65] = 255;
@@ -68,7 +68,7 @@ public final class Static576 {
                     Static12.aClass123_4 = null;
                     Static62.aClass2_Sub8_3 = null;
                     Static117.aClass2_Sub6_Sub1_2 = null;
-                    Static676.aJs5_121 = null;
+                    Static676.midiSongs = null;
                     return true;
                 }
             }
@@ -77,7 +77,7 @@ public final class Static576 {
             Static581.aClass2_Sub6_Sub1_3.method912();
             Static12.aClass123_4 = null;
             Static117.aClass2_Sub6_Sub1_2 = null;
-            Static676.aJs5_121 = null;
+            Static676.midiSongs = null;
             Static62.aClass2_Sub8_3 = null;
             Static96.anInt10171 = 0;
         }

@@ -1,4 +1,6 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -31,8 +33,8 @@ public final class Node_Sub1_Sub12 extends TextureOp {
             @Pc(75) int local75;
             @Pc(77) int local77;
             for (@Pc(55) int local55 = arg0 - this.anInt4855; local55 <= arg0 + this.anInt4855; local55++) {
-                @Pc(67) int[][] local67 = this.method9413(0, Static489.anInt7343 & local55);
-                @Pc(71) int[][] local71 = new int[3][Static608.anInt9289];
+                @Pc(67) int[][] local67 = this.method9413(0, EnvironmentLight.anInt7343 & local55);
+                @Pc(71) int[][] local71 = new int[3][EnvironmentLight.anInt9289];
                 @Pc(73) int local73 = 0;
                 local75 = 0;
                 local77 = 0;
@@ -40,7 +42,7 @@ public final class Node_Sub1_Sub12 extends TextureOp {
                 @Pc(85) int[] local85 = local67[1];
                 @Pc(89) int[] local89 = local67[2];
                 for (@Pc(93) int local93 = -this.anInt4850; local93 <= this.anInt4850; local93++) {
-                    @Pc(101) int local101 = local93 & Static576.anInt8580;
+                    @Pc(101) int local101 = local93 & EnvironmentLight.anInt8580;
                     local77 += local89[local101];
                     local73 += local81[local101];
                     local75 += local85[local101];
@@ -49,16 +51,16 @@ public final class Node_Sub1_Sub12 extends TextureOp {
                 @Pc(136) int[] local136 = local71[1];
                 @Pc(140) int[] local140 = local71[2];
                 @Pc(144) int local144 = 0;
-                while (Static608.anInt9289 > local144) {
+                while (EnvironmentLight.anInt9289 > local144) {
                     local132[local144] = local73 * local46 >> 16;
                     local136[local144] = local75 * local46 >> 16;
                     local140[local144] = local46 * local77 >> 16;
-                    @Pc(180) int local180 = Static576.anInt8580 & local144 - this.anInt4850;
+                    @Pc(180) int local180 = EnvironmentLight.anInt8580 & local144 - this.anInt4850;
                     local144++;
                     local75 -= local85[local180];
                     local77 -= local89[local180];
                     local73 -= local81[local180];
-                    @Pc(206) int local206 = Static576.anInt8580 & local144 + this.anInt4850;
+                    @Pc(206) int local206 = EnvironmentLight.anInt8580 & local144 + this.anInt4850;
                     local73 += local81[local206];
                     local77 += local89[local206];
                     local75 += local85[local206];
@@ -68,7 +70,7 @@ public final class Node_Sub1_Sub12 extends TextureOp {
             @Pc(256) int[] local256 = local11[0];
             @Pc(260) int[] local260 = local11[1];
             @Pc(266) int[] local266 = local11[2];
-            for (local75 = 0; local75 < Static608.anInt9289; local75++) {
+            for (local75 = 0; local75 < EnvironmentLight.anInt9289; local75++) {
                 local77 = 0;
                 @Pc(274) int local274 = 0;
                 @Pc(276) int local276 = 0;
@@ -98,22 +100,22 @@ public final class Node_Sub1_Sub12 extends TextureOp {
             @Pc(42) int[][] local42 = new int[local23][];
             @Pc(63) int local63;
             for (@Pc(48) int local48 = arg1 - this.anInt4855; local48 <= arg1 + this.anInt4855; local48++) {
-                @Pc(58) int[] local58 = this.method9422(local48 & Static489.anInt7343, 0);
-                @Pc(61) int[] local61 = new int[Static608.anInt9289];
+                @Pc(58) int[] local58 = this.method9422(local48 & EnvironmentLight.anInt7343, 0);
+                @Pc(61) int[] local61 = new int[EnvironmentLight.anInt9289];
                 local63 = 0;
                 for (@Pc(67) int local67 = -this.anInt4850; local67 <= this.anInt4850; local67++) {
-                    local63 += local58[local67 & Static576.anInt8580];
+                    local63 += local58[local67 & EnvironmentLight.anInt8580];
                 }
                 @Pc(84) int local84 = 0;
-                while (local84 < Static608.anInt9289) {
+                while (local84 < EnvironmentLight.anInt9289) {
                     local61[local84] = local39 * local63 >> 16;
-                    local63 -= local58[Static576.anInt8580 & local84 - this.anInt4850];
+                    local63 -= local58[EnvironmentLight.anInt8580 & local84 - this.anInt4850];
                     local84++;
-                    local63 += local58[local84 + this.anInt4850 & Static576.anInt8580];
+                    local63 += local58[local84 + this.anInt4850 & EnvironmentLight.anInt8580];
                 }
                 local42[local48 + this.anInt4855 - arg1] = local61;
             }
-            for (@Pc(146) int local146 = 0; local146 < Static608.anInt9289; local146++) {
+            for (@Pc(146) int local146 = 0; local146 < EnvironmentLight.anInt9289; local146++) {
                 @Pc(150) int local150 = 0;
                 for (local63 = 0; local63 < local23; local63++) {
                     local150 += local42[local63][local146];

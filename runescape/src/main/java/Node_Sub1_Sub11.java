@@ -1,7 +1,9 @@
-import com.jagex.ClientProt;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.MonochromeImageCache;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -79,7 +81,7 @@ public final class Node_Sub1_Sub11 extends TextureOp {
             @Pc(98) int local98;
             if (local77 > 0) {
                 local86 = this.anInt4538;
-                local98 = (Static623.method8326(-5208, 4096, local12) - 2048) * this.anInt4525 >> 12;
+                local98 = (Node_Sub1_Sub27.method8326(-5208, 4096, local12) - 2048) * this.anInt4525 >> 12;
                 @Pc(106) int local106 = local86 + (local98 * local63 >> 12);
                 this.anIntArray349[local77] = this.anIntArray349[local77 - 1] + local106;
             }
@@ -87,11 +89,11 @@ public final class Node_Sub1_Sub11 extends TextureOp {
             for (local86 = 0; local86 < this.anInt4540; local86++) {
                 if (local86 > 0) {
                     local98 = this.anInt4529;
-                    @Pc(152) int local152 = (Static623.method8326(-5208, 4096, local12) - 2048) * this.anInt4539 >> 12;
+                    @Pc(152) int local152 = (Node_Sub1_Sub27.method8326(-5208, 4096, local12) - 2048) * this.anInt4539 >> 12;
                     local98 += local35 * local152 >> 12;
                     this.anIntArrayArray109[local77][local86] = local98 + this.anIntArrayArray109[local77][local86 - 1];
                 }
-                this.anIntArrayArray110[local77][local86] = this.anInt4532 > 0 ? 4096 - Static623.method8326(arg0 ^ 0xFFFF88FC, this.anInt4532, local12) : 4096;
+                this.anIntArrayArray110[local77][local86] = this.anInt4532 > 0 ? 4096 - Node_Sub1_Sub27.method8326(arg0 ^ 0xFFFF88FC, this.anInt4532, local12) : 4096;
             }
             this.anIntArrayArray109[local77][this.anInt4540] = 4096;
         }
@@ -149,11 +151,11 @@ public final class Node_Sub1_Sub11 extends TextureOp {
             @Pc(95) int local95 = this.anIntArray349[local24];
             @Pc(102) int local102 = this.anIntArray349[local24 - 1];
             if (this.anInt4533 + local102 < local31 && local31 < local95 - this.anInt4533) {
-                for (@Pc(123) int local123 = 0; local123 < Static608.anInt9289; local123++) {
+                for (@Pc(123) int local123 = 0; local123 < EnvironmentLight.anInt9289; local123++) {
                     @Pc(127) int local127 = 0;
                     @Pc(137) int local137 = local90 ? this.anInt4535 : -this.anInt4535;
                     @Pc(148) int local148;
-                    for (local148 = Static54.anIntArray92[local123] + (local137 * this.anInt4529 >> 12); local148 < 0; local148 += 4096) {
+                    for (local148 = EnvironmentLight.anIntArray92[local123] + (local137 * this.anInt4529 >> 12); local148 < 0; local148 += 4096) {
                     }
                     while (local148 > 4096) {
                         local148 -= 4096;
@@ -171,7 +173,7 @@ public final class Node_Sub1_Sub11 extends TextureOp {
                     }
                 }
             } else {
-                Arrays.set(local18, 0, Static608.anInt9289, 0);
+                Arrays.set(local18, 0, EnvironmentLight.anInt9289, 0);
             }
         }
         return local18;

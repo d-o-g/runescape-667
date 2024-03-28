@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static54 {
 
-    @OriginalMember(owner = "client!bq", name = "E", descriptor = "[I")
-    public static int[] anIntArray92;
-
     @OriginalMember(owner = "client!bq", name = "a", descriptor = "(I)V")
     public static void method1179() {
         Static342.setBuildArea(ClientOptions.instance.buildArea.getValue());

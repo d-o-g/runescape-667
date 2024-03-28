@@ -1,6 +1,8 @@
 import com.jagex.core.datastruct.key.Node2;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.texture.TextureOp;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -96,7 +98,7 @@ public final class Texture extends Node2 {
         for (@Pc(25) int local25 = 0; local25 < this.aClass2_Sub1Array39.length; local25++) {
             this.aClass2_Sub1Array39[local25].initCache(arg0, arg4);
         }
-        Static132.method2313(arg0, arg4);
+        EnvironmentLight.method2313(arg0, arg4);
         @Pc(54) float[] local54 = new float[arg4 * 4 * arg0];
         @Pc(56) int local56 = 0;
         for (@Pc(58) int local58 = 0; local58 < arg0; local58++) {
@@ -187,7 +189,7 @@ public final class Texture extends Node2 {
             this.aClass2_Sub1Array39[local11].initCache(arg3, arg0);
         }
         Static725.method9455(arg1);
-        Static132.method2313(arg3, arg0);
+        EnvironmentLight.method2313(arg3, arg0);
         @Pc(53) int[] local53 = new int[arg0 * arg3];
         @Pc(55) int local55 = 0;
         for (@Pc(57) int local57 = 0; local57 < arg3; local57++) {
@@ -271,7 +273,7 @@ public final class Texture extends Node2 {
             this.aClass2_Sub1Array39[local11].initCache(arg5, arg6);
         }
         Static725.method9455(arg1);
-        Static132.method2313(arg5, arg6);
+        EnvironmentLight.method2313(arg5, arg6);
         @Pc(41) int[] local41 = new int[arg5 * arg6];
         @Pc(49) int local49;
         @Pc(47) int local47;

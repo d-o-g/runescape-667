@@ -59,15 +59,15 @@ public final class Static57 {
     }
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(IIIZILclient!sb;Z)V")
-    public static void method1225(@OriginalArg(1) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) js5 arg2) {
-        Static676.aJs5_121 = arg2;
+    public static void method1225(@OriginalArg(1) int id, @OriginalArg(4) int volume, @OriginalArg(5) js5 midiSongs) {
+        Static676.midiSongs = midiSongs;
         Static497.aBoolean564 = false;
         Static190.anInt3112 = 2;
         Static117.aClass2_Sub6_Sub1_2 = null;
-        Static24.anInt595 = arg1;
+        Static24.midiVolume = volume;
         Static96.anInt10171 = 1;
-        Static174.anInt2918 = 0;
-        Static99.anInt2077 = arg0;
+        Static174.midiFileId = 0;
+        Static99.midiGroupId = id;
     }
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "([SB)[S")

@@ -13,9 +13,9 @@ public final class Static470 {
 
     @OriginalMember(owner = "client!or", name = "d", descriptor = "(B)V")
     public static void method6386() {
-        if (!Static15.aBoolean17) {
-            Static552.aFloat207 += (-Static552.aFloat207 - 24.0F) / 2.0F;
-            Static15.aBoolean17 = true;
+        if (!Camera.angleChangingX) {
+            Camera.angleAxisX += (-Camera.angleAxisX - 24.0F) / 2.0F;
+            Camera.angleChangingX = true;
             Camera.angleUpdated = true;
         }
     }

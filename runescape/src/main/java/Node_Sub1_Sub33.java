@@ -1,3 +1,5 @@
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -16,6 +18,6 @@ public final class Node_Sub1_Sub33 extends TextureOp {
         if (arg0 <= 107) {
             this.monochromeOutput(49, -21);
         }
-        return Static54.anIntArray92;
+        return EnvironmentLight.anIntArray92;
     }
 }

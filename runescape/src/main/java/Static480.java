@@ -1,6 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -16,9 +17,9 @@ public final class Static480 {
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(II[IIIIII)V")
     public static void method6466(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(7) int arg5) {
-        if (arg0 > 0 && !Static700.method9150(arg0)) {
+        if (arg0 > 0 && !Node_Sub1_Sub27.method9150(arg0)) {
             throw new IllegalArgumentException("");
-        } else if (arg4 <= 0 || Static700.method9150(arg4)) {
+        } else if (arg4 <= 0 || Node_Sub1_Sub27.method9150(arg4)) {
             @Pc(47) int local47 = 0;
             @Pc(55) int local55 = arg4 <= arg0 ? arg4 : arg0;
             @Pc(59) int local59 = arg0 >> 1;
@@ -77,16 +78,16 @@ public final class Static480 {
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "(ILclient!ge;Lclient!vq;I)V")
     public static void runReflectionChecker(@OriginalArg(1) Packet arg0, @OriginalArg(2) SignLink arg1, @OriginalArg(3) int arg2) {
-        @Pc(23) Node_Sub57 local23 = new Node_Sub57();
-        local23.anInt10364 = arg0.g1();
-        local23.anInt10366 = arg0.g4();
-        local23.anIntArray829 = new int[local23.anInt10364];
-        local23.anIntArray827 = new int[local23.anInt10364];
-        local23.aSignedResourceArray1 = new SignedResource[local23.anInt10364];
-        local23.aByteArrayArrayArray18 = new byte[local23.anInt10364][][];
-        local23.anIntArray828 = new int[local23.anInt10364];
-        local23.aSignedResourceArray2 = new SignedResource[local23.anInt10364];
-        for (@Pc(65) int local65 = 0; local65 < local23.anInt10364; local65++) {
+        @Pc(23) ReflectionCheck local23 = new ReflectionCheck();
+        local23.memberCount = arg0.g1();
+        local23.magic = arg0.g4();
+        local23.status = new int[local23.memberCount];
+        local23.fieldValues = new int[local23.memberCount];
+        local23.field = new SignedResource[local23.memberCount];
+        local23.arguments = new byte[local23.memberCount][][];
+        local23.memberTypes = new int[local23.memberCount];
+        local23.methods = new SignedResource[local23.memberCount];
+        for (@Pc(65) int local65 = 0; local65 < local23.memberCount; local65++) {
             try {
                 @Pc(73) int local73 = arg0.g1();
                 @Pc(106) String local106;
@@ -99,9 +100,9 @@ public final class Static480 {
                     if (local73 == 1) {
                         local114 = arg0.g4();
                     }
-                    local23.anIntArray828[local65] = local73;
-                    local23.anIntArray827[local65] = local114;
-                    local23.aSignedResourceArray1[local65] = arg1.getField(Static488.method6524(local106), local110);
+                    local23.memberTypes[local65] = local73;
+                    local23.fieldValues[local65] = local114;
+                    local23.field[local65] = arg1.getField(Static488.method6524(local106), local110);
                 } else if (local73 == 3 || local73 == 4) {
                     local106 = arg0.gjstr();
                     local110 = arg0.gjstr();
@@ -119,27 +120,27 @@ public final class Static480 {
                             arg0.gdata(0, local153, local138[local147]);
                         }
                     }
-                    local23.anIntArray828[local65] = local73;
+                    local23.memberTypes[local65] = local73;
                     @Pc(180) Class[] local180 = new Class[local114];
                     for (local153 = 0; local153 < local114; local153++) {
                         local180[local153] = Static488.method6524(local117[local153]);
                     }
-                    local23.aSignedResourceArray2[local65] = arg1.getMethod(Static488.method6524(local106), local110, local180);
-                    local23.aByteArrayArrayArray18[local65] = local138;
+                    local23.methods[local65] = arg1.getMethod(Static488.method6524(local106), local110, local180);
+                    local23.arguments[local65] = local138;
                 }
             } catch (@Pc(271) ClassNotFoundException local271) {
-                local23.anIntArray829[local65] = -1;
+                local23.status[local65] = -1;
             } catch (@Pc(278) SecurityException local278) {
-                local23.anIntArray829[local65] = -2;
+                local23.status[local65] = -2;
             } catch (@Pc(285) NullPointerException local285) {
-                local23.anIntArray829[local65] = -3;
+                local23.status[local65] = -3;
             } catch (@Pc(292) Exception local292) {
-                local23.anIntArray829[local65] = -4;
+                local23.status[local65] = -4;
             } catch (@Pc(299) Throwable local299) {
-                local23.anIntArray829[local65] = -5;
+                local23.status[local65] = -5;
             }
         }
-        Static631.aDeque_78.addLast(local23);
+        Static631.reflectionChecks.addLast(local23);
     }
 
     @OriginalMember(owner = "client!pca", name = "c", descriptor = "(B)V")

@@ -5,27 +5,30 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static544 {
 
     @OriginalMember(owner = "client!rc", name = "a", descriptor = "(Lclient!hma;ZI)V")
-    public static void method7214(@OriginalArg(0) ChangeLocationRequest arg0, @OriginalArg(1) boolean arg1) {
-        if (arg0.pendingRemoval) {
-            if (arg0.originalId < 0 || Static235.loadedModels(arg0.originalId, arg0.originalShape)) {
-                if (arg1) {
-                    Static706.method9220(arg0.layer, null, arg0.z, arg0.level, arg0.x);
+    public static void method7214(@OriginalArg(0) ChangeLocationRequest request, @OriginalArg(1) boolean customisation) {
+        if (request.pendingRemoval) {
+            if (request.originalId < 0 || Static235.loadedModels(request.originalId, request.originalShape)) {
+                if (customisation) {
+                    Static706.setLocCustomisation(request.layer, null, request.z, request.level, request.x);
                 } else {
-                    Static235.setLocChange(arg0.x, arg0.z, arg0.level, arg0.originalId, arg0.originalShape, arg0.originalRotation, -1, arg0.layer);
+                    Static235.setLocChange(request.x, request.z, request.level, request.originalId, request.originalShape, request.originalRotation, -1, request.layer);
                 }
-                arg0.unlink();
+
+                request.unlink();
             }
-        } else if (arg0.aBoolean310 && arg0.x >= 1 && arg0.z >= 1 && Static720.mapWidth - 2 >= arg0.x && Static501.mapLength - 2 >= arg0.z && (arg0.id < 0 || Static235.loadedModels(arg0.id, arg0.shape))) {
-            if (arg1) {
-                Static706.method9220(arg0.layer, arg0.customisation, arg0.z, arg0.level, arg0.x);
+        } else if (request.aBoolean310 && request.x >= 1 && request.z >= 1 && Static720.mapWidth - 2 >= request.x && Static501.mapLength - 2 >= request.z && (request.id < 0 || Static235.loadedModels(request.id, request.shape))) {
+            if (customisation) {
+                Static706.setLocCustomisation(request.layer, request.customisation, request.z, request.level, request.x);
             } else {
-                Static235.setLocChange(arg0.x, arg0.z, arg0.level, arg0.id, arg0.shape, arg0.rotation, -1, arg0.layer);
+                Static235.setLocChange(request.x, request.z, request.level, request.id, request.shape, request.rotation, -1, request.layer);
             }
-            arg0.aBoolean310 = false;
-            if (!arg1 && arg0.originalId == arg0.id && arg0.originalId == -1) {
-                arg0.unlink();
-            } else if (!arg1 && arg0.originalId == arg0.id && arg0.rotation == arg0.originalRotation && arg0.shape == arg0.originalShape) {
-                arg0.unlink();
+
+            request.aBoolean310 = false;
+
+            if (!customisation && request.originalId == request.id && request.originalId == -1) {
+                request.unlink();
+            } else if (!customisation && request.originalId == request.id && request.rotation == request.originalRotation && request.shape == request.originalShape) {
+                request.unlink();
             }
         }
     }

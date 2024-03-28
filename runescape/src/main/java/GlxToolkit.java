@@ -13,6 +13,7 @@ import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import com.jagex.js5.js5;
 import com.jagex.math.IntMath;
 import jaclib.memory.Stream;
@@ -460,7 +461,7 @@ public final class GlxToolkit extends NativeToolkit {
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(II[IIIZI)Lclient!og;")
     @Override
     public Interface18 method8143(@OriginalArg(1) int arg0, @OriginalArg(2) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) int arg5) {
-        if (this.aBoolean706 || Static700.method9150(arg0) && Static700.method9150(arg5)) {
+        if (this.aBoolean706 || Node_Sub1_Sub27.method9150(arg0) && Node_Sub1_Sub27.method9150(arg5)) {
             return new Class51_Sub4(this, arg0, arg5, arg4, arg1, 0, arg3);
         } else if (this.aBoolean705) {
             return new Class51_Sub3(this, arg0, arg5, arg1, 0, arg3);
@@ -845,7 +846,7 @@ public final class GlxToolkit extends NativeToolkit {
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(Lclient!eba;ZIIB[FII)Lclient!og;")
     @Override
     protected Interface18 method8098(@OriginalArg(0) Class92 arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(5) float[] arg3, @OriginalArg(7) int arg4) {
-        if (this.aBoolean706 || Static700.method9150(arg4) && Static700.method9150(arg2)) {
+        if (this.aBoolean706 || Node_Sub1_Sub27.method9150(arg4) && Node_Sub1_Sub27.method9150(arg2)) {
             return new Class51_Sub4(this, arg0, arg4, arg2, arg1, arg3, 0, 0);
         } else if (this.aBoolean705) {
             return new Class51_Sub3(this, arg0, arg4, arg2, arg3, 0, 0);
@@ -927,7 +928,7 @@ public final class GlxToolkit extends NativeToolkit {
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(Lclient!eba;Lclient!wda;III)Lclient!og;")
     @Override
     public Interface18 method8067(@OriginalArg(0) Class92 arg0, @OriginalArg(1) Class397 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        if (this.aBoolean706 || Static700.method9150(arg3) && Static700.method9150(arg2)) {
+        if (this.aBoolean706 || Node_Sub1_Sub27.method9150(arg3) && Node_Sub1_Sub27.method9150(arg2)) {
             return new Class51_Sub4(this, arg0, arg1, arg3, arg2);
         } else if (this.aBoolean705) {
             return new Class51_Sub3(this, arg0, arg1, arg3, arg2);
@@ -939,7 +940,7 @@ public final class GlxToolkit extends NativeToolkit {
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(Lclient!eba;IZIIIZ[B)Lclient!og;")
     @Override
     protected Interface18 method8103(@OriginalArg(0) Class92 arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(5) int arg3, @OriginalArg(7) byte[] arg4) {
-        if (this.aBoolean706 || Static700.method9150(arg1) && Static700.method9150(arg3)) {
+        if (this.aBoolean706 || Node_Sub1_Sub27.method9150(arg1) && Node_Sub1_Sub27.method9150(arg3)) {
             return new Class51_Sub4(this, arg0, arg1, arg3, arg2, arg4, 0, 0);
         } else if (this.aBoolean705) {
             return new Class51_Sub3(this, arg0, arg1, arg3, arg4, 0, 0);

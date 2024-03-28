@@ -1,3 +1,4 @@
+import com.jagex.graphics.EnvironmentLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -42,18 +43,18 @@ public final class Static177 {
         @Pc(42) int local42;
         @Pc(54) int local54;
         if (arg0 != 8) {
-            local22 = Static340.anInt5586 + (arg3 << Static52.anInt1066);
+            local22 = Static340.anInt5586 + (arg3 << EnvironmentLight.anInt1066);
             local26 = local22 - Static340.anInt5586;
-            local30 = arg2 << Static52.anInt1066;
+            local30 = arg2 << EnvironmentLight.anInt1066;
             local34 = local30 + Static340.anInt5586;
             local42 = Static706.floor[arg4].getHeight(arg2, arg3 + 1);
             local54 = Static706.floor[arg4].getHeight(arg2 + 1, arg3);
             Static285.aLocOccluderArray1[Static150.anInt2634++] = new LocOccluder(arg0, arg4, local22, local26, local26, local22, local42, local54, local54 - arg5, local42 - arg5, local30, local34, local34, local30);
             return;
         }
-        local22 = arg3 << Static52.anInt1066;
+        local22 = arg3 << EnvironmentLight.anInt1066;
         local26 = Static340.anInt5586 + local22;
-        local30 = arg2 << Static52.anInt1066;
+        local30 = arg2 << EnvironmentLight.anInt1066;
         local34 = local30 + Static340.anInt5586;
         local42 = Static706.floor[arg4].getHeight(arg2, arg3);
         local54 = Static706.floor[arg4].getHeight(arg2 + 1, arg3 - -1);

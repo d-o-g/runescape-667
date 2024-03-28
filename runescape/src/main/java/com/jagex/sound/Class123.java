@@ -1,7 +1,7 @@
+package com.jagex.sound;
+
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.js5.js5;
-import com.jagex.sound.SynthSound;
-import com.jagex.sound.VariableRateSoundPacket;
 import com.jagex.sound.vorbis.VorbisSound;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -80,17 +80,6 @@ public final class Class123 {
             }
         } else {
             return null;
-        }
-    }
-
-    @OriginalMember(owner = "client!fca", name = "a", descriptor = "(Z[II)Lclient!sq;")
-    public VariableRateSoundPacket method2614(@OriginalArg(1) int[] arg0, @OriginalArg(2) int arg1) {
-        if (this.aJs5_32.groupSize() == 1) {
-            return this.method2612(arg1, 0, arg0);
-        } else if (this.aJs5_32.fileLimit(arg1) == 1) {
-            return this.method2612(0, arg1, arg0);
-        } else {
-            throw new RuntimeException();
         }
     }
 

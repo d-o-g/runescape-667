@@ -4,6 +4,7 @@ import com.jagex.DisplayProperties;
 import com.jagex.SignLink;
 import com.jagex.SignedResource;
 import com.jagex.SignedResourceStatus;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.MaxScreenSize;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ComponentClientCode;
@@ -2462,7 +2463,7 @@ public final class InterfaceManager {
             refreshTopLevelInterface(true);
         }
 
-        if (ServerConnection.GAME.connection != null && MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
+        if (ServerConnection.GAME.connection != null && MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
             Protocol.sendWindowStatus();
         }
 

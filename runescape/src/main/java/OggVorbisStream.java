@@ -1,5 +1,7 @@
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.game.runetek6.sound.OggStream;
+import com.jagex.sound.DoublyLinkedNode_Sub2_Sub8;
+import com.jagex.sound.Node_Sub6_Sub5;
 import com.jagex.sound.SampleRateConverter;
 import jagtheora.ogg.OggPacket;
 import jagtheora.ogg.OggStreamState;

@@ -1,5 +1,7 @@
 package com.jagex.core.datastruct.key;
 
+import com.jagex.sound.Class123;
+import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -153,5 +155,16 @@ public final class IterableHashTable {
         }
         this.searchPointer = null;
         return null;
+    }
+
+    @OriginalMember(owner = "client!fca", name = "a", descriptor = "(Z[II)Lclient!sq;")
+    public VariableRateSoundPacket method2614(@OriginalArg(1) int[] arg0, @OriginalArg(2) int arg1, Class123 class123) {
+        if (class123.aJs5_32.groupSize() == 1) {
+            return class123.method2612(arg1, 0, arg0);
+        } else if (class123.aJs5_32.fileLimit(arg1) == 1) {
+            return class123.method2612(0, arg1, arg0);
+        } else {
+            throw new RuntimeException();
+        }
     }
 }

@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static15 {
 
-    @OriginalMember(owner = "client!aia", name = "n", descriptor = "Z")
-    public static boolean aBoolean17 = false;
-
     @OriginalMember(owner = "client!aia", name = "a", descriptor = "(I[J[I)V")
     public static void method187(@OriginalArg(1) long[] arg0, @OriginalArg(2) int[] arg1) {
         Static230.method3373(arg0.length - 1, arg1, arg0, 0);

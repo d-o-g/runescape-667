@@ -1,4 +1,6 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -53,7 +55,7 @@ public final class Node_Sub1_Sub26 extends TextureOp {
             @Pc(25) int[] local25 = local17[0];
             @Pc(29) int[] local29 = local17[1];
             @Pc(33) int[] local33 = local17[2];
-            for (@Pc(35) int local35 = 0; local35 < Static608.anInt9289; local35++) {
+            for (@Pc(35) int local35 = 0; local35 < EnvironmentLight.anInt9289; local35++) {
                 local25[local35] = this.anInt8721;
                 local29[local35] = this.anInt8720;
                 local33[local35] = this.anInt8719;

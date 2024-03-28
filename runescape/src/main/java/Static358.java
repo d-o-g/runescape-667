@@ -2,6 +2,7 @@ import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.PointLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -24,16 +25,16 @@ public final class Static358 {
     public static void method9182() {
         for (@Pc(1) int local1 = 0; local1 < Static319.anInt5080; local1++) {
             if (!Static279.aBooleanArray11[local1]) {
-                @Pc(10) EnvironmentLight local10 = Static265.aEnvironmentLightArray1[local1];
+                @Pc(10) EnvironmentLight local10 = EnvironmentLight.aEnvironmentLightArray1[local1];
                 @Pc(13) PointLight local13 = local10.light;
                 @Pc(16) int local16 = local10.level;
-                @Pc(22) int local22 = local13.getRange() - Static247.anInt3993;
-                @Pc(30) int local30 = (local22 * 2 >> Static52.anInt1066) + 1;
+                @Pc(22) int local22 = local13.getRange() - EnvironmentLight.anInt3993;
+                @Pc(30) int local30 = (local22 * 2 >> EnvironmentLight.anInt1066) + 1;
                 @Pc(32) int local32 = 0;
                 @Pc(37) int[] local37 = new int[local30 * local30];
-                @Pc(45) int local45 = local13.getX() - local22 >> Static52.anInt1066;
-                @Pc(53) int local53 = local13.getZ() - local22 >> Static52.anInt1066;
-                @Pc(61) int local61 = local13.getZ() + local22 >> Static52.anInt1066;
+                @Pc(45) int local45 = local13.getX() - local22 >> EnvironmentLight.anInt1066;
+                @Pc(53) int local53 = local13.getZ() - local22 >> EnvironmentLight.anInt1066;
+                @Pc(61) int local61 = local13.getZ() + local22 >> EnvironmentLight.anInt1066;
                 if (local53 < 0) {
                     local32 = -local53;
                     local53 = 0;

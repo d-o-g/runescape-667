@@ -3,6 +3,7 @@ import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
 import com.jagex.LibraryList;
 import com.jagex.PrivateChatMode;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.MiniMenuAction;
@@ -4738,7 +4739,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5508) {
-                        Static494.method6596();
+                        Camera.method6596();
                         return;
                     }
                     if (arg0 == 5509) {
@@ -5086,7 +5087,7 @@ public final class ScriptRunner {
                         local192 = anIntArray578[--anInt7142];
                         local834 = ClientOptions.instance.musicVolume.getValue();
                         if (local192 != local834) {
-                            if (MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
+                            if (MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
                                 if (local834 == 0 && SoundManager.midiSong != -1) {
                                     Static611.method8229(SoundManager.midiSong, local192, js5.MIDI_SONGS);
                                     SoundManager.mixBussReset();
@@ -5212,8 +5213,8 @@ public final class ScriptRunner {
                     if (arg0 == 6038) {
                         local192 = anIntArray578[--anInt7142];
                         local834 = ClientOptions.instance.loginVolume.getValue();
-                        if (local192 != local834 && SoundManager.midiSong == Static597.anInt8821) {
-                            if (!MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
+                        if (local192 != local834 && SoundManager.midiSong == Static597.themeMusic) {
+                            if (!MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
                                 if (local834 == 0) {
                                     Static611.method8229(SoundManager.midiSong, local192, js5.MIDI_SONGS);
                                     SoundManager.mixBussReset();

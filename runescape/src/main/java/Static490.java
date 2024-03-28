@@ -1,3 +1,5 @@
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -14,7 +16,7 @@ public final class Static490 {
         local11.anInt8810 = 4;
         local11.anInt8803 = 3;
         local11.method9421();
-        Static132.method2313(256, 64);
+        EnvironmentLight.method2313(256, 64);
         for (@Pc(48) int local48 = 0; local48 < 256; local48++) {
             local11.method7809(local48, local7[local48]);
         }

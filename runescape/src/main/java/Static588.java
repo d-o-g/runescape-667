@@ -1,3 +1,4 @@
+import com.jagex.graphics.EnvironmentLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -31,8 +32,8 @@ public final class Static588 {
             } else if (Static693.underwaterGround == Static246.ground) {
                 return false;
             } else {
-                @Pc(64) int local64 = arg2 << Static52.anInt1066;
-                @Pc(68) int local68 = arg0 << Static52.anInt1066;
+                @Pc(64) int local64 = arg2 << EnvironmentLight.anInt1066;
+                @Pc(68) int local68 = arg0 << EnvironmentLight.anInt1066;
                 if (Static172.method2674(local64 + Static340.anInt5586 - 1, local68 + 1, Static246.ground[arg1].getHeight(arg0 + 1, arg2 + 1), Static246.ground[arg1].getHeight(arg0 + 1, arg2), Static246.ground[arg1].getHeight(arg0, arg2), local68 + Static340.anInt5586 - 1, Static340.anInt5586 + local68 + -1, local64 + 1, local64 + 1) && Static172.method2674(Static340.anInt5586 + local64 - 1, local68 + 1, Static246.ground[arg1].getHeight(arg0, arg2 + 1), Static246.ground[arg1].getHeight(arg0 + 1, arg2 + 1), Static246.ground[arg1].getHeight(arg0, arg2), local68 + 1, Static340.anInt5586 + local68 + -1, local64 + 1, Static340.anInt5586 + -1 + local64)) {
                     Static298.anInt4811++;
                     Static446.anIntArrayArrayArray9[arg1][arg2][arg0] = Static675.anInt10155;

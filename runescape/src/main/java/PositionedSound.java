@@ -2,6 +2,7 @@ import com.jagex.core.datastruct.key.Node;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
+import com.jagex.sound.SoundStream;
 import com.jagex.sound.VariableRateSoundPacket;
 import com.jagex.sound.vorbis.VorbisSound;
 import org.openrs2.deob.annotation.OriginalClass;

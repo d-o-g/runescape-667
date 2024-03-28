@@ -1,12 +1,26 @@
+package com.jagex.graphics.texture;
+
+import com.jagex.core.datastruct.key.LruCache;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.DoublyLinkedNode_Sub2_Sub7;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.MonochromeImageCache;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
+import java.util.Random;
+
 @OriginalClass("client!so")
 public final class Node_Sub1_Sub27 extends TextureOp {
+
+    @OriginalMember(owner = "client!ut", name = "A", descriptor = "[I")
+    public static final int[] anIntArray768 = new int[4096];
+
+    @OriginalMember(owner = "client!ra", name = "p", descriptor = "Lclient!ts;")
+    public static final LruCache A_DOUBLY_LINKED_LIST___4 = new LruCache(16);
 
     @OriginalMember(owner = "client!so", name = "Y", descriptor = "[S")
     public short[] aShortArray126;
@@ -40,6 +54,55 @@ public final class Node_Sub1_Sub27 extends TextureOp {
         super(0, true);
     }
 
+    @OriginalMember(owner = "client!vv", name = "a", descriptor = "(IZ)[B")
+    public static byte[] method9027(@OriginalArg(0) int arg0) {
+        @Pc(17) DoublyLinkedNode_Sub2_Sub7 local17 = (DoublyLinkedNode_Sub2_Sub7) A_DOUBLY_LINKED_LIST___4.get(arg0);
+        if (local17 == null) {
+            @Pc(22) byte[] local22 = new byte[512];
+            @Pc(28) Random local28 = new Random(arg0);
+            for (@Pc(30) int local30 = 0; local30 < 255; local30++) {
+                local22[local30] = (byte) local30;
+            }
+            for (@Pc(42) int local42 = 0; local42 < 255; local42++) {
+                @Pc(48) int local48 = 255 - local42;
+                @Pc(53) int local53 = method8326(-5208, local48, local28);
+                @Pc(57) byte local57 = local22[local53];
+                local22[local53] = local22[local48];
+                local22[local48] = local22[511 - local42] = local57;
+            }
+            local17 = new DoublyLinkedNode_Sub2_Sub7(local22);
+            A_DOUBLY_LINKED_LIST___4.put(local17, arg0);
+        }
+        return local17.aByteArray21;
+    }
+
+    @OriginalMember(owner = "client!wq", name = "b", descriptor = "(III)I")
+    public static int method9118(@OriginalArg(0) int arg0, @OriginalArg(2) int arg2) {
+        @Pc(18) int local18 = arg2 - 1 & arg0 >> 31;
+        return local18 + (arg0 + (arg0 >>> 31)) % arg2;
+    }
+
+    @OriginalMember(owner = "client!tm", name = "a", descriptor = "(IILjava/util/Random;)I")
+    public static int method8326(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Random arg2) {
+        if (arg1 <= 0) {
+            throw new IllegalArgumentException();
+        } else if (method9150(arg1)) {
+            return (int) (((long) arg2.nextInt() & 0xFFFFFFFFL) * (long) arg1 >> 32);
+        } else {
+            @Pc(46) int local46 = Integer.MIN_VALUE - (int) (4294967296L % (long) arg1);
+            @Pc(49) int local49;
+            do {
+                local49 = arg2.nextInt();
+            } while (local49 >= local46);
+            return method9118(local49, arg1);
+        }
+    }
+
+    @OriginalMember(owner = "client!wca", name = "a", descriptor = "(IZ)Z")
+    public static boolean method9150(@OriginalArg(0) int arg0) {
+        return (arg0 & -arg0) == arg0;
+    }
+
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(I[II)V")
     public void method7809(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1) {
         @Pc(15) int local15 = this.anInt8805 * MonochromeImageCache.anIntArray341[arg0];
@@ -69,18 +132,18 @@ public final class Node_Sub1_Sub27 extends TextureOp {
                 local59 = 0;
             }
             local77 = this.aByteArray97[local55 & 0xFF] & 0xFF;
-            local81 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local37];
+            local81 = anIntArray768[local37];
             local90 = this.aByteArray97[local59 & 0xFF] & 0xFF;
             if (this.aBoolean667) {
-                for (local95 = 0; local95 < Static608.anInt9289; local95++) {
-                    local103 = this.anInt8810 * Static54.anIntArray92[local95];
+                for (local95 = 0; local95 < EnvironmentLight.anInt9289; local95++) {
+                    local103 = this.anInt8810 * EnvironmentLight.anIntArray92[local95];
                     local117 = this.method7812(local51, local77, local31 * local103 >> 12, local37, local81, local90);
                     local117 = local117 * local24 >> 12;
                     arg1[local95] = (local117 >> 1) + 2048;
                 }
             } else {
-                for (local95 = 0; local95 < Static608.anInt9289; local95++) {
-                    local103 = Static54.anIntArray92[local95] * this.anInt8810;
+                for (local95 = 0; local95 < EnvironmentLight.anInt9289; local95++) {
+                    local103 = EnvironmentLight.anIntArray92[local95] * this.anInt8810;
                     local117 = this.method7812(local51, local77, local31 * local103 >> 12, local37, local81, local90);
                     arg1[local95] = local117 * local24 >> 12;
                 }
@@ -100,10 +163,10 @@ public final class Node_Sub1_Sub27 extends TextureOp {
             }
             local37 &= 0xFFF;
             local77 = this.aByteArray97[local55 & 0xFF] & 0xFF;
-            local81 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local37];
+            local81 = anIntArray768[local37];
             local90 = this.aByteArray97[local59 & 0xFF] & 0xFF;
-            for (local95 = 0; local95 < Static608.anInt9289; local95++) {
-                local103 = this.anInt8810 * Static54.anIntArray92[local95];
+            for (local95 = 0; local95 < EnvironmentLight.anInt9289; local95++) {
+                local103 = this.anInt8810 * EnvironmentLight.anIntArray92[local95];
                 local117 = this.method7812(local51, local77, local103 * local31 >> 12, local37, local81, local90);
                 arg1[local95] = local117 * local24 >> 12;
             }
@@ -122,18 +185,18 @@ public final class Node_Sub1_Sub27 extends TextureOp {
                     local59 = 0;
                 }
                 local90 = this.aByteArray97[local59 & 0xFF] & 0xFF;
-                local81 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local37];
+                local81 = anIntArray768[local37];
                 local77 = this.aByteArray97[local55 & 0xFF] & 0xFF;
                 if (this.aBoolean667 && this.anInt8803 - 1 == local301) {
-                    for (local95 = 0; local95 < Static608.anInt9289; local95++) {
-                        local103 = Static54.anIntArray92[local95] * this.anInt8810;
+                    for (local95 = 0; local95 < EnvironmentLight.anInt9289; local95++) {
+                        local103 = EnvironmentLight.anIntArray92[local95] * this.anInt8810;
                         local117 = this.method7812(local51, local77, local103 * local31 >> 12, local37, local81, local90);
                         local117 = (local117 * local24 >> 12) + arg1[local95];
                         arg1[local95] = (local117 >> 1) + 2048;
                     }
                 } else {
-                    for (local95 = 0; local95 < Static608.anInt9289; local95++) {
-                        local103 = Static54.anIntArray92[local95] * this.anInt8810;
+                    for (local95 = 0; local95 < EnvironmentLight.anInt9289; local95++) {
+                        local103 = EnvironmentLight.anIntArray92[local95] * this.anInt8810;
                         local117 = this.method7812(local51, local77, local31 * local103 >> 12, local37, local81, local90);
                         arg1[local95] += local117 * local24 >> 12;
                     }
@@ -158,7 +221,7 @@ public final class Node_Sub1_Sub27 extends TextureOp {
     @OriginalMember(owner = "client!so", name = "c", descriptor = "(I)V")
     @Override
     public void method9421() {
-        this.aByteArray97 = Static694.method9027(this.anInt8809);
+        this.aByteArray97 = method9027(this.anInt8809);
         this.method7813(-1);
         @Pc(19) int local19 = this.anInt8803 - 1;
         while (local19 >= 1) {
@@ -220,7 +283,7 @@ public final class Node_Sub1_Sub27 extends TextureOp {
         @Pc(32) int local32 = local15 - 4096;
         local11 &= 0xFF;
         @Pc(40) int local40 = arg3 - 4096;
-        @Pc(44) int local44 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local15];
+        @Pc(44) int local44 = anIntArray768[local15];
         @Pc(63) int local63 = this.aByteArray97[arg1 + local7] & 0x3;
         @Pc(82) int local82;
         if (local63 <= 1) {

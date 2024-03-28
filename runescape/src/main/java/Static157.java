@@ -1,3 +1,4 @@
+import com.jagex.graphics.EnvironmentLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -10,9 +11,9 @@ public final class Static157 {
         if (local4 == null) {
             return;
         }
-        arg4.x = (arg1 << Static52.anInt1066) + Static247.anInt3993;
+        arg4.x = (arg1 << EnvironmentLight.anInt1066) + EnvironmentLight.anInt3993;
         arg4.y = arg3;
-        arg4.z = (arg2 << Static52.anInt1066) + Static247.anInt3993;
+        arg4.z = (arg2 << EnvironmentLight.anInt1066) + EnvironmentLight.anInt3993;
         local4.aClass8_Sub2_Sub5_1 = arg4;
         @Pc(36) int local36 = Static246.ground == Static693.underwaterGround ? 1 : 0;
         if (arg4.isStationary()) {

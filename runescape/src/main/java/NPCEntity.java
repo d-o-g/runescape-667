@@ -1,3 +1,5 @@
+import com.jagex.Entity;
+import com.jagex.PickableEntity;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ParticleList;
 import com.jagex.core.util.TimeUtils;
@@ -13,6 +15,7 @@ import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.BoundingCylinder;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -165,7 +168,7 @@ public final class NPCEntity extends PathingEntity {
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.yaw.getValue(16383);
         local22.rotate(local27);
-        @Pc(45) Tile local45 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
+        @Pc(45) Tile local45 = Static334.activeTiles[super.level][super.x >> EnvironmentLight.anInt1066][super.z >> EnvironmentLight.anInt1066];
         if (local45 == null || local45.groundDecor == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
         } else {

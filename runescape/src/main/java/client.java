@@ -1,11 +1,11 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.SignedResourceStatus;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.game.PathFinder;
 import com.jagex.game.camera.CameraMode;
-import com.jagex.game.camera.Shake;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.constants.ModeWhat;
 import com.jagex.core.constants.ModeWhere;
@@ -17,7 +17,6 @@ import com.jagex.core.stringtools.general.Url;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
@@ -45,7 +44,6 @@ import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
 import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.structtype.StructTypeList;
-import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanTypeList;
@@ -205,606 +203,6 @@ public final class client extends GameShell {
         ScriptRunner.A_WEIGHTED_CACHE___156.clean(5);
     }
 
-    @OriginalMember(owner = "client!bda", name = "a", descriptor = "(IB)V")
-    public static void method977(@OriginalArg(0) int id) {
-        SoundManager.method2000();
-
-        @Pc(16) int clientCode = VarPlayerTypeListClient.instance.list(id).clientCode;
-        if (clientCode == 0) {
-            return;
-        }
-
-        @Pc(25) int value = TimedVarDomain.instance.varValues[id];
-        if (clientCode == 5) {
-            Client.mouseButtons = value;
-        }
-        if (clientCode == 6) {
-            Client.disableChatEffects = value;
-        }
-    }
-
-    @OriginalMember(owner = "client!wh", name = "i", descriptor = "(I)V")
-    public static void method9254() {
-        if (Static249.rebootTimer > 1) {
-            Static249.rebootTimer--;
-            Static321.lastMiscTransmit = World.tick;
-        }
-        if (ServerConnection.GAME.errored) {
-            ServerConnection.GAME.errored = false;
-            ConnectionManager.disconnect();
-            return;
-        }
-        if (!MiniMenu.open) {
-            MiniMenu.reset();
-        }
-        for (@Pc(34) int local34 = 0; local34 < 100 && Static236.readPacket(ServerConnection.GAME); local34++) {
-        }
-        if (MainLogicManager.step != 11) {
-            return;
-        }
-        @Pc(71) ClientMessage local71;
-        @Pc(80) int local80;
-        while (Static232.method3400()) {
-            local71 = ClientMessage.create(ClientProt.REFLECTION_CHECK_REPLY, ServerConnection.GAME.cipher);
-            local71.bitPacket.p1(0);
-            local80 = local71.bitPacket.pos;
-            Static437.method5915(local71.bitPacket);
-            local71.bitPacket.psize1(local71.bitPacket.pos - local80);
-            ServerConnection.GAME.send(local71);
-        }
-        if (Static211.pingRequest == null) {
-            if (Static675.nextPing <= SystemTimer.safetime()) {
-                Static211.pingRequest = Static151.aClass226_20.method5245(ConnectionInfo.login.address);
-            }
-        } else if (Static211.pingRequest.anInt1631 != -1) {
-            local71 = ClientMessage.create(ClientProt.PING_STATISTICS, ServerConnection.GAME.cipher);
-            local71.bitPacket.p2(Static211.pingRequest.anInt1631);
-            ServerConnection.GAME.send(local71);
-            Static211.pingRequest = null;
-            Static675.nextPing = SystemTimer.safetime() + 30000L;
-        }
-        @Pc(166) MouseLog local166 = (MouseLog) Static226.mouseLogs.first();
-        @Pc(181) int local181;
-        @Pc(208) int local208;
-        @Pc(226) int local226;
-        @Pc(282) int local282;
-        @Pc(288) int local288;
-        @Pc(300) int local300;
-        @Pc(179) ClientMessage local179;
-        if (local166 != null || Static56.aLong38 < SystemTimer.safetime() - 2000L) {
-            local179 = null;
-            local181 = 0;
-            for (@Pc(186) MouseLog local186 = (MouseLog) Static677.A_DEQUE___76.first(); local186 != null && (local179 == null || local179.bitPacket.pos - local181 < 240); local186 = (MouseLog) Static677.A_DEQUE___76.next()) {
-                local186.unlink();
-                local208 = local186.getY();
-                if (local208 < -1) {
-                    local208 = -1;
-                } else if (local208 > 65534) {
-                    local208 = 65534;
-                }
-                local226 = local186.getX();
-                if (local226 < -1) {
-                    local226 = -1;
-                } else if (local226 > 65534) {
-                    local226 = 65534;
-                }
-                if (Static172.anInt2890 != local226 || local208 != Static634.anInt9516) {
-                    if (local179 == null) {
-                        local179 = ClientMessage.create(ClientProt.EVENT_MOUSE_MOVE, ServerConnection.GAME.cipher);
-                        local179.bitPacket.p1(0);
-                        local181 = local179.bitPacket.pos;
-                    }
-                    local282 = local226 - Static172.anInt2890;
-                    Static172.anInt2890 = local226;
-                    local288 = local208 - Static634.anInt9516;
-                    Static634.anInt9516 = local208;
-                    local300 = (int) ((local186.getTime() - Static56.aLong38) / 20L);
-                    if (local300 < 8 && local282 >= -32 && local282 <= 31 && local288 >= -32 && local288 <= 31) {
-                        local282 += 32;
-                        local288 += 32;
-                        local179.bitPacket.p2((local300 << 12) + (local282 << 6) + local288);
-                    } else if (local300 < 32 && local282 >= -128 && local282 <= 127 && local288 >= -128 && local288 <= 127) {
-                        local179.bitPacket.p1(local300 + 128);
-                        local282 += 128;
-                        local288 += 128;
-                        local179.bitPacket.p2(local288 + (local282 << 8));
-                    } else if (local300 >= 32) {
-                        local179.bitPacket.p2(local300 + 57344);
-                        if (local226 == 1 || local208 == -1) {
-                            local179.bitPacket.p4(Integer.MIN_VALUE);
-                        } else {
-                            local179.bitPacket.p4(local226 | local208 << 16);
-                        }
-                    } else {
-                        local179.bitPacket.p1(local300 + 192);
-                        if (local226 == 1 || local208 == -1) {
-                            local179.bitPacket.p4(Integer.MIN_VALUE);
-                        } else {
-                            local179.bitPacket.p4(local208 << 16 | local226);
-                        }
-                    }
-                    Static56.aLong38 = local186.getTime();
-                }
-            }
-            if (local179 != null) {
-                local179.bitPacket.psize1(local179.bitPacket.pos - local181);
-                ServerConnection.GAME.send(local179);
-            }
-        }
-        @Pc(541) int local541;
-        if (local166 != null) {
-            @Pc(527) long local527 = (local166.getTime() - Static180.aLong108) / 50L;
-            if (local527 > 32767L) {
-                local527 = 32767L;
-            }
-            Static180.aLong108 = local166.getTime();
-            local541 = local166.getY();
-            if (local541 < 0) {
-                local541 = 0;
-            } else if (local541 > 65535) {
-                local541 = 65535;
-            }
-            local208 = local166.getX();
-            if (local208 < 0) {
-                local208 = 0;
-            } else if (local208 > 65535) {
-                local208 = 65535;
-            }
-            @Pc(581) byte local581 = 0;
-            if (local166.getType() == 2) {
-                local581 = 1;
-            }
-            local282 = (int) local527;
-            @Pc(603) ClientMessage local603 = ClientMessage.create(ClientProt.EVENT_MOUSE_CLICK, ServerConnection.GAME.cipher);
-            local603.bitPacket.p2_alt3(local581 << 15 | local282);
-            local603.bitPacket.p4_alt2(local208 | local541 << 16);
-            ServerConnection.GAME.send(local603);
-        }
-        @Pc(660) long local660;
-        if (Static216.anInt3530 > 0) {
-            local179 = ClientMessage.create(ClientProt.EVENT_KEYBOARD, ServerConnection.GAME.cipher);
-            local179.bitPacket.p1(Static216.anInt3530 * 3);
-            for (local181 = 0; local181 < Static216.anInt3530; local181++) {
-                @Pc(652) KeyLog local652 = Static591.AN_KEYBOARD_EVENT_ARRAY_2[local181];
-                local660 = (local652.getTime() - Static351.aLong173) / 50L;
-                if (local660 > 65535L) {
-                    local660 = 65535L;
-                }
-                Static351.aLong173 = local652.getTime();
-                local179.bitPacket.p1(local652.getKeyCode());
-                local179.bitPacket.p2((int) local660);
-            }
-            ServerConnection.GAME.send(local179);
-        }
-        if (Static232.anInt3764 > 0) {
-            Static232.anInt3764--;
-        }
-        if (Camera.angleUpdated && Static232.anInt3764 <= 0) {
-            Camera.angleUpdated = false;
-            Static232.anInt3764 = 20;
-            local179 = ClientMessage.create(ClientProt.EVENT_CAMERA_POSITION, ServerConnection.GAME.cipher);
-            local179.bitPacket.p2((int) Camera.playerCameraPitch >> 3);
-            local179.bitPacket.p2((int) Camera.playerCameraYaw >> 3);
-            ServerConnection.GAME.send(local179);
-        }
-        if (focus != Static50.aBoolean565) {
-            Static50.aBoolean565 = focus;
-            local179 = ClientMessage.create(ClientProt.EVENT_APPLET_FOCUS, ServerConnection.GAME.cipher);
-            local179.bitPacket.p1(focus ? 1 : 0);
-            ServerConnection.GAME.send(local179);
-        }
-        if (!Static503.sentPreferences) {
-            local179 = ClientMessage.create(ClientProt.CLIENT_DETAILOPTIONS_STATUS, ServerConnection.GAME.cipher);
-            local179.bitPacket.p1(0);
-            local181 = local179.bitPacket.pos;
-            @Pc(810) Packet local810 = ClientOptions.instance.encode();
-            local179.bitPacket.pdata(local810.pos, local810.data, 0);
-            local179.bitPacket.psize1(local179.bitPacket.pos - local181);
-            ServerConnection.GAME.send(local179);
-            Static503.sentPreferences = true;
-        }
-        if (Static334.activeTiles != null) {
-            if (Camera.mode == CameraMode.MODE_FIXED) {
-                Camera.moveToTick();
-            } else if (Camera.mode == CameraMode.MODE_SPLINE) {
-                Camera.splineTick();
-            }
-        }
-        if (Static494.aBoolean563) {
-            Static494.aBoolean563 = false;
-        } else {
-            Static288.aFloat83 /= 2.0F;
-        }
-        if (Static15.aBoolean17) {
-            Static15.aBoolean17 = false;
-        } else {
-            Static552.aFloat207 /= 2.0F;
-        }
-        Static630.method8358();
-        if (MainLogicManager.step != 11) {
-            return;
-        }
-        Static159.method2575();
-        Static271.method3930();
-        SoundManager.method918();
-        ServerConnection.GAME.idleReadTicks++;
-        if (ServerConnection.GAME.idleReadTicks > 750) {
-            ConnectionManager.disconnect();
-            return;
-        }
-        if (CutsceneManager.state == 0) {
-            Static82.method1593();
-            Static13.method158();
-        } else {
-            if (CutsceneManager.state == 1 && Static360.method5230(CutsceneManager.id)) {
-                Static266.method6774();
-                CutsceneManager.state = 2;
-            }
-            if (CutsceneManager.state == 2 && MainLogicManager.step != 12) {
-                CutsceneVarDomain.cache.clear();
-                Static440.anInt6680 = 0;
-                CutsceneManager.clock = TimeUtils.clock;
-                CutsceneManager.state = 3;
-                Static457.method6231();
-            }
-            if (CutsceneManager.state == 3) {
-                local80 = TimeUtils.clock - CutsceneManager.clock;
-                if (Static401.aCutsceneActionArray1.length > Static440.anInt6680) {
-                    do {
-                        @Pc(982) CutsceneAction local982 = Static401.aCutsceneActionArray1[Static440.anInt6680];
-                        if (local982.startTime > local80) {
-                            break;
-                        }
-                        local982.execute();
-                    } while (CutsceneManager.state == 3 && ++Static440.anInt6680 < Static401.aCutsceneActionArray1.length);
-                }
-                if (CutsceneManager.state == 3) {
-                    for (local181 = 0; local181 < CutsceneManager.actors.length; local181++) {
-                        @Pc(1027) Actor local1027 = CutsceneManager.actors[local181];
-                        if (local1027.initialised) {
-                            @Pc(1034) PathingEntity local1034 = local1027.entity();
-                            Static489.tick(true, local1034);
-                        }
-                    }
-                }
-            }
-        }
-        Static90.method1733();
-        if (!Static288.aBoolean356) {
-            Static598.method7827();
-            Static288.aBoolean356 = true;
-        }
-        for (local80 = TimedVarDomain.instance.removeNext(true); local80 != -1; local80 = TimedVarDomain.instance.removeNext(false)) {
-            method977(local80);
-            Static142.anIntArray225[Static635.varpUpdateCount++ & 0x1F] = local80;
-        }
-        for (@Pc(1099) DelayedStateChange change = DelayedStateChange.removeFirst(); change != null; change = DelayedStateChange.removeFirst()) {
-            local541 = change.getType();
-            local660 = change.getValue();
-            if (local541 == 1) {
-                Static511.varcs[(int) local660] = change.primaryData;
-                Static624.varcSaveRecommended |= Static118.permVarcs[(int) local660];
-                Static278.anIntArray350[Static52.varcUpdateCount++ & 0x1F] = (int) local660;
-            } else if (local541 == 2) {
-                Static37.aStringArray4[(int) local660] = change.stringData;
-                Static268.anIntArray332[Static455.varcstrUpdateCount++ & 0x1F] = (int) local660;
-            } else {
-                @Pc(1143) Component local1143;
-                if (local541 == 3) {
-                    local1143 = InterfaceList.list((int) local660);
-                    if (!change.stringData.equals(local1143.text)) {
-                        local1143.text = change.stringData;
-                        InterfaceManager.redraw(local1143);
-                    }
-                } else {
-                    @Pc(1739) int local1739;
-                    if (local541 == 4) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local288 = change.primaryData;
-                        local300 = change.secondaryData;
-                        local1739 = change.tertiaryData;
-                        if (local288 != local1143.objType || local300 != local1143.obj || local1739 != local1143.objData) {
-                            local1143.objData = local1739;
-                            local1143.objType = local288;
-                            local1143.obj = local300;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 5) {
-                        local1143 = InterfaceList.list((int) local660);
-                        if (local1143.modelAnimation != change.primaryData) {
-                            if (change.primaryData == -1) {
-                                local1143.animator = null;
-                            } else {
-                                if (local1143.animator == null) {
-                                    local1143.animator = new ComponentAnimator();
-                                }
-                                local1143.animator.update(true, change.primaryData);
-                            }
-                            local1143.modelAnimation = change.primaryData;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 6) {
-                        local282 = change.primaryData;
-                        local288 = local282 >> 10 & 0x1F;
-                        local300 = local282 >> 5 & 0x1F;
-                        local1739 = local282 & 0x1F;
-                        @Pc(1751) int local1751 = (local300 << 11) + (local288 << 19) + (local1739 << 3);
-                        @Pc(1756) Component local1756 = InterfaceList.list((int) local660);
-                        if (local1756.colour != local1751) {
-                            local1756.colour = local1751;
-                            InterfaceManager.redraw(local1756);
-                        }
-                    } else if (local541 == 7) {
-                        local1143 = InterfaceList.list((int) local660);
-                        @Pc(1701) boolean local1701 = change.primaryData == 1;
-                        if (local1701 != local1143.hidden) {
-                            local1143.hidden = local1701;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 8) {
-                        local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.modelAngleX || change.secondaryData != local1143.modelAngleY || local1143.modelZoom != change.tertiaryData) {
-                            local1143.modelAngleX = change.primaryData;
-                            local1143.modelAngleY = change.secondaryData;
-                            local1143.modelZoom = change.tertiaryData;
-                            if (local1143.invObject != -1) {
-                                if (local1143.anInt3800 > 0) {
-                                    local1143.modelZoom = local1143.modelZoom * 32 / local1143.anInt3800;
-                                } else if (local1143.baseWidth > 0) {
-                                    local1143.modelZoom = local1143.modelZoom * 32 / local1143.baseWidth;
-                                }
-                            }
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 9) {
-                        local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.invObject || change.secondaryData != local1143.invCount) {
-                            local1143.invCount = change.secondaryData;
-                            local1143.invObject = change.primaryData;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 10) {
-                        local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.anInt3736 || local1143.anInt3804 != change.secondaryData || change.tertiaryData != local1143.modelAngleZ) {
-                            local1143.anInt3736 = change.primaryData;
-                            local1143.anInt3804 = change.secondaryData;
-                            local1143.modelAngleZ = change.tertiaryData;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 11) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.postTypeVertical = 0;
-                        local1143.positionY = local1143.basePosY = change.secondaryData;
-                        local1143.positionX = local1143.basePosX = change.primaryData;
-                        local1143.posTypeHorizontal = 0;
-                        InterfaceManager.redraw(local1143);
-                    } else if (local541 == 12) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local288 = change.primaryData;
-                        if (local1143 != null && local1143.type == 0) {
-                            if (local288 > local1143.scrollHeight - local1143.height) {
-                                local288 = local1143.scrollHeight - local1143.height;
-                            }
-                            if (local288 < 0) {
-                                local288 = 0;
-                            }
-                            if (local1143.scrollY != local288) {
-                                local1143.scrollY = local288;
-                                InterfaceManager.redraw(local1143);
-                            }
-                        }
-                    } else if (local541 == 14) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.graphic = change.primaryData;
-                    } else if (local541 == 15) {
-                        Minimap.flagY = change.secondaryData;
-                        Minimap.flagSet = true;
-                        Minimap.flagX = change.primaryData;
-                    } else if (local541 == 16) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.fontGraphic = change.primaryData;
-                    } else if (local541 == 20) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.fontMonospaced = change.primaryData == 1;
-                    } else if (local541 == 21) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.clickMask = change.primaryData == 1;
-                    } else if (local541 == 17) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.video = change.primaryData;
-                    } else if (local541 == 18) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local288 = (int) (local660 >> 32);
-                        local1143.setRecol((short) change.secondaryData, local288, (short) change.primaryData);
-                    } else if (local541 == 19) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local288 = (int) (local660 >> 32);
-                        local1143.setRetex((short) change.primaryData, local288, (short) change.secondaryData);
-                    }
-                }
-            }
-        }
-        Static35.currentTick++;
-        if (Static616.crossType != 0) {
-            Static481.crossDuration += 20;
-            if (Static481.crossDuration >= 400) {
-                Static616.crossType = 0;
-            }
-        }
-        if (Static67.aComponent_10 != null) {
-            Static499.anInt7501++;
-            if (Static499.anInt7501 >= 15) {
-                InterfaceManager.redraw(Static67.aComponent_10);
-                Static67.aComponent_10 = null;
-            }
-        }
-        WorldMap.component = null;
-        InterfaceManager.aBoolean428 = false;
-        Static702.aBoolean797 = false;
-        InterfaceManager.dragTarget = null;
-        WorldMap.setOptions(-1, -1, null);
-        if (!InterfaceManager.targetMode) {
-            InterfaceManager.targetEndCursor = -1;
-        }
-        Static443.method5981();
-        World.tick++;
-        if (WorldMap.clicked) {
-            @Pc(1980) ClientMessage local1980 = ClientMessage.create(ClientProt.CLICKWORLDMAP, ServerConnection.GAME.cipher);
-            local1980.bitPacket.p4_alt3(WorldMap.clickedY | WorldMap.clickedLevel << 28 | WorldMap.clickedX << 14);
-            ServerConnection.GAME.send(local1980);
-            WorldMap.clicked = false;
-        }
-        while (true) {
-            @Pc(2006) HookRequest local2006;
-            @Pc(2026) Component local2026;
-            @Pc(2011) Component local2011;
-            do {
-                local2006 = (HookRequest) Static618.A_DEQUE___68.removeFirst();
-                if (local2006 == null) {
-                    while (true) {
-                        do {
-                            local2006 = (HookRequest) Static59.A_DEQUE___33.removeFirst();
-                            if (local2006 == null) {
-                                while (true) {
-                                    do {
-                                        local2006 = (HookRequest) Static521.A_DEQUE___44.removeFirst();
-                                        if (local2006 == null) {
-                                            if (WorldMap.component == null) {
-                                                MiniMenu.anInt6964 = 0;
-                                            }
-                                            if (InterfaceManager.dragSource != null) {
-                                                Static603.method7899();
-                                            }
-                                            if (Client.staffModLevel > 0 && KeyboardMonitor.instance.isPressed(82) && KeyboardMonitor.instance.isPressed(81) && Static611.mouseWheelRotation != 0) {
-                                                local541 = PlayerEntity.self.level - Static611.mouseWheelRotation;
-                                                if (local541 < 0) {
-                                                    local541 = 0;
-                                                } else if (local541 > 3) {
-                                                    local541 = 3;
-                                                }
-                                                Static624.teleport(local541, PlayerEntity.self.pathZ[0] + WorldMap.areaBaseZ, WorldMap.areaBaseX - -PlayerEntity.self.pathX[0]);
-                                            }
-                                            MiniMenu.update();
-                                            for (local541 = 0; local541 < 5; local541++) {
-                                                @Pc(2246) int local2246 = Shake.time[local541]++;
-                                            }
-                                            if (Static624.varcSaveRecommended && Static98.lastVarcSave < SystemTimer.safetime() - 60000L) {
-                                                Static266.saveVarcs();
-                                            }
-                                            for (@Pc(2281) FriendNotification local2281 = (FriendNotification) FriendsList.notifications.first(); local2281 != null; local2281 = (FriendNotification) FriendsList.notifications.next()) {
-                                                if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.arrivalTime) {
-                                                    if (local2281.world > 0) {
-                                                        ChatHistory.add(local2281.name + LocalisedText.FRIENDLOGIN.localise(Client.language), "", 0, "", "", 5);
-                                                    }
-                                                    if (local2281.world == 0) {
-                                                        ChatHistory.add(local2281.name + LocalisedText.FRIENDLOGOUT.localise(Client.language), "", 0, "", "", 5);
-                                                    }
-                                                    local2281.unlink();
-                                                }
-                                            }
-                                            if (14590 != 14590) {
-                                                Camera.moveToZ = -107;
-                                            }
-                                            Static392.anInt6143++;
-                                            if (Static392.anInt6143 > 500) {
-                                                Static392.anInt6143 = 0;
-                                                local226 = (int) (Math.random() * 8.0D);
-                                                if ((local226 & 0x2) == 2) {
-                                                    Static145.anInt2561 += Static374.anInt5906;
-                                                }
-                                                if ((local226 & 0x1) == 1) {
-                                                    Static508.anInt7627 += Static555.anInt8305;
-                                                }
-                                                if ((local226 & 0x4) == 4) {
-                                                    Static288.anInt4621 += Static709.anInt10669;
-                                                }
-                                            }
-                                            if (Static508.anInt7627 < -50) {
-                                                Static555.anInt8305 = 2;
-                                            }
-                                            if (Static508.anInt7627 > 50) {
-                                                Static555.anInt8305 = -2;
-                                            }
-                                            if (Static145.anInt2561 < -55) {
-                                                Static374.anInt5906 = 2;
-                                            }
-                                            if (Static288.anInt4621 < -40) {
-                                                Static709.anInt10669 = 1;
-                                            }
-                                            if (Static145.anInt2561 > 55) {
-                                                Static374.anInt5906 = -2;
-                                            }
-                                            Static439.anInt6675++;
-                                            if (Static288.anInt4621 > 40) {
-                                                Static709.anInt10669 = -1;
-                                            }
-                                            if (Static439.anInt6675 > 500) {
-                                                Static439.anInt6675 = 0;
-                                                local226 = (int) (Math.random() * 8.0D);
-                                                if ((local226 & 0x1) == 1) {
-                                                    Camera.yawOffset += Static653.anInt9718;
-                                                }
-                                                if ((local226 & 0x2) == 2) {
-                                                    Camera.scaleOffset += Static171.anInt2887;
-                                                }
-                                            }
-                                            if (Camera.yawOffset < -60) {
-                                                Static653.anInt9718 = 2;
-                                            }
-                                            if (Camera.yawOffset > 60) {
-                                                Static653.anInt9718 = -2;
-                                            }
-                                            if (Camera.scaleOffset < -20) {
-                                                Static171.anInt2887 = 1;
-                                            }
-                                            ServerConnection.GAME.idleWriteTicks++;
-                                            if (Camera.scaleOffset > 10) {
-                                                Static171.anInt2887 = -1;
-                                            }
-                                            if (ServerConnection.GAME.idleWriteTicks > 50) {
-                                                @Pc(2571) ClientMessage local2571 = ClientMessage.create(ClientProt.NO_TIMEOUT, ServerConnection.GAME.cipher);
-                                                ServerConnection.GAME.send(local2571);
-                                            }
-                                            if (Static252.aBoolean316) {
-                                                Static143.method3571();
-                                                Static252.aBoolean316 = false;
-                                            }
-                                            try {
-                                                ServerConnection.GAME.flush();
-                                                return;
-                                            } catch (@Pc(2588) IOException local2588) {
-                                                ConnectionManager.disconnect();
-                                                return;
-                                            }
-                                        }
-                                        local2011 = local2006.source;
-                                        if (local2011.id < 0) {
-                                            break;
-                                        }
-                                        local2026 = InterfaceList.list(local2011.layer);
-                                    } while (local2026 == null || local2026.staticComponents == null || local2026.staticComponents.length <= local2011.id || local2011 != local2026.staticComponents[local2011.id]);
-                                    ScriptRunner.executeHookInner(local2006);
-                                }
-                            }
-                            local2011 = local2006.source;
-                            if (local2011.id < 0) {
-                                break;
-                            }
-                            local2026 = InterfaceList.list(local2011.layer);
-                        } while (local2026 == null || local2026.staticComponents == null || local2011.id >= local2026.staticComponents.length || local2026.staticComponents[local2011.id] != local2011);
-                        ScriptRunner.executeHookInner(local2006);
-                    }
-                }
-                local2011 = local2006.source;
-                if (local2011.id < 0) {
-                    break;
-                }
-                local2026 = InterfaceList.list(local2011.layer);
-            } while (local2026 == null || local2026.staticComponents == null || local2026.staticComponents.length <= local2011.id || local2026.staticComponents[local2011.id] != local2011);
-            ScriptRunner.executeHookInner(local2006);
-        }
-    }
-
     @OriginalMember(owner = "client!lc", name = "c", descriptor = "(B)V")
     public static void cacheReset() {
         FloorOverlayTypeList.instance.cacheReset();
@@ -835,8 +233,8 @@ public final class client extends GameShell {
         FontTypeList.cacheReset();
         ClientInventory.cacheReset();
         if (Client.modeWhere != ModeWhere.LIVE) {
-            for (@Pc(92) int local92 = 0; local92 < Static163.aByteArrayArray36.length; local92++) {
-                Static163.aByteArrayArray36[local92] = null;
+            for (@Pc(92) int i = 0; i < Static163.aByteArrayArray36.length; i++) {
+                Static163.aByteArrayArray36[i] = null;
             }
             Static107.anInt2161 = 0;
         }
@@ -1009,7 +407,7 @@ public final class client extends GameShell {
                 return;
             }
 
-            if (Client.js5WorkerThread.errors >= 4 && MainLogicManager.isLoading(MainLogicManager.step)) {
+            if (Client.js5WorkerThread.errors >= 4 && MainLogicStep.isLoading(MainLogicManager.step)) {
                 if (Client.js5WorkerThread.response == Js5ResponseCode.CONNECT_FULL1 || Client.js5WorkerThread.response == Js5ResponseCode.CONNECT_FULL2) {
                     this.error("js5connect_full");
                 } else if (Client.js5WorkerThread.response <= 0) {
@@ -1063,7 +461,7 @@ public final class client extends GameShell {
             }
 
             if (Client.js5State == Js5State.WAITING_FIRST_RESPONSE) {
-                if (MainLogicManager.isLoading(MainLogicManager.step) || Client.js5BufferedSocket.available() > 0) {
+                if (MainLogicStep.isLoading(MainLogicManager.step) || Client.js5BufferedSocket.available() > 0) {
                     @Pc(296) int response = Client.js5BufferedSocket.read();
                     if (response != 0) {
                         this.updateJs5Response(response);
@@ -1078,7 +476,7 @@ public final class client extends GameShell {
             }
 
             if (Client.js5State == Js5State.WAITING_LOADING_REQUIREMENTS) {
-                @Pc(356) boolean loggedOut = MainLogicManager.isLoading(MainLogicManager.step) || Static41.method1027(MainLogicManager.step) || MainLogicManager.isAtLobbyScreen(MainLogicManager.step);
+                @Pc(356) boolean loggedOut = MainLogicStep.isLoading(MainLogicManager.step) || MainLogicStep.isLoggedOut(MainLogicManager.step) || MainLogicStep.isAtLobbyScreen(MainLogicManager.step);
                 @Pc(359) LoadingRequirement[] requirements = LoadingRequirement.values();
                 @Pc(367) Packet packet = new Packet(requirements.length * 4);
                 Client.js5BufferedSocket.read(packet.data.length, 0, packet.data);
@@ -1281,7 +679,7 @@ public final class client extends GameShell {
 
     @OriginalMember(owner = "client!client", name = "f", descriptor = "(B)V")
     public void mainredraw() {
-        if (MainLogicManager.step == 16) {
+        if (MainLogicManager.step == MainLogicStep.STEP_ERROR) {
             return;
         }
 
@@ -1350,13 +748,13 @@ public final class client extends GameShell {
             InterfaceManager.redrawAll();
         }
 
-        if (MainLogicManager.isLoading(MainLogicManager.step)) {
+        if (MainLogicStep.isLoading(MainLogicManager.step)) {
             Static523.method3447(local209);
-        } else if (MainLogicManager.isAtLoadingScreen(MainLogicManager.step)) {
+        } else if (MainLogicStep.isAtLoadingScreen(MainLogicManager.step)) {
             InterfaceManager.method680();
-        } else if (MainLogicManager.method5393(MainLogicManager.step)) {
+        } else if (MainLogicStep.method5393(MainLogicManager.step)) {
             InterfaceManager.method680();
-        } else if (MainLogicManager.isBuildingMap(MainLogicManager.step)) {
+        } else if (MainLogicStep.isBuildingMap(MainLogicManager.step)) {
             if (Static213.anInt3472 == 1) {
                 if (Static593.anInt8763 > Static357.anInt6508) {
                     Static357.anInt6508 = Static593.anInt8763;
@@ -1419,7 +817,7 @@ public final class client extends GameShell {
             } catch (@Pc(629) Exception_Sub1 ignored) {
                 /* empty */
             }
-        } else if (!MainLogicManager.isLoading(MainLogicManager.step)) {
+        } else if (!MainLogicStep.isLoading(MainLogicManager.step)) {
             for (@Pc(110) int i = 0; i < InterfaceManager.rectangleCount; i++) {
                 InterfaceManager.flipDirtyRect[i] = false;
             }
@@ -1513,7 +911,7 @@ public final class client extends GameShell {
         }
         ClientURLTools.tick();
         Static671.anInt10026 = 0;
-        Static216.anInt3530 = 0;
+        Static216.keyPressCount = 0;
         for (@Pc(94) KeyLog local94 = KeyboardMonitor.instance.removeFirstRecorded(); local94 != null; local94 = KeyboardMonitor.instance.removeFirstRecorded()) {
             @Pc(102) int local102 = local94.getType();
             if (local102 == 2 || local102 == 3) {
@@ -1528,16 +926,16 @@ public final class client extends GameShell {
                     Static194.AN_KEYBOARD_EVENT_ARRAY_1[Static671.anInt10026] = local94;
                     Static671.anInt10026++;
                 }
-            } else if (local102 == 0 && Static216.anInt3530 < 75) {
-                Static591.AN_KEYBOARD_EVENT_ARRAY_2[Static216.anInt3530] = local94;
-                Static216.anInt3530++;
+            } else if (local102 == 0 && Static216.keyPressCount < 75) {
+                Static591.AN_KEYBOARD_EVENT_ARRAY_2[Static216.keyPressCount] = local94;
+                Static216.keyPressCount++;
             }
         }
         Static611.mouseWheelRotation = 0;
         for (@Pc(214) MouseLog local214 = MouseMonitor.instance.removeFirstLog(); local214 != null; local214 = MouseMonitor.instance.removeFirstLog()) {
             @Pc(222) int local222 = local214.getType();
             if (local222 == -1) {
-                Static677.A_DEQUE___76.addLast(local214);
+                Static677.mouseMovements.addLast(local214);
             } else if (local222 == 6) {
                 Static611.mouseWheelRotation += local214.getExtra();
             } else if (Static278.method4070(local222)) {
@@ -1550,23 +948,23 @@ public final class client extends GameShell {
         if (debugconsole.isOpen()) {
             Static668.method8703();
         }
-        if (MainLogicManager.isLoading(MainLogicManager.step)) {
+        if (MainLogicStep.isLoading(MainLogicManager.step)) {
             Static709.method9252();
             Static199.doneslowupdate();
-        } else if (MainLogicManager.isBuildingMap(MainLogicManager.step)) {
+        } else if (MainLogicStep.isBuildingMap(MainLogicManager.step)) {
             Static489.method6548();
         }
-        if (Static41.method1027(MainLogicManager.step) && !MainLogicManager.isBuildingMap(MainLogicManager.step)) {
+        if (MainLogicStep.isLoggedOut(MainLogicManager.step) && !MainLogicStep.isBuildingMap(MainLogicManager.step)) {
             this.method1658();
             Static76.method1555();
             LoginManager.changeMainState();
-        } else if (MainLogicManager.isAtLobbyScreen(MainLogicManager.step) && !MainLogicManager.isBuildingMap(MainLogicManager.step)) {
+        } else if (MainLogicStep.isAtLobbyScreen(MainLogicManager.step) && !MainLogicStep.isBuildingMap(MainLogicManager.step)) {
             this.method1658();
             LoginManager.changeMainState();
         } else if (MainLogicManager.step == 13) {
             LoginManager.changeMainState();
-        } else if (MainLogicManager.isAtGameScreen(MainLogicManager.step) && !MainLogicManager.isBuildingMap(MainLogicManager.step)) {
-            method9254();
+        } else if (MainLogicStep.isAtGameScreen(MainLogicManager.step) && !MainLogicStep.isBuildingMap(MainLogicManager.step)) {
+            MainLogicManager.changeMainState();
         } else if (MainLogicManager.step == 14 || MainLogicManager.step == 15) {
             LoginManager.changeMainState();
             if (LoginManager.gameLoginResponse != -3 && LoginManager.gameLoginResponse != 2 && LoginManager.gameLoginResponse != 15) {

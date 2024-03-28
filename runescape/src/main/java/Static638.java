@@ -1,6 +1,7 @@
 import com.jagex.SignLink;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.game.runetek6.sound.Audio;
+import com.jagex.sound.Node_Sub6_Sub5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -29,7 +30,7 @@ public final class Static638 {
         } else {
             try {
                 @Pc(41) Class56 local41 = (Class56) Class.forName("Class56_Sub1").getDeclaredConstructor().newInstance();
-                local41.anIntArray315 = new int[(Static316.aBoolean644 ? 2 : 1) * 256];
+                local41.anIntArray315 = new int[(Node_Sub6_Sub5.aBoolean644 ? 2 : 1) * 256];
                 local41.anInt4098 = arg2;
                 local41.method3593(arg3);
                 local41.anInt4097 = (-1024 & arg2) + 1024;
@@ -52,7 +53,7 @@ public final class Static638 {
             } catch (@Pc(135) Throwable local135) {
                 try {
                     @Pc(141) Class56_Sub2 local141 = new Class56_Sub2(arg0, arg1);
-                    local141.anIntArray315 = new int[(Static316.aBoolean644 ? 2 : 1) * 256];
+                    local141.anIntArray315 = new int[(Node_Sub6_Sub5.aBoolean644 ? 2 : 1) * 256];
                     local141.anInt4098 = arg2;
                     local141.method3593(arg3);
                     local141.anInt4097 = 16384;

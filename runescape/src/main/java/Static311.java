@@ -3,6 +3,7 @@ import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
 import com.jagex.js5.js5;
+import com.jagex.sound.Class123;
 import com.jagex.sound.midi.MidiSong;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -23,7 +24,7 @@ public final class Static311 {
             Static159.anInt2788 = 0;
             Static62.aClass2_Sub8_2 = arg0;
         }
-        Static676.aJs5_121 = null;
+        Static676.midiSongs = null;
         if (Static159.anInt2788 == 0) {
             Static270.aClass123_2 = new Class123(Static91.aJs5_117, Static296.aJs5_61);
             Static581.aClass2_Sub6_Sub1_3.method927();

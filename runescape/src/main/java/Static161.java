@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static161 {
 
-    @OriginalMember(owner = "client!fa", name = "b", descriptor = "[[[J")
-    public static long[][][] tileLightFlags;
-
     @OriginalMember(owner = "client!fa", name = "a", descriptor = "(IFFF)I")
     public static int method2589(@OriginalArg(1) float arg0, @OriginalArg(2) float arg1, @OriginalArg(3) float arg2) {
         @Pc(20) float local20 = arg1 < 0.0F ? -arg1 : arg1;

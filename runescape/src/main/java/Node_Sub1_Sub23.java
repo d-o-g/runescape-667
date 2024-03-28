@@ -1,5 +1,8 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.MonochromeImageCache;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -45,7 +48,7 @@ public final class Node_Sub1_Sub23 extends TextureOp {
         this.aShortArray104 = new short[512];
         if (this.anInt7099 > 0) {
             for (@Pc(31) int local31 = 0; local31 < 512; local31++) {
-                this.aShortArray104[local31] = (short) Static623.method8326(-5208, this.anInt7099, local12);
+                this.aShortArray104[local31] = (short) Node_Sub1_Sub27.method8326(-5208, this.anInt7099, local12);
             }
         }
     }
@@ -76,7 +79,7 @@ public final class Node_Sub1_Sub23 extends TextureOp {
     @OriginalMember(owner = "client!or", name = "c", descriptor = "(I)V")
     @Override
     public void method9421() {
-        this.aByteArray84 = Static694.method9027(this.anInt7106);
+        this.aByteArray84 = Node_Sub1_Sub27.method9027(this.anInt7106);
         this.method6382();
     }
 
@@ -91,12 +94,12 @@ public final class Node_Sub1_Sub23 extends TextureOp {
             @Pc(34) int local34 = MonochromeImageCache.anIntArray341[arg1] * this.anInt7110 + 2048;
             @Pc(38) int local38 = local34 >> 12;
             @Pc(42) int local42 = local38 + 1;
-            for (@Pc(44) int local44 = 0; local44 < Static608.anInt9289; local44++) {
+            for (@Pc(44) int local44 = 0; local44 < EnvironmentLight.anInt9289; local44++) {
                 Static162.anInt2798 = Integer.MAX_VALUE;
                 Static109.anInt2178 = Integer.MAX_VALUE;
                 Static417.anInt6402 = Integer.MAX_VALUE;
                 Static143.anInt4056 = Integer.MAX_VALUE;
-                @Pc(63) int local63 = this.anInt7105 * Static54.anIntArray92[local44] + 2048;
+                @Pc(63) int local63 = this.anInt7105 * EnvironmentLight.anIntArray92[local44] + 2048;
                 @Pc(67) int local67 = local63 >> 12;
                 @Pc(71) int local71 = local67 + 1;
                 @Pc(163) int local163;

@@ -1,5 +1,8 @@
+package com.jagex;
+
 import com.jagex.core.datastruct.Node;
 import com.jagex.graphics.BoundingCylinder;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -55,7 +58,7 @@ public abstract class Entity extends Node {
 
     @OriginalMember(owner = "client!eo", name = "a", descriptor = "(I[Lclient!lca;II)I")
     protected final int findLightsAt(@OriginalArg(1) PointLight[] pointLights, @OriginalArg(2) int z, @OriginalArg(3) int x) {
-        @Pc(21) long flags = Static161.tileLightFlags[this.level][x][z];
+        @Pc(21) long flags = Client.tileLightFlags[this.level][x][z];
         @Pc(25) int n = 0;
 
         for (@Pc(23) long shift = 0L; shift <= 48L; shift += 16L) {
@@ -64,7 +67,7 @@ public abstract class Entity extends Node {
                 break;
             }
 
-            pointLights[n++] = Static265.aEnvironmentLightArray1[id - 1].light;
+            pointLights[n++] = EnvironmentLight.aEnvironmentLightArray1[id - 1].light;
         }
 
         for (@Pc(35) int level = n; level < 4; level++) {

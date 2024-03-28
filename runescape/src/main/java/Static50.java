@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static50 {
 
     @OriginalMember(owner = "client!bm", name = "c", descriptor = "Z")
-    public static boolean aBoolean565 = true;
+    public static boolean previousFocus = true;
 
     @OriginalMember(owner = "client!bm", name = "e", descriptor = "Z")
     public static boolean aBoolean566 = false;

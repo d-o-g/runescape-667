@@ -1,5 +1,8 @@
+package com.jagex.graphics.texture;
+
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.Arrays;
 import com.jagex.graphics.ColourImageCache;
 import com.jagex.graphics.MonochromeImageCache;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -29,6 +32,17 @@ public abstract class TextureOp extends Node {
     protected TextureOp(@OriginalArg(0) int count, @OriginalArg(1) boolean monochrome) {
         this.monochrome = monochrome;
         this.ops = new TextureOp[count];
+    }
+
+    @OriginalMember(owner = "client!pf", name = "a", descriptor = "(Z[FI)[F")
+    public static float[] method9420(@OriginalArg(0) boolean arg0, @OriginalArg(1) float[] arg1, @OriginalArg(2) int arg2) {
+        if (arg0) {
+            return null;
+        } else {
+            @Pc(12) float[] local12 = new float[arg2];
+            Arrays.copy(arg1, 0, local12, 0, arg2);
+            return local12;
+        }
     }
 
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(II)[I")
@@ -63,7 +77,7 @@ public abstract class TextureOp extends Node {
     @OriginalMember(owner = "client!pf", name = "a", descriptor = "(ZLclient!ge;I)V")
     public void method9416(@OriginalArg(0) boolean arg0, @OriginalArg(1) Packet arg1, @OriginalArg(2) int arg2) {
         if (arg0) {
-            Static485.method9420(true, null, 33);
+            method9420(true, null, 33);
         }
     }
 

@@ -1,4 +1,6 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -36,22 +38,22 @@ public final class TextureOp_Sub1_Sub1 extends TextureOp {
     public int[][] method9414(@OriginalArg(0) int arg0) {
         @Pc(17) int[][] local17 = super.colourCache.get(arg0);
         if (super.colourCache.dirty) {
-            @Pc(44) int local44 = (this.anInt49 == Static2.anInt53 ? arg0 : arg0 * this.anInt49 / Static2.anInt53) * this.anInt57;
+            @Pc(44) int local44 = (this.anInt49 == EnvironmentLight.anInt53 ? arg0 : arg0 * this.anInt49 / EnvironmentLight.anInt53) * this.anInt57;
             @Pc(48) int[] local48 = local17[0];
             @Pc(52) int[] local52 = local17[1];
             @Pc(56) int[] local56 = local17[2];
             @Pc(66) int local66;
             @Pc(75) int local75;
-            if (this.anInt57 == Static608.anInt9289) {
-                for (local66 = 0; local66 < Static608.anInt9289; local66++) {
+            if (this.anInt57 == EnvironmentLight.anInt9289) {
+                for (local66 = 0; local66 < EnvironmentLight.anInt9289; local66++) {
                     local75 = this.anIntArray10[local44++];
                     local56[local66] = (local75 & 0xFF) << 4;
                     local52[local66] = local75 >> 4 & 0xFF0;
                     local48[local66] = local75 >> 12 & 0xFF0;
                 }
             } else {
-                for (local66 = 0; local66 < Static608.anInt9289; local66++) {
-                    local75 = local66 * this.anInt57 / Static608.anInt9289;
+                for (local66 = 0; local66 < EnvironmentLight.anInt9289; local66++) {
+                    local75 = local66 * this.anInt57 / EnvironmentLight.anInt9289;
                     @Pc(82) int local82 = this.anIntArray10[local75 + local44];
                     local56[local66] = (local82 & 0xFF) << 4;
                     local52[local66] = local82 >> 4 & 0xFF0;

@@ -1,4 +1,8 @@
+package com.jagex.sound;
+
 import com.jagex.core.datastruct.key.Node;
+import com.jagex.sound.Class269;
+import com.jagex.sound.Node_Sub11;
 import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

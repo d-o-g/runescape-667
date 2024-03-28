@@ -1,4 +1,6 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -26,13 +28,13 @@ public final class Node_Sub1_Sub10 extends TextureOp {
             @Pc(39) int[] local39 = local19[0];
             @Pc(43) int[] local43 = local19[1];
             @Pc(47) int[] local47 = local19[2];
-            for (@Pc(49) int local49 = 0; local49 < Static608.anInt9289; local49++) {
+            for (@Pc(49) int local49 = 0; local49 < EnvironmentLight.anInt9289; local49++) {
                 @Pc(61) int local61 = local29[local49] * 255 >> 12 & 0xFF;
                 @Pc(70) int local70 = local35[local49] * this.anInt3297 >> 12;
                 @Pc(78) int local78 = Static24.anIntArray33[local61] * local70 >> 12;
                 @Pc(86) int local86 = Static222.anIntArray289[local61] * local70 >> 12;
-                @Pc(95) int local95 = Static576.anInt8580 & local49 + (local78 >> 12);
-                @Pc(103) int local103 = Static489.anInt7343 & (local86 >> 12) + arg0;
+                @Pc(95) int local95 = EnvironmentLight.anInt8580 & local49 + (local78 >> 12);
+                @Pc(103) int local103 = EnvironmentLight.anInt7343 & (local86 >> 12) + arg0;
                 @Pc(109) int[][] local109 = this.method9413(0, local103);
                 local39[local49] = local109[0][local95];
                 local43[local49] = local109[1][local95];
@@ -65,13 +67,13 @@ public final class Node_Sub1_Sub10 extends TextureOp {
         if (super.monochromeCache.dirty) {
             @Pc(29) int[] local29 = this.method9422(arg1, 1);
             @Pc(35) int[] local35 = this.method9422(arg1, 2);
-            for (@Pc(37) int local37 = 0; local37 < Static608.anInt9289; local37++) {
+            for (@Pc(37) int local37 = 0; local37 < EnvironmentLight.anInt9289; local37++) {
                 @Pc(47) int local47 = local29[local37] >> 4 & 0xFF;
                 @Pc(56) int local56 = this.anInt3297 * local35[local37] >> 12;
                 @Pc(64) int local64 = Static24.anIntArray33[local47] * local56 >> 12;
                 @Pc(72) int local72 = Static222.anIntArray289[local47] * local56 >> 12;
-                @Pc(80) int local80 = Static576.anInt8580 & local37 + (local64 >> 12);
-                @Pc(88) int local88 = arg1 + (local72 >> 12) & Static489.anInt7343;
+                @Pc(80) int local80 = EnvironmentLight.anInt8580 & local37 + (local64 >> 12);
+                @Pc(88) int local88 = arg1 + (local72 >> 12) & EnvironmentLight.anInt7343;
                 @Pc(94) int[] local94 = this.method9422(local88, 0);
                 local19[local37] = local94[local80];
             }

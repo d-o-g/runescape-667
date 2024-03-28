@@ -14,7 +14,7 @@ public final class Static180 {
     public static int anInt2995 = 0;
 
     @OriginalMember(owner = "client!fka", name = "n", descriptor = "J")
-    public static long aLong108 = -1L;
+    public static long lastMouseClick = -1L;
 
     @OriginalMember(owner = "client!fka", name = "g", descriptor = "I")
     public static int anInt3001 = -1;

@@ -1,3 +1,5 @@
+import com.jagex.Entity;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -26,18 +28,18 @@ public abstract class GroundDecor extends Entity {
         if (arg0 != 59) {
             this.offsetY = -95;
         }
-        return Static588.method7714(super.z >> Static52.anInt1066, super.virtualLevel, super.x >> Static52.anInt1066);
+        return Static588.method7714(super.z >> EnvironmentLight.anInt1066, super.virtualLevel, super.x >> EnvironmentLight.anInt1066);
     }
 
     @OriginalMember(owner = "client!eia", name = "g", descriptor = "(I)Z")
     @Override
     public final boolean method9275() {
-        return Static258.aBooleanArrayArray3[Static35.anInt813 + (super.x >> Static52.anInt1066) - Static403.anInt6246][Static35.anInt813 + (super.z >> Static52.anInt1066) - Static550.anInt8271];
+        return Static258.aBooleanArrayArray3[Static35.anInt813 + (super.x >> EnvironmentLight.anInt1066) - Static403.anInt6246][Static35.anInt813 + (super.z >> EnvironmentLight.anInt1066) - Static550.anInt8271];
     }
 
     @OriginalMember(owner = "client!eia", name = "a", descriptor = "([Lclient!lca;I)I")
     @Override
     public final int method9288(@OriginalArg(0) PointLight[] arg0) {
-        return this.findLightsAt(arg0, super.z >> Static52.anInt1066, super.x >> Static52.anInt1066);
+        return this.findLightsAt(arg0, super.z >> EnvironmentLight.anInt1066, super.x >> EnvironmentLight.anInt1066);
     }
 }

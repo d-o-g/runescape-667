@@ -1,5 +1,6 @@
 import com.jagex.ClientProt;
 import com.jagex.core.util.JagException;
+import com.jagex.sound.Node_Sub6_Sub5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

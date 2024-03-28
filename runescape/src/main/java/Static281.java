@@ -1,3 +1,4 @@
+import com.jagex.PickableEntity;
 import com.jagex.core.datastruct.LinkedList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

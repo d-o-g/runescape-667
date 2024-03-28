@@ -140,6 +140,18 @@ public final class Camera {
     @OriginalMember(owner = "client!ik", name = "I", descriptor = "Z")
     public static boolean angleUpdated = true;
 
+    @OriginalMember(owner = "client!pja", name = "K", descriptor = "Z")
+    public static boolean angleChangingY = false;
+
+    @OriginalMember(owner = "client!jb", name = "t", descriptor = "F")
+    public static float angleAxisY = 0.0F;
+
+    @OriginalMember(owner = "client!aia", name = "n", descriptor = "Z")
+    public static boolean angleChangingX = false;
+
+    @OriginalMember(owner = "client!rg", name = "d", descriptor = "F")
+    public static float angleAxisX = 0.0F;
+
     @OriginalMember(owner = "client!sg", name = "a", descriptor = "(I)V")
     public static void splineTick() {
         if (posSpline == -1 || lookSpline == -1) {
@@ -487,5 +499,14 @@ public final class Camera {
         anInt10383 = -1;
         anInt10376 = -1;
         mode = CameraMode.MODE_FIXED;
+    }
+
+    @OriginalMember(owner = "client!pja", name = "e", descriptor = "(I)V")
+    public static void method6596() {
+        if (!angleChangingY) {
+            angleUpdated = true;
+            angleAxisY += (-12.0F - angleAxisY) / 2.0F;
+            angleChangingY = true;
+        }
     }
 }

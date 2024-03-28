@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.datastruct.key.Deque;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -15,7 +16,7 @@ public final class Static159 {
 
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(Z)V")
     public static void method2575() {
-        if (Static41.method1027(MainLogicManager.step) || MainLogicManager.isAtLobbyScreen(MainLogicManager.step)) {
+        if (MainLogicStep.isLoggedOut(MainLogicManager.step) || MainLogicStep.isAtLobbyScreen(MainLogicManager.step)) {
             Static127.method2243(Static412.anInt6358, Camera.x >> 12, Camera.z >> 12);
         } else {
             @Pc(20) int local20 = PlayerEntity.self.pathX[0] >> 3;

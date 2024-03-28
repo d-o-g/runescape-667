@@ -1,4 +1,6 @@
 import com.jagex.Client;
+import com.jagex.Entity;
+import com.jagex.PickableEntity;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ParticleList;
 import com.jagex.core.constants.ModeWhere;
@@ -24,6 +26,7 @@ import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.BoundingCylinder;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
@@ -431,7 +434,7 @@ public final class PlayerEntity extends PathingEntity {
         @Pc(22) Matrix local22 = arg0.scratchMatrix();
         @Pc(27) int local27 = super.yaw.getValue(16383);
         local22.rotate(local27);
-        @Pc(53) Tile local53 = Static334.activeTiles[super.level][super.x >> Static52.anInt1066][super.z >> Static52.anInt1066];
+        @Pc(53) Tile local53 = Static334.activeTiles[super.level][super.x >> EnvironmentLight.anInt1066][super.z >> EnvironmentLight.anInt1066];
         if (local53 == null || local53.groundDecor == null) {
             super.anInt10732 = (int) ((float) super.anInt10732 - (float) super.anInt10732 / 10.0F);
         } else {
@@ -761,6 +764,7 @@ public final class PlayerEntity extends PathingEntity {
             this.method9314(yaw, 0, 0, this.getSize() << 9, this.getSize() << 9, -81);
         } else {
             this.method9314(yaw, local15.hillMaxAngleX, local15.hillMaxAngleY, local61, local64, -104);
+
             if (super.modelRotateX != 0) {
                 local152.FA(super.modelRotateX);
             }

@@ -1,3 +1,4 @@
+import com.jagex.graphics.EnvironmentLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -13,12 +14,12 @@ public final class Static411 {
         @Pc(14) WallDecor local14 = local7.wallDecor;
         @Pc(17) WallDecor local17 = local7.wallDecor2;
         if (local14 != null) {
-            local14.aShort101 = (short) (local14.aShort101 * arg3 / (0x10 << Static52.anInt1066 - 7));
-            local14.aShort102 = (short) (local14.aShort102 * arg3 / (0x10 << Static52.anInt1066 - 7));
+            local14.aShort101 = (short) (local14.aShort101 * arg3 / (0x10 << EnvironmentLight.anInt1066 - 7));
+            local14.aShort102 = (short) (local14.aShort102 * arg3 / (0x10 << EnvironmentLight.anInt1066 - 7));
         }
         if (local17 != null) {
-            local17.aShort101 = (short) (local17.aShort101 * arg3 / (0x10 << Static52.anInt1066 - 7));
-            local17.aShort102 = (short) (local17.aShort102 * arg3 / (0x10 << Static52.anInt1066 - 7));
+            local17.aShort101 = (short) (local17.aShort101 * arg3 / (0x10 << EnvironmentLight.anInt1066 - 7));
+            local17.aShort102 = (short) (local17.aShort102 * arg3 / (0x10 << EnvironmentLight.anInt1066 - 7));
         }
     }
 }

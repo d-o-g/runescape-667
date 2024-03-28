@@ -11,18 +11,6 @@ public final class Static494 {
     @OriginalMember(owner = "client!pja", name = "rb", descriptor = "I")
     public static int runWeight = 0;
 
-    @OriginalMember(owner = "client!pja", name = "K", descriptor = "Z")
-    public static boolean aBoolean563 = false;
-
-    @OriginalMember(owner = "client!pja", name = "e", descriptor = "(I)V")
-    public static void method6596() {
-        if (!aBoolean563) {
-            Camera.angleUpdated = true;
-            Static288.aFloat83 += (-12.0F - Static288.aFloat83) / 2.0F;
-            aBoolean563 = true;
-        }
-    }
-
     @OriginalMember(owner = "client!pja", name = "e", descriptor = "(B)V")
     public static void method6597() {
         Static659.blockChat = 0;

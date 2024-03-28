@@ -1,4 +1,3 @@
-import com.jagex.core.util.Arrays;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -19,14 +18,4 @@ public final class Static485 {
         }
     }
 
-    @OriginalMember(owner = "client!pf", name = "a", descriptor = "(Z[FI)[F")
-    public static float[] method9420(@OriginalArg(0) boolean arg0, @OriginalArg(1) float[] arg1, @OriginalArg(2) int arg2) {
-        if (arg0) {
-            return null;
-        } else {
-            @Pc(12) float[] local12 = new float[arg2];
-            Arrays.copy(arg1, 0, local12, 0, arg2);
-            return local12;
-        }
-    }
 }

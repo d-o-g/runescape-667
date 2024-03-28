@@ -1,4 +1,7 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -57,10 +60,10 @@ public final class Node_Sub1_Sub15 extends TextureOp {
             @Pc(25) int[][] local25 = super.monochromeCache.get();
             @Pc(32) Random local32 = new Random(this.anInt5419);
             for (@Pc(34) int local34 = 0; local34 < this.anInt5420; local34++) {
-                @Pc(60) int local60 = this.anInt5424 > 0 ? this.anInt5418 + Static623.method8326(-5208, this.anInt5424, local32) - local20 : this.anInt5418;
+                @Pc(60) int local60 = this.anInt5424 > 0 ? this.anInt5418 + Node_Sub1_Sub27.method8326(-5208, this.anInt5424, local32) - local20 : this.anInt5418;
                 @Pc(66) int local66 = local60 >> 4 & 0xFF;
-                @Pc(71) int local71 = Static623.method8326(-5208, Static608.anInt9289, local32);
-                @Pc(76) int local76 = Static623.method8326(-5208, Static2.anInt53, local32);
+                @Pc(71) int local71 = Node_Sub1_Sub27.method8326(-5208, EnvironmentLight.anInt9289, local32);
+                @Pc(76) int local76 = Node_Sub1_Sub27.method8326(-5208, EnvironmentLight.anInt53, local32);
                 @Pc(87) int local87 = local71 + (Static24.anIntArray33[local66] * this.anInt5422 >> 12);
                 @Pc(98) int local98 = local76 + (this.anInt5422 * Static222.anIntArray289[local66] >> 12);
                 @Pc(103) int local103 = local98 - local76;
@@ -96,15 +99,15 @@ public final class Node_Sub1_Sub15 extends TextureOp {
                     @Pc(179) int local179 = local98 - local76;
                     @Pc(184) int local184 = -local140 / 2;
                     @Pc(188) int local188 = 2048 / local140;
-                    @Pc(198) int local198 = 1024 - (Static623.method8326(-5208, 4096, local32) >> 2);
+                    @Pc(198) int local198 = 1024 - (Node_Sub1_Sub27.method8326(-5208, 4096, local32) >> 2);
                     if (local179 < 0) {
                         local179 = -local179;
                     }
                     @Pc(214) int local214 = local98 > local76 ? 1 : -1;
                     for (@Pc(216) int local216 = local71; local216 < local87; local216++) {
                         @Pc(228) int local228 = local188 * (local216 - local71) + local198 + 1024;
-                        @Pc(232) int local232 = Static576.anInt8580 & local216;
-                        @Pc(236) int local236 = local138 & Static489.anInt7343;
+                        @Pc(232) int local232 = EnvironmentLight.anInt8580 & local216;
+                        @Pc(236) int local236 = local138 & EnvironmentLight.anInt7343;
                         if (local134) {
                             local25[local236][local232] = local228;
                         } else {

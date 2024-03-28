@@ -1,4 +1,5 @@
-import com.jagex.sound.VariableRateSoundPacket;
+package com.jagex.sound;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -805,12 +806,12 @@ public final class SoundStream extends Node_Sub6 {
         do {
             if (this.anInt3684 <= 0) {
                 if (this.rate == -256 && (this.anInt3686 & 0xFF) == 0) {
-                    if (Static316.aBoolean644) {
+                    if (Node_Sub6_Sub5.aBoolean644) {
                         return method3334(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this);
                     }
                     return method3343(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this);
                 }
-                if (Static316.aBoolean644) {
+                if (Node_Sub6_Sub5.aBoolean644) {
                     return method3324(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this, this.rate, arg4);
                 }
                 return method3339(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this, this.rate, arg4);
@@ -821,12 +822,12 @@ public final class SoundStream extends Node_Sub6 {
             }
             this.anInt3684 += arg1;
             if (this.rate == -256 && (this.anInt3686 & 0xFF) == 0) {
-                if (Static316.aBoolean644) {
+                if (Node_Sub6_Sub5.aBoolean644) {
                     arg1 = method3342(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this);
                 } else {
                     arg1 = method3332(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this);
                 }
-            } else if (Static316.aBoolean644) {
+            } else if (Node_Sub6_Sub5.aBoolean644) {
                 arg1 = method3326(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this, this.rate, arg4);
             } else {
                 arg1 = method3347(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this, this.rate, arg4);
@@ -1021,12 +1022,12 @@ public final class SoundStream extends Node_Sub6 {
         do {
             if (this.anInt3684 <= 0) {
                 if (this.rate == 256 && (this.anInt3686 & 0xFF) == 0) {
-                    if (Static316.aBoolean644) {
+                    if (Node_Sub6_Sub5.aBoolean644) {
                         return method3329(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this);
                     }
                     return method3310(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this);
                 }
-                if (Static316.aBoolean644) {
+                if (Node_Sub6_Sub5.aBoolean644) {
                     return method3312(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, arg3, arg2, this, this.rate, arg4);
                 }
                 return method3316(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, arg3, arg2, this, this.rate, arg4);
@@ -1037,12 +1038,12 @@ public final class SoundStream extends Node_Sub6 {
             }
             this.anInt3684 += arg1;
             if (this.rate == 256 && (this.anInt3686 & 0xFF) == 0) {
-                if (Static316.aBoolean644) {
+                if (Node_Sub6_Sub5.aBoolean644) {
                     arg1 = method3325(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this);
                 } else {
                     arg1 = method3321(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this);
                 }
-            } else if (Static316.aBoolean644) {
+            } else if (Node_Sub6_Sub5.aBoolean644) {
                 arg1 = method3313(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3680, this.anInt3677, this.anInt3683, this.anInt3687, local5, arg2, this, this.rate, arg4);
             } else {
                 arg1 = method3331(((VariableRateSoundPacket) super.aClass2_Sub49_6).data, arg0, this.anInt3686, arg1, this.anInt3676, this.anInt3678, local5, arg2, this, this.rate, arg4);

@@ -1,3 +1,4 @@
+import com.jagex.Entity;
 import com.jagex.core.constants.LocShapes;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;

@@ -104,7 +104,7 @@ public final class Static668 {
                 debugconsole.currententryLength++;
             }
         }
-        Static216.anInt3530 = 0;
+        Static216.keyPressCount = 0;
         Static671.anInt10026 = 0;
         InterfaceManager.redrawAll();
     }

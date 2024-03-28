@@ -1,7 +1,8 @@
+package com.jagex.sound;
+
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.js5.js5;
-import com.jagex.sound.VariableRateSoundPacket;
 import com.jagex.sound.midi.MidiProgramNode;
 import com.jagex.sound.midi.MidiSequence;
 import com.jagex.sound.midi.MidiSong;
@@ -118,6 +119,12 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
         this.aIterableHashTable_7 = arg0.aIterableHashTable_7;
         this.method926(256, -1);
         this.method942(true);
+    }
+
+    @OriginalMember(owner = "client!vja", name = "a", descriptor = "(Lclient!sb;IZ)Lclient!cea;")
+    public static Node_Sub11 method8917(@OriginalArg(0) js5 arg0, @OriginalArg(1) int arg1) {
+        @Pc(8) byte[] local8 = arg0.getfile(arg1);
+        return local8 == null ? null : new Node_Sub11(local8);
     }
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(IJ)V")
@@ -799,7 +806,7 @@ public final class Node_Sub6_Sub1 extends Node_Sub6 {
             @Pc(40) int local40 = (int) local35.key;
             @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aIterableHashTable_7.get(local40);
             if (local48 == null) {
-                local48 = Static680.method8917(arg1, local40);
+                local48 = method8917(arg1, local40);
                 if (local48 == null) {
                     local15 = false;
                     continue;

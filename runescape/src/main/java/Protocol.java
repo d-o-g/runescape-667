@@ -11,6 +11,7 @@ import com.jagex.core.constants.ChatLineType;
 import com.jagex.core.constants.HintArrowType;
 import com.jagex.core.constants.LocLayer;
 import com.jagex.core.constants.LocShapes;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.io.BitPacket;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.core.io.Packet;
@@ -760,7 +761,7 @@ public final class Protocol {
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.UPDATE_REBOOT_TIMER) {
-            if (MainLogicManager.isAtLobbyScreen(MainLogicManager.step)) {
+            if (MainLogicStep.isAtLobbyScreen(MainLogicManager.step)) {
                 Static249.rebootTimer = (int) ((float) bitPacket.g2() * 2.5F);
             } else {
                 Static249.rebootTimer = bitPacket.g2() * 30;
@@ -1788,7 +1789,7 @@ public final class Protocol {
             Static718.reconnectToPrevious = reconnect;
             ConnectionInfo.previous = ConnectionInfo.login;
             client.connectTo(world, address);
-            MainLogicManager.setStep(MainLogicManager.STEP_SWITCH_WORLD);
+            MainLogicManager.setStep(MainLogicStep.STEP_SWITCH_WORLD);
             context.currentProt = null;
             return false;
         } else if (context.currentProt == ServerProt.TRIGGER_ONDIALOGABORT) {

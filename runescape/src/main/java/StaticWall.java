@@ -1,3 +1,5 @@
+import com.jagex.Entity;
+import com.jagex.PickableEntity;
 import com.jagex.core.constants.LocShapes;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;

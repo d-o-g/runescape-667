@@ -1,5 +1,7 @@
 import com.jagex.IndexedImage;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -33,19 +35,19 @@ public class Node_Sub1_Sub8 extends TextureOp {
             @Pc(25) int[] local25 = local11[0];
             @Pc(29) int[] local29 = local11[1];
             @Pc(33) int[] local33 = local11[2];
-            @Pc(50) int local50 = this.anInt8228 * (Static2.anInt53 == this.anInt8231 ? arg0 : arg0 * this.anInt8231 / Static2.anInt53);
+            @Pc(50) int local50 = this.anInt8228 * (EnvironmentLight.anInt53 == this.anInt8231 ? arg0 : arg0 * this.anInt8231 / EnvironmentLight.anInt53);
             @Pc(60) int local60;
             @Pc(68) int local68;
-            if (this.anInt8228 == Static608.anInt9289) {
-                for (local60 = 0; local60 < Static608.anInt9289; local60++) {
+            if (this.anInt8228 == EnvironmentLight.anInt9289) {
+                for (local60 = 0; local60 < EnvironmentLight.anInt9289; local60++) {
                     local68 = this.anIntArray641[local50++];
                     local33[local60] = (local68 & 0xFF) << 4;
                     local29[local60] = local68 >> 4 & 0xFF0;
                     local25[local60] = local68 >> 12 & 0xFF0;
                 }
             } else {
-                for (local60 = 0; local60 < Static608.anInt9289; local60++) {
-                    local68 = this.anInt8228 * local60 / Static608.anInt9289;
+                for (local60 = 0; local60 < EnvironmentLight.anInt9289; local60++) {
+                    local68 = this.anInt8228 * local60 / EnvironmentLight.anInt9289;
                     @Pc(122) int local122 = this.anIntArray641[local68 + local50];
                     local33[local60] = (local122 & 0xFF) << 4;
                     local29[local60] = local122 >> 4 & 0xFF0;

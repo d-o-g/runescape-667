@@ -1,6 +1,7 @@
 import com.jagex.IndexedImage;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import com.jagex.js5.js5;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -14,9 +15,9 @@ public final class Static397 {
 
     @OriginalMember(owner = "client!mia", name = "a", descriptor = "(IIIIBI[B)V")
     public static void method5554(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) byte[] arg5) {
-        if (arg3 > 0 && !Static700.method9150(arg3)) {
+        if (arg3 > 0 && !Node_Sub1_Sub27.method9150(arg3)) {
             throw new IllegalArgumentException("");
-        } else if (arg4 <= 0 || Static700.method9150(arg4)) {
+        } else if (arg4 <= 0 || Node_Sub1_Sub27.method9150(arg4)) {
             @Pc(35) int local35 = Static646.method8458(arg2);
             @Pc(37) int local37 = 0;
             @Pc(45) int local45 = arg4 <= arg3 ? arg4 : arg3;

@@ -1,4 +1,6 @@
+import com.jagex.Entity;
 import com.jagex.core.datastruct.Node;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
@@ -101,7 +103,7 @@ public final class Class46 implements Runnable {
                                     @Pc(98) int local98 = Static403.anInt6246 + local78 - Static35.anInt813;
                                     @Pc(104) int local104 = Static550.anInt8271 + local81 - Static35.anInt813;
                                     if (local98 >= 0 && local98 < local76.anInt8894 && local104 >= 0 && local104 < local76.anInt8892) {
-                                        Static665.aToolkit_15.H(local98 << Static52.anInt1066, local76.getHeight(local104, local98), local104 << Static52.anInt1066, this.anIntArray85);
+                                        Static665.aToolkit_15.H(local98 << EnvironmentLight.anInt1066, local76.getHeight(local104, local98), local104 << EnvironmentLight.anInt1066, this.anIntArray85);
                                         if (Static356.method5199(this.anIntArray85[0]) == this.anInt1012 - 1) {
                                             local76.method7875(local98, local104);
                                         }

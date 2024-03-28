@@ -32,8 +32,8 @@ public final class Static9 {
             }
             if (local19 == 1) {
                 @Pc(34) int local34 = local15.g2();
-                if (Static597.anInt8821 == -1) {
-                    Static597.anInt8821 = local34;
+                if (Static597.themeMusic == -1) {
+                    Static597.themeMusic = local34;
                 }
             }
         }

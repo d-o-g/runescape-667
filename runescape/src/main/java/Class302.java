@@ -1,3 +1,4 @@
+import com.jagex.Entity;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.datastruct.Node;
 import org.openrs2.deob.annotation.OriginalArg;

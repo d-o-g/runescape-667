@@ -6,6 +6,7 @@ import com.jagex.core.util.TimeUtils;
 import com.jagex.game.DelayedStateChange;
 import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.texture.TextureOp;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;

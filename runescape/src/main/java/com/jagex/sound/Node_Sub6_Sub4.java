@@ -1,3 +1,5 @@
+package com.jagex.sound;
+
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.game.runetek6.sound.Audio;
 import org.openrs2.deob.annotation.OriginalArg;

@@ -11,7 +11,7 @@ public final class Static351 {
     public static final int[] anIntArray437 = new int[8];
 
     @OriginalMember(owner = "client!laa", name = "l", descriptor = "J")
-    public static long aLong173 = -1L;
+    public static long lastKeyPress = -1L;
 
     @OriginalMember(owner = "client!laa", name = "a", descriptor = "(Lclient!ha;ILclient!el;ILclient!fu;I)Z")
     public static boolean method5138(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) MapElementType arg1, @OriginalArg(4) MapElementListEntry arg2) {

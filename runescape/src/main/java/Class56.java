@@ -2,6 +2,8 @@ import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.sound.Audio;
+import com.jagex.sound.Node_Sub6;
+import com.jagex.sound.Node_Sub6_Sub5;
 import com.jagex.sound.SoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -238,7 +240,7 @@ public class Class56 {
     @OriginalMember(owner = "client!cd", name = "a", descriptor = "([II)V")
     public void method3595(@OriginalArg(0) int[] arg0) {
         @Pc(1) short local1 = 256;
-        if (Static316.aBoolean644) {
+        if (Node_Sub6_Sub5.aBoolean644) {
             local1 = 512;
         }
         Arrays.clear(arg0, 0, local1);

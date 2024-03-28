@@ -14,13 +14,13 @@ public final class Static271 {
     }
 
     @OriginalMember(owner = "client!ij", name = "c", descriptor = "(B)V")
-    public static void method3930() {
-        @Pc(10) ChangeLocationRequest local10;
-        for (local10 = (ChangeLocationRequest) Static159.changes.first(); local10 != null; local10 = (ChangeLocationRequest) Static159.changes.next()) {
-            Static544.method7214(local10, false);
+    public static void processLocChanges() {
+        for (@Pc(10) ChangeLocationRequest request = (ChangeLocationRequest) Static159.changes.first(); request != null; request = (ChangeLocationRequest) Static159.changes.next()) {
+            Static544.method7214(request, false);
         }
-        for (local10 = (ChangeLocationRequest) Static227.customisations.first(); local10 != null; local10 = (ChangeLocationRequest) Static227.customisations.next()) {
-            Static544.method7214(local10, true);
+
+        for (@Pc(10) ChangeLocationRequest request = (ChangeLocationRequest) Static227.customisations.first(); request != null; request = (ChangeLocationRequest) Static227.customisations.next()) {
+            Static544.method7214(request, true);
         }
     }
 }

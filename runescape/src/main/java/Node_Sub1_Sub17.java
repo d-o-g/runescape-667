@@ -1,5 +1,7 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -42,7 +44,7 @@ public final class Node_Sub1_Sub17 extends TextureOp {
         }
         @Pc(16) int[] local16 = super.monochromeCache.get(arg1);
         if (super.monochromeCache.dirty) {
-            Arrays.set(local16, 0, Static608.anInt9289, this.anInt5965);
+            Arrays.set(local16, 0, EnvironmentLight.anInt9289, this.anInt5965);
         }
         return local16;
     }

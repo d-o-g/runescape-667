@@ -1,5 +1,6 @@
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.sound.Audio;
+import com.jagex.sound.Node_Sub6_Sub3;
 import com.jagex.sound.SampleRateConverter;
 import org.openrs2.deob.annotation.OriginalMember;
 

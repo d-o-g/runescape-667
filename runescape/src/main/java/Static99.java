@@ -9,7 +9,7 @@ import java.net.Socket;
 public final class Static99 {
 
     @OriginalMember(owner = "client!dba", name = "z", descriptor = "I")
-    public static int anInt2077;
+    public static int midiGroupId;
 
     @OriginalMember(owner = "client!dba", name = "a", descriptor = "(Ljava/net/Socket;IB)Lclient!vn;")
     public static Connection method1975(@OriginalArg(0) Socket arg0) throws IOException {

@@ -1,4 +1,3 @@
-import com.jagex.Client;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -18,14 +17,4 @@ public final class Static670 {
         }
     }
 
-    @OriginalMember(owner = "client!vda", name = "g", descriptor = "(I)V")
-    public static void method8735() {
-        if (Client.ssKey != null) {
-            LoginManager.checkGameSession(LoginManager.anInt7113);
-        } else if (LoginManager.socialNetworkId == -1) {
-            LoginManager.doGameLogin(LoginManager.password, LoginManager.anInt7113, LoginManager.username);
-        } else {
-            LoginManager.doGameSnLogin(LoginManager.anInt7113);
-        }
-    }
 }

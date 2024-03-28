@@ -1,6 +1,7 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.IndexedImage;
+import com.jagex.PickableEntity;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.LinkedList;

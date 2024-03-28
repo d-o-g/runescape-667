@@ -12,10 +12,10 @@ public final class Static254 {
 
     @OriginalMember(owner = "client!hr", name = "b", descriptor = "(I)V")
     public static void method3606() {
-        if (!Static15.aBoolean17) {
+        if (!Camera.angleChangingX) {
             Camera.angleUpdated = true;
-            Static15.aBoolean17 = true;
-            Static552.aFloat207 += (24.0F - Static552.aFloat207) / 2.0F;
+            Camera.angleChangingX = true;
+            Camera.angleAxisX += (24.0F - Camera.angleAxisX) / 2.0F;
         }
     }
 }

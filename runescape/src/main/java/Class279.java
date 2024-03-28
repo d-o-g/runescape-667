@@ -1,6 +1,7 @@
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -117,7 +118,7 @@ public final class Class279 {
             @Pc(77) int[] local77 = new int[this.anIntArrayArray171[arg0].length];
             Arrays.copy(this.anIntArrayArray171[arg0], 0, local77, 0, local77.length);
             for (@Pc(99) int local99 = local66; local99 < local77.length; local99++) {
-                @Pc(112) int local112 = local66 + Static623.method8326(-5208, local77.length - local66, local70);
+                @Pc(112) int local112 = local66 + Node_Sub1_Sub27.method8326(-5208, local77.length - local66, local70);
                 @Pc(116) int local116 = local77[local99];
                 local77[local99] = local77[local112];
                 local77[local112] = local116;

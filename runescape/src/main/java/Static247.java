@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static247 {
 
-    @OriginalMember(owner = "client!hla", name = "d", descriptor = "I")
-    public static int anInt3993;
-
     @OriginalMember(owner = "client!hla", name = "a", descriptor = "(ILclient!ca;)V")
     public static void method3523(@OriginalArg(1) PlayerEntity arg0) {
         @Pc(16) PositionedSound local16 = (PositionedSound) SoundManager.playerSounds.get(arg0.id);

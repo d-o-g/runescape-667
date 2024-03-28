@@ -55,6 +55,6 @@ public final class Static230 {
 
     @OriginalMember(owner = "client!hca", name = "a", descriptor = "(I)V")
     public static void method3374() {
-        Static631.aDeque_78 = new Deque();
+        Static631.reflectionChecks = new Deque();
     }
 }

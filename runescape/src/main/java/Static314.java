@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.util.JavaScript;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -43,7 +44,7 @@ public final class Static314 {
     public static void noTimeout(@OriginalArg(0) boolean forceSend) {
         Static557.method7331();
 
-        if (!MainLogicManager.isAtGameScreen(MainLogicManager.step)) {
+        if (!MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
             return;
         }
 

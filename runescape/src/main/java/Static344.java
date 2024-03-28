@@ -9,11 +9,6 @@ public final class Static344 {
     @OriginalMember(owner = "client!kr", name = "l", descriptor = "J")
     public static long aLong169 = 0L;
 
-    @OriginalMember(owner = "client!kr", name = "a", descriptor = "(B)V")
-    public static void method5043() {
-        Static695.anIntArray868 = Static265.method3857(0.4F);
-    }
-
     @OriginalMember(owner = "client!kr", name = "c", descriptor = "(I)V")
     public static void method5046() {
         if (Static625.anInt9472 <= 0) {

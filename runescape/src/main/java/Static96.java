@@ -1,3 +1,5 @@
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 

@@ -1,3 +1,4 @@
+import com.jagex.PickableEntity;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.graphics.PickingCylinder;
 import org.openrs2.deob.annotation.OriginalArg;

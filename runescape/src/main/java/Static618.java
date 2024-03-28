@@ -42,18 +42,18 @@ public final class Static618 {
     }
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(Lclient!sb;IZIIIZ)V")
-    public static void method8318(@OriginalArg(0) js5 arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2, @OriginalArg(5) int arg3) {
+    public static void method8318(@OriginalArg(0) js5 midiSongs, @OriginalArg(1) int volume, @OriginalArg(4) int id, @OriginalArg(5) int arg3) {
         if (arg3 <= 0) {
-            Static611.method8229(arg2, arg1, arg0);
+            Static611.method8229(id, volume, midiSongs);
             return;
         }
-        Static24.anInt595 = arg1;
+        Static24.midiVolume = volume;
         Static96.anInt10171 = 1;
-        Static676.aJs5_121 = arg0;
+        Static676.midiSongs = midiSongs;
         Static497.aBoolean564 = false;
         Static117.aClass2_Sub6_Sub1_2 = null;
-        Static99.anInt2077 = arg2;
-        Static174.anInt2918 = 0;
+        Static99.midiGroupId = id;
+        Static174.midiFileId = 0;
         Static190.anInt3112 = Static581.aClass2_Sub6_Sub1_3.method948() / arg3;
         if (Static190.anInt3112 < 1) {
             Static190.anInt3112 = 1;

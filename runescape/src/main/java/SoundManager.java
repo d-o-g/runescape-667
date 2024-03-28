@@ -4,6 +4,10 @@ import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.js5.js5;
+import com.jagex.sound.Node_Sub6_Sub1;
+import com.jagex.sound.Node_Sub6_Sub3;
+import com.jagex.sound.Sound;
+import com.jagex.sound.SoundStream;
 import com.jagex.sound.SynthSound;
 import com.jagex.sound.VariableRateSoundPacket;
 import com.jagex.sound.vorbis.VorbisSound;
@@ -298,10 +302,11 @@ public final class SoundManager {
     }
 
     @OriginalMember(owner = "client!bd", name = "c", descriptor = "(I)V")
-    public static void method918() {
+    public static void tick() {
         for (@Pc(7) int local7 = 0; local7 < count; local7++) {
             @Pc(13) Sound local13 = sounds[local7];
             @Pc(15) boolean local15 = false;
+
             @Pc(179) int local179;
             if (local13.stream == null) {
                 local13.delay--;
@@ -375,13 +380,14 @@ public final class SoundManager {
                             }
                         }
                         if (local179 > 0) {
-                            @Pc(392) VariableRateSoundPacket local392 = null;
+                            @Pc(392) VariableRateSoundPacket packet = null;
                             if (local13.type == 1) {
-                                local392 = local13.synth.sample().resample(Static681.aSampleRateConverter_2);
+                                packet = local13.synth.sample().resample(Static681.aSampleRateConverter_2);
                             } else if (local13.isVorbis()) {
-                                local392 = local13.packet;
+                                packet = local13.packet;
                             }
-                            @Pc(422) SoundStream stream = local13.stream = SoundStream.create(local392, local13.rate, local179, local154);
+
+                            @Pc(422) SoundStream stream = local13.stream = SoundStream.create(packet, local13.rate, local179, local154);
                             stream.setVolume(local13.loops - 1);
                             activeStreams.addFirst(stream);
                         }
@@ -390,6 +396,7 @@ public final class SoundManager {
             } else if (!local13.stream.isLinked()) {
                 local15 = true;
             }
+
             if (local15) {
                 count--;
                 for (local179 = local7; local179 < count; local179++) {
@@ -398,6 +405,7 @@ public final class SoundManager {
                 local7--;
             }
         }
+
         if (Static501.aBoolean575 && !Static52.method1157(126)) {
             if (ClientOptions.instance.musicVolume.getValue() != 0 && midiSong != -1) {
                 if (Static8.aClass2_Sub6_Sub1_1 == null) {
@@ -406,6 +414,7 @@ public final class SoundManager {
                     Static273.method3961(Static8.aClass2_Sub6_Sub1_1, midiSong, js5.MIDI_SONGS, ClientOptions.instance.musicVolume.getValue());
                 }
             }
+
             Static8.aClass2_Sub6_Sub1_1 = null;
             Static501.aBoolean575 = false;
         } else if (ClientOptions.instance.musicVolume.getValue() != 0 && midiSong != -1 && !Static52.method1157(125)) {

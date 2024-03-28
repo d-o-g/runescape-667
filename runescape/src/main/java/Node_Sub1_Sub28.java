@@ -1,6 +1,8 @@
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.MonochromeImageCache;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -91,12 +93,12 @@ public final class Node_Sub1_Sub28 extends TextureOp {
                         break;
                     }
                 }
-                Arrays.set(local11, 0, Static608.anInt9289, local153);
+                Arrays.set(local11, 0, EnvironmentLight.anInt9289, local153);
             } else {
-                for (@Pc(31) int local31 = 0; local31 < Static608.anInt9289; local31++) {
+                for (@Pc(31) int local31 = 0; local31 < EnvironmentLight.anInt9289; local31++) {
                     local35 = 0;
                     @Pc(37) short local37 = 0;
-                    @Pc(41) int local41 = Static54.anIntArray92[local31];
+                    @Pc(41) int local41 = EnvironmentLight.anIntArray92[local31];
                     @Pc(44) int local44 = this.anInt9409;
                     if (local44 == 1) {
                         local35 = local41;

@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.io.connection.Connection;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -8,7 +9,7 @@ public final class ConnectionManager {
 
     @OriginalMember(owner = "client!lm", name = "b", descriptor = "(Z)V")
     public static void disconnect() {
-        if (MainLogicManager.isAtLobbyScreen(MainLogicManager.step)) {
+        if (MainLogicStep.isAtLobbyScreen(MainLogicManager.step)) {
             LoginManager.logout(false);
         } else {
             reconnect = ServerConnection.GAME.connection;
@@ -19,6 +20,6 @@ public final class ConnectionManager {
 
     @OriginalMember(owner = "client!vca", name = "a", descriptor = "(B)Lclient!gw;")
     public static ServerConnection active() {
-        return MainLogicManager.isAtLobbyScreen(MainLogicManager.step) ? ServerConnection.LOBBY : ServerConnection.GAME;
+        return MainLogicStep.isAtLobbyScreen(MainLogicManager.step) ? ServerConnection.LOBBY : ServerConnection.GAME;
     }
 }

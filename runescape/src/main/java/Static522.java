@@ -30,6 +30,6 @@ public final class Static522 {
         Static96.anInt10171 = 0;
         Static117.aClass2_Sub6_Sub1_2 = null;
         Static12.aClass123_4 = null;
-        Static676.aJs5_121 = null;
+        Static676.midiSongs = null;
     }
 }

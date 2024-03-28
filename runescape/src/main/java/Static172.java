@@ -8,7 +8,7 @@ public final class Static172 {
     public static int anInt2888;
 
     @OriginalMember(owner = "client!ffa", name = "m", descriptor = "I")
-    public static int anInt2890 = -1;
+    public static int lastMouseX = -1;
 
     @OriginalMember(owner = "client!ffa", name = "l", descriptor = "I")
     public static int anInt2893 = 0;

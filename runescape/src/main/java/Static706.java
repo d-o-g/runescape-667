@@ -18,7 +18,7 @@ public final class Static706 {
     public static Ground[] floor;
 
     @OriginalMember(owner = "client!wfa", name = "a", descriptor = "(IILclient!gp;III)V")
-    public static void method9220(@OriginalArg(0) int arg0, @OriginalArg(2) LocTypeCustomisation arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
+    public static void setLocCustomisation(@OriginalArg(0) int arg0, @OriginalArg(2) LocTypeCustomisation arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         if (arg4 < 1 || arg2 < 1 || arg4 > Static720.mapWidth - 2 || Static501.mapLength - 2 < arg2) {
             return;
         }

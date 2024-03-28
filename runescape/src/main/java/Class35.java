@@ -1,3 +1,4 @@
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -96,9 +97,9 @@ public abstract class Class35 {
                             local171 &= 0xFF;
                         }
                         local175 &= 0xFF;
-                        @Pc(237) int local237 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local122];
-                        @Pc(241) int local241 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local187];
-                        @Pc(245) int local245 = DoublyLinkedNode_Sub2_Sub19.anIntArray768[local99];
+                        @Pc(237) int local237 = Node_Sub1_Sub27.anIntArray768[local122];
+                        @Pc(241) int local241 = Node_Sub1_Sub27.anIntArray768[local187];
+                        @Pc(245) int local245 = Node_Sub1_Sub27.anIntArray768[local99];
                         @Pc(250) short local250 = this.aShortArray98[local183];
                         @Pc(255) short local255 = this.aShortArray98[local175];
                         @Pc(259) int local259 = local187 - 4096;
@@ -152,7 +153,7 @@ public abstract class Class35 {
         }
         for (@Pc(25) int local25 = 0; local25 < 255; local25++) {
             @Pc(37) int local37 = 255 - local25;
-            @Pc(42) int local42 = Static623.method8326(-5208, local37, local10);
+            @Pc(42) int local42 = Node_Sub1_Sub27.method8326(-5208, local37, local10);
             @Pc(47) short local47 = this.aShortArray98[local42];
             this.aShortArray98[local42] = this.aShortArray98[local37];
             this.aShortArray98[local37] = this.aShortArray98[local37 + 256] = local47;

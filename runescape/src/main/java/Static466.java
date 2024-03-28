@@ -1,6 +1,8 @@
+import com.jagex.PickableEntity;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.io.BitPacket;
 import com.jagex.graphics.PickingCylinder;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -211,9 +213,9 @@ public final class Static466 {
                     Static632.anInt9503 += local254;
                     Static482.anInt7265 += local256;
                     for (@Pc(855) int local855 = 0; local855 < Static617.anInt9434; local855++) {
-                        @Pc(868) int local868 = Static719.method9118(Static482.anInt7265 + local855, 16939, Static617.anInt9434) * Static211.anInt5574;
+                        @Pc(868) int local868 = Node_Sub1_Sub27.method9118(Static482.anInt7265 + local855, Static617.anInt9434) * Static211.anInt5574;
                         for (local465 = 0; local465 < Static211.anInt5574; local465++) {
-                            @Pc(881) int local881 = Static719.method9118(local465 + Static632.anInt9503, 16939, Static211.anInt5574) + local868;
+                            @Pc(881) int local881 = Node_Sub1_Sub27.method9118(local465 + Static632.anInt9503, Static211.anInt5574) + local868;
                             @Pc(936) boolean local936 = local855 >= local319 && local855 < local319 + local321 || local325 <= local855 && local855 < local329 + local325 && local465 >= local323 && local465 < local327 + local323;
                             Static651.anInterface9Array1[local881].method9039(local465 * Static437.horizontalAspectRatio, Static714.verticalAspectRatio * local855, Static437.horizontalAspectRatio, Static714.verticalAspectRatio, local936);
                         }

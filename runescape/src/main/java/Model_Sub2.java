@@ -1,3 +1,4 @@
+import com.jagex.graphics.texture.TextureOp;
 import com.jagex.math.ColourUtils;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
@@ -719,8 +720,8 @@ public final class Model_Sub2 extends Model {
         this.aShortArray73 = Static358.method9173(this.anInt5538, this.aShortArray73);
         this.aShortArray72 = Static358.method9173(this.anInt5538, this.aShortArray72);
         this.aByteArray53 = Static597.method7823(this.aByteArray53, this.anInt5538);
-        this.aFloatArray37 = Static485.method9420(false, this.aFloatArray37, this.anInt5538);
-        this.aFloatArray39 = Static485.method9420(false, this.aFloatArray39, this.anInt5538);
+        this.aFloatArray37 = TextureOp.method9420(false, this.aFloatArray37, this.anInt5538);
+        this.aFloatArray39 = TextureOp.method9420(false, this.aFloatArray39, this.anInt5538);
         if (arg1.vertexGroup != null && Static685.method8950(-60, arg2, this.anInt5529)) {
             this.anIntArrayArray131 = arg1.vertexGroups(false);
         }

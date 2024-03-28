@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.constants.LocLayer;
 import com.jagex.core.constants.LocShapes;
 import com.jagex.core.constants.TileFlag;
@@ -11,6 +12,7 @@ import com.jagex.game.runetek6.config.loctype.LocInteractivity;
 import com.jagex.game.runetek6.config.loctype.LocOcclusionMode;
 import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Toolkit;
@@ -75,7 +77,7 @@ public final class MapRegion extends Class306 {
             return;
         }
         @Pc(7) PointLight local7 = arg0.light;
-        Static265.aEnvironmentLightArray1[Static319.anInt5080] = arg0;
+        EnvironmentLight.aEnvironmentLightArray1[Static319.anInt5080] = arg0;
         Static279.aBooleanArray11[Static319.anInt5080] = false;
         Static319.anInt5080++;
         @Pc(22) int local22 = arg0.level;
@@ -88,18 +90,18 @@ public final class MapRegion extends Class306 {
         }
         for (@Pc(39) int local39 = local22; local39 <= local30; local39++) {
             @Pc(42) int local42 = 0;
-            @Pc(54) int local54 = local7.getZ() + Static247.anInt3993 - local7.getRange() >> Static52.anInt1066;
+            @Pc(54) int local54 = local7.getZ() + EnvironmentLight.anInt3993 - local7.getRange() >> EnvironmentLight.anInt1066;
             if (local54 < 0) {
                 local42 = -local54;
                 local54 = 0;
             }
-            @Pc(74) int local74 = local7.getZ() + local7.getRange() - Static247.anInt3993 >> Static52.anInt1066;
+            @Pc(74) int local74 = local7.getZ() + local7.getRange() - EnvironmentLight.anInt3993 >> EnvironmentLight.anInt1066;
             if (local74 >= Static662.tileMaxZ) {
                 local74 = Static662.tileMaxZ - 1;
             }
             for (@Pc(83) int local83 = local54; local83 <= local74; local83++) {
                 @Pc(90) short local90 = arg0.aShortArray131[local42++];
-                @Pc(106) int local106 = (local7.getX() + Static247.anInt3993 - local7.getRange() >> Static52.anInt1066) + (local90 >>> 8);
+                @Pc(106) int local106 = (local7.getX() + EnvironmentLight.anInt3993 - local7.getRange() >> EnvironmentLight.anInt1066) + (local90 >>> 8);
                 @Pc(114) int local114 = local106 + (local90 & 0xFF) - 1;
                 if (local106 < 0) {
                     local106 = 0;
@@ -108,15 +110,15 @@ public final class MapRegion extends Class306 {
                     local114 = Static619.tileMaxX - 1;
                 }
                 for (@Pc(127) int local127 = local106; local127 <= local114; local127++) {
-                    @Pc(136) long local136 = Static161.tileLightFlags[local39][local127][local83];
+                    @Pc(136) long local136 = Client.tileLightFlags[local39][local127][local83];
                     if ((local136 & 0xFFFFL) == 0L) {
-                        Static161.tileLightFlags[local39][local127][local83] = local136 | (long) Static319.anInt5080;
+                        Client.tileLightFlags[local39][local127][local83] = local136 | (long) Static319.anInt5080;
                     } else if ((local136 & 0xFFFF0000L) == 0L) {
-                        Static161.tileLightFlags[local39][local127][local83] = local136 | (long) Static319.anInt5080 << 16;
+                        Client.tileLightFlags[local39][local127][local83] = local136 | (long) Static319.anInt5080 << 16;
                     } else if ((local136 & 0xFFFF00000000L) == 0L) {
-                        Static161.tileLightFlags[local39][local127][local83] = local136 | (long) Static319.anInt5080 << 32;
+                        Client.tileLightFlags[local39][local127][local83] = local136 | (long) Static319.anInt5080 << 32;
                     } else if ((local136 & 0xFFFF000000000000L) == 0L) {
-                        Static161.tileLightFlags[local39][local127][local83] = local136 | (long) Static319.anInt5080 << 48;
+                        Client.tileLightFlags[local39][local127][local83] = local136 | (long) Static319.anInt5080 << 48;
                     }
                 }
             }

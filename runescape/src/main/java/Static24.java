@@ -9,6 +9,6 @@ public final class Static24 {
     public static int[] anIntArray33;
 
     @OriginalMember(owner = "client!aq", name = "i", descriptor = "I")
-    public static int anInt595;
+    public static int midiVolume;
 
 }

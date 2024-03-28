@@ -1,4 +1,6 @@
+import com.jagex.Entity;
 import com.jagex.game.runetek6.sound.Audio;
+import com.jagex.sound.Node_Sub6_Sub5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -18,7 +20,7 @@ public final class Static517 {
         }
         Static156.anInt2679 = 2;
         Audio.sampleRate = 22050;
-        Static316.aBoolean644 = arg0;
+        Node_Sub6_Sub5.aBoolean644 = arg0;
     }
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Z[[[BIBIIZ)V")

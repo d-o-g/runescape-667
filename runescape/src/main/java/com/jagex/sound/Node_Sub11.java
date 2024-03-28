@@ -1,6 +1,7 @@
+package com.jagex.sound;
+
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.Packet;
-import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -294,7 +295,7 @@ public final class Node_Sub11 extends Node {
                 @Pc(948) byte local948 = local299[local937 + 1];
                 local962 = (local942 - local909) / 2 + local913 * (local942 - local909);
                 for (local964 = local909; local964 < local942; local964++) {
-                    local972 = Static235.method3427(local942 - local909, local962);
+                    local972 = method3427(local942 - local909, local962);
                     local962 += local948 - local913;
                     this.aByteArray20[local964] = (byte) (this.aByteArray20[local964] * local972 + 32 >> 6);
                 }
@@ -331,7 +332,7 @@ public final class Node_Sub11 extends Node {
                 local1131 = local316[local937 + 1] << 1;
                 local962 = (local942 - local909) / 2 + (local942 - local909) * local1085;
                 for (local964 = local909; local964 < local942; local964++) {
-                    local972 = Static235.method3427(local942 - local909, local962);
+                    local972 = method3427(local942 - local909, local962);
                     @Pc(1164) int local1164 = (this.aByteArray18[local964] & 0xFF) + local972;
                     if (local1164 < 0) {
                         local1164 = 0;
@@ -388,6 +389,12 @@ public final class Node_Sub11 extends Node {
         }
     }
 
+    @OriginalMember(owner = "client!hf", name = "a", descriptor = "(III)I")
+    public static int method3427(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
+        @Pc(13) int local13 = arg1 >>> 31;
+        return (local13 + arg1) / arg0 - local13;
+    }
+
     @OriginalMember(owner = "client!cea", name = "a", descriptor = "(I)V")
     public void method1521() {
         this.anIntArray149 = null;
@@ -405,7 +412,7 @@ public final class Node_Sub11 extends Node {
                     if (local33 != local7) {
                         local7 = local33--;
                         if ((local33 & 0x1) == 0) {
-                            local9 = arg0.method2614(arg1, local33 >> 2);
+                            local9 = arg0.aIterableHashTable_15.method2614(arg1, local33 >> 2, arg0);
                         } else {
                             local9 = arg0.method2615(arg1, local33 >> 2);
                         }

@@ -1,4 +1,5 @@
 import com.jagex.core.datastruct.key.Node2;
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -7,9 +8,6 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ut")
 public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interface3 {
-
-    @OriginalMember(owner = "client!ut", name = "A", descriptor = "[I")
-    public static final int[] anIntArray768 = new int[4096];
 
     @OriginalMember(owner = "client!ut", name = "K", descriptor = "I")
     public int anInt9822 = -1;
@@ -37,7 +35,7 @@ public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interfac
 
     static {
         for (@Pc(123) int local123 = 0; local123 < 4096; local123++) {
-            anIntArray768[local123] = Static61.method1310(local123);
+            Node_Sub1_Sub27.anIntArray768[local123] = Static61.method1310(local123);
         }
     }
 

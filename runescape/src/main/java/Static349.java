@@ -7,16 +7,16 @@ public final class Static349 {
 
     @OriginalMember(owner = "client!kw", name = "a", descriptor = "(IILclient!sb;IZIJB)V")
     public static void method5119(@OriginalArg(2) js5 arg0, @OriginalArg(3) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) long arg3) {
-        Static24.anInt595 = arg1;
+        Static24.midiVolume = arg1;
         Static96.anInt10171 = 1;
         Static611.anInt9335 = 0;
-        Static99.anInt2077 = arg2;
+        Static99.midiGroupId = arg2;
         Static497.aBoolean564 = false;
         Static190.anInt3112 = 10000;
         Static117.aClass2_Sub6_Sub1_2 = null;
-        Static174.anInt2918 = 0;
+        Static174.midiFileId = 0;
         Static146.aLong95 = arg3;
-        Static676.aJs5_121 = arg0;
+        Static676.midiSongs = arg0;
     }
 
     @OriginalMember(owner = "client!kw", name = "a", descriptor = "(ZJ)V")
@@ -57,8 +57,8 @@ public final class Static349 {
             }
             Static38.anInt920 += local27;
         }
-        Camera.playerCameraYaw += Static552.aFloat207 * (float) arg0 / 40.0F * 8.0F;
-        Camera.playerCameraPitch += Static288.aFloat83 * (float) arg0 / 40.0F * 8.0F;
+        Camera.playerCameraYaw += Camera.angleAxisX * (float) arg0 / 40.0F * 8.0F;
+        Camera.playerCameraPitch += Camera.angleAxisY * (float) arg0 / 40.0F * 8.0F;
         Static723.method9451();
     }
 }

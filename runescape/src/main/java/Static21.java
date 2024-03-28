@@ -1,6 +1,8 @@
 import com.jagex.Client;
+import com.jagex.Entity;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.JavaScript;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -21,10 +23,10 @@ public final class Static21 {
         Static665.aToolkit_15 = arg0;
         Static32.anInt772 = arg1;
         Static661.aBoolean457 = Static32.anInt772 > 1 && Static665.aToolkit_15.method7979();
-        Static52.anInt1066 = 9;
-        Static340.anInt5586 = 0x1 << Static52.anInt1066;
-        Static247.anInt3993 = Static340.anInt5586 >> 1;
-        Math.sqrt(Static247.anInt3993 * Static247.anInt3993 + Static247.anInt3993 * Static247.anInt3993);
+        EnvironmentLight.anInt1066 = 9;
+        Static340.anInt5586 = 0x1 << EnvironmentLight.anInt1066;
+        EnvironmentLight.anInt3993 = Static340.anInt5586 >> 1;
+        Math.sqrt(EnvironmentLight.anInt3993 * EnvironmentLight.anInt3993 + EnvironmentLight.anInt3993 * EnvironmentLight.anInt3993);
         Static299.tileMaxLevel = 4;
         Static619.tileMaxX = arg2;
         Static662.tileMaxZ = arg3;
@@ -47,13 +49,13 @@ public final class Static21 {
             Static693.underwaterGround = null;
         }
         if (arg6) {
-            Static161.tileLightFlags = new long[4][arg2][arg3];
-            Static265.aEnvironmentLightArray1 = new EnvironmentLight[65535];
+            Client.tileLightFlags = new long[4][arg2][arg3];
+            EnvironmentLight.aEnvironmentLightArray1 = new EnvironmentLight[65535];
             Static279.aBooleanArray11 = new boolean[65535];
             Static319.anInt5080 = 0;
         } else {
-            Static161.tileLightFlags = null;
-            Static265.aEnvironmentLightArray1 = null;
+            Client.tileLightFlags = null;
+            EnvironmentLight.aEnvironmentLightArray1 = null;
             Static279.aBooleanArray11 = null;
             Static319.anInt5080 = 0;
         }

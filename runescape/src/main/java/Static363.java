@@ -3,6 +3,7 @@ import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
@@ -66,7 +67,7 @@ public final class Static363 {
             @Pc(67) Mesh local67 = Mesh.load(GraphicsDefaults.instance.profilingModel, js5.MODELS);
             @Pc(70) long local70 = SystemTimer.safetime();
             Toolkit.active.la();
-            Static460.aMatrix_10.applyTranslation(0, Static247.anInt3993, 0);
+            Static460.aMatrix_10.applyTranslation(0, EnvironmentLight.anInt3993, 0);
             Toolkit.active.setCamera(Static460.aMatrix_10);
             Toolkit.active.DA(local43.width / 2, local43.height / 2, 512, 512);
             Toolkit.active.xa(1.0F);

@@ -1,6 +1,4 @@
 import com.jagex.core.io.ByteArrayWrapper;
-import com.jagex.graphics.MonochromeImageCache;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -21,30 +19,4 @@ public final class Static132 {
         }
     }
 
-    @OriginalMember(owner = "client!ec", name = "a", descriptor = "(III)V")
-    public static void method2313(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(7) int local7;
-        if (Static608.anInt9289 != arg1) {
-            Static54.anIntArray92 = new int[arg1];
-            for (local7 = 0; local7 < arg1; local7++) {
-                Static54.anIntArray92[local7] = (local7 << 12) / arg1;
-            }
-            Static576.anInt8580 = arg1 - 1;
-            Static608.anInt9289 = arg1;
-            Static675.anInt10157 = arg1 * 32;
-        }
-        if (arg0 == Static2.anInt53) {
-            return;
-        }
-        if (Static608.anInt9289 == arg0) {
-            MonochromeImageCache.anIntArray341 = Static54.anIntArray92;
-        } else {
-            MonochromeImageCache.anIntArray341 = new int[arg0];
-            for (local7 = 0; local7 < arg0; local7++) {
-                MonochromeImageCache.anIntArray341[local7] = (local7 << 12) / arg0;
-            }
-        }
-        Static489.anInt7343 = arg0 - 1;
-        Static2.anInt53 = arg0;
-    }
 }

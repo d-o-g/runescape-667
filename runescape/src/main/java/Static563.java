@@ -1,3 +1,5 @@
+import com.jagex.Client;
+import com.jagex.graphics.EnvironmentLight;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -68,14 +70,14 @@ public final class Static563 {
             }
             Static645.anInt9611 = 0;
         }
-        if (Static265.aEnvironmentLightArray1 != null) {
+        if (EnvironmentLight.aEnvironmentLightArray1 != null) {
             for (local3 = 0; local3 < Static319.anInt5080; local3++) {
-                Static265.aEnvironmentLightArray1[local3] = null;
+                EnvironmentLight.aEnvironmentLightArray1[local3] = null;
             }
             for (local6 = 0; local6 < Static299.tileMaxLevel; local6++) {
                 for (local9 = 0; local9 < Static619.tileMaxX; local9++) {
                     for (@Pc(217) int local217 = 0; local217 < Static662.tileMaxZ; local217++) {
-                        Static161.tileLightFlags[local6][local9][local217] = 0L;
+                        Client.tileLightFlags[local6][local9][local217] = 0L;
                     }
                 }
             }

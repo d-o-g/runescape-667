@@ -1,3 +1,5 @@
+package com.jagex.graphics;
+
 import com.jagex.core.datastruct.key.Node2;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

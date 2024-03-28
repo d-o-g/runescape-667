@@ -1,3 +1,4 @@
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -160,9 +161,9 @@ public abstract class Class51 implements Interface17 {
 
     @OriginalMember(owner = "client!hka", name = "a", descriptor = "(I[IIII)V")
     protected final void method8636(@OriginalArg(0) int arg0, @OriginalArg(1) int[] arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
-        if (arg3 > 0 && !Static700.method9150(arg3)) {
+        if (arg3 > 0 && !Node_Sub1_Sub27.method9150(arg3)) {
             throw new IllegalArgumentException("");
-        } else if (arg2 > 0 && !Static700.method9150(arg2)) {
+        } else if (arg2 > 0 && !Node_Sub1_Sub27.method9150(arg2)) {
             throw new IllegalArgumentException("");
         } else if (this.aClass92_14 == Static172.aClass92_8) {
             @Pc(45) int local45 = 0;
@@ -228,9 +229,9 @@ public abstract class Class51 implements Interface17 {
 
     @OriginalMember(owner = "client!hka", name = "a", descriptor = "(III[BI)V")
     protected final void method8638(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) byte[] arg2, @OriginalArg(4) int arg3) {
-        if (arg3 > 0 && !Static700.method9150(arg3)) {
+        if (arg3 > 0 && !Node_Sub1_Sub27.method9150(arg3)) {
             throw new IllegalArgumentException("");
-        } else if (arg0 <= 0 || Static700.method9150(arg0)) {
+        } else if (arg0 <= 0 || Node_Sub1_Sub27.method9150(arg0)) {
             @Pc(40) int local40 = this.aClass92_14.anInt2416;
             @Pc(49) int local49 = 0;
             @Pc(61) int local61 = arg3 >= arg0 ? arg0 : arg3;
@@ -282,9 +283,9 @@ public abstract class Class51 implements Interface17 {
 
     @OriginalMember(owner = "client!hka", name = "a", descriptor = "([FIIZI)V")
     protected final void method8639(@OriginalArg(0) float[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
-        if (arg1 > 0 && !Static700.method9150(arg1)) {
+        if (arg1 > 0 && !Node_Sub1_Sub27.method9150(arg1)) {
             throw new IllegalArgumentException("");
-        } else if (arg2 <= 0 || Static700.method9150(arg2)) {
+        } else if (arg2 <= 0 || Node_Sub1_Sub27.method9150(arg2)) {
             @Pc(40) int local40 = this.aClass92_14.anInt2416;
             @Pc(42) int local42 = 0;
             @Pc(50) int local50 = arg2 <= arg1 ? arg2 : arg1;

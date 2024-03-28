@@ -1,4 +1,6 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -23,12 +25,12 @@ public final class Node_Sub1_Sub30 extends TextureOp {
     public int[][] method9414(@OriginalArg(0) int arg0) {
         @Pc(19) int[][] local19 = super.colourCache.get(arg0);
         if (super.colourCache.dirty) {
-            @Pc(28) int local28 = Static608.anInt9289 / this.anInt9793;
-            @Pc(33) int local33 = Static2.anInt53 / this.anInt9789;
+            @Pc(28) int local28 = EnvironmentLight.anInt9289 / this.anInt9793;
+            @Pc(33) int local33 = EnvironmentLight.anInt53 / this.anInt9789;
             @Pc(49) int[][] local49;
             if (local33 > 0) {
                 @Pc(39) int local39 = arg0 % local33;
-                local49 = this.method9413(0, local39 * Static2.anInt53 / local33);
+                local49 = this.method9413(0, local39 * EnvironmentLight.anInt53 / local33);
             } else {
                 local49 = this.method9413(0, 0);
             }
@@ -38,13 +40,13 @@ public final class Node_Sub1_Sub30 extends TextureOp {
             @Pc(73) int[] local73 = local19[0];
             @Pc(77) int[] local77 = local19[1];
             @Pc(81) int[] local81 = local19[2];
-            for (@Pc(83) int local83 = 0; local83 < Static608.anInt9289; local83++) {
+            for (@Pc(83) int local83 = 0; local83 < EnvironmentLight.anInt9289; local83++) {
                 @Pc(91) int local91;
                 if (local28 <= 0) {
                     local91 = 0;
                 } else {
                     @Pc(97) int local97 = local83 % local28;
-                    local91 = local97 * Static608.anInt9289 / local28;
+                    local91 = local97 * EnvironmentLight.anInt9289 / local28;
                 }
                 local73[local83] = local61[local91];
                 local77[local83] = local65[local91];
@@ -75,20 +77,20 @@ public final class Node_Sub1_Sub30 extends TextureOp {
             this.monochromeOutput(94, -126);
         }
         if (super.monochromeCache.dirty) {
-            @Pc(30) int local30 = Static608.anInt9289 / this.anInt9793;
-            @Pc(35) int local35 = Static2.anInt53 / this.anInt9789;
+            @Pc(30) int local30 = EnvironmentLight.anInt9289 / this.anInt9793;
+            @Pc(35) int local35 = EnvironmentLight.anInt53 / this.anInt9789;
             @Pc(51) int[] local51;
             @Pc(41) int local41;
             if (local35 > 0) {
                 local41 = arg1 % local35;
-                local51 = this.method9422(Static2.anInt53 * local41 / local35, 0);
+                local51 = this.method9422(EnvironmentLight.anInt53 * local41 / local35, 0);
             } else {
                 local51 = this.method9422(0, 0);
             }
-            for (local41 = 0; local41 < Static608.anInt9289; local41++) {
+            for (local41 = 0; local41 < EnvironmentLight.anInt9289; local41++) {
                 if (local30 > 0) {
                     @Pc(71) int local71 = local41 % local30;
-                    local11[local41] = local51[local71 * Static608.anInt9289 / local30];
+                    local11[local41] = local51[local71 * EnvironmentLight.anInt9289 / local30];
                 } else {
                     local11[local41] = local51[0];
                 }

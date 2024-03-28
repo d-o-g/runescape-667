@@ -1,3 +1,6 @@
+package com.jagex;
+
+import com.jagex.Entity;
 import com.jagex.core.datastruct.Node;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Toolkit;

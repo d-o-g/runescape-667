@@ -1,4 +1,6 @@
+import com.jagex.Entity;
 import com.jagex.ParticleList;
+import com.jagex.PickableEntity;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;

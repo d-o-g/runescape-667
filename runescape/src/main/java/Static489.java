@@ -13,9 +13,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static489 {
 
-    @OriginalMember(owner = "client!ph", name = "K", descriptor = "I")
-    public static int anInt7343;
-
     @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ZBLclient!cg;)V")
     public static void tick(@OriginalArg(0) boolean cutscene, @OriginalArg(2) PathingEntity entity) {
         @Pc(7) int local7 = -1;

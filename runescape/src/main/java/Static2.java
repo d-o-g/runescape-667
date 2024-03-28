@@ -10,9 +10,6 @@ public final class Static2 {
     @OriginalMember(owner = "client!aaa", name = "U", descriptor = "I")
     public static int anInt45;
 
-    @OriginalMember(owner = "client!aaa", name = "I", descriptor = "I")
-    public static int anInt53;
-
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IBIILclient!cv;)V")
     public static void sortAllObjs(@OriginalArg(0) int level, @OriginalArg(3) int x, @OriginalArg(2) int z, @OriginalArg(4) ObjStackEntry entry) {
         @Pc(16) long key = (level << 28) | (z << 14) | x;

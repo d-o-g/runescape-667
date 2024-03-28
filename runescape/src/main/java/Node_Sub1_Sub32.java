@@ -1,4 +1,6 @@
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
+import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -44,13 +46,13 @@ public final class Node_Sub1_Sub32 extends TextureOp {
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.monochromeCache.get(arg1);
         if (super.monochromeCache.dirty) {
-            @Pc(22) int local22 = Static675.anInt10157 * this.anInt10015 >> 12;
-            @Pc(32) int[] local32 = this.method9422(Static489.anInt7343 & arg1 - 1, 0);
+            @Pc(22) int local22 = EnvironmentLight.anInt10157 * this.anInt10015 >> 12;
+            @Pc(32) int[] local32 = this.method9422(EnvironmentLight.anInt7343 & arg1 - 1, 0);
             @Pc(38) int[] local38 = this.method9422(arg1, 0);
-            @Pc(48) int[] local48 = this.method9422(arg1 + 1 & Static489.anInt7343, 0);
-            for (@Pc(50) int local50 = 0; local50 < Static608.anInt9289; local50++) {
+            @Pc(48) int[] local48 = this.method9422(arg1 + 1 & EnvironmentLight.anInt7343, 0);
+            for (@Pc(50) int local50 = 0; local50 < EnvironmentLight.anInt9289; local50++) {
                 @Pc(65) int local65 = local22 * (local48[local50] - local32[local50]) >> 12;
-                @Pc(86) int local86 = (local38[Static576.anInt8580 & local50 - 1] - local38[Static576.anInt8580 & local50 + 1]) * local22 >> 12;
+                @Pc(86) int local86 = (local38[EnvironmentLight.anInt8580 & local50 - 1] - local38[EnvironmentLight.anInt8580 & local50 + 1]) * local22 >> 12;
                 @Pc(90) int local90 = local86 >> 4;
                 if (local90 < 0) {
                     local90 = -local90;

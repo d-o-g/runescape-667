@@ -50,9 +50,4 @@ public final class Static235 {
         return locType.loadedModels(shape);
     }
 
-    @OriginalMember(owner = "client!hf", name = "a", descriptor = "(III)I")
-    public static int method3427(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        @Pc(13) int local13 = arg1 >>> 31;
-        return (local13 + arg1) / arg0 - local13;
-    }
 }

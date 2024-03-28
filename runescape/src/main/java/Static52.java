@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static52 {
 
-    @OriginalMember(owner = "client!bo", name = "f", descriptor = "I")
-    public static int anInt1066;
-
     @OriginalMember(owner = "client!bo", name = "i", descriptor = "I")
     public static int varcUpdateCount = 0;
 

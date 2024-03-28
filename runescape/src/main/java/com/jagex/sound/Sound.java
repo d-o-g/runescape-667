@@ -1,3 +1,6 @@
+package com.jagex.sound;
+
+import com.jagex.Entity;
 import com.jagex.sound.SoundType;
 import com.jagex.sound.SynthSound;
 import com.jagex.sound.VariableRateSoundPacket;

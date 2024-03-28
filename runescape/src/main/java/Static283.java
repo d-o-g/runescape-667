@@ -1,4 +1,6 @@
+import com.jagex.PickableEntity;
 import com.jagex.core.datastruct.LinkedList;
+import com.jagex.graphics.EnvironmentLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -10,8 +12,8 @@ public final class Static283 {
         Static29.aBoolean60 = true;
         Static442.aBoolean500 = Static665.aToolkit_15.getMaxLights() > 0;
         Static581.aBoolean657 = true;
-        Static403.anInt6246 = arg1 >> Static52.anInt1066;
-        Static550.anInt8271 = arg3 >> Static52.anInt1066;
+        Static403.anInt6246 = arg1 >> EnvironmentLight.anInt1066;
+        Static550.anInt8271 = arg3 >> EnvironmentLight.anInt1066;
         Static499.anInt7492 = arg1;
         Static715.anInt10810 = arg3;
         Static523.anInt3882 = arg2;
@@ -55,10 +57,10 @@ public final class Static283 {
                     @Pc(118) int local118 = Static550.anInt8271 + local92 - Static35.anInt813;
                     @Pc(138) int local138;
                     if (local112 >= 0 && local118 >= 0 && local112 < Static619.tileMaxX && local118 < Static662.tileMaxZ) {
-                        local138 = local112 << Static52.anInt1066;
-                        @Pc(142) int local142 = local118 << Static52.anInt1066;
-                        @Pc(159) int local159 = Static706.floor[Static706.floor.length - 1].getHeight(local118, local112) - (0x3E8 << Static52.anInt1066 - 7);
-                        @Pc(188) int local188 = (Static693.underwaterGround == null ? Static706.floor[0].getHeight(local118, local112) + Static340.anInt5586 : Static693.underwaterGround[0].getHeight(local118, local112) + Static340.anInt5586) + (0x3E8 << Static52.anInt1066 - 7);
+                        local138 = local112 << EnvironmentLight.anInt1066;
+                        @Pc(142) int local142 = local118 << EnvironmentLight.anInt1066;
+                        @Pc(159) int local159 = Static706.floor[Static706.floor.length - 1].getHeight(local118, local112) - (0x3E8 << EnvironmentLight.anInt1066 - 7);
+                        @Pc(188) int local188 = (Static693.underwaterGround == null ? Static706.floor[0].getHeight(local118, local112) + Static340.anInt5586 : Static693.underwaterGround[0].getHeight(local118, local112) + Static340.anInt5586) + (0x3E8 << EnvironmentLight.anInt1066 - 7);
                         local90 = arg15 >= 0 ? Static665.aToolkit_15.r(local138, local159, local142, local138, local188, local142, arg15) : Static665.aToolkit_15.JA(local138, local159, local142, local138, local188, local142);
                         Static142.aBooleanArrayArray1[local85][local92] = local90 == 0;
                     } else {
@@ -110,7 +112,7 @@ public final class Static283 {
         }
         if (Static442.aBoolean500) {
             for (local85 = 0; local85 < Static319.anInt5080; local85++) {
-                Static265.aEnvironmentLightArray1[local85].method8241(arg14, arg0);
+                EnvironmentLight.aEnvironmentLightArray1[local85].method8241(arg14, arg0);
             }
         }
         if (Static661.aBoolean457) {

@@ -18,11 +18,6 @@ public final class Static700 {
         }
     }
 
-    @OriginalMember(owner = "client!wca", name = "a", descriptor = "(IZ)Z")
-    public static boolean method9150(@OriginalArg(0) int arg0) {
-        return (arg0 & -arg0) == arg0;
-    }
-
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(B)V")
     public static void method9152() {
         Static563.method7461();

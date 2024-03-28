@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.core.io.Packet;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -14,8 +15,8 @@ public final class Static73 {
         } else if (Static432.anInt525 < 100) {
             return false;
         } else if (Static588.method7714(arg1, arg3, arg0)) {
-            @Pc(31) int local31 = arg0 << Static52.anInt1066;
-            @Pc(35) int local35 = arg1 << Static52.anInt1066;
+            @Pc(31) int local31 = arg0 << EnvironmentLight.anInt1066;
+            @Pc(35) int local35 = arg1 << EnvironmentLight.anInt1066;
             @Pc(45) int local45 = Static246.ground[arg3].getHeight(arg1, arg0) - 1;
             @Pc(51) int local51 = arg2.getMinY(2) + local45;
             if (arg2.aShort58 == 1) {
@@ -55,21 +56,21 @@ public final class Static73 {
                     return false;
                 }
             } else if (arg2.aShort58 == 16) {
-                if (Static318.method8557(Static247.anInt3993, local51, local31, Static247.anInt3993 + local35, local45, Static247.anInt3993)) {
+                if (Static318.method8557(EnvironmentLight.anInt3993, local51, local31, EnvironmentLight.anInt3993 + local35, local45, EnvironmentLight.anInt3993)) {
                     Static679.anInt10278++;
                     return true;
                 } else {
                     return false;
                 }
             } else if (arg2.aShort58 == 32) {
-                if (Static318.method8557(Static247.anInt3993, local51, local31 + Static247.anInt3993, Static247.anInt3993 + local35, local45, Static247.anInt3993)) {
+                if (Static318.method8557(EnvironmentLight.anInt3993, local51, local31 + EnvironmentLight.anInt3993, EnvironmentLight.anInt3993 + local35, local45, EnvironmentLight.anInt3993)) {
                     Static679.anInt10278++;
                     return true;
                 } else {
                     return false;
                 }
             } else if (arg2.aShort58 == 64) {
-                if (Static318.method8557(Static247.anInt3993, local51, Static247.anInt3993 + local31, local35, local45, Static247.anInt3993)) {
+                if (Static318.method8557(EnvironmentLight.anInt3993, local51, EnvironmentLight.anInt3993 + local31, local35, local45, EnvironmentLight.anInt3993)) {
                     Static679.anInt10278++;
                     return true;
                 } else {
@@ -77,7 +78,7 @@ public final class Static73 {
                 }
             } else if (arg2.aShort58 != 128) {
                 return true;
-            } else if (Static318.method8557(Static247.anInt3993, local51, local31, local35, local45, Static247.anInt3993)) {
+            } else if (Static318.method8557(EnvironmentLight.anInt3993, local51, local31, local35, local45, EnvironmentLight.anInt3993)) {
                 Static679.anInt10278++;
                 return true;
             } else {

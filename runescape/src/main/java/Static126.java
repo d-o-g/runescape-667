@@ -12,7 +12,7 @@ public final class Static126 {
         if (Static96.anInt10171 == 0) {
             Static581.aClass2_Sub6_Sub1_3.method916(arg0);
         } else {
-            Static24.anInt595 = arg0;
+            Static24.midiVolume = arg0;
         }
     }
 

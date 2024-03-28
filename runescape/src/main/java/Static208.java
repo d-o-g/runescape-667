@@ -1,4 +1,6 @@
+import com.jagex.Entity;
 import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -48,9 +50,9 @@ public final class Static208 {
         if (!Static581.aBoolean657) {
             return false;
         }
-        @Pc(9) int local9 = arg0.x >> Static52.anInt1066;
+        @Pc(9) int local9 = arg0.x >> EnvironmentLight.anInt1066;
         @Pc(11) int local11 = local9;
-        @Pc(16) int local16 = arg0.z >> Static52.anInt1066;
+        @Pc(16) int local16 = arg0.z >> EnvironmentLight.anInt1066;
         @Pc(18) int local18 = local16;
         if (arg0 instanceof PositionEntity) {
             local11 = ((PositionEntity) arg0).x2;

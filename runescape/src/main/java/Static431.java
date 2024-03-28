@@ -1,4 +1,6 @@
+import com.jagex.Entity;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
+import com.jagex.sound.Sound;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

@@ -1,3 +1,4 @@
+import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -7,9 +8,9 @@ public final class Static612 {
 
     @OriginalMember(owner = "client!tg", name = "a", descriptor = "(IIZII[FI)V")
     public static void method8238(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) float[] arg4, @OriginalArg(6) int arg5) {
-        if (arg2 > 0 && !Static700.method9150(arg2)) {
+        if (arg2 > 0 && !Node_Sub1_Sub27.method9150(arg2)) {
             throw new IllegalArgumentException("");
-        } else if (arg1 <= 0 || Static700.method9150(arg1)) {
+        } else if (arg1 <= 0 || Node_Sub1_Sub27.method9150(arg1)) {
             @Pc(41) int local41 = Static646.method8458(6408);
             @Pc(43) int local43 = 0;
             @Pc(51) int local51 = arg2 < arg1 ? arg2 : arg1;

@@ -3,6 +3,7 @@ import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.game.runetek6.config.emittertype.ParticleEmitterType;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorType;
 import com.jagex.graphics.BoundingCylinder;
+import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Ground;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorTypeList;
 import com.jagex.graphics.Toolkit;
@@ -313,8 +314,8 @@ public final class MovingParticle extends Particle {
 
     @OriginalMember(owner = "client!pp", name = "a", descriptor = "(Lclient!ha;J)V")
     public void method6695(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) long arg1) {
-        @Pc(6) int local6 = super.anInt7537 >> Static52.anInt1066 + 12;
-        @Pc(13) int local13 = super.anInt7536 >> Static52.anInt1066 + 12;
+        @Pc(6) int local6 = super.anInt7537 >> EnvironmentLight.anInt1066 + 12;
+        @Pc(13) int local13 = super.anInt7536 >> EnvironmentLight.anInt1066 + 12;
         @Pc(18) int local18 = super.anInt7534 >> 12;
         if (local18 > 0 || local18 < -262144 || local6 < 0 || local6 >= Static619.tileMaxX || local13 < 0 || local13 >= Static662.tileMaxZ) {
             this.remove();
@@ -333,7 +334,7 @@ public final class MovingParticle extends Particle {
         if (local49 < Static299.tileMaxLevel - 1) {
             local86 = local46[local49 + 1].getHeight(local13, local6);
         } else {
-            local86 = local71 - (0x8 << Static52.anInt1066);
+            local86 = local71 - (0x8 << EnvironmentLight.anInt1066);
         }
         if (local44.aBoolean764) {
             if (local44.minHeightLevel == -1 && local18 > local71) {
@@ -358,7 +359,7 @@ public final class MovingParticle extends Particle {
         }
         if (local44.collidesWithGround && local154 == 0 && local18 > local46[0].getHeight(local13, local6)) {
             this.remove();
-        } else if (local154 == Static299.tileMaxLevel - 1 && local46[local154].getHeight(local13, local6) - local18 > 0x8 << Static52.anInt1066) {
+        } else if (local154 == Static299.tileMaxLevel - 1 && local46[local154].getHeight(local13, local6) - local18 > 0x8 << EnvironmentLight.anInt1066) {
             this.remove();
         } else {
             local58 = Static334.activeTiles[local154][local6][local13];

@@ -10,9 +10,9 @@ public final class Static599 {
 
     @OriginalMember(owner = "client!su", name = "b", descriptor = "(B)V")
     public static void method7835() {
-        if (!Static494.aBoolean563) {
-            Static288.aFloat83 += (12.0F - Static288.aFloat83) / 2.0F;
-            Static494.aBoolean563 = true;
+        if (!Camera.angleChangingY) {
+            Camera.angleAxisY += (12.0F - Camera.angleAxisY) / 2.0F;
+            Camera.angleChangingY = true;
             Camera.angleUpdated = true;
         }
     }

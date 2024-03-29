@@ -92,7 +92,7 @@ public final class ScriptRunner {
     public static ClanChannel aClass2_Sub47_2;
 
     @OriginalMember(owner = "client!ou", name = "G", descriptor = "Lclient!hi;")
-    public static ClanSettings aClanSettings_7;
+    public static ClanSettings clanSettings;
 
     @OriginalMember(owner = "client!ou", name = "k", descriptor = "Lclient!hda;")
     public static Component aComponent_12;
@@ -143,121 +143,135 @@ public final class ScriptRunner {
     public static String debugName = null;
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(I)I")
-    public static int method6411(@OriginalArg(0) int arg0) {
-        @Pc(4) VarClanType local4 = VarClanTypeList.instance.list(arg0);
-        if (local4 == null) {
+    public static int getClanSettingInt(@OriginalArg(0) int id) {
+        @Pc(4) VarClanType type = VarClanTypeList.instance.list(id);
+        if (type == null) {
             throw new RuntimeException("sr-c113");
         }
-        @Pc(29) Integer local29 = aClanSettings_7.getExtraSettingVarbit((Client.modeGame.id << 16) | local4.baseVar, local4.endBit, local4.startBit);
-        return local29 == null ? 0 : local29;
+
+        @Pc(29) Integer setting = clanSettings.getExtraSettingVarbit((Client.modeGame.id << 16) | type.baseVar, type.endBit, type.startBit);
+        if (setting == null){
+            return 0;
+        } else {
+            return setting;
+        }
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(I)I")
-    public static int method6412(@OriginalArg(0) int arg0) {
-        @Pc(4) VarClanType local4 = VarClanTypeList.instance.list(arg0);
-        if (local4 == null) {
+    public static int getClanSettingVarbit(@OriginalArg(0) int id) {
+        @Pc(4) VarClanType type = VarClanTypeList.instance.list(id);
+        if (type == null) {
             throw new RuntimeException("sr-c112");
         }
-        @Pc(24) Integer local24 = aClanSettings_7.getExtraSettingInt(Client.modeGame.id << 16 | arg0);
-        if (local24 == null) {
-            return local4.dataType == 'i' || local4.dataType == '1' ? 0 : -1;
+
+        @Pc(24) Integer setting = clanSettings.getExtraSettingInt((Client.modeGame.id << 16) | id);
+        if (setting == null) {
+            return (type.dataType == 'i' || type.dataType == '1') ? 0 : -1;
         } else {
-            return local24;
+            return setting;
         }
     }
 
     @OriginalMember(owner = "client!ou", name = "c", descriptor = "(I)J")
-    public static long method6413(@OriginalArg(0) int arg0) {
-        @Pc(9) Long local9 = aClanSettings_7.getExtraSettingLong(Client.modeGame.id << 16 | arg0);
-        return local9 == null ? -1L : local9;
+    public static long getClanSettingLong(@OriginalArg(0) int id) {
+        @Pc(9) Long setting = clanSettings.getExtraSettingLong(Client.modeGame.id << 16 | id);
+        if (setting == null){
+            return -1L;
+        } else {
+            return setting;
+        }
     }
 
     @OriginalMember(owner = "client!ou", name = "d", descriptor = "(I)V")
-    public static void executeOnLoad(@OriginalArg(0) int arg0) {
-        if (arg0 == -1 || !InterfaceList.load(arg0)) {
+    public static void executeOnLoad(@OriginalArg(0) int id) {
+        if (id == -1 || !InterfaceList.load(id)) {
             return;
         }
-        @Pc(14) Component[] local14 = InterfaceList.interfaces[arg0];
-        for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
-            @Pc(21) Component local21 = local14[local16];
-            if (local21.onLoad != null) {
-                @Pc(28) HookRequest local28 = new HookRequest();
-                local28.source = local21;
-                local28.arguments = local21.onLoad;
-                executeHookInner(local28, 2000000);
+
+        @Pc(14) Component[] components = InterfaceList.interfaces[id];
+        for (@Pc(16) int i = 0; i < components.length; i++) {
+            @Pc(21) Component component = components[i];
+
+            if (component.onLoad != null) {
+                @Pc(28) HookRequest hook = new HookRequest();
+                hook.source = component;
+                hook.arguments = component.onLoad;
+                executeHookInner(hook, 2000000);
             }
         }
     }
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(Lclient!hda;)V")
-    public static void method6415(@OriginalArg(0) Component arg0) {
-        if (arg0 == null) {
+    public static void sendToFront(@OriginalArg(0) Component component) {
+        if (component == null) {
             return;
         }
-        @Pc(71) Component[] local71;
-        if (arg0.id == -1) {
-            @Pc(119) int local119 = arg0.slot >>> 16;
-            @Pc(123) Component[] local123 = InterfaceList.cache[local119];
-            if (local123 == null) {
-                local71 = InterfaceList.interfaces[local119];
-                @Pc(132) int local132 = local71.length;
-                local123 = InterfaceList.cache[local119] = new Component[local132];
-                Arrays.copy(local71, 0, local123, 0, local71.length);
+
+        if (component.id == -1) {
+            @Pc(119) int parent = component.slot >>> 16;
+            @Pc(123) Component[] children = InterfaceList.cache[parent];
+
+            if (children == null) {
+                @Pc(71) Component[] newChildren = InterfaceList.interfaces[parent];
+                @Pc(132) int length = newChildren.length;
+                children = InterfaceList.cache[parent] = new Component[length];
+                Arrays.copy(newChildren, 0, children, 0, newChildren.length);
             }
-            @Pc(148) int local148;
-            for (local148 = 0; local148 < local123.length && local123[local148] != arg0; local148++) {
+
+            @Pc(148) int i;
+            for (i = 0; i < children.length; i++) {
+                if (component == children[i]) {
+                    break;
+                }
             }
-            if (local148 >= local123.length) {
+
+            if (i >= children.length) {
                 return;
             }
-            Arrays.copy(local123, local148 + 1, local123, local148, local123.length - local148 - 1);
-            local123[local123.length - 1] = arg0;
+
+            Arrays.copy(children, i + 1, children, i, children.length - i - 1);
+            children[children.length - 1] = component;
             return;
+        } else {
+            @Pc(12) Component layer = InterfaceList.list(component.layer);
+            if (layer == null) {
+                return;
+            }
+
+            if (layer.dynamicComponents == layer.staticComponents) {
+                layer.dynamicComponents = new Component[layer.staticComponents.length];
+                layer.dynamicComponents[layer.dynamicComponents.length - 1] = component;
+                Arrays.copy(layer.staticComponents, 0, layer.dynamicComponents, 0, component.id);
+                Arrays.copy(layer.staticComponents, component.id + 1, layer.dynamicComponents, component.id, layer.staticComponents.length - component.id - 1);
+                return;
+            }
+
+            @Pc(68) int i = 0;
+            @Pc(71) Component[] dynamicComponents = layer.dynamicComponents;
+            while (i < dynamicComponents.length && component != dynamicComponents[i]) {
+                i++;
+            }
+            if (i >= dynamicComponents.length) {
+                return;
+            }
+
+            Arrays.copy(dynamicComponents, i + 1, dynamicComponents, i, dynamicComponents.length - i - 1);
+            dynamicComponents[layer.dynamicComponents.length - 1] = component;
         }
-        @Pc(12) Component local12 = InterfaceList.list(arg0.layer);
-        if (local12 == null) {
-            return;
-        }
-        if (local12.dynamicComponents == local12.staticComponents) {
-            local12.dynamicComponents = new Component[local12.staticComponents.length];
-            local12.dynamicComponents[local12.dynamicComponents.length - 1] = arg0;
-            Arrays.copy(local12.staticComponents, 0, local12.dynamicComponents, 0, arg0.id);
-            Arrays.copy(local12.staticComponents, arg0.id + 1, local12.dynamicComponents, arg0.id, local12.staticComponents.length - arg0.id - 1);
-            return;
-        }
-        @Pc(68) int local68 = 0;
-        local71 = local12.dynamicComponents;
-        while (local68 < local71.length && local71[local68] != arg0) {
-            local68++;
-        }
-        if (local68 >= local71.length) {
-            return;
-        }
-        Arrays.copy(local71, local68 + 1, local71, local68, local71.length - local68 - 1);
-        local71[local12.dynamicComponents.length - 1] = arg0;
-        return;
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(IZ)V")
-    public static void method6416(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(220) Component component;
-        @Pc(27) int local27;
-        @Pc(21) int local21;
-        @Pc(38) Component local38;
-        @Pc(72) int local72;
-        @Pc(303) Component local303;
-        @Pc(15) int local15;
-        @Pc(248) Component local248;
+    public static void handleSmallOp(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
         if (arg0 < 300) {
             if (arg0 == 150) {
                 anInt7142 -= 3;
-                local15 = anIntArray578[anInt7142];
-                local21 = anIntArray578[anInt7142 + 1];
-                local27 = anIntArray578[anInt7142 + 2];
+                @Pc(15) int local15 = anIntArray578[anInt7142];
+                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
                 if (local21 == 0) {
                     throw new RuntimeException();
                 }
-                local38 = InterfaceList.list(local15);
+                @Pc(38) Component local38 = InterfaceList.list(local15);
                 if (local38.staticComponents == null) {
                     local38.staticComponents = new Component[local27 + 1];
                     local38.dynamicComponents = local38.staticComponents;
@@ -266,7 +280,7 @@ public final class ScriptRunner {
                     @Pc(70) Component[] local70;
                     if (local38.staticComponents == local38.dynamicComponents) {
                         local70 = new Component[local27 + 1];
-                        for (local72 = 0; local72 < local38.staticComponents.length; local72++) {
+                        for (@Pc(72) int local72 = 0; local72 < local38.staticComponents.length; local72++) {
                             local70[local72] = local38.staticComponents[local72];
                         }
                         local38.staticComponents = local38.dynamicComponents = local70;
@@ -301,30 +315,30 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 151) {
-                component = arg1 ? aComponent_12 : aComponent_11;
-                if (component.id == -1) {
+                @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
+                if (local220.id == -1) {
                     if (arg1) {
                         throw new RuntimeException("Tried to .cc_delete static .active-component!");
                     }
                     throw new RuntimeException("Tried to cc_delete static active-component!");
                 }
-                local248 = InterfaceList.list(component.slot);
-                local248.staticComponents[component.id] = null;
+                @Pc(248) Component local248 = InterfaceList.list(local220.slot);
+                local248.staticComponents[local220.id] = null;
                 InterfaceManager.redraw(local248);
                 return;
             }
             if (arg0 == 152) {
-                component = InterfaceList.list(anIntArray578[--anInt7142]);
-                component.staticComponents = null;
-                component.dynamicComponents = null;
-                InterfaceManager.redraw(component);
+                @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
+                local220.staticComponents = null;
+                local220.dynamicComponents = null;
+                InterfaceManager.redraw(local220);
                 return;
             }
             if (arg0 == 200) {
                 anInt7142 -= 2;
-                local15 = anIntArray578[anInt7142];
-                local21 = anIntArray578[anInt7142 + 1];
-                local303 = InterfaceList.getComponent(local21, local15);
+                @Pc(15) int local15 = anIntArray578[anInt7142];
+                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                @Pc(303) Component local303 = InterfaceList.getComponent(local21, local15);
                 if (local303 != null && local21 != -1) {
                     anIntArray578[anInt7142++] = 1;
                     if (arg1) {
@@ -338,8 +352,8 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 201) {
-                local15 = anIntArray578[--anInt7142];
-                local248 = InterfaceList.list(local15);
+                @Pc(15) int local15 = anIntArray578[--anInt7142];
+                @Pc(248) Component local248 = InterfaceList.list(local15);
                 if (local248 != null) {
                     anIntArray578[anInt7142++] = 1;
                     if (arg1) {
@@ -353,23 +367,25 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 202 || arg0 == 204) {
+                @Pc(220) Component local220;
                 if (arg0 == 202) {
-                    local21 = anIntArray578[--anInt7142];
-                    component = InterfaceList.list(local21);
+                    @Pc(21) int local21 = anIntArray578[--anInt7142];
+                    local220 = InterfaceList.list(local21);
                 } else {
-                    component = arg1 ? aComponent_12 : aComponent_11;
+                    local220 = arg1 ? aComponent_12 : aComponent_11;
                 }
-                method6415(component);
+                sendToFront(local220);
                 return;
             }
             if (arg0 == 203 || arg0 == 205) {
+                @Pc(220) Component local220;
                 if (arg0 == 203) {
-                    local21 = anIntArray578[--anInt7142];
-                    component = InterfaceList.list(local21);
+                    @Pc(21) int local21 = anIntArray578[--anInt7142];
+                    local220 = InterfaceList.list(local21);
                 } else {
-                    component = arg1 ? aComponent_12 : aComponent_11;
+                    local220 = arg1 ? aComponent_12 : aComponent_11;
                 }
-                method6417(component);
+                method6417(local220);
                 return;
             }
         } else {
@@ -378,12 +394,12 @@ public final class ScriptRunner {
             if (arg0 < 500) {
                 if (arg0 == 403) {
                     anInt7142 -= 2;
-                    local15 = anIntArray578[anInt7142];
-                    local21 = anIntArray578[anInt7142 + 1];
+                    @Pc(15) int local15 = anIntArray578[anInt7142];
+                    @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                     if (PlayerEntity.self.playerModel == null) {
                         return;
                     }
-                    for (local27 = 0; local27 < PlayerModel.PRIMARY_BODY_PARTS.length; local27++) {
+                    for (@Pc(27) int local27 = 0; local27 < PlayerModel.PRIMARY_BODY_PARTS.length; local27++) {
                         if (PlayerModel.PRIMARY_BODY_PARTS[local27] == local15) {
                             PlayerEntity.self.playerModel.setIDKPart(local21, IDKTypeList.instance, local27);
                             return;
@@ -399,8 +415,8 @@ public final class ScriptRunner {
                 }
                 if (arg0 == 404) {
                     anInt7142 -= 2;
-                    local15 = anIntArray578[anInt7142];
-                    local21 = anIntArray578[anInt7142 + 1];
+                    @Pc(15) int local15 = anIntArray578[anInt7142];
+                    @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                     if (PlayerEntity.self.playerModel == null) {
                         return;
                     }
@@ -417,8 +433,8 @@ public final class ScriptRunner {
                 }
                 if (arg0 == 411) {
                     anInt7142 -= 2;
-                    local15 = anIntArray578[anInt7142];
-                    local21 = anIntArray578[anInt7142 + 1];
+                    @Pc(15) int local15 = anIntArray578[anInt7142];
+                    @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                     if (PlayerEntity.self.playerModel == null) {
                         return;
                     }
@@ -429,252 +445,253 @@ public final class ScriptRunner {
                 @Pc(1791) String local1791;
                 @Pc(1394) String local1394;
                 if (arg0 >= 1100 && arg0 < 1200 || !(arg0 < 2100 || arg0 >= 2200)) {
+                    @Pc(220) Component local220;
                     if (arg0 >= 2000) {
                         arg0 -= 1000;
-                        component = InterfaceList.list(anIntArray578[--anInt7142]);
+                        local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                     } else {
-                        component = arg1 ? aComponent_12 : aComponent_11;
+                        local220 = arg1 ? aComponent_12 : aComponent_11;
                     }
                     if (arg0 == 1100) {
                         anInt7142 -= 2;
-                        component.scrollX = anIntArray578[anInt7142];
-                        if (component.scrollX > component.scrollWidth - component.width) {
-                            component.scrollX = component.scrollWidth - component.width;
+                        local220.scrollX = anIntArray578[anInt7142];
+                        if (local220.scrollX > local220.scrollWidth - local220.width) {
+                            local220.scrollX = local220.scrollWidth - local220.width;
                         }
-                        if (component.scrollX < 0) {
-                            component.scrollX = 0;
+                        if (local220.scrollX < 0) {
+                            local220.scrollX = 0;
                         }
-                        component.scrollY = anIntArray578[anInt7142 + 1];
-                        if (component.scrollY > component.scrollHeight - component.height) {
-                            component.scrollY = component.scrollHeight - component.height;
+                        local220.scrollY = anIntArray578[anInt7142 + 1];
+                        if (local220.scrollY > local220.scrollHeight - local220.height) {
+                            local220.scrollY = local220.scrollHeight - local220.height;
                         }
-                        if (component.scrollY < 0) {
-                            component.scrollY = 0;
+                        if (local220.scrollY < 0) {
+                            local220.scrollY = 0;
                         }
-                        InterfaceManager.redraw(component);
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetScrollPosition(component.slot);
+                        InterfaceManager.redraw(local220);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetScrollPosition(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1101) {
-                        component.colour = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetColour(component.slot);
+                        local220.colour = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetColour(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1102) {
-                        component.filled = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
+                        local220.filled = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1103) {
-                        component.transparency = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
+                        local220.transparency = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1104) {
-                        component.lineWidth = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
+                        local220.lineWidth = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1105) {
-                        local21 = anIntArray578[--anInt7142];
-                        if (component.graphic != local21) {
-                            component.graphic = local21;
-                            InterfaceManager.redraw(component);
+                        @Pc(21) int local21 = anIntArray578[--anInt7142];
+                        if (local220.graphic != local21) {
+                            local220.graphic = local21;
+                            InterfaceManager.redraw(local220);
                         }
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetGraphic(component.slot);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetGraphic(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1106) {
-                        component.angle2d = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
+                        local220.angle2d = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1107) {
-                        component.tiling = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
+                        local220.tiling = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1108) {
-                        component.objType = 1;
-                        component.obj = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModel(component.slot);
+                        local220.objType = 1;
+                        local220.obj = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModel(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1109) {
                         anInt7142 -= 6;
-                        component.xof2d = anIntArray578[anInt7142];
-                        component.yof2d = anIntArray578[anInt7142 + 1];
-                        component.xan2d = anIntArray578[anInt7142 + 2];
-                        component.yan2d = anIntArray578[anInt7142 + 3];
-                        component.zan2d = anIntArray578[anInt7142 + 4];
-                        component.zoom2d = anIntArray578[anInt7142 + 5];
-                        InterfaceManager.redraw(component);
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModelAngle(component.slot);
-                            DelayedStateChange.interfaceResetModelOffset(component.slot);
+                        local220.xof2d = anIntArray578[anInt7142];
+                        local220.yof2d = anIntArray578[anInt7142 + 1];
+                        local220.xan2d = anIntArray578[anInt7142 + 2];
+                        local220.yan2d = anIntArray578[anInt7142 + 3];
+                        local220.zan2d = anIntArray578[anInt7142 + 4];
+                        local220.zoom2d = anIntArray578[anInt7142 + 5];
+                        InterfaceManager.redraw(local220);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModelAngle(local220.slot);
+                            DelayedStateChange.interfaceResetModelOffset(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1110) {
-                        local21 = anIntArray578[--anInt7142];
-                        if (local21 != component.modelAnimation) {
+                        @Pc(21) int local21 = anIntArray578[--anInt7142];
+                        if (local21 != local220.modelAnimation) {
                             if (local21 == -1) {
-                                component.animator = null;
+                                local220.animator = null;
                             } else {
-                                if (component.animator == null) {
-                                    component.animator = new ComponentAnimator();
+                                if (local220.animator == null) {
+                                    local220.animator = new ComponentAnimator();
                                 }
-                                component.animator.update(true, local21);
+                                local220.animator.update(true, local21);
                             }
-                            component.modelAnimation = local21;
-                            InterfaceManager.redraw(component);
+                            local220.modelAnimation = local21;
+                            InterfaceManager.redraw(local220);
                         }
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModelAnim(component.slot);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModelAnim(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1111) {
-                        component.modelOrthog = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
+                        local220.modelOrthog = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1112) {
                         local1394 = aStringArray37[--anInt7139];
-                        if (!local1394.equals(component.text)) {
-                            component.text = local1394;
-                            InterfaceManager.redraw(component);
+                        if (!local1394.equals(local220.text)) {
+                            local220.text = local1394;
+                            InterfaceManager.redraw(local220);
                         }
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetText(component.slot);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetText(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1113) {
-                        component.fontGraphic = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetTextFont(component.slot);
+                        local220.fontGraphic = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetTextFont(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1114) {
                         anInt7142 -= 3;
-                        component.textAlignX = anIntArray578[anInt7142];
-                        component.textAlignY = anIntArray578[anInt7142 + 1];
-                        component.textHeight = anIntArray578[anInt7142 + 2];
-                        InterfaceManager.redraw(component);
+                        local220.textAlignX = anIntArray578[anInt7142];
+                        local220.textAlignY = anIntArray578[anInt7142 + 1];
+                        local220.textHeight = anIntArray578[anInt7142 + 2];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1115) {
-                        component.textShadow = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
+                        local220.textShadow = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1116) {
-                        component.outline = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
+                        local220.outline = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1117) {
-                        component.shadow = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
+                        local220.shadow = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1118) {
-                        component.horizontalFlip = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
+                        local220.horizontalFlip = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1119) {
-                        component.verticalFlip = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
+                        local220.verticalFlip = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1120) {
                         anInt7142 -= 2;
-                        component.scrollWidth = anIntArray578[anInt7142];
-                        component.scrollHeight = anIntArray578[anInt7142 + 1];
-                        InterfaceManager.redraw(component);
-                        if (component.type == 0) {
-                            InterfaceManager.calculateLayerDimensions(component, false);
+                        local220.scrollWidth = anIntArray578[anInt7142];
+                        local220.scrollHeight = anIntArray578[anInt7142 + 1];
+                        InterfaceManager.redraw(local220);
+                        if (local220.type == 0) {
+                            InterfaceManager.calculateLayerDimensions(local220, false);
                         }
                         return;
                     }
                     if (arg0 == 1122) {
-                        component.transparent = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
+                        local220.transparent = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1123) {
-                        component.zoom2d = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModelAngle(component.slot);
+                        local220.zoom2d = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModelAngle(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1124) {
-                        local21 = anIntArray578[--anInt7142];
-                        component.lineDirection = local21 == 1;
-                        InterfaceManager.redraw(component);
+                        @Pc(21) int local21 = anIntArray578[--anInt7142];
+                        local220.lineDirection = local21 == 1;
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1125) {
                         anInt7142 -= 2;
-                        component.modelOriginX = anIntArray578[anInt7142];
-                        component.modelOriginY = anIntArray578[anInt7142 + 1];
-                        InterfaceManager.redraw(component);
+                        local220.modelOriginX = anIntArray578[anInt7142];
+                        local220.modelOriginY = anIntArray578[anInt7142 + 1];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1126) {
-                        component.maxLines = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(component);
+                        local220.maxLines = anIntArray578[--anInt7142];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     @Pc(1756) ParamType local1756;
                     if (arg0 == 1127) {
                         anInt7142 -= 2;
-                        local21 = anIntArray578[anInt7142];
-                        local27 = anIntArray578[anInt7142 + 1];
+                        @Pc(21) int local21 = anIntArray578[anInt7142];
+                        @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                         local1756 = ParamTypeList.instance.list(local21);
                         if (local27 != local1756.defaultint) {
-                            component.setParam(local21, local27);
+                            local220.setParam(local21, local27);
                             return;
                         }
-                        component.removeParam(local21);
+                        local220.removeParam(local21);
                         return;
                     }
                     if (arg0 == 1128) {
-                        local21 = anIntArray578[--anInt7142];
+                        @Pc(21) int local21 = anIntArray578[--anInt7142];
                         local1791 = aStringArray37[--anInt7139];
                         local1756 = ParamTypeList.instance.list(local21);
                         if (!local1756.defaultstr.equals(local1791)) {
-                            component.setParam(local1791, local21);
+                            local220.setParam(local1791, local21);
                             return;
                         }
-                        component.removeParam(local21);
+                        local220.removeParam(local21);
                         return;
                     }
                     if (arg0 == 1129 || arg0 == 1130) {
-                        local21 = anIntArray578[--anInt7142];
-                        if ((component.type == 5 || arg0 != 1129) && (component.type == 4 || arg0 != 1130)) {
-                            if (component.video != local21) {
-                                component.video = local21;
-                                InterfaceManager.redraw(component);
+                        @Pc(21) int local21 = anIntArray578[--anInt7142];
+                        if ((local220.type == 5 || arg0 != 1129) && (local220.type == 4 || arg0 != 1130)) {
+                            if (local220.video != local21) {
+                                local220.video = local21;
+                                InterfaceManager.redraw(local220);
                             }
-                            if (component.id == -1) {
-                                DelayedStateChange.interfaceResetVideo(component.slot);
+                            if (local220.id == -1) {
+                                DelayedStateChange.interfaceResetVideo(local220.slot);
                             }
                             return;
                         }
@@ -684,14 +701,14 @@ public final class ScriptRunner {
                     @Pc(1892) short local1892;
                     if (arg0 == 1131) {
                         anInt7142 -= 3;
-                        local21 = anIntArray578[anInt7142];
+                        @Pc(21) int local21 = anIntArray578[anInt7142];
                         local1892 = (short) anIntArray578[anInt7142 + 1];
                         local1899 = (short) anIntArray578[anInt7142 + 2];
                         if (local21 >= 0 && local21 < 5) {
-                            component.setRecol(local1899, local21, local1892);
-                            InterfaceManager.redraw(component);
-                            if (component.id == -1) {
-                                DelayedStateChange.interfaceResetRecol(component.slot, local21);
+                            local220.setRecol(local1899, local21, local1892);
+                            InterfaceManager.redraw(local220);
+                            if (local220.id == -1) {
+                                DelayedStateChange.interfaceResetRecol(local220.slot, local21);
                             }
                             return;
                         }
@@ -699,195 +716,197 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 1132) {
                         anInt7142 -= 3;
-                        local21 = anIntArray578[anInt7142];
+                        @Pc(21) int local21 = anIntArray578[anInt7142];
                         local1892 = (short) anIntArray578[anInt7142 + 1];
                         local1899 = (short) anIntArray578[anInt7142 + 2];
                         if (local21 >= 0 && local21 < 5) {
-                            component.setRetex(local1892, local21, local1899);
-                            InterfaceManager.redraw(component);
-                            if (component.id == -1) {
-                                DelayedStateChange.interfaceResetRetex(component.slot, local21);
+                            local220.setRetex(local1892, local21, local1899);
+                            InterfaceManager.redraw(local220);
+                            if (local220.id == -1) {
+                                DelayedStateChange.interfaceResetRetex(local220.slot, local21);
                             }
                             return;
                         }
                         return;
                     }
                     if (arg0 == 1133) {
-                        component.fontMonospaced = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetFontMono(component.slot);
+                        local220.fontMonospaced = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetFontMono(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1134) {
                         anInt7142 -= 2;
-                        local21 = anIntArray578[anInt7142];
-                        local27 = anIntArray578[anInt7142 + 1];
+                        @Pc(21) int local21 = anIntArray578[anInt7142];
+                        @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                         local1756 = ParamTypeList.instance.list(local21);
                         if (local27 != local1756.defaultint) {
-                            component.setParam(local21, local27);
+                            local220.setParam(local21, local27);
                             return;
                         }
-                        component.removeParam(local21);
+                        local220.removeParam(local21);
                         return;
                     }
                     if (arg0 == 1135) {
-                        component.clickMask = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(component);
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetClickmask(component.slot);
+                        local220.clickMask = anIntArray578[--anInt7142] == 1;
+                        InterfaceManager.redraw(local220);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetClickmask(local220.slot);
                         }
                         return;
                     }
                 } else if (arg0 >= 1200 && arg0 < 1300 || arg0 >= 2200 && arg0 < 2300) {
+                    @Pc(220) Component local220;
                     if (arg0 >= 2000) {
                         arg0 -= 1000;
-                        component = InterfaceList.list(anIntArray578[--anInt7142]);
+                        local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                     } else {
-                        component = arg1 ? aComponent_12 : aComponent_11;
+                        local220 = arg1 ? aComponent_12 : aComponent_11;
                     }
-                    InterfaceManager.redraw(component);
+                    InterfaceManager.redraw(local220);
                     if (arg0 == 1200 || arg0 == 1205 || arg0 == 1208 || arg0 == 1209 || arg0 == 1212 || arg0 == 1213) {
                         anInt7142 -= 2;
-                        local21 = anIntArray578[anInt7142];
-                        local27 = anIntArray578[anInt7142 + 1];
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetObject(component.slot);
-                            DelayedStateChange.interfaceResetModelAngle(component.slot);
-                            DelayedStateChange.interfaceResetModelOffset(component.slot);
+                        @Pc(21) int local21 = anIntArray578[anInt7142];
+                        @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetObject(local220.slot);
+                            DelayedStateChange.interfaceResetModelAngle(local220.slot);
+                            DelayedStateChange.interfaceResetModelOffset(local220.slot);
                         }
                         if (local21 == -1) {
-                            component.objType = 1;
-                            component.obj = -1;
-                            component.invObject = -1;
+                            local220.objType = 1;
+                            local220.obj = -1;
+                            local220.invObject = -1;
                             return;
                         }
-                        component.invObject = local21;
-                        component.invCount = local27;
+                        local220.invObject = local21;
+                        local220.invCount = local27;
                         if (arg0 == 1208 || arg0 == 1209) {
-                            component.objWearCol = true;
+                            local220.objWearCol = true;
                         } else {
-                            component.objWearCol = false;
+                            local220.objWearCol = false;
                         }
                         @Pc(2236) ObjType objType = ObjTypeList.instance.list(local21);
-                        component.xan2d = objType.xan2d;
-                        component.yan2d = objType.yan2d;
-                        component.zan2d = objType.zan2d;
-                        component.xof2d = objType.xof2d;
-                        component.yof2d = objType.yof2d;
-                        component.zoom2d = objType.zoom2d;
+                        local220.xan2d = objType.xan2d;
+                        local220.yan2d = objType.yan2d;
+                        local220.zan2d = objType.zan2d;
+                        local220.xof2d = objType.xof2d;
+                        local220.yof2d = objType.yof2d;
+                        local220.zoom2d = objType.zoom2d;
 
                         if (arg0 == 1205 || arg0 == 1209) {
-                            component.objNumMode = ObjNumMode.SHOWCOUNT_NEVER;
+                            local220.objNumMode = ObjNumMode.SHOWCOUNT_NEVER;
                         } else if (arg0 == 1212 || arg0 == 1213) {
-                            component.objNumMode = ObjNumMode.SHOWCOUNT_ALWAYS;
+                            local220.objNumMode = ObjNumMode.SHOWCOUNT_ALWAYS;
                         } else {
-                            component.objNumMode = ObjNumMode.SHOWCOUNT_IFNOT1;
+                            local220.objNumMode = ObjNumMode.SHOWCOUNT_IFNOT1;
                         }
 
-                        if (component.modelAspectRatioX > 0) {
-                            component.zoom2d = component.zoom2d * 32 / component.modelAspectRatioX;
+                        if (local220.modelAspectRatioX > 0) {
+                            local220.zoom2d = local220.zoom2d * 32 / local220.modelAspectRatioX;
                             return;
                         }
-                        if (component.originalWidth > 0) {
-                            component.zoom2d = component.zoom2d * 32 / component.originalWidth;
+                        if (local220.originalWidth > 0) {
+                            local220.zoom2d = local220.zoom2d * 32 / local220.originalWidth;
                         }
                         return;
                     }
                     if (arg0 == 1201) {
-                        component.objType = 2;
-                        component.obj = anIntArray578[--anInt7142];
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModel(component.slot);
+                        local220.objType = 2;
+                        local220.obj = anIntArray578[--anInt7142];
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModel(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1202) {
-                        component.objType = 3;
-                        component.obj = -1;
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModel(component.slot);
+                        local220.objType = 3;
+                        local220.obj = -1;
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModel(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1203) {
-                        component.objType = 6;
-                        component.obj = anIntArray578[--anInt7142];
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModel(component.slot);
+                        local220.objType = 6;
+                        local220.obj = anIntArray578[--anInt7142];
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModel(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1204) {
-                        component.objType = 5;
-                        component.obj = anIntArray578[--anInt7142];
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModel(component.slot);
+                        local220.objType = 5;
+                        local220.obj = anIntArray578[--anInt7142];
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModel(local220.slot);
                         }
                         return;
                     }
                     if (arg0 == 1206) {
                         anInt7142 -= 4;
-                        component.skyBox = anIntArray578[anInt7142];
-                        component.skyBoxSphereOffsetX = anIntArray578[anInt7142 + 1];
-                        component.skyBoxSphereOffsetY = anIntArray578[anInt7142 + 2];
-                        component.skyBoxSphereOffsetZ = anIntArray578[anInt7142 + 3];
-                        InterfaceManager.redraw(component);
+                        local220.skyBox = anIntArray578[anInt7142];
+                        local220.skyBoxSphereOffsetX = anIntArray578[anInt7142 + 1];
+                        local220.skyBoxSphereOffsetY = anIntArray578[anInt7142 + 2];
+                        local220.skyBoxSphereOffsetZ = anIntArray578[anInt7142 + 3];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1207) {
                         anInt7142 -= 2;
-                        component.skyboxRenderPitch = anIntArray578[anInt7142];
-                        component.skyboxRenderYaw = anIntArray578[anInt7142 + 1];
-                        InterfaceManager.redraw(component);
+                        local220.skyboxRenderPitch = anIntArray578[anInt7142];
+                        local220.skyboxRenderYaw = anIntArray578[anInt7142 + 1];
+                        InterfaceManager.redraw(local220);
                         return;
                     }
                     if (arg0 == 1210) {
                         anInt7142 -= 4;
-                        component.obj = anIntArray578[anInt7142];
-                        component.objData = anIntArray578[anInt7142 + 1];
+                        local220.obj = anIntArray578[anInt7142];
+                        local220.objData = anIntArray578[anInt7142 + 1];
 
                         if (anIntArray578[anInt7142 + 2] == 1) {
-                            component.objType = Component.OBJ_TYPE_INVENTORY_FEMALE;
+                            local220.objType = Component.OBJ_TYPE_INVENTORY_FEMALE;
                         } else {
-                            component.objType = Component.OBJ_TYPE_INVENTORY_MALE;
+                            local220.objType = Component.OBJ_TYPE_INVENTORY_MALE;
                         }
 
                         if (anIntArray578[anInt7142 + 3] == 1) {
-                            component.objWearCol = true;
+                            local220.objWearCol = true;
                         } else {
-                            component.objWearCol = false;
+                            local220.objWearCol = false;
                         }
 
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModel(component.slot);
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModel(local220.slot);
                         }
                         return;
                     }
 
                     if (arg0 == 1211) {
-                        component.objType = Component.OBJ_TYPE_PLAYERMODEL;
-                        component.obj = PlayerList.activePlayerSlot;
-                        component.objData = 0;
-                        if (component.id == -1) {
-                            DelayedStateChange.interfaceResetModel(component.slot);
+                        local220.objType = Component.OBJ_TYPE_PLAYERMODEL;
+                        local220.obj = PlayerList.activePlayerSlot;
+                        local220.objData = 0;
+                        if (local220.id == -1) {
+                            DelayedStateChange.interfaceResetModel(local220.slot);
                         }
                         return;
                     }
                 } else {
                     @Pc(2978) int local2978;
                     if (arg0 >= 1300 && arg0 < 1400 || arg0 >= 2300 && arg0 < 2400) {
+                        @Pc(220) Component local220;
                         if (arg0 >= 2000) {
                             arg0 -= 1000;
-                            component = InterfaceList.list(anIntArray578[--anInt7142]);
+                            local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                         } else {
-                            component = arg1 ? aComponent_12 : aComponent_11;
+                            local220 = arg1 ? aComponent_12 : aComponent_11;
                         }
                         if (arg0 == 1300) {
-                            local21 = anIntArray578[--anInt7142] - 1;
+                            @Pc(21) int local21 = anIntArray578[--anInt7142] - 1;
                             if (local21 >= 0 && local21 <= 9) {
-                                component.setOp(local21, aStringArray37[--anInt7139]);
+                                local220.setOp(local21, aStringArray37[--anInt7139]);
                                 return;
                             }
                             anInt7139--;
@@ -895,65 +914,67 @@ public final class ScriptRunner {
                         }
                         if (arg0 == 1301) {
                             anInt7142 -= 2;
-                            local21 = anIntArray578[anInt7142];
-                            local27 = anIntArray578[anInt7142 + 1];
+                            @Pc(21) int local21 = anIntArray578[anInt7142];
+                            @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                             if (local21 == -1 && local27 == -1) {
-                                component.aComponent_6 = null;
+                                local220.aComponent_6 = null;
                                 return;
                             }
-                            component.aComponent_6 = InterfaceList.getComponent(local27, local21);
+                            local220.aComponent_6 = InterfaceList.getComponent(local27, local21);
                             return;
                         }
                         if (arg0 == 1302) {
-                            local21 = anIntArray578[--anInt7142];
+                            @Pc(21) int local21 = anIntArray578[--anInt7142];
                             if (local21 != DragRender.OFFSET_TRANSPARENT && local21 != DragRender.FIXED && local21 != DragRender.OFFSET) {
                                 return;
                             }
-                            component.dragRenderBehaviour = local21;
+                            local220.dragRenderBehaviour = local21;
                             return;
                         }
                         if (arg0 == 1303) {
-                            component.dragDeadZone = anIntArray578[--anInt7142];
+                            local220.dragDeadZone = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1304) {
-                            component.dragDeadTime = anIntArray578[--anInt7142];
+                            local220.dragDeadTime = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1305) {
-                            component.opBase = aStringArray37[--anInt7139];
+                            local220.opBase = aStringArray37[--anInt7139];
                             return;
                         }
                         if (arg0 == 1306) {
-                            component.targetVerb = aStringArray37[--anInt7139];
+                            local220.targetVerb = aStringArray37[--anInt7139];
                             return;
                         }
                         if (arg0 == 1307) {
-                            component.ops = null;
+                            local220.ops = null;
                             return;
                         }
                         if (arg0 == 1308) {
-                            component.targetEndCursor = anIntArray578[--anInt7142];
-                            component.targetEnterCursor = anIntArray578[--anInt7142];
+                            local220.targetEndCursor = anIntArray578[--anInt7142];
+                            local220.targetEnterCursor = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1309) {
-                            local21 = anIntArray578[--anInt7142];
-                            local27 = anIntArray578[--anInt7142];
+                            @Pc(21) int local21 = anIntArray578[--anInt7142];
+                            @Pc(27) int local27 = anIntArray578[--anInt7142];
                             if (local27 >= 1 && local27 <= 10) {
-                                component.setOpCursor(local27 - 1, local21);
+                                local220.setOpCursor(local27 - 1, local21);
                             }
                             return;
                         }
                         if (arg0 == 1310) {
-                            component.pauseText = aStringArray37[--anInt7139];
+                            local220.pauseText = aStringArray37[--anInt7139];
                             return;
                         }
                         if (arg0 == 1311) {
-                            component.targetOpCursor = anIntArray578[--anInt7142];
+                            local220.targetOpCursor = anIntArray578[--anInt7142];
                             return;
                         }
                         if (arg0 == 1312 || arg0 == 1313) {
+                            @Pc(21) int local21;
+                            @Pc(27) int local27;
                             if (arg0 == 1312) {
                                 anInt7142 -= 3;
                                 local21 = anIntArray578[anInt7142] - 1;
@@ -968,42 +989,43 @@ public final class ScriptRunner {
                                 local27 = anIntArray578[anInt7142];
                                 local506 = anIntArray578[anInt7142 + 1];
                             }
-                            if (component.opKeys == null) {
+                            if (local220.opKeys == null) {
                                 if (local27 == 0) {
                                     return;
                                 }
-                                component.opKeys = new byte[11];
-                                component.opChars = new byte[11];
-                                component.opKeyRates = new int[11];
+                                local220.opKeys = new byte[11];
+                                local220.opChars = new byte[11];
+                                local220.opKeyRates = new int[11];
                             }
-                            component.opKeys[local21] = (byte) local27;
+                            local220.opKeys[local21] = (byte) local27;
                             if (local27 == 0) {
-                                component.hasOpKey = false;
-                                for (local2978 = 0; local2978 < component.opKeys.length; local2978++) {
-                                    if (component.opKeys[local2978] != 0) {
-                                        component.hasOpKey = true;
+                                local220.hasOpKey = false;
+                                for (local2978 = 0; local2978 < local220.opKeys.length; local2978++) {
+                                    if (local220.opKeys[local2978] != 0) {
+                                        local220.hasOpKey = true;
                                         break;
                                     }
                                 }
                             } else {
-                                component.hasOpKey = true;
+                                local220.hasOpKey = true;
                             }
-                            component.opChars[local21] = (byte) local506;
+                            local220.opChars[local21] = (byte) local506;
                             return;
                         }
                         if (arg0 == 1314) {
-                            component.mouseOverCursor = anIntArray578[--anInt7142];
+                            local220.mouseOverCursor = anIntArray578[--anInt7142];
                             return;
                         }
                     } else if (arg0 >= 1400 && arg0 < 1500 || arg0 >= 2400 && arg0 < 2500) {
+                        @Pc(220) Component local220;
                         if (arg0 >= 2000) {
                             arg0 -= 1000;
-                            component = InterfaceList.list(anIntArray578[--anInt7142]);
+                            local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                         } else {
-                            component = arg1 ? aComponent_12 : aComponent_11;
+                            local220 = arg1 ? aComponent_12 : aComponent_11;
                         }
                         if (arg0 == 1499) {
-                            component.clearScriptHooks();
+                            local220.clearScriptHooks();
                             return;
                         }
                         local1394 = aStringArray37[--anInt7139];
@@ -1028,361 +1050,362 @@ public final class ScriptRunner {
                                 local3131[local2978] = Integer.valueOf(anIntArray578[--anInt7142]);
                             }
                         }
-                        local72 = anIntArray578[--anInt7142];
+                        @Pc(72) int local72 = anIntArray578[--anInt7142];
                         if (local72 == -1) {
                             local3131 = null;
                         } else {
                             local3131[0] = Integer.valueOf(local72);
                         }
                         if (arg0 == 1400) {
-                            component.onClick = local3131;
+                            local220.onClick = local3131;
                         } else if (arg0 == 1401) {
-                            component.onHold = local3131;
+                            local220.onHold = local3131;
                         } else if (arg0 == 1402) {
-                            component.onRelease = local3131;
+                            local220.onRelease = local3131;
                         } else if (arg0 == 1403) {
-                            component.onMouseOver = local3131;
+                            local220.onMouseOver = local3131;
                         } else if (arg0 == 1404) {
-                            component.onMouseLeave = local3131;
+                            local220.onMouseLeave = local3131;
                         } else if (arg0 == 1405) {
-                            component.onDrag = local3131;
+                            local220.onDrag = local3131;
                         } else if (arg0 == 1406) {
-                            component.onTargetLeave = local3131;
+                            local220.onTargetLeave = local3131;
                         } else if (arg0 == 1407) {
-                            component.onVarTransmit = local3131;
-                            component.varpTriggers = local3077;
+                            local220.onVarTransmit = local3131;
+                            local220.varpTriggers = local3077;
                         } else if (arg0 == 1408) {
-                            component.onTimer = local3131;
+                            local220.onTimer = local3131;
                         } else if (arg0 == 1409) {
-                            component.onOp = local3131;
+                            local220.onOp = local3131;
                         } else if (arg0 == 1410) {
-                            component.onDragComplete = local3131;
+                            local220.onDragComplete = local3131;
                         } else if (arg0 == 1411) {
-                            component.onClickRepeat = local3131;
+                            local220.onClickRepeat = local3131;
                         } else if (arg0 == 1412) {
-                            component.onMouseRepeat = local3131;
+                            local220.onMouseRepeat = local3131;
                         } else if (arg0 == 1414) {
-                            component.onInvTransmit = local3131;
-                            component.inventoryTriggers = local3077;
+                            local220.onInvTransmit = local3131;
+                            local220.inventoryTriggers = local3077;
                         } else if (arg0 == 1415) {
-                            component.onStatTransmit = local3131;
-                            component.statTriggers = local3077;
+                            local220.onStatTransmit = local3131;
+                            local220.statTriggers = local3077;
                         } else if (arg0 == 1416) {
-                            component.onTargetEnter = local3131;
+                            local220.onTargetEnter = local3131;
                         } else if (arg0 == 1417) {
-                            component.onScrollWheel = local3131;
+                            local220.onScrollWheel = local3131;
                         } else if (arg0 == 1418) {
-                            component.onChatTransmit = local3131;
+                            local220.onChatTransmit = local3131;
                         } else if (arg0 == 1419) {
-                            component.onKey = local3131;
+                            local220.onKey = local3131;
                         } else if (arg0 == 1420) {
-                            component.onFriendTransmit = local3131;
+                            local220.onFriendTransmit = local3131;
                         } else if (arg0 == 1421) {
-                            component.onClanTransmit = local3131;
+                            local220.onClanTransmit = local3131;
                         } else if (arg0 == 1422) {
-                            component.onMiscTransmit = local3131;
+                            local220.onMiscTransmit = local3131;
                         } else if (arg0 == 1423) {
-                            component.onDialogAbort = local3131;
+                            local220.onDialogAbort = local3131;
                         } else if (arg0 == 1424) {
-                            component.onSubChange = local3131;
+                            local220.onSubChange = local3131;
                         } else if (arg0 == 1425) {
-                            component.onStockTransmit = local3131;
+                            local220.onStockTransmit = local3131;
                         } else if (arg0 == 1426) {
-                            component.onCamFinished = local3131;
+                            local220.onCamFinished = local3131;
                         } else if (arg0 == 1427) {
-                            component.onResize = local3131;
+                            local220.onResize = local3131;
                         } else if (arg0 == 1428) {
-                            component.onVarcTransmit = local3131;
-                            component.varcTriggers = local3077;
+                            local220.onVarcTransmit = local3131;
+                            local220.varcTriggers = local3077;
                         } else if (arg0 == 1429) {
-                            component.onVarcstrTransmit = local3131;
-                            component.varcstrTriggers = local3077;
+                            local220.onVarcstrTransmit = local3131;
+                            local220.varcstrTriggers = local3077;
                         } else if (arg0 == 1430) {
-                            component.onOpT = local3131;
+                            local220.onOpT = local3131;
                         } else if (arg0 == 1431) {
-                            component.onClanSettingsTransmit = local3131;
+                            local220.onClanSettingsTransmit = local3131;
                         } else if (arg0 == 1432) {
-                            component.onClanChannelTransmit = local3131;
+                            local220.onClanChannelTransmit = local3131;
                         } else if (arg0 == 1433) {
-                            component.onVarclanTransmit = local3131;
+                            local220.onVarclanTransmit = local3131;
                         }
-                        component.hasHook = true;
+                        local220.hasHook = true;
                         return;
                     } else if (arg0 < 1600) {
-                        component = arg1 ? aComponent_12 : aComponent_11;
+                        @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
                         if (arg0 == 1500) {
-                            anIntArray578[anInt7142++] = component.x;
+                            anIntArray578[anInt7142++] = local220.x;
                             return;
                         }
                         if (arg0 == 1501) {
-                            anIntArray578[anInt7142++] = component.y;
+                            anIntArray578[anInt7142++] = local220.y;
                             return;
                         }
                         if (arg0 == 1502) {
-                            anIntArray578[anInt7142++] = component.width;
+                            anIntArray578[anInt7142++] = local220.width;
                             return;
                         }
                         if (arg0 == 1503) {
-                            anIntArray578[anInt7142++] = component.height;
+                            anIntArray578[anInt7142++] = local220.height;
                             return;
                         }
                         if (arg0 == 1504) {
-                            anIntArray578[anInt7142++] = component.hidden ? 1 : 0;
+                            anIntArray578[anInt7142++] = local220.hidden ? 1 : 0;
                             return;
                         }
                         if (arg0 == 1505) {
-                            anIntArray578[anInt7142++] = component.layer;
+                            anIntArray578[anInt7142++] = local220.layer;
                             return;
                         }
                         if (arg0 == 1506) {
-                            local248 = InterfaceManager.getParentLayer(component);
+                            @Pc(248) Component local248 = InterfaceManager.getParentLayer(local220);
                             anIntArray578[anInt7142++] = local248 == null ? -1 : local248.slot;
                             return;
                         }
                         if (arg0 == 1507) {
-                            anIntArray578[anInt7142++] = component.colour;
+                            anIntArray578[anInt7142++] = local220.colour;
                             return;
                         }
                     } else {
                         @Pc(3848) ParamType local3848;
                         if (arg0 < 1700) {
-                            component = arg1 ? aComponent_12 : aComponent_11;
+                            @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
                             if (arg0 == 1600) {
-                                anIntArray578[anInt7142++] = component.scrollX;
+                                anIntArray578[anInt7142++] = local220.scrollX;
                                 return;
                             }
                             if (arg0 == 1601) {
-                                anIntArray578[anInt7142++] = component.scrollY;
+                                anIntArray578[anInt7142++] = local220.scrollY;
                                 return;
                             }
                             if (arg0 == 1602) {
-                                aStringArray37[anInt7139++] = component.text;
+                                aStringArray37[anInt7139++] = local220.text;
                                 return;
                             }
                             if (arg0 == 1603) {
-                                anIntArray578[anInt7142++] = component.scrollWidth;
+                                anIntArray578[anInt7142++] = local220.scrollWidth;
                                 return;
                             }
                             if (arg0 == 1604) {
-                                anIntArray578[anInt7142++] = component.scrollHeight;
+                                anIntArray578[anInt7142++] = local220.scrollHeight;
                                 return;
                             }
                             if (arg0 == 1605) {
-                                anIntArray578[anInt7142++] = component.zoom2d;
+                                anIntArray578[anInt7142++] = local220.zoom2d;
                                 return;
                             }
                             if (arg0 == 1606) {
-                                anIntArray578[anInt7142++] = component.xan2d;
+                                anIntArray578[anInt7142++] = local220.xan2d;
                                 return;
                             }
                             if (arg0 == 1607) {
-                                anIntArray578[anInt7142++] = component.zan2d;
+                                anIntArray578[anInt7142++] = local220.zan2d;
                                 return;
                             }
                             if (arg0 == 1608) {
-                                anIntArray578[anInt7142++] = component.yan2d;
+                                anIntArray578[anInt7142++] = local220.yan2d;
                                 return;
                             }
                             if (arg0 == 1609) {
-                                anIntArray578[anInt7142++] = component.transparency;
+                                anIntArray578[anInt7142++] = local220.transparency;
                                 return;
                             }
                             if (arg0 == 1610) {
-                                anIntArray578[anInt7142++] = component.xof2d;
+                                anIntArray578[anInt7142++] = local220.xof2d;
                                 return;
                             }
                             if (arg0 == 1611) {
-                                anIntArray578[anInt7142++] = component.yof2d;
+                                anIntArray578[anInt7142++] = local220.yof2d;
                                 return;
                             }
                             if (arg0 == 1612) {
-                                anIntArray578[anInt7142++] = component.graphic;
+                                anIntArray578[anInt7142++] = local220.graphic;
                                 return;
                             }
                             if (arg0 == 1613) {
-                                local21 = anIntArray578[--anInt7142];
+                                @Pc(21) int local21 = anIntArray578[--anInt7142];
                                 local3848 = ParamTypeList.instance.list(local21);
                                 if (local3848.isString()) {
-                                    aStringArray37[anInt7139++] = component.param(local3848.defaultstr, local21);
+                                    aStringArray37[anInt7139++] = local220.param(local3848.defaultstr, local21);
                                     return;
                                 }
-                                anIntArray578[anInt7142++] = component.param(local3848.defaultint, local21);
+                                anIntArray578[anInt7142++] = local220.param(local3848.defaultint, local21);
                                 return;
                             }
                             if (arg0 == 1614) {
-                                anIntArray578[anInt7142++] = component.angle2d;
+                                anIntArray578[anInt7142++] = local220.angle2d;
                                 return;
                             }
                             if (arg0 == 2614) {
-                                anIntArray578[anInt7142++] = component.objType == Component.OBJ_TYPE_MODEL ? component.obj : -1;
+                                anIntArray578[anInt7142++] = local220.objType == Component.OBJ_TYPE_MODEL ? local220.obj : -1;
                                 return;
                             }
                             if (arg0 == 1618) {
-                                anIntArray578[anInt7142++] = component.fontGraphic;
+                                anIntArray578[anInt7142++] = local220.fontGraphic;
                                 return;
                             }
                         } else if (arg0 < 1800) {
-                            component = arg1 ? aComponent_12 : aComponent_11;
+                            @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
                             if (arg0 == 1700) {
-                                anIntArray578[anInt7142++] = component.invObject;
+                                anIntArray578[anInt7142++] = local220.invObject;
                                 return;
                             }
                             if (arg0 == 1701) {
-                                if (component.invObject != -1) {
-                                    anIntArray578[anInt7142++] = component.invCount;
+                                if (local220.invObject != -1) {
+                                    anIntArray578[anInt7142++] = local220.invCount;
                                     return;
                                 }
                                 anIntArray578[anInt7142++] = 0;
                                 return;
                             }
                             if (arg0 == 1702) {
-                                anIntArray578[anInt7142++] = component.id;
+                                anIntArray578[anInt7142++] = local220.id;
                                 return;
                             }
                         } else if (arg0 < 1900) {
-                            component = arg1 ? aComponent_12 : aComponent_11;
+                            @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
                             if (arg0 == 1800) {
-                                anIntArray578[anInt7142++] = InterfaceManager.serverActiveProperties(component).getTargetMask();
+                                anIntArray578[anInt7142++] = InterfaceManager.serverActiveProperties(local220).getTargetMask();
                                 return;
                             }
                             if (arg0 == 1801) {
-                                local21 = anIntArray578[--anInt7142];
+                                @Pc(21) int local21 = anIntArray578[--anInt7142];
                                 local21--;
-                                if (component.ops != null && local21 < component.ops.length && component.ops[local21] != null) {
-                                    aStringArray37[anInt7139++] = component.ops[local21];
+                                if (local220.ops != null && local21 < local220.ops.length && local220.ops[local21] != null) {
+                                    aStringArray37[anInt7139++] = local220.ops[local21];
                                     return;
                                 }
                                 aStringArray37[anInt7139++] = "";
                                 return;
                             }
                             if (arg0 == 1802) {
-                                if (component.opBase == null) {
+                                if (local220.opBase == null) {
                                     aStringArray37[anInt7139++] = "";
                                     return;
                                 }
-                                aStringArray37[anInt7139++] = component.opBase;
+                                aStringArray37[anInt7139++] = local220.opBase;
                                 return;
                             }
                         } else if (arg0 < 2000 || arg0 >= 2900 && arg0 < 3000) {
+                            @Pc(220) Component local220;
                             if (arg0 >= 2000) {
-                                component = InterfaceList.list(anIntArray578[--anInt7142]);
+                                local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                                 arg0 -= 1000;
                             } else {
-                                component = arg1 ? aComponent_12 : aComponent_11;
+                                local220 = arg1 ? aComponent_12 : aComponent_11;
                             }
                             if (anInt7153 >= 10) {
                                 throw new RuntimeException("C29xx-1");
                             }
                             if (arg0 == 1927) {
-                                if (component.onResize == null) {
+                                if (local220.onResize == null) {
                                     return;
                                 }
                                 @Pc(4169) HookRequest local4169 = new HookRequest();
-                                local4169.source = component;
-                                local4169.arguments = component.onResize;
+                                local4169.source = local220;
+                                local4169.arguments = local220.onResize;
                                 local4169.anInt7220 = anInt7153 + 1;
                                 Static521.A_DEQUE___44.addLast(local4169);
                                 return;
                             }
                         } else if (arg0 < 2600) {
-                            component = InterfaceList.list(anIntArray578[--anInt7142]);
+                            @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                             if (arg0 == 2500) {
-                                anIntArray578[anInt7142++] = component.x;
+                                anIntArray578[anInt7142++] = local220.x;
                                 return;
                             }
                             if (arg0 == 2501) {
-                                anIntArray578[anInt7142++] = component.y;
+                                anIntArray578[anInt7142++] = local220.y;
                                 return;
                             }
                             if (arg0 == 2502) {
-                                anIntArray578[anInt7142++] = component.width;
+                                anIntArray578[anInt7142++] = local220.width;
                                 return;
                             }
                             if (arg0 == 2503) {
-                                anIntArray578[anInt7142++] = component.height;
+                                anIntArray578[anInt7142++] = local220.height;
                                 return;
                             }
                             if (arg0 == 2504) {
-                                anIntArray578[anInt7142++] = component.hidden ? 1 : 0;
+                                anIntArray578[anInt7142++] = local220.hidden ? 1 : 0;
                                 return;
                             }
                             if (arg0 == 2505) {
-                                anIntArray578[anInt7142++] = component.layer;
+                                anIntArray578[anInt7142++] = local220.layer;
                                 return;
                             }
                             if (arg0 == 2506) {
-                                local248 = InterfaceManager.getParentLayer(component);
+                                @Pc(248) Component local248 = InterfaceManager.getParentLayer(local220);
                                 anIntArray578[anInt7142++] = local248 == null ? -1 : local248.slot;
                                 return;
                             }
                             if (arg0 == 2507) {
-                                anIntArray578[anInt7142++] = component.colour;
+                                anIntArray578[anInt7142++] = local220.colour;
                                 return;
                             }
                         } else if (arg0 < 2700) {
-                            component = InterfaceList.list(anIntArray578[--anInt7142]);
+                            @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                             if (arg0 == 2600) {
-                                anIntArray578[anInt7142++] = component.scrollX;
+                                anIntArray578[anInt7142++] = local220.scrollX;
                                 return;
                             }
                             if (arg0 == 2601) {
-                                anIntArray578[anInt7142++] = component.scrollY;
+                                anIntArray578[anInt7142++] = local220.scrollY;
                                 return;
                             }
                             if (arg0 == 2602) {
-                                aStringArray37[anInt7139++] = component.text;
+                                aStringArray37[anInt7139++] = local220.text;
                                 return;
                             }
                             if (arg0 == 2603) {
-                                anIntArray578[anInt7142++] = component.scrollWidth;
+                                anIntArray578[anInt7142++] = local220.scrollWidth;
                                 return;
                             }
                             if (arg0 == 2604) {
-                                anIntArray578[anInt7142++] = component.scrollHeight;
+                                anIntArray578[anInt7142++] = local220.scrollHeight;
                                 return;
                             }
                             if (arg0 == 2605) {
-                                anIntArray578[anInt7142++] = component.zoom2d;
+                                anIntArray578[anInt7142++] = local220.zoom2d;
                                 return;
                             }
                             if (arg0 == 2606) {
-                                anIntArray578[anInt7142++] = component.xan2d;
+                                anIntArray578[anInt7142++] = local220.xan2d;
                                 return;
                             }
                             if (arg0 == 2607) {
-                                anIntArray578[anInt7142++] = component.zan2d;
+                                anIntArray578[anInt7142++] = local220.zan2d;
                                 return;
                             }
                             if (arg0 == 2608) {
-                                anIntArray578[anInt7142++] = component.yan2d;
+                                anIntArray578[anInt7142++] = local220.yan2d;
                                 return;
                             }
                             if (arg0 == 2609) {
-                                anIntArray578[anInt7142++] = component.transparency;
+                                anIntArray578[anInt7142++] = local220.transparency;
                                 return;
                             }
                             if (arg0 == 2610) {
-                                anIntArray578[anInt7142++] = component.xof2d;
+                                anIntArray578[anInt7142++] = local220.xof2d;
                                 return;
                             }
                             if (arg0 == 2611) {
-                                anIntArray578[anInt7142++] = component.yof2d;
+                                anIntArray578[anInt7142++] = local220.yof2d;
                                 return;
                             }
                             if (arg0 == 2612) {
-                                anIntArray578[anInt7142++] = component.graphic;
+                                anIntArray578[anInt7142++] = local220.graphic;
                                 return;
                             }
                             if (arg0 == 2613) {
-                                anIntArray578[anInt7142++] = component.angle2d;
+                                anIntArray578[anInt7142++] = local220.angle2d;
                                 return;
                             }
                             if (arg0 == 2614) {
-                                anIntArray578[anInt7142++] = component.objType == 1 ? component.obj : -1;
+                                anIntArray578[anInt7142++] = local220.objType == 1 ? local220.obj : -1;
                                 return;
                             }
                             if (arg0 == 2617) {
-                                anIntArray578[anInt7142++] = component.fontGraphic;
+                                anIntArray578[anInt7142++] = local220.fontGraphic;
                                 return;
                             }
                         } else {
@@ -1390,21 +1413,21 @@ public final class ScriptRunner {
                             @Pc(4653) SubInterface local4653;
                             if (arg0 < 2800) {
                                 if (arg0 == 2700) {
-                                    component = InterfaceList.list(anIntArray578[--anInt7142]);
-                                    anIntArray578[anInt7142++] = component.invObject;
+                                    @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
+                                    anIntArray578[anInt7142++] = local220.invObject;
                                     return;
                                 }
                                 if (arg0 == 2701) {
-                                    component = InterfaceList.list(anIntArray578[--anInt7142]);
-                                    if (component.invObject != -1) {
-                                        anIntArray578[anInt7142++] = component.invCount;
+                                    @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
+                                    if (local220.invObject != -1) {
+                                        anIntArray578[anInt7142++] = local220.invCount;
                                         return;
                                     }
                                     anIntArray578[anInt7142++] = 0;
                                     return;
                                 }
                                 if (arg0 == 2702) {
-                                    local15 = anIntArray578[--anInt7142];
+                                    @Pc(15) int local15 = anIntArray578[--anInt7142];
                                     local4653 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                     if (local4653 != null) {
                                         anIntArray578[anInt7142++] = 1;
@@ -1414,14 +1437,14 @@ public final class ScriptRunner {
                                     return;
                                 }
                                 if (arg0 == 2703) {
-                                    component = InterfaceList.list(anIntArray578[--anInt7142]);
-                                    if (component.staticComponents == null) {
+                                    @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
+                                    if (local220.staticComponents == null) {
                                         anIntArray578[anInt7142++] = 0;
                                         return;
                                     }
-                                    local21 = component.staticComponents.length;
-                                    for (local27 = 0; local27 < component.staticComponents.length; local27++) {
-                                        if (component.staticComponents[local27] == null) {
+                                    @Pc(21) int local21 = local220.staticComponents.length;
+                                    for (@Pc(27) int local27 = 0; local27 < local220.staticComponents.length; local27++) {
+                                        if (local220.staticComponents[local27] == null) {
                                             local21 = local27;
                                             break;
                                         }
@@ -1431,8 +1454,8 @@ public final class ScriptRunner {
                                 }
                                 if (arg0 == 2704 || arg0 == 2705) {
                                     anInt7142 -= 2;
-                                    local15 = anIntArray578[anInt7142];
-                                    local21 = anIntArray578[anInt7142 + 1];
+                                    @Pc(15) int local15 = anIntArray578[anInt7142];
+                                    @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                     local4760 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                     if (local4760 != null && local4760.id == local21) {
                                         anIntArray578[anInt7142++] = 1;
@@ -1442,27 +1465,27 @@ public final class ScriptRunner {
                                     return;
                                 }
                             } else if (arg0 < 2900) {
-                                component = InterfaceList.list(anIntArray578[--anInt7142]);
+                                @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                                 if (arg0 == 2800) {
-                                    anIntArray578[anInt7142++] = InterfaceManager.serverActiveProperties(component).getTargetMask();
+                                    anIntArray578[anInt7142++] = InterfaceManager.serverActiveProperties(local220).getTargetMask();
                                     return;
                                 }
                                 if (arg0 == 2801) {
-                                    local21 = anIntArray578[--anInt7142];
+                                    @Pc(21) int local21 = anIntArray578[--anInt7142];
                                     local21--;
-                                    if (component.ops != null && local21 < component.ops.length && component.ops[local21] != null) {
-                                        aStringArray37[anInt7139++] = component.ops[local21];
+                                    if (local220.ops != null && local21 < local220.ops.length && local220.ops[local21] != null) {
+                                        aStringArray37[anInt7139++] = local220.ops[local21];
                                         return;
                                     }
                                     aStringArray37[anInt7139++] = "";
                                     return;
                                 }
                                 if (arg0 == 2802) {
-                                    if (component.opBase == null) {
+                                    if (local220.opBase == null) {
                                         aStringArray37[anInt7139++] = "";
                                         return;
                                     }
-                                    aStringArray37[anInt7139++] = component.opBase;
+                                    aStringArray37[anInt7139++] = local220.opBase;
                                     return;
                                 }
                             } else {
@@ -1485,7 +1508,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3104) {
                                         local4911 = aStringArray37[--anInt7139];
-                                        local21 = 0;
+                                        @Pc(21) int local21 = 0;
                                         if (StringTools.isDecimal(local4911)) {
                                             local21 = StringTools.parseDecimal(local4911);
                                         }
@@ -1511,30 +1534,30 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3107) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         local1394 = aStringArray37[--anInt7139];
                                         Static242.method3504(local1394, local15);
                                         return;
                                     }
                                     if (arg0 == 3108) {
                                         anInt7142 -= 3;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
-                                        local27 = anIntArray578[anInt7142 + 2];
-                                        local38 = InterfaceList.list(local27);
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
+                                        @Pc(38) Component local38 = InterfaceList.list(local27);
                                         InterfaceManager.dragTryPickup(local21, local38, local15);
                                         return;
                                     }
                                     if (arg0 == 3109) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
-                                        local303 = arg1 ? aComponent_12 : aComponent_11;
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(303) Component local303 = arg1 ? aComponent_12 : aComponent_11;
                                         InterfaceManager.dragTryPickup(local21, local303, local15);
                                         return;
                                     }
                                     if (arg0 == 3110) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         local5005 = ClientMessage.create(ClientProt.RESUME_P_OBJDIALOG, ServerConnection.GAME.cipher);
                                         local5005.bitPacket.p2(local15);
                                         ServerConnection.GAME.send(local5005);
@@ -1542,8 +1565,8 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3111) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         local4760 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                         if (local4760 != null) {
                                             InterfaceManager.closeSubInterface(local4760, local4760.id != local21, true);
@@ -1553,7 +1576,7 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3112) {
                                         anInt7142--;
-                                        local15 = anIntArray578[anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
                                         local4653 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
                                         if (local4653 != null && local4653.type == 3) {
                                             InterfaceManager.closeSubInterface(local4653, true, true);
@@ -1566,8 +1589,8 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3114) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         local1791 = aStringArray37[--anInt7139];
                                         ChatHistory.add(local1791, "", local21, "", "", local15);
                                         return;
@@ -1580,7 +1603,7 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3116) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         local5005 = ClientMessage.create(ClientProt.RESUME_P_HSLDIALOG, ServerConnection.GAME.cipher);
                                         local5005.bitPacket.p2(local15);
                                         ServerConnection.GAME.send(local5005);
@@ -1651,64 +1674,64 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3301) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         anIntArray578[anInt7142++] = Static597.method7822(local15, local21, false);
                                         return;
                                     }
                                     if (arg0 == 3302) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         anIntArray578[anInt7142++] = Static536.method7169(local21, false, local15);
                                         return;
                                     }
                                     if (arg0 == 3303) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         anIntArray578[anInt7142++] = Static67.method6099(local21, local15, false);
                                         return;
                                     }
                                     if (arg0 == 3304) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         anIntArray578[anInt7142++] = InvTypeList.instance.list(local15).size;
                                         return;
                                     }
                                     if (arg0 == 3305) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         anIntArray578[anInt7142++] = Static581.statLevels[local15];
                                         return;
                                     }
                                     if (arg0 == 3306) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         anIntArray578[anInt7142++] = Static498.statBaseLevels[local15];
                                         return;
                                     }
                                     if (arg0 == 3307) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         anIntArray578[anInt7142++] = Static237.statXps[local15];
                                         return;
                                     }
                                     if (arg0 == 3308) {
                                         @Pc(5929) byte local5929 = PlayerEntity.self.level;
-                                        local21 = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
-                                        local27 = (PlayerEntity.self.z >> 9) + WorldMap.areaBaseZ;
+                                        @Pc(21) int local21 = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
+                                        @Pc(27) int local27 = (PlayerEntity.self.z >> 9) + WorldMap.areaBaseZ;
                                         anIntArray578[anInt7142++] = (local5929 << 28) + (local21 << 14) + local27;
                                         return;
                                     }
                                     if (arg0 == 3309) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         anIntArray578[anInt7142++] = local15 >> 14 & 0x3FFF;
                                         return;
                                     }
                                     if (arg0 == 3310) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         anIntArray578[anInt7142++] = local15 >> 28;
                                         return;
                                     }
                                     if (arg0 == 3311) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         anIntArray578[anInt7142++] = local15 & 0x3FFF;
                                         return;
                                     }
@@ -1718,22 +1741,22 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3313) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         anIntArray578[anInt7142++] = Static597.method7822(local15, local21, true);
                                         return;
                                     }
                                     if (arg0 == 3314) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         anIntArray578[anInt7142++] = Static536.method7169(local21, true, local15);
                                         return;
                                     }
                                     if (arg0 == 3315) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         anIntArray578[anInt7142++] = Static67.method6099(local21, local15, true);
                                         return;
                                     }
@@ -1794,21 +1817,21 @@ public final class ScriptRunner {
                                         return;
                                     }
                                     if (arg0 == 3330) {
-                                        local15 = anIntArray578[--anInt7142];
+                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
                                         anIntArray578[anInt7142++] = Static46.method1082(local15);
                                         return;
                                     }
                                     if (arg0 == 3331) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         anIntArray578[anInt7142++] = Static390.method5494(false, local21, local15);
                                         return;
                                     }
                                     if (arg0 == 3332) {
                                         anInt7142 -= 2;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                         anIntArray578[anInt7142++] = Static390.method5494(true, local21, local15);
                                         return;
                                     }
@@ -1822,9 +1845,9 @@ public final class ScriptRunner {
                                     }
                                     if (arg0 == 3336) {
                                         anInt7142 -= 4;
-                                        local15 = anIntArray578[anInt7142];
-                                        local21 = anIntArray578[anInt7142 + 1];
-                                        local27 = anIntArray578[anInt7142 + 2];
+                                        @Pc(15) int local15 = anIntArray578[anInt7142];
+                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                        @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
                                         local506 = anIntArray578[anInt7142 + 3];
                                         local15 += local21 << 14;
                                         local15 += local27 << 28;
@@ -1901,8 +1924,8 @@ public final class ScriptRunner {
                                         @Pc(6822) EnumType local6822;
                                         if (arg0 == 3400) {
                                             anInt7142 -= 2;
-                                            local15 = anIntArray578[anInt7142];
-                                            local21 = anIntArray578[anInt7142 + 1];
+                                            @Pc(15) int local15 = anIntArray578[anInt7142];
+                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                             local6822 = EnumTypeList.instance.list(local15);
                                             aStringArray37[anInt7139++] = local6822.getString(local21);
                                             return;
@@ -1910,9 +1933,9 @@ public final class ScriptRunner {
                                         @Pc(6868) EnumType local6868;
                                         if (arg0 == 3408) {
                                             anInt7142 -= 4;
-                                            local15 = anIntArray578[anInt7142];
-                                            local21 = anIntArray578[anInt7142 + 1];
-                                            local27 = anIntArray578[anInt7142 + 2];
+                                            @Pc(15) int local15 = anIntArray578[anInt7142];
+                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
                                             local506 = anIntArray578[anInt7142 + 3];
                                             local6868 = EnumTypeList.instance.list(local27);
                                             if (local6868.keyType == local15 && local6868.valType == local21) {
@@ -1928,9 +1951,9 @@ public final class ScriptRunner {
                                         @Pc(6963) EnumType local6963;
                                         if (arg0 == 3409) {
                                             anInt7142 -= 3;
-                                            local15 = anIntArray578[anInt7142];
-                                            local21 = anIntArray578[anInt7142 + 1];
-                                            local27 = anIntArray578[anInt7142 + 2];
+                                            @Pc(15) int local15 = anIntArray578[anInt7142];
+                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
                                             if (local21 == -1) {
                                                 throw new RuntimeException("C3409-2");
                                             }
@@ -1942,7 +1965,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3410) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             local1394 = aStringArray37[--anInt7139];
                                             if (local15 == -1) {
                                                 throw new RuntimeException("C3410-2");
@@ -1955,16 +1978,16 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3411) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             @Pc(7072) EnumType type = EnumTypeList.instance.list(local15);
                                             anIntArray578[anInt7142++] = type.getOutputCount();
                                             return;
                                         }
                                         if (arg0 == 3412) {
                                             anInt7142 -= 3;
-                                            local15 = anIntArray578[anInt7142];
-                                            local21 = anIntArray578[anInt7142 + 1];
-                                            local27 = anIntArray578[anInt7142 + 2];
+                                            @Pc(15) int local15 = anIntArray578[anInt7142];
+                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
                                             if (local21 == -1) {
                                                 throw new RuntimeException();
                                             }
@@ -1973,7 +1996,7 @@ public final class ScriptRunner {
                                                 throw new RuntimeException();
                                             }
                                             @Pc(7133) EnumMapping mapping = local6963.getReversed(local27);
-                                            local72 = 0;
+                                            @Pc(72) int local72 = 0;
                                             if (mapping != null) {
                                                 local72 = mapping.index.length;
                                             }
@@ -1981,7 +2004,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3413) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             local1394 = aStringArray37[--anInt7139];
                                             if (local15 == -1) {
                                                 throw new RuntimeException();
@@ -2000,9 +2023,9 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3414) {
                                             anInt7142 -= 5;
-                                            local15 = anIntArray578[anInt7142];
-                                            local21 = anIntArray578[anInt7142 + 1];
-                                            local27 = anIntArray578[anInt7142 + 2];
+                                            @Pc(15) int local15 = anIntArray578[anInt7142];
+                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
                                             local506 = anIntArray578[anInt7142 + 3];
                                             local2978 = anIntArray578[anInt7142 + 4];
                                             if (local27 == -1) {
@@ -2024,9 +2047,9 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3415) {
                                             anInt7142 -= 3;
-                                            local15 = anIntArray578[anInt7142];
-                                            local21 = anIntArray578[anInt7142 + 1];
-                                            local27 = anIntArray578[anInt7142 + 2];
+                                            @Pc(15) int local15 = anIntArray578[anInt7142];
+                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
                                             local7345 = aStringArray37[--anInt7139];
                                             if (local21 == -1) {
                                                 throw new RuntimeException();
@@ -2059,7 +2082,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3601) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendsList.status == 2 && local15 < FriendsList.count) {
                                                 aStringArray37[anInt7139++] = FriendsList.names[local15];
                                                 if (FriendsList.formerNames[local15] != null) {
@@ -2074,7 +2097,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3602) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendsList.status == 2 && local15 < FriendsList.count) {
                                                 anIntArray578[anInt7142++] = FriendsList.worlds[local15];
                                                 return;
@@ -2083,7 +2106,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3603) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendsList.status == 2 && local15 < FriendsList.count) {
                                                 anIntArray578[anInt7142++] = FriendsList.ranks[local15];
                                                 return;
@@ -2093,7 +2116,7 @@ public final class ScriptRunner {
                                         }
                                         if (arg0 == 3604) {
                                             local4911 = aStringArray37[--anInt7139];
-                                            local21 = anIntArray578[--anInt7142];
+                                            @Pc(21) int local21 = anIntArray578[--anInt7142];
                                             Static430.method5819(local4911, local21);
                                             return;
                                         }
@@ -2126,7 +2149,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3610) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendsList.status == 2 && local15 < FriendsList.count) {
                                                 aStringArray37[anInt7139++] = FriendsList.worldNames[local15];
                                                 return;
@@ -2151,7 +2174,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3613) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendChat.name != null && local15 < FriendChat.count) {
                                                 aStringArray37[anInt7139++] = FriendChat.users[local15].name;
                                                 return;
@@ -2160,7 +2183,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3614) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendChat.name != null && local15 < FriendChat.count) {
                                                 anIntArray578[anInt7142++] = FriendChat.users[local15].world;
                                                 return;
@@ -2169,7 +2192,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3615) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendChat.name != null && local15 < FriendChat.count) {
                                                 anIntArray578[anInt7142++] = FriendChat.users[local15].rank;
                                                 return;
@@ -2208,7 +2231,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3622) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendsList.status != 0 && local15 < IgnoreList.count) {
                                                 aStringArray37[anInt7139++] = IgnoreList.names[local15];
                                                 if (IgnoreList.formerNames[local15] != null) {
@@ -2231,7 +2254,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3624) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendChat.users != null && local15 < FriendChat.count && FriendChat.users[local15].accountName.equalsIgnoreCase(PlayerEntity.self.accountName)) {
                                                 anIntArray578[anInt7142++] = 1;
                                                 return;
@@ -2248,7 +2271,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3626) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendChat.name != null && local15 < FriendChat.count) {
                                                 aStringArray37[anInt7139++] = FriendChat.users[local15].worldName;
                                                 return;
@@ -2257,7 +2280,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3627) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendsList.status == 2 && local15 >= 0 && local15 < FriendsList.count) {
                                                 anIntArray578[anInt7142++] = FriendsList.sameGameFlags[local15] ? 1 : 0;
                                                 return;
@@ -2283,12 +2306,12 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3631) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = IgnoreList.temporary[local15] ? 1 : 0;
                                             return;
                                         }
                                         if (arg0 == 3632) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendChat.name != null && local15 < FriendChat.count) {
                                                 aStringArray37[anInt7139++] = FriendChat.users[local15].accountName;
                                                 return;
@@ -2297,7 +2320,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3633) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendsList.status != 0 && local15 < IgnoreList.count) {
                                                 aStringArray37[anInt7139++] = IgnoreList.accountNames[local15];
                                                 return;
@@ -2306,7 +2329,7 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3634) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             if (FriendsList.status == 2 && local15 < FriendsList.count) {
                                                 anIntArray578[anInt7142++] = FriendsList.referredFlags[local15] ? 1 : 0;
                                                 return;
@@ -2318,7 +2341,7 @@ public final class ScriptRunner {
                                         if (arg0 == 3700) {
                                             if (ClanSettings.listened != null) {
                                                 anIntArray578[anInt7142++] = 1;
-                                                aClanSettings_7 = ClanSettings.listened;
+                                                clanSettings = ClanSettings.listened;
                                                 return;
                                             }
                                             anIntArray578[anInt7142++] = 0;
@@ -2327,81 +2350,81 @@ public final class ScriptRunner {
                                         if (arg0 == 3701) {
                                             if (ClanSettings.affined != null) {
                                                 anIntArray578[anInt7142++] = 1;
-                                                aClanSettings_7 = ClanSettings.affined;
+                                                clanSettings = ClanSettings.affined;
                                                 return;
                                             }
                                             anIntArray578[anInt7142++] = 0;
                                             return;
                                         }
                                         if (arg0 == 3702) {
-                                            aStringArray37[anInt7139++] = aClanSettings_7.name;
+                                            aStringArray37[anInt7139++] = clanSettings.name;
                                             return;
                                         }
                                         if (arg0 == 3703) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.allowNonMembers ? 1 : 0;
+                                            anIntArray578[anInt7142++] = clanSettings.allowNonMembers ? 1 : 0;
                                             return;
                                         }
                                         if (arg0 == 3704) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.rankTalk;
+                                            anIntArray578[anInt7142++] = clanSettings.rankTalk;
                                             return;
                                         }
                                         if (arg0 == 3705) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.rankKick;
+                                            anIntArray578[anInt7142++] = clanSettings.rankKick;
                                             return;
                                         }
                                         if (arg0 == 3706) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.rankLootShare;
+                                            anIntArray578[anInt7142++] = clanSettings.rankLootShare;
                                             return;
                                         }
                                         if (arg0 == 3707) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.coinshare;
+                                            anIntArray578[anInt7142++] = clanSettings.coinshare;
                                             return;
                                         }
                                         if (arg0 == 3709) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.affinedCount;
+                                            anIntArray578[anInt7142++] = clanSettings.affinedCount;
                                             return;
                                         }
                                         if (arg0 == 3710) {
-                                            local15 = anIntArray578[--anInt7142];
-                                            aStringArray37[anInt7139++] = aClanSettings_7.affinedDisplayNames[local15];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
+                                            aStringArray37[anInt7139++] = clanSettings.affinedDisplayNames[local15];
                                             return;
                                         }
                                         if (arg0 == 3711) {
-                                            local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = aClanSettings_7.affinedRanks[local15];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
+                                            anIntArray578[anInt7142++] = clanSettings.affinedRanks[local15];
                                             return;
                                         }
                                         if (arg0 == 3712) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.bannedCount;
+                                            anIntArray578[anInt7142++] = clanSettings.bannedCount;
                                             return;
                                         }
                                         if (arg0 == 3713) {
-                                            local15 = anIntArray578[--anInt7142];
-                                            aStringArray37[anInt7139++] = aClanSettings_7.bannedDisplayNames[local15];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
+                                            aStringArray37[anInt7139++] = clanSettings.bannedDisplayNames[local15];
                                             return;
                                         }
                                         if (arg0 == 3714) {
                                             anInt7142 -= 3;
-                                            local15 = anIntArray578[anInt7142];
-                                            local21 = anIntArray578[anInt7142 + 1];
-                                            local27 = anIntArray578[anInt7142 + 2];
-                                            anIntArray578[anInt7142++] = aClanSettings_7.getAffinedExtraInfo(local21, local27, local15);
+                                            @Pc(15) int local15 = anIntArray578[anInt7142];
+                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
+                                            anIntArray578[anInt7142++] = clanSettings.getAffinedExtraInfo(local21, local27, local15);
                                             return;
                                         }
                                         if (arg0 == 3715) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.currentOwnerSlot;
+                                            anIntArray578[anInt7142++] = clanSettings.currentOwnerSlot;
                                             return;
                                         }
                                         if (arg0 == 3716) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.replacementOwnerSlot;
+                                            anIntArray578[anInt7142++] = clanSettings.replacementOwnerSlot;
                                             return;
                                         }
                                         if (arg0 == 3717) {
-                                            anIntArray578[anInt7142++] = aClanSettings_7.affinedSlot(aStringArray37[--anInt7139]);
+                                            anIntArray578[anInt7142++] = clanSettings.affinedSlot(aStringArray37[--anInt7139]);
                                             return;
                                         }
                                         if (arg0 == 3718) {
-                                            anIntArray578[anInt7142 - 1] = aClanSettings_7.sortedAffinedSlots()[anIntArray578[anInt7142 - 1]];
+                                            anIntArray578[anInt7142 - 1] = clanSettings.sortedAffinedSlots()[anIntArray578[anInt7142 - 1]];
                                             return;
                                         }
                                         if (arg0 == 3719) {
@@ -2409,8 +2432,8 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3720) {
-                                            local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = aClanSettings_7.affinedJoinRuneday[local15];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
+                                            anIntArray578[anInt7142++] = clanSettings.affinedJoinRuneday[local15];
                                             return;
                                         }
                                         if (arg0 == 3750) {
@@ -2448,22 +2471,22 @@ public final class ScriptRunner {
                                             return;
                                         }
                                         if (arg0 == 3756) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             aStringArray37[anInt7139++] = aClass2_Sub47_2.users[local15].displayName;
                                             return;
                                         }
                                         if (arg0 == 3757) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = aClass2_Sub47_2.users[local15].rank;
                                             return;
                                         }
                                         if (arg0 == 3758) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = aClass2_Sub47_2.users[local15].world;
                                             return;
                                         }
                                         if (arg0 == 3759) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             Static525.method7886(aClass2_Sub47_2 == ClanChannel.affined, local15);
                                             return;
                                         }
@@ -2481,56 +2504,56 @@ public final class ScriptRunner {
                                         }
                                     } else if (arg0 < 4000) {
                                         if (arg0 == 3903) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = StockmarketManager.offers[local15].getOfferType();
                                             return;
                                         }
                                         if (arg0 == 3904) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = StockmarketManager.offers[local15].objId;
                                             return;
                                         }
                                         if (arg0 == 3905) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = StockmarketManager.offers[local15].price;
                                             return;
                                         }
                                         if (arg0 == 3906) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = StockmarketManager.offers[local15].count;
                                             return;
                                         }
                                         if (arg0 == 3907) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = StockmarketManager.offers[local15].completedCount;
                                             return;
                                         }
                                         if (arg0 == 3908) {
-                                            local15 = anIntArray578[--anInt7142];
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
                                             anIntArray578[anInt7142++] = StockmarketManager.offers[local15].completedGold;
                                             return;
                                         }
                                         if (arg0 == 3910) {
-                                            local15 = anIntArray578[--anInt7142];
-                                            local21 = StockmarketManager.offers[local15].getStatus();
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
+                                            @Pc(21) int local21 = StockmarketManager.offers[local15].getStatus();
                                             anIntArray578[anInt7142++] = local21 == 0 ? 1 : 0;
                                             return;
                                         }
                                         if (arg0 == 3911) {
-                                            local15 = anIntArray578[--anInt7142];
-                                            local21 = StockmarketManager.offers[local15].getStatus();
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
+                                            @Pc(21) int local21 = StockmarketManager.offers[local15].getStatus();
                                             anIntArray578[anInt7142++] = local21 == 2 ? 1 : 0;
                                             return;
                                         }
                                         if (arg0 == 3912) {
-                                            local15 = anIntArray578[--anInt7142];
-                                            local21 = StockmarketManager.offers[local15].getStatus();
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
+                                            @Pc(21) int local21 = StockmarketManager.offers[local15].getStatus();
                                             anIntArray578[anInt7142++] = local21 == 5 ? 1 : 0;
                                             return;
                                         }
                                         if (arg0 == 3913) {
-                                            local15 = anIntArray578[--anInt7142];
-                                            local21 = StockmarketManager.offers[local15].getStatus();
+                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
+                                            @Pc(21) int local21 = StockmarketManager.offers[local15].getStatus();
                                             anIntArray578[anInt7142++] = local21 == 1 ? 1 : 0;
                                             return;
                                         }
@@ -2539,47 +2562,47 @@ public final class ScriptRunner {
                                         if (arg0 < 4100) {
                                             if (arg0 == 4000) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 + local21;
                                                 return;
                                             }
                                             if (arg0 == 4001) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 - local21;
                                                 return;
                                             }
                                             if (arg0 == 4002) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 * local21;
                                                 return;
                                             }
                                             if (arg0 == 4003) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 / local21;
                                                 return;
                                             }
                                             if (arg0 == 4004) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = (int) (Math.random() * (double) local15);
                                                 return;
                                             }
                                             if (arg0 == 4005) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = (int) (Math.random() * (double) (local15 + 1));
                                                 return;
                                             }
                                             if (arg0 == 4006) {
                                                 anInt7142 -= 5;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
-                                                local27 = anIntArray578[anInt7142 + 2];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
                                                 local506 = anIntArray578[anInt7142 + 3];
                                                 local2978 = anIntArray578[anInt7142 + 4];
                                                 anIntArray578[anInt7142++] = local15 + (local21 - local15) * (local2978 - local27) / (local506 - local27);
@@ -2595,36 +2618,36 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4008) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 | 0x1 << local21;
                                                 return;
                                             }
                                             if (arg0 == 4009) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 & -(0x1 << local21) - 1;
                                                 return;
                                             }
                                             if (arg0 == 4010) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = (local15 & 0x1 << local21) == 0 ? 0 : 1;
                                                 return;
                                             }
                                             if (arg0 == 4011) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 % local21;
                                                 return;
                                             }
                                             if (arg0 == 4012) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 if (local15 == 0) {
                                                     anIntArray578[anInt7142++] = 0;
                                                     return;
@@ -2634,8 +2657,8 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4013) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 if (local15 == 0) {
                                                     anIntArray578[anInt7142++] = 0;
                                                     return;
@@ -2649,29 +2672,29 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4014) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 & local21;
                                                 return;
                                             }
                                             if (arg0 == 4015) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 | local21;
                                                 return;
                                             }
                                             if (arg0 == 4016) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 < local21 ? local15 : local21;
                                                 return;
                                             }
                                             if (arg0 == 4017) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local15 > local21 ? local15 : local21;
                                                 return;
                                             }
@@ -2685,8 +2708,8 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4019) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 if (local15 > 700 || local21 > 700) {
                                                     anIntArray578[anInt7142++] = 256;
                                                 }
@@ -2695,14 +2718,14 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4020) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(local15) & 0xFFFF];
                                                 return;
                                             }
                                         } else if (arg0 < 4200) {
                                             if (arg0 == 4100) {
                                                 local4911 = aStringArray37[--anInt7139];
-                                                local21 = anIntArray578[--anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
                                                 aStringArray37[anInt7139++] = local4911 + local21;
                                                 return;
                                             }
@@ -2715,7 +2738,7 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4102) {
                                                 local4911 = aStringArray37[--anInt7139];
-                                                local21 = anIntArray578[--anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
                                                 aStringArray37[anInt7139++] = local4911 + StringTools.decimalWithSign(true, local21);
                                                 return;
                                             }
@@ -2740,7 +2763,7 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4106) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 aStringArray37[anInt7139++] = Integer.toString(local15);
                                                 return;
                                             }
@@ -2753,8 +2776,8 @@ public final class ScriptRunner {
                                             if (arg0 == 4108) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 anInt7142 -= 2;
-                                                local21 = anIntArray578[anInt7142];
-                                                local27 = anIntArray578[anInt7142 + 1];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142];
+                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                                                 local10482 = FontMetrics.loadGroup(local27, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local10482.paraHeight(local4911, Sprites.nameIcons, local21);
                                                 return;
@@ -2762,8 +2785,8 @@ public final class ScriptRunner {
                                             if (arg0 == 4109) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 anInt7142 -= 2;
-                                                local21 = anIntArray578[anInt7142];
-                                                local27 = anIntArray578[anInt7142 + 1];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142];
+                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                                                 local10482 = FontMetrics.loadGroup(local27, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local10482.paraWidth(Sprites.nameIcons, local4911, local21);
                                                 return;
@@ -2786,7 +2809,7 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4112) {
                                                 local4911 = aStringArray37[--anInt7139];
-                                                local21 = anIntArray578[--anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
                                                 if (local21 == -1) {
                                                     throw new RuntimeException("null char");
                                                 }
@@ -2794,22 +2817,22 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4113) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = charIsPrintable((char) local15);
                                                 return;
                                             }
                                             if (arg0 == 4114) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = StringTools.isAlphanumeric((char) local15) ? 1 : 0;
                                                 return;
                                             }
                                             if (arg0 == 4115) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = StringTools.isAlphabetical((char) local15) ? 1 : 0;
                                                 return;
                                             }
                                             if (arg0 == 4116) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = StringTools.isNumeric((char) local15) ? 1 : 0;
                                                 return;
                                             }
@@ -2825,8 +2848,8 @@ public final class ScriptRunner {
                                             if (arg0 == 4118) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 anInt7142 -= 2;
-                                                local21 = anIntArray578[anInt7142];
-                                                local27 = anIntArray578[anInt7142 + 1];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142];
+                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                                                 aStringArray37[anInt7139++] = local4911.substring(local21, local27);
                                                 return;
                                             }
@@ -2850,8 +2873,8 @@ public final class ScriptRunner {
                                             if (arg0 == 4120) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 anInt7142 -= 2;
-                                                local21 = anIntArray578[anInt7142];
-                                                local27 = anIntArray578[anInt7142 + 1];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142];
+                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                                                 anIntArray578[anInt7142++] = local4911.indexOf(local21, local27);
                                                 return;
                                             }
@@ -2859,29 +2882,29 @@ public final class ScriptRunner {
                                                 anInt7139 -= 2;
                                                 local4911 = aStringArray37[anInt7139];
                                                 local1394 = aStringArray37[anInt7139 + 1];
-                                                local27 = anIntArray578[--anInt7142];
+                                                @Pc(27) int local27 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = local4911.indexOf(local1394, local27);
                                                 return;
                                             }
                                             if (arg0 == 4122) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = Character.toLowerCase((char) local15);
                                                 return;
                                             }
                                             if (arg0 == 4123) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = Character.toUpperCase((char) local15);
                                                 return;
                                             }
                                             if (arg0 == 4124) {
                                                 local575 = anIntArray578[--anInt7142] != 0;
-                                                local21 = anIntArray578[--anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
                                                 aStringArray37[anInt7139++] = StringTools.formatNumber(Client.language, local575, local21, 0);
                                                 return;
                                             }
                                             if (arg0 == 4125) {
                                                 local4911 = aStringArray37[--anInt7139];
-                                                local21 = anIntArray578[--anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
                                                 @Pc(11077) FontMetrics local11077 = FontMetrics.loadGroup(local21, js5.FONTMETRICS);
                                                 anIntArray578[anInt7142++] = local11077.stringWidth(Sprites.nameIcons, local4911);
                                                 return;
@@ -2897,15 +2920,15 @@ public final class ScriptRunner {
                                             }
                                         } else if (arg0 < 4300) {
                                             if (arg0 == 4200) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 aStringArray37[anInt7139++] = ObjTypeList.instance.list(local15).name;
                                                 return;
                                             }
                                             @Pc(11206) ObjType local11206;
                                             if (arg0 == 4201) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 local11206 = ObjTypeList.instance.list(local15);
                                                 if (local21 >= 1 && local21 <= 5 && local11206.op[local21 - 1] != null) {
                                                     aStringArray37[anInt7139++] = local11206.op[local21 - 1];
@@ -2916,8 +2939,8 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4202) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 local11206 = ObjTypeList.instance.list(local15);
                                                 if (local21 >= 1 && local21 <= 5 && local11206.iop[local21 - 1] != null) {
                                                     aStringArray37[anInt7139++] = local11206.iop[local21 - 1];
@@ -2927,18 +2950,18 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4203) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).cost;
                                                 return;
                                             }
                                             if (arg0 == 4204) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).stackable == 1 ? 1 : 0;
                                                 return;
                                             }
                                             @Pc(11380) ObjType local11380;
                                             if (arg0 == 4205) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 local11380 = ObjTypeList.instance.list(local15);
                                                 if (local11380.certtemplate == -1 && local11380.certlink >= 0) {
                                                     anIntArray578[anInt7142++] = local11380.certlink;
@@ -2948,7 +2971,7 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4206) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 local11380 = ObjTypeList.instance.list(local15);
                                                 if (local11380.certtemplate >= 0 && local11380.certlink >= 0) {
                                                     anIntArray578[anInt7142++] = local11380.certlink;
@@ -2958,14 +2981,14 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4207) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).members ? 1 : 0;
                                                 return;
                                             }
                                             if (arg0 == 4208) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
                                                     aStringArray37[anInt7139++] = ObjTypeList.instance.list(local15).param(local3848.defaultstr, local21);
@@ -2976,8 +2999,8 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4209) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1] - 1;
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1] - 1;
                                                 local11206 = ObjTypeList.instance.list(local15);
                                                 if (local11206.cursor1iop == local21) {
                                                     anIntArray578[anInt7142++] = local11206.icursor1;
@@ -2992,7 +3015,7 @@ public final class ScriptRunner {
                                             }
                                             if (arg0 == 4210) {
                                                 local4911 = aStringArray37[--anInt7139];
-                                                local21 = anIntArray578[--anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
                                                 Static331.method4924(local21 == 1, local4911);
                                                 anIntArray578[anInt7142++] = Static606.anInt8947;
                                                 return;
@@ -3010,15 +3033,15 @@ public final class ScriptRunner {
                                                 return;
                                             }
                                             if (arg0 == 4213) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).multistacksize;
                                                 return;
                                             }
                                             if (arg0 == 4214) {
                                                 local4911 = aStringArray37[--anInt7139];
                                                 anInt7142 -= 3;
-                                                local21 = anIntArray578[anInt7142];
-                                                local27 = anIntArray578[anInt7142 + 1];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142];
+                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                                                 local506 = anIntArray578[anInt7142 + 2];
                                                 Static263.method3855(local21 == 1, local506, local27, local4911);
                                                 anIntArray578[anInt7142++] = Static606.anInt8947;
@@ -3028,8 +3051,8 @@ public final class ScriptRunner {
                                                 anInt7139 -= 2;
                                                 anInt7142 -= 2;
                                                 local4911 = aStringArray37[anInt7139];
-                                                local21 = anIntArray578[anInt7142];
-                                                local27 = anIntArray578[anInt7142 + 1];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142];
+                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
                                                 local7345 = aStringArray37[anInt7139 + 1];
                                                 Static715.method9347(local4911, local27, local7345, 8, local21 == 1);
                                                 anIntArray578[anInt7142++] = Static606.anInt8947;
@@ -3038,8 +3061,8 @@ public final class ScriptRunner {
                                         } else if (arg0 < 4400) {
                                             if (arg0 == 4300) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
                                                     aStringArray37[anInt7139++] = NPCTypeList.instance.list(local15).param(local3848.defaultstr, local21);
@@ -3051,8 +3074,8 @@ public final class ScriptRunner {
                                         } else if (arg0 < 4500) {
                                             if (arg0 == 4400) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
                                                     aStringArray37[anInt7139++] = LocTypeList.instance.list(local15).param(local3848.defaultstr, local21);
@@ -3064,8 +3087,8 @@ public final class ScriptRunner {
                                         } else if (arg0 < 4600) {
                                             if (arg0 == 4500) {
                                                 anInt7142 -= 2;
-                                                local15 = anIntArray578[anInt7142];
-                                                local21 = anIntArray578[anInt7142 + 1];
+                                                @Pc(15) int local15 = anIntArray578[anInt7142];
+                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
                                                 local3848 = ParamTypeList.instance.list(local21);
                                                 if (local3848.isString()) {
                                                     aStringArray37[anInt7139++] = StructTypeList.instance.list(local15).param(local21, local3848.defaultstr);
@@ -3076,10 +3099,10 @@ public final class ScriptRunner {
                                             }
                                         } else if (arg0 < 4700) {
                                             if (arg0 == 4600) {
-                                                local15 = anIntArray578[--anInt7142];
+                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
                                                 @Pc(12037) BASType local12037 = BASTypeList.instance.list(local15);
                                                 if (local12037.readyAnimations != null && local12037.readyAnimations.length > 0) {
-                                                    local27 = 0;
+                                                    @Pc(27) int local27 = 0;
                                                     local506 = local12037.readyAnimationWeights[0];
                                                     for (local2978 = 1; local2978 < local12037.readyAnimations.length; local2978++) {
                                                         if (local12037.readyAnimationWeights[local2978] > local506) {
@@ -3108,7 +3131,7 @@ public final class ScriptRunner {
                                                     Static486.aByte115 = -1;
                                                     local5005 = ClientMessage.create(ClientProt.CLIENT_PROT_90, ServerConnection.LOBBY.cipher);
                                                     local5005.bitPacket.p1(0);
-                                                    local27 = local5005.bitPacket.pos;
+                                                    @Pc(27) int local27 = local5005.bitPacket.pos;
                                                     local5005.bitPacket.pjstr(local4911);
                                                     local5005.bitPacket.psize1(local5005.bitPacket.pos - local27);
                                                     ServerConnection.LOBBY.send(local5005);
@@ -3132,88 +3155,89 @@ public final class ScriptRunner {
                     }
                 }
             } else {
+                @Pc(220) Component local220;
                 if (arg0 >= 2000) {
                     arg0 -= 1000;
-                    component = InterfaceList.list(anIntArray578[--anInt7142]);
+                    local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                 } else {
-                    component = arg1 ? aComponent_12 : aComponent_11;
+                    local220 = arg1 ? aComponent_12 : aComponent_11;
                 }
                 if (arg0 == 1000) {
                     anInt7142 -= 4;
-                    component.originalX = anIntArray578[anInt7142];
-                    component.originalY = anIntArray578[anInt7142 + 1];
-                    local21 = anIntArray578[anInt7142 + 2];
+                    local220.originalX = anIntArray578[anInt7142];
+                    local220.originalY = anIntArray578[anInt7142 + 1];
+                    @Pc(21) int local21 = anIntArray578[anInt7142 + 2];
                     if (local21 < 0) {
                         local21 = 0;
                     } else if (local21 > 5) {
                         local21 = 5;
                     }
-                    local27 = anIntArray578[anInt7142 + 3];
+                    @Pc(27) int local27 = anIntArray578[anInt7142 + 3];
                     if (local27 < 0) {
                         local27 = 0;
                     } else if (local27 > 5) {
                         local27 = 5;
                     }
-                    component.reposModeX = (byte) local21;
-                    component.reposModeY = (byte) local27;
-                    InterfaceManager.redraw(component);
-                    InterfaceManager.resizeAndReposition(component);
-                    if (component.id == -1) {
-                        DelayedStateChange.interfaceResetPosition(component.slot);
+                    local220.reposModeX = (byte) local21;
+                    local220.reposModeY = (byte) local27;
+                    InterfaceManager.redraw(local220);
+                    InterfaceManager.resizeAndReposition(local220);
+                    if (local220.id == -1) {
+                        DelayedStateChange.interfaceResetPosition(local220.slot);
                     }
                     return;
                 }
                 if (arg0 == 1001) {
                     anInt7142 -= 4;
-                    component.originalWidth = anIntArray578[anInt7142];
-                    component.originalHeight = anIntArray578[anInt7142 + 1];
-                    component.modelAspectRatioX = 0;
-                    component.modelAspectRatioY = 0;
-                    local21 = anIntArray578[anInt7142 + 2];
+                    local220.originalWidth = anIntArray578[anInt7142];
+                    local220.originalHeight = anIntArray578[anInt7142 + 1];
+                    local220.modelAspectRatioX = 0;
+                    local220.modelAspectRatioY = 0;
+                    @Pc(21) int local21 = anIntArray578[anInt7142 + 2];
                     if (local21 < 0) {
                         local21 = 0;
                     } else if (local21 > 4) {
                         local21 = 4;
                     }
-                    local27 = anIntArray578[anInt7142 + 3];
+                    @Pc(27) int local27 = anIntArray578[anInt7142 + 3];
                     if (local27 < 0) {
                         local27 = 0;
                     } else if (local27 > 4) {
                         local27 = 4;
                     }
-                    component.resizeModeX = (byte) local21;
-                    component.resizeModeY = (byte) local27;
-                    InterfaceManager.redraw(component);
-                    InterfaceManager.resizeAndReposition(component);
-                    if (component.type == 0) {
-                        InterfaceManager.calculateLayerDimensions(component, false);
+                    local220.resizeModeX = (byte) local21;
+                    local220.resizeModeY = (byte) local27;
+                    InterfaceManager.redraw(local220);
+                    InterfaceManager.resizeAndReposition(local220);
+                    if (local220.type == 0) {
+                        InterfaceManager.calculateLayerDimensions(local220, false);
                     }
                     return;
                 }
                 if (arg0 == 1003) {
                     @Pc(834) boolean local834 = anIntArray578[--anInt7142] == 1;
-                    if (component.hidden != local834) {
-                        component.hidden = local834;
-                        InterfaceManager.redraw(component);
+                    if (local220.hidden != local834) {
+                        local220.hidden = local834;
+                        InterfaceManager.redraw(local220);
                     }
-                    if (component.id == -1) {
-                        DelayedStateChange.interfaceResetHide(component.slot);
+                    if (local220.id == -1) {
+                        DelayedStateChange.interfaceResetHide(local220.slot);
                     }
                     return;
                 }
                 if (arg0 == 1004) {
                     anInt7142 -= 2;
-                    component.resizeAspectRatioY = anIntArray578[anInt7142];
-                    component.resizeAspectRatioX = anIntArray578[anInt7142 + 1];
-                    InterfaceManager.redraw(component);
-                    InterfaceManager.resizeAndReposition(component);
-                    if (component.type == 0) {
-                        InterfaceManager.calculateLayerDimensions(component, false);
+                    local220.resizeAspectRatioY = anIntArray578[anInt7142];
+                    local220.resizeAspectRatioX = anIntArray578[anInt7142 + 1];
+                    InterfaceManager.redraw(local220);
+                    InterfaceManager.resizeAndReposition(local220);
+                    if (local220.type == 0) {
+                        InterfaceManager.calculateLayerDimensions(local220, false);
                     }
                     return;
                 }
                 if (arg0 == 1005) {
-                    component.noClickThrough = anIntArray578[--anInt7142] == 1;
+                    local220.noClickThrough = anIntArray578[--anInt7142] == 1;
                     return;
                 }
             }
@@ -3305,7 +3329,7 @@ public final class ScriptRunner {
                         local1436 = false;
                     }
                     if (local34 >= 150 && local34 < 5000) {
-                        method6416(local34, local1436);
+                        handleSmallOp(local34, local1436);
                     } else if (local34 >= 5000 && local34 < 10000) {
                         method6421(local34, local1436);
                     } else {
@@ -3577,11 +3601,11 @@ public final class ScriptRunner {
                                 aStringArray37[anInt7139++] = local465;
                             }
                         } else if (local34 == 112) {
-                            anIntArray578[anInt7142++] = method6412(local11[local5]);
+                            anIntArray578[anInt7142++] = getClanSettingVarbit(local11[local5]);
                         } else if (local34 == 113) {
-                            anIntArray578[anInt7142++] = method6411(local11[local5]);
+                            anIntArray578[anInt7142++] = getClanSettingInt(local11[local5]);
                         } else if (local34 == 114) {
-                            aLongArray14[anInt7152++] = method6413(local11[local5]);
+                            aLongArray14[anInt7152++] = getClanSettingLong(local11[local5]);
                         } else if (local34 == 115) {
                             aStringArray37[anInt7139++] = method6425(local11[local5]);
                         }
@@ -6291,7 +6315,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "e", descriptor = "(I)Ljava/lang/String;")
     public static String method6425(@OriginalArg(0) int arg0) {
-        @Pc(9) String local9 = aClanSettings_7.getExtraSettingString(Client.modeGame.id << 16 | arg0);
+        @Pc(9) String local9 = clanSettings.getExtraSettingString(Client.modeGame.id << 16 | arg0);
         return local9 == null ? "" : local9;
     }
 

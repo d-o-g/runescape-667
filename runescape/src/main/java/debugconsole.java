@@ -786,7 +786,7 @@ public final class debugconsole {
                     ClientOptions.instance.update(mode, ClientOptions.instance.orthographic);
                     ClientOptions.save();
                     Static503.sentPreferences = false;
-                    Static498.method6646();
+                    Static498.setOrthoMode();
 
                     if (mode != ClientOptions.instance.orthographic.getValue()) {
                         addline("Failed to change ortho mode");
@@ -814,7 +814,7 @@ public final class debugconsole {
                     Static288.anInt4620 = size;
                     Static32.anInt777 = size;
                     addline("ortho tile size=" + size);
-                    Static498.method6646();
+                    Static498.setOrthoMode();
                     return;
                 }
 

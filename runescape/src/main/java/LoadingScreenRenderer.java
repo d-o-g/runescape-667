@@ -3,7 +3,7 @@ import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.graphics.Exception_Sub1;
+import com.jagex.graphics.FlipException;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
@@ -171,7 +171,7 @@ public final class LoadingScreenRenderer implements Runnable {
                             if (Toolkit.active != null && !(this.currentScreen instanceof AwtLoadingScreen)) {
                                 Toolkit.active.flip();
                             }
-                        } catch (@Pc(205) Exception_Sub1 local205) {
+                        } catch (@Pc(205) FlipException local205) {
                             JagException.sendTrace(local205, local205.getMessage() + " (Recovered) " + client.aClient1.getErrorTrace());
                             Static32.setToolkit(ToolkitType.JAVA, true);
                         }

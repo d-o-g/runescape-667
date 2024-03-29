@@ -2,7 +2,7 @@ import com.jagex.Class67;
 import com.jagex.graphics.Renderer;
 import com.jagex.Interface26;
 import com.jagex.Static14;
-import com.jagex.graphics.Exception_Sub1;
+import com.jagex.graphics.FlipException;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Surface;
@@ -704,7 +704,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "e", descriptor = "(II)V")
     @Override
-    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1 {
+    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws FlipException {
         this.anIDirect3DDevice1.EndScene();
         if (this.aClass349_1.method8181()) {
             this.anInt5370 = 0;
@@ -714,7 +714,7 @@ public final class D3DToolkit extends NativeToolkit {
         } else if (++this.anInt5370 <= 50) {
             this.method4861();
         } else {
-            throw new Exception_Sub1();
+            throw new FlipException();
         }
         this.anIDirect3DDevice1.BeginScene();
     }
@@ -883,7 +883,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
-    public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws Exception_Sub1 {
+    public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws FlipException {
         this.flip(x, y);
     }
 

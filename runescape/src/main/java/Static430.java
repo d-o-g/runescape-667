@@ -1,4 +1,4 @@
-import com.jagex.graphics.Exception_Sub1;
+import com.jagex.graphics.FlipException;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -16,7 +16,7 @@ public final class Static430 {
     }
 
     @OriginalMember(owner = "client!nja", name = "d", descriptor = "(B)V")
-    public static void flip() throws Exception_Sub1 {
+    public static void flip() throws FlipException {
         if (Static448.anInt6796 == 1) {
             Static74.aToolkit_4.flip(Static2.anInt45, Static312.anInt5001);
         } else {

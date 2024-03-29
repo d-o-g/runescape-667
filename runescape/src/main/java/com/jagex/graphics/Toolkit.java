@@ -267,7 +267,7 @@ public abstract class Toolkit {
     public abstract void C(@OriginalArg(0) boolean arg0);
 
     @OriginalMember(owner = "client!ha", name = "e", descriptor = "(II)V")
-    public abstract void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1;
+    public abstract void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws FlipException;
 
     @OriginalMember(owner = "client!ha", name = "d", descriptor = "(IIIIII)V")
     public abstract void outlineRect(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode);
@@ -306,7 +306,7 @@ public abstract class Toolkit {
     public abstract void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!ha", name = "g", descriptor = "(I)V")
-    public final void flip() throws Exception_Sub1 {
+    public final void flip() throws FlipException {
         this.flip(0, 0);
     }
 
@@ -404,7 +404,7 @@ public abstract class Toolkit {
     public abstract ClippingMask createMask(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) int[] offsets, @OriginalArg(3) int[] widths);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IB[Ljava/awt/Rectangle;)V")
-    public final void method8005(@OriginalArg(0) int arg0, @OriginalArg(2) Rectangle[] arg1) throws Exception_Sub1 {
+    public final void method8005(@OriginalArg(0) int arg0, @OriginalArg(2) Rectangle[] arg1) throws FlipException {
         this.flipDirtyRect(arg1, arg0, 0, 0);
     }
 
@@ -448,7 +448,7 @@ public abstract class Toolkit {
     public abstract Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
-    public abstract void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws Exception_Sub1;
+    public abstract void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws FlipException;
 
     /**
      * clsMasked

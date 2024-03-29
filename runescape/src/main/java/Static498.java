@@ -73,7 +73,7 @@ public final class Static498 {
     }
 
     @OriginalMember(owner = "client!pm", name = "b", descriptor = "(I)V")
-    public static void method6646() {
+    public static void setOrthoMode() {
         Static135.method7237();
         @Pc(19) int value = ClientOptions.instance.orthographic.getValue();
         if (value == 2) {

@@ -9,7 +9,7 @@ import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.graphics.Exception_Sub1;
+import com.jagex.graphics.FlipException;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Surface;
@@ -617,7 +617,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
-    public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws Exception_Sub1 {
+    public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws FlipException {
         this.flip(x, y);
     }
 
@@ -663,7 +663,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "e", descriptor = "(II)V")
     @Override
-    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1 {
+    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws FlipException {
         this.anOpenGL2.swapBuffers();
     }
 

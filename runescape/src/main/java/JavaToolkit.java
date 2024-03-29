@@ -13,7 +13,7 @@ import com.jagex.core.util.SystemTimer;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
-import com.jagex.graphics.Exception_Sub1;
+import com.jagex.graphics.FlipException;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Interface9;
 import com.jagex.graphics.Matrix;
@@ -1443,7 +1443,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
-    public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws Exception_Sub1 {
+    public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws FlipException {
         if (this.aCanvas3 == null || this.aClass2_Sub10_1 == null) {
             throw new IllegalStateException("off");
         }
@@ -2348,7 +2348,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "e", descriptor = "(II)V")
     @Override
-    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws Exception_Sub1 {
+    public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws FlipException {
         if (this.aCanvas3 == null || this.aClass2_Sub10_1 == null) {
             throw new IllegalStateException("off");
         }

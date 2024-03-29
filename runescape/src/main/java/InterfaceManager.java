@@ -2367,7 +2367,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(IIIZI)V")
     public static void changeWindowMode(@OriginalArg(1) int mode, @OriginalArg(2) int width, @OriginalArg(3) boolean modeDifferent, @OriginalArg(4) int height) {
-        Static498.method6646();
+        Static498.setOrthoMode();
         Static297.aLong153 = 0L;
 
         @Pc(10) int current = getWindowMode();

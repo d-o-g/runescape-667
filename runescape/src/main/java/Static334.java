@@ -44,12 +44,12 @@ public final class Static334 {
             }
         }
 
-        Fonts.debug.render(10, 75, "Dynamic: " + Static125.dynamicEntityCount + "/" + 5000, 0xFF000000, 0xFFFFFF00);
-        Fonts.debug.render(10, 90, "Total Opaque Onscreen: " + Static546.onscreenOpaqueEntityCount + "/" + 10000, 0xFF000000, 0xFFFFFF00);
-        Fonts.debug.render(10, 105, "Total Trans Onscreen: " + Static645.onscreenTransparentEntityCount + "/" + 5000, 0xFF000000, 0xFFFFFF00);
-        Fonts.debug.render(10, 120, "Occluders: " + (Static317.anInt5046 + Static444.anInt6751) + " Active: " + Static469.activeOccluderCount, 0xFF000000, 0xFFFFFF00);
-        Fonts.debug.render(10, 135, "Occluded: Ground:" + Static298.occludedGroundCount + " Walls: " + Static679.occludedWallCount + " CPs: " + Static356.anInt5773 + " Pixels: " + Static432.occludedPixelCount, 0xFF000000, 0xFFFFFF00);
-        Fonts.debug.render(10, 150, "Occlude Calc Took: " + Static666.occludeCalcElapsedMs / 1000L + "us", 0xFF000000, 0xFFFFFF00);
+        Fonts.debug.render("Dynamic: " + Static125.dynamicEntityCount + "/" + 5000, 10, 75, 0xFF000000, 0xFFFFFF00);
+        Fonts.debug.render("Total Opaque Onscreen: " + Static546.onscreenOpaqueEntityCount + "/" + 10000, 10, 90, 0xFF000000, 0xFFFFFF00);
+        Fonts.debug.render("Total Trans Onscreen: " + Static645.onscreenTransparentEntityCount + "/" + 5000, 10, 105, 0xFF000000, 0xFFFFFF00);
+        Fonts.debug.render("Occluders: " + (Static317.anInt5046 + Static444.anInt6751) + " Active: " + Static469.activeOccluderCount, 10, 120, 0xFF000000, 0xFFFFFF00);
+        Fonts.debug.render("Occluded: Ground:" + Static298.occludedGroundCount + " Walls: " + Static679.occludedWallCount + " CPs: " + Static356.anInt5773 + " Pixels: " + Static432.occludedPixelCount, 10, 135, 0xFF000000, 0xFFFFFF00);
+        Fonts.debug.render("Occlude Calc Took: " + Static666.occludeCalcElapsedMs / 1000L + "us", 10, 150, 0xFF000000, 0xFFFFFF00);
 
         if (Static684.w2debug == 2 && Static485.anIntArray886 != null) {
             for (@Pc(389) int local389 = 0; local389 < Static485.anIntArray886.length; local389++) {

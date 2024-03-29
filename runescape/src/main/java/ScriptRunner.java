@@ -1,7 +1,7 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
-import com.jagex.LibraryList;
+import rs2.client.loading.library.LibraryManager;
 import com.jagex.PrivateChatMode;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.io.ConnectionInfo;
@@ -6058,7 +6058,7 @@ public final class ScriptRunner {
                             return;
                         }
                         if (arg0 == 7103) {
-                            anIntArray578[anInt7142++] = LibraryList.isNativeLoaded("jagtheora") ? 1 : 0;
+                            anIntArray578[anInt7142++] = LibraryManager.isNativeLoaded("jagtheora") ? 1 : 0;
                             return;
                         }
                     } else if (arg0 < 7300) {

@@ -84,7 +84,7 @@ public final class LoadingScreenRenderer implements Runnable {
     }
 
     @OriginalMember(owner = "client!uaa", name = "d", descriptor = "(I)I")
-    public int method8375() {
+    public int nextPercentage() {
         if (this.state == null) {
             return 0;
         }
@@ -131,7 +131,7 @@ public final class LoadingScreenRenderer implements Runnable {
                         if (Toolkit.active == null || this.lastScreen == null || this.lastScreen.getFadeDuration() == 0 || this.transitionStart < now - (long) this.lastScreen.getFadeDuration()) {
                             if (this.lastScreen != null) {
                                 this.fullRepaint = true;
-                                this.lastScreen.method8461();
+                                this.lastScreen.cleanup();
                                 this.lastScreen = null;
                             }
 

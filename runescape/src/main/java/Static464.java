@@ -2,8 +2,8 @@ import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.loading.screen.instance.ImageInstance;
-import rs2.client.loading.screen.instance.RotatingImageInstance;
+import rs2.client.loading.screen.op.instance.ImageInstance;
+import rs2.client.loading.screen.op.instance.RotatingImageInstance;
 
 public final class Static464 {
 

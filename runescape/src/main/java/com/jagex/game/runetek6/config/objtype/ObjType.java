@@ -650,7 +650,7 @@ public final class ObjType {
         }
 
         if (objNumMode == SHOWCOUNT_ALWAYS || objNumMode == SHOWCOUNT_IFNOT1 && (this.stackable == ObjStackability.ALWAYS || invCount != 1) && invCount != -1) {
-            font.render(0, 9, this.formatAmount(invCount), 0xFF000001, 0xFFFFFF00);
+            font.render(this.formatAmount(invCount), 0, 9, 0xFF000001, 0xFFFFFF00);
         }
 
         image = scratchToolkit.na(0, 0, 36, 32);

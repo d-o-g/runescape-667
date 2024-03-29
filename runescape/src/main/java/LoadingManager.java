@@ -1,8 +1,10 @@
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.loading.Js5GroupLoader;
-import rs2.client.loading.Js5Loader;
+import rs2.client.loading.loader.Js5FileLoader;
+import rs2.client.loading.loader.Js5GroupLoader;
+import rs2.client.loading.loader.Js5Loader;
+import rs2.client.loading.loader.LibraryLoader;
 
 public final class LoadingManager {
 

@@ -1,8 +1,8 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
-import rs2.client.loading.Loader;
-import rs2.client.loading.LoadingRequirementType;
+import rs2.client.loading.loader.Loader;
+import rs2.client.loading.loader.LoadingRequirementType;
 
 @OriginalClass("client!rr")
 public final class LoadingRequirement {

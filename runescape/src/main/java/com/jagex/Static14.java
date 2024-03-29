@@ -2,6 +2,7 @@ package com.jagex;
 
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.loading.library.LibraryManager;
 
 public final class Static14 {
 
@@ -14,7 +15,7 @@ public final class Static14 {
 
     @OriginalMember(owner = "client!ai", name = "a", descriptor = "(ILjava/lang/String;)Z")
     public static boolean loadNativeLibrary(@OriginalArg(1) String arg0) {
-        return LibraryList.loadNative(aClass1 == null ? (aClass1 = getClass("rs2.client.loading.NativeLibrary")) : aClass1, arg0);
+        return LibraryManager.loadNative(aClass1 == null ? (aClass1 = getClass("rs2.client.loading.library.NativeLibrary")) : aClass1, arg0);
     }
 
     static Class getClass(String name) {

@@ -723,7 +723,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     public native int[] na(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
 
     @OriginalMember(owner = "client!oa", name = "K", descriptor = "([I)V")
-    public native void K(@OriginalArg(0) int[] arg0);
+    public native void K(@OriginalArg(0) int[] destination);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override

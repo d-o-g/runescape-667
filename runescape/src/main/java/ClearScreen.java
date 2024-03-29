@@ -3,7 +3,7 @@ import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
-import rs2.client.loading.screen.instance.ClearScreenInstance;
+import rs2.client.loading.screen.op.instance.ClearScreenInstance;
 import rs2.client.loading.screen.op.LoadingScreenOp;
 
 @OriginalClass("client!aca")

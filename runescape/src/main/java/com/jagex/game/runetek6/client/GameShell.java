@@ -2,7 +2,7 @@ package com.jagex.game.runetek6.client;
 
 import com.jagex.Canvas_Sub1;
 import com.jagex.core.util.TickScheduler;
-import com.jagex.LibraryList;
+import rs2.client.loading.library.LibraryManager;
 import com.jagex.sign.SignLink;
 import com.jagex.sign.SignedResource;
 import com.jagex.sign.SignedResourceStatus;
@@ -203,10 +203,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     @OriginalMember(owner = "client!pq", name = "d", descriptor = "(I)Z")
     public static boolean unloadNatives() {
         @Pc(7) Hashtable local7 = new Hashtable();
-        @Pc(10) Enumeration local10 = LibraryList.nativeLibraries.keys();
+        @Pc(10) Enumeration local10 = LibraryManager.nativeLibraries.keys();
         while (local10.hasMoreElements()) {
             @Pc(14) Object local14 = local10.nextElement();
-            local7.put(local14, LibraryList.nativeLibraries.get(local14));
+            local7.put(local14, LibraryManager.nativeLibraries.get(local14));
         }
         try {
             @Pc(35) Class local35 = Class.forName("java.lang.reflect.AccessibleObject");
@@ -215,12 +215,12 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             @Pc(58) Method local58 = local35.getDeclaredMethod("setAccessible", Boolean.TYPE);
             local58.invoke(local46, Boolean.TRUE);
             try {
-                local10 = LibraryList.nativeLibraries.keys();
+                local10 = LibraryManager.nativeLibraries.keys();
                 while (local10.hasMoreElements()) {
                     @Pc(76) String local76 = (String) local10.nextElement();
                     try {
-                        @Pc(81) File local81 = (File) LibraryList.libraries.get(local76);
-                        @Pc(86) Class local86 = (Class) LibraryList.nativeLibraries.get(local76);
+                        @Pc(81) File local81 = (File) LibraryManager.libraries.get(local76);
+                        @Pc(86) Class local86 = (Class) LibraryManager.nativeLibraries.get(local76);
                         @Pc(92) Vector local92 = (Vector) local46.get(local86.getClassLoader());
                         for (@Pc(94) int local94 = 0; local92.size() > local94; local94++) {
                             try {
@@ -257,8 +257,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
             local58.invoke(local46, Boolean.FALSE);
         } catch (@Pc(245) Throwable local245) {
         }
-        LibraryList.nativeLibraries = local7;
-        return LibraryList.nativeLibraries.isEmpty();
+        LibraryManager.nativeLibraries = local7;
+        return LibraryManager.nativeLibraries.isEmpty();
     }
 
     @OriginalMember(owner = "client!nda", name = "e", descriptor = "(B)V")

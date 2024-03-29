@@ -4,14 +4,20 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.loading.screen.instance.ImageInstance;
-import rs2.client.loading.screen.instance.ClearScreenInstance;
-import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
-import rs2.client.loading.screen.instance.NewsInstance;
-import rs2.client.loading.screen.instance.RotatingImageInstance;
+import rs2.client.loading.screen.op.instance.BackgroundImageInstance;
+import rs2.client.loading.screen.op.instance.FancyProgressBarInstance;
+import rs2.client.loading.screen.op.instance.ImageInstance;
+import rs2.client.loading.screen.op.instance.ClearScreenInstance;
+import rs2.client.loading.screen.op.instance.ImageProgressBarInstance;
+import rs2.client.loading.screen.op.instance.LoadingScreenOpInstance;
+import rs2.client.loading.screen.op.instance.NewsInstance;
+import rs2.client.loading.screen.op.instance.RotatingImageInstance;
+import rs2.client.loading.screen.op.instance.SolidProgressBarInstance;
+import rs2.client.loading.screen.op.instance.TextInstance;
 import rs2.client.loading.screen.op.LoadingScreenOp;
 import rs2.client.loading.screen.op.LoadingScreenOpType;
 import rs2.client.loading.screen.op.News;
+import rs2.client.loading.screen.op.Text;
 
 @OriginalClass("client!we")
 public final class LoadingScreenOpFactory {
@@ -32,10 +38,11 @@ public final class LoadingScreenOpFactory {
     }
 
     @OriginalMember(owner = "client!we", name = "a", descriptor = "(ILclient!gja;)Lclient!jd;")
-    public LoadingScreenOp method9168(@OriginalArg(1) LoadingScreenOpInstance instance) {
+    public LoadingScreenOp create(@OriginalArg(1) LoadingScreenOpInstance instance) {
         if (instance == null) {
             return null;
         }
+
         @Pc(18) LoadingScreenOpType type = instance.type();
         if (type == LoadingScreenOpType.CLEAR_SCREEN) {
             return new ClearScreen((ClearScreenInstance) instance);
@@ -46,17 +53,17 @@ public final class LoadingScreenOpFactory {
         } else if (LoadingScreenOpType.ROTATING_IMAGE == type) {
             return new RotatingImage(this.loadingSprites, (RotatingImageInstance) instance);
         } else if (LoadingScreenOpType.SOLID_PROGRESS_BAR == type) {
-            return new Class90_Sub1(this.loadingSprites, this.fontMetrics, (Class138_Sub3) instance);
+            return new SolidProgressBar(this.loadingSprites, this.fontMetrics, (SolidProgressBarInstance) instance);
         } else if (LoadingScreenOpType.IMAGE_PROGRESS_BAR == type) {
-            return new Class90_Sub3(this.loadingSprites, this.fontMetrics, (Class138_Sub2) instance);
+            return new ImageProgressBar(this.loadingSprites, this.fontMetrics, (ImageProgressBarInstance) instance);
         } else if (LoadingScreenOpType.FANCY_PROGRESS_BAR == type) {
-            return new Class90_Sub2(this.loadingSprites, this.fontMetrics, (Class138_Sub1) instance);
+            return new FancyProgressBar(this.loadingSprites, this.fontMetrics, (FancyProgressBarInstance) instance);
         } else if (type == LoadingScreenOpType.TEXT) {
-            return new Class133(this.loadingSprites, this.fontMetrics, (Class125) instance);
+            return new Text(this.loadingSprites, this.fontMetrics, (TextInstance) instance);
         } else if (type == LoadingScreenOpType.BACKGROUND_IMAGE) {
-            return new Class109(this.loadingSprites, (Class200) instance);
+            return new BackgroundImage(this.loadingSprites, (BackgroundImageInstance) instance);
         } else if (LoadingScreenOpType.ANIMATED_PROGRESS_BAR == type) {
-            return new Class90_Sub2_Sub1(this.loadingSprites, this.fontMetrics, (Class138_Sub1_Sub1) instance);
+            return new AnimatedProgressBar(this.loadingSprites, this.fontMetrics, (AnimatedProgressBarInstance) instance);
         } else {
             return null;
         }

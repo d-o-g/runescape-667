@@ -33,8 +33,16 @@ public final class Client {
         new Color(0xFF3905)
     };
 
+    @OriginalMember(owner = "client!mja", name = "f", descriptor = "[Ljava/awt/Color;")
+    public static final Color[] TEXT_COLOURS = {
+        new Color(0xFFFFFF),
+        new Color(0xFFFFFF),
+        new Color(0xFF7405),
+        new Color(0xFF7405)
+    };
+
     @OriginalMember(owner = "client!wo", name = "y", descriptor = "[Ljava/awt/Color;")
-    public static final Color[] FILL_COLOURS = new Color[]{
+    public static final Color[] FILL_COLOURS = {
         new Color(0x8C1111),
         new Color(0x323232),
         new Color(0x323232),

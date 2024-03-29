@@ -1,4 +1,4 @@
-package com.jagex;
+package rs2.client.loading.library;
 
 import com.jagex.core.io.FileCache;
 import com.jagex.core.io.Files;
@@ -13,7 +13,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Hashtable;
 
-public final class LibraryList {
+public final class LibraryManager {
 
     private static boolean debug = false;
 
@@ -38,8 +38,8 @@ public final class LibraryList {
 
     @OriginalMember(owner = "client!qla", name = "a", descriptor = "(ILclient!sb;Lclient!vq;)V")
     public static void init(@OriginalArg(1) js5 dlls, @OriginalArg(2) SignLink signLink) {
-        LibraryList.dlls = dlls;
-        LibraryList.signLink = signLink;
+        LibraryManager.dlls = dlls;
+        LibraryManager.signLink = signLink;
 
         path = "";
 
@@ -51,7 +51,7 @@ public final class LibraryList {
             path = path + "macos/";
         }
 
-        if (LibraryList.signLink.microsoftjava) {
+        if (LibraryManager.signLink.microsoftjava) {
             path = path + "msjava/";
         } else if (ClientInfo.osArch.startsWith("amd64") || ClientInfo.osArch.startsWith("x86_64")) {
             path = path + "x86_64/";
@@ -196,7 +196,7 @@ public final class LibraryList {
 				return true;
 			} catch (@Pc(133) NoSuchMethodException ignored) {
                 System.load(file.getPath());
-                nativeLibraries.put(name, aClass6 == null ? (aClass6 = getClass("rs2.client.loading.NativeLibrary")) : aClass6);
+                nativeLibraries.put(name, aClass6 == null ? (aClass6 = getClass("rs2.client.loading.library.NativeLibrary")) : aClass6);
 
                 if (debug) {
                     System.out.println("Loaded " + name + " using fallback!");
@@ -236,7 +236,7 @@ public final class LibraryList {
         return nativeLibraries.containsKey(arg0);
     }
 
-    private LibraryList() {
+    private LibraryManager() {
         /* empty */
     }
 }

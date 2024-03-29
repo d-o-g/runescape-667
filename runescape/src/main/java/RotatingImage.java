@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.loading.screen.instance.RotatingImageInstance;
+import rs2.client.loading.screen.op.instance.RotatingImageInstance;
 
 @OriginalClass("client!bf")
 public final class RotatingImage extends Image {

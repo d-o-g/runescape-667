@@ -92,7 +92,7 @@ public final class Class46 implements Runnable {
                         Static658.method8591(local29, this.aClass2_Sub7Array2);
 
                         if (Fonts.debug != null) {
-                            Fonts.debug.render(local29.anInt10692, local29.anInt10698, this.aClass302_1.aString97, 0xFF000000, 0xFFFFFF00);
+                            Fonts.debug.render(this.aClass302_1.aString97, local29.anInt10692, local29.anInt10698, 0xFF000000, 0xFFFFFF00);
                         }
                     }
                 } else {

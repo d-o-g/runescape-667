@@ -11,7 +11,7 @@ public interface LoadingScreen {
     int percentage();
 
     @OriginalMember(owner = "client!uha", name = "a", descriptor = "(I)V")
-    void method8461();
+    void cleanup();
 
     @OriginalMember(owner = "client!uha", name = "c", descriptor = "(I)I")
     int getFadeDuration();
@@ -20,7 +20,7 @@ public interface LoadingScreen {
     boolean method8463(@OriginalArg(1) long arg0);
 
     @OriginalMember(owner = "client!uha", name = "b", descriptor = "(I)V")
-    void method8464();
+    void init();
 
     @OriginalMember(owner = "client!uha", name = "a", descriptor = "(ZB)V")
     void render(@OriginalArg(0) boolean arg0);

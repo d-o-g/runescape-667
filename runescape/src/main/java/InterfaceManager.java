@@ -455,7 +455,7 @@ public final class InterfaceManager {
                                 fpsColour = 0xFFFF0000;
                             }
 
-                            Fonts.p12.render(drawX, "Fps:" + GameShell.currentFps, fpsColour, -1, drawY);
+                            Fonts.p12.renderRight("Fps:" + GameShell.currentFps, drawX, drawY, fpsColour, -1);
                             drawY += 15;
 
                             @Pc(768) Runtime runtime = Runtime.getRuntime();
@@ -479,17 +479,17 @@ public final class InterfaceManager {
                                 memoryColour = 0xFFFF0000;
                             }
 
-                            Fonts.p12.render(drawX, "Mem:" + memoryUsage + "k", memoryColour, 0xFFFFFFFF, drawY);
+                            Fonts.p12.renderRight("Mem:" + memoryUsage + "k", drawX, drawY, memoryColour, 0xFFFFFFFF);
                             drawY += 15;
 
-                            Fonts.p12.render(drawX, "Game: In:" + ServerConnection.GAME.readRate + "B/s Out:" + ServerConnection.GAME.writeRate + "B/s", 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            Fonts.p12.renderRight("Game: In:" + ServerConnection.GAME.readRate + "B/s Out:" + ServerConnection.GAME.writeRate + "B/s", drawX, drawY, 0xFFFFFF00, 0xFFFFFFFF);
                             drawY += 15;
 
-                            Fonts.p12.render(drawX, "Lobby: In:" + ServerConnection.LOBBY.readRate + "B/s Out:" + ServerConnection.LOBBY.writeRate + "B/s", 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            Fonts.p12.renderRight("Lobby: In:" + ServerConnection.LOBBY.readRate + "B/s Out:" + ServerConnection.LOBBY.writeRate + "B/s", drawX, drawY, 0xFFFFFF00, 0xFFFFFFFF);
                             drawY += 15;
 
                             @Pc(792) int offheap = Toolkit.active.E() / 1024;
-                            Fonts.p12.render(drawX, "Offheap:" + offheap + "k", offheap > 65536 ? 0xFFFF0000 : 0xFFFFFF00, -1, drawY);
+                            Fonts.p12.renderRight("Offheap:" + offheap + "k", drawX, drawY, offheap > 65536 ? 0xFFFF0000 : 0xFFFFFF00, -1);
                             drawY += 15;
 
                             @Pc(936) int entryTotal = 0;
@@ -507,20 +507,20 @@ public final class InterfaceManager {
                             @Pc(992) int totalPercentage = (loadedTotal * 10000) / entryTotal;
 
                             @Pc(1018) String cache = "Cache:" + StringTools.formatNumber(0, true, totalPercentage, 2) + "% (" + extrasPercentage + "%)";
-                            Fonts.p11.render(drawX, cache, 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            Fonts.p11.renderRight(cache, drawX, drawY, 0xFFFFFF00, 0xFFFFFFFF);
                             drawY += 12;
                         }
 
                         if (ParticleManager.particleCount > 0) {
-                            Fonts.p11.render(drawX, "Particles: " + ParticleManager.runningParticleCount + " / " + ParticleManager.particleCount, 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            Fonts.p11.renderRight("Particles: " + ParticleManager.runningParticleCount + " / " + ParticleManager.particleCount, drawX, drawY, 0xFFFFFF00, 0xFFFFFFFF);
                         }
                         drawY += 12;
 
                         if (Static354.showProfiling) {
-                            Fonts.p11.render(drawX, "Polys: " + Toolkit.active.I() + " Models: " + Toolkit.active.M(), 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            Fonts.p11.renderRight("Polys: " + Toolkit.active.I() + " Models: " + Toolkit.active.M(), drawX, drawY, 0xFFFFFF00, 0xFFFFFFFF);
                             drawY += 12;
 
-                            Fonts.p11.render(drawX, "Ls: " + Static606.anInt8954 + " La: " + Static577.anInt8587 + " NPC: " + Static480.npcCount + " Pl: " + Static179.playerCount, 0xFFFFFF00, 0xFFFFFFFF, drawY);
+                            Fonts.p11.renderRight("Ls: " + Static606.anInt8954 + " La: " + Static577.anInt8587 + " NPC: " + Static480.npcCount + " Pl: " + Static179.playerCount, drawX, drawY, 0xFFFFFF00, 0xFFFFFFFF);
                             Static126.method2228();
                             drawY += 12;
                         }
@@ -634,7 +634,7 @@ public final class InterfaceManager {
                                 Toolkit.active.T(screenX, screenY, screenX + child.width, child.height + screenY);
                             }
 
-                            font.renderLines(child.verticalAlignment, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, Sprites.nameIcons, child.maxLines, 0, screenY, child.height, 0, null, child.lineHeight, child.width, screenX, child.horizontalAlignment, null, text);
+                            font.renderLines(text, screenX, screenY, 0, 0, child.width, child.height, child.horizontalAlignment, child.verticalAlignment, child.maxLines, child.lineHeight, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, null, Sprites.nameIcons, null);
 
                             if (clipComponents) {
                                 Toolkit.active.KA(arg3, arg4, arg8, arg5);

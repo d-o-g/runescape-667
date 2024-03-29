@@ -1,4 +1,4 @@
-package rs2.client.loading.screen.instance;
+package rs2.client.loading.screen.op.instance;
 
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

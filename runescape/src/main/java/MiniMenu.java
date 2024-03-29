@@ -1032,7 +1032,7 @@ public final class MiniMenu {
             text = text + questIcon(quests);
         }
 
-        Fonts.b12.render(textColour, 0, innerY, text, x + 3, icons, iconHeights);
+        Fonts.b12.render(text, x + 3, innerY, textColour, 0, icons, iconHeights);
 
         if (entry.differentLevel) {
             Sprites.otherlevel.render(x + Fonts.b12Metrics.stringWidth(text) + 5, innerY - 12);
@@ -1765,7 +1765,7 @@ public final class MiniMenu {
         }
 
         drawFrame(toolkit, x + offsetX, y + offsetY, width, height);
-        Fonts.b12.render(x + offsetX + 3, y + offsetY + 14, LocalisedText.CHOOSEOPTION.localise(Client.language), 0xFFFFFFFF, 0xFF5D5447);
+        Fonts.b12.render(LocalisedText.CHOOSEOPTION.localise(Client.language), x + offsetX + 3, y + offsetY + 14, 0xFFFFFFFF, 0xFF5D5447);
 
         @Pc(69) int mouseX = MouseMonitor.instance.getRecordedX() + offsetX;
         @Pc(76) int mouseY = MouseMonitor.instance.getRecordedY() + offsetY;
@@ -1789,7 +1789,7 @@ public final class MiniMenu {
                 drawFrame(toolkit, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
 
                 count = 0;
-                Fonts.b12.render(openedEntryX + 3, openedEntryY + 14, openedEntry.title, -1, 0xFF5D5447);
+                Fonts.b12.render(openedEntry.title, openedEntryX + 3, openedEntryY + 14, -1, 0xFF5D5447);
 
                 for (@Pc(239) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
                     @Pc(251) int innerY = (count * ENTRY_HEIGHT) + openedEntryY + 31;
@@ -1819,7 +1819,7 @@ public final class MiniMenu {
         }
 
         @Pc(41) String text = entryTitle(inner);
-        Fonts.b12.render(colour, 0, y, text, x + 3, icons, iconHeights);
+        Fonts.b12.render(text, x + 3, y, colour, 0, icons, iconHeights);
     }
 
     @OriginalMember(owner = "client!fu", name = "a", descriptor = "(Lclient!cba;B)Ljava/lang/String;")
@@ -1852,7 +1852,7 @@ public final class MiniMenu {
             topRightCornerSprite.render(width + x - topRightCornerSprite.getWidth(), y);
         }
 
-        Fonts.b12.render(x + 3, y + 14, text, -1, 0xFF000000 | textColour);
+        Fonts.b12.render(text, x + 3, y + 14, -1, 0xFF000000 | textColour);
         toolkit.aa(x, y + 20, width, height - 20, ((0xFF - topOpacity) << 24) | topColour, 1);
     }
 

@@ -3,6 +3,7 @@ import com.jagex.graphics.Fonts;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.op.instance.BackgroundImageInstance;
 
 public final class Static112 {
 
@@ -64,9 +65,9 @@ public final class Static112 {
     }
 
     @OriginalMember(owner = "client!dj", name = "a", descriptor = "(BLclient!ge;)Lclient!jt;")
-    public static Class200 method2106(@OriginalArg(1) Packet arg0) {
+    public static BackgroundImageInstance method2106(@OriginalArg(1) Packet arg0) {
         @Pc(7) int local7 = arg0.g2();
-        return new Class200(local7);
+        return new BackgroundImageInstance(local7);
     }
 
     @OriginalMember(owner = "client!dj", name = "e", descriptor = "(I)V")

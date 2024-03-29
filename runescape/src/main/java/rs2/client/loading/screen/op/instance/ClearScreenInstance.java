@@ -1,4 +1,4 @@
-package rs2.client.loading.screen.instance;
+package rs2.client.loading.screen.op.instance;
 
 import com.jagex.core.io.Packet;
 import org.openrs2.deob.annotation.OriginalArg;

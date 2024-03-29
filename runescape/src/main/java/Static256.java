@@ -246,7 +246,7 @@ public final class Static256 {
         @Pc(131) int centerX = local107 - paraWidth / 2;
         @Pc(139) int textHeight = metrics.stringHeight(100, 0, text, null);
         if (centerX >= -component.width && component.width >= centerX && local118 >= -component.height && component.height >= local118) {
-            font.renderLines(offsetY, null, colour, text, arg7, null, ((component.height / 2) + offsetY) - local118 - height - textHeight, 0, offsetX, 1, (component.width / 2) + centerX + offsetX, 0, 0, paraWidth, 50);
+            font.renderLines(text, (component.width / 2) + centerX + offsetX, ((component.height / 2) + offsetY) - local118 - height - textHeight, offsetX, offsetY, paraWidth, 50, 1, 0, 0, colour, 0, arg7, null, null);
         }
     }
 }

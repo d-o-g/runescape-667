@@ -8,9 +8,4 @@ public final class Static137 {
         return (arg1 & 0xC580) != 0;
     }
 
-    @OriginalMember(owner = "client!ef", name = "a", descriptor = "(I)V")
-    public static void method2354() {
-        Static589.aFont1 = null;
-        Static103.anImage1 = null;
-    }
 }

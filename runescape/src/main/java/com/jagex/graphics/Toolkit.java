@@ -101,10 +101,10 @@ public abstract class Toolkit {
     }
 
     /**
-     * getClipping
+     * projectClipping
      */
     @OriginalMember(owner = "client!ha", name = "K", descriptor = "([I)V")
-    public abstract void K(@OriginalArg(0) int[] arg0);
+    public abstract void K(@OriginalArg(0) int[] destination);
 
     /**
      * createPointLight

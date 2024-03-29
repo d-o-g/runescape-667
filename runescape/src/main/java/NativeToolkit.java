@@ -2326,11 +2326,11 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "K", descriptor = "([I)V")
     @Override
-    public final void K(@OriginalArg(0) int[] arg0) {
-        arg0[1] = this.anInt9161;
-        arg0[2] = this.anInt9153;
-        arg0[3] = this.anInt9165;
-        arg0[0] = this.anInt9154;
+    public final void K(@OriginalArg(0) int[] destination) {
+        destination[1] = this.anInt9161;
+        destination[2] = this.anInt9153;
+        destination[3] = this.anInt9165;
+        destination[0] = this.anInt9154;
     }
 
     @OriginalMember(owner = "client!am", name = "e", descriptor = "(I)V")

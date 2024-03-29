@@ -1262,7 +1262,7 @@ public final class client extends GameShell {
         }
 
         Client.colourId = Integer.parseInt(this.getParameter("colourid"));
-        if (Client.colourId < 0 || Client.FILL_COLOURS.length <= Client.colourId) {
+        if (Client.colourId < 0 || Client.colourId >= Client.FILL_COLOURS.length) {
             Client.colourId = 0;
         }
 

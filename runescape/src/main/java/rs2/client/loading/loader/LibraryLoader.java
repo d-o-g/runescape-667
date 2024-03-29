@@ -1,10 +1,10 @@
-import com.jagex.LibraryList;
+package rs2.client.loading.loader;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.loading.Loader;
-import rs2.client.loading.LoadingRequirementType;
+import rs2.client.loading.library.LibraryManager;
 
 @OriginalClass("client!cha")
 public final class LibraryLoader implements Loader {
@@ -27,7 +27,7 @@ public final class LibraryLoader implements Loader {
             return 100;
         }
 
-        @Pc(14) int percentage = LibraryList.loadLibrary(this.name);
+        @Pc(14) int percentage = LibraryManager.loadLibrary(this.name);
         if (percentage >= 0 && percentage <= 100) {
             return percentage;
         } else {

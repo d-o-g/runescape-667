@@ -1415,11 +1415,11 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "K", descriptor = "([I)V")
     @Override
-    public void K(@OriginalArg(0) int[] arg0) {
-        arg0[0] = this.anInt4192;
-        arg0[1] = this.anInt4186;
-        arg0[2] = this.anInt4200;
-        arg0[3] = this.anInt4196;
+    public void K(@OriginalArg(0) int[] destination) {
+        destination[0] = this.anInt4192;
+        destination[1] = this.anInt4186;
+        destination[2] = this.anInt4200;
+        destination[3] = this.anInt4196;
     }
 
     @OriginalMember(owner = "client!iaa", name = "i", descriptor = "()I")

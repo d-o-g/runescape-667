@@ -17,7 +17,7 @@ public final class Static205 {
                 local17.unlink();
             } else {
                 Static143.method3573(local17.y * 2, (local17.x << 9) + 256, arg0 >> 1, (local17.z << 9) + 256, local17.level, arg1 >> 1);
-                Fonts.b12.renderCentre(0, OverlayManager.hitmarkpos[0] + arg3, local17.text, OverlayManager.hitmarkpos[1] + arg2, local17.colour | 0xFF000000);
+                Fonts.b12.renderCentre(local17.text, OverlayManager.hitmarkpos[0] + arg3, OverlayManager.hitmarkpos[1] + arg2, local17.colour | 0xFF000000, 0);
             }
         }
     }

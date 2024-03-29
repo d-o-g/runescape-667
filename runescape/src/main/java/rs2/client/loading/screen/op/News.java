@@ -10,8 +10,7 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.loading.screen.instance.NewsInstance;
-import rs2.client.loading.screen.op.LoadingScreenOp;
+import rs2.client.loading.screen.op.instance.NewsInstance;
 
 @OriginalClass("client!pga")
 public final class News implements LoadingScreenOp {
@@ -30,7 +29,7 @@ public final class News implements LoadingScreenOp {
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(BLclient!da;Ljava/lang/String;III)I")
     public int renderText(@OriginalArg(1) Font font, @OriginalArg(2) String text, @OriginalArg(3) int x, @OriginalArg(5) int y) {
-        return font.renderLines(0, null, this.instance.textColour, text, null, null, y + 5, this.instance.textShadowColour, 0, 0, x + 5, 0, 0, this.instance.width - 10, this.instance.height + -10);
+        return font.renderLines(text, x + 5, y + 5, 0, 0, this.instance.width - 10, this.instance.height + -10, 0, 0, 0, this.instance.textColour, this.instance.textShadowColour, null, null, null);
     }
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(ZI)V")

@@ -1,6 +1,6 @@
 import com.jagex.Client;
 import com.jagex.IndexedImage;
-import com.jagex.LibraryList;
+import rs2.client.loading.library.LibraryManager;
 import com.jagex.core.compress.GzipDecompressor;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -436,7 +436,7 @@ public final class Loading {
         }
 
         if (LoadState.SETUP_LIB_PATH == state) {
-            LibraryList.init(js5.DLLS, GameShell.signLink);
+            LibraryManager.init(js5.DLLS, GameShell.signLink);
         }
 
         if (LoadState.DOWNLOAD_STUFF == state) {
@@ -674,7 +674,7 @@ public final class Loading {
         for (@Pc(157) int i = screen + 1; i < screens.length; i++) {
             if (screens[i].percentage() >= 100 && screen == i - 1 && MainLogicManager.step >= MainLogicStep.STEP_LOADING_1 && renderer.method8376()) {
                 try {
-                    screens[i].method8464();
+                    screens[i].init();
                 } catch (@Pc(197) Exception ignored) {
                     screens = null;
                     return;

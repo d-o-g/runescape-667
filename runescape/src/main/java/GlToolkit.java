@@ -2776,11 +2776,11 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "K", descriptor = "([I)V")
     @Override
-    public void K(@OriginalArg(0) int[] arg0) {
-        arg0[1] = this.anInt8032;
-        arg0[3] = this.anInt8012;
-        arg0[0] = this.anInt8000;
-        arg0[2] = this.anInt8028;
+    public void K(@OriginalArg(0) int[] destination) {
+        destination[1] = this.anInt8032;
+        destination[3] = this.anInt8012;
+        destination[0] = this.anInt8000;
+        destination[2] = this.anInt8028;
     }
 
     @OriginalMember(owner = "client!qha", name = "H", descriptor = "(I)V")

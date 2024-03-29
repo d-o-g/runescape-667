@@ -30,7 +30,7 @@ public final class Static143 {
         @Pc(14) LoadingScreen[] local14 = Loading.screens;
         for (@Pc(16) int local16 = 0; local16 < local14.length; local16++) {
             @Pc(21) LoadingScreen local21 = local14[local16];
-            local21.method8464();
+            local21.init();
         }
     }
 

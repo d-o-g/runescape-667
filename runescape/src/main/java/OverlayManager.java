@@ -673,7 +673,7 @@ public final class OverlayManager {
                                         damageRight.render(local1898 + local1752 - damageRightOffsetX, local1908, 0, local2017, 1);
                                     }
 
-                                    hitFont.render(local1898 + local1743, local1922, damageTypeText, 0, local1969 | damageType.textColour);
+                                    hitFont.render(damageTypeText, local1898 + local1743, local1922, 0, local1969 | damageType.textColour);
 
                                     if (soakType != null) {
                                         if (soakIcon != null) {
@@ -690,7 +690,7 @@ public final class OverlayManager {
                                         if (soakRight != null) {
                                             soakRight.render(local1898 + local1790 - soakRightOffsetX, local1908, 0, local2017, 1);
                                         }
-                                        soakFont.render(local1792 + local1898, local1949, soakAmountText, 0, soakType.textColour | local1969);
+                                        soakFont.render(soakAmountText, local1792 + local1898, local1949, 0, soakType.textColour | local1969);
                                     }
                                 } else {
                                     if (damageIcon != null) {
@@ -708,7 +708,7 @@ public final class OverlayManager {
                                         damageRight.render(local1752 + local1898 - damageRightOffsetX, local1908);
                                     }
 
-                                    hitFont.render(local1898 + local1743, local1922, damageTypeText, 0, damageType.textColour | 0xFF000000);
+                                    hitFont.render(damageTypeText, local1898 + local1743, local1922, 0, damageType.textColour | 0xFF000000);
 
                                     if (soakType != null) {
                                         if (soakIcon != null) {
@@ -725,7 +725,7 @@ public final class OverlayManager {
                                         if (soakRight != null) {
                                             soakRight.render(local1790 + local1898 - soakRightOffsetX, local1908);
                                         }
-                                        soakFont.render(local1792 + local1898, local1949, soakAmountText, 0, soakType.textColour | 0xFF000000);
+                                        soakFont.render(soakAmountText, local1792 + local1898, local1949, 0, soakType.textColour | 0xFF000000);
                                     }
                                 }
 
@@ -838,7 +838,7 @@ public final class OverlayManager {
 
                 @Pc(1321) int effect = chatLines[i].getEffect();
                 if (effect == 0) {
-                    Fonts.b12.renderCentre(-16777216, lineX + screenX, local2627, lineY + screenY, local2749);
+                    Fonts.b12.renderCentre(local2627, lineX + screenX, lineY + screenY, local2749, -16777216);
                     local1274 -= local321 >> 1;
                     local409 -= local321 >> 1;
                 }
@@ -874,7 +874,7 @@ public final class OverlayManager {
                     Toolkit.active.T(screenX + lineX - 50, screenY, lineX + screenX + 50, screenY - -screenHeight);
                     local409 += 50 - local1325;
                     local1274 += 50 - local1325;
-                    Fonts.b12.render(screenX + lineX + 50 - local1325, lineY + screenY, local2627, 0xFF000000, local2749);
+                    Fonts.b12.render(local2627, screenX + lineX + 50 - local1325, lineY + screenY, 0xFF000000, local2749);
                     Toolkit.active.KA(screenX, screenY, screenX + screenWidth, screenHeight + screenY);
                 }
 
@@ -893,11 +893,11 @@ public final class OverlayManager {
                     local409 -= local321 >> 1;
                     local1274 -= local321 >> 1;
                     local412 += local1325;
-                    Fonts.b12.renderCentre(0xFF000000, screenX + lineX, local2627, local1325 + lineY + screenY, local2749);
+                    Fonts.b12.renderCentre(local2627, screenX + lineX, local1325 + lineY + screenY, local2749, 0xFF000000);
                     Toolkit.active.KA(screenX, screenY, screenX + screenWidth, screenY + screenHeight);
                 }
             } else {
-                Fonts.b12.renderCentre(0xFF000000, lineX + screenX, local2627, screenY + lineY, 0xFFFFFF00);
+                Fonts.b12.renderCentre(local2627, lineX + screenX, screenY + lineY, 0xFFFFFF00, 0xFF000000);
                 local409 -= local321 >> 1;
                 local1274 -= local321 >> 1;
             }

@@ -67,14 +67,14 @@ public final class Static694 {
             Static535.aIndexedImage_3.rotate();
             toolkit.createSprite(Static535.aIndexedImage_3, true).renderTiled(local92 + Static414.aIndexedImage_2.width, height + (local101 - imageWidth), width - Static414.aIndexedImage_2.width * 2, imageWidth);
             Static535.aIndexedImage_3.rotate();
-            font.renderLines(0, null, Static675.anInt10154 | 0xFF000000, text, null, null, imageWidthPlusBorder + local101, -1, 0, 1, local92 + imageWidthPlusBorder, 1, 0, width - imageWidthPlusBorder * 2, -(imageWidthPlusBorder * 2) + height);
+            font.renderLines(text, local92 + imageWidthPlusBorder, imageWidthPlusBorder + local101, 0, 0, width - imageWidthPlusBorder * 2, -(imageWidthPlusBorder * 2) + height, 1, 1, 0, Static675.anInt10154 | 0xFF000000, -1, null, null, null);
             InterfaceManager.redrawWithin(local92, local101, width, height);
         } else {
             @Pc(40) int paraWidth = p12Metrics.paraWidth(null, text, 250);
             @Pc(49) int paraHeight = p12Metrics.paraHeight(text, null, 250) * 13;
             toolkit.aa(6, 6, paraWidth + 4 + 4, paraHeight + 4 + 4, 0xFF000000, 0);
             toolkit.outlineRect(6, 6, paraWidth + 8, 4 + 4 + paraHeight, -1, 0);
-            p12.renderLines(0, null, 0xFFFFFFFF, text, null, null, 10, -1, 0, 1, 10, 1, 0, paraWidth, paraHeight);
+            p12.renderLines(text, 10, 10, 0, 0, paraWidth, paraHeight, 1, 1, 0, 0xFFFFFFFF, -1, null, null, null);
             InterfaceManager.redrawWithin(6, 6, paraWidth + 8, paraHeight + 4 + 4);
         }
 

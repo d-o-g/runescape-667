@@ -2,15 +2,10 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.Color;
-
 public final class Static399 {
 
     @OriginalMember(owner = "client!mja", name = "b", descriptor = "[I")
     public static final int[] anIntArray483 = new int[8];
-
-    @OriginalMember(owner = "client!mja", name = "f", descriptor = "[Ljava/awt/Color;")
-    public static final Color[] aColorArray2 = new Color[]{new Color(16777215), new Color(16777215), new Color(16741381), new Color(16741381)};
 
     @OriginalMember(owner = "client!mja", name = "a", descriptor = "(IIB)I")
     public static int method5571(@OriginalArg(0) int toolkit, @OriginalArg(1) int arg1) {

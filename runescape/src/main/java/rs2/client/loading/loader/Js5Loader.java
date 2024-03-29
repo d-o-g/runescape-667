@@ -1,4 +1,4 @@
-package rs2.client.loading;
+package rs2.client.loading.loader;
 
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

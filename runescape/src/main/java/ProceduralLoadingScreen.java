@@ -23,19 +23,19 @@ public final class ProceduralLoadingScreen implements LoadingScreen {
     public final LoadingScreenOp[] ops;
 
     @OriginalMember(owner = "client!tha", name = "<init>", descriptor = "(Lclient!de;Lclient!we;)V")
-    public ProceduralLoadingScreen(@OriginalArg(0) LoadingScreenType screen, @OriginalArg(1) LoadingScreenOpFactory arg1) {
+    public ProceduralLoadingScreen(@OriginalArg(0) LoadingScreenType screen, @OriginalArg(1) LoadingScreenOpFactory factory) {
         this.screen = screen;
         this.ops = new LoadingScreenOp[this.screen.ops.length];
 
         for (@Pc(15) int i = 0; i < this.ops.length; i++) {
-            this.ops[i] = arg1.method9168(this.screen.ops[i]);
+            this.ops[i] = factory.create(this.screen.ops[i]);
         }
     }
 
     @OriginalMember(owner = "client!tha", name = "a", descriptor = "(ZJ)Z")
     @Override
-    public boolean method8463(@OriginalArg(1) long arg0) {
-        return SystemTimer.safetime() >= (long) this.screen.start + arg0;
+    public boolean method8463(@OriginalArg(1) long time) {
+        return SystemTimer.safetime() >= (long) this.screen.start + time;
     }
 
     @OriginalMember(owner = "client!tha", name = "c", descriptor = "(I)I")
@@ -46,17 +46,20 @@ public final class ProceduralLoadingScreen implements LoadingScreen {
 
     @OriginalMember(owner = "client!tha", name = "b", descriptor = "(I)V")
     @Override
-    public void method8464() {
+    public void init() {
         if (this.toolkit != Toolkit.active) {
             this.toolkit = Toolkit.active;
             this.newToolkit = true;
         }
-        this.toolkit.GA(0);
-        @Pc(29) LoadingScreenOp[] local29 = this.ops;
-        for (@Pc(31) int local31 = 0; local31 < local29.length; local31++) {
-            @Pc(37) LoadingScreenOp local37 = local29[local31];
-            if (local37 != null) {
-                local37.init();
+
+        this.toolkit.GA(0x000000);
+
+        @Pc(29) LoadingScreenOp[] ops = this.ops;
+        for (@Pc(31) int i = 0; i < ops.length; i++) {
+            @Pc(37) LoadingScreenOp op = ops[i];
+
+            if (op != null) {
+                op.init();
             }
         }
     }
@@ -64,32 +67,38 @@ public final class ProceduralLoadingScreen implements LoadingScreen {
     @OriginalMember(owner = "client!tha", name = "d", descriptor = "(I)I")
     @Override
     public int percentage() {
-        @Pc(7) int local7 = 0;
-        @Pc(10) LoadingScreenOp[] op = this.ops;
-        for (@Pc(20) int local20 = 0; local20 < op.length; local20++) {
-            @Pc(26) LoadingScreenOp local26 = op[local20];
-            if (local26 == null || local26.ready()) {
-                local7++;
+        @Pc(7) int count = 0;
+        @Pc(10) LoadingScreenOp[] ops = this.ops;
+
+        for (@Pc(20) int i = 0; i < ops.length; i++) {
+            @Pc(26) LoadingScreenOp op = ops[i];
+
+            if (op == null || op.ready()) {
+                count++;
             }
         }
-        return local7 * 100 / this.ops.length;
+
+        return (count * 100) / this.ops.length;
     }
 
     @OriginalMember(owner = "client!tha", name = "a", descriptor = "(ZB)V")
     @Override
     public void render(@OriginalArg(0) boolean arg0) {
-        @Pc(10) LoadingScreenOp[] local10 = this.ops;
-        for (@Pc(12) int local12 = 0; local12 < local10.length; local12++) {
-            @Pc(18) LoadingScreenOp local18 = local10[local12];
-            if (local18 != null) {
-                local18.execute();
+        @Pc(10) LoadingScreenOp[] ops = this.ops;
+
+        for (@Pc(12) int i = 0; i < ops.length; i++) {
+            @Pc(18) LoadingScreenOp op = ops[i];
+
+            if (op != null) {
+                op.execute();
             }
         }
+
         this.newToolkit = false;
     }
 
     @OriginalMember(owner = "client!tha", name = "a", descriptor = "(I)V")
     @Override
-    public void method8461() {
+    public void cleanup() {
     }
 }

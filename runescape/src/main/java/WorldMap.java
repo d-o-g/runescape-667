@@ -251,7 +251,7 @@ public final class WorldMap {
             @Pc(57) int y = (childY + (childHeight / 2)) - 20 - 18;
             toolkit.outlineRect(x - 152, y, 304, 34, Client.OUTLINE_COLOURS[Client.colourId].getRGB(), 0);
             toolkit.aa(x - 150, y + 2, loadingPercent * 3, 30, Client.FILL_COLOURS[Client.colourId].getRGB(), 0);
-            Fonts.b12.renderCentre(-1, x, LocalisedText.LOADINGDOTDOTDOT.localise(Client.language), y + 20, Static399.aColorArray2[Client.colourId].getRGB());
+            Fonts.b12.renderCentre(LocalisedText.LOADINGDOTDOTDOT.localise(Client.language), x, y + 20, Client.TEXT_COLOURS[Client.colourId].getRGB(), -1);
         } else {
             @Pc(114) int local114 = anInt2809 - (int) ((float) childWidth / currentZoom);
             @Pc(38) int z = anInt9389 + (int) ((float) childHeight / currentZoom);
@@ -280,7 +280,7 @@ public final class WorldMap {
             if (Client.displayFps) {
                 @Pc(250) int textX = childWidth + childX - 5;
                 @Pc(256) int textY = childHeight + childY - 8;
-                Fonts.p12.render(textX, "Fps:" + GameShell.currentFps, 0xFFFF00, -1, textY);
+                Fonts.p12.renderRight("Fps:" + GameShell.currentFps, textX, textY, 0xFFFF00, -1);
                 @Pc(273) int memoryTextY = textY - 15;
 
                 @Pc(275) Runtime runtime = Runtime.getRuntime();
@@ -289,7 +289,7 @@ public final class WorldMap {
                 if (memKb > 65536) {
                     colour = 0xFF0000;
                 }
-                Fonts.p12.render(textX, "Mem:" + memKb + "k", colour, -1, memoryTextY);
+                Fonts.p12.renderRight("Mem:" + memKb + "k", textX, memoryTextY, colour, -1);
                 textY = memoryTextY - 15;
             }
         }

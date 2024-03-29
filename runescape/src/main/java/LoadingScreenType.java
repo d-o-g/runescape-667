@@ -3,10 +3,13 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
-import rs2.client.loading.screen.instance.ImageInstance;
-import rs2.client.loading.screen.instance.ClearScreenInstance;
-import rs2.client.loading.screen.instance.LoadingScreenOpInstance;
-import rs2.client.loading.screen.instance.NewsInstance;
+import rs2.client.loading.screen.op.instance.FancyProgressBarInstance;
+import rs2.client.loading.screen.op.instance.ImageInstance;
+import rs2.client.loading.screen.op.instance.ClearScreenInstance;
+import rs2.client.loading.screen.op.instance.LoadingScreenOpInstance;
+import rs2.client.loading.screen.op.instance.NewsInstance;
+import rs2.client.loading.screen.op.instance.SolidProgressBarInstance;
+import rs2.client.loading.screen.op.instance.TextInstance;
 import rs2.client.loading.screen.op.LoadingScreenOpType;
 
 @OriginalClass("client!de")
@@ -26,7 +29,7 @@ public final class LoadingScreenType {
         if (LoadingScreenOpType.CLEAR_SCREEN == type) {
             return ClearScreenInstance.decode(packet);
         } else if (LoadingScreenOpType.SOLID_PROGRESS_BAR == type) {
-            return Static502.method6720(packet);
+            return SolidProgressBarInstance.method6720(packet);
         } else if (type == LoadingScreenOpType.NEWS) {
             return NewsInstance.decode(packet);
         } else if (LoadingScreenOpType.ROTATING_IMAGE == type) {
@@ -36,9 +39,9 @@ public final class LoadingScreenType {
         } else if (type == LoadingScreenOpType.IMAGE_PROGRESS_BAR) {
             return Static303.method4430(packet);
         } else if (LoadingScreenOpType.FANCY_PROGRESS_BAR == type) {
-            return Static715.method9346(packet);
+            return FancyProgressBarInstance.decode(packet);
         } else if (type == LoadingScreenOpType.TEXT) {
-            return Class125.method6171(packet);
+            return TextInstance.decode(packet);
         } else if (type == LoadingScreenOpType.BACKGROUND_IMAGE) {
             return Static112.method2106(packet);
         } else if (type == LoadingScreenOpType.ANIMATED_PROGRESS_BAR) {

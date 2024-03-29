@@ -1,5 +1,5 @@
 import com.jagex.Client;
-import com.jagex.LibraryList;
+import rs2.client.loading.library.LibraryManager;
 import com.jagex.LoginProt;
 import com.jagex.ServerProt;
 import com.jagex.core.io.connection.Connection;
@@ -450,7 +450,7 @@ public final class LoginManager {
                     if (Client.additionalInfo != null) {
                         bitPacket.pjstr(Client.additionalInfo);
                     }
-                    bitPacket.p1(LibraryList.isNativeLoaded("jagtheora") ? 1 : 0);
+                    bitPacket.p1(LibraryManager.isNativeLoaded("jagtheora") ? 1 : 0);
                     bitPacket.p1(Client.js ? 1 : 0);
                     bitPacket.p1(Client.hc ? 1 : 0);
                     pushJs5Checksums(bitPacket);

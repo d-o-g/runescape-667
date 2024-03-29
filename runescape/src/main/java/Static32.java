@@ -43,7 +43,7 @@ public final class Static32 {
     }
 
     @OriginalMember(owner = "client!bba", name = "a", descriptor = "(IZZ)V")
-    public static void setToolkit(@OriginalArg(0) int toolkit, @OriginalArg(2) boolean arg1) {
-        Static667.setToolkit(arg1, LocalisedText.LOADING.localise(Client.language), toolkit);
+    public static void setToolkit(@OriginalArg(0) int toolkit, @OriginalArg(2) boolean inactive) {
+        Static667.setToolkit(inactive, LocalisedText.LOADING.localise(Client.language), toolkit);
     }
 }

@@ -161,15 +161,15 @@ public final class debugconsole {
                 for (@Pc(139) int local139 = 0; local139 < local128.length; local139++) {
                     @Pc(147) int local147 = local139 * local137 + 8;
                     toolkit.KA(local147 + local7, local9, local147 + local7 + local137 - 8, local9 + 350);
-                    Fonts.p12.render(local7 + local147, -Fonts.p12Metrics.paddingBottom + -2 + local9 + 350 + -b12VerticalPadding + -((local119 + -anInt3471) * p12VerticalPadding), Static386.method5439(local128[local139]), -16777216, -1);
+                    Fonts.p12.render(Static386.method5439(local128[local139]), local7 + local147, -Fonts.p12Metrics.paddingBottom + -2 + local9 + 350 + -b12VerticalPadding + -((local119 + -anInt3471) * p12VerticalPadding), -16777216, -1);
                 }
             }
         }
 
-        Fonts.p11.render(GameShell.canvasWid + local7 - 25, "Build: 667", -1, -16777216, local9 + 350 - 20);
+        Fonts.p11.renderRight("Build: 667", GameShell.canvasWid + local7 - 25, local9 + 350 - 20, -1, -16777216);
         toolkit.KA(local7, local9, GameShell.canvasWid + local7, local9 + 350);
         toolkit.horizontalLine(local9 + 350 - b12VerticalPadding, -1, local7, GameShell.canvasWid);
-        Fonts.b12.render(local7 + 10, local9 - (Fonts.b12Metrics.paddingBottom + -350 + 1), "--> " + Static386.method5439(currententry), -16777216, -1);
+        Fonts.b12.render("--> " + Static386.method5439(currententry), local7 + 10, local9 - (Fonts.b12Metrics.paddingBottom + -350 + 1), -16777216, -1);
         if (!GameShell.focus) {
             return;
         }

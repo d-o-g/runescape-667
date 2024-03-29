@@ -259,6 +259,11 @@ public class Packet extends Node {
         }
     }
 
+    @OriginalMember(owner = "client!hd", name = "a", descriptor = "(ILjava/lang/String;)I")
+    public static int pjstrlen(@OriginalArg(1) String string) {
+        return string.length() + 1;
+    }
+
     @OriginalMember(owner = "client!ge", name = "b", descriptor = "(Ljava/lang/String;I)V")
     public final void pjstr2(@OriginalArg(0) String string) {
         @Pc(15) int nul = string.indexOf(0);

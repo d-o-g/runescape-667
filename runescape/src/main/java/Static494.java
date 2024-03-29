@@ -39,8 +39,8 @@ public final class Static494 {
             @Pc(37) QuickChatPhraseType local37 = QuickChatPhraseTypeList.instance.get(local31);
             if (local37.searchable && local37.getText().toLowerCase().indexOf(local6) != -1) {
                 if (local11 >= 50) {
-                    Static256.aShortArray63 = null;
-                    Static606.anInt8947 = -1;
+                    ObjFinder.results = null;
+                    ObjFinder.resultCount = -1;
                     return;
                 }
                 if (local11 >= local9.length) {
@@ -53,14 +53,14 @@ public final class Static494 {
                 local9[local11++] = (short) local31;
             }
         }
-        Static143.anInt4054 = 0;
-        Static606.anInt8947 = local11;
-        Static256.aShortArray63 = local9;
-        @Pc(120) String[] local120 = new String[Static606.anInt8947];
-        for (local80 = 0; local80 < Static606.anInt8947; local80++) {
+        ObjFinder.pointer = 0;
+        ObjFinder.resultCount = local11;
+        ObjFinder.results = local9;
+        @Pc(120) String[] local120 = new String[ObjFinder.resultCount];
+        for (local80 = 0; local80 < ObjFinder.resultCount; local80++) {
             local120[local80] = QuickChatPhraseTypeList.instance.get(local9[local80]).getText();
         }
-        Static554.method7292(local120, Static256.aShortArray63);
+        ObjFinder.quicksort(local120, ObjFinder.results);
     }
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(ILclient!dda;ILclient!ha;)V")

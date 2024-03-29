@@ -302,11 +302,11 @@ public final class ServerConnectionReader {
                 @Pc(737) String message = QuickChatPhraseTypeList.instance.get(quickchatId).decodeText(bitPacket);
 
                 if (rank == 2) {
-                    ChatHistory.add("<img=1>" + accountName, "<img=1>" + name, quickchatId, message, Base37.decodeName(channel), 0, name, ChatLineType.QUICKCHAT_FRIENDCHAT);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, "<img=1>" + name, "<img=1>" + accountName, name, Base37.decodeName(channel), quickchatId, message);
                 } else if (rank == 1) {
-                    ChatHistory.add("<img=0>" + accountName, "<img=0>" + name, quickchatId, message, Base37.decodeName(channel), 0, name, ChatLineType.QUICKCHAT_FRIENDCHAT);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, "<img=0>" + name, "<img=0>" + accountName, name, Base37.decodeName(channel), quickchatId, message);
                 } else {
-                    ChatHistory.add(accountName, name, quickchatId, message, Base37.decodeName(channel), 0, name, ChatLineType.QUICKCHAT_FRIENDCHAT);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, name, accountName, name, Base37.decodeName(channel), quickchatId, message);
                 }
             }
 
@@ -377,11 +377,11 @@ public final class ServerConnectionReader {
                 @Pc(1097) int type = affined ? ChatLineType.QUICKCHAT_CLANCHANNEL_AFFINED : ChatLineType.QUICKCHAT_CLANCHANNEL_UNAFFINED;
 
                 if (rank == 2 || rank == 3) {
-                    ChatHistory.add("<img=1>" + name, "<img=1>" + name, quickchatId, message, channel.channelName, 0, name, type);
+                    ChatHistory.add(type, 0, "<img=1>" + name, "<img=1>" + name, name, channel.clanName, quickchatId, message);
                 } else if (rank == 1) {
-                    ChatHistory.add("<img=0>" + name, "<img=0>" + name, quickchatId, message, channel.channelName, 0, name, type);
+                    ChatHistory.add(type, 0, "<img=0>" + name, "<img=0>" + name, name, channel.clanName, quickchatId, message);
                 } else {
-                    ChatHistory.add(name, name, quickchatId, message, channel.channelName, 0, name, type);
+                    ChatHistory.add(type, 0, name, name, name, channel.clanName, quickchatId, message);
                 }
             }
 
@@ -582,7 +582,7 @@ public final class ServerConnectionReader {
             @Pc(1937) String name = bitPacket.gjstr();
             @Pc(100) int quickchatId = bitPacket.g2();
             @Pc(629) String message = QuickChatPhraseTypeList.instance.get(quickchatId).decodeText(bitPacket);
-            ChatHistory.add(name, name, quickchatId, message, null, 0, name, ChatLineType.QUICKCHAT_PRIVATE_ECHO);
+            ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE_ECHO, 0, name, name, name, null, quickchatId, message);
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.VORBIS_SOUND) {
@@ -755,7 +755,7 @@ public final class ServerConnectionReader {
             @Pc(1409) int id = bitPacket.g2_alt2();
             @Pc(2608) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(id);
             if (node != null) {
-                Static651.animate(animations, delay, true, node.npc);
+                PathingEntity.animate(animations, delay, true, node.npc);
             }
 
             context.currentProt = null;
@@ -915,11 +915,11 @@ public final class ServerConnectionReader {
                 @Pc(1090) String message = QuickChatPhraseTypeList.instance.get(quickChatId).decodeText(bitPacket);
 
                 if (rank == 2) {
-                    ChatHistory.add("<img=1>" + accountName, "<img=1>" + name, quickChatId, message, null, 0, name, ChatLineType.QUICKCHAT_PRIVATE);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, "<img=1>" + name, "<img=1>" + accountName, name, null, quickChatId, message);
                 } else if (rank == 1) {
-                    ChatHistory.add("<img=0>" + accountName, "<img=0>" + name, quickChatId, message, null, 0, name, ChatLineType.QUICKCHAT_PRIVATE);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, "<img=0>" + name, "<img=0>" + accountName, name, null, quickChatId, message);
                 } else {
-                    ChatHistory.add(accountName, name, quickChatId, message, null, 0, name, ChatLineType.QUICKCHAT_PRIVATE);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, name, accountName, name, null, quickChatId, message);
                 }
             }
 
@@ -1002,11 +1002,11 @@ public final class ServerConnectionReader {
                 @Pc(1021) int type = affined ? ChatLineType.CLANCHANNEL_AFFINED : ChatLineType.CLANCHANNEL_UNAFFINED;
 
                 if (rank == 2 || rank == 3) {
-                    ChatHistory.add("<img=1>" + name, "<img=1>" + name, -1, message, channel.channelName, 0, name, type);
+                    ChatHistory.add(type, 0, "<img=1>" + name, "<img=1>" + name, name, channel.clanName, -1, message);
                 } else if (rank == 1) {
-                    ChatHistory.add("<img=0>" + name, "<img=0>" + name, -1, message, channel.channelName, 0, name, type);
+                    ChatHistory.add(type, 0, "<img=0>" + name, "<img=0>" + name, name, channel.clanName, -1, message);
                 } else {
-                    ChatHistory.add(name, name, -1, message, channel.channelName, 0, name, type);
+                    ChatHistory.add(type, 0, name, name, name, channel.clanName, -1, message);
                 }
             }
 
@@ -1156,7 +1156,7 @@ public final class ServerConnectionReader {
             } else if (type == ChatLineType.CONSOLE_SET) {
                 debugconsole.set(message);
             } else if (accountName.equals("") || !IgnoreList.contains(accountName)) {
-                ChatHistory.add(message, name, flags, name, accountName, type);
+                ChatHistory.add(type, flags, name, accountName, name, message);
             } else {
                 context.currentProt = null;
                 return true;
@@ -1608,11 +1608,11 @@ public final class ServerConnectionReader {
                 @Pc(3582) String message = StringTools.escapeBrackets(WordPack.decode(bitPacket));
 
                 if (rank == 2) {
-                    ChatHistory.add("<img=1>" + accountName, "<img=1>" + name, -1, message, null, 0, name, ChatLineType.PRIVATE_RANK);
+                    ChatHistory.add(ChatLineType.PRIVATE_RANK, 0, "<img=1>" + name, "<img=1>" + accountName, name, null, -1, message);
                 } else if (rank == 1) {
-                    ChatHistory.add("<img=0>" + accountName, "<img=0>" + name, -1, message, null, 0, name, ChatLineType.PRIVATE_RANK);
+                    ChatHistory.add(ChatLineType.PRIVATE_RANK, 0, "<img=0>" + name, "<img=0>" + accountName, name, null, -1, message);
                 } else {
-                    ChatHistory.add(accountName, name, -1, message, null, 0, name, ChatLineType.PRIVATE);
+                    ChatHistory.add(ChatLineType.PRIVATE, 0, name, accountName, name, null, -1, message);
                 }
             }
 
@@ -1625,7 +1625,7 @@ public final class ServerConnectionReader {
                 id = -1;
             }
             @Pc(526) int volume = bitPacket.g1_alt2();
-            SoundManager.playMidiSong(volume, id, delay);
+            SoundManager.playMidiSong(id, volume, delay);
             context.currentProt = null;
             return true;
         } else if (ServerProt.MIDI_JINGLE == context.currentProt) {
@@ -1635,7 +1635,7 @@ public final class ServerConnectionReader {
             }
             @Pc(100) int delay = bitPacket.g3_alt1();
             @Pc(526) int volume = bitPacket.g1_alt2();
-            SoundManager.playMidiJingle(volume, id, delay);
+            SoundManager.playMidiJingle(id, delay, volume);
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.JAVASCRIPT_RUN) {
@@ -1771,11 +1771,11 @@ public final class ServerConnectionReader {
                 @Pc(1750) String message = StringTools.escapeBrackets(WordPack.decode(bitPacket));
 
                 if (rank == 2) {
-                    ChatHistory.add("<img=1>" + accountName, "<img=1>" + name, -1, message, null, 0, name, ChatLineType.PLAYER_GROUP);
+                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, "<img=1>" + name, "<img=1>" + accountName, name, null, -1, message);
                 } else if (rank == 1) {
-                    ChatHistory.add("<img=0>" + accountName, "<img=0>" + name, -1, message, null, 0, name, ChatLineType.PLAYER_GROUP);
+                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, "<img=0>" + name, "<img=0>" + accountName, name, null, -1, message);
                 } else {
-                    ChatHistory.add(accountName, name, -1, message, null, 0, name, ChatLineType.PLAYER_GROUP);
+                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, name, accountName, name, null, -1, message);
                 }
             }
 
@@ -1929,11 +1929,11 @@ public final class ServerConnectionReader {
                 @Pc(1427) String message = QuickChatPhraseTypeList.instance.get(quickchatId).decodeText(bitPacket);
 
                 if (rank == 2) {
-                    ChatHistory.add("<img=1>" + accountName, "<img=1>" + name, quickchatId, message, null, 0, name, ChatLineType.QUICKCHAT_PLAYER_GROUP);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, "<img=1>" + name, "<img=1>" + accountName, name, null, quickchatId, message);
                 } else if (rank == 1) {
-                    ChatHistory.add("<img=0>" + accountName, "<img=0>" + name, quickchatId, message, null, 0, name, ChatLineType.QUICKCHAT_PLAYER_GROUP);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, "<img=0>" + name, "<img=0>" + accountName, name, null, quickchatId, message);
                 } else {
-                    ChatHistory.add(accountName, name, quickchatId, message, null, 0, name, ChatLineType.QUICKCHAT_PLAYER_GROUP);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, name, accountName, name, null, quickchatId, message);
                 }
             }
 
@@ -2116,11 +2116,11 @@ public final class ServerConnectionReader {
                     }
 
                     if (rank == 2) {
-                        ChatHistory.add("<img=1>" + player.getAccountName(), "<img=1>" + player.getDisplayName(false, true), quickChatId, quickChatText, null, 0, player.displayName, type);
+                        ChatHistory.add(type, 0, "<img=1>" + player.getDisplayName(false, true), "<img=1>" + player.getAccountName(), player.displayName, null, quickChatId, quickChatText);
                     } else if (rank == 1) {
-                        ChatHistory.add("<img=0>" + player.getAccountName(), "<img=0>" + player.getDisplayName(false, true), quickChatId, quickChatText, null, 0, player.displayName, type);
+                        ChatHistory.add(type, 0, "<img=0>" + player.getDisplayName(false, true), "<img=0>" + player.getAccountName(), player.displayName, null, quickChatId, quickChatText);
                     } else {
-                        ChatHistory.add(player.getAccountName(), player.getDisplayName(false, true), quickChatId, quickChatText, null, 0, player.displayName, type);
+                        ChatHistory.add(type, 0, player.getDisplayName(false, true), player.getAccountName(), player.displayName, null, quickChatId, quickChatText);
                     }
                 }
             }
@@ -2225,7 +2225,7 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.MESSAGE_PRIVATE_ECHO) {
             @Pc(1937) String name = bitPacket.gjstr();
             @Pc(627) String message = StringTools.escapeBrackets(WordPack.decode(bitPacket));
-            ChatHistory.add(message, name, 0, name, name, ChatLineType.PRIVATE_ECHO);
+            ChatHistory.add(ChatLineType.PRIVATE_ECHO, 0, name, name, name, message);
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.CLANSETTINGS_DELTA) {
@@ -2254,7 +2254,7 @@ public final class ServerConnectionReader {
             @Pc(277) int invId = bitPacket.ig2();
             @Pc(100) int flags = bitPacket.g1_alt2();
             @Pc(2080) boolean otherPlayer = (flags & 0x1) == 1;
-            ClientInventory.delete(otherPlayer, invId);
+            ClientInventory.delete(invId, otherPlayer);
             ClientInventory.updates[ClientInventory.updateCount++ & 0x1F] = invId;
             context.currentProt = null;
             return true;
@@ -2425,11 +2425,11 @@ public final class ServerConnectionReader {
                 @Pc(9032) String message = StringTools.escapeBrackets(WordPack.decode(bitPacket));
 
                 if (rank == 2 || rank == 3) {
-                    ChatHistory.add("<img=1>" + accountName, "<img=1>" + name, -1, message, Base37.decodeName(channel), 0, name, ChatLineType.FRIENDCHANNEL);
+                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, "<img=1>" + name, "<img=1>" + accountName, name, Base37.decodeName(channel), -1, message);
                 } else if (rank == 1) {
-                    ChatHistory.add("<img=0>" + accountName, "<img=0>" + name, -1, message, Base37.decodeName(channel), 0, name, ChatLineType.FRIENDCHANNEL);
+                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, "<img=0>" + name, "<img=0>" + accountName, name, Base37.decodeName(channel), -1, message);
                 } else {
-                    ChatHistory.add(accountName, name, -1, message, Base37.decodeName(channel), 0, name, ChatLineType.FRIENDCHANNEL);
+                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, name, accountName, name, Base37.decodeName(channel), -1, message);
                 }
             }
 

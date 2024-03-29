@@ -1,13 +1,9 @@
-import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.skybox.SkyBox;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static74 {
-
-    @OriginalMember(owner = "client!cga", name = "d", descriptor = "Lclient!wp;")
-    public static IndexedImage aIndexedImage_1;
 
     @OriginalMember(owner = "client!cga", name = "b", descriptor = "Lclient!ha;")
     public static Toolkit aToolkit_4;

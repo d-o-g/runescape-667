@@ -27,6 +27,59 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!cg")
 public abstract class PathingEntity extends PositionEntity {
 
+    @OriginalMember(owner = "client!uja", name = "a", descriptor = "([IIZLclient!cg;I)V")
+    public static void animate(@OriginalArg(0) int[] animations, @OriginalArg(1) int delay, @OriginalArg(2) boolean updatePathPointer, @OriginalArg(3) PathingEntity entity) {
+        if (entity.actionAnimations != null) {
+            @Pc(8) boolean repeat = true;
+
+            for (@Pc(10) int i = 0; i < entity.actionAnimations.length; i++) {
+                if (animations[i] != entity.actionAnimations[i]) {
+                    repeat = false;
+                    break;
+                }
+            }
+
+            @Pc(31) Animator animator = entity.actionAnimator;
+            if (repeat && animator.isAnimating()) {
+                @Pc(44) SeqType seqType = entity.actionAnimator.getAnimation();
+                @Pc(47) int replayMode = seqType.replayMode;
+
+                if (replayMode == SeqReplayMode.RESET) {
+                    animator.reset(delay);
+                }
+
+                if (replayMode == SeqReplayMode.RESTART_LOOP) {
+                    animator.restartLoop();
+                }
+            }
+        }
+
+        @Pc(8) boolean override = true;
+        for (@Pc(10) int i = 0; i < animations.length; i++) {
+            if (animations[i] != -1) {
+                override = false;
+            }
+
+            if (entity.actionAnimations == null || entity.actionAnimations[i] == -1 || SeqTypeList.instance.list(animations[i]).priority >= SeqTypeList.instance.list(entity.actionAnimations[i]).priority) {
+                entity.actionAnimations = animations;
+                entity.actionAnimator.setDelay(delay);
+
+                if (updatePathPointer) {
+                    entity.animationPathPointer = entity.pathPointer;
+                }
+            }
+        }
+
+        if (override) {
+            entity.actionAnimations = animations;
+            entity.actionAnimator.setDelay(delay);
+
+            if (updatePathPointer) {
+                entity.animationPathPointer = entity.pathPointer;
+            }
+        }
+    }
+
     @OriginalMember(owner = "client!cg", name = "Ac", descriptor = "I")
     public int anInt10704;
 

@@ -6,9 +6,6 @@ public final class Static723 {
     @OriginalMember(owner = "client!wu", name = "x", descriptor = "[[I")
     public static int[][] anIntArrayArray266;
 
-    @OriginalMember(owner = "client!wu", name = "C", descriptor = "I")
-    public static int anInt10929;
-
     @OriginalMember(owner = "client!wu", name = "e", descriptor = "(I)V")
     public static void method9450() {
         Static268.A_HASH_TABLE___22.clear();

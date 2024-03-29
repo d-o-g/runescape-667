@@ -23,10 +23,10 @@ public final class Static595 {
             Toolkit.active = Static255.create(ToolkitType.JAVA, js5.SHADERS, GameShell.canvas, Js5TextureSource.instance, ClientOptions.instance.antialiasingQuality.getValue() * 2);
             if (arg0 != null) {
                 Toolkit.active.GA(0);
-                @Pc(36) FontMetrics local36 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
+                @Pc(36) FontMetrics local36 = FontMetrics.loadGroup(js5.FONTMETRICS, Fonts.p12FullGroup);
                 @Pc(45) Font local45 = Toolkit.active.createFont(local36, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                 Static288.repaintMargins();
-                Static694.drawLoadingText(Toolkit.active, arg0, true, local36, local45);
+                MessageBox.draw(Toolkit.active, arg0, true, local36, local45);
             }
         } else {
             @Pc(57) Toolkit local57 = null;
@@ -34,10 +34,10 @@ public final class Static595 {
             if (arg0 != null) {
                 local57 = Static255.create(ToolkitType.JAVA, js5.SHADERS, GameShell.canvas, Js5TextureSource.instance, 0);
                 local57.GA(0);
-                @Pc(76) FontMetrics local76 = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
+                @Pc(76) FontMetrics local76 = FontMetrics.loadGroup(js5.FONTMETRICS, Fonts.p12FullGroup);
                 local85 = local57.createFont(local76, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                 Static288.repaintMargins();
-                Static694.drawLoadingText(local57, arg0, true, local76, local85);
+                MessageBox.draw(local57, arg0, true, local76, local85);
             }
             boolean var14 = false;
             label216:
@@ -47,10 +47,10 @@ public final class Static595 {
                     Toolkit.active = Static255.create(toolkit, js5.SHADERS, GameShell.canvas, Js5TextureSource.instance, ClientOptions.instance.antialiasingQuality.getValue() * 2);
                     if (arg0 != null) {
                         local57.GA(0);
-                        @Pc(118) FontMetrics p12Metrics = FontMetrics.loadGroup(Fonts.p12FullGroup, js5.FONTMETRICS);
+                        @Pc(118) FontMetrics p12Metrics = FontMetrics.loadGroup(js5.FONTMETRICS, Fonts.p12FullGroup);
                         @Pc(127) Font p12 = local57.createFont(p12Metrics, IndexedImage.load(js5.SPRITES, Fonts.p12FullGroup, 0), true);
                         Static288.repaintMargins();
-                        Static694.drawLoadingText(local57, arg0, true, p12Metrics, p12);
+                        MessageBox.draw(local57, arg0, true, p12Metrics, p12);
                     }
                     if (Toolkit.active.method7949()) {
                         @Pc(141) boolean local141 = true;

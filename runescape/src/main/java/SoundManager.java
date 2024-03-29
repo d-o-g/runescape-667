@@ -321,7 +321,7 @@ public final class SoundManager {
     }
 
     @OriginalMember(owner = "client!caa", name = "a", descriptor = "(IIII)V")
-    public static void playMidiSong(@OriginalArg(0) int volume, @OriginalArg(2) int id, @OriginalArg(3) int delay) {
+    public static void playMidiSong(@OriginalArg(2) int id, @OriginalArg(0) int volume, @OriginalArg(3) int delay) {
         @Pc(12) int local12 = volume * ClientOptions.instance.musicVolume.getValue() >> 8;
         if (id == -1 && !Static501.aBoolean575) {
             Static100.method1988();
@@ -336,7 +336,7 @@ public final class SoundManager {
     }
 
     @OriginalMember(owner = "client!pda", name = "a", descriptor = "(IIIB)V")
-    public static void playMidiJingle(@OriginalArg(0) int volume, @OriginalArg(1) int id, @OriginalArg(2) int delay) {
+    public static void playMidiJingle(@OriginalArg(1) int id, @OriginalArg(2) int delay, @OriginalArg(0) int volume) {
         @Pc(12) int local12 = ClientOptions.instance.musicVolume.getValue() * volume >> 8;
         if (local12 == 0 || id == -1) {
             return;

@@ -1,18 +1,14 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
-import com.jagex.graphics.Fonts;
-import com.jagex.sign.SignLink;
-import com.jagex.sign.SignedResource;
-import com.jagex.sign.SignedResourceStatus;
+import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.MaxScreenSize;
-import com.jagex.game.runetek6.client.GameShell;
-import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.constants.WindowMode;
+import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.HashTableIterator;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Node;
@@ -22,11 +18,12 @@ import com.jagex.game.Animator;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.camera.CameraMode;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.defaults.WearposDefaults;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
-import com.jagex.game.runetek6.config.iftype.DragRender;
+import com.jagex.game.runetek6.config.iftype.DragRenderBehaviour;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.iftype.SubInterface;
 import com.jagex.game.runetek6.config.iftype.SubInterfaceType;
@@ -44,11 +41,15 @@ import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
+import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import com.jagex.math.Trig1;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -63,12 +64,17 @@ import java.awt.Rectangle;
 
 public final class InterfaceManager {
 
+    private static final int ROOT = 0xABCDABCD;
+
+    public static final int IMMEDIATE_HOOK_TYPE_DIALOGABORT = 0;
+
+    public static final int IMMEDIATE_HOOK_TYPE_SUBCHANGE = 1;
+
     @OriginalMember(owner = "client!va", name = "J", descriptor = "[Ljava/awt/Rectangle;")
     public static final Rectangle[] flippedDirtyRects = new Rectangle[100];
 
-    private static final int ROOT = 0xABCDABCD;
-    public static final int IMMEDIATE_HOOK_TYPE_DIALOGABORT = 0;
-    public static final int IMMEDIATE_HOOK_TYPE_SUBCHANGE = 1;
+    @OriginalMember(owner = "client!qga", name = "i", descriptor = "Lclient!sia;")
+    public static final Deque hookRequests = new Deque();
 
     @OriginalMember(owner = "client!lia", name = "b", descriptor = "[Z")
     public static final boolean[] dirtyRectangles = new boolean[100];
@@ -300,7 +306,7 @@ public final class InterfaceManager {
             }
 
             if (dragSource == child) {
-                if (parent != ROOT && (child.dragRenderBehaviour == DragRender.OFFSET || child.dragRenderBehaviour == DragRender.OFFSET_TRANSPARENT)) {
+                if (parent != ROOT && (child.dragRenderBehaviour == DragRenderBehaviour.OFFSET || child.dragRenderBehaviour == DragRenderBehaviour.OFFSET_TRANSPARENT)) {
                     dragOffsetY = screenY;
                     dragChildren = children;
                     dragOffsetX = screenX;
@@ -333,7 +339,7 @@ public final class InterfaceManager {
                     offsetY = mouseY;
                 }
 
-                if (child.dragRenderBehaviour == DragRender.OFFSET_TRANSPARENT) {
+                if (child.dragRenderBehaviour == DragRenderBehaviour.OFFSET_TRANSPARENT) {
                     transparency = 128;
                 }
             }
@@ -674,7 +680,7 @@ public final class InterfaceManager {
                             @Pc(1816) Sprite sprite;
                             if (child.invObject != -1) {
                                 @Pc(1836) PlayerModel model = child.objWearCol ? PlayerEntity.self.playerModel : null;
-                                sprite = ObjTypeList.instance.getCachedSprite(model, Toolkit.active, child.objNumMode, child.invObject, child.outline, child.invCount, child.shadow | 0xFF000000);
+                                sprite = ObjTypeList.instance.getCachedSprite(model, Toolkit.active, child.objNumMode, child.invObject, child.outline, child.invCount, child.graphicShadow | 0xFF000000);
                             } else if (child.video != -1) {
                                 sprite = VideoTypeList.frame(child.video, Toolkit.active);
                             } else {
@@ -770,7 +776,7 @@ public final class InterfaceManager {
                                 }
                             }
                         } else if (child.objType == Component.OBJ_TYPE_INVENTORY_MALE || child.objType == Component.OBJ_TYPE_INVENTORY_FEMALE) {
-                            @Pc(2468) ClientInventory inventory = Static556.method7303(child.obj, false);
+                            @Pc(2468) ClientInventory inventory = ClientInventory.get(child.obj, false);
 
                             if (inventory != null) {
                                 model = inventory.method3078(child.objData, Toolkit.active, child.objType == Component.OBJ_TYPE_INVENTORY_FEMALE, child.animator, child.objWearCol ? PlayerEntity.self.playerModel : null);
@@ -1250,7 +1256,7 @@ public final class InterfaceManager {
 
                 if (component.hasOpKey || x1 < x2 && y1 < y2) {
                     if (component.noClickThrough && mouseX2 >= x1 && mouseY2 >= y1 && mouseX2 < x2 && mouseY2 < y2) {
-                        for (@Pc(220) HookRequest hook = (HookRequest) Static521.A_DEQUE___44.first(); hook != null; hook = (HookRequest) Static521.A_DEQUE___44.next()) {
+                        for (@Pc(220) HookRequest hook = (HookRequest) hookRequests.first(); hook != null; hook = (HookRequest) hookRequests.next()) {
                             if (hook.mouseEvent) {
                                 hook.unlink();
                                 hook.source.hovered = false;
@@ -1381,7 +1387,7 @@ public final class InterfaceManager {
                     }
 
                     if (clicked) {
-                        dragTryPickup(orthoDeltaY + log.getY() - startY, component, orthoDeltaX + log.getX() - startX);
+                        dragTryPickup(component, orthoDeltaX + log.getX() - startX, orthoDeltaY + log.getY() - startY);
                     }
 
                     if (dragSource != null && dragSource != component && hovered && serverActiveProperties(component).isDragTarget()) {
@@ -1401,7 +1407,7 @@ public final class InterfaceManager {
                             hook.source = component;
                             hook.mouseY = Static611.mouseWheelRotation;
                             hook.arguments = component.onScrollWheel;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (dragSource != null) {
@@ -1482,7 +1488,7 @@ public final class InterfaceManager {
                                 }
 
                                 if (targetMode && (targetMask & TargetMask.TGT_GROUND) != 0) {
-                                    @Pc(1243) Component target = InterfaceList.getComponent(targetComponent, targetSlot);
+                                    @Pc(1243) Component target = InterfaceList.getComponent(targetSlot, targetComponent);
 
                                     if (target != null) {
                                         MiniMenu.addEntryInner(false, component.invObject, 1L, local1191, local1199, targetVerb, MiniMenuAction.TGT_GROUND, true, targetEnterCursor, " ->", (component.id << 0) | component.slot, true);
@@ -1593,7 +1599,7 @@ public final class InterfaceManager {
                                 hook.mouseX = orthoDeltaX + log.getX() - startX;
                                 hook.mouseY = orthoDeltaY + log.getY() - startY;
                                 hook.arguments = component.onClick;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             }
                         }
 
@@ -1604,7 +1610,7 @@ public final class InterfaceManager {
                             hook.mouseX = orthoDeltaX + MouseMonitor.instance.getRecordedX() - startX;
                             hook.mouseY = orthoDeltaY + MouseMonitor.instance.getRecordedY() - startY;
                             hook.arguments = component.onClickRepeat;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (component.clicked && !pressedOver) {
@@ -1628,7 +1634,7 @@ public final class InterfaceManager {
                             hook.mouseX = orthoDeltaX + MouseMonitor.instance.getRecordedX() - startX;
                             hook.mouseY = orthoDeltaY + MouseMonitor.instance.getRecordedY() - startY;
                             hook.arguments = component.onHold;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (!component.hovered && hovered) {
@@ -1641,7 +1647,7 @@ public final class InterfaceManager {
                                 hook.mouseX = orthoDeltaX + MouseMonitor.instance.getRecordedX() - startX;
                                 hook.mouseY = orthoDeltaY + MouseMonitor.instance.getRecordedY() - startY;
                                 hook.arguments = component.onMouseOver;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             }
                         }
 
@@ -1652,7 +1658,7 @@ public final class InterfaceManager {
                             hook.mouseX = orthoDeltaX + MouseMonitor.instance.getRecordedX() - startX;
                             hook.mouseY = orthoDeltaY + MouseMonitor.instance.getRecordedY() - startY;
                             hook.arguments = component.onMouseRepeat;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (component.hovered && !hovered) {
@@ -1681,7 +1687,7 @@ public final class InterfaceManager {
                                 @Pc(877) HookRequest hook = new HookRequest();
                                 hook.source = component;
                                 hook.arguments = component.onVarcTransmit;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             } else {
                                 label768:
                                 for (@Pc(402) int j = component.lastVarcUpdate; j < Static52.varcUpdateCount; j++) {
@@ -1692,7 +1698,7 @@ public final class InterfaceManager {
                                             @Pc(2022) HookRequest hook = new HookRequest();
                                             hook.source = component;
                                             hook.arguments = component.onVarcTransmit;
-                                            Static521.A_DEQUE___44.addLast(hook);
+                                            hookRequests.addLast(hook);
                                             break label768;
                                         }
                                     }
@@ -1707,7 +1713,7 @@ public final class InterfaceManager {
                                 @Pc(877) HookRequest hook = new HookRequest();
                                 hook.source = component;
                                 hook.arguments = component.onVarcstrTransmit;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             } else {
                                 label744:
                                 for (@Pc(402) int j = component.lastVarcstrUpdate; j < Static455.varcstrUpdateCount; j++) {
@@ -1718,7 +1724,7 @@ public final class InterfaceManager {
                                             @Pc(2022) HookRequest hook = new HookRequest();
                                             hook.source = component;
                                             hook.arguments = component.onVarcstrTransmit;
-                                            Static521.A_DEQUE___44.addLast(hook);
+                                            hookRequests.addLast(hook);
                                             break label744;
                                         }
                                     }
@@ -1733,7 +1739,7 @@ public final class InterfaceManager {
                                 @Pc(877) HookRequest hook = new HookRequest();
                                 hook.source = component;
                                 hook.arguments = component.onVarTransmit;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             } else {
                                 label720:
                                 for (@Pc(402) int j = component.lastVarpUpdate; j < Static635.varpUpdateCount; j++) {
@@ -1744,7 +1750,7 @@ public final class InterfaceManager {
                                             @Pc(2022) HookRequest hook = new HookRequest();
                                             hook.source = component;
                                             hook.arguments = component.onVarTransmit;
-                                            Static521.A_DEQUE___44.addLast(hook);
+                                            hookRequests.addLast(hook);
                                             break label720;
                                         }
                                     }
@@ -1759,7 +1765,7 @@ public final class InterfaceManager {
                                 @Pc(877) HookRequest hook = new HookRequest();
                                 hook.source = component;
                                 hook.arguments = component.onInvTransmit;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             } else {
                                 label696:
                                 for (@Pc(402) int j = component.lastInvUpdate; j < ClientInventory.updateCount; j++) {
@@ -1770,7 +1776,7 @@ public final class InterfaceManager {
                                             @Pc(2022) HookRequest hook = new HookRequest();
                                             hook.source = component;
                                             hook.arguments = component.onInvTransmit;
-                                            Static521.A_DEQUE___44.addLast(hook);
+                                            hookRequests.addLast(hook);
                                             break label696;
                                         }
                                     }
@@ -1785,7 +1791,7 @@ public final class InterfaceManager {
                                 @Pc(877) HookRequest hook = new HookRequest();
                                 hook.source = component;
                                 hook.arguments = component.onStatTransmit;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             } else {
                                 label672:
                                 for (@Pc(402) int j = component.lastStatUpdate; j < Static366.statUpdateCount; j++) {
@@ -1796,7 +1802,7 @@ public final class InterfaceManager {
                                             @Pc(2022) HookRequest hook = new HookRequest();
                                             hook.source = component;
                                             hook.arguments = component.onStatTransmit;
-                                            Static521.A_DEQUE___44.addLast(hook);
+                                            hookRequests.addLast(hook);
                                             break label672;
                                         }
                                     }
@@ -1811,7 +1817,7 @@ public final class InterfaceManager {
                                 @Pc(877) HookRequest hook = new HookRequest();
                                 hook.source = component;
                                 hook.arguments = component.onVarclanTransmit;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             } else {
                                 label648:
                                 for (@Pc(402) int j = component.lastVarclanUpdate; j < Static710.varclanUpdateCount; j++) {
@@ -1822,7 +1828,7 @@ public final class InterfaceManager {
                                             @Pc(2022) HookRequest local2022 = new HookRequest();
                                             local2022.source = component;
                                             local2022.arguments = component.onVarclanTransmit;
-                                            Static521.A_DEQUE___44.addLast(local2022);
+                                            hookRequests.addLast(local2022);
                                             break label648;
                                         }
                                     }
@@ -1836,49 +1842,49 @@ public final class InterfaceManager {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onChatTransmit;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (FriendsList.lastTransmit > component.lastScriptTransmit && component.onFriendTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onFriendTransmit;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (Static352.lastClanTransmit > component.lastScriptTransmit && component.onClanTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onClanTransmit;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (Static400.lastClanSettingsTransmit > component.lastScriptTransmit && component.onClanSettingsTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onClanSettingsTransmit;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (Static39.lastClanChannelTransmit > component.lastScriptTransmit && component.onClanChannelTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onClanChannelTransmit;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (StockmarketManager.lastTransmit > component.lastScriptTransmit && component.onStockTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onStockTransmit;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         if (Static321.lastMiscTransmit > component.lastScriptTransmit && component.onMiscTransmit != null) {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onMiscTransmit;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
 
                         component.lastScriptTransmit = World.tick;
@@ -1890,7 +1896,7 @@ public final class InterfaceManager {
                                 hook.keyCode = Static194.AN_KEYBOARD_EVENT_ARRAY_1[j].getKeyCode();
                                 hook.keyChar = Static194.AN_KEYBOARD_EVENT_ARRAY_1[j].getKeyChar();
                                 hook.arguments = component.onKey;
-                                Static521.A_DEQUE___44.addLast(hook);
+                                hookRequests.addLast(hook);
                             }
                         }
 
@@ -1898,7 +1904,7 @@ public final class InterfaceManager {
                             @Pc(877) HookRequest hook = new HookRequest();
                             hook.source = component;
                             hook.arguments = component.onCamFinished;
-                            Static521.A_DEQUE___44.addLast(hook);
+                            hookRequests.addLast(hook);
                         }
                     }
 
@@ -1935,14 +1941,14 @@ public final class InterfaceManager {
     public static Component getServerDragLayer(@OriginalArg(0) Component arg0) {
         @Pc(15) Component local15 = Static84.method1657(arg0);
         if (local15 == null) {
-            local15 = arg0.aComponent_6;
+            local15 = arg0.dragLayer;
         }
         return local15;
     }
 
     @OriginalMember(owner = "client!dn", name = "a", descriptor = "(IIILjava/lang/String;I)V")
     public static void ifButtonXSend(@OriginalArg(1) int component, @OriginalArg(2) int idAndSlot, @OriginalArg(3) String arg2, @OriginalArg(4) int op) {
-        @Pc(8) Component button = InterfaceList.getComponent(idAndSlot, component);
+        @Pc(8) Component button = InterfaceList.getComponent(component, idAndSlot);
         if (button == null) {
             return;
         }
@@ -2033,7 +2039,7 @@ public final class InterfaceManager {
             return;
         }
 
-        @Pc(14) Component target = InterfaceList.getComponent(InterfaceManager.targetComponent, InterfaceManager.targetSlot);
+        @Pc(14) Component target = InterfaceList.getComponent(InterfaceManager.targetSlot, InterfaceManager.targetComponent);
         if (target != null && target.onTargetLeave != null) {
             @Pc(25) HookRequest hook = new HookRequest();
             hook.arguments = target.onTargetLeave;
@@ -2051,7 +2057,7 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!sr", name = "a", descriptor = "(ILclient!hda;ZI)V")
-    public static void dragTryPickup(@OriginalArg(0) int dragStartY, @OriginalArg(1) Component dragSource, @OriginalArg(3) int dragStartX) {
+    public static void dragTryPickup(@OriginalArg(1) Component dragSource, @OriginalArg(3) int dragStartX, @OriginalArg(0) int dragStartY) {
         if (InterfaceManager.dragSource != null || MiniMenu.open || (dragSource == null || getServerDragLayer(dragSource) == null)) {
             return;
         }
@@ -2104,7 +2110,7 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!fb", name = "a", descriptor = "(IIIIZ)Lclient!aha;")
-    public static SubInterface openSubInterface(@OriginalArg(0) int type, @OriginalArg(1) int id, @OriginalArg(2) int idAndSlot, @OriginalArg(4) boolean scripted) {
+    public static SubInterface openSubInterface(@OriginalArg(0) int type, @OriginalArg(1) int id, @OriginalArg(2) int idAndSlot, @OriginalArg(4) boolean fromClient) {
         @Pc(7) SubInterface sub = new SubInterface();
         sub.id = id;
         sub.type = type;
@@ -2125,14 +2131,14 @@ public final class InterfaceManager {
         MiniMenu.openButtons();
 
         if (parent != null) {
-            calculateLayerDimensions(parent, !scripted);
+            calculateLayerDimensions(parent, !fromClient);
         }
 
-        if (!scripted) {
+        if (!fromClient) {
             ScriptRunner.executeOnLoad(id);
         }
 
-        if (!scripted && topLevelInterface != -1) {
+        if (!fromClient && topLevelInterface != -1) {
             runHookImmediate(IMMEDIATE_HOOK_TYPE_SUBCHANGE, topLevelInterface);
         }
 
@@ -2310,7 +2316,7 @@ public final class InterfaceManager {
             @Pc(225) HookRequest hook = new HookRequest();
             hook.arguments = component.onResize;
             hook.source = component;
-            Static521.A_DEQUE___44.addLast(hook);
+            hookRequests.addLast(hook);
         }
     }
 
@@ -2680,20 +2686,24 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!ci", name = "a", descriptor = "(IZ)V")
-    public static void method1557() {
-        @Pc(13) ClientMessage local13 = ClientMessage.create(ClientProt.CLOSE_MODAL, ServerConnection.GAME.cipher);
-        ServerConnection.GAME.send(local13);
-        for (@Pc(22) SubInterface local22 = (SubInterface) subInterfaces.first(); local22 != null; local22 = (SubInterface) subInterfaces.next()) {
-            if (!local22.isLinked()) {
-                local22 = (SubInterface) subInterfaces.first();
-                if (local22 == null) {
+    public static void close() {
+        @Pc(13) ClientMessage message = ClientMessage.create(ClientProt.CLOSE_MODAL, ServerConnection.GAME.cipher);
+        ServerConnection.GAME.send(message);
+
+        for (@Pc(22) SubInterface sub = (SubInterface) subInterfaces.first(); sub != null; sub = (SubInterface) subInterfaces.next()) {
+            if (!sub.isLinked()) {
+                sub = (SubInterface) subInterfaces.first();
+
+                if (sub == null) {
                     break;
                 }
             }
-            if (local22.type == 0) {
-                closeSubInterface(local22, true, true);
+
+            if (sub.type == 0) {
+                closeSubInterface(sub, true, true);
             }
         }
+
         if (dialog != null) {
             redraw(dialog);
             dialog = null;

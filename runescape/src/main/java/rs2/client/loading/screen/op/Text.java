@@ -37,7 +37,7 @@ public final class Text implements LoadingScreenOp {
     @OriginalMember(owner = "client!fo", name = "a", descriptor = "(I)V")
     @Override
     public void init() {
-        @Pc(24) FontMetrics metrics = FontMetrics.loadFile(this.instance.font, this.fontMetrics);
+        @Pc(24) FontMetrics metrics = FontMetrics.loadFile(this.fontMetrics, this.instance.font);
         this.font = Toolkit.active.createFont(metrics, IndexedImage.load(this.loadingSprites, this.instance.font), true);
     }
 

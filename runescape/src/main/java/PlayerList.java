@@ -248,7 +248,7 @@ public final class PlayerList {
             }
 
             @Pc(108) int delay = bitPacket.g1_alt1();
-            Static651.animate(animations, delay, false, player);
+            PathingEntity.animate(animations, delay, false, player);
         }
 
         if ((flags & PlayerExtendedInfoFlag.SPOTANIM2) != 0) {
@@ -375,9 +375,9 @@ public final class PlayerList {
 
             if (message.charAt(0) == '~') {
                 message = message.substring(1);
-                ChatHistory.add(message, player.getDisplayName(false, true), 0, player.displayName, player.getAccountName(), ChatLineType.PUBLIC);
+                ChatHistory.add(ChatLineType.PUBLIC, 0, player.getDisplayName(false, true), player.getAccountName(), player.displayName, message);
             } else if (player == PlayerEntity.self) {
-                ChatHistory.add(message, player.getDisplayName(false, true), 0, player.displayName, player.getAccountName(), ChatLineType.PUBLIC);
+                ChatHistory.add(ChatLineType.PUBLIC, 0, player.getDisplayName(false, true), player.getAccountName(), player.displayName, message);
             }
 
             player.setChatLine(message, 0, 0);

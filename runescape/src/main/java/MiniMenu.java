@@ -338,7 +338,7 @@ public final class MiniMenu {
             }
             if (local140 != -1 && local142 != -1) {
                 if (InterfaceManager.targetMode && (InterfaceManager.targetMask & 0x40) != 0) {
-                    @Pc(453) Component local453 = InterfaceList.getComponent(InterfaceManager.targetComponent, InterfaceManager.targetSlot);
+                    @Pc(453) Component local453 = InterfaceList.getComponent(InterfaceManager.targetSlot, InterfaceManager.targetComponent);
                     if (local453 == null) {
                         InterfaceManager.endTargetMode();
                     } else {
@@ -973,7 +973,7 @@ public final class MiniMenu {
                 font = Fonts.b12;
             }
 
-            font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.textAlignX, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, random, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, icons, randomSeed, WorldMap.optionsY, WorldMap.optionsComponent.textAlignY);
+            font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.textAlignX, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, random, text, WorldMap.optionsX, WorldMap.optionsComponent.graphicShadow, icons, randomSeed, WorldMap.optionsY, WorldMap.optionsComponent.textAlignY);
             InterfaceManager.redrawWithin(Static329.anIntArray163[0], Static329.anIntArray163[1], Static329.anIntArray163[2], Static329.anIntArray163[3]);
         } else if (InterfaceManager.optionsComponent != null && Client.modeGame == ModeGame.RUNESCAPE) {
             @Pc(299) int width = Fonts.b12.renderRandom(icons, randomSeed, 0xFFFFFF, InterfaceManager.optionsY + 16, text, iconHeights, 0, random, InterfaceManager.optionsX + 4);
@@ -1266,7 +1266,7 @@ public final class MiniMenu {
         }
 
         if (action == MiniMenuAction.TGT_BUTTON) {
-            @Pc(197) Component button = InterfaceList.getComponent(v2, v3);
+            @Pc(197) Component button = InterfaceList.getComponent(v3, v2);
 
             if (button != null) {
                 InterfaceManager.endTargetMode();
@@ -1315,7 +1315,7 @@ public final class MiniMenu {
 
         if (action == MiniMenuAction.PAUSE_BUTTON && InterfaceManager.dialog == null) {
             sendResumePauseButton(v2, v3);
-            InterfaceManager.dialog = InterfaceList.getComponent(v2, v3);
+            InterfaceManager.dialog = InterfaceList.getComponent(v3, v2);
             InterfaceManager.redraw(InterfaceManager.dialog);
         }
 
@@ -1408,7 +1408,7 @@ public final class MiniMenu {
         }
 
         if (action == MiniMenuAction.IF_BUTTONT) {
-            @Pc(741) Component button = InterfaceList.getComponent(v2, v3);
+            @Pc(741) Component button = InterfaceList.getComponent(v3, v2);
 
             if (button != null) {
                 sendTargetButton(button);
@@ -1589,7 +1589,7 @@ public final class MiniMenu {
         }
 
         if (button.onOpT != null) {
-            @Pc(17) Component target = InterfaceList.getComponent(InterfaceManager.targetComponent, InterfaceManager.targetSlot);
+            @Pc(17) Component target = InterfaceList.getComponent(InterfaceManager.targetSlot, InterfaceManager.targetComponent);
 
             if (target != null) {
                 @Pc(23) HookRequest request = new HookRequest();
@@ -2387,12 +2387,12 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!vr", name = "a", descriptor = "(Z)Ljava/lang/String;")
-    public static String activeEntry() {
+    public static String secondEntry() {
         return open || activeEntry == null ? "" : activeEntry.op;
     }
 
     @OriginalMember(owner = "client!eb", name = "a", descriptor = "(B)Ljava/lang/String;")
-    public static String secondEntry() {
+    public static String activeEntry() {
         if (open || activeEntry == null) {
             return "";
         } else if ((activeEntry.opBase == null || activeEntry.opBase.length() == 0) && activeEntry.second != null && activeEntry.second.length() > 0) {

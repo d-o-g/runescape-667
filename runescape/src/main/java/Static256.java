@@ -15,9 +15,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static256 {
 
-    @OriginalMember(owner = "client!hu", name = "n", descriptor = "[S")
-    public static short[] aShortArray63;
-
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(ZLclient!cg;Z)V")
     public static void movementTick(@OriginalArg(1) PathingEntity entity, @OriginalArg(2) boolean cutscene) {
         @Pc(9) BASType basType = entity.getBASType();

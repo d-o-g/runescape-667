@@ -2,9 +2,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static675 {
 
-    @OriginalMember(owner = "client!vga", name = "f", descriptor = "I")
-    public static int anInt10154;
-
     @OriginalMember(owner = "client!vga", name = "a", descriptor = "I")
     public static int anInt10155;
 

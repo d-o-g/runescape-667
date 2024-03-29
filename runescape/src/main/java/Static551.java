@@ -1,7 +1,4 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-
-import java.util.Date;
 
 public final class Static551 {
 
@@ -11,8 +8,4 @@ public final class Static551 {
     @OriginalMember(owner = "client!rfa", name = "u", descriptor = "I")
     public static int anInt8289 = 0;
 
-    @OriginalMember(owner = "client!rfa", name = "a", descriptor = "(IJ)V")
-    public static void method7276(@OriginalArg(1) long arg0) {
-        Static260.aCalendar2.setTime(new Date(arg0));
-    }
 }

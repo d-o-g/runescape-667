@@ -472,7 +472,7 @@ public final class NPCList {
                 }
 
                 @Pc(86) int delay = bitPacket.g1();
-                Static651.animate(animations, delay, true, npc);
+                PathingEntity.animate(animations, delay, true, npc);
             }
 
             if ((flags & NpcExtendedInfoFlag.CUSTOMISE) != 0) {

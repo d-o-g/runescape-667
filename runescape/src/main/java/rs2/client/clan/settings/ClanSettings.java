@@ -634,7 +634,7 @@ public final class ClanSettings {
     }
 
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(IIII)I")
-    public int getAffinedExtraInfo(@OriginalArg(0) int startBit, @OriginalArg(2) int endBit, @OriginalArg(3) int id) {
+    public int getAffinedExtraInfo(@OriginalArg(3) int id, @OriginalArg(0) int startBit, @OriginalArg(2) int endBit) {
         @Pc(27) int mask = endBit == 31 ? -1 : (0x1 << endBit + 1) - 1;
         return (this.affinedExtraInfo[id] & mask) >>> startBit;
     }

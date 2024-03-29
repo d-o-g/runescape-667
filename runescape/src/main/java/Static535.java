@@ -1,14 +1,10 @@
 import com.jagex.Entity;
-import com.jagex.IndexedImage;
 import com.jagex.graphics.EnvironmentLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static535 {
-
-    @OriginalMember(owner = "client!qr", name = "f", descriptor = "Lclient!wp;")
-    public static IndexedImage aIndexedImage_3;
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(Lclient!eo;IIIII)V")
     public static void method7148(@OriginalArg(0) Entity entity, @OriginalArg(1) int level, @OriginalArg(2) int x, @OriginalArg(3) int z, @OriginalArg(4) int width, @OriginalArg(5) int height) {

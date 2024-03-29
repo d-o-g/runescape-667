@@ -1,5 +1,4 @@
 import com.jagex.js5.js5;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static331 {
@@ -15,10 +14,5 @@ public final class Static331 {
 
     @OriginalMember(owner = "client!ki", name = "a", descriptor = "I")
     public static int anInt5441 = -50;
-
-    @OriginalMember(owner = "client!ki", name = "a", descriptor = "(ZLjava/lang/String;B)V")
-    public static void method4924(@OriginalArg(0) boolean arg0, @OriginalArg(1) String arg1) {
-        Static263.method3855(arg0, -1, -1, arg1);
-    }
 
 }

@@ -33,7 +33,7 @@ public final class HookRequest extends Node {
     public int op;
 
     @OriginalMember(owner = "client!pd", name = "o", descriptor = "I")
-    public int anInt7220;
+    public int id;
 
     @OriginalMember(owner = "client!pd", name = "z", descriptor = "I")
     public int keyChar;

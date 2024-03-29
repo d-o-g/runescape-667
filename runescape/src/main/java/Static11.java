@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static11 {
 
-    @OriginalMember(owner = "client!aga", name = "b", descriptor = "I")
-    public static int anInt136;
-
     @OriginalMember(owner = "client!aga", name = "a", descriptor = "(I)V")
     public static void method146() {
         PlayerList.highResolutionPlayerCount = 0;

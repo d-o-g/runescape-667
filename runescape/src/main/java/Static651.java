@@ -2,9 +2,6 @@ import com.jagex.Static14;
 import com.jagex.game.Animator;
 import com.jagex.game.MoveSpeed;
 import com.jagex.game.runetek6.config.bastype.BASType;
-import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
-import com.jagex.game.runetek6.config.seqtype.SeqType;
-import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.graphics.Interface9;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -116,59 +113,6 @@ public final class Static651 {
             }
 
             entity.ready = false;
-        }
-    }
-
-    @OriginalMember(owner = "client!uja", name = "a", descriptor = "([IIZLclient!cg;I)V")
-    public static void animate(@OriginalArg(0) int[] animations, @OriginalArg(1) int delay, @OriginalArg(2) boolean updatePathPointer, @OriginalArg(3) PathingEntity entity) {
-        if (entity.actionAnimations != null) {
-            @Pc(8) boolean repeat = true;
-
-            for (@Pc(10) int i = 0; i < entity.actionAnimations.length; i++) {
-                if (animations[i] != entity.actionAnimations[i]) {
-                    repeat = false;
-                    break;
-                }
-            }
-
-            @Pc(31) Animator animator = entity.actionAnimator;
-            if (repeat && animator.isAnimating()) {
-                @Pc(44) SeqType seqType = entity.actionAnimator.getAnimation();
-                @Pc(47) int replayMode = seqType.replayMode;
-
-                if (replayMode == SeqReplayMode.RESET) {
-                    animator.reset(delay);
-                }
-
-                if (replayMode == SeqReplayMode.RESTART_LOOP) {
-                    animator.restartLoop();
-                }
-            }
-        }
-
-        @Pc(8) boolean override = true;
-        for (@Pc(10) int i = 0; i < animations.length; i++) {
-            if (animations[i] != -1) {
-                override = false;
-            }
-
-            if (entity.actionAnimations == null || entity.actionAnimations[i] == -1 || SeqTypeList.instance.list(animations[i]).priority >= SeqTypeList.instance.list(entity.actionAnimations[i]).priority) {
-                entity.actionAnimations = animations;
-                entity.actionAnimator.setDelay(delay);
-
-                if (updatePathPointer) {
-                    entity.animationPathPointer = entity.pathPointer;
-                }
-            }
-        }
-
-        if (override) {
-            entity.actionAnimations = animations;
-            entity.actionAnimator.setDelay(delay);
-
-            if (updatePathPointer) {
-                entity.animationPathPointer = entity.pathPointer;
-            }
         }
     }
 

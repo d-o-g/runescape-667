@@ -5,7 +5,6 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import rs2.client.clan.channel.ClanChannel;
-import rs2.client.clan.channel.delta.DeltaEntry;
 
 @OriginalClass("client!lc")
 public final class UpdateBaseSettings extends DeltaEntry {
@@ -27,7 +26,7 @@ public final class UpdateBaseSettings extends DeltaEntry {
             channel.talkRank = this.talkRank;
         }
 
-        channel.channelName = this.name;
+        channel.clanName = this.name;
     }
 
     @OriginalMember(owner = "client!lc", name = "a", descriptor = "(Lclient!ge;I)V")

@@ -1,7 +1,4 @@
-import com.jagex.Client;
-import com.jagex.ClientProt;
 import com.jagex.core.util.Arrays;
-import com.jagex.game.LocalisedText;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -65,37 +62,6 @@ public final class Static57 {
             @Pc(19) short[] local19 = new short[arg0.length];
             Arrays.copy(arg0, 0, local19, 0, arg0.length);
             return local19;
-        }
-    }
-
-    @OriginalMember(owner = "client!bt", name = "a", descriptor = "(ILjava/lang/String;)V")
-    public static void method1231(@OriginalArg(1) String arg0) {
-        if (!InterfaceManager.targetMode || (InterfaceManager.targetMask & 0x18) == 0) {
-            return;
-        }
-        @Pc(22) boolean local22 = false;
-        @Pc(24) int local24 = PlayerList.highResolutionPlayerCount;
-        @Pc(26) int[] local26 = PlayerList.highResolutionPlayerIndices;
-        for (@Pc(28) int local28 = 0; local28 < local24; local28++) {
-            @Pc(35) PlayerEntity local35 = PlayerList.highResolutionPlayers[local26[local28]];
-            if (local35.accountName != null && local35.accountName.equalsIgnoreCase(arg0) && (PlayerEntity.self == local35 && (InterfaceManager.targetMask & 0x10) != 0 || (InterfaceManager.targetMask & 0x8) != 0)) {
-                @Pc(75) ClientMessage local75 = ClientMessage.create(ClientProt.OPPLAYERT, ServerConnection.GAME.cipher);
-                local75.bitPacket.p2_alt1(local26[local28]);
-                local75.bitPacket.p4_alt1(InterfaceManager.targetSlot);
-                local75.bitPacket.p2(InterfaceManager.targetInvObj);
-                local75.bitPacket.p1_alt3(0);
-                local75.bitPacket.p2_alt3(InterfaceManager.targetComponent);
-                ServerConnection.GAME.send(local75);
-                Static147.findPath(0, local35.pathZ[0], local35.getSize(), true, local35.pathX[0], 0, -2, local35.getSize());
-                local22 = true;
-                break;
-            }
-        }
-        if (!local22) {
-            ChatHistory.addPrivateError(LocalisedText.UNABLETOFIND.localise(Client.language) + arg0);
-        }
-        if (InterfaceManager.targetMode) {
-            InterfaceManager.endTargetMode();
         }
     }
 

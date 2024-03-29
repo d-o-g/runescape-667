@@ -602,7 +602,7 @@ public final class client extends GameShell {
                             if (local453 == null) {
                                 while (true) {
                                     do {
-                                        local453 = (HookRequest) Static521.A_DEQUE___44.removeFirst();
+                                        local453 = (HookRequest) InterfaceManager.hookRequests.removeFirst();
                                         if (local453 == null) {
                                             if (InterfaceManager.dragSource != null) {
                                                 Static603.method7899();
@@ -620,10 +620,10 @@ public final class client extends GameShell {
                                             for (@Pc(672) FriendNotification local672 = (FriendNotification) FriendsList.notifications.first(); local672 != null; local672 = (FriendNotification) FriendsList.notifications.next()) {
                                                 if ((long) local672.arrivalTime < SystemTimer.safetime() / 1000L - 5L) {
                                                     if (local672.world > 0) {
-                                                        ChatHistory.add(local672.name + LocalisedText.FRIENDLOGIN.localise(Client.language), "", 0, "", "", 5);
+                                                        ChatHistory.add(5, 0, "", "", "", local672.name + LocalisedText.FRIENDLOGIN.localise(Client.language));
                                                     }
                                                     if (local672.world == 0) {
-                                                        ChatHistory.add(local672.name + LocalisedText.FRIENDLOGOUT.localise(Client.language), "", 0, "", "", 5);
+                                                        ChatHistory.add(5, 0, "", "", "", local672.name + LocalisedText.FRIENDLOGOUT.localise(Client.language));
                                                     }
                                                     local672.unlink();
                                                 }
@@ -781,23 +781,23 @@ public final class client extends GameShell {
                 }
 
                 @Pc(110) int local110 = (Static357.anInt6508 - Static593.anInt8763) * 50 / Static357.anInt6508;
-                Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(" + local110 + "%)", true, Fonts.p12Metrics, Fonts.p12);
+                MessageBox.draw(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(" + local110 + "%)", true, Fonts.p12Metrics, Fonts.p12);
             } else if (Static213.anInt3472 == 2) {
                 if (Static13.anInt150 > Static440.anInt6683) {
                     Static440.anInt6683 = Static13.anInt150;
                 }
 
                 @Pc(110) int local110 = (Static440.anInt6683 - Static13.anInt150) * 50 / Static440.anInt6683 + 50;
-                Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(" + local110 + "%)", true, Fonts.p12Metrics, Fonts.p12);
+                MessageBox.draw(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(" + local110 + "%)", true, Fonts.p12Metrics, Fonts.p12);
             } else {
-                Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language), true, Fonts.p12Metrics, Fonts.p12);
+                MessageBox.draw(Toolkit.active, LocalisedText.LOADING.localise(Client.language), true, Fonts.p12Metrics, Fonts.p12);
             }
         } else if (MainLogicManager.step == 11) {
             InterfaceManager.method7930(local20);
         } else if (MainLogicManager.step == 14) {
-            Static694.drawLoadingText(Toolkit.active, LocalisedText.CONLOST.localise(Client.language) + "<br>" + LocalisedText.ATTEMPTING_TO_REESTABLISH.localise(Client.language), false, Fonts.p12Metrics, Fonts.p12);
+            MessageBox.draw(Toolkit.active, LocalisedText.CONLOST.localise(Client.language) + "<br>" + LocalisedText.ATTEMPTING_TO_REESTABLISH.localise(Client.language), false, Fonts.p12Metrics, Fonts.p12);
         } else if (MainLogicManager.step == 15) {
-            Static694.drawLoadingText(Toolkit.active, LocalisedText.PLEASEWAIT.localise(Client.language), false, Fonts.p12Metrics, Fonts.p12);
+            MessageBox.draw(Toolkit.active, LocalisedText.PLEASEWAIT.localise(Client.language), false, Fonts.p12Metrics, Fonts.p12);
         }
 
         if (InterfaceManager.rectDebug == 3) {
@@ -844,7 +844,7 @@ public final class client extends GameShell {
 
             try {
                 if (InterfaceManager.aBoolean210) {
-                    Static430.method5818();
+                    Static430.flip();
                 } else {
                     Toolkit.active.flip();
                 }

@@ -58,7 +58,7 @@ public final class ChatLine {
     }
 
     @OriginalMember(owner = "client!pa", name = "a", descriptor = "(IILjava/lang/String;Ljava/lang/String;ILjava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V")
-    public void update(@OriginalArg(0) int quickChatId, @OriginalArg(1) int flags, @OriginalArg(2) String name, @OriginalArg(3) String message, @OriginalArg(4) int type, @OriginalArg(5) String accountName, @OriginalArg(7) String channel, @OriginalArg(8) String displayName) {
+    public void update(@OriginalArg(4) int type, @OriginalArg(1) int flags, @OriginalArg(2) String name, @OriginalArg(5) String accountName, @OriginalArg(8) String displayName, @OriginalArg(7) String channel, @OriginalArg(0) int quickChatId, @OriginalArg(3) String message) {
         this.uid = nextUid();
         this.name = name;
         this.channel = channel;

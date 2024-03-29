@@ -1,6 +1,8 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
+import com.jagex.core.io.Packet;
+import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.game.runetek6.config.objtype.ObjNumMode;
 import rs2.client.loading.library.LibraryManager;
 import com.jagex.PrivateChatMode;
@@ -50,7 +52,7 @@ import com.jagex.core.util.JagException;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
-import com.jagex.game.runetek6.config.iftype.DragRender;
+import com.jagex.game.runetek6.config.iftype.DragRenderBehaviour;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.game.LocalisedText;
@@ -73,6 +75,812 @@ import java.awt.datatransfer.Transferable;
 @OriginalClass("client!ou")
 public final class ScriptRunner {
 
+    public static final int CC_CREATE = 150;
+
+    public static final int CC_DELETE = 151;
+
+    public static final int CC_DELETEALL = 152;
+
+    public static final int CC_FIND = 200;
+
+    public static final int IF_FIND = 201;
+
+    public static final int IF_SENDTOFRONT = 202;
+
+    public static final int CC_SENDTOFRONT = 204;
+
+    public static final int IF_SENDTOBACK = 203;
+
+    public static final int CC_SENDTOBACK = 205;
+
+    public static final int BASEIDKIT = 403;
+
+    public static final int BASECOLOUR = 404;
+
+    public static final int SETGENDER = 410;
+
+    public static final int SETOBJ = 411;
+
+    public static final int CC_IF_SETPOSITION = 1000;
+
+    public static final int CC_IF_SETSIZE = 1001;
+
+    public static final int CC_IF_SETHIDE = 1003;
+
+    public static final int CC_IF_SETASPECT = 1004;
+
+    public static final int CC_IF_SETNOCLICKTHROUGH = 1005;
+
+    public static final int CC_IF_SETSCROLLPOS = 1100;
+
+    public static final int CC_IF_SETCOLOUR = 1101;
+
+    public static final int CC_IF_SETFILL = 1102;
+
+    public static final int CC_IF_SETTTRANS = 1103;
+
+    public static final int CC_IF_SETLINEWID = 1104;
+
+    public static final int CC_IF_SETGRAPHIC = 1105;
+
+    public static final int CC_IF_SET2DANGLE = 1106;
+
+    public static final int CC_IF_SETTILING = 1107;
+
+    public static final int CC_IF_SETMODEL = 1108;
+
+    public static final int CC_IF_SETMODELANGLE = 1109;
+
+    public static final int CC_IF_SETMODELANIM = 1110;
+
+    public static final int CC_IF_SETMODELORTHOG = 1111;
+
+    public static final int CC_IF_SETTEXT = 1112;
+
+    public static final int CC_IF_SETTEXTFONT = 1113;
+
+    public static final int CC_IF_SETTEXTALIGN = 1114;
+
+    public static final int CC_IF_SETTEXTSHADOW = 1115;
+
+    public static final int CC_IF_SETOUTLINE = 1116;
+
+    public static final int CC_IF_SETGRAPHICSHADOW = 1117;
+
+    public static final int CC_IF_SETHFLIP = 1118;
+
+    public static final int CC_IF_SETVFLIP = 1119;
+
+    public static final int CC_IF_SETSCROLLSIZE = 1120;
+
+    public static final int CC_IF_SETALPHA = 1122;
+
+    public static final int CC_IF_SETMODELZOOM = 1123;
+
+    public static final int CC_IF_SETLINEDIRECTION = 1124;
+
+    public static final int CC_IF_SETMODELORIGIN = 1125;
+
+    public static final int CC_IF_SETMAXLINES = 1126;
+
+    public static final int CC_IF_SETPARAM_INT = 1127;
+
+    public static final int CC_IF_SETPARAM_STRING = 1128;
+
+    public static final int CC_IF_SETRECOL = 1131;
+
+    public static final int CC_IF_SETRETEX = 1132;
+
+    public static final int CC_IF_SETFONTMONO = 1133;
+
+    public static final int CC_IF_SETPARAM = 1134;
+
+    public static final int CC_IF_SETCLICKMASK = 1135;
+
+    public static final int CC_IF_SETOBJECT = 1200;
+
+    public static final int CC_IF_SETOBJECT_NONUM = 1205;
+
+    public static final int CC_IF_SETOBJECT_WEARCOL = 1208;
+
+    public static final int CC_IF_SETOBJECT_WEARCOL_NONUM = 1209;
+
+    public static final int CC_IF_SETOBJECT_ALWAYSNUM = 1212;
+
+    public static final int CC_IF_SETOBJECT_WEARCOL_ALWAYSNUM = 1213;
+
+    public static final int CC_IF_SETNPCHEAD = 1201;
+
+    public static final int CC_IF_SETPLAYERHEAD_SELF = 1202;
+
+    public static final int CC_IF_SETNPCMODEL = 1203;
+
+    public static final int CC_IF_SETPLAYERMODEL = 1204;
+
+    public static final int CC_IF_SETOBJECT_DATA = 1210;
+
+    public static final int CC_IF_SETPLAYERMODEL_SELF = 1211;
+
+    public static final int CC_IF_SETOP = 1300;
+
+    public static final int CC_IF_SETDRAGGABLE = 1301;
+
+    public static final int CC_IF_SETDRAGRENDERBEHAVIOUR = 1302;
+
+    public static final int CC_IF_SETDRAGDEADZONE = 1303;
+
+    public static final int CC_IF_SETDRAGDEADTIME = 1304;
+
+    public static final int CC_IF_SETOPBASE = 1305;
+
+    public static final int CC_IF_SETTARGETVERB = 1306;
+
+    public static final int CC_IF_CLEAROPS = 1307;
+
+    public static final int CC_IF_SETTARGETCURSORS = 1308;
+
+    public static final int CC_IF_SETOPCURSOR = 1309;
+
+    public static final int CC_IF_SETPAUSETEXT = 1310;
+
+    public static final int CC_IF_SETTARGETOPCURSOR = 1311;
+
+    public static final int CC_IF_SETOPCHAR = 1312;
+
+    public static final int CC_IF_SETOPKEY = 1313;
+
+    public static final int CC_IF_SETMOUSEOVERCURSOR = 1314;
+
+    public static final int CC_IF_CLEARSCRIPTHOOKS = 1499;
+
+    public static final int CC_IF_SETONCLICK = 1400;
+
+    public static final int CC_IF_SETONHOLD = 1401;
+
+    public static final int CC_IF_SETONRELEASE = 1402;
+
+    public static final int CC_IF_SETONMOUSEOVER = 1403;
+
+    public static final int CC_IF_SETONMOUSELEAVE = 1404;
+
+    public static final int CC_IF_SETONDRAG = 1405;
+
+    public static final int CC_IF_SETONTARGETLEAVE = 1406;
+
+    public static final int CC_IF_SETONVARTRANSMIT = 1407;
+
+    public static final int CC_IF_SETONTIMER = 1408;
+
+    public static final int CC_IF_SETONOP = 1409;
+
+    public static final int CC_IF_SETONDRAGCOMPLETE = 1410;
+
+    public static final int CC_IF_SETONCLICKREPEAT = 1411;
+
+    public static final int CC_IF_SETONMOUSEREPEAT = 1412;
+
+    public static final int CC_IF_SETONINVTRANSMIT = 1414;
+
+    public static final int CC_IF_SETONSTATTRANSMIT = 1415;
+
+    public static final int CC_IF_SETONTARGETENTER = 1416;
+
+    public static final int CC_IF_SETONSCROLLWHEEL = 1417;
+
+    public static final int CC_IF_SETONCHATTRANSMIT = 1418;
+
+    public static final int CC_IF_SETONKEY = 1419;
+
+    public static final int CC_IF_SETONFRIENDTRANSMIT = 1420;
+
+    public static final int CC_IF_SETONCLANTRANSMIT = 1421;
+
+    public static final int CC_IF_SETONMISCTRANSMIT = 1422;
+
+    public static final int CC_IF_SETONDIALOGABORT = 1423;
+
+    public static final int CC_IF_SETONSUBCHANGE = 1424;
+
+    public static final int CC_IF_SETONSTOCKTRANSMIT = 1425;
+
+    public static final int CC_IF_SETONCAMFINISHED = 1426;
+
+    public static final int CC_IF_SETONRESIZE = 1427;
+
+    public static final int CC_IF_SETONVARCTRANSMIT = 1428;
+
+    public static final int CC_IF_SETONVARCSTRTRANSMIT = 1429;
+
+    public static final int CC_IF_SETONOPT = 1430;
+
+    public static final int CC_IF_SETONCLANSETTINGSTRANSMIT = 1431;
+
+    public static final int CC_IF_SETONCLANCHANNELTRANSMIT = 1432;
+
+    public static final int CC_IF_SETONVARCLANTRANSMIT = 1433;
+
+    public static final int CC_GETX = 1500;
+
+    public static final int CC_GETY = 1501;
+
+    public static final int CC_GETWIDTH = 1502;
+
+    public static final int CC_GETHEIGHT = 1503;
+
+    public static final int CC_GETHIDE = 1504;
+
+    public static final int CC_GETLAYER = 1505;
+
+    public static final int CC_GETPARENTLAYER = 1506;
+
+    public static final int CC_GETCOLOUR = 1507;
+
+    public static final int CC_GETSCROLLX = 1600;
+
+    public static final int CC_GETSCROLLY = 1601;
+
+    public static final int CC_GETTEXT = 1602;
+
+    public static final int CC_GETSCROLLWIDTH = 1603;
+
+    public static final int CC_GETSCROLLHEIGHT = 1604;
+
+    public static final int CC_GETMODELZOOM = 1605;
+
+    public static final int CC_GETMODELANGLE_X = 1606;
+
+    public static final int CC_GETMODELANGLE_Z = 1607;
+
+    public static final int CC_GETMODELANGLE_Y = 1608;
+
+    public static final int CC_GETTRANS = 1609;
+
+    public static final int CC_GETMODELXOF = 1610;
+
+    public static final int CC_GETMODELYOF = 1611;
+
+    public static final int CC_GETGRAPHIC = 1612;
+
+    public static final int CC_PARAM = 1613;
+
+    public static final int CC_GET2DANGLE = 1614;
+
+    public static final int CC_GETMODEL = 2614;
+
+    public static final int CC_GETFONTGRAPHIC = 1618;
+
+    public static final int CC_GETINVOBJECT = 1700;
+
+    public static final int CC_GETINVCOUNT = 1701;
+
+    public static final int CC_GETID = 1702;
+
+    public static final int CC_GETTARGETMASK = 1800;
+
+    public static final int CC_GETOP = 1801;
+
+    public static final int CC_GETOPBASE = 1802;
+
+    public static final int CC_IF_CALLONRESIZE = 1927;
+
+    public static final int IF_GETX = 2500;
+
+    public static final int IF_GETY = 2501;
+
+    public static final int IF_GETWIDTH = 2502;
+
+    public static final int IF_GETHEIGHT = 2503;
+
+    public static final int IF_GETHIDE = 2504;
+
+    public static final int IF_GETLAYER = 2505;
+
+    public static final int IF_GETPARENTLAYER = 2506;
+
+    public static final int IF_GETCOLOUR = 2507;
+
+    public static final int IF_GETSCROLLX = 2600;
+
+    public static final int IF_GETSCROLLY = 2601;
+
+    public static final int IF_GETTEXT = 2602;
+
+    public static final int IF_GETSCROLLWIDTH = 2603;
+
+    public static final int IF_GETSCROLLHEIGHT = 2604;
+
+    public static final int IF_GETMODELZOOM = 2605;
+
+    public static final int IF_GETMODELANGLE_X = 2606;
+
+    public static final int IF_GETMODELANGLE_Z = 2607;
+
+    public static final int IF_GETMODELANGLE_Y = 2608;
+
+    public static final int IF_GETTRANS = 2609;
+
+    public static final int IF_GETMODELXOF = 2610;
+
+    public static final int IF_GETMODELYOF = 2611;
+
+    public static final int IF_GETGRAPHIC = 2612;
+
+    public static final int IF_GET2DANGLE = 2613;
+
+    public static final int IF_GETMODEL = 2614;
+
+    public static final int IF_GETFONTGRAPHIC = 2617;
+
+    public static final int IF_GETINVOBJECT = 2700;
+
+    public static final int IF_GETINVCOUNT = 2701;
+
+    public static final int IF_HASSUB = 2702;
+
+    public static final int IF_GETNEXTSUBID = 2703;
+
+    public static final int IF_HASSUBMODAL = 2704;
+
+    public static final int IF_HASSUBOVERLAY = 2705;
+
+    public static final int IF_GETTARGETMASK = 2800;
+
+    public static final int IF_GETOP = 2801;
+
+    public static final int IF_GETOPBASE = 2802;
+
+    public static final int MES = 3100;
+
+    public static final int IF_CLOSE = 3103;
+
+    public static final int RESUME_COUNTDIALOG = 3104;
+
+    public static final int RESUME_STRINGDIALOG = 3105;
+
+    public static final int RESUME_NAMEDIALOG = 3106;
+
+    public static final int OPPLAYER = 3107;
+
+    public static final int IF_DRAGPICKUP = 3108;
+
+    public static final int CC_DRAGPICKUP = 3109;
+
+    public static final int RESUME_OBJDIALOG = 3110;
+
+    public static final int IF_OPENSUBCLIENT = 3111;
+
+    public static final int IF_CLOSESUBCLIENT = 3112;
+
+    public static final int OPPLAYERT = 3113;
+
+    public static final int MES_TYPED = 3114;
+
+    public static final int SETUP_MESSAGEBOX = 3115;
+
+    public static final int RESUME_HSLDIALOG = 3116;
+
+    public static final int RESUME_CLANFORUMQFCDIALOG = 3117;
+
+    public static final int SOUND_SYNTH = 3200;
+
+    public static final int SOUND_SONG = 3201;
+
+    public static final int SOUND_JINGLE = 3202;
+
+    public static final int SOUND_SYTHN_VOLUME = 3203;
+
+    public static final int SOUND_SONG_VOLUME = 3204;
+
+    public static final int SOUND_JINGLE_VOLUME = 3205;
+
+    public static final int SOUND_VORBIS_VOLUME = 3206;
+
+    public static final int SOUND_SPEECH_VOLUME = 3207;
+
+    public static final int SOUND_SYNTH_RATE = 3208;
+
+    public static final int SOUND_VORBIS_RATE = 3209;
+
+    public static final int CLIENTCLOCK = 3300;
+
+    public static final int INV_GETOBJ = 3301;
+
+    public static final int INV_GETNUM = 3302;
+
+    public static final int INV_TOTAL = 3303;
+
+    public static final int INV_SIZE = 3304;
+
+    public static final int STAT = 3305;
+
+    public static final int STAT_BASE = 3306;
+
+    public static final int STAT_VISIBLE_XP = 3307;
+
+    public static final int FACING_FINE = 3308;
+
+    public static final int COORDX = 3309;
+
+    public static final int COORDY = 3310;
+
+    public static final int COORDZ = 3311;
+
+    public static final int MAP_MEMBERS = 3312;
+
+    public static final int INVOTHER_GETOBJ = 3313;
+
+    public static final int INVOTHER_GETNUM = 3314;
+
+    public static final int INVOTHER_TOTAL = 3315;
+
+    public static final int STAFFMODLEVEL = 3316;
+
+    public static final int REBOOTTIMER = 3317;
+
+    public static final int MAP_WORLD = 3318;
+
+    public static final int RUNENERGY_VISIBLE = 3321;
+
+    public static final int RUNWEIGHT_VISIBLE = 3322;
+
+    public static final int PLAYERMOD = 3323;
+
+    public static final int PLAYERMODLEVEL = 3324;
+
+    public static final int PLAYERMEMBER = 3325;
+
+    public static final int COMLEVEL_ACTIVE = 3326;
+
+    public static final int GENDER = 3327;
+
+    public static final int MAP_QUICKCHAT = 3329;
+
+    public static final int INV_FREESPACE = 3330;
+
+    public static final int INV_TOTALPARAM = 3331;
+
+    public static final int INV_TOTALPARAM_STACK = 3332;
+
+    public static final int MAP_LANG = 3335;
+
+    public static final int MOVE_COORD = 3336;
+
+    public static final int AFFILIATE = 3337;
+
+    public static final int PROFILE_CPU = 3338;
+
+    public static final int PLAYERDEMO = 3339;
+
+    public static final int APPLET_HASFOCUS = 3340;
+
+    public static final int FROMBILLING = 3341;
+
+    public static final int GET_MOUSEX = 3342;
+
+    public static final int GET_MOUSEY = 3343;
+
+    public static final int GET_ACTIVE_MINIMENU_ENTRY = 3344;
+
+    public static final int GET_SECOND_MINIMENU_ENTRY = 3345;
+
+    public static final int GET_MINIMENU_LENGTH = 3346;
+
+    public static final int GET_CURRENTCURSOR = 3347;
+
+    public static final int GET_SELFYANGLE = 3349;
+
+    public static final int MAP_ISOWNER = 3350;
+
+    public static final int GET_MOUSEBUTTONS = 3351;
+
+    public static final int ENUM_STRING = 3400;
+
+    public static final int ENUM = 3408;
+
+    public static final int ENUM_HASOUTPUT = 3409;
+
+    public static final int ENUM_HASOUTPUT_STRING = 3410;
+
+    public static final int ENUM_GETOUTPUT_COUNT = 3411;
+
+    public static final int ENUM_GETREVERSECOUNT = 3412;
+
+    public static final int ENUM_GETREVERSECOUNT_STRING = 3413;
+
+    public static final int ENUM_GETREVERSEINDEX = 3414;
+
+    public static final int ENUM_GETREVERSEINDEX_STRING = 3415;
+
+    public static final int FRIEND_COUNT = 3600;
+
+    public static final int FRIEND_GETNAME = 3601;
+
+    public static final int FRIEND_GETWORLD = 3602;
+
+    public static final int FRIEND_GETRANK = 3603;
+
+    public static final int FRIEND_SETRANK = 3604;
+
+    public static final int FRIEND_ADD = 3605;
+
+    public static final int FRIEND_DEL = 3606;
+
+    public static final int IGNORE_ADD = 3607;
+
+    public static final int IGNORE_DEL = 3608;
+
+    public static final int FRIEND_TEST = 3609;
+
+    public static final int FRIEND_GETWORLDNAME = 3610;
+
+    public static final int CLAN_GETCHATDISPLAYNAME = 3611;
+
+    public static final int CLAN_GETCHATCOUNT = 3612;
+
+    public static final int CLAN_GETCHATUSERNAME = 3613;
+
+    public static final int CLAN_GETCHATUSERWORLD = 3614;
+
+    public static final int CLAN_GETCHATUSERRANK = 3615;
+
+    public static final int CLAN_GETCHATMINKICK = 3616;
+
+    public static final int CLAN_KICKUSER = 3617;
+
+    public static final int CLAN_GETCHATRANK = 3618;
+
+    public static final int CLAN_JOINCHAT = 3619;
+
+    public static final int CLAN_LEAVECHAT = 3620;
+
+    public static final int IGNORE_COUNT = 3621;
+
+    public static final int IGNORE_GETNAME = 3622;
+
+    public static final int IGNORE_TEXT = 3623;
+
+    public static final int CLAN_ISSELF = 3624;
+
+    public static final int CLAN_GETCHATOWNERNAME = 3625;
+
+    public static final int CLAN_GETCHATUSERWORLDNAME = 3626;
+
+    public static final int FRIEND_SAME_GAME = 3627;
+
+    public static final int FRIEND_GETSLOTFROMNAME = 3628;
+
+    public static final int PLAYERCOUNTRY = 3629;
+
+    public static final int IGNORE_ADD_TEMP = 3630;
+
+    public static final int IGNORE_IS_TEMP = 3631;
+
+    public static final int CLAN_GETCHATUSERNAME_UNFILTERED = 3632;
+
+    public static final int IGNORE_GETNAME_UNFILTERED = 3633;
+
+    public static final int FRIEND_IS_REFERRED = 3634;
+
+    public static final int ACTIVELCANSETTINGS_FIND_LISTENED = 3700;
+
+    public static final int ACTIVECLANSETTINGS_FIND_AFFINED = 3701;
+
+    public static final int ACTIVECLANSETTINGS_GETCLANNAME = 3702;
+
+    public static final int ACTIVECLANSETTINGS_GETALLOWUNAFFINED = 3703;
+
+    public static final int ACTIVECLANSETTINGS_GETRANKTALK = 3704;
+
+    public static final int ACTIVECLANSETTINGS_GETRANKKICK = 3705;
+
+    public static final int ACTIVECLANSETTINGS_GETRANKLOOTSHARE = 3706;
+
+    public static final int ACTIVECLANSETTINGS_GETCOINSHARE = 3707;
+
+    public static final int ACTIVECLANSETTINGS_GETAFFINEDCOUNT = 3709;
+
+    public static final int ACTIVECLANSETTINGS_GETAFFINEDDISPLAYNAME = 3710;
+
+    public static final int ACTIVECLANSETTINGS_GETAFFINEDRANK = 3711;
+
+    public static final int ACTIVECLANSETTINGS_GETBANNEDCOUNT = 3712;
+
+    public static final int ACTIVECLANSETTINGS_GETBANNEDDISPLAYNAME = 3713;
+
+    public static final int ACTIVECLANSETTINGS_GETAFFINEDEXTRAINFO = 3714;
+
+    public static final int ACTIVECLANSETTINGS_GETCURRENTOWNER_SLOT = 3715;
+
+    public static final int ACTIVECLANSETTINGS_GETREPLACEMENTOWNER_SLOT = 3716;
+
+    public static final int ACTIVECLANSETTINGS_GETAFFINEDSLOT = 3717;
+
+    public static final int ACTIVECLANSETTINGS_GETSORTEDAFFINEDSLOT = 3718;
+
+    public static final int AFFINEDCLANSETTINGS_ADDBANNED_FROMCHANNEL = 3719;
+
+    public static final int ACTIVECLANSETTINGS_GETAFFINEDJOINRUNEDAY = 3720;
+
+    public static final int ACTIVECLANCHANNEL_FIND_LISTENED = 3750;
+
+    public static final int ACTIVECLANCHANNEL_FIND_AFFINED = 3751;
+
+    public static final int ACTIVECLANCHANNEL_GETCLANNAME = 3752;
+
+    public static final int ACTIVECLANCHANNEL_GETRANKKICK = 3753;
+
+    public static final int ACTIVECLANCHANNEL_GETRANKTALK = 3754;
+
+    public static final int ACTIVECLANCHANNEL_GETUSERCOUNT = 3755;
+
+    public static final int ACTIVECLANCHANNEL_GETUSERDISPLAYNAME = 3756;
+
+    public static final int ACTIVECLANCHANNEL_GETUSERRANK = 3757;
+
+    public static final int ACTIVECLANCHANNEL_GETUSERWORLD = 3758;
+
+    public static final int ACTIVECLANCHANNEL_KICKUSER = 3759;
+
+    public static final int ACTIVECLANCHANNEL_GETUSERSLOT = 3760;
+
+    public static final int ACTIVECLANCHANNEL_GETSORTEDUSERSLOT = 3761;
+
+    public static final int CLANPROFILE_FIND = 3790;
+
+    public static final int STOCKMARKET_GETOFFERTYPE = 3903;
+
+    public static final int STOCKMARKET_GETOFFERITEM = 3904;
+
+    public static final int STOCKMARKET_GETOFFERPRICE = 3905;
+
+    public static final int STOCKMARKET_GETOFFERCOUNT = 3906;
+
+    public static final int STOCKMARKET_GETOFFERCOMPLETEDCOUNT = 3907;
+
+    public static final int STOCKMARKET_GETOFFERCOMPLETEDGOLD = 3908;
+
+    public static final int STOCKMARKET_ISOFFEREMPTY = 3910;
+
+    public static final int STOCKMARKET_ISOFFERSTABLE = 3911;
+
+    public static final int STOCKMARKET_ISOFFERFINISHED = 3912;
+
+    public static final int STOCKMARKET_ISOFFERADDING = 3913;
+
+    public static final int ADD = 4000;
+
+    public static final int SUB = 4001;
+
+    public static final int MULTIPLY = 4002;
+
+    public static final int DIVIDE = 4003;
+
+    public static final int RANDOM = 4004;
+
+    public static final int RANDOMINC = 4005;
+
+    public static final int INTERPOLATE = 4006;
+
+    public static final int ADDPERCENT = 4007;
+
+    public static final int SETBIT = 4008;
+
+    public static final int CLEARBIT = 4009;
+
+    public static final int TESTBIT = 4010;
+
+    public static final int MODULO = 4011;
+
+    public static final int POW = 4012;
+
+    public static final int INVPOW = 4013;
+
+    public static final int AND = 4014;
+
+    public static final int OR = 4015;
+
+    public static final int MIN = 4016;
+
+    public static final int MAX = 4017;
+
+    public static final int SCALE = 4018;
+
+    public static final int RANDOM_SOUND_PITCH = 4019;
+
+    public static final int HSVTORGB = 4020;
+
+    public static final int APPEND_NUM = 4100;
+
+    public static final int APPEND = 4101;
+
+    public static final int APPEND_SIGNNUM = 4102;
+
+    public static final int LOWERCASE = 4103;
+
+    public static final int FROMDATE = 4104;
+
+    public static final int TEXT_GENDER = 4105;
+
+    public static final int TOSTRING = 4106;
+
+    public static final int COMPARE = 4107;
+
+    public static final int PARAHEIGHT = 4108;
+
+    public static final int PARAWIDTH = 4109;
+
+    public static final int TEXT_SWITCH = 4110;
+
+    public static final int ESCAPE = 4111;
+
+    public static final int APPEND_CHAR = 4112;
+
+    public static final int CHAR_ISPRINTABLE = 4113;
+
+    public static final int CHAR_ISALPHANUMERIC = 4114;
+
+    public static final int CHAR_ISALPHA = 4115;
+
+    public static final int CHAR_ISNUMERIC = 4116;
+
+    public static final int STRING_LENGTH = 4117;
+
+    public static final int SUBSTRING = 4118;
+
+    public static final int REMOVETAGS = 4119;
+
+    public static final int STRING_INDEXOF_CHAR = 4120;
+
+    public static final int STRING_INDEXOF_STRING = 4121;
+
+    public static final int CHAR_TOLOWERCASE = 4122;
+
+    public static final int CHAR_TOUPPERCASE = 4123;
+
+    public static final int TOSTRING_LOCALISED = 4124;
+
+    public static final int STRINGWIDTH = 4125;
+
+    public static final int FORMAT_DATETIME_FROM_MINUTES = 4126;
+
+    public static final int CLANFORUMQFC_TOSTRING = 4127;
+
+    public static final int OC_NAME = 4200;
+
+    public static final int OC_OP = 4201;
+
+    public static final int OC_IOP = 4202;
+
+    public static final int OC_COST = 4203;
+
+    public static final int OC_STACKABLE = 4204;
+
+    public static final int OC_CERT = 4205;
+
+    public static final int OC_UNCERT = 4206;
+
+    public static final int OC_MEMBERS = 4207;
+
+    public static final int OC_PARAM = 4208;
+
+    public static final int OC_ICURSOR = 4209;
+
+    public static final int OC_FIND = 4210;
+
+    public static final int OC_FINDNEXT = 4211;
+
+    public static final int OC_FINDRESTART = 4212;
+
+    public static final int OC_MULTISTACKSIZE = 4213;
+
+    public static final int NC_PARAM = 4300;
+
+    public static final int LC_PARAM = 4400;
+
+    public static final int STRUCT_PARAM = 4500;
+
+    public static final int BAS_GETANIM_READY = 4600;
+
     @OriginalMember(owner = "client!ou", name = "y", descriptor = "[Ljava/lang/String;")
     public static String[] stringVars;
 
@@ -80,7 +888,7 @@ public final class ScriptRunner {
     public static int[] intVars;
 
     @OriginalMember(owner = "client!ou", name = "m", descriptor = "Lclient!hda;")
-    public static Component aComponent_11;
+    public static Component focusedComponent;
 
     @OriginalMember(owner = "client!ou", name = "i", descriptor = "[J")
     public static long[] longVars;
@@ -89,22 +897,22 @@ public final class ScriptRunner {
     public static QuickChatPhrase aQuickChatPhrase_1;
 
     @OriginalMember(owner = "client!ou", name = "z", descriptor = "Lclient!rfa;")
-    public static ClanChannel aClass2_Sub47_2;
+    public static ClanChannel clanChannel;
 
     @OriginalMember(owner = "client!ou", name = "G", descriptor = "Lclient!hi;")
     public static ClanSettings clanSettings;
 
     @OriginalMember(owner = "client!ou", name = "k", descriptor = "Lclient!hda;")
-    public static Component aComponent_12;
+    public static Component unfocusedComponent;
 
     @OriginalMember(owner = "client!ou", name = "B", descriptor = "[J")
-    public static final long[] aLongArray14 = new long[1000];
+    public static final long[] longStack = new long[1000];
 
     @OriginalMember(owner = "client!ou", name = "e", descriptor = "[I")
-    public static final int[] anIntArray578 = new int[1000];
+    public static final int[] intStack = new int[1000];
 
     @OriginalMember(owner = "client!ou", name = "D", descriptor = "I")
-    public static int anInt7139 = 0;
+    public static int stringStackPointer = 0;
 
     @OriginalMember(owner = "client!ou", name = "t", descriptor = "[Lclient!gf;")
     public static final Class143[] aClass143Array1 = new Class143[50];
@@ -116,16 +924,16 @@ public final class ScriptRunner {
     public static final int[] areaCoords = new int[3];
 
     @OriginalMember(owner = "client!ou", name = "n", descriptor = "I")
-    public static int anInt7142 = 0;
+    public static int intStackPointer = 0;
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray37 = new String[1000];
+    public static final String[] stringStack = new String[1000];
 
     @OriginalMember(owner = "client!ou", name = "w", descriptor = "[[I")
     public static final int[][] anIntArrayArray177 = new int[5][5000];
 
     @OriginalMember(owner = "client!ou", name = "C", descriptor = "I")
-    public static int anInt7152 = 0;
+    public static int longStackPointer = 0;
 
     @OriginalMember(owner = "client!ou", name = "g", descriptor = "[I")
     public static final int[] anIntArray581 = new int[5];
@@ -137,13 +945,13 @@ public final class ScriptRunner {
     public static boolean debug = false;
 
     @OriginalMember(owner = "client!ou", name = "o", descriptor = "I")
-    public static int anInt7153 = 0;
+    public static int lastHookId = 0;
 
     @OriginalMember(owner = "client!ou", name = "s", descriptor = "Ljava/lang/String;")
     public static String debugName = null;
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(I)I")
-    public static int getClanSettingInt(@OriginalArg(0) int id) {
+    public static int getClanSettingVarbit(@OriginalArg(0) int id) {
         @Pc(4) VarClanType type = VarClanTypeList.instance.list(id);
         if (type == null) {
             throw new RuntimeException("sr-c113");
@@ -158,7 +966,7 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(I)I")
-    public static int getClanSettingVarbit(@OriginalArg(0) int id) {
+    public static int getClanSettingInt(@OriginalArg(0) int id) {
         @Pc(4) VarClanType type = VarClanTypeList.instance.list(id);
         if (type == null) {
             throw new RuntimeException("sr-c112");
@@ -261,2992 +1069,3611 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(IZ)V")
-    public static void handleSmallOp(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        if (arg0 < 300) {
-            if (arg0 == 150) {
-                anInt7142 -= 3;
-                @Pc(15) int local15 = anIntArray578[anInt7142];
-                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                if (local21 == 0) {
+    public static void handleSmallOp(@OriginalArg(0) int op, @OriginalArg(1) boolean unfocused) {
+        if (op < 300) {
+            if (op == CC_CREATE) {
+                intStackPointer -= 3;
+
+                @Pc(15) int parentId = intStack[intStackPointer];
+                @Pc(21) int componentType = intStack[intStackPointer + 1];
+                @Pc(27) int componentId = intStack[intStackPointer + 2];
+
+                if (componentType == Component.TYPE_LAYER) {
                     throw new RuntimeException();
                 }
-                @Pc(38) Component local38 = InterfaceList.list(local15);
-                if (local38.staticComponents == null) {
-                    local38.staticComponents = new Component[local27 + 1];
-                    local38.dynamicComponents = local38.staticComponents;
+
+                @Pc(38) Component parent = InterfaceList.list(parentId);
+                if (parent.staticComponents == null) {
+                    parent.staticComponents = new Component[componentId + 1];
+                    parent.dynamicComponents = parent.staticComponents;
                 }
-                if (local38.staticComponents.length <= local27) {
-                    @Pc(70) Component[] local70;
-                    if (local38.staticComponents == local38.dynamicComponents) {
-                        local70 = new Component[local27 + 1];
-                        for (@Pc(72) int local72 = 0; local72 < local38.staticComponents.length; local72++) {
-                            local70[local72] = local38.staticComponents[local72];
+
+                if (parent.staticComponents.length <= componentId) {
+                    if (parent.staticComponents == parent.dynamicComponents) {
+                        @Pc(70) Component[] staticComponents = new Component[componentId + 1];
+                        for (@Pc(72) int i = 0; i < parent.staticComponents.length; i++) {
+                            staticComponents[i] = parent.staticComponents[i];
                         }
-                        local38.staticComponents = local38.dynamicComponents = local70;
+                        parent.staticComponents = parent.dynamicComponents = staticComponents;
                     } else {
-                        local70 = new Component[local27 + 1];
-                        @Pc(104) Component[] local104 = new Component[local27 + 1];
-                        for (@Pc(106) int local106 = 0; local106 < local38.staticComponents.length; local106++) {
-                            local70[local106] = local38.staticComponents[local106];
-                            local104[local106] = local38.dynamicComponents[local106];
+                        @Pc(70) Component[] staticComponents = new Component[componentId + 1];
+                        @Pc(104) Component[] dynamicComponents = new Component[componentId + 1];
+                        for (@Pc(106) int i = 0; i < parent.staticComponents.length; i++) {
+                            staticComponents[i] = parent.staticComponents[i];
+                            dynamicComponents[i] = parent.dynamicComponents[i];
                         }
-                        local38.staticComponents = local70;
-                        local38.dynamicComponents = local104;
+                        parent.staticComponents = staticComponents;
+                        parent.dynamicComponents = dynamicComponents;
                     }
                 }
-                if (local27 > 0 && local38.staticComponents[local27 - 1] == null) {
-                    throw new RuntimeException("Gap at:" + (local27 - 1));
+
+                if (componentId > 0 && parent.staticComponents[componentId - 1] == null) {
+                    throw new RuntimeException("Gap at:" + (componentId - 1));
                 }
-                @Pc(166) Component local166 = new Component();
-                local166.type = local21;
-                local166.layer = local166.slot = local38.slot;
-                local166.id = local27;
-                local38.staticComponents[local27] = local166;
-                if (local38.dynamicComponents != local38.staticComponents) {
-                    local38.dynamicComponents[local27] = local166;
+
+                @Pc(166) Component createdComponent = new Component();
+                createdComponent.type = componentType;
+                createdComponent.layer = createdComponent.slot = parent.slot;
+                createdComponent.id = componentId;
+
+                parent.staticComponents[componentId] = createdComponent;
+
+                if (parent.dynamicComponents != parent.staticComponents) {
+                    parent.dynamicComponents[componentId] = createdComponent;
                 }
-                if (arg1) {
-                    aComponent_12 = local166;
+
+                if (unfocused) {
+                    unfocusedComponent = createdComponent;
                 } else {
-                    aComponent_11 = local166;
+                    focusedComponent = createdComponent;
                 }
-                InterfaceManager.redraw(local38);
+
+                InterfaceManager.redraw(parent);
                 return;
             }
-            if (arg0 == 151) {
-                @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
-                if (local220.id == -1) {
-                    if (arg1) {
+
+            if (op == CC_DELETE) {
+                @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+                if (createdComponent.id == -1) {
+                    if (unfocused) {
                         throw new RuntimeException("Tried to .cc_delete static .active-component!");
                     }
+
                     throw new RuntimeException("Tried to cc_delete static active-component!");
                 }
-                @Pc(248) Component local248 = InterfaceList.list(local220.slot);
-                local248.staticComponents[local220.id] = null;
-                InterfaceManager.redraw(local248);
+
+                @Pc(248) Component component = InterfaceList.list(createdComponent.slot);
+                component.staticComponents[createdComponent.id] = null;
+                InterfaceManager.redraw(component);
                 return;
             }
-            if (arg0 == 152) {
-                @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                local220.staticComponents = null;
-                local220.dynamicComponents = null;
-                InterfaceManager.redraw(local220);
+
+            if (op == CC_DELETEALL) {
+                @Pc(220) Component createdComponent = InterfaceList.list(intStack[--intStackPointer]);
+                createdComponent.staticComponents = null;
+                createdComponent.dynamicComponents = null;
+                InterfaceManager.redraw(createdComponent);
                 return;
             }
-            if (arg0 == 200) {
-                anInt7142 -= 2;
-                @Pc(15) int local15 = anIntArray578[anInt7142];
-                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                @Pc(303) Component local303 = InterfaceList.getComponent(local21, local15);
-                if (local303 != null && local21 != -1) {
-                    anIntArray578[anInt7142++] = 1;
-                    if (arg1) {
-                        aComponent_12 = local303;
+
+            if (op == CC_FIND) {
+                intStackPointer -= 2;
+                @Pc(15) int idAndSlot = intStack[intStackPointer];
+                @Pc(21) int component = intStack[intStackPointer + 1];
+                @Pc(303) Component createdComponent = InterfaceList.getComponent(idAndSlot, component);
+
+                if (createdComponent != null && component != -1) {
+                    intStack[intStackPointer++] = 1;
+
+                    if (unfocused) {
+                        unfocusedComponent = createdComponent;
                         return;
-                    }
-                    aComponent_11 = local303;
-                    return;
-                }
-                anIntArray578[anInt7142++] = 0;
-                return;
-            }
-            if (arg0 == 201) {
-                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                @Pc(248) Component local248 = InterfaceList.list(local15);
-                if (local248 != null) {
-                    anIntArray578[anInt7142++] = 1;
-                    if (arg1) {
-                        aComponent_12 = local248;
-                        return;
-                    }
-                    aComponent_11 = local248;
-                    return;
-                }
-                anIntArray578[anInt7142++] = 0;
-                return;
-            }
-            if (arg0 == 202 || arg0 == 204) {
-                @Pc(220) Component local220;
-                if (arg0 == 202) {
-                    @Pc(21) int local21 = anIntArray578[--anInt7142];
-                    local220 = InterfaceList.list(local21);
-                } else {
-                    local220 = arg1 ? aComponent_12 : aComponent_11;
-                }
-                sendToFront(local220);
-                return;
-            }
-            if (arg0 == 203 || arg0 == 205) {
-                @Pc(220) Component local220;
-                if (arg0 == 203) {
-                    @Pc(21) int local21 = anIntArray578[--anInt7142];
-                    local220 = InterfaceList.list(local21);
-                } else {
-                    local220 = arg1 ? aComponent_12 : aComponent_11;
-                }
-                method6417(local220);
-                return;
-            }
-        } else {
-            @Pc(506) int local506;
-            @Pc(575) boolean local575;
-            if (arg0 < 500) {
-                if (arg0 == 403) {
-                    anInt7142 -= 2;
-                    @Pc(15) int local15 = anIntArray578[anInt7142];
-                    @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                    if (PlayerEntity.self.playerModel == null) {
-                        return;
-                    }
-                    for (@Pc(27) int local27 = 0; local27 < PlayerModel.PRIMARY_BODY_PARTS.length; local27++) {
-                        if (PlayerModel.PRIMARY_BODY_PARTS[local27] == local15) {
-                            PlayerEntity.self.playerModel.setIDKPart(local21, IDKTypeList.instance, local27);
-                            return;
-                        }
-                    }
-                    for (local506 = 0; local506 < PlayerModel.SECONDARY_BODY_PARTS.length; local506++) {
-                        if (PlayerModel.SECONDARY_BODY_PARTS[local506] == local15) {
-                            PlayerEntity.self.playerModel.setIDKPart(local21, IDKTypeList.instance, local506);
-                            return;
-                        }
-                    }
-                    return;
-                }
-                if (arg0 == 404) {
-                    anInt7142 -= 2;
-                    @Pc(15) int local15 = anIntArray578[anInt7142];
-                    @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                    if (PlayerEntity.self.playerModel == null) {
-                        return;
-                    }
-                    PlayerEntity.self.playerModel.method4549(local15, local21);
-                    return;
-                }
-                if (arg0 == 410) {
-                    local575 = anIntArray578[--anInt7142] != 0;
-                    if (PlayerEntity.self.playerModel == null) {
-                        return;
-                    }
-                    PlayerEntity.self.playerModel.setFemale(local575);
-                    return;
-                }
-                if (arg0 == 411) {
-                    anInt7142 -= 2;
-                    @Pc(15) int local15 = anIntArray578[anInt7142];
-                    @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                    if (PlayerEntity.self.playerModel == null) {
-                        return;
-                    }
-                    PlayerEntity.self.playerModel.setObj(local21, local15, ObjTypeList.instance);
-                    return;
-                }
-            } else if ((arg0 < 1000 || arg0 >= 1100) && (arg0 < 2000 || arg0 >= 2100)) {
-                @Pc(1791) String local1791;
-                @Pc(1394) String local1394;
-                if (arg0 >= 1100 && arg0 < 1200 || !(arg0 < 2100 || arg0 >= 2200)) {
-                    @Pc(220) Component local220;
-                    if (arg0 >= 2000) {
-                        arg0 -= 1000;
-                        local220 = InterfaceList.list(anIntArray578[--anInt7142]);
                     } else {
-                        local220 = arg1 ? aComponent_12 : aComponent_11;
-                    }
-                    if (arg0 == 1100) {
-                        anInt7142 -= 2;
-                        local220.scrollX = anIntArray578[anInt7142];
-                        if (local220.scrollX > local220.scrollWidth - local220.width) {
-                            local220.scrollX = local220.scrollWidth - local220.width;
-                        }
-                        if (local220.scrollX < 0) {
-                            local220.scrollX = 0;
-                        }
-                        local220.scrollY = anIntArray578[anInt7142 + 1];
-                        if (local220.scrollY > local220.scrollHeight - local220.height) {
-                            local220.scrollY = local220.scrollHeight - local220.height;
-                        }
-                        if (local220.scrollY < 0) {
-                            local220.scrollY = 0;
-                        }
-                        InterfaceManager.redraw(local220);
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetScrollPosition(local220.slot);
-                        }
+                        focusedComponent = createdComponent;
                         return;
-                    }
-                    if (arg0 == 1101) {
-                        local220.colour = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetColour(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1102) {
-                        local220.filled = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1103) {
-                        local220.transparency = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1104) {
-                        local220.lineWidth = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1105) {
-                        @Pc(21) int local21 = anIntArray578[--anInt7142];
-                        if (local220.graphic != local21) {
-                            local220.graphic = local21;
-                            InterfaceManager.redraw(local220);
-                        }
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetGraphic(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1106) {
-                        local220.angle2d = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1107) {
-                        local220.tiling = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1108) {
-                        local220.objType = 1;
-                        local220.obj = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModel(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1109) {
-                        anInt7142 -= 6;
-                        local220.xof2d = anIntArray578[anInt7142];
-                        local220.yof2d = anIntArray578[anInt7142 + 1];
-                        local220.xan2d = anIntArray578[anInt7142 + 2];
-                        local220.yan2d = anIntArray578[anInt7142 + 3];
-                        local220.zan2d = anIntArray578[anInt7142 + 4];
-                        local220.zoom2d = anIntArray578[anInt7142 + 5];
-                        InterfaceManager.redraw(local220);
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModelAngle(local220.slot);
-                            DelayedStateChange.interfaceResetModelOffset(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1110) {
-                        @Pc(21) int local21 = anIntArray578[--anInt7142];
-                        if (local21 != local220.modelAnimation) {
-                            if (local21 == -1) {
-                                local220.animator = null;
-                            } else {
-                                if (local220.animator == null) {
-                                    local220.animator = new ComponentAnimator();
-                                }
-                                local220.animator.update(true, local21);
-                            }
-                            local220.modelAnimation = local21;
-                            InterfaceManager.redraw(local220);
-                        }
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModelAnim(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1111) {
-                        local220.modelOrthog = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1112) {
-                        local1394 = aStringArray37[--anInt7139];
-                        if (!local1394.equals(local220.text)) {
-                            local220.text = local1394;
-                            InterfaceManager.redraw(local220);
-                        }
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetText(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1113) {
-                        local220.fontGraphic = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetTextFont(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1114) {
-                        anInt7142 -= 3;
-                        local220.textAlignX = anIntArray578[anInt7142];
-                        local220.textAlignY = anIntArray578[anInt7142 + 1];
-                        local220.textHeight = anIntArray578[anInt7142 + 2];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1115) {
-                        local220.textShadow = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1116) {
-                        local220.outline = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1117) {
-                        local220.shadow = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1118) {
-                        local220.horizontalFlip = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1119) {
-                        local220.verticalFlip = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1120) {
-                        anInt7142 -= 2;
-                        local220.scrollWidth = anIntArray578[anInt7142];
-                        local220.scrollHeight = anIntArray578[anInt7142 + 1];
-                        InterfaceManager.redraw(local220);
-                        if (local220.type == 0) {
-                            InterfaceManager.calculateLayerDimensions(local220, false);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1122) {
-                        local220.transparent = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1123) {
-                        local220.zoom2d = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModelAngle(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1124) {
-                        @Pc(21) int local21 = anIntArray578[--anInt7142];
-                        local220.lineDirection = local21 == 1;
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1125) {
-                        anInt7142 -= 2;
-                        local220.modelOriginX = anIntArray578[anInt7142];
-                        local220.modelOriginY = anIntArray578[anInt7142 + 1];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1126) {
-                        local220.maxLines = anIntArray578[--anInt7142];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    @Pc(1756) ParamType local1756;
-                    if (arg0 == 1127) {
-                        anInt7142 -= 2;
-                        @Pc(21) int local21 = anIntArray578[anInt7142];
-                        @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                        local1756 = ParamTypeList.instance.list(local21);
-                        if (local27 != local1756.defaultint) {
-                            local220.setParam(local21, local27);
-                            return;
-                        }
-                        local220.removeParam(local21);
-                        return;
-                    }
-                    if (arg0 == 1128) {
-                        @Pc(21) int local21 = anIntArray578[--anInt7142];
-                        local1791 = aStringArray37[--anInt7139];
-                        local1756 = ParamTypeList.instance.list(local21);
-                        if (!local1756.defaultstr.equals(local1791)) {
-                            local220.setParam(local1791, local21);
-                            return;
-                        }
-                        local220.removeParam(local21);
-                        return;
-                    }
-                    if (arg0 == 1129 || arg0 == 1130) {
-                        @Pc(21) int local21 = anIntArray578[--anInt7142];
-                        if ((local220.type == 5 || arg0 != 1129) && (local220.type == 4 || arg0 != 1130)) {
-                            if (local220.video != local21) {
-                                local220.video = local21;
-                                InterfaceManager.redraw(local220);
-                            }
-                            if (local220.id == -1) {
-                                DelayedStateChange.interfaceResetVideo(local220.slot);
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    @Pc(1899) short local1899;
-                    @Pc(1892) short local1892;
-                    if (arg0 == 1131) {
-                        anInt7142 -= 3;
-                        @Pc(21) int local21 = anIntArray578[anInt7142];
-                        local1892 = (short) anIntArray578[anInt7142 + 1];
-                        local1899 = (short) anIntArray578[anInt7142 + 2];
-                        if (local21 >= 0 && local21 < 5) {
-                            local220.setRecol(local1899, local21, local1892);
-                            InterfaceManager.redraw(local220);
-                            if (local220.id == -1) {
-                                DelayedStateChange.interfaceResetRecol(local220.slot, local21);
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    if (arg0 == 1132) {
-                        anInt7142 -= 3;
-                        @Pc(21) int local21 = anIntArray578[anInt7142];
-                        local1892 = (short) anIntArray578[anInt7142 + 1];
-                        local1899 = (short) anIntArray578[anInt7142 + 2];
-                        if (local21 >= 0 && local21 < 5) {
-                            local220.setRetex(local1892, local21, local1899);
-                            InterfaceManager.redraw(local220);
-                            if (local220.id == -1) {
-                                DelayedStateChange.interfaceResetRetex(local220.slot, local21);
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    if (arg0 == 1133) {
-                        local220.fontMonospaced = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetFontMono(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1134) {
-                        anInt7142 -= 2;
-                        @Pc(21) int local21 = anIntArray578[anInt7142];
-                        @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                        local1756 = ParamTypeList.instance.list(local21);
-                        if (local27 != local1756.defaultint) {
-                            local220.setParam(local21, local27);
-                            return;
-                        }
-                        local220.removeParam(local21);
-                        return;
-                    }
-                    if (arg0 == 1135) {
-                        local220.clickMask = anIntArray578[--anInt7142] == 1;
-                        InterfaceManager.redraw(local220);
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetClickmask(local220.slot);
-                        }
-                        return;
-                    }
-                } else if (arg0 >= 1200 && arg0 < 1300 || arg0 >= 2200 && arg0 < 2300) {
-                    @Pc(220) Component local220;
-                    if (arg0 >= 2000) {
-                        arg0 -= 1000;
-                        local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                    } else {
-                        local220 = arg1 ? aComponent_12 : aComponent_11;
-                    }
-                    InterfaceManager.redraw(local220);
-                    if (arg0 == 1200 || arg0 == 1205 || arg0 == 1208 || arg0 == 1209 || arg0 == 1212 || arg0 == 1213) {
-                        anInt7142 -= 2;
-                        @Pc(21) int local21 = anIntArray578[anInt7142];
-                        @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetObject(local220.slot);
-                            DelayedStateChange.interfaceResetModelAngle(local220.slot);
-                            DelayedStateChange.interfaceResetModelOffset(local220.slot);
-                        }
-                        if (local21 == -1) {
-                            local220.objType = 1;
-                            local220.obj = -1;
-                            local220.invObject = -1;
-                            return;
-                        }
-                        local220.invObject = local21;
-                        local220.invCount = local27;
-                        if (arg0 == 1208 || arg0 == 1209) {
-                            local220.objWearCol = true;
-                        } else {
-                            local220.objWearCol = false;
-                        }
-                        @Pc(2236) ObjType objType = ObjTypeList.instance.list(local21);
-                        local220.xan2d = objType.xan2d;
-                        local220.yan2d = objType.yan2d;
-                        local220.zan2d = objType.zan2d;
-                        local220.xof2d = objType.xof2d;
-                        local220.yof2d = objType.yof2d;
-                        local220.zoom2d = objType.zoom2d;
-
-                        if (arg0 == 1205 || arg0 == 1209) {
-                            local220.objNumMode = ObjNumMode.SHOWCOUNT_NEVER;
-                        } else if (arg0 == 1212 || arg0 == 1213) {
-                            local220.objNumMode = ObjNumMode.SHOWCOUNT_ALWAYS;
-                        } else {
-                            local220.objNumMode = ObjNumMode.SHOWCOUNT_IFNOT1;
-                        }
-
-                        if (local220.modelAspectRatioX > 0) {
-                            local220.zoom2d = local220.zoom2d * 32 / local220.modelAspectRatioX;
-                            return;
-                        }
-                        if (local220.originalWidth > 0) {
-                            local220.zoom2d = local220.zoom2d * 32 / local220.originalWidth;
-                        }
-                        return;
-                    }
-                    if (arg0 == 1201) {
-                        local220.objType = 2;
-                        local220.obj = anIntArray578[--anInt7142];
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModel(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1202) {
-                        local220.objType = 3;
-                        local220.obj = -1;
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModel(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1203) {
-                        local220.objType = 6;
-                        local220.obj = anIntArray578[--anInt7142];
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModel(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1204) {
-                        local220.objType = 5;
-                        local220.obj = anIntArray578[--anInt7142];
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModel(local220.slot);
-                        }
-                        return;
-                    }
-                    if (arg0 == 1206) {
-                        anInt7142 -= 4;
-                        local220.skyBox = anIntArray578[anInt7142];
-                        local220.skyBoxSphereOffsetX = anIntArray578[anInt7142 + 1];
-                        local220.skyBoxSphereOffsetY = anIntArray578[anInt7142 + 2];
-                        local220.skyBoxSphereOffsetZ = anIntArray578[anInt7142 + 3];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1207) {
-                        anInt7142 -= 2;
-                        local220.skyboxRenderPitch = anIntArray578[anInt7142];
-                        local220.skyboxRenderYaw = anIntArray578[anInt7142 + 1];
-                        InterfaceManager.redraw(local220);
-                        return;
-                    }
-                    if (arg0 == 1210) {
-                        anInt7142 -= 4;
-                        local220.obj = anIntArray578[anInt7142];
-                        local220.objData = anIntArray578[anInt7142 + 1];
-
-                        if (anIntArray578[anInt7142 + 2] == 1) {
-                            local220.objType = Component.OBJ_TYPE_INVENTORY_FEMALE;
-                        } else {
-                            local220.objType = Component.OBJ_TYPE_INVENTORY_MALE;
-                        }
-
-                        if (anIntArray578[anInt7142 + 3] == 1) {
-                            local220.objWearCol = true;
-                        } else {
-                            local220.objWearCol = false;
-                        }
-
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModel(local220.slot);
-                        }
-                        return;
-                    }
-
-                    if (arg0 == 1211) {
-                        local220.objType = Component.OBJ_TYPE_PLAYERMODEL;
-                        local220.obj = PlayerList.activePlayerSlot;
-                        local220.objData = 0;
-                        if (local220.id == -1) {
-                            DelayedStateChange.interfaceResetModel(local220.slot);
-                        }
-                        return;
-                    }
-                } else {
-                    @Pc(2978) int local2978;
-                    if (arg0 >= 1300 && arg0 < 1400 || arg0 >= 2300 && arg0 < 2400) {
-                        @Pc(220) Component local220;
-                        if (arg0 >= 2000) {
-                            arg0 -= 1000;
-                            local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                        } else {
-                            local220 = arg1 ? aComponent_12 : aComponent_11;
-                        }
-                        if (arg0 == 1300) {
-                            @Pc(21) int local21 = anIntArray578[--anInt7142] - 1;
-                            if (local21 >= 0 && local21 <= 9) {
-                                local220.setOp(local21, aStringArray37[--anInt7139]);
-                                return;
-                            }
-                            anInt7139--;
-                            return;
-                        }
-                        if (arg0 == 1301) {
-                            anInt7142 -= 2;
-                            @Pc(21) int local21 = anIntArray578[anInt7142];
-                            @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                            if (local21 == -1 && local27 == -1) {
-                                local220.aComponent_6 = null;
-                                return;
-                            }
-                            local220.aComponent_6 = InterfaceList.getComponent(local27, local21);
-                            return;
-                        }
-                        if (arg0 == 1302) {
-                            @Pc(21) int local21 = anIntArray578[--anInt7142];
-                            if (local21 != DragRender.OFFSET_TRANSPARENT && local21 != DragRender.FIXED && local21 != DragRender.OFFSET) {
-                                return;
-                            }
-                            local220.dragRenderBehaviour = local21;
-                            return;
-                        }
-                        if (arg0 == 1303) {
-                            local220.dragDeadZone = anIntArray578[--anInt7142];
-                            return;
-                        }
-                        if (arg0 == 1304) {
-                            local220.dragDeadTime = anIntArray578[--anInt7142];
-                            return;
-                        }
-                        if (arg0 == 1305) {
-                            local220.opBase = aStringArray37[--anInt7139];
-                            return;
-                        }
-                        if (arg0 == 1306) {
-                            local220.targetVerb = aStringArray37[--anInt7139];
-                            return;
-                        }
-                        if (arg0 == 1307) {
-                            local220.ops = null;
-                            return;
-                        }
-                        if (arg0 == 1308) {
-                            local220.targetEndCursor = anIntArray578[--anInt7142];
-                            local220.targetEnterCursor = anIntArray578[--anInt7142];
-                            return;
-                        }
-                        if (arg0 == 1309) {
-                            @Pc(21) int local21 = anIntArray578[--anInt7142];
-                            @Pc(27) int local27 = anIntArray578[--anInt7142];
-                            if (local27 >= 1 && local27 <= 10) {
-                                local220.setOpCursor(local27 - 1, local21);
-                            }
-                            return;
-                        }
-                        if (arg0 == 1310) {
-                            local220.pauseText = aStringArray37[--anInt7139];
-                            return;
-                        }
-                        if (arg0 == 1311) {
-                            local220.targetOpCursor = anIntArray578[--anInt7142];
-                            return;
-                        }
-                        if (arg0 == 1312 || arg0 == 1313) {
-                            @Pc(21) int local21;
-                            @Pc(27) int local27;
-                            if (arg0 == 1312) {
-                                anInt7142 -= 3;
-                                local21 = anIntArray578[anInt7142] - 1;
-                                local27 = anIntArray578[anInt7142 + 1];
-                                local506 = anIntArray578[anInt7142 + 2];
-                                if (local21 < 0 || local21 > 9) {
-                                    throw new RuntimeException("IOR13121313");
-                                }
-                            } else {
-                                anInt7142 -= 2;
-                                local21 = 10;
-                                local27 = anIntArray578[anInt7142];
-                                local506 = anIntArray578[anInt7142 + 1];
-                            }
-                            if (local220.opKeys == null) {
-                                if (local27 == 0) {
-                                    return;
-                                }
-                                local220.opKeys = new byte[11];
-                                local220.opChars = new byte[11];
-                                local220.opKeyRates = new int[11];
-                            }
-                            local220.opKeys[local21] = (byte) local27;
-                            if (local27 == 0) {
-                                local220.hasOpKey = false;
-                                for (local2978 = 0; local2978 < local220.opKeys.length; local2978++) {
-                                    if (local220.opKeys[local2978] != 0) {
-                                        local220.hasOpKey = true;
-                                        break;
-                                    }
-                                }
-                            } else {
-                                local220.hasOpKey = true;
-                            }
-                            local220.opChars[local21] = (byte) local506;
-                            return;
-                        }
-                        if (arg0 == 1314) {
-                            local220.mouseOverCursor = anIntArray578[--anInt7142];
-                            return;
-                        }
-                    } else if (arg0 >= 1400 && arg0 < 1500 || arg0 >= 2400 && arg0 < 2500) {
-                        @Pc(220) Component local220;
-                        if (arg0 >= 2000) {
-                            arg0 -= 1000;
-                            local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                        } else {
-                            local220 = arg1 ? aComponent_12 : aComponent_11;
-                        }
-                        if (arg0 == 1499) {
-                            local220.clearScriptHooks();
-                            return;
-                        }
-                        local1394 = aStringArray37[--anInt7139];
-                        @Pc(3077) int[] local3077 = null;
-                        if (local1394.length() > 0 && local1394.charAt(local1394.length() - 1) == 'Y') {
-                            local506 = anIntArray578[--anInt7142];
-                            if (local506 > 0) {
-                                local3077 = new int[local506];
-                                while (local506-- > 0) {
-                                    local3077[local506] = anIntArray578[--anInt7142];
-                                }
-                            }
-                            local1394 = local1394.substring(0, local1394.length() - 1);
-                        }
-                        @Pc(3131) Object[] local3131 = new Object[local1394.length() + 1];
-                        for (local2978 = local3131.length - 1; local2978 >= 1; local2978--) {
-                            if (local1394.charAt(local2978 - 1) == 's') {
-                                local3131[local2978] = aStringArray37[--anInt7139];
-                            } else if (local1394.charAt(local2978 - 1) == '§') {
-                                local3131[local2978] = Long.valueOf(aLongArray14[--anInt7152]);
-                            } else {
-                                local3131[local2978] = Integer.valueOf(anIntArray578[--anInt7142]);
-                            }
-                        }
-                        @Pc(72) int local72 = anIntArray578[--anInt7142];
-                        if (local72 == -1) {
-                            local3131 = null;
-                        } else {
-                            local3131[0] = Integer.valueOf(local72);
-                        }
-                        if (arg0 == 1400) {
-                            local220.onClick = local3131;
-                        } else if (arg0 == 1401) {
-                            local220.onHold = local3131;
-                        } else if (arg0 == 1402) {
-                            local220.onRelease = local3131;
-                        } else if (arg0 == 1403) {
-                            local220.onMouseOver = local3131;
-                        } else if (arg0 == 1404) {
-                            local220.onMouseLeave = local3131;
-                        } else if (arg0 == 1405) {
-                            local220.onDrag = local3131;
-                        } else if (arg0 == 1406) {
-                            local220.onTargetLeave = local3131;
-                        } else if (arg0 == 1407) {
-                            local220.onVarTransmit = local3131;
-                            local220.varpTriggers = local3077;
-                        } else if (arg0 == 1408) {
-                            local220.onTimer = local3131;
-                        } else if (arg0 == 1409) {
-                            local220.onOp = local3131;
-                        } else if (arg0 == 1410) {
-                            local220.onDragComplete = local3131;
-                        } else if (arg0 == 1411) {
-                            local220.onClickRepeat = local3131;
-                        } else if (arg0 == 1412) {
-                            local220.onMouseRepeat = local3131;
-                        } else if (arg0 == 1414) {
-                            local220.onInvTransmit = local3131;
-                            local220.inventoryTriggers = local3077;
-                        } else if (arg0 == 1415) {
-                            local220.onStatTransmit = local3131;
-                            local220.statTriggers = local3077;
-                        } else if (arg0 == 1416) {
-                            local220.onTargetEnter = local3131;
-                        } else if (arg0 == 1417) {
-                            local220.onScrollWheel = local3131;
-                        } else if (arg0 == 1418) {
-                            local220.onChatTransmit = local3131;
-                        } else if (arg0 == 1419) {
-                            local220.onKey = local3131;
-                        } else if (arg0 == 1420) {
-                            local220.onFriendTransmit = local3131;
-                        } else if (arg0 == 1421) {
-                            local220.onClanTransmit = local3131;
-                        } else if (arg0 == 1422) {
-                            local220.onMiscTransmit = local3131;
-                        } else if (arg0 == 1423) {
-                            local220.onDialogAbort = local3131;
-                        } else if (arg0 == 1424) {
-                            local220.onSubChange = local3131;
-                        } else if (arg0 == 1425) {
-                            local220.onStockTransmit = local3131;
-                        } else if (arg0 == 1426) {
-                            local220.onCamFinished = local3131;
-                        } else if (arg0 == 1427) {
-                            local220.onResize = local3131;
-                        } else if (arg0 == 1428) {
-                            local220.onVarcTransmit = local3131;
-                            local220.varcTriggers = local3077;
-                        } else if (arg0 == 1429) {
-                            local220.onVarcstrTransmit = local3131;
-                            local220.varcstrTriggers = local3077;
-                        } else if (arg0 == 1430) {
-                            local220.onOpT = local3131;
-                        } else if (arg0 == 1431) {
-                            local220.onClanSettingsTransmit = local3131;
-                        } else if (arg0 == 1432) {
-                            local220.onClanChannelTransmit = local3131;
-                        } else if (arg0 == 1433) {
-                            local220.onVarclanTransmit = local3131;
-                        }
-                        local220.hasHook = true;
-                        return;
-                    } else if (arg0 < 1600) {
-                        @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
-                        if (arg0 == 1500) {
-                            anIntArray578[anInt7142++] = local220.x;
-                            return;
-                        }
-                        if (arg0 == 1501) {
-                            anIntArray578[anInt7142++] = local220.y;
-                            return;
-                        }
-                        if (arg0 == 1502) {
-                            anIntArray578[anInt7142++] = local220.width;
-                            return;
-                        }
-                        if (arg0 == 1503) {
-                            anIntArray578[anInt7142++] = local220.height;
-                            return;
-                        }
-                        if (arg0 == 1504) {
-                            anIntArray578[anInt7142++] = local220.hidden ? 1 : 0;
-                            return;
-                        }
-                        if (arg0 == 1505) {
-                            anIntArray578[anInt7142++] = local220.layer;
-                            return;
-                        }
-                        if (arg0 == 1506) {
-                            @Pc(248) Component local248 = InterfaceManager.getParentLayer(local220);
-                            anIntArray578[anInt7142++] = local248 == null ? -1 : local248.slot;
-                            return;
-                        }
-                        if (arg0 == 1507) {
-                            anIntArray578[anInt7142++] = local220.colour;
-                            return;
-                        }
-                    } else {
-                        @Pc(3848) ParamType local3848;
-                        if (arg0 < 1700) {
-                            @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
-                            if (arg0 == 1600) {
-                                anIntArray578[anInt7142++] = local220.scrollX;
-                                return;
-                            }
-                            if (arg0 == 1601) {
-                                anIntArray578[anInt7142++] = local220.scrollY;
-                                return;
-                            }
-                            if (arg0 == 1602) {
-                                aStringArray37[anInt7139++] = local220.text;
-                                return;
-                            }
-                            if (arg0 == 1603) {
-                                anIntArray578[anInt7142++] = local220.scrollWidth;
-                                return;
-                            }
-                            if (arg0 == 1604) {
-                                anIntArray578[anInt7142++] = local220.scrollHeight;
-                                return;
-                            }
-                            if (arg0 == 1605) {
-                                anIntArray578[anInt7142++] = local220.zoom2d;
-                                return;
-                            }
-                            if (arg0 == 1606) {
-                                anIntArray578[anInt7142++] = local220.xan2d;
-                                return;
-                            }
-                            if (arg0 == 1607) {
-                                anIntArray578[anInt7142++] = local220.zan2d;
-                                return;
-                            }
-                            if (arg0 == 1608) {
-                                anIntArray578[anInt7142++] = local220.yan2d;
-                                return;
-                            }
-                            if (arg0 == 1609) {
-                                anIntArray578[anInt7142++] = local220.transparency;
-                                return;
-                            }
-                            if (arg0 == 1610) {
-                                anIntArray578[anInt7142++] = local220.xof2d;
-                                return;
-                            }
-                            if (arg0 == 1611) {
-                                anIntArray578[anInt7142++] = local220.yof2d;
-                                return;
-                            }
-                            if (arg0 == 1612) {
-                                anIntArray578[anInt7142++] = local220.graphic;
-                                return;
-                            }
-                            if (arg0 == 1613) {
-                                @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                local3848 = ParamTypeList.instance.list(local21);
-                                if (local3848.isString()) {
-                                    aStringArray37[anInt7139++] = local220.param(local3848.defaultstr, local21);
-                                    return;
-                                }
-                                anIntArray578[anInt7142++] = local220.param(local3848.defaultint, local21);
-                                return;
-                            }
-                            if (arg0 == 1614) {
-                                anIntArray578[anInt7142++] = local220.angle2d;
-                                return;
-                            }
-                            if (arg0 == 2614) {
-                                anIntArray578[anInt7142++] = local220.objType == Component.OBJ_TYPE_MODEL ? local220.obj : -1;
-                                return;
-                            }
-                            if (arg0 == 1618) {
-                                anIntArray578[anInt7142++] = local220.fontGraphic;
-                                return;
-                            }
-                        } else if (arg0 < 1800) {
-                            @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
-                            if (arg0 == 1700) {
-                                anIntArray578[anInt7142++] = local220.invObject;
-                                return;
-                            }
-                            if (arg0 == 1701) {
-                                if (local220.invObject != -1) {
-                                    anIntArray578[anInt7142++] = local220.invCount;
-                                    return;
-                                }
-                                anIntArray578[anInt7142++] = 0;
-                                return;
-                            }
-                            if (arg0 == 1702) {
-                                anIntArray578[anInt7142++] = local220.id;
-                                return;
-                            }
-                        } else if (arg0 < 1900) {
-                            @Pc(220) Component local220 = arg1 ? aComponent_12 : aComponent_11;
-                            if (arg0 == 1800) {
-                                anIntArray578[anInt7142++] = InterfaceManager.serverActiveProperties(local220).getTargetMask();
-                                return;
-                            }
-                            if (arg0 == 1801) {
-                                @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                local21--;
-                                if (local220.ops != null && local21 < local220.ops.length && local220.ops[local21] != null) {
-                                    aStringArray37[anInt7139++] = local220.ops[local21];
-                                    return;
-                                }
-                                aStringArray37[anInt7139++] = "";
-                                return;
-                            }
-                            if (arg0 == 1802) {
-                                if (local220.opBase == null) {
-                                    aStringArray37[anInt7139++] = "";
-                                    return;
-                                }
-                                aStringArray37[anInt7139++] = local220.opBase;
-                                return;
-                            }
-                        } else if (arg0 < 2000 || arg0 >= 2900 && arg0 < 3000) {
-                            @Pc(220) Component local220;
-                            if (arg0 >= 2000) {
-                                local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                                arg0 -= 1000;
-                            } else {
-                                local220 = arg1 ? aComponent_12 : aComponent_11;
-                            }
-                            if (anInt7153 >= 10) {
-                                throw new RuntimeException("C29xx-1");
-                            }
-                            if (arg0 == 1927) {
-                                if (local220.onResize == null) {
-                                    return;
-                                }
-                                @Pc(4169) HookRequest local4169 = new HookRequest();
-                                local4169.source = local220;
-                                local4169.arguments = local220.onResize;
-                                local4169.anInt7220 = anInt7153 + 1;
-                                Static521.A_DEQUE___44.addLast(local4169);
-                                return;
-                            }
-                        } else if (arg0 < 2600) {
-                            @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                            if (arg0 == 2500) {
-                                anIntArray578[anInt7142++] = local220.x;
-                                return;
-                            }
-                            if (arg0 == 2501) {
-                                anIntArray578[anInt7142++] = local220.y;
-                                return;
-                            }
-                            if (arg0 == 2502) {
-                                anIntArray578[anInt7142++] = local220.width;
-                                return;
-                            }
-                            if (arg0 == 2503) {
-                                anIntArray578[anInt7142++] = local220.height;
-                                return;
-                            }
-                            if (arg0 == 2504) {
-                                anIntArray578[anInt7142++] = local220.hidden ? 1 : 0;
-                                return;
-                            }
-                            if (arg0 == 2505) {
-                                anIntArray578[anInt7142++] = local220.layer;
-                                return;
-                            }
-                            if (arg0 == 2506) {
-                                @Pc(248) Component local248 = InterfaceManager.getParentLayer(local220);
-                                anIntArray578[anInt7142++] = local248 == null ? -1 : local248.slot;
-                                return;
-                            }
-                            if (arg0 == 2507) {
-                                anIntArray578[anInt7142++] = local220.colour;
-                                return;
-                            }
-                        } else if (arg0 < 2700) {
-                            @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                            if (arg0 == 2600) {
-                                anIntArray578[anInt7142++] = local220.scrollX;
-                                return;
-                            }
-                            if (arg0 == 2601) {
-                                anIntArray578[anInt7142++] = local220.scrollY;
-                                return;
-                            }
-                            if (arg0 == 2602) {
-                                aStringArray37[anInt7139++] = local220.text;
-                                return;
-                            }
-                            if (arg0 == 2603) {
-                                anIntArray578[anInt7142++] = local220.scrollWidth;
-                                return;
-                            }
-                            if (arg0 == 2604) {
-                                anIntArray578[anInt7142++] = local220.scrollHeight;
-                                return;
-                            }
-                            if (arg0 == 2605) {
-                                anIntArray578[anInt7142++] = local220.zoom2d;
-                                return;
-                            }
-                            if (arg0 == 2606) {
-                                anIntArray578[anInt7142++] = local220.xan2d;
-                                return;
-                            }
-                            if (arg0 == 2607) {
-                                anIntArray578[anInt7142++] = local220.zan2d;
-                                return;
-                            }
-                            if (arg0 == 2608) {
-                                anIntArray578[anInt7142++] = local220.yan2d;
-                                return;
-                            }
-                            if (arg0 == 2609) {
-                                anIntArray578[anInt7142++] = local220.transparency;
-                                return;
-                            }
-                            if (arg0 == 2610) {
-                                anIntArray578[anInt7142++] = local220.xof2d;
-                                return;
-                            }
-                            if (arg0 == 2611) {
-                                anIntArray578[anInt7142++] = local220.yof2d;
-                                return;
-                            }
-                            if (arg0 == 2612) {
-                                anIntArray578[anInt7142++] = local220.graphic;
-                                return;
-                            }
-                            if (arg0 == 2613) {
-                                anIntArray578[anInt7142++] = local220.angle2d;
-                                return;
-                            }
-                            if (arg0 == 2614) {
-                                anIntArray578[anInt7142++] = local220.objType == 1 ? local220.obj : -1;
-                                return;
-                            }
-                            if (arg0 == 2617) {
-                                anIntArray578[anInt7142++] = local220.fontGraphic;
-                                return;
-                            }
-                        } else {
-                            @Pc(4760) SubInterface local4760;
-                            @Pc(4653) SubInterface local4653;
-                            if (arg0 < 2800) {
-                                if (arg0 == 2700) {
-                                    @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                                    anIntArray578[anInt7142++] = local220.invObject;
-                                    return;
-                                }
-                                if (arg0 == 2701) {
-                                    @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                                    if (local220.invObject != -1) {
-                                        anIntArray578[anInt7142++] = local220.invCount;
-                                        return;
-                                    }
-                                    anIntArray578[anInt7142++] = 0;
-                                    return;
-                                }
-                                if (arg0 == 2702) {
-                                    @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                    local4653 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
-                                    if (local4653 != null) {
-                                        anIntArray578[anInt7142++] = 1;
-                                        return;
-                                    }
-                                    anIntArray578[anInt7142++] = 0;
-                                    return;
-                                }
-                                if (arg0 == 2703) {
-                                    @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                                    if (local220.staticComponents == null) {
-                                        anIntArray578[anInt7142++] = 0;
-                                        return;
-                                    }
-                                    @Pc(21) int local21 = local220.staticComponents.length;
-                                    for (@Pc(27) int local27 = 0; local27 < local220.staticComponents.length; local27++) {
-                                        if (local220.staticComponents[local27] == null) {
-                                            local21 = local27;
-                                            break;
-                                        }
-                                    }
-                                    anIntArray578[anInt7142++] = local21;
-                                    return;
-                                }
-                                if (arg0 == 2704 || arg0 == 2705) {
-                                    anInt7142 -= 2;
-                                    @Pc(15) int local15 = anIntArray578[anInt7142];
-                                    @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                    local4760 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
-                                    if (local4760 != null && local4760.id == local21) {
-                                        anIntArray578[anInt7142++] = 1;
-                                        return;
-                                    }
-                                    anIntArray578[anInt7142++] = 0;
-                                    return;
-                                }
-                            } else if (arg0 < 2900) {
-                                @Pc(220) Component local220 = InterfaceList.list(anIntArray578[--anInt7142]);
-                                if (arg0 == 2800) {
-                                    anIntArray578[anInt7142++] = InterfaceManager.serverActiveProperties(local220).getTargetMask();
-                                    return;
-                                }
-                                if (arg0 == 2801) {
-                                    @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                    local21--;
-                                    if (local220.ops != null && local21 < local220.ops.length && local220.ops[local21] != null) {
-                                        aStringArray37[anInt7139++] = local220.ops[local21];
-                                        return;
-                                    }
-                                    aStringArray37[anInt7139++] = "";
-                                    return;
-                                }
-                                if (arg0 == 2802) {
-                                    if (local220.opBase == null) {
-                                        aStringArray37[anInt7139++] = "";
-                                        return;
-                                    }
-                                    aStringArray37[anInt7139++] = local220.opBase;
-                                    return;
-                                }
-                            } else {
-                                @Pc(5005) ClientMessage local5005;
-                                @Pc(4911) String local4911;
-                                if (arg0 < 3200) {
-                                    if (arg0 == 3100) {
-                                        local4911 = aStringArray37[--anInt7139];
-                                        ChatHistory.addScript(local4911);
-                                        return;
-                                    }
-                                    if (arg0 == 3101) {
-                                        anInt7142 -= 2;
-                                        Static550.method7260(PlayerEntity.self, anIntArray578[anInt7142 + 1], anIntArray578[anInt7142]);
-                                        return;
-                                    }
-                                    if (arg0 == 3103) {
-                                        InterfaceManager.method1557();
-                                        return;
-                                    }
-                                    if (arg0 == 3104) {
-                                        local4911 = aStringArray37[--anInt7139];
-                                        @Pc(21) int local21 = 0;
-                                        if (StringTools.isDecimal(local4911)) {
-                                            local21 = StringTools.parseDecimal(local4911);
-                                        }
-                                        @Pc(4974) ClientMessage local4974 = ClientMessage.create(ClientProt.RESUME_P_COUNTDIALOG, ServerConnection.GAME.cipher);
-                                        local4974.bitPacket.p4(local21);
-                                        ServerConnection.GAME.send(local4974);
-                                        return;
-                                    }
-                                    if (arg0 == 3105) {
-                                        local4911 = aStringArray37[--anInt7139];
-                                        local5005 = ClientMessage.create(ClientProt.RESUME_P_STRINGDIALOG, ServerConnection.GAME.cipher);
-                                        local5005.bitPacket.p1(local4911.length() + 1);
-                                        local5005.bitPacket.pjstr(local4911);
-                                        ServerConnection.GAME.send(local5005);
-                                        return;
-                                    }
-                                    if (arg0 == 3106) {
-                                        local4911 = aStringArray37[--anInt7139];
-                                        local5005 = ClientMessage.create(ClientProt.RESUME_P_NAMEDIALOG, ServerConnection.GAME.cipher);
-                                        local5005.bitPacket.p1(local4911.length() + 1);
-                                        local5005.bitPacket.pjstr(local4911);
-                                        ServerConnection.GAME.send(local5005);
-                                        return;
-                                    }
-                                    if (arg0 == 3107) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        local1394 = aStringArray37[--anInt7139];
-                                        Static242.method3504(local1394, local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3108) {
-                                        anInt7142 -= 3;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                        @Pc(38) Component local38 = InterfaceList.list(local27);
-                                        InterfaceManager.dragTryPickup(local21, local38, local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3109) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        @Pc(303) Component local303 = arg1 ? aComponent_12 : aComponent_11;
-                                        InterfaceManager.dragTryPickup(local21, local303, local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3110) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        local5005 = ClientMessage.create(ClientProt.RESUME_P_OBJDIALOG, ServerConnection.GAME.cipher);
-                                        local5005.bitPacket.p2(local15);
-                                        ServerConnection.GAME.send(local5005);
-                                        return;
-                                    }
-                                    if (arg0 == 3111) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        local4760 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
-                                        if (local4760 != null) {
-                                            InterfaceManager.closeSubInterface(local4760, local4760.id != local21, true);
-                                        }
-                                        InterfaceManager.openSubInterface(3, local21, local15, true);
-                                        return;
-                                    }
-                                    if (arg0 == 3112) {
-                                        anInt7142--;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        local4653 = (SubInterface) InterfaceManager.subInterfaces.get(local15);
-                                        if (local4653 != null && local4653.type == 3) {
-                                            InterfaceManager.closeSubInterface(local4653, true, true);
-                                        }
-                                        return;
-                                    }
-                                    if (arg0 == 3113) {
-                                        Static57.method1231(aStringArray37[--anInt7139]);
-                                        return;
-                                    }
-                                    if (arg0 == 3114) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        local1791 = aStringArray37[--anInt7139];
-                                        ChatHistory.add(local1791, "", local21, "", "", local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3115) {
-                                        anInt7142 -= 11;
-                                        @Pc(5320) HorizontalAlignment[] local5320 = HorizontalAlignment.values();
-                                        @Pc(5323) VerticalAlignment[] local5323 = VerticalAlignment.values();
-                                        Static124.method2216(anIntArray578[anInt7142 + 7], anIntArray578[anInt7142 + 2], anIntArray578[anInt7142 + 9], anIntArray578[anInt7142 + 4], local5323[anIntArray578[anInt7142 + 1]], anIntArray578[anInt7142 + 5], anIntArray578[anInt7142 + 8], anIntArray578[anInt7142 + 6], anIntArray578[anInt7142 + 3], local5320[anIntArray578[anInt7142]], anIntArray578[anInt7142 + 10]);
-                                        return;
-                                    }
-                                    if (arg0 == 3116) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        local5005 = ClientMessage.create(ClientProt.RESUME_P_HSLDIALOG, ServerConnection.GAME.cipher);
-                                        local5005.bitPacket.p2(local15);
-                                        ServerConnection.GAME.send(local5005);
-                                        return;
-                                    }
-                                    if (arg0 == 3117) {
-                                        local4911 = aStringArray37[--anInt7139];
-                                        local5005 = ClientMessage.create(ClientProt.A_CLIENT_PROT___82, ServerConnection.GAME.cipher);
-                                        local5005.bitPacket.p1(local4911.length() + 1);
-                                        local5005.bitPacket.pjstr(local4911);
-                                        ServerConnection.GAME.send(local5005);
-                                        return;
-                                    }
-                                } else if (arg0 < 3300) {
-                                    if (arg0 == 3200) {
-                                        anInt7142 -= 3;
-                                        SoundManager.playSynthSound(anIntArray578[anInt7142], anIntArray578[anInt7142 + 1], anIntArray578[anInt7142 + 2], 255, 256);
-                                        return;
-                                    }
-                                    if (arg0 == 3201) {
-                                        SoundManager.playMidiSong(255, anIntArray578[--anInt7142], 50);
-                                        return;
-                                    }
-                                    if (arg0 == 3202) {
-                                        anInt7142 -= 2;
-                                        SoundManager.playMidiJingle(255, anIntArray578[anInt7142], anIntArray578[anInt7142 + 1]);
-                                        return;
-                                    }
-                                    if (arg0 == 3203) {
-                                        anInt7142 -= 4;
-                                        SoundManager.playSynthSound(anIntArray578[anInt7142], anIntArray578[anInt7142 + 1], anIntArray578[anInt7142 + 2], anIntArray578[anInt7142 + 3], 256);
-                                        return;
-                                    }
-                                    if (arg0 == 3204) {
-                                        anInt7142 -= 3;
-                                        SoundManager.playMidiSong(anIntArray578[anInt7142 + 1], anIntArray578[anInt7142], anIntArray578[anInt7142 + 2]);
-                                        return;
-                                    }
-                                    if (arg0 == 3205) {
-                                        anInt7142 -= 3;
-                                        SoundManager.playMidiJingle(anIntArray578[anInt7142 + 2], anIntArray578[anInt7142], anIntArray578[anInt7142 + 1]);
-                                        return;
-                                    }
-                                    if (arg0 == 3206) {
-                                        anInt7142 -= 4;
-                                        SoundManager.playVorbisSound(anIntArray578[anInt7142], anIntArray578[anInt7142 + 1], anIntArray578[anInt7142 + 2], anIntArray578[anInt7142 + 3], 256, false);
-                                        return;
-                                    }
-                                    if (arg0 == 3207) {
-                                        anInt7142 -= 4;
-                                        SoundManager.playVorbisSound(anIntArray578[anInt7142], anIntArray578[anInt7142 + 1], anIntArray578[anInt7142 + 2], anIntArray578[anInt7142 + 3], 256, true);
-                                        return;
-                                    }
-                                    if (arg0 == 3208) {
-                                        anInt7142 -= 5;
-                                        SoundManager.playSynthSound(anIntArray578[anInt7142], anIntArray578[anInt7142 + 1], anIntArray578[anInt7142 + 2], anIntArray578[anInt7142 + 3], anIntArray578[anInt7142 + 4]);
-                                        return;
-                                    }
-                                    if (arg0 == 3209) {
-                                        anInt7142 -= 5;
-                                        SoundManager.playVorbisSound(anIntArray578[anInt7142], anIntArray578[anInt7142 + 1], anIntArray578[anInt7142 + 2], anIntArray578[anInt7142 + 3], anIntArray578[anInt7142 + 4], false);
-                                        return;
-                                    }
-                                } else if (arg0 < 3400) {
-                                    if (arg0 == 3300) {
-                                        anIntArray578[anInt7142++] = TimeUtils.clock;
-                                        return;
-                                    }
-                                    if (arg0 == 3301) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        anIntArray578[anInt7142++] = Static597.method7822(local15, local21, false);
-                                        return;
-                                    }
-                                    if (arg0 == 3302) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        anIntArray578[anInt7142++] = Static536.method7169(local21, false, local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3303) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        anIntArray578[anInt7142++] = Static67.method6099(local21, local15, false);
-                                        return;
-                                    }
-                                    if (arg0 == 3304) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = InvTypeList.instance.list(local15).size;
-                                        return;
-                                    }
-                                    if (arg0 == 3305) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = Static581.statLevels[local15];
-                                        return;
-                                    }
-                                    if (arg0 == 3306) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = Static498.statBaseLevels[local15];
-                                        return;
-                                    }
-                                    if (arg0 == 3307) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = Static237.statXps[local15];
-                                        return;
-                                    }
-                                    if (arg0 == 3308) {
-                                        @Pc(5929) byte local5929 = PlayerEntity.self.level;
-                                        @Pc(21) int local21 = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
-                                        @Pc(27) int local27 = (PlayerEntity.self.z >> 9) + WorldMap.areaBaseZ;
-                                        anIntArray578[anInt7142++] = (local5929 << 28) + (local21 << 14) + local27;
-                                        return;
-                                    }
-                                    if (arg0 == 3309) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = local15 >> 14 & 0x3FFF;
-                                        return;
-                                    }
-                                    if (arg0 == 3310) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = local15 >> 28;
-                                        return;
-                                    }
-                                    if (arg0 == 3311) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = local15 & 0x3FFF;
-                                        return;
-                                    }
-                                    if (arg0 == 3312) {
-                                        anIntArray578[anInt7142++] = Static174.mapMembers ? 1 : 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3313) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        anIntArray578[anInt7142++] = Static597.method7822(local15, local21, true);
-                                        return;
-                                    }
-                                    if (arg0 == 3314) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        anIntArray578[anInt7142++] = Static536.method7169(local21, true, local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3315) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        anIntArray578[anInt7142++] = Static67.method6099(local21, local15, true);
-                                        return;
-                                    }
-                                    if (arg0 == 3316) {
-                                        if (Client.staffModLevel >= 2) {
-                                            anIntArray578[anInt7142++] = Client.staffModLevel;
-                                            return;
-                                        }
-                                        anIntArray578[anInt7142++] = 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3317) {
-                                        anIntArray578[anInt7142++] = Static249.rebootTimer;
-                                        return;
-                                    }
-                                    if (arg0 == 3318) {
-                                        anIntArray578[anInt7142++] = ConnectionInfo.login.world;
-                                        return;
-                                    }
-                                    if (arg0 == 3321) {
-                                        anIntArray578[anInt7142++] = Static703.runEnergy;
-                                        return;
-                                    }
-                                    if (arg0 == 3322) {
-                                        anIntArray578[anInt7142++] = Static494.runWeight;
-                                        return;
-                                    }
-                                    if (arg0 == 3323) {
-                                        if (Static38.playerModLevel >= 5 && Static38.playerModLevel <= 9) {
-                                            anIntArray578[anInt7142++] = 1;
-                                            return;
-                                        }
-                                        anIntArray578[anInt7142++] = 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3324) {
-                                        if (Static38.playerModLevel >= 5 && Static38.playerModLevel <= 9) {
-                                            anIntArray578[anInt7142++] = Static38.playerModLevel;
-                                            return;
-                                        }
-                                        anIntArray578[anInt7142++] = 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3325) {
-                                        anIntArray578[anInt7142++] = Client.isMember ? 1 : 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3326) {
-                                        anIntArray578[anInt7142++] = PlayerEntity.self.combatLevel;
-                                        return;
-                                    }
-                                    if (arg0 == 3327) {
-                                        anIntArray578[anInt7142++] = PlayerEntity.self.playerModel != null && PlayerEntity.self.playerModel.female ? 1 : 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3329) {
-                                        anIntArray578[anInt7142++] = Static617.quickChatWorld ? 1 : 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3330) {
-                                        @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                        anIntArray578[anInt7142++] = Static46.method1082(local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3331) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        anIntArray578[anInt7142++] = Static390.method5494(false, local21, local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3332) {
-                                        anInt7142 -= 2;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        anIntArray578[anInt7142++] = Static390.method5494(true, local21, local15);
-                                        return;
-                                    }
-                                    if (arg0 == 3333) {
-                                        anIntArray578[anInt7142++] = Static696.method9034();
-                                        return;
-                                    }
-                                    if (arg0 == 3335) {
-                                        anIntArray578[anInt7142++] = Client.language;
-                                        return;
-                                    }
-                                    if (arg0 == 3336) {
-                                        anInt7142 -= 4;
-                                        @Pc(15) int local15 = anIntArray578[anInt7142];
-                                        @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                        @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                        local506 = anIntArray578[anInt7142 + 3];
-                                        local15 += local21 << 14;
-                                        local15 += local27 << 28;
-                                        local15 += local506;
-                                        anIntArray578[anInt7142++] = local15;
-                                        return;
-                                    }
-                                    if (arg0 == 3337) {
-                                        anIntArray578[anInt7142++] = Client.affid;
-                                        return;
-                                    }
-                                    if (arg0 == 3338) {
-                                        anIntArray578[anInt7142++] = Static65.profileCpu();
-                                        return;
-                                    }
-                                    if (arg0 == 3339) {
-                                        anIntArray578[anInt7142++] = 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3340) {
-                                        anIntArray578[anInt7142++] = GameShell.focus ? 1 : 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3341) {
-                                        anIntArray578[anInt7142++] = Client.fromBilling ? 1 : 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3342) {
-                                        anIntArray578[anInt7142++] = MouseMonitor.instance.getRecordedX();
-                                        return;
-                                    }
-                                    if (arg0 == 3343) {
-                                        anIntArray578[anInt7142++] = MouseMonitor.instance.getRecordedY();
-                                        return;
-                                    }
-                                    if (arg0 == 3344) {
-                                        aStringArray37[anInt7139++] = MiniMenu.secondEntry();
-                                        return;
-                                    }
-                                    if (arg0 == 3345) {
-                                        aStringArray37[anInt7139++] = MiniMenu.activeEntry();
-                                        return;
-                                    }
-                                    if (arg0 == 3346) {
-                                        anIntArray578[anInt7142++] = MiniMenu.length();
-                                        return;
-                                    }
-                                    if (arg0 == 3347) {
-                                        anIntArray578[anInt7142++] = Static470.currentCursor;
-                                        return;
-                                    }
-                                    if (arg0 == 3349) {
-                                        anIntArray578[anInt7142++] = PlayerEntity.self.yaw.getValue(16383) >> 3;
-                                        return;
-                                    }
-                                    if (arg0 == 3350) {
-                                        local4911 = aStringArray37[--anInt7139];
-                                        if (Static416.mapOwner != null && Static416.mapOwner.equalsIgnoreCase(local4911)) {
-                                            anIntArray578[anInt7142++] = 1;
-                                            return;
-                                        }
-                                        anIntArray578[anInt7142++] = 0;
-                                        return;
-                                    }
-                                    if (arg0 == 3351) {
-                                        anIntArray578[anInt7142++] = MouseMonitor.instance.isLeftDown() ? 1 : 0;
-                                        anIntArray578[anInt7142++] = MouseMonitor.instance.isMiddleDown() ? 1 : 0;
-                                        anIntArray578[anInt7142++] = MouseMonitor.instance.isRightDown() ? 1 : 0;
-                                        return;
-                                    }
-                                } else {
-                                    @Pc(7345) String local7345;
-                                    if (arg0 < 3500) {
-                                        @Pc(6822) EnumType local6822;
-                                        if (arg0 == 3400) {
-                                            anInt7142 -= 2;
-                                            @Pc(15) int local15 = anIntArray578[anInt7142];
-                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                            local6822 = EnumTypeList.instance.list(local15);
-                                            aStringArray37[anInt7139++] = local6822.getString(local21);
-                                            return;
-                                        }
-                                        @Pc(6868) EnumType local6868;
-                                        if (arg0 == 3408) {
-                                            anInt7142 -= 4;
-                                            @Pc(15) int local15 = anIntArray578[anInt7142];
-                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                            local506 = anIntArray578[anInt7142 + 3];
-                                            local6868 = EnumTypeList.instance.list(local27);
-                                            if (local6868.keyType == local15 && local6868.valType == local21) {
-                                                if (local21 == 's') {
-                                                    aStringArray37[anInt7139++] = local6868.getString(local506);
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = local6868.getInt(local506);
-                                                return;
-                                            }
-                                            throw new RuntimeException("C3408-1 " + local27 + "-" + local506);
-                                        }
-                                        @Pc(6963) EnumType local6963;
-                                        if (arg0 == 3409) {
-                                            anInt7142 -= 3;
-                                            @Pc(15) int local15 = anIntArray578[anInt7142];
-                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                            if (local21 == -1) {
-                                                throw new RuntimeException("C3409-2");
-                                            }
-                                            local6963 = EnumTypeList.instance.list(local21);
-                                            if (local6963.valType != local15) {
-                                                throw new RuntimeException("C3409-1");
-                                            }
-                                            anIntArray578[anInt7142++] = local6963.hasOutput(local27) ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3410) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            local1394 = aStringArray37[--anInt7139];
-                                            if (local15 == -1) {
-                                                throw new RuntimeException("C3410-2");
-                                            }
-                                            local6822 = EnumTypeList.instance.list(local15);
-                                            if (local6822.valType != 's') {
-                                                throw new RuntimeException("C3410-1");
-                                            }
-                                            anIntArray578[anInt7142++] = local6822.hasOutputString(local1394) ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3411) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            @Pc(7072) EnumType type = EnumTypeList.instance.list(local15);
-                                            anIntArray578[anInt7142++] = type.getOutputCount();
-                                            return;
-                                        }
-                                        if (arg0 == 3412) {
-                                            anInt7142 -= 3;
-                                            @Pc(15) int local15 = anIntArray578[anInt7142];
-                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                            if (local21 == -1) {
-                                                throw new RuntimeException();
-                                            }
-                                            local6963 = EnumTypeList.instance.list(local21);
-                                            if (local6963.valType != local15) {
-                                                throw new RuntimeException();
-                                            }
-                                            @Pc(7133) EnumMapping mapping = local6963.getReversed(local27);
-                                            @Pc(72) int local72 = 0;
-                                            if (mapping != null) {
-                                                local72 = mapping.index.length;
-                                            }
-                                            anIntArray578[anInt7142++] = local72;
-                                            return;
-                                        }
-                                        if (arg0 == 3413) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            local1394 = aStringArray37[--anInt7139];
-                                            if (local15 == -1) {
-                                                throw new RuntimeException();
-                                            }
-                                            local6822 = EnumTypeList.instance.list(local15);
-                                            if (local6822.valType != 's') {
-                                                throw new RuntimeException();
-                                            }
-                                            @Pc(7196) EnumStringMapping mapping = local6822.getReversed(local1394);
-                                            local2978 = 0;
-                                            if (mapping != null) {
-                                                local2978 = mapping.index.length;
-                                            }
-                                            anIntArray578[anInt7142++] = local2978;
-                                            return;
-                                        }
-                                        if (arg0 == 3414) {
-                                            anInt7142 -= 5;
-                                            @Pc(15) int local15 = anIntArray578[anInt7142];
-                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                            local506 = anIntArray578[anInt7142 + 3];
-                                            local2978 = anIntArray578[anInt7142 + 4];
-                                            if (local27 == -1) {
-                                                throw new RuntimeException();
-                                            }
-                                            @Pc(7261) EnumType local7261 = EnumTypeList.instance.list(local27);
-                                            if (local7261.keyType != local21) {
-                                                throw new RuntimeException();
-                                            }
-                                            if (local7261.valType != local15) {
-                                                throw new RuntimeException();
-                                            }
-                                            @Pc(7284) EnumMapping mapping = local7261.getReversed(local506);
-                                            if (local2978 >= 0 && mapping != null && mapping.index.length > local2978) {
-                                                anIntArray578[anInt7142++] = mapping.index[local2978];
-                                                return;
-                                            }
-                                            throw new RuntimeException();
-                                        }
-                                        if (arg0 == 3415) {
-                                            anInt7142 -= 3;
-                                            @Pc(15) int local15 = anIntArray578[anInt7142];
-                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                            local7345 = aStringArray37[--anInt7139];
-                                            if (local21 == -1) {
-                                                throw new RuntimeException();
-                                            }
-                                            local6868 = EnumTypeList.instance.list(local21);
-                                            if (local6868.keyType != local15) {
-                                                throw new RuntimeException();
-                                            }
-                                            if (local6868.valType != 's') {
-                                                throw new RuntimeException();
-                                            }
-                                            @Pc(7381) EnumStringMapping local7381 = local6868.getReversed(local7345);
-                                            if (local27 >= 0 && local7381 != null && local7381.index.length > local27) {
-                                                anIntArray578[anInt7142++] = local7381.index[local27];
-                                                return;
-                                            }
-                                            throw new RuntimeException();
-                                        }
-                                    } else if (arg0 < 3700) {
-                                        if (arg0 == 3600) {
-                                            if (FriendsList.status == 0) {
-                                                anIntArray578[anInt7142++] = -2;
-                                                return;
-                                            }
-                                            if (FriendsList.status == 1) {
-                                                anIntArray578[anInt7142++] = -1;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = FriendsList.count;
-                                            return;
-                                        }
-                                        if (arg0 == 3601) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendsList.status == 2 && local15 < FriendsList.count) {
-                                                aStringArray37[anInt7139++] = FriendsList.names[local15];
-                                                if (FriendsList.formerNames[local15] != null) {
-                                                    aStringArray37[anInt7139++] = FriendsList.formerNames[local15];
-                                                    return;
-                                                }
-                                                aStringArray37[anInt7139++] = "";
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3602) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendsList.status == 2 && local15 < FriendsList.count) {
-                                                anIntArray578[anInt7142++] = FriendsList.worlds[local15];
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3603) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendsList.status == 2 && local15 < FriendsList.count) {
-                                                anIntArray578[anInt7142++] = FriendsList.ranks[local15];
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3604) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                            Static430.method5819(local4911, local21);
-                                            return;
-                                        }
-                                        if (arg0 == 3605) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            Static706.method9225(local4911);
-                                            return;
-                                        }
-                                        if (arg0 == 3606) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            Static545.method7242(local4911);
-                                            return;
-                                        }
-                                        if (arg0 == 3607) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            Static231.method3382(false, local4911);
-                                            return;
-                                        }
-                                        if (arg0 == 3608) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            Static726.method9463(local4911);
-                                            return;
-                                        }
-                                        if (arg0 == 3609) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            if (local4911.startsWith("<img=0>") || local4911.startsWith("<img=1>")) {
-                                                local4911 = local4911.substring(7);
-                                            }
-                                            anIntArray578[anInt7142++] = FriendsList.method5241(0, local4911) ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3610) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendsList.status == 2 && local15 < FriendsList.count) {
-                                                aStringArray37[anInt7139++] = FriendsList.worldNames[local15];
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3611) {
-                                            if (FriendChat.name != null) {
-                                                aStringArray37[anInt7139++] = Static682.method8923(FriendChat.name);
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3612) {
-                                            if (FriendChat.name != null) {
-                                                anIntArray578[anInt7142++] = FriendChat.count;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3613) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendChat.name != null && local15 < FriendChat.count) {
-                                                aStringArray37[anInt7139++] = FriendChat.users[local15].name;
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3614) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendChat.name != null && local15 < FriendChat.count) {
-                                                anIntArray578[anInt7142++] = FriendChat.users[local15].world;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3615) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendChat.name != null && local15 < FriendChat.count) {
-                                                anIntArray578[anInt7142++] = FriendChat.users[local15].rank;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3616) {
-                                            anIntArray578[anInt7142++] = FriendChat.kickRank;
-                                            return;
-                                        }
-                                        if (arg0 == 3617) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            Static128.method7754(local4911);
-                                            return;
-                                        }
-                                        if (arg0 == 3618) {
-                                            anIntArray578[anInt7142++] = FriendChat.rank;
-                                            return;
-                                        }
-                                        if (arg0 == 3619) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            Static698.method9124(local4911);
-                                            return;
-                                        }
-                                        if (arg0 == 3620) {
-                                            Static396.method5551();
-                                            return;
-                                        }
-                                        if (arg0 == 3621) {
-                                            if (FriendsList.status == 0) {
-                                                anIntArray578[anInt7142++] = -1;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = IgnoreList.count;
-                                            return;
-                                        }
-                                        if (arg0 == 3622) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendsList.status != 0 && local15 < IgnoreList.count) {
-                                                aStringArray37[anInt7139++] = IgnoreList.names[local15];
-                                                if (IgnoreList.formerNames[local15] != null) {
-                                                    aStringArray37[anInt7139++] = IgnoreList.formerNames[local15];
-                                                    return;
-                                                }
-                                                aStringArray37[anInt7139++] = "";
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3623) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            if (local4911.startsWith("<img=0>") || local4911.startsWith("<img=1>")) {
-                                                local4911 = local4911.substring(7);
-                                            }
-                                            anIntArray578[anInt7142++] = IgnoreList.contains(local4911) ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3624) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendChat.users != null && local15 < FriendChat.count && FriendChat.users[local15].accountName.equalsIgnoreCase(PlayerEntity.self.accountName)) {
-                                                anIntArray578[anInt7142++] = 1;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3625) {
-                                            if (FriendChat.owner != null) {
-                                                aStringArray37[anInt7139++] = FriendChat.owner;
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3626) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendChat.name != null && local15 < FriendChat.count) {
-                                                aStringArray37[anInt7139++] = FriendChat.users[local15].worldName;
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3627) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendsList.status == 2 && local15 >= 0 && local15 < FriendsList.count) {
-                                                anIntArray578[anInt7142++] = FriendsList.sameGameFlags[local15] ? 1 : 0;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3628) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            if (local4911.startsWith("<img=0>") || local4911.startsWith("<img=1>")) {
-                                                local4911 = local4911.substring(7);
-                                            }
-                                            anIntArray578[anInt7142++] = Static664.method8658(local4911);
-                                            return;
-                                        }
-                                        if (arg0 == 3629) {
-                                            anIntArray578[anInt7142++] = Client.country;
-                                            return;
-                                        }
-                                        if (arg0 == 3630) {
-                                            local4911 = aStringArray37[--anInt7139];
-                                            Static231.method3382(true, local4911);
-                                            return;
-                                        }
-                                        if (arg0 == 3631) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = IgnoreList.temporary[local15] ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3632) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendChat.name != null && local15 < FriendChat.count) {
-                                                aStringArray37[anInt7139++] = FriendChat.users[local15].accountName;
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3633) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendsList.status != 0 && local15 < IgnoreList.count) {
-                                                aStringArray37[anInt7139++] = IgnoreList.accountNames[local15];
-                                                return;
-                                            }
-                                            aStringArray37[anInt7139++] = "";
-                                            return;
-                                        }
-                                        if (arg0 == 3634) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            if (FriendsList.status == 2 && local15 < FriendsList.count) {
-                                                anIntArray578[anInt7142++] = FriendsList.referredFlags[local15] ? 1 : 0;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                    } else if (arg0 < 3800) {
-                                        if (arg0 == 3700) {
-                                            if (ClanSettings.listened != null) {
-                                                anIntArray578[anInt7142++] = 1;
-                                                clanSettings = ClanSettings.listened;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3701) {
-                                            if (ClanSettings.affined != null) {
-                                                anIntArray578[anInt7142++] = 1;
-                                                clanSettings = ClanSettings.affined;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3702) {
-                                            aStringArray37[anInt7139++] = clanSettings.name;
-                                            return;
-                                        }
-                                        if (arg0 == 3703) {
-                                            anIntArray578[anInt7142++] = clanSettings.allowNonMembers ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3704) {
-                                            anIntArray578[anInt7142++] = clanSettings.rankTalk;
-                                            return;
-                                        }
-                                        if (arg0 == 3705) {
-                                            anIntArray578[anInt7142++] = clanSettings.rankKick;
-                                            return;
-                                        }
-                                        if (arg0 == 3706) {
-                                            anIntArray578[anInt7142++] = clanSettings.rankLootShare;
-                                            return;
-                                        }
-                                        if (arg0 == 3707) {
-                                            anIntArray578[anInt7142++] = clanSettings.coinshare;
-                                            return;
-                                        }
-                                        if (arg0 == 3709) {
-                                            anIntArray578[anInt7142++] = clanSettings.affinedCount;
-                                            return;
-                                        }
-                                        if (arg0 == 3710) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            aStringArray37[anInt7139++] = clanSettings.affinedDisplayNames[local15];
-                                            return;
-                                        }
-                                        if (arg0 == 3711) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = clanSettings.affinedRanks[local15];
-                                            return;
-                                        }
-                                        if (arg0 == 3712) {
-                                            anIntArray578[anInt7142++] = clanSettings.bannedCount;
-                                            return;
-                                        }
-                                        if (arg0 == 3713) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            aStringArray37[anInt7139++] = clanSettings.bannedDisplayNames[local15];
-                                            return;
-                                        }
-                                        if (arg0 == 3714) {
-                                            anInt7142 -= 3;
-                                            @Pc(15) int local15 = anIntArray578[anInt7142];
-                                            @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                            @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                            anIntArray578[anInt7142++] = clanSettings.getAffinedExtraInfo(local21, local27, local15);
-                                            return;
-                                        }
-                                        if (arg0 == 3715) {
-                                            anIntArray578[anInt7142++] = clanSettings.currentOwnerSlot;
-                                            return;
-                                        }
-                                        if (arg0 == 3716) {
-                                            anIntArray578[anInt7142++] = clanSettings.replacementOwnerSlot;
-                                            return;
-                                        }
-                                        if (arg0 == 3717) {
-                                            anIntArray578[anInt7142++] = clanSettings.affinedSlot(aStringArray37[--anInt7139]);
-                                            return;
-                                        }
-                                        if (arg0 == 3718) {
-                                            anIntArray578[anInt7142 - 1] = clanSettings.sortedAffinedSlots()[anIntArray578[anInt7142 - 1]];
-                                            return;
-                                        }
-                                        if (arg0 == 3719) {
-                                            Static180.method2775(anIntArray578[--anInt7142]);
-                                            return;
-                                        }
-                                        if (arg0 == 3720) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = clanSettings.affinedJoinRuneday[local15];
-                                            return;
-                                        }
-                                        if (arg0 == 3750) {
-                                            if (ClanChannel.listened != null) {
-                                                anIntArray578[anInt7142++] = 1;
-                                                aClass2_Sub47_2 = ClanChannel.listened;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3751) {
-                                            if (ClanChannel.affined != null) {
-                                                anIntArray578[anInt7142++] = 1;
-                                                aClass2_Sub47_2 = ClanChannel.affined;
-                                                return;
-                                            }
-                                            anIntArray578[anInt7142++] = 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3752) {
-                                            aStringArray37[anInt7139++] = aClass2_Sub47_2.channelName;
-                                            return;
-                                        }
-                                        if (arg0 == 3753) {
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.kickRank;
-                                            return;
-                                        }
-                                        if (arg0 == 3754) {
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.talkRank;
-                                            return;
-                                        }
-                                        if (arg0 == 3755) {
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.userCount;
-                                            return;
-                                        }
-                                        if (arg0 == 3756) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            aStringArray37[anInt7139++] = aClass2_Sub47_2.users[local15].displayName;
-                                            return;
-                                        }
-                                        if (arg0 == 3757) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.users[local15].rank;
-                                            return;
-                                        }
-                                        if (arg0 == 3758) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.users[local15].world;
-                                            return;
-                                        }
-                                        if (arg0 == 3759) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            Static525.method7886(aClass2_Sub47_2 == ClanChannel.affined, local15);
-                                            return;
-                                        }
-                                        if (arg0 == 3760) {
-                                            anIntArray578[anInt7142++] = aClass2_Sub47_2.userSlot(aStringArray37[--anInt7139]);
-                                            return;
-                                        }
-                                        if (arg0 == 3761) {
-                                            anIntArray578[anInt7142 - 1] = aClass2_Sub47_2.sortedUserSlots()[anIntArray578[anInt7142 - 1]];
-                                            return;
-                                        }
-                                        if (arg0 == 3790) {
-                                            anIntArray578[anInt7142++] = Static279.clanVars == null ? 0 : 1;
-                                            return;
-                                        }
-                                    } else if (arg0 < 4000) {
-                                        if (arg0 == 3903) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = StockmarketManager.offers[local15].getOfferType();
-                                            return;
-                                        }
-                                        if (arg0 == 3904) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = StockmarketManager.offers[local15].objId;
-                                            return;
-                                        }
-                                        if (arg0 == 3905) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = StockmarketManager.offers[local15].price;
-                                            return;
-                                        }
-                                        if (arg0 == 3906) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = StockmarketManager.offers[local15].count;
-                                            return;
-                                        }
-                                        if (arg0 == 3907) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = StockmarketManager.offers[local15].completedCount;
-                                            return;
-                                        }
-                                        if (arg0 == 3908) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            anIntArray578[anInt7142++] = StockmarketManager.offers[local15].completedGold;
-                                            return;
-                                        }
-                                        if (arg0 == 3910) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            @Pc(21) int local21 = StockmarketManager.offers[local15].getStatus();
-                                            anIntArray578[anInt7142++] = local21 == 0 ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3911) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            @Pc(21) int local21 = StockmarketManager.offers[local15].getStatus();
-                                            anIntArray578[anInt7142++] = local21 == 2 ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3912) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            @Pc(21) int local21 = StockmarketManager.offers[local15].getStatus();
-                                            anIntArray578[anInt7142++] = local21 == 5 ? 1 : 0;
-                                            return;
-                                        }
-                                        if (arg0 == 3913) {
-                                            @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                            @Pc(21) int local21 = StockmarketManager.offers[local15].getStatus();
-                                            anIntArray578[anInt7142++] = local21 == 1 ? 1 : 0;
-                                            return;
-                                        }
-                                    } else {
-                                        @Pc(9705) long local9705;
-                                        if (arg0 < 4100) {
-                                            if (arg0 == 4000) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 + local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4001) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 - local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4002) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 * local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4003) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 / local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4004) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = (int) (Math.random() * (double) local15);
-                                                return;
-                                            }
-                                            if (arg0 == 4005) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = (int) (Math.random() * (double) (local15 + 1));
-                                                return;
-                                            }
-                                            if (arg0 == 4006) {
-                                                anInt7142 -= 5;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 2];
-                                                local506 = anIntArray578[anInt7142 + 3];
-                                                local2978 = anIntArray578[anInt7142 + 4];
-                                                anIntArray578[anInt7142++] = local15 + (local21 - local15) * (local2978 - local27) / (local506 - local27);
-                                                return;
-                                            }
-                                            @Pc(9712) long local9712;
-                                            if (arg0 == 4007) {
-                                                anInt7142 -= 2;
-                                                local9705 = anIntArray578[anInt7142];
-                                                local9712 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = (int) (local9705 + local9705 * local9712 / 100L);
-                                                return;
-                                            }
-                                            if (arg0 == 4008) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 | 0x1 << local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4009) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 & -(0x1 << local21) - 1;
-                                                return;
-                                            }
-                                            if (arg0 == 4010) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = (local15 & 0x1 << local21) == 0 ? 0 : 1;
-                                                return;
-                                            }
-                                            if (arg0 == 4011) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 % local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4012) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                if (local15 == 0) {
-                                                    anIntArray578[anInt7142++] = 0;
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = (int) Math.pow(local15, local21);
-                                                return;
-                                            }
-                                            if (arg0 == 4013) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                if (local15 == 0) {
-                                                    anIntArray578[anInt7142++] = 0;
-                                                    return;
-                                                }
-                                                if (local21 == 0) {
-                                                    anIntArray578[anInt7142++] = Integer.MAX_VALUE;
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = (int) Math.pow(local15, 1.0D / (double) local21);
-                                                return;
-                                            }
-                                            if (arg0 == 4014) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 & local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4015) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 | local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4016) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 < local21 ? local15 : local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4017) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local15 > local21 ? local15 : local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4018) {
-                                                anInt7142 -= 3;
-                                                local9705 = anIntArray578[anInt7142];
-                                                local9712 = anIntArray578[anInt7142 + 1];
-                                                @Pc(10099) long local10099 = anIntArray578[anInt7142 + 2];
-                                                anIntArray578[anInt7142++] = (int) (local9705 * local10099 / local9712);
-                                                return;
-                                            }
-                                            if (arg0 == 4019) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                if (local15 > 700 || local21 > 700) {
-                                                    anIntArray578[anInt7142++] = 256;
-                                                }
-                                                @Pc(10162) double local10162 = (Math.random() * (double) (local21 + local15) + 800.0D - (double) local15) / 100.0D;
-                                                anIntArray578[anInt7142++] = (int) (Math.pow(2.0D, local10162) + 0.5D);
-                                                return;
-                                            }
-                                            if (arg0 == 4020) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(local15) & 0xFFFF];
-                                                return;
-                                            }
-                                        } else if (arg0 < 4200) {
-                                            if (arg0 == 4100) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = local4911 + local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4101) {
-                                                anInt7139 -= 2;
-                                                local4911 = aStringArray37[anInt7139];
-                                                local1394 = aStringArray37[anInt7139 + 1];
-                                                aStringArray37[anInt7139++] = local4911 + local1394;
-                                                return;
-                                            }
-                                            if (arg0 == 4102) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = local4911 + StringTools.decimalWithSign(true, local21);
-                                                return;
-                                            }
-                                            if (arg0 == 4103) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                aStringArray37[anInt7139++] = local4911.toLowerCase();
-                                                return;
-                                            }
-                                            if (arg0 == 4104) {
-                                                aStringArray37[anInt7139++] = Static522.method6994(Client.language, Static38.method1003(anIntArray578[--anInt7142]));
-                                                return;
-                                            }
-                                            if (arg0 == 4105) {
-                                                anInt7139 -= 2;
-                                                local4911 = aStringArray37[anInt7139];
-                                                local1394 = aStringArray37[anInt7139 + 1];
-                                                if (PlayerEntity.self.playerModel != null && PlayerEntity.self.playerModel.female) {
-                                                    aStringArray37[anInt7139++] = local1394;
-                                                    return;
-                                                }
-                                                aStringArray37[anInt7139++] = local4911;
-                                                return;
-                                            }
-                                            if (arg0 == 4106) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = Integer.toString(local15);
-                                                return;
-                                            }
-                                            if (arg0 == 4107) {
-                                                anInt7139 -= 2;
-                                                anIntArray578[anInt7142++] = Static540.compare(aStringArray37[anInt7139 + 1], Client.language, aStringArray37[anInt7139]);
-                                                return;
-                                            }
-                                            @Pc(10482) FontMetrics local10482;
-                                            if (arg0 == 4108) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                anInt7142 -= 2;
-                                                @Pc(21) int local21 = anIntArray578[anInt7142];
-                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                                                local10482 = FontMetrics.loadGroup(local27, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local10482.paraHeight(local4911, Sprites.nameIcons, local21);
-                                                return;
-                                            }
-                                            if (arg0 == 4109) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                anInt7142 -= 2;
-                                                @Pc(21) int local21 = anIntArray578[anInt7142];
-                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                                                local10482 = FontMetrics.loadGroup(local27, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local10482.paraWidth(Sprites.nameIcons, local4911, local21);
-                                                return;
-                                            }
-                                            if (arg0 == 4110) {
-                                                anInt7139 -= 2;
-                                                local4911 = aStringArray37[anInt7139];
-                                                local1394 = aStringArray37[anInt7139 + 1];
-                                                if (anIntArray578[--anInt7142] == 1) {
-                                                    aStringArray37[anInt7139++] = local4911;
-                                                    return;
-                                                }
-                                                aStringArray37[anInt7139++] = local1394;
-                                                return;
-                                            }
-                                            if (arg0 == 4111) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                aStringArray37[anInt7139++] = StringTools.escapeBrackets(local4911);
-                                                return;
-                                            }
-                                            if (arg0 == 4112) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                                if (local21 == -1) {
-                                                    throw new RuntimeException("null char");
-                                                }
-                                                aStringArray37[anInt7139++] = local4911 + (char) local21;
-                                                return;
-                                            }
-                                            if (arg0 == 4113) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = charIsPrintable((char) local15);
-                                                return;
-                                            }
-                                            if (arg0 == 4114) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = StringTools.isAlphanumeric((char) local15) ? 1 : 0;
-                                                return;
-                                            }
-                                            if (arg0 == 4115) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = StringTools.isAlphabetical((char) local15) ? 1 : 0;
-                                                return;
-                                            }
-                                            if (arg0 == 4116) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = StringTools.isNumeric((char) local15) ? 1 : 0;
-                                                return;
-                                            }
-                                            if (arg0 == 4117) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                if (local4911 != null) {
-                                                    anIntArray578[anInt7142++] = local4911.length();
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = 0;
-                                                return;
-                                            }
-                                            if (arg0 == 4118) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                anInt7142 -= 2;
-                                                @Pc(21) int local21 = anIntArray578[anInt7142];
-                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                                                aStringArray37[anInt7139++] = local4911.substring(local21, local27);
-                                                return;
-                                            }
-                                            if (arg0 == 4119) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                @Pc(10848) StringBuffer local10848 = new StringBuffer(local4911.length());
-                                                @Pc(10850) boolean local10850 = false;
-                                                for (local506 = 0; local506 < local4911.length(); local506++) {
-                                                    @Pc(10857) char local10857 = local4911.charAt(local506);
-                                                    if (local10857 == '<') {
-                                                        local10850 = true;
-                                                    } else if (local10857 == '>') {
-                                                        local10850 = false;
-                                                    } else if (!local10850) {
-                                                        local10848.append(local10857);
-                                                    }
-                                                }
-                                                aStringArray37[anInt7139++] = local10848.toString();
-                                                return;
-                                            }
-                                            if (arg0 == 4120) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                anInt7142 -= 2;
-                                                @Pc(21) int local21 = anIntArray578[anInt7142];
-                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                                                anIntArray578[anInt7142++] = local4911.indexOf(local21, local27);
-                                                return;
-                                            }
-                                            if (arg0 == 4121) {
-                                                anInt7139 -= 2;
-                                                local4911 = aStringArray37[anInt7139];
-                                                local1394 = aStringArray37[anInt7139 + 1];
-                                                @Pc(27) int local27 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = local4911.indexOf(local1394, local27);
-                                                return;
-                                            }
-                                            if (arg0 == 4122) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Character.toLowerCase((char) local15);
-                                                return;
-                                            }
-                                            if (arg0 == 4123) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = Character.toUpperCase((char) local15);
-                                                return;
-                                            }
-                                            if (arg0 == 4124) {
-                                                local575 = anIntArray578[--anInt7142] != 0;
-                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = StringTools.formatNumber(Client.language, local575, local21, 0);
-                                                return;
-                                            }
-                                            if (arg0 == 4125) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                                @Pc(11077) FontMetrics local11077 = FontMetrics.loadGroup(local21, js5.FONTMETRICS);
-                                                anIntArray578[anInt7142++] = local11077.stringWidth(Sprites.nameIcons, local4911);
-                                                return;
-                                            }
-                                            if (arg0 == 4126) {
-                                                aStringArray37[anInt7139++] = Static647.method8474((long) anIntArray578[--anInt7142] * 60000L, Client.language) + " UTC";
-                                                return;
-                                            }
-                                            if (arg0 == 4127) {
-                                                local9705 = aLongArray14[--anInt7152];
-                                                aStringArray37[anInt7139++] = local9705 == -1L ? "" : Long.toString(local9705, 36).toUpperCase();
-                                                return;
-                                            }
-                                        } else if (arg0 < 4300) {
-                                            if (arg0 == 4200) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                aStringArray37[anInt7139++] = ObjTypeList.instance.list(local15).name;
-                                                return;
-                                            }
-                                            @Pc(11206) ObjType local11206;
-                                            if (arg0 == 4201) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                local11206 = ObjTypeList.instance.list(local15);
-                                                if (local21 >= 1 && local21 <= 5 && local11206.op[local21 - 1] != null) {
-                                                    aStringArray37[anInt7139++] = local11206.op[local21 - 1];
-                                                    return;
-                                                }
-                                                aStringArray37[anInt7139++] = "";
-                                                return;
-                                            }
-                                            if (arg0 == 4202) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                local11206 = ObjTypeList.instance.list(local15);
-                                                if (local21 >= 1 && local21 <= 5 && local11206.iop[local21 - 1] != null) {
-                                                    aStringArray37[anInt7139++] = local11206.iop[local21 - 1];
-                                                    return;
-                                                }
-                                                aStringArray37[anInt7139++] = "";
-                                                return;
-                                            }
-                                            if (arg0 == 4203) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).cost;
-                                                return;
-                                            }
-                                            if (arg0 == 4204) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).stackable == 1 ? 1 : 0;
-                                                return;
-                                            }
-                                            @Pc(11380) ObjType local11380;
-                                            if (arg0 == 4205) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                local11380 = ObjTypeList.instance.list(local15);
-                                                if (local11380.certtemplate == -1 && local11380.certlink >= 0) {
-                                                    anIntArray578[anInt7142++] = local11380.certlink;
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = local15;
-                                                return;
-                                            }
-                                            if (arg0 == 4206) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                local11380 = ObjTypeList.instance.list(local15);
-                                                if (local11380.certtemplate >= 0 && local11380.certlink >= 0) {
-                                                    anIntArray578[anInt7142++] = local11380.certlink;
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = local15;
-                                                return;
-                                            }
-                                            if (arg0 == 4207) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).members ? 1 : 0;
-                                                return;
-                                            }
-                                            if (arg0 == 4208) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = ParamTypeList.instance.list(local21);
-                                                if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = ObjTypeList.instance.list(local15).param(local3848.defaultstr, local21);
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).param(local21, local3848.defaultint);
-                                                return;
-                                            }
-                                            if (arg0 == 4209) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1] - 1;
-                                                local11206 = ObjTypeList.instance.list(local15);
-                                                if (local11206.cursor1iop == local21) {
-                                                    anIntArray578[anInt7142++] = local11206.icursor1;
-                                                    return;
-                                                }
-                                                if (local11206.cursor2iop == local21) {
-                                                    anIntArray578[anInt7142++] = local11206.icursor2;
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = -1;
-                                                return;
-                                            }
-                                            if (arg0 == 4210) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                @Pc(21) int local21 = anIntArray578[--anInt7142];
-                                                Static331.method4924(local21 == 1, local4911);
-                                                anIntArray578[anInt7142++] = Static606.anInt8947;
-                                                return;
-                                            }
-                                            if (arg0 == 4211) {
-                                                if (Static256.aShortArray63 != null && Static143.anInt4054 < Static606.anInt8947) {
-                                                    anIntArray578[anInt7142++] = Static256.aShortArray63[Static143.anInt4054++] & 0xFFFF;
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = -1;
-                                                return;
-                                            }
-                                            if (arg0 == 4212) {
-                                                Static143.anInt4054 = 0;
-                                                return;
-                                            }
-                                            if (arg0 == 4213) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                anIntArray578[anInt7142++] = ObjTypeList.instance.list(local15).multistacksize;
-                                                return;
-                                            }
-                                            if (arg0 == 4214) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                anInt7142 -= 3;
-                                                @Pc(21) int local21 = anIntArray578[anInt7142];
-                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                                                local506 = anIntArray578[anInt7142 + 2];
-                                                Static263.method3855(local21 == 1, local506, local27, local4911);
-                                                anIntArray578[anInt7142++] = Static606.anInt8947;
-                                                return;
-                                            }
-                                            if (arg0 == 4215) {
-                                                anInt7139 -= 2;
-                                                anInt7142 -= 2;
-                                                local4911 = aStringArray37[anInt7139];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142];
-                                                @Pc(27) int local27 = anIntArray578[anInt7142 + 1];
-                                                local7345 = aStringArray37[anInt7139 + 1];
-                                                Static715.method9347(local4911, local27, local7345, 8, local21 == 1);
-                                                anIntArray578[anInt7142++] = Static606.anInt8947;
-                                                return;
-                                            }
-                                        } else if (arg0 < 4400) {
-                                            if (arg0 == 4300) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = ParamTypeList.instance.list(local21);
-                                                if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = NPCTypeList.instance.list(local15).param(local3848.defaultstr, local21);
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = NPCTypeList.instance.list(local15).param(local21, local3848.defaultint);
-                                                return;
-                                            }
-                                        } else if (arg0 < 4500) {
-                                            if (arg0 == 4400) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = ParamTypeList.instance.list(local21);
-                                                if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = LocTypeList.instance.list(local15).param(local3848.defaultstr, local21);
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = LocTypeList.instance.list(local15).param(local3848.defaultint, local21);
-                                                return;
-                                            }
-                                        } else if (arg0 < 4600) {
-                                            if (arg0 == 4500) {
-                                                anInt7142 -= 2;
-                                                @Pc(15) int local15 = anIntArray578[anInt7142];
-                                                @Pc(21) int local21 = anIntArray578[anInt7142 + 1];
-                                                local3848 = ParamTypeList.instance.list(local21);
-                                                if (local3848.isString()) {
-                                                    aStringArray37[anInt7139++] = StructTypeList.instance.list(local15).param(local21, local3848.defaultstr);
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = StructTypeList.instance.list(local15).param(local3848.defaultint, local21);
-                                                return;
-                                            }
-                                        } else if (arg0 < 4700) {
-                                            if (arg0 == 4600) {
-                                                @Pc(15) int local15 = anIntArray578[--anInt7142];
-                                                @Pc(12037) BASType local12037 = BASTypeList.instance.list(local15);
-                                                if (local12037.readyAnimations != null && local12037.readyAnimations.length > 0) {
-                                                    @Pc(27) int local27 = 0;
-                                                    local506 = local12037.readyAnimationWeights[0];
-                                                    for (local2978 = 1; local2978 < local12037.readyAnimations.length; local2978++) {
-                                                        if (local12037.readyAnimationWeights[local2978] > local506) {
-                                                            local27 = local2978;
-                                                            local506 = local12037.readyAnimationWeights[local2978];
-                                                        }
-                                                    }
-                                                    anIntArray578[anInt7142++] = local12037.readyAnimations[local27];
-                                                    return;
-                                                }
-                                                anIntArray578[anInt7142++] = local12037.ready;
-                                                return;
-                                            }
-                                        } else if (arg0 < 4800) {
-                                            if (arg0 == 4700) {
-                                                anIntArray578[anInt7142++] = Static587.aBoolean663 ? 1 : 0;
-                                                return;
-                                            }
-                                            if (arg0 == 4701) {
-                                                local4911 = aStringArray37[--anInt7139];
-                                                if (MainLogicManager.step == 7 && !LoginManager.inProgress()) {
-                                                    if (local4911.length() > 20) {
-                                                        Static486.aByte115 = -4;
-                                                        return;
-                                                    }
-                                                    Static486.aByte115 = -1;
-                                                    local5005 = ClientMessage.create(ClientProt.CLIENT_PROT_90, ServerConnection.LOBBY.cipher);
-                                                    local5005.bitPacket.p1(0);
-                                                    @Pc(27) int local27 = local5005.bitPacket.pos;
-                                                    local5005.bitPacket.pjstr(local4911);
-                                                    local5005.bitPacket.psize1(local5005.bitPacket.pos - local27);
-                                                    ServerConnection.LOBBY.send(local5005);
-                                                    return;
-                                                }
-                                                Static486.aByte115 = -5;
-                                                return;
-                                            }
-                                            if (arg0 == 4702) {
-                                                anIntArray578[anInt7142++] = Static486.aByte115;
-                                                if (Static486.aByte115 != -1) {
-                                                    Static486.aByte115 = -6;
-                                                }
-                                                return;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
                     }
                 }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == IF_FIND) {
+                @Pc(15) int idAndSlot = intStack[--intStackPointer];
+                @Pc(248) Component component = InterfaceList.list(idAndSlot);
+
+                if (component != null) {
+                    intStack[intStackPointer++] = 1;
+
+                    if (unfocused) {
+                        unfocusedComponent = component;
+                        return;
+                    }
+
+                    focusedComponent = component;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == IF_SENDTOFRONT || op == CC_SENDTOFRONT) {
+                @Pc(220) Component component;
+
+                if (op == IF_SENDTOFRONT) {
+                    @Pc(21) int idAndSlot = intStack[--intStackPointer];
+                    component = InterfaceList.list(idAndSlot);
+                } else {
+                    component = unfocused ? unfocusedComponent : focusedComponent;
+                }
+
+                sendToFront(component);
+                return;
+            }
+
+            if (op == IF_SENDTOBACK || op == CC_SENDTOBACK) {
+                @Pc(220) Component component;
+
+                if (op == IF_SENDTOBACK) {
+                    @Pc(21) int idAndSlot = intStack[--intStackPointer];
+                    component = InterfaceList.list(idAndSlot);
+                } else {
+                    component = unfocused ? unfocusedComponent : focusedComponent;
+                }
+
+                sendToBack(component);
+                return;
+            }
+        } else if (op < 500) {
+            if (op == BASEIDKIT) {
+                intStackPointer -= 2;
+
+                @Pc(15) int value = intStack[intStackPointer];
+                @Pc(21) int idkType = intStack[intStackPointer + 1];
+
+                if (PlayerEntity.self.playerModel == null) {
+                    return;
+                }
+
+                for (@Pc(27) int part = 0; part < PlayerModel.PRIMARY_BODY_PARTS.length; part++) {
+                    if (PlayerModel.PRIMARY_BODY_PARTS[part] == value) {
+                        PlayerEntity.self.playerModel.setIDKPart(idkType, IDKTypeList.instance, part);
+                        return;
+                    }
+                }
+
+                for (@Pc(506) int part = 0; part < PlayerModel.SECONDARY_BODY_PARTS.length; part++) {
+                    if (PlayerModel.SECONDARY_BODY_PARTS[part] == value) {
+                        PlayerEntity.self.playerModel.setIDKPart(idkType, IDKTypeList.instance, part);
+                        return;
+                    }
+                }
+
+                return;
+            }
+
+            if (op == BASECOLOUR) {
+                intStackPointer -= 2;
+
+                @Pc(15) int local15 = intStack[intStackPointer];
+                @Pc(21) int local21 = intStack[intStackPointer + 1];
+
+                if (PlayerEntity.self.playerModel == null) {
+                    return;
+                }
+
+                PlayerEntity.self.playerModel.setBaseColour(local15, local21);
+                return;
+            }
+
+            if (op == SETGENDER) {
+                @Pc(575) boolean female = intStack[--intStackPointer] != 0;
+
+                if (PlayerEntity.self.playerModel == null) {
+                    return;
+                }
+
+                PlayerEntity.self.playerModel.setFemale(female);
+                return;
+            }
+
+            if (op == SETOBJ) {
+                intStackPointer -= 2;
+
+                @Pc(15) int part = intStack[intStackPointer];
+                @Pc(21) int objId = intStack[intStackPointer + 1];
+
+                if (PlayerEntity.self.playerModel == null) {
+                    return;
+                }
+
+                PlayerEntity.self.playerModel.setObj(ObjTypeList.instance, part, objId);
+                return;
+            }
+        } else if ((op >= 1000 && op < 1100) || (op >= 2000 && op < 2100)) {
+            @Pc(220) Component component;
+            if (op >= 2000) {
+                op -= 1000;
+                component = InterfaceList.list(intStack[--intStackPointer]);
             } else {
-                @Pc(220) Component local220;
-                if (arg0 >= 2000) {
-                    arg0 -= 1000;
-                    local220 = InterfaceList.list(anIntArray578[--anInt7142]);
+                component = unfocused ? unfocusedComponent : focusedComponent;
+            }
+
+            if (op == CC_IF_SETPOSITION) {
+                intStackPointer -= 4;
+
+                component.originalX = intStack[intStackPointer];
+                component.originalY = intStack[intStackPointer + 1];
+
+                @Pc(21) int reposModeX = intStack[intStackPointer + 2];
+                if (reposModeX < 0) {
+                    reposModeX = 0;
+                } else if (reposModeX > 5) {
+                    reposModeX = 5;
+                }
+
+                @Pc(27) int reposModeY = intStack[intStackPointer + 3];
+                if (reposModeY < 0) {
+                    reposModeY = 0;
+                } else if (reposModeY > 5) {
+                    reposModeY = 5;
+                }
+
+                component.reposModeX = (byte) reposModeX;
+                component.reposModeY = (byte) reposModeY;
+
+                InterfaceManager.redraw(component);
+                InterfaceManager.resizeAndReposition(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetPosition(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETSIZE) {
+                intStackPointer -= 4;
+
+                component.originalWidth = intStack[intStackPointer];
+                component.originalHeight = intStack[intStackPointer + 1];
+
+                component.modelAspectRatioX = 0;
+                component.modelAspectRatioY = 0;
+
+                @Pc(21) int resizeModeX = intStack[intStackPointer + 2];
+                if (resizeModeX < 0) {
+                    resizeModeX = 0;
+                } else if (resizeModeX > 4) {
+                    resizeModeX = 4;
+                }
+
+                @Pc(27) int resizeModeY = intStack[intStackPointer + 3];
+                if (resizeModeY < 0) {
+                    resizeModeY = 0;
+                } else if (resizeModeY > 4) {
+                    resizeModeY = 4;
+                }
+
+                component.resizeModeX = (byte) resizeModeX;
+                component.resizeModeY = (byte) resizeModeY;
+
+                InterfaceManager.redraw(component);
+                InterfaceManager.resizeAndReposition(component);
+
+                if (component.type == 0) {
+                    InterfaceManager.calculateLayerDimensions(component, false);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETHIDE) {
+                @Pc(834) boolean hidden = intStack[--intStackPointer] == 1;
+
+                if (component.hidden != hidden) {
+                    component.hidden = hidden;
+                    InterfaceManager.redraw(component);
+                }
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetHide(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETASPECT) {
+                intStackPointer -= 2;
+
+                component.resizeAspectRatioY = intStack[intStackPointer];
+                component.resizeAspectRatioX = intStack[intStackPointer + 1];
+
+                InterfaceManager.redraw(component);
+                InterfaceManager.resizeAndReposition(component);
+
+                if (component.type == Component.TYPE_LAYER) {
+                    InterfaceManager.calculateLayerDimensions(component, false);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETNOCLICKTHROUGH) {
+                component.noClickThrough = intStack[--intStackPointer] == 1;
+                return;
+            }
+        } else if (op >= 1100 && op < 1200 || !(op < 2100 || op >= 2200)) {
+            @Pc(220) Component component;
+            if (op >= 2000) {
+                op -= 1000;
+                component = InterfaceList.list(intStack[--intStackPointer]);
+            } else {
+                component = unfocused ? unfocusedComponent : focusedComponent;
+            }
+
+            if (op == CC_IF_SETSCROLLPOS) {
+                intStackPointer -= 2;
+
+                component.scrollX = intStack[intStackPointer];
+                if (component.scrollX > component.scrollWidth - component.width) {
+                    component.scrollX = component.scrollWidth - component.width;
+                }
+                if (component.scrollX < 0) {
+                    component.scrollX = 0;
+                }
+
+                component.scrollY = intStack[intStackPointer + 1];
+                if (component.scrollY > component.scrollHeight - component.height) {
+                    component.scrollY = component.scrollHeight - component.height;
+                }
+                if (component.scrollY < 0) {
+                    component.scrollY = 0;
+                }
+
+                InterfaceManager.redraw(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetScrollPosition(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETCOLOUR) {
+                component.colour = intStack[--intStackPointer];
+
+                InterfaceManager.redraw(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetColour(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETFILL) {
+                component.filled = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETTTRANS) {
+                component.transparency = intStack[--intStackPointer];
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETLINEWID) {
+                component.lineWidth = intStack[--intStackPointer];
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETGRAPHIC) {
+                @Pc(21) int graphic = intStack[--intStackPointer];
+
+                if (component.graphic != graphic) {
+                    component.graphic = graphic;
+                    InterfaceManager.redraw(component);
+                }
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetGraphic(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SET2DANGLE) {
+                component.angle2d = intStack[--intStackPointer];
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETTILING) {
+                component.tiling = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETMODEL) {
+                component.objType = 1;
+                component.obj = intStack[--intStackPointer];
+
+                InterfaceManager.redraw(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModel(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETMODELANGLE) {
+                intStackPointer -= 6;
+                component.xof2d = intStack[intStackPointer];
+                component.yof2d = intStack[intStackPointer + 1];
+                component.xan2d = intStack[intStackPointer + 2];
+                component.yan2d = intStack[intStackPointer + 3];
+                component.zan2d = intStack[intStackPointer + 4];
+                component.zoom2d = intStack[intStackPointer + 5];
+
+                InterfaceManager.redraw(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModelAngle(component.slot);
+                    DelayedStateChange.interfaceResetModelOffset(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETMODELANIM) {
+                @Pc(21) int animation = intStack[--intStackPointer];
+
+                if (animation != component.modelAnimation) {
+                    if (animation != -1) {
+                        if (component.animator == null) {
+                            component.animator = new ComponentAnimator();
+                        }
+
+                        component.animator.update(true, animation);
+                    } else {
+                        component.animator = null;
+                    }
+
+                    component.modelAnimation = animation;
+                    InterfaceManager.redraw(component);
+                }
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModelAnim(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETMODELORTHOG) {
+                component.modelOrthog = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETTEXT) {
+                @Pc(1394) String text = stringStack[--stringStackPointer];
+
+                if (!text.equals(component.text)) {
+                    component.text = text;
+                    InterfaceManager.redraw(component);
+                }
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetText(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETTEXTFONT) {
+                component.fontGraphic = intStack[--intStackPointer];
+
+                InterfaceManager.redraw(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetTextFont(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETTEXTALIGN) {
+                intStackPointer -= 3;
+
+                component.textAlignX = intStack[intStackPointer];
+                component.textAlignY = intStack[intStackPointer + 1];
+                component.textHeight = intStack[intStackPointer + 2];
+
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETTEXTSHADOW) {
+                component.textShadow = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETOUTLINE) {
+                component.outline = intStack[--intStackPointer];
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETGRAPHICSHADOW) {
+                component.graphicShadow = intStack[--intStackPointer];
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETHFLIP) {
+                component.horizontalFlip = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETVFLIP) {
+                component.verticalFlip = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETSCROLLSIZE) {
+                intStackPointer -= 2;
+
+                component.scrollWidth = intStack[intStackPointer];
+                component.scrollHeight = intStack[intStackPointer + 1];
+
+                InterfaceManager.redraw(component);
+
+                if (component.type == 0) {
+                    InterfaceManager.calculateLayerDimensions(component, false);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETALPHA) {
+                component.alpha = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETMODELZOOM) {
+                component.zoom2d = intStack[--intStackPointer];
+
+                InterfaceManager.redraw(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModelAngle(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETLINEDIRECTION) {
+                @Pc(21) int local21 = intStack[--intStackPointer];
+                component.lineDirection = local21 == 1;
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETMODELORIGIN) {
+                intStackPointer -= 2;
+                component.modelOriginX = intStack[intStackPointer];
+                component.modelOriginY = intStack[intStackPointer + 1];
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETMAXLINES) {
+                component.maxLines = intStack[--intStackPointer];
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETPARAM_INT) {
+                intStackPointer -= 2;
+
+                @Pc(21) int id = intStack[intStackPointer];
+                @Pc(27) int value = intStack[intStackPointer + 1];
+                @Pc(1756) ParamType paramType = ParamTypeList.instance.list(id);
+
+                if (value != paramType.defaultint) {
+                    component.setParam(id, value);
+                    return;
+                }
+
+                component.removeParam(id);
+                return;
+            }
+
+            if (op == CC_IF_SETPARAM_STRING) {
+                @Pc(21) int id = intStack[--intStackPointer];
+                @Pc(1791) String value = stringStack[--stringStackPointer];
+                @Pc(1756) ParamType paramType = ParamTypeList.instance.list(id);
+
+                if (!paramType.defaultstr.equals(value)) {
+                    component.setParam(value, id);
+                    return;
+                }
+
+                component.removeParam(id);
+                return;
+            }
+
+            if (op == 1129 || op == 1130) { // TODO: 1129=video graphic, 1130=video text?
+                @Pc(21) int video = intStack[--intStackPointer];
+                if ((component.type == Component.TYPE_GRAPHIC || op != 1129) && (component.type == Component.TYPE_TEXT || op != 1130)) {
+                    if (component.video != video) {
+                        component.video = video;
+                        InterfaceManager.redraw(component);
+                    }
+
+                    if (component.id == -1) {
+                        DelayedStateChange.interfaceResetVideo(component.slot);
+                    }
+                    return;
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETRECOL) {
+                intStackPointer -= 3;
+
+                @Pc(21) int index = intStack[intStackPointer];
+                @Pc(1892) short source = (short) intStack[intStackPointer + 1];
+                @Pc(1899) short destination = (short) intStack[intStackPointer + 2];
+
+                if (index >= 0 && index < 5) {
+                    component.setRecol(destination, index, source);
+                    InterfaceManager.redraw(component);
+
+                    if (component.id == -1) {
+                        DelayedStateChange.interfaceResetRecol(component.slot, index);
+                    }
+                    return;
+                }
+
+                return;
+            }
+
+            if (op == CC_IF_SETRETEX) {
+                intStackPointer -= 3;
+
+                @Pc(21) int index = intStack[intStackPointer];
+                @Pc(1892) short source = (short) intStack[intStackPointer + 1];
+                @Pc(1899) short destination = (short) intStack[intStackPointer + 2];
+
+                if (index >= 0 && index < 5) {
+                    component.setRetex(source, index, destination);
+                    InterfaceManager.redraw(component);
+
+                    if (component.id == -1) {
+                        DelayedStateChange.interfaceResetRetex(component.slot, index);
+                    }
+                    return;
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETFONTMONO) {
+                component.fontMonospaced = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetFontMono(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETPARAM) {
+                intStackPointer -= 2;
+
+                @Pc(21) int id = intStack[intStackPointer];
+                @Pc(27) int value = intStack[intStackPointer + 1];
+                @Pc(1756) ParamType paramType = ParamTypeList.instance.list(id);
+
+                if (value != paramType.defaultint) {
+                    component.setParam(id, value);
+                    return;
+                }
+
+                component.removeParam(id);
+                return;
+            }
+
+            if (op == CC_IF_SETCLICKMASK) {
+                component.clickMask = intStack[--intStackPointer] == 1;
+                InterfaceManager.redraw(component);
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetClickmask(component.slot);
+                }
+                return;
+            }
+        } else if (op >= 1200 && op < 1300 || op >= 2200 && op < 2300) {
+            @Pc(220) Component component;
+            if (op >= 2000) {
+                op -= 1000;
+                component = InterfaceList.list(intStack[--intStackPointer]);
+            } else {
+                component = unfocused ? unfocusedComponent : focusedComponent;
+            }
+
+            InterfaceManager.redraw(component);
+
+            if (op == CC_IF_SETOBJECT || op == CC_IF_SETOBJECT_NONUM || op == CC_IF_SETOBJECT_WEARCOL || op == CC_IF_SETOBJECT_WEARCOL_NONUM || op == CC_IF_SETOBJECT_ALWAYSNUM || op == CC_IF_SETOBJECT_WEARCOL_ALWAYSNUM) {
+                intStackPointer -= 2;
+
+                @Pc(21) int invObject = intStack[intStackPointer];
+                @Pc(27) int count = intStack[intStackPointer + 1];
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetObject(component.slot);
+                    DelayedStateChange.interfaceResetModelAngle(component.slot);
+                    DelayedStateChange.interfaceResetModelOffset(component.slot);
+                }
+
+                if (invObject == -1) {
+                    component.objType = 1;
+                    component.obj = -1;
+                    component.invObject = -1;
+                    return;
+                }
+
+                component.invObject = invObject;
+                component.invCount = count;
+
+                if (op == CC_IF_SETOBJECT_WEARCOL || op == CC_IF_SETOBJECT_WEARCOL_NONUM) {
+                    component.objWearCol = true;
                 } else {
-                    local220 = arg1 ? aComponent_12 : aComponent_11;
+                    component.objWearCol = false;
                 }
-                if (arg0 == 1000) {
-                    anInt7142 -= 4;
-                    local220.originalX = anIntArray578[anInt7142];
-                    local220.originalY = anIntArray578[anInt7142 + 1];
-                    @Pc(21) int local21 = anIntArray578[anInt7142 + 2];
-                    if (local21 < 0) {
-                        local21 = 0;
-                    } else if (local21 > 5) {
-                        local21 = 5;
-                    }
-                    @Pc(27) int local27 = anIntArray578[anInt7142 + 3];
-                    if (local27 < 0) {
-                        local27 = 0;
-                    } else if (local27 > 5) {
-                        local27 = 5;
-                    }
-                    local220.reposModeX = (byte) local21;
-                    local220.reposModeY = (byte) local27;
-                    InterfaceManager.redraw(local220);
-                    InterfaceManager.resizeAndReposition(local220);
-                    if (local220.id == -1) {
-                        DelayedStateChange.interfaceResetPosition(local220.slot);
-                    }
+
+                @Pc(2236) ObjType objType = ObjTypeList.instance.list(invObject);
+                component.xan2d = objType.xan2d;
+                component.yan2d = objType.yan2d;
+                component.zan2d = objType.zan2d;
+                component.xof2d = objType.xof2d;
+                component.yof2d = objType.yof2d;
+                component.zoom2d = objType.zoom2d;
+
+                if (op == CC_IF_SETOBJECT_NONUM || op == CC_IF_SETOBJECT_WEARCOL_NONUM) {
+                    component.objNumMode = ObjNumMode.SHOWCOUNT_NEVER;
+                } else if (op == CC_IF_SETOBJECT_ALWAYSNUM || op == CC_IF_SETOBJECT_WEARCOL_ALWAYSNUM) {
+                    component.objNumMode = ObjNumMode.SHOWCOUNT_ALWAYS;
+                } else {
+                    component.objNumMode = ObjNumMode.SHOWCOUNT_IFNOT1;
+                }
+
+                if (component.modelAspectRatioX > 0) {
+                    component.zoom2d = component.zoom2d * 32 / component.modelAspectRatioX;
                     return;
                 }
-                if (arg0 == 1001) {
-                    anInt7142 -= 4;
-                    local220.originalWidth = anIntArray578[anInt7142];
-                    local220.originalHeight = anIntArray578[anInt7142 + 1];
-                    local220.modelAspectRatioX = 0;
-                    local220.modelAspectRatioY = 0;
-                    @Pc(21) int local21 = anIntArray578[anInt7142 + 2];
-                    if (local21 < 0) {
-                        local21 = 0;
-                    } else if (local21 > 4) {
-                        local21 = 4;
-                    }
-                    @Pc(27) int local27 = anIntArray578[anInt7142 + 3];
-                    if (local27 < 0) {
-                        local27 = 0;
-                    } else if (local27 > 4) {
-                        local27 = 4;
-                    }
-                    local220.resizeModeX = (byte) local21;
-                    local220.resizeModeY = (byte) local27;
-                    InterfaceManager.redraw(local220);
-                    InterfaceManager.resizeAndReposition(local220);
-                    if (local220.type == 0) {
-                        InterfaceManager.calculateLayerDimensions(local220, false);
-                    }
+                if (component.originalWidth > 0) {
+                    component.zoom2d = component.zoom2d * 32 / component.originalWidth;
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETNPCHEAD) {
+                component.objType = Component.OBJ_TYPE_NPCHEAD;
+                component.obj = intStack[--intStackPointer];
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModel(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETPLAYERHEAD_SELF) {
+                component.objType = Component.OBJ_TYPE_PLAYERHEAD;
+                component.obj = -1;
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModel(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETNPCMODEL) {
+                component.objType = Component.OBJ_TYPE_NPCMODEL;
+                component.obj = intStack[--intStackPointer];
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModel(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETPLAYERMODEL) {
+                component.objType = Component.OBJ_TYPE_PLAYERMODEL;
+                component.obj = intStack[--intStackPointer];
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModel(component.slot);
+                }
+                return;
+            }
+
+            if (op == 1206) {
+                intStackPointer -= 4;
+
+                component.skyBox = intStack[intStackPointer];
+                component.skyBoxSphereOffsetX = intStack[intStackPointer + 1];
+                component.skyBoxSphereOffsetY = intStack[intStackPointer + 2];
+                component.skyBoxSphereOffsetZ = intStack[intStackPointer + 3];
+
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == 1207) {
+                intStackPointer -= 2;
+
+                component.skyboxRenderPitch = intStack[intStackPointer];
+                component.skyboxRenderYaw = intStack[intStackPointer + 1];
+
+                InterfaceManager.redraw(component);
+                return;
+            }
+
+            if (op == CC_IF_SETOBJECT_DATA) {
+                intStackPointer -= 4;
+
+                component.obj = intStack[intStackPointer];
+                component.objData = intStack[intStackPointer + 1];
+
+                if (intStack[intStackPointer + 2] == 1) {
+                    component.objType = Component.OBJ_TYPE_INVENTORY_FEMALE;
+                } else {
+                    component.objType = Component.OBJ_TYPE_INVENTORY_MALE;
+                }
+
+                if (intStack[intStackPointer + 3] == 1) {
+                    component.objWearCol = true;
+                } else {
+                    component.objWearCol = false;
+                }
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModel(component.slot);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETPLAYERMODEL_SELF) {
+                component.objType = Component.OBJ_TYPE_PLAYERMODEL;
+                component.obj = PlayerList.activePlayerSlot;
+                component.objData = 0;
+
+                if (component.id == -1) {
+                    DelayedStateChange.interfaceResetModel(component.slot);
+                }
+                return;
+            }
+        } else if (op >= 1300 && op < 1400 || op >= 2300 && op < 2400) {
+            @Pc(220) Component component;
+            if (op >= 2000) {
+                op -= 1000;
+                component = InterfaceList.list(intStack[--intStackPointer]);
+            } else {
+                component = unfocused ? unfocusedComponent : focusedComponent;
+            }
+
+            if (op == CC_IF_SETOP) {
+                @Pc(21) int opNum = intStack[--intStackPointer] - 1;
+
+                if (opNum >= 0 && opNum <= 9) {
+                    component.setOp(opNum, stringStack[--stringStackPointer]);
                     return;
                 }
-                if (arg0 == 1003) {
-                    @Pc(834) boolean local834 = anIntArray578[--anInt7142] == 1;
-                    if (local220.hidden != local834) {
-                        local220.hidden = local834;
-                        InterfaceManager.redraw(local220);
-                    }
-                    if (local220.id == -1) {
-                        DelayedStateChange.interfaceResetHide(local220.slot);
-                    }
+
+                stringStackPointer--;
+                return;
+            }
+
+            if (op == CC_IF_SETDRAGGABLE) {
+                intStackPointer -= 2;
+
+                @Pc(21) int idAndSlot = intStack[intStackPointer];
+                @Pc(27) int id = intStack[intStackPointer + 1];
+
+                if (idAndSlot == -1 && id == -1) {
+                    component.dragLayer = null;
                     return;
                 }
-                if (arg0 == 1004) {
-                    anInt7142 -= 2;
-                    local220.resizeAspectRatioY = anIntArray578[anInt7142];
-                    local220.resizeAspectRatioX = anIntArray578[anInt7142 + 1];
-                    InterfaceManager.redraw(local220);
-                    InterfaceManager.resizeAndReposition(local220);
-                    if (local220.type == 0) {
-                        InterfaceManager.calculateLayerDimensions(local220, false);
+
+                component.dragLayer = InterfaceList.getComponent(idAndSlot, id);
+                return;
+            }
+
+            if (op == CC_IF_SETDRAGRENDERBEHAVIOUR) {
+                @Pc(21) int behaviour = intStack[--intStackPointer];
+                if (behaviour != DragRenderBehaviour.OFFSET_TRANSPARENT && behaviour != DragRenderBehaviour.FIXED && behaviour != DragRenderBehaviour.OFFSET) {
+                    return;
+                }
+
+                component.dragRenderBehaviour = behaviour;
+                return;
+            }
+
+            if (op == CC_IF_SETDRAGDEADZONE) {
+                component.dragDeadZone = intStack[--intStackPointer];
+                return;
+            }
+
+            if (op == CC_IF_SETDRAGDEADTIME) {
+                component.dragDeadTime = intStack[--intStackPointer];
+                return;
+            }
+
+            if (op == CC_IF_SETOPBASE) {
+                component.opBase = stringStack[--stringStackPointer];
+                return;
+            }
+
+            if (op == CC_IF_SETTARGETVERB) {
+                component.targetVerb = stringStack[--stringStackPointer];
+                return;
+            }
+
+            if (op == CC_IF_CLEAROPS) {
+                component.ops = null;
+                return;
+            }
+
+            if (op == CC_IF_SETTARGETCURSORS) {
+                component.targetEndCursor = intStack[--intStackPointer];
+                component.targetEnterCursor = intStack[--intStackPointer];
+                return;
+            }
+
+            if (op == CC_IF_SETOPCURSOR) {
+                @Pc(21) int cursor = intStack[--intStackPointer];
+                @Pc(27) int opNum = intStack[--intStackPointer];
+
+                if (opNum >= 1 && opNum <= 10) {
+                    component.setOpCursor(opNum - 1, cursor);
+                }
+                return;
+            }
+
+            if (op == CC_IF_SETPAUSETEXT) {
+                component.pauseText = stringStack[--stringStackPointer];
+                return;
+            }
+
+            if (op == CC_IF_SETTARGETOPCURSOR) {
+                component.targetOpCursor = intStack[--intStackPointer];
+                return;
+            }
+
+            if (op == CC_IF_SETOPCHAR || op == CC_IF_SETOPKEY) {
+                @Pc(21) int index;
+                @Pc(27) int opKey;
+                @Pc(506) int opChar;
+
+                if (op == CC_IF_SETOPCHAR) {
+                    intStackPointer -= 3;
+
+                    index = intStack[intStackPointer] - 1;
+                    opKey = intStack[intStackPointer + 1];
+                    opChar = intStack[intStackPointer + 2];
+
+                    if (index < 0 || index > 9) {
+                        throw new RuntimeException("IOR13121313");
                     }
+                } else {
+                    intStackPointer -= 2;
+
+                    index = 10;
+                    opKey = intStack[intStackPointer];
+                    opChar = intStack[intStackPointer + 1];
+                }
+
+                if (component.opKeys == null) {
+                    if (opKey == 0) {
+                        return;
+                    }
+
+                    component.opKeys = new byte[11];
+                    component.opChars = new byte[11];
+                    component.opKeyRates = new int[11];
+                }
+
+                component.opKeys[index] = (byte) opKey;
+
+                if (opKey == 0) {
+                    component.hasOpKey = false;
+
+                    for (@Pc(2978) int i = 0; i < component.opKeys.length; i++) {
+                        if (component.opKeys[i] != 0) {
+                            component.hasOpKey = true;
+                            break;
+                        }
+                    }
+                } else {
+                    component.hasOpKey = true;
+                }
+
+                component.opChars[index] = (byte) opChar;
+                return;
+            }
+
+            if (op == CC_IF_SETMOUSEOVERCURSOR) {
+                component.mouseOverCursor = intStack[--intStackPointer];
+                return;
+            }
+        } else if (op >= 1400 && op < 1500 || op >= 2400 && op < 2500) {
+            @Pc(220) Component component;
+            if (op >= 2000) {
+                op -= 1000;
+                component = InterfaceList.list(intStack[--intStackPointer]);
+            } else {
+                component = unfocused ? unfocusedComponent : focusedComponent;
+            }
+
+            if (op == CC_IF_CLEARSCRIPTHOOKS) {
+                component.clearScriptHooks();
+                return;
+            }
+
+            @Pc(1394) String argTypes = stringStack[--stringStackPointer];
+            @Pc(3077) int[] triggers = null;
+            if (argTypes.length() > 0 && argTypes.charAt(argTypes.length() - 1) == 'Y') {
+                @Pc(506) int length = intStack[--intStackPointer];
+
+                if (length > 0) {
+                    triggers = new int[length];
+
+                    while (length-- > 0) {
+                        triggers[length] = intStack[--intStackPointer];
+                    }
+                }
+
+                argTypes = argTypes.substring(0, argTypes.length() - 1);
+            }
+
+            @Pc(3131) Object[] args = new Object[argTypes.length() + 1];
+            for (@Pc(2978) int i = args.length - 1; i >= 1; i--) {
+                if (argTypes.charAt(i - 1) == 's') {
+                    args[i] = stringStack[--stringStackPointer];
+                } else if (argTypes.charAt(i - 1) == '§') {
+                    args[i] = Long.valueOf(longStack[--longStackPointer]);
+                } else {
+                    args[i] = Integer.valueOf(intStack[--intStackPointer]);
+                }
+            }
+
+            @Pc(72) int scriptId = intStack[--intStackPointer];
+            if (scriptId == -1) {
+                args = null;
+            } else {
+                args[0] = Integer.valueOf(scriptId);
+            }
+
+            if (op == CC_IF_SETONCLICK) {
+                component.onClick = args;
+            } else if (op == CC_IF_SETONHOLD) {
+                component.onHold = args;
+            } else if (op == CC_IF_SETONRELEASE) {
+                component.onRelease = args;
+            } else if (op == CC_IF_SETONMOUSEOVER) {
+                component.onMouseOver = args;
+            } else if (op == CC_IF_SETONMOUSELEAVE) {
+                component.onMouseLeave = args;
+            } else if (op == CC_IF_SETONDRAG) {
+                component.onDrag = args;
+            } else if (op == CC_IF_SETONTARGETLEAVE) {
+                component.onTargetLeave = args;
+            } else if (op == CC_IF_SETONVARTRANSMIT) {
+                component.onVarTransmit = args;
+                component.varpTriggers = triggers;
+            } else if (op == CC_IF_SETONTIMER) {
+                component.onTimer = args;
+            } else if (op == CC_IF_SETONOP) {
+                component.onOp = args;
+            } else if (op == CC_IF_SETONDRAGCOMPLETE) {
+                component.onDragComplete = args;
+            } else if (op == CC_IF_SETONCLICKREPEAT) {
+                component.onClickRepeat = args;
+            } else if (op == CC_IF_SETONMOUSEREPEAT) {
+                component.onMouseRepeat = args;
+            } else if (op == CC_IF_SETONINVTRANSMIT) {
+                component.onInvTransmit = args;
+                component.inventoryTriggers = triggers;
+            } else if (op == CC_IF_SETONSTATTRANSMIT) {
+                component.onStatTransmit = args;
+                component.statTriggers = triggers;
+            } else if (op == CC_IF_SETONTARGETENTER) {
+                component.onTargetEnter = args;
+            } else if (op == CC_IF_SETONSCROLLWHEEL) {
+                component.onScrollWheel = args;
+            } else if (op == CC_IF_SETONCHATTRANSMIT) {
+                component.onChatTransmit = args;
+            } else if (op == CC_IF_SETONKEY) {
+                component.onKey = args;
+            } else if (op == CC_IF_SETONFRIENDTRANSMIT) {
+                component.onFriendTransmit = args;
+            } else if (op == CC_IF_SETONCLANTRANSMIT) {
+                component.onClanTransmit = args;
+            } else if (op == CC_IF_SETONMISCTRANSMIT) {
+                component.onMiscTransmit = args;
+            } else if (op == CC_IF_SETONDIALOGABORT) {
+                component.onDialogAbort = args;
+            } else if (op == CC_IF_SETONSUBCHANGE) {
+                component.onSubChange = args;
+            } else if (op == CC_IF_SETONSTOCKTRANSMIT) {
+                component.onStockTransmit = args;
+            } else if (op == CC_IF_SETONCAMFINISHED) {
+                component.onCamFinished = args;
+            } else if (op == CC_IF_SETONRESIZE) {
+                component.onResize = args;
+            } else if (op == CC_IF_SETONVARCTRANSMIT) {
+                component.onVarcTransmit = args;
+                component.varcTriggers = triggers;
+            } else if (op == CC_IF_SETONVARCSTRTRANSMIT) {
+                component.onVarcstrTransmit = args;
+                component.varcstrTriggers = triggers;
+            } else if (op == CC_IF_SETONOPT) {
+                component.onOpT = args;
+            } else if (op == CC_IF_SETONCLANSETTINGSTRANSMIT) {
+                component.onClanSettingsTransmit = args;
+            } else if (op == CC_IF_SETONCLANCHANNELTRANSMIT) {
+                component.onClanChannelTransmit = args;
+            } else if (op == CC_IF_SETONVARCLANTRANSMIT) {
+                component.onVarclanTransmit = args;
+            }
+
+            component.hasHook = true;
+            return;
+        } else if (op < 1600) {
+            @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+
+            if (op == CC_GETX) {
+                intStack[intStackPointer++] = createdComponent.x;
+                return;
+            }
+            if (op == CC_GETY) {
+                intStack[intStackPointer++] = createdComponent.y;
+                return;
+            }
+            if (op == CC_GETWIDTH) {
+                intStack[intStackPointer++] = createdComponent.width;
+                return;
+            }
+            if (op == CC_GETHEIGHT) {
+                intStack[intStackPointer++] = createdComponent.height;
+                return;
+            }
+            if (op == CC_GETHIDE) {
+                intStack[intStackPointer++] = createdComponent.hidden ? 1 : 0;
+                return;
+            }
+            if (op == CC_GETLAYER) {
+                intStack[intStackPointer++] = createdComponent.layer;
+                return;
+            }
+            if (op == CC_GETPARENTLAYER) {
+                @Pc(248) Component parent = InterfaceManager.getParentLayer(createdComponent);
+                intStack[intStackPointer++] = parent == null ? -1 : parent.slot;
+                return;
+            }
+            if (op == CC_GETCOLOUR) {
+                intStack[intStackPointer++] = createdComponent.colour;
+                return;
+            }
+        } else if (op < 1700) {
+            @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+
+            if (op == CC_GETSCROLLX) {
+                intStack[intStackPointer++] = createdComponent.scrollX;
+                return;
+            }
+            if (op == CC_GETSCROLLY) {
+                intStack[intStackPointer++] = createdComponent.scrollY;
+                return;
+            }
+            if (op == CC_GETTEXT) {
+                stringStack[stringStackPointer++] = createdComponent.text;
+                return;
+            }
+            if (op == CC_GETSCROLLWIDTH) {
+                intStack[intStackPointer++] = createdComponent.scrollWidth;
+                return;
+            }
+            if (op == CC_GETSCROLLHEIGHT) {
+                intStack[intStackPointer++] = createdComponent.scrollHeight;
+                return;
+            }
+            if (op == CC_GETMODELZOOM) {
+                intStack[intStackPointer++] = createdComponent.zoom2d;
+                return;
+            }
+            if (op == CC_GETMODELANGLE_X) {
+                intStack[intStackPointer++] = createdComponent.xan2d;
+                return;
+            }
+            if (op == CC_GETMODELANGLE_Z) {
+                intStack[intStackPointer++] = createdComponent.zan2d;
+                return;
+            }
+            if (op == CC_GETMODELANGLE_Y) {
+                intStack[intStackPointer++] = createdComponent.yan2d;
+                return;
+            }
+            if (op == CC_GETTRANS) {
+                intStack[intStackPointer++] = createdComponent.transparency;
+                return;
+            }
+            if (op == CC_GETMODELXOF) {
+                intStack[intStackPointer++] = createdComponent.xof2d;
+                return;
+            }
+            if (op == CC_GETMODELYOF) {
+                intStack[intStackPointer++] = createdComponent.yof2d;
+                return;
+            }
+            if (op == CC_GETGRAPHIC) {
+                intStack[intStackPointer++] = createdComponent.graphic;
+                return;
+            }
+            if (op == CC_PARAM) {
+                @Pc(21) int id = intStack[--intStackPointer];
+                @Pc(3848) ParamType paramType = ParamTypeList.instance.list(id);
+
+                if (paramType.isString()) {
+                    stringStack[stringStackPointer++] = createdComponent.param(paramType.defaultstr, id);
                     return;
                 }
-                if (arg0 == 1005) {
-                    local220.noClickThrough = anIntArray578[--anInt7142] == 1;
+
+                intStack[intStackPointer++] = createdComponent.param(paramType.defaultint, id);
+                return;
+            }
+            if (op == CC_GET2DANGLE) {
+                intStack[intStackPointer++] = createdComponent.angle2d;
+                return;
+            }
+            if (op == CC_GETMODEL) {
+                intStack[intStackPointer++] = createdComponent.objType == Component.OBJ_TYPE_MODEL ? createdComponent.obj : -1;
+                return;
+            }
+            if (op == CC_GETFONTGRAPHIC) {
+                intStack[intStackPointer++] = createdComponent.fontGraphic;
+                return;
+            }
+        } else if (op < 1800) {
+            @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+
+            if (op == CC_GETINVOBJECT) {
+                intStack[intStackPointer++] = createdComponent.invObject;
+                return;
+            }
+            if (op == CC_GETINVCOUNT) {
+                if (createdComponent.invObject != -1) {
+                    intStack[intStackPointer++] = createdComponent.invCount;
                     return;
                 }
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+            if (op == CC_GETID) {
+                intStack[intStackPointer++] = createdComponent.id;
+                return;
+            }
+        } else if (op < 1900) {
+            @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+
+            if (op == CC_GETTARGETMASK) {
+                intStack[intStackPointer++] = InterfaceManager.serverActiveProperties(createdComponent).getTargetMask();
+                return;
+            }
+
+            if (op == CC_GETOP) {
+                @Pc(21) int opNum = intStack[--intStackPointer];
+                opNum--;
+
+                if (createdComponent.ops != null && opNum < createdComponent.ops.length && createdComponent.ops[opNum] != null) {
+                    stringStack[stringStackPointer++] = createdComponent.ops[opNum];
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == CC_GETOPBASE) {
+                if (createdComponent.opBase == null) {
+                    stringStack[stringStackPointer++] = "";
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = createdComponent.opBase;
+                return;
+            }
+        } else if (op < 2000 || op >= 2900 && op < 3000) {
+            @Pc(220) Component component;
+            if (op >= 2000) {
+                component = InterfaceList.list(intStack[--intStackPointer]);
+                op -= 1000;
+            } else {
+                component = unfocused ? unfocusedComponent : focusedComponent;
+            }
+
+            if (lastHookId >= 10) {
+                throw new RuntimeException("C29xx-1");
+            }
+
+            if (op == CC_IF_CALLONRESIZE) {
+                if (component.onResize == null) {
+                    return;
+                }
+
+                @Pc(4169) HookRequest hook = new HookRequest();
+                hook.source = component;
+                hook.arguments = component.onResize;
+                hook.id = lastHookId + 1;
+                InterfaceManager.hookRequests.addLast(hook);
+                return;
+            }
+        } else if (op < 2600) {
+            @Pc(220) Component component = InterfaceList.list(intStack[--intStackPointer]);
+
+            if (op == IF_GETX) {
+                intStack[intStackPointer++] = component.x;
+                return;
+            }
+            if (op == IF_GETY) {
+                intStack[intStackPointer++] = component.y;
+                return;
+            }
+            if (op == IF_GETWIDTH) {
+                intStack[intStackPointer++] = component.width;
+                return;
+            }
+            if (op == IF_GETHEIGHT) {
+                intStack[intStackPointer++] = component.height;
+                return;
+            }
+            if (op == IF_GETHIDE) {
+                intStack[intStackPointer++] = component.hidden ? 1 : 0;
+                return;
+            }
+            if (op == IF_GETLAYER) {
+                intStack[intStackPointer++] = component.layer;
+                return;
+            }
+            if (op == IF_GETPARENTLAYER) {
+                @Pc(248) Component parent = InterfaceManager.getParentLayer(component);
+                intStack[intStackPointer++] = parent == null ? -1 : parent.slot;
+                return;
+            }
+            if (op == IF_GETCOLOUR) {
+                intStack[intStackPointer++] = component.colour;
+                return;
+            }
+        } else if (op < 2700) {
+            @Pc(220) Component component = InterfaceList.list(intStack[--intStackPointer]);
+
+            if (op == IF_GETSCROLLX) {
+                intStack[intStackPointer++] = component.scrollX;
+                return;
+            }
+            if (op == IF_GETSCROLLY) {
+                intStack[intStackPointer++] = component.scrollY;
+                return;
+            }
+            if (op == IF_GETTEXT) {
+                stringStack[stringStackPointer++] = component.text;
+                return;
+            }
+            if (op == IF_GETSCROLLWIDTH) {
+                intStack[intStackPointer++] = component.scrollWidth;
+                return;
+            }
+            if (op == IF_GETSCROLLHEIGHT) {
+                intStack[intStackPointer++] = component.scrollHeight;
+                return;
+            }
+            if (op == IF_GETMODELZOOM) {
+                intStack[intStackPointer++] = component.zoom2d;
+                return;
+            }
+            if (op == IF_GETMODELANGLE_X) {
+                intStack[intStackPointer++] = component.xan2d;
+                return;
+            }
+            if (op == IF_GETMODELANGLE_Z) {
+                intStack[intStackPointer++] = component.zan2d;
+                return;
+            }
+            if (op == IF_GETMODELANGLE_Y) {
+                intStack[intStackPointer++] = component.yan2d;
+                return;
+            }
+            if (op == IF_GETTRANS) {
+                intStack[intStackPointer++] = component.transparency;
+                return;
+            }
+            if (op == IF_GETMODELXOF) {
+                intStack[intStackPointer++] = component.xof2d;
+                return;
+            }
+            if (op == IF_GETMODELYOF) {
+                intStack[intStackPointer++] = component.yof2d;
+                return;
+            }
+            if (op == IF_GETGRAPHIC) {
+                intStack[intStackPointer++] = component.graphic;
+                return;
+            }
+            if (op == IF_GET2DANGLE) {
+                intStack[intStackPointer++] = component.angle2d;
+                return;
+            }
+            if (op == IF_GETMODEL) {
+                intStack[intStackPointer++] = component.objType == Component.OBJ_TYPE_MODEL ? component.obj : -1;
+                return;
+            }
+            if (op == IF_GETFONTGRAPHIC) {
+                intStack[intStackPointer++] = component.fontGraphic;
+                return;
+            }
+        } else if (op < 2800) {
+            if (op == IF_GETINVOBJECT) {
+                @Pc(220) Component component = InterfaceList.list(intStack[--intStackPointer]);
+                intStack[intStackPointer++] = component.invObject;
+                return;
+            }
+
+            if (op == IF_GETINVCOUNT) {
+                @Pc(220) Component component = InterfaceList.list(intStack[--intStackPointer]);
+
+                if (component.invObject != -1) {
+                    intStack[intStackPointer++] = component.invCount;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == IF_HASSUB) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                @Pc(4653) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(id);
+
+                if (sub != null) {
+                    intStack[intStackPointer++] = 1;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == IF_GETNEXTSUBID) {
+                @Pc(220) Component component = InterfaceList.list(intStack[--intStackPointer]);
+                if (component.staticComponents == null) {
+                    intStack[intStackPointer++] = 0;
+                    return;
+                }
+
+                @Pc(21) int next = component.staticComponents.length;
+                for (@Pc(27) int i = 0; i < component.staticComponents.length; i++) {
+                    if (component.staticComponents[i] == null) {
+                        next = i;
+                        break;
+                    }
+                }
+
+                intStack[intStackPointer++] = next;
+                return;
+            }
+
+            if (op == IF_HASSUBMODAL || op == IF_HASSUBOVERLAY) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int subId = intStack[intStackPointer + 1];
+                @Pc(4760) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(id);
+
+                if (sub != null && sub.id == subId) {
+                    intStack[intStackPointer++] = 1;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+        } else if (op < 2900) {
+            @Pc(220) Component component = InterfaceList.list(intStack[--intStackPointer]);
+
+            if (op == IF_GETTARGETMASK) {
+                intStack[intStackPointer++] = InterfaceManager.serverActiveProperties(component).getTargetMask();
+                return;
+            }
+
+            if (op == IF_GETOP) {
+                @Pc(21) int opNum = intStack[--intStackPointer];
+                opNum--;
+
+                if (component.ops != null && opNum < component.ops.length && component.ops[opNum] != null) {
+                    stringStack[stringStackPointer++] = component.ops[opNum];
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == IF_GETOPBASE) {
+                if (component.opBase == null) {
+                    stringStack[stringStackPointer++] = "";
+                    return;
+                }
+                stringStack[stringStackPointer++] = component.opBase;
+                return;
+            }
+        } else if (op < 3200) {
+            if (op == MES) {
+                @Pc(4911) String message = stringStack[--stringStackPointer];
+                ChatHistory.addScript(message);
+                return;
+            }
+
+            if (op == 3101) {
+                intStackPointer -= 2;
+                PlayerEntity.animate(PlayerEntity.self, intStack[intStackPointer + 1], intStack[intStackPointer]);
+                return;
+            }
+
+            if (op == IF_CLOSE) {
+                InterfaceManager.close();
+                return;
+            }
+
+            if (op == RESUME_COUNTDIALOG) {
+                @Pc(4911) String input = stringStack[--stringStackPointer];
+
+                @Pc(21) int count = 0;
+                if (StringTools.isDecimal(input)) {
+                    count = StringTools.parseDecimal(input);
+                }
+
+                @Pc(4974) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_COUNTDIALOG, ServerConnection.GAME.cipher);
+                message.bitPacket.p4(count);
+                ServerConnection.GAME.send(message);
+                return;
+            }
+
+            if (op == RESUME_STRINGDIALOG) {
+                @Pc(4911) String input = stringStack[--stringStackPointer];
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_STRINGDIALOG, ServerConnection.GAME.cipher);
+                message.bitPacket.p1(input.length() + 1);
+                message.bitPacket.pjstr(input);
+                ServerConnection.GAME.send(message);
+                return;
+            }
+
+            if (op == RESUME_NAMEDIALOG) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_NAMEDIALOG, ServerConnection.GAME.cipher);
+                message.bitPacket.p1(name.length() + 1);
+                message.bitPacket.pjstr(name);
+                ServerConnection.GAME.send(message);
+                return;
+            }
+
+            if (op == OPPLAYER) {
+                @Pc(15) int local15 = intStack[--intStackPointer];
+                @Pc(1394) String local1394 = stringStack[--stringStackPointer];
+                ThreeDView.doOpPlayer(local1394, local15);
+                return;
+            }
+
+            if (op == IF_DRAGPICKUP) {
+                intStackPointer -= 3;
+
+                @Pc(15) int x = intStack[intStackPointer];
+                @Pc(21) int y = intStack[intStackPointer + 1];
+                @Pc(27) int id = intStack[intStackPointer + 2];
+                @Pc(38) Component component = InterfaceList.list(id);
+
+                InterfaceManager.dragTryPickup(component, x, y);
+                return;
+            }
+
+            if (op == CC_DRAGPICKUP) {
+                intStackPointer -= 2;
+
+                @Pc(15) int x = intStack[intStackPointer];
+                @Pc(21) int y = intStack[intStackPointer + 1];
+                @Pc(303) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+
+                InterfaceManager.dragTryPickup(createdComponent, x, y);
+                return;
+            }
+
+            if (op == RESUME_OBJDIALOG) {
+                @Pc(15) int objId = intStack[--intStackPointer];
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_OBJDIALOG, ServerConnection.GAME.cipher);
+                message.bitPacket.p2(objId);
+                ServerConnection.GAME.send(message);
+                return;
+            }
+
+            if (op == IF_OPENSUBCLIENT) {
+                intStackPointer -= 2;
+
+                @Pc(15) int idAndSlot = intStack[intStackPointer];
+                @Pc(21) int subId = intStack[intStackPointer + 1];
+                @Pc(4760) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot);
+
+                if (sub != null) {
+                    InterfaceManager.closeSubInterface(sub, sub.id != subId, true);
+                }
+
+                InterfaceManager.openSubInterface(3, subId, idAndSlot, true);
+                return;
+            }
+
+            if (op == IF_CLOSESUBCLIENT) {
+                intStackPointer--;
+
+                @Pc(15) int idAndSlot = intStack[intStackPointer];
+                @Pc(4653) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot);
+
+                if (sub != null && sub.type == 3) {
+                    InterfaceManager.closeSubInterface(sub, true, true);
+                }
+                return;
+            }
+
+            if (op == OPPLAYERT) {
+                ThreeDView.doTargetPlayer(stringStack[--stringStackPointer]);
+                return;
+            }
+
+            if (op == MES_TYPED) {
+                intStackPointer -= 2;
+
+                @Pc(15) int type = intStack[intStackPointer];
+                @Pc(21) int flags = intStack[intStackPointer + 1];
+                @Pc(1791) String message = stringStack[--stringStackPointer];
+
+                ChatHistory.add(type, flags, "", "", "", message);
+                return;
+            }
+
+            if (op == SETUP_MESSAGEBOX) {
+                intStackPointer -= 11;
+
+                @Pc(5320) HorizontalAlignment[] horizontalAlignments = HorizontalAlignment.values();
+                @Pc(5323) VerticalAlignment[] verticalAlignments = VerticalAlignment.values();
+                MessageBox.setup(horizontalAlignments[intStack[intStackPointer]], verticalAlignments[intStack[intStackPointer + 1]], intStack[intStackPointer + 2], intStack[intStackPointer + 3], intStack[intStackPointer + 4], intStack[intStackPointer + 5], intStack[intStackPointer + 6], intStack[intStackPointer + 7], intStack[intStackPointer + 8], intStack[intStackPointer + 9], intStack[intStackPointer + 10]);
+                return;
+            }
+
+            if (op == RESUME_HSLDIALOG) {
+                @Pc(15) int hsl = intStack[--intStackPointer];
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_HSLDIALOG, ServerConnection.GAME.cipher);
+                message.bitPacket.p2(hsl);
+                ServerConnection.GAME.send(message);
+                return;
+            }
+
+            if (op == RESUME_CLANFORUMQFCDIALOG) {
+                @Pc(4911) String clanForumQfc = stringStack[--stringStackPointer];
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.A_CLIENT_PROT___82, ServerConnection.GAME.cipher);
+                message.bitPacket.p1(clanForumQfc.length() + 1);
+                message.bitPacket.pjstr(clanForumQfc);
+                ServerConnection.GAME.send(message);
+                return;
+            }
+        } else if (op < 3300) {
+            if (op == SOUND_SYNTH) {
+                intStackPointer -= 3;
+                SoundManager.playSynthSound(intStack[intStackPointer], intStack[intStackPointer + 1], intStack[intStackPointer + 2], 255, 256);
+                return;
+            }
+            if (op == SOUND_SONG) {
+                SoundManager.playMidiSong(intStack[--intStackPointer], 255, 50);
+                return;
+            }
+            if (op == SOUND_JINGLE) {
+                intStackPointer -= 2;
+                SoundManager.playMidiJingle(intStack[intStackPointer], intStack[intStackPointer + 1], 255);
+                return;
+            }
+            if (op == SOUND_SYTHN_VOLUME) {
+                intStackPointer -= 4;
+                SoundManager.playSynthSound(intStack[intStackPointer], intStack[intStackPointer + 1], intStack[intStackPointer + 2], intStack[intStackPointer + 3], 256);
+                return;
+            }
+            if (op == SOUND_SONG_VOLUME) {
+                intStackPointer -= 3;
+                SoundManager.playMidiSong(intStack[intStackPointer], intStack[intStackPointer + 1], intStack[intStackPointer + 2]);
+                return;
+            }
+            if (op == SOUND_JINGLE_VOLUME) {
+                intStackPointer -= 3;
+                SoundManager.playMidiJingle(intStack[intStackPointer], intStack[intStackPointer + 1], intStack[intStackPointer + 2]);
+                return;
+            }
+            if (op == SOUND_VORBIS_VOLUME) {
+                intStackPointer -= 4;
+                SoundManager.playVorbisSound(intStack[intStackPointer], intStack[intStackPointer + 1], intStack[intStackPointer + 2], intStack[intStackPointer + 3], 256, false);
+                return;
+            }
+            if (op == SOUND_SPEECH_VOLUME) {
+                intStackPointer -= 4;
+                SoundManager.playVorbisSound(intStack[intStackPointer], intStack[intStackPointer + 1], intStack[intStackPointer + 2], intStack[intStackPointer + 3], 256, true);
+                return;
+            }
+            if (op == SOUND_SYNTH_RATE) {
+                intStackPointer -= 5;
+                SoundManager.playSynthSound(intStack[intStackPointer], intStack[intStackPointer + 1], intStack[intStackPointer + 2], intStack[intStackPointer + 3], intStack[intStackPointer + 4]);
+                return;
+            }
+            if (op == SOUND_VORBIS_RATE) {
+                intStackPointer -= 5;
+                SoundManager.playVorbisSound(intStack[intStackPointer], intStack[intStackPointer + 1], intStack[intStackPointer + 2], intStack[intStackPointer + 3], intStack[intStackPointer + 4], false);
+                return;
+            }
+        } else if (op < 3400) {
+            if (op == CLIENTCLOCK) {
+                intStack[intStackPointer++] = TimeUtils.clock;
+                return;
+            }
+
+            if (op == INV_GETOBJ) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int slot = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = ClientInventory.get(id, slot, false);
+                return;
+            }
+
+            if (op == INV_GETNUM) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int slot = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = ClientInventory.count(id, slot, false);
+                return;
+            }
+
+            if (op == INV_TOTAL) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int slot = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = ClientInventory.total(id, slot, false);
+                return;
+            }
+
+            if (op == INV_SIZE) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                intStack[intStackPointer++] = InvTypeList.instance.list(id).size;
+                return;
+            }
+
+            if (op == STAT) {
+                @Pc(15) int skill = intStack[--intStackPointer];
+                intStack[intStackPointer++] = Static581.statLevels[skill];
+                return;
+            }
+
+            if (op == STAT_BASE) {
+                @Pc(15) int skill = intStack[--intStackPointer];
+                intStack[intStackPointer++] = Static498.statBaseLevels[skill];
+                return;
+            }
+
+            if (op == STAT_VISIBLE_XP) {
+                @Pc(15) int skill = intStack[--intStackPointer];
+                intStack[intStackPointer++] = Static237.statXps[skill];
+                return;
+            }
+
+            if (op == FACING_FINE) {
+                @Pc(5929) byte level = PlayerEntity.self.level;
+                @Pc(21) int x = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
+                @Pc(27) int z = (PlayerEntity.self.z >> 9) + WorldMap.areaBaseZ;
+                intStack[intStackPointer++] = (level << 28) + (x << 14) + z;
+                return;
+            }
+
+            if (op == COORDX) {
+                @Pc(15) int x = intStack[--intStackPointer];
+                intStack[intStackPointer++] = (x >> 14) & 0x3FFF;
+                return;
+            }
+
+            if (op == COORDY) {
+                @Pc(15) int y = intStack[--intStackPointer];
+                intStack[intStackPointer++] = y >> 28;
+                return;
+            }
+
+            if (op == COORDZ) {
+                @Pc(15) int z = intStack[--intStackPointer];
+                intStack[intStackPointer++] = z & 0x3FFF;
+                return;
+            }
+
+            if (op == MAP_MEMBERS) {
+                intStack[intStackPointer++] = Static174.mapMembers ? 1 : 0;
+                return;
+            }
+
+            if (op == INVOTHER_GETOBJ) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int slot = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = ClientInventory.get(id, slot, true);
+                return;
+            }
+
+            if (op == INVOTHER_GETNUM) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int slot = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = ClientInventory.count(id, slot, true);
+                return;
+            }
+
+            if (op == INVOTHER_TOTAL) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int slot = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = ClientInventory.total(id, slot, true);
+                return;
+            }
+
+            if (op == STAFFMODLEVEL) {
+                if (Client.staffModLevel >= 2) {
+                    intStack[intStackPointer++] = Client.staffModLevel;
+                    return;
+                }
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == REBOOTTIMER) {
+                intStack[intStackPointer++] = Static249.rebootTimer;
+                return;
+            }
+
+            if (op == MAP_WORLD) {
+                intStack[intStackPointer++] = ConnectionInfo.login.world;
+                return;
+            }
+
+            if (op == RUNENERGY_VISIBLE) {
+                intStack[intStackPointer++] = Static703.runEnergy;
+                return;
+            }
+
+            if (op == RUNWEIGHT_VISIBLE) {
+                intStack[intStackPointer++] = Static494.runWeight;
+                return;
+            }
+
+            if (op == PLAYERMOD) {
+                if (Static38.playerModLevel >= 5 && Static38.playerModLevel <= 9) {
+                    intStack[intStackPointer++] = 1;
+                    return;
+                }
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == PLAYERMODLEVEL) {
+                if (Static38.playerModLevel >= 5 && Static38.playerModLevel <= 9) {
+                    intStack[intStackPointer++] = Static38.playerModLevel;
+                    return;
+                }
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == PLAYERMEMBER) {
+                intStack[intStackPointer++] = Client.isMember ? 1 : 0;
+                return;
+            }
+
+            if (op == COMLEVEL_ACTIVE) {
+                intStack[intStackPointer++] = PlayerEntity.self.combatLevel;
+                return;
+            }
+
+            if (op == GENDER) {
+                intStack[intStackPointer++] = PlayerEntity.self.playerModel != null && PlayerEntity.self.playerModel.female ? 1 : 0;
+                return;
+            }
+
+            if (op == MAP_QUICKCHAT) {
+                intStack[intStackPointer++] = Static617.quickChatWorld ? 1 : 0;
+                return;
+            }
+
+            if (op == INV_FREESPACE) {
+                @Pc(15) int local15 = intStack[--intStackPointer];
+                intStack[intStackPointer++] = ClientInventory.freeSpace(local15);
+                return;
+            }
+
+            if (op == INV_TOTALPARAM) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int param = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = ClientInventory.totalParam(id, param, false);
+                return;
+            }
+
+            if (op == INV_TOTALPARAM_STACK) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int param = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = ClientInventory.totalParam(id, param, true);
+                return;
+            }
+
+            if (op == 3333) {
+                intStack[intStackPointer++] = Static696.method9034();
+                return;
+            }
+
+            if (op == MAP_LANG) {
+                intStack[intStackPointer++] = Client.language;
+                return;
+            }
+
+            if (op == MOVE_COORD) {
+                intStackPointer -= 4;
+
+                @Pc(15) int coord = intStack[intStackPointer];
+                @Pc(21) int x = intStack[intStackPointer + 1];
+                @Pc(27) int y = intStack[intStackPointer + 2];
+                @Pc(506) int z = intStack[intStackPointer + 3];
+
+                coord += x << 14;
+                coord += y << 28;
+                coord += z;
+
+                intStack[intStackPointer++] = coord;
+                return;
+            }
+
+            if (op == AFFILIATE) {
+                intStack[intStackPointer++] = Client.affid;
+                return;
+            }
+
+            if (op == PROFILE_CPU) {
+                intStack[intStackPointer++] = Static65.profileCpu();
+                return;
+            }
+
+            if (op == PLAYERDEMO) {
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == APPLET_HASFOCUS) {
+                intStack[intStackPointer++] = GameShell.focus ? 1 : 0;
+                return;
+            }
+
+            if (op == FROMBILLING) {
+                intStack[intStackPointer++] = Client.fromBilling ? 1 : 0;
+                return;
+            }
+
+            if (op == GET_MOUSEX) {
+                intStack[intStackPointer++] = MouseMonitor.instance.getRecordedX();
+                return;
+            }
+
+            if (op == GET_MOUSEY) {
+                intStack[intStackPointer++] = MouseMonitor.instance.getRecordedY();
+                return;
+            }
+
+            if (op == GET_ACTIVE_MINIMENU_ENTRY) {
+                stringStack[stringStackPointer++] = MiniMenu.activeEntry();
+                return;
+            }
+
+            if (op == GET_SECOND_MINIMENU_ENTRY) {
+                stringStack[stringStackPointer++] = MiniMenu.secondEntry();
+                return;
+            }
+
+            if (op == GET_MINIMENU_LENGTH) {
+                intStack[intStackPointer++] = MiniMenu.length();
+                return;
+            }
+
+            if (op == GET_CURRENTCURSOR) {
+                intStack[intStackPointer++] = Static470.currentCursor;
+                return;
+            }
+
+            if (op == GET_SELFYANGLE) {
+                intStack[intStackPointer++] = PlayerEntity.self.yaw.getValue(16383) >> 3;
+                return;
+            }
+
+            if (op == MAP_ISOWNER) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+
+                if (Static416.mapOwner != null && Static416.mapOwner.equalsIgnoreCase(name)) {
+                    intStack[intStackPointer++] = 1;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == GET_MOUSEBUTTONS) {
+                intStack[intStackPointer++] = MouseMonitor.instance.isLeftDown() ? 1 : 0;
+                intStack[intStackPointer++] = MouseMonitor.instance.isMiddleDown() ? 1 : 0;
+                intStack[intStackPointer++] = MouseMonitor.instance.isRightDown() ? 1 : 0;
+                return;
+            }
+        } else if (op < 3500) {
+            if (op == ENUM_STRING) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int key = intStack[intStackPointer + 1];
+                @Pc(6822) EnumType enumType = EnumTypeList.instance.list(id);
+
+                stringStack[stringStackPointer++] = enumType.getString(key);
+                return;
+            }
+
+            if (op == ENUM) {
+                intStackPointer -= 4;
+
+                @Pc(15) int keyType = intStack[intStackPointer];
+                @Pc(21) int valType = intStack[intStackPointer + 1];
+                @Pc(27) int id = intStack[intStackPointer + 2];
+                @Pc(506) int key = intStack[intStackPointer + 3];
+                @Pc(6868) EnumType enumType = EnumTypeList.instance.list(id);
+
+                if (enumType.keyType == keyType && enumType.valType == valType) {
+                    if (valType == 's') {
+                        stringStack[stringStackPointer++] = enumType.getString(key);
+                        return;
+                    }
+
+                    intStack[intStackPointer++] = enumType.getInt(key);
+                    return;
+                }
+
+                throw new RuntimeException("C3408-1 " + id + "-" + key);
+            }
+
+            if (op == ENUM_HASOUTPUT) {
+                intStackPointer -= 3;
+
+                @Pc(15) int valType = intStack[intStackPointer];
+                @Pc(21) int id = intStack[intStackPointer + 1];
+                @Pc(27) int key = intStack[intStackPointer + 2];
+                if (id == -1) {
+                    throw new RuntimeException("C3409-2");
+                }
+
+                @Pc(6963) EnumType enumType = EnumTypeList.instance.list(id);
+                if (enumType.valType != valType) {
+                    throw new RuntimeException("C3409-1");
+                }
+
+                intStack[intStackPointer++] = enumType.hasOutput(key) ? 1 : 0;
+                return;
+            }
+
+            if (op == ENUM_HASOUTPUT_STRING) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                @Pc(1394) String key = stringStack[--stringStackPointer];
+                if (id == -1) {
+                    throw new RuntimeException("C3410-2");
+                }
+
+                @Pc(6822) EnumType enumType = EnumTypeList.instance.list(id);
+                if (enumType.valType != 's') {
+                    throw new RuntimeException("C3410-1");
+                }
+
+                intStack[intStackPointer++] = enumType.hasOutputString(key) ? 1 : 0;
+                return;
+            }
+
+            if (op == ENUM_GETOUTPUT_COUNT) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                @Pc(7072) EnumType enumType = EnumTypeList.instance.list(id);
+                intStack[intStackPointer++] = enumType.getOutputCount();
+                return;
+            }
+
+            if (op == ENUM_GETREVERSECOUNT) {
+                intStackPointer -= 3;
+
+                @Pc(15) int valType = intStack[intStackPointer];
+                @Pc(21) int id = intStack[intStackPointer + 1];
+                @Pc(27) int key = intStack[intStackPointer + 2];
+                if (id == -1) {
+                    throw new RuntimeException();
+                }
+
+                @Pc(6963) EnumType enumMapping = EnumTypeList.instance.list(id);
+                if (enumMapping.valType != valType) {
+                    throw new RuntimeException();
+                }
+
+                @Pc(7133) EnumMapping mapping = enumMapping.getReversed(key);
+                @Pc(72) int count = 0;
+                if (mapping != null) {
+                    count = mapping.index.length;
+                }
+
+                intStack[intStackPointer++] = count;
+                return;
+            }
+
+            if (op == ENUM_GETREVERSECOUNT_STRING) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                @Pc(1394) String key = stringStack[--stringStackPointer];
+                if (id == -1) {
+                    throw new RuntimeException();
+                }
+
+                @Pc(6822) EnumType enumType = EnumTypeList.instance.list(id);
+                if (enumType.valType != 's') {
+                    throw new RuntimeException();
+                }
+
+                @Pc(7196) EnumStringMapping mapping = enumType.getReversed(key);
+                @Pc(2978) int count = 0;
+                if (mapping != null) {
+                    count = mapping.index.length;
+                }
+
+                intStack[intStackPointer++] = count;
+                return;
+            }
+
+            if (op == ENUM_GETREVERSEINDEX) {
+                intStackPointer -= 5;
+
+                @Pc(15) int valType = intStack[intStackPointer];
+                @Pc(21) int keyType = intStack[intStackPointer + 1];
+                @Pc(27) int id = intStack[intStackPointer + 2];
+                @Pc(506) int key = intStack[intStackPointer + 3];
+                @Pc(2978) int index = intStack[intStackPointer + 4];
+                if (id == -1) {
+                    throw new RuntimeException();
+                }
+
+                @Pc(7261) EnumType enumType = EnumTypeList.instance.list(id);
+                if (enumType.keyType != keyType) {
+                    throw new RuntimeException();
+                }
+                if (enumType.valType != valType) {
+                    throw new RuntimeException();
+                }
+
+                @Pc(7284) EnumMapping mapping = enumType.getReversed(key);
+                if (index >= 0 && mapping != null && mapping.index.length > index) {
+                    intStack[intStackPointer++] = mapping.index[index];
+                    return;
+                }
+
+                throw new RuntimeException();
+            }
+
+            if (op == ENUM_GETREVERSEINDEX_STRING) {
+                intStackPointer -= 3;
+
+                @Pc(15) int keyType = intStack[intStackPointer];
+                @Pc(21) int id = intStack[intStackPointer + 1];
+                @Pc(27) int local27 = intStack[intStackPointer + 2];
+                @Pc(7345) String key = stringStack[--stringStackPointer];
+                if (id == -1) {
+                    throw new RuntimeException();
+                }
+
+                @Pc(6868) EnumType enumType = EnumTypeList.instance.list(id);
+                if (enumType.keyType != keyType) {
+                    throw new RuntimeException();
+                }
+                if (enumType.valType != 's') {
+                    throw new RuntimeException();
+                }
+
+                @Pc(7381) EnumStringMapping mapping = enumType.getReversed(key);
+                if (local27 >= 0 && mapping != null && mapping.index.length > local27) {
+                    intStack[intStackPointer++] = mapping.index[local27];
+                    return;
+                }
+
+                throw new RuntimeException();
+            }
+        } else if (op < 3700) {
+            if (op == FRIEND_COUNT) {
+                if (FriendsList.status == 0) {
+                    intStack[intStackPointer++] = -2;
+                    return;
+                }
+
+                if (FriendsList.status == 1) {
+                    intStack[intStackPointer++] = -1;
+                    return;
+                }
+
+                intStack[intStackPointer++] = FriendsList.count;
+                return;
+            }
+
+            if (op == FRIEND_GETNAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendsList.status == 2 && index < FriendsList.count) {
+                    stringStack[stringStackPointer++] = FriendsList.names[index];
+
+                    if (FriendsList.formerNames[index] != null) {
+                        stringStack[stringStackPointer++] = FriendsList.formerNames[index];
+                        return;
+                    }
+
+                    stringStack[stringStackPointer++] = "";
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == FRIEND_GETWORLD) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendsList.status == 2 && index < FriendsList.count) {
+                    intStack[intStackPointer++] = FriendsList.worlds[index];
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == FRIEND_GETRANK) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendsList.status == 2 && index < FriendsList.count) {
+                    intStack[intStackPointer++] = FriendsList.ranks[index];
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == FRIEND_SETRANK) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                @Pc(21) int rank = intStack[--intStackPointer];
+                FriendsList.setRank(name, rank);
+                return;
+            }
+
+            if (op == FRIEND_ADD) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                FriendsList.add(name);
+                return;
+            }
+
+            if (op == FRIEND_DEL) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                FriendsList.delete(name);
+                return;
+            }
+
+            if (op == IGNORE_ADD) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                IgnoreList.add(name, false);
+                return;
+            }
+
+            if (op == IGNORE_DEL) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                IgnoreList.delete(name);
+                return;
+            }
+
+            if (op == FRIEND_TEST) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+
+                if (name.startsWith("<img=0>") || name.startsWith("<img=1>")) {
+                    name = name.substring(7);
+                }
+
+                intStack[intStackPointer++] = FriendsList.contains(0, name) ? 1 : 0;
+                return;
+            }
+
+            if (op == FRIEND_GETWORLDNAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendsList.status == 2 && index < FriendsList.count) {
+                    stringStack[stringStackPointer++] = FriendsList.worldNames[index];
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == CLAN_GETCHATDISPLAYNAME) {
+                if (FriendChat.name != null) {
+                    stringStack[stringStackPointer++] = NameTools.normalise(FriendChat.name);
+                    return;
+                }
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == CLAN_GETCHATCOUNT) {
+                if (FriendChat.name != null) {
+                    intStack[intStackPointer++] = FriendChat.count;
+                    return;
+                }
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == CLAN_GETCHATUSERNAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendChat.name != null && index < FriendChat.count) {
+                    stringStack[stringStackPointer++] = FriendChat.users[index].name;
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == CLAN_GETCHATUSERWORLD) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendChat.name != null && index < FriendChat.count) {
+                    intStack[intStackPointer++] = FriendChat.users[index].world;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == CLAN_GETCHATUSERRANK) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendChat.name != null && index < FriendChat.count) {
+                    intStack[intStackPointer++] = FriendChat.users[index].rank;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == CLAN_GETCHATMINKICK) {
+                intStack[intStackPointer++] = FriendChat.kickRank;
+                return;
+            }
+
+            if (op == CLAN_KICKUSER) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                FriendChat.kick(name);
+                return;
+            }
+
+            if (op == CLAN_GETCHATRANK) {
+                intStack[intStackPointer++] = FriendChat.rank;
+                return;
+            }
+
+            if (op == CLAN_JOINCHAT) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                FriendChat.join(name);
+                return;
+            }
+
+            if (op == CLAN_LEAVECHAT) {
+                FriendChat.leave();
+                return;
+            }
+
+            if (op == IGNORE_COUNT) {
+                if (FriendsList.status == 0) {
+                    intStack[intStackPointer++] = -1;
+                    return;
+                }
+
+                intStack[intStackPointer++] = IgnoreList.count;
+                return;
+            }
+
+            if (op == IGNORE_GETNAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendsList.status != 0 && index < IgnoreList.count) {
+                    stringStack[stringStackPointer++] = IgnoreList.names[index];
+
+                    if (IgnoreList.formerNames[index] != null) {
+                        stringStack[stringStackPointer++] = IgnoreList.formerNames[index];
+                        return;
+                    }
+
+                    stringStack[stringStackPointer++] = "";
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == IGNORE_TEXT) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                if (name.startsWith("<img=0>") || name.startsWith("<img=1>")) {
+                    name = name.substring(7);
+                }
+
+                intStack[intStackPointer++] = IgnoreList.contains(name) ? 1 : 0;
+                return;
+            }
+
+            if (op == CLAN_ISSELF) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendChat.users != null && index < FriendChat.count && FriendChat.users[index].accountName.equalsIgnoreCase(PlayerEntity.self.accountName)) {
+                    intStack[intStackPointer++] = 1;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == CLAN_GETCHATOWNERNAME) {
+                if (FriendChat.owner != null) {
+                    stringStack[stringStackPointer++] = FriendChat.owner;
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == CLAN_GETCHATUSERWORLDNAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendChat.name != null && index < FriendChat.count) {
+                    stringStack[stringStackPointer++] = FriendChat.users[index].worldName;
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == FRIEND_SAME_GAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+
+                if (FriendsList.status == 2 && index >= 0 && index < FriendsList.count) {
+                    intStack[intStackPointer++] = FriendsList.sameGameFlags[index] ? 1 : 0;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == FRIEND_GETSLOTFROMNAME) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                if (name.startsWith("<img=0>") || name.startsWith("<img=1>")) {
+                    name = name.substring(7);
+                }
+
+                intStack[intStackPointer++] = Static664.method8658(name);
+                return;
+            }
+
+            if (op == PLAYERCOUNTRY) {
+                intStack[intStackPointer++] = Client.country;
+                return;
+            }
+
+            if (op == IGNORE_ADD_TEMP) {
+                @Pc(4911) String name = stringStack[--stringStackPointer];
+                IgnoreList.add(name, true);
+                return;
+            }
+
+            if (op == IGNORE_IS_TEMP) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = IgnoreList.temporary[index] ? 1 : 0;
+                return;
+            }
+
+            if (op == CLAN_GETCHATUSERNAME_UNFILTERED) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                if (FriendChat.name != null && index < FriendChat.count) {
+                    stringStack[stringStackPointer++] = FriendChat.users[index].accountName;
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == IGNORE_GETNAME_UNFILTERED) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                if (FriendsList.status != 0 && index < IgnoreList.count) {
+                    stringStack[stringStackPointer++] = IgnoreList.accountNames[index];
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == FRIEND_IS_REFERRED) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                if (FriendsList.status == 2 && index < FriendsList.count) {
+                    intStack[intStackPointer++] = FriendsList.referredFlags[index] ? 1 : 0;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+        } else if (op < 3800) {
+            if (op == ACTIVELCANSETTINGS_FIND_LISTENED) {
+                if (ClanSettings.listened != null) {
+                    intStack[intStackPointer++] = 1;
+                    clanSettings = ClanSettings.listened;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_FIND_AFFINED) {
+                if (ClanSettings.affined != null) {
+                    intStack[intStackPointer++] = 1;
+                    clanSettings = ClanSettings.affined;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETCLANNAME) {
+                stringStack[stringStackPointer++] = clanSettings.name;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETALLOWUNAFFINED) {
+                intStack[intStackPointer++] = clanSettings.allowNonMembers ? 1 : 0;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETRANKTALK) {
+                intStack[intStackPointer++] = clanSettings.rankTalk;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETRANKKICK) {
+                intStack[intStackPointer++] = clanSettings.rankKick;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETRANKLOOTSHARE) {
+                intStack[intStackPointer++] = clanSettings.rankLootShare;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETCOINSHARE) {
+                intStack[intStackPointer++] = clanSettings.coinshare;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETAFFINEDCOUNT) {
+                intStack[intStackPointer++] = clanSettings.affinedCount;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETAFFINEDDISPLAYNAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = clanSettings.affinedDisplayNames[index];
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETAFFINEDRANK) {
+                @Pc(15) int local15 = intStack[--intStackPointer];
+                intStack[intStackPointer++] = clanSettings.affinedRanks[local15];
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETBANNEDCOUNT) {
+                intStack[intStackPointer++] = clanSettings.bannedCount;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETBANNEDDISPLAYNAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = clanSettings.bannedDisplayNames[index];
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETAFFINEDEXTRAINFO) {
+                intStackPointer -= 3;
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int startBit = intStack[intStackPointer + 1];
+                @Pc(27) int endBit = intStack[intStackPointer + 2];
+                intStack[intStackPointer++] = clanSettings.getAffinedExtraInfo(id, startBit, endBit);
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETCURRENTOWNER_SLOT) {
+                intStack[intStackPointer++] = clanSettings.currentOwnerSlot;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETREPLACEMENTOWNER_SLOT) {
+                intStack[intStackPointer++] = clanSettings.replacementOwnerSlot;
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETAFFINEDSLOT) {
+                intStack[intStackPointer++] = clanSettings.affinedSlot(stringStack[--stringStackPointer]);
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETSORTEDAFFINEDSLOT) {
+                intStack[intStackPointer - 1] = clanSettings.sortedAffinedSlots()[intStack[intStackPointer - 1]];
+                return;
+            }
+
+            if (op == AFFINEDCLANSETTINGS_ADDBANNED_FROMCHANNEL) {
+                Static180.ban(intStack[--intStackPointer]);
+                return;
+            }
+
+            if (op == ACTIVECLANSETTINGS_GETAFFINEDJOINRUNEDAY) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = clanSettings.affinedJoinRuneday[index];
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_FIND_LISTENED) {
+                if (ClanChannel.listened != null) {
+                    intStack[intStackPointer++] = 1;
+                    clanChannel = ClanChannel.listened;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_FIND_AFFINED) {
+                if (ClanChannel.affined != null) {
+                    intStack[intStackPointer++] = 1;
+                    clanChannel = ClanChannel.affined;
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETCLANNAME) {
+                stringStack[stringStackPointer++] = clanChannel.clanName;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETRANKKICK) {
+                intStack[intStackPointer++] = clanChannel.kickRank;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETRANKTALK) {
+                intStack[intStackPointer++] = clanChannel.talkRank;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETUSERCOUNT) {
+                intStack[intStackPointer++] = clanChannel.userCount;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETUSERDISPLAYNAME) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = clanChannel.users[index].displayName;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETUSERRANK) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = clanChannel.users[index].rank;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETUSERWORLD) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = clanChannel.users[index].world;
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_KICKUSER) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                Static525.kick(index, clanChannel == ClanChannel.affined);
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETUSERSLOT) {
+                intStack[intStackPointer++] = clanChannel.userSlot(stringStack[--stringStackPointer]);
+                return;
+            }
+
+            if (op == ACTIVECLANCHANNEL_GETSORTEDUSERSLOT) {
+                intStack[intStackPointer - 1] = clanChannel.sortedUserSlots()[intStack[intStackPointer - 1]];
+                return;
+            }
+
+            if (op == CLANPROFILE_FIND) {
+                intStack[intStackPointer++] = Static279.clanVars == null ? 0 : 1;
+                return;
+            }
+        } else if (op < 4000) {
+            if (op == STOCKMARKET_GETOFFERTYPE) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StockmarketManager.offers[index].getOfferType();
+                return;
+            }
+
+            if (op == STOCKMARKET_GETOFFERITEM) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StockmarketManager.offers[index].objId;
+                return;
+            }
+
+            if (op == STOCKMARKET_GETOFFERPRICE) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StockmarketManager.offers[index].price;
+                return;
+            }
+
+            if (op == STOCKMARKET_GETOFFERCOUNT) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StockmarketManager.offers[index].count;
+                return;
+            }
+
+            if (op == STOCKMARKET_GETOFFERCOMPLETEDCOUNT) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StockmarketManager.offers[index].completedCount;
+                return;
+            }
+
+            if (op == STOCKMARKET_GETOFFERCOMPLETEDGOLD) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StockmarketManager.offers[index].completedGold;
+                return;
+            }
+
+            if (op == STOCKMARKET_ISOFFEREMPTY) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                @Pc(21) int status = StockmarketManager.offers[index].getStatus();
+                intStack[intStackPointer++] = status == 0 ? 1 : 0;
+                return;
+            }
+
+            if (op == STOCKMARKET_ISOFFERSTABLE) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                @Pc(21) int status = StockmarketManager.offers[index].getStatus();
+                intStack[intStackPointer++] = status == 2 ? 1 : 0;
+                return;
+            }
+
+            if (op == STOCKMARKET_ISOFFERFINISHED) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                @Pc(21) int status = StockmarketManager.offers[index].getStatus();
+                intStack[intStackPointer++] = status == 5 ? 1 : 0;
+                return;
+            }
+
+            if (op == STOCKMARKET_ISOFFERADDING) {
+                @Pc(15) int index = intStack[--intStackPointer];
+                @Pc(21) int status = StockmarketManager.offers[index].getStatus();
+                intStack[intStackPointer++] = status == 1 ? 1 : 0;
+                return;
+            }
+        } else if (op < 4100) {
+            if (op == ADD) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = a + b;
+                return;
+            }
+
+            if (op == SUB) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = a - b;
+                return;
+            }
+
+            if (op == MULTIPLY) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = a * b;
+                return;
+            }
+
+            if (op == DIVIDE) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = a / b;
+                return;
+            }
+
+            if (op == RANDOM) {
+                @Pc(15) int v = intStack[--intStackPointer];
+                intStack[intStackPointer++] = (int) (Math.random() * (double) v);
+                return;
+            }
+
+            if (op == RANDOMINC) {
+                @Pc(15) int v = intStack[--intStackPointer];
+                intStack[intStackPointer++] = (int) (Math.random() * (double) (v + 1));
+                return;
+            }
+
+            if (op == INTERPOLATE) {
+                intStackPointer -= 5;
+
+                @Pc(15) int y0 = intStack[intStackPointer];
+                @Pc(21) int y1 = intStack[intStackPointer + 1];
+                @Pc(27) int x0 = intStack[intStackPointer + 2];
+                @Pc(506) int x1 = intStack[intStackPointer + 3];
+                @Pc(2978) int x2 = intStack[intStackPointer + 4];
+
+                intStack[intStackPointer++] = y0 + (y1 - y0) * (x2 - x0) / (x1 - x0);
+                return;
+            }
+
+            if (op == ADDPERCENT) {
+                intStackPointer -= 2;
+
+                @Pc(9705) long a = intStack[intStackPointer];
+                @Pc(9712) long b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = (int) (a + ((a * b) / 100L));
+                return;
+            }
+
+            if (op == SETBIT) {
+                intStackPointer -= 2;
+
+                @Pc(15) int v = intStack[intStackPointer];
+                @Pc(21) int bit = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = v | (0x1 << bit);
+                return;
+            }
+
+            if (op == CLEARBIT) {
+                intStackPointer -= 2;
+
+                @Pc(15) int v = intStack[intStackPointer];
+                @Pc(21) int bit = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = v & -(0x1 << bit) - 1;
+                return;
+            }
+
+            if (op == TESTBIT) {
+                intStackPointer -= 2;
+
+                @Pc(15) int v = intStack[intStackPointer];
+                @Pc(21) int bit = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = (v & 0x1 << bit) == 0 ? 0 : 1;
+                return;
+            }
+
+            if (op == MODULO) {
+                intStackPointer -= 2;
+
+                @Pc(15) int local15 = intStack[intStackPointer];
+                @Pc(21) int local21 = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = local15 % local21;
+                return;
+            }
+
+            if (op == POW) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                if (a == 0) {
+                    intStack[intStackPointer++] = 0;
+                    return;
+                }
+
+                intStack[intStackPointer++] = (int) Math.pow(a, b);
+                return;
+            }
+
+            if (op == INVPOW) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                if (a == 0) {
+                    intStack[intStackPointer++] = 0;
+                    return;
+                }
+
+                if (b == 0) {
+                    intStack[intStackPointer++] = Integer.MAX_VALUE;
+                    return;
+                }
+
+                intStack[intStackPointer++] = (int) Math.pow(a, 1.0D / (double) b);
+                return;
+            }
+
+            if (op == AND) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = a & b;
+                return;
+            }
+
+            if (op == OR) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = a | b;
+                return;
+            }
+
+            if (op == MIN) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = a < b ? a : b;
+                return;
+            }
+
+            if (op == MAX) {
+                intStackPointer -= 2;
+
+                @Pc(15) int a = intStack[intStackPointer];
+                @Pc(21) int b = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = a > b ? a : b;
+                return;
+            }
+
+            if (op == SCALE) {
+                intStackPointer -= 3;
+
+                @Pc(9705) long a = intStack[intStackPointer];
+                @Pc(9712) long denominator = intStack[intStackPointer + 1];
+                @Pc(10099) long numerator = intStack[intStackPointer + 2];
+
+                intStack[intStackPointer++] = (int) ((a * numerator) / denominator);
+                return;
+            }
+
+            if (op == RANDOM_SOUND_PITCH) {
+                intStackPointer -= 2;
+
+                @Pc(15) int min = intStack[intStackPointer];
+                @Pc(21) int max = intStack[intStackPointer + 1];
+                if (min > 700 || max > 700) {
+                    intStack[intStackPointer++] = 256;
+                }
+
+                @Pc(10162) double local10162 = (Math.random() * (double) (max + min) + 800.0D - (double) min) / 100.0D;
+                intStack[intStackPointer++] = (int) (Math.pow(2.0D, local10162) + 0.5D);
+                return;
+            }
+
+            if (op == HSVTORGB) {
+                @Pc(15) int local15 = intStack[--intStackPointer];
+                intStack[intStackPointer++] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(local15) & 0xFFFF];
+                return;
+            }
+        } else if (op < 4200) {
+            if (op == APPEND_NUM) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                @Pc(21) int number = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = text + number;
+                return;
+            }
+
+            if (op == APPEND) {
+                stringStackPointer -= 2;
+                @Pc(4911) String a = stringStack[stringStackPointer];
+                @Pc(1394) String b = stringStack[stringStackPointer + 1];
+                stringStack[stringStackPointer++] = a + b;
+                return;
+            }
+
+            if (op == APPEND_SIGNNUM) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                @Pc(21) int num = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = text + StringTools.decimalWithSign(true, num);
+                return;
+            }
+
+            if (op == LOWERCASE) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                stringStack[stringStackPointer++] = text.toLowerCase();
+                return;
+            }
+
+            if (op == FROMDATE) {
+                stringStack[stringStackPointer++] = TimeUtils.parseDate(Client.language, TimeUtils.timeFromRunedate(intStack[--intStackPointer]));
+                return;
+            }
+
+            if (op == TEXT_GENDER) {
+                stringStackPointer -= 2;
+
+                @Pc(4911) String male = stringStack[stringStackPointer];
+                @Pc(1394) String female = stringStack[stringStackPointer + 1];
+                if (PlayerEntity.self.playerModel != null && PlayerEntity.self.playerModel.female) {
+                    stringStack[stringStackPointer++] = female;
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = male;
+                return;
+            }
+
+            if (op == TOSTRING) {
+                @Pc(15) int i = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = Integer.toString(i);
+                return;
+            }
+
+            if (op == COMPARE) {
+                stringStackPointer -= 2;
+                intStack[intStackPointer++] = Static540.compare(stringStack[stringStackPointer + 1], Client.language, stringStack[stringStackPointer]);
+                return;
+            }
+
+            if (op == PARAHEIGHT) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                intStackPointer -= 2;
+
+                @Pc(21) int lineWidth = intStack[intStackPointer];
+                @Pc(27) int font = intStack[intStackPointer + 1];
+                @Pc(10482) FontMetrics metrics = FontMetrics.loadGroup(js5.FONTMETRICS, font);
+
+                intStack[intStackPointer++] = metrics.paraHeight(text, Sprites.nameIcons, lineWidth);
+                return;
+            }
+
+            if (op == PARAWIDTH) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                intStackPointer -= 2;
+
+                @Pc(21) int lineWidth = intStack[intStackPointer];
+                @Pc(27) int font = intStack[intStackPointer + 1];
+                @Pc(10482) FontMetrics metrics = FontMetrics.loadGroup(js5.FONTMETRICS, font);
+
+                intStack[intStackPointer++] = metrics.paraWidth(Sprites.nameIcons, text, lineWidth);
+                return;
+            }
+
+            if (op == TEXT_SWITCH) {
+                stringStackPointer -= 2;
+
+                @Pc(4911) String a = stringStack[stringStackPointer];
+                @Pc(1394) String b = stringStack[stringStackPointer + 1];
+                if (intStack[--intStackPointer] == 1) {
+                    stringStack[stringStackPointer++] = a;
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = b;
+                return;
+            }
+
+            if (op == ESCAPE) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                stringStack[stringStackPointer++] = StringTools.escapeBrackets(text);
+                return;
+            }
+
+            if (op == APPEND_CHAR) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                @Pc(21) int c = intStack[--intStackPointer];
+                if (c == -1) {
+                    throw new RuntimeException("null char");
+                }
+
+                stringStack[stringStackPointer++] = text + (char) c;
+                return;
+            }
+
+            if (op == CHAR_ISPRINTABLE) {
+                @Pc(15) int c = intStack[--intStackPointer];
+                intStack[intStackPointer++] = charIsPrintable((char) c);
+                return;
+            }
+
+            if (op == CHAR_ISALPHANUMERIC) {
+                @Pc(15) int c = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StringTools.isAlphanumeric((char) c) ? 1 : 0;
+                return;
+            }
+
+            if (op == CHAR_ISALPHA) {
+                @Pc(15) int c = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StringTools.isAlphabetical((char) c) ? 1 : 0;
+                return;
+            }
+
+            if (op == CHAR_ISNUMERIC) {
+                @Pc(15) int c = intStack[--intStackPointer];
+                intStack[intStackPointer++] = StringTools.isNumeric((char) c) ? 1 : 0;
+                return;
+            }
+
+            if (op == STRING_LENGTH) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+
+                if (text != null) {
+                    intStack[intStackPointer++] = text.length();
+                    return;
+                }
+
+                intStack[intStackPointer++] = 0;
+                return;
+            }
+
+            if (op == SUBSTRING) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                intStackPointer -= 2;
+
+                @Pc(21) int beginIndex = intStack[intStackPointer];
+                @Pc(27) int endIndex = intStack[intStackPointer + 1];
+
+                stringStack[stringStackPointer++] = text.substring(beginIndex, endIndex);
+                return;
+            }
+
+            if (op == REMOVETAGS) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+
+                @Pc(10848) StringBuffer buffer = new StringBuffer(text.length());
+                @Pc(10850) boolean escaped = false;
+
+                for (@Pc(506) int i = 0; i < text.length(); i++) {
+                    @Pc(10857) char c = text.charAt(i);
+
+                    if (c == '<') {
+                        escaped = true;
+                    } else if (c == '>') {
+                        escaped = false;
+                    } else if (!escaped) {
+                        buffer.append(c);
+                    }
+                }
+
+                stringStack[stringStackPointer++] = buffer.toString();
+                return;
+            }
+
+            if (op == STRING_INDEXOF_CHAR) {
+                @Pc(4911) String string = stringStack[--stringStackPointer];
+                intStackPointer -= 2;
+
+                @Pc(21) int c = intStack[intStackPointer];
+                @Pc(27) int fromIndex = intStack[intStackPointer + 1];
+
+                intStack[intStackPointer++] = string.indexOf(c, fromIndex);
+                return;
+            }
+
+            if (op == STRING_INDEXOF_STRING) {
+                stringStackPointer -= 2;
+
+                @Pc(4911) String string = stringStack[stringStackPointer];
+                @Pc(1394) String str = stringStack[stringStackPointer + 1];
+                @Pc(27) int fromIndex = intStack[--intStackPointer];
+
+                intStack[intStackPointer++] = string.indexOf(str, fromIndex);
+                return;
+            }
+
+            if (op == CHAR_TOLOWERCASE) {
+                @Pc(15) int c = intStack[--intStackPointer];
+                intStack[intStackPointer++] = Character.toLowerCase((char) c);
+                return;
+            }
+
+            if (op == CHAR_TOUPPERCASE) {
+                @Pc(15) int c = intStack[--intStackPointer];
+                intStack[intStackPointer++] = Character.toUpperCase((char) c);
+                return;
+            }
+
+            if (op == TOSTRING_LOCALISED) {
+                @Pc(575) boolean delimit = intStack[--intStackPointer] != 0;
+                @Pc(21) int value = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = StringTools.formatNumber(Client.language, delimit, value, 0);
+                return;
+            }
+
+            if (op == STRINGWIDTH) {
+                @Pc(4911) String string = stringStack[--stringStackPointer];
+                @Pc(21) int font = intStack[--intStackPointer];
+                @Pc(11077) FontMetrics metrics = FontMetrics.loadGroup(js5.FONTMETRICS, font);
+
+                intStack[intStackPointer++] = metrics.stringWidth(Sprites.nameIcons, string);
+                return;
+            }
+
+            if (op == FORMAT_DATETIME_FROM_MINUTES) {
+                stringStack[stringStackPointer++] = TimeUtils.formatDatetime((long) intStack[--intStackPointer] * 60000L, Client.language) + " UTC";
+                return;
+            }
+
+            if (op == CLANFORUMQFC_TOSTRING) {
+                @Pc(9705) long local9705 = longStack[--longStackPointer];
+                stringStack[stringStackPointer++] = local9705 == -1L ? "" : Long.toString(local9705, 36).toUpperCase();
+                return;
+            }
+        } else if (op < 4300) {
+            if (op == OC_NAME) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = ObjTypeList.instance.list(id).name;
+                return;
+            }
+
+            if (op == OC_OP) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int opNum = intStack[intStackPointer + 1];
+                @Pc(11206) ObjType objType = ObjTypeList.instance.list(id);
+
+                if (opNum >= 1 && opNum <= 5 && objType.op[opNum - 1] != null) {
+                    stringStack[stringStackPointer++] = objType.op[opNum - 1];
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == OC_IOP) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int opNum = intStack[intStackPointer + 1];
+                @Pc(11206) ObjType local11206 = ObjTypeList.instance.list(id);
+
+                if (opNum >= 1 && opNum <= 5 && local11206.iop[opNum - 1] != null) {
+                    stringStack[stringStackPointer++] = local11206.iop[opNum - 1];
+                    return;
+                }
+
+                stringStack[stringStackPointer++] = "";
+                return;
+            }
+
+            if (op == OC_COST) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                intStack[intStackPointer++] = ObjTypeList.instance.list(id).cost;
+                return;
+            }
+
+            if (op == OC_STACKABLE) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                intStack[intStackPointer++] = ObjTypeList.instance.list(id).stackable == 1 ? 1 : 0;
+                return;
+            }
+
+            if (op == OC_CERT) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                @Pc(11380) ObjType objType = ObjTypeList.instance.list(id);
+
+                if (objType.certtemplate == -1 && objType.certlink >= 0) {
+                    intStack[intStackPointer++] = objType.certlink;
+                    return;
+                }
+
+                intStack[intStackPointer++] = id;
+                return;
+            }
+
+            if (op == OC_UNCERT) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                @Pc(11380) ObjType objType = ObjTypeList.instance.list(id);
+
+                if (objType.certtemplate >= 0 && objType.certlink >= 0) {
+                    intStack[intStackPointer++] = objType.certlink;
+                    return;
+                }
+
+                intStack[intStackPointer++] = id;
+                return;
+            }
+
+            if (op == OC_MEMBERS) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                intStack[intStackPointer++] = ObjTypeList.instance.list(id).members ? 1 : 0;
+                return;
+            }
+
+            if (op == OC_PARAM) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int param = intStack[intStackPointer + 1];
+                @Pc(3848) ParamType paramType = ParamTypeList.instance.list(param);
+
+                if (paramType.isString()) {
+                    stringStack[stringStackPointer++] = ObjTypeList.instance.list(id).param(paramType.defaultstr, param);
+                    return;
+                }
+
+                intStack[intStackPointer++] = ObjTypeList.instance.list(id).param(param, paramType.defaultint);
+                return;
+            }
+
+            if (op == OC_ICURSOR) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int opNum = intStack[intStackPointer + 1] - 1;
+                @Pc(11206) ObjType objType = ObjTypeList.instance.list(id);
+
+                if (objType.cursor1iop == opNum) {
+                    intStack[intStackPointer++] = objType.icursor1;
+                    return;
+                }
+                if (objType.cursor2iop == opNum) {
+                    intStack[intStackPointer++] = objType.icursor2;
+                    return;
+                }
+
+                intStack[intStackPointer++] = -1;
+                return;
+            }
+
+            if (op == OC_FIND) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                @Pc(21) int restrict = intStack[--intStackPointer];
+                ObjFinder.find(restrict == 1, text);
+                intStack[intStackPointer++] = ObjFinder.resultCount;
+                return;
+            }
+
+            if (op == OC_FINDNEXT) {
+                if (ObjFinder.results != null && ObjFinder.pointer < ObjFinder.resultCount) {
+                    intStack[intStackPointer++] = ObjFinder.results[ObjFinder.pointer++] & 0xFFFF;
+                    return;
+                }
+
+                intStack[intStackPointer++] = -1;
+                return;
+            }
+
+            if (op == OC_FINDRESTART) {
+                ObjFinder.pointer = 0;
+                return;
+            }
+
+            if (op == OC_MULTISTACKSIZE) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                intStack[intStackPointer++] = ObjTypeList.instance.list(id).multistacksize;
+                return;
+            }
+
+            if (op == 4214) {
+                @Pc(4911) String text = stringStack[--stringStackPointer];
+                intStackPointer -= 3;
+
+                @Pc(21) int restrict = intStack[intStackPointer];
+                @Pc(27) int param = intStack[intStackPointer + 1];
+                @Pc(506) int expected = intStack[intStackPointer + 2];
+
+                ObjFinder.findIntParam(restrict == 1, expected, param, text);
+                intStack[intStackPointer++] = ObjFinder.resultCount;
+                return;
+            }
+
+            if (op == 4215) {
+                stringStackPointer -= 2;
+                intStackPointer -= 2;
+
+                @Pc(4911) String text = stringStack[stringStackPointer];
+                @Pc(21) int restrict = intStack[intStackPointer];
+                @Pc(27) int param = intStack[intStackPointer + 1];
+                @Pc(7345) String expected = stringStack[stringStackPointer + 1];
+
+                ObjFinder.findStringParam(text, param, expected, 8, restrict == 1);
+                intStack[intStackPointer++] = ObjFinder.resultCount;
+                return;
+            }
+        } else if (op < 4400) {
+            if (op == NC_PARAM) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int param = intStack[intStackPointer + 1];
+                @Pc(3848) ParamType paramType = ParamTypeList.instance.list(param);
+
+                if (paramType.isString()) {
+                    stringStack[stringStackPointer++] = NPCTypeList.instance.list(id).param(paramType.defaultstr, param);
+                    return;
+                }
+
+                intStack[intStackPointer++] = NPCTypeList.instance.list(id).param(param, paramType.defaultint);
+                return;
+            }
+        } else if (op < 4500) {
+            if (op == LC_PARAM) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int param = intStack[intStackPointer + 1];
+                @Pc(3848) ParamType paramType = ParamTypeList.instance.list(param);
+
+                if (paramType.isString()) {
+                    stringStack[stringStackPointer++] = LocTypeList.instance.list(id).param(paramType.defaultstr, param);
+                    return;
+                }
+
+                intStack[intStackPointer++] = LocTypeList.instance.list(id).param(paramType.defaultint, param);
+                return;
+            }
+        } else if (op < 4600) {
+            if (op == STRUCT_PARAM) {
+                intStackPointer -= 2;
+
+                @Pc(15) int id = intStack[intStackPointer];
+                @Pc(21) int param = intStack[intStackPointer + 1];
+                @Pc(3848) ParamType paramType = ParamTypeList.instance.list(param);
+
+                if (paramType.isString()) {
+                    stringStack[stringStackPointer++] = StructTypeList.instance.list(id).param(param, paramType.defaultstr);
+                    return;
+                }
+
+                intStack[intStackPointer++] = StructTypeList.instance.list(id).param(paramType.defaultint, param);
+                return;
+            }
+        } else if (op < 4700) {
+            if (op == BAS_GETANIM_READY) {
+                @Pc(15) int id = intStack[--intStackPointer];
+                @Pc(12037) BASType basType = BASTypeList.instance.list(id);
+
+                if (basType.readyAnimations != null && basType.readyAnimations.length > 0) {
+                    @Pc(27) int bestIndex = 0;
+                    @Pc(506) int bestWeight = basType.readyAnimationWeights[0];
+
+                    for (@Pc(2978) int index = 1; index < basType.readyAnimations.length; index++) {
+                        if (basType.readyAnimationWeights[index] > bestWeight) {
+                            bestIndex = index;
+                            bestWeight = basType.readyAnimationWeights[index];
+                        }
+                    }
+
+                    intStack[intStackPointer++] = basType.readyAnimations[bestIndex];
+                    return;
+                }
+
+                intStack[intStackPointer++] = basType.ready;
+                return;
+            }
+        } else if (op < 4800) {
+            if (op == 4700) {
+                intStack[intStackPointer++] = Static587.aBoolean663 ? 1 : 0;
+                return;
+            }
+
+            if (op == 4701) {
+                @Pc(4911) String local4911 = stringStack[--stringStackPointer];
+
+                if (MainLogicManager.step == MainLogicStep.STEP_LOBBY_SCREEN && !LoginManager.inProgress()) {
+                    if (local4911.length() > 20) {
+                        Static486.aByte115 = -4;
+                        return;
+                    }
+
+                    Static486.aByte115 = -1;
+                    @Pc(5005) ClientMessage local5005 = ClientMessage.create(ClientProt.CLIENT_PROT_90, ServerConnection.LOBBY.cipher);
+                    local5005.bitPacket.p1(0);
+                    @Pc(27) int local27 = local5005.bitPacket.pos;
+                    local5005.bitPacket.pjstr(local4911);
+                    local5005.bitPacket.psize1(local5005.bitPacket.pos - local27);
+                    ServerConnection.LOBBY.send(local5005);
+                    return;
+                }
+
+                Static486.aByte115 = -5;
+                return;
+            }
+
+            if (op == 4702) {
+                intStack[intStackPointer++] = Static486.aByte115;
+                if (Static486.aByte115 != -1) {
+                    Static486.aByte115 = -6;
+                }
+                return;
             }
         }
-        throw new IllegalStateException(String.valueOf(arg0));
+
+        throw new IllegalStateException(String.valueOf(op));
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!hda;)V")
-    public static void method6417(@OriginalArg(0) Component arg0) {
+    public static void sendToBack(@OriginalArg(0) Component arg0) {
         if (arg0 == null) {
             return;
         }
@@ -3300,8 +4727,8 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!fj;I)V")
     public static void executeScript(@OriginalArg(0) ClientScript arg0, @OriginalArg(1) int arg1) {
-        anInt7142 = 0;
-        anInt7139 = 0;
+        intStackPointer = 0;
+        stringStackPointer = 0;
         @Pc(5) int local5 = -1;
         @Pc(8) int[] local8 = arg0.anIntArray254;
         @Pc(11) int[] local11 = arg0.anIntArray255;
@@ -3336,37 +4763,37 @@ public final class ScriptRunner {
                         throw new IllegalStateException("Command: " + local34);
                     }
                 } else if (local34 == 0) {
-                    anIntArray578[anInt7142++] = local11[local5];
+                    intStack[intStackPointer++] = local11[local5];
                 } else {
                     @Pc(96) int local96;
                     if (local34 == 1) {
                         local96 = local11[local5];
-                        anIntArray578[anInt7142++] = TimedVarDomain.instance.varValues[local96];
+                        intStack[intStackPointer++] = TimedVarDomain.instance.varValues[local96];
                     } else if (local34 == 2) {
                         local96 = local11[local5];
-                        TimedVarDomain.instance.setVarValueInt(local96, anIntArray578[--anInt7142]);
+                        TimedVarDomain.instance.setVarValueInt(local96, intStack[--intStackPointer]);
                     } else if (local34 == 3) {
-                        aStringArray37[anInt7139++] = arg0.aStringArray14[local5];
+                        stringStack[stringStackPointer++] = arg0.aStringArray14[local5];
                     } else if (local34 == 6) {
                         local5 += local11[local5];
                     } else if (local34 == 7) {
-                        anInt7142 -= 2;
-                        if (anIntArray578[anInt7142] != anIntArray578[anInt7142 + 1]) {
+                        intStackPointer -= 2;
+                        if (intStack[intStackPointer] != intStack[intStackPointer + 1]) {
                             local5 += local11[local5];
                         }
                     } else if (local34 == 8) {
-                        anInt7142 -= 2;
-                        if (anIntArray578[anInt7142] == anIntArray578[anInt7142 + 1]) {
+                        intStackPointer -= 2;
+                        if (intStack[intStackPointer] == intStack[intStackPointer + 1]) {
                             local5 += local11[local5];
                         }
                     } else if (local34 == 9) {
-                        anInt7142 -= 2;
-                        if (anIntArray578[anInt7142] < anIntArray578[anInt7142 + 1]) {
+                        intStackPointer -= 2;
+                        if (intStack[intStackPointer] < intStack[intStackPointer + 1]) {
                             local5 += local11[local5];
                         }
                     } else if (local34 == 10) {
-                        anInt7142 -= 2;
-                        if (anIntArray578[anInt7142] > anIntArray578[anInt7142 + 1]) {
+                        intStackPointer -= 2;
+                        if (intStack[intStackPointer] > intStack[intStackPointer + 1]) {
                             local5 += local11[local5];
                         }
                     } else if (local34 == 21) {
@@ -3383,39 +4810,39 @@ public final class ScriptRunner {
                         longVars = local270.aLongArray5;
                     } else if (local34 == 25) {
                         local96 = local11[local5];
-                        anIntArray578[anInt7142++] = TimedVarDomain.instance.getVarBitValue(local96);
+                        intStack[intStackPointer++] = TimedVarDomain.instance.getVarBitValue(local96);
                     } else if (local34 == 27) {
                         local96 = local11[local5];
-                        TimedVarDomain.instance.setVarBitValue(anIntArray578[--anInt7142], local96);
+                        TimedVarDomain.instance.setVarBitValue(intStack[--intStackPointer], local96);
                     } else if (local34 == 31) {
-                        anInt7142 -= 2;
-                        if (anIntArray578[anInt7142] <= anIntArray578[anInt7142 + 1]) {
+                        intStackPointer -= 2;
+                        if (intStack[intStackPointer] <= intStack[intStackPointer + 1]) {
                             local5 += local11[local5];
                         }
                     } else if (local34 == 32) {
-                        anInt7142 -= 2;
-                        if (anIntArray578[anInt7142] >= anIntArray578[anInt7142 + 1]) {
+                        intStackPointer -= 2;
+                        if (intStack[intStackPointer] >= intStack[intStackPointer + 1]) {
                             local5 += local11[local5];
                         }
                     } else if (local34 == 33) {
-                        anIntArray578[anInt7142++] = intVars[local11[local5]];
+                        intStack[intStackPointer++] = intVars[local11[local5]];
                     } else if (local34 == 34) {
-                        intVars[local11[local5]] = anIntArray578[--anInt7142];
+                        intVars[local11[local5]] = intStack[--intStackPointer];
                     } else if (local34 == 35) {
-                        aStringArray37[anInt7139++] = stringVars[local11[local5]];
+                        stringStack[stringStackPointer++] = stringVars[local11[local5]];
                     } else if (local34 == 36) {
-                        stringVars[local11[local5]] = aStringArray37[--anInt7139];
+                        stringVars[local11[local5]] = stringStack[--stringStackPointer];
                     } else {
                         @Pc(465) String local465;
                         if (local34 == 37) {
                             local96 = local11[local5];
-                            anInt7139 -= local96;
-                            local465 = Static142.method2381(local96, anInt7139, aStringArray37);
-                            aStringArray37[anInt7139++] = local465;
+                            stringStackPointer -= local96;
+                            local465 = Static142.method2381(local96, stringStackPointer, stringStack);
+                            stringStack[stringStackPointer++] = local465;
                         } else if (local34 == 38) {
-                            anInt7142--;
+                            intStackPointer--;
                         } else if (local34 == 39) {
-                            anInt7139--;
+                            stringStackPointer--;
                         } else if (local34 == 40) {
                             local96 = local11[local5];
                             @Pc(503) ClientScript local503 = ClientScriptList.list(local96);
@@ -3426,17 +4853,17 @@ public final class ScriptRunner {
                             @Pc(518) String[] local518 = new String[local503.stringVarCount];
                             @Pc(522) long[] local522 = new long[local503.longVarCount];
                             for (@Pc(524) int local524 = 0; local524 < local503.anInt2951; local524++) {
-                                local514[local524] = anIntArray578[anInt7142 + local524 - local503.anInt2951];
+                                local514[local524] = intStack[intStackPointer + local524 - local503.anInt2951];
                             }
                             for (@Pc(543) int local543 = 0; local543 < local503.anInt2953; local543++) {
-                                local518[local543] = aStringArray37[anInt7139 + local543 - local503.anInt2953];
+                                local518[local543] = stringStack[stringStackPointer + local543 - local503.anInt2953];
                             }
                             for (@Pc(562) int local562 = 0; local562 < local503.anInt2954; local562++) {
-                                local522[local562] = aLongArray14[anInt7152 + local562 - local503.anInt2954];
+                                local522[local562] = longStack[longStackPointer + local562 - local503.anInt2954];
                             }
-                            anInt7142 -= local503.anInt2951;
-                            anInt7139 -= local503.anInt2953;
-                            anInt7152 -= local503.anInt2954;
+                            intStackPointer -= local503.anInt2951;
+                            stringStackPointer -= local503.anInt2953;
+                            longStackPointer -= local503.anInt2954;
                             @Pc(598) Class143 local598 = new Class143();
                             local598.aClass2_Sub2_Sub10_1 = arg0;
                             local598.anInt3391 = local5;
@@ -3455,16 +4882,16 @@ public final class ScriptRunner {
                             stringVars = local518;
                             longVars = local522;
                         } else if (local34 == 42) {
-                            anIntArray578[anInt7142++] = Static511.varcs[local11[local5]];
+                            intStack[intStackPointer++] = Static511.varcs[local11[local5]];
                         } else if (local34 == 43) {
                             local96 = local11[local5];
-                            Static511.varcs[local96] = anIntArray578[--anInt7142];
+                            Static511.varcs[local96] = intStack[--intStackPointer];
                             DelayedStateChange.resetVarc(local96);
                             Static624.varcSaveRecommended |= Static118.permVarcs[local96];
                         } else if (local34 == 44) {
                             local96 = local11[local5] >> 16;
                             local706 = local11[local5] & 0xFFFF;
-                            @Pc(714) int local714 = anIntArray578[--anInt7142];
+                            @Pc(714) int local714 = intStack[--intStackPointer];
                             if (local714 >= 0 && local714 <= 5000) {
                                 anIntArray581[local96] = local714;
                                 @Pc(732) byte local732 = -1;
@@ -3483,79 +4910,79 @@ public final class ScriptRunner {
                             throw new RuntimeException();
                         } else if (local34 == 45) {
                             local96 = local11[local5];
-                            local706 = anIntArray578[--anInt7142];
+                            local706 = intStack[--intStackPointer];
                             if (local706 < 0 || local706 >= anIntArray581[local96]) {
                                 throw new RuntimeException();
                             }
-                            anIntArray578[anInt7142++] = anIntArrayArray177[local96][local706];
+                            intStack[intStackPointer++] = anIntArrayArray177[local96][local706];
                         } else if (local34 == 46) {
                             local96 = local11[local5];
-                            anInt7142 -= 2;
-                            local706 = anIntArray578[anInt7142];
+                            intStackPointer -= 2;
+                            local706 = intStack[intStackPointer];
                             if (local706 < 0 || local706 >= anIntArray581[local96]) {
                                 throw new RuntimeException();
                             }
-                            anIntArrayArray177[local96][local706] = anIntArray578[anInt7142 + 1];
+                            anIntArrayArray177[local96][local706] = intStack[intStackPointer + 1];
                         } else if (local34 == 47) {
                             @Pc(843) String local843 = Static37.varcstrs[local11[local5]];
                             if (local843 == null) {
                                 local843 = "null";
                             }
-                            aStringArray37[anInt7139++] = local843;
+                            stringStack[stringStackPointer++] = local843;
                         } else if (local34 == 48) {
                             local96 = local11[local5];
-                            Static37.varcstrs[local96] = aStringArray37[--anInt7139];
+                            Static37.varcstrs[local96] = stringStack[--stringStackPointer];
                             DelayedStateChange.resetVarcstr(local96);
                         } else if (local34 == 51) {
                             @Pc(889) IterableHashTable local889 = arg0.aIterableHashTableArray1[local11[local5]];
-                            @Pc(902) IntNode local902 = (IntNode) local889.get(anIntArray578[--anInt7142]);
+                            @Pc(902) IntNode local902 = (IntNode) local889.get(intStack[--intStackPointer]);
                             if (local902 != null) {
                                 local5 += local902.value;
                             }
                         } else if (local34 == 54) {
-                            aLongArray14[anInt7152++] = arg0.aLongArray4[local5];
+                            longStack[longStackPointer++] = arg0.aLongArray4[local5];
                         } else if (local34 == 55) {
-                            anInt7152--;
+                            longStackPointer--;
                         } else if (local34 == 66) {
-                            aLongArray14[anInt7152++] = longVars[local11[local5]];
+                            longStack[longStackPointer++] = longVars[local11[local5]];
                         } else if (local34 == 67) {
-                            longVars[local11[local5]] = aLongArray14[--anInt7152];
+                            longVars[local11[local5]] = longStack[--longStackPointer];
                         } else if (local34 == 68) {
-                            anInt7152 -= 2;
-                            if (aLongArray14[anInt7152] != aLongArray14[anInt7152 + 1]) {
+                            longStackPointer -= 2;
+                            if (longStack[longStackPointer] != longStack[longStackPointer + 1]) {
                                 local5 += local11[local5];
                             }
                         } else if (local34 == 69) {
-                            anInt7152 -= 2;
-                            if (aLongArray14[anInt7152] == aLongArray14[anInt7152 + 1]) {
+                            longStackPointer -= 2;
+                            if (longStack[longStackPointer] == longStack[longStackPointer + 1]) {
                                 local5 += local11[local5];
                             }
                         } else if (local34 == 70) {
-                            anInt7152 -= 2;
-                            if (aLongArray14[anInt7152] < aLongArray14[anInt7152 + 1]) {
+                            longStackPointer -= 2;
+                            if (longStack[longStackPointer] < longStack[longStackPointer + 1]) {
                                 local5 += local11[local5];
                             }
                         } else if (local34 == 71) {
-                            anInt7152 -= 2;
-                            if (aLongArray14[anInt7152] > aLongArray14[anInt7152 + 1]) {
+                            longStackPointer -= 2;
+                            if (longStack[longStackPointer] > longStack[longStackPointer + 1]) {
                                 local5 += local11[local5];
                             }
                         } else if (local34 == 72) {
-                            anInt7152 -= 2;
-                            if (aLongArray14[anInt7152] <= aLongArray14[anInt7152 + 1]) {
+                            longStackPointer -= 2;
+                            if (longStack[longStackPointer] <= longStack[longStackPointer + 1]) {
                                 local5 += local11[local5];
                             }
                         } else if (local34 == 73) {
-                            anInt7152 -= 2;
-                            if (aLongArray14[anInt7152] >= aLongArray14[anInt7152 + 1]) {
+                            longStackPointer -= 2;
+                            if (longStack[longStackPointer] >= longStack[longStackPointer + 1]) {
                                 local5 += local11[local5];
                             }
                         } else if (local34 == 86) {
-                            if (anIntArray578[--anInt7142] == 1) {
+                            if (intStack[--intStackPointer] == 1) {
                                 local5 += local11[local5];
                             }
                         } else if (local34 == 87) {
-                            if (anIntArray578[--anInt7142] == 0) {
+                            if (intStack[--intStackPointer] == 0) {
                                 local5 += local11[local5];
                             }
                         } else if (local34 == 106) {
@@ -3564,50 +4991,50 @@ public final class ScriptRunner {
                             if (local1178 == null) {
                                 @Pc(1185) VarClanSettingType local1185 = VarClanSettingTypeList.instance.list(local96);
                                 if (local1185.dataType == 'i' || local1185.dataType == '1') {
-                                    anIntArray578[anInt7142++] = 0;
+                                    intStack[intStackPointer++] = 0;
                                 } else {
-                                    anIntArray578[anInt7142++] = -1;
+                                    intStack[intStackPointer++] = -1;
                                 }
                             } else {
-                                anIntArray578[anInt7142++] = local1178;
+                                intStack[intStackPointer++] = local1178;
                             }
                         } else if (local34 == 107) {
                             local96 = local11[local5];
                             @Pc(1236) VarClanSettingType local1236 = VarClanSettingTypeList.instance.list(local96);
                             if (local1236.dataType != '\u0001') {
-                                anIntArray578[anInt7142++] = 0;
+                                intStack[intStackPointer++] = 0;
                             }
                             @Pc(1256) Integer local1256 = (Integer) Static279.clanVars[local1236.id];
                             if (local1256 == null) {
-                                anIntArray578[anInt7142++] = 0;
+                                intStack[intStackPointer++] = 0;
                             } else {
                                 @Pc(1284) int local1284 = local1236.end == 31 ? -1 : (0x1 << local1236.end + 1) - 1;
-                                anIntArray578[anInt7142++] = (local1256 & local1284) >>> local1236.start;
+                                intStack[intStackPointer++] = (local1256 & local1284) >>> local1236.start;
                             }
                         } else if (local34 == 108) {
                             local96 = local11[local5];
                             @Pc(1311) Long local1311 = (Long) Static279.clanVars[local96];
                             if (local1311 == null) {
-                                aLongArray14[anInt7152++] = -1L;
+                                longStack[longStackPointer++] = -1L;
                             } else {
-                                aLongArray14[anInt7152++] = local1311;
+                                longStack[longStackPointer++] = local1311;
                             }
                         } else if (local34 == 109) {
                             local96 = local11[local5];
                             local465 = (String) Static279.clanVars[local96];
                             if (local465 == null) {
-                                aStringArray37[anInt7139++] = "";
+                                stringStack[stringStackPointer++] = "";
                             } else {
-                                aStringArray37[anInt7139++] = local465;
+                                stringStack[stringStackPointer++] = local465;
                             }
                         } else if (local34 == 112) {
-                            anIntArray578[anInt7142++] = getClanSettingVarbit(local11[local5]);
+                            intStack[intStackPointer++] = getClanSettingInt(local11[local5]);
                         } else if (local34 == 113) {
-                            anIntArray578[anInt7142++] = getClanSettingInt(local11[local5]);
+                            intStack[intStackPointer++] = getClanSettingVarbit(local11[local5]);
                         } else if (local34 == 114) {
-                            aLongArray14[anInt7152++] = getClanSettingLong(local11[local5]);
+                            longStack[longStackPointer++] = getClanSettingLong(local11[local5]);
                         } else if (local34 == 115) {
-                            aStringArray37[anInt7139++] = method6425(local11[local5]);
+                            stringStack[stringStackPointer++] = method6425(local11[local5]);
                         }
                     }
                 }
@@ -3641,19 +5068,19 @@ public final class ScriptRunner {
         @Pc(101) String local101;
         if (arg0 < 5100) {
             if (arg0 == 5000) {
-                anIntArray578[anInt7142++] = Static133.publicChatFilter;
+                intStack[intStackPointer++] = Static133.publicChatFilter;
                 return;
             }
             @Pc(57) ServerConnection local57;
             @Pc(63) ClientMessage local63;
             if (arg0 == 5001) {
-                anInt7142 -= 3;
-                Static133.publicChatFilter = anIntArray578[anInt7142];
-                Static726.privateChatMode = PrivateChatMode.fromId(anIntArray578[anInt7142 + 1]);
+                intStackPointer -= 3;
+                Static133.publicChatFilter = intStack[intStackPointer];
+                Static726.privateChatMode = PrivateChatMode.fromId(intStack[intStackPointer + 1]);
                 if (Static726.privateChatMode == null) {
                     Static726.privateChatMode = PrivateChatMode.FRIENDS;
                 }
-                Static87.tradeChatFilter = anIntArray578[anInt7142 + 2];
+                Static87.tradeChatFilter = intStack[intStackPointer + 2];
                 local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(ClientProt.SET_CHATFILTERSETTINGS, local57.cipher);
                 local63.bitPacket.p1(Static133.publicChatFilter);
@@ -3663,12 +5090,12 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5002) {
-                anInt7139 -= 2;
-                local95 = aStringArray37[anInt7139];
-                local101 = aStringArray37[anInt7139 + 1];
-                anInt7142 -= 2;
-                local109 = anIntArray578[anInt7142];
-                local115 = anIntArray578[anInt7142 + 1];
+                stringStackPointer -= 2;
+                local95 = stringStack[stringStackPointer];
+                local101 = stringStack[stringStackPointer + 1];
+                intStackPointer -= 2;
+                local109 = intStack[intStackPointer];
+                local115 = intStack[intStackPointer + 1];
                 if (local101 == null) {
                     local101 = "";
                 }
@@ -3677,7 +5104,7 @@ public final class ScriptRunner {
                 }
                 @Pc(135) ServerConnection local135 = ConnectionManager.active();
                 @Pc(141) ClientMessage local141 = ClientMessage.create(ClientProt.SEND_SNAPSHOT, local135.cipher);
-                local141.bitPacket.p1(Static231.method3379(local95) + Static231.method3379(local101) + 2);
+                local141.bitPacket.p1(Packet.pjstrlen(local95) + Packet.pjstrlen(local101) + 2);
                 local141.bitPacket.pjstr(local95);
                 local141.bitPacket.p1(local109 - 1);
                 local141.bitPacket.p1(local115);
@@ -3687,37 +5114,37 @@ public final class ScriptRunner {
             }
             @Pc(196) ChatLine local196;
             if (arg0 == 5003) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.message != null) {
                     local198 = local196.message;
                 }
-                aStringArray37[anInt7139++] = local198;
+                stringStack[stringStackPointer++] = local198;
                 return;
             }
             if (arg0 == 5004) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local109 = -1;
                 if (local196 != null) {
                     local109 = local196.type;
                 }
-                anIntArray578[anInt7142++] = local109;
+                intStack[intStackPointer++] = local109;
                 return;
             }
             if (arg0 == 5005) {
                 if (Static726.privateChatMode == null) {
-                    anIntArray578[anInt7142++] = -1;
+                    intStack[intStackPointer++] = -1;
                     return;
                 }
-                anIntArray578[anInt7142++] = Static726.privateChatMode.id;
+                intStack[intStackPointer++] = Static726.privateChatMode.id;
                 return;
             }
             @Pc(295) ClientMessage local295;
             @Pc(289) ServerConnection local289;
             if (arg0 == 5006) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local289 = ConnectionManager.active();
                 local295 = ClientMessage.create(ClientProt.CHAT_SETMODE, local289.cipher);
                 local295.bitPacket.p1(local192);
@@ -3725,14 +5152,14 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5008) {
-                local95 = aStringArray37[--anInt7139];
+                local95 = stringStack[--stringStackPointer];
                 method6426(local95, arg0);
                 return;
             }
             if (arg0 == 5009) {
-                anInt7139 -= 2;
-                local95 = aStringArray37[anInt7139];
-                local101 = aStringArray37[anInt7139 + 1];
+                stringStackPointer -= 2;
+                local95 = stringStack[stringStackPointer];
+                local101 = stringStack[stringStackPointer + 1];
                 if (Client.staffModLevel != 0 || (!Static389.underage || Static34.parentalChatConsent) && !Static617.quickChatWorld) {
                     @Pc(360) ServerConnection local360 = ConnectionManager.active();
                     @Pc(366) ClientMessage local366 = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, local360.cipher);
@@ -3747,33 +5174,33 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5010) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.name != null) {
                     local198 = local196.name;
                 }
-                aStringArray37[anInt7139++] = local198;
+                stringStack[stringStackPointer++] = local198;
                 return;
             }
             if (arg0 == 5011) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.channel != null) {
                     local198 = local196.channel;
                 }
-                aStringArray37[anInt7139++] = local198;
+                stringStack[stringStackPointer++] = local198;
                 return;
             }
             if (arg0 == 5012) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local109 = -1;
                 if (local196 != null) {
                     local109 = local196.quickChatId;
                 }
-                anIntArray578[anInt7142++] = local109;
+                intStack[intStackPointer++] = local109;
                 return;
             }
             if (arg0 == 5015) {
@@ -3782,35 +5209,35 @@ public final class ScriptRunner {
                 } else {
                     local95 = PlayerEntity.self.getDisplayName(false, true);
                 }
-                aStringArray37[anInt7139++] = local95;
+                stringStack[stringStackPointer++] = local95;
                 return;
             }
             if (arg0 == 5016) {
-                anIntArray578[anInt7142++] = Static87.tradeChatFilter;
+                intStack[intStackPointer++] = Static87.tradeChatFilter;
                 return;
             }
             if (arg0 == 5017) {
-                anIntArray578[anInt7142++] = Static402.method5578();
+                intStack[intStackPointer++] = Static402.method5578();
                 return;
             }
             if (arg0 == 5018) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local109 = 0;
                 if (local196 != null) {
                     local109 = local196.flags;
                 }
-                anIntArray578[anInt7142++] = local109;
+                intStack[intStackPointer++] = local109;
                 return;
             }
             if (arg0 == 5019) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.accountName != null) {
                     local198 = local196.accountName;
                 }
-                aStringArray37[anInt7139++] = local198;
+                stringStack[stringStackPointer++] = local198;
                 return;
             }
             if (arg0 == 5020) {
@@ -3819,106 +5246,106 @@ public final class ScriptRunner {
                 } else {
                     local95 = PlayerEntity.self.getAccountName();
                 }
-                aStringArray37[anInt7139++] = local95;
+                stringStack[stringStackPointer++] = local95;
                 return;
             }
             if (arg0 == 5023) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local109 = -1;
                 if (local196 != null) {
                     local109 = local196.uid;
                 }
-                anIntArray578[anInt7142++] = local109;
+                intStack[intStackPointer++] = local109;
                 return;
             }
             if (arg0 == 5024) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local109 = -1;
                 if (local196 != null) {
                     local109 = local196.clock;
                 }
-                anIntArray578[anInt7142++] = local109;
+                intStack[intStackPointer++] = local109;
                 return;
             }
             if (arg0 == 5025) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
                 local198 = "";
                 if (local196 != null && local196.displayName != null) {
                     local198 = local196.displayName;
                 }
-                aStringArray37[anInt7139++] = local198;
+                stringStack[stringStackPointer++] = local198;
                 return;
             }
             if (arg0 == 5050) {
-                local192 = anIntArray578[--anInt7142];
-                aStringArray37[anInt7139++] = QuickChatCatTypeList.instance.method3234(local192).aString4;
+                local192 = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aString4;
                 return;
             }
             @Pc(793) DoublyLinkedNode_Sub2_Sub3 local793;
             if (arg0 == 5051) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local793 = QuickChatCatTypeList.instance.method3234(local192);
                 if (local793.anIntArray93 == null) {
-                    anIntArray578[anInt7142++] = 0;
+                    intStack[intStackPointer++] = 0;
                     return;
                 }
-                anIntArray578[anInt7142++] = local793.anIntArray93.length;
+                intStack[intStackPointer++] = local793.anIntArray93.length;
                 return;
             }
             if (arg0 == 5052) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
                 @Pc(839) DoublyLinkedNode_Sub2_Sub3 local839 = QuickChatCatTypeList.instance.method3234(local192);
                 local115 = local839.anIntArray93[local834];
-                anIntArray578[anInt7142++] = local115;
+                intStack[intStackPointer++] = local115;
                 return;
             }
             if (arg0 == 5053) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 local793 = QuickChatCatTypeList.instance.method3234(local192);
                 if (local793.anIntArray94 == null) {
-                    anIntArray578[anInt7142++] = 0;
+                    intStack[intStackPointer++] = 0;
                     return;
                 }
-                anIntArray578[anInt7142++] = local793.anIntArray94.length;
+                intStack[intStackPointer++] = local793.anIntArray94.length;
                 return;
             }
             if (arg0 == 5054) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).anIntArray94[local834];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).anIntArray94[local834];
                 return;
             }
             if (arg0 == 5055) {
-                local192 = anIntArray578[--anInt7142];
-                aStringArray37[anInt7139++] = QuickChatPhraseTypeList.instance.get(local192).getText();
+                local192 = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = QuickChatPhraseTypeList.instance.get(local192).getText();
                 return;
             }
             if (arg0 == 5056) {
-                local192 = anIntArray578[--anInt7142];
+                local192 = intStack[--intStackPointer];
                 @Pc(966) QuickChatPhraseType local966 = QuickChatPhraseTypeList.instance.get(local192);
                 if (local966.autoResponses == null) {
-                    anIntArray578[anInt7142++] = 0;
+                    intStack[intStackPointer++] = 0;
                     return;
                 }
-                anIntArray578[anInt7142++] = local966.autoResponses.length;
+                intStack[intStackPointer++] = local966.autoResponses.length;
                 return;
             }
             if (arg0 == 5057) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = QuickChatPhraseTypeList.instance.get(local192).autoResponses[local834];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
+                intStack[intStackPointer++] = QuickChatPhraseTypeList.instance.get(local192).autoResponses[local834];
                 return;
             }
             if (arg0 == 5058) {
                 aQuickChatPhrase_1 = new QuickChatPhrase();
-                aQuickChatPhrase_1.id = anIntArray578[--anInt7142];
+                aQuickChatPhrase_1.id = intStack[--intStackPointer];
                 aQuickChatPhrase_1.type = QuickChatPhraseTypeList.instance.get(aQuickChatPhrase_1.id);
                 aQuickChatPhrase_1.fillerValues = new int[aQuickChatPhrase_1.type.getDynamicCommandCount()];
                 return;
@@ -3936,7 +5363,7 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5060) {
-                local95 = aStringArray37[--anInt7139];
+                local95 = stringStack[--stringStackPointer];
                 local289 = ConnectionManager.active();
                 local295 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PRIVATE, local289.cipher);
                 local295.bitPacket.p1(0);
@@ -3961,97 +5388,97 @@ public final class ScriptRunner {
                 return;
             }
             if (arg0 == 5062) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray2[local834];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray2[local834];
                 return;
             }
             if (arg0 == 5063) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
-                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray3[local834];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray3[local834];
                 return;
             }
             if (arg0 == 5064) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
                 if (local834 == -1) {
-                    anIntArray578[anInt7142++] = -1;
+                    intStack[intStackPointer++] = -1;
                     return;
                 }
-                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).method1185((char) local834);
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).method1185((char) local834);
                 return;
             }
             if (arg0 == 5065) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
                 if (local834 == -1) {
-                    anIntArray578[anInt7142++] = -1;
+                    intStack[intStackPointer++] = -1;
                     return;
                 }
-                anIntArray578[anInt7142++] = QuickChatCatTypeList.instance.method3234(local192).method1184((char) local834);
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).method1184((char) local834);
                 return;
             }
             if (arg0 == 5066) {
-                local192 = anIntArray578[--anInt7142];
-                anIntArray578[anInt7142++] = QuickChatPhraseTypeList.instance.get(local192).getDynamicCommandCount();
+                local192 = intStack[--intStackPointer];
+                intStack[intStackPointer++] = QuickChatPhraseTypeList.instance.get(local192).getDynamicCommandCount();
                 return;
             }
             if (arg0 == 5067) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
                 local109 = QuickChatPhraseTypeList.instance.get(local192).getDynamicCommand(local834).id;
-                anIntArray578[anInt7142++] = local109;
+                intStack[intStackPointer++] = local109;
                 return;
             }
             if (arg0 == 5068) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
                 aQuickChatPhrase_1.fillerValues[local192] = local834;
                 return;
             }
             if (arg0 == 5069) {
-                anInt7142 -= 2;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
+                intStackPointer -= 2;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
                 aQuickChatPhrase_1.fillerValues[local192] = local834;
                 return;
             }
             if (arg0 == 5070) {
-                anInt7142 -= 3;
-                local192 = anIntArray578[anInt7142];
-                local834 = anIntArray578[anInt7142 + 1];
-                local109 = anIntArray578[anInt7142 + 2];
+                intStackPointer -= 3;
+                local192 = intStack[intStackPointer];
+                local834 = intStack[intStackPointer + 1];
+                local109 = intStack[intStackPointer + 2];
                 @Pc(1526) QuickChatPhraseType local1526 = QuickChatPhraseTypeList.instance.get(local192);
                 if (local1526.getDynamicCommand(local834).id != 0) {
                     throw new RuntimeException("bad command");
                 }
-                anIntArray578[anInt7142++] = local1526.getDynamicCommandParam(local834, local109);
+                intStack[intStackPointer++] = local1526.getDynamicCommandParam(local834, local109);
                 return;
             }
             if (arg0 == 5071) {
-                local95 = aStringArray37[--anInt7139];
-                local1578 = anIntArray578[--anInt7142] == 1;
+                local95 = stringStack[--stringStackPointer];
+                local1578 = intStack[--intStackPointer] == 1;
                 Static494.method6599(local95, local1578);
-                anIntArray578[anInt7142++] = Static606.anInt8947;
+                intStack[intStackPointer++] = ObjFinder.resultCount;
                 return;
             }
             if (arg0 == 5072) {
-                if (Static256.aShortArray63 != null && Static143.anInt4054 < Static606.anInt8947) {
-                    anIntArray578[anInt7142++] = Static256.aShortArray63[Static143.anInt4054++] & 0xFFFF;
+                if (ObjFinder.results != null && ObjFinder.pointer < ObjFinder.resultCount) {
+                    intStack[intStackPointer++] = ObjFinder.results[ObjFinder.pointer++] & 0xFFFF;
                     return;
                 }
-                anIntArray578[anInt7142++] = -1;
+                intStack[intStackPointer++] = -1;
                 return;
             }
             if (arg0 == 5073) {
-                Static143.anInt4054 = 0;
+                ObjFinder.pointer = 0;
                 return;
             }
             if (arg0 == 5074) {
@@ -4081,126 +5508,126 @@ public final class ScriptRunner {
         } else if (arg0 < 5200) {
             if (arg0 == 5100) {
                 if (KeyboardMonitor.instance.isPressed(86)) {
-                    anIntArray578[anInt7142++] = 1;
+                    intStack[intStackPointer++] = 1;
                     return;
                 }
-                anIntArray578[anInt7142++] = 0;
+                intStack[intStackPointer++] = 0;
                 return;
             }
             if (arg0 == 5101) {
                 if (KeyboardMonitor.instance.isPressed(82)) {
-                    anIntArray578[anInt7142++] = 1;
+                    intStack[intStackPointer++] = 1;
                     return;
                 }
-                anIntArray578[anInt7142++] = 0;
+                intStack[intStackPointer++] = 0;
                 return;
             }
             if (arg0 == 5102) {
                 if (KeyboardMonitor.instance.isPressed(81)) {
-                    anIntArray578[anInt7142++] = 1;
+                    intStack[intStackPointer++] = 1;
                     return;
                 }
-                anIntArray578[anInt7142++] = 0;
+                intStack[intStackPointer++] = 0;
                 return;
             }
         } else {
             @Pc(2331) boolean local2331;
             if (arg0 < 5300) {
                 if (arg0 == 5200) {
-                    WorldMap.setZoomPercentage(anIntArray578[--anInt7142]);
+                    WorldMap.setZoomPercentage(intStack[--intStackPointer]);
                     return;
                 }
                 if (arg0 == 5201) {
-                    anIntArray578[anInt7142++] = WorldMap.getZoom();
+                    intStack[intStackPointer++] = WorldMap.getZoom();
                     return;
                 }
                 if (arg0 == 5205) {
-                    WorldMap.method1293(anIntArray578[--anInt7142], false, -1, -1, -11493);
+                    WorldMap.method1293(intStack[--intStackPointer], false, -1, -1, -11493);
                     return;
                 }
                 @Pc(1908) WorldMapArea local1908;
                 if (arg0 == 5206) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.method5078(local192 >> 14 & 0x3FFF, local192 & 0x3FFF);
                     if (local1908 == null) {
-                        anIntArray578[anInt7142++] = -1;
+                        intStack[intStackPointer++] = -1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = local1908.id;
+                    intStack[intStackPointer++] = local1908.id;
                     return;
                 }
                 @Pc(1942) WorldMapArea local1942;
                 if (arg0 == 5207) {
-                    local1942 = WorldMap.getArea(anIntArray578[--anInt7142]);
+                    local1942 = WorldMap.getArea(intStack[--intStackPointer]);
                     if (local1942 != null && local1942.aString49 != null) {
-                        aStringArray37[anInt7139++] = local1942.aString49;
+                        stringStack[stringStackPointer++] = local1942.aString49;
                         return;
                     }
-                    aStringArray37[anInt7139++] = "";
+                    stringStack[stringStackPointer++] = "";
                     return;
                 }
                 if (arg0 == 5208) {
-                    anIntArray578[anInt7142++] = WorldMap.width;
-                    anIntArray578[anInt7142++] = WorldMap.height;
+                    intStack[intStackPointer++] = WorldMap.width;
+                    intStack[intStackPointer++] = WorldMap.height;
                     return;
                 }
                 if (arg0 == 5209) {
-                    anIntArray578[anInt7142++] = WorldMap.anInt2809 + WorldMap.areaX;
-                    anIntArray578[anInt7142++] = WorldMap.anInt9389 + WorldMap.areaY;
+                    intStack[intStackPointer++] = WorldMap.anInt2809 + WorldMap.areaX;
+                    intStack[intStackPointer++] = WorldMap.anInt9389 + WorldMap.areaY;
                     return;
                 }
                 if (arg0 == 5210) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea(local192);
                     if (local1908 == null) {
-                        anIntArray578[anInt7142++] = 0;
-                        anIntArray578[anInt7142++] = 0;
+                        intStack[intStackPointer++] = 0;
+                        intStack[intStackPointer++] = 0;
                         return;
                     }
-                    anIntArray578[anInt7142++] = local1908.origin >> 14 & 0x3FFF;
-                    anIntArray578[anInt7142++] = local1908.origin & 0x3FFF;
+                    intStack[intStackPointer++] = local1908.origin >> 14 & 0x3FFF;
+                    intStack[intStackPointer++] = local1908.origin & 0x3FFF;
                     return;
                 }
                 if (arg0 == 5211) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea(local192);
                     if (local1908 == null) {
-                        anIntArray578[anInt7142++] = 0;
-                        anIntArray578[anInt7142++] = 0;
+                        intStack[intStackPointer++] = 0;
+                        intStack[intStackPointer++] = 0;
                         return;
                     }
-                    anIntArray578[anInt7142++] = local1908.maxX - local1908.minX;
-                    anIntArray578[anInt7142++] = local1908.maxY - local1908.minY;
+                    intStack[intStackPointer++] = local1908.maxX - local1908.minX;
+                    intStack[intStackPointer++] = local1908.maxY - local1908.minY;
                     return;
                 }
                 @Pc(2139) MapElementListEntry local2139;
                 if (arg0 == 5212) {
                     local2139 = Static122.method2207();
                     if (local2139 == null) {
-                        anIntArray578[anInt7142++] = -1;
-                        anIntArray578[anInt7142++] = -1;
+                        intStack[intStackPointer++] = -1;
+                        intStack[intStackPointer++] = -1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = local2139.id;
+                    intStack[intStackPointer++] = local2139.id;
                     local834 = local2139.level << 28 | local2139.x + WorldMap.areaX << 14 | local2139.y + WorldMap.areaY;
-                    anIntArray578[anInt7142++] = local834;
+                    intStack[intStackPointer++] = local834;
                     return;
                 }
                 if (arg0 == 5213) {
                     local2139 = Static364.method5248();
                     if (local2139 == null) {
-                        anIntArray578[anInt7142++] = -1;
-                        anIntArray578[anInt7142++] = -1;
+                        intStack[intStackPointer++] = -1;
+                        intStack[intStackPointer++] = -1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = local2139.id;
+                    intStack[intStackPointer++] = local2139.id;
                     local834 = local2139.level << 28 | local2139.x + WorldMap.areaX << 14 | local2139.y + WorldMap.areaY;
-                    anIntArray578[anInt7142++] = local834;
+                    intStack[intStackPointer++] = local834;
                     return;
                 }
                 @Pc(2289) boolean local2289;
                 if (arg0 == 5214) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea();
                     if (local1908 != null) {
                         local2289 = local1908.method4088(areaCoords, local192 & 0x3FFF, local192 >> 28 & 0x3, local192 >> 14 & 0x3FFF);
@@ -4211,9 +5638,9 @@ public final class ScriptRunner {
                     return;
                 }
                 if (arg0 == 5215) {
-                    anInt7142 -= 2;
-                    local192 = anIntArray578[anInt7142];
-                    local834 = anIntArray578[anInt7142 + 1];
+                    intStackPointer -= 2;
+                    local192 = intStack[intStackPointer];
+                    local834 = intStack[intStackPointer + 1];
                     @Pc(2329) Queue local2329 = WorldMap.method5076(local192 >> 14 & 0x3FFF, local192 & 0x3FFF);
                     local2331 = false;
                     for (@Pc(2336) WorldMapArea local2336 = (WorldMapArea) local2329.first(); local2336 != null; local2336 = (WorldMapArea) local2329.next()) {
@@ -4223,28 +5650,28 @@ public final class ScriptRunner {
                         }
                     }
                     if (local2331) {
-                        anIntArray578[anInt7142++] = 1;
+                        intStack[intStackPointer++] = 1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = 0;
+                    intStack[intStackPointer++] = 0;
                     return;
                 }
                 if (arg0 == 5218) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea(local192);
                     if (local1908 == null) {
-                        anIntArray578[anInt7142++] = -1;
+                        intStack[intStackPointer++] = -1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = local1908.zoom;
+                    intStack[intStackPointer++] = local1908.zoom;
                     return;
                 }
                 if (arg0 == 5220) {
-                    anIntArray578[anInt7142++] = WorldMap.loadingPercent == 100 ? 1 : 0;
+                    intStack[intStackPointer++] = WorldMap.loadingPercent == 100 ? 1 : 0;
                     return;
                 }
                 if (arg0 == 5221) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     Static106.method2048(local192 >> 14 & 0x3FFF, local192 & 0x3FFF);
                     return;
                 }
@@ -4253,90 +5680,90 @@ public final class ScriptRunner {
                     if (local1942 != null) {
                         local1578 = local1942.method4091(WorldMap.anInt9389 + WorldMap.areaY, WorldMap.anInt2809 + WorldMap.areaX, areaCoords);
                         if (local1578) {
-                            anIntArray578[anInt7142++] = areaCoords[1];
-                            anIntArray578[anInt7142++] = areaCoords[2];
+                            intStack[intStackPointer++] = areaCoords[1];
+                            intStack[intStackPointer++] = areaCoords[2];
                             return;
                         }
-                        anIntArray578[anInt7142++] = -1;
-                        anIntArray578[anInt7142++] = -1;
+                        intStack[intStackPointer++] = -1;
+                        intStack[intStackPointer++] = -1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = -1;
-                    anIntArray578[anInt7142++] = -1;
+                    intStack[intStackPointer++] = -1;
+                    intStack[intStackPointer++] = -1;
                     return;
                 }
                 if (arg0 == 5223) {
-                    anInt7142 -= 2;
-                    local192 = anIntArray578[anInt7142];
-                    local834 = anIntArray578[anInt7142 + 1];
+                    intStackPointer -= 2;
+                    local192 = intStack[intStackPointer];
+                    local834 = intStack[intStackPointer + 1];
                     WorldMap.method1293(local192, false, local834 & 0x3FFF, local834 >> 14 & 0x3FFF, -11493);
                     return;
                 }
                 if (arg0 == 5224) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea();
                     if (local1908 != null) {
                         local2289 = local1908.method4088(areaCoords, local192 & 0x3FFF, local192 >> 28 & 0x3, local192 >> 14 & 0x3FFF);
                         if (local2289) {
-                            anIntArray578[anInt7142++] = areaCoords[1];
-                            anIntArray578[anInt7142++] = areaCoords[2];
+                            intStack[intStackPointer++] = areaCoords[1];
+                            intStack[intStackPointer++] = areaCoords[2];
                             return;
                         }
-                        anIntArray578[anInt7142++] = -1;
-                        anIntArray578[anInt7142++] = -1;
+                        intStack[intStackPointer++] = -1;
+                        intStack[intStackPointer++] = -1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = -1;
-                    anIntArray578[anInt7142++] = -1;
+                    intStack[intStackPointer++] = -1;
+                    intStack[intStackPointer++] = -1;
                     return;
                 }
                 if (arg0 == 5225) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea();
                     if (local1908 != null) {
                         local2289 = local1908.method4091(local192 & 0x3FFF, local192 >> 14 & 0x3FFF, areaCoords);
                         if (local2289) {
-                            anIntArray578[anInt7142++] = areaCoords[1];
-                            anIntArray578[anInt7142++] = areaCoords[2];
+                            intStack[intStackPointer++] = areaCoords[1];
+                            intStack[intStackPointer++] = areaCoords[2];
                             return;
                         }
-                        anIntArray578[anInt7142++] = -1;
-                        anIntArray578[anInt7142++] = -1;
+                        intStack[intStackPointer++] = -1;
+                        intStack[intStackPointer++] = -1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = -1;
-                    anIntArray578[anInt7142++] = -1;
+                    intStack[intStackPointer++] = -1;
+                    intStack[intStackPointer++] = -1;
                     return;
                 }
                 if (arg0 == 5226) {
-                    Static688.method8975(anIntArray578[--anInt7142]);
+                    Static688.method8975(intStack[--intStackPointer]);
                     return;
                 }
                 if (arg0 == 5227) {
-                    anInt7142 -= 2;
-                    local192 = anIntArray578[anInt7142];
-                    local834 = anIntArray578[anInt7142 + 1];
+                    intStackPointer -= 2;
+                    local192 = intStack[intStackPointer];
+                    local834 = intStack[intStackPointer + 1];
                     WorldMap.method1293(local192, true, local834 & 0x3FFF, local834 >> 14 & 0x3FFF, -11493);
                     return;
                 }
                 if (arg0 == 5228) {
-                    Static178.aBoolean251 = anIntArray578[--anInt7142] == 1;
+                    Static178.aBoolean251 = intStack[--intStackPointer] == 1;
                     return;
                 }
                 if (arg0 == 5229) {
-                    anIntArray578[anInt7142++] = Static178.aBoolean251 ? 1 : 0;
+                    intStack[intStackPointer++] = Static178.aBoolean251 ? 1 : 0;
                     return;
                 }
                 if (arg0 == 5230) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     Static170.method2653(local192);
                     return;
                 }
                 @Pc(2867) Node local2867;
                 if (arg0 == 5231) {
-                    anInt7142 -= 2;
-                    local192 = anIntArray578[anInt7142];
-                    local1578 = anIntArray578[anInt7142 + 1] == 1;
+                    intStackPointer -= 2;
+                    local192 = intStack[intStackPointer];
+                    local1578 = intStack[intStackPointer + 1] == 1;
                     if (Static232.A_HASH_TABLE___18 != null) {
                         local2867 = Static232.A_HASH_TABLE___18.get(local192);
                         if (local2867 != null && !local1578) {
@@ -4352,19 +5779,19 @@ public final class ScriptRunner {
                 }
                 @Pc(2914) Node local2914;
                 if (arg0 == 5232) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     if (Static232.A_HASH_TABLE___18 != null) {
                         local2914 = Static232.A_HASH_TABLE___18.get(local192);
-                        anIntArray578[anInt7142++] = local2914 == null ? 0 : 1;
+                        intStack[intStackPointer++] = local2914 == null ? 0 : 1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = 0;
+                    intStack[intStackPointer++] = 0;
                     return;
                 }
                 if (arg0 == 5233) {
-                    anInt7142 -= 2;
-                    local192 = anIntArray578[anInt7142];
-                    local1578 = anIntArray578[anInt7142 + 1] == 1;
+                    intStackPointer -= 2;
+                    local192 = intStack[intStackPointer];
+                    local1578 = intStack[intStackPointer + 1] == 1;
                     if (Static268.A_HASH_TABLE___22 != null) {
                         local2867 = Static268.A_HASH_TABLE___22.get(local192);
                         if (local2867 != null && !local1578) {
@@ -4379,31 +5806,31 @@ public final class ScriptRunner {
                     return;
                 }
                 if (arg0 == 5234) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     if (Static268.A_HASH_TABLE___22 != null) {
                         local2914 = Static268.A_HASH_TABLE___22.get(local192);
-                        anIntArray578[anInt7142++] = local2914 == null ? 0 : 1;
+                        intStack[intStackPointer++] = local2914 == null ? 0 : 1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = 0;
+                    intStack[intStackPointer++] = 0;
                     return;
                 }
                 if (arg0 == 5235) {
-                    anIntArray578[anInt7142++] = WorldMap.area == null ? -1 : WorldMap.area.id;
+                    intStack[intStackPointer++] = WorldMap.area == null ? -1 : WorldMap.area.id;
                     return;
                 }
                 if (arg0 == 5236) {
-                    anInt7142 -= 2;
-                    local192 = anIntArray578[anInt7142];
-                    local834 = anIntArray578[anInt7142 + 1];
+                    intStackPointer -= 2;
+                    local192 = intStack[intStackPointer];
+                    local834 = intStack[intStackPointer + 1];
                     local109 = local834 >> 14 & 0x3FFF;
                     local115 = local834 & 0x3FFF;
                     local375 = Static687.method8957(local192, local115, local109);
                     if (local375 < 0) {
-                        anIntArray578[anInt7142++] = -1;
+                        intStack[intStackPointer++] = -1;
                         return;
                     }
-                    anIntArray578[anInt7142++] = local375;
+                    intStack[intStackPointer++] = local375;
                     return;
                 }
                 if (arg0 == 5237) {
@@ -4412,11 +5839,11 @@ public final class ScriptRunner {
                 }
             } else if (arg0 < 5400) {
                 if (arg0 == 5300) {
-                    anInt7142 -= 2;
-                    local192 = anIntArray578[anInt7142];
-                    local834 = anIntArray578[anInt7142 + 1];
+                    intStackPointer -= 2;
+                    local192 = intStack[intStackPointer];
+                    local834 = intStack[intStackPointer + 1];
                     InterfaceManager.changeWindowMode(3, local192, false, local834);
-                    anIntArray578[anInt7142++] = GameShell.fsframe == null ? 0 : 1;
+                    intStack[intStackPointer++] = GameShell.fsframe == null ? 0 : 1;
                     return;
                 }
                 if (arg0 == 5301) {
@@ -4427,14 +5854,14 @@ public final class ScriptRunner {
                 }
                 if (arg0 == 5302) {
                     @Pc(3186) DisplayProperties[] local3186 = Static587.method7710();
-                    anIntArray578[anInt7142++] = local3186.length;
+                    intStack[intStackPointer++] = local3186.length;
                     return;
                 }
                 if (arg0 == 5303) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     @Pc(3210) DisplayProperties[] local3210 = Static587.method7710();
-                    anIntArray578[anInt7142++] = local3210[local192].width;
-                    anIntArray578[anInt7142++] = local3210[local192].height;
+                    intStack[intStackPointer++] = local3210[local192].width;
+                    intStack[intStackPointer++] = local3210[local192].height;
                     return;
                 }
                 if (arg0 == 5305) {
@@ -4449,15 +5876,15 @@ public final class ScriptRunner {
                             break;
                         }
                     }
-                    anIntArray578[anInt7142++] = local109;
+                    intStack[intStackPointer++] = local109;
                     return;
                 }
                 if (arg0 == 5306) {
-                    anIntArray578[anInt7142++] = InterfaceManager.getWindowMode();
+                    intStack[intStackPointer++] = InterfaceManager.getWindowMode();
                     return;
                 }
                 if (arg0 == 5307) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     if (local192 >= 1 && local192 <= 2) {
                         InterfaceManager.changeWindowMode(local192, -1, false, -1);
                         return;
@@ -4465,11 +5892,11 @@ public final class ScriptRunner {
                     return;
                 }
                 if (arg0 == 5308) {
-                    anIntArray578[anInt7142++] = ClientOptions.instance.screenSizeDefault.getValue();
+                    intStack[intStackPointer++] = ClientOptions.instance.screenSizeDefault.getValue();
                     return;
                 }
                 if (arg0 == 5309) {
-                    local192 = anIntArray578[--anInt7142];
+                    local192 = intStack[--intStackPointer];
                     if (local192 >= 1 && local192 <= 2) {
                         ClientOptions.instance.update(local192, ClientOptions.instance.screenSizeDefault);
                         ClientOptions.instance.update(local192, ClientOptions.instance.screenSize);
@@ -4482,13 +5909,13 @@ public final class ScriptRunner {
                 @Pc(3561) int local3561;
                 if (arg0 < 5500) {
                     if (arg0 == 5400) {
-                        anInt7139 -= 2;
-                        local95 = aStringArray37[anInt7139];
-                        local101 = aStringArray37[anInt7139 + 1];
-                        local109 = anIntArray578[--anInt7142];
+                        stringStackPointer -= 2;
+                        local95 = stringStack[stringStackPointer];
+                        local101 = stringStack[stringStackPointer + 1];
+                        local109 = intStack[--intStackPointer];
                         @Pc(3411) ServerConnection local3411 = ConnectionManager.active();
                         @Pc(3417) ClientMessage local3417 = ClientMessage.create(ClientProt.URL_REQUEST, local3411.cipher);
-                        local3417.bitPacket.p1(Static231.method3379(local95) + Static231.method3379(local101) + 1);
+                        local3417.bitPacket.p1(Packet.pjstrlen(local95) + Packet.pjstrlen(local101) + 1);
                         local3417.bitPacket.pjstr(local95);
                         local3417.bitPacket.pjstr(local101);
                         local3417.bitPacket.p1(local109);
@@ -4496,8 +5923,8 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5401) {
-                        anInt7142 -= 2;
-                        Client.clientpalette[anIntArray578[anInt7142]] = (short) ColourUtils.rgbToHsl(anIntArray578[anInt7142 + 1]);
+                        intStackPointer -= 2;
+                        Client.clientpalette[intStack[intStackPointer]] = (short) ColourUtils.rgbToHsl(intStack[intStackPointer + 1]);
                         ObjTypeList.instance.modelCacheReset();
                         ObjTypeList.instance.spriteCacheReset();
                         NPCTypeList.instance.modelCacheReset();
@@ -4505,23 +5932,23 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5405) {
-                        anInt7142 -= 2;
-                        local192 = anIntArray578[anInt7142];
-                        local834 = anIntArray578[anInt7142 + 1];
+                        intStackPointer -= 2;
+                        local192 = intStack[intStackPointer];
+                        local834 = intStack[intStackPointer + 1];
                         if (local192 >= 0 && local192 < 2) {
                             Camera.spline[local192] = new int[local834 << 1][4];
                         }
                         return;
                     }
                     if (arg0 == 5406) {
-                        anInt7142 -= 7;
-                        local192 = anIntArray578[anInt7142];
-                        local834 = anIntArray578[anInt7142 + 1] << 1;
-                        local109 = anIntArray578[anInt7142 + 2];
-                        local115 = anIntArray578[anInt7142 + 3];
-                        local375 = anIntArray578[anInt7142 + 4];
-                        local3561 = anIntArray578[anInt7142 + 5];
-                        @Pc(3567) int local3567 = anIntArray578[anInt7142 + 6];
+                        intStackPointer -= 7;
+                        local192 = intStack[intStackPointer];
+                        local834 = intStack[intStackPointer + 1] << 1;
+                        local109 = intStack[intStackPointer + 2];
+                        local115 = intStack[intStackPointer + 3];
+                        local375 = intStack[intStackPointer + 4];
+                        local3561 = intStack[intStackPointer + 5];
+                        @Pc(3567) int local3567 = intStack[intStackPointer + 6];
                         if (local192 >= 0 && local192 < 2 && Camera.spline[local192] != null && local834 >= 0 && local834 < Camera.spline[local192].length) {
                             Camera.spline[local192][local834] = new int[]{(local109 >> 14 & 0x3FFF) << 9, local115 << 2, (local109 & 0x3FFF) << 9, local3567};
                             Camera.spline[local192][local834 + 1] = new int[]{(local375 >> 14 & 0x3FFF) << 9, local3561 << 2, (local375 & 0x3FFF) << 9};
@@ -4529,8 +5956,8 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5407) {
-                        local192 = Camera.spline[anIntArray578[--anInt7142]].length >> 1;
-                        anIntArray578[anInt7142++] = local192;
+                        local192 = Camera.spline[intStack[--intStackPointer]].length >> 1;
+                        intStack[intStackPointer++] = local192;
                         return;
                     }
                     if (arg0 == 5411) {
@@ -4555,28 +5982,28 @@ public final class ScriptRunner {
                                 local95 = (String) Static439.hostnameResource.result;
                             }
                         }
-                        aStringArray37[anInt7139++] = local95;
+                        stringStack[stringStackPointer++] = local95;
                         return;
                     }
                     if (arg0 == 5420) {
-                        anIntArray578[anInt7142++] = GameShell.signLink.signed ? 0 : 1;
+                        intStack[intStackPointer++] = GameShell.signLink.signed ? 0 : 1;
                         return;
                     }
                     if (arg0 == 5421) {
                         if (GameShell.fsframe != null) {
                             InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                         }
-                        local95 = aStringArray37[--anInt7139];
-                        local1578 = anIntArray578[--anInt7142] == 1;
+                        local95 = stringStack[--stringStackPointer];
+                        local1578 = intStack[--intStackPointer] == 1;
                         local198 = Static659.method8605() + local95;
                         Static664.openjs(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local198, local1578, GameShell.signLink);
                         return;
                     }
                     if (arg0 == 5422) {
-                        anInt7139 -= 2;
-                        local95 = aStringArray37[anInt7139];
-                        local101 = aStringArray37[anInt7139 + 1];
-                        local109 = anIntArray578[--anInt7142];
+                        stringStackPointer -= 2;
+                        local95 = stringStack[stringStackPointer];
+                        local101 = stringStack[stringStackPointer + 1];
+                        local109 = intStack[--intStackPointer];
                         if (local95.length() > 0) {
                             if (Static685.prefixTitles == null) {
                                 Static685.prefixTitles = new String[Static390.anIntArray476[Client.modeGame.id]];
@@ -4592,22 +6019,22 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5423) {
-                        System.out.println(aStringArray37[--anInt7139]);
+                        System.out.println(stringStack[--stringStackPointer]);
                         return;
                     }
                     if (arg0 == 5424) {
-                        anInt7142 -= 11;
-                        MiniMenu.topColour = anIntArray578[anInt7142];
-                        MiniMenu.topOpacity = anIntArray578[anInt7142 + 1];
-                        MiniMenu.spriteBodyColour = anIntArray578[anInt7142 + 2];
-                        MiniMenu.spriteBodyOpacity = anIntArray578[anInt7142 + 3];
-                        MiniMenu.separatorSpriteId = anIntArray578[anInt7142 + 4];
-                        MiniMenu.topCornerSpriteId = anIntArray578[anInt7142 + 5];
-                        MiniMenu.horizontalBorderSpriteId = anIntArray578[anInt7142 + 6];
-                        MiniMenu.verticalBorderSpriteId = anIntArray578[anInt7142 + 7];
-                        MiniMenu.bottomCornerSpriteId = anIntArray578[anInt7142 + 8];
-                        MiniMenu.textColour = anIntArray578[anInt7142 + 9];
-                        MiniMenu.spriteHighlightColour = anIntArray578[anInt7142 + 10];
+                        intStackPointer -= 11;
+                        MiniMenu.topColour = intStack[intStackPointer];
+                        MiniMenu.topOpacity = intStack[intStackPointer + 1];
+                        MiniMenu.spriteBodyColour = intStack[intStackPointer + 2];
+                        MiniMenu.spriteBodyOpacity = intStack[intStackPointer + 3];
+                        MiniMenu.separatorSpriteId = intStack[intStackPointer + 4];
+                        MiniMenu.topCornerSpriteId = intStack[intStackPointer + 5];
+                        MiniMenu.horizontalBorderSpriteId = intStack[intStackPointer + 6];
+                        MiniMenu.verticalBorderSpriteId = intStack[intStackPointer + 7];
+                        MiniMenu.bottomCornerSpriteId = intStack[intStackPointer + 8];
+                        MiniMenu.textColour = intStack[intStackPointer + 9];
+                        MiniMenu.spriteHighlightColour = intStack[intStackPointer + 10];
                         js5.SPRITES.fileready(MiniMenu.separatorSpriteId);
                         js5.SPRITES.fileready(MiniMenu.topCornerSpriteId);
                         js5.SPRITES.fileready(MiniMenu.horizontalBorderSpriteId);
@@ -4630,24 +6057,24 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5426) {
-                        anInt7142 -= 2;
-                        Cursor.dflt = anIntArray578[anInt7142];
-                        Cursor.interaction = anIntArray578[anInt7142 + 1];
+                        intStackPointer -= 2;
+                        Cursor.dflt = intStack[intStackPointer];
+                        Cursor.interaction = intStack[intStackPointer + 1];
                         return;
                     }
                     if (arg0 == 5427) {
-                        anInt7142 -= 2;
+                        intStackPointer -= 2;
                         return;
                     }
                     if (arg0 == 5428) {
-                        anInt7142 -= 2;
-                        local192 = anIntArray578[anInt7142];
-                        local834 = anIntArray578[anInt7142 + 1];
-                        anIntArray578[anInt7142++] = Static251.method3549(local192, local834) ? 1 : 0;
+                        intStackPointer -= 2;
+                        local192 = intStack[intStackPointer];
+                        local834 = intStack[intStackPointer + 1];
+                        intStack[intStackPointer++] = Static251.method3549(local192, local834) ? 1 : 0;
                         return;
                     }
                     if (arg0 == 5429) {
-                        debugconsole.executeComand(false, false, aStringArray37[--anInt7139]);
+                        debugconsole.executeComand(false, false, stringStack[--stringStackPointer]);
                         return;
                     }
                     if (arg0 == 5430) {
@@ -4680,69 +6107,69 @@ public final class ScriptRunner {
                                 }
                             }
                         }
-                        aStringArray37[anInt7139++] = local95;
+                        stringStack[stringStackPointer++] = local95;
                         return;
                     }
                     if (arg0 == 5433) {
-                        MiniMenu.collapseAtCount = anIntArray578[--anInt7142];
+                        MiniMenu.collapseAtCount = intStack[--intStackPointer];
                         return;
                     }
                     if (arg0 == 5435) {
-                        anIntArray578[anInt7142++] = Client.js ? 1 : 0;
+                        intStack[intStackPointer++] = Client.js ? 1 : 0;
                         return;
                     }
                     if (arg0 == 5436) {
                         if (SystemInfo.instance.javaRelease < 6) {
-                            anIntArray578[anInt7142++] = 0;
+                            intStack[intStackPointer++] = 0;
                             return;
                         }
                         if (SystemInfo.instance.javaRelease == 6 && SystemInfo.instance.javaUpdate < 10) {
-                            anIntArray578[anInt7142++] = 0;
+                            intStack[intStackPointer++] = 0;
                             return;
                         }
-                        anIntArray578[anInt7142++] = 1;
+                        intStack[intStackPointer++] = 1;
                         return;
                     }
                 } else if (arg0 < 5600) {
                     if (arg0 == 5500) {
-                        anInt7142 -= 4;
-                        local192 = anIntArray578[anInt7142];
-                        local834 = anIntArray578[anInt7142 + 1];
-                        local109 = anIntArray578[anInt7142 + 2];
-                        local115 = anIntArray578[anInt7142 + 3];
+                        intStackPointer -= 4;
+                        local192 = intStack[intStackPointer];
+                        local834 = intStack[intStackPointer + 1];
+                        local109 = intStack[intStackPointer + 2];
+                        local115 = intStack[intStackPointer + 3];
                         Camera.moveTo((local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, local834 << 2, (local192 & 0x3FFF) - WorldMap.areaBaseZ, local109, local115, false);
                         return;
                     }
                     if (arg0 == 5501) {
-                        anInt7142 -= 4;
-                        local192 = anIntArray578[anInt7142];
-                        local834 = anIntArray578[anInt7142 + 1];
-                        local109 = anIntArray578[anInt7142 + 2];
-                        local115 = anIntArray578[anInt7142 + 3];
+                        intStackPointer -= 4;
+                        local192 = intStack[intStackPointer];
+                        local834 = intStack[intStackPointer + 1];
+                        local109 = intStack[intStackPointer + 2];
+                        local115 = intStack[intStackPointer + 3];
                         Camera.lookAt((local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, local834 << 2, (local192 & 0x3FFF) - WorldMap.areaBaseZ, local109, local115);
                         return;
                     }
                     if (arg0 == 5502) {
-                        anInt7142 -= 6;
-                        local192 = anIntArray578[anInt7142];
+                        intStackPointer -= 6;
+                        local192 = intStack[intStackPointer];
                         if (local192 >= 2) {
                             throw new RuntimeException();
                         }
                         Camera.posSpline = local192;
-                        local834 = anIntArray578[anInt7142 + 1];
+                        local834 = intStack[intStackPointer + 1];
                         if (local834 + 1 >= Camera.spline[Camera.posSpline].length >> 1) {
                             throw new RuntimeException();
                         }
                         Camera.splinePosOffset = local834;
                         Camera.splineRate = 0;
-                        Camera.splineStart = anIntArray578[anInt7142 + 2];
-                        Camera.splineEnd = anIntArray578[anInt7142 + 3];
-                        local109 = anIntArray578[anInt7142 + 4];
+                        Camera.splineStart = intStack[intStackPointer + 2];
+                        Camera.splineEnd = intStack[intStackPointer + 3];
+                        local109 = intStack[intStackPointer + 4];
                         if (local109 >= 2) {
                             throw new RuntimeException();
                         }
                         Camera.lookSpline = local109;
-                        local115 = anIntArray578[anInt7142 + 5];
+                        local115 = intStack[intStackPointer + 5];
                         if (local115 + 1 >= Camera.spline[Camera.lookSpline].length >> 1) {
                             throw new RuntimeException();
                         }
@@ -4757,16 +6184,16 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5504) {
-                        anInt7142 -= 2;
-                        Camera.forceAngle(anIntArray578[anInt7142], anIntArray578[anInt7142 + 1], 0);
+                        intStackPointer -= 2;
+                        Camera.forceAngle(intStack[intStackPointer], intStack[intStackPointer + 1], 0);
                         return;
                     }
                     if (arg0 == 5505) {
-                        anIntArray578[anInt7142++] = (int) Camera.playerCameraPitch >> 3;
+                        intStack[intStackPointer++] = (int) Camera.playerCameraPitch >> 3;
                         return;
                     }
                     if (arg0 == 5506) {
-                        anIntArray578[anInt7142++] = (int) Camera.playerCameraYaw >> 3;
+                        intStack[intStackPointer++] = (int) Camera.playerCameraYaw >> 3;
                         return;
                     }
                     if (arg0 == 5507) {
@@ -4786,7 +6213,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5511) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         local834 = local192 >> 14 & 0x3FFF;
                         local109 = local192 & 0x3FFF;
                         local834 -= WorldMap.areaBaseX;
@@ -4813,15 +6240,15 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5514) {
-                        Static582.orthoZoom = anIntArray578[--anInt7142];
+                        Static582.orthoZoom = intStack[--intStackPointer];
                         return;
                     }
                     if (arg0 == 5516) {
-                        anIntArray578[anInt7142++] = Static582.orthoZoom;
+                        intStack[intStackPointer++] = Static582.orthoZoom;
                         return;
                     }
                     if (arg0 == 5517) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         if (local192 == -1) {
                             local834 = local192 >> 14 & 0x3FFF;
                             local109 = local192 & 0x3FFF;
@@ -4846,15 +6273,15 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5547) {
-                        anIntArray578[anInt7142++] = Camera.mode == CameraMode.MODE_DEFAULT ? 1 : 0;
+                        intStack[intStackPointer++] = Camera.mode == CameraMode.MODE_DEFAULT ? 1 : 0;
                         return;
                     }
                 } else if (arg0 < 5700) {
                     if (arg0 == 5600) {
-                        anInt7139 -= 2;
-                        local95 = aStringArray37[anInt7139];
-                        local101 = aStringArray37[anInt7139 + 1];
-                        local109 = anIntArray578[--anInt7142];
+                        stringStackPointer -= 2;
+                        local95 = stringStack[stringStackPointer];
+                        local101 = stringStack[stringStackPointer + 1];
+                        local109 = intStack[--intStackPointer];
                         LoginManager.requestLoginWithUsername(local109, local101, local95);
                         return;
                     }
@@ -4869,24 +6296,24 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5604) {
-                        anInt7139--;
+                        stringStackPointer--;
                         if (MainLogicManager.step != 3) {
                             return;
                         }
                         if (!LoginManager.inProgress() && LobbyManager.step == 0) {
-                            LobbyManager.checkEmail(aStringArray37[anInt7139]);
+                            LobbyManager.checkEmail(stringStack[stringStackPointer]);
                             return;
                         }
                         return;
                     }
                     if (arg0 == 5605) {
-                        anInt7139 -= 2;
-                        anInt7142 -= 2;
+                        stringStackPointer -= 2;
+                        intStackPointer -= 2;
                         if (MainLogicManager.step != 3) {
                             return;
                         }
                         if (!LoginManager.inProgress() && LobbyManager.step == 0) {
-                            LobbyManager.createAccount(aStringArray37[anInt7139], anIntArray578[anInt7142], aStringArray37[anInt7139 + 1], anIntArray578[anInt7142 + 1] == 1);
+                            LobbyManager.createAccount(stringStack[stringStackPointer], intStack[intStackPointer], stringStack[stringStackPointer + 1], intStack[intStackPointer + 1] == 1);
                             return;
                         }
                         return;
@@ -4898,34 +6325,34 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5607) {
-                        anIntArray578[anInt7142++] = LoginManager.gameLoginResponse;
+                        intStack[intStackPointer++] = LoginManager.gameLoginResponse;
                         return;
                     }
                     if (arg0 == 5608) {
-                        anIntArray578[anInt7142++] = LoginManager.profileTransferTicks;
+                        intStack[intStackPointer++] = LoginManager.profileTransferTicks;
                         return;
                     }
                     if (arg0 == 5609) {
-                        anIntArray578[anInt7142++] = LobbyManager.response;
+                        intStack[intStackPointer++] = LobbyManager.response;
                         return;
                     }
                     if (arg0 == 5611) {
-                        anIntArray578[anInt7142++] = LoginManager.disallowResult;
+                        intStack[intStackPointer++] = LoginManager.disallowResult;
                         return;
                     }
                     if (arg0 == 5612) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         LoginManager.loginToGame(local192);
                         return;
                     }
                     if (arg0 == 5613) {
-                        anIntArray578[anInt7142++] = LoginManager.gameLoginResponse;
+                        intStack[intStackPointer++] = LoginManager.gameLoginResponse;
                         return;
                     }
                     if (arg0 == 5615) {
-                        anInt7139 -= 2;
-                        local95 = aStringArray37[anInt7139];
-                        local101 = aStringArray37[anInt7139 + 1];
+                        stringStackPointer -= 2;
+                        local95 = stringStack[stringStackPointer];
+                        local101 = stringStack[stringStackPointer + 1];
                         Static218.method3188(local101, local95);
                         return;
                     }
@@ -4934,24 +6361,24 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5617) {
-                        anIntArray578[anInt7142++] = LoginManager.lobbyLoginResponse;
+                        intStack[intStackPointer++] = LoginManager.lobbyLoginResponse;
                         return;
                     }
                     if (arg0 == 5618) {
-                        anInt7142--;
+                        intStackPointer--;
                         return;
                     }
                     if (arg0 == 5619) {
-                        anInt7142--;
+                        intStackPointer--;
                         return;
                     }
                     if (arg0 == 5620) {
-                        anIntArray578[anInt7142++] = 0;
+                        intStack[intStackPointer++] = 0;
                         return;
                     }
                     if (arg0 == 5621) {
-                        anInt7139 -= 2;
-                        anInt7142 -= 2;
+                        stringStackPointer -= 2;
+                        intStackPointer -= 2;
                         return;
                     }
                     if (arg0 == 5622) {
@@ -4959,19 +6386,19 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 5623) {
                         if (Client.ssKey != null) {
-                            anIntArray578[anInt7142++] = 1;
+                            intStack[intStackPointer++] = 1;
                             return;
                         }
-                        anIntArray578[anInt7142++] = 0;
+                        intStack[intStackPointer++] = 0;
                         return;
                     }
                     if (arg0 == 5624) {
-                        anIntArray578[anInt7142++] = (int) (Client.userFlow >> 32);
-                        anIntArray578[anInt7142++] = (int) (Client.userFlow & 0xFFFFFFFFFFFFFFFFL);
+                        intStack[intStackPointer++] = (int) (Client.userFlow >> 32);
+                        intStack[intStackPointer++] = (int) (Client.userFlow & 0xFFFFFFFFFFFFFFFFL);
                         return;
                     }
                     if (arg0 == 5625) {
-                        anIntArray578[anInt7142++] = Client.under13 ? 1 : 0;
+                        intStack[intStackPointer++] = Client.under13 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 5626) {
@@ -4980,20 +6407,20 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5627) {
-                        anIntArray578[anInt7142++] = LoginManager.lastGameLoginResponse;
-                        anIntArray578[anInt7142++] = LoginManager.lastDisallowResult;
-                        anIntArray578[anInt7142++] = LoginManager.lastDisallowTrigger;
+                        intStack[intStackPointer++] = LoginManager.lastGameLoginResponse;
+                        intStack[intStackPointer++] = LoginManager.lastDisallowResult;
+                        intStack[intStackPointer++] = LoginManager.lastDisallowTrigger;
                         LoginManager.lastGameLoginResponse = -2;
                         LoginManager.lastDisallowResult = -1;
                         LoginManager.lastDisallowTrigger = -1;
                         return;
                     }
                     if (arg0 == 5628) {
-                        anIntArray578[anInt7142++] = LoginManager.inProgress() ? 1 : 0;
+                        intStack[intStackPointer++] = LoginManager.inProgress() ? 1 : 0;
                         return;
                     }
                     if (arg0 == 5629) {
-                        anIntArray578[anInt7142++] = Static660.anInt9837;
+                        intStack[intStackPointer++] = Static660.anInt9837;
                         return;
                     }
                     if (arg0 == 5630) {
@@ -5001,24 +6428,24 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5631) {
-                        anInt7142 -= 2;
-                        local192 = anIntArray578[anInt7142];
-                        local834 = anIntArray578[anInt7142 + 1];
+                        intStackPointer -= 2;
+                        local192 = intStack[intStackPointer];
+                        local834 = intStack[intStackPointer + 1];
                         LoginManager.requestLoginFromSocialNetwork(local192, local834);
                         return;
                     }
                     if (arg0 == 5632) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         Static303.method4428(local192);
                         return;
                     }
                     if (arg0 == 5633) {
-                        anIntArray578[anInt7142++] = LoginManager.disallowTrigger;
+                        intStack[intStackPointer++] = LoginManager.disallowTrigger;
                         return;
                     }
                 } else if (arg0 < 6100) {
                     if (arg0 == 6001) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         ClientOptions.instance.update(local192, ClientOptions.instance.brightness);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
@@ -5027,7 +6454,7 @@ public final class ScriptRunner {
                     }
                     @Pc(5337) boolean local5337;
                     if (arg0 == 6002) {
-                        local5337 = anIntArray578[--anInt7142] == 1;
+                        local5337 = intStack[--intStackPointer] == 1;
                         ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animateBackgroundDefault);
                         ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animateBackground);
                         MainLogicManager.mapBuild();
@@ -5037,7 +6464,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6003) {
-                        local5337 = anIntArray578[--anInt7142] == 1;
+                        local5337 = intStack[--intStackPointer] == 1;
                         ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.removeRoofs);
                         ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.removeRoofsOverride);
                         Static77.method1561();
@@ -5046,39 +6473,39 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6005) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.groundDecor);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.groundDecor);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6007) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.idleAnimations);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.idleAnimations);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6008) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.flickeringEffects);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.flickeringEffects);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6010) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.spotShadows);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.spotShadows);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6011) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.hardShadows);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.hardShadows);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6012) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.lightDetail);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.lightDetail);
                         Static296.updateFeatureMask();
                         InterfaceManager.loginOpened();
                         ClientOptions.save();
@@ -5086,40 +6513,40 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6014) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 2 : 0, ClientOptions.instance.waterDetail);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 2 : 0, ClientOptions.instance.waterDetail);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6015) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.fog);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.fog);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6016) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.antialiasingQuality);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.antialiasingQuality);
                         Static32.setToolkit(ClientOptions.instance.toolkit.getValue(), false);
                         ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6017) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.stereoSound);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.stereoSound);
                         Static150.method2455();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6018) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.soundVolume);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.soundVolume);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6019) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         local834 = ClientOptions.instance.musicVolume.getValue();
                         if (local192 != local834) {
                             if (MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
@@ -5141,37 +6568,37 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6020) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.backgroundSoundVolume);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.backgroundSoundVolume);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6021) {
                         local192 = ClientOptions.instance.removeRoofs.getValue();
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 0 : local192, ClientOptions.instance.removeRoofsOverride);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 0 : local192, ClientOptions.instance.removeRoofsOverride);
                         Static77.method1561();
                         return;
                     }
                     if (arg0 == 6023) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         ClientOptions.instance.update(local192, ClientOptions.instance.particles);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6024) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.antialiasingMode);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.antialiasingMode);
                         ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6025) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.buildArea);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.buildArea);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6027) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         if (local192 < 0 || local192 > 1) {
                             local192 = 0;
                         }
@@ -5179,23 +6606,23 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6028) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.customCursors);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 0 ? 0 : 1, ClientOptions.instance.customCursors);
                         ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6029) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.idleAnimations);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.idleAnimations);
                         ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6030) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 0 ? 0 : 1, ClientOptions.instance.groundBlending);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 0 ? 0 : 1, ClientOptions.instance.groundBlending);
                         ClientOptions.save();
                         MainLogicManager.mapBuild();
                         return;
                     }
                     if (arg0 == 6031) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         if (local192 < 0 || local192 > 5) {
                             local192 = 2;
                         }
@@ -5203,9 +6630,9 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6032) {
-                        anInt7142 -= 2;
-                        local192 = anIntArray578[anInt7142];
-                        local1578 = anIntArray578[anInt7142 + 1] == 1;
+                        intStackPointer -= 2;
+                        local192 = intStack[intStackPointer];
+                        local1578 = intStack[intStackPointer + 1] == 1;
                         ClientOptions.instance.update(local192, ClientOptions.instance.toolkitDefault);
                         if (!local1578) {
                             ClientOptions.instance.update(0, ClientOptions.instance.graphicsQuality);
@@ -5215,12 +6642,12 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6033) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.cpuUsage);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.cpuUsage);
                         ClientOptions.save();
                         return;
                     }
                     if (arg0 == 6034) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : 0, ClientOptions.instance.textures);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.textures);
                         ClientOptions.save();
                         Static296.updateFeatureMask();
                         Static503.sentPreferences = false;
@@ -5228,25 +6655,25 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6035) {
                         local192 = ClientOptions.instance.animateBackgroundDefault.getValue();
-                        ClientOptions.instance.update(anIntArray578[--anInt7142] == 1 ? 1 : local192, ClientOptions.instance.animateBackground);
+                        ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : local192, ClientOptions.instance.animateBackground);
                         MainLogicManager.mapBuild();
                         Static77.method1561();
                         return;
                     }
                     if (arg0 == 6036) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.maxScreenSize);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.maxScreenSize);
                         ClientOptions.save();
                         Static284.aBoolean355 = true;
                         return;
                     }
                     if (arg0 == 6037) {
-                        ClientOptions.instance.update(anIntArray578[--anInt7142], ClientOptions.instance.speechVolume);
+                        ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.speechVolume);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
                     if (arg0 == 6038) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         local834 = ClientOptions.instance.loginVolume.getValue();
                         if (local192 != local834 && SongManager.playing == AudioDefaults.themeMusic) {
                             if (!MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
@@ -5268,7 +6695,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6039) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         if (local192 > 255 || local192 < 0) {
                             local192 = 0;
                         }
@@ -5280,7 +6707,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6040) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         if (local192 != ClientOptions.instance.orthographic.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.orthographic);
                             ClientOptions.save();
@@ -5290,7 +6717,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6041) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         if (local192 != ClientOptions.instance.skydetail.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.skydetail);
                             ClientOptions.save();
@@ -5300,199 +6727,199 @@ public final class ScriptRunner {
                     }
                 } else if (arg0 < 6200) {
                     if (arg0 == 6101) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.brightness.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.brightness.getValue();
                         return;
                     }
                     if (arg0 == 6102) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.animateBackgroundDefault.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.animateBackgroundDefault.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6103) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.removeRoofs.getValue() == 2 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.removeRoofs.getValue() == 2 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6105) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.groundDecor.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6107) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.idleAnimations.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.idleAnimations.getValue();
                         return;
                     }
                     if (arg0 == 6108) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.flickeringEffects.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.flickeringEffects.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6110) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.spotShadows.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.spotShadows.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6111) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.hardShadows.getValue();
                         return;
                     }
                     if (arg0 == 6112) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.lightDetail.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.lightDetail.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6114) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.getValue() == 2 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.waterDetail.getValue() == 2 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6115) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.fog.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.fog.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6116) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingQuality.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.antialiasingQuality.getValue();
                         return;
                     }
                     if (arg0 == 6117) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.stereoSound.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.stereoSound.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6118) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.soundVolume.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.soundVolume.getValue();
                         return;
                     }
                     if (arg0 == 6119) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.musicVolume.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.musicVolume.getValue();
                         return;
                     }
                     if (arg0 == 6120) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.backgroundSoundVolume.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.backgroundSoundVolume.getValue();
                         return;
                     }
                     if (arg0 == 6123) {
-                        anIntArray578[anInt7142++] = ParticleManager.getOption();
+                        intStack[intStackPointer++] = ParticleManager.getOption();
                         return;
                     }
                     if (arg0 == 6124) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.antialiasingMode.getValue();
                         return;
                     }
                     if (arg0 == 6125) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.buildArea.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.buildArea.getValue();
                         return;
                     }
                     if (arg0 == 6127) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.bloom.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.bloom.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6128) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.customCursors.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.customCursors.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6129) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.idleAnimations.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.idleAnimations.getValue();
                         return;
                     }
                     if (arg0 == 6130) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.groundBlending.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.groundBlending.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6131) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.toolkit.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.toolkit.getValue();
                         return;
                     }
                     if (arg0 == 6132) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.toolkitDefault.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.toolkitDefault.getValue();
                         return;
                     }
                     if (arg0 == 6133) {
-                        anIntArray578[anInt7142++] = GameShell.signLink.signed && !GameShell.signLink.microsoftjava ? 1 : 0;
+                        intStack[intStackPointer++] = GameShell.signLink.signed && !GameShell.signLink.microsoftjava ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6135) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.cpuUsage.value();
+                        intStack[intStackPointer++] = ClientOptions.instance.cpuUsage.value();
                         return;
                     }
                     if (arg0 == 6136) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.textures.getValue() == 1 ? 1 : 0;
+                        intStack[intStackPointer++] = ClientOptions.instance.textures.getValue() == 1 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6138) {
-                        anIntArray578[anInt7142++] = Static363.profileToolkit(200, ClientOptions.instance.toolkit.getValue());
+                        intStack[intStackPointer++] = Static363.profileToolkit(200, ClientOptions.instance.toolkit.getValue());
                         return;
                     }
                     if (arg0 == 6139) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.maxScreenSize.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.maxScreenSize.getValue();
                         return;
                     }
                     if (arg0 == 6142) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.speechVolume.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.speechVolume.getValue();
                         return;
                     }
                     if (arg0 == 6143) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.loginVolume.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.loginVolume.getValue();
                         return;
                     }
                     if (arg0 == 6144) {
-                        anIntArray578[anInt7142++] = Static3.chooseSafeMode ? 1 : 0;
+                        intStack[intStackPointer++] = Static3.chooseSafeMode ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6145) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.loadingSequence.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.loadingSequence.getValue();
                         return;
                     }
                     if (arg0 == 6146) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.orthographic.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.orthographic.getValue();
                         return;
                     }
                     if (arg0 == 6147) {
-                        anIntArray578[anInt7142++] = SystemInfo.instance.totalMemory < 512 || Static3.chooseSafeMode || Static171.graphicsError ? 1 : 0;
+                        intStack[intStackPointer++] = SystemInfo.instance.totalMemory < 512 || Static3.chooseSafeMode || Static171.graphicsError ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6148) {
-                        anIntArray578[anInt7142++] = Static416.aBoolean472 ? 1 : 0;
+                        intStack[intStackPointer++] = Static416.aBoolean472 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6149) {
-                        anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.getValue();
+                        intStack[intStackPointer++] = ClientOptions.instance.skydetail.getValue();
                         return;
                     }
                 } else if (arg0 < 6300) {
                     if (arg0 == 6200) {
-                        anInt7142 -= 2;
-                        Static640.aShort122 = (short) anIntArray578[anInt7142];
+                        intStackPointer -= 2;
+                        Static640.aShort122 = (short) intStack[intStackPointer];
                         if (Static640.aShort122 <= 0) {
                             Static640.aShort122 = 256;
                         }
-                        Static640.aShort121 = (short) anIntArray578[anInt7142 + 1];
+                        Static640.aShort121 = (short) intStack[intStackPointer + 1];
                         if (Static640.aShort121 <= 0) {
                             Static640.aShort121 = 205;
                         }
                         return;
                     }
                     if (arg0 == 6201) {
-                        anInt7142 -= 2;
-                        Static228.aShort45 = (short) anIntArray578[anInt7142];
+                        intStackPointer -= 2;
+                        Static228.aShort45 = (short) intStack[intStackPointer];
                         if (Static228.aShort45 <= 0) {
                             Static228.aShort45 = 256;
                         }
-                        Camera.zoom = (short) anIntArray578[anInt7142 + 1];
+                        Camera.zoom = (short) intStack[intStackPointer + 1];
                         if (Camera.zoom <= 0) {
                             Camera.zoom = 320;
                         }
                         return;
                     }
                     if (arg0 == 6202) {
-                        anInt7142 -= 4;
-                        Static25.aShort1 = (short) anIntArray578[anInt7142];
+                        intStackPointer -= 4;
+                        Static25.aShort1 = (short) intStack[intStackPointer];
                         if (Static25.aShort1 <= 0) {
                             Static25.aShort1 = 1;
                         }
-                        Static598.aShort120 = (short) anIntArray578[anInt7142 + 1];
+                        Static598.aShort120 = (short) intStack[intStackPointer + 1];
                         if (Static598.aShort120 <= 0) {
                             Static598.aShort120 = 32767;
                         } else if (Static598.aShort120 < Static25.aShort1) {
                             Static598.aShort120 = Static25.aShort1;
                         }
-                        Static552.aShort123 = (short) anIntArray578[anInt7142 + 2];
+                        Static552.aShort123 = (short) intStack[intStackPointer + 2];
                         if (Static552.aShort123 <= 0) {
                             Static552.aShort123 = 1;
                         }
-                        Static306.aShort59 = (short) anIntArray578[anInt7142 + 3];
+                        Static306.aShort59 = (short) intStack[intStackPointer + 3];
                         if (Static306.aShort59 <= 0) {
                             Static306.aShort59 = 32767;
                             return;
@@ -5504,48 +6931,48 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6203) {
                         Static498.method6643(0, false, 0, InterfaceManager.scene.height, InterfaceManager.scene.width);
-                        anIntArray578[anInt7142++] = Static242.anInt3971;
-                        anIntArray578[anInt7142++] = Static200.anInt3305;
+                        intStack[intStackPointer++] = Static242.anInt3971;
+                        intStack[intStackPointer++] = Static200.anInt3305;
                         return;
                     }
                     if (arg0 == 6204) {
-                        anIntArray578[anInt7142++] = Static228.aShort45;
-                        anIntArray578[anInt7142++] = Camera.zoom;
+                        intStack[intStackPointer++] = Static228.aShort45;
+                        intStack[intStackPointer++] = Camera.zoom;
                         return;
                     }
                     if (arg0 == 6205) {
-                        anIntArray578[anInt7142++] = Static640.aShort122;
-                        anIntArray578[anInt7142++] = Static640.aShort121;
+                        intStack[intStackPointer++] = Static640.aShort122;
+                        intStack[intStackPointer++] = Static640.aShort121;
                         return;
                     }
                 } else if (arg0 < 6400) {
                     if (arg0 == 6300) {
-                        anIntArray578[anInt7142++] = (int) (SystemTimer.safetime() / 60000L);
+                        intStack[intStackPointer++] = (int) (SystemTimer.safetime() / 60000L);
                         return;
                     }
                     if (arg0 == 6301) {
-                        anIntArray578[anInt7142++] = (int) (SystemTimer.safetime() / 86400000L) - 11745;
+                        intStack[intStackPointer++] = (int) (SystemTimer.safetime() / 86400000L) - 11745;
                         return;
                     }
                     if (arg0 == 6302) {
-                        anInt7142 -= 3;
-                        local192 = anIntArray578[anInt7142];
-                        local834 = anIntArray578[anInt7142 + 1];
-                        local109 = anIntArray578[anInt7142 + 2];
+                        intStackPointer -= 3;
+                        local192 = intStack[intStackPointer];
+                        local834 = intStack[intStackPointer + 1];
+                        local109 = intStack[intStackPointer + 2];
                         @Pc(7384) long local7384 = Static40.method1026(local834, local109, local192);
                         local3561 = Static68.method3585(local7384);
                         if (local109 < 1970) {
                             local3561--;
                         }
-                        anIntArray578[anInt7142++] = local3561;
+                        intStack[intStackPointer++] = local3561;
                         return;
                     }
                     if (arg0 == 6303) {
-                        anIntArray578[anInt7142++] = Static614.method8242(SystemTimer.safetime());
+                        intStack[intStackPointer++] = Static614.method8242(SystemTimer.safetime());
                         return;
                     }
                     if (arg0 == 6304) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         local1578 = true;
                         if (local192 < 0) {
                             local1578 = (local192 + 1) % 4 == 0;
@@ -5558,49 +6985,49 @@ public final class ScriptRunner {
                         } else if (local192 % 400 != 0) {
                             local1578 = false;
                         }
-                        anIntArray578[anInt7142++] = local1578 ? 1 : 0;
+                        intStack[intStackPointer++] = local1578 ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6305) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         @Pc(7512) int[] local7512 = Static212.method3135(local192);
-                        Arrays.copy(local7512, 0, anIntArray578, anInt7142, 3);
-                        anInt7142 += 3;
+                        Arrays.copy(local7512, 0, intStack, intStackPointer, 3);
+                        intStackPointer += 3;
                         return;
                     }
                     if (arg0 == 6306) {
-                        local192 = anIntArray578[--anInt7142];
-                        anIntArray578[anInt7142++] = (int) (Static38.method1003(local192) / 60000L);
+                        local192 = intStack[--intStackPointer];
+                        intStack[intStackPointer++] = (int) (TimeUtils.timeFromRunedate(local192) / 60000L);
                         return;
                     }
                 } else if (arg0 < 6500) {
                     if (arg0 == 6405) {
-                        anIntArray578[anInt7142++] = Static21.method8119() ? 1 : 0;
+                        intStack[intStackPointer++] = Static21.method8119() ? 1 : 0;
                         return;
                     }
                     if (arg0 == 6406) {
-                        anIntArray578[anInt7142++] = Static385.method5421() ? 1 : 0;
+                        intStack[intStackPointer++] = Static385.method5421() ? 1 : 0;
                         return;
                     }
                 } else if (arg0 < 6600) {
                     if (arg0 == 6500) {
                         if (MainLogicManager.step == 7 && !LoginManager.inProgress() && LobbyManager.step == 0) {
                             if (WorldList.fetching) {
-                                anIntArray578[anInt7142++] = 0;
+                                intStack[intStackPointer++] = 0;
                                 return;
                             }
                             if (WorldList.lastReply > SystemTimer.safetime() - 1000L) {
-                                anIntArray578[anInt7142++] = 1;
+                                intStack[intStackPointer++] = 1;
                                 return;
                             }
                             WorldList.fetching = true;
                             @Pc(7662) ClientMessage local7662 = ClientMessage.create(ClientProt.WORLDLIST_FETCH, ServerConnection.LOBBY.cipher);
                             local7662.bitPacket.p4(WorldList.checksum);
                             ServerConnection.LOBBY.send(local7662);
-                            anIntArray578[anInt7142++] = 0;
+                            intStack[intStackPointer++] = 0;
                             return;
                         }
-                        anIntArray578[anInt7142++] = 1;
+                        intStack[intStackPointer++] = 1;
                         return;
                     }
                     @Pc(7719) Country local7719;
@@ -5608,90 +7035,90 @@ public final class ScriptRunner {
                     if (arg0 == 6501) {
                         local7686 = WorldList.first();
                         if (local7686 != null) {
-                            anIntArray578[anInt7142++] = local7686.id;
-                            anIntArray578[anInt7142++] = local7686.flags;
-                            aStringArray37[anInt7139++] = local7686.activity;
+                            intStack[intStackPointer++] = local7686.id;
+                            intStack[intStackPointer++] = local7686.flags;
+                            stringStack[stringStackPointer++] = local7686.activity;
                             local7719 = local7686.method6717();
-                            anIntArray578[anInt7142++] = local7719.flag;
-                            aStringArray37[anInt7139++] = local7719.name;
-                            anIntArray578[anInt7142++] = local7686.population;
-                            anIntArray578[anInt7142++] = local7686.ping;
-                            aStringArray37[anInt7139++] = local7686.address;
+                            intStack[intStackPointer++] = local7719.flag;
+                            stringStack[stringStackPointer++] = local7719.name;
+                            intStack[intStackPointer++] = local7686.population;
+                            intStack[intStackPointer++] = local7686.ping;
+                            stringStack[stringStackPointer++] = local7686.address;
                             return;
                         }
-                        anIntArray578[anInt7142++] = -1;
-                        anIntArray578[anInt7142++] = 0;
-                        aStringArray37[anInt7139++] = "";
-                        anIntArray578[anInt7142++] = 0;
-                        aStringArray37[anInt7139++] = "";
-                        anIntArray578[anInt7142++] = 0;
-                        anIntArray578[anInt7142++] = 0;
-                        aStringArray37[anInt7139++] = "";
+                        intStack[intStackPointer++] = -1;
+                        intStack[intStackPointer++] = 0;
+                        stringStack[stringStackPointer++] = "";
+                        intStack[intStackPointer++] = 0;
+                        stringStack[stringStackPointer++] = "";
+                        intStack[intStackPointer++] = 0;
+                        intStack[intStackPointer++] = 0;
+                        stringStack[stringStackPointer++] = "";
                         return;
                     }
                     if (arg0 == 6502) {
                         local7686 = WorldList.next();
                         if (local7686 != null) {
-                            anIntArray578[anInt7142++] = local7686.id;
-                            anIntArray578[anInt7142++] = local7686.flags;
-                            aStringArray37[anInt7139++] = local7686.activity;
+                            intStack[intStackPointer++] = local7686.id;
+                            intStack[intStackPointer++] = local7686.flags;
+                            stringStack[stringStackPointer++] = local7686.activity;
                             local7719 = local7686.method6717();
-                            anIntArray578[anInt7142++] = local7719.flag;
-                            aStringArray37[anInt7139++] = local7719.name;
-                            anIntArray578[anInt7142++] = local7686.population;
-                            anIntArray578[anInt7142++] = local7686.ping;
-                            aStringArray37[anInt7139++] = local7686.address;
+                            intStack[intStackPointer++] = local7719.flag;
+                            stringStack[stringStackPointer++] = local7719.name;
+                            intStack[intStackPointer++] = local7686.population;
+                            intStack[intStackPointer++] = local7686.ping;
+                            stringStack[stringStackPointer++] = local7686.address;
                             return;
                         }
-                        anIntArray578[anInt7142++] = -1;
-                        anIntArray578[anInt7142++] = 0;
-                        aStringArray37[anInt7139++] = "";
-                        anIntArray578[anInt7142++] = 0;
-                        aStringArray37[anInt7139++] = "";
-                        anIntArray578[anInt7142++] = 0;
-                        anIntArray578[anInt7142++] = 0;
-                        aStringArray37[anInt7139++] = "";
+                        intStack[intStackPointer++] = -1;
+                        intStack[intStackPointer++] = 0;
+                        stringStack[stringStackPointer++] = "";
+                        intStack[intStackPointer++] = 0;
+                        stringStack[stringStackPointer++] = "";
+                        intStack[intStackPointer++] = 0;
+                        intStack[intStackPointer++] = 0;
+                        stringStack[stringStackPointer++] = "";
                         return;
                     }
                     if (arg0 == 6503) {
-                        local192 = anIntArray578[--anInt7142];
-                        local101 = aStringArray37[--anInt7139];
+                        local192 = intStack[--intStackPointer];
+                        local101 = stringStack[--stringStackPointer];
                         if (MainLogicManager.step == 7 && !LoginManager.inProgress() && LobbyManager.step == 0) {
-                            anIntArray578[anInt7142++] = client.connectTo(local192, local101) ? 1 : 0;
+                            intStack[intStackPointer++] = client.connectTo(local192, local101) ? 1 : 0;
                             return;
                         }
-                        anIntArray578[anInt7142++] = 0;
+                        intStack[intStackPointer++] = 0;
                         return;
                     }
                     if (arg0 == 6506) {
-                        local192 = anIntArray578[--anInt7142];
+                        local192 = intStack[--intStackPointer];
                         @Pc(8053) GameWorld local8053 = WorldList.list(local192);
                         if (local8053 != null) {
-                            anIntArray578[anInt7142++] = local8053.flags;
-                            aStringArray37[anInt7139++] = local8053.activity;
+                            intStack[intStackPointer++] = local8053.flags;
+                            stringStack[stringStackPointer++] = local8053.activity;
                             @Pc(8077) Country local8077 = local8053.method6717();
-                            anIntArray578[anInt7142++] = local8077.flag;
-                            aStringArray37[anInt7139++] = local8077.name;
-                            anIntArray578[anInt7142++] = local8053.population;
-                            anIntArray578[anInt7142++] = local8053.ping;
-                            aStringArray37[anInt7139++] = local8053.address;
+                            intStack[intStackPointer++] = local8077.flag;
+                            stringStack[stringStackPointer++] = local8077.name;
+                            intStack[intStackPointer++] = local8053.population;
+                            intStack[intStackPointer++] = local8053.ping;
+                            stringStack[stringStackPointer++] = local8053.address;
                             return;
                         }
-                        anIntArray578[anInt7142++] = -1;
-                        aStringArray37[anInt7139++] = "";
-                        anIntArray578[anInt7142++] = 0;
-                        aStringArray37[anInt7139++] = "";
-                        anIntArray578[anInt7142++] = 0;
-                        anIntArray578[anInt7142++] = 0;
-                        aStringArray37[anInt7139++] = "";
+                        intStack[intStackPointer++] = -1;
+                        stringStack[stringStackPointer++] = "";
+                        intStack[intStackPointer++] = 0;
+                        stringStack[stringStackPointer++] = "";
+                        intStack[intStackPointer++] = 0;
+                        intStack[intStackPointer++] = 0;
+                        stringStack[stringStackPointer++] = "";
                         return;
                     }
                     if (arg0 == 6507) {
-                        anInt7142 -= 4;
-                        local192 = anIntArray578[anInt7142];
-                        local1578 = anIntArray578[anInt7142 + 1] == 1;
-                        local109 = anIntArray578[anInt7142 + 2];
-                        local2331 = anIntArray578[anInt7142 + 3] == 1;
+                        intStackPointer -= 4;
+                        local192 = intStack[intStackPointer];
+                        local1578 = intStack[intStackPointer + 1] == 1;
+                        local109 = intStack[intStackPointer + 2];
+                        local2331 = intStack[intStackPointer + 3] == 1;
                         Static210.quicksortWorldList(local1578, local109, local192, local2331);
                         return;
                     }
@@ -5703,11 +7130,11 @@ public final class ScriptRunner {
                         if (MainLogicManager.step != 7) {
                             return;
                         }
-                        Static60.aBoolean86 = anIntArray578[--anInt7142] == 1;
+                        Static60.aBoolean86 = intStack[--intStackPointer] == 1;
                         return;
                     }
                     if (arg0 == 6510) {
-                        anIntArray578[anInt7142++] = Client.worldFlags;
+                        intStack[intStackPointer++] = Client.worldFlags;
                         return;
                     }
                 } else if (arg0 >= 6700) {
@@ -5717,14 +7144,14 @@ public final class ScriptRunner {
                             if (InterfaceManager.topLevelInterface != -1) {
                                 local192++;
                             }
-                            anIntArray578[anInt7142++] = local192;
+                            intStack[intStackPointer++] = local192;
                             return;
                         }
                         if (arg0 == 6701) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             if (InterfaceManager.topLevelInterface != -1) {
                                 if (local192 == 0) {
-                                    anIntArray578[anInt7142++] = InterfaceManager.topLevelInterface;
+                                    intStack[intStackPointer++] = InterfaceManager.topLevelInterface;
                                     return;
                                 }
                                 local192--;
@@ -5733,148 +7160,148 @@ public final class ScriptRunner {
                             while (local192-- > 0) {
                                 local8344 = (SubInterface) InterfaceManager.subInterfaces.next();
                             }
-                            anIntArray578[anInt7142++] = local8344.id;
+                            intStack[intStackPointer++] = local8344.id;
                             return;
                         }
                         if (arg0 == 6702) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             if (InterfaceList.interfaces[local192] == null) {
-                                aStringArray37[anInt7139++] = "";
+                                stringStack[stringStackPointer++] = "";
                                 return;
                             }
                             local101 = InterfaceList.interfaces[local192][0].name;
                             if (local101 == null) {
-                                aStringArray37[anInt7139++] = "";
+                                stringStack[stringStackPointer++] = "";
                                 return;
                             }
-                            aStringArray37[anInt7139++] = local101.substring(0, local101.indexOf(58));
+                            stringStack[stringStackPointer++] = local101.substring(0, local101.indexOf(58));
                             return;
                         }
                         if (arg0 == 6703) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             if (InterfaceList.interfaces[local192] == null) {
-                                anIntArray578[anInt7142++] = 0;
+                                intStack[intStackPointer++] = 0;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = InterfaceList.interfaces[local192].length;
+                            intStack[intStackPointer++] = InterfaceList.interfaces[local192].length;
                             return;
                         }
                         if (arg0 == 6704) {
-                            anInt7142 -= 2;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
+                            intStackPointer -= 2;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
                             if (InterfaceList.interfaces[local192] == null) {
-                                aStringArray37[anInt7139++] = "";
+                                stringStack[stringStackPointer++] = "";
                                 return;
                             }
                             local198 = InterfaceList.interfaces[local192][local834].name;
                             if (local198 == null) {
-                                aStringArray37[anInt7139++] = "";
+                                stringStack[stringStackPointer++] = "";
                                 return;
                             }
-                            aStringArray37[anInt7139++] = local198;
+                            stringStack[stringStackPointer++] = local198;
                             return;
                         }
                         if (arg0 == 6705) {
-                            anInt7142 -= 2;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
+                            intStackPointer -= 2;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
                             if (InterfaceList.interfaces[local192] == null) {
-                                anIntArray578[anInt7142++] = 0;
+                                intStack[intStackPointer++] = 0;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = InterfaceList.interfaces[local192][local834].serverTriggers;
+                            intStack[intStackPointer++] = InterfaceList.interfaces[local192][local834].serverTriggers;
                             return;
                         }
                         if (arg0 == 6706) {
                             return;
                         }
                         if (arg0 == 6707) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 1);
                             return;
                         }
                         if (arg0 == 6708) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 2);
                             return;
                         }
                         if (arg0 == 6709) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 3);
                             return;
                         }
                         if (arg0 == 6710) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 4);
                             return;
                         }
                         if (arg0 == 6711) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 5);
                             return;
                         }
                         if (arg0 == 6712) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 6);
                             return;
                         }
                         if (arg0 == 6713) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 7);
                             return;
                         }
                         if (arg0 == 6714) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 8);
                             return;
                         }
                         if (arg0 == 6715) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 9);
                             return;
                         }
                         if (arg0 == 6716) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 10);
                             return;
                         }
                         if (arg0 == 6717) {
-                            anInt7142 -= 3;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
-                            local109 = anIntArray578[anInt7142 + 2];
-                            @Pc(8940) Component local8940 = InterfaceList.getComponent(local109, local192 << 16 | local834);
+                            intStackPointer -= 3;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
+                            local109 = intStack[intStackPointer + 2];
+                            @Pc(8940) Component local8940 = InterfaceList.getComponent(local192 << 16 | local834, local109);
                             InterfaceManager.endTargetMode();
                             @Pc(8945) ServerActiveProperties local8945 = InterfaceManager.serverActiveProperties(local8940);
                             InterfaceManager.enterTargetMode(local8945.getTargetMask(), local8940, local8945.targetParam);
@@ -5883,66 +7310,66 @@ public final class ScriptRunner {
                     } else if (arg0 < 6900) {
                         @Pc(8975) MapElementType local8975;
                         if (arg0 == 6800) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             local8975 = MapElementTypeList.instance.list(local192);
                             if (local8975.text == null) {
-                                aStringArray37[anInt7139++] = "";
+                                stringStack[stringStackPointer++] = "";
                                 return;
                             }
-                            aStringArray37[anInt7139++] = local8975.text;
+                            stringStack[stringStackPointer++] = local8975.text;
                             return;
                         }
                         if (arg0 == 6801) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             local8975 = MapElementTypeList.instance.list(local192);
-                            anIntArray578[anInt7142++] = local8975.sprite;
+                            intStack[intStackPointer++] = local8975.sprite;
                             return;
                         }
                         if (arg0 == 6802) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             local8975 = MapElementTypeList.instance.list(local192);
-                            anIntArray578[anInt7142++] = local8975.font;
+                            intStack[intStackPointer++] = local8975.font;
                             return;
                         }
                         if (arg0 == 6803) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             local8975 = MapElementTypeList.instance.list(local192);
-                            anIntArray578[anInt7142++] = local8975.category;
+                            intStack[intStackPointer++] = local8975.category;
                             return;
                         }
                         if (arg0 == 6804) {
-                            anInt7142 -= 2;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
+                            intStackPointer -= 2;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
                             @Pc(9098) ParamType local9098 = ParamTypeList.instance.list(local834);
                             if (local9098.isString()) {
-                                aStringArray37[anInt7139++] = MapElementTypeList.instance.list(local192).param(local834, local9098.defaultstr);
+                                stringStack[stringStackPointer++] = MapElementTypeList.instance.list(local192).param(local834, local9098.defaultstr);
                                 return;
                             }
-                            anIntArray578[anInt7142++] = MapElementTypeList.instance.list(local192).param(local9098.defaultint, local834);
+                            intStack[intStackPointer++] = MapElementTypeList.instance.list(local192).param(local9098.defaultint, local834);
                             return;
                         }
                     } else if (arg0 < 7000) {
                         if (arg0 == 6900) {
-                            anIntArray578[anInt7142++] = Static389.underage && !Static34.parentalChatConsent ? 1 : 0;
+                            intStack[intStackPointer++] = Static389.underage && !Static34.parentalChatConsent ? 1 : 0;
                             return;
                         }
                         if (arg0 == 6901) {
-                            anIntArray578[anInt7142++] = (int) (Static416.subscriptionExpiration / 60000L);
-                            anIntArray578[anInt7142++] = (int) ((Static416.subscriptionExpiration - SystemTimer.safetime() - Static94.remainingSubscription) / 60000L);
-                            anIntArray578[anInt7142++] = Static425.activeSubscription ? 1 : 0;
+                            intStack[intStackPointer++] = (int) (Static416.subscriptionExpiration / 60000L);
+                            intStack[intStackPointer++] = (int) ((Static416.subscriptionExpiration - SystemTimer.safetime() - Static94.remainingSubscription) / 60000L);
+                            intStack[intStackPointer++] = Static425.activeSubscription ? 1 : 0;
                             return;
                         }
                         if (arg0 == 6902) {
-                            anIntArray578[anInt7142++] = Static677.recoverySetDate;
+                            intStack[intStackPointer++] = Static677.recoverySetDate;
                             return;
                         }
                         if (arg0 == 6903) {
-                            anIntArray578[anInt7142++] = Static476.unreadMessages;
+                            intStack[intStackPointer++] = Static476.unreadMessages;
                             return;
                         }
                         if (arg0 == 6904) {
-                            anIntArray578[anInt7142++] = Static323.lastLoginDate;
+                            intStack[intStackPointer++] = Static323.lastLoginDate;
                             return;
                         }
                         if (arg0 == 6905) {
@@ -5954,54 +7381,54 @@ public final class ScriptRunner {
                                     local95 = (String) Static439.hostnameResource.result;
                                 }
                             }
-                            aStringArray37[anInt7139++] = local95;
+                            stringStack[stringStackPointer++] = local95;
                             return;
                         }
                         if (arg0 == 6906) {
-                            anIntArray578[anInt7142++] = Static335.emailStatus;
+                            intStack[intStackPointer++] = Static335.emailStatus;
                             return;
                         }
                         if (arg0 == 6907) {
-                            anIntArray578[anInt7142++] = Static626.creditCardExpiry;
+                            intStack[intStackPointer++] = Static626.creditCardExpiry;
                             return;
                         }
                         if (arg0 == 6908) {
-                            anIntArray578[anInt7142++] = Static636.loyaltyRateExpiry;
+                            intStack[intStackPointer++] = Static636.loyaltyRateExpiry;
                             return;
                         }
                         if (arg0 == 6909) {
-                            anIntArray578[anInt7142++] = Static420.lobbyDobRequested ? 1 : 0;
+                            intStack[intStackPointer++] = Static420.lobbyDobRequested ? 1 : 0;
                             return;
                         }
                         if (arg0 == 6910) {
-                            anIntArray578[anInt7142++] = Static106.lobbyMembersStats;
+                            intStack[intStackPointer++] = Static106.lobbyMembersStats;
                             return;
                         }
                         if (arg0 == 6911) {
-                            anIntArray578[anInt7142++] = Static639.lobbyPlayAge;
+                            intStack[intStackPointer++] = Static639.lobbyPlayAge;
                             return;
                         }
                         if (arg0 == 6912) {
-                            anIntArray578[anInt7142++] = Static438.lobbyLoyaltyBalance;
+                            intStack[intStackPointer++] = Static438.lobbyLoyaltyBalance;
                             return;
                         }
                         if (arg0 == 6913) {
-                            anIntArray578[anInt7142++] = Static435.lobbyJcoinsBalance;
+                            intStack[intStackPointer++] = Static435.lobbyJcoinsBalance;
                             return;
                         }
                         if (arg0 == 6914) {
-                            anIntArray578[anInt7142++] = Static684.autosetupDosetup ? 1 : 0;
+                            intStack[intStackPointer++] = Static684.autosetupDosetup ? 1 : 0;
                             return;
                         }
                         if (arg0 == 6915) {
-                            anIntArray578[anInt7142++] = Static134.autosetupLevel;
+                            intStack[intStackPointer++] = Static134.autosetupLevel;
                             return;
                         }
                     } else if (arg0 < 7100) {
                         if (arg0 == 7000) {
                             local192 = Static519.autosetup();
-                            anIntArray578[anInt7142++] = Static165.anInt2810 = ClientOptions.instance.toolkit.getValue();
-                            anIntArray578[anInt7142++] = local192;
+                            intStack[intStackPointer++] = Static165.anInt2810 = ClientOptions.instance.toolkit.getValue();
+                            intStack[intStackPointer++] = local192;
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.sentPreferences = false;
@@ -6056,14 +7483,14 @@ public final class ScriptRunner {
                             return;
                         }
                         if (arg0 == 7007) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.graphicsQuality.getValue();
+                            intStack[intStackPointer++] = ClientOptions.instance.graphicsQuality.getValue();
                             return;
                         }
                     } else if (arg0 < 7200) {
                         if (arg0 == 7100) {
-                            anInt7142 -= 2;
-                            local192 = anIntArray578[anInt7142];
-                            local834 = anIntArray578[anInt7142 + 1];
+                            intStackPointer -= 2;
+                            local192 = intStack[intStackPointer];
+                            local834 = intStack[intStackPointer + 1];
                             if (local192 != -1) {
                                 if (local834 > 255) {
                                     local834 = 255;
@@ -6075,166 +7502,166 @@ public final class ScriptRunner {
                             return;
                         }
                         if (arg0 == 7101) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             if (local192 != -1) {
                                 VideoManager.stop(local192);
                             }
                             return;
                         }
                         if (arg0 == 7102) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             if (local192 != -1) {
                                 VideoTypeList.method9267(local192);
                             }
                             return;
                         }
                         if (arg0 == 7103) {
-                            anIntArray578[anInt7142++] = LibraryManager.isNativeLoaded("jagtheora") ? 1 : 0;
+                            intStack[intStackPointer++] = LibraryManager.isNativeLoaded("jagtheora") ? 1 : 0;
                             return;
                         }
                     } else if (arg0 < 7300) {
                         if (arg0 == 7201) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.groundDecor.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7202) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.spotShadows.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.spotShadows.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7203) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.hardShadows.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7204) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.waterDetail.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7205) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.isCompatible() && Toolkit.active.method8015() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.antialiasingMode.isCompatible() && Toolkit.active.method8015() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7206) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.particles.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.particles.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7207) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.buildArea.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.buildArea.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7208) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.bloom.isCompatible() && Toolkit.active.method7936() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.bloom.isCompatible() && Toolkit.active.method7936() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7209) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.groundBlending.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.groundBlending.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7210) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.textures.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.textures.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7211) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.maxScreenSize.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.maxScreenSize.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7212) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.fog.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.fog.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7213) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.orthographic.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.orthographic.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7214) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.toolkitDefault.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.toolkitDefault.isCompatible() ? 1 : 0;
                             return;
                         }
                         if (arg0 == 7215) {
-                            anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.isCompatible() ? 1 : 0;
+                            intStack[intStackPointer++] = ClientOptions.instance.skydetail.isCompatible() ? 1 : 0;
                             return;
                         }
                     } else if (arg0 < 7400) {
                         if (arg0 == 7301) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.groundDecor.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.groundDecor.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7302) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.spotShadows.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.spotShadows.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7303) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.hardShadows.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.hardShadows.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7304) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.waterDetail.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.waterDetail.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7305) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             if (!Toolkit.active.method8015()) {
-                                anIntArray578[anInt7142++] = 3;
+                                intStack[intStackPointer++] = 3;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = ClientOptions.instance.antialiasingMode.getCompatibility(local192);
+                            intStack[intStackPointer++] = ClientOptions.instance.antialiasingMode.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7306) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.particles.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.particles.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7307) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.buildArea.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.buildArea.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7308) {
-                            local192 = anIntArray578[--anInt7142];
+                            local192 = intStack[--intStackPointer];
                             if (!Toolkit.active.method7936()) {
-                                anIntArray578[anInt7142++] = 3;
+                                intStack[intStackPointer++] = 3;
                                 return;
                             }
-                            anIntArray578[anInt7142++] = ClientOptions.instance.bloom.getCompatibility(local192);
+                            intStack[intStackPointer++] = ClientOptions.instance.bloom.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7309) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.groundBlending.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.groundBlending.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7310) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.textures.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.textures.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7311) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.maxScreenSize.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.maxScreenSize.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7312) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.fog.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.fog.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7313) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.orthographic.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.orthographic.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7314) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.toolkitDefault.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.toolkitDefault.getCompatibility(local192);
                             return;
                         }
                         if (arg0 == 7315) {
-                            local192 = anIntArray578[--anInt7142];
-                            anIntArray578[anInt7142++] = ClientOptions.instance.skydetail.getCompatibility(local192);
+                            local192 = intStack[--intStackPointer];
+                            intStack[intStackPointer++] = ClientOptions.instance.skydetail.getCompatibility(local192);
                             return;
                         }
                     }
@@ -6292,19 +7719,22 @@ public final class ScriptRunner {
                 if (v == Integer.MIN_VALUE + 9) {
                     v = hook.keyChar;
                 }
+
                 intVars[intCount++] = v;
             } else if (arguments[i] instanceof String) {
                 @Pc(154) String s = (String) arguments[i];
                 if (s.equals("event_opbase")) {
                     s = hook.opBase;
                 }
+
                 stringVars[stringCount++] = s;
             } else if (arguments[i] instanceof Long) {
                 @Pc(180) long l = (Long) arguments[i];
                 longVars[longCount++] = l;
             }
         }
-        anInt7153 = hook.anInt7220;
+
+        lastHookId = hook.id;
         executeScript(script, maxOps);
     }
 

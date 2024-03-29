@@ -1,13 +1,9 @@
 import com.jagex.Client;
-import com.jagex.IndexedImage;
 import com.jagex.core.constants.ModeGame;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static414 {
-
-    @OriginalMember(owner = "client!nba", name = "i", descriptor = "Lclient!wp;")
-    public static IndexedImage aIndexedImage_2;
 
     @OriginalMember(owner = "client!nba", name = "b", descriptor = "[F")
     public static final float[] aFloatArray43 = new float[2];

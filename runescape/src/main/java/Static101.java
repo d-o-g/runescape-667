@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static101 {
 
-    @OriginalMember(owner = "client!dca", name = "w", descriptor = "I")
-    public static int anInt2097;
-
     @OriginalMember(owner = "client!dca", name = "a", descriptor = "([[BBLclient!taa;)V")
     public static void method2001(@OriginalArg(0) byte[][] arg0, @OriginalArg(2) MapRegion region) {
         for (@Pc(1) int level = 0; level < region.levels; level++) {

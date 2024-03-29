@@ -70,8 +70,8 @@ public final class InterfaceList {
     }
 
     @OriginalMember(owner = "client!aia", name = "a", descriptor = "(III)Lclient!hda;")
-    public static Component getComponent(@OriginalArg(1) int component, @OriginalArg(2) int id) {
-        @Pc(21) Component inter = list(id);
+    public static Component getComponent(@OriginalArg(2) int idAndSlot, @OriginalArg(1) int component) {
+        @Pc(21) Component inter = list(idAndSlot);
 
         if (component == -1) {
             return inter;

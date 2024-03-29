@@ -38,8 +38,4 @@ public final class Static38 {
         Static147.findPath(0, arg2, local78, true, arg0, local88, 0, local75);
     }
 
-    @OriginalMember(owner = "client!bea", name = "a", descriptor = "(IZ)J")
-    public static long method1003(@OriginalArg(0) int arg0) {
-        return (long) (arg0 + 11745) * 86400000L;
-    }
 }

@@ -646,7 +646,7 @@ public final class MainLogicManager {
                             if (local2006 == null) {
                                 while (true) {
                                     do {
-                                        local2006 = (HookRequest) Static521.A_DEQUE___44.removeFirst();
+                                        local2006 = (HookRequest) InterfaceManager.hookRequests.removeFirst();
                                         if (local2006 == null) {
                                             if (WorldMap.component == null) {
                                                 MiniMenu.anInt6964 = 0;
@@ -673,10 +673,10 @@ public final class MainLogicManager {
                                             for (@Pc(2281) FriendNotification local2281 = (FriendNotification) FriendsList.notifications.first(); local2281 != null; local2281 = (FriendNotification) FriendsList.notifications.next()) {
                                                 if (SystemTimer.safetime() / 1000L - 5L > (long) local2281.arrivalTime) {
                                                     if (local2281.world > 0) {
-                                                        ChatHistory.add(local2281.name + LocalisedText.FRIENDLOGIN.localise(Client.language), "", 0, "", "", 5);
+                                                        ChatHistory.add(5, 0, "", "", "", local2281.name + LocalisedText.FRIENDLOGIN.localise(Client.language));
                                                     }
                                                     if (local2281.world == 0) {
-                                                        ChatHistory.add(local2281.name + LocalisedText.FRIENDLOGOUT.localise(Client.language), "", 0, "", "", 5);
+                                                        ChatHistory.add(5, 0, "", "", "", local2281.name + LocalisedText.FRIENDLOGOUT.localise(Client.language));
                                                     }
                                                     local2281.unlink();
                                                 }

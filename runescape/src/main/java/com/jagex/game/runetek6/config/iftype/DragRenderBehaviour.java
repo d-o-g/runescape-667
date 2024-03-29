@@ -2,7 +2,7 @@ package com.jagex.game.runetek6.config.iftype;
 
 import org.openrs2.deob.annotation.OriginalMember;
 
-public final class DragRender {
+public final class DragRenderBehaviour {
 
     @OriginalMember(owner = "client!laa", name = "n", descriptor = "I")
     public static final int OFFSET_TRANSPARENT = 0;
@@ -13,7 +13,7 @@ public final class DragRender {
     @OriginalMember(owner = "client!hga", name = "q", descriptor = "I")
     public static final int OFFSET = 2;
 
-    private DragRender() {
+    private DragRenderBehaviour() {
         /* empty */
     }
 }

@@ -68,14 +68,14 @@ public final class EnumType {
     }
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(II)Lclient!nw;")
-    public EnumMapping getReversed(@OriginalArg(1) int id) {
+    public EnumMapping getReversed(@OriginalArg(1) int key) {
         if (this.output == null) {
             return null;
         } else {
             if (this.reversed == null) {
                 this.method1236();
             }
-            return (EnumMapping) this.reversed.get(id);
+            return (EnumMapping) this.reversed.get(key);
         }
     }
 
@@ -155,11 +155,17 @@ public final class EnumType {
                 @Pc(116) long key = StringTools.longHash(value);
 
                 @Pc(123) EnumStringMapping mapping;
-                for (mapping = (EnumStringMapping) this.reversed.get(key); mapping != null && !mapping.value.equals(value); mapping = (EnumStringMapping) this.reversed.nextWithSameKey()) {
+                for (mapping = (EnumStringMapping) this.reversed.get(key); mapping != null; mapping = (EnumStringMapping) this.reversed.nextWithSameKey()) {
+                    if (mapping.value.equals(value)) {
+                        break;
+                    }
                 }
 
                 @Pc(143) EnumMappingFrequency frequency;
-                for (frequency = (EnumMappingFrequency) frequencies.get(key); frequency != null && !frequency.value.equals(value); frequency = (EnumMappingFrequency) frequencies.nextWithSameKey()) {
+                for (frequency = (EnumMappingFrequency) frequencies.get(key); frequency != null; frequency = (EnumMappingFrequency) frequencies.nextWithSameKey()) {
+                    if (frequency.value.equals(value)) {
+                        break;
+                    }
                 }
 
                 @Pc(164) int decrementedFrequency = frequency.frequency--;
@@ -197,16 +203,16 @@ public final class EnumType {
     }
 
     @OriginalMember(owner = "client!bt", name = "c", descriptor = "(II)Ljava/lang/String;")
-    public String getString(@OriginalArg(1) int id) {
+    public String getString(@OriginalArg(1) int key) {
         if (this.output == null) {
             return this.defaultStr;
         } else if (this.output instanceof IterableHashTable) {
-            @Pc(31) StringNode local31 = (StringNode) ((IterableHashTable) this.output).get(id);
+            @Pc(31) StringNode local31 = (StringNode) ((IterableHashTable) this.output).get(key);
             return local31 == null ? this.defaultStr : local31.value;
         } else {
             @Pc(44) String[] strings = (String[]) this.output;
-            if (id >= 0 && id < strings.length) {
-                @Pc(64) String string = strings[id];
+            if (key >= 0 && key < strings.length) {
+                @Pc(64) String string = strings[key];
                 return string != null ? string : this.defaultStr;
             } else {
                 return this.defaultStr;
@@ -343,7 +349,7 @@ public final class EnumType {
     }
 
     @OriginalMember(owner = "client!bt", name = "a", descriptor = "(Ljava/lang/String;B)Lclient!hu;")
-    public EnumStringMapping getReversed(@OriginalArg(0) String string) {
+    public EnumStringMapping getReversed(@OriginalArg(0) String value) {
         if (this.output == null) {
             return null;
         }
@@ -351,7 +357,7 @@ public final class EnumType {
             this.buildOptionsReverse();
         }
         @Pc(26) EnumStringMapping mapping;
-        for (mapping = (EnumStringMapping) this.reversed.get(StringTools.longHash(string)); mapping != null && !mapping.value.equals(string); mapping = (EnumStringMapping) this.reversed.nextWithSameKey()) {
+        for (mapping = (EnumStringMapping) this.reversed.get(StringTools.longHash(value)); mapping != null && !mapping.value.equals(value); mapping = (EnumStringMapping) this.reversed.nextWithSameKey()) {
         }
         return mapping;
     }

@@ -536,7 +536,7 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(IIB)V")
-    public void method4549(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public void setBaseColour(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         this.clientpalette[arg0] = arg1;
         this.computeHash();
     }
@@ -606,7 +606,7 @@ public final class PlayerModel {
     }
 
     @OriginalMember(owner = "client!ju", name = "a", descriptor = "(BIILclient!es;)V")
-    public void setObj(@OriginalArg(1) int objId, @OriginalArg(2) int part, @OriginalArg(3) ObjTypeList objTypeList) {
+    public void setObj(@OriginalArg(3) ObjTypeList objTypeList, @OriginalArg(2) int part, @OriginalArg(1) int objId) {
         if (objId == -1) {
             this.identikit[part] = 0;
         } else if (objTypeList.list(objId) != null) {

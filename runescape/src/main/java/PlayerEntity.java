@@ -1,6 +1,7 @@
 import com.jagex.Client;
 import com.jagex.Entity;
 import com.jagex.PickableEntity;
+import com.jagex.core.util.Arrays;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ParticleList;
 import com.jagex.core.constants.ModeWhere;
@@ -46,6 +47,13 @@ public final class PlayerEntity extends PathingEntity {
     private static final int APPEARANCE_FLAG_VORBIS = 0x2;
 
     private static final int APPEARANCE_FLAG_SKILL_AREA = 0x4;
+
+    @OriginalMember(owner = "client!rf", name = "a", descriptor = "(BLclient!ca;II)V")
+    public static void animate(@OriginalArg(1) PlayerEntity arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2) {
+        @Pc(6) int[] animations = new int[4];
+        Arrays.set(animations, 0, animations.length, arg2);
+        PathingEntity.animate(animations, arg1, false, arg0);
+    }
 
     @OriginalMember(owner = "client!fo", name = "k", descriptor = "Lclient!dla;")
     public static final ReferenceCache modelCache = new ReferenceCache(4);
@@ -854,7 +862,7 @@ public final class PlayerEntity extends PathingEntity {
             if (super.line.text == null) {
                 return null;
             }
-            if (Static133.publicChatFilter == 0 || Static133.publicChatFilter == 3 || Static133.publicChatFilter == 1 && FriendsList.method5241(arg0 + 3109, this.accountName)) {
+            if (Static133.publicChatFilter == 0 || Static133.publicChatFilter == 3 || Static133.publicChatFilter == 1 && FriendsList.contains(arg0 + 3109, this.accountName)) {
                 return super.line;
             }
         }

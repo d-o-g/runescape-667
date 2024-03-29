@@ -9,7 +9,7 @@ import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.idktype.IDKTypeList;
-import com.jagex.game.runetek6.config.iftype.DragRender;
+import com.jagex.game.runetek6.config.iftype.DragRenderBehaviour;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
@@ -402,7 +402,7 @@ public final class Component {
     public int dragDeadTime = 0;
 
     @OriginalMember(owner = "client!hda", name = "Tb", descriptor = "I")
-    public int shadow = 0;
+    public int graphicShadow = 0;
 
     @OriginalMember(owner = "client!hda", name = "Fc", descriptor = "I")
     public int xof2d = 0;
@@ -465,7 +465,7 @@ public final class Component {
     public int zoom2d = 100;
 
     @OriginalMember(owner = "client!hda", name = "qc", descriptor = "Z")
-    public boolean transparent = false;
+    public boolean alpha = false;
 
     @OriginalMember(owner = "client!hda", name = "ld", descriptor = "I")
     public int scrollHeight = 0;
@@ -549,7 +549,7 @@ public final class Component {
     public int lastUpdate = -1;
 
     @OriginalMember(owner = "client!hda", name = "Ad", descriptor = "Lclient!hda;")
-    public Component aComponent_6 = null;
+    public Component dragLayer = null;
 
     @OriginalMember(owner = "client!hda", name = "d", descriptor = "I")
     public int rectangle = -1;
@@ -573,7 +573,7 @@ public final class Component {
     public int modelOriginY = 0;
 
     @OriginalMember(owner = "client!hda", name = "Wc", descriptor = "I")
-    public int dragRenderBehaviour = DragRender.OFFSET_TRANSPARENT;
+    public int dragRenderBehaviour = DragRenderBehaviour.OFFSET_TRANSPARENT;
 
     @OriginalMember(owner = "client!hda", name = "N", descriptor = "Z")
     public boolean objWearCol = false;
@@ -595,11 +595,11 @@ public final class Component {
         redrawAll = false;
 
         @Pc(54) long key = ((long) this.graphic)
-            + ((this.transparent ? 1L : 0L) << 35)
+            + ((this.alpha ? 1L : 0L) << 35)
             + ((long) this.outline << 36)
             + ((this.horizontalFlip ? 1L : 0L) << 38)
             + ((this.verticalFlip ? 1L : 0L) << 39)
-            + ((long) this.shadow << 40);
+            + ((long) this.graphicShadow << 40);
 
         @Pc(60) Sprite sprite = (Sprite) spriteCache.get(key);
         if (sprite != null) {
@@ -622,7 +622,7 @@ public final class Component {
 
         if (this.outline > 0) {
             image.scale(this.outline);
-        } else if (this.shadow != 0) {
+        } else if (this.graphicShadow != 0) {
             image.scale(1);
         }
 
@@ -632,8 +632,8 @@ public final class Component {
         if (this.outline >= 2) {
             image.setOutlineColour(0xFFFFFF);
         }
-        if (this.shadow != 0) {
-            image.setShadowColour(this.shadow | 0xFF000000);
+        if (this.graphicShadow != 0) {
+            image.setShadowColour(this.graphicShadow | 0xFF000000);
         }
 
         sprite = toolkit.createSprite(image, true);
@@ -771,10 +771,10 @@ public final class Component {
             this.angle2d = packet.g2();
             @Pc(191) int spriteFlags = packet.g1();
             this.tiling = (spriteFlags & 0x1) != 0;
-            this.transparent = (spriteFlags & 0x2) != 0;
+            this.alpha = (spriteFlags & 0x2) != 0;
             this.transparency = packet.g1();
             this.outline = packet.g1();
-            this.shadow = packet.g4();
+            this.graphicShadow = packet.g4();
             this.horizontalFlip = packet.g1() == 1;
             this.verticalFlip = packet.g1() == 1;
             this.colour = packet.g4();

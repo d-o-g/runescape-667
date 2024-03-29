@@ -1,7 +1,3 @@
-import com.jagex.Client;
-import com.jagex.ClientProt;
-import com.jagex.core.stringtools.general.NameTools;
-import com.jagex.game.LocalisedText;
 import com.jagex.graphics.Toolkit;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -99,63 +95,4 @@ public final class Static231 {
         }
     }
 
-    @OriginalMember(owner = "client!hd", name = "a", descriptor = "(ILjava/lang/String;)I")
-    public static int method3379(@OriginalArg(1) String arg0) {
-        return arg0.length() + 1;
-    }
-
-    @OriginalMember(owner = "client!hd", name = "a", descriptor = "(ZLjava/lang/String;B)V")
-    public static void method3382(@OriginalArg(0) boolean arg0, @OriginalArg(1) String arg1) {
-        if (arg1 == null) {
-            return;
-        }
-        if (IgnoreList.count >= 100) {
-            ChatHistory.addPrivateError(LocalisedText.IGNORELISTFULL.localise(Client.language));
-            return;
-        }
-        @Pc(27) String local27 = NameTools.format(arg1);
-        if (local27 == null) {
-            return;
-        }
-
-        @Pc(76) String local76;
-        for (@Pc(33) int local33 = 0; local33 < IgnoreList.count; local33++) {
-            @Pc(40) String local40 = NameTools.format(IgnoreList.names[local33]);
-            if (local40 != null && local40.equals(local27)) {
-                ChatHistory.addPrivateError(arg1 + LocalisedText.IGNORELISTDUPE.localise(Client.language));
-                return;
-            }
-            if (IgnoreList.formerNames[local33] != null) {
-                local76 = NameTools.format(IgnoreList.formerNames[local33]);
-                if (local76 != null && local76.equals(local27)) {
-                    ChatHistory.addPrivateError(arg1 + LocalisedText.IGNORELISTDUPE.localise(Client.language));
-                    return;
-                }
-            }
-        }
-        for (@Pc(106) int local106 = 0; local106 < FriendsList.count; local106++) {
-            local76 = NameTools.format(FriendsList.names[local106]);
-            if (local76 != null && local76.equals(local27)) {
-                ChatHistory.addPrivateError(LocalisedText.REMOVEFRIEND1.localise(Client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(Client.language));
-                return;
-            }
-            if (FriendsList.formerNames[local106] != null) {
-                @Pc(154) String local154 = NameTools.format(FriendsList.formerNames[local106]);
-                if (local154 != null && local154.equals(local27)) {
-                    ChatHistory.addPrivateError(LocalisedText.REMOVEFRIEND1.localise(Client.language) + arg1 + LocalisedText.REMOVEFRIEND2.localise(Client.language));
-                    return;
-                }
-            }
-        }
-        if (NameTools.format(PlayerEntity.self.accountName).equals(local27)) {
-            ChatHistory.addPrivateError(LocalisedText.IGNORECANTADDSELF.localise(Client.language));
-            return;
-        }
-        @Pc(216) ServerConnection local216 = ConnectionManager.active();
-        @Pc(222) ClientMessage local222 = ClientMessage.create(ClientProt.IGNORELIST_ADD, local216.cipher);
-        local222.bitPacket.p1(method3379(arg1) + 1);
-        local222.bitPacket.pjstr(arg1);
-        local222.bitPacket.p1(arg0 ? 1 : 0);
-        local216.send(local222);
-    }
 }

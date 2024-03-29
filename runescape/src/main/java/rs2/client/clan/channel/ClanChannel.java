@@ -46,7 +46,7 @@ public final class ClanChannel extends Node {
     public int userCount = 0;
 
     @OriginalMember(owner = "client!rfa", name = "s", descriptor = "Ljava/lang/String;")
-    public String channelName = null;
+    public String clanName = null;
 
     @OriginalMember(owner = "client!rfa", name = "<init>", descriptor = "(Lclient!ge;)V")
     public ClanChannel(@OriginalArg(0) Packet packet) {
@@ -93,7 +93,7 @@ public final class ClanChannel extends Node {
 
         super.key = packet.g8();
         this.updateNum = packet.g8();
-        this.channelName = packet.gjstr();
+        this.clanName = packet.gjstr();
         packet.g1();
         this.kickRank = packet.g1b();
         this.talkRank = packet.g1b();

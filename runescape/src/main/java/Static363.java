@@ -64,7 +64,7 @@ public final class Static363 {
 
         try {
             @Pc(43) Dimension local43 = GameShell.canvas.getSize();
-            Static694.drawLoadingText(Toolkit.active, LocalisedText.PROFILING.localise(Client.language), true, Fonts.p12Metrics, Fonts.p12);
+            MessageBox.draw(Toolkit.active, LocalisedText.PROFILING.localise(Client.language), true, Fonts.p12Metrics, Fonts.p12);
             @Pc(67) Mesh local67 = Mesh.load(GraphicsDefaults.instance.profilingModel, js5.MODELS);
             @Pc(70) long local70 = SystemTimer.safetime();
             Toolkit.active.la();

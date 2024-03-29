@@ -39,7 +39,7 @@ public final class Static684 {
         }
 
         MainLogicManager.setStep(buildStep);
-        Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language), true, Fonts.p12Metrics, Fonts.p12);
+        MessageBox.draw(Toolkit.active, LocalisedText.LOADING.localise(Client.language), true, Fonts.p12Metrics, Fonts.p12);
 
         @Pc(74) int baseX = WorldMap.areaBaseX;
         WorldMap.areaBaseX = (Static62.areaCenterX - (Static720.mapWidth >> 4)) * 8;

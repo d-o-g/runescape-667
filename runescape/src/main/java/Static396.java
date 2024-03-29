@@ -1,4 +1,3 @@
-import com.jagex.ClientProt;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -12,14 +11,6 @@ public final class Static396 {
         @Pc(14) byte[] local14 = new byte[arg0];
         Arrays.copy(arg1, 0, local14, 0, arg0);
         return local14;
-    }
-
-    @OriginalMember(owner = "client!mi", name = "a", descriptor = "(I)V")
-    public static void method5551() {
-        @Pc(10) ServerConnection local10 = ConnectionManager.active();
-        @Pc(18) ClientMessage local18 = ClientMessage.create(ClientProt.FRIENDS_CHAT_CHANGE, local10.cipher);
-        local18.bitPacket.p1(0);
-        local10.send(local18);
     }
 
     @OriginalMember(owner = "client!mi", name = "a", descriptor = "(Lclient!ge;B)Lclient!pfa;")

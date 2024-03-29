@@ -171,7 +171,7 @@ public final class Static489 {
         }
 
         if (Static213.anInt3472 != 0) {
-            Static694.drawLoadingText(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
+            MessageBox.draw(Toolkit.active, LocalisedText.LOADING.localise(Client.language) + "<br>(100%)", true, Fonts.p12Metrics, Fonts.p12);
         }
 
         Static557.method7331();

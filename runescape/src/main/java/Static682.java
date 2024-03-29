@@ -1,4 +1,3 @@
-import com.jagex.core.stringtools.general.Base37;
 import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -8,15 +7,6 @@ public final class Static682 {
 
     @OriginalMember(owner = "client!vka", name = "i", descriptor = "[I")
     public static int[] anIntArray817 = new int[2];
-
-    @OriginalMember(owner = "client!vka", name = "a", descriptor = "(ILjava/lang/String;)Ljava/lang/String;")
-    public static String method8923(@OriginalArg(1) String arg0) {
-        @Pc(17) String local17 = Base37.decodeName(Base37.encode(arg0));
-        if (local17 == null) {
-            local17 = "";
-        }
-        return local17;
-    }
 
     @OriginalMember(owner = "client!vka", name = "a", descriptor = "(IIIBI)V")
     public static void method8927(@OriginalArg(2) int x1, @OriginalArg(4) int x2, @OriginalArg(0) int y1, @OriginalArg(1) int y2) {

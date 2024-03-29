@@ -89,7 +89,7 @@ public final class Static369 {
             @Pc(85) Canvas canvas = new Canvas();
             canvas.setSize(36, 32);
             Static158.objSpriteToolkit = Static255.create(ToolkitType.JAVA, js5.SHADERS, canvas, Js5TextureSource.instance, 0);
-            Fonts.objSpriteFont = Static158.objSpriteToolkit.createFont(FontMetrics.loadGroup(Fonts.p11FullGroup, js5.FONTMETRICS), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
+            Fonts.objSpriteFont = Static158.objSpriteToolkit.createFont(FontMetrics.loadGroup(js5.FONTMETRICS, Fonts.p11FullGroup), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
         }
 
         for (@Pc(31) JavaObjSprite sprite = (JavaObjSprite) JavaToolkit.objSprites.first(); sprite != null; sprite = (JavaObjSprite) JavaToolkit.objSprites.next()) {

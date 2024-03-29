@@ -188,6 +188,15 @@ public final class NameTools {
         return c == ' ' || c == ' ' || c == '_' || c == '-';
     }
 
+    @OriginalMember(owner = "client!vka", name = "a", descriptor = "(ILjava/lang/String;)Ljava/lang/String;")
+    public static String normalise(@OriginalArg(1) String name) {
+        @Pc(17) String normalised = Base37.decodeName(Base37.encode(name));
+        if (normalised == null) {
+            normalised = "";
+        }
+        return normalised;
+    }
+
     private NameTools() {
         /* empty */
     }

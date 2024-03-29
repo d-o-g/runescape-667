@@ -56,7 +56,7 @@ public final class FontTypeList {
         @Pc(54) FontType type = (FontType) recentUse.get((group << 1) | (monospaced ? 1 : 0));
         if (type != null) {
             if (loadMetrics && type.metrics == null) {
-                @Pc(70) FontMetrics metrics = FontMetrics.loadFile(group, metricsJs5);
+                @Pc(70) FontMetrics metrics = FontMetrics.loadFile(metricsJs5, group);
                 if (metrics == null) {
                     return null;
                 }
@@ -72,7 +72,7 @@ public final class FontTypeList {
             return null;
         }
 
-        @Pc(94) FontMetrics metrics = FontMetrics.loadFile(group, metricsJs5);
+        @Pc(94) FontMetrics metrics = FontMetrics.loadFile(metricsJs5, group);
         if (metrics == null) {
             return null;
         }
@@ -142,7 +142,7 @@ public final class FontTypeList {
         fontTypes = new FontType[groups.length];
         for (@Pc(14) int i = 0; i < groups.length; i++) {
             @Pc(19) int group = groups[i];
-            @Pc(24) FontMetrics metrics = FontMetrics.loadFile(group, metricsJs5);
+            @Pc(24) FontMetrics metrics = FontMetrics.loadFile(metricsJs5, group);
             @Pc(32) Font font = toolkit.createFont(metrics, IndexedImage.load(spritesJs5, group), true);
             fontTypes[i] = new FontType(font, metrics);
         }

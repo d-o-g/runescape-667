@@ -13,14 +13,14 @@ import org.openrs2.deob.annotation.Pc;
 public final class FontMetrics {
 
     @OriginalMember(owner = "client!hh", name = "a", descriptor = "(IILclient!sb;)Lclient!ve;")
-    public static FontMetrics loadFile(@OriginalArg(1) int file, @OriginalArg(2) js5 js5) {
-        @Pc(8) byte[] data = js5.getfile(file);
+    public static FontMetrics loadFile(@OriginalArg(2) js5 fontMetrics, @OriginalArg(1) int file) {
+        @Pc(8) byte[] data = fontMetrics.getfile(file);
         return data == null ? null : new FontMetrics(data);
     }
 
     @OriginalMember(owner = "client!cga", name = "a", descriptor = "(IIILclient!sb;)Lclient!ve;")
-    public static FontMetrics loadGroup(@OriginalArg(2) int group, @OriginalArg(3) js5 js5) {
-        @Pc(17) byte[] data = js5.getfile(0, group);
+    public static FontMetrics loadGroup(@OriginalArg(3) js5 fontMetrics, @OriginalArg(2) int group) {
+        @Pc(17) byte[] data = fontMetrics.getfile(0, group);
         return data == null ? null : new FontMetrics(data);
     }
 

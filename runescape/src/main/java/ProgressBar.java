@@ -93,7 +93,7 @@ public abstract class ProgressBar implements LoadingScreenOp {
     @OriginalMember(owner = "client!ea", name = "a", descriptor = "(I)V")
     @Override
     public void init() {
-        @Pc(21) FontMetrics metrics = FontMetrics.loadFile(this.instance.font, this.fontMetrics);
+        @Pc(21) FontMetrics metrics = FontMetrics.loadFile(this.fontMetrics, this.instance.font);
         this.font = Toolkit.active.createFont(metrics, IndexedImage.load(this.loadingSprites, this.instance.font), true);
     }
 

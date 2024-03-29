@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
@@ -24,7 +25,7 @@ public final class Static708 {
             if (arg0.length() == 0) {
                 local47 = local47 + "; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0";
             } else {
-                local47 = local47 + "; Expires=" + Static163.method8846(SystemTimer.safetime() + 94608000000L) + "; Max-Age=" + 94608000L;
+                local47 = local47 + "; Expires=" + debugconsole.method8846(SystemTimer.safetime() + TimeUtils.MILLISECONDS_PER_THREE_YEARS) + "; Max-Age=" + 94608000L;
             }
             JavaScript.eval("document.cookie=\"" + local47 + "\"", GameShell.loaderApplet);
         } catch (@Pc(104) Throwable local104) {

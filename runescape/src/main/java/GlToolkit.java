@@ -2751,7 +2751,7 @@ public final class GlToolkit extends Toolkit {
             OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
         this.aClass169_1.method3528();
-        if (this.E() > 100663296 && this.aLong248 + 60000L < SystemTimer.safetime()) {
+        if (this.E() > 100663296 && this.aLong248 + TimeUtils.MILLISECONDS_PER_MINUTE < SystemTimer.safetime()) {
             System.gc();
             this.aLong248 = SystemTimer.safetime();
         }

@@ -294,7 +294,7 @@ import static com.jagex.core.constants.ClientScriptOpCode.ENUM_HASOUTPUT;
 import static com.jagex.core.constants.ClientScriptOpCode.ENUM_HASOUTPUT_STRING;
 import static com.jagex.core.constants.ClientScriptOpCode.ENUM_STRING;
 import static com.jagex.core.constants.ClientScriptOpCode.ESCAPE;
-import static com.jagex.core.constants.ClientScriptOpCode.FACING_FINE;
+import static com.jagex.core.constants.ClientScriptOpCode.COORD;
 import static com.jagex.core.constants.ClientScriptOpCode.FORMAT_DATETIME_FROM_MINUTES;
 import static com.jagex.core.constants.ClientScriptOpCode.FRIEND_ADD;
 import static com.jagex.core.constants.ClientScriptOpCode.FRIEND_COUNT;
@@ -2477,7 +2477,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (op == FACING_FINE) {
+            if (op == COORD) {
                 @Pc(5929) byte level = PlayerEntity.self.level;
                 @Pc(21) int x = (PlayerEntity.self.x >> 9) + WorldMap.areaBaseX;
                 @Pc(27) int z = (PlayerEntity.self.z >> 9) + WorldMap.areaBaseZ;
@@ -3770,7 +3770,7 @@ public final class ScriptRunner {
             }
 
             if (op == FROMDATE) {
-                stringStack[stringStackPointer++] = TimeUtils.parseDate(Client.language, TimeUtils.timeFromRunedate(intStack[--intStackPointer]));
+                stringStack[stringStackPointer++] = TimeUtils.dateFromTime(TimeUtils.timeFromRunedays(intStack[--intStackPointer]), Client.language);
                 return;
             }
 
@@ -3975,7 +3975,7 @@ public final class ScriptRunner {
             }
 
             if (op == FORMAT_DATETIME_FROM_MINUTES) {
-                stringStack[stringStackPointer++] = TimeUtils.formatDatetime((long) intStack[--intStackPointer] * 60000L, Client.language) + " UTC";
+                stringStack[stringStackPointer++] = TimeUtils.datetimeFromTime((long) intStack[--intStackPointer] * TimeUtils.MILLISECONDS_PER_MINUTE, Client.language) + " UTC";
                 return;
             }
 
@@ -6545,11 +6545,11 @@ public final class ScriptRunner {
                     }
                 } else if (arg0 < 6400) {
                     if (arg0 == 6300) {
-                        intStack[intStackPointer++] = (int) (SystemTimer.safetime() / 60000L);
+                        intStack[intStackPointer++] = (int) (SystemTimer.safetime() / TimeUtils.MILLISECONDS_PER_MINUTE);
                         return;
                     }
                     if (arg0 == 6301) {
-                        intStack[intStackPointer++] = (int) (SystemTimer.safetime() / 86400000L) - 11745;
+                        intStack[intStackPointer++] = (int) (SystemTimer.safetime() / TimeUtils.MILLISECONDS_PER_DAY) - TimeUtils.RUNEDAYS_SINCE_UNIX_EPOCH;
                         return;
                     }
                     if (arg0 == 6302) {
@@ -6557,8 +6557,8 @@ public final class ScriptRunner {
                         local192 = intStack[intStackPointer];
                         local834 = intStack[intStackPointer + 1];
                         local109 = intStack[intStackPointer + 2];
-                        @Pc(7384) long local7384 = Static40.method1026(local834, local109, local192);
-                        local3561 = Static68.method3585(local7384);
+                        @Pc(7384) long local7384 = TimeUtils.timeFromDate(local192, local834, local109);
+                        local3561 = TimeUtils.runedaysFromTime(local7384);
                         if (local109 < 1970) {
                             local3561--;
                         }
@@ -6566,7 +6566,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6303) {
-                        intStack[intStackPointer++] = Static614.method8242(SystemTimer.safetime());
+                        intStack[intStackPointer++] = TimeUtils.yearFromTime(SystemTimer.safetime());
                         return;
                     }
                     if (arg0 == 6304) {
@@ -6588,14 +6588,14 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 6305) {
                         local192 = intStack[--intStackPointer];
-                        @Pc(7512) int[] local7512 = Static212.method3135(local192);
+                        @Pc(7512) int[] local7512 = TimeUtils.dateFromRunedays(local192);
                         Arrays.copy(local7512, 0, intStack, intStackPointer, 3);
                         intStackPointer += 3;
                         return;
                     }
                     if (arg0 == 6306) {
                         local192 = intStack[--intStackPointer];
-                        intStack[intStackPointer++] = (int) (TimeUtils.timeFromRunedate(local192) / 60000L);
+                        intStack[intStackPointer++] = (int) (TimeUtils.timeFromRunedays(local192) / TimeUtils.MILLISECONDS_PER_MINUTE);
                         return;
                     }
                 } else if (arg0 < 6500) {
@@ -6953,8 +6953,8 @@ public final class ScriptRunner {
                             return;
                         }
                         if (arg0 == 6901) {
-                            intStack[intStackPointer++] = (int) (Static416.subscriptionExpiration / 60000L);
-                            intStack[intStackPointer++] = (int) ((Static416.subscriptionExpiration - SystemTimer.safetime() - Static94.remainingSubscription) / 60000L);
+                            intStack[intStackPointer++] = (int) (Static416.subscriptionExpiration / TimeUtils.MILLISECONDS_PER_MINUTE);
+                            intStack[intStackPointer++] = (int) ((Static416.subscriptionExpiration - SystemTimer.safetime() - Static94.remainingSubscription) / TimeUtils.MILLISECONDS_PER_MINUTE);
                             intStack[intStackPointer++] = Static425.activeSubscription ? 1 : 0;
                             return;
                         }

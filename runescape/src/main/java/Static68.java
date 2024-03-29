@@ -1,4 +1,3 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static68 {
@@ -7,10 +6,6 @@ public final class Static68 {
     public static int[] underwaterMapGroups;
 
     @OriginalMember(owner = "client!cd", name = "g", descriptor = "I")
-    public static final int anInt4096 = 16777215;
+    public static final int anInt4096 = 0xFFFFFF;
 
-    @OriginalMember(owner = "client!cd", name = "a", descriptor = "(JZ)I")
-    public static int method3585(@OriginalArg(0) long arg0) {
-        return (int) (arg0 / 86400000L) - 11745;
-    }
 }

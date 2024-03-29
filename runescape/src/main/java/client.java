@@ -614,7 +614,7 @@ public final class client extends GameShell {
                                                 MiniMenu.update();
                                             }
                                             Static587.method7704();
-                                            if (Static624.varcSaveRecommended && SystemTimer.safetime() - 60000L > Static98.lastVarcSave) {
+                                            if (Static624.varcSaveRecommended && SystemTimer.safetime() - TimeUtils.MILLISECONDS_PER_MINUTE > Static98.lastVarcSave) {
                                                 Static266.saveVarcs();
                                             }
                                             for (@Pc(672) FriendNotification local672 = (FriendNotification) FriendsList.notifications.first(); local672 != null; local672 = (FriendNotification) FriendsList.notifications.next()) {

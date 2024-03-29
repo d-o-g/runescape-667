@@ -10,18 +10,28 @@ import java.util.TimeZone;
 
 public final class TimeUtils {
 
-    @OriginalMember(owner = "client!iba", name = "o", descriptor = "Ljava/util/Calendar;")
-    public static final Calendar aCalendar2 = Calendar.getInstance();
-
-    @OriginalMember(owner = "client!al", name = "k", descriptor = "[[Ljava/lang/String;")
-    public static final String[][] aStringArrayArray1 = new String[][]{{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}, {"Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"}, {"jan", "fév", "mars", "avr", "mai", "juin", "juil", "août", "sept", "oct", "nov", "déc"}, {"jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"}, {"jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"}};
-
-    public static final int RUNEDATE_DAYS_SINCE_UNIX_EPOCH = 11745;
+    public static final long MILLISECONDS_PER_MINUTE = 60000L;
 
     public static final long MILLISECONDS_PER_DAY = 86400000L;
 
+    public static final long MILLISECONDS_PER_THREE_YEARS = 94608000000L;
+
+    public static final int RUNEDAYS_SINCE_UNIX_EPOCH = 11745;
+
+    @OriginalMember(owner = "client!iba", name = "o", descriptor = "Ljava/util/Calendar;")
+    public static final Calendar CALENDAR = Calendar.getInstance();
+
     @OriginalMember(owner = "client!iba", name = "p", descriptor = "Ljava/util/Calendar;")
-    public static final Calendar aCalendar1 = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+    public static final Calendar GMT_CALENDAR = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+
+    @OriginalMember(owner = "client!al", name = "k", descriptor = "[[Ljava/lang/String;")
+    public static final String[][] MONTHS_BY_LANGUAGE = {
+        {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"},
+        {"Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"},
+        {"jan", "fév", "mars", "avr", "mai", "juin", "juil", "août", "sept", "oct", "nov", "déc"},
+        {"jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"},
+        {"jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"}
+    };
 
     @OriginalMember(owner = "client!kj", name = "d", descriptor = "I")
     public static int clock = 0;
@@ -50,63 +60,91 @@ public final class TimeUtils {
     }
 
     @OriginalMember(owner = "client!rfa", name = "a", descriptor = "(IJ)V")
-    public static void method7276(@OriginalArg(1) long arg0) {
-        aCalendar2.setTime(new Date(arg0));
+    public static void setTime(@OriginalArg(1) long milliseconds) {
+        CALENDAR.setTime(new Date(milliseconds));
     }
 
-    @OriginalMember(owner = "client!th", name = "a", descriptor = "(JBI)Ljava/lang/String;")
-    public static String method8243(@OriginalArg(0) long arg0, @OriginalArg(2) int arg1) {
-        method7276(arg0);
-        @Pc(17) int date = aCalendar2.get(Calendar.DATE);
-        @Pc(23) int month = aCalendar2.get(Calendar.MONTH) + 1;
-        @Pc(27) int year = aCalendar2.get(Calendar.YEAR);
-        return Integer.toString(date / 10) + date % 10 + "/" + month / 10 + month % 10 + "/" + year % 100 / 10 + year % 10;
+    @OriginalMember(owner = "client!le", name = "a", descriptor = "(IJ)V")
+    public static void setGmtTime(@OriginalArg(1) long milliseconds) {
+        GMT_CALENDAR.setTime(new Date(milliseconds));
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIJ)Ljava/lang/String;")
-    public static String parseDate(@OriginalArg(1) int arg0, @OriginalArg(2) long arg1) {
-        method7276(arg1);
-        @Pc(19) int date = aCalendar2.get(Calendar.DATE);
-        @Pc(23) int month = aCalendar2.get(Calendar.MONTH);
-        @Pc(27) int year = aCalendar2.get(Calendar.YEAR);
-        return arg0 == 3 ? method8243(arg1, arg0) : Integer.toString(date / 10) + date % 10 + "-" + aStringArrayArray1[arg0][month] + "-" + year;
+    public static String dateFromTime(@OriginalArg(2) long time, @OriginalArg(1) int language) {
+        setTime(time);
+        @Pc(19) int day = CALENDAR.get(Calendar.DAY_OF_MONTH);
+        @Pc(23) int month = CALENDAR.get(Calendar.MONTH);
+        @Pc(27) int year = CALENDAR.get(Calendar.YEAR);
+        return language == 3 ? simpleDateFromTime(time, language) : Integer.toString(day / 10) + day % 10 + "-" + MONTHS_BY_LANGUAGE[language][month] + "-" + year;
+    }
+
+    @OriginalMember(owner = "client!th", name = "a", descriptor = "(JBI)Ljava/lang/String;")
+    public static String simpleDateFromTime(@OriginalArg(0) long time, @OriginalArg(2) int language) {
+        setTime(time);
+        @Pc(17) int day = CALENDAR.get(Calendar.DAY_OF_MONTH);
+        @Pc(23) int month = CALENDAR.get(Calendar.MONTH) + 1;
+        @Pc(27) int year = CALENDAR.get(Calendar.YEAR);
+        return Integer.toString(day / 10) + day % 10 + "/" + month / 10 + month % 10 + "/" + year % 100 / 10 + year % 10;
+    }
+
+    @OriginalMember(owner = "client!uh", name = "a", descriptor = "(JZII)Ljava/lang/String;")
+    public static String datetimeFromTime(@OriginalArg(0) long time, @OriginalArg(2) int language) {
+        setGmtTime(time);
+        @Pc(16) Calendar calendar = GMT_CALENDAR;
+        @Pc(20) int day = calendar.get(Calendar.DAY_OF_MONTH);
+        @Pc(24) int month = calendar.get(Calendar.MONTH);
+        @Pc(28) int year = calendar.get(Calendar.YEAR);
+        @Pc(32) int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        @Pc(36) int minute = calendar.get(Calendar.MINUTE);
+        return language == 3 ? simpleDatetimeFromTime(time, language) : Integer.toString(day / 10) + day % 10 + "-" + MONTHS_BY_LANGUAGE[language][month] + "-" + year + " " + hour / 10 + hour % 10 + ":" + minute / 10 + minute % 10;
+    }
+
+    @OriginalMember(owner = "client!dn", name = "a", descriptor = "(ZIJI)Ljava/lang/String;")
+    public static String simpleDatetimeFromTime(@OriginalArg(2) long time, @OriginalArg(3) int language) {
+        setGmtTime(time);
+        @Pc(10) Calendar calendar = GMT_CALENDAR;
+        @Pc(20) int day = calendar.get(Calendar.DAY_OF_MONTH);
+        @Pc(26) int month = calendar.get(Calendar.MONTH) + 1;
+        @Pc(38) int year = calendar.get(Calendar.YEAR);
+        @Pc(42) int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        @Pc(46) int minute = calendar.get(Calendar.MINUTE);
+        return Integer.toString(day / 10) + day % 10 + "/" + month / 10 + month % 10 + "/" + year % 100 / 10 + year % 10 + " " + hour / 10 + hour % 10 + ":" + minute / 10 + minute % 10;
+    }
+
+    @OriginalMember(owner = "client!gka", name = "a", descriptor = "(II)[I")
+    public static int[] dateFromRunedays(@OriginalArg(0) int runedays) {
+        @Pc(6) int[] date = new int[3];
+        setTime(timeFromRunedays(runedays));
+        date[0] = CALENDAR.get(Calendar.DAY_OF_MONTH);
+        date[1] = CALENDAR.get(Calendar.MONTH);
+        date[2] = CALENDAR.get(Calendar.YEAR);
+        return date;
+    }
+
+    @OriginalMember(owner = "client!th", name = "a", descriptor = "(ZJ)I")
+    public static int yearFromTime(@OriginalArg(1) long time) {
+        setTime(time);
+        return CALENDAR.get(Calendar.YEAR);
+    }
+
+    @OriginalMember(owner = "client!bfa", name = "a", descriptor = "(IIIIIIB)J")
+    public static long timeFromDate(@OriginalArg(4) int dayOfMonth, @OriginalArg(0) int month, @OriginalArg(2) int year) {
+        GMT_CALENDAR.clear();
+        GMT_CALENDAR.set(year, month, dayOfMonth, 12, 0, 0);
+        return GMT_CALENDAR.getTime().getTime();
     }
 
     @OriginalMember(owner = "client!bea", name = "a", descriptor = "(IZ)J")
-    public static long timeFromRunedate(@OriginalArg(0) int date) {
-        return (long) (date + RUNEDATE_DAYS_SINCE_UNIX_EPOCH) * MILLISECONDS_PER_DAY;
+    public static long timeFromRunedays(@OriginalArg(0) int days) {
+        return (long) (days + RUNEDAYS_SINCE_UNIX_EPOCH) * MILLISECONDS_PER_DAY;
+    }
+
+    @OriginalMember(owner = "client!cd", name = "a", descriptor = "(JZ)I")
+    public static int runedaysFromTime(@OriginalArg(0) long time) {
+        return (int) (time / MILLISECONDS_PER_DAY) - RUNEDAYS_SINCE_UNIX_EPOCH;
     }
 
     private TimeUtils() {
         /* empty */
-    }
-
-    @OriginalMember(owner = "client!le", name = "a", descriptor = "(IJ)V")
-    public static void method5196(@OriginalArg(1) long milliseconds) {
-        aCalendar1.setTime(new Date(milliseconds));
-    }
-
-    @OriginalMember(owner = "client!dn", name = "a", descriptor = "(ZIJI)Ljava/lang/String;")
-    public static String method2198(@OriginalArg(2) long arg0, @OriginalArg(3) int arg1) {
-        method5196(arg0);
-        @Pc(10) Calendar local10 = aCalendar1;
-        @Pc(20) int local20 = local10.get(5);
-        @Pc(26) int local26 = local10.get(2) + 1;
-        @Pc(38) int local38 = local10.get(1);
-        @Pc(42) int local42 = local10.get(11);
-        @Pc(46) int local46 = local10.get(12);
-        return Integer.toString(local20 / 10) + local20 % 10 + "/" + local26 / 10 + local26 % 10 + "/" + local38 % 100 / 10 + local38 % 10 + " " + local42 / 10 + local42 % 10 + ":" + local46 / 10 + local46 % 10;
-    }
-
-    @OriginalMember(owner = "client!uh", name = "a", descriptor = "(JZII)Ljava/lang/String;")
-    public static String formatDatetime(@OriginalArg(0) long milliseconds, @OriginalArg(2) int language) {
-        method5196(milliseconds);
-        @Pc(16) Calendar local16 = aCalendar1;
-        @Pc(20) int local20 = local16.get(5);
-        @Pc(24) int local24 = local16.get(2);
-        @Pc(28) int local28 = local16.get(1);
-        @Pc(32) int local32 = local16.get(11);
-        @Pc(36) int local36 = local16.get(12);
-        return language == 3 ? method2198(milliseconds, language) : Integer.toString(local20 / 10) + local20 % 10 + "-" + aStringArrayArray1[language][local24] + "-" + local28 + " " + local32 / 10 + local32 % 10 + ":" + local36 / 10 + local36 % 10;
     }
 }

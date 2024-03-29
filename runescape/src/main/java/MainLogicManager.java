@@ -667,7 +667,7 @@ public final class MainLogicManager {
                                             for (@Pc(541) int local541 = 0; local541 < 5; local541++) {
                                                 @Pc(2246) int local2246 = Shake.time[local541]++;
                                             }
-                                            if (Static624.varcSaveRecommended && Static98.lastVarcSave < SystemTimer.safetime() - 60000L) {
+                                            if (Static624.varcSaveRecommended && Static98.lastVarcSave < SystemTimer.safetime() - TimeUtils.MILLISECONDS_PER_MINUTE) {
                                                 Static266.saveVarcs();
                                             }
                                             for (@Pc(2281) FriendNotification local2281 = (FriendNotification) FriendsList.notifications.first(); local2281 != null; local2281 = (FriendNotification) FriendsList.notifications.next()) {

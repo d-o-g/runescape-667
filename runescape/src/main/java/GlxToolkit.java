@@ -1,5 +1,6 @@
 import com.jagex.Class67;
 import com.jagex.core.constants.PciVendorId;
+import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.Renderer;
 import com.jagex.Interface26;
 import com.jagex.Static14;
@@ -557,7 +558,7 @@ public final class GlxToolkit extends NativeToolkit {
             local19 = (IntNode) this.aDeque_60.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
-        if (this.E() > 100663296 && this.aLong279 + 60000L < SystemTimer.safetime()) {
+        if (this.E() > 100663296 && this.aLong279 + TimeUtils.MILLISECONDS_PER_MINUTE < SystemTimer.safetime()) {
             System.gc();
             this.aLong279 = SystemTimer.safetime();
         }

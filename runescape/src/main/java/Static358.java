@@ -1,7 +1,8 @@
-import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.core.util.TimeUtils;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.PointLight;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -9,8 +10,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static358 {
-
-    public static final long MILLISECONDS_PER_DAY = 86400000L;
 
     // $FF: synthetic field
     @OriginalMember(owner = "client!lf", name = "d", descriptor = "Ljava/lang/Class;")
@@ -136,7 +135,7 @@ public final class Static358 {
 
         try {
             @Pc(23) String domain = GameShell.loaderApplet.getParameter("cookiehost");
-            @Pc(31) int dob = (int) (SystemTimer.safetime() / MILLISECONDS_PER_DAY) - 11745;
+            @Pc(31) int dob = (int) (SystemTimer.safetime() / TimeUtils.MILLISECONDS_PER_DAY) - TimeUtils.RUNEDAYS_SINCE_UNIX_EPOCH;
             @Pc(47) String cookie = "usrdob=" + dob + "; version=1; path=/; domain=" + domain;
             JavaScript.eval("document.cookie=\"" + cookie + "\"", GameShell.loaderApplet);
         } catch (@Pc(63) Throwable ignored) {

@@ -424,7 +424,7 @@ public final class ClientScriptOpCode {
 
     public static final int STAT_VISIBLE_XP = 3307;
 
-    public static final int FACING_FINE = 3308;
+    public static final int COORD = 3308;
 
     public static final int COORDX = 3309;
 

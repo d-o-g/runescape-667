@@ -2,25 +2,10 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.util.Date;
-
 public final class Static163 {
 
     @OriginalMember(owner = "client!fb", name = "d", descriptor = "[[B")
     public static byte[][] aByteArrayArray36;
-
-    @OriginalMember(owner = "client!fb", name = "a", descriptor = "(JI)Ljava/lang/String;")
-    public static String method8846(@OriginalArg(0) long arg0) {
-        debugconsole.GMT_CALENDAR.setTime(new Date(arg0));
-        @Pc(19) int local19 = debugconsole.GMT_CALENDAR.get(7);
-        @Pc(23) int local23 = debugconsole.GMT_CALENDAR.get(5);
-        @Pc(27) int local27 = debugconsole.GMT_CALENDAR.get(2);
-        @Pc(31) int local31 = debugconsole.GMT_CALENDAR.get(1);
-        @Pc(35) int local35 = debugconsole.GMT_CALENDAR.get(11);
-        @Pc(39) int local39 = debugconsole.GMT_CALENDAR.get(12);
-        @Pc(43) int local43 = debugconsole.GMT_CALENDAR.get(13);
-        return Static146.aStringArray8[local19 - 1] + ", " + local23 / 10 + local23 % 10 + "-" + Static361.aStringArray29[local27] + "-" + local31 + " " + local35 / 10 + local35 % 10 + ":" + local39 / 10 + local39 % 10 + ":" + local43 / 10 + local43 % 10 + " GMT";
-    }
 
     @OriginalMember(owner = "client!fb", name = "a", descriptor = "([II[III)V")
     public static void method8852(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3) {

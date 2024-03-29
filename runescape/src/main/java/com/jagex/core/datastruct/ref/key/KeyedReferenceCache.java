@@ -24,11 +24,12 @@ public final class KeyedReferenceCache {
     public final IterableHashTable table;
 
     @OriginalMember(owner = "client!aka", name = "<init>", descriptor = "(I)V")
-    public KeyedReferenceCache(@OriginalArg(0) int size) {
-        this.capacity = size;
-        this.remaining = size;
-        @Pc(16) int bucketCount;
-        for (bucketCount = 1; size > (bucketCount + bucketCount); bucketCount += bucketCount) {
+    public KeyedReferenceCache(@OriginalArg(0) int capacity) {
+        this.capacity = capacity;
+        this.remaining = capacity;
+        @Pc(16) int bucketCount = 1;
+        while ((bucketCount + bucketCount) < capacity) {
+            bucketCount += bucketCount;
         }
         this.table = new IterableHashTable(bucketCount);
     }

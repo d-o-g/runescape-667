@@ -47,13 +47,13 @@ public final class LinkedList {
 
     @OriginalMember(owner = "client!fla", name = "a", descriptor = "(I)Lclient!ep;")
     public Node next() {
-        @Pc(6) Node point = this.pointer;
-        if (this.sentinel == point) {
+        @Pc(6) Node node = this.pointer;
+        if (this.sentinel == node) {
             this.pointer = null;
             return null;
         } else {
-            this.pointer = point.next;
-            return point;
+            this.pointer = node.next;
+            return node;
         }
     }
 
@@ -70,13 +70,13 @@ public final class LinkedList {
 
     @OriginalMember(owner = "client!fla", name = "b", descriptor = "(I)Lclient!ep;")
     public Node last() {
-        @Pc(15) Node last = this.sentinel.prev;
-        if (last == this.sentinel) {
+        @Pc(15) Node node = this.sentinel.prev;
+        if (node == this.sentinel) {
             this.pointer = null;
             return null;
         } else {
-            this.pointer = last.prev;
-            return last;
+            this.pointer = node.prev;
+            return node;
         }
     }
 

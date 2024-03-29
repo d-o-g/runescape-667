@@ -1,7 +1,5 @@
 package com.jagex.core.datastruct.key;
 
-import com.jagex.sound.Class123;
-import com.jagex.sound.VariableRateSoundPacket;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -30,8 +28,9 @@ public final class IterableHashTable {
 
     @OriginalMember(owner = "client!av", name = "<init>", descriptor = "(I)V")
     public IterableHashTable(@OriginalArg(0) int bucketCount) {
-        this.bucketCount = bucketCount;
         this.buckets = new Node[bucketCount];
+        this.bucketCount = bucketCount;
+
         for (@Pc(13) int i = 0; i < bucketCount; i++) {
             @Pc(23) Node node = this.buckets[i] = new Node();
             node.next = node;
@@ -144,27 +143,19 @@ public final class IterableHashTable {
         if (this.searchPointer == null) {
             return null;
         }
-        @Pc(28) Node node = this.buckets[(int) (this.searchKey & (long) (this.bucketCount - 1))];
-        while (this.searchPointer != node) {
+
+        @Pc(28) Node bucket = this.buckets[(int) (this.searchKey & (long) (this.bucketCount - 1))];
+        while (this.searchPointer != bucket) {
             if (this.searchPointer.key == this.searchKey) {
-                @Pc(43) Node current = this.searchPointer;
+                @Pc(43) Node node = this.searchPointer;
                 this.searchPointer = this.searchPointer.next;
-                return current;
+                return node;
             }
+
             this.searchPointer = this.searchPointer.next;
         }
+
         this.searchPointer = null;
         return null;
-    }
-
-    @OriginalMember(owner = "client!fca", name = "a", descriptor = "(Z[II)Lclient!sq;")
-    public VariableRateSoundPacket method2614(@OriginalArg(1) int[] arg0, @OriginalArg(2) int arg1, Class123 class123) {
-        if (class123.aJs5_32.groupSize() == 1) {
-            return class123.method2612(arg1, 0, arg0);
-        } else if (class123.aJs5_32.fileLimit(arg1) == 1) {
-            return class123.method2612(0, arg1, arg0);
-        } else {
-            throw new RuntimeException();
-        }
     }
 }

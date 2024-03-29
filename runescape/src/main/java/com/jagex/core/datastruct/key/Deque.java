@@ -58,9 +58,9 @@ public final class Deque {
     @OriginalMember(owner = "client!sia", name = "c", descriptor = "(I)I")
     public int size() {
         @Pc(13) int size = 0;
-        @Pc(17) Node current = this.sentinel.next;
-        while (current != this.sentinel) {
-            current = current.next;
+        @Pc(17) Node node = this.sentinel.next;
+        while (node != this.sentinel) {
+            node = node.next;
             size++;
         }
         return size;
@@ -108,8 +108,8 @@ public final class Deque {
     }
 
     @OriginalMember(owner = "client!sia", name = "a", descriptor = "(ILclient!sia;)V")
-    public void appendTo(@OriginalArg(1) Deque arg0) {
-        this.append(this.sentinel.next, arg0);
+    public void appendTo(@OriginalArg(1) Deque deque) {
+        this.append(this.sentinel.next, deque);
     }
 
     @OriginalMember(owner = "client!sia", name = "a", descriptor = "(B)Lclient!ie;")

@@ -8,25 +8,25 @@ import org.openrs2.deob.annotation.OriginalMember;
 public class Node2 extends Node {
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(ZLclient!cm;Lclient!cm;)V")
-    public static void addBefore(@OriginalArg(1) Node2 front, @OriginalArg(2) Node2 back) {
-        if (front.prev2 != null) {
-            front.unlink2();
+    public static void addBefore(@OriginalArg(2) Node2 before, @OriginalArg(1) Node2 node) {
+        if (node.prev2 != null) {
+            node.unlink2();
         }
-        front.prev2 = back.prev2;
-        front.next2 = back;
-        front.prev2.next2 = front;
-        front.next2.prev2 = front;
+        node.prev2 = before.prev2;
+        node.next2 = before;
+        node.prev2.next2 = node;
+        node.next2.prev2 = node;
     }
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(ILclient!cm;Lclient!cm;)V")
-    public static void addAfter(@OriginalArg(1) Node2 back, @OriginalArg(2) Node2 front) {
-        if (front.prev2 != null) {
-            front.unlink2();
+    public static void addAfter(@OriginalArg(1) Node2 after, @OriginalArg(2) Node2 node) {
+        if (node.prev2 != null) {
+            node.unlink2();
         }
-        front.next2 = back.next2;
-        front.prev2 = back;
-        front.prev2.next2 = front;
-        front.next2.prev2 = front;
+        node.next2 = after.next2;
+        node.prev2 = after;
+        node.prev2.next2 = node;
+        node.next2.prev2 = node;
     }
 
     @OriginalMember(owner = "client!cm", name = "l", descriptor = "Lclient!cm;")

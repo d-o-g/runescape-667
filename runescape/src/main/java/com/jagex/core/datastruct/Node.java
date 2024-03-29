@@ -8,14 +8,14 @@ import org.openrs2.deob.annotation.OriginalMember;
 public class Node {
 
     @OriginalMember(owner = "client!lm", name = "a", descriptor = "(BLclient!ep;Lclient!ep;)V")
-    public static void addBefore(@OriginalArg(1) Node front, @OriginalArg(2) Node back) {
-        if (front.prev != null) {
-            front.unlink();
+    public static void addBefore(@OriginalArg(2) Node before, @OriginalArg(1) Node node) {
+        if (node.prev != null) {
+            node.unlink();
         }
-        front.next = back;
-        front.prev = back.prev;
-        front.prev.next = front;
-        front.next.prev = front;
+        node.next = before;
+        node.prev = before.prev;
+        node.prev.next = node;
+        node.next.prev = node;
     }
 
     @OriginalMember(owner = "client!ep", name = "c", descriptor = "Lclient!ep;")

@@ -47,7 +47,7 @@ public final class Class213 {
         }
         for (local42 = (PickableEntity) this.aLinkedList_8.first(); local42 != null; local42 = (PickableEntity) this.aLinkedList_8.next()) {
             if (local6.anInt10697 >= local42.aEntity_18.anInt10697) {
-                Node.addBefore(arg0, local42);
+                Node.addBefore(local42, arg0);
                 return;
             }
         }

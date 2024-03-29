@@ -27,8 +27,9 @@ public final class LruCache {
     public LruCache(@OriginalArg(0) int capacity) {
         this.remaining = capacity;
         this.capacity = capacity;
-        @Pc(19) int bucketCount;
-        for (bucketCount = 1; bucketCount + bucketCount < capacity; bucketCount += bucketCount) {
+        @Pc(19) int bucketCount = 1;
+        while ((bucketCount + bucketCount) < capacity) {
+            bucketCount += bucketCount;
         }
         this.table = new IterableHashTable(bucketCount);
     }

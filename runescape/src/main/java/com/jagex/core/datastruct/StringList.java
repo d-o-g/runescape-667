@@ -81,14 +81,14 @@ public final class StringList {
 
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(IB)V")
     public void expand(@OriginalArg(0) int arg0) {
-        @Pc(9) String[] local9 = new String[this.nextSize(arg0)];
-        Arrays.copy(this.elements, 0, local9, 0, this.elements.length);
-        this.elements = local9;
+        @Pc(9) String[] elements = new String[this.nextSize(arg0)];
+        Arrays.copy(this.elements, 0, elements, 0, this.elements.length);
+        this.elements = elements;
     }
 
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(BILjava/lang/String;)V")
     public void set(@OriginalArg(1) int index, @OriginalArg(2) String element) {
-        if (this.last < index) {
+        if (index > this.last) {
             this.last = index;
         }
         if (index >= this.elements.length) {

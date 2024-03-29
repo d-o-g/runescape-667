@@ -412,7 +412,7 @@ public final class Node_Sub11 extends Node {
                     if (local33 != local7) {
                         local7 = local33--;
                         if ((local33 & 0x1) == 0) {
-                            local9 = arg0.aIterableHashTable_15.method2614(maxSamples, local33 >> 2, arg0);
+                            local9 = arg0.method2614(maxSamples, local33 >> 2, arg0);
                         } else {
                             local9 = arg0.method2615(maxSamples, local33 >> 2);
                         }

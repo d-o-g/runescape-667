@@ -35,7 +35,7 @@ public final class HashTableIterator {
             return node;
         }
 
-        while (this.table.bucketCount > this.bucket) {
+        while (this.bucket < this.table.bucketCount) {
             @Pc(23) Node node = this.table.buckets[this.bucket++].next;
 
             if (this.table.buckets[this.bucket - 1] != node) {

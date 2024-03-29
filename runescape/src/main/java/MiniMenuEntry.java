@@ -53,7 +53,7 @@ public final class MiniMenuEntry extends Node2 {
         @Pc(21) MiniMenuEntryInner existing = (MiniMenuEntryInner) this.innerEntries.first();
         while (existing != null) {
             if (MiniMenu.isActionBefore(inner.action, existing.action)) {
-                Node2.addBefore(inner, existing);
+                Node2.addBefore(existing, inner);
                 this.size++;
 
                 if (changedTypes) {

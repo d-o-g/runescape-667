@@ -225,7 +225,7 @@ public final class MovingParticle extends Particle {
                     @Pc(798) double local798 = local27 - local776.z;
                     @Pc(810) double local810 = local786 * local786 + local792 * local792 + local798 * local798;
                     if (local810 > (double) local780.maxRange) {
-                        local776 = (ParticleEffector) ParticleManager.effectorsCache.method3096();
+                        local776 = (ParticleEffector) ParticleManager.effectorsCache.nextWithSameKey();
                     } else {
                         @Pc(825) double local825 = Math.sqrt(local810);
                         if (local825 == 0.0D) {
@@ -233,7 +233,7 @@ public final class MovingParticle extends Particle {
                         }
                         @Pc(857) double local857 = (local786 * (double) local776.directionZ + local792 * (double) local780.dirY + local798 * (double) local776.directionX) * 65535.0D / ((double) local780.dirLength * local825);
                         if (local857 < (double) local780.cosTheta) {
-                            local776 = (ParticleEffector) ParticleManager.effectorsCache.method3096();
+                            local776 = (ParticleEffector) ParticleManager.effectorsCache.nextWithSameKey();
                         } else {
                             @Pc(871) double local871 = 0.0D;
                             if (local780.effectType == 1) {
@@ -265,7 +265,7 @@ public final class MovingParticle extends Particle {
                                 super.anInt7534 = (int) ((double) super.anInt7534 + ((double) local780.dirY - local871) * (double) elapsedTime);
                                 super.anInt7536 = (int) ((double) super.anInt7536 + ((double) local776.directionX - local871) * (double) elapsedTime);
                             }
-                            local776 = (ParticleEffector) ParticleManager.effectorsCache.method3096();
+                            local776 = (ParticleEffector) ParticleManager.effectorsCache.nextWithSameKey();
                         }
                     }
                 }

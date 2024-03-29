@@ -83,6 +83,17 @@ public final class Class123 {
         }
     }
 
+    @OriginalMember(owner = "client!fca", name = "a", descriptor = "(Z[II)Lclient!sq;")
+    public VariableRateSoundPacket method2614(@OriginalArg(1) int[] arg0, @OriginalArg(2) int arg1, Class123 class123) {
+        if (class123.aJs5_32.groupSize() == 1) {
+            return class123.method2612(arg1, 0, arg0);
+        } else if (class123.aJs5_32.fileLimit(arg1) == 1) {
+            return class123.method2612(0, arg1, arg0);
+        } else {
+            throw new RuntimeException();
+        }
+    }
+
     @OriginalMember(owner = "client!fca", name = "a", descriptor = "([IBI)Lclient!sq;")
     public VariableRateSoundPacket method2615(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1) {
         if (this.aJs5_31.groupSize() == 1) {

@@ -32,8 +32,9 @@ public final class ReferenceCache {
     public ReferenceCache(@OriginalArg(0) int max, @OriginalArg(1) int min) {
         this.capacity = max;
         this.remaining = max;
-        @Pc(14) int bucketCount;
-        for (bucketCount = 1; (max > (bucketCount + bucketCount)) && (bucketCount < min); bucketCount += bucketCount) {
+        @Pc(14) int bucketCount = 1;
+        while (((bucketCount + bucketCount) < max) && (bucketCount < min)) {
+            bucketCount += bucketCount;
         }
         this.table = new IterableHashTable(bucketCount);
     }

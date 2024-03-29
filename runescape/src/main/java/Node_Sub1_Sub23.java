@@ -88,7 +88,7 @@ public final class Node_Sub1_Sub23 extends TextureOp {
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.monochromeCache.get(arg1);
         if (arg0 <= 107) {
-            InterfaceManager.calculateDimensions(null, -42, 121, -79);
+            InterfaceManager.reposition(null, -42, 121);
         }
         if (super.monochromeCache.dirty) {
             @Pc(34) int local34 = MonochromeImageCache.anIntArray341[arg1] * this.anInt7110 + 2048;

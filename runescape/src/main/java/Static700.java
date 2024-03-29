@@ -12,9 +12,9 @@ public final class Static700 {
     @OriginalMember(owner = "client!wca", name = "a", descriptor = "(II[Ljava/awt/Rectangle;)V")
     public static void method9148(@OriginalArg(1) int arg0, @OriginalArg(2) Rectangle[] rectangles) throws Exception_Sub1 {
         if (Static448.anInt6796 == 1) {
-            Static74.aToolkit_4.method8011(rectangles, arg0, Static2.anInt45, Static312.anInt5001);
+            Static74.aToolkit_4.flipDirtyRect(rectangles, arg0, Static2.anInt45, Static312.anInt5001);
         } else {
-            Static74.aToolkit_4.method8011(rectangles, arg0, 0, 0);
+            Static74.aToolkit_4.flipDirtyRect(rectangles, arg0, 0, 0);
         }
     }
 

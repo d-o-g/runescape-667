@@ -22,7 +22,7 @@ public final class Static251 {
         if (arg1 == -1 && local44.type == 0) {
             for (local57 = (MiniMenuEntryInner) MiniMenu.innerEntryQueue.first(); local57 != null; local57 = (MiniMenuEntryInner) MiniMenu.innerEntryQueue.next()) {
                 if (local57.action == 18 || local57.action == 1002 || local57.action == 12 || local57.action == 20 || local57.action == 10) {
-                    for (@Pc(160) Component local160 = InterfaceList.list(local57.v3); local160 != null; local160 = Static556.method7299(local160)) {
+                    for (@Pc(160) Component local160 = InterfaceList.list(local57.v3); local160 != null; local160 = InterfaceManager.getParentLayer(local160)) {
                         if (local160.slot == local44.slot) {
                             return true;
                         }

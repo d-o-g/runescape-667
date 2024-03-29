@@ -119,7 +119,7 @@ public final class Static397 {
         if (arg2 == arg1) {
             Toolkit.active.outlineRect(local83 - 1, local102 - 1, 18, 18, -256);
         }
-        Static682.method8927(local102 - 1, local102 - -18, local83 - 1, local83 - -18);
+        Static682.method8927(local83 - 1, local83 - -18, local102 - 1, local102 - -18);
         @Pc(140) Class8_Sub1 local140 = Static192.method2876();
         local140.anInt108 = local83;
         local140.aClass8_Sub2_Sub1_Sub2_1 = arg2;

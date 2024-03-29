@@ -24,12 +24,12 @@ public final class Static208 {
         if (Static616.crossType == 1) {
             local30 = Sprites.cross[Static481.crossDuration / 100];
             local30.render(local5 - 8, local7 + -8);
-            Static682.method8927(local7 - 8, local7 - 8 - -local30.scaleHeight(), local5 - 8, local30.scaleWidth() + -8 + local5);
+            Static682.method8927(local5 - 8, local30.scaleWidth() + -8 + local5, local7 - 8, local7 - 8 - -local30.scaleHeight());
         }
         if (Static616.crossType == 2) {
             local30 = Sprites.cross[Static481.crossDuration / 100 + 4];
             local30.render(local5 - 8, local7 + -8);
-            Static682.method8927(local7 - 8, local30.scaleHeight() + -8 + local7, local5 - 8, local30.scaleWidth() + local5 + -8);
+            Static682.method8927(local5 - 8, local30.scaleWidth() + local5 + -8, local7 - 8, local30.scaleHeight() + -8 + local7);
         }
         Static494.method6597();
     }

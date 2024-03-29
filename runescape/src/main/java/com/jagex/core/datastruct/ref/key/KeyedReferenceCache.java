@@ -88,7 +88,7 @@ public final class KeyedReferenceCache {
             } else if (++node.key2 > (long) maxAge) {
                 @Pc(38) KeyedReferenceNode newReference = KeyedReferenceNodeFactory.INSTANCE.create(node);
                 this.table.put(node.key, newReference);
-                Node2.attachAfter(node, newReference);
+                Node2.addAfter(node, newReference);
                 node.unlink();
                 node.unlink2();
             }

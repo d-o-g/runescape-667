@@ -25,10 +25,6 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!vfa")
 public final class ObjType {
 
-    public static final int SHOWCOUNT_NEVER = 0;
-    public static final int SHOWCOUNT_ALWAYS = 1;
-    public static final int SHOWCOUNT_IFNOT1 = 2;
-
     private static final int MAX_OP_COUNT = 5;
     private static final int MAX_IOP_COUNT = 5;
 
@@ -579,17 +575,17 @@ public final class ObjType {
 
         @Pc(272) Sprite sprite = null;
         if (this.certtemplate != -1) {
-            sprite = this.myList.sprite(1, scratchToolkit, toolkit, playerModel, true, 0, 10, true, SHOWCOUNT_NEVER, font, this.certlink);
+            sprite = this.myList.sprite(1, scratchToolkit, toolkit, playerModel, true, 0, 10, true, ObjNumMode.SHOWCOUNT_NEVER, font, this.certlink);
             if (sprite == null) {
                 return null;
             }
         } else if (this.lenttemplate != -1) {
-            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, playerModel, true, graphicShadow, invCount, false, SHOWCOUNT_NEVER, font, this.lentlink);
+            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, playerModel, true, graphicShadow, invCount, false, ObjNumMode.SHOWCOUNT_NEVER, font, this.lentlink);
             if (sprite == null) {
                 return null;
             }
         } else if (this.boughttemplate != -1) {
-            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, playerModel, true, graphicShadow, invCount, false, SHOWCOUNT_NEVER, font, this.boughtlink);
+            sprite = this.myList.sprite(outline, scratchToolkit, toolkit, playerModel, true, graphicShadow, invCount, false, ObjNumMode.SHOWCOUNT_NEVER, font, this.boughtlink);
             if (sprite == null) {
                 return null;
             }
@@ -649,7 +645,7 @@ public final class ObjType {
             sprite.render(0, 0);
         }
 
-        if (objNumMode == SHOWCOUNT_ALWAYS || objNumMode == SHOWCOUNT_IFNOT1 && (this.stackable == ObjStackability.ALWAYS || invCount != 1) && invCount != -1) {
+        if (objNumMode == ObjNumMode.SHOWCOUNT_ALWAYS || objNumMode == ObjNumMode.SHOWCOUNT_IFNOT1 && (this.stackable == ObjStackability.ALWAYS || invCount != 1) && invCount != -1) {
             font.render(this.formatAmount(invCount), 0, 9, 0xFF000001, 0xFFFFFF00);
         }
 

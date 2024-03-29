@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public class Node2 extends Node {
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(ZLclient!cm;Lclient!cm;)V")
-    public static void attachBefore(@OriginalArg(1) Node2 front, @OriginalArg(2) Node2 back) {
+    public static void addBefore(@OriginalArg(1) Node2 front, @OriginalArg(2) Node2 back) {
         if (front.prev2 != null) {
             front.unlink2();
         }
@@ -19,7 +19,7 @@ public class Node2 extends Node {
     }
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(ILclient!cm;Lclient!cm;)V")
-    public static void attachAfter(@OriginalArg(1) Node2 back, @OriginalArg(2) Node2 front) {
+    public static void addAfter(@OriginalArg(1) Node2 back, @OriginalArg(2) Node2 front) {
         if (front.prev2 != null) {
             front.unlink2();
         }

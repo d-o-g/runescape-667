@@ -1443,16 +1443,16 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
-    public void method8011(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) throws Exception_Sub1 {
+    public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws Exception_Sub1 {
         if (this.aCanvas3 == null || this.aClass2_Sub10_1 == null) {
             throw new IllegalStateException("off");
         }
         try {
             @Pc(19) Graphics local19 = this.aCanvas3.getGraphics();
-            for (@Pc(21) int local21 = 0; local21 < arg1; local21++) {
+            for (@Pc(21) int local21 = 0; local21 < count; local21++) {
                 @Pc(26) Rectangle local26 = rectangles[local21];
-                if (local26.x + arg2 <= this.anInt4207 && local26.y + arg3 <= this.anInt4209 && local26.x + arg2 + local26.width > 0 && local26.y + arg3 + local26.height > 0) {
-                    this.aClass2_Sub10_1.method6334(local26.width, local26.x + arg2, local26.x, local19, local26.height, local26.y, local26.y + arg3);
+                if (local26.x + x <= this.anInt4207 && local26.y + y <= this.anInt4209 && local26.x + x + local26.width > 0 && local26.y + y + local26.height > 0) {
+                    this.aClass2_Sub10_1.method6334(local26.width, local26.x + x, local26.x, local19, local26.height, local26.y, local26.y + y);
                 }
             }
         } catch (@Pc(91) Exception local91) {

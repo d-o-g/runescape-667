@@ -19,14 +19,14 @@ public final class Static682 {
     }
 
     @OriginalMember(owner = "client!vka", name = "a", descriptor = "(IIIBI)V")
-    public static void method8927(@OriginalArg(0) int bottom, @OriginalArg(1) int top, @OriginalArg(2) int left, @OriginalArg(4) int right) {
+    public static void method8927(@OriginalArg(2) int x1, @OriginalArg(4) int x2, @OriginalArg(0) int y1, @OriginalArg(1) int y2) {
         if (Static448.anInt6796 != 1) {
             return;
         }
-        @Pc(14) int local14 = left / Static437.horizontalAspectRatio;
-        @Pc(18) int local18 = right / Static437.horizontalAspectRatio;
-        @Pc(22) int local22 = bottom / Static714.verticalAspectRatio;
-        @Pc(26) int local26 = top / Static714.verticalAspectRatio;
+        @Pc(14) int local14 = x1 / Static437.horizontalAspectRatio;
+        @Pc(18) int local18 = x2 / Static437.horizontalAspectRatio;
+        @Pc(22) int local22 = y1 / Static714.verticalAspectRatio;
+        @Pc(26) int local26 = y2 / Static714.verticalAspectRatio;
         if (local14 >= Static211.anInt5574 || local18 < 0 || local22 >= Static617.anInt9434 || local26 < 0) {
             return;
         }

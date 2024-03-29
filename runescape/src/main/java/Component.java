@@ -13,6 +13,7 @@ import com.jagex.game.runetek6.config.iftype.DragRender;
 import com.jagex.game.runetek6.config.iftype.ServerActiveProperties;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
+import com.jagex.game.runetek6.config.objtype.ObjNumMode;
 import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
@@ -152,7 +153,7 @@ public final class Component {
     public ParticleSystem particleSystem;
 
     @OriginalMember(owner = "client!hda", name = "bc", descriptor = "Z")
-    public boolean flipHorizontal;
+    public boolean horizontalFlip;
 
     @OriginalMember(owner = "client!hda", name = "Eb", descriptor = "[B")
     public byte[] opChars;
@@ -164,7 +165,7 @@ public final class Component {
     public Object[] onInvTransmit;
 
     @OriginalMember(owner = "client!hda", name = "ic", descriptor = "Z")
-    public boolean flipVertical;
+    public boolean verticalFlip;
 
     @OriginalMember(owner = "client!hda", name = "wc", descriptor = "[Ljava/lang/Object;")
     public Object[] onStockTransmit;
@@ -191,7 +192,7 @@ public final class Component {
     public int skyBoxSphereOffsetZ;
 
     @OriginalMember(owner = "client!hda", name = "hb", descriptor = "I")
-    public int anInt3786;
+    public int skyboxRenderYaw;
 
     @OriginalMember(owner = "client!hda", name = "Jb", descriptor = "Ljava/lang/String;")
     public String name;
@@ -269,7 +270,7 @@ public final class Component {
     public IterableHashTable params;
 
     @OriginalMember(owner = "client!hda", name = "tc", descriptor = "I")
-    public int anInt3815;
+    public int skyboxRenderPitch;
 
     @OriginalMember(owner = "client!hda", name = "ac", descriptor = "[Ljava/lang/Object;")
     public Object[] onClanTransmit;
@@ -335,10 +336,10 @@ public final class Component {
     public int lastInvUpdate = 0;
 
     @OriginalMember(owner = "client!hda", name = "ad", descriptor = "Z")
-    public boolean modelOrtho = false;
+    public boolean modelOrthog = false;
 
     @OriginalMember(owner = "client!hda", name = "Hb", descriptor = "I")
-    public int modelAngleZ = 0;
+    public int zan2d = 0;
 
     @OriginalMember(owner = "client!hda", name = "e", descriptor = "I")
     public int lineWidth = 1;
@@ -356,16 +357,16 @@ public final class Component {
     public boolean filled = false;
 
     @OriginalMember(owner = "client!hda", name = "Yb", descriptor = "I")
-    public int baseWidth = 0;
+    public int originalWidth = 0;
 
     @OriginalMember(owner = "client!hda", name = "J", descriptor = "I")
     public int maxLines = 0;
 
     @OriginalMember(owner = "client!hda", name = "cb", descriptor = "B")
-    public byte sizeTypeHorizontal = 0;
+    public byte resizeModeX = 0;
 
     @OriginalMember(owner = "client!hda", name = "n", descriptor = "I")
-    public int positionX = 0;
+    public int x = 0;
 
     @OriginalMember(owner = "client!hda", name = "t", descriptor = "I")
     public int mouseOverCursor = -1;
@@ -374,7 +375,7 @@ public final class Component {
     public String opBase = "";
 
     @OriginalMember(owner = "client!hda", name = "Ed", descriptor = "B")
-    public byte sizeTypeVertical = 0;
+    public byte resizeModeY = 0;
 
     @OriginalMember(owner = "client!hda", name = "Mc", descriptor = "I")
     public int lastVarclanUpdate = 0;
@@ -404,10 +405,10 @@ public final class Component {
     public int shadow = 0;
 
     @OriginalMember(owner = "client!hda", name = "Fc", descriptor = "I")
-    public int anInt3736 = 0;
+    public int xof2d = 0;
 
     @OriginalMember(owner = "client!hda", name = "gb", descriptor = "I")
-    public int objNumMode = 2;
+    public int objNumMode = ObjNumMode.SHOWCOUNT_IFNOT1;
 
     @OriginalMember(owner = "client!hda", name = "I", descriptor = "Z")
     public boolean hasOpKey = false;
@@ -422,10 +423,10 @@ public final class Component {
     public String targetVerb = "";
 
     @OriginalMember(owner = "client!hda", name = "S", descriptor = "I")
-    public int aspectRatioWidth = 1;
+    public int resizeAspectRatioX = 1;
 
     @OriginalMember(owner = "client!hda", name = "gd", descriptor = "I")
-    public int lineHeight = 0;
+    public int textHeight = 0;
 
     @OriginalMember(owner = "client!hda", name = "pb", descriptor = "Z")
     public boolean hovered = false;
@@ -434,10 +435,10 @@ public final class Component {
     public int slot = -1;
 
     @OriginalMember(owner = "client!hda", name = "Cb", descriptor = "I")
-    public int modelAngleY = 0;
+    public int yan2d = 0;
 
     @OriginalMember(owner = "client!hda", name = "Ac", descriptor = "I")
-    public int modelAngleX = 0;
+    public int xan2d = 0;
 
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "I")
     public int invObject = -1;
@@ -449,7 +450,7 @@ public final class Component {
     public boolean lineDirection = false;
 
     @OriginalMember(owner = "client!hda", name = "dd", descriptor = "B")
-    public byte posTypeHorizontal = 0;
+    public byte reposModeX = 0;
 
     @OriginalMember(owner = "client!hda", name = "Uc", descriptor = "I")
     public int scrollX = 0;
@@ -461,7 +462,7 @@ public final class Component {
     public int lastStatUpdate = 0;
 
     @OriginalMember(owner = "client!hda", name = "wb", descriptor = "I")
-    public int modelZoom = 100;
+    public int zoom2d = 100;
 
     @OriginalMember(owner = "client!hda", name = "qc", descriptor = "Z")
     public boolean transparent = false;
@@ -473,7 +474,7 @@ public final class Component {
     public boolean textShadow = false;
 
     @OriginalMember(owner = "client!hda", name = "Cd", descriptor = "I")
-    public int verticalAlignment = 0;
+    public int textAlignY = 0;
 
     @OriginalMember(owner = "client!hda", name = "Db", descriptor = "I")
     public int lastVarpUpdate = 0;
@@ -488,10 +489,10 @@ public final class Component {
     public boolean fontMonospaced = true;
 
     @OriginalMember(owner = "client!hda", name = "ab", descriptor = "I")
-    public int positionY = 0;
+    public int y = 0;
 
     @OriginalMember(owner = "client!hda", name = "g", descriptor = "I")
-    public int aspectRatioHeight = 1;
+    public int resizeAspectRatioY = 1;
 
     @OriginalMember(owner = "client!hda", name = "Kc", descriptor = "I")
     public int scrollWidth = 0;
@@ -500,7 +501,7 @@ public final class Component {
     public int invCount = 0;
 
     @OriginalMember(owner = "client!hda", name = "jc", descriptor = "I")
-    public int anInt3800 = 0;
+    public int modelAspectRatioX = 0;
 
     @OriginalMember(owner = "client!hda", name = "md", descriptor = "I")
     public int targetOpCursor = -1;
@@ -509,7 +510,7 @@ public final class Component {
     public int width = 0;
 
     @OriginalMember(owner = "client!hda", name = "Cc", descriptor = "I")
-    public int horizontalAlignment = 0;
+    public int textAlignX = 0;
 
     @OriginalMember(owner = "client!hda", name = "Vc", descriptor = "I")
     public int height = 0;
@@ -527,13 +528,13 @@ public final class Component {
     public int clientcode = 0;
 
     @OriginalMember(owner = "client!hda", name = "Rc", descriptor = "I")
-    public int anInt3804 = 0;
+    public int yof2d = 0;
 
     @OriginalMember(owner = "client!hda", name = "Pc", descriptor = "I")
-    public int baseHeight = 0;
+    public int originalHeight = 0;
 
     @OriginalMember(owner = "client!hda", name = "nb", descriptor = "I")
-    public int anInt3825 = 0;
+    public int modelAspectRatioY = 0;
 
     @OriginalMember(owner = "client!hda", name = "E", descriptor = "I")
     public int objData = -1;
@@ -560,10 +561,10 @@ public final class Component {
     public boolean hidden = false;
 
     @OriginalMember(owner = "client!hda", name = "xc", descriptor = "I")
-    public int basePosX = 0;
+    public int originalX = 0;
 
     @OriginalMember(owner = "client!hda", name = "kb", descriptor = "Z")
-    public boolean tiled = false;
+    public boolean tiling = false;
 
     @OriginalMember(owner = "client!hda", name = "Xb", descriptor = "I")
     public int skyBox = -1;
@@ -578,10 +579,10 @@ public final class Component {
     public boolean objWearCol = false;
 
     @OriginalMember(owner = "client!hda", name = "cd", descriptor = "B")
-    public byte postTypeVertical = 0;
+    public byte reposModeY = 0;
 
     @OriginalMember(owner = "client!hda", name = "Gb", descriptor = "I")
-    public int basePosY = 0;
+    public int originalY = 0;
 
     @OriginalMember(owner = "client!hda", name = "kc", descriptor = "I")
     public int modelOriginZ = 0;
@@ -596,8 +597,8 @@ public final class Component {
         @Pc(54) long key = ((long) this.graphic)
             + ((this.transparent ? 1L : 0L) << 35)
             + ((long) this.outline << 36)
-            + ((this.flipHorizontal ? 1L : 0L) << 38)
-            + ((this.flipVertical ? 1L : 0L) << 39)
+            + ((this.horizontalFlip ? 1L : 0L) << 38)
+            + ((this.verticalFlip ? 1L : 0L) << 39)
             + ((long) this.shadow << 40);
 
         @Pc(60) Sprite sprite = (Sprite) spriteCache.get(key);
@@ -611,11 +612,11 @@ public final class Component {
             return null;
         }
 
-        if (this.flipHorizontal) {
+        if (this.horizontalFlip) {
             image.flipHorizontally();
         }
 
-        if (this.flipVertical) {
+        if (this.verticalFlip) {
             image.flipVertically();
         }
 
@@ -732,14 +733,14 @@ public final class Component {
         }
 
         this.clientcode = packet.g2();
-        this.basePosX = packet.g2s();
-        this.basePosY = packet.g2s();
-        this.baseWidth = packet.g2();
-        this.baseHeight = packet.g2();
-        this.sizeTypeHorizontal = packet.g1b();
-        this.sizeTypeVertical = packet.g1b();
-        this.posTypeHorizontal = packet.g1b();
-        this.postTypeVertical = packet.g1b();
+        this.originalX = packet.g2s();
+        this.originalY = packet.g2s();
+        this.originalWidth = packet.g2();
+        this.originalHeight = packet.g2();
+        this.resizeModeX = packet.g1b();
+        this.resizeModeY = packet.g1b();
+        this.reposModeX = packet.g1b();
+        this.reposModeY = packet.g1b();
 
         this.layer = packet.g2();
         if (this.layer == 65535) {
@@ -769,13 +770,13 @@ public final class Component {
             this.graphic = packet.g4();
             this.angle2d = packet.g2();
             @Pc(191) int spriteFlags = packet.g1();
-            this.tiled = (spriteFlags & 0x1) != 0;
+            this.tiling = (spriteFlags & 0x1) != 0;
             this.transparent = (spriteFlags & 0x2) != 0;
             this.transparency = packet.g1();
             this.outline = packet.g1();
             this.shadow = packet.g4();
-            this.flipHorizontal = packet.g1() == 1;
-            this.flipVertical = packet.g1() == 1;
+            this.horizontalFlip = packet.g1() == 1;
+            this.verticalFlip = packet.g1() == 1;
             this.colour = packet.g4();
 
             if (version >= 3) {
@@ -791,7 +792,7 @@ public final class Component {
             }
 
             @Pc(191) int modelFlags = packet.g1();
-            this.modelOrtho = (modelFlags & 0x4) == 4;
+            this.modelOrthog = (modelFlags & 0x4) == 4;
             @Pc(326) boolean ortho2d = (modelFlags & 0x1) == 1;
             this.orthoView = (modelFlags & 0x2) == 2;
             this.disableZBuffer = (modelFlags & 0x8) == 8;
@@ -799,18 +800,18 @@ public final class Component {
             if (ortho2d) {
                 this.modelOriginX = packet.g2s();
                 this.modelOriginY = packet.g2s();
-                this.modelAngleX = packet.g2();
-                this.modelAngleY = packet.g2();
-                this.modelAngleZ = packet.g2();
-                this.modelZoom = packet.g2();
+                this.xan2d = packet.g2();
+                this.yan2d = packet.g2();
+                this.zan2d = packet.g2();
+                this.zoom2d = packet.g2();
             } else if (this.orthoView) {
                 this.modelOriginX = packet.g2s();
                 this.modelOriginY = packet.g2s();
                 this.modelOriginZ = packet.g2s();
-                this.modelAngleX = packet.g2();
-                this.modelAngleY = packet.g2();
-                this.modelAngleZ = packet.g2();
-                this.modelZoom = packet.g2s();
+                this.xan2d = packet.g2();
+                this.yan2d = packet.g2();
+                this.zan2d = packet.g2();
+                this.zoom2d = packet.g2s();
             }
 
             this.modelAnimation = packet.g2();
@@ -818,12 +819,12 @@ public final class Component {
                 this.modelAnimation = -1;
             }
 
-            if (this.sizeTypeHorizontal != 0) {
-                this.anInt3800 = packet.g2();
+            if (this.resizeModeX != 0) {
+                this.modelAspectRatioX = packet.g2();
             }
 
-            if (this.sizeTypeVertical != 0) {
-                this.anInt3825 = packet.g2();
+            if (this.resizeModeY != 0) {
+                this.modelAspectRatioY = packet.g2();
             }
         }
 
@@ -838,9 +839,9 @@ public final class Component {
             }
 
             this.text = packet.gjstr();
-            this.lineHeight = packet.g1();
-            this.horizontalAlignment = packet.g1();
-            this.verticalAlignment = packet.g1();
+            this.textHeight = packet.g1();
+            this.textAlignX = packet.g1();
+            this.textAlignY = packet.g1();
             this.textShadow = packet.g1() == 1;
             this.colour = packet.g4();
             this.transparency = packet.g1();
@@ -1004,7 +1005,7 @@ public final class Component {
     }
 
     @OriginalMember(owner = "client!hda", name = "c", descriptor = "(Ljava/lang/String;II)V")
-    public void setOpText(@OriginalArg(0) String text, @OriginalArg(1) int op) {
+    public void setOp(@OriginalArg(1) int op, @OriginalArg(0) String text) {
         if (this.ops == null || op >= this.ops.length) {
             @Pc(14) String[] ops = new String[op + 1];
 
@@ -1048,7 +1049,7 @@ public final class Component {
         for (@Pc(94) int y = 0; y < image.height; y++) {
             @Pc(97) int start = 0;
             for (@Pc(99) int x = 0; x < image.width; x++) {
-                if (image.raster[x + (image.width * y)] != 0) {
+                if (image.raster[(image.width * y) + x] != 0) {
                     start = x;
                     break;
                 }
@@ -1056,7 +1057,7 @@ public final class Component {
 
             @Pc(121) int end = image.width;
             for (@Pc(126) int x = image.width - 1; x >= start; x--) {
-                if (image.raster[x + (image.width * y)] != 0) {
+                if (image.raster[(image.width * y) + x] != 0) {
                     end = x + 1;
                     break;
                 }

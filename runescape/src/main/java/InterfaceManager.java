@@ -63,6 +63,9 @@ import java.awt.Rectangle;
 
 public final class InterfaceManager {
 
+    @OriginalMember(owner = "client!va", name = "J", descriptor = "[Ljava/awt/Rectangle;")
+    public static final Rectangle[] flippedDirtyRects = new Rectangle[100];
+
     private static final int ROOT = 0xABCDABCD;
     public static final int IMMEDIATE_HOOK_TYPE_DIALOGABORT = 0;
     public static final int IMMEDIATE_HOOK_TYPE_SUBCHANGE = 1;
@@ -176,7 +179,7 @@ public final class InterfaceManager {
     public static Component dragTarget = null;
 
     @OriginalMember(owner = "client!tf", name = "b", descriptor = "Lclient!hda;")
-    public static Component viewport = null;
+    public static Component scene = null;
 
     @OriginalMember(owner = "client!wn", name = "c", descriptor = "I")
     public static int targetMask;
@@ -244,12 +247,12 @@ public final class InterfaceManager {
             }
         }
 
-        Static682.method8927(y, y + height, x, x + width);
+        Static682.method8927(x, x + width, y, y + height);
     }
 
     @OriginalMember(owner = "client!cea", name = "a", descriptor = "(II[Lclient!hda;IIIIZIII)V")
-    public static void draw(@OriginalArg(0) int parent, @OriginalArg(1) int offsetX, @OriginalArg(2) Component[] children, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int boundRectangle, @OriginalArg(7) boolean arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int offsetY) {
-        Toolkit.active.KA(arg3, arg4, arg8, arg5);
+    public static void draw(@OriginalArg(2) Component[] children, @OriginalArg(0) int parent, @OriginalArg(1) int screenX, @OriginalArg(10) int screenY, @OriginalArg(3) int x1, @OriginalArg(4) int y1, @OriginalArg(9) int x2, @OriginalArg(5) int y2, @OriginalArg(6) int boundRectangle, @OriginalArg(7) boolean aspectRatio) {
+        Toolkit.active.KA(x1, y1, x2, y2);
 
         for (@Pc(13) int i = 0; i < children.length; i++) {
             @Pc(19) Component child = children[i];
@@ -257,14 +260,14 @@ public final class InterfaceManager {
                 continue;
             }
 
-            @Pc(49) int boundsLeft = child.positionX + offsetX;
-            @Pc(54) int boundsBottom = offsetY + child.positionY;
-            @Pc(61) int boundsRight = child.width + boundsLeft + 1;
+            @Pc(49) int boundsLeft = child.x + screenX;
+            @Pc(54) int boundsBottom = child.y + screenY;
+            @Pc(61) int boundsRight = boundsLeft + child.width + 1;
             @Pc(69) int boundsTop = boundsBottom + child.height + 1;
 
             @Pc(74) int rectangle;
             if (boundRectangle == -1) {
-                rectangles[rectangleCount].setBounds(child.positionX + offsetX, offsetY + child.positionY, child.width, child.height);
+                rectangles[rectangleCount].setBounds(child.x + screenX, screenY + child.y, child.width, child.height);
                 rectangle = rectangleCount++;
             } else {
                 rectangle = boundRectangle;
@@ -281,8 +284,8 @@ public final class InterfaceManager {
                 drawSpinningPlayer(child);
             }
 
-            @Pc(125) int screenX = offsetX + child.positionX;
-            @Pc(130) int screenY = offsetY + child.positionY;
+            @Pc(125) int offsetX = screenX + child.x;
+            @Pc(130) int offsetY = screenY + child.y;
 
             @Pc(132) int local132 = 0;
             @Pc(134) int local134 = 0;
@@ -298,9 +301,9 @@ public final class InterfaceManager {
 
             if (dragSource == child) {
                 if (parent != ROOT && (child.dragRenderBehaviour == DragRender.OFFSET || child.dragRenderBehaviour == DragRender.OFFSET_TRANSPARENT)) {
-                    dragOffsetY = offsetY;
+                    dragOffsetY = screenY;
                     dragChildren = children;
-                    dragOffsetX = offsetX;
+                    dragOffsetX = screenX;
                     continue;
                 }
 
@@ -322,12 +325,12 @@ public final class InterfaceManager {
                     if (dragParentX + dragLayer.width < mouseX - -child.width) {
                         mouseX = dragParentX + dragLayer.width - child.width;
                     }
-                    screenX = mouseX;
+                    offsetX = mouseX;
 
                     if (dragParentY + dragLayer.height < mouseY + child.height) {
                         mouseY = dragParentY + dragLayer.height - child.height;
                     }
-                    screenY = mouseY;
+                    offsetY = mouseY;
                 }
 
                 if (child.dragRenderBehaviour == DragRender.OFFSET_TRANSPARENT) {
@@ -335,38 +338,38 @@ public final class InterfaceManager {
                 }
             }
 
-            @Pc(216) int x1;
-            @Pc(222) int y1;
-            @Pc(359) int x2;
-            @Pc(371) int y2;
+            @Pc(216) int childX1;
+            @Pc(222) int childY1;
+            @Pc(359) int childX2;
+            @Pc(371) int childY2;
             if (child.type == Component.TYPE_INVENTORY) {
-                x1 = arg3;
-                y2 = arg5;
-                y1 = arg4;
-                x2 = arg8;
+                childX1 = x1;
+                childY2 = y2;
+                childY1 = y1;
+                childX2 = x2;
             } else {
-                @Pc(317) int local317 = screenX + child.width;
-                @Pc(323) int local323 = screenY + child.height;
+                @Pc(317) int local317 = offsetX + child.width;
+                @Pc(323) int local323 = offsetY + child.height;
 
                 if (child.type == Component.TYPE_LINE) {
                     local323++;
                     local317++;
                 }
 
-                y1 = arg4 >= screenY ? arg4 : screenY;
-                x1 = screenX > arg3 ? screenX : arg3;
-                x2 = arg8 <= local317 ? arg8 : local317;
-                y2 = local323 < arg5 ? local323 : arg5;
+                childY1 = y1 >= offsetY ? y1 : offsetY;
+                childX1 = offsetX > x1 ? offsetX : x1;
+                childX2 = x2 <= local317 ? x2 : local317;
+                childY2 = local323 < y2 ? local323 : y2;
             }
 
-            if (x2 > x1 && y2 > y1) {
+            if (childX2 > childX1 && childY2 > childY1) {
                 if (child.clientcode != 0) {
                     if (child.clientcode == ComponentClientCode.SCENE || child.clientcode == ComponentClientCode.LOGIN_SCENE) {
-                        setOptions(screenY, screenX, child);
+                        setOptions(offsetY, offsetX, child);
 
                         if (!aBoolean210) {
-                            Static294.method4339(screenY, child.clientcode == ComponentClientCode.LOGIN_SCENE, child.width, child.height, screenX);
-                            Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                            Static294.method4339(offsetY, child.clientcode == ComponentClientCode.LOGIN_SCENE, child.width, child.height, offsetX);
+                            Toolkit.active.KA(x1, y1, x2, y2);
                         }
 
                         dirtyRectangles[rectangle] = true;
@@ -376,13 +379,13 @@ public final class InterfaceManager {
                     if (child.clientcode == ComponentClientCode.MINIMAP && CutsceneManager.state == 0) {
                         if (child.graphic(Toolkit.active) != null) {
                             Static557.method7331();
-                            Minimap.draw(child, Toolkit.active, screenX, screenY);
+                            Minimap.draw(child, Toolkit.active, offsetX, offsetY);
                             flipDirtyRect[rectangle] = true;
-                            Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                            Toolkit.active.KA(x1, y1, x2, y2);
 
                             if (aBoolean210) {
-                                if (arg7) {
-                                    Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                                if (aspectRatio) {
+                                    Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                                 } else {
                                     Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                                 }
@@ -392,25 +395,25 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.COLOUR_CHOOSER_HUE) {
-                        ColourChooser.drawHue(child, screenX, screenY, Toolkit.active);
+                        ColourChooser.drawHue(child, offsetX, offsetY, Toolkit.active);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.COLOUR_CHOOSER_SATURATION_VALUE) {
-                        ColourChooser.drawSaturationValue(Toolkit.active, child.colour % 64, child, screenX, screenY);
+                        ColourChooser.drawSaturationValue(Toolkit.active, child.colour % 64, child, offsetX, offsetY);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.COMPASS) {
                         if (child.graphic(Toolkit.active) != null) {
-                            Minimap.drawCompass(child, screenX, screenY);
+                            Minimap.drawCompass(child, offsetX, offsetY);
                             flipDirtyRect[rectangle] = true;
 
-                            Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                            Toolkit.active.KA(x1, y1, x2, y2);
 
                             if (aBoolean210) {
-                                if (arg7) {
-                                    Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                                if (aspectRatio) {
+                                    Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                                 } else {
                                     Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                                 }
@@ -420,16 +423,16 @@ public final class InterfaceManager {
                     }
 
                     if (child.clientcode == ComponentClientCode.WORLD_MAP) {
-                        WorldMap.draw(child.height, screenX, screenY, Js5TextureSource.instance, Toolkit.active, child.width);
+                        WorldMap.draw(child.height, offsetX, offsetY, Js5TextureSource.instance, Toolkit.active, child.width);
                         dirtyRectangles[rectangle] = true;
-                        Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                        Toolkit.active.KA(x1, y1, x2, y2);
                         continue;
                     }
 
                     if (child.clientcode == ComponentClientCode.WORLD_MAP_OVERVIEW) {
-                        WorldMap.drawOverview(child.width, Toolkit.active, child.height, screenX, screenY);
+                        WorldMap.drawOverview(child.width, Toolkit.active, child.height, offsetX, offsetY);
                         dirtyRectangles[rectangle] = true;
-                        Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                        Toolkit.active.KA(x1, y1, x2, y2);
                         continue;
                     }
 
@@ -438,12 +441,12 @@ public final class InterfaceManager {
                             continue;
                         }
 
-                        @Pc(317) int drawX = screenX + child.width;
-                        @Pc(323) int drawY = screenY + 15;
+                        @Pc(317) int drawX = offsetX + child.width;
+                        @Pc(323) int drawY = offsetY + 15;
 
                         if (aBoolean210) {
-                            if (arg7) {
-                                Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                            if (aspectRatio) {
+                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -532,18 +535,18 @@ public final class InterfaceManager {
 
                 if (child.type == Component.TYPE_LAYER) {
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER && Toolkit.active.bloom()) {
-                        Toolkit.active.method7959(screenX, screenY, child.width, child.height);
+                        Toolkit.active.method7959(offsetX, offsetY, child.width, child.height);
                     }
 
-                    draw(child.slot, screenX - child.scrollX, children, x1, y1, y2, rectangle, arg7, x2, screenY - child.scrollY);
+                    draw(children, child.slot, offsetX - child.scrollX, offsetY - child.scrollY, childX1, childY1, childX2, childY2, rectangle, aspectRatio);
 
                     if (child.dynamicComponents != null) {
-                        draw(child.slot, screenX - child.scrollX, child.dynamicComponents, x1, y1, y2, rectangle, arg7, x2, screenY - child.scrollY);
+                        draw(child.dynamicComponents, child.slot, offsetX - child.scrollX, offsetY - child.scrollY, childX1, childY1, childX2, childY2, rectangle, aspectRatio);
                     }
 
                     @Pc(1214) SubInterface sub = (SubInterface) subInterfaces.get(child.slot);
                     if (sub != null) {
-                        draw(sub.id, x1, x2, y1, screenY, rectangle, screenX, y2);
+                        draw(sub.id, childX1, childY1, childX2, childY2, offsetX, offsetY, rectangle);
                     }
 
                     if (child.clientcode == ComponentClientCode.DEBUG_OVERLAY_LAYER) {
@@ -566,33 +569,33 @@ public final class InterfaceManager {
                             }
 
                             if (alpha > 0) {
-                                Toolkit.active.fillRect(x1, y1, x2 - x1, -y1 + y2, blue << 16 | alpha << 24 | red << 8 | green);
+                                Toolkit.active.fillRect(childX1, childY1, childX2 - childX1, -childY1 + childY2, blue << 16 | alpha << 24 | red << 8 | green);
                             }
                         }
                     }
 
-                    Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                    Toolkit.active.KA(x1, y1, x2, y2);
                 }
 
                 if (currentlyDirtyRect[rectangle] || rectDebug > 1) {
                     if (child.type == Component.TYPE_RECTANGLE) {
                         if (transparency == 0) {
                             if (child.filled) {
-                                Toolkit.active.aa(screenX, screenY, child.width, child.height, child.colour, 0);
+                                Toolkit.active.aa(offsetX, offsetY, child.width, child.height, child.colour, 0);
                             } else {
-                                Toolkit.active.outlineRect(screenX, screenY, child.width, child.height, child.colour, 0);
+                                Toolkit.active.outlineRect(offsetX, offsetY, child.width, child.height, child.colour, 0);
                             }
                         } else {
                             if (child.filled) {
-                                Toolkit.active.aa(screenX, screenY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                                Toolkit.active.aa(offsetX, offsetY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                             } else {
-                                Toolkit.active.outlineRect(screenX, screenY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
+                                Toolkit.active.outlineRect(offsetX, offsetY, child.width, child.height, 255 - (transparency & 0xFF) << 24 | child.colour & 0xFFFFFF, 1);
                             }
                         }
 
                         if (aBoolean210) {
-                            if (arg7) {
-                                Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                            if (aspectRatio) {
+                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -631,31 +634,31 @@ public final class InterfaceManager {
                             }
 
                             if (clipComponents) {
-                                Toolkit.active.T(screenX, screenY, screenX + child.width, child.height + screenY);
+                                Toolkit.active.T(offsetX, offsetY, offsetX + child.width, child.height + offsetY);
                             }
 
-                            font.renderLines(text, screenX, screenY, 0, 0, child.width, child.height, child.horizontalAlignment, child.verticalAlignment, child.maxLines, child.lineHeight, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, null, Sprites.nameIcons, null);
+                            font.renderLines(text, offsetX, offsetY, 0, 0, child.width, child.height, child.textAlignX, child.textAlignY, child.maxLines, child.textHeight, colour | ((255 - (transparency & 0xFF)) << 24), child.textShadow ? 255 - (transparency & 0xFF) << 24 : -1, null, Sprites.nameIcons, null);
 
                             if (clipComponents) {
-                                Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                                Toolkit.active.KA(x1, y1, x2, y2);
                             }
 
                             if (text.trim().length() > 0) {
                                 if (!clipComponents) {
                                     @Pc(1730) FontMetrics metrics = Fonts.metrics(child.fontGraphic, Toolkit.active);
                                     @Pc(777) int textWidth = metrics.paraWidth(Sprites.nameIcons, text, child.width);
-                                    @Pc(779) int textHeight = metrics.stringHeight(child.width, child.lineHeight, text, Sprites.nameIcons);
+                                    @Pc(779) int textHeight = metrics.stringHeight(child.width, child.textHeight, text, Sprites.nameIcons);
 
                                     if (aBoolean210) {
-                                        if (arg7) {
-                                            Static682.method8927(screenY, screenY + textHeight, screenX, screenX + textWidth);
+                                        if (aspectRatio) {
+                                            Static682.method8927(offsetX, offsetX + textWidth, offsetY, offsetY + textHeight);
                                         } else {
-                                            Static595.method7810(screenY, screenX + textWidth, textHeight + screenY, screenX);
+                                            Static595.method7810(offsetY, offsetX + textWidth, textHeight + offsetY, offsetX);
                                         }
                                     }
                                 } else if (aBoolean210) {
-                                    if (arg7) {
-                                        Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                                    if (aspectRatio) {
+                                        Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                                     } else {
                                         Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                                     }
@@ -666,7 +669,7 @@ public final class InterfaceManager {
                         }
                     } else if (child.type == Component.TYPE_GRAPHIC) {
                         if (child.skyBox >= 0) {
-                            child.skyBox(SkyBoxSphereTypeList.instance, SkyBoxTypeList.instance).method3162(Toolkit.active, screenY, screenX, child.width, child.anInt3815 << 3, child.anInt3786 << 3, child.height);
+                            child.skyBox(SkyBoxSphereTypeList.instance, SkyBoxTypeList.instance).method3162(Toolkit.active, offsetY, offsetX, child.width, child.skyboxRenderPitch << 3, child.skyboxRenderYaw << 3, child.height);
                         } else {
                             @Pc(1816) Sprite sprite;
                             if (child.invObject != -1) {
@@ -683,8 +686,8 @@ public final class InterfaceManager {
                                 @Pc(744) int scaleHeight = sprite.scaleHeight();
                                 @Pc(1255) int backgroundColour = ((255 - (transparency & 0xFF)) << 24) | ((child.colour != 0) ? (child.colour & 0xFFFFFF) : 0xFFFFFF);
 
-                                if (child.tiled) {
-                                    Toolkit.active.T(screenX, screenY, screenX + child.width, screenY - -child.height);
+                                if (child.tiling) {
+                                    Toolkit.active.T(offsetX, offsetY, offsetX + child.width, offsetY - -child.height);
 
                                     if (child.angle2d != 0) {
                                         @Pc(777) int newWidth = (child.width + scaleWidth - 1) / scaleWidth;
@@ -693,37 +696,37 @@ public final class InterfaceManager {
                                         for (@Pc(792) int x = 0; x < newWidth; x++) {
                                             for (@Pc(936) int y = 0; y < newHeight; y++) {
                                                 if (child.colour != 0) {
-                                                    sprite.renderRotated((float) (x * scaleWidth + screenX) + ((float) scaleWidth / 2.0F), (float) scaleHeight / 2.0F + (float) (y * scaleHeight + screenY), 4096, child.angle2d, backgroundColour);
+                                                    sprite.renderRotated((float) (x * scaleWidth + offsetX) + ((float) scaleWidth / 2.0F), (float) scaleHeight / 2.0F + (float) (y * scaleHeight + offsetY), 4096, child.angle2d, backgroundColour);
                                                 } else {
-                                                    sprite.renderRotated((float) (x * scaleWidth + screenX) + ((float) scaleWidth / 2.0F), (float) (screenY + scaleHeight * y) + (float) scaleHeight / 2.0F, 4096, child.angle2d);
+                                                    sprite.renderRotated((float) (x * scaleWidth + offsetX) + ((float) scaleWidth / 2.0F), (float) (offsetY + scaleHeight * y) + (float) scaleHeight / 2.0F, 4096, child.angle2d);
                                                 }
                                             }
                                         }
                                     } else {
                                         if (child.colour != 0 || transparency != 0) {
-                                            sprite.renderTiled(screenX, screenY, child.width, child.height, 0, backgroundColour, 1);
+                                            sprite.renderTiled(offsetX, offsetY, child.width, child.height, 0, backgroundColour, 1);
                                         } else {
-                                            sprite.renderTiled(screenX, screenY, child.width, child.height);
+                                            sprite.renderTiled(offsetX, offsetY, child.width, child.height);
                                         }
                                     }
 
-                                    Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                                    Toolkit.active.KA(x1, y1, x2, y2);
                                 } else {
                                     if (child.colour != 0 || transparency != 0) {
                                         if (child.angle2d != 0) {
-                                            sprite.renderRotated(((float) child.width / 2.0F) + (float) screenX, (float) child.height / 2.0F + (float) screenY, child.width * 4096 / scaleWidth, child.angle2d, backgroundColour);
+                                            sprite.renderRotated(((float) child.width / 2.0F) + (float) offsetX, (float) child.height / 2.0F + (float) offsetY, child.width * 4096 / scaleWidth, child.angle2d, backgroundColour);
                                         } else if (scaleWidth == child.width && scaleHeight == child.height) {
-                                            sprite.render(screenX, screenY, 0, backgroundColour, 1);
+                                            sprite.render(offsetX, offsetY, 0, backgroundColour, 1);
                                         } else {
-                                            sprite.render(screenX, screenY, child.width, child.height, 0, backgroundColour, 1);
+                                            sprite.render(offsetX, offsetY, child.width, child.height, 0, backgroundColour, 1);
                                         }
                                     } else {
                                         if (child.angle2d != 0) {
-                                            sprite.renderRotated(((float) child.width / 2.0F) + (float) screenX, (float) screenY + (float) child.height / 2.0F, child.width * 4096 / scaleWidth, child.angle2d);
+                                            sprite.renderRotated(((float) child.width / 2.0F) + (float) offsetX, (float) offsetY + (float) child.height / 2.0F, child.width * 4096 / scaleWidth, child.angle2d);
                                         } else if (scaleWidth == child.width && scaleHeight == child.height) {
-                                            sprite.render(screenX, screenY);
+                                            sprite.render(offsetX, offsetY);
                                         } else {
-                                            sprite.render(screenX, screenY, child.width, child.height);
+                                            sprite.render(offsetX, offsetY, child.width, child.height);
                                         }
                                     }
                                 }
@@ -733,8 +736,8 @@ public final class InterfaceManager {
                         }
 
                         if (aBoolean210) {
-                            if (arg7) {
-                                Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                            if (aspectRatio) {
+                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -788,21 +791,21 @@ public final class InterfaceManager {
 
                         if (model != null) {
                             @Pc(1255) int local1255;
-                            if (child.anInt3800 <= 0) {
+                            if (child.modelAspectRatioX <= 0) {
                                 local1255 = 512;
                             } else {
-                                local1255 = (child.width << 9) / child.anInt3800;
+                                local1255 = (child.width << 9) / child.modelAspectRatioX;
                             }
 
                             @Pc(777) int local777;
-                            if (child.anInt3825 <= 0) {
+                            if (child.modelAspectRatioY <= 0) {
                                 local777 = 512;
                             } else {
-                                local777 = (child.height << 9) / child.anInt3825;
+                                local777 = (child.height << 9) / child.modelAspectRatioY;
                             }
 
-                            @Pc(779) int local779 = child.width / 2 + screenX;
-                            @Pc(792) int local792 = child.height / 2 + screenY;
+                            @Pc(779) int local779 = child.width / 2 + offsetX;
+                            @Pc(792) int local792 = child.height / 2 + offsetY;
                             if (!child.orthoView) {
                                 local779 += child.modelOriginX * local1255 >> 9;
                                 local792 += child.modelOriginY * local777 >> 9;
@@ -818,28 +821,28 @@ public final class InterfaceManager {
                             }
 
                             if (child.orthoView) {
-                                Static59.aMatrix_5.makeRotationX(child.modelAngleX);
-                                Static59.aMatrix_5.rotateAxisY(child.modelAngleY);
-                                Static59.aMatrix_5.rotateAxisZ(child.modelAngleZ);
+                                Static59.aMatrix_5.makeRotationX(child.xan2d);
+                                Static59.aMatrix_5.rotateAxisY(child.yan2d);
+                                Static59.aMatrix_5.rotateAxisZ(child.zan2d);
                                 Static59.aMatrix_5.translate(child.modelOriginX, child.modelOriginY, child.modelOriginZ);
                             } else {
-                                @Pc(936) int local936 = Trig1.SIN[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
-                                @Pc(938) int local938 = Trig1.COS[child.modelAngleX << 3] * (child.modelZoom << 2) >> 14;
-                                Static59.aMatrix_5.makeRotationZ(-child.modelAngleZ << 3);
-                                Static59.aMatrix_5.rotateAxisY(child.modelAngleY << 3);
-                                Static59.aMatrix_5.translate(child.anInt3736 << 2, minY + (child.anInt3804 << 2) + local936, (child.anInt3804 << 2) + local938);
-                                Static59.aMatrix_5.rotateAxisX(child.modelAngleX << 3);
+                                @Pc(936) int local936 = Trig1.SIN[child.xan2d << 3] * (child.zoom2d << 2) >> 14;
+                                @Pc(938) int local938 = Trig1.COS[child.xan2d << 3] * (child.zoom2d << 2) >> 14;
+                                Static59.aMatrix_5.makeRotationZ(-child.zan2d << 3);
+                                Static59.aMatrix_5.rotateAxisY(child.yan2d << 3);
+                                Static59.aMatrix_5.translate(child.xof2d << 2, minY + (child.yof2d << 2) + local936, (child.yof2d << 2) + local938);
+                                Static59.aMatrix_5.rotateAxisX(child.xan2d << 3);
                             }
 
                             child.method3384(Toolkit.active, model, Static59.aMatrix_5, TimeUtils.clock);
 
                             if (clipComponents) {
-                                Toolkit.active.T(screenX, screenY, screenX + child.width, child.height + screenY);
+                                Toolkit.active.T(offsetX, offsetY, offsetX + child.width, child.height + offsetY);
                             }
 
                             if (child.orthoView) {
-                                if (child.modelOrtho) {
-                                    model.renderOrtho(Static59.aMatrix_5, null, child.modelZoom, 1);
+                                if (child.modelOrthog) {
+                                    model.renderOrtho(Static59.aMatrix_5, null, child.zoom2d, 1);
                                 } else {
                                     model.render(Static59.aMatrix_5, null, 1);
 
@@ -848,8 +851,8 @@ public final class InterfaceManager {
                                     }
                                 }
                             } else {
-                                if (child.modelOrtho) {
-                                    model.renderOrtho(Static59.aMatrix_5, null, child.modelZoom << 2, 1);
+                                if (child.modelOrthog) {
+                                    model.renderOrtho(Static59.aMatrix_5, null, child.zoom2d << 2, 1);
                                 } else {
                                     model.render(Static59.aMatrix_5, null, 1);
 
@@ -860,7 +863,7 @@ public final class InterfaceManager {
                             }
 
                             if (clipComponents) {
-                                Toolkit.active.KA(arg3, arg4, arg8, arg5);
+                                Toolkit.active.KA(x1, y1, x2, y2);
                             }
 
                             if (child.disableZBuffer) {
@@ -869,8 +872,8 @@ public final class InterfaceManager {
                         }
 
                         if (aBoolean210) {
-                            if (arg7) {
-                                Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                            if (aspectRatio) {
+                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -881,24 +884,24 @@ public final class InterfaceManager {
                         @Pc(1255) int local1255;
 
                         if (child.lineDirection) {
-                            local323 = child.height + screenY;
-                            local1255 = screenY;
-                            local744 = screenX + child.width;
+                            local323 = child.height + offsetY;
+                            local1255 = offsetY;
+                            local744 = offsetX + child.width;
                         } else {
-                            local1255 = child.height + screenY;
-                            local323 = screenY;
-                            local744 = screenX + child.width;
+                            local1255 = child.height + offsetY;
+                            local323 = offsetY;
+                            local744 = offsetX + child.width;
                         }
 
                         if (child.lineWidth != 1) {
-                            Toolkit.active.method7947(screenX, local323, local744, local1255, child.colour, child.lineWidth);
+                            Toolkit.active.method7947(offsetX, local323, local744, local1255, child.colour, child.lineWidth);
                         } else {
-                            Toolkit.active.line(screenX, local323, local744, local1255, child.colour, 0);
+                            Toolkit.active.line(offsetX, local323, local744, local1255, child.colour, 0);
                         }
 
                         if (aBoolean210) {
-                            if (arg7) {
-                                Static682.method8927(boundsBottom, boundsTop, boundsLeft, boundsRight);
+                            if (aspectRatio) {
+                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -910,8 +913,8 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!qq", name = "a", descriptor = "(IIIIIIIZI)V")
-    public static void draw(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(8) int arg7) {
-        if (InterfaceList.load(arg0)) {
+    public static void draw(@OriginalArg(0) int id, @OriginalArg(1) int x1, @OriginalArg(3) int y1, @OriginalArg(2) int x2, @OriginalArg(8) int y2, @OriginalArg(6) int screenX, @OriginalArg(4) int screenY, @OriginalArg(5) int rectangle) {
+        if (InterfaceList.load(id)) {
             @Pc(17) int local17 = 0;
             @Pc(58) int local58 = 0;
             @Pc(60) int local60 = 0;
@@ -927,15 +930,15 @@ public final class InterfaceManager {
                 Static691.anInt10368 = 1;
             }
 
-            if (InterfaceList.cache[arg0] != null) {
-                draw(-1, arg6, InterfaceList.cache[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+            if (InterfaceList.cache[id] != null) {
+                draw(InterfaceList.cache[id], -1, screenX, screenY, x1, y1, x2, y2, rectangle, rectangle < 0);
             } else {
-                draw(-1, arg6, InterfaceList.interfaces[arg0], arg1, arg3, arg7, arg5, arg5 < 0, arg2, arg4);
+                draw(InterfaceList.interfaces[id], -1, screenX, screenY, x1, y1, x2, y2, rectangle, rectangle < 0);
             }
 
             if (aBoolean210) {
-                if (arg5 >= 0 && Static691.anInt10368 == 2) {
-                    Static682.method8927(Static320.anInt5085, Static582.anInt8629, Static435.anInt6597, Static599.anInt8837);
+                if (rectangle >= 0 && Static691.anInt10368 == 2) {
+                    Static682.method8927(Static435.anInt6597, Static599.anInt8837, Static320.anInt5085, Static582.anInt8629);
                 }
                 Static320.anInt5085 = local58;
                 Static582.anInt8629 = local62;
@@ -943,12 +946,12 @@ public final class InterfaceManager {
                 Static691.anInt10368 = local64;
                 Static599.anInt8837 = local60;
             }
-        } else if (arg5 == -1) {
+        } else if (rectangle == -1) {
             for (@Pc(17) int local17 = 0; local17 < 100; local17++) {
                 dirtyRectangles[local17] = true;
             }
         } else {
-            dirtyRectangles[arg5] = true;
+            dirtyRectangles[rectangle] = true;
         }
     }
 
@@ -986,8 +989,8 @@ public final class InterfaceManager {
             return;
         }
 
-        component.modelAngleX = 150;
-        component.modelAngleY = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
+        component.xan2d = 150;
+        component.yan2d = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
 
         component.objType = 5;
         component.obj = PlayerList.activePlayerSlot;
@@ -1166,17 +1169,17 @@ public final class InterfaceManager {
             Static294.method4339(0, MainLogicManager.step == 3 || MainLogicManager.step == 7, Static593.method7779(), Static58.method1260(), 0);
         }
 
-        @Pc(46) int local46 = 0;
-        @Pc(48) int local48 = 0;
+        @Pc(46) int x1 = 0;
+        @Pc(48) int y1 = 0;
         if (aBoolean210) {
-            local46 = Static130.method2283();
-            local48 = Static422.method5771();
+            x1 = Static130.method2283();
+            y1 = Static422.method5771();
         }
 
-        draw(topLevelInterface, local46, GameShell.canvasWid + local46, local48, local48, -1, local46, GameShell.canvasHei + local48);
+        draw(topLevelInterface, x1, y1, GameShell.canvasWid + x1, GameShell.canvasHei + y1, x1, y1, -1);
 
         if (dragChildren != null) {
-            draw(ROOT, dragOffsetX, dragChildren, local46, local48, local48 + GameShell.canvasHei, dragLayer.rectangle, true, local46 + GameShell.canvasWid, dragOffsetY);
+            draw(dragChildren, ROOT, dragOffsetX, dragOffsetY, x1, y1, x1 + GameShell.canvasWid, y1 + GameShell.canvasHei, dragLayer.rectangle, true);
             dragChildren = null;
         }
     }
@@ -1200,8 +1203,8 @@ public final class InterfaceManager {
                 continue;
             }
 
-            @Pc(19) int startX = component.positionX + scrollDeltaX;
-            @Pc(24) int startY = component.positionY + scrollDeltaY;
+            @Pc(19) int startX = component.x + scrollDeltaX;
+            @Pc(24) int startY = component.y + scrollDeltaY;
             @Pc(30) int x1;
             @Pc(32) int y1;
             @Pc(34) int x2;
@@ -1268,7 +1271,7 @@ public final class InterfaceManager {
                         }
                     }
 
-                    @Pc(308) boolean clickMask = component.clickMask && component.type == Component.TYPE_GRAPHIC && component.transparency == 0 && component.skyBox < 0 && component.invObject == -1 && component.video == -1 && !component.tiled && component.angle2d == 0;
+                    @Pc(308) boolean clickMask = component.clickMask && component.type == Component.TYPE_GRAPHIC && component.transparency == 0 && component.skyBox < 0 && component.invObject == -1 && component.video == -1 && !component.tiling && component.angle2d == 0;
 
                     @Pc(310) boolean hovered = false;
                     if (MouseMonitor.instance.getRecordedX() + orthoDeltaX >= x1 && MouseMonitor.instance.getRecordedY() + orthoDeltaY >= y1 && MouseMonitor.instance.getRecordedX() + orthoDeltaX < x2 && MouseMonitor.instance.getRecordedY() + orthoDeltaY < y2) {
@@ -1412,7 +1415,8 @@ public final class InterfaceManager {
 
                         if (component.clientcode != 0) {
                             if (component.clientcode == ComponentClientCode.SCENE || component.clientcode == ComponentClientCode.LOGIN_SCENE) {
-                                viewport = component;
+                                scene = component;
+
                                 if (Static456.aSkyBox_3 != null) {
                                     Static456.aSkyBox_3.method3168(ClientOptions.instance.skydetail.getValue(), component.height, Toolkit.active);
                                 }
@@ -2207,10 +2211,10 @@ public final class InterfaceManager {
         @Pc(16) int width = layer.scrollWidth == 0 ? layer.width : layer.scrollWidth;
         @Pc(37) int height = layer.scrollHeight == 0 ? layer.height : layer.scrollHeight;
 
-        calculateComponentListDimensions(width, execScript, height, InterfaceList.interfaces[layer.slot >> 16], layer.slot);
+        calculateComponentListDimensions(InterfaceList.interfaces[layer.slot >> 16], layer.slot, width, height, execScript);
 
         if (layer.dynamicComponents != null) {
-            calculateComponentListDimensions(width, execScript, height, layer.dynamicComponents, layer.slot);
+            calculateComponentListDimensions(layer.dynamicComponents, layer.slot, width, height, execScript);
         }
 
         @Pc(72) SubInterface sub = (SubInterface) subInterfaces.get(layer.slot);
@@ -2222,18 +2226,18 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!al", name = "a", descriptor = "(ZIIII)V")
     public static void calculateComponentListDimensions(@OriginalArg(0) boolean execScript, @OriginalArg(1) int arg1, @OriginalArg(3) int height, @OriginalArg(4) int width) {
         if (InterfaceList.load(arg1)) {
-            calculateComponentListDimensions(width, execScript, height, InterfaceList.interfaces[arg1], -1);
+            calculateComponentListDimensions(InterfaceList.interfaces[arg1], -1, width, height, execScript);
         }
     }
 
     @OriginalMember(owner = "client!gq", name = "a", descriptor = "(ZIZI[Lclient!hda;I)V")
-    public static void calculateComponentListDimensions(@OriginalArg(1) int width, @OriginalArg(2) boolean execScript, @OriginalArg(3) int height, @OriginalArg(4) Component[] children, @OriginalArg(5) int parent) {
+    public static void calculateComponentListDimensions(@OriginalArg(4) Component[] children, @OriginalArg(5) int parent, @OriginalArg(1) int width, @OriginalArg(3) int height, @OriginalArg(2) boolean execScript) {
         for (@Pc(5) int i = 0; i < children.length; i++) {
             @Pc(14) Component child = children[i];
 
             if (child != null && child.layer == parent) {
-                resize(execScript, height, width, child);
-                calculateDimensions(child, width, height, -8525);
+                resize(child, width, height, execScript);
+                reposition(child, width, height);
 
                 if (child.scrollX > child.scrollWidth - child.width) {
                     child.scrollX = child.scrollWidth - child.width;
@@ -2256,32 +2260,32 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!pw", name = "a", descriptor = "(ZIIILclient!hda;)V")
-    public static void resize(@OriginalArg(0) boolean execScript, @OriginalArg(1) int parentHeight, @OriginalArg(3) int parentWidth, @OriginalArg(4) Component component) {
-        @Pc(6) int width = component.width;
-        @Pc(16) int height = component.height;
+    public static void resize(@OriginalArg(4) Component component, @OriginalArg(3) int parentWidth, @OriginalArg(1) int parentHeight, @OriginalArg(0) boolean execScript) {
+        @Pc(6) int widthBefore = component.width;
+        @Pc(16) int heightBefore = component.height;
 
-        if (component.sizeTypeHorizontal == 0) {
-            component.width = component.baseWidth;
-        } else if (component.sizeTypeHorizontal == 1) {
-            component.width = parentWidth - component.baseWidth;
-        } else if (component.sizeTypeHorizontal == 2) {
-            component.width = (component.baseWidth * parentWidth) >> 14;
+        if (component.resizeModeX == 0) {
+            component.width = component.originalWidth;
+        } else if (component.resizeModeX == 1) {
+            component.width = parentWidth - component.originalWidth;
+        } else if (component.resizeModeX == 2) {
+            component.width = (component.originalWidth * parentWidth) >> 14;
         }
 
-        if (component.sizeTypeVertical == 0) {
-            component.height = component.baseHeight;
-        } else if (component.sizeTypeVertical == 1) {
-            component.height = parentHeight - component.baseHeight;
-        } else if (component.sizeTypeVertical == 2) {
-            component.height = (parentHeight * component.baseHeight) >> 14;
+        if (component.resizeModeY == 0) {
+            component.height = component.originalHeight;
+        } else if (component.resizeModeY == 1) {
+            component.height = parentHeight - component.originalHeight;
+        } else if (component.resizeModeY == 2) {
+            component.height = (parentHeight * component.originalHeight) >> 14;
         }
 
-        if (component.sizeTypeHorizontal == 4) {
-            component.width = component.aspectRatioHeight * component.height / component.aspectRatioWidth;
+        if (component.resizeModeX == 4) {
+            component.width = (component.height * component.resizeAspectRatioY) / component.resizeAspectRatioX;
         }
 
-        if (component.sizeTypeVertical == 4) {
-            component.height = component.width * component.aspectRatioWidth / component.aspectRatioHeight;
+        if (component.resizeModeY == 4) {
+            component.height = (component.width * component.resizeAspectRatioX) / component.resizeAspectRatioY;
         }
 
         if (testOpacity && (serverActiveProperties(component).events != 0 || component.type == Component.TYPE_LAYER)) {
@@ -2299,10 +2303,10 @@ public final class InterfaceManager {
         }
 
         if (component.clientcode == ComponentClientCode.SCENE) {
-            viewport = component;
+            scene = component;
         }
 
-        if (execScript && component.onResize != null && (width != component.width || height != component.height)) {
+        if (execScript && component.onResize != null && (component.width != widthBefore || component.height != heightBefore)) {
             @Pc(225) HookRequest hook = new HookRequest();
             hook.arguments = component.onResize;
             hook.source = component;
@@ -2311,46 +2315,46 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!or", name = "a", descriptor = "(Lclient!hda;III)V")
-    public static void calculateDimensions(@OriginalArg(0) Component component, @OriginalArg(1) int width, @OriginalArg(2) int height, @OriginalArg(3) int arg3) {
-        if (component.postTypeVertical == 0) {
-            component.positionY = component.basePosY;
-        } else if (component.postTypeVertical == 1) {
-            component.positionY = component.basePosY + ((height - component.height) / 2);
-        } else if (component.postTypeVertical == 2) {
-            component.positionY = height - component.height - component.basePosY;
-        } else if (component.postTypeVertical == 3) {
-            component.positionY = (component.basePosY * height) >> 14;
-        } else if (component.postTypeVertical == 4) {
-            component.positionY = ((height - component.height) / 2) + ((height * component.basePosY) >> 14);
+    public static void reposition(@OriginalArg(0) Component component, @OriginalArg(1) int width, @OriginalArg(2) int height) {
+        if (component.reposModeY == 0) {
+            component.y = component.originalY;
+        } else if (component.reposModeY == 1) {
+            component.y = component.originalY + ((height - component.height) / 2);
+        } else if (component.reposModeY == 2) {
+            component.y = height - component.height - component.originalY;
+        } else if (component.reposModeY == 3) {
+            component.y = (component.originalY * height) >> 14;
+        } else if (component.reposModeY == 4) {
+            component.y = ((height - component.height) / 2) + ((height * component.originalY) >> 14);
         } else {
-            component.positionY = height - ((component.basePosY * height) >> 14) - component.height;
+            component.y = height - ((component.originalY * height) >> 14) - component.height;
         }
 
-        if (component.posTypeHorizontal == 0) {
-            component.positionX = component.basePosX;
-        } else if (component.posTypeHorizontal == 1) {
-            component.positionX = component.basePosX + ((width - component.width) / 2);
-        } else if (component.posTypeHorizontal == 2) {
-            component.positionX = width - component.width - component.basePosX;
-        } else if (component.posTypeHorizontal == 3) {
-            component.positionX = (component.basePosX * width) >> 14;
-        } else if (component.posTypeHorizontal == 4) {
-            component.positionX = ((width - component.width) / 2) + ((width * component.basePosX) >> 14);
+        if (component.reposModeX == 0) {
+            component.x = component.originalX;
+        } else if (component.reposModeX == 1) {
+            component.x = component.originalX + ((width - component.width) / 2);
+        } else if (component.reposModeX == 2) {
+            component.x = width - component.width - component.originalX;
+        } else if (component.reposModeX == 3) {
+            component.x = (component.originalX * width) >> 14;
+        } else if (component.reposModeX == 4) {
+            component.x = ((width - component.width) / 2) + ((width * component.originalX) >> 14);
         } else {
-            component.positionX = width - ((width * component.basePosX) >> 14) - component.width;
+            component.x = width - ((width * component.originalX) >> 14) - component.width;
         }
 
         if (testOpacity && (serverActiveProperties(component).events != 0 || component.type == Component.TYPE_LAYER)) {
-            if (component.positionX < 0) {
-                component.positionX = 0;
-            } else if (width < component.width + component.positionX) {
-                component.positionX = width - component.width;
+            if (component.x < 0) {
+                component.x = 0;
+            } else if (width < component.width + component.x) {
+                component.x = width - component.width;
             }
 
-            if (component.positionY < 0) {
-                component.positionY = 0;
-            } else if (component.positionY + component.height > height) {
-                component.positionY = height - component.height;
+            if (component.y < 0) {
+                component.y = 0;
+            } else if (component.y + component.height > height) {
+                component.y = height - component.height;
             }
         }
     }
@@ -2423,7 +2427,7 @@ public final class InterfaceManager {
             GameShell.canvasHei = Client.loadingScreenHeight;
             GameShell.canvasWid = Client.loadingScreenWidth;
         } else {
-            method4625();
+            applyMaxScreenSize();
         }
 
         if (Client.modeWhere != ModeWhere.LIVE) {
@@ -2754,26 +2758,28 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!kda", name = "a", descriptor = "(I)V")
-    public static void method4625() {
+    public static void applyMaxScreenSize() {
         @Pc(5) int maxScreenSize = 0;
         if (ClientOptions.instance != null) {
             maxScreenSize = ClientOptions.instance.maxScreenSize.getValue();
         }
 
         if (maxScreenSize == MaxScreenSize._800x600) {
-            @Pc(34) int local34 = GameShell.frameWid <= 800 ? GameShell.frameWid : 800;
-            GameShell.leftMargin = (GameShell.frameWid - local34) / 2;
-            GameShell.canvasWid = local34;
-            @Pc(51) int local51 = GameShell.frameHei <= 600 ? GameShell.frameHei : 600;
+            @Pc(34) int width = GameShell.frameWid > 800 ? 800 : GameShell.frameWid;
+            GameShell.leftMargin = (GameShell.frameWid - width) / 2;
+            GameShell.canvasWid = width;
+
+            @Pc(51) int height = GameShell.frameHei > 600 ? 600 : GameShell.frameHei;
             GameShell.topMargin = 0;
-            GameShell.canvasHei = local51;
+            GameShell.canvasHei = height;
         } else if (maxScreenSize == MaxScreenSize._1024x768) {
-            @Pc(34) int local34 = GameShell.frameWid <= 1024 ? GameShell.frameWid : 1024;
-            GameShell.canvasWid = local34;
-            @Pc(51) int local51 = GameShell.frameHei <= 768 ? GameShell.frameHei : 768;
-            GameShell.leftMargin = (GameShell.frameWid - local34) / 2;
-            GameShell.canvasHei = local51;
+            @Pc(34) int width = GameShell.frameWid > 1024 ? 1024 : GameShell.frameWid;
+            GameShell.leftMargin = (GameShell.frameWid - width) / 2;
+            GameShell.canvasWid = width;
+
+            @Pc(51) int height = GameShell.frameHei > 768 ? 768 : GameShell.frameHei;
             GameShell.topMargin = 0;
+            GameShell.canvasHei = height;
         } else {
             GameShell.topMargin = 0;
             GameShell.canvasHei = GameShell.frameHei;
@@ -2783,13 +2789,50 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!nfa", name = "a", descriptor = "(IIIII)V")
-    public static void method5773(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public static void flipDirtyRectWithin(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {
         for (@Pc(5) int i = 0; i < rectangleCount; i++) {
             @Pc(10) Rectangle rectangle = rectangles[i];
-            if (arg0 < rectangle.x + rectangle.width && rectangle.x < arg2 + arg0 && rectangle.height + rectangle.y > arg1 && rectangle.y < arg1 + arg3) {
+
+            if (rectangle.x + rectangle.width > x && rectangle.x < x + width && rectangle.y + rectangle.height > y && rectangle.y < y + height) {
                 flipDirtyRect[i] = true;
             }
         }
-        Static682.method8927(arg1, arg3 + arg1, arg0, arg0 + arg2);
+        Static682.method8927(x, x + width, y, height + y);
+    }
+
+    @OriginalMember(owner = "client!rj", name = "a", descriptor = "(BLclient!hda;)Lclient!hda;")
+    public static Component getParentLayer(@OriginalArg(1) Component component) {
+        if (component.layer != -1) {
+            return InterfaceList.list(component.layer);
+        }
+
+        @Pc(25) int parent = component.slot >>> 16;
+        @Pc(30) HashTableIterator iterator = new HashTableIterator(subInterfaces);
+
+        for (@Pc(35) SubInterface sub = (SubInterface) iterator.first(); sub != null; sub = (SubInterface) iterator.next()) {
+            if (sub.id == parent) {
+                return InterfaceList.list((int) sub.key);
+            }
+        }
+
+        return null;
+    }
+
+    @OriginalMember(owner = "client!bia", name = "a", descriptor = "(ILclient!hda;)V")
+    public static void resizeAndReposition(@OriginalArg(1) Component component) {
+        @Pc(7) Component parent = getParentLayer(component);
+
+        @Pc(24) int width;
+        @Pc(27) int height;
+        if (parent == null) {
+            height = GameShell.canvasHei;
+            width = GameShell.canvasWid;
+        } else {
+            width = parent.width;
+            height = parent.height;
+        }
+
+        resize(component, width, height, false);
+        reposition(component, width, height);
     }
 }

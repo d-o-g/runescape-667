@@ -824,15 +824,15 @@ public final class client extends GameShell {
             for (@Pc(114) int i = 0; i < InterfaceManager.rectangleCount; i++) {
                 if (InterfaceManager.flipDirtyRect[i]) {
                     InterfaceManager.flipDirtyRect[i] = false;
-                    Static663.aRectangleArray2[rectangle++] = InterfaceManager.rectangles[i];
+                    InterfaceManager.flippedDirtyRects[rectangle++] = InterfaceManager.rectangles[i];
                 }
             }
 
             try {
                 if (InterfaceManager.aBoolean210) {
-                    Static700.method9148(rectangle, Static663.aRectangleArray2);
+                    Static700.method9148(rectangle, InterfaceManager.flippedDirtyRects);
                 } else {
-                    Toolkit.active.method8005(rectangle, Static663.aRectangleArray2);
+                    Toolkit.active.method8005(rectangle, InterfaceManager.flippedDirtyRects);
                 }
             } catch (@Pc(629) Exception_Sub1 ignored) {
                 /* empty */

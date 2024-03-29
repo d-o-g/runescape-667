@@ -1,12 +1,13 @@
 package com.jagex.graphics;
 
+import com.jagex.core.datastruct.Node;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ima")
-public final class PickingCylinder extends Cylinder {
+public final class PickingCylinder extends Node {
 
     @OriginalMember(owner = "client!ima", name = "f", descriptor = "I")
     public int anInt4501;

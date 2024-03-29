@@ -522,15 +522,15 @@ public final class MainLogicManager {
                         }
                     } else if (local541 == 8) {
                         local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.modelAngleX || change.secondaryData != local1143.modelAngleY || local1143.modelZoom != change.tertiaryData) {
-                            local1143.modelAngleX = change.primaryData;
-                            local1143.modelAngleY = change.secondaryData;
-                            local1143.modelZoom = change.tertiaryData;
+                        if (change.primaryData != local1143.xan2d || change.secondaryData != local1143.yan2d || local1143.zoom2d != change.tertiaryData) {
+                            local1143.xan2d = change.primaryData;
+                            local1143.yan2d = change.secondaryData;
+                            local1143.zoom2d = change.tertiaryData;
                             if (local1143.invObject != -1) {
-                                if (local1143.anInt3800 > 0) {
-                                    local1143.modelZoom = local1143.modelZoom * 32 / local1143.anInt3800;
-                                } else if (local1143.baseWidth > 0) {
-                                    local1143.modelZoom = local1143.modelZoom * 32 / local1143.baseWidth;
+                                if (local1143.modelAspectRatioX > 0) {
+                                    local1143.zoom2d = local1143.zoom2d * 32 / local1143.modelAspectRatioX;
+                                } else if (local1143.originalWidth > 0) {
+                                    local1143.zoom2d = local1143.zoom2d * 32 / local1143.originalWidth;
                                 }
                             }
                             InterfaceManager.redraw(local1143);
@@ -544,18 +544,18 @@ public final class MainLogicManager {
                         }
                     } else if (local541 == 10) {
                         local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.anInt3736 || local1143.anInt3804 != change.secondaryData || change.tertiaryData != local1143.modelAngleZ) {
-                            local1143.anInt3736 = change.primaryData;
-                            local1143.anInt3804 = change.secondaryData;
-                            local1143.modelAngleZ = change.tertiaryData;
+                        if (change.primaryData != local1143.xof2d || local1143.yof2d != change.secondaryData || change.tertiaryData != local1143.zan2d) {
+                            local1143.xof2d = change.primaryData;
+                            local1143.yof2d = change.secondaryData;
+                            local1143.zan2d = change.tertiaryData;
                             InterfaceManager.redraw(local1143);
                         }
                     } else if (local541 == 11) {
                         local1143 = InterfaceList.list((int) local660);
-                        local1143.postTypeVertical = 0;
-                        local1143.positionY = local1143.basePosY = change.secondaryData;
-                        local1143.positionX = local1143.basePosX = change.primaryData;
-                        local1143.posTypeHorizontal = 0;
+                        local1143.reposModeY = 0;
+                        local1143.y = local1143.originalY = change.secondaryData;
+                        local1143.x = local1143.originalX = change.primaryData;
+                        local1143.reposModeX = 0;
                         InterfaceManager.redraw(local1143);
                     } else if (local541 == 12) {
                         local1143 = InterfaceList.list((int) local660);

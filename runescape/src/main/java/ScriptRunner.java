@@ -1,6 +1,7 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
+import com.jagex.game.runetek6.config.objtype.ObjNumMode;
 import rs2.client.loading.library.LibraryManager;
 import com.jagex.PrivateChatMode;
 import com.jagex.core.constants.MainLogicStep;
@@ -496,7 +497,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 1107) {
-                        component.tiled = anIntArray578[--anInt7142] == 1;
+                        component.tiling = anIntArray578[--anInt7142] == 1;
                         InterfaceManager.redraw(component);
                         return;
                     }
@@ -511,12 +512,12 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 1109) {
                         anInt7142 -= 6;
-                        component.anInt3736 = anIntArray578[anInt7142];
-                        component.anInt3804 = anIntArray578[anInt7142 + 1];
-                        component.modelAngleX = anIntArray578[anInt7142 + 2];
-                        component.modelAngleY = anIntArray578[anInt7142 + 3];
-                        component.modelAngleZ = anIntArray578[anInt7142 + 4];
-                        component.modelZoom = anIntArray578[anInt7142 + 5];
+                        component.xof2d = anIntArray578[anInt7142];
+                        component.yof2d = anIntArray578[anInt7142 + 1];
+                        component.xan2d = anIntArray578[anInt7142 + 2];
+                        component.yan2d = anIntArray578[anInt7142 + 3];
+                        component.zan2d = anIntArray578[anInt7142 + 4];
+                        component.zoom2d = anIntArray578[anInt7142 + 5];
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
                             DelayedStateChange.interfaceResetModelAngle(component.slot);
@@ -544,7 +545,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 1111) {
-                        component.modelOrtho = anIntArray578[--anInt7142] == 1;
+                        component.modelOrthog = anIntArray578[--anInt7142] == 1;
                         InterfaceManager.redraw(component);
                         return;
                     }
@@ -569,9 +570,9 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 1114) {
                         anInt7142 -= 3;
-                        component.horizontalAlignment = anIntArray578[anInt7142];
-                        component.verticalAlignment = anIntArray578[anInt7142 + 1];
-                        component.lineHeight = anIntArray578[anInt7142 + 2];
+                        component.textAlignX = anIntArray578[anInt7142];
+                        component.textAlignY = anIntArray578[anInt7142 + 1];
+                        component.textHeight = anIntArray578[anInt7142 + 2];
                         InterfaceManager.redraw(component);
                         return;
                     }
@@ -591,12 +592,12 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 1118) {
-                        component.flipHorizontal = anIntArray578[--anInt7142] == 1;
+                        component.horizontalFlip = anIntArray578[--anInt7142] == 1;
                         InterfaceManager.redraw(component);
                         return;
                     }
                     if (arg0 == 1119) {
-                        component.flipVertical = anIntArray578[--anInt7142] == 1;
+                        component.verticalFlip = anIntArray578[--anInt7142] == 1;
                         InterfaceManager.redraw(component);
                         return;
                     }
@@ -616,7 +617,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 1123) {
-                        component.modelZoom = anIntArray578[--anInt7142];
+                        component.zoom2d = anIntArray578[--anInt7142];
                         InterfaceManager.redraw(component);
                         if (component.id == -1) {
                             DelayedStateChange.interfaceResetModelAngle(component.slot);
@@ -769,26 +770,28 @@ public final class ScriptRunner {
                         } else {
                             component.objWearCol = false;
                         }
-                        @Pc(2236) ObjType local2236 = ObjTypeList.instance.list(local21);
-                        component.modelAngleX = local2236.xan2d;
-                        component.modelAngleY = local2236.yan2d;
-                        component.modelAngleZ = local2236.zan2d;
-                        component.anInt3736 = local2236.xof2d;
-                        component.anInt3804 = local2236.yof2d;
-                        component.modelZoom = local2236.zoom2d;
+                        @Pc(2236) ObjType objType = ObjTypeList.instance.list(local21);
+                        component.xan2d = objType.xan2d;
+                        component.yan2d = objType.yan2d;
+                        component.zan2d = objType.zan2d;
+                        component.xof2d = objType.xof2d;
+                        component.yof2d = objType.yof2d;
+                        component.zoom2d = objType.zoom2d;
+
                         if (arg0 == 1205 || arg0 == 1209) {
-                            component.objNumMode = 0;
+                            component.objNumMode = ObjNumMode.SHOWCOUNT_NEVER;
                         } else if (arg0 == 1212 || arg0 == 1213) {
-                            component.objNumMode = 1;
+                            component.objNumMode = ObjNumMode.SHOWCOUNT_ALWAYS;
                         } else {
-                            component.objNumMode = 2;
+                            component.objNumMode = ObjNumMode.SHOWCOUNT_IFNOT1;
                         }
-                        if (component.anInt3800 > 0) {
-                            component.modelZoom = component.modelZoom * 32 / component.anInt3800;
+
+                        if (component.modelAspectRatioX > 0) {
+                            component.zoom2d = component.zoom2d * 32 / component.modelAspectRatioX;
                             return;
                         }
-                        if (component.baseWidth > 0) {
-                            component.modelZoom = component.modelZoom * 32 / component.baseWidth;
+                        if (component.originalWidth > 0) {
+                            component.zoom2d = component.zoom2d * 32 / component.originalWidth;
                         }
                         return;
                     }
@@ -835,8 +838,8 @@ public final class ScriptRunner {
                     }
                     if (arg0 == 1207) {
                         anInt7142 -= 2;
-                        component.anInt3815 = anIntArray578[anInt7142];
-                        component.anInt3786 = anIntArray578[anInt7142 + 1];
+                        component.skyboxRenderPitch = anIntArray578[anInt7142];
+                        component.skyboxRenderYaw = anIntArray578[anInt7142 + 1];
                         InterfaceManager.redraw(component);
                         return;
                     }
@@ -844,23 +847,27 @@ public final class ScriptRunner {
                         anInt7142 -= 4;
                         component.obj = anIntArray578[anInt7142];
                         component.objData = anIntArray578[anInt7142 + 1];
+
                         if (anIntArray578[anInt7142 + 2] == 1) {
-                            component.objType = 9;
+                            component.objType = Component.OBJ_TYPE_INVENTORY_FEMALE;
                         } else {
-                            component.objType = 8;
+                            component.objType = Component.OBJ_TYPE_INVENTORY_MALE;
                         }
+
                         if (anIntArray578[anInt7142 + 3] == 1) {
                             component.objWearCol = true;
                         } else {
                             component.objWearCol = false;
                         }
+
                         if (component.id == -1) {
                             DelayedStateChange.interfaceResetModel(component.slot);
                         }
                         return;
                     }
+
                     if (arg0 == 1211) {
-                        component.objType = 5;
+                        component.objType = Component.OBJ_TYPE_PLAYERMODEL;
                         component.obj = PlayerList.activePlayerSlot;
                         component.objData = 0;
                         if (component.id == -1) {
@@ -880,7 +887,7 @@ public final class ScriptRunner {
                         if (arg0 == 1300) {
                             local21 = anIntArray578[--anInt7142] - 1;
                             if (local21 >= 0 && local21 <= 9) {
-                                component.setOpText(aStringArray37[--anInt7139], local21);
+                                component.setOp(local21, aStringArray37[--anInt7139]);
                                 return;
                             }
                             anInt7139--;
@@ -1104,11 +1111,11 @@ public final class ScriptRunner {
                     } else if (arg0 < 1600) {
                         component = arg1 ? aComponent_12 : aComponent_11;
                         if (arg0 == 1500) {
-                            anIntArray578[anInt7142++] = component.positionX;
+                            anIntArray578[anInt7142++] = component.x;
                             return;
                         }
                         if (arg0 == 1501) {
-                            anIntArray578[anInt7142++] = component.positionY;
+                            anIntArray578[anInt7142++] = component.y;
                             return;
                         }
                         if (arg0 == 1502) {
@@ -1128,7 +1135,7 @@ public final class ScriptRunner {
                             return;
                         }
                         if (arg0 == 1506) {
-                            local248 = Static556.method7299(component);
+                            local248 = InterfaceManager.getParentLayer(component);
                             anIntArray578[anInt7142++] = local248 == null ? -1 : local248.slot;
                             return;
                         }
@@ -1161,19 +1168,19 @@ public final class ScriptRunner {
                                 return;
                             }
                             if (arg0 == 1605) {
-                                anIntArray578[anInt7142++] = component.modelZoom;
+                                anIntArray578[anInt7142++] = component.zoom2d;
                                 return;
                             }
                             if (arg0 == 1606) {
-                                anIntArray578[anInt7142++] = component.modelAngleX;
+                                anIntArray578[anInt7142++] = component.xan2d;
                                 return;
                             }
                             if (arg0 == 1607) {
-                                anIntArray578[anInt7142++] = component.modelAngleZ;
+                                anIntArray578[anInt7142++] = component.zan2d;
                                 return;
                             }
                             if (arg0 == 1608) {
-                                anIntArray578[anInt7142++] = component.modelAngleY;
+                                anIntArray578[anInt7142++] = component.yan2d;
                                 return;
                             }
                             if (arg0 == 1609) {
@@ -1181,11 +1188,11 @@ public final class ScriptRunner {
                                 return;
                             }
                             if (arg0 == 1610) {
-                                anIntArray578[anInt7142++] = component.anInt3736;
+                                anIntArray578[anInt7142++] = component.xof2d;
                                 return;
                             }
                             if (arg0 == 1611) {
-                                anIntArray578[anInt7142++] = component.anInt3804;
+                                anIntArray578[anInt7142++] = component.yof2d;
                                 return;
                             }
                             if (arg0 == 1612) {
@@ -1207,7 +1214,7 @@ public final class ScriptRunner {
                                 return;
                             }
                             if (arg0 == 2614) {
-                                anIntArray578[anInt7142++] = component.objType == 1 ? component.obj : -1;
+                                anIntArray578[anInt7142++] = component.objType == Component.OBJ_TYPE_MODEL ? component.obj : -1;
                                 return;
                             }
                             if (arg0 == 1618) {
@@ -1280,11 +1287,11 @@ public final class ScriptRunner {
                         } else if (arg0 < 2600) {
                             component = InterfaceList.list(anIntArray578[--anInt7142]);
                             if (arg0 == 2500) {
-                                anIntArray578[anInt7142++] = component.positionX;
+                                anIntArray578[anInt7142++] = component.x;
                                 return;
                             }
                             if (arg0 == 2501) {
-                                anIntArray578[anInt7142++] = component.positionY;
+                                anIntArray578[anInt7142++] = component.y;
                                 return;
                             }
                             if (arg0 == 2502) {
@@ -1304,7 +1311,7 @@ public final class ScriptRunner {
                                 return;
                             }
                             if (arg0 == 2506) {
-                                local248 = Static556.method7299(component);
+                                local248 = InterfaceManager.getParentLayer(component);
                                 anIntArray578[anInt7142++] = local248 == null ? -1 : local248.slot;
                                 return;
                             }
@@ -1335,19 +1342,19 @@ public final class ScriptRunner {
                                 return;
                             }
                             if (arg0 == 2605) {
-                                anIntArray578[anInt7142++] = component.modelZoom;
+                                anIntArray578[anInt7142++] = component.zoom2d;
                                 return;
                             }
                             if (arg0 == 2606) {
-                                anIntArray578[anInt7142++] = component.modelAngleX;
+                                anIntArray578[anInt7142++] = component.xan2d;
                                 return;
                             }
                             if (arg0 == 2607) {
-                                anIntArray578[anInt7142++] = component.modelAngleZ;
+                                anIntArray578[anInt7142++] = component.zan2d;
                                 return;
                             }
                             if (arg0 == 2608) {
-                                anIntArray578[anInt7142++] = component.modelAngleY;
+                                anIntArray578[anInt7142++] = component.yan2d;
                                 return;
                             }
                             if (arg0 == 2609) {
@@ -1355,11 +1362,11 @@ public final class ScriptRunner {
                                 return;
                             }
                             if (arg0 == 2610) {
-                                anIntArray578[anInt7142++] = component.anInt3736;
+                                anIntArray578[anInt7142++] = component.xof2d;
                                 return;
                             }
                             if (arg0 == 2611) {
-                                anIntArray578[anInt7142++] = component.anInt3804;
+                                anIntArray578[anInt7142++] = component.yof2d;
                                 return;
                             }
                             if (arg0 == 2612) {
@@ -3133,8 +3140,8 @@ public final class ScriptRunner {
                 }
                 if (arg0 == 1000) {
                     anInt7142 -= 4;
-                    component.basePosX = anIntArray578[anInt7142];
-                    component.basePosY = anIntArray578[anInt7142 + 1];
+                    component.originalX = anIntArray578[anInt7142];
+                    component.originalY = anIntArray578[anInt7142 + 1];
                     local21 = anIntArray578[anInt7142 + 2];
                     if (local21 < 0) {
                         local21 = 0;
@@ -3147,10 +3154,10 @@ public final class ScriptRunner {
                     } else if (local27 > 5) {
                         local27 = 5;
                     }
-                    component.posTypeHorizontal = (byte) local21;
-                    component.postTypeVertical = (byte) local27;
+                    component.reposModeX = (byte) local21;
+                    component.reposModeY = (byte) local27;
                     InterfaceManager.redraw(component);
-                    Static44.method1073(component);
+                    InterfaceManager.resizeAndReposition(component);
                     if (component.id == -1) {
                         DelayedStateChange.interfaceResetPosition(component.slot);
                     }
@@ -3158,10 +3165,10 @@ public final class ScriptRunner {
                 }
                 if (arg0 == 1001) {
                     anInt7142 -= 4;
-                    component.baseWidth = anIntArray578[anInt7142];
-                    component.baseHeight = anIntArray578[anInt7142 + 1];
-                    component.anInt3800 = 0;
-                    component.anInt3825 = 0;
+                    component.originalWidth = anIntArray578[anInt7142];
+                    component.originalHeight = anIntArray578[anInt7142 + 1];
+                    component.modelAspectRatioX = 0;
+                    component.modelAspectRatioY = 0;
                     local21 = anIntArray578[anInt7142 + 2];
                     if (local21 < 0) {
                         local21 = 0;
@@ -3174,10 +3181,10 @@ public final class ScriptRunner {
                     } else if (local27 > 4) {
                         local27 = 4;
                     }
-                    component.sizeTypeHorizontal = (byte) local21;
-                    component.sizeTypeVertical = (byte) local27;
+                    component.resizeModeX = (byte) local21;
+                    component.resizeModeY = (byte) local27;
                     InterfaceManager.redraw(component);
-                    Static44.method1073(component);
+                    InterfaceManager.resizeAndReposition(component);
                     if (component.type == 0) {
                         InterfaceManager.calculateLayerDimensions(component, false);
                     }
@@ -3196,10 +3203,10 @@ public final class ScriptRunner {
                 }
                 if (arg0 == 1004) {
                     anInt7142 -= 2;
-                    component.aspectRatioHeight = anIntArray578[anInt7142];
-                    component.aspectRatioWidth = anIntArray578[anInt7142 + 1];
+                    component.resizeAspectRatioY = anIntArray578[anInt7142];
+                    component.resizeAspectRatioX = anIntArray578[anInt7142 + 1];
                     InterfaceManager.redraw(component);
-                    Static44.method1073(component);
+                    InterfaceManager.resizeAndReposition(component);
                     if (component.type == 0) {
                         InterfaceManager.calculateLayerDimensions(component, false);
                     }
@@ -5472,7 +5479,7 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 6203) {
-                        Static498.method6643(0, false, 0, InterfaceManager.viewport.height, InterfaceManager.viewport.width);
+                        Static498.method6643(0, false, 0, InterfaceManager.scene.height, InterfaceManager.scene.width);
                         anIntArray578[anInt7142++] = Static242.anInt3971;
                         anIntArray578[anInt7142++] = Static200.anInt3305;
                         return;
@@ -6441,8 +6448,8 @@ public final class ScriptRunner {
             @Pc(35) int local35 = 0;
             @Pc(37) int local37 = 0;
             if (WorldMap.component != null) {
-                local35 = WorldMap.component.positionX;
-                local37 = WorldMap.component.positionY;
+                local35 = WorldMap.component.x;
+                local37 = WorldMap.component.y;
             }
             anIntArray580[0] = MouseMonitor.instance.getRecordedX() - local35;
             anIntArray580[1] = MouseMonitor.instance.getRecordedY() - local37;

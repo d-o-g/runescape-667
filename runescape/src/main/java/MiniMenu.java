@@ -666,7 +666,7 @@ public final class MiniMenu {
         for (@Pc(21) MiniMenuEntry other = (MiniMenuEntry) entryQueue.first(); other != null; other = (MiniMenuEntry) entryQueue.next()) {
             if (isActionBefore(entry.getAction(), other.getAction())) {
                 inserted = true;
-                Node2.attachAfter(other, entry);
+                Node2.addAfter(other, entry);
                 break;
             }
         }
@@ -973,7 +973,7 @@ public final class MiniMenu {
                 font = Fonts.b12;
             }
 
-            font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.horizontalAlignment, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, random, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, icons, randomSeed, WorldMap.optionsY, WorldMap.optionsComponent.verticalAlignment);
+            font.renderRandom(Static329.anIntArray163, WorldMap.optionsComponent.textAlignX, WorldMap.optionsComponent.width, iconHeights, WorldMap.optionsComponent.colour, WorldMap.optionsComponent.height, random, text, WorldMap.optionsX, WorldMap.optionsComponent.shadow, icons, randomSeed, WorldMap.optionsY, WorldMap.optionsComponent.textAlignY);
             InterfaceManager.redrawWithin(Static329.anIntArray163[0], Static329.anIntArray163[1], Static329.anIntArray163[2], Static329.anIntArray163[3]);
         } else if (InterfaceManager.optionsComponent != null && Client.modeGame == ModeGame.RUNESCAPE) {
             @Pc(299) int width = Fonts.b12.renderRandom(icons, randomSeed, 0xFFFFFF, InterfaceManager.optionsY + 16, text, iconHeights, 0, random, InterfaceManager.optionsX + 4);
@@ -1740,7 +1740,7 @@ public final class MiniMenu {
                     count++;
                 }
 
-                InterfaceManager.method5773(openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
+                InterfaceManager.flipDirtyRectWithin(openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
             }
         } else {
             @Pc(70) int count = 0;
@@ -1752,7 +1752,7 @@ public final class MiniMenu {
             }
         }
 
-        InterfaceManager.method5773(x + offsetX, y + offsetY, width, height);
+        InterfaceManager.flipDirtyRectWithin(x + offsetX, y + offsetY, width, height);
     }
 
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(Lclient!ha;B)V")
@@ -1797,7 +1797,7 @@ public final class MiniMenu {
                     drawEntryInner(toolkit, inner, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight, mouseX, mouseY, -1, -256, innerY);
                 }
 
-                InterfaceManager.method5773(openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
+                InterfaceManager.flipDirtyRectWithin(openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight);
             }
         } else {
             @Pc(80) int count = 0;
@@ -1809,7 +1809,7 @@ public final class MiniMenu {
             }
         }
 
-        InterfaceManager.method5773(offsetX + x, offsetY + y, width, height);
+        InterfaceManager.flipDirtyRectWithin(offsetX + x, offsetY + y, width, height);
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(IIIIILclient!ha;IIIIILclient!cba;)V")

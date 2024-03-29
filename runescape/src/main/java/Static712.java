@@ -1,4 +1,5 @@
 import com.jagex.Client;
+import com.jagex.core.constants.WindowMode;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.graphics.Matrix;
@@ -32,39 +33,45 @@ public final class Static712 {
             if (GameShell.fsframe != null) {
                 return;
             }
-            @Pc(22) Container local22;
+
+            @Pc(22) Container topContainer;
             if (GameShell.frame != null) {
-                local22 = GameShell.frame;
+                topContainer = GameShell.frame;
             } else if (GameShell.loaderApplet == null) {
-                local22 = GameShell.instance;
+                topContainer = GameShell.instance;
             } else {
-                local22 = GameShell.loaderApplet;
+                topContainer = GameShell.loaderApplet;
             }
-            GameShell.frameWid = local22.getSize().width;
-            GameShell.frameHei = local22.getSize().height;
-            @Pc(44) Insets local44;
-            if (local22 == GameShell.frame) {
-                local44 = GameShell.frame.getInsets();
-                GameShell.frameHei -= local44.top + local44.bottom;
-                GameShell.frameWid -= local44.right + local44.left;
+
+            GameShell.frameWid = topContainer.getSize().width;
+            GameShell.frameHei = topContainer.getSize().height;
+
+            if (topContainer == GameShell.frame) {
+                @Pc(44) Insets insets = GameShell.frame.getInsets();
+                GameShell.frameHei -= insets.top + insets.bottom;
+                GameShell.frameWid -= insets.right + insets.left;
             }
-            if (InterfaceManager.getWindowMode() == 1) {
+
+            if (InterfaceManager.getWindowMode() == WindowMode.FIXED) {
                 GameShell.topMargin = 0;
                 GameShell.canvasHei = Client.loadingScreenHeight;
                 GameShell.leftMargin = (GameShell.frameWid - Client.loadingScreenWidth) / 2;
                 GameShell.canvasWid = Client.loadingScreenWidth;
             } else {
-                InterfaceManager.method4625();
+                InterfaceManager.applyMaxScreenSize();
             }
+
             if (Client.modeWhere != ModeWhere.LIVE) {
-                @Pc(101) boolean local101;
+                @Pc(101) boolean tooSmall;
                 if (GameShell.canvasWid < 1024 && GameShell.canvasHei < 768) {
-                    local101 = true;
+                    tooSmall = true;
                 } else {
-                    local101 = false;
+                    tooSmall = false;
                 }
             }
+
             GameShell.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
+
             if (Toolkit.active != null) {
                 if (InterfaceManager.aBoolean210) {
                     Static575.method7606(GameShell.canvas);
@@ -72,15 +79,18 @@ public final class Static712 {
                     Toolkit.active.method7935(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
                 }
             }
-            if (local22 == GameShell.frame) {
-                local44 = GameShell.frame.getInsets();
-                GameShell.canvas.setLocation(local44.left + GameShell.leftMargin, local44.top + GameShell.topMargin);
+
+            if (topContainer == GameShell.frame) {
+                @Pc(44) Insets insets = GameShell.frame.getInsets();
+                GameShell.canvas.setLocation(insets.left + GameShell.leftMargin, insets.top + GameShell.topMargin);
             } else {
                 GameShell.canvas.setLocation(GameShell.leftMargin, GameShell.topMargin);
             }
+
             if (InterfaceManager.topLevelInterface != -1) {
                 InterfaceManager.refreshTopLevelInterface(true);
             }
+
             Static288.repaintMargins();
         }
         if (arg0 != 11) {

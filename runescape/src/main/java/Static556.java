@@ -1,5 +1,3 @@
-import com.jagex.core.datastruct.key.HashTableIterator;
-import com.jagex.game.runetek6.config.iftype.SubInterface;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -8,21 +6,6 @@ public final class Static556 {
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "Lclient!uc;")
     public static Environment aEnvironment_2;
-
-    @OriginalMember(owner = "client!rj", name = "a", descriptor = "(BLclient!hda;)Lclient!hda;")
-    public static Component method7299(@OriginalArg(1) Component arg0) {
-        if (arg0.layer != -1) {
-            return InterfaceList.list(arg0.layer);
-        }
-        @Pc(25) int local25 = arg0.slot >>> 16;
-        @Pc(30) HashTableIterator local30 = new HashTableIterator(InterfaceManager.subInterfaces);
-        for (@Pc(35) SubInterface local35 = (SubInterface) local30.first(); local35 != null; local35 = (SubInterface) local30.next()) {
-            if (local35.id == local25) {
-                return InterfaceList.list((int) local35.key);
-            }
-        }
-        return null;
-    }
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(IB)V")
     public static void method7300(@OriginalArg(0) int arg0) {

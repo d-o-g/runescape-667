@@ -142,7 +142,7 @@ public final class debugconsole {
         }
         toolkit.KA(local7, local9, GameShell.canvasWid + local7, local9 + 350);
         toolkit.aa(local7, local9, GameShell.canvasWid, 350, anInt8472 << 24 | 0x332277, 1);
-        Static682.method8927(local9, local9 + 350, local7, GameShell.canvasWid + local7);
+        Static682.method8927(local7, GameShell.canvasWid + local7, local9, local9 + 350);
 
         @Pc(54) int local54 = 350 / p12VerticalPadding;
 

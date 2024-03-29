@@ -405,7 +405,7 @@ public abstract class Toolkit {
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IB[Ljava/awt/Rectangle;)V")
     public final void method8005(@OriginalArg(0) int arg0, @OriginalArg(2) Rectangle[] arg1) throws Exception_Sub1 {
-        this.method8011(arg1, arg0, 0, 0);
+        this.flipDirtyRect(arg1, arg0, 0, 0);
     }
 
     @OriginalMember(owner = "client!ha", name = "r", descriptor = "()Z")
@@ -448,7 +448,7 @@ public abstract class Toolkit {
     public abstract Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
-    public abstract void method8011(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) throws Exception_Sub1;
+    public abstract void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws Exception_Sub1;
 
     /**
      * clsMasked

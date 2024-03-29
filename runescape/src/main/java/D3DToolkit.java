@@ -883,8 +883,8 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
-    public void method8011(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) throws Exception_Sub1 {
-        this.flip(arg2, arg3);
+    public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws Exception_Sub1 {
+        this.flip(x, y);
     }
 
     @OriginalMember(owner = "client!kea", name = "U", descriptor = "(I)V")

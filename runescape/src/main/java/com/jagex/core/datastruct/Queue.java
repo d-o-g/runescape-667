@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!et")
-public final class Class113 {
+public final class Queue {
 
     @OriginalMember(owner = "client!et", name = "a", descriptor = "Lclient!fi;")
     public Node2 pointer;
@@ -15,7 +15,7 @@ public final class Class113 {
     public final Node2 sentinel = new Node2();
 
     @OriginalMember(owner = "client!et", name = "<init>", descriptor = "()V")
-    public Class113() {
+    public Queue() {
         this.sentinel.next2 = this.sentinel;
         this.sentinel.prev2 = this.sentinel;
     }

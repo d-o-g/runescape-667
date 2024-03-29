@@ -74,16 +74,16 @@ import java.awt.datatransfer.Transferable;
 public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "y", descriptor = "[Ljava/lang/String;")
-    public static String[] aStringArray36;
+    public static String[] stringVars;
 
     @OriginalMember(owner = "client!ou", name = "v", descriptor = "[I")
-    public static int[] anIntArray580;
+    public static int[] intVars;
 
     @OriginalMember(owner = "client!ou", name = "m", descriptor = "Lclient!hda;")
     public static Component aComponent_11;
 
     @OriginalMember(owner = "client!ou", name = "i", descriptor = "[J")
-    public static long[] aLongArray15;
+    public static long[] longVars;
 
     @OriginalMember(owner = "client!ou", name = "H", descriptor = "Lclient!an;")
     public static QuickChatPhrase aQuickChatPhrase_1;
@@ -184,7 +184,7 @@ public final class ScriptRunner {
                 @Pc(28) HookRequest local28 = new HookRequest();
                 local28.source = local21;
                 local28.arguments = local21.onLoad;
-                method6422(local28, 2000000);
+                executeHookInner(local28, 2000000);
             }
         }
     }
@@ -3275,7 +3275,7 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!fj;I)V")
-    public static void method6419(@OriginalArg(0) ClientScript arg0, @OriginalArg(1) int arg1) {
+    public static void executeScript(@OriginalArg(0) ClientScript arg0, @OriginalArg(1) int arg1) {
         anInt7142 = 0;
         anInt7139 = 0;
         @Pc(5) int local5 = -1;
@@ -3354,9 +3354,9 @@ public final class ScriptRunner {
                         local8 = arg0.anIntArray254;
                         local11 = arg0.anIntArray255;
                         local5 = local270.anInt3391;
-                        anIntArray580 = local270.anIntArray276;
-                        aStringArray36 = local270.aStringArray16;
-                        aLongArray15 = local270.aLongArray5;
+                        intVars = local270.anIntArray276;
+                        stringVars = local270.aStringArray16;
+                        longVars = local270.aLongArray5;
                     } else if (local34 == 25) {
                         local96 = local11[local5];
                         anIntArray578[anInt7142++] = TimedVarDomain.instance.getVarBitValue(local96);
@@ -3374,13 +3374,13 @@ public final class ScriptRunner {
                             local5 += local11[local5];
                         }
                     } else if (local34 == 33) {
-                        anIntArray578[anInt7142++] = anIntArray580[local11[local5]];
+                        anIntArray578[anInt7142++] = intVars[local11[local5]];
                     } else if (local34 == 34) {
-                        anIntArray580[local11[local5]] = anIntArray578[--anInt7142];
+                        intVars[local11[local5]] = anIntArray578[--anInt7142];
                     } else if (local34 == 35) {
-                        aStringArray37[anInt7139++] = aStringArray36[local11[local5]];
+                        aStringArray37[anInt7139++] = stringVars[local11[local5]];
                     } else if (local34 == 36) {
-                        aStringArray36[local11[local5]] = aStringArray37[--anInt7139];
+                        stringVars[local11[local5]] = aStringArray37[--anInt7139];
                     } else {
                         @Pc(465) String local465;
                         if (local34 == 37) {
@@ -3398,9 +3398,9 @@ public final class ScriptRunner {
                             if (local503 == null) {
                                 throw new RuntimeException();
                             }
-                            @Pc(514) int[] local514 = new int[local503.anInt2948];
-                            @Pc(518) String[] local518 = new String[local503.anInt2950];
-                            @Pc(522) long[] local522 = new long[local503.anInt2949];
+                            @Pc(514) int[] local514 = new int[local503.intVarCount];
+                            @Pc(518) String[] local518 = new String[local503.stringVarCount];
+                            @Pc(522) long[] local522 = new long[local503.longVarCount];
                             for (@Pc(524) int local524 = 0; local524 < local503.anInt2951; local524++) {
                                 local514[local524] = anIntArray578[anInt7142 + local524 - local503.anInt2951];
                             }
@@ -3416,9 +3416,9 @@ public final class ScriptRunner {
                             @Pc(598) Class143 local598 = new Class143();
                             local598.aClass2_Sub2_Sub10_1 = arg0;
                             local598.anInt3391 = local5;
-                            local598.anIntArray276 = anIntArray580;
-                            local598.aStringArray16 = aStringArray36;
-                            local598.aLongArray5 = aLongArray15;
+                            local598.anIntArray276 = intVars;
+                            local598.aStringArray16 = stringVars;
+                            local598.aLongArray5 = longVars;
                             if (anInt7140 >= aClass143Array1.length) {
                                 throw new RuntimeException();
                             }
@@ -3427,9 +3427,9 @@ public final class ScriptRunner {
                             local8 = local503.anIntArray254;
                             local11 = local503.anIntArray255;
                             local5 = -1;
-                            anIntArray580 = local514;
-                            aStringArray36 = local518;
-                            aLongArray15 = local522;
+                            intVars = local514;
+                            stringVars = local518;
+                            longVars = local522;
                         } else if (local34 == 42) {
                             anIntArray578[anInt7142++] = Static511.varcs[local11[local5]];
                         } else if (local34 == 43) {
@@ -3493,9 +3493,9 @@ public final class ScriptRunner {
                         } else if (local34 == 55) {
                             anInt7152--;
                         } else if (local34 == 66) {
-                            aLongArray14[anInt7152++] = aLongArray15[local11[local5]];
+                            aLongArray14[anInt7152++] = longVars[local11[local5]];
                         } else if (local34 == 67) {
-                            aLongArray15[local11[local5]] = aLongArray14[--anInt7152];
+                            longVars[local11[local5]] = aLongArray14[--anInt7152];
                         } else if (local34 == 68) {
                             anInt7152 -= 2;
                             if (aLongArray14[anInt7152] != aLongArray14[anInt7152 + 1]) {
@@ -3601,7 +3601,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!pd;)V")
     public static void executeHookInner(@OriginalArg(0) HookRequest arg0) {
-        method6422(arg0, 200000);
+        executeHookInner(arg0, 200000);
     }
 
     @OriginalMember(owner = "client!ou", name = "c", descriptor = "(IZ)V")
@@ -6221,63 +6221,67 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!pd;I)V")
-    public static void method6422(@OriginalArg(0) HookRequest arg0, @OriginalArg(1) int arg1) {
-        @Pc(2) Object[] local2 = arg0.arguments;
-        @Pc(8) int local8 = (Integer) local2[0];
-        @Pc(12) ClientScript local12 = ClientScriptList.list(local8);
-        if (local12 == null) {
+    public static void executeHookInner(@OriginalArg(0) HookRequest hook, @OriginalArg(1) int maxOps) {
+        @Pc(2) Object[] arguments = hook.arguments;
+        @Pc(8) int id = (Integer) arguments[0];
+        @Pc(12) ClientScript script = ClientScriptList.list(id);
+        if (script == null) {
             return;
         }
-        anIntArray580 = new int[local12.anInt2948];
-        @Pc(22) int local22 = 0;
-        aStringArray36 = new String[local12.anInt2950];
-        @Pc(28) int local28 = 0;
-        aLongArray15 = new long[local12.anInt2949];
-        @Pc(34) int local34 = 0;
-        for (@Pc(36) int local36 = 1; local36 < local2.length; local36++) {
-            if (local2[local36] instanceof Integer) {
-                @Pc(48) int local48 = (Integer) local2[local36];
-                if (local48 == -2147483647) {
-                    local48 = arg0.mouseX;
+
+        intVars = new int[script.intVarCount];
+        @Pc(22) int intCount = 0;
+
+        stringVars = new String[script.stringVarCount];
+        @Pc(28) int stringCount = 0;
+
+        longVars = new long[script.longVarCount];
+        @Pc(34) int longCount = 0;
+
+        for (@Pc(36) int i = 1; i < arguments.length; i++) {
+            if (arguments[i] instanceof Integer) {
+                @Pc(48) int v = (Integer) arguments[i];
+                if (v == Integer.MIN_VALUE + 1) {
+                    v = hook.mouseX;
                 }
-                if (local48 == -2147483646) {
-                    local48 = arg0.mouseY;
+                if (v == Integer.MIN_VALUE + 2) {
+                    v = hook.mouseY;
                 }
-                if (local48 == -2147483645) {
-                    local48 = arg0.source == null ? -1 : arg0.source.slot;
+                if (v == Integer.MIN_VALUE + 3) {
+                    v = hook.source == null ? -1 : hook.source.slot;
                 }
-                if (local48 == -2147483644) {
-                    local48 = arg0.anInt7219;
+                if (v == Integer.MIN_VALUE + 4) {
+                    v = hook.op;
                 }
-                if (local48 == -2147483643) {
-                    local48 = arg0.source == null ? -1 : arg0.source.id;
+                if (v == Integer.MIN_VALUE + 5) {
+                    v = hook.source == null ? -1 : hook.source.id;
                 }
-                if (local48 == -2147483642) {
-                    local48 = arg0.target == null ? -1 : arg0.target.slot;
+                if (v == Integer.MIN_VALUE + 6) {
+                    v = hook.target == null ? -1 : hook.target.slot;
                 }
-                if (local48 == -2147483641) {
-                    local48 = arg0.target == null ? -1 : arg0.target.id;
+                if (v == Integer.MIN_VALUE + 7) {
+                    v = hook.target == null ? -1 : hook.target.id;
                 }
-                if (local48 == -2147483640) {
-                    local48 = arg0.anInt7216;
+                if (v == Integer.MIN_VALUE + 8) {
+                    v = hook.keyCode;
                 }
-                if (local48 == -2147483639) {
-                    local48 = arg0.anInt7221;
+                if (v == Integer.MIN_VALUE + 9) {
+                    v = hook.keyChar;
                 }
-                anIntArray580[local22++] = local48;
-            } else if (local2[local36] instanceof String) {
-                @Pc(154) String local154 = (String) local2[local36];
-                if (local154.equals("event_opbase")) {
-                    local154 = arg0.aString84;
+                intVars[intCount++] = v;
+            } else if (arguments[i] instanceof String) {
+                @Pc(154) String s = (String) arguments[i];
+                if (s.equals("event_opbase")) {
+                    s = hook.opBase;
                 }
-                aStringArray36[local28++] = local154;
-            } else if (local2[local36] instanceof Long) {
-                @Pc(180) long local180 = (Long) local2[local36];
-                aLongArray15[local34++] = local180;
+                stringVars[stringCount++] = s;
+            } else if (arguments[i] instanceof Long) {
+                @Pc(180) long l = (Long) arguments[i];
+                longVars[longCount++] = l;
             }
         }
-        anInt7153 = arg0.anInt7220;
-        method6419(local12, arg1);
+        anInt7153 = hook.anInt7220;
+        executeScript(script, maxOps);
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(C)I")
@@ -6425,11 +6429,11 @@ public final class ScriptRunner {
         if (script == null) {
             return;
         }
-        anIntArray580 = new int[script.anInt2948];
-        aStringArray36 = new String[script.anInt2950];
-        aStringArray36[0] = arg1;
-        anIntArray580[0] = arg2;
-        method6419(script, 200000);
+        intVars = new int[script.intVarCount];
+        stringVars = new String[script.stringVarCount];
+        stringVars[0] = arg1;
+        intVars[0] = arg2;
+        executeScript(script, 200000);
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "()V")
@@ -6442,8 +6446,8 @@ public final class ScriptRunner {
         if (local5 == null) {
             return;
         }
-        anIntArray580 = new int[local5.anInt2948];
-        aStringArray36 = new String[local5.anInt2950];
+        intVars = new int[local5.intVarCount];
+        stringVars = new String[local5.stringVarCount];
         if (local5.triggerType == Static5.A_CLIENT_TRIGGER_TYPE___1 || local5.triggerType == Static639.A_CLIENT_TRIGGER_TYPE___13 || local5.triggerType == Static280.A_CLIENT_TRIGGER_TYPE___7) {
             @Pc(35) int local35 = 0;
             @Pc(37) int local37 = 0;
@@ -6451,10 +6455,10 @@ public final class ScriptRunner {
                 local35 = WorldMap.component.x;
                 local37 = WorldMap.component.y;
             }
-            anIntArray580[0] = MouseMonitor.instance.getRecordedX() - local35;
-            anIntArray580[1] = MouseMonitor.instance.getRecordedY() - local37;
+            intVars[0] = MouseMonitor.instance.getRecordedX() - local35;
+            intVars[1] = MouseMonitor.instance.getRecordedY() - local37;
         }
-        method6419(local5, 200000);
+        executeScript(local5, 200000);
     }
 
     @OriginalMember(owner = "client!sda", name = "a", descriptor = "(BIII)V")

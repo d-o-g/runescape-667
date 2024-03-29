@@ -14,7 +14,7 @@ public final class Static236 {
     @OriginalMember(owner = "client!hfa", name = "a", descriptor = "(Lclient!gw;I)Z")
     public static boolean readPacket(@OriginalArg(0) ServerConnection connection) {
         try {
-            return Protocol.decodeServerProt(connection);
+            return ServerConnectionReader.decodeServerProt(connection);
         } catch (@Pc(15) IOException local15) {
             if (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME) {
                 connection.connection = null;

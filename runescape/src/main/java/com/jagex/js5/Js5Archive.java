@@ -40,7 +40,7 @@ public final class Js5Archive {
 
 	public static final int ARCHIVESET = 255;
 
-	public static final int COUNT = 37;
+	public static final int ID_LIMIT = 37;
 
 	private Js5Archive() {
 		/* empty */

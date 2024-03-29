@@ -380,7 +380,7 @@ public final class client extends GameShell {
 
         try {
             Client.cacheDat.close();
-            for (@Pc(66) int i = 0; i < Js5Archive.COUNT; i++) {
+            for (@Pc(66) int i = 0; i < Js5Archive.ID_LIMIT; i++) {
                 Client.cacheIndexFiles[i].close();
             }
             Client.metaFile.close();
@@ -422,7 +422,7 @@ public final class client extends GameShell {
                 } else {
                     this.error("js5proxy_" + Client.netProxyError.trim());
                 }
-                MainLogicManager.step = 16;
+                MainLogicManager.step = MainLogicStep.STEP_ERROR;
                 return;
             }
         }
@@ -1327,7 +1327,7 @@ public final class client extends GameShell {
         }
 
         aClient1 = this;
-        this.startApplet(Client.BUILD, Client.loadingScreenWidth, Client.modeWhat.getId() + 32, Client.modeGame.domainName, Js5Archive.COUNT, Client.loadingScreenHeight);
+        this.startApplet(Client.BUILD, Client.loadingScreenWidth, Client.modeWhat.getId() + 32, Client.modeGame.domainName, Js5Archive.ID_LIMIT, Client.loadingScreenHeight);
     }
 
     @OriginalMember(owner = "client!client", name = "c", descriptor = "(I)V")

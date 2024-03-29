@@ -20,9 +20,9 @@ public final class ClientScript extends Node2 {
         @Pc(34) int local34 = local12.data.length - local23 - 2 - 16;
         local12.pos = local34;
         @Pc(50) int local50 = local12.g4();
-        local7.anInt2948 = local12.g2();
-        local7.anInt2950 = local12.g2();
-        local7.anInt2949 = local12.g2();
+        local7.intVarCount = local12.g2();
+        local7.stringVarCount = local12.g2();
+        local7.longVarCount = local12.g2();
         local7.anInt2951 = local12.g2();
         local7.anInt2953 = local12.g2();
         local7.anInt2954 = local12.g2();
@@ -77,7 +77,7 @@ public final class ClientScript extends Node2 {
     public String aString31;
 
     @OriginalMember(owner = "client!fj", name = "y", descriptor = "I")
-    public int anInt2948;
+    public int intVarCount;
 
     @OriginalMember(owner = "client!fj", name = "v", descriptor = "[I")
     public int[] anIntArray254;
@@ -86,7 +86,7 @@ public final class ClientScript extends Node2 {
     public long[] aLongArray4;
 
     @OriginalMember(owner = "client!fj", name = "A", descriptor = "I")
-    public int anInt2949;
+    public int longVarCount;
 
     @OriginalMember(owner = "client!fj", name = "B", descriptor = "[Lclient!av;")
     public IterableHashTable[] aIterableHashTableArray1;
@@ -98,7 +98,7 @@ public final class ClientScript extends Node2 {
     public ClientTriggerType triggerType;
 
     @OriginalMember(owner = "client!fj", name = "F", descriptor = "I")
-    public int anInt2950;
+    public int stringVarCount;
 
     @OriginalMember(owner = "client!fj", name = "K", descriptor = "I")
     public int anInt2951;

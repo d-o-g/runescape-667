@@ -1887,8 +1887,8 @@ public final class InterfaceManager {
                             for (@Pc(402) int j = 0; j < Static671.anInt10026; j++) {
                                 @Pc(2682) HookRequest hook = new HookRequest();
                                 hook.source = component;
-                                hook.anInt7216 = Static194.AN_KEYBOARD_EVENT_ARRAY_1[j].getKeyCode();
-                                hook.anInt7221 = Static194.AN_KEYBOARD_EVENT_ARRAY_1[j].getKeyChar();
+                                hook.keyCode = Static194.AN_KEYBOARD_EVENT_ARRAY_1[j].getKeyCode();
+                                hook.keyChar = Static194.AN_KEYBOARD_EVENT_ARRAY_1[j].getKeyChar();
                                 hook.arguments = component.onKey;
                                 Static521.A_DEQUE___44.addLast(hook);
                             }
@@ -1950,8 +1950,8 @@ public final class InterfaceManager {
         if (button.onOp != null) {
             @Pc(19) HookRequest hook = new HookRequest();
             hook.arguments = button.onOp;
-            hook.anInt7219 = op;
-            hook.aString84 = arg2;
+            hook.op = op;
+            hook.opBase = arg2;
             hook.source = button;
             ScriptRunner.executeHookInner(hook);
         }
@@ -2469,7 +2469,7 @@ public final class InterfaceManager {
         }
 
         if (ServerConnection.GAME.connection != null && MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
-            Protocol.sendWindowStatus();
+            ServerConnectionReader.sendWindowStatus();
         }
 
         for (@Pc(258) int i = 0; i < 100; i++) {

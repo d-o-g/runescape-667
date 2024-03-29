@@ -407,7 +407,7 @@ public final class Loading {
 
         if (state == LoadState.GET_JS5_INDEXES) {
             @Pc(12) int percentage = 0;
-            for (@Pc(74) int i = 0; i < Js5Archive.COUNT; i++) {
+            for (@Pc(74) int i = 0; i < Js5Archive.ID_LIMIT; i++) {
                 if (Client.js5ResourceProviders[i] != null) {
                     percentage += (Client.js5ResourceProviders[i].indexPercentage() * JS5_PERCENTAGES[i]) / 100;
                 }

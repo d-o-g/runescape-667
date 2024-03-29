@@ -56,7 +56,7 @@ import rs2.client.web.OpenUrlType;
 
 import java.io.IOException;
 
-public final class Protocol {
+public final class ServerConnectionReader {
 
     @OriginalMember(owner = "client!jr", name = "I", descriptor = "[I")
     public static final int[] LOC_LAYERS_BY_SHAPE = {
@@ -2870,7 +2870,7 @@ public final class Protocol {
         }
     }
 
-    private Protocol() {
+    private ServerConnectionReader() {
         /* empty */
     }
 }

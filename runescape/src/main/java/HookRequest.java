@@ -18,7 +18,7 @@ public final class HookRequest extends Node {
     public Object[] arguments;
 
     @OriginalMember(owner = "client!pd", name = "t", descriptor = "I")
-    public int anInt7216;
+    public int keyCode;
 
     @OriginalMember(owner = "client!pd", name = "y", descriptor = "Lclient!hda;")
     public Component source;
@@ -27,14 +27,14 @@ public final class HookRequest extends Node {
     public int mouseX;
 
     @OriginalMember(owner = "client!pd", name = "m", descriptor = "Ljava/lang/String;")
-    public String aString84;
+    public String opBase;
 
     @OriginalMember(owner = "client!pd", name = "n", descriptor = "I")
-    public int anInt7219;
+    public int op;
 
     @OriginalMember(owner = "client!pd", name = "o", descriptor = "I")
     public int anInt7220;
 
     @OriginalMember(owner = "client!pd", name = "z", descriptor = "I")
-    public int anInt7221;
+    public int keyChar;
 }

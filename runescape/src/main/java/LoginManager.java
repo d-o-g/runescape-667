@@ -1051,7 +1051,7 @@ public final class LoginManager {
         ClientOptions.instance.update(ClientOptions.instance.animateBackgroundDefault.getValue(), ClientOptions.instance.animateBackground);
         Static334.anInt5456 = 0;
         MiniMenu.resetAndClose();
-        Protocol.sendWindowStatus();
+        ServerConnectionReader.sendWindowStatus();
         Static211.pingRequest = null;
         Static675.nextPing = 0L;
         js5.CONFIG.discardunpacked = 2;
@@ -1095,7 +1095,7 @@ public final class LoginManager {
             InterfaceManager.dirtyRectangles[i] = true;
         }
 
-        Protocol.sendWindowStatus();
+        ServerConnectionReader.sendWindowStatus();
         Static675.nextPing = 0L;
         Static211.pingRequest = null;
     }

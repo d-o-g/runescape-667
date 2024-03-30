@@ -146,7 +146,7 @@ public final class AudioRenderer {
             Static8.aClass2_Sub6_Sub1_1 = null;
             Static501.aBoolean575 = false;
         } else if (ClientOptions.instance.musicVolume.getValue() != 0 && SongManager.playing != -1 && !Static52.method1157(125)) {
-            @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.SOUND_SONGEND, ServerConnection.GAME.cipher);
+            @Pc(551) ClientMessage local551 = ClientMessage.create(ClientProt.SOUND_SONGEND, ServerConnection.GAME.isaac);
             local551.bitPacket.p4(SongManager.playing);
             ServerConnection.GAME.send(local551);
             SongManager.playing = -1;

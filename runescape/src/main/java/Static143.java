@@ -14,7 +14,7 @@ public final class Static143 {
 
     @OriginalMember(owner = "client!eia", name = "f", descriptor = "(B)V")
     public static void method3571() {
-        @Pc(20) ClientMessage local20 = ClientMessage.create(ClientProt.TRANSMITVAR_VERIFYID, ServerConnection.GAME.cipher);
+        @Pc(20) ClientMessage local20 = ClientMessage.create(ClientProt.TRANSMITVAR_VERIFYID, ServerConnection.GAME.isaac);
         local20.bitPacket.p4(Static334.anInt5456);
         ServerConnection.GAME.send(local20);
     }

@@ -20,24 +20,24 @@ public final class WorldMapArea extends Node2 {
             area.chunks.addLast(new WorldMapChunk(packet.g1(), packet.g2(), packet.g2(), packet.g2(), packet.g2(), packet.g2(), packet.g2(), packet.g2(), packet.g2()));
         }
 
-        area.method4090();
+        area.resize();
         return area;
     }
 
     @OriginalMember(owner = "client!ip", name = "J", descriptor = "I")
-    public int maxX = 0;
+    public int chunkMaxX = 0;
 
     @OriginalMember(owner = "client!ip", name = "L", descriptor = "I")
-    public int minY = 12800;
+    public int chunkMinZ = 12800;
 
     @OriginalMember(owner = "client!ip", name = "u", descriptor = "I")
-    public int minX = 12800;
+    public int chunkMinX = 12800;
 
     @OriginalMember(owner = "client!ip", name = "B", descriptor = "Z")
     public boolean aBoolean354 = true;
 
     @OriginalMember(owner = "client!ip", name = "I", descriptor = "I")
-    public int maxY = 0;
+    public int chunkMaxZ = 0;
 
     @OriginalMember(owner = "client!ip", name = "N", descriptor = "I")
     public int anInt4561 = -1;
@@ -55,41 +55,52 @@ public final class WorldMapArea extends Node2 {
     public final int id;
 
     @OriginalMember(owner = "client!ip", name = "F", descriptor = "Ljava/lang/String;")
-    public final String aString49;
+    public final String name;
 
     @OriginalMember(owner = "client!ip", name = "t", descriptor = "Lclient!sia;")
     public final Deque chunks;
 
     @OriginalMember(owner = "client!ip", name = "<init>", descriptor = "(ILjava/lang/String;Ljava/lang/String;IIZII)V")
-    public WorldMapArea(@OriginalArg(0) int id, @OriginalArg(1) String file, @OriginalArg(2) String arg2, @OriginalArg(3) int origin, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) int zoom, @OriginalArg(7) int arg7) {
+    public WorldMapArea(@OriginalArg(0) int id, @OriginalArg(1) String file, @OriginalArg(2) String name, @OriginalArg(3) int origin, @OriginalArg(4) int arg4, @OriginalArg(5) boolean arg5, @OriginalArg(6) int zoom, @OriginalArg(7) int arg7) {
         this.file = file;
         this.anInt4561 = arg4;
         this.origin = origin;
         this.zoom = zoom;
         this.id = id;
         this.aBoolean354 = arg5;
-        this.aString49 = arg2;
+        this.name = name;
         if (this.zoom == 255) {
             this.zoom = 0;
         }
         this.chunks = new Deque();
     }
 
-    @OriginalMember(owner = "client!ip", name = "a", descriptor = "(III[I)Z")
-    public boolean method4085(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int[] arg2) {
-        for (@Pc(23) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.method8914(arg0, arg1)) {
-                chunk.project(arg2, arg0, arg1);
+    @OriginalMember(owner = "client!ip", name = "a", descriptor = "(BII)Z")
+    public boolean contains(@OriginalArg(1) int x, @OriginalArg(2) int z) {
+        for (@Pc(17) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
+            if (chunk.contains(x, z)) {
                 return true;
             }
         }
         return false;
     }
 
-    @OriginalMember(owner = "client!ip", name = "a", descriptor = "(BII)Z")
-    public boolean contains(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        for (@Pc(17) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.method8914(arg0, arg1)) {
+    @OriginalMember(owner = "client!ip", name = "a", descriptor = "(IBI[I)Z")
+    public boolean project(@OriginalArg(3) int[] coords, @OriginalArg(2) int x, @OriginalArg(0) int z) {
+        for (@Pc(9) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
+            if (chunk.floorContains(x, z)) {
+                chunk.project(coords, x, z);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @OriginalMember(owner = "client!ip", name = "a", descriptor = "(III[I)Z")
+    public boolean projectFloor(@OriginalArg(3) int[] destination, @OriginalArg(1) int x, @OriginalArg(2) int z) {
+        for (@Pc(23) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
+            if (chunk.contains(x, z)) {
+                chunk.projectFloor(destination, x, z);
                 return true;
             }
         }
@@ -97,10 +108,10 @@ public final class WorldMapArea extends Node2 {
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(I[IIII)Z")
-    public boolean method4088(@OriginalArg(1) int[] destination, @OriginalArg(2) int z, @OriginalArg(3) int level, @OriginalArg(4) int x) {
+    public boolean projectFloor(@OriginalArg(1) int[] destination, @OriginalArg(3) int level, @OriginalArg(4) int x, @OriginalArg(2) int z) {
         for (@Pc(15) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.method8912(z, level, x)) {
-                chunk.project(destination, x, z);
+            if (chunk.contains(level, x, z)) {
+                chunk.projectFloor(destination, x, z);
                 return true;
             }
         }
@@ -108,36 +119,25 @@ public final class WorldMapArea extends Node2 {
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(I)V")
-    public void method4090() {
-        this.maxY = 0;
-        this.minX = 12800;
-        this.minY = 12800;
-        this.maxX = 0;
+    public void resize() {
+        this.chunkMaxZ = 0;
+        this.chunkMinX = 12800;
+        this.chunkMinZ = 12800;
+        this.chunkMaxX = 0;
 
         for (@Pc(28) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.minZ < this.minY) {
-                this.minY = chunk.minZ;
+            if (chunk.floorZ1 < this.chunkMinZ) {
+                this.chunkMinZ = chunk.floorZ1;
             }
-            if (chunk.maxX > this.maxX) {
-                this.maxX = chunk.maxX;
+            if (chunk.floorX2 > this.chunkMaxX) {
+                this.chunkMaxX = chunk.floorX2;
             }
-            if (chunk.maxZ > this.maxY) {
-                this.maxY = chunk.maxZ;
+            if (chunk.floorZ2 > this.chunkMaxZ) {
+                this.chunkMaxZ = chunk.floorZ2;
             }
-            if (chunk.minX < this.minX) {
-                this.minX = chunk.minX;
-            }
-        }
-    }
-
-    @OriginalMember(owner = "client!ip", name = "a", descriptor = "(IBI[I)Z")
-    public boolean method4091(@OriginalArg(0) int y, @OriginalArg(2) int x, @OriginalArg(3) int[] coords) {
-        for (@Pc(9) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.contains(y, x)) {
-                chunk.method8913(x, coords, y);
-                return true;
+            if (chunk.floorX1 < this.chunkMinX) {
+                this.chunkMinX = chunk.floorX1;
             }
         }
-        return false;
     }
 }

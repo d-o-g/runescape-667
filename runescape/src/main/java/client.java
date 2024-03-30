@@ -636,7 +636,7 @@ public final class client extends GameShell {
                                                 if (ServerConnection.LOBBY != null) {
                                                     ServerConnection.LOBBY.idleWriteTicks++;
                                                     if (ServerConnection.LOBBY.idleWriteTicks > 50) {
-                                                        @Pc(823) ClientMessage local823 = ClientMessage.create(ClientProt.NO_TIMEOUT, ServerConnection.LOBBY.cipher);
+                                                        @Pc(823) ClientMessage local823 = ClientMessage.create(ClientProt.NO_TIMEOUT, ServerConnection.LOBBY.isaac);
                                                         ServerConnection.LOBBY.send(local823);
                                                     }
                                                     try {

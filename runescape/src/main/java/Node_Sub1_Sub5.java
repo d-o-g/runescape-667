@@ -100,8 +100,5 @@ public final class Node_Sub1_Sub5 extends TextureOp {
             this.anIntArray110[2] = local72 >> 12 & 0x0;
             this.anIntArray110[0] = (local72 & 0xFF0000) << 4;
         }
-        if (arg0) {
-            WorldMap.setMap(-43, false, 13, 77, 8);
-        }
     }
 }

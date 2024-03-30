@@ -1,7 +1,0 @@
-import org.openrs2.deob.annotation.OriginalMember;
-
-public final class Static529 {
-
-    @OriginalMember(owner = "client!qla", name = "d", descriptor = "I")
-    public static int anInt8089 = -1;
-}

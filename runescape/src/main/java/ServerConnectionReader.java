@@ -1943,7 +1943,7 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.SEND_PING) {
             @Pc(277) int local277 = bitPacket.g4();
             @Pc(100) int local100 = bitPacket.g4();
-            @Pc(7309) ClientMessage message = ClientMessage.create(ClientProt.SEND_PING_REPLY, context.cipher);
+            @Pc(7309) ClientMessage message = ClientMessage.create(ClientProt.SEND_PING_REPLY, context.isaac);
             message.bitPacket.p4(local277);
             message.bitPacket.p4(local100);
             context.send(message);
@@ -2445,7 +2445,7 @@ public final class ServerConnectionReader {
 
     @OriginalMember(owner = "client!lma", name = "b", descriptor = "(I)V")
     public static void sendWindowStatus() {
-        @Pc(22) ClientMessage local22 = ClientMessage.create(ClientProt.WINDOW_STATUS, ServerConnection.GAME.cipher);
+        @Pc(22) ClientMessage local22 = ClientMessage.create(ClientProt.WINDOW_STATUS, ServerConnection.GAME.isaac);
         local22.bitPacket.p1(InterfaceManager.getWindowMode());
         local22.bitPacket.p2(GameShell.canvasWid);
         local22.bitPacket.p2(GameShell.canvasHei);

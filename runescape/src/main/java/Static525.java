@@ -23,7 +23,7 @@ public final class Static525 {
         }
         @Pc(53) String local53 = local43.displayName;
         @Pc(56) ServerConnection local56 = ConnectionManager.active();
-        @Pc(62) ClientMessage local62 = ClientMessage.create(ClientProt.CLANCHANNEL_KICKUSER, local56.cipher);
+        @Pc(62) ClientMessage local62 = ClientMessage.create(ClientProt.CLANCHANNEL_KICKUSER, local56.isaac);
         local62.bitPacket.p1(Packet.pjstrlen(local53) + 3);
         local62.bitPacket.p1(affined ? 1 : 0);
         local62.bitPacket.p2(index);

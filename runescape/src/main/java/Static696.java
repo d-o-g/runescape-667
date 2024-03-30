@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static696 {
 
-    @OriginalMember(owner = "client!w", name = "i", descriptor = "Z")
-    public static boolean aBoolean784 = false;
-
     @OriginalMember(owner = "client!w", name = "a", descriptor = "(Z)I")
     public static int method9034() {
         return LoginManager.anInt7113;

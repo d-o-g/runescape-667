@@ -60,7 +60,7 @@ public final class Static314 {
             connection.idleWriteTicks = 0;
 
             if (!connection.errored && connection.connection != null) {
-                @Pc(59) ClientMessage message = ClientMessage.create(ClientProt.NO_TIMEOUT, connection.cipher);
+                @Pc(59) ClientMessage message = ClientMessage.create(ClientProt.NO_TIMEOUT, connection.isaac);
 
                 connection.send(message);
 

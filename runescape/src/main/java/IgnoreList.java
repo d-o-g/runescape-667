@@ -97,7 +97,7 @@ public final class IgnoreList {
             return;
         }
         @Pc(216) ServerConnection local216 = ConnectionManager.active();
-        @Pc(222) ClientMessage local222 = ClientMessage.create(ClientProt.IGNORELIST_ADD, local216.cipher);
+        @Pc(222) ClientMessage local222 = ClientMessage.create(ClientProt.IGNORELIST_ADD, local216.isaac);
         local222.bitPacket.p1(Packet.pjstrlen(name) + 1);
         local222.bitPacket.pjstr(name);
         local222.bitPacket.p1(temporary ? 1 : 0);
@@ -127,7 +127,7 @@ public final class IgnoreList {
                 }
                 FriendsList.lastTransmit = World.tick;
                 @Pc(101) ServerConnection local101 = ConnectionManager.active();
-                @Pc(107) ClientMessage local107 = ClientMessage.create(ClientProt.IGNORELIST_DEL, local101.cipher);
+                @Pc(107) ClientMessage local107 = ClientMessage.create(ClientProt.IGNORELIST_DEL, local101.isaac);
                 local107.bitPacket.p1(Packet.pjstrlen(arg0));
                 local107.bitPacket.pjstr(arg0);
                 local101.send(local107);

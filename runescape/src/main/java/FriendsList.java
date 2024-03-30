@@ -59,7 +59,7 @@ public final class FriendsList {
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(Ljava/lang/String;II)V")
     public static void setRank(@OriginalArg(0) String name, @OriginalArg(2) int rank) {
         @Pc(10) ServerConnection connection = ConnectionManager.active();
-        @Pc(16) ClientMessage message = ClientMessage.create(ClientProt.FRIEND_SETRANK, connection.cipher);
+        @Pc(16) ClientMessage message = ClientMessage.create(ClientProt.FRIEND_SETRANK, connection.isaac);
         message.bitPacket.p1(Packet.pjstrlen(name) + 1);
         message.bitPacket.pjstr(name);
         message.bitPacket.p1_alt2(rank);
@@ -113,7 +113,7 @@ public final class FriendsList {
             return;
         }
         @Pc(230) ServerConnection local230 = ConnectionManager.active();
-        @Pc(236) ClientMessage local236 = ClientMessage.create(ClientProt.FRIENDLIST_ADD, local230.cipher);
+        @Pc(236) ClientMessage local236 = ClientMessage.create(ClientProt.FRIENDLIST_ADD, local230.isaac);
         local236.bitPacket.p1(Packet.pjstrlen(arg0));
         local236.bitPacket.pjstr(arg0);
         local230.send(local236);
@@ -144,7 +144,7 @@ public final class FriendsList {
                 }
                 lastTransmit = World.tick;
                 @Pc(118) ServerConnection local118 = ConnectionManager.active();
-                @Pc(124) ClientMessage local124 = ClientMessage.create(ClientProt.FRIENDLIST_DEL, local118.cipher);
+                @Pc(124) ClientMessage local124 = ClientMessage.create(ClientProt.FRIENDLIST_DEL, local118.isaac);
                 local124.bitPacket.p1(Packet.pjstrlen(arg0));
                 local124.bitPacket.pjstr(arg0);
                 local118.send(local124);

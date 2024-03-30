@@ -627,7 +627,7 @@ public final class debugconsole {
 
                 if (command.startsWith("pc")) {
                     @Pc(1833) ServerConnection connection = ConnectionManager.active();
-                    @Pc(1839) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, connection.cipher);
+                    @Pc(1839) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, connection.isaac);
                     message.bitPacket.p1(0);
                     @Pc(521) int pos = message.bitPacket.pos;
                     @Pc(582) int local582 = command.indexOf(" ", 4);
@@ -905,7 +905,7 @@ public final class debugconsole {
                 }
 
                 if (MainLogicManager.step == MainLogicStep.STEP_GAME_SCREEN) {
-                    @Pc(2836) ClientMessage local2836 = ClientMessage.create(ClientProt.CLIENT_CHEAT, ServerConnection.GAME.cipher);
+                    @Pc(2836) ClientMessage local2836 = ClientMessage.create(ClientProt.CLIENT_CHEAT, ServerConnection.GAME.isaac);
                     local2836.bitPacket.p1(command.length() + 3);
                     local2836.bitPacket.p1(automatic ? 1 : 0);
                     local2836.bitPacket.p1(retainText ? 1 : 0);

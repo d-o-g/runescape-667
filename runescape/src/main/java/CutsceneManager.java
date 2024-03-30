@@ -50,6 +50,6 @@ public final class CutsceneManager {
         aBoolean480 = false;
         packet = null;
         Static298.method4385();
-        ServerConnection.GAME.send(ClientMessage.create(ClientProt.CUTSCENE_FINISHED, ServerConnection.GAME.cipher));
+        ServerConnection.GAME.send(ClientMessage.create(ClientProt.CUTSCENE_FINISHED, ServerConnection.GAME.isaac));
     }
 }

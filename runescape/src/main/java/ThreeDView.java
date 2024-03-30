@@ -34,7 +34,7 @@ public final class ThreeDView {
                 }
 
                 if (prot != null) {
-                    @Pc(108) ClientMessage message = ClientMessage.create(prot, ServerConnection.GAME.cipher);
+                    @Pc(108) ClientMessage message = ClientMessage.create(prot, ServerConnection.GAME.isaac);
                     message.bitPacket.p1(0);
                     message.bitPacket.p2(indices[i]);
                     ServerConnection.GAME.send(message);
@@ -68,7 +68,7 @@ public final class ThreeDView {
             @Pc(35) PlayerEntity player = PlayerList.highResolutionPlayers[indices[i]];
 
             if (player.name != null && player.name.equalsIgnoreCase(arg0) && (PlayerEntity.self == player && (InterfaceManager.targetMask & TargetMask.TGT_SELF) != 0 || (InterfaceManager.targetMask & TargetMask.TGT_PLAYER) != 0)) {
-                @Pc(75) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ServerConnection.GAME.cipher);
+                @Pc(75) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ServerConnection.GAME.isaac);
                 message.bitPacket.p2_alt1(indices[i]);
                 message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
                 message.bitPacket.p2(InterfaceManager.targetInvObj);

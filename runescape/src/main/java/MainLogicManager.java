@@ -177,7 +177,7 @@ public final class MainLogicManager {
         }
 
         while (Static232.reflectionCheckRunning()) {
-            @Pc(71) ClientMessage message = ClientMessage.create(ClientProt.REFLECTION_CHECK_REPLY, ServerConnection.GAME.cipher);
+            @Pc(71) ClientMessage message = ClientMessage.create(ClientProt.REFLECTION_CHECK_REPLY, ServerConnection.GAME.isaac);
             message.bitPacket.p1(0);
             @Pc(80) int pos = message.bitPacket.pos;
             Static437.sendReflectionCheckReply(message.bitPacket);
@@ -190,7 +190,7 @@ public final class MainLogicManager {
                 Static211.pingRequest = Static151.aClass226_20.method5245(ConnectionInfo.login.address);
             }
         } else if (Static211.pingRequest.anInt1631 != -1) {
-            @Pc(71) ClientMessage message = ClientMessage.create(ClientProt.PING_STATISTICS, ServerConnection.GAME.cipher);
+            @Pc(71) ClientMessage message = ClientMessage.create(ClientProt.PING_STATISTICS, ServerConnection.GAME.isaac);
             message.bitPacket.p2(Static211.pingRequest.anInt1631);
             ServerConnection.GAME.send(message);
             Static211.pingRequest = null;
@@ -221,7 +221,7 @@ public final class MainLogicManager {
 
                 if (Static172.lastMouseX != x || y != Static634.lastMouseY) {
                     if (message == null) {
-                        message = ClientMessage.create(ClientProt.EVENT_MOUSE_MOVE, ServerConnection.GAME.cipher);
+                        message = ClientMessage.create(ClientProt.EVENT_MOUSE_MOVE, ServerConnection.GAME.isaac);
                         message.bitPacket.p1(0);
                         pos = message.bitPacket.pos;
                     }
@@ -296,14 +296,14 @@ public final class MainLogicManager {
             }
 
             @Pc(282) int time = (int) deltaTime;
-            @Pc(603) ClientMessage local603 = ClientMessage.create(ClientProt.EVENT_MOUSE_CLICK, ServerConnection.GAME.cipher);
+            @Pc(603) ClientMessage local603 = ClientMessage.create(ClientProt.EVENT_MOUSE_CLICK, ServerConnection.GAME.isaac);
             local603.bitPacket.p2_alt3((rightClick << 15) | time);
             local603.bitPacket.p4_alt2(x | (y << 16));
             ServerConnection.GAME.send(local603);
         }
 
         if (Static216.keyPressCount > 0) {
-            @Pc(179) ClientMessage message = ClientMessage.create(ClientProt.EVENT_KEYBOARD, ServerConnection.GAME.cipher);
+            @Pc(179) ClientMessage message = ClientMessage.create(ClientProt.EVENT_KEYBOARD, ServerConnection.GAME.isaac);
             message.bitPacket.p1(Static216.keyPressCount * 3);
 
             for (@Pc(181) int i = 0; i < Static216.keyPressCount; i++) {
@@ -329,7 +329,7 @@ public final class MainLogicManager {
         if (Camera.angleUpdated && Static232.cameraNotifyDelay <= 0) {
             Camera.angleUpdated = false;
             Static232.cameraNotifyDelay = 20;
-            @Pc(179) ClientMessage message = ClientMessage.create(ClientProt.EVENT_CAMERA_POSITION, ServerConnection.GAME.cipher);
+            @Pc(179) ClientMessage message = ClientMessage.create(ClientProt.EVENT_CAMERA_POSITION, ServerConnection.GAME.isaac);
             message.bitPacket.p2((int) Camera.playerCameraPitch >> 3);
             message.bitPacket.p2((int) Camera.playerCameraYaw >> 3);
             ServerConnection.GAME.send(message);
@@ -337,13 +337,13 @@ public final class MainLogicManager {
 
         if (GameShell.focus != Static50.previousFocus) {
             Static50.previousFocus = GameShell.focus;
-            @Pc(179) ClientMessage message = ClientMessage.create(ClientProt.EVENT_APPLET_FOCUS, ServerConnection.GAME.cipher);
+            @Pc(179) ClientMessage message = ClientMessage.create(ClientProt.EVENT_APPLET_FOCUS, ServerConnection.GAME.isaac);
             message.bitPacket.p1(GameShell.focus ? 1 : 0);
             ServerConnection.GAME.send(message);
         }
 
         if (!Static503.sentPreferences) {
-            @Pc(179) ClientMessage message = ClientMessage.create(ClientProt.CLIENT_DETAILOPTIONS_STATUS, ServerConnection.GAME.cipher);
+            @Pc(179) ClientMessage message = ClientMessage.create(ClientProt.CLIENT_DETAILOPTIONS_STATUS, ServerConnection.GAME.isaac);
             message.bitPacket.p1(0);
             @Pc(181) int pos = message.bitPacket.pos;
             @Pc(810) Packet packet = ClientOptions.instance.encode();
@@ -606,7 +606,7 @@ public final class MainLogicManager {
         Static443.method5981();
         World.tick++;
         if (WorldMap.clicked) {
-            @Pc(1980) ClientMessage local1980 = ClientMessage.create(ClientProt.CLICKWORLDMAP, ServerConnection.GAME.cipher);
+            @Pc(1980) ClientMessage local1980 = ClientMessage.create(ClientProt.CLICKWORLDMAP, ServerConnection.GAME.isaac);
             local1980.bitPacket.p4_alt3(WorldMap.clickedY | WorldMap.clickedLevel << 28 | WorldMap.clickedX << 14);
             ServerConnection.GAME.send(local1980);
             WorldMap.clicked = false;
@@ -719,7 +719,7 @@ public final class MainLogicManager {
                                                 Static171.anInt2887 = -1;
                                             }
                                             if (ServerConnection.GAME.idleWriteTicks > 50) {
-                                                @Pc(2571) ClientMessage local2571 = ClientMessage.create(ClientProt.NO_TIMEOUT, ServerConnection.GAME.cipher);
+                                                @Pc(2571) ClientMessage local2571 = ClientMessage.create(ClientProt.NO_TIMEOUT, ServerConnection.GAME.isaac);
                                                 ServerConnection.GAME.send(local2571);
                                             }
                                             if (Static252.aBoolean316) {

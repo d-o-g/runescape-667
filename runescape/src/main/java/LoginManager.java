@@ -492,7 +492,7 @@ public final class LoginManager {
 
                 ServerConnection.active.send(message);
                 ServerConnection.active.flush();
-                ServerConnection.active.cipher = new Isaac(Packet.xteaKey);
+                ServerConnection.active.isaac = new Isaac(Packet.xteaKey);
 
                 for (@Pc(938) int i = 0; i < 4; i++) {
                     Packet.xteaKey[i] += 50;
@@ -557,7 +557,7 @@ public final class LoginManager {
                 ServerConnection.active.clear();
                 @Pc(186) ClientMessage message = ClientMessage.createRaw();
                 @Pc(618) BitPacket bitPacket = message.bitPacket;
-                bitPacket.setIsaac(ServerConnection.active.cipher);
+                bitPacket.setIsaac(ServerConnection.active.isaac);
                 bitPacket.startPacket(LoginProt.GAMELOGIN_CONTINUE.opcode);
                 ServerConnection.active.send(message);
                 ServerConnection.active.flush();

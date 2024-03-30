@@ -869,7 +869,7 @@ public final class ScriptRunner {
     public static int framePointer = 0;
 
     @OriginalMember(owner = "client!ou", name = "f", descriptor = "[I")
-    public static final int[] areaCoords = new int[3];
+    public static final int[] areaCoord = new int[3];
 
     @OriginalMember(owner = "client!ou", name = "n", descriptor = "I")
     public static int intStackPointer = 0;
@@ -2587,7 +2587,7 @@ public final class ScriptRunner {
                     count = StringTools.parseDecimal(input);
                 }
 
-                @Pc(4974) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_COUNTDIALOG, ServerConnection.GAME.cipher);
+                @Pc(4974) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_COUNTDIALOG, ServerConnection.GAME.isaac);
                 message.bitPacket.p4(count);
                 ServerConnection.GAME.send(message);
                 return;
@@ -2595,7 +2595,7 @@ public final class ScriptRunner {
 
             if (op == RESUME_STRINGDIALOG) {
                 @Pc(4911) String input = stringStack[--stringStackPointer];
-                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_STRINGDIALOG, ServerConnection.GAME.cipher);
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_STRINGDIALOG, ServerConnection.GAME.isaac);
                 message.bitPacket.p1(input.length() + 1);
                 message.bitPacket.pjstr(input);
                 ServerConnection.GAME.send(message);
@@ -2604,7 +2604,7 @@ public final class ScriptRunner {
 
             if (op == RESUME_NAMEDIALOG) {
                 @Pc(4911) String name = stringStack[--stringStackPointer];
-                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_NAMEDIALOG, ServerConnection.GAME.cipher);
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_NAMEDIALOG, ServerConnection.GAME.isaac);
                 message.bitPacket.p1(name.length() + 1);
                 message.bitPacket.pjstr(name);
                 ServerConnection.GAME.send(message);
@@ -2643,7 +2643,7 @@ public final class ScriptRunner {
 
             if (op == RESUME_OBJDIALOG) {
                 @Pc(15) int objId = intStack[--intStackPointer];
-                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_OBJDIALOG, ServerConnection.GAME.cipher);
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_OBJDIALOG, ServerConnection.GAME.isaac);
                 message.bitPacket.p2(objId);
                 ServerConnection.GAME.send(message);
                 return;
@@ -2703,7 +2703,7 @@ public final class ScriptRunner {
 
             if (op == RESUME_HSLDIALOG) {
                 @Pc(15) int hsl = intStack[--intStackPointer];
-                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_HSLDIALOG, ServerConnection.GAME.cipher);
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.RESUME_P_HSLDIALOG, ServerConnection.GAME.isaac);
                 message.bitPacket.p2(hsl);
                 ServerConnection.GAME.send(message);
                 return;
@@ -2711,7 +2711,7 @@ public final class ScriptRunner {
 
             if (op == RESUME_CLANFORUMQFCDIALOG) {
                 @Pc(4911) String clanForumQfc = stringStack[--stringStackPointer];
-                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.A_CLIENT_PROT___82, ServerConnection.GAME.cipher);
+                @Pc(5005) ClientMessage message = ClientMessage.create(ClientProt.A_CLIENT_PROT___82, ServerConnection.GAME.isaac);
                 message.bitPacket.p1(clanForumQfc.length() + 1);
                 message.bitPacket.pjstr(clanForumQfc);
                 ServerConnection.GAME.send(message);
@@ -4595,7 +4595,7 @@ public final class ScriptRunner {
                     }
 
                     Static486.aByte115 = -1;
-                    @Pc(5005) ClientMessage local5005 = ClientMessage.create(ClientProt.CLIENT_PROT_90, ServerConnection.LOBBY.cipher);
+                    @Pc(5005) ClientMessage local5005 = ClientMessage.create(ClientProt.CLIENT_PROT_90, ServerConnection.LOBBY.isaac);
                     local5005.bitPacket.p1(0);
                     @Pc(27) int local27 = local5005.bitPacket.pos;
                     local5005.bitPacket.pjstr(local4911);
@@ -5025,7 +5025,7 @@ public final class ScriptRunner {
                 }
                 Static87.tradeChatFilter = intStack[intStackPointer + 2];
                 @Pc(57) ServerConnection connection = ConnectionManager.active();
-                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.SET_CHATFILTERSETTINGS, connection.cipher);
+                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.SET_CHATFILTERSETTINGS, connection.isaac);
                 message.bitPacket.p1(Static133.publicChatFilter);
                 message.bitPacket.p1(Static726.privateChatMode.id);
                 message.bitPacket.p1(Static87.tradeChatFilter);
@@ -5047,7 +5047,7 @@ public final class ScriptRunner {
                     local101 = local101.substring(0, 80);
                 }
                 @Pc(135) ServerConnection connection = ConnectionManager.active();
-                @Pc(141) ClientMessage message = ClientMessage.create(ClientProt.SEND_SNAPSHOT, connection.cipher);
+                @Pc(141) ClientMessage message = ClientMessage.create(ClientProt.SEND_SNAPSHOT, connection.isaac);
                 message.bitPacket.p1(Packet.pjstrlen(name) + Packet.pjstrlen(local101) + 2);
                 message.bitPacket.pjstr(name);
                 message.bitPacket.p1(rule - 1);
@@ -5091,7 +5091,7 @@ public final class ScriptRunner {
             if (opcode == CHAT_SETMODE) {
                 @Pc(192) int local192 = intStack[--intStackPointer];
                 @Pc(289) ServerConnection local289 = ConnectionManager.active();
-                @Pc(295) ClientMessage local295 = ClientMessage.create(ClientProt.CHAT_SETMODE, local289.cipher);
+                @Pc(295) ClientMessage local295 = ClientMessage.create(ClientProt.CHAT_SETMODE, local289.isaac);
                 local295.bitPacket.p1(local192);
                 local289.send(local295);
                 return;
@@ -5109,7 +5109,7 @@ public final class ScriptRunner {
                 @Pc(101) String text = stringStack[stringStackPointer + 1];
                 if (Client.staffModLevel != 0 || (!UserDetail.underage || UserDetail.parentalChatConsent) && !Static617.quickChatWorld) {
                     @Pc(360) ServerConnection connection = ConnectionManager.active();
-                    @Pc(366) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, connection.cipher);
+                    @Pc(366) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, connection.isaac);
                     message.bitPacket.p2(0);
                     @Pc(375) int pos = message.bitPacket.pos;
                     message.bitPacket.pjstr(recipient);
@@ -5322,7 +5322,7 @@ public final class ScriptRunner {
 
             if (opcode == ACTIVECHATPHRASE_SEND) { // TODO: same as op5061 but second byte is 0
                 @Pc(57) ServerConnection connection = ConnectionManager.active();
-                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.cipher);
+                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.isaac);
                 message.bitPacket.p1(0);
                 @Pc(109) int pos = message.bitPacket.pos;
                 message.bitPacket.p1(0);
@@ -5336,7 +5336,7 @@ public final class ScriptRunner {
             if (opcode == ACTIVECHATPHRASE_SENDPRIVATE) {
                 @Pc(95) String text = stringStack[--stringStackPointer];
                 @Pc(289) ServerConnection connection = ConnectionManager.active();
-                @Pc(295) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PRIVATE, connection.cipher);
+                @Pc(295) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PRIVATE, connection.isaac);
                 message.bitPacket.p1(0);
                 @Pc(115) int pos = message.bitPacket.pos;
                 message.bitPacket.pjstr(text);
@@ -5349,7 +5349,7 @@ public final class ScriptRunner {
 
             if (opcode == 5061) { // TODO: same as op5059 but second byte is 1
                 @Pc(57) ServerConnection connection = ConnectionManager.active();
-                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.cipher);
+                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.isaac);
                 message.bitPacket.p1(0);
                 @Pc(109) int pos = message.bitPacket.pos;
                 message.bitPacket.p1(1);
@@ -5468,7 +5468,7 @@ public final class ScriptRunner {
 
             if (opcode == 5074) {
                 @Pc(57) ServerConnection connection = ConnectionManager.active();
-                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.cipher);
+                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.isaac);
                 message.bitPacket.p1(0);
                 @Pc(109) int local109 = message.bitPacket.pos;
                 message.bitPacket.p1(2);
@@ -5481,7 +5481,7 @@ public final class ScriptRunner {
 
             if (opcode == 5075) {
                 @Pc(57) ServerConnection connection = ConnectionManager.active();
-                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.cipher);
+                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.isaac);
                 message.bitPacket.p1(0);
                 @Pc(109) int local109 = message.bitPacket.pos;
                 message.bitPacket.p1(3);
@@ -5530,13 +5530,13 @@ public final class ScriptRunner {
             }
 
             if (opcode == WORLDMAP_SETMAP) {
-                WorldMap.setMap(intStack[--intStackPointer], false, -1, -1, -11493);
+                WorldMap.setMap(intStack[--intStackPointer], false, -1, -1);
                 return;
             }
 
             if (opcode == WORLDMAP_GETMAP) {
                 @Pc(192) int coord = intStack[--intStackPointer];
-                @Pc(1908) WorldMapArea area = WorldMap.getMap(coord >> 14 & 0x3FFF, coord & 0x3FFF);
+                @Pc(1908) WorldMapArea area = WorldMap.getMap((coord >> 14) & 0x3FFF, coord & 0x3FFF);
                 if (area == null) {
                     intStack[intStackPointer++] = -1;
                     return;
@@ -5547,8 +5547,8 @@ public final class ScriptRunner {
 
             if (opcode == ORLDMAP_GETMAPNAME) {
                 @Pc(1942) WorldMapArea area = WorldMap.getArea(intStack[--intStackPointer]);
-                if (area != null && area.aString49 != null) {
-                    stringStack[stringStackPointer++] = area.aString49;
+                if (area != null && area.name != null) {
+                    stringStack[stringStackPointer++] = area.name;
                     return;
                 }
                 stringStack[stringStackPointer++] = "";
@@ -5562,8 +5562,8 @@ public final class ScriptRunner {
             }
 
             if (opcode == WORLDMAP_GETDISPLAYPOSITION) {
-                intStack[intStackPointer++] = WorldMap.jumpWidth + WorldMap.areaX;
-                intStack[intStackPointer++] = WorldMap.jumpHeight + WorldMap.areaZ;
+                intStack[intStackPointer++] = WorldMap.displayX + WorldMap.areaX;
+                intStack[intStackPointer++] = WorldMap.displayZ + WorldMap.areaZ;
                 return;
             }
 
@@ -5575,7 +5575,7 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = 0;
                     return;
                 }
-                intStack[intStackPointer++] = area.origin >> 14 & 0x3FFF;
+                intStack[intStackPointer++] = (area.origin >> 14) & 0x3FFF;
                 intStack[intStackPointer++] = area.origin & 0x3FFF;
                 return;
             }
@@ -5588,8 +5588,8 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = 0;
                     return;
                 }
-                intStack[intStackPointer++] = area.maxX - area.minX;
-                intStack[intStackPointer++] = area.maxY - area.minY;
+                intStack[intStackPointer++] = area.chunkMaxX - area.chunkMinX;
+                intStack[intStackPointer++] = area.chunkMaxZ - area.chunkMinZ;
                 return;
             }
 
@@ -5623,9 +5623,9 @@ public final class ScriptRunner {
                 @Pc(192) int id = intStack[--intStackPointer];
                 @Pc(1908) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(2289) boolean local2289 = area.method4088(areaCoords, id & 0x3FFF, id >> 28 & 0x3, id >> 14 & 0x3FFF);
-                    if (local2289) {
-                        WorldMap.jumpToDisplayCoord(areaCoords[1], areaCoords[2]);
+                    @Pc(2289) boolean projected = area.projectFloor(areaCoord, (id >> 28) & 0x3, (id >> 14) & 0x3FFF, id & 0x3FFF);
+                    if (projected) {
+                        WorldMap.jumpToCoord(areaCoord[1], areaCoord[2]);
                     }
                 }
                 return;
@@ -5635,7 +5635,7 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(192) int coord = intStack[intStackPointer];
                 @Pc(834) int id = intStack[intStackPointer + 1];
-                @Pc(2329) Queue queue = WorldMap.method5076(coord >> 14 & 0x3FFF, coord & 0x3FFF);
+                @Pc(2329) Queue queue = WorldMap.findAreas((coord >> 14) & 0x3FFF, coord & 0x3FFF);
                 @Pc(2331) boolean contained = false;
                 for (@Pc(2336) WorldMapArea area = (WorldMapArea) queue.first(); area != null; area = (WorldMapArea) queue.next()) {
                     if (area.id == id) {
@@ -5669,17 +5669,17 @@ public final class ScriptRunner {
 
             if (opcode == WORLDMAP_JUMPTODISPLAYCOORD) {
                 @Pc(192) int coord = intStack[--intStackPointer];
-                WorldMap.jumpToDisplayCoord(coord >> 14 & 0x3FFF, coord & 0x3FFF);
+                WorldMap.jumpToCoord((coord >> 14) & 0x3FFF, coord & 0x3FFF);
                 return;
             }
 
             if (opcode == WORLDMAP_GETSOURCEPOSITION) {
                 @Pc(1942) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(1578) boolean local1578 = area.method4091(WorldMap.jumpHeight + WorldMap.areaZ, WorldMap.jumpWidth + WorldMap.areaX, areaCoords);
-                    if (local1578) {
-                        intStack[intStackPointer++] = areaCoords[1];
-                        intStack[intStackPointer++] = areaCoords[2];
+                    @Pc(1578) boolean projected = area.project(areaCoord, WorldMap.displayX + WorldMap.areaX, WorldMap.displayZ + WorldMap.areaZ);
+                    if (projected) {
+                        intStack[intStackPointer++] = areaCoord[1];
+                        intStack[intStackPointer++] = areaCoord[2];
                         return;
                     }
                     intStack[intStackPointer++] = -1;
@@ -5695,7 +5695,7 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(192) int id = intStack[intStackPointer];
                 @Pc(834) int coord = intStack[intStackPointer + 1];
-                WorldMap.setMap(id, false, coord & 0x3FFF, coord >> 14 & 0x3FFF, -11493);
+                WorldMap.setMap(id, false, coord & 0x3FFF, coord >> 14 & 0x3FFF);
                 return;
             }
 
@@ -5703,10 +5703,10 @@ public final class ScriptRunner {
                 @Pc(192) int coord = intStack[--intStackPointer];
                 @Pc(1908) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(2289) boolean local2289 = area.method4088(areaCoords, coord & 0x3FFF, coord >> 28 & 0x3, coord >> 14 & 0x3FFF);
-                    if (local2289) {
-                        intStack[intStackPointer++] = areaCoords[1];
-                        intStack[intStackPointer++] = areaCoords[2];
+                    @Pc(2289) boolean projected = area.projectFloor(areaCoord, coord >> 28 & 0x3, coord >> 14 & 0x3FFF, coord & 0x3FFF);
+                    if (projected) {
+                        intStack[intStackPointer++] = areaCoord[1];
+                        intStack[intStackPointer++] = areaCoord[2];
                         return;
                     }
                     intStack[intStackPointer++] = -1;
@@ -5722,10 +5722,10 @@ public final class ScriptRunner {
                 @Pc(192) int coord = intStack[--intStackPointer];
                 @Pc(1908) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(2289) boolean local2289 = area.method4091(coord & 0x3FFF, coord >> 14 & 0x3FFF, areaCoords);
-                    if (local2289) {
-                        intStack[intStackPointer++] = areaCoords[1];
-                        intStack[intStackPointer++] = areaCoords[2];
+                    @Pc(2289) boolean projected = area.project(areaCoord, (coord >> 14) & 0x3FFF, coord & 0x3FFF);
+                    if (projected) {
+                        intStack[intStackPointer++] = areaCoord[1];
+                        intStack[intStackPointer++] = areaCoord[2];
                         return;
                     }
                     intStack[intStackPointer++] = -1;
@@ -5746,7 +5746,7 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(192) int id = intStack[intStackPointer];
                 @Pc(834) int coord = intStack[intStackPointer + 1];
-                WorldMap.setMap(id, true, coord & 0x3FFF, coord >> 14 & 0x3FFF, -11493);
+                WorldMap.setMap(id, true, coord & 0x3FFF, coord >> 14 & 0x3FFF);
                 return;
             }
 
@@ -5935,7 +5935,7 @@ public final class ScriptRunner {
                 @Pc(101) String local101 = stringStack[stringStackPointer + 1];
                 @Pc(109) int local109 = intStack[--intStackPointer];
                 @Pc(3411) ServerConnection local3411 = ConnectionManager.active();
-                @Pc(3417) ClientMessage local3417 = ClientMessage.create(ClientProt.URL_REQUEST, local3411.cipher);
+                @Pc(3417) ClientMessage local3417 = ClientMessage.create(ClientProt.URL_REQUEST, local3411.isaac);
                 local3417.bitPacket.p1(Packet.pjstrlen(local95) + Packet.pjstrlen(local101) + 1);
                 local3417.bitPacket.pjstr(local95);
                 local3417.bitPacket.pjstr(local101);
@@ -7156,7 +7156,7 @@ public final class ScriptRunner {
                         return;
                     }
                     WorldList.fetching = true;
-                    @Pc(7662) ClientMessage message = ClientMessage.create(ClientProt.WORLDLIST_FETCH, ServerConnection.LOBBY.cipher);
+                    @Pc(7662) ClientMessage message = ClientMessage.create(ClientProt.WORLDLIST_FETCH, ServerConnection.LOBBY.isaac);
                     message.bitPacket.p4(WorldList.checksum);
                     ServerConnection.LOBBY.send(message);
                     intStack[intStackPointer++] = 0;
@@ -8052,7 +8052,7 @@ public final class ScriptRunner {
             }
         }
         @Pc(650) ServerConnection local650 = ConnectionManager.active();
-        @Pc(656) ClientMessage local656 = ClientMessage.create(ClientProt.MESSAGE_PUBLIC, local650.cipher);
+        @Pc(656) ClientMessage local656 = ClientMessage.create(ClientProt.MESSAGE_PUBLIC, local650.isaac);
         local656.bitPacket.p1(0);
         @Pc(665) int local665 = local656.bitPacket.pos;
         local656.bitPacket.p1(local20);

@@ -24,7 +24,7 @@ public final class Static180 {
             return;
         }
         @Pc(45) ServerConnection local45 = ConnectionManager.active();
-        @Pc(53) ClientMessage local53 = ClientMessage.create(ClientProt.AFFINEDCLANSETTINGS_ADDBANNED_FROMCHANNEL, local45.cipher);
+        @Pc(53) ClientMessage local53 = ClientMessage.create(ClientProt.AFFINEDCLANSETTINGS_ADDBANNED_FROMCHANNEL, local45.isaac);
         local53.bitPacket.p1(Packet.pjstrlen(user.displayName) + 2);
         local53.bitPacket.p2(arg0);
         local53.bitPacket.pjstr(user.displayName);

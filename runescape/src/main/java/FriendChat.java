@@ -29,7 +29,7 @@ public final class FriendChat {
             return;
         }
         @Pc(21) ServerConnection local21 = ConnectionManager.active();
-        @Pc(27) ClientMessage local27 = ClientMessage.create(ClientProt.CLAN_KICKUSER, local21.cipher);
+        @Pc(27) ClientMessage local27 = ClientMessage.create(ClientProt.CLAN_KICKUSER, local21.isaac);
         local27.bitPacket.p1(Packet.pjstrlen(arg0));
         local27.bitPacket.pjstr(arg0);
         local21.send(local27);
@@ -41,7 +41,7 @@ public final class FriendChat {
             return;
         }
         @Pc(16) ServerConnection local16 = ConnectionManager.active();
-        @Pc(29) ClientMessage local29 = ClientMessage.create(ClientProt.FRIENDS_CHAT_CHANGE, local16.cipher);
+        @Pc(29) ClientMessage local29 = ClientMessage.create(ClientProt.FRIENDS_CHAT_CHANGE, local16.isaac);
         local29.bitPacket.p1(Packet.pjstrlen(arg0));
         local29.bitPacket.pjstr(arg0);
         local16.send(local29);
@@ -50,7 +50,7 @@ public final class FriendChat {
     @OriginalMember(owner = "client!mi", name = "a", descriptor = "(I)V")
     public static void leave() {
         @Pc(10) ServerConnection local10 = ConnectionManager.active();
-        @Pc(18) ClientMessage local18 = ClientMessage.create(ClientProt.FRIENDS_CHAT_CHANGE, local10.cipher);
+        @Pc(18) ClientMessage local18 = ClientMessage.create(ClientProt.FRIENDS_CHAT_CHANGE, local10.isaac);
         local18.bitPacket.p1(0);
         local10.send(local18);
     }

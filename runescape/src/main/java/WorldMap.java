@@ -223,10 +223,10 @@ public final class WorldMap {
     public static int jumpZ = -1;
 
     @OriginalMember(owner = "client!fba", name = "c", descriptor = "I")
-    public static int jumpWidth;
+    public static int displayX;
 
     @OriginalMember(owner = "client!tha", name = "e", descriptor = "I")
-    public static int jumpHeight;
+    public static int displayZ;
 
     @OriginalMember(owner = "client!lea", name = "c", descriptor = "I")
     public static int lastAreaId;
@@ -285,6 +285,15 @@ public final class WorldMap {
     @OriginalMember(owner = "client!qq", name = "c", descriptor = "I")
     public static int anInt8111;
 
+    @OriginalMember(owner = "client!w", name = "i", descriptor = "Z")
+    public static boolean aBoolean784 = false;
+
+    @OriginalMember(owner = "client!qla", name = "d", descriptor = "I")
+    public static int anInt8089 = -1;
+
+    @OriginalMember(owner = "client!hb", name = "g", descriptor = "I")
+    public static int anInt3694 = -1;
+
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
     public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) MapElementTypeList mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
         WorldMap.data = data;
@@ -325,16 +334,16 @@ public final class WorldMap {
             toolkit.aa(x - 150, y + 2, loadingPercent * 3, 30, Client.FILL_COLOURS[Client.colourId].getRGB(), 0);
             Fonts.b12.renderCentre(LocalisedText.LOADINGDOTDOTDOT.localise(Client.language), x, y + 20, Client.TEXT_COLOURS[Client.colourId].getRGB(), -1);
         } else {
-            @Pc(114) int x1 = jumpWidth - (int) ((float) childWidth / currentZoom);
-            @Pc(155) int y1 = jumpHeight - (int) ((float) childHeight / currentZoom);
-            @Pc(57) int x2 = jumpWidth + (int) ((float) childWidth / currentZoom);
-            @Pc(38) int y2 = jumpHeight + (int) ((float) childHeight / currentZoom);
+            @Pc(114) int x1 = displayX - (int) ((float) childWidth / currentZoom);
+            @Pc(155) int y1 = displayZ - (int) ((float) childHeight / currentZoom);
+            @Pc(57) int x2 = displayX + (int) ((float) childWidth / currentZoom);
+            @Pc(38) int y2 = displayZ + (int) ((float) childHeight / currentZoom);
 
             width = (int) ((float) (childWidth * 2) / currentZoom);
             height = (int) ((float) (childHeight * 2) / currentZoom);
 
-            anInt7639 = jumpHeight - (int) ((float) childHeight / currentZoom);
-            anInt8111 = jumpWidth - (int) ((float) childWidth / currentZoom);
+            anInt7639 = displayZ - (int) ((float) childHeight / currentZoom);
+            anInt8111 = displayX - (int) ((float) childWidth / currentZoom);
 
             method5062(x1 + areaX, y1 + areaZ, x2 + areaX, y2 + areaZ, childX, childY, childWidth + childX, childHeight + childY + 1);
             method5060(toolkit);
@@ -463,8 +472,8 @@ public final class WorldMap {
 
         @Pc(47) int newX = y - (height - newHeight) / 2;
         @Pc(56) int newY = x - (width - newWidth) / 2;
-        jumpWidth = (newY * areaWidth) / newWidth;
-        jumpHeight = areaHeight - ((areaHeight * newX) / newHeight);
+        displayX = (newY * areaWidth) / newWidth;
+        displayZ = areaHeight - ((areaHeight * newX) / newHeight);
         jumpZ = -1;
         jumpX = -1;
         checkJump();
@@ -494,40 +503,40 @@ public final class WorldMap {
         }
 
         if (loadingPercent == 10) {
-            areaX = area.minX >> 6 << 6;
-            areaZ = area.minY >> 6 << 6;
+            areaX = area.chunkMinX >> 6 << 6;
+            areaZ = area.chunkMinZ >> 6 << 6;
 
-            areaWidth = (area.maxX >> 6 << 6) - (areaX - 64);
-            areaHeight = (area.maxY >> 6 << 6) + 64 - areaZ;
+            areaWidth = (area.chunkMaxX >> 6 << 6) - (areaX - 64);
+            areaHeight = (area.chunkMaxZ >> 6 << 6) + 64 - areaZ;
 
             @Pc(77) int[] coord = new int[3];
             @Pc(79) int relativeX = -1;
             @Pc(81) int relativeY = -1;
-            if (area.method4088(coord, areaBaseZ + (PlayerEntity.self.z >> 9), PlayerEntity.self.level, (PlayerEntity.self.x >> 9) + areaBaseX)) {
+            if (area.projectFloor(coord, PlayerEntity.self.level, (PlayerEntity.self.x >> 9) + areaBaseX, areaBaseZ + (PlayerEntity.self.z >> 9))) {
                 relativeX = coord[1] - areaX;
                 relativeY = coord[2] - areaZ;
             }
 
-            if (!Static696.aBoolean784 && relativeX >= 0 && areaWidth > relativeX && relativeY >= 0 && relativeY < areaHeight) {
+            if (!aBoolean784 && relativeX >= 0 && areaWidth > relativeX && relativeY >= 0 && relativeY < areaHeight) {
                 relativeY += (int) (Math.random() * 10.0D) - 5;
                 relativeX += (int) (Math.random() * 10.0D) - 5;
-                jumpWidth = relativeX;
-                jumpHeight = relativeY;
-            } else if (Static227.anInt3694 == -1 || Static529.anInt8089 == -1) {
-                area.method4085((area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF, coord);
-                jumpHeight = coord[2] - areaZ;
-                jumpWidth = coord[1] - areaX;
+                displayX = relativeX;
+                displayZ = relativeY;
+            } else if (anInt3694 == -1 || anInt8089 == -1) {
+                area.projectFloor(coord, (area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF);
+                displayZ = coord[2] - areaZ;
+                displayX = coord[1] - areaX;
             } else {
-                area.method4085(Static227.anInt3694, Static529.anInt8089, coord);
+                area.projectFloor(coord, anInt3694, anInt8089);
 
                 if (coord != null) {
-                    jumpWidth = coord[1] - areaX;
-                    jumpHeight = coord[2] - areaZ;
+                    displayX = coord[1] - areaX;
+                    displayZ = coord[2] - areaZ;
                 }
 
-                Static696.aBoolean784 = false;
-                Static529.anInt8089 = -1;
-                Static227.anInt3694 = -1;
+                aBoolean784 = false;
+                anInt8089 = -1;
+                anInt3694 = -1;
             }
 
             if (area.zoom == 37) {
@@ -598,7 +607,7 @@ public final class WorldMap {
                 staticElements = new MapElementList(0);
             }
 
-            method5079();
+            loadStaticElements();
             loadingPercent = 70;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
@@ -648,28 +657,28 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!mc", name = "b", descriptor = "(I)V")
     public static void checkJump() {
-        if (jumpWidth < 0) {
+        if (displayX < 0) {
             jumpX = -1;
             jumpZ = -1;
-            jumpWidth = 0;
+            displayX = 0;
         }
 
-        if (jumpWidth > areaWidth) {
+        if (displayX > areaWidth) {
             jumpX = -1;
-            jumpWidth = areaWidth;
+            displayX = areaWidth;
             jumpZ = -1;
         }
 
-        if (jumpHeight < 0) {
+        if (displayZ < 0) {
             jumpZ = -1;
             jumpX = -1;
-            jumpHeight = 0;
+            displayZ = 0;
         }
 
-        if (jumpHeight > areaHeight) {
+        if (displayZ > areaHeight) {
             jumpZ = -1;
             jumpX = -1;
-            jumpHeight = areaHeight;
+            displayZ = areaHeight;
         }
     }
 
@@ -1379,7 +1388,7 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(II)Lclient!jga;")
-    public static Queue method5076(@OriginalArg(0) int x, @OriginalArg(1) int z) {
+    public static Queue findAreas(@OriginalArg(0) int x, @OriginalArg(1) int z) {
         @Pc(3) Queue queue = new Queue();
         for (@Pc(8) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
             if (area.aBoolean354 && area.contains(x, z)) {
@@ -1390,9 +1399,9 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(II)Lclient!ip;")
-    public static WorldMapArea getMap(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public static WorldMapArea getMap(@OriginalArg(0) int x, @OriginalArg(1) int z) {
         for (@Pc(4) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
-            if (area.aBoolean354 && area.contains(arg0, arg1)) {
+            if (area.aBoolean354 && area.contains(x, z)) {
                 return area;
             }
         }
@@ -1400,15 +1409,17 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "e", descriptor = "()V")
-    public static void method5079() {
-        @Pc(2) int[] local2 = new int[3];
-        for (@Pc(4) int local4 = 0; local4 < staticElements.size; local4++) {
-            @Pc(32) boolean local32 = area.method4088(local2, staticElements.coords[local4] & 0x3FFF, staticElements.coords[local4] >> 28 & 0x3, staticElements.coords[local4] >> 14 & 0x3FFF);
-            if (local32) {
-                @Pc(42) MapElementListEntry local42 = new MapElementListEntry(staticElements.elements[local4]);
-                local42.x = local2[1] - areaX;
-                local42.z = local2[2] - areaZ;
-                elements.addLast(local42);
+    public static void loadStaticElements() {
+        @Pc(2) int[] coord = new int[3];
+
+        for (@Pc(4) int i = 0; i < staticElements.size; i++) {
+            @Pc(32) boolean projected = area.projectFloor(coord, (staticElements.coords[i] >> 28) & 0x3, (staticElements.coords[i] >> 14) & 0x3FFF, staticElements.coords[i] & 0x3FFF);
+
+            if (projected) {
+                @Pc(42) MapElementListEntry entry = new MapElementListEntry(staticElements.elements[i]);
+                entry.x = coord[1] - areaX;
+                entry.z = coord[2] - areaZ;
+                elements.addLast(entry);
             }
         }
     }
@@ -1547,20 +1558,17 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
-    public static void setMap(@OriginalArg(0) int id, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public static void setMap(@OriginalArg(0) int id, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
             reset(false);
         } else {
             toolkitType = ClientOptions.instance.toolkit.getValue();
             Static32.setToolkit(ToolkitType.JAVA, true);
         }
-        Static696.aBoolean784 = arg1;
-        Static529.anInt8089 = arg2;
-        Static227.anInt3694 = arg3;
+        aBoolean784 = arg1;
+        anInt8089 = arg2;
+        anInt3694 = arg3;
         setArea(id);
-        if (arg4 != -11493) {
-            WorldList.pingWorlds = false;
-        }
     }
 
     private WorldMap() {
@@ -1609,7 +1617,7 @@ public final class WorldMap {
     @OriginalMember(owner = "client!tc", name = "e", descriptor = "(I)V")
     public static void method7934() {
         if (lastAreaId != -1) {
-            setMap(lastAreaId, false, -1, -1, -11493);
+            setMap(lastAreaId, false, -1, -1);
             lastAreaId = -1;
         }
     }
@@ -1618,7 +1626,7 @@ public final class WorldMap {
     public static void method8711(@OriginalArg(0) int arg0) {
         jumpX = -1;
         jumpZ = -1;
-        jumpWidth = arg0;
+        displayX = arg0;
         checkJump();
     }
 
@@ -1657,7 +1665,7 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ZII)V")
-    public static void jumpToDisplayCoord(@OriginalArg(1) int x, @OriginalArg(2) int z) {
+    public static void jumpToCoord(@OriginalArg(1) int x, @OriginalArg(2) int z) {
         jumpX = x - areaX;
         jumpZ = z - areaZ;
     }
@@ -2020,13 +2028,13 @@ public final class WorldMap {
         }
 
         if (jumpX != -1 && jumpZ != -1) {
-            @Pc(101) int local101 = jumpX - jumpWidth;
+            @Pc(101) int local101 = jumpX - displayX;
             if (local101 < 2 || local101 > 2) {
                 local101 /= 8;
             }
 
-            @Pc(120) int local120 = jumpZ - jumpHeight;
-            jumpWidth += local101;
+            @Pc(120) int local120 = jumpZ - displayZ;
+            displayX += local101;
             if (local120 < 2 || local120 > 2) {
                 local120 /= 8;
             }
@@ -2036,7 +2044,7 @@ public final class WorldMap {
                 jumpX = -1;
             }
 
-            jumpHeight -= -local120;
+            displayZ -= -local120;
             checkJump();
         }
 

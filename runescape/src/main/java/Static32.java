@@ -23,9 +23,9 @@ public final class Static32 {
     public static ClientMessage moveMessage(@OriginalArg(0) int x, @OriginalArg(2) int y, @OriginalArg(3) int click) {
         @Pc(11) ClientMessage message = null;
         if (click == 0) {
-            message = ClientMessage.create(ClientProt.MOVE_GAMECLICK, ServerConnection.GAME.cipher);
+            message = ClientMessage.create(ClientProt.MOVE_GAMECLICK, ServerConnection.GAME.isaac);
         } else if (click == 1) {
-            message = ClientMessage.create(ClientProt.MOVE_MINIMAPCLICK, ServerConnection.GAME.cipher);
+            message = ClientMessage.create(ClientProt.MOVE_MINIMAPCLICK, ServerConnection.GAME.isaac);
         }
 
         message.bitPacket.p2_alt3(x + WorldMap.areaBaseX);

@@ -35,7 +35,7 @@ public final class ServerConnection {
     public SignedResource gameSocketRequest;
 
     @OriginalMember(owner = "client!gw", name = "l", descriptor = "Lclient!iv;")
-    public Isaac cipher;
+    public Isaac isaac;
 
     @OriginalMember(owner = "client!gw", name = "t", descriptor = "I")
     public int writeRate;

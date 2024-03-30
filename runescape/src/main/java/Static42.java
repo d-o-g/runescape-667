@@ -6,9 +6,6 @@ public final class Static42 {
     @OriginalMember(owner = "client!bh", name = "v", descriptor = "[I")
     public static int[] anIntArray69;
 
-    @OriginalMember(owner = "client!bh", name = "w", descriptor = "Lclient!mia;")
-    public static final ClientTriggerType CUTSCENE_SUBTITLE = new ClientTriggerType("", 20);
-
     @OriginalMember(owner = "client!bh", name = "r", descriptor = "Lclient!eba;")
     public static final Class92 aClass92_3 = new Class92(1);
 

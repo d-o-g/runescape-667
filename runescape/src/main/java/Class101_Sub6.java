@@ -34,10 +34,6 @@ public final class Class101_Sub6 extends Class101 {
     @OriginalMember(owner = "client!nia", name = "l", descriptor = "Lclient!rq;")
     public Class93_Sub2 aClass93_Sub2_3;
 
-    static {
-        new ClientTriggerType("", 73);
-    }
-
     @OriginalMember(owner = "client!nia", name = "<init>", descriptor = "(Lclient!qha;)V")
     public Class101_Sub6(@OriginalArg(0) GlToolkit arg0) {
         super(arg0);

@@ -1,3 +1,4 @@
+import com.jagex.trigger.ClientTriggerType;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -79,14 +80,14 @@ public final class Static509 {
                 }
                 if (!local197.aClass2_Sub20_1.aBoolean256) {
                     local197.aClass2_Sub20_1.aBoolean256 = true;
-                    ScriptRunner.executeTrigger(Static5.A_CLIENT_TRIGGER_TYPE___1, local197.aClass2_Sub20_1.id, local206.category);
+                    ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEOVER, local197.aClass2_Sub20_1.id, local206.category);
                 }
                 if (local197.aClass2_Sub20_1.aBoolean256) {
                     ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEREPEAT, local197.aClass2_Sub20_1.id, local206.category);
                 }
             } else if (local197.aClass2_Sub20_1.aBoolean256) {
                 local197.aClass2_Sub20_1.aBoolean256 = false;
-                ScriptRunner.executeTrigger(Static280.A_CLIENT_TRIGGER_TYPE___7, local197.aClass2_Sub20_1.id, local206.category);
+                ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSELEAVE, local197.aClass2_Sub20_1.id, local206.category);
             }
         }
     }

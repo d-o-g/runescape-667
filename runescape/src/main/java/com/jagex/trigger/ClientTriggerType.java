@@ -1,3 +1,5 @@
+package com.jagex.trigger;
+
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -23,20 +25,33 @@ public final class ClientTriggerType implements TriggerType {
     @OriginalMember(owner = "client!bb", name = "b", descriptor = "Lclient!mia;")
     public static final ClientTriggerType OP_MAPELEMENT5 = new ClientTriggerType("", 14);
 
+    @OriginalMember(owner = "client!aca", name = "e", descriptor = "Lclient!mia;")
+    public static final ClientTriggerType MAP_ELEMENT_MOUSEOVER = new ClientTriggerType("", 15);
+
+    @OriginalMember(owner = "client!ip", name = "v", descriptor = "Lclient!mia;")
+    public static final ClientTriggerType MAP_ELEMENT_MOUSELEAVE = new ClientTriggerType("", 16);
+
     @OriginalMember(owner = "client!ud", name = "K", descriptor = "Lclient!mia;")
     public static final ClientTriggerType MAP_ELEMENT_MOUSEREPEAT = new ClientTriggerType("", 17);
+
+    @OriginalMember(owner = "client!lha", name = "f", descriptor = "Lclient!mia;")
+    public static final ClientTriggerType JCOINS_UPDATE = new ClientTriggerType("", 19);
+
+    @OriginalMember(owner = "client!bh", name = "w", descriptor = "Lclient!mia;")
+    public static final ClientTriggerType CUTSCENE_SUBTITLE = new ClientTriggerType("", 20);
 
     @OriginalMember(owner = "client!hda", name = "u", descriptor = "Lclient!mia;")
     public static final ClientTriggerType LOYALTY_UPDATED = new ClientTriggerType("", 21);
 
-    @OriginalMember(owner = "client!lha", name = "f", descriptor = "Lclient!mia;")
-    public static final ClientTriggerType JCOINS_UPDATE = new ClientTriggerType("", 19);
+    public static ClientTriggerType PROC = new ClientTriggerType("", 73);
+
+    public static ClientTriggerType CLIENTSCRIPT = new ClientTriggerType("", 76);
 
     @OriginalMember(owner = "client!mia", name = "a", descriptor = "I")
     public final int id;
 
     @OriginalMember(owner = "client!mia", name = "<init>", descriptor = "(Ljava/lang/String;I)V")
-    public ClientTriggerType(@OriginalArg(0) String arg0, @OriginalArg(1) int id) {
+    public ClientTriggerType(@OriginalArg(0) String name, @OriginalArg(1) int id) {
         this.id = id;
     }
 

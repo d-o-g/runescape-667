@@ -11,10 +11,6 @@ public final class Class265 {
     @OriginalMember(owner = "client!ns", name = "g", descriptor = "J")
     public final long aLong213;
 
-    static {
-        new ClientTriggerType("", 76);
-    }
-
     @OriginalMember(owner = "client!ns", name = "<init>", descriptor = "(Lclient!tca;JI)V")
     public Class265(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(1) long arg1, @OriginalArg(2) int arg2) {
         this.aClass19_Sub1_Sub2_8 = arg0;

@@ -2,6 +2,7 @@ import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.DisplayProperties;
 import com.jagex.PrivateChatMode;
+import com.jagex.trigger.ClientTriggerType;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeWhat;
@@ -8061,7 +8062,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(ILjava/lang/String;I)V")
     public static void executeCutsceneSubtitleTrigger(@OriginalArg(0) int id, @OriginalArg(1) String arg1, @OriginalArg(2) int arg2) {
-        @Pc(5) ClientScript script = ClientScriptList.trigger(Static42.CUTSCENE_SUBTITLE, id, -1);
+        @Pc(5) ClientScript script = ClientScriptList.trigger(ClientTriggerType.CUTSCENE_SUBTITLE, id, -1);
         if (script == null) {
             return;
         }
@@ -8084,7 +8085,7 @@ public final class ScriptRunner {
         }
         intVars = new int[local5.intVarCount];
         stringVars = new String[local5.stringVarCount];
-        if (local5.triggerType == Static5.A_CLIENT_TRIGGER_TYPE___1 || local5.triggerType == ClientTriggerType.MAP_ELEMENT_MOUSEREPEAT || local5.triggerType == Static280.A_CLIENT_TRIGGER_TYPE___7) {
+        if (local5.triggerType == ClientTriggerType.MAP_ELEMENT_MOUSEOVER || local5.triggerType == ClientTriggerType.MAP_ELEMENT_MOUSEREPEAT || local5.triggerType == ClientTriggerType.MAP_ELEMENT_MOUSELEAVE) {
             @Pc(35) int local35 = 0;
             @Pc(37) int local37 = 0;
             if (WorldMap.component != null) {

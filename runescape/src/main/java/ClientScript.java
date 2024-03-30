@@ -1,3 +1,4 @@
+import com.jagex.trigger.ClientTriggerType;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Node2;

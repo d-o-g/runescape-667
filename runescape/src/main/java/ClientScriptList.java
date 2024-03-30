@@ -1,3 +1,4 @@
+import com.jagex.trigger.ClientTriggerType;
 import com.jagex.core.datastruct.key.LruCache;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

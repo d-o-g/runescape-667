@@ -23,18 +23,18 @@ public final class ClientScript extends Node2 {
         local7.intVarCount = local12.g2();
         local7.stringVarCount = local12.g2();
         local7.longVarCount = local12.g2();
-        local7.anInt2951 = local12.g2();
-        local7.anInt2953 = local12.g2();
-        local7.anInt2954 = local12.g2();
+        local7.intArgCount = local12.g2();
+        local7.stringArgCount = local12.g2();
+        local7.longArgCount = local12.g2();
         @Pc(84) int local84 = local12.g1();
         @Pc(95) int local95;
         @Pc(100) int local100;
         if (local84 > 0) {
-            local7.aIterableHashTableArray1 = new IterableHashTable[local84];
+            local7.switchTables = new IterableHashTable[local84];
             for (local95 = 0; local95 < local84; local95++) {
                 local100 = local12.g2();
                 @Pc(107) IterableHashTable local107 = new IterableHashTable(IntMath.nextPow2(local100));
-                local7.aIterableHashTableArray1[local95] = local107;
+                local7.switchTables[local95] = local107;
                 while (local100-- > 0) {
                     @Pc(117) int local117 = local12.g4();
                     @Pc(121) int local121 = local12.g4();
@@ -43,56 +43,56 @@ public final class ClientScript extends Node2 {
             }
         }
         local12.pos = 0;
-        local7.aString31 = local12.fastgstr();
-        local7.anIntArray254 = new int[local50];
+        local7.name = local12.fastgstr();
+        local7.opcodes = new int[local50];
         local95 = 0;
         while (local12.pos < local34) {
             local100 = local12.g2();
             if (local100 == 3) {
-                if (local7.aStringArray14 == null) {
-                    local7.aStringArray14 = new String[local50];
+                if (local7.stringOperands == null) {
+                    local7.stringOperands = new String[local50];
                 }
-                local7.aStringArray14[local95] = local12.gjstr().intern();
+                local7.stringOperands[local95] = local12.gjstr().intern();
             } else if (local100 == 54) {
-                if (local7.aLongArray4 == null) {
-                    local7.aLongArray4 = new long[local50];
+                if (local7.longOperands == null) {
+                    local7.longOperands = new long[local50];
                 }
-                local7.aLongArray4[local95] = local12.g8();
+                local7.longOperands[local95] = local12.g8();
             } else {
-                if (local7.anIntArray255 == null) {
-                    local7.anIntArray255 = new int[local50];
+                if (local7.intOperands == null) {
+                    local7.intOperands = new int[local50];
                 }
                 if (local100 >= 150 || local100 == 21 || local100 == 38 || local100 == 39) {
-                    local7.anIntArray255[local95] = local12.g1();
+                    local7.intOperands[local95] = local12.g1();
                 } else {
-                    local7.anIntArray255[local95] = local12.g4();
+                    local7.intOperands[local95] = local12.g4();
                 }
             }
-            local7.anIntArray254[local95++] = local100;
+            local7.opcodes[local95++] = local100;
         }
         return local7;
     }
 
     @OriginalMember(owner = "client!fj", name = "w", descriptor = "Ljava/lang/String;")
-    public String aString31;
+    public String name;
 
     @OriginalMember(owner = "client!fj", name = "y", descriptor = "I")
     public int intVarCount;
 
     @OriginalMember(owner = "client!fj", name = "v", descriptor = "[I")
-    public int[] anIntArray254;
+    public int[] opcodes;
 
     @OriginalMember(owner = "client!fj", name = "J", descriptor = "[J")
-    public long[] aLongArray4;
+    public long[] longOperands;
 
     @OriginalMember(owner = "client!fj", name = "A", descriptor = "I")
     public int longVarCount;
 
     @OriginalMember(owner = "client!fj", name = "B", descriptor = "[Lclient!av;")
-    public IterableHashTable[] aIterableHashTableArray1;
+    public IterableHashTable[] switchTables;
 
     @OriginalMember(owner = "client!fj", name = "E", descriptor = "[Ljava/lang/String;")
-    public String[] aStringArray14;
+    public String[] stringOperands;
 
     @OriginalMember(owner = "client!fj", name = "x", descriptor = "Lclient!mia;")
     public ClientTriggerType triggerType;
@@ -101,14 +101,14 @@ public final class ClientScript extends Node2 {
     public int stringVarCount;
 
     @OriginalMember(owner = "client!fj", name = "K", descriptor = "I")
-    public int anInt2951;
+    public int intArgCount;
 
     @OriginalMember(owner = "client!fj", name = "G", descriptor = "[I")
-    public int[] anIntArray255;
+    public int[] intOperands;
 
     @OriginalMember(owner = "client!fj", name = "I", descriptor = "I")
-    public int anInt2953;
+    public int stringArgCount;
 
     @OriginalMember(owner = "client!fj", name = "D", descriptor = "I")
-    public int anInt2954;
+    public int longArgCount;
 }

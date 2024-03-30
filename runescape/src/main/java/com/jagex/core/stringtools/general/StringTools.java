@@ -411,8 +411,44 @@ public final class StringTools {
         }
     }
 
+    @OriginalMember(owner = "client!eha", name = "a", descriptor = "(IBI[Ljava/lang/String;)Ljava/lang/String;")
+    public static String concat(@OriginalArg(0) int count, @OriginalArg(2) int off, @OriginalArg(3) String[] strings) {
+        if (count == 0) {
+            return "";
+        } else if (count == 1) {
+            @Pc(18) String sting = strings[off];
+            return sting == null ? "null" : sting.toString();
+        } else {
+            @Pc(32) int last = count + off;
+            @Pc(34) int length = 0;
+
+            for (@Pc(44) int i = off; i < last; i++) {
+                @Pc(49) String string = strings[i];
+
+                if (string == null) {
+                    length += 4;
+                } else {
+                    length += string.length();
+                }
+            }
+
+            @Pc(71) StringBuffer buffer = new StringBuffer(length);
+
+            for (@Pc(73) int i = off; i < last; i++) {
+                @Pc(78) String string = strings[i];
+
+                if (string == null) {
+                    buffer.append("null");
+                } else {
+                    buffer.append(string);
+                }
+            }
+
+            return buffer.toString();
+        }
+    }
+
     private StringTools() {
         /* empty */
     }
-
 }

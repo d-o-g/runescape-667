@@ -479,6 +479,90 @@ import static com.jagex.core.constants.ClientScriptOpCode.TOSTRING_LOCALISED;
 @OriginalClass("client!ou")
 public final class ScriptRunner {
 
+    public static final int PUSH_CONSTANT_INT = 0;
+
+    public static final int PUSH_VAR = 1;
+
+    public static final int POP_VAR = 2;
+
+    public static final int PUSH_CONSTANT_STRING = 3;
+
+    public static final int BRANCH = 6;
+
+    public static final int BRANCH_NOT = 7;
+
+    public static final int BRANCH_EQUALS = 8;
+
+    public static final int BRANCH_LESS_THAN = 9;
+
+    public static final int BRANCH_GREATER_THAN = 10;
+
+    public static final int RETURN = 21;
+
+    public static final int POP_VARBIT = 25;
+
+    public static final int PUSH_VARBIT = 27;
+
+    public static final int BRANCH_LESS_THAN_OR_EQUALS = 31;
+
+    public static final int BRANCH_GREATER_THAN_OR_EQUALS = 32;
+
+    public static final int PUSH_INT_LOCAL = 33;
+
+    public static final int POP_INT_LOCAL = 34;
+
+    public static final int PUSH_STRING_LOCAL = 35;
+
+    public static final int POP_STRING_LOCAL = 36;
+
+    public static final int JOIN_STRING = 37;
+
+    public static final int POP_INT_DISCARD = 38;
+
+    public static final int POP_STRING_DISCARD = 39;
+
+    public static final int GOSUB_WITH_PARAMS = 40;
+
+    public static final int PUSH_VARC = 42;
+
+    public static final int POP_VARC = 43;
+
+    public static final int DEFINE_ARRAY = 44;
+
+    public static final int PUSH_ARRAY_INT = 45;
+
+    public static final int POP_ARRAY_INT = 46;
+
+    public static final int PUSH_VARCSTR = 47;
+
+    public static final int POP_VARCSTR = 48;
+
+    public static final int SWITCH = 51;
+
+    public static final int PUSH_LONG_CONSTANT = 54;
+
+    public static final int POP_LONG_DISCARD = 55;
+
+    public static final int PUSH_LONG_LOCAL = 66;
+
+    public static final int POP_LONG_LOCAL = 67;
+
+    public static final int LONG_BRANCH_NOT = 68;
+
+    public static final int LONG_BRANCH_EQUALS = 69;
+
+    public static final int LONG_BRANCH_LESS_THAN = 70;
+
+    public static final int LONG_BRANCH_GREATER_THAN = 71;
+
+    public static final int LONG_BRANCH_LESS_THAN_OR_EQUALS = 72;
+
+    public static final int LONG_BRANCH_GREATER_THAN_OR_EQUALS = 73;
+
+    public static final int BRANCH_IF_TRUE = 86;
+
+    public static final int BRANCH_IF_FALSE = 87;
+
     @OriginalMember(owner = "client!ou", name = "y", descriptor = "[Ljava/lang/String;")
     public static String[] stringVars;
 
@@ -513,10 +597,10 @@ public final class ScriptRunner {
     public static int stringStackPointer = 0;
 
     @OriginalMember(owner = "client!ou", name = "t", descriptor = "[Lclient!gf;")
-    public static final Class143[] aClass143Array1 = new Class143[50];
+    public static final StackFrame[] frames = new StackFrame[50];
 
     @OriginalMember(owner = "client!ou", name = "r", descriptor = "I")
-    public static int anInt7140 = 0;
+    public static int framePointer = 0;
 
     @OriginalMember(owner = "client!ou", name = "f", descriptor = "[I")
     public static final int[] areaCoords = new int[3];
@@ -528,13 +612,13 @@ public final class ScriptRunner {
     public static final String[] stringStack = new String[1000];
 
     @OriginalMember(owner = "client!ou", name = "w", descriptor = "[[I")
-    public static final int[][] anIntArrayArray177 = new int[5][5000];
+    public static final int[][] arrayVars = new int[5][5000];
 
     @OriginalMember(owner = "client!ou", name = "C", descriptor = "I")
     public static int longStackPointer = 0;
 
     @OriginalMember(owner = "client!ou", name = "g", descriptor = "[I")
-    public static final int[] anIntArray581 = new int[5];
+    public static final int[] arrayLengths = new int[5];
 
     @OriginalMember(owner = "client!ou", name = "E", descriptor = "Lclient!dla;")
     public static final ReferenceCache A_WEIGHTED_CACHE___156 = new ReferenceCache(4);
@@ -4324,327 +4408,332 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!fj;I)V")
-    public static void executeScript(@OriginalArg(0) ClientScript arg0, @OriginalArg(1) int arg1) {
+    public static void executeScript(@OriginalArg(0) ClientScript script, @OriginalArg(1) int maxOps) {
         intStackPointer = 0;
         stringStackPointer = 0;
-        @Pc(5) int local5 = -1;
-        @Pc(8) int[] local8 = arg0.anIntArray254;
-        @Pc(11) int[] local11 = arg0.anIntArray255;
-        @Pc(13) byte local13 = -1;
-        anInt7140 = 0;
-        @Pc(706) int local706;
+
+        @Pc(5) int pc = -1;
+        @Pc(8) int[] opcodes = script.opcodes;
+        @Pc(11) int[] operands = script.intOperands;
+        @Pc(34) int op = -1;
+
+        framePointer = 0;
+
         try {
-            @Pc(17) int local17 = 0;
-            label381:
+            @Pc(17) int opCount = 0;
+
             while (true) {
-                local17++;
-                if (local17 > arg1) {
+                opCount++;
+                if (opCount > maxOps) {
                     throw new RuntimeException("slow");
                 }
-                local5++;
-                @Pc(34) int local34 = local8[local5];
-                if (debug && (debugName == null || arg0.aString31 != null && arg0.aString31.indexOf(debugName) != -1)) {
-                    System.out.println(arg0.aString31 + ": " + local34);
+
+                pc++;
+                op = opcodes[pc];
+
+                if (debug && (debugName == null || script.name != null && script.name.indexOf(debugName) != -1)) {
+                    System.out.println(script.name + ": " + op);
                 }
-                if (local34 >= 150) {
-                    @Pc(1436) boolean local1436;
-                    if (local11[local5] == 1) {
-                        local1436 = true;
+
+                if (op >= 150) {
+                    @Pc(1436) boolean unfocused;
+                    if (operands[pc] == 1) {
+                        unfocused = true;
                     } else {
-                        local1436 = false;
+                        unfocused = false;
                     }
-                    if (local34 >= 150 && local34 < 5000) {
-                        handleSmallOp(local34, local1436);
-                    } else if (local34 >= 5000 && local34 < 10000) {
-                        handleLargeOp(local34, local1436);
+
+                    if (op >= 150 && op < 5000) {
+                        handleSmallOp(op, unfocused);
+                    } else if (op >= 5000 && op < 10000) {
+                        handleLargeOp(op, unfocused);
                     } else {
-                        throw new IllegalStateException("Command: " + local34);
+                        break;
                     }
-                } else if (local34 == 0) {
-                    intStack[intStackPointer++] = local11[local5];
-                } else {
-                    @Pc(96) int local96;
-                    if (local34 == 1) {
-                        local96 = local11[local5];
-                        intStack[intStackPointer++] = TimedVarDomain.instance.varValues[local96];
-                    } else if (local34 == 2) {
-                        local96 = local11[local5];
-                        TimedVarDomain.instance.setVarValueInt(local96, intStack[--intStackPointer]);
-                    } else if (local34 == 3) {
-                        stringStack[stringStackPointer++] = arg0.aStringArray14[local5];
-                    } else if (local34 == 6) {
-                        local5 += local11[local5];
-                    } else if (local34 == 7) {
-                        intStackPointer -= 2;
-                        if (intStack[intStackPointer] != intStack[intStackPointer + 1]) {
-                            local5 += local11[local5];
+                } else if (op == PUSH_CONSTANT_INT) {
+                    intStack[intStackPointer++] = operands[pc];
+                } else if (op == PUSH_VAR) {
+                    @Pc(96) int id = operands[pc];
+                    intStack[intStackPointer++] = TimedVarDomain.instance.varValues[id];
+                } else if (op == POP_VAR) {
+                    @Pc(96) int id = operands[pc];
+                    TimedVarDomain.instance.setVarValueInt(id, intStack[--intStackPointer]);
+                } else if (op == PUSH_CONSTANT_STRING) {
+                    stringStack[stringStackPointer++] = script.stringOperands[pc];
+                } else if (op == BRANCH) {
+                    pc += operands[pc];
+                } else if (op == BRANCH_NOT) {
+                    intStackPointer -= 2;
+                    if (intStack[intStackPointer] != intStack[intStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == BRANCH_EQUALS) {
+                    intStackPointer -= 2;
+                    if (intStack[intStackPointer] == intStack[intStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == BRANCH_LESS_THAN) {
+                    intStackPointer -= 2;
+                    if (intStack[intStackPointer] < intStack[intStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == BRANCH_GREATER_THAN) {
+                    intStackPointer -= 2;
+                    if (intStack[intStackPointer] > intStack[intStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == RETURN) {
+                    if (framePointer == 0) {
+                        return;
+                    }
+                    @Pc(270) StackFrame frame = frames[--framePointer];
+                    script = frame.script;
+                    opcodes = script.opcodes;
+                    operands = script.intOperands;
+                    pc = frame.pc;
+                    intVars = frame.intVars;
+                    stringVars = frame.stringVars;
+                    longVars = frame.longVars;
+                } else if (op == POP_VARBIT) {
+                    @Pc(96) int id = operands[pc];
+                    intStack[intStackPointer++] = TimedVarDomain.instance.getVarBitValue(id);
+                } else if (op == PUSH_VARBIT) {
+                    @Pc(96) int id = operands[pc];
+                    TimedVarDomain.instance.setVarBitValue(intStack[--intStackPointer], id);
+                } else if (op == BRANCH_LESS_THAN_OR_EQUALS) {
+                    intStackPointer -= 2;
+                    if (intStack[intStackPointer] <= intStack[intStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == BRANCH_GREATER_THAN_OR_EQUALS) {
+                    intStackPointer -= 2;
+                    if (intStack[intStackPointer] >= intStack[intStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == PUSH_INT_LOCAL) {
+                    intStack[intStackPointer++] = intVars[operands[pc]];
+                } else if (op == POP_INT_LOCAL) {
+                    intVars[operands[pc]] = intStack[--intStackPointer];
+                } else if (op == PUSH_STRING_LOCAL) {
+                    stringStack[stringStackPointer++] = stringVars[operands[pc]];
+                } else if (op == POP_STRING_LOCAL) {
+                    stringVars[operands[pc]] = stringStack[--stringStackPointer];
+                } else if (op == JOIN_STRING) {
+                    @Pc(96) int count = operands[pc];
+                    stringStackPointer -= count;
+                    @Pc(465) String string = StringTools.concat(count, stringStackPointer, stringStack);
+                    stringStack[stringStackPointer++] = string;
+                } else if (op == POP_INT_DISCARD) {
+                    intStackPointer--;
+                } else if (op == POP_STRING_DISCARD) {
+                    stringStackPointer--;
+                } else if (op == GOSUB_WITH_PARAMS) {
+                    @Pc(96) int id = operands[pc];
+                    @Pc(503) ClientScript callee = ClientScriptList.list(id);
+                    if (callee == null) {
+                        throw new RuntimeException();
+                    }
+
+                    @Pc(514) int[] intArgs = new int[callee.intVarCount];
+                    @Pc(518) String[] stringArgs = new String[callee.stringVarCount];
+                    @Pc(522) long[] longArgs = new long[callee.longVarCount];
+                    for (@Pc(524) int i = 0; i < callee.intArgCount; i++) {
+                        intArgs[i] = intStack[intStackPointer + i - callee.intArgCount];
+                    }
+                    for (@Pc(543) int i = 0; i < callee.stringArgCount; i++) {
+                        stringArgs[i] = stringStack[stringStackPointer + i - callee.stringArgCount];
+                    }
+                    for (@Pc(562) int i = 0; i < callee.longArgCount; i++) {
+                        longArgs[i] = longStack[longStackPointer + i - callee.longArgCount];
+                    }
+
+                    intStackPointer -= callee.intArgCount;
+                    stringStackPointer -= callee.stringArgCount;
+                    longStackPointer -= callee.longArgCount;
+
+                    @Pc(598) StackFrame frame = new StackFrame();
+                    frame.script = script;
+                    frame.pc = pc;
+                    frame.intVars = intVars;
+                    frame.stringVars = stringVars;
+                    frame.longVars = longVars;
+
+                    if (framePointer >= frames.length) {
+                        throw new RuntimeException();
+                    }
+
+                    frames[framePointer++] = frame;
+                    script = callee;
+                    opcodes = callee.opcodes;
+                    operands = callee.intOperands;
+                    pc = -1;
+                    intVars = intArgs;
+                    stringVars = stringArgs;
+                    longVars = longArgs;
+                } else if (op == PUSH_VARC) {
+                    intStack[intStackPointer++] = Static511.varcs[operands[pc]];
+                } else if (op == POP_VARC) {
+                    @Pc(96) int id = operands[pc];
+                    Static511.varcs[id] = intStack[--intStackPointer];
+                    DelayedStateChange.resetVarc(id);
+                    Static624.varcSaveRecommended |= Static118.permVarcs[id];
+                } else if (op == DEFINE_ARRAY) {
+                    @Pc(96) int id = operands[pc] >> 16;
+                    @Pc(706) int type = operands[pc] & 0xFFFF;
+                    @Pc(714) int length = intStack[--intStackPointer];
+                    if (length < 0 || length > 5000) {
+                        throw new RuntimeException();
+                    }
+
+                    arrayLengths[id] = length;
+
+                    @Pc(732) byte v = -1;
+                    if (type == 'i') {
+                        v = 0;
+                    }
+
+                    for (@Pc(739) int i = 0; i < length; i++) {
+                        arrayVars[id][i] = v;
+                    }
+                } else if (op == PUSH_ARRAY_INT) {
+                    @Pc(96) int id = operands[pc];
+                    @Pc(706) int index = intStack[--intStackPointer];
+                    if (index < 0 || index >= arrayLengths[id]) {
+                        throw new RuntimeException();
+                    }
+                    intStack[intStackPointer++] = arrayVars[id][index];
+                } else if (op == POP_ARRAY_INT) {
+                    @Pc(96) int id = operands[pc];
+                    intStackPointer -= 2;
+                    @Pc(706) int index = intStack[intStackPointer];
+                    if (index < 0 || index >= arrayLengths[id]) {
+                        throw new RuntimeException();
+                    }
+                    arrayVars[id][index] = intStack[intStackPointer + 1];
+                } else if (op == PUSH_VARCSTR) {
+                    @Pc(843) String varcstr = Static37.varcstrs[operands[pc]];
+                    if (varcstr == null) {
+                        varcstr = "null";
+                    }
+                    stringStack[stringStackPointer++] = varcstr;
+                } else if (op == POP_VARCSTR) {
+                    @Pc(96) int id = operands[pc];
+                    Static37.varcstrs[id] = stringStack[--stringStackPointer];
+                    DelayedStateChange.resetVarcstr(id);
+                } else if (op == SWITCH) {
+                    @Pc(889) IterableHashTable table = script.switchTables[operands[pc]];
+                    @Pc(902) IntNode jump = (IntNode) table.get(intStack[--intStackPointer]);
+                    if (jump != null) {
+                        pc += jump.value;
+                    }
+                } else if (op == PUSH_LONG_CONSTANT) {
+                    longStack[longStackPointer++] = script.longOperands[pc];
+                } else if (op == POP_LONG_DISCARD) {
+                    longStackPointer--;
+                } else if (op == PUSH_LONG_LOCAL) {
+                    longStack[longStackPointer++] = longVars[operands[pc]];
+                } else if (op == POP_LONG_LOCAL) {
+                    longVars[operands[pc]] = longStack[--longStackPointer];
+                } else if (op == LONG_BRANCH_NOT) {
+                    longStackPointer -= 2;
+                    if (longStack[longStackPointer] != longStack[longStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == LONG_BRANCH_EQUALS) {
+                    longStackPointer -= 2;
+                    if (longStack[longStackPointer] == longStack[longStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == LONG_BRANCH_LESS_THAN) {
+                    longStackPointer -= 2;
+                    if (longStack[longStackPointer] < longStack[longStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == LONG_BRANCH_GREATER_THAN) {
+                    longStackPointer -= 2;
+                    if (longStack[longStackPointer] > longStack[longStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == LONG_BRANCH_LESS_THAN_OR_EQUALS) {
+                    longStackPointer -= 2;
+                    if (longStack[longStackPointer] <= longStack[longStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == LONG_BRANCH_GREATER_THAN_OR_EQUALS) {
+                    longStackPointer -= 2;
+                    if (longStack[longStackPointer] >= longStack[longStackPointer + 1]) {
+                        pc += operands[pc];
+                    }
+                } else if (op == BRANCH_IF_TRUE) {
+                    if (intStack[--intStackPointer] == 1) {
+                        pc += operands[pc];
+                    }
+                } else if (op == BRANCH_IF_FALSE) {
+                    if (intStack[--intStackPointer] == 0) {
+                        pc += operands[pc];
+                    }
+                } else if (op == 106) {
+                    @Pc(96) int id = operands[pc];
+                    @Pc(1178) Integer varclan = (Integer) Static279.clanVars[id];
+                    if (varclan == null) {
+                        @Pc(1185) VarClanSettingType type = VarClanSettingTypeList.instance.list(id);
+                        if (type.dataType == 'i' || type.dataType == '1') {
+                            intStack[intStackPointer++] = 0;
+                        } else {
+                            intStack[intStackPointer++] = -1;
                         }
-                    } else if (local34 == 8) {
-                        intStackPointer -= 2;
-                        if (intStack[intStackPointer] == intStack[intStackPointer + 1]) {
-                            local5 += local11[local5];
-                        }
-                    } else if (local34 == 9) {
-                        intStackPointer -= 2;
-                        if (intStack[intStackPointer] < intStack[intStackPointer + 1]) {
-                            local5 += local11[local5];
-                        }
-                    } else if (local34 == 10) {
-                        intStackPointer -= 2;
-                        if (intStack[intStackPointer] > intStack[intStackPointer + 1]) {
-                            local5 += local11[local5];
-                        }
-                    } else if (local34 == 21) {
-                        if (anInt7140 == 0) {
-                            return;
-                        }
-                        @Pc(270) Class143 local270 = aClass143Array1[--anInt7140];
-                        arg0 = local270.aClass2_Sub2_Sub10_1;
-                        local8 = arg0.anIntArray254;
-                        local11 = arg0.anIntArray255;
-                        local5 = local270.anInt3391;
-                        intVars = local270.anIntArray276;
-                        stringVars = local270.aStringArray16;
-                        longVars = local270.aLongArray5;
-                    } else if (local34 == 25) {
-                        local96 = local11[local5];
-                        intStack[intStackPointer++] = TimedVarDomain.instance.getVarBitValue(local96);
-                    } else if (local34 == 27) {
-                        local96 = local11[local5];
-                        TimedVarDomain.instance.setVarBitValue(intStack[--intStackPointer], local96);
-                    } else if (local34 == 31) {
-                        intStackPointer -= 2;
-                        if (intStack[intStackPointer] <= intStack[intStackPointer + 1]) {
-                            local5 += local11[local5];
-                        }
-                    } else if (local34 == 32) {
-                        intStackPointer -= 2;
-                        if (intStack[intStackPointer] >= intStack[intStackPointer + 1]) {
-                            local5 += local11[local5];
-                        }
-                    } else if (local34 == 33) {
-                        intStack[intStackPointer++] = intVars[local11[local5]];
-                    } else if (local34 == 34) {
-                        intVars[local11[local5]] = intStack[--intStackPointer];
-                    } else if (local34 == 35) {
-                        stringStack[stringStackPointer++] = stringVars[local11[local5]];
-                    } else if (local34 == 36) {
-                        stringVars[local11[local5]] = stringStack[--stringStackPointer];
                     } else {
-                        @Pc(465) String local465;
-                        if (local34 == 37) {
-                            local96 = local11[local5];
-                            stringStackPointer -= local96;
-                            local465 = Static142.method2381(local96, stringStackPointer, stringStack);
-                            stringStack[stringStackPointer++] = local465;
-                        } else if (local34 == 38) {
-                            intStackPointer--;
-                        } else if (local34 == 39) {
-                            stringStackPointer--;
-                        } else if (local34 == 40) {
-                            local96 = local11[local5];
-                            @Pc(503) ClientScript local503 = ClientScriptList.list(local96);
-                            if (local503 == null) {
-                                throw new RuntimeException();
-                            }
-                            @Pc(514) int[] local514 = new int[local503.intVarCount];
-                            @Pc(518) String[] local518 = new String[local503.stringVarCount];
-                            @Pc(522) long[] local522 = new long[local503.longVarCount];
-                            for (@Pc(524) int local524 = 0; local524 < local503.anInt2951; local524++) {
-                                local514[local524] = intStack[intStackPointer + local524 - local503.anInt2951];
-                            }
-                            for (@Pc(543) int local543 = 0; local543 < local503.anInt2953; local543++) {
-                                local518[local543] = stringStack[stringStackPointer + local543 - local503.anInt2953];
-                            }
-                            for (@Pc(562) int local562 = 0; local562 < local503.anInt2954; local562++) {
-                                local522[local562] = longStack[longStackPointer + local562 - local503.anInt2954];
-                            }
-                            intStackPointer -= local503.anInt2951;
-                            stringStackPointer -= local503.anInt2953;
-                            longStackPointer -= local503.anInt2954;
-                            @Pc(598) Class143 local598 = new Class143();
-                            local598.aClass2_Sub2_Sub10_1 = arg0;
-                            local598.anInt3391 = local5;
-                            local598.anIntArray276 = intVars;
-                            local598.aStringArray16 = stringVars;
-                            local598.aLongArray5 = longVars;
-                            if (anInt7140 >= aClass143Array1.length) {
-                                throw new RuntimeException();
-                            }
-                            aClass143Array1[anInt7140++] = local598;
-                            arg0 = local503;
-                            local8 = local503.anIntArray254;
-                            local11 = local503.anIntArray255;
-                            local5 = -1;
-                            intVars = local514;
-                            stringVars = local518;
-                            longVars = local522;
-                        } else if (local34 == 42) {
-                            intStack[intStackPointer++] = Static511.varcs[local11[local5]];
-                        } else if (local34 == 43) {
-                            local96 = local11[local5];
-                            Static511.varcs[local96] = intStack[--intStackPointer];
-                            DelayedStateChange.resetVarc(local96);
-                            Static624.varcSaveRecommended |= Static118.permVarcs[local96];
-                        } else if (local34 == 44) {
-                            local96 = local11[local5] >> 16;
-                            local706 = local11[local5] & 0xFFFF;
-                            @Pc(714) int local714 = intStack[--intStackPointer];
-                            if (local714 >= 0 && local714 <= 5000) {
-                                anIntArray581[local96] = local714;
-                                @Pc(732) byte local732 = -1;
-                                if (local706 == 105) {
-                                    local732 = 0;
-                                }
-                                @Pc(739) int local739 = 0;
-                                while (true) {
-                                    if (local739 >= local714) {
-                                        continue label381;
-                                    }
-                                    anIntArrayArray177[local96][local739] = local732;
-                                    local739++;
-                                }
-                            }
-                            throw new RuntimeException();
-                        } else if (local34 == 45) {
-                            local96 = local11[local5];
-                            local706 = intStack[--intStackPointer];
-                            if (local706 < 0 || local706 >= anIntArray581[local96]) {
-                                throw new RuntimeException();
-                            }
-                            intStack[intStackPointer++] = anIntArrayArray177[local96][local706];
-                        } else if (local34 == 46) {
-                            local96 = local11[local5];
-                            intStackPointer -= 2;
-                            local706 = intStack[intStackPointer];
-                            if (local706 < 0 || local706 >= anIntArray581[local96]) {
-                                throw new RuntimeException();
-                            }
-                            anIntArrayArray177[local96][local706] = intStack[intStackPointer + 1];
-                        } else if (local34 == 47) {
-                            @Pc(843) String local843 = Static37.varcstrs[local11[local5]];
-                            if (local843 == null) {
-                                local843 = "null";
-                            }
-                            stringStack[stringStackPointer++] = local843;
-                        } else if (local34 == 48) {
-                            local96 = local11[local5];
-                            Static37.varcstrs[local96] = stringStack[--stringStackPointer];
-                            DelayedStateChange.resetVarcstr(local96);
-                        } else if (local34 == 51) {
-                            @Pc(889) IterableHashTable local889 = arg0.aIterableHashTableArray1[local11[local5]];
-                            @Pc(902) IntNode local902 = (IntNode) local889.get(intStack[--intStackPointer]);
-                            if (local902 != null) {
-                                local5 += local902.value;
-                            }
-                        } else if (local34 == 54) {
-                            longStack[longStackPointer++] = arg0.aLongArray4[local5];
-                        } else if (local34 == 55) {
-                            longStackPointer--;
-                        } else if (local34 == 66) {
-                            longStack[longStackPointer++] = longVars[local11[local5]];
-                        } else if (local34 == 67) {
-                            longVars[local11[local5]] = longStack[--longStackPointer];
-                        } else if (local34 == 68) {
-                            longStackPointer -= 2;
-                            if (longStack[longStackPointer] != longStack[longStackPointer + 1]) {
-                                local5 += local11[local5];
-                            }
-                        } else if (local34 == 69) {
-                            longStackPointer -= 2;
-                            if (longStack[longStackPointer] == longStack[longStackPointer + 1]) {
-                                local5 += local11[local5];
-                            }
-                        } else if (local34 == 70) {
-                            longStackPointer -= 2;
-                            if (longStack[longStackPointer] < longStack[longStackPointer + 1]) {
-                                local5 += local11[local5];
-                            }
-                        } else if (local34 == 71) {
-                            longStackPointer -= 2;
-                            if (longStack[longStackPointer] > longStack[longStackPointer + 1]) {
-                                local5 += local11[local5];
-                            }
-                        } else if (local34 == 72) {
-                            longStackPointer -= 2;
-                            if (longStack[longStackPointer] <= longStack[longStackPointer + 1]) {
-                                local5 += local11[local5];
-                            }
-                        } else if (local34 == 73) {
-                            longStackPointer -= 2;
-                            if (longStack[longStackPointer] >= longStack[longStackPointer + 1]) {
-                                local5 += local11[local5];
-                            }
-                        } else if (local34 == 86) {
-                            if (intStack[--intStackPointer] == 1) {
-                                local5 += local11[local5];
-                            }
-                        } else if (local34 == 87) {
-                            if (intStack[--intStackPointer] == 0) {
-                                local5 += local11[local5];
-                            }
-                        } else if (local34 == 106) {
-                            local96 = local11[local5];
-                            @Pc(1178) Integer local1178 = (Integer) Static279.clanVars[local96];
-                            if (local1178 == null) {
-                                @Pc(1185) VarClanSettingType local1185 = VarClanSettingTypeList.instance.list(local96);
-                                if (local1185.dataType == 'i' || local1185.dataType == '1') {
-                                    intStack[intStackPointer++] = 0;
-                                } else {
-                                    intStack[intStackPointer++] = -1;
-                                }
-                            } else {
-                                intStack[intStackPointer++] = local1178;
-                            }
-                        } else if (local34 == 107) {
-                            local96 = local11[local5];
-                            @Pc(1236) VarClanSettingType local1236 = VarClanSettingTypeList.instance.list(local96);
-                            if (local1236.dataType != '\u0001') {
-                                intStack[intStackPointer++] = 0;
-                            }
-                            @Pc(1256) Integer local1256 = (Integer) Static279.clanVars[local1236.id];
-                            if (local1256 == null) {
-                                intStack[intStackPointer++] = 0;
-                            } else {
-                                @Pc(1284) int local1284 = local1236.end == 31 ? -1 : (0x1 << local1236.end + 1) - 1;
-                                intStack[intStackPointer++] = (local1256 & local1284) >>> local1236.start;
-                            }
-                        } else if (local34 == 108) {
-                            local96 = local11[local5];
-                            @Pc(1311) Long local1311 = (Long) Static279.clanVars[local96];
-                            if (local1311 == null) {
-                                longStack[longStackPointer++] = -1L;
-                            } else {
-                                longStack[longStackPointer++] = local1311;
-                            }
-                        } else if (local34 == 109) {
-                            local96 = local11[local5];
-                            local465 = (String) Static279.clanVars[local96];
-                            if (local465 == null) {
-                                stringStack[stringStackPointer++] = "";
-                            } else {
-                                stringStack[stringStackPointer++] = local465;
-                            }
-                        } else if (local34 == 112) {
-                            intStack[intStackPointer++] = getClanSettingInt(local11[local5]);
-                        } else if (local34 == 113) {
-                            intStack[intStackPointer++] = getClanSettingVarbit(local11[local5]);
-                        } else if (local34 == 114) {
-                            longStack[longStackPointer++] = getClanSettingLong(local11[local5]);
-                        } else if (local34 == 115) {
-                            stringStack[stringStackPointer++] = method6425(local11[local5]);
-                        }
+                        intStack[intStackPointer++] = varclan;
                     }
+                } else if (op == 107) {
+                    @Pc(96) int id = operands[pc];
+                    @Pc(1236) VarClanSettingType type = VarClanSettingTypeList.instance.list(id);
+                    if (type.dataType != '\u0001') {
+                        intStack[intStackPointer++] = 0;
+                    }
+                    @Pc(1256) Integer varclan = (Integer) Static279.clanVars[type.id];
+                    if (varclan == null) {
+                        intStack[intStackPointer++] = 0;
+                    } else {
+                        @Pc(1284) int local1284 = type.end == 31 ? -1 : (0x1 << type.end + 1) - 1;
+                        intStack[intStackPointer++] = (varclan & local1284) >>> type.start;
+                    }
+                } else if (op == 108) {
+                    @Pc(96) int id = operands[pc];
+                    @Pc(1311) Long varclan = (Long) Static279.clanVars[id];
+                    if (varclan == null) {
+                        longStack[longStackPointer++] = -1L;
+                    } else {
+                        longStack[longStackPointer++] = varclan;
+                    }
+                } else if (op == 109) {
+                    @Pc(96) int id = operands[pc];
+                    @Pc(465) String varclan = (String) Static279.clanVars[id];
+                    if (varclan == null) {
+                        stringStack[stringStackPointer++] = "";
+                    } else {
+                        stringStack[stringStackPointer++] = varclan;
+                    }
+                } else if (op == 112) {
+                    intStack[intStackPointer++] = getClanSettingInt(operands[pc]);
+                } else if (op == 113) {
+                    intStack[intStackPointer++] = getClanSettingVarbit(operands[pc]);
+                } else if (op == 114) {
+                    longStack[longStackPointer++] = getClanSettingLong(operands[pc]);
+                } else if (op == 115) {
+                    stringStack[stringStackPointer++] = getClanSettingString(operands[pc]);
                 }
             }
-        } catch (@Pc(1479) Exception local1479) {
-            @Pc(1484) StringBuffer local1484 = new StringBuffer(30);
-            local1484.append("CS2: ").append(arg0.key).append(" ");
-            for (local706 = anInt7140 - 1; local706 >= 0; local706--) {
-                local1484.append("v: ").append(aClass143Array1[local706].aClass2_Sub2_Sub10_1.key).append(" ");
+
+            throw new IllegalStateException("Command: " + op);
+        } catch (@Pc(1479) Exception exception) {
+            @Pc(1484) StringBuffer buffer = new StringBuffer(30);
+            buffer.append("CS2: ").append(script.key).append(" ");
+            for (@Pc(706) int i = framePointer - 1; i >= 0; i--) {
+                buffer.append("v: ").append(frames[i].script.key).append(" ");
             }
-            local1484.append("op: ").append(local13);
-            JagException.sendTrace(local1479, local1484.toString());
+            buffer.append("op: ").append(op);
+            JagException.sendTrace(exception, buffer.toString());
         }
     }
 
@@ -7342,7 +7431,7 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "e", descriptor = "(I)Ljava/lang/String;")
-    public static String method6425(@OriginalArg(0) int arg0) {
+    public static String getClanSettingString(@OriginalArg(0) int arg0) {
         @Pc(9) String local9 = clanSettings.getExtraSettingString(Client.modeGame.id << 16 | arg0);
         return local9 == null ? "" : local9;
     }

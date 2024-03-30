@@ -723,7 +723,7 @@ public final class GlToolkit extends Toolkit {
                 this.method7969();
             } catch (@Pc(666) Throwable local666) {
                 local666.printStackTrace();
-                this.method7987();
+                this.stop();
                 throw new RuntimeException("");
             }
         } else {
@@ -867,7 +867,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         if (this.aCanvas10 == arg0) {
             throw new RuntimeException();
         } else if (!this.aHashtable5.containsKey(arg0)) {
@@ -974,7 +974,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "j", descriptor = "(I)V")
     @Override
-    public void method7956(@OriginalArg(0) int arg0) {
+    public void allocateThreads(@OriginalArg(0) int arg0) {
         if (arg0 != 1) {
             throw new IllegalArgumentException("");
         }
@@ -1170,7 +1170,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "u", descriptor = "()V")
     @Override
-    protected void method7987() {
+    protected void stop() {
         for (@Pc(8) Node local8 = this.aDeque_46.first(); local8 != null; local8 = this.aDeque_46.next()) {
             ((Node_Sub13_Sub1) local8).method1609();
         }
@@ -1778,12 +1778,12 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void method7965(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int offsetX, @OriginalArg(8) int offsetY) {
+    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
         @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) mask;
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local6.aClass93_Sub2_Sub1_5);
-        this.method7017(1);
+        this.method7017(mode);
         this.method7031(8448, 7681);
         this.method7021(34167, 768, 0);
         @Pc(39) float local39 = local9.aFloat67 / (float) local9.anInt3259;
@@ -1795,9 +1795,9 @@ public final class GlToolkit extends Toolkit {
         @Pc(91) float local91 = local53 * local72;
         @Pc(95) float local95 = local59 * local72;
         OpenGL.glBegin(OpenGL.GL_LINES);
-        OpenGL.glTexCoord2f((float) (x1 - offsetX) * local39, local46 * (float) (y1 - offsetY));
+        OpenGL.glTexCoord2f((float) (x1 - maskX) * local39, local46 * (float) (y1 - maskY));
         OpenGL.glVertex2f((float) x1 + 0.35F, (float) y1 + 0.35F);
-        OpenGL.glTexCoord2f(local39 * (float) (x2 - offsetX), local46 * (float) (y2 - offsetY));
+        OpenGL.glTexCoord2f(local39 * (float) (x2 - maskX), local46 * (float) (y2 - maskY));
         OpenGL.glVertex2f(local91 + (float) x2 + 0.35F, local95 + 0.35F + (float) y2);
         OpenGL.glEnd();
         this.method7021(5890, 768, 0);
@@ -1823,7 +1823,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Ljava/awt/Canvas;)V")
     @Override
-    public void method8019(@OriginalArg(0) Canvas arg0) {
+    public void setCanvas(@OriginalArg(0) Canvas arg0) {
         this.aLong246 = 0L;
         this.aCanvas11 = null;
         if (arg0 == null || arg0 == this.aCanvas10) {
@@ -2954,7 +2954,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "k", descriptor = "(I)V")
     @Override
-    public void method8020(@OriginalArg(0) int arg0) {
+    public void linkThreads(@OriginalArg(0) int arg0) {
         this.method6982();
     }
 

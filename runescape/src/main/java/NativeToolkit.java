@@ -501,7 +501,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "k", descriptor = "(I)V")
     @Override
-    public final void method8020(@OriginalArg(0) int arg0) {
+    public final void linkThreads(@OriginalArg(0) int arg0) {
     }
 
     @OriginalMember(owner = "client!am", name = "K", descriptor = "(I)V")
@@ -1080,7 +1080,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "u", descriptor = "()V")
     @Override
-    protected void method7987() {
+    protected void stop() {
         if (this.aBoolean687) {
             return;
         }
@@ -1654,7 +1654,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Ljava/awt/Canvas;)V")
     @Override
-    public final void method8019(@OriginalArg(0) Canvas arg0) {
+    public final void setCanvas(@OriginalArg(0) Canvas arg0) {
         this.anObject15 = null;
         this.aCanvas12 = null;
         if (arg0 == null || this.aCanvas13 == arg0) {
@@ -1805,7 +1805,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "j", descriptor = "(I)V")
     @Override
-    public final void method7956(@OriginalArg(0) int arg0) {
+    public final void allocateThreads(@OriginalArg(0) int arg0) {
         if (arg0 != 1) {
             throw new IllegalArgumentException("");
         }
@@ -2288,7 +2288,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public final void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public final void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         if (arg0 == this.aCanvas13) {
             throw new RuntimeException();
         } else if (!this.aHashtable6.containsKey(arg0)) {
@@ -2418,7 +2418,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public final void method7965(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int offsetX, @OriginalArg(8) int offsetY) {
+    public final void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
     }
 
     @OriginalMember(owner = "client!am", name = "Q", descriptor = "(I)V")

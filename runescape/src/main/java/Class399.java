@@ -40,7 +40,7 @@ public final class Class399 {
     public int anInt10600 = 0;
 
     @OriginalMember(owner = "client!wf", name = "M", descriptor = "Lclient!eaa;")
-    public final Matrix_Sub2 aClass73_Sub2_3 = new Matrix_Sub2();
+    public final JavaMatrix aClass73_Sub2_3 = new JavaMatrix();
 
     @OriginalMember(owner = "client!wf", name = "h", descriptor = "[I")
     public final int[] anIntArray842 = new int[8];
@@ -126,7 +126,7 @@ public final class Class399 {
     @OriginalMember(owner = "client!wf", name = "<init>", descriptor = "(Lclient!iaa;)V")
     public Class399(@OriginalArg(0) JavaToolkit arg0) {
         this.aClass19_Sub2_12 = arg0;
-        this.anInt10601 = this.aClass19_Sub2_12.anInt4199 - 255;
+        this.anInt10601 = this.aClass19_Sub2_12.zFar - 255;
         this.aClass219_2 = new Class219(arg0, this);
         for (@Pc(135) int local135 = 0; local135 < 7; local135++) {
             this.aClass114_Sub3Array4[local135] = new Model_Sub3(this.aClass19_Sub2_12);

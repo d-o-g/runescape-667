@@ -66,27 +66,27 @@ public final class Font_Sub3 extends Font {
         @Pc(49) int local49 = 0;
         @Pc(51) int local51 = 0;
         @Pc(62) int local62;
-        if (y < this.aClass19_Sub2_4.anInt4186) {
-            local62 = this.aClass19_Sub2_4.anInt4186 - y;
+        if (y < this.aClass19_Sub2_4.clipY1) {
+            local62 = this.aClass19_Sub2_4.clipY1 - y;
             local33 -= local62;
-            y = this.aClass19_Sub2_4.anInt4186;
+            y = this.aClass19_Sub2_4.clipY1;
             local51 = local62 * local28;
             local43 += local62 * local37;
         }
-        if (y + local33 > this.aClass19_Sub2_4.anInt4196) {
-            local33 -= y + local33 - this.aClass19_Sub2_4.anInt4196;
+        if (y + local33 > this.aClass19_Sub2_4.clipY2) {
+            local33 -= y + local33 - this.aClass19_Sub2_4.clipY2;
         }
-        if (x < this.aClass19_Sub2_4.anInt4192) {
-            local62 = this.aClass19_Sub2_4.anInt4192 - x;
+        if (x < this.aClass19_Sub2_4.clipX1) {
+            local62 = this.aClass19_Sub2_4.clipX1 - x;
             local28 -= local62;
-            x = this.aClass19_Sub2_4.anInt4192;
+            x = this.aClass19_Sub2_4.clipX1;
             local51 += local62;
             local43 += local62;
             local49 = local62;
             local47 += local62;
         }
-        if (x + local28 > this.aClass19_Sub2_4.anInt4200) {
-            local62 = x + local28 - this.aClass19_Sub2_4.anInt4200;
+        if (x + local28 > this.aClass19_Sub2_4.clipX2) {
+            local62 = x + local28 - this.aClass19_Sub2_4.clipX2;
             local28 -= local62;
             local49 += local62;
             local47 += local62;
@@ -186,10 +186,10 @@ public final class Font_Sub3 extends Font {
 
     @OriginalMember(owner = "client!ib", name = "a", descriptor = "([B[I[IIIIIIIIIIILclient!aa;II)V")
     public void method3823(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) ClippingMask arg13, @OriginalArg(14) int arg14, @OriginalArg(15) int arg15) {
-        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) arg13;
-        @Pc(5) int[] local5 = local2.anIntArray334;
-        @Pc(8) int[] local8 = local2.anIntArray335;
-        @Pc(14) int local14 = arg10 - this.aClass19_Sub2_4.anInt4192;
+        @Pc(2) JavaClippingMask local2 = (JavaClippingMask) arg13;
+        @Pc(5) int[] local5 = local2.lineOffsets;
+        @Pc(8) int[] local8 = local2.lineWidths;
+        @Pc(14) int local14 = arg10 - this.aClass19_Sub2_4.clipX1;
         @Pc(16) int local16 = arg11;
         if (arg15 > arg11) {
             local16 = arg15;
@@ -242,10 +242,10 @@ public final class Font_Sub3 extends Font {
 
     @OriginalMember(owner = "client!ib", name = "a", descriptor = "([B[IIIIIIIIIIILclient!aa;II)V")
     public void method3824(@OriginalArg(0) byte[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) ClippingMask arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14) {
-        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) arg12;
-        @Pc(5) int[] local5 = local2.anIntArray334;
-        @Pc(8) int[] local8 = local2.anIntArray335;
-        @Pc(14) int local14 = arg9 - this.aClass19_Sub2_4.anInt4192;
+        @Pc(2) JavaClippingMask local2 = (JavaClippingMask) arg12;
+        @Pc(5) int[] local5 = local2.lineOffsets;
+        @Pc(8) int[] local8 = local2.lineWidths;
+        @Pc(14) int local14 = arg9 - this.aClass19_Sub2_4.clipX1;
         @Pc(16) int local16 = arg10;
         if (arg14 > arg10) {
             local16 = arg14;
@@ -308,27 +308,27 @@ public final class Font_Sub3 extends Font {
         @Pc(39) int local39 = 0;
         @Pc(41) int local41 = 0;
         @Pc(52) int local52;
-        if (y < this.aClass19_Sub2_4.anInt4186) {
-            local52 = this.aClass19_Sub2_4.anInt4186 - y;
+        if (y < this.aClass19_Sub2_4.clipY1) {
+            local52 = this.aClass19_Sub2_4.clipY1 - y;
             local23 -= local52;
-            y = this.aClass19_Sub2_4.anInt4186;
+            y = this.aClass19_Sub2_4.clipY1;
             local41 += local52 * local18;
             local33 += local52 * local27;
         }
-        if (y + local23 > this.aClass19_Sub2_4.anInt4196) {
-            local23 -= y + local23 - this.aClass19_Sub2_4.anInt4196;
+        if (y + local23 > this.aClass19_Sub2_4.clipY2) {
+            local23 -= y + local23 - this.aClass19_Sub2_4.clipY2;
         }
-        if (x < this.aClass19_Sub2_4.anInt4192) {
-            local52 = this.aClass19_Sub2_4.anInt4192 - x;
+        if (x < this.aClass19_Sub2_4.clipX1) {
+            local52 = this.aClass19_Sub2_4.clipX1 - x;
             local18 -= local52;
-            x = this.aClass19_Sub2_4.anInt4192;
+            x = this.aClass19_Sub2_4.clipX1;
             local41 += local52;
             local33 += local52;
             local39 += local52;
             local37 += local52;
         }
-        if (x + local18 > this.aClass19_Sub2_4.anInt4200) {
-            local52 = x + local18 - this.aClass19_Sub2_4.anInt4200;
+        if (x + local18 > this.aClass19_Sub2_4.clipX2) {
+            local52 = x + local18 - this.aClass19_Sub2_4.clipX2;
             local18 -= local52;
             local39 += local52;
             local37 += local52;

@@ -48,16 +48,16 @@ public final class JavaToolkit extends Toolkit {
     }
 
     @OriginalMember(owner = "client!iaa", name = "pb", descriptor = "I")
-    public int anInt4183;
+    public int canvasWidth;
 
     @OriginalMember(owner = "client!iaa", name = "mb", descriptor = "Ljava/awt/Canvas;")
-    public Canvas aCanvas3;
+    public Canvas canvas;
 
     @OriginalMember(owner = "client!iaa", name = "Q", descriptor = "Lclient!cda;")
-    public Node_Sub10 aClass2_Sub10_1;
+    public Node_Sub10 activeSurface;
 
     @OriginalMember(owner = "client!iaa", name = "gb", descriptor = "I")
-    public int anInt4185;
+    public int canvasHeight;
 
     @OriginalMember(owner = "client!iaa", name = "A", descriptor = "I")
     public int anInt4189;
@@ -126,16 +126,16 @@ public final class JavaToolkit extends Toolkit {
     public Sprite aSprite_17;
 
     @OriginalMember(owner = "client!iaa", name = "F", descriptor = "Z")
-    public boolean aBoolean331;
+    public boolean stopped;
 
     @OriginalMember(owner = "client!iaa", name = "u", descriptor = "Z")
-    public boolean aBoolean330;
+    public boolean colourTables;
 
     @OriginalMember(owner = "client!iaa", name = "N", descriptor = "Lclient!av;")
-    public IterableHashTable aIterableHashTable_20;
+    public IterableHashTable surfaces;
 
     @OriginalMember(owner = "client!iaa", name = "L", descriptor = "I")
-    public int anInt4186;
+    public int clipY1;
 
     @OriginalMember(owner = "client!iaa", name = "C", descriptor = "I")
     public int projectionScaleY;
@@ -144,28 +144,28 @@ public final class JavaToolkit extends Toolkit {
     public int anInt4202;
 
     @OriginalMember(owner = "client!iaa", name = "Z", descriptor = "I")
-    public int anInt4200;
+    public int clipX2;
 
     @OriginalMember(owner = "client!iaa", name = "B", descriptor = "I")
-    public int anInt4199;
+    public int zFar;
 
     @OriginalMember(owner = "client!iaa", name = "lb", descriptor = "I")
     public int textureSize;
 
     @OriginalMember(owner = "client!iaa", name = "y", descriptor = "I")
-    public int anInt4196;
+    public int clipY2;
 
     @OriginalMember(owner = "client!iaa", name = "D", descriptor = "I")
-    public int anInt4191;
+    public int sunIntensity;
 
     @OriginalMember(owner = "client!iaa", name = "V", descriptor = "I")
-    public int anInt4192;
+    public int clipX1;
 
     @OriginalMember(owner = "client!iaa", name = "bb", descriptor = "I")
-    public int anInt4187;
+    public int reverseSunIntensity;
 
     @OriginalMember(owner = "client!iaa", name = "U", descriptor = "Z")
-    public boolean aBoolean332;
+    public boolean shrinkTextures;
 
     @OriginalMember(owner = "client!iaa", name = "fb", descriptor = "I")
     public int anInt4212;
@@ -174,7 +174,7 @@ public final class JavaToolkit extends Toolkit {
     public int anInt4213;
 
     @OriginalMember(owner = "client!iaa", name = "X", descriptor = "I")
-    public int anInt4214;
+    public int zNear;
 
     @OriginalMember(owner = "client!iaa", name = "ob", descriptor = "I")
     public int projectionScaleX;
@@ -189,41 +189,42 @@ public final class JavaToolkit extends Toolkit {
     public final ReferenceCache aReferenceCache_89;
 
     @OriginalMember(owner = "client!iaa", name = "db", descriptor = "Lclient!eaa;")
-    public Matrix_Sub2 aClass73_Sub2_1;
+    public JavaMatrix aClass73_Sub2_1;
 
     @OriginalMember(owner = "client!iaa", name = "eb", descriptor = "I")
     public int lastTickTime;
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Lclient!d;)V")
-    public JavaToolkit(@OriginalArg(0) TextureSource arg0) {
-        super(arg0);
-        this.aBoolean331 = false;
-        this.aBoolean330 = false;
-        this.aIterableHashTable_20 = new IterableHashTable(4);
-        this.anInt4186 = 0;
+    public JavaToolkit(@OriginalArg(0) TextureSource textureSource) {
+        super(textureSource);
+        this.stopped = false;
+        this.colourTables = false;
+        this.surfaces = new IterableHashTable(4);
+        this.clipY1 = 0;
         this.projectionScaleY = 512;
         this.anInt4202 = 75518;
-        this.anInt4200 = 0;
-        this.anInt4199 = 3500;
+        this.clipX2 = 0;
+        this.zFar = 3500;
         this.textureSize = 128;
-        this.anInt4196 = 0;
-        this.anInt4191 = 45823;
-        this.anInt4192 = 0;
-        this.anInt4187 = 78642;
-        this.aBoolean332 = false;
+        this.clipY2 = 0;
+        this.sunIntensity = 45823;
+        this.clipX1 = 0;
+        this.reverseSunIntensity = 78642;
+        this.shrinkTextures = false;
         this.anInt4212 = 0;
         this.anInt4213 = 0;
-        this.anInt4214 = 50;
+        this.zNear = 50;
         this.projectionScaleX = 512;
         this.aReferenceCache_88 = new ReferenceCache(16);
         this.anInt4215 = -1;
+
         try {
             this.aReferenceCache_89 = new ReferenceCache(256);
-            this.aClass73_Sub2_1 = new Matrix_Sub2();
-            this.method7956(1);
-            this.method8020(0);
+            this.aClass73_Sub2_1 = new JavaMatrix();
+            this.allocateThreads(1);
+            this.linkThreads(0);
             ColourUtils.init(true, true);
-            this.aBoolean330 = true;
+            this.colourTables = true;
             this.lastTickTime = (int) SystemTimer.safetime();
         } catch (@Pc(99) Throwable local99) {
             local99.printStackTrace();
@@ -233,11 +234,12 @@ public final class JavaToolkit extends Toolkit {
     }
 
     @OriginalMember(owner = "client!iaa", name = "<init>", descriptor = "(Ljava/awt/Canvas;Lclient!d;II)V")
-    public JavaToolkit(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this(arg1);
+    public JavaToolkit(@OriginalArg(0) Canvas canvas, @OriginalArg(1) TextureSource textureSource, @OriginalArg(2) int width, @OriginalArg(3) int height) {
+        this(textureSource);
+
         try {
-            this.method8022(arg0, arg2, arg3);
-            this.method8019(arg0);
+            this.addCanvas(canvas, width, height);
+            this.setCanvas(canvas);
         } catch (@Pc(12) Throwable local12) {
             local12.printStackTrace();
             this.free();
@@ -247,27 +249,27 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "u", descriptor = "()V")
     @Override
-    protected void method7987() {
-        if (this.aBoolean330) {
+    protected void stop() {
+        if (this.colourTables) {
             ColourUtils.destroy(true, false);
-            this.aBoolean330 = false;
+            this.colourTables = false;
         }
-        this.aClass2_Sub10_1 = null;
-        this.aCanvas3 = null;
-        this.anInt4183 = 0;
-        this.anInt4185 = 0;
-        this.aIterableHashTable_20 = null;
-        this.aBoolean331 = true;
+        this.activeSurface = null;
+        this.canvas = null;
+        this.canvasWidth = 0;
+        this.canvasHeight = 0;
+        this.surfaces = null;
+        this.stopped = true;
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void method7965(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int offsetX, @OriginalArg(8) int offsetY) {
-        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) mask;
-        @Pc(5) int[] local5 = local2.anIntArray334;
-        @Pc(8) int[] local8 = local2.anIntArray335;
-        @Pc(18) int local18 = this.anInt4186 > offsetY ? this.anInt4186 : offsetY;
-        @Pc(34) int local34 = this.anInt4196 < offsetY + local5.length ? this.anInt4196 : offsetY + local5.length;
+    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
+        @Pc(2) JavaClippingMask javaMask = (JavaClippingMask) mask;
+        @Pc(5) int[] lineOffsets = javaMask.lineOffsets;
+        @Pc(8) int[] lineWidths = javaMask.lineWidths;
+        @Pc(18) int maxY = this.clipY1 > maskY ? this.clipY1 : maskY;
+        @Pc(34) int minY = this.clipY2 < maskY + lineOffsets.length ? this.clipY2 : maskY + lineOffsets.length;
         x2 -= x1;
         y2 -= y1;
         if (x2 + y2 < 0) {
@@ -276,103 +278,141 @@ public final class JavaToolkit extends Toolkit {
             y1 += y2;
             y2 = -y2;
         }
-        @Pc(85) int local85;
-        @Pc(118) int local118;
-        @Pc(136) int local136;
-        @Pc(140) int local140;
-        @Pc(154) int local154;
-        @Pc(242) int local242;
-        @Pc(261) int local261;
-        @Pc(266) int local266;
-        @Pc(215) int local215;
-        if (x2 <= y2) {
+
+        if (x2 > y2) {
+            y1 <<= 0x10;
+            y1 += 32768;
+
+            @Pc(75) int shiftedY2 = y2 << 16;
+            @Pc(85) int deltaY = (int) Math.floor((double) shiftedY2 / (double) x2 + 0.5D);
+
+            x2 += x1;
+
+            if (x1 < this.clipX1) {
+                y1 += deltaY * (this.clipX1 - x1);
+                x1 = this.clipX1;
+            }
+            if (x2 >= this.clipX2) {
+                x2 = this.clipX2 - 1;
+            }
+
+            @Pc(118) int alpha = colour >>> 24;
+            if (alpha == 255 && (mode == 0 || mode == 1)) {
+                while (x1 <= x2) {
+                    @Pc(136) int local136 = y1 >> 16;
+                    @Pc(140) int local140 = local136 - maskY;
+                    if (local136 >= maxY && local136 < minY) {
+                        @Pc(154) int local154 = maskX + lineOffsets[local140];
+                        if (x1 >= local154 && x1 < local154 + lineWidths[local140]) {
+                            this.anIntArray319[x1 + local136 * this.anInt4207] = colour;
+                        }
+                    }
+                    y1 += deltaY;
+                    x1++;
+                }
+                return;
+            }
+            if (mode == 1) {
+                @Pc(215) int local215 = ((colour & 0xFF00FF) * alpha >> 8 & 0xFF00FF) + ((colour & 0xFF00) * alpha >> 8 & 0xFF00) + (alpha << 24);
+                @Pc(136) int local136 = 256 - alpha;
+                while (x1 <= x2) {
+                    @Pc(140) int local140 = y1 >> 16;
+                    @Pc(154) int local154 = local140 - maskY;
+                    if (local140 >= maxY && local140 < minY) {
+                        @Pc(242) int local242 = maskX + lineOffsets[local154];
+                        if (x1 >= local242 && x1 < local242 + lineWidths[local154]) {
+                            @Pc(261) int local261 = x1 + local140 * this.anInt4207;
+                            @Pc(266) int local266 = this.anIntArray319[local261];
+                            local266 = ((local266 & 0xFF00FF) * local136 >> 8 & 0xFF00FF) + ((local266 & 0xFF00) * local136 >> 8 & 0xFF00);
+                            this.anIntArray319[local261] = local215 + local266;
+                        }
+                    }
+                    y1 += deltaY;
+                    x1++;
+                }
+                return;
+            }
+            if (mode == 2) {
+                while (x1 <= x2) {
+                    @Pc(140) int local140 = y1 >> 16;
+                    @Pc(154) int local154 = local140 - maskY;
+                    if (local140 >= maxY && local140 < minY) {
+                        @Pc(242) int local242 = maskX + lineOffsets[local154];
+                        if (x1 >= local242 && x1 < local242 + lineWidths[local154]) {
+                            @Pc(261) int local261 = x1 + local140 * this.anInt4207;
+                            @Pc(266) int local266 = this.anIntArray319[local261];
+                            @Pc(629) int local629 = colour + local266;
+                            int i_27_ = (colour & 0xff00ff) + (local266 & 0xff00ff);
+                            local266 = (i_27_ & 0x1000100) + (local629 - i_27_ & 0x10000);
+                            this.anIntArray319[local261] = local629 - local266 | local266 - (local266 >>> 8);
+                        }
+                    }
+                    y1 += deltaY;
+                    x1++;
+                }
+                return;
+            }
+            throw new IllegalArgumentException();
+        } else {
             x1 <<= 0x10;
             x1 += 32768;
             @Pc(415) int local415 = x2 << 16;
-            local85 = (int) Math.floor((double) local415 / (double) y2 + 0.5D);
+            @Pc(85) int local85 = (int) Math.floor((double) local415 / (double) y2 + 0.5D);
             y2 += y1;
-            if (y1 < local18) {
-                x1 += local85 * (local18 - y1);
-                y1 = local18;
+            if (y1 < maxY) {
+                x1 += local85 * (maxY - y1);
+                y1 = maxY;
             }
-            if (y2 >= local34) {
-                y2 = local34 - 1;
+            if (y2 >= minY) {
+                y2 = minY - 1;
             }
-            local118 = colour >>> 24;
-            if (local118 == 255 && true) {
+            @Pc(118) int local118 = colour >>> 24;
+            if (local118 == 255 && (mode == 0 || mode == 1)) {
                 while (y1 <= y2) {
-                    local136 = x1 >> 16;
-                    local140 = y1 - offsetY;
-                    local154 = offsetX + local5[local140];
-                    if (local136 >= this.anInt4192 && local136 < this.anInt4200 && local136 >= local154 && local136 < local154 + local8[local140]) {
+                    @Pc(136) int local136 = x1 >> 16;
+                    @Pc(140) int local140 = y1 - maskY;
+                    @Pc(154) int local154 = maskX + lineOffsets[local140];
+                    if (local136 >= this.clipX1 && local136 < this.clipX2 && local136 >= local154 && local136 < local154 + lineWidths[local140]) {
                         this.anIntArray319[local136 + y1 * this.anInt4207] = colour;
                     }
                     x1 += local85;
                     y1++;
                 }
-            } else {
-                local215 = ((colour & 0xFF00FF) * local118 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local118 >> 8 & 0xFF00) + (local118 << 24);
-                local136 = 256 - local118;
+            } else if (mode == 1) {
+                @Pc(215) int local215 = ((colour & 0xFF00FF) * local118 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local118 >> 8 & 0xFF00) + (local118 << 24);
+                @Pc(136) int local136 = 256 - local118;
                 while (y1 <= y2) {
-                    local140 = x1 >> 16;
-                    local154 = y1 - offsetY;
-                    local242 = offsetX + local5[local154];
-                    if (local140 >= this.anInt4192 && local140 < this.anInt4200 && local140 >= local242 && local140 < local242 + local8[local154]) {
-                        local261 = local140 + y1 * this.anInt4207;
-                        local266 = this.anIntArray319[local261];
+                    @Pc(140) int local140 = x1 >> 16;
+                    @Pc(154) int local154 = y1 - maskY;
+                    @Pc(242) int local242 = maskX + lineOffsets[local154];
+                    if (local140 >= this.clipX1 && local140 < this.clipX2 && local140 >= local242 && local140 < local242 + lineWidths[local154]) {
+                        @Pc(261) int local261 = local140 + y1 * this.anInt4207;
+                        @Pc(266) int local266 = this.anIntArray319[local261];
                         @Pc(629) int local629 = ((local266 & 0xFF00FF) * local136 >> 8 & 0xFF00FF) + ((local266 & 0xFF00) * local136 >> 8 & 0xFF00);
                         this.anIntArray319[local140 + y1 * this.anInt4207] = local215 + local629;
                     }
                     x1 += local85;
                     y1++;
                 }
-            }
-            return;
-        }
-        y1 <<= 0x10;
-        y1 += 32768;
-        @Pc(75) int local75 = y2 << 16;
-        local85 = (int) Math.floor((double) local75 / (double) x2 + 0.5D);
-        x2 += x1;
-        if (x1 < this.anInt4192) {
-            y1 += local85 * (this.anInt4192 - x1);
-            x1 = this.anInt4192;
-        }
-        if (x2 >= this.anInt4200) {
-            x2 = this.anInt4200 - 1;
-        }
-        local118 = colour >>> 24;
-        if (local118 == 255 && true) {
-            while (x1 <= x2) {
-                local136 = y1 >> 16;
-                local140 = local136 - offsetY;
-                if (local136 >= local18 && local136 < local34) {
-                    local154 = offsetX + local5[local140];
-                    if (x1 >= local154 && x1 < local154 + local8[local140]) {
-                        this.anIntArray319[x1 + local136 * this.anInt4207] = colour;
+            } else if (mode == 2) {
+                while (y1 <= y2) {
+                    @Pc(140) int local140 = x1 >> 16;
+                    @Pc(154) int local154 = y1 - maskY;
+                    @Pc(242) int local242 = maskX + lineOffsets[local154];
+                    if (local140 >= this.clipX1 && local140 < this.clipX2 && local140 >= local242 && local140 < local242 + lineWidths[local154]) {
+                        @Pc(261) int local261 = local140 + y1 * this.anInt4207;
+                        @Pc(266) int local266 = this.anIntArray319[local261];
+                        @Pc(629) int local629 = colour + local266;
+                        int i_45_ = (colour & 0xff00ff) + (local266 & 0xff00ff);
+                        local266 = (i_45_ & 0x1000100) + (local629 - i_45_ & 0x10000);
+                        this.anIntArray319[local140 + y1 * this.anInt4207] = local629 - local266 | local266 - (local266 >>> 8);
                     }
+                    x1 += local85;
+                    y1++;
                 }
-                y1 += local85;
-                x1++;
+            } else {
+                throw new IllegalArgumentException();
             }
-            return;
-        }
-        local215 = ((colour & 0xFF00FF) * local118 >> 8 & 0xFF00FF) + ((colour & 0xFF00) * local118 >> 8 & 0xFF00) + (local118 << 24);
-        local136 = 256 - local118;
-        while (x1 <= x2) {
-            local140 = y1 >> 16;
-            local154 = local140 - offsetY;
-            if (local140 >= local18 && local140 < local34) {
-                local242 = offsetX + local5[local154];
-                if (x1 >= local242 && x1 < local242 + local8[local154]) {
-                    local261 = x1 + local140 * this.anInt4207;
-                    local266 = this.anIntArray319[local261];
-                    local266 = ((local266 & 0xFF00FF) * local136 >> 8 & 0xFF00FF) + ((local266 & 0xFF00) * local136 >> 8 & 0xFF00);
-                    this.anIntArray319[local261] = local215 + local266;
-                }
-            }
-            y1 += local85;
-            x1++;
         }
     }
 
@@ -440,10 +480,10 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/awt/Canvas;)V")
     @Override
-    public void method8019(@OriginalArg(0) Canvas arg0) {
+    public void setCanvas(@OriginalArg(0) Canvas arg0) {
         if (arg0 == null) {
-            this.aCanvas3 = null;
-            this.aClass2_Sub10_1 = null;
+            this.canvas = null;
+            this.activeSurface = null;
             if (this.aClass87_1 == null) {
                 this.anIntArray319 = null;
                 this.anInt4207 = this.anInt4209 = 1;
@@ -452,15 +492,15 @@ public final class JavaToolkit extends Toolkit {
             }
             return;
         }
-        @Pc(10) Node_Sub10 local10 = (Node_Sub10) this.aIterableHashTable_20.get(arg0.hashCode());
+        @Pc(10) Node_Sub10 local10 = (Node_Sub10) this.surfaces.get(arg0.hashCode());
         if (local10 == null) {
             return;
         }
-        this.aCanvas3 = arg0;
+        this.canvas = arg0;
         @Pc(18) Dimension local18 = arg0.getSize();
-        this.anInt4183 = local18.width;
-        this.anInt4185 = local18.height;
-        this.aClass2_Sub10_1 = local10;
+        this.canvasWidth = local18.width;
+        this.canvasHeight = local18.height;
+        this.activeSurface = local10;
         if (this.aClass87_1 != null) {
             return;
         }
@@ -478,7 +518,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIIII)V")
     public void method3783(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
-        if (arg0 < this.anInt4192 || arg0 >= this.anInt4200) {
+        if (arg0 < this.clipX1 || arg0 >= this.clipX2) {
             return;
         }
         @Pc(18) int local18 = arg0 + arg1 * this.anInt4207;
@@ -489,7 +529,7 @@ public final class JavaToolkit extends Toolkit {
         if (local22 == 255 && true) {
             local44 = 0;
             while (local44 < arg2) {
-                if (arg1 + local44 >= this.anInt4186 && arg1 + local44 < this.anInt4196 && local30 < arg4) {
+                if (arg1 + local44 >= this.clipY1 && arg1 + local44 < this.clipY2 && local30 < arg4) {
                     this.anIntArray319[local18 + local44 * this.anInt4207] = arg3;
                 }
                 local44++;
@@ -502,7 +542,7 @@ public final class JavaToolkit extends Toolkit {
         local44 = 256 - local22;
         @Pc(120) int local120 = 0;
         while (local120 < arg2) {
-            if (arg1 + local120 >= this.anInt4186 && arg1 + local120 < this.anInt4196 && local30 < arg4) {
+            if (arg1 + local120 >= this.clipY1 && arg1 + local120 < this.clipY2 && local30 < arg4) {
                 @Pc(147) int local147 = local18 + local120 * this.anInt4207;
                 @Pc(152) int local152 = this.anIntArray319[local147];
                 @Pc(172) int local172 = ((local152 & 0xFF00FF) * local44 >> 8 & 0xFF00FF) + ((local152 & 0xFF00) * local44 >> 8 & 0xFF00);
@@ -520,7 +560,7 @@ public final class JavaToolkit extends Toolkit {
         @Pc(25) int local25;
         @Pc(31) int local31;
         @Pc(33) int local33;
-        if (this.anInt4192 == 0 && this.anInt4200 == this.anInt4207 && this.anInt4186 == 0 && this.anInt4196 == this.anInt4209) {
+        if (this.clipX1 == 0 && this.clipX2 == this.anInt4207 && this.clipY1 == 0 && this.clipY2 == this.anInt4209) {
             local25 = this.aFloatArray24.length;
             local31 = local25 - (local25 & 0x7);
             local33 = 0;
@@ -539,10 +579,10 @@ public final class JavaToolkit extends Toolkit {
             }
             return;
         }
-        local25 = this.anInt4200 - this.anInt4192;
-        local31 = this.anInt4196 - this.anInt4186;
+        local25 = this.clipX2 - this.clipX1;
+        local31 = this.clipY2 - this.clipY1;
         local33 = this.anInt4207 - local25;
-        @Pc(124) int local124 = this.anInt4192 + this.anInt4186 * this.anInt4207;
+        @Pc(124) int local124 = this.clipX1 + this.clipY1 * this.anInt4207;
         @Pc(128) int local128 = local25 >> 3;
         @Pc(132) int local132 = local25 & 0x7;
         local25 = local124 - 1;
@@ -613,10 +653,10 @@ public final class JavaToolkit extends Toolkit {
             @Pc(24) int local24 = local14.anInt7534 >> 12;
             @Pc(29) int local29 = local14.anInt7536 >> 12;
             @Pc(54) float local54 = this.aClass73_Sub2_1.aFloat62 + this.aClass73_Sub2_1.aFloat56 * (float) local19 + this.aClass73_Sub2_1.aFloat54 * (float) local24 + this.aClass73_Sub2_1.aFloat61 * (float) local29;
-            if (!(local54 < (float) this.anInt4214) && !(local54 > (float) local3.anInt10601)) {
+            if (!(local54 < (float) this.zNear) && !(local54 > (float) local3.anInt10601)) {
                 @Pc(106) int local106 = this.projectionCenterX + (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) local19 + this.aClass73_Sub2_1.aFloat55 * (float) local24 + this.aClass73_Sub2_1.aFloat53 * (float) local29) / (float) arg1);
                 @Pc(142) int local142 = this.projectionCenterY + (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) local19 + this.aClass73_Sub2_1.aFloat52 * (float) local24 + this.aClass73_Sub2_1.aFloat51 * (float) local29) / (float) arg1);
-                if (local106 >= this.anInt4192 && local106 <= this.anInt4200 && local142 >= this.anInt4186 && local142 <= this.anInt4196) {
+                if (local106 >= this.clipX1 && local106 <= this.clipX2 && local142 >= this.clipY1 && local142 <= this.clipY2) {
                     if (local54 == 0.0F) {
                         local54 = 1.0F;
                     }
@@ -681,7 +721,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "g", descriptor = "()Z")
     public boolean method3785() {
-        return this.aBoolean331;
+        return this.stopped;
     }
 
     @OriginalMember(owner = "client!iaa", name = "za", descriptor = "(IIIII)V")
@@ -691,12 +731,12 @@ public final class JavaToolkit extends Toolkit {
             radius = -radius;
         }
         @Pc(8) int local8 = y - radius;
-        if (local8 < this.anInt4186) {
-            local8 = this.anInt4186;
+        if (local8 < this.clipY1) {
+            local8 = this.clipY1;
         }
         @Pc(21) int local21 = y + radius + 1;
-        if (local21 > this.anInt4196) {
-            local21 = this.anInt4196;
+        if (local21 > this.clipY2) {
+            local21 = this.clipY2;
         }
         @Pc(30) int local30 = local8;
         @Pc(34) int local34 = radius * radius;
@@ -719,12 +759,12 @@ public final class JavaToolkit extends Toolkit {
                     local48 += local36++ + local36;
                 }
                 local98 = x + 1 - local36;
-                if (local98 < this.anInt4192) {
-                    local98 = this.anInt4192;
+                if (local98 < this.clipX1) {
+                    local98 = this.clipX1;
                 }
                 local109 = x + local36;
-                if (local109 > this.anInt4200) {
-                    local109 = this.anInt4200;
+                if (local109 > this.clipX2) {
+                    local109 = this.clipX2;
                 }
                 local123 = local98 + local30 * this.anInt4207;
                 for (local125 = local98; local125 < local109; local125++) {
@@ -745,12 +785,12 @@ public final class JavaToolkit extends Toolkit {
                     local44 -= local36 + local36;
                 }
                 local98 = x - local36;
-                if (local98 < this.anInt4192) {
-                    local98 = this.anInt4192;
+                if (local98 < this.clipX1) {
+                    local98 = this.clipX1;
                 }
                 local109 = x + local36;
-                if (local109 > this.anInt4200 - 1) {
-                    local109 = this.anInt4200 - 1;
+                if (local109 > this.clipX2 - 1) {
+                    local109 = this.clipX2 - 1;
                 }
                 local123 = local98 + local30 * this.anInt4207;
                 for (local125 = local98; local125 <= local109; local125++) {
@@ -772,12 +812,12 @@ public final class JavaToolkit extends Toolkit {
                 local48 += local36++ + local36;
             }
             local109 = x + 1 - local36;
-            if (local109 < this.anInt4192) {
-                local109 = this.anInt4192;
+            if (local109 < this.clipX1) {
+                local109 = this.clipX1;
             }
             local123 = x + local36;
-            if (local123 > this.anInt4200) {
-                local123 = this.anInt4200;
+            if (local123 > this.clipX2) {
+                local123 = this.clipX2;
             }
             local125 = local109 + local30 * this.anInt4207;
             for (local346 = local109; local346 < local123; local346++) {
@@ -800,12 +840,12 @@ public final class JavaToolkit extends Toolkit {
                 local44 -= local36 + local36;
             }
             local109 = x - local36;
-            if (local109 < this.anInt4192) {
-                local109 = this.anInt4192;
+            if (local109 < this.clipX1) {
+                local109 = this.clipX1;
             }
             local123 = x + local36;
-            if (local123 > this.anInt4200 - 1) {
-                local123 = this.anInt4200 - 1;
+            if (local123 > this.clipX2 - 1) {
+                local123 = this.clipX2 - 1;
             }
             local125 = local109 + local30 * this.anInt4207;
             for (local346 = local109; local346 <= local123; local346++) {
@@ -844,21 +884,21 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "aa", descriptor = "(IIIIII)V")
     @Override
     public void aa(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
-        if (x < this.anInt4192) {
-            width -= this.anInt4192 - x;
-            x = this.anInt4192;
+        if (x < this.clipX1) {
+            width -= this.clipX1 - x;
+            x = this.clipX1;
         }
-        if (y < this.anInt4186) {
-            height -= this.anInt4186 - y;
-            y = this.anInt4186;
+        if (y < this.clipY1) {
+            height -= this.clipY1 - y;
+            y = this.clipY1;
         }
-        if (x + width > this.anInt4200) {
-            width = this.anInt4200 - x;
+        if (x + width > this.clipX2) {
+            width = this.clipX2 - x;
         }
-        if (y + height > this.anInt4196) {
-            height = this.anInt4196 - y;
+        if (y + height > this.clipY2) {
+            height = this.clipY2 - y;
         }
-        if (width <= 0 || height <= 0 || x > this.anInt4200 || y > this.anInt4196) {
+        if (width <= 0 || height <= 0 || x > this.clipX2 || y > this.clipY2) {
             return;
         }
         @Pc(74) int local74 = this.anInt4207 - width;
@@ -943,20 +983,20 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aIterableHashTable_20.get(arg0.hashCode());
+        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.surfaces.get(arg0.hashCode());
         if (local8 == null) {
             return;
         }
         local8.unlink();
         local8 = Static538.method7192(arg2, arg0, arg1);
-        this.aIterableHashTable_20.put(arg0.hashCode(), local8);
-        if (this.aCanvas3 != arg0 || this.aClass87_1 != null) {
+        this.surfaces.put(arg0.hashCode(), local8);
+        if (this.canvas != arg0 || this.aClass87_1 != null) {
             return;
         }
         @Pc(39) Dimension local39 = arg0.getSize();
-        this.anInt4183 = local39.width;
-        this.anInt4185 = local39.height;
-        this.aClass2_Sub10_1 = local8;
+        this.canvasWidth = local39.width;
+        this.canvasHeight = local39.height;
+        this.activeSurface = local8;
         this.anIntArray319 = local8.anIntArray567;
         this.anInt4207 = local8.anInt7053;
         this.anInt4209 = local8.anInt7050;
@@ -1013,7 +1053,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "XA", descriptor = "()I")
     @Override
     public int XA() {
-        return this.anInt4199;
+        return this.zFar;
     }
 
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(II)I")
@@ -1060,23 +1100,23 @@ public final class JavaToolkit extends Toolkit {
     @Override
     public void f(@OriginalArg(0) int near, @OriginalArg(1) int far) {
         @Pc(3) Class399 local3 = this.method3787(Thread.currentThread());
-        this.anInt4214 = near;
-        this.anInt4199 = far;
-        local3.anInt10601 = this.anInt4199 - 255;
+        this.zNear = near;
+        this.zFar = far;
+        local3.anInt10601 = this.zFar - 255;
     }
 
     @OriginalMember(owner = "client!iaa", name = "P", descriptor = "(IIIII)V")
     @Override
     public void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
-        if (x < this.anInt4192 || x >= this.anInt4200) {
+        if (x < this.clipX1 || x >= this.clipX2) {
             return;
         }
-        if (y < this.anInt4186) {
-            width -= this.anInt4186 - y;
-            y = this.anInt4186;
+        if (y < this.clipY1) {
+            width -= this.clipY1 - y;
+            y = this.clipY1;
         }
-        if (y + width > this.anInt4196) {
-            width = this.anInt4196 - y;
+        if (y + width > this.clipY2) {
+            width = this.clipY2 - y;
         }
         @Pc(43) int local43 = x + y * this.anInt4207;
         @Pc(47) int local47 = colour >>> 24;
@@ -1116,7 +1156,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Z)V")
     @Override
     public void method7997(@OriginalArg(0) boolean arg0) {
-        this.aBoolean332 = arg0;
+        this.shrinkTextures = arg0;
         this.aReferenceCache_89.reset();
     }
 
@@ -1144,15 +1184,15 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "U", descriptor = "(IIIII)V")
     @Override
     public void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
-        if (y < this.anInt4186 || y >= this.anInt4196) {
+        if (y < this.clipY1 || y >= this.clipY2) {
             return;
         }
-        if (x < this.anInt4192) {
-            height -= this.anInt4192 - x;
-            x = this.anInt4192;
+        if (x < this.clipX1) {
+            height -= this.clipX1 - x;
+            x = this.clipX1;
         }
-        if (x + height > this.anInt4200) {
-            height = this.anInt4200 - x;
+        if (x + height > this.clipX2) {
+            height = this.clipX2 - x;
         }
         @Pc(43) int local43 = x + y * this.anInt4207;
         @Pc(47) int local47 = colour >>> 24;
@@ -1189,8 +1229,8 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "ZA", descriptor = "(IFFFFF)V")
     @Override
     public void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
-        this.anInt4191 = (int) (arg1 * 65535.0F);
-        this.anInt4187 = (int) (arg2 * 65535.0F);
+        this.sunIntensity = (int) (arg1 * 65535.0F);
+        this.reverseSunIntensity = (int) (arg2 * 65535.0F);
         @Pc(26) float local26 = (float) Math.sqrt(arg3 * arg3 + arg4 * arg4 + arg5 * arg5);
         this.anInt4189 = (int) (arg3 * 65535.0F / local26);
         this.anInt4204 = (int) (arg4 * 65535.0F / local26);
@@ -1222,7 +1262,7 @@ public final class JavaToolkit extends Toolkit {
                     return null;
                 }
                 @Pc(36) TextureMetrics local36 = super.textureSource.getMetrics(arg0);
-                @Pc(50) int local50 = local36.small || this.aBoolean332 ? 64 : this.textureSize;
+                @Pc(50) int local50 = local36.small || this.shrinkTextures ? 64 : this.textureSize;
                 local14 = new Node_Sub29(arg0, local50, super.textureSource.argbOutput(0.7F, arg0, local50, local50), local36.alphaBlendMode != 1);
                 this.aReferenceCache_89.put(local14, (long) arg0 | Long.MIN_VALUE);
             }
@@ -1239,19 +1279,19 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "A", descriptor = "(ILclient!aa;II)V")
     @Override
     public void A(@OriginalArg(0) int colour, @OriginalArg(1) ClippingMask clippingMask, @OriginalArg(2) int x, @OriginalArg(3) int y) {
-        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) clippingMask;
-        @Pc(5) int[] local5 = local2.anIntArray334;
-        @Pc(8) int[] local8 = local2.anIntArray335;
+        @Pc(2) JavaClippingMask local2 = (JavaClippingMask) clippingMask;
+        @Pc(5) int[] local5 = local2.lineOffsets;
+        @Pc(8) int[] local8 = local2.lineWidths;
         @Pc(20) int local20;
-        if (this.anInt4196 < y + local5.length) {
-            local20 = this.anInt4196 - y;
+        if (this.clipY2 < y + local5.length) {
+            local20 = this.clipY2 - y;
         } else {
             local20 = local5.length;
         }
         @Pc(33) int local33;
-        if (this.anInt4186 > y) {
-            local33 = this.anInt4186 - y;
-            y = this.anInt4186;
+        if (this.clipY1 > y) {
+            local33 = this.clipY1 - y;
+            y = this.clipY1;
         } else {
             local33 = 0;
         }
@@ -1262,12 +1302,12 @@ public final class JavaToolkit extends Toolkit {
         for (@Pc(52) int local52 = local33; local52 < local20; local52++) {
             @Pc(59) int local59 = x + local5[local52];
             @Pc(63) int local63 = local8[local52];
-            if (this.anInt4192 > local59) {
-                local63 -= this.anInt4192 - local59;
-                local59 = this.anInt4192;
+            if (this.clipX1 > local59) {
+                local63 -= this.clipX1 - local59;
+                local59 = this.clipX1;
             }
-            if (this.anInt4200 < local59 + local63) {
-                local63 = this.anInt4200 - local59;
+            if (this.clipX2 < local59 + local63) {
+                local63 = this.clipX2 - local59;
             }
             local59 += local50;
             for (@Pc(95) int local95 = -local63; local95 < 0; local95++) {
@@ -1337,7 +1377,7 @@ public final class JavaToolkit extends Toolkit {
                 if (local182 == 255 && true) {
                     while (arg0 <= local243) {
                         local278 = arg1 >> 16;
-                        if (arg0 >= this.anInt4192 && arg0 < this.anInt4200 && local278 >= this.anInt4186 && local278 < this.anInt4196 && arg7 < local149) {
+                        if (arg0 >= this.clipX1 && arg0 < this.clipX2 && local278 >= this.clipY1 && local278 < this.clipY2 && arg7 < local149) {
                             this.anIntArray319[arg0 + local278 * this.anInt4207] = arg4;
                         }
                         arg1 += local178;
@@ -1350,7 +1390,7 @@ public final class JavaToolkit extends Toolkit {
                     local278 = 256 - local182;
                     while (arg0 <= local243) {
                         local371 = arg1 >> 16;
-                        if (arg0 >= this.anInt4192 && arg0 < this.anInt4200 && local371 >= this.anInt4186 && local371 < this.anInt4196 && arg7 < local149) {
+                        if (arg0 >= this.clipX1 && arg0 < this.clipX2 && local371 >= this.clipY1 && local371 < this.clipY2 && arg7 < local149) {
                             local405 = arg0 + local371 * this.anInt4207;
                             local410 = this.anIntArray319[local405];
                             local410 = ((local410 & 0xFF00FF) * local278 >> 8 & 0xFF00FF) + ((local410 & 0xFF00) * local278 >> 8 & 0xFF00);
@@ -1373,7 +1413,7 @@ public final class JavaToolkit extends Toolkit {
                 if (local182 == 255 && true) {
                     while (arg1 <= local229) {
                         local278 = arg0 >> 16;
-                        if (arg1 >= this.anInt4186 && arg1 < this.anInt4196 && local278 >= this.anInt4192 && local278 < this.anInt4200 && arg7 < local149) {
+                        if (arg1 >= this.clipY1 && arg1 < this.clipY2 && local278 >= this.clipX1 && local278 < this.clipX2 && arg7 < local149) {
                             this.anIntArray319[local278 + arg1 * this.anInt4207] = arg4;
                         }
                         arg0 += local178;
@@ -1386,7 +1426,7 @@ public final class JavaToolkit extends Toolkit {
                     local278 = 256 - local182;
                     while (arg1 <= local229) {
                         local371 = arg0 >> 16;
-                        if (arg1 >= this.anInt4186 && arg1 < this.anInt4196 && local371 >= this.anInt4192 && local371 < this.anInt4200 && arg7 < local149) {
+                        if (arg1 >= this.clipY1 && arg1 < this.clipY2 && local371 >= this.clipX1 && local371 < this.clipX2 && arg7 < local149) {
                             local405 = local371 + arg1 * this.anInt4207;
                             local410 = this.anIntArray319[local405];
                             @Pc(773) int local773 = ((local410 & 0xFF00FF) * local278 >> 8 & 0xFF00FF) + ((local410 & 0xFF00) * local278 >> 8 & 0xFF00);
@@ -1416,16 +1456,16 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "K", descriptor = "([I)V")
     @Override
     public void K(@OriginalArg(0) int[] destination) {
-        destination[0] = this.anInt4192;
-        destination[1] = this.anInt4186;
-        destination[2] = this.anInt4200;
-        destination[3] = this.anInt4196;
+        destination[0] = this.clipX1;
+        destination[1] = this.clipY1;
+        destination[2] = this.clipX2;
+        destination[3] = this.clipY2;
     }
 
     @OriginalMember(owner = "client!iaa", name = "i", descriptor = "()I")
     @Override
     public int i() {
-        return this.anInt4214;
+        return this.zNear;
     }
 
     @OriginalMember(owner = "client!iaa", name = "c", descriptor = "()Lclient!dp;")
@@ -1444,19 +1484,19 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     @Override
     public void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws FlipException {
-        if (this.aCanvas3 == null || this.aClass2_Sub10_1 == null) {
+        if (this.canvas == null || this.activeSurface == null) {
             throw new IllegalStateException("off");
         }
         try {
-            @Pc(19) Graphics local19 = this.aCanvas3.getGraphics();
+            @Pc(19) Graphics local19 = this.canvas.getGraphics();
             for (@Pc(21) int local21 = 0; local21 < count; local21++) {
                 @Pc(26) Rectangle local26 = rectangles[local21];
                 if (local26.x + x <= this.anInt4207 && local26.y + y <= this.anInt4209 && local26.x + x + local26.width > 0 && local26.y + y + local26.height > 0) {
-                    this.aClass2_Sub10_1.method6334(local26.width, local26.x + x, local26.x, local19, local26.height, local26.y, local26.y + y);
+                    this.activeSurface.method6334(local26.width, local26.x + x, local26.x, local19, local26.height, local26.y, local26.y + y);
                 }
             }
         } catch (@Pc(91) Exception local91) {
-            this.aCanvas3.repaint();
+            this.canvas.repaint();
         }
     }
 
@@ -1475,7 +1515,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "k", descriptor = "(I)V")
     @Override
-    public void method8020(@OriginalArg(0) int arg0) {
+    public void linkThreads(@OriginalArg(0) int arg0) {
         this.aClass399Array1[arg0].method9196(Thread.currentThread());
     }
 
@@ -1548,12 +1588,12 @@ public final class JavaToolkit extends Toolkit {
             arg3 = -arg3;
         }
         @Pc(8) int local8 = arg1 - arg3;
-        if (local8 < this.anInt4186) {
-            local8 = this.anInt4186;
+        if (local8 < this.clipY1) {
+            local8 = this.clipY1;
         }
         @Pc(21) int local21 = arg1 + arg3 + 1;
-        if (local21 > this.anInt4196) {
-            local21 = this.anInt4196;
+        if (local21 > this.clipY2) {
+            local21 = this.clipY2;
         }
         @Pc(30) int local30 = local8;
         @Pc(34) int local34 = arg3 * arg3;
@@ -1576,12 +1616,12 @@ public final class JavaToolkit extends Toolkit {
                     local48 += local36++ + local36;
                 }
                 local98 = arg0 + 1 - local36;
-                if (local98 < this.anInt4192) {
-                    local98 = this.anInt4192;
+                if (local98 < this.clipX1) {
+                    local98 = this.clipX1;
                 }
                 local109 = arg0 + local36;
-                if (local109 > this.anInt4200) {
-                    local109 = this.anInt4200;
+                if (local109 > this.clipX2) {
+                    local109 = this.clipX2;
                 }
                 local123 = local98 + local30 * this.anInt4207;
                 for (local125 = local98; local125 < local109; local125++) {
@@ -1605,12 +1645,12 @@ public final class JavaToolkit extends Toolkit {
                     local44 -= local36 + local36;
                 }
                 local98 = arg0 - local36;
-                if (local98 < this.anInt4192) {
-                    local98 = this.anInt4192;
+                if (local98 < this.clipX1) {
+                    local98 = this.clipX1;
                 }
                 local109 = arg0 + local36;
-                if (local109 > this.anInt4200 - 1) {
-                    local109 = this.anInt4200 - 1;
+                if (local109 > this.clipX2 - 1) {
+                    local109 = this.clipX2 - 1;
                 }
                 local123 = local98 + local30 * this.anInt4207;
                 for (local125 = local98; local125 <= local109; local125++) {
@@ -1636,12 +1676,12 @@ public final class JavaToolkit extends Toolkit {
                     local48 += local36++ + local36;
                 }
                 local109 = arg0 + 1 - local36;
-                if (local109 < this.anInt4192) {
-                    local109 = this.anInt4192;
+                if (local109 < this.clipX1) {
+                    local109 = this.clipX1;
                 }
                 local123 = arg0 + local36;
-                if (local123 > this.anInt4200) {
-                    local123 = this.anInt4200;
+                if (local123 > this.clipX2) {
+                    local123 = this.clipX2;
                 }
                 local125 = local109 + local30 * this.anInt4207;
                 for (local366 = local109; local366 < local123; local366++) {
@@ -1667,12 +1707,12 @@ public final class JavaToolkit extends Toolkit {
                     local44 -= local36 + local36;
                 }
                 local109 = arg0 - local36;
-                if (local109 < this.anInt4192) {
-                    local109 = this.anInt4192;
+                if (local109 < this.clipX1) {
+                    local109 = this.clipX1;
                 }
                 local123 = arg0 + local36;
-                if (local123 > this.anInt4200 - 1) {
-                    local123 = this.anInt4200 - 1;
+                if (local123 > this.clipX2 - 1) {
+                    local123 = this.clipX2 - 1;
                 }
                 local125 = local109 + local30 * this.anInt4207;
                 for (local366 = local109; local366 <= local123; local366++) {
@@ -1695,12 +1735,12 @@ public final class JavaToolkit extends Toolkit {
                     local48 += local36++ + local36;
                 }
                 local98 = arg0 + 1 - local36;
-                if (local98 < this.anInt4192) {
-                    local98 = this.anInt4192;
+                if (local98 < this.clipX1) {
+                    local98 = this.clipX1;
                 }
                 local109 = arg0 + local36;
-                if (local109 > this.anInt4200) {
-                    local109 = this.anInt4200;
+                if (local109 > this.clipX2) {
+                    local109 = this.clipX2;
                 }
                 local123 = local98 + local30 * this.anInt4207;
                 for (local125 = local98; local125 < local109; local125++) {
@@ -1728,12 +1768,12 @@ public final class JavaToolkit extends Toolkit {
                     local44 -= local36 + local36;
                 }
                 local98 = arg0 - local36;
-                if (local98 < this.anInt4192) {
-                    local98 = this.anInt4192;
+                if (local98 < this.clipX1) {
+                    local98 = this.clipX1;
                 }
                 local109 = arg0 + local36;
-                if (local109 > this.anInt4200 - 1) {
-                    local109 = this.anInt4200 - 1;
+                if (local109 > this.clipX2 - 1) {
+                    local109 = this.clipX2 - 1;
                 }
                 local123 = local98 + local30 * this.anInt4207;
                 for (local125 = local98; local125 <= local109; local125++) {
@@ -1770,17 +1810,17 @@ public final class JavaToolkit extends Toolkit {
         if (y2 > this.anInt4209) {
             y2 = this.anInt4209;
         }
-        this.anInt4192 = x1;
-        this.anInt4200 = x2;
-        this.anInt4186 = y1;
-        this.anInt4196 = y2;
+        this.clipX1 = x1;
+        this.clipX2 = x2;
+        this.clipY1 = y1;
+        this.clipY2 = y2;
         this.method3799();
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(II[I[I)Lclient!aa;")
     @Override
     public ClippingMask createMask(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) int[] offsets, @OriginalArg(3) int[] widths) {
-        return new ClippingMask_Sub1(width, height, offsets, widths);
+        return new JavaClippingMask(width, height, offsets, widths);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!pu;Lclient!pu;FLclient!pu;)Lclient!pu;")
@@ -1799,7 +1839,7 @@ public final class JavaToolkit extends Toolkit {
     @Override
     public void da(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
         @Pc(24) float local24 = this.aClass73_Sub2_1.aFloat62 + this.aClass73_Sub2_1.aFloat56 * (float) arg0 + this.aClass73_Sub2_1.aFloat54 * (float) arg1 + this.aClass73_Sub2_1.aFloat61 * (float) arg2;
-        if (local24 < (float) this.anInt4214 || local24 > (float) this.anInt4199) {
+        if (local24 < (float) this.zNear || local24 > (float) this.zFar) {
             arg3[0] = arg3[1] = arg3[2] = -1;
             return;
         }
@@ -1818,7 +1858,7 @@ public final class JavaToolkit extends Toolkit {
     @Override
     public void HA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int[] arg4) {
         @Pc(24) float local24 = this.aClass73_Sub2_1.aFloat62 + this.aClass73_Sub2_1.aFloat56 * (float) arg0 + this.aClass73_Sub2_1.aFloat54 * (float) arg1 + this.aClass73_Sub2_1.aFloat61 * (float) arg2;
-        if (local24 < (float) this.anInt4214 || local24 > (float) this.anInt4199) {
+        if (local24 < (float) this.zNear || local24 > (float) this.zFar) {
             arg4[0] = arg4[1] = arg4[2] = -1;
             return;
         }
@@ -1847,7 +1887,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "j", descriptor = "(I)V")
     @Override
-    public void method7956(@OriginalArg(0) int arg0) {
+    public void allocateThreads(@OriginalArg(0) int arg0) {
         this.anInt4211 = arg0;
         this.aClass399Array1 = new Class399[this.anInt4211];
         for (@Pc(9) int local9 = 0; local9 < this.anInt4211; local9++) {
@@ -1863,8 +1903,8 @@ public final class JavaToolkit extends Toolkit {
         if (this.anInt4211 > 1) {
             throw new IllegalStateException("No MT");
         }
-        this.method7956(this.anInt4211);
-        this.method8020(0);
+        this.allocateThreads(this.anInt4211);
+        this.linkThreads(0);
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "([IIIIIZ)Lclient!st;")
@@ -1982,17 +2022,17 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "T", descriptor = "(IIII)V")
     @Override
     public void T(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        if (this.anInt4192 < arg0) {
-            this.anInt4192 = arg0;
+        if (this.clipX1 < arg0) {
+            this.clipX1 = arg0;
         }
-        if (this.anInt4186 < arg1) {
-            this.anInt4186 = arg1;
+        if (this.clipY1 < arg1) {
+            this.clipY1 = arg1;
         }
-        if (this.anInt4200 > arg2) {
-            this.anInt4200 = arg2;
+        if (this.clipX2 > arg2) {
+            this.clipX2 = arg2;
         }
-        if (this.anInt4196 > arg3) {
-            this.anInt4196 = arg3;
+        if (this.clipY2 > arg3) {
+            this.clipY2 = arg3;
         }
         this.method3799();
     }
@@ -2067,9 +2107,9 @@ public final class JavaToolkit extends Toolkit {
         if (local57 < 1.0F) {
             local57 = 1.0F;
         }
-        if (local26 < (float) this.anInt4214 && local57 < (float) this.anInt4214) {
+        if (local26 < (float) this.zNear && local57 < (float) this.zNear) {
             local1 |= 0x10;
-        } else if (local26 > (float) this.anInt4199 && local57 > (float) this.anInt4199) {
+        } else if (local26 > (float) this.zFar && local57 > (float) this.zFar) {
             local1 |= 0x20;
         }
         @Pc(132) int local132 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2 + this.aClass73_Sub2_1.aFloat60) / local26);
@@ -2121,18 +2161,18 @@ public final class JavaToolkit extends Toolkit {
                 @Pc(100) int local100 = y2 << 16;
                 local110 = (int) Math.floor((double) local100 / (double) x2 + 0.5D);
                 x2 += x1;
-                if (x1 < this.anInt4192) {
-                    y1 += local110 * (this.anInt4192 - x1);
-                    x1 = this.anInt4192;
+                if (x1 < this.clipX1) {
+                    y1 += local110 * (this.clipX1 - x1);
+                    x1 = this.clipX1;
                 }
-                if (x2 >= this.anInt4200) {
-                    x2 = this.anInt4200 - 1;
+                if (x2 >= this.clipX2) {
+                    x2 = this.clipX2 - 1;
                 }
                 local143 = colour >>> 24;
                 if (mode == 0 || mode == 1 && local143 == 255) {
                     while (x1 <= x2) {
                         local161 = y1 >> 16;
-                        if (local161 >= this.anInt4186 && local161 < this.anInt4196) {
+                        if (local161 >= this.clipY1 && local161 < this.clipY2) {
                             this.anIntArray319[x1 + local161 * this.anInt4207] = colour;
                         }
                         y1 += local110;
@@ -2143,7 +2183,7 @@ public final class JavaToolkit extends Toolkit {
                     local161 = 256 - local143;
                     while (x1 <= x2) {
                         local229 = y1 >> 16;
-                        if (local229 >= this.anInt4186 && local229 < this.anInt4196) {
+                        if (local229 >= this.clipY1 && local229 < this.clipY2) {
                             local246 = x1 + local229 * this.anInt4207;
                             local251 = this.anIntArray319[local246];
                             local251 = ((local251 & 0xFF00FF) * local161 >> 8 & 0xFF00FF) + ((local251 & 0xFF00) * local161 >> 8 & 0xFF00);
@@ -2155,7 +2195,7 @@ public final class JavaToolkit extends Toolkit {
                 } else if (mode == 2) {
                     while (x1 <= x2) {
                         local161 = y1 >> 16;
-                        if (local161 >= this.anInt4186 && local161 < this.anInt4196) {
+                        if (local161 >= this.clipY1 && local161 < this.clipY2) {
                             local229 = x1 + local161 * this.anInt4207;
                             local246 = this.anIntArray319[local229];
                             local251 = colour + local246;
@@ -2175,18 +2215,18 @@ public final class JavaToolkit extends Toolkit {
                 @Pc(380) int local380 = x2 << 16;
                 local110 = (int) Math.floor((double) local380 / (double) y2 + 0.5D);
                 y2 += y1;
-                if (y1 < this.anInt4186) {
-                    x1 += local110 * (this.anInt4186 - y1);
-                    y1 = this.anInt4186;
+                if (y1 < this.clipY1) {
+                    x1 += local110 * (this.clipY1 - y1);
+                    y1 = this.clipY1;
                 }
-                if (y2 >= this.anInt4196) {
-                    y2 = this.anInt4196 - 1;
+                if (y2 >= this.clipY2) {
+                    y2 = this.clipY2 - 1;
                 }
                 local143 = colour >>> 24;
                 if (mode == 0 || mode == 1 && local143 == 255) {
                     while (y1 <= y2) {
                         local161 = x1 >> 16;
-                        if (local161 >= this.anInt4192 && local161 < this.anInt4200) {
+                        if (local161 >= this.clipX1 && local161 < this.clipX2) {
                             this.anIntArray319[local161 + y1 * this.anInt4207] = colour;
                         }
                         x1 += local110;
@@ -2197,7 +2237,7 @@ public final class JavaToolkit extends Toolkit {
                     local161 = 256 - local143;
                     while (y1 <= y2) {
                         local229 = x1 >> 16;
-                        if (local229 >= this.anInt4192 && local229 < this.anInt4200) {
+                        if (local229 >= this.clipX1 && local229 < this.clipX2) {
                             local246 = local229 + y1 * this.anInt4207;
                             local251 = this.anIntArray319[local246];
                             local251 = ((local251 & 0xFF00FF) * local161 >> 8 & 0xFF00FF) + ((local251 & 0xFF00) * local161 >> 8 & 0xFF00);
@@ -2209,7 +2249,7 @@ public final class JavaToolkit extends Toolkit {
                 } else if (mode == 2) {
                     while (y1 <= y2) {
                         local161 = x1 >> 16;
-                        if (local161 >= this.anInt4192 && local161 < this.anInt4200) {
+                        if (local161 >= this.clipX1 && local161 < this.clipX2) {
                             local229 = local161 + y1 * this.anInt4207;
                             local246 = this.anIntArray319[local229];
                             local251 = colour + local246;
@@ -2247,7 +2287,7 @@ public final class JavaToolkit extends Toolkit {
                     return null;
                 }
                 @Pc(34) TextureMetrics local34 = super.textureSource.getMetrics(arg0);
-                @Pc(48) int local48 = local34.small || this.aBoolean332 ? 64 : this.textureSize;
+                @Pc(48) int local48 = local34.small || this.shrinkTextures ? 64 : this.textureSize;
                 local12 = new Node_Sub29(arg0, local48, super.textureSource.rgbOutput(local48, true, local48, arg0, 0.7F), local34.alphaBlendMode != 1);
                 this.aReferenceCache_89.put(local12, arg0);
             }
@@ -2268,9 +2308,9 @@ public final class JavaToolkit extends Toolkit {
         @Pc(24) float local24 = this.aClass73_Sub2_1.aFloat56 * (float) arg0 + this.aClass73_Sub2_1.aFloat54 * (float) arg1 + this.aClass73_Sub2_1.aFloat61 * (float) arg2 + this.aClass73_Sub2_1.aFloat62;
         @Pc(49) float local49 = this.aClass73_Sub2_1.aFloat56 * (float) arg3 + this.aClass73_Sub2_1.aFloat54 * (float) arg4 + this.aClass73_Sub2_1.aFloat61 * (float) arg5 + this.aClass73_Sub2_1.aFloat62;
         @Pc(51) int local51 = 0;
-        if (local24 < (float) this.anInt4214 && local49 < (float) this.anInt4214) {
+        if (local24 < (float) this.zNear && local49 < (float) this.zNear) {
             local51 |= 0x10;
-        } else if (local24 > (float) this.anInt4199 && local49 > (float) this.anInt4199) {
+        } else if (local24 > (float) this.zFar && local49 > (float) this.zFar) {
             local51 |= 0x20;
         }
         @Pc(121) int local121 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2 + this.aClass73_Sub2_1.aFloat60) / (float) arg6);
@@ -2311,7 +2351,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(IIIIIIII)V")
     public void method3794(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
-        if (arg1 < this.anInt4186 || arg1 >= this.anInt4196) {
+        if (arg1 < this.clipY1 || arg1 >= this.clipY2) {
             return;
         }
         @Pc(18) int local18 = arg0 + arg1 * this.anInt4207;
@@ -2322,7 +2362,7 @@ public final class JavaToolkit extends Toolkit {
         if (local22 == 255 && true) {
             local44 = 0;
             while (local44 < arg2) {
-                if (arg0 + local44 >= this.anInt4192 && arg0 + local44 < this.anInt4200 && local30 < arg4) {
+                if (arg0 + local44 >= this.clipX1 && arg0 + local44 < this.clipX2 && local30 < arg4) {
                     this.anIntArray319[local18 + local44] = arg3;
                 }
                 local44++;
@@ -2335,7 +2375,7 @@ public final class JavaToolkit extends Toolkit {
         local44 = 256 - local22;
         @Pc(117) int local117 = 0;
         while (local117 < arg2) {
-            if (arg0 + local117 >= this.anInt4192 && arg0 + local117 < this.anInt4200 && local30 < arg4) {
+            if (arg0 + local117 >= this.clipX1 && arg0 + local117 < this.clipX2 && local30 < arg4) {
                 @Pc(144) int local144 = this.anIntArray319[local18 + local117];
                 @Pc(164) int local164 = ((local144 & 0xFF00FF) * local44 >> 8 & 0xFF00FF) + ((local144 & 0xFF00) * local44 >> 8 & 0xFF00);
                 this.anIntArray319[local18 + local117] = local111 + local164;
@@ -2349,14 +2389,14 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "e", descriptor = "(II)V")
     @Override
     public void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws FlipException {
-        if (this.aCanvas3 == null || this.aClass2_Sub10_1 == null) {
+        if (this.canvas == null || this.activeSurface == null) {
             throw new IllegalStateException("off");
         }
         try {
-            @Pc(19) Graphics local19 = this.aCanvas3.getGraphics();
-            this.aClass2_Sub10_1.method6334(this.anInt4183, x, 0, local19, this.anInt4185, 0, y);
+            @Pc(19) Graphics local19 = this.canvas.getGraphics();
+            this.activeSurface.method6334(this.canvasWidth, x, 0, local19, this.canvasHeight, 0, y);
         } catch (@Pc(34) Exception local34) {
-            this.aCanvas3.repaint();
+            this.canvas.repaint();
         }
     }
 
@@ -2420,23 +2460,23 @@ public final class JavaToolkit extends Toolkit {
         @Pc(26) int local26 = (arg6.length / arg7 << 16) / arg3;
         @Pc(33) int local33 = arg0 + arg1 * this.anInt4207;
         @Pc(38) int local38 = this.anInt4207 - arg2;
-        if (arg1 + arg3 > this.anInt4196) {
-            arg3 -= arg1 + arg3 - this.anInt4196;
+        if (arg1 + arg3 > this.clipY2) {
+            arg3 -= arg1 + arg3 - this.clipY2;
         }
         @Pc(62) int local62;
-        if (arg1 < this.anInt4186) {
-            local62 = this.anInt4186 - arg1;
+        if (arg1 < this.clipY1) {
+            local62 = this.clipY1 - arg1;
             arg3 -= local62;
             local33 += local62 * this.anInt4207;
             local11 += local26 * local62;
         }
-        if (arg0 + arg2 > this.anInt4200) {
-            local62 = arg0 + arg2 - this.anInt4200;
+        if (arg0 + arg2 > this.clipX2) {
+            local62 = arg0 + arg2 - this.clipX2;
             arg2 -= local62;
             local38 += local62;
         }
-        if (arg0 < this.anInt4192) {
-            local62 = this.anInt4192 - arg0;
+        if (arg0 < this.clipX1) {
+            local62 = this.clipX1 - arg0;
             arg2 -= local62;
             local33 += local62;
             local9 += local17 * local62;
@@ -2532,11 +2572,11 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
     public void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
-        @Pc(2) ClippingMask_Sub1 local2 = (ClippingMask_Sub1) mask;
-        @Pc(5) int[] local5 = local2.anIntArray334;
-        @Pc(8) int[] local8 = local2.anIntArray335;
-        @Pc(18) int local18 = this.anInt4186 > arg7 ? this.anInt4186 : arg7;
-        @Pc(34) int local34 = this.anInt4196 < arg7 + local5.length ? this.anInt4196 : arg7 + local5.length;
+        @Pc(2) JavaClippingMask local2 = (JavaClippingMask) mask;
+        @Pc(5) int[] local5 = local2.lineOffsets;
+        @Pc(8) int[] local8 = local2.lineWidths;
+        @Pc(18) int local18 = this.clipY1 > arg7 ? this.clipY1 : arg7;
+        @Pc(34) int local34 = this.clipY2 < arg7 + local5.length ? this.clipY2 : arg7 + local5.length;
         @Pc(38) int local38 = arg10 << 8;
         @Pc(42) int local42 = arg8 << 8;
         @Pc(46) int local46 = arg9 << 8;
@@ -2580,7 +2620,7 @@ public final class JavaToolkit extends Toolkit {
                 while (y1 <= local130) {
                     local179 = x1 >> 16;
                     local183 = y1 - arg7;
-                    if (y1 >= local18 && y1 < local34 && local179 >= this.anInt4192 && local179 < this.anInt4200 && arg10 < local42 && local179 >= arg6 + local5[local183] && local179 < arg6 + local5[local183] + local8[local183]) {
+                    if (y1 >= local18 && y1 < local34 && local179 >= this.clipX1 && local179 < this.clipX2 && arg10 < local42 && local179 >= arg6 + local5[local183] && local179 < arg6 + local5[local183] + local8[local183]) {
                         this.anIntArray319[local179 + y1 * this.anInt4207] = colour;
                     }
                     x1 += local79;
@@ -2594,7 +2634,7 @@ public final class JavaToolkit extends Toolkit {
                 while (y1 <= local130) {
                     local183 = x1 >> 16;
                     local214 = y1 - arg7;
-                    if (y1 >= local18 && y1 < local34 && local183 >= this.anInt4192 && local183 < this.anInt4200 && arg10 < local42 && local183 >= arg6 + local5[local214] && local183 < arg6 + local5[local214] + local8[local214]) {
+                    if (y1 >= local18 && y1 < local34 && local183 >= this.clipX1 && local183 < this.clipX2 && arg10 < local42 && local183 >= arg6 + local5[local214] && local183 < arg6 + local5[local214] + local8[local214]) {
                         local327 = local183 + y1 * this.anInt4207;
                         local346 = this.anIntArray319[local327];
                         @Pc(782) int local782 = ((local346 & 0xFF00FF) * local179 >> 8 & 0xFF00FF) + ((local346 & 0xFF00) * local179 >> 8 & 0xFF00);
@@ -2619,7 +2659,7 @@ public final class JavaToolkit extends Toolkit {
             while (x1 <= local144) {
                 local179 = y1 >> 16;
                 local183 = local179 - arg7;
-                if (x1 >= this.anInt4192 && x1 < this.anInt4200 && local179 >= local18 && local179 < local34 && arg10 < local42) {
+                if (x1 >= this.clipX1 && x1 < this.clipX2 && local179 >= local18 && local179 < local34 && arg10 < local42) {
                     local214 = arg6 + local5[local183];
                     if (x1 >= local214 && x1 < local214 + local8[local183]) {
                         this.anIntArray319[x1 + local179 * this.anInt4207] = colour;
@@ -2637,7 +2677,7 @@ public final class JavaToolkit extends Toolkit {
         while (x1 <= local144) {
             local183 = y1 >> 16;
             local214 = local183 - arg7;
-            if (x1 >= this.anInt4192 && x1 < this.anInt4200 && local183 >= local18 && local183 < local34 && arg10 < local42) {
+            if (x1 >= this.clipX1 && x1 < this.clipX2 && local183 >= local18 && local183 < local34 && arg10 < local42) {
                 local327 = arg6 + local5[local214];
                 if (x1 >= local327 && x1 < local327 + local8[local214]) {
                     local346 = x1 + local183 * this.anInt4207;
@@ -2697,7 +2737,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "v", descriptor = "()V")
     @Override
     public void restoreSurface() {
-        if (this.aCanvas3 == null) {
+        if (this.canvas == null) {
             this.anInt4207 = 1;
             this.anInt4209 = 1;
             this.anIntArray319 = null;
@@ -2705,9 +2745,9 @@ public final class JavaToolkit extends Toolkit {
             this.anInt4203 = 1;
             this.aFloatArray24 = null;
         } else {
-            this.anIntArray319 = this.aClass2_Sub10_1.anIntArray567;
-            this.anInt4207 = this.aClass2_Sub10_1.anInt7053;
-            this.anInt4209 = this.aClass2_Sub10_1.anInt7050;
+            this.anIntArray319 = this.activeSurface.anIntArray567;
+            this.anInt4207 = this.activeSurface.anInt7053;
+            this.anInt4209 = this.activeSurface.anInt7050;
             this.aFloatArray24 = this.aFloatArray25;
             this.anInt4190 = this.anInt4197;
             this.anInt4203 = this.anInt4195;
@@ -2790,16 +2830,16 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "la", descriptor = "()V")
     @Override
     public void la() {
-        this.anInt4192 = 0;
-        this.anInt4186 = 0;
-        this.anInt4200 = this.anInt4207;
-        this.anInt4196 = this.anInt4209;
+        this.clipX1 = 0;
+        this.clipY1 = 0;
+        this.clipX2 = this.anInt4207;
+        this.clipY2 = this.anInt4209;
         this.method3799();
     }
 
     @OriginalMember(owner = "client!iaa", name = "q", descriptor = "(I)Z")
     public boolean method3798(@OriginalArg(0) int arg0) {
-        return this.aBoolean332 || super.textureSource.getMetrics(arg0).small;
+        return this.shrinkTextures || super.textureSource.getMetrics(arg0).small;
     }
 
     @OriginalMember(owner = "client!iaa", name = "w", descriptor = "()Z")
@@ -2810,21 +2850,21 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "C", descriptor = "()V")
     public void method3799() {
-        this.anInt4210 = this.anInt4192 - this.projectionCenterX;
-        this.anInt4193 = this.anInt4200 - this.projectionCenterX;
-        this.anInt4208 = this.anInt4186 - this.projectionCenterY;
-        this.anInt4201 = this.anInt4196 - this.projectionCenterY;
+        this.anInt4210 = this.clipX1 - this.projectionCenterX;
+        this.anInt4193 = this.clipX2 - this.projectionCenterX;
+        this.anInt4208 = this.clipY1 - this.projectionCenterY;
+        this.anInt4201 = this.clipY2 - this.projectionCenterY;
         for (@Pc(29) int local29 = 0; local29 < this.anInt4211; local29++) {
             @Pc(36) Class219 local36 = this.aClass399Array1[local29].aClass219_2;
-            local36.anInt5723 = this.projectionCenterX - this.anInt4192;
-            local36.anInt5721 = this.projectionCenterY - this.anInt4186;
-            local36.anInt5725 = this.anInt4200 - this.anInt4192;
-            local36.anInt5726 = this.anInt4196 - this.anInt4186;
+            local36.anInt5723 = this.projectionCenterX - this.clipX1;
+            local36.anInt5721 = this.projectionCenterY - this.clipY1;
+            local36.anInt5725 = this.clipX2 - this.clipX1;
+            local36.anInt5726 = this.clipY2 - this.clipY1;
         }
-        @Pc(78) int local78 = this.anInt4186 * this.anInt4207 + this.anInt4192;
-        for (@Pc(81) int local81 = this.anInt4186; local81 < this.anInt4196; local81++) {
+        @Pc(78) int local78 = this.clipY1 * this.anInt4207 + this.clipX1;
+        for (@Pc(81) int local81 = this.clipY1; local81 < this.clipY2; local81++) {
             for (@Pc(84) int local84 = 0; local84 < this.anInt4211; local84++) {
-                this.aClass399Array1[local84].aClass219_2.anIntArray439[local81 - this.anInt4186] = local78;
+                this.aClass399Array1[local84].aClass219_2.anIntArray439[local81 - this.clipY1] = local78;
             }
             local78 += this.anInt4207;
         }
@@ -2832,11 +2872,11 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.aIterableHashTable_20.get(arg0.hashCode());
+    public void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+        @Pc(8) Node_Sub10 local8 = (Node_Sub10) this.surfaces.get(arg0.hashCode());
         if (local8 == null) {
             local8 = Static538.method7192(arg2, arg0, arg1);
-            this.aIterableHashTable_20.put(arg0.hashCode(), local8);
+            this.surfaces.put(arg0.hashCode(), local8);
         } else if (local8.anInt7053 != arg1 || local8.anInt7050 != arg2) {
             this.method7935(arg0, arg1, arg2);
         }
@@ -2845,7 +2885,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
     public void setCamera(@OriginalArg(0) Matrix matrix) {
-        this.aClass73_Sub2_1 = (Matrix_Sub2) matrix;
+        this.aClass73_Sub2_1 = (JavaMatrix) matrix;
     }
 
     @OriginalMember(owner = "client!iaa", name = "na", descriptor = "(IIII)[I")
@@ -2873,10 +2913,10 @@ public final class JavaToolkit extends Toolkit {
             @Pc(24) int local24 = local14.anInt7534 >> 12;
             @Pc(29) int local29 = local14.anInt7536 >> 12;
             @Pc(54) float local54 = this.aClass73_Sub2_1.aFloat62 + this.aClass73_Sub2_1.aFloat56 * (float) local19 + this.aClass73_Sub2_1.aFloat54 * (float) local24 + this.aClass73_Sub2_1.aFloat61 * (float) local29;
-            if (!(local54 < (float) this.anInt4214) && !(local54 > (float) local3.anInt10601)) {
+            if (!(local54 < (float) this.zNear) && !(local54 > (float) local3.anInt10601)) {
                 @Pc(105) int local105 = this.projectionCenterX + (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) local19 + this.aClass73_Sub2_1.aFloat55 * (float) local24 + this.aClass73_Sub2_1.aFloat53 * (float) local29) / local54);
                 @Pc(140) int local140 = this.projectionCenterY + (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) local19 + this.aClass73_Sub2_1.aFloat52 * (float) local24 + this.aClass73_Sub2_1.aFloat51 * (float) local29) / local54);
-                if (local105 >= this.anInt4192 && local105 <= this.anInt4200 && local140 >= this.anInt4186 && local140 <= this.anInt4196) {
+                if (local105 >= this.clipX1 && local105 <= this.clipX2 && local140 >= this.clipY1 && local140 <= this.clipY2) {
                     if (local54 == 0.0F) {
                         local54 = 1.0F;
                     }
@@ -2895,10 +2935,10 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(Ljava/awt/Canvas;)V")
     @Override
     public void method7972(@OriginalArg(0) Canvas arg0) {
-        if (this.aCanvas3 == arg0) {
-            this.method8019(null);
+        if (this.canvas == arg0) {
+            this.setCanvas(null);
         }
-        @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.aIterableHashTable_20.get(arg0.hashCode());
+        @Pc(17) Node_Sub10 local17 = (Node_Sub10) this.surfaces.get(arg0.hashCode());
         if (local17 != null) {
             local17.unlink();
         }
@@ -2916,7 +2956,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "y", descriptor = "()Lclient!tt;")
     @Override
     public Matrix createMatrix() {
-        return new Matrix_Sub2();
+        return new JavaMatrix();
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(I)Lclient!za;")

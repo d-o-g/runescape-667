@@ -108,7 +108,7 @@ public final class Ground_Sub3 extends Ground {
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(III[[ZZI)V")
     @Override
     public void method7870(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5) {
-        @Pc(3) Matrix_Sub2 local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
+        @Pc(3) JavaMatrix local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
         this.anInt8145 = -1;
         this.aFloat170 = local3.aFloat59;
         this.aFloat167 = local3.aFloat55;
@@ -172,7 +172,7 @@ public final class Ground_Sub3 extends Ground {
                 local42 = local6.aShortArray117[local26];
                 local52 = local6.aShortArray113[local26] + (arg1 << super.anInt8895);
                 local73 = this.aFloat173 + this.aFloat164 * (float) local37 + this.aFloat172 * (float) local42 + this.aFloat165 * (float) local52;
-                if (local73 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                if (local73 <= (float) this.aClass19_Sub2_8.zNear) {
                     return;
                 }
                 arg8[local26] = 0;
@@ -934,7 +934,7 @@ public final class Ground_Sub3 extends Ground {
                         local2253 = local2204.aShortArray33[local480];
                         local60 = local2204.aShortArray38[local480] + (arg1 << super.anInt8895);
                         local2284 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local2253 + this.aFloat165 * (float) local60;
-                        if (local2284 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                        if (local2284 <= (float) this.aClass19_Sub2_8.zNear) {
                             return;
                         }
                         local2314 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local2253 + this.aFloat162 * (float) local60;
@@ -1077,19 +1077,19 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(804) int local804 = super.tileHeights[arg0][arg1 + 1];
                 if (this.anInt8145 == -1) {
                     local99 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local72 + this.aFloat165 * (float) local55;
-                    if (local99 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local99 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local125 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local784 + this.aFloat165 * (float) local55;
-                    if (local125 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local125 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local151 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local795 + this.aFloat165 * (float) local60;
-                    if (local151 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local151 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local177 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local804 + this.aFloat165 * (float) local60;
-                    if (local177 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local177 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local72 + this.aFloat162 * (float) local55;
@@ -1135,19 +1135,19 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(78) float local78 = this.aFloat172 * (float) local72;
                 if (this.anInt8145 == -1) {
                     local99 = this.aFloat173 + this.aFloat164 * (float) local45 + local78 + this.aFloat165 * (float) local55;
-                    if (local99 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local99 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local125 = this.aFloat173 + this.aFloat164 * (float) local50 + local78 + this.aFloat165 * (float) local55;
-                    if (local125 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local125 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local151 = this.aFloat173 + this.aFloat164 * (float) local50 + local78 + this.aFloat165 * (float) local60;
-                    if (local151 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local151 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local177 = this.aFloat173 + this.aFloat164 * (float) local45 + local78 + this.aFloat165 * (float) local60;
-                    if (local177 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local177 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                 } else {
@@ -1236,7 +1236,7 @@ public final class Ground_Sub3 extends Ground {
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(III[[ZZII)V")
     @Override
     public void method7877(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        @Pc(3) Matrix_Sub2 local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
+        @Pc(3) JavaMatrix local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
         this.anInt8145 = arg5;
         this.aFloat170 = local3.aFloat59;
         this.aFloat167 = local3.aFloat55;
@@ -1478,7 +1478,7 @@ public final class Ground_Sub3 extends Ground {
                         local55 = local3142.aShortArray143[local559];
                         local60 = local3142.aShortArray141[local559] + (arg1 << super.anInt8895);
                         local3222 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local55 + this.aFloat165 * (float) local60;
-                        if (local3222 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                        if (local3222 <= (float) this.aClass19_Sub2_8.zNear) {
                             return;
                         }
                         arg8[local559] = 0;
@@ -1723,19 +1723,19 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(883) int local883 = super.tileHeights[arg0][arg1 + 1];
                 if (this.anInt8145 == -1) {
                     local111 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local84 + this.aFloat165 * (float) local55;
-                    if (local111 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local111 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local137 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local863 + this.aFloat165 * (float) local55;
-                    if (local137 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local137 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local163 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local874 + this.aFloat165 * (float) local60;
-                    if (local163 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local163 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local189 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local883 + this.aFloat165 * (float) local60;
-                    if (local189 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local189 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                 } else {
@@ -1860,19 +1860,19 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(90) float local90 = this.aFloat172 * (float) local84;
                 if (this.anInt8145 == -1) {
                     local111 = this.aFloat173 + this.aFloat164 * (float) local45 + local90 + this.aFloat165 * (float) local55;
-                    if (local111 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local111 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local137 = this.aFloat173 + this.aFloat164 * (float) local50 + local90 + this.aFloat165 * (float) local55;
-                    if (local137 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local137 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local163 = this.aFloat173 + this.aFloat164 * (float) local50 + local90 + this.aFloat165 * (float) local60;
-                    if (local163 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local163 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                     local189 = this.aFloat173 + this.aFloat164 * (float) local45 + local90 + this.aFloat165 * (float) local60;
-                    if (local189 <= (float) this.aClass19_Sub2_8.anInt4214) {
+                    if (local189 <= (float) this.aClass19_Sub2_8.zNear) {
                         return;
                     }
                 } else {

@@ -95,11 +95,11 @@ public final class oa extends Toolkit implements SoftwareObject {
             this.aBoolean510 = true;
             this.aMatrix_8 = new ja();
             this.setCamera(new ja());
-            this.method7956(1);
-            this.method8020(0);
+            this.allocateThreads(1);
+            this.linkThreads(0);
             if (arg0 != null) {
-                this.method8022(arg0, arg2, arg3);
-                this.method8019(arg0);
+                this.addCanvas(arg0, arg2, arg3);
+                this.setCanvas(arg0);
             }
         } catch (@Pc(82) Throwable local82) {
             this.free();
@@ -148,7 +148,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "j", descriptor = "(I)V")
     @Override
-    public void method7956(@OriginalArg(0) int arg0) {
+    public void allocateThreads(@OriginalArg(0) int arg0) {
         this.anInt6770 = arg0;
         this.anAArray1 = new a[this.anInt6770];
         for (@Pc(9) int local9 = 0; local9 < this.anInt6770; local9++) {
@@ -189,7 +189,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Ljava/awt/Canvas;)V")
     @Override
-    public void method8019(@OriginalArg(0) Canvas arg0) {
+    public void setCanvas(@OriginalArg(0) Canvas arg0) {
         if (arg0 == null) {
             this.aP1 = null;
             this.t(null);
@@ -209,7 +209,7 @@ public final class oa extends Toolkit implements SoftwareObject {
         @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
         local8.method6439(arg0, arg1, arg2);
         if (arg0 != null && arg0 == this.aP1.aCanvas9) {
-            this.method8019(arg0);
+            this.setCanvas(arg0);
         }
     }
 
@@ -292,7 +292,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     @OriginalMember(owner = "client!oa", name = "v", descriptor = "()V")
     @Override
     public void restoreSurface() {
-        this.method8019(this.aP1.aCanvas9);
+        this.setCanvas(this.aP1.aCanvas9);
     }
 
     @OriginalMember(owner = "client!oa", name = "M", descriptor = "()I")
@@ -327,8 +327,8 @@ public final class oa extends Toolkit implements SoftwareObject {
         if (this.anInt6770 > 1) {
             throw new IllegalStateException("No MT");
         }
-        this.method7956(this.anInt6770);
-        this.method8020(0);
+        this.allocateThreads(this.anInt6770);
+        this.linkThreads(0);
     }
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIF)Lclient!lca;")
@@ -360,7 +360,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     @Override
     public void method7972(@OriginalArg(0) Canvas arg0) {
         if (this.aP1.aCanvas9 == arg0) {
-            this.method8019(null);
+            this.setCanvas(null);
         }
         @Pc(18) p local18 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
         if (local18 != null) {
@@ -371,8 +371,8 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void method7965(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int offsetX, @OriginalArg(8) int offsetY) {
-        this.Z(x1, y1, x2, y2, colour, 1, mask, offsetX, offsetY);
+    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
+        this.Z(x1, y1, x2, y2, colour, mode, mask, maskX, maskY);
     }
 
     @OriginalMember(owner = "client!oa", name = "s", descriptor = "()Z")
@@ -414,7 +414,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "k", descriptor = "(I)V")
     @Override
-    public void method8020(@OriginalArg(0) int arg0) {
+    public void linkThreads(@OriginalArg(0) int arg0) {
         this.anAArray1[arg0].method1();
     }
 
@@ -506,7 +506,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
         if (local8 == null) {
             try {
@@ -802,7 +802,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "u", descriptor = "()V")
     @Override
-    protected void method7987() {
+    protected void stop() {
         if (this.aBoolean509) {
             return;
         }

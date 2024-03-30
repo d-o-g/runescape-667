@@ -84,8 +84,8 @@ public abstract class Sprite_Sub1 extends Sprite {
         if (this.toolkit.method3785()) {
             throw new IllegalStateException();
         } else if (this.method8211(centerX, centerY, x1, y1, x2, y2)) {
-            @Pc(22) ClippingMask_Sub1 local22 = (ClippingMask_Sub1) mask;
-            this.method8210(local22.anIntArray334, local22.anIntArray335, Static513.anInt9301 - maskX, -maskY - (Static513.anInt9297 - Static513.anInt9314));
+            @Pc(22) JavaClippingMask local22 = (JavaClippingMask) mask;
+            this.method8210(local22.lineOffsets, local22.lineWidths, Static513.anInt9301 - maskX, -maskY - (Static513.anInt9297 - Static513.anInt9314));
         }
     }
 
@@ -151,7 +151,7 @@ public abstract class Sprite_Sub1 extends Sprite {
             this.anIntArray713 = new int[4];
         }
         this.toolkit.K(this.anIntArray713);
-        this.toolkit.T(this.toolkit.anInt4192, this.toolkit.anInt4186, x + width, y + height);
+        this.toolkit.T(this.toolkit.clipX1, this.toolkit.clipY1, x + width, y + height);
         @Pc(40) int local40 = this.scaleWidth();
         @Pc(43) int local43 = this.scaleHeight();
         @Pc(51) int local51 = (width + local40 - 1) / local40;
@@ -243,17 +243,17 @@ public abstract class Sprite_Sub1 extends Sprite {
         if (local41 > local67) {
             local67 = local41;
         }
-        if (local48 < (float) this.toolkit.anInt4192) {
-            local48 = (float) this.toolkit.anInt4192;
+        if (local48 < (float) this.toolkit.clipX1) {
+            local48 = (float) this.toolkit.clipX1;
         }
-        if (local55 > (float) this.toolkit.anInt4200) {
-            local55 = (float) this.toolkit.anInt4200;
+        if (local55 > (float) this.toolkit.clipX2) {
+            local55 = (float) this.toolkit.clipX2;
         }
-        if (local61 < (float) this.toolkit.anInt4186) {
-            local61 = (float) this.toolkit.anInt4186;
+        if (local61 < (float) this.toolkit.clipY1) {
+            local61 = (float) this.toolkit.clipY1;
         }
-        if (local67 > (float) this.toolkit.anInt4196) {
-            local67 = (float) this.toolkit.anInt4196;
+        if (local67 > (float) this.toolkit.clipY2) {
+            local67 = (float) this.toolkit.clipY2;
         }
         local55 = local48 - local55;
         if (local55 >= 0.0F) {

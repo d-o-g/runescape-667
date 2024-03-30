@@ -188,7 +188,7 @@ public final class Model_Sub3 extends Model {
     public short aShort118;
 
     @OriginalMember(owner = "client!rs", name = "Y", descriptor = "Lclient!eaa;")
-    public Matrix_Sub2 aClass73_Sub2_2;
+    public JavaMatrix aClass73_Sub2_2;
 
     @OriginalMember(owner = "client!rs", name = "L", descriptor = "I")
     public int anInt8493;
@@ -1740,7 +1740,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
     public void apply(@OriginalArg(0) Matrix arg0) {
-        @Pc(2) Matrix_Sub2 local2 = (Matrix_Sub2) arg0;
+        @Pc(2) JavaMatrix local2 = (JavaMatrix) arg0;
         @Pc(7) int local7;
         if (this.aModelParticleEmitterArray5 != null) {
             for (local7 = 0; local7 < this.aModelParticleEmitterArray5.length; local7++) {
@@ -2430,8 +2430,8 @@ public final class Model_Sub3 extends Model {
             @Pc(46) int local46 = this.aClass19_Sub2_9.anInt4204;
             @Pc(50) int local50 = this.aClass19_Sub2_9.anInt4198;
             @Pc(56) int local56 = this.aClass19_Sub2_9.anInt4202 >> 8;
-            @Pc(65) int local65 = this.aClass19_Sub2_9.anInt4191 * 768 / this.anInt8485;
-            @Pc(74) int local74 = this.aClass19_Sub2_9.anInt4187 * 768 / this.anInt8485;
+            @Pc(65) int local65 = this.aClass19_Sub2_9.sunIntensity * 768 / this.anInt8485;
+            @Pc(74) int local74 = this.aClass19_Sub2_9.reverseSunIntensity * 768 / this.anInt8485;
             if (this.anIntArray668 == null) {
                 this.anIntArray668 = new int[this.anInt8482];
                 this.anIntArray664 = new int[this.anInt8482];
@@ -2595,8 +2595,8 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(IILclient!tt;ZII)Z")
     public boolean method7513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.aClass73_Sub2_2 = (Matrix_Sub2) arg2;
-        @Pc(7) Matrix_Sub2 local7 = this.aClass19_Sub2_9.aClass73_Sub2_1;
+        this.aClass73_Sub2_2 = (JavaMatrix) arg2;
+        @Pc(7) JavaMatrix local7 = this.aClass19_Sub2_9.aClass73_Sub2_1;
         @Pc(31) float local31 = local7.aFloat60 + local7.aFloat59 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat55 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat53 * this.aClass73_Sub2_2.aFloat62;
         @Pc(55) float local55 = local7.aFloat58 + local7.aFloat57 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat52 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat51 * this.aClass73_Sub2_2.aFloat62;
         @Pc(79) float local79 = local7.aFloat62 + local7.aFloat56 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat54 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat61 * this.aClass73_Sub2_2.aFloat62;
@@ -2673,7 +2673,7 @@ public final class Model_Sub3 extends Model {
             local534 = local31 + local100 * (float) local507 + local121 * (float) local512 + local142 * (float) local517;
             local551 = local55 + local163 * (float) local507 + local184 * (float) local512 + local205 * (float) local517;
             local568 = local79 + local226 * (float) local507 + local247 * (float) local512 + local268 * (float) local517;
-            if (local568 >= (float) this.aClass19_Sub2_9.anInt4214) {
+            if (local568 >= (float) this.aClass19_Sub2_9.zNear) {
                 if (arg5 > 0) {
                     local568 = (float) arg5;
                 }
@@ -2705,7 +2705,7 @@ public final class Model_Sub3 extends Model {
                 local534 = local31 + local100 * (float) local507 + local121 * (float) local512 + local142 * (float) local517;
                 local551 = local55 + local163 * (float) local507 + local184 * (float) local512 + local205 * (float) local517;
                 local568 = local79 + local226 * (float) local507 + local247 * (float) local512 + local268 * (float) local517;
-                if (local568 >= (float) this.aClass19_Sub2_9.anInt4214) {
+                if (local568 >= (float) this.aClass19_Sub2_9.zNear) {
                     if (arg5 > 0) {
                         local568 = (float) arg5;
                     }
@@ -3133,7 +3133,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "j", descriptor = "(I)V")
     public void method7518(@OriginalArg(0) int arg0) {
         @Pc(1) int local1 = 0;
-        @Pc(5) int local5 = this.aClass19_Sub2_9.anInt4214;
+        @Pc(5) int local5 = this.aClass19_Sub2_9.zNear;
         @Pc(10) short local10 = this.aShortArray122[arg0];
         @Pc(15) short local15 = this.lb[arg0];
         @Pc(20) short local20 = this.aShortArray125[arg0];
@@ -3352,7 +3352,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "i", descriptor = "(I)V")
     public void method7521(@OriginalArg(0) int arg0) {
         @Pc(1) int local1 = 0;
-        @Pc(5) int local5 = this.aClass19_Sub2_9.anInt4214;
+        @Pc(5) int local5 = this.aClass19_Sub2_9.zNear;
         @Pc(10) short local10 = this.aShortArray122[arg0];
         @Pc(15) short local15 = this.lb[arg0];
         @Pc(20) short local20 = this.aShortArray125[arg0];
@@ -3782,8 +3782,8 @@ public final class Model_Sub3 extends Model {
         if (this.anInt8491 < 1) {
             return;
         }
-        this.aClass73_Sub2_2 = (Matrix_Sub2) arg0;
-        @Pc(13) Matrix_Sub2 local13 = this.aClass19_Sub2_9.aClass73_Sub2_1;
+        this.aClass73_Sub2_2 = (JavaMatrix) arg0;
+        @Pc(13) JavaMatrix local13 = this.aClass19_Sub2_9.aClass73_Sub2_1;
         if (!this.aBoolean652) {
             this.method7525();
         }
@@ -3804,7 +3804,7 @@ public final class Model_Sub3 extends Model {
             local171 = local154 - this.aShort118;
             local176 = local163 + this.aShort118;
         }
-        if (local171 >= this.aClass19_Sub2_9.anInt4199 || local176 <= this.aClass19_Sub2_9.anInt4214) {
+        if (local171 >= this.aClass19_Sub2_9.zFar || local176 <= this.aClass19_Sub2_9.zNear) {
             return;
         }
         @Pc(225) float local225 = local13.aFloat60 + local13.aFloat59 * this.aClass73_Sub2_2.aFloat60 + local13.aFloat55 * this.aClass73_Sub2_2.aFloat58 + local13.aFloat53 * this.aClass73_Sub2_2.aFloat62;
@@ -3896,14 +3896,14 @@ public final class Model_Sub3 extends Model {
             this.aClass219_1.method5142(true);
         }
         @Pc(694) boolean local694 = false;
-        @Pc(704) boolean local704 = local171 <= this.aClass19_Sub2_9.anInt4214;
+        @Pc(704) boolean local704 = local171 <= this.aClass19_Sub2_9.zNear;
         @Pc(721) boolean local721 = local704 || this.aModelParticleEmitterArray5 != null || this.aModelParticleEffectorArray5 != null;
         this.aClass399_3.anInt10607 = this.aClass219_1.anInt5725;
         this.aClass399_3.anInt10606 = this.aClass219_1.anInt5723;
         this.aClass399_3.anInt10608 = this.aClass219_1.anInt5721;
         @Pc(743) int local743 = this.aClass19_Sub2_9.projectionScaleX;
         @Pc(747) int local747 = this.aClass19_Sub2_9.projectionScaleY;
-        @Pc(751) int local751 = this.aClass19_Sub2_9.anInt4214;
+        @Pc(751) int local751 = this.aClass19_Sub2_9.zNear;
         @Pc(789) float local789;
         @Pc(806) float local806;
         @Pc(823) float local823;
@@ -3955,7 +3955,7 @@ public final class Model_Sub3 extends Model {
                     local789 = (float) local953.anInt6222 + local225 + local506 * (float) local762 + local252 * (float) local767 + local515 * (float) local772;
                     local806 = (float) local953.anInt6229 + local375 + local509 * (float) local762 + local402 * (float) local767 + local518 * (float) local772;
                     local823 = local118 + local512 * (float) local762 + local145 * (float) local767 + local521 * (float) local772;
-                    if (local823 > (float) this.aClass19_Sub2_9.anInt4214) {
+                    if (local823 > (float) this.aClass19_Sub2_9.zNear) {
                         local953.anInt6221 = this.aClass19_Sub2_9.projectionCenterX + (int) (local789 * (float) local743 / local823);
                         local953.anInt6227 = this.aClass19_Sub2_9.projectionCenterY + (int) (local806 * (float) local747 / local823);
                         local953.anInt6224 = (int) local823 - local948.anInt6140;
@@ -4050,7 +4050,7 @@ public final class Model_Sub3 extends Model {
                     @Pc(1820) int local1820;
                     @Pc(1800) float local1800;
                     if (local823 < (float) local751) {
-                        local1800 = (local1721 - (float) this.aClass19_Sub2_9.anInt4214) / (local1721 - local823);
+                        local1800 = (local1721 - (float) this.aClass19_Sub2_9.zNear) / (local1721 - local823);
                         local1809 = (int) (local1687 + (local1687 - local789) * local1800);
                         local1818 = (int) (local1704 + (local1704 - local806) * local1800);
                         local1820 = local751;

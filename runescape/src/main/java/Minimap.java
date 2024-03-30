@@ -563,10 +563,10 @@ public final class Minimap {
                 toolkit.method7942(x1, y1, x2, y2, elementType.landmarkPalette[elementType.landmarkColorIndices[elementType.landmarkColorIndices.length - 1] & 0xFF], mask, screenX, screenY, elementType.anInt2603, elementType.anInt2587, elementType.anInt2607);
             } else {
                 for (@Pc(62) int i = 0; i < local34.length / 2 - 1; i++) {
-                    toolkit.method7965(local34[i * 2], local34[i * 2 + 1], local34[i * 2 + 2], local34[(i + 1) * 2 + 1], elementType.landmarkPalette[elementType.landmarkColorIndices[i] & 0xFF], mask, screenX, screenY);
+                    toolkit.line(local34[i * 2], local34[i * 2 + 1], local34[i * 2 + 2], local34[(i + 1) * 2 + 1], elementType.landmarkPalette[elementType.landmarkColorIndices[i] & 0xFF], 0, mask, screenX, screenY);
                 }
 
-                toolkit.method7965(local34[local34.length - 2], local34[local34.length - 1], local34[0], local34[1], elementType.landmarkPalette[elementType.landmarkColorIndices[elementType.landmarkColorIndices.length - 1] & 0xFF], mask, screenX, screenY);
+                toolkit.line(local34[local34.length - 2], local34[local34.length - 1], local34[0], local34[1], elementType.landmarkPalette[elementType.landmarkColorIndices[elementType.landmarkColorIndices.length - 1] & 0xFF], 0, mask, screenX, screenY);
             }
         }
 

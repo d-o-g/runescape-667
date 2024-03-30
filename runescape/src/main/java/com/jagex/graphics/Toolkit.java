@@ -97,7 +97,7 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "i", descriptor = "(I)V")
     public final void free() {
         inuse[this.index] = false;
-        this.method7987();
+        this.stop();
     }
 
     /**
@@ -191,7 +191,7 @@ public abstract class Toolkit {
     public abstract int getMaxLights();
 
     @OriginalMember(owner = "client!ha", name = "j", descriptor = "(I)V")
-    public abstract void method7956(@OriginalArg(0) int arg0);
+    public abstract void allocateThreads(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "([IIIIIZ)Lclient!st;")
     public abstract Sprite method7958(@OriginalArg(0) int[] arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) boolean arg4);
@@ -227,7 +227,7 @@ public abstract class Toolkit {
     public abstract void GA(@OriginalArg(0) int colour);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
-    public abstract void method7965(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int offsetX, @OriginalArg(8) int offsetY);
+    public abstract void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIBI)V")
     public final void method7966(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
@@ -326,7 +326,7 @@ public abstract class Toolkit {
     }
 
     @OriginalMember(owner = "client!ha", name = "u", descriptor = "()V")
-    protected abstract void method7987();
+    protected abstract void stop();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     public abstract OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1);
@@ -499,10 +499,10 @@ public abstract class Toolkit {
     public abstract void X(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Ljava/awt/Canvas;)V")
-    public abstract void method8019(@OriginalArg(0) Canvas arg0);
+    public abstract void setCanvas(@OriginalArg(0) Canvas arg0);
 
     @OriginalMember(owner = "client!ha", name = "k", descriptor = "(I)V")
-    public abstract void method8020(@OriginalArg(0) int arg0);
+    public abstract void linkThreads(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ha", name = "L", descriptor = "(III)V")
     public abstract void L(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
@@ -511,5 +511,5 @@ public abstract class Toolkit {
     public abstract void render(@OriginalArg(0) ParticleList arg0);
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
-    public abstract void method8022(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public abstract void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 }

@@ -49,9 +49,9 @@ public final class Static720 {
         @Pc(14) Dimension local14 = arg0.getSize();
         OrthoMode.method5454(local14.height, local14.width);
         if (OrthoMode.anInt6796 == 1) {
-            OrthoMode.toolkit.method8022(arg0, OrthoMode.anInt8534, OrthoMode.anInt8585);
+            OrthoMode.toolkit.addCanvas(arg0, OrthoMode.anInt8534, OrthoMode.anInt8585);
         } else {
-            OrthoMode.toolkit.method8022(arg0, OrthoMode.orthoWidth, OrthoMode.orthoHeight);
+            OrthoMode.toolkit.addCanvas(arg0, OrthoMode.orthoWidth, OrthoMode.orthoHeight);
         }
     }
 

@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!eaa")
-public final class Matrix_Sub2 extends Matrix {
+public final class JavaMatrix extends Matrix {
 
     @OriginalMember(owner = "client!eaa", name = "y", descriptor = "F")
     public float aFloat51;
@@ -44,7 +44,7 @@ public final class Matrix_Sub2 extends Matrix {
     public float aFloat62;
 
     @OriginalMember(owner = "client!eaa", name = "<init>", descriptor = "()V")
-    public Matrix_Sub2() {
+    public JavaMatrix() {
         this.makeIdentity();
     }
 
@@ -161,7 +161,7 @@ public final class Matrix_Sub2 extends Matrix {
     @OriginalMember(owner = "client!eaa", name = "b", descriptor = "()Lclient!tt;")
     @Override
     public Matrix copy() {
-        @Pc(7) Matrix_Sub2 local7 = new Matrix_Sub2();
+        @Pc(7) JavaMatrix local7 = new JavaMatrix();
         local7.aFloat62 = this.aFloat62;
         local7.aFloat53 = this.aFloat53;
         local7.aFloat52 = this.aFloat52;
@@ -245,7 +245,7 @@ public final class Matrix_Sub2 extends Matrix {
     @OriginalMember(owner = "client!eaa", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
     public void apply(@OriginalArg(0) Matrix other) {
-        @Pc(6) Matrix_Sub2 local6 = (Matrix_Sub2) other;
+        @Pc(6) JavaMatrix local6 = (JavaMatrix) other;
         this.aFloat56 = local6.aFloat56;
         this.aFloat53 = local6.aFloat53;
         this.aFloat52 = local6.aFloat52;

@@ -188,7 +188,7 @@ public final class D3DToolkit extends NativeToolkit {
             }
         } catch (@Pc(281) RuntimeException local281) {
             if (local1 != null) {
-                local1.method7987();
+                local1.stop();
             }
             throw local281;
         }
@@ -469,9 +469,9 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "u", descriptor = "()V")
     @Override
-    protected void method7987() {
+    protected void stop() {
         this.aTi1.b(-23417);
-        super.method7987();
+        super.stop();
     }
 
     @OriginalMember(owner = "client!kea", name = "I", descriptor = "()I")

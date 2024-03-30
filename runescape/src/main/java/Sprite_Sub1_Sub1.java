@@ -89,23 +89,23 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
         }
         local55 = arg0 + arg1 * super.toolkit.anInt4207;
         @Pc(147) int local147 = super.toolkit.anInt4207 - arg3;
-        if (arg1 + arg4 > super.toolkit.anInt4196) {
-            arg4 -= arg1 + arg4 - super.toolkit.anInt4196;
+        if (arg1 + arg4 > super.toolkit.clipY2) {
+            arg4 -= arg1 + arg4 - super.toolkit.clipY2;
         }
         @Pc(175) int local175;
-        if (arg1 < super.toolkit.anInt4186) {
-            local175 = super.toolkit.anInt4186 - arg1;
+        if (arg1 < super.toolkit.clipY1) {
+            local175 = super.toolkit.clipY1 - arg1;
             arg4 -= local175;
             local55 += local175 * super.toolkit.anInt4207;
             local11 += local41 * local175;
         }
-        if (arg0 + arg3 > super.toolkit.anInt4200) {
-            local175 = arg0 + arg3 - super.toolkit.anInt4200;
+        if (arg0 + arg3 > super.toolkit.clipX2) {
+            local175 = arg0 + arg3 - super.toolkit.clipX2;
             arg3 -= local175;
             local147 += local175;
         }
-        if (arg0 < super.toolkit.anInt4192) {
-            local175 = super.toolkit.anInt4192 - arg0;
+        if (arg0 < super.toolkit.clipX1) {
+            local175 = super.toolkit.clipX1 - arg0;
             arg3 -= local175;
             local55 += local175;
             local9 += local35 * local175;
@@ -505,23 +505,23 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
         }
         local55 = arg0 + arg1 * super.toolkit.anInt4207;
         @Pc(147) int local147 = super.toolkit.anInt4207 - arg3;
-        if (arg1 + arg4 > super.toolkit.anInt4196) {
-            arg4 -= arg1 + arg4 - super.toolkit.anInt4196;
+        if (arg1 + arg4 > super.toolkit.clipY2) {
+            arg4 -= arg1 + arg4 - super.toolkit.clipY2;
         }
         @Pc(175) int local175;
-        if (arg1 < super.toolkit.anInt4186) {
-            local175 = super.toolkit.anInt4186 - arg1;
+        if (arg1 < super.toolkit.clipY1) {
+            local175 = super.toolkit.clipY1 - arg1;
             arg4 -= local175;
             local55 += local175 * super.toolkit.anInt4207;
             local11 += local41 * local175;
         }
-        if (arg0 + arg3 > super.toolkit.anInt4200) {
-            local175 = arg0 + arg3 - super.toolkit.anInt4200;
+        if (arg0 + arg3 > super.toolkit.clipX2) {
+            local175 = arg0 + arg3 - super.toolkit.clipX2;
             arg3 -= local175;
             local147 += local175;
         }
-        if (arg0 < super.toolkit.anInt4192) {
-            local175 = super.toolkit.anInt4192 - arg0;
+        if (arg0 < super.toolkit.clipX1) {
+            local175 = super.toolkit.clipX1 - arg0;
             arg3 -= local175;
             local55 += local175;
             local9 += local35 * local175;
@@ -900,27 +900,27 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
         @Pc(36) int local36 = 0;
         @Pc(42) int local42 = x + y * local24;
         @Pc(53) int local53;
-        if (y < super.toolkit.anInt4186) {
-            local53 = super.toolkit.anInt4186 - y;
+        if (y < super.toolkit.clipY1) {
+            local53 = super.toolkit.clipY1 - y;
             local30 -= local53;
-            y = super.toolkit.anInt4186;
+            y = super.toolkit.clipY1;
             local20 = local53 * local27;
             local42 += local53 * local24;
         }
-        if (y + local30 > super.toolkit.anInt4196) {
-            local30 -= y + local30 - super.toolkit.anInt4196;
+        if (y + local30 > super.toolkit.clipY2) {
+            local30 -= y + local30 - super.toolkit.clipY2;
         }
-        if (x < super.toolkit.anInt4192) {
-            local53 = super.toolkit.anInt4192 - x;
+        if (x < super.toolkit.clipX1) {
+            local53 = super.toolkit.clipX1 - x;
             local27 -= local53;
-            x = super.toolkit.anInt4192;
+            x = super.toolkit.clipX1;
             local20 += local53;
             local42 += local53;
             local36 = local53;
             local34 += local53;
         }
-        if (x + local27 > super.toolkit.anInt4200) {
-            local53 = x + local27 - super.toolkit.anInt4200;
+        if (x + local27 > super.toolkit.clipX2) {
+            local53 = x + local27 - super.toolkit.clipX2;
             local27 -= local53;
             local36 += local53;
             local34 += local53;
@@ -928,9 +928,9 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
         if (local27 <= 0 || local30 <= 0) {
             return;
         }
-        @Pc(163) ClippingMask_Sub1 local163 = (ClippingMask_Sub1) mask;
-        @Pc(166) int[] local166 = local163.anIntArray334;
-        @Pc(169) int[] local169 = local163.anIntArray335;
+        @Pc(163) JavaClippingMask local163 = (JavaClippingMask) mask;
+        @Pc(166) int[] local166 = local163.lineOffsets;
+        @Pc(169) int[] local169 = local163.lineWidths;
         @Pc(173) int[] local173 = super.toolkit.anIntArray319;
         @Pc(175) int local175 = y;
         if (maskY > y) {
@@ -2330,23 +2330,23 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
             }
             local68 = x + y * local24;
             @Pc(156) int local156 = local24 - width;
-            if (y + height > super.toolkit.anInt4196) {
-                height -= y + height - super.toolkit.anInt4196;
+            if (y + height > super.toolkit.clipY2) {
+                height -= y + height - super.toolkit.clipY2;
             }
             @Pc(184) int local184;
-            if (y < super.toolkit.anInt4186) {
-                local184 = super.toolkit.anInt4186 - y;
+            if (y < super.toolkit.clipY1) {
+                local184 = super.toolkit.clipY1 - y;
                 height -= local184;
                 local68 += local184 * local24;
                 local20 += local54 * local184;
             }
-            if (x + width > super.toolkit.anInt4200) {
-                local184 = x + width - super.toolkit.anInt4200;
+            if (x + width > super.toolkit.clipX2) {
+                local184 = x + width - super.toolkit.clipX2;
                 width -= local184;
                 local156 += local184;
             }
-            if (x < super.toolkit.anInt4192) {
-                local184 = super.toolkit.anInt4192 - x;
+            if (x < super.toolkit.clipX1) {
+                local184 = super.toolkit.clipX1 - x;
                 width -= local184;
                 local68 += local184;
                 local18 += local48 * local184;
@@ -2684,27 +2684,27 @@ public final class Sprite_Sub1_Sub1 extends Sprite_Sub1 {
         @Pc(40) int local40 = local12 - local36;
         @Pc(42) int local42 = 0;
         @Pc(53) int local53;
-        if (y < super.toolkit.anInt4186) {
-            local53 = super.toolkit.anInt4186 - y;
+        if (y < super.toolkit.clipY1) {
+            local53 = super.toolkit.clipY1 - y;
             local33 -= local53;
-            y = super.toolkit.anInt4186;
+            y = super.toolkit.clipY1;
             local30 = local53 * local36;
             local28 += local53 * local12;
         }
-        if (y + local33 > super.toolkit.anInt4196) {
-            local33 -= y + local33 - super.toolkit.anInt4196;
+        if (y + local33 > super.toolkit.clipY2) {
+            local33 -= y + local33 - super.toolkit.clipY2;
         }
-        if (x < super.toolkit.anInt4192) {
-            local53 = super.toolkit.anInt4192 - x;
+        if (x < super.toolkit.clipX1) {
+            local53 = super.toolkit.clipX1 - x;
             local36 -= local53;
-            x = super.toolkit.anInt4192;
+            x = super.toolkit.clipX1;
             local30 += local53;
             local28 += local53;
             local42 = local53;
             local40 += local53;
         }
-        if (x + local36 > super.toolkit.anInt4200) {
-            local53 = x + local36 - super.toolkit.anInt4200;
+        if (x + local36 > super.toolkit.clipX2) {
+            local53 = x + local36 - super.toolkit.clipX2;
             local36 -= local53;
             local42 += local53;
             local40 += local53;

@@ -1067,8 +1067,8 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "u", descriptor = "()V")
     @Override
-    protected void method7987() {
-        super.method7987();
+    protected void stop() {
+        super.stop();
         if (this.anOpenGL2 != null) {
             this.anOpenGL2.a();
             this.anOpenGL2.release();

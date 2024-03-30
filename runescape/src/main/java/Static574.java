@@ -19,9 +19,9 @@ public final class Static574 {
                 Static720.method9397(GameShell.canvas);
             } else {
                 @Pc(26) Dimension local26 = GameShell.canvas.getSize();
-                Toolkit.active.method8022(GameShell.canvas, local26.width, local26.height);
+                Toolkit.active.addCanvas(GameShell.canvas, local26.width, local26.height);
             }
-            Toolkit.active.method8019(GameShell.canvas);
+            Toolkit.active.setCanvas(GameShell.canvas);
         } else {
             Static32.setToolkit(ClientOptions.instance.toolkit.getValue(), false);
         }

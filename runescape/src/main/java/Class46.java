@@ -70,7 +70,7 @@ public final class Class46 implements Runnable {
 
     @OriginalMember(owner = "client!bl", name = "a", descriptor = "()V")
     public void method1103() {
-        this.aToolkit_3.method8020(this.anInt1012);
+        this.aToolkit_3.linkThreads(this.anInt1012);
         while (!this.aBoolean76 && this.aBoolean75) {
             if (this.aClass302_1 == null || this.aClass302_1.method6810()) {
                 this.aBoolean77 = false;

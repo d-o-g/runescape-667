@@ -80,8 +80,8 @@ public final class Static21 {
                 Static227.method3354();
             }
             Static226.aClass46Array7 = new Class46[Static32.anInt772];
-            Static665.aToolkit_15.method7956(Static226.aClass46Array7.length + 1);
-            Static665.aToolkit_15.method8020(0);
+            Static665.aToolkit_15.allocateThreads(Static226.aClass46Array7.length + 1);
+            Static665.aToolkit_15.linkThreads(0);
             for (@Pc(214) int local214 = 0; local214 < Static226.aClass46Array7.length; local214++) {
                 Static226.aClass46Array7[local214] = new Class46(local214 + 1, Static665.aToolkit_15);
                 (new Thread(Static226.aClass46Array7[local214], "wr" + local214)).start();

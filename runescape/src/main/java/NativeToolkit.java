@@ -606,7 +606,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!cw;Z)V")
     public final void method8024(@OriginalArg(0) Matrix_Sub1 arg0) {
-        this.aClass73_Sub1_15.method7128(arg0);
+        this.aClass73_Sub1_15.apply(arg0);
         this.aBoolean676 = false;
         this.method8091();
     }
@@ -1686,7 +1686,7 @@ public abstract class NativeToolkit extends Toolkit {
     @Override
     public final void setCamera(@OriginalArg(0) Matrix matrix) {
         this.aClass73_Sub1_16 = (Matrix_Sub1) matrix;
-        this.aClass73_Sub1_18.method7128(this.aClass73_Sub1_16);
+        this.aClass73_Sub1_18.apply(this.aClass73_Sub1_16);
         this.aClass73_Sub1_18.method1895();
         this.aClass73_Sub1_19.method1880(this.aClass73_Sub1_18);
         this.aClass73_Sub1_17.method1880(this.aClass73_Sub1_16);

@@ -1,10 +1,10 @@
-import com.jagex.graphics.Interface9;
+import com.jagex.graphics.OffscreenSurface;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!wa")
-public final class wa implements Interface9 {
+public final class wa implements OffscreenSurface {
 
     @OriginalMember(owner = "client!wa", name = "a", descriptor = "J")
     public long aLong320 = 0L;

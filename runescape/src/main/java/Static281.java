@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static281 {
 
-    @OriginalMember(owner = "client!iq", name = "c", descriptor = "I")
-    public static int anInt4566;
-
     @OriginalMember(owner = "client!iq", name = "a", descriptor = "(ILclient!pea;)V")
     public static void method4092(@OriginalArg(1) PickableEntity arg0) {
         arg0.aEntity_18 = null;

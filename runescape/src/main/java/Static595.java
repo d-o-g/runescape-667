@@ -123,7 +123,7 @@ public final class Static595 {
         Static284.aBoolean355 = true;
         Static679.aDisplayPropertiesArray1 = null;
         Static503.sentPreferences = false;
-        Static498.setOrthoMode();
+        OrthoMode.enter();
     }
 
     @OriginalMember(owner = "client!so", name = "a", descriptor = "(IBIII)V")

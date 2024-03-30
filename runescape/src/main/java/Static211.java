@@ -7,9 +7,6 @@ public final class Static211 {
     @OriginalMember(owner = "client!gj", name = "j", descriptor = "Lclient!cja;")
     public static Node_Sub12 pingRequest;
 
-    @OriginalMember(owner = "client!gj", name = "f", descriptor = "I")
-    public static int anInt5574;
-
     @OriginalMember(owner = "client!gj", name = "a", descriptor = "(IIIIII)V")
     public static void method5000(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(7) int local7 = 0;

@@ -16,9 +16,6 @@ import java.lang.reflect.Method;
 
 public final class Static437 {
 
-    @OriginalMember(owner = "client!np", name = "v", descriptor = "I")
-    public static int horizontalAspectRatio;
-
     @OriginalMember(owner = "client!np", name = "c", descriptor = "Lclient!fma;")
     public static final Class131 aClass131_4 = new Class131();
 

@@ -406,7 +406,7 @@ public final class Sprite_Sub3 extends Sprite {
         this.aClass19_Sub1_12.method8094(Static209.aClass121_4, Static185.aClass121_3);
         this.aClass19_Sub1_12.method8080(0, Static188.aClass168_1);
         @Pc(213) Matrix_Sub1 local213 = this.aClass19_Sub1_12.method8082();
-        local213.method7128(local8);
+        local213.apply(local8);
         local213.translate(-maskX, -maskY, 0);
         local213.method1896(local19.method9050(1.0F), local19.method9046(1.0F), 1.0F);
         this.aClass19_Sub1_12.method8073(Static431.aClass370_5);

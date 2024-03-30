@@ -38,7 +38,7 @@ public final class Static231 {
         if (Toolkit.active == null) {
             return;
         }
-        if (InterfaceManager.aBoolean210) {
+        if (OrthoMode.toolkitActive) {
             Static164.method2606();
         }
         Static514.aClass213_2.method5010();

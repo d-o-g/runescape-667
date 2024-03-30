@@ -3,7 +3,7 @@ import com.jagex.graphics.Renderer;
 import com.jagex.Interface26;
 import com.jagex.Static14;
 import com.jagex.graphics.FlipException;
-import com.jagex.graphics.Interface9;
+import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Surface;
 import com.jagex.graphics.TextureSource;
@@ -316,7 +316,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(Lclient!gaa;)V")
     @Override
-    public void method7939(@OriginalArg(0) Interface9 arg0) {
+    public void swapSurface(@OriginalArg(0) OffscreenSurface surface) {
     }
 
     @OriginalMember(owner = "client!kea", name = "d", descriptor = "()V")
@@ -687,7 +687,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
+    public OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
         return null;
     }
 

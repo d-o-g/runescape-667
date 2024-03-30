@@ -15,7 +15,7 @@ import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.FlipException;
 import com.jagex.graphics.Ground;
-import com.jagex.graphics.Interface9;
+import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
@@ -69,7 +69,7 @@ public final class JavaToolkit extends Toolkit {
     public int anInt4193;
 
     @OriginalMember(owner = "client!iaa", name = "I", descriptor = "I")
-    public int anInt4194;
+    public int projectionCenterY;
 
     @OriginalMember(owner = "client!iaa", name = "K", descriptor = "I")
     public int anInt4195;
@@ -99,7 +99,7 @@ public final class JavaToolkit extends Toolkit {
     public int anInt4204;
 
     @OriginalMember(owner = "client!iaa", name = "w", descriptor = "I")
-    public int anInt4206;
+    public int projectionCenterX;
 
     @OriginalMember(owner = "client!iaa", name = "P", descriptor = "[I")
     public int[] anIntArray319;
@@ -138,7 +138,7 @@ public final class JavaToolkit extends Toolkit {
     public int anInt4186;
 
     @OriginalMember(owner = "client!iaa", name = "C", descriptor = "I")
-    public int anInt4188;
+    public int projectionScaleY;
 
     @OriginalMember(owner = "client!iaa", name = "ab", descriptor = "I")
     public int anInt4202;
@@ -177,7 +177,7 @@ public final class JavaToolkit extends Toolkit {
     public int anInt4214;
 
     @OriginalMember(owner = "client!iaa", name = "ob", descriptor = "I")
-    public int anInt4205;
+    public int projectionScaleX;
 
     @OriginalMember(owner = "client!iaa", name = "J", descriptor = "Lclient!dla;")
     public final ReferenceCache aReferenceCache_88;
@@ -201,7 +201,7 @@ public final class JavaToolkit extends Toolkit {
         this.aBoolean330 = false;
         this.aIterableHashTable_20 = new IterableHashTable(4);
         this.anInt4186 = 0;
-        this.anInt4188 = 512;
+        this.projectionScaleY = 512;
         this.anInt4202 = 75518;
         this.anInt4200 = 0;
         this.anInt4199 = 3500;
@@ -214,7 +214,7 @@ public final class JavaToolkit extends Toolkit {
         this.anInt4212 = 0;
         this.anInt4213 = 0;
         this.anInt4214 = 50;
-        this.anInt4205 = 512;
+        this.projectionScaleX = 512;
         this.aReferenceCache_88 = new ReferenceCache(16);
         this.anInt4215 = -1;
         try {
@@ -584,8 +584,8 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!gaa;)V")
     @Override
-    public void method7939(@OriginalArg(0) Interface9 arg0) {
-        @Pc(2) Class87 local2 = (Class87) arg0;
+    public void swapSurface(@OriginalArg(0) OffscreenSurface surface) {
+        @Pc(2) Class87 local2 = (Class87) surface;
         this.anInt4207 = local2.anInt2357;
         this.anInt4209 = local2.anInt2354;
         this.anIntArray319 = local2.anIntArray203;
@@ -614,13 +614,13 @@ public final class JavaToolkit extends Toolkit {
             @Pc(29) int local29 = local14.anInt7536 >> 12;
             @Pc(54) float local54 = this.aClass73_Sub2_1.aFloat62 + this.aClass73_Sub2_1.aFloat56 * (float) local19 + this.aClass73_Sub2_1.aFloat54 * (float) local24 + this.aClass73_Sub2_1.aFloat61 * (float) local29;
             if (!(local54 < (float) this.anInt4214) && !(local54 > (float) local3.anInt10601)) {
-                @Pc(106) int local106 = this.anInt4206 + (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) local19 + this.aClass73_Sub2_1.aFloat55 * (float) local24 + this.aClass73_Sub2_1.aFloat53 * (float) local29) / (float) arg1);
-                @Pc(142) int local142 = this.anInt4194 + (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) local19 + this.aClass73_Sub2_1.aFloat52 * (float) local24 + this.aClass73_Sub2_1.aFloat51 * (float) local29) / (float) arg1);
+                @Pc(106) int local106 = this.projectionCenterX + (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) local19 + this.aClass73_Sub2_1.aFloat55 * (float) local24 + this.aClass73_Sub2_1.aFloat53 * (float) local29) / (float) arg1);
+                @Pc(142) int local142 = this.projectionCenterY + (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) local19 + this.aClass73_Sub2_1.aFloat52 * (float) local24 + this.aClass73_Sub2_1.aFloat51 * (float) local29) / (float) arg1);
                 if (local106 >= this.anInt4192 && local106 <= this.anInt4200 && local142 >= this.anInt4186 && local142 <= this.anInt4196) {
                     if (local54 == 0.0F) {
                         local54 = 1.0F;
                     }
-                    this.method3784(local14, local106, local142, (int) local54, (local14.anInt7535 * this.anInt4205 >> 12) / arg1);
+                    this.method3784(local14, local106, local142, (int) local54, (local14.anInt7535 * this.projectionScaleX >> 12) / arg1);
                 }
             }
         }
@@ -834,10 +834,10 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "DA", descriptor = "(IIII)V")
     @Override
     public void DA(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {
-        this.anInt4206 = x;
-        this.anInt4194 = y;
-        this.anInt4205 = width;
-        this.anInt4188 = height;
+        this.projectionCenterX = x;
+        this.projectionCenterY = y;
+        this.projectionScaleX = width;
+        this.projectionScaleY = height;
         this.method3799();
     }
 
@@ -1026,7 +1026,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "Y", descriptor = "()[I")
     @Override
     public int[] Y() {
-        return new int[]{this.anInt4206, this.anInt4194, this.anInt4205, this.anInt4188};
+        return new int[]{this.projectionCenterX, this.projectionCenterY, this.projectionScaleX, this.projectionScaleY};
     }
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!dv;IIII)Lclient!ka;")
@@ -1517,8 +1517,8 @@ public final class JavaToolkit extends Toolkit {
             arg3[0] = arg3[1] = arg3[2] = -1;
             return;
         }
-        @Pc(74) int local74 = (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2) / local24);
-        @Pc(106) int local106 = (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2) / local24);
+        @Pc(74) int local74 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2) / local24);
+        @Pc(106) int local106 = (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2) / local24);
         arg3[0] = local74 - this.anInt4210;
         arg3[1] = local106 - this.anInt4208;
         arg3[2] = (int) local24;
@@ -1803,8 +1803,8 @@ public final class JavaToolkit extends Toolkit {
             arg3[0] = arg3[1] = arg3[2] = -1;
             return;
         }
-        @Pc(84) int local84 = (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2) / local24);
-        @Pc(116) int local116 = (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2) / local24);
+        @Pc(84) int local84 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2) / local24);
+        @Pc(116) int local116 = (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2) / local24);
         if (local84 >= this.anInt4210 && local84 <= this.anInt4193 && local116 >= this.anInt4208 && local116 <= this.anInt4201) {
             arg3[0] = local84 - this.anInt4210;
             arg3[1] = local116 - this.anInt4208;
@@ -1822,8 +1822,8 @@ public final class JavaToolkit extends Toolkit {
             arg4[0] = arg4[1] = arg4[2] = -1;
             return;
         }
-        @Pc(85) int local85 = (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2) / (float) arg3);
-        @Pc(118) int local118 = (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2) / (float) arg3);
+        @Pc(85) int local85 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2) / (float) arg3);
+        @Pc(118) int local118 = (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2) / (float) arg3);
         if (local85 >= this.anInt4210 && local85 <= this.anInt4193 && local118 >= this.anInt4208 && local118 <= this.anInt4201) {
             arg4[0] = local85 - this.anInt4210;
             arg4[1] = local118 - this.anInt4208;
@@ -2072,15 +2072,15 @@ public final class JavaToolkit extends Toolkit {
         } else if (local26 > (float) this.anInt4199 && local57 > (float) this.anInt4199) {
             local1 |= 0x20;
         }
-        @Pc(132) int local132 = (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2 + this.aClass73_Sub2_1.aFloat60) / local26);
-        @Pc(164) int local164 = (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat59 * (float) arg3 + this.aClass73_Sub2_1.aFloat55 * (float) arg4 + this.aClass73_Sub2_1.aFloat53 * (float) arg5 + this.aClass73_Sub2_1.aFloat60) / local57);
+        @Pc(132) int local132 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2 + this.aClass73_Sub2_1.aFloat60) / local26);
+        @Pc(164) int local164 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat59 * (float) arg3 + this.aClass73_Sub2_1.aFloat55 * (float) arg4 + this.aClass73_Sub2_1.aFloat53 * (float) arg5 + this.aClass73_Sub2_1.aFloat60) / local57);
         if (local132 < this.anInt4210 && local164 < this.anInt4210) {
             local1 |= 0x1;
         } else if (local132 > this.anInt4193 && local164 > this.anInt4193) {
             local1 |= 0x2;
         }
-        @Pc(225) int local225 = (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2 + this.aClass73_Sub2_1.aFloat58) / local26);
-        @Pc(257) int local257 = (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat57 * (float) arg3 + this.aClass73_Sub2_1.aFloat52 * (float) arg4 + this.aClass73_Sub2_1.aFloat51 * (float) arg5 + this.aClass73_Sub2_1.aFloat58) / local57);
+        @Pc(225) int local225 = (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2 + this.aClass73_Sub2_1.aFloat58) / local26);
+        @Pc(257) int local257 = (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat57 * (float) arg3 + this.aClass73_Sub2_1.aFloat52 * (float) arg4 + this.aClass73_Sub2_1.aFloat51 * (float) arg5 + this.aClass73_Sub2_1.aFloat58) / local57);
         if (local225 < this.anInt4208 && local257 < this.anInt4208) {
             local1 |= 0x4;
         } else if (local225 > this.anInt4201 && local257 > this.anInt4201) {
@@ -2273,15 +2273,15 @@ public final class JavaToolkit extends Toolkit {
         } else if (local24 > (float) this.anInt4199 && local49 > (float) this.anInt4199) {
             local51 |= 0x20;
         }
-        @Pc(121) int local121 = (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2 + this.aClass73_Sub2_1.aFloat60) / (float) arg6);
-        @Pc(154) int local154 = (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat59 * (float) arg3 + this.aClass73_Sub2_1.aFloat55 * (float) arg4 + this.aClass73_Sub2_1.aFloat53 * (float) arg5 + this.aClass73_Sub2_1.aFloat60) / (float) arg6);
+        @Pc(121) int local121 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat59 * (float) arg0 + this.aClass73_Sub2_1.aFloat55 * (float) arg1 + this.aClass73_Sub2_1.aFloat53 * (float) arg2 + this.aClass73_Sub2_1.aFloat60) / (float) arg6);
+        @Pc(154) int local154 = (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat59 * (float) arg3 + this.aClass73_Sub2_1.aFloat55 * (float) arg4 + this.aClass73_Sub2_1.aFloat53 * (float) arg5 + this.aClass73_Sub2_1.aFloat60) / (float) arg6);
         if (local121 < this.anInt4210 && local154 < this.anInt4210) {
             local51 |= 0x1;
         } else if (local121 > this.anInt4193 && local154 > this.anInt4193) {
             local51 |= 0x2;
         }
-        @Pc(216) int local216 = (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2 + this.aClass73_Sub2_1.aFloat58) / (float) arg6);
-        @Pc(249) int local249 = (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat57 * (float) arg3 + this.aClass73_Sub2_1.aFloat52 * (float) arg4 + this.aClass73_Sub2_1.aFloat51 * (float) arg5 + this.aClass73_Sub2_1.aFloat58) / (float) arg6);
+        @Pc(216) int local216 = (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat57 * (float) arg0 + this.aClass73_Sub2_1.aFloat52 * (float) arg1 + this.aClass73_Sub2_1.aFloat51 * (float) arg2 + this.aClass73_Sub2_1.aFloat58) / (float) arg6);
+        @Pc(249) int local249 = (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat57 * (float) arg3 + this.aClass73_Sub2_1.aFloat52 * (float) arg4 + this.aClass73_Sub2_1.aFloat51 * (float) arg5 + this.aClass73_Sub2_1.aFloat58) / (float) arg6);
         if (local216 < this.anInt4208 && local249 < this.anInt4208) {
             local51 |= 0x4;
         } else if (local216 > this.anInt4201 && local249 > this.anInt4201) {
@@ -2666,7 +2666,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
+    public OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
         return new Class87(this, (Sprite) arg0, (Class165) arg1);
     }
 
@@ -2810,14 +2810,14 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "C", descriptor = "()V")
     public void method3799() {
-        this.anInt4210 = this.anInt4192 - this.anInt4206;
-        this.anInt4193 = this.anInt4200 - this.anInt4206;
-        this.anInt4208 = this.anInt4186 - this.anInt4194;
-        this.anInt4201 = this.anInt4196 - this.anInt4194;
+        this.anInt4210 = this.anInt4192 - this.projectionCenterX;
+        this.anInt4193 = this.anInt4200 - this.projectionCenterX;
+        this.anInt4208 = this.anInt4186 - this.projectionCenterY;
+        this.anInt4201 = this.anInt4196 - this.projectionCenterY;
         for (@Pc(29) int local29 = 0; local29 < this.anInt4211; local29++) {
             @Pc(36) Class219 local36 = this.aClass399Array1[local29].aClass219_2;
-            local36.anInt5723 = this.anInt4206 - this.anInt4192;
-            local36.anInt5721 = this.anInt4194 - this.anInt4186;
+            local36.anInt5723 = this.projectionCenterX - this.anInt4192;
+            local36.anInt5721 = this.projectionCenterY - this.anInt4186;
             local36.anInt5725 = this.anInt4200 - this.anInt4192;
             local36.anInt5726 = this.anInt4196 - this.anInt4186;
         }
@@ -2874,13 +2874,13 @@ public final class JavaToolkit extends Toolkit {
             @Pc(29) int local29 = local14.anInt7536 >> 12;
             @Pc(54) float local54 = this.aClass73_Sub2_1.aFloat62 + this.aClass73_Sub2_1.aFloat56 * (float) local19 + this.aClass73_Sub2_1.aFloat54 * (float) local24 + this.aClass73_Sub2_1.aFloat61 * (float) local29;
             if (!(local54 < (float) this.anInt4214) && !(local54 > (float) local3.anInt10601)) {
-                @Pc(105) int local105 = this.anInt4206 + (int) ((float) this.anInt4205 * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) local19 + this.aClass73_Sub2_1.aFloat55 * (float) local24 + this.aClass73_Sub2_1.aFloat53 * (float) local29) / local54);
-                @Pc(140) int local140 = this.anInt4194 + (int) ((float) this.anInt4188 * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) local19 + this.aClass73_Sub2_1.aFloat52 * (float) local24 + this.aClass73_Sub2_1.aFloat51 * (float) local29) / local54);
+                @Pc(105) int local105 = this.projectionCenterX + (int) ((float) this.projectionScaleX * (this.aClass73_Sub2_1.aFloat60 + this.aClass73_Sub2_1.aFloat59 * (float) local19 + this.aClass73_Sub2_1.aFloat55 * (float) local24 + this.aClass73_Sub2_1.aFloat53 * (float) local29) / local54);
+                @Pc(140) int local140 = this.projectionCenterY + (int) ((float) this.projectionScaleY * (this.aClass73_Sub2_1.aFloat58 + this.aClass73_Sub2_1.aFloat57 * (float) local19 + this.aClass73_Sub2_1.aFloat52 * (float) local24 + this.aClass73_Sub2_1.aFloat51 * (float) local29) / local54);
                 if (local105 >= this.anInt4192 && local105 <= this.anInt4200 && local140 >= this.anInt4186 && local140 <= this.anInt4196) {
                     if (local54 == 0.0F) {
                         local54 = 1.0F;
                     }
-                    this.method3784(local14, local105, local140, (int) local54, (int) ((float) (local14.anInt7535 * this.anInt4205 >> 12) / local54));
+                    this.method3784(local14, local105, local140, (int) local54, (int) ((float) (local14.anInt7535 * this.projectionScaleX >> 12) / local54));
                 }
             }
         }

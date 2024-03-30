@@ -199,8 +199,8 @@ public final class Ground_Sub3 extends Ground {
                 }
                 local172 = this.aFloat171 + this.aFloat170 * (float) local37 + this.aFloat167 * (float) local42 + this.aFloat162 * (float) local52;
                 local193 = this.aFloat169 + this.aFloat168 * (float) local37 + this.aFloat163 * (float) local42 + this.aFloat166 * (float) local52;
-                arg5[local26] = arg4.anInt5723 + (int) (local172 * (float) this.aClass19_Sub2_8.anInt4205 / local73);
-                arg6[local26] = arg4.anInt5721 + (int) (local193 * (float) this.aClass19_Sub2_8.anInt4188 / local73);
+                arg5[local26] = arg4.anInt5723 + (int) (local172 * (float) this.aClass19_Sub2_8.projectionScaleX / local73);
+                arg6[local26] = arg4.anInt5721 + (int) (local193 * (float) this.aClass19_Sub2_8.projectionScaleY / local73);
                 arg7[local26] = (int) local73;
             }
         } else {
@@ -233,8 +233,8 @@ public final class Ground_Sub3 extends Ground {
                 }
                 local172 = this.aFloat171 + this.aFloat170 * (float) local37 + this.aFloat167 * (float) local42 + this.aFloat162 * (float) local52;
                 local193 = this.aFloat169 + this.aFloat168 * (float) local37 + this.aFloat163 * (float) local42 + this.aFloat166 * (float) local52;
-                arg5[local26] = arg4.anInt5723 + (int) (local172 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
-                arg6[local26] = arg4.anInt5721 + (int) (local193 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                arg5[local26] = arg4.anInt5723 + (int) (local172 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                arg6[local26] = arg4.anInt5721 + (int) (local193 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 arg7[local26] = (int) local73;
             }
         }
@@ -939,8 +939,8 @@ public final class Ground_Sub3 extends Ground {
                         }
                         local2314 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local2253 + this.aFloat162 * (float) local60;
                         local2335 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local2253 + this.aFloat166 * (float) local60;
-                        arg3[local480] = arg2.anInt5723 + (int) (local2314 * (float) this.aClass19_Sub2_8.anInt4205 / local2284);
-                        arg4[local480] = arg2.anInt5721 + (int) (local2335 * (float) this.aClass19_Sub2_8.anInt4188 / local2284);
+                        arg3[local480] = arg2.anInt5723 + (int) (local2314 * (float) this.aClass19_Sub2_8.projectionScaleX / local2284);
+                        arg4[local480] = arg2.anInt5721 + (int) (local2335 * (float) this.aClass19_Sub2_8.projectionScaleY / local2284);
                         arg5[local480] = (int) local2284;
                     }
                 } else {
@@ -951,8 +951,8 @@ public final class Ground_Sub3 extends Ground {
                         local2284 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local2253 + this.aFloat165 * (float) local60;
                         local2314 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local2253 + this.aFloat162 * (float) local60;
                         local2335 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local2253 + this.aFloat166 * (float) local60;
-                        arg3[local480] = arg2.anInt5723 + (int) (local2314 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
-                        arg4[local480] = arg2.anInt5721 + (int) (local2335 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                        arg3[local480] = arg2.anInt5723 + (int) (local2314 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                        arg4[local480] = arg2.anInt5721 + (int) (local2335 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                         arg5[local480] = (int) local2284;
                     }
                 }
@@ -1093,42 +1093,42 @@ public final class Ground_Sub3 extends Ground {
                         return;
                     }
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local72 + this.aFloat162 * (float) local55;
-                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.anInt4205 / local99);
+                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / local99);
                     local317 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local72 + this.aFloat166 * (float) local55;
-                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.anInt4188 / local99);
+                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / local99);
                     local347 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local784 + this.aFloat162 * (float) local55;
-                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.anInt4205 / local125);
+                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / local125);
                     local377 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local784 + this.aFloat166 * (float) local55;
-                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.anInt4188 / local125);
+                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / local125);
                     local407 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local795 + this.aFloat162 * (float) local60;
-                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.anInt4205 / local151);
+                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / local151);
                     local437 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local795 + this.aFloat166 * (float) local60;
-                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.anInt4188 / local151);
+                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / local151);
                     local467 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local804 + this.aFloat162 * (float) local60;
-                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.anInt4205 / local177);
+                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / local177);
                     local497 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local804 + this.aFloat166 * (float) local60;
-                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.anInt4188 / local177);
+                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / local177);
                 } else {
                     local99 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local72 + this.aFloat165 * (float) local55;
                     local125 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local784 + this.aFloat165 * (float) local55;
                     local151 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local795 + this.aFloat165 * (float) local60;
                     local177 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local804 + this.aFloat165 * (float) local60;
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local72 + this.aFloat162 * (float) local55;
-                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local317 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local72 + this.aFloat166 * (float) local55;
-                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local347 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local784 + this.aFloat162 * (float) local55;
-                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local377 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local784 + this.aFloat166 * (float) local55;
-                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local407 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local795 + this.aFloat162 * (float) local60;
-                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local437 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local795 + this.aFloat166 * (float) local60;
-                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local467 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local804 + this.aFloat162 * (float) local60;
-                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local497 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local804 + this.aFloat166 * (float) local60;
-                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 }
             } else {
                 local72 = super.tileHeights[arg0][arg1];
@@ -1160,38 +1160,38 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(266) float local266 = this.aFloat163 * (float) local72;
                 if (this.anInt8145 == -1) {
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + local260 + this.aFloat162 * (float) local55;
-                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.anInt4205 / local99);
+                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / local99);
                     local317 = this.aFloat169 + this.aFloat168 * (float) local45 + local266 + this.aFloat166 * (float) local55;
-                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.anInt4188 / local99);
+                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / local99);
                     local347 = this.aFloat171 + this.aFloat170 * (float) local50 + local260 + this.aFloat162 * (float) local55;
-                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.anInt4205 / local125);
+                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / local125);
                     local377 = this.aFloat169 + this.aFloat168 * (float) local50 + local266 + this.aFloat166 * (float) local55;
-                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.anInt4188 / local125);
+                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / local125);
                     local407 = this.aFloat171 + this.aFloat170 * (float) local50 + local260 + this.aFloat162 * (float) local60;
-                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.anInt4205 / local151);
+                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / local151);
                     local437 = this.aFloat169 + this.aFloat168 * (float) local50 + local266 + this.aFloat166 * (float) local60;
-                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.anInt4188 / local151);
+                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / local151);
                     local467 = this.aFloat171 + this.aFloat170 * (float) local45 + local260 + this.aFloat162 * (float) local60;
-                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.anInt4205 / local177);
+                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / local177);
                     local497 = this.aFloat169 + this.aFloat168 * (float) local45 + local266 + this.aFloat166 * (float) local60;
-                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.anInt4188 / local177);
+                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / local177);
                 } else {
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + local260 + this.aFloat162 * (float) local55;
-                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local317 = this.aFloat169 + this.aFloat168 * (float) local45 + local266 + this.aFloat166 * (float) local55;
-                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local347 = this.aFloat171 + this.aFloat170 * (float) local50 + local260 + this.aFloat162 * (float) local55;
-                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local377 = this.aFloat169 + this.aFloat168 * (float) local50 + local266 + this.aFloat166 * (float) local55;
-                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local407 = this.aFloat171 + this.aFloat170 * (float) local50 + local260 + this.aFloat162 * (float) local60;
-                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local437 = this.aFloat169 + this.aFloat168 * (float) local50 + local266 + this.aFloat166 * (float) local60;
-                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local467 = this.aFloat171 + this.aFloat170 * (float) local45 + local260 + this.aFloat162 * (float) local60;
-                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local497 = this.aFloat169 + this.aFloat168 * (float) local45 + local266 + this.aFloat166 * (float) local60;
-                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 }
             }
             if (this.anInt8145 == -1) {
@@ -1505,8 +1505,8 @@ public final class Ground_Sub3 extends Ground {
                         }
                         local3321 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local55 + this.aFloat162 * (float) local60;
                         local3342 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local55 + this.aFloat166 * (float) local60;
-                        arg5[local559] = arg4.anInt5723 + (int) (local3321 * (float) this.aClass19_Sub2_8.anInt4205 / local3222);
-                        arg6[local559] = arg4.anInt5721 + (int) (local3342 * (float) this.aClass19_Sub2_8.anInt4188 / local3222);
+                        arg5[local559] = arg4.anInt5723 + (int) (local3321 * (float) this.aClass19_Sub2_8.projectionScaleX / local3222);
+                        arg6[local559] = arg4.anInt5721 + (int) (local3342 * (float) this.aClass19_Sub2_8.projectionScaleY / local3222);
                         arg7[local559] = (int) local3222;
                     }
                 } else {
@@ -1539,8 +1539,8 @@ public final class Ground_Sub3 extends Ground {
                         }
                         local3321 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local55 + this.aFloat162 * (float) local60;
                         local3342 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local55 + this.aFloat166 * (float) local60;
-                        arg5[local559] = arg4.anInt5723 + (int) (local3321 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
-                        arg6[local559] = arg4.anInt5721 + (int) (local3342 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                        arg5[local559] = arg4.anInt5723 + (int) (local3321 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                        arg6[local559] = arg4.anInt5721 + (int) (local3342 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                         arg7[local559] = (int) local3222;
                     }
                 }
@@ -1822,38 +1822,38 @@ public final class Ground_Sub3 extends Ground {
                 }
                 if (this.anInt8145 == -1) {
                     local366 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local84 + this.aFloat162 * (float) local55;
-                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.anInt4205 / local111);
+                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / local111);
                     local396 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local84 + this.aFloat166 * (float) local55;
-                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.anInt4188 / local111);
+                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / local111);
                     local426 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local863 + this.aFloat162 * (float) local55;
-                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.anInt4205 / local137);
+                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / local137);
                     local456 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local863 + this.aFloat166 * (float) local55;
-                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.anInt4188 / local137);
+                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / local137);
                     local486 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local874 + this.aFloat162 * (float) local60;
-                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.anInt4205 / local163);
+                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / local163);
                     local516 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local874 + this.aFloat166 * (float) local60;
-                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.anInt4188 / local163);
+                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / local163);
                     local546 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local883 + this.aFloat162 * (float) local60;
-                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.anInt4205 / local189);
+                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / local189);
                     local576 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local883 + this.aFloat166 * (float) local60;
-                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.anInt4188 / local189);
+                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / local189);
                 } else {
                     local366 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local84 + this.aFloat162 * (float) local55;
-                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local396 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local84 + this.aFloat166 * (float) local55;
-                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local426 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local863 + this.aFloat162 * (float) local55;
-                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local456 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local863 + this.aFloat166 * (float) local55;
-                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local486 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local874 + this.aFloat162 * (float) local60;
-                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local516 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local874 + this.aFloat166 * (float) local60;
-                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local546 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local883 + this.aFloat162 * (float) local60;
-                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local576 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local883 + this.aFloat166 * (float) local60;
-                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 }
             } else {
                 local84 = super.tileHeights[arg0][arg1];
@@ -1915,38 +1915,38 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(345) float local345 = this.aFloat163 * (float) local84;
                 if (this.anInt8145 == -1) {
                     local366 = this.aFloat171 + this.aFloat170 * (float) local45 + local339 + this.aFloat162 * (float) local55;
-                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.anInt4205 / local111);
+                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / local111);
                     local396 = this.aFloat169 + this.aFloat168 * (float) local45 + local345 + this.aFloat166 * (float) local55;
-                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.anInt4188 / local111);
+                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / local111);
                     local426 = this.aFloat171 + this.aFloat170 * (float) local50 + local339 + this.aFloat162 * (float) local55;
-                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.anInt4205 / local137);
+                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / local137);
                     local456 = this.aFloat169 + this.aFloat168 * (float) local50 + local345 + this.aFloat166 * (float) local55;
-                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.anInt4188 / local137);
+                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / local137);
                     local486 = this.aFloat171 + this.aFloat170 * (float) local50 + local339 + this.aFloat162 * (float) local60;
-                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.anInt4205 / local163);
+                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / local163);
                     local516 = this.aFloat169 + this.aFloat168 * (float) local50 + local345 + this.aFloat166 * (float) local60;
-                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.anInt4188 / local163);
+                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / local163);
                     local546 = this.aFloat171 + this.aFloat170 * (float) local45 + local339 + this.aFloat162 * (float) local60;
-                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.anInt4205 / local189);
+                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / local189);
                     local576 = this.aFloat169 + this.aFloat168 * (float) local45 + local345 + this.aFloat166 * (float) local60;
-                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.anInt4188 / local189);
+                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / local189);
                 } else {
                     local366 = this.aFloat171 + this.aFloat170 * (float) local45 + local339 + this.aFloat162 * (float) local55;
-                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local396 = this.aFloat169 + this.aFloat168 * (float) local45 + local345 + this.aFloat166 * (float) local55;
-                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local426 = this.aFloat171 + this.aFloat170 * (float) local50 + local339 + this.aFloat162 * (float) local55;
-                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local456 = this.aFloat169 + this.aFloat168 * (float) local50 + local345 + this.aFloat166 * (float) local55;
-                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local486 = this.aFloat171 + this.aFloat170 * (float) local50 + local339 + this.aFloat162 * (float) local60;
-                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local516 = this.aFloat169 + this.aFloat168 * (float) local50 + local345 + this.aFloat166 * (float) local60;
-                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local546 = this.aFloat171 + this.aFloat170 * (float) local45 + local339 + this.aFloat162 * (float) local60;
-                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.anInt4205 / (float) this.anInt8145);
+                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local576 = this.aFloat169 + this.aFloat168 * (float) local45 + local345 + this.aFloat166 * (float) local60;
-                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.anInt4188 / (float) this.anInt8145);
+                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 }
             }
             @Pc(1864) boolean local1864 = local6.aShort105 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local6.aShort105).effectType);

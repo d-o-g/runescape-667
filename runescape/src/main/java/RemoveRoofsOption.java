@@ -24,7 +24,7 @@ public final class RemoveRoofsOption extends Option {
     @OriginalMember(owner = "client!dl", name = "a", descriptor = "(B)V")
     @Override
     public void validate() {
-        if (super.options.orthographic.method2118() && super.value == 2) {
+        if (super.options.orthographic.isToolkitCompatible() && super.value == 2) {
             super.value = 1;
         }
         if (super.value < 0 || super.value > 2) {

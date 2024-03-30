@@ -6310,7 +6310,7 @@ public final class ScriptRunner {
                             ClientOptions.instance.update(local192, ClientOptions.instance.orthographic);
                             ClientOptions.save();
                             Static503.sentPreferences = false;
-                            Static498.setOrthoMode();
+                            OrthoMode.enter();
                         }
                         return;
                     }

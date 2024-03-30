@@ -829,10 +829,10 @@ public final class client extends GameShell {
             }
 
             try {
-                if (InterfaceManager.aBoolean210) {
-                    Static700.method9148(rectangle, InterfaceManager.flippedDirtyRects);
+                if (OrthoMode.toolkitActive) {
+                    OrthoMode.flipDirtyRect(rectangle, InterfaceManager.flippedDirtyRects);
                 } else {
-                    Toolkit.active.method8005(rectangle, InterfaceManager.flippedDirtyRects);
+                    Toolkit.active.flipDirtyRect(InterfaceManager.flippedDirtyRects, rectangle);
                 }
             } catch (@Pc(629) FlipException ignored) {
                 /* empty */
@@ -843,8 +843,8 @@ public final class client extends GameShell {
             }
 
             try {
-                if (InterfaceManager.aBoolean210) {
-                    Static430.flip();
+                if (OrthoMode.toolkitActive) {
+                    OrthoMode.flip();
                 } else {
                     Toolkit.active.flip();
                 }

@@ -186,7 +186,7 @@ public final class OverlayManager {
                     hitbarIcon.render(x, y);
                     Toolkit.active.KA(screenX, screenY, screenWidth + screenX, screenY + screenHeight);
 
-                    Static682.method8927(x, hitbarFirst.scaleWidth() + x, y, height + y);
+                    OrthoMode.method8927(x, hitbarFirst.scaleWidth() + x, y, height + y);
                 }
 
                 y -= 2;
@@ -250,7 +250,7 @@ public final class OverlayManager {
                         top.render(x, y);
 
                         Toolkit.active.KA(screenX, screenY, screenX + screenWidth, screenY + screenHeight);
-                        Static682.method8927(x, bottom.scaleWidth() + x, y, spriteHeight + y);
+                        OrthoMode.method8927(x, bottom.scaleWidth() + x, y, spriteHeight + y);
 
                         y -= 2;
                     }
@@ -261,7 +261,7 @@ public final class OverlayManager {
                             y -= headicon.getHeight();
 
                             headicon.render(screenX + hitmarkpos[0] - (headicon.getWidth() >> 1), y);
-                            Static682.method8927(screenX + hitmarkpos[0] - (headicon.getWidth() >> 1), hitmarkpos[0] + screenX - (headicon.getWidth() >> 1) + headicon.scaleWidth(), y, headicon.scaleHeight() + y);
+                            OrthoMode.method8927(screenX + hitmarkpos[0] - (headicon.getWidth() >> 1), hitmarkpos[0] + screenX - (headicon.getWidth() >> 1) + headicon.scaleWidth(), y, headicon.scaleHeight() + y);
 
                             y -= 2;
                         }
@@ -273,7 +273,7 @@ public final class OverlayManager {
                             y -= headicon.getHeight();
 
                             headicon.render(hitmarkpos[0] + screenX - 12, y);
-                            Static682.method8927(hitmarkpos[0] + screenX + -12, hitmarkpos[0] + screenX + headicon.scaleWidth() - 12, y, headicon.scaleHeight() + y);
+                            OrthoMode.method8927(hitmarkpos[0] + screenX + -12, hitmarkpos[0] + screenX + headicon.scaleWidth() - 12, y, headicon.scaleHeight() + y);
 
                             y -= 2;
                         }
@@ -283,7 +283,7 @@ public final class OverlayManager {
                             y -= headicon.getHeight();
 
                             headicon.render(screenX + hitmarkpos[0] - 12, y);
-                            Static682.method8927(hitmarkpos[0] + screenX + -12, hitmarkpos[0] + screenX + headicon.scaleWidth() - 12, y, y + headicon.scaleHeight());
+                            OrthoMode.method8927(hitmarkpos[0] + screenX + -12, hitmarkpos[0] + screenX + headicon.scaleWidth() - 12, y, y + headicon.scaleHeight());
 
                             y -= 2;
                         }
@@ -305,7 +305,7 @@ public final class OverlayManager {
                                 }
 
                                 headicon.render(hitmarkpos[0] + screenX - 12, y - headicon.getHeight());
-                                Static682.method8927(screenX + hitmarkpos[0] - 12, hitmarkpos[0] + (screenX - 12) - -headicon.scaleWidth(), y - headicon.getHeight(), y - headicon.getHeight() - -headicon.scaleHeight());
+                                OrthoMode.method8927(screenX + hitmarkpos[0] - 12, hitmarkpos[0] + (screenX - 12) - -headicon.scaleWidth(), y - headicon.getHeight(), y - headicon.getHeight() - -headicon.scaleHeight());
                             }
                         }
 
@@ -336,7 +336,7 @@ public final class OverlayManager {
 
                             if (draw) {
                                 headicon.render(hitmarkpos[0] + screenX - 12, -headicon.getHeight() + y);
-                                Static682.method8927(screenX + hitmarkpos[0] - 12, screenX + hitmarkpos[0] - (12 - headicon.scaleWidth()), y - headicon.getHeight(), -headicon.getHeight() + (y - -headicon.scaleHeight()));
+                                OrthoMode.method8927(screenX + hitmarkpos[0] - 12, screenX + hitmarkpos[0] - (12 - headicon.scaleWidth()), y - headicon.getHeight(), -headicon.getHeight() + (y - -headicon.scaleHeight()));
                             }
                         }
                     }
@@ -729,7 +729,7 @@ public final class OverlayManager {
                                     }
                                 }
 
-                                Static682.method8927(local1898, local1719 + local1898, local1910, local1915 + 1);
+                                OrthoMode.method8927(local1898, local1719 + local1898, local1910, local1915 + 1);
                             }
                         }
                     }
@@ -902,7 +902,7 @@ public final class OverlayManager {
                 local1274 -= local321 >> 1;
             }
 
-            Static682.method8927(local409, local1274 + 1, local412, local2654 + 1);
+            OrthoMode.method8927(local409, local1274 + 1, local412, local2654 + 1);
         }
     }
 

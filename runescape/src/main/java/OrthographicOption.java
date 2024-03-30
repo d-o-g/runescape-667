@@ -29,7 +29,7 @@ public final class OrthographicOption extends Option {
     @OriginalMember(owner = "client!dja", name = "a", descriptor = "(B)V")
     @Override
     public void validate() {
-        if (this.method2118()) {
+        if (this.isToolkitCompatible()) {
             if (super.options.toolkit.isActive() && !isSoftware(super.options.toolkit.getValue())) {
                 super.value = 1;
             }
@@ -46,7 +46,7 @@ public final class OrthographicOption extends Option {
     }
 
     @OriginalMember(owner = "client!dja", name = "b", descriptor = "(B)Z")
-    public boolean method2118() {
+    public boolean isToolkitCompatible() {
         return ToolkitType.is3d(super.value);
     }
 

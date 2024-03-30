@@ -2,7 +2,6 @@ import com.jagex.Client;
 import com.jagex.core.constants.WindowMode;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ModeWhere;
-import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -12,9 +11,6 @@ import java.awt.Container;
 import java.awt.Insets;
 
 public final class Static712 {
-
-    @OriginalMember(owner = "client!wj", name = "Lc", descriptor = "Lclient!tt;")
-    public static Matrix aMatrix_11;
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "()V")
     public static void method9323() {
@@ -73,8 +69,8 @@ public final class Static712 {
             GameShell.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
 
             if (Toolkit.active != null) {
-                if (InterfaceManager.aBoolean210) {
-                    Static575.method7606(GameShell.canvas);
+                if (OrthoMode.toolkitActive) {
+                    OrthoMode.method7606(GameShell.canvas);
                 } else {
                     Toolkit.active.method7935(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
                 }
@@ -94,7 +90,7 @@ public final class Static712 {
             Static288.repaintMargins();
         }
         if (arg0 != 11) {
-            aMatrix_11 = null;
+            OrthoMode.aMatrix_11 = null;
         }
     }
 }

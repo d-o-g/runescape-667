@@ -142,9 +142,6 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!dr", name = "b", descriptor = "I")
     public static int dragParentX = -1;
 
-    @OriginalMember(owner = "client!ef", name = "d", descriptor = "Z")
-    public static boolean aBoolean210 = false;
-
     @OriginalMember(owner = "client!re", name = "n", descriptor = "Lclient!av;")
     public static IterableHashTable subInterfaces = new IterableHashTable(8);
 
@@ -253,7 +250,7 @@ public final class InterfaceManager {
             }
         }
 
-        Static682.method8927(x, x + width, y, y + height);
+        OrthoMode.method8927(x, x + width, y, y + height);
     }
 
     @OriginalMember(owner = "client!cea", name = "a", descriptor = "(II[Lclient!hda;IIIIZIII)V")
@@ -295,8 +292,8 @@ public final class InterfaceManager {
 
             @Pc(132) int local132 = 0;
             @Pc(134) int local134 = 0;
-            if (aBoolean210) {
-                local132 = Static130.method2283();
+            if (OrthoMode.toolkitActive) {
+                local132 = OrthoMode.method2283();
                 local134 = Static422.method5771();
             }
 
@@ -373,7 +370,7 @@ public final class InterfaceManager {
                     if (child.clientcode == ComponentClientCode.SCENE || child.clientcode == ComponentClientCode.LOGIN_SCENE) {
                         setOptions(offsetY, offsetX, child);
 
-                        if (!aBoolean210) {
+                        if (!OrthoMode.toolkitActive) {
                             Static294.method4339(offsetY, child.clientcode == ComponentClientCode.LOGIN_SCENE, child.width, child.height, offsetX);
                             Toolkit.active.KA(x1, y1, x2, y2);
                         }
@@ -389,9 +386,9 @@ public final class InterfaceManager {
                             flipDirtyRect[rectangle] = true;
                             Toolkit.active.KA(x1, y1, x2, y2);
 
-                            if (aBoolean210) {
+                            if (OrthoMode.toolkitActive) {
                                 if (aspectRatio) {
-                                    Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
+                                    OrthoMode.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                                 } else {
                                     Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                                 }
@@ -417,9 +414,9 @@ public final class InterfaceManager {
 
                             Toolkit.active.KA(x1, y1, x2, y2);
 
-                            if (aBoolean210) {
+                            if (OrthoMode.toolkitActive) {
                                 if (aspectRatio) {
-                                    Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
+                                    OrthoMode.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                                 } else {
                                     Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                                 }
@@ -450,9 +447,9 @@ public final class InterfaceManager {
                         @Pc(317) int drawX = offsetX + child.width;
                         @Pc(323) int drawY = offsetY + 15;
 
-                        if (aBoolean210) {
+                        if (OrthoMode.toolkitActive) {
                             if (aspectRatio) {
-                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
+                                OrthoMode.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -599,9 +596,9 @@ public final class InterfaceManager {
                             }
                         }
 
-                        if (aBoolean210) {
+                        if (OrthoMode.toolkitActive) {
                             if (aspectRatio) {
-                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
+                                OrthoMode.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -655,16 +652,16 @@ public final class InterfaceManager {
                                     @Pc(777) int textWidth = metrics.paraWidth(Sprites.nameIcons, text, child.width);
                                     @Pc(779) int textHeight = metrics.stringHeight(child.width, child.textHeight, text, Sprites.nameIcons);
 
-                                    if (aBoolean210) {
+                                    if (OrthoMode.toolkitActive) {
                                         if (aspectRatio) {
-                                            Static682.method8927(offsetX, offsetX + textWidth, offsetY, offsetY + textHeight);
+                                            OrthoMode.method8927(offsetX, offsetX + textWidth, offsetY, offsetY + textHeight);
                                         } else {
                                             Static595.method7810(offsetY, offsetX + textWidth, textHeight + offsetY, offsetX);
                                         }
                                     }
-                                } else if (aBoolean210) {
+                                } else if (OrthoMode.toolkitActive) {
                                     if (aspectRatio) {
-                                        Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
+                                        OrthoMode.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                                     } else {
                                         Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                                     }
@@ -741,9 +738,9 @@ public final class InterfaceManager {
                             }
                         }
 
-                        if (aBoolean210) {
+                        if (OrthoMode.toolkitActive) {
                             if (aspectRatio) {
-                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
+                                OrthoMode.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -877,9 +874,9 @@ public final class InterfaceManager {
                             }
                         }
 
-                        if (aBoolean210) {
+                        if (OrthoMode.toolkitActive) {
                             if (aspectRatio) {
-                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
+                                OrthoMode.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -905,9 +902,9 @@ public final class InterfaceManager {
                             Toolkit.active.line(offsetX, local323, local744, local1255, child.colour, 0);
                         }
 
-                        if (aBoolean210) {
+                        if (OrthoMode.toolkitActive) {
                             if (aspectRatio) {
-                                Static682.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
+                                OrthoMode.method8927(boundsLeft, boundsRight, boundsBottom, boundsTop);
                             } else {
                                 Static595.method7810(boundsBottom, boundsRight, boundsTop, boundsLeft);
                             }
@@ -927,7 +924,7 @@ public final class InterfaceManager {
             @Pc(62) int local62 = 0;
             @Pc(64) int local64 = 0;
 
-            if (aBoolean210) {
+            if (OrthoMode.toolkitActive) {
                 local62 = Static582.anInt8629;
                 local64 = Static691.anInt10368;
                 local17 = Static435.anInt6597;
@@ -942,9 +939,9 @@ public final class InterfaceManager {
                 draw(InterfaceList.interfaces[id], -1, screenX, screenY, x1, y1, x2, y2, rectangle, rectangle < 0);
             }
 
-            if (aBoolean210) {
+            if (OrthoMode.toolkitActive) {
                 if (rectangle >= 0 && Static691.anInt10368 == 2) {
-                    Static682.method8927(Static435.anInt6597, Static599.anInt8837, Static320.anInt5085, Static582.anInt8629);
+                    OrthoMode.method8927(Static435.anInt6597, Static599.anInt8837, Static320.anInt5085, Static582.anInt8629);
                 }
                 Static320.anInt5085 = local58;
                 Static582.anInt8629 = local62;
@@ -1171,14 +1168,14 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!ic", name = "a", descriptor = "(I)V")
     public static void method3833() {
         dragChildren = null;
-        if (aBoolean210 && getWindowMode() != 1) {
-            Static294.method4339(0, MainLogicManager.step == 3 || MainLogicManager.step == 7, Static593.method7779(), Static58.method1260(), 0);
+        if (OrthoMode.toolkitActive && getWindowMode() != 1) {
+            Static294.method4339(0, MainLogicManager.step == 3 || MainLogicManager.step == 7, OrthoMode.method7779(), Static58.method1260(), 0);
         }
 
         @Pc(46) int x1 = 0;
         @Pc(48) int y1 = 0;
-        if (aBoolean210) {
-            x1 = Static130.method2283();
+        if (OrthoMode.toolkitActive) {
+            x1 = OrthoMode.method2283();
             y1 = Static422.method5771();
         }
 
@@ -1243,8 +1240,8 @@ public final class InterfaceManager {
 
                 @Pc(42) int orthoDeltaX = 0;
                 @Pc(47) int orthoDeltaY = 0;
-                if (aBoolean210) {
-                    orthoDeltaX = Static130.method2283();
+                if (OrthoMode.toolkitActive) {
+                    orthoDeltaX = OrthoMode.method2283();
                     orthoDeltaY = Static422.method5771();
                 }
 
@@ -2367,7 +2364,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(IIIZI)V")
     public static void changeWindowMode(@OriginalArg(1) int mode, @OriginalArg(2) int width, @OriginalArg(3) boolean modeDifferent, @OriginalArg(4) int height) {
-        Static498.setOrthoMode();
+        OrthoMode.enter();
         Static297.aLong153 = 0L;
 
         @Pc(10) int current = getWindowMode();
@@ -2450,8 +2447,8 @@ public final class InterfaceManager {
         } else {
             GameShell.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);
 
-            if (aBoolean210) {
-                Static575.method7606(GameShell.canvas);
+            if (OrthoMode.toolkitActive) {
+                OrthoMode.method7606(GameShell.canvas);
             } else {
                 Toolkit.active.method7935(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
             }
@@ -2807,7 +2804,7 @@ public final class InterfaceManager {
                 flipDirtyRect[i] = true;
             }
         }
-        Static682.method8927(x, x + width, y, height + y);
+        OrthoMode.method8927(x, x + width, y, height + y);
     }
 
     @OriginalMember(owner = "client!rj", name = "a", descriptor = "(BLclient!hda;)Lclient!hda;")

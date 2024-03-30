@@ -14,7 +14,7 @@ import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.FlipException;
 import com.jagex.graphics.Ground;
-import com.jagex.graphics.Interface9;
+import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
@@ -470,8 +470,8 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!gaa;)V")
     @Override
-    public void method7939(@OriginalArg(0) Interface9 arg0) {
-        @Pc(2) wa local2 = (wa) arg0;
+    public void swapSurface(@OriginalArg(0) OffscreenSurface surface) {
+        @Pc(2) wa local2 = (wa) surface;
         this.n(local2.aJ1.nativeid, local2.aXa1.nativeid);
     }
 
@@ -857,7 +857,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
+    public OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
         return new wa(this, (j) arg0, (xa) arg1);
     }
 

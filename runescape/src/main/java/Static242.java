@@ -1,6 +1,5 @@
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static242 {
 
@@ -17,20 +16,6 @@ public final class Static242 {
             return 34066;
         } else {
             throw new IllegalArgumentException();
-        }
-    }
-
-    @OriginalMember(owner = "client!hj", name = "a", descriptor = "(IZ)I")
-    public static int method3503(@OriginalArg(1) boolean arg0) {
-        @Pc(5) int local5 = Static448.anInt6796;
-        if (local5 == 0) {
-            return arg0 ? 0 : Static2.anInt45;
-        } else if (local5 == 1) {
-            return Static2.anInt45;
-        } else if (local5 == 2) {
-            return 0;
-        } else {
-            return 0;
         }
     }
 

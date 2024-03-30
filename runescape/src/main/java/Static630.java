@@ -7,9 +7,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static630 {
 
-    @OriginalMember(owner = "client!tv", name = "e", descriptor = "I")
-    public static int anInt9494;
-
     @OriginalMember(owner = "client!tv", name = "a", descriptor = "(Lclient!r;III[Z)Z")
     public static boolean method8357(@OriginalArg(0) Shadow shadow, @OriginalArg(1) int maxLevel, @OriginalArg(2) int x, @OriginalArg(3) int z, @OriginalArg(4) boolean[] arg4) {
         @Pc(1) boolean found = false;

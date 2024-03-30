@@ -21,7 +21,7 @@ public final class Static233 {
                     @Pc(84) int local84 = arg2 + OverlayManager.hitmarkpos[0] - 12;
                     @Pc(92) int local92 = OverlayManager.hitmarkpos[1] + arg1 - 28;
                     local76.render(local84, local92);
-                    Static682.method8927(local84, local76.scaleWidth() + local84, local92, local76.scaleHeight() + local92);
+                    OrthoMode.method8927(local84, local76.scaleWidth() + local84, local92, local76.scaleHeight() + local92);
                 }
             }
         }

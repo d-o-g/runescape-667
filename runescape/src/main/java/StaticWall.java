@@ -283,7 +283,7 @@ public final class StaticWall extends Wall implements Location {
         } else {
             @Pc(14) Matrix local14 = toolkit.scratchMatrix();
             local14.applyTranslation(super.x, super.y, super.z);
-            return Static504.renderOrtho ? local9.pickedOrtho(y, x, local14, false, 0, Static582.orthoAngle) : local9.picked(y, x, local14, false, 0);
+            return OrthoMode.enabled ? local9.pickedOrtho(y, x, local14, false, 0, Static582.orthoAngle) : local9.picked(y, x, local14, false, 0);
         }
     }
 
@@ -302,7 +302,7 @@ public final class StaticWall extends Wall implements Location {
         @Pc(20) Matrix local20 = arg0.scratchMatrix();
         local20.applyTranslation(super.x, super.y, super.z);
         @Pc(34) PickableEntity local34 = Static642.method8441(this.interactive, 1);
-        if (Static504.renderOrtho) {
+        if (OrthoMode.enabled) {
             this.model.renderOrtho(local20, local34.pickingCylinders[0], Static582.orthoAngle, 0);
         } else {
             this.model.render(local20, local34.pickingCylinders[0], 0);

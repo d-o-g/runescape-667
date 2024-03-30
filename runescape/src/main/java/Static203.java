@@ -1,14 +1,10 @@
 import com.jagex.graphics.Fonts;
-import com.jagex.graphics.Matrix;
 import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static203 {
 
     @OriginalMember(owner = "client!gf", name = "l", descriptor = "F")
     public static float aFloat69;
-
-    @OriginalMember(owner = "client!gf", name = "j", descriptor = "Lclient!tt;")
-    public static Matrix aMatrix_4;
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(B)V")
     public static void resetStaticSprites() {

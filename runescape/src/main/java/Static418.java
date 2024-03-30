@@ -21,18 +21,18 @@ public final class Static418 {
             return;
         }
         @Pc(58) int local58 = Static102.averageHeight(arg0, arg3, arg1) - arg2;
-        if (InterfaceManager.aBoolean210) {
-            Static713.method9331(true);
+        if (OrthoMode.toolkitActive) {
+            OrthoMode.method9331(true);
         } else {
             Static460.aMatrix_10.translate(arg4, 0, 0);
             Toolkit.active.setCamera(Static460.aMatrix_10);
         }
-        if (Static504.renderOrtho) {
+        if (OrthoMode.enabled) {
             Toolkit.active.HA(arg3, local58, arg1, Static582.orthoAngle, OverlayManager.hitmarkpos);
         } else {
             Toolkit.active.da(arg3, local58, arg1, OverlayManager.hitmarkpos);
         }
-        if (InterfaceManager.aBoolean210) {
+        if (OrthoMode.toolkitActive) {
             Static480.method6469();
         } else {
             Static460.aMatrix_10.translate(-arg4, 0, 0);

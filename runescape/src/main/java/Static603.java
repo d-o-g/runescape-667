@@ -17,8 +17,8 @@ public final class Static603 {
         if (Static702.aBoolean797 && InterfaceManager.aBoolean428) {
             @Pc(30) int local30 = 0;
             @Pc(32) int local32 = 0;
-            if (InterfaceManager.aBoolean210) {
-                local30 = Static130.method2283();
+            if (OrthoMode.toolkitActive) {
+                local30 = OrthoMode.method2283();
                 local32 = Static422.method5771();
             }
             @Pc(46) int local46 = local30 + MouseMonitor.instance.getRecordedX();

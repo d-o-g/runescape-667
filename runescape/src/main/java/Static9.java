@@ -5,9 +5,6 @@ public final class Static9 {
     @OriginalMember(owner = "client!af", name = "f", descriptor = "F")
     public static float aFloat1;
 
-    @OriginalMember(owner = "client!af", name = "o", descriptor = "I")
-    public static int anInt121;
-
     @OriginalMember(owner = "client!af", name = "d", descriptor = "[I")
     public static int[] anIntArray18 = new int[2];
 

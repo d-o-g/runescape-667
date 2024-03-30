@@ -217,7 +217,7 @@ public final class SpotAnimation extends PositionEntity {
         this.method6593(matrix, local24, toolkit);
 
         @Pc(62) PickableEntity local62 = Static642.method8441(false, 1);
-        if (Static504.renderOrtho) {
+        if (OrthoMode.enabled) {
             local24.renderOrtho(matrix, local62.pickingCylinders[0], Static582.orthoAngle, 0);
         } else {
             local24.render(matrix, local62.pickingCylinders[0], 0);
@@ -226,7 +226,7 @@ public final class SpotAnimation extends PositionEntity {
         if (this.particleSystem != null) {
             @Pc(102) ParticleList particles = this.particleSystem.getList();
 
-            if (Static504.renderOrtho) {
+            if (OrthoMode.enabled) {
                 toolkit.renderOrtho(particles, Static582.orthoAngle);
             } else {
                 toolkit.render(particles);

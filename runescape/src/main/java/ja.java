@@ -28,8 +28,8 @@ public final class ja extends Matrix implements SoftwareObject {
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void method7135(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.P(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5);
+    public void createCamera(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int rotateX, @OriginalArg(4) int rotateY, @OriginalArg(5) int rotateZ) {
+        this.P(this.nativeid, x, y, z, rotateX, rotateY, rotateZ);
     }
 
     @OriginalMember(owner = "client!ja", name = "l", descriptor = "(JJ)V")
@@ -43,8 +43,8 @@ public final class ja extends Matrix implements SoftwareObject {
 
     @OriginalMember(owner = "client!ja", name = "b", descriptor = "(III[I)V")
     @Override
-    public void projectDirection(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
-        this.XA(this.nativeid, arg0, arg1, arg2, arg3);
+    public void projectDirection(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination) {
+        this.XA(this.nativeid, x, y, z, destination);
     }
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "(JIII)V")
@@ -91,8 +91,8 @@ public final class ja extends Matrix implements SoftwareObject {
 
     @OriginalMember(owner = "client!ja", name = "c", descriptor = "(III[I)V")
     @Override
-    public void method7124(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
-        this.b(this.nativeid, arg0, arg1, arg2, arg3);
+    public void project(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination) {
+        this.b(this.nativeid, x, y, z, destination);
     }
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "(I)V")
@@ -109,8 +109,8 @@ public final class ja extends Matrix implements SoftwareObject {
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7128(@OriginalArg(0) Matrix arg0) {
-        this.l(this.nativeid, ((ja) arg0).nativeid);
+    public void apply(@OriginalArg(0) Matrix other) {
+        this.l(this.nativeid, ((ja) other).nativeid);
     }
 
     @OriginalMember(owner = "client!ja", name = "finalize", descriptor = "()V")
@@ -129,8 +129,8 @@ public final class ja extends Matrix implements SoftwareObject {
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "(III[I)V")
     @Override
-    public void method7140(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
-        this.va(this.nativeid, arg0, arg1, arg2, arg3);
+    public void projectRelative(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination) {
+        this.va(this.nativeid, x, y, z, destination);
     }
 
     @OriginalMember(owner = "client!ja", name = "b", descriptor = "(III)V")
@@ -144,9 +144,9 @@ public final class ja extends Matrix implements SoftwareObject {
 
     @OriginalMember(owner = "client!ja", name = "b", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method7129() {
+    public Matrix copy() {
         @Pc(3) ja local3 = new ja();
-        local3.method7128(this);
+        local3.apply(this);
         return local3;
     }
 
@@ -164,8 +164,8 @@ public final class ja extends Matrix implements SoftwareObject {
 
     @OriginalMember(owner = "client!ja", name = "a", descriptor = "([I)V")
     @Override
-    public void method7126(@OriginalArg(0) int[] arg0) {
-        this.w(this.nativeid, arg0);
+    public void project(@OriginalArg(0) int[] destination) {
+        this.w(this.nativeid, destination);
     }
 
     @OriginalMember(owner = "client!ja", name = "va", descriptor = "(JIII[I)V")

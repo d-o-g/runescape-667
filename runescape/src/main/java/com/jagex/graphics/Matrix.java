@@ -23,22 +23,22 @@ public abstract class Matrix {
     }
 
     @OriginalMember(owner = "client!tt", name = "c", descriptor = "(III[I)V")
-    public abstract void method7124(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3);
+    public abstract void project(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(III)V")
     public abstract void applyTranslation(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "([I)V")
-    public abstract void method7126(@OriginalArg(0) int[] arg0);
+    public abstract void project(@OriginalArg(0) int[] destination);
 
     @OriginalMember(owner = "client!tt", name = "f", descriptor = "(I)V")
     public abstract void rotateAxisY(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(Lclient!tt;)V")
-    public abstract void method7128(@OriginalArg(0) Matrix arg0);
+    public abstract void apply(@OriginalArg(0) Matrix other);
 
     @OriginalMember(owner = "client!tt", name = "b", descriptor = "()Lclient!tt;")
-    public abstract Matrix method7129();
+    public abstract Matrix copy();
 
     @OriginalMember(owner = "client!tt", name = "c", descriptor = "(I)V")
     public abstract void rotateAxisX(@OriginalArg(0) int arg0);
@@ -56,17 +56,17 @@ public abstract class Matrix {
     public abstract void translate(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(IIIIII)V")
-    public abstract void method7135(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
+    public abstract void createCamera(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int rotateX, @OriginalArg(4) int rotateY, @OriginalArg(5) int rotateZ);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(I)V")
     public abstract void makeRotationX(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!tt", name = "b", descriptor = "(III[I)V")
-    public abstract void projectDirection(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3);
+    public abstract void projectDirection(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination);
 
     @OriginalMember(owner = "client!tt", name = "b", descriptor = "(I)V")
     public abstract void rotateAxisZ(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!tt", name = "a", descriptor = "(III[I)V")
-    public abstract void method7140(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3);
+    public abstract void projectRelative(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination);
 }

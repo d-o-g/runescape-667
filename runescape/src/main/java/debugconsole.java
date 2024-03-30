@@ -136,13 +136,13 @@ public final class debugconsole {
     public static void draw(@OriginalArg(0) Toolkit toolkit) {
         @Pc(7) int local7 = 0;
         @Pc(9) int local9 = 0;
-        if (InterfaceManager.aBoolean210) {
-            local7 = Static130.method2283();
+        if (OrthoMode.toolkitActive) {
+            local7 = OrthoMode.method2283();
             local9 = Static422.method5771();
         }
         toolkit.KA(local7, local9, GameShell.canvasWid + local7, local9 + 350);
         toolkit.aa(local7, local9, GameShell.canvasWid, 350, anInt8472 << 24 | 0x332277, 1);
-        Static682.method8927(local7, GameShell.canvasWid + local7, local9, local9 + 350);
+        OrthoMode.method8927(local7, GameShell.canvasWid + local7, local9, local9 + 350);
 
         @Pc(54) int local54 = 350 / p12VerticalPadding;
 
@@ -786,7 +786,7 @@ public final class debugconsole {
                     ClientOptions.instance.update(mode, ClientOptions.instance.orthographic);
                     ClientOptions.save();
                     Static503.sentPreferences = false;
-                    Static498.setOrthoMode();
+                    OrthoMode.enter();
 
                     if (mode != ClientOptions.instance.orthographic.getValue()) {
                         addline("Failed to change ortho mode");
@@ -811,10 +811,10 @@ public final class debugconsole {
 
                 if (command.startsWith("orthotilesize ")) {
                     @Pc(501) int size = StringTools.parseDecimal(command.substring(command.indexOf(' ') + 1));
-                    Static288.anInt4620 = size;
-                    Static32.anInt777 = size;
+                    OrthoMode.tileSizeY = size;
+                    OrthoMode.tileSizeX = size;
                     addline("ortho tile size=" + size);
-                    Static498.setOrthoMode();
+                    OrthoMode.enter();
                     return;
                 }
 

@@ -10,9 +10,6 @@ public final class Static576 {
     @OriginalMember(owner = "client!sba", name = "e", descriptor = "[Lclient!eo;")
     public static Entity[] opaqueStationaryEntities;
 
-    @OriginalMember(owner = "client!sba", name = "d", descriptor = "I")
-    public static int anInt8585;
-
     @OriginalMember(owner = "client!sba", name = "a", descriptor = "(III)Z")
     public static boolean method7609(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         return Static69.method6335(arg1, arg0) & (Static526.method7073(arg0, arg1) | (arg1 & 0x2000) != 0 | Static220.method3197(arg1, arg0));

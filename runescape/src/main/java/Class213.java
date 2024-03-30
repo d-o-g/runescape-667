@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class213 {
 
     @OriginalMember(owner = "client!kn", name = "a", descriptor = "Lclient!fla;")
-    public final LinkedList aLinkedList_8 = new LinkedList();
+    public final LinkedList entities = new LinkedList();
 
     @OriginalMember(owner = "client!kn", name = "f", descriptor = "Z")
     public boolean aBoolean426 = false;
@@ -38,26 +38,26 @@ public final class Class213 {
         }
         @Pc(42) PickableEntity local42;
         if (this.aBoolean426) {
-            for (local42 = (PickableEntity) this.aLinkedList_8.first(); local42 != null; local42 = (PickableEntity) this.aLinkedList_8.next()) {
+            for (local42 = (PickableEntity) this.entities.first(); local42 != null; local42 = (PickableEntity) this.entities.next()) {
                 if (local42.aEntity_18 == local6) {
                     local42.unlink();
                     Static281.method4092(local42);
                 }
             }
         }
-        for (local42 = (PickableEntity) this.aLinkedList_8.first(); local42 != null; local42 = (PickableEntity) this.aLinkedList_8.next()) {
+        for (local42 = (PickableEntity) this.entities.first(); local42 != null; local42 = (PickableEntity) this.entities.next()) {
             if (local6.anInt10697 >= local42.aEntity_18.anInt10697) {
                 Node.addBefore(local42, arg0);
                 return;
             }
         }
-        this.aLinkedList_8.add(arg0);
+        this.entities.add(arg0);
     }
 
     @OriginalMember(owner = "client!kn", name = "a", descriptor = "(B)V")
     public void method5010() {
         while (true) {
-            @Pc(5) PickableEntity entity = (PickableEntity) this.aLinkedList_8.removeFirst();
+            @Pc(5) PickableEntity entity = (PickableEntity) this.entities.removeFirst();
             if (entity == null) {
                 return;
             }

@@ -19,9 +19,6 @@ public final class Static32 {
     @OriginalMember(owner = "client!bba", name = "D", descriptor = "I")
     public static int anInt773 = 0;
 
-    @OriginalMember(owner = "client!bba", name = "L", descriptor = "I")
-    public static int anInt777 = 100;
-
     @OriginalMember(owner = "client!bba", name = "a", descriptor = "(IBII)Lclient!fk;")
     public static ClientMessage moveMessage(@OriginalArg(0) int x, @OriginalArg(2) int y, @OriginalArg(3) int click) {
         @Pc(11) ClientMessage message = null;

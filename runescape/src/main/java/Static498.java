@@ -1,5 +1,4 @@
 import com.jagex.Entity;
-import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -70,26 +69,6 @@ public final class Static498 {
         Static428.anInt6495 = local49 * arg3 / 334;
         Static290.anInt4657 = arg2;
         Static242.anInt3971 = (short) arg4;
-    }
-
-    @OriginalMember(owner = "client!pm", name = "b", descriptor = "(I)V")
-    public static void setOrthoMode() {
-        Static135.method7237();
-        @Pc(19) int value = ClientOptions.instance.orthographic.getValue();
-        if (value == 2) {
-            Static85.method9264(GameShell.canvasHei, GameShell.canvasWid, Toolkit.active);
-        } else if (value == 3) {
-            Static126.method2227(Toolkit.active, GameShell.canvasWid, Static32.anInt777, Static288.anInt4620, GameShell.canvasHei);
-        }
-
-        if (ClientOptions.instance.orthographic.method2118()) {
-            Static575.method7606(GameShell.canvas);
-        }
-        if (Toolkit.active != null) {
-            Static209.method3110();
-        }
-        Static504.renderOrtho = ClientOptions.instance.orthographic.getValue() != 0;
-        InterfaceManager.aBoolean210 = ClientOptions.instance.orthographic.method2118();
     }
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "([Lclient!eo;II)V")

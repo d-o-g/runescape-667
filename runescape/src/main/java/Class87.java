@@ -1,4 +1,4 @@
-import com.jagex.graphics.Interface9;
+import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!du")
-public final class Class87 implements Interface9 {
+public final class Class87 implements OffscreenSurface {
 
     @OriginalMember(owner = "client!du", name = "i", descriptor = "Lclient!iaa;")
     public final JavaToolkit aClass19_Sub2_3;

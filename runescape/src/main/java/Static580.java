@@ -1,24 +1,8 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static580 {
 
     @OriginalMember(owner = "client!sea", name = "x", descriptor = "F")
     public static float aFloat176;
-
-    @OriginalMember(owner = "client!sea", name = "a", descriptor = "(IZ)I")
-    public static int method7649(@OriginalArg(1) boolean arg0) {
-        @Pc(13) int local13 = Static448.anInt6796;
-        if (local13 == 0) {
-            return arg0 ? 0 : Static312.anInt5001;
-        } else if (local13 == 1) {
-            return Static312.anInt5001;
-        } else if (local13 == 2) {
-            return 0;
-        } else {
-            return 0;
-        }
-    }
 
 }

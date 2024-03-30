@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static391 {
 
-    @OriginalMember(owner = "client!mea", name = "d", descriptor = "I")
-    public static int anInt6134;
-
     @OriginalMember(owner = "client!mea", name = "l", descriptor = "Lclient!sia;")
     public static final Deque A_DEQUE___34 = new Deque();
 

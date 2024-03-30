@@ -15,7 +15,7 @@ public final class Static574 {
         if (Toolkit.active.method7978()) {
             Toolkit.active.method7972(GameShell.canvas);
             Static208.method3106();
-            if (InterfaceManager.aBoolean210) {
+            if (OrthoMode.toolkitActive) {
                 Static720.method9397(GameShell.canvas);
             } else {
                 @Pc(26) Dimension local26 = GameShell.canvas.getSize();

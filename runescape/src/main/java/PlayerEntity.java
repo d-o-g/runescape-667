@@ -310,7 +310,7 @@ public final class PlayerEntity extends PathingEntity {
         local22.translate(super.x, super.y, super.z);
         @Pc(40) boolean local40 = arg2;
         for (@Pc(42) int local42 = 0; local42 < super.aModelArray3.length; local42++) {
-            if (super.aModelArray3[local42] != null && (Static504.renderOrtho ? super.aModelArray3[local42].pickedOrtho(y, x, local22, true, 0, Static582.orthoAngle) : super.aModelArray3[local42].picked(y, x, local22, true, 0))) {
+            if (super.aModelArray3[local42] != null && (OrthoMode.enabled ? super.aModelArray3[local42].pickedOrtho(y, x, local22, true, 0, Static582.orthoAngle) : super.aModelArray3[local42].picked(y, x, local22, true, 0))) {
                 local40 = true;
                 break;
             }
@@ -463,7 +463,7 @@ public final class PlayerEntity extends PathingEntity {
                     local114 = Static642.method8441(true, super.aModelArray3.length + 1);
                     super.transparent = true;
                     arg0.C(false);
-                    if (Static504.renderOrtho) {
+                    if (OrthoMode.enabled) {
                         local212.renderOrtho(local22, local114.pickingCylinders[super.aModelArray3.length], Static582.orthoAngle, 0);
                     } else {
                         local212.render(local22, local114.pickingCylinders[super.aModelArray3.length], 0);
@@ -484,7 +484,7 @@ public final class PlayerEntity extends PathingEntity {
                             @Pc(303) NPCEntity local303 = local298.npc;
                             local310 = local303.x - self.x;
                             @Pc(316) int local316 = local303.z - self.z;
-                            if (Static504.renderOrtho) {
+                            if (OrthoMode.enabled) {
                                 this.method1416(super.aModelArray3[0], 92160000, arg0, local275.model, local310, local22, Static582.orthoAngle, local316);
                             } else {
                                 this.method1414((byte) -74, local310, 92160000, local275.model, super.aModelArray3[0], local22, arg0, local316);
@@ -497,7 +497,7 @@ public final class PlayerEntity extends PathingEntity {
                         local371 = local275.z - self.z;
                         local310 = local275.drawDistance << 9;
                         local310 *= local310;
-                        if (Static504.renderOrtho) {
+                        if (OrthoMode.enabled) {
                             this.method1416(super.aModelArray3[0], local310, arg0, local275.model, local364, local22, Static582.orthoAngle, local371);
                         } else {
                             this.method1414((byte) -74, local364, local310, local275.model, super.aModelArray3[0], local22, arg0, local371);
@@ -508,7 +508,7 @@ public final class PlayerEntity extends PathingEntity {
                         if (local438 != null) {
                             local371 = local438.x - self.x;
                             local310 = local438.z - self.z;
-                            if (Static504.renderOrtho) {
+                            if (OrthoMode.enabled) {
                                 this.method1416(super.aModelArray3[0], 92160000, arg0, local275.model, local371, local22, Static582.orthoAngle, local310);
                             } else {
                                 this.method1414((byte) -74, local371, 92160000, local275.model, super.aModelArray3[0], local22, arg0, local310);
@@ -526,7 +526,7 @@ public final class PlayerEntity extends PathingEntity {
             local114 = Static642.method8441(true, super.aModelArray3.length);
         }
         this.method9319(arg0, false, super.aModelArray3, local22);
-        if (Static504.renderOrtho) {
+        if (OrthoMode.enabled) {
             for (local269 = 0; local269 < super.aModelArray3.length; local269++) {
                 if (super.aModelArray3[local269] != null) {
                     super.aModelArray3[local269].renderOrtho(local22, local114.pickingCylinders[local269], Static582.orthoAngle, self == this ? 1 : 0);
@@ -541,7 +541,7 @@ public final class PlayerEntity extends PathingEntity {
         }
         if (super.particleSystem != null) {
             @Pc(635) ParticleList local635 = super.particleSystem.getList();
-            if (Static504.renderOrtho) {
+            if (OrthoMode.enabled) {
                 arg0.renderOrtho(local635, Static582.orthoAngle);
             } else {
                 arg0.render(local635);

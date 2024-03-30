@@ -16,7 +16,7 @@ public final class Static723 {
     public static void method9451() {
         @Pc(5) short local5 = 1024;
         @Pc(7) short local7 = 3072;
-        if (Static504.renderOrtho) {
+        if (OrthoMode.enabled) {
             if (Static129.orthoCameraLock) {
                 local5 = 2048;
             }

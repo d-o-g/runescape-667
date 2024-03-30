@@ -11,9 +11,6 @@ public final class Static693 {
     @OriginalMember(owner = "client!vu", name = "i", descriptor = "[Lclient!s;")
     public static Ground[] underwaterGround;
 
-    @OriginalMember(owner = "client!vu", name = "e", descriptor = "I")
-    public static int anInt10382 = -1;
-
     @OriginalMember(owner = "client!vu", name = "a", descriptor = "([[BBLclient!taa;)V")
     public static void decodeDynamicArea(@OriginalArg(0) byte[][] data, @OriginalArg(2) MapRegion region) {
         for (@Pc(5) int level = 0; level < region.levels; level++) {

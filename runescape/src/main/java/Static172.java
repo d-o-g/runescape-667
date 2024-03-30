@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static172 {
 
-    @OriginalMember(owner = "client!ffa", name = "g", descriptor = "I")
-    public static int anInt2888;
-
     @OriginalMember(owner = "client!ffa", name = "m", descriptor = "I")
     public static int lastMouseX = -1;
 

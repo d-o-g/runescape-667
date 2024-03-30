@@ -167,8 +167,8 @@ public final class MessageBox {
 
             @Pc(92) int alignedX = horizontalAlignment.align(Client.loadingScreenWidth, width) + x;
             @Pc(101) int alignedY = verticalAlignment.align(Client.loadingScreenHeight, height) + y;
-            if (InterfaceManager.aBoolean210) {
-                alignedX += Static130.method2283();
+            if (OrthoMode.toolkitActive) {
+                alignedX += OrthoMode.method2283();
                 alignedY += Static422.method5771();
             }
 
@@ -205,8 +205,8 @@ public final class MessageBox {
 
         if (flip) {
             try {
-                if (InterfaceManager.aBoolean210) {
-                    Static430.flip();
+                if (OrthoMode.toolkitActive) {
+                    OrthoMode.flip();
                 } else {
                     toolkit.flip();
                 }

@@ -5,9 +5,6 @@ public final class Static524 {
     @OriginalMember(owner = "client!qia", name = "k", descriptor = "I")
     public static int entityMoveFlags;
 
-    @OriginalMember(owner = "client!qia", name = "e", descriptor = "I")
-    public static int anInt8043;
-
     @OriginalMember(owner = "client!qia", name = "m", descriptor = "I")
     public static int anInt8044;
 }

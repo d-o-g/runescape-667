@@ -46,7 +46,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
         } else {
             @Pc(20) Matrix matrix = toolkit.scratchMatrix();
             matrix.applyTranslation(super.x, super.y, super.z);
-            return Static504.renderOrtho ? model.pickedOrtho(y, x, matrix, false, 0, Static582.orthoAngle) : model.picked(y, x, matrix, false, 0);
+            return OrthoMode.enabled ? model.pickedOrtho(y, x, matrix, false, 0, Static582.orthoAngle) : model.picked(y, x, matrix, false, 0);
         }
     }
 
@@ -166,7 +166,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
 
         this.entity.method7681(z1, model, true, -9827, toolkit, x1, x1, z1, matrix);
 
-        if (Static504.renderOrtho) {
+        if (OrthoMode.enabled) {
             model.renderOrtho(matrix, entity.pickingCylinders[0], Static582.orthoAngle, 0);
         } else {
             model.render(matrix, entity.pickingCylinders[0], 0);
@@ -175,7 +175,7 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
         if (this.entity.particleSystem != null) {
             @Pc(100) ParticleList local100 = this.entity.particleSystem.getList();
 
-            if (Static504.renderOrtho) {
+            if (OrthoMode.enabled) {
                 toolkit.renderOrtho(local100, Static582.orthoAngle);
             } else {
                 toolkit.render(local100);

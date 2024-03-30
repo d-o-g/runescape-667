@@ -264,16 +264,16 @@ public final class MiniMenu {
         @Pc(53) int local53;
         @Pc(63) int local63;
         @Pc(69) int local69;
-        if (InterfaceManager.aBoolean210) {
-            Static713.method9331(false);
+        if (OrthoMode.toolkitActive) {
+            OrthoMode.method9331(false);
             local38 = toolkit.method8017();
             @Pc(41) int[] local41 = toolkit.Y();
             local45 = local41[1];
             local49 = local41[2];
             local53 = local41[3];
             local57 = local41[0];
-            local63 = Static242.method3503(false) + mouseX;
-            local69 = Static580.method7649(false) + mouseY;
+            local63 = OrthoMode.method3503(false) + mouseX;
+            local69 = OrthoMode.method7649(false) + mouseY;
         } else {
             toolkit.DA(Static168.anInt2842, Static232.anInt3829, Static240.anInt3955, Static275.anInt4424);
             local49 = Static240.anInt3955;
@@ -282,7 +282,7 @@ public final class MiniMenu {
             local57 = Static168.anInt2842;
             toolkit.KA(InterfaceManager.optionsX, InterfaceManager.optionsY, Static240.anInt3955, Static275.anInt4424);
             local38 = toolkit.createMatrix();
-            local38.method7135(Static428.anInt6487, Static427.anInt6480, Static523.anInt3888, Static524.anInt8044, Static271.anInt4363, Static707.anInt10641);
+            local38.createCamera(Static428.anInt6487, Static427.anInt6480, Static523.anInt3888, Static524.anInt8044, Static271.anInt4363, Static707.anInt10641);
             local63 = mouseX;
             toolkit.setCamera(local38);
             local69 = mouseY;
@@ -310,7 +310,7 @@ public final class MiniMenu {
             local148 = toolkit.XA();
             @Pc(159) int local159;
             @Pc(168) int local168;
-            if (Static504.renderOrtho) {
+            if (OrthoMode.enabled) {
                 local177 = local168 = Static582.orthoAngle * (local63 - local57) / local49;
                 local159 = local186 = Static582.orthoAngle * (local69 - local45) / local53;
             } else {
@@ -321,8 +321,8 @@ public final class MiniMenu {
             }
             @Pc(224) int[] local224 = new int[]{local177, local159, local145};
             @Pc(239) int[] local239 = new int[]{local168, local186, local148};
-            local38.method7126(local224);
-            local38.method7126(local239);
+            local38.project(local224);
+            local38.project(local239);
             @Pc(273) float local273 = Static394.method5543((float) local224[0], (float) local239[2], 4, (float) local224[2], (float) local239[1], (float) local224[1], (float) local239[0]);
             if (local273 > 0.0F) {
                 local286 = local239[0] - local224[0];
@@ -352,20 +352,20 @@ public final class MiniMenu {
                 }
             }
         }
-        if (InterfaceManager.aBoolean210) {
+        if (OrthoMode.toolkitActive) {
             Static480.method6469();
         }
-        for (local140 = 0; local140 < (InterfaceManager.aBoolean210 ? 2 : 1); local140++) {
+        for (local140 = 0; local140 < (OrthoMode.toolkitActive ? 2 : 1); local140++) {
             @Pc(503) boolean local503 = local140 == 0;
-            @Pc(510) Class213 local510 = local503 ? Static514.aClass213_2 : Static10.aClass213_1;
+            @Pc(510) Class213 local510 = local503 ? Static514.aClass213_2 : OrthoMode.aClass213_1;
             local148 = mouseX;
             local177 = mouseY;
-            if (InterfaceManager.aBoolean210) {
-                Static713.method9331(local503);
-                local148 = mouseX + Static242.method3503(local503);
-                local177 = mouseY + Static580.method7649(local503);
+            if (OrthoMode.toolkitActive) {
+                OrthoMode.method9331(local503);
+                local148 = mouseX + OrthoMode.method3503(local503);
+                local177 = mouseY + OrthoMode.method7649(local503);
             }
-            @Pc(538) LinkedList local538 = local510.aLinkedList_8;
+            @Pc(538) LinkedList local538 = local510.entities;
             for (@Pc(543) PickableEntity local543 = (PickableEntity) local538.first(); local543 != null; local543 = (PickableEntity) local538.next()) {
                 if ((ignorePlayerLevels || local543.aEntity_18.level == PlayerEntity.self.level) && local543.method6496(toolkit, local177, local148)) {
                     @Pc(584) int local584;
@@ -566,7 +566,7 @@ public final class MiniMenu {
                     }
                 }
             }
-            if (InterfaceManager.aBoolean210) {
+            if (OrthoMode.toolkitActive) {
                 Static480.method6469();
             }
         }
@@ -1657,8 +1657,8 @@ public final class MiniMenu {
     public static void drawWithSprites(@OriginalArg(0) Toolkit toolkit) {
         @Pc(5) int offsetX = 0;
         @Pc(7) int offsetY = 0;
-        if (InterfaceManager.aBoolean210) {
-            offsetX = Static130.method2283();
+        if (OrthoMode.toolkitActive) {
+            offsetX = OrthoMode.method2283();
             offsetY = Static422.method5771();
         }
 
@@ -1759,8 +1759,8 @@ public final class MiniMenu {
     public static void drawWithoutSprites(@OriginalArg(0) Toolkit toolkit) {
         @Pc(7) int offsetX = 0;
         @Pc(9) int offsetY = 0;
-        if (InterfaceManager.aBoolean210) {
-            offsetX = Static130.method2283();
+        if (OrthoMode.toolkitActive) {
+            offsetX = OrthoMode.method2283();
             offsetY = Static422.method5771();
         }
 
@@ -2357,8 +2357,8 @@ public final class MiniMenu {
         if (anInt8149 == 1) {
             doAction(y, draggedEntry, x);
         } else if (anInt8149 == 2) {
-            if (InterfaceManager.aBoolean210) {
-                openAt(x + Static130.method2283(), y + Static422.method5771());
+            if (OrthoMode.toolkitActive) {
+                openAt(x + OrthoMode.method2283(), y + Static422.method5771());
             } else {
                 openAt(x, y);
             }

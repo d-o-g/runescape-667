@@ -1770,9 +1770,9 @@ public final class Model_Sub3 extends Model {
                 local357 = local355.next;
             }
             if (local355.matrix == null) {
-                local355.matrix = local2.method7129();
+                local355.matrix = local2.copy();
             } else {
-                local355.matrix.method7128(local2);
+                local355.matrix.apply(local2);
             }
             local357.x = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local355.vertex] + local2.aFloat55 * (float) this.anIntArray675[local355.vertex] + local2.aFloat53 * (float) this.anIntArray658[local355.vertex]);
             local357.y = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local355.vertex] + local2.aFloat52 * (float) this.anIntArray675[local355.vertex] + local2.aFloat51 * (float) this.anIntArray658[local355.vertex]);
@@ -2610,10 +2610,10 @@ public final class Model_Sub3 extends Model {
         @Pc(247) float local247 = local7.aFloat56 * this.aClass73_Sub2_2.aFloat55 + local7.aFloat54 * this.aClass73_Sub2_2.aFloat52 + local7.aFloat61 * this.aClass73_Sub2_2.aFloat54;
         @Pc(268) float local268 = local7.aFloat56 * this.aClass73_Sub2_2.aFloat53 + local7.aFloat54 * this.aClass73_Sub2_2.aFloat51 + local7.aFloat61 * this.aClass73_Sub2_2.aFloat61;
         @Pc(270) boolean local270 = false;
-        @Pc(274) int local274 = this.aClass19_Sub2_9.anInt4206;
-        @Pc(278) int local278 = this.aClass19_Sub2_9.anInt4194;
-        @Pc(282) int local282 = this.aClass19_Sub2_9.anInt4205;
-        @Pc(286) int local286 = this.aClass19_Sub2_9.anInt4188;
+        @Pc(274) int local274 = this.aClass19_Sub2_9.projectionCenterX;
+        @Pc(278) int local278 = this.aClass19_Sub2_9.projectionCenterY;
+        @Pc(282) int local282 = this.aClass19_Sub2_9.projectionScaleX;
+        @Pc(286) int local286 = this.aClass19_Sub2_9.projectionScaleY;
         @Pc(288) int local288 = Integer.MAX_VALUE;
         @Pc(290) int local290 = Integer.MIN_VALUE;
         @Pc(292) int local292 = Integer.MAX_VALUE;
@@ -3161,16 +3161,16 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray668[arg0] & 0xFFFF;
             if (local35 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local35 - local25));
-                this.anIntArray663[0] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[0] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[0] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[0] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[0] = local5;
                 local1++;
                 this.anIntArray677[0] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local30 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local30 - local25));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3186,15 +3186,15 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray664[arg0] & 0xFFFF;
             if (local25 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local25 - local30));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local35 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local35 - local30));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3210,15 +3210,15 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray672[arg0] & 0xFFFF;
             if (local30 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local30 - local35));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local25 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local25 - local35));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3338,9 +3338,9 @@ public final class Model_Sub3 extends Model {
         for (@Pc(9) int local9 = 0; local9 < this.anInt8491; local9++) {
             if ((arg1 & this.aShortArray121[local9]) != 0) {
                 if (arg2) {
-                    matrix.method7140(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
+                    matrix.projectRelative(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
                 } else {
-                    matrix.method7124(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
+                    matrix.project(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
                 }
                 this.anIntArray666[local9] = local7[0];
                 this.anIntArray675[local9] = local7[1];
@@ -3380,16 +3380,16 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray668[arg0] & 0xFFFF;
             if (local35 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local35 - local25));
-                this.anIntArray663[0] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[0] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[0] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[0] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[0] = local5;
                 local1++;
                 this.anIntArray677[0] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local30 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local30 - local25));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3405,15 +3405,15 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray664[arg0] & 0xFFFF;
             if (local25 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local25 - local30));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local35 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local35 - local30));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3429,15 +3429,15 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray672[arg0] & 0xFFFF;
             if (local30 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local30 - local35));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local25 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local25 - local35));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4205 / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.anInt4188 / local5;
+                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3814,11 +3814,11 @@ public final class Model_Sub3 extends Model {
         @Pc(282) int local282;
         @Pc(291) int local291;
         if (local261 > local270) {
-            local282 = (local270 - this.aShort118) * this.aClass19_Sub2_9.anInt4205;
-            local291 = (local261 + this.aShort118) * this.aClass19_Sub2_9.anInt4205;
+            local282 = (local270 - this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
+            local291 = (local261 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
         } else {
-            local282 = (local261 - this.aShort118) * this.aClass19_Sub2_9.anInt4205;
-            local291 = (local270 + this.aShort118) * this.aClass19_Sub2_9.anInt4205;
+            local282 = (local261 - this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
+            local291 = (local270 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
         }
         if (arg2 == -1) {
             if (local282 / local176 >= this.aClass19_Sub2_9.anInt4193) {
@@ -3839,11 +3839,11 @@ public final class Model_Sub3 extends Model {
         @Pc(432) int local432;
         @Pc(441) int local441;
         if (local411 > local420) {
-            local432 = (local420 - this.aShort118) * this.aClass19_Sub2_9.anInt4188;
-            local441 = (local411 + this.aShort118) * this.aClass19_Sub2_9.anInt4188;
+            local432 = (local420 - this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
+            local441 = (local411 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
         } else {
-            local432 = (local411 - this.aShort118) * this.aClass19_Sub2_9.anInt4188;
-            local441 = (local420 + this.aShort118) * this.aClass19_Sub2_9.anInt4188;
+            local432 = (local411 - this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
+            local441 = (local420 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
         }
         if (arg2 == -1) {
             if (local432 / local176 >= this.aClass19_Sub2_9.anInt4201) {
@@ -3901,8 +3901,8 @@ public final class Model_Sub3 extends Model {
         this.aClass399_3.anInt10607 = this.aClass219_1.anInt5725;
         this.aClass399_3.anInt10606 = this.aClass219_1.anInt5723;
         this.aClass399_3.anInt10608 = this.aClass219_1.anInt5721;
-        @Pc(743) int local743 = this.aClass19_Sub2_9.anInt4205;
-        @Pc(747) int local747 = this.aClass19_Sub2_9.anInt4188;
+        @Pc(743) int local743 = this.aClass19_Sub2_9.projectionScaleX;
+        @Pc(747) int local747 = this.aClass19_Sub2_9.projectionScaleY;
         @Pc(751) int local751 = this.aClass19_Sub2_9.anInt4214;
         @Pc(789) float local789;
         @Pc(806) float local806;
@@ -3956,8 +3956,8 @@ public final class Model_Sub3 extends Model {
                     local806 = (float) local953.anInt6229 + local375 + local509 * (float) local762 + local402 * (float) local767 + local518 * (float) local772;
                     local823 = local118 + local512 * (float) local762 + local145 * (float) local767 + local521 * (float) local772;
                     if (local823 > (float) this.aClass19_Sub2_9.anInt4214) {
-                        local953.anInt6221 = this.aClass19_Sub2_9.anInt4206 + (int) (local789 * (float) local743 / local823);
-                        local953.anInt6227 = this.aClass19_Sub2_9.anInt4194 + (int) (local806 * (float) local747 / local823);
+                        local953.anInt6221 = this.aClass19_Sub2_9.projectionCenterX + (int) (local789 * (float) local743 / local823);
+                        local953.anInt6227 = this.aClass19_Sub2_9.projectionCenterY + (int) (local806 * (float) local747 / local823);
                         local953.anInt6224 = (int) local823 - local948.anInt6140;
                         local953.anInt6232 = (int) ((float) (local953.anInt6223 * local948.aShort71 * local743) / (local823 * 128.0F));
                         local953.anInt6220 = (int) ((float) (local953.anInt6226 * local948.aShort73 * local747) / (local823 * 128.0F));
@@ -3998,8 +3998,8 @@ public final class Model_Sub3 extends Model {
                     local772 = (this.anIntArray658[local959] + this.anIntArray658[local965] + this.anIntArray658[local971]) / 3;
                     local789 = local225 + local506 * (float) local762 + local252 * (float) local767 + local515 * (float) local772;
                     local806 = local375 + local509 * (float) local762 + local402 * (float) local767 + local518 * (float) local772;
-                    local953.anInt6221 = this.aClass19_Sub2_9.anInt4206 + (int) (local789 * (float) local743 / (float) arg2);
-                    local953.anInt6227 = this.aClass19_Sub2_9.anInt4194 + (int) (local806 * (float) local747 / (float) arg2);
+                    local953.anInt6221 = this.aClass19_Sub2_9.projectionCenterX + (int) (local789 * (float) local743 / (float) arg2);
+                    local953.anInt6227 = this.aClass19_Sub2_9.projectionCenterY + (int) (local806 * (float) local747 / (float) arg2);
                     local953.anInt6224 = arg2 - local948.anInt6140;
                     local953.anInt6232 = local953.anInt6223 * local948.aShort71 * local743 / (arg2 << 7);
                     local953.anInt6220 = local953.anInt6226 * local948.aShort73 * local747 / (arg2 << 7);
@@ -4021,8 +4021,8 @@ public final class Model_Sub3 extends Model {
                 if (arg2 != -1) {
                     local1627 = arg2;
                 }
-                arg1.anInt4504 = this.aClass19_Sub2_9.anInt4206 + (int) (local789 * (float) local743 / (float) local1627);
-                arg1.anInt4505 = this.aClass19_Sub2_9.anInt4194 + (int) (local806 * (float) local747 / (float) local1627);
+                arg1.anInt4504 = this.aClass19_Sub2_9.projectionCenterX + (int) (local789 * (float) local743 / (float) local1627);
+                arg1.anInt4505 = this.aClass19_Sub2_9.projectionCenterY + (int) (local806 * (float) local747 / (float) local1627);
             } else {
                 local1543 = true;
             }
@@ -4036,8 +4036,8 @@ public final class Model_Sub3 extends Model {
                 if (arg2 != -1) {
                     local1729 = arg2;
                 }
-                arg1.anInt4501 = this.aClass19_Sub2_9.anInt4206 + (int) (local1687 * (float) local743 / (float) local1729);
-                arg1.anInt4503 = this.aClass19_Sub2_9.anInt4194 + (int) (local1704 * (float) local747 / (float) local1729);
+                arg1.anInt4501 = this.aClass19_Sub2_9.projectionCenterX + (int) (local1687 * (float) local743 / (float) local1729);
+                arg1.anInt4503 = this.aClass19_Sub2_9.projectionCenterY + (int) (local1704 * (float) local747 / (float) local1729);
             } else {
                 local1543 = true;
             }
@@ -4057,8 +4057,8 @@ public final class Model_Sub3 extends Model {
                         if (arg2 != -1) {
                             local1820 = arg2;
                         }
-                        arg1.anInt4504 = this.aClass19_Sub2_9.anInt4206 + local1809 * local743 / local1820;
-                        arg1.anInt4505 = this.aClass19_Sub2_9.anInt4194 + local1818 * local747 / local1820;
+                        arg1.anInt4504 = this.aClass19_Sub2_9.projectionCenterX + local1809 * local743 / local1820;
+                        arg1.anInt4505 = this.aClass19_Sub2_9.projectionCenterY + local1818 * local747 / local1820;
                     } else if (local1721 < (float) local751) {
                         local1800 = (local823 - (float) local751) / (local823 - local1721);
                         local1809 = (int) (local789 + (local789 - local1687) * local1800);
@@ -4067,8 +4067,8 @@ public final class Model_Sub3 extends Model {
                         if (arg2 != -1) {
                             local1820 = arg2;
                         }
-                        arg1.anInt4504 = this.aClass19_Sub2_9.anInt4206 + local1809 * local743 / local1820;
-                        arg1.anInt4505 = this.aClass19_Sub2_9.anInt4194 + local1818 * local747 / local1820;
+                        arg1.anInt4504 = this.aClass19_Sub2_9.projectionCenterX + local1809 * local743 / local1820;
+                        arg1.anInt4505 = this.aClass19_Sub2_9.projectionCenterY + local1818 * local747 / local1820;
                     }
                 }
             }
@@ -4078,13 +4078,13 @@ public final class Model_Sub3 extends Model {
                     if (arg2 != -1) {
                         local1729 = arg2;
                     }
-                    arg1.anInt4502 = this.aClass19_Sub2_9.anInt4206 + (int) ((local789 + (float) this.aShort118) * (float) local743 / (float) local1729) - arg1.anInt4504;
+                    arg1.anInt4502 = this.aClass19_Sub2_9.projectionCenterX + (int) ((local789 + (float) this.aShort118) * (float) local743 / (float) local1729) - arg1.anInt4504;
                 } else {
                     local1729 = (int) local1721;
                     if (arg2 != -1) {
                         local1729 = arg2;
                     }
-                    arg1.anInt4502 = this.aClass19_Sub2_9.anInt4206 + (int) ((local1687 + (float) this.aShort118) * (float) local743 / (float) local1729) - arg1.anInt4501;
+                    arg1.anInt4502 = this.aClass19_Sub2_9.projectionCenterX + (int) ((local1687 + (float) this.aShort118) * (float) local743 / (float) local1729) - arg1.anInt4501;
                 }
                 arg1.aBoolean352 = true;
             }

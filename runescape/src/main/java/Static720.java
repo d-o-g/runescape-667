@@ -47,11 +47,11 @@ public final class Static720 {
     @OriginalMember(owner = "client!wr", name = "a", descriptor = "(ILjava/awt/Canvas;)V")
     public static void method9397(@OriginalArg(1) Canvas arg0) {
         @Pc(14) Dimension local14 = arg0.getSize();
-        Static388.method5454(local14.height, local14.width);
-        if (Static448.anInt6796 == 1) {
-            Static74.aToolkit_4.method8022(arg0, Static571.anInt8534, Static576.anInt8585);
+        OrthoMode.method5454(local14.height, local14.width);
+        if (OrthoMode.anInt6796 == 1) {
+            OrthoMode.toolkit.method8022(arg0, OrthoMode.anInt8534, OrthoMode.anInt8585);
         } else {
-            Static74.aToolkit_4.method8022(arg0, Static252.anInt4078, Static281.anInt4566);
+            OrthoMode.toolkit.method8022(arg0, OrthoMode.orthoWidth, OrthoMode.orthoHeight);
         }
     }
 

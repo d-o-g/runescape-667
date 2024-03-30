@@ -83,7 +83,7 @@ public abstract class Toolkit {
     public abstract void aa(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!gaa;)V")
-    public abstract void method7939(@OriginalArg(0) Interface9 arg0);
+    public abstract void swapSurface(@OriginalArg(0) OffscreenSurface surface);
 
     /**
      * setClipping
@@ -329,7 +329,7 @@ public abstract class Toolkit {
     protected abstract void method7987();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
-    public abstract Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1);
+    public abstract OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1);
 
     @OriginalMember(owner = "client!ha", name = "Y", descriptor = "()[I")
     public abstract int[] Y();
@@ -391,7 +391,7 @@ public abstract class Toolkit {
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!st;I)V")
     public final void method8002(@OriginalArg(0) Sprite arg0) {
-        this.method7939(this.method7988(arg0, this.method7986(arg0.getWidth(), arg0.getHeight())));
+        this.swapSurface(this.method7988(arg0, this.method7986(arg0.getWidth(), arg0.getHeight())));
     }
 
     @OriginalMember(owner = "client!ha", name = "pa", descriptor = "()V")
@@ -404,8 +404,8 @@ public abstract class Toolkit {
     public abstract ClippingMask createMask(@OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(2) int[] offsets, @OriginalArg(3) int[] widths);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IB[Ljava/awt/Rectangle;)V")
-    public final void method8005(@OriginalArg(0) int arg0, @OriginalArg(2) Rectangle[] arg1) throws FlipException {
-        this.flipDirtyRect(arg1, arg0, 0, 0);
+    public final void flipDirtyRect(@OriginalArg(2) Rectangle[] rectangles, @OriginalArg(0) int count) throws FlipException {
+        this.flipDirtyRect(rectangles, count, 0, 0);
     }
 
     @OriginalMember(owner = "client!ha", name = "r", descriptor = "()Z")

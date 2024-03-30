@@ -25,6 +25,6 @@ public final class Static58 {
 
     @OriginalMember(owner = "client!bu", name = "d", descriptor = "(B)I")
     public static int method1260() {
-        return Static448.anInt6796 == 1 ? Static576.anInt8585 : Static281.anInt4566;
+        return OrthoMode.anInt6796 == 1 ? OrthoMode.anInt8585 : OrthoMode.orthoHeight;
     }
 }

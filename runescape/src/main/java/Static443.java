@@ -22,8 +22,8 @@ public final class Static443 {
 
         @Pc(44) int parentX = 0;
         @Pc(46) int parentY = 0;
-        if (InterfaceManager.aBoolean210) {
-            parentX = Static130.method2283();
+        if (OrthoMode.toolkitActive) {
+            parentX = OrthoMode.method2283();
             parentY = Static422.method5771();
         }
 

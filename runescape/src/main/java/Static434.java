@@ -6,9 +6,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static434 {
 
-    @OriginalMember(owner = "client!nla", name = "Q", descriptor = "I")
-    public static int anInt6565;
-
     @OriginalMember(owner = "client!nla", name = "g", descriptor = "(I)V")
     public static void rebuildNormal() {
         Static117.areaMode = AreaMode.STATIC_AREA;

@@ -12,9 +12,6 @@ public final class Static288 {
     @OriginalMember(owner = "client!jb", name = "w", descriptor = "Z")
     public static boolean aBoolean356 = false;
 
-    @OriginalMember(owner = "client!jb", name = "E", descriptor = "I")
-    public static int anInt4620 = 100;
-
     @OriginalMember(owner = "client!jb", name = "z", descriptor = "I")
     public static int anInt4621 = 0;
 

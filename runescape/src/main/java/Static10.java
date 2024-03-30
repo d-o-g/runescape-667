@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static10 {
 
-    @OriginalMember(owner = "client!afa", name = "p", descriptor = "Lclient!kn;")
-    public static final Class213 aClass213_1 = new Class213(true);
-
     @OriginalMember(owner = "client!afa", name = "a", descriptor = "(IIILjava/lang/Class;)V")
     public static void method130(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) Class arg3) {
         @Pc(7) Tile local7 = Static334.activeTiles[arg0][arg1][arg2];

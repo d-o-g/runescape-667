@@ -8,9 +8,6 @@ public final class Static617 {
     @OriginalMember(owner = "client!tj", name = "B", descriptor = "[I")
     public static int[] anIntArray726;
 
-    @OriginalMember(owner = "client!tj", name = "F", descriptor = "I")
-    public static int anInt9434;
-
     @OriginalMember(owner = "client!tj", name = "H", descriptor = "Z")
     public static boolean quickChatWorld = false;
 

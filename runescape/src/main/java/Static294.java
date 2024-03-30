@@ -15,9 +15,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static294 {
 
-    @OriginalMember(owner = "client!jg", name = "d", descriptor = "D")
-    public static double aDouble15;
-
     @OriginalMember(owner = "client!jg", name = "a", descriptor = "(Lclient!tca;II[B)Lclient!fr;")
     public static Class135 method4338(@OriginalArg(0) GlxToolkit arg0, @OriginalArg(3) byte[] arg1) {
         if (arg1 == null) {
@@ -142,11 +139,11 @@ public final class Static294 {
         Toolkit.active.KA(local153, local159, local155 + local153, local159 + local161);
         Static501.method6716(true);
         local375 = Static251.anInt4037;
-        Static460.aMatrix_10.method7135(Camera.x, Camera.y, Camera.z, -Camera.pitch & 0x3FFF, -Camera.yaw & 0x3FFF, -Camera.roll & 0x3FFF);
+        Static460.aMatrix_10.createCamera(Camera.x, Camera.y, Camera.z, -Camera.pitch & 0x3FFF, -Camera.yaw & 0x3FFF, -Camera.roll & 0x3FFF);
         Toolkit.active.setCamera(Static460.aMatrix_10);
         Toolkit.active.DA(local155 / 2 + local153, local161 / 2 + local159, Static428.anInt6495 << 1, Static428.anInt6495 << 1);
-        if (InterfaceManager.aBoolean210) {
-            Static476.method6448(Static251.anInt4037);
+        if (OrthoMode.toolkitActive) {
+            OrthoMode.method6448(Static251.anInt4037);
             if (Static162.anInt2800 != Static582.orthoAngle) {
                 Static75.hasOpaqueStationaryEntities = true;
             }
@@ -166,11 +163,11 @@ public final class Static294 {
         Static620.method8324(-Camera.yaw & 0x3FFF, Camera.z, -Camera.roll & 0x3FFF, Camera.y, -Camera.pitch & 0x3FFF, Camera.x);
         Static159.method2575();
         @Pc(688) byte local688 = ClientOptions.instance.removeRoofsOverride.getValue() == 2 ? (byte) Static198.anInt3276 : 1;
-        if (InterfaceManager.aBoolean210) {
+        if (OrthoMode.toolkitActive) {
             Static648.method8483(-Camera.yaw & 0x3FFF, -Camera.roll & 0x3FFF, -Camera.pitch & 0x3FFF);
-            Static466.method6324(local688, Camera.x, Camera.z, Camera.y, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, ClientOptions.instance.flickeringEffects.getValue() == 0, Static582.orthoAngle, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
+            OrthoMode.method6324(local688, Camera.x, Camera.z, Camera.y, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, ClientOptions.instance.flickeringEffects.getValue() == 0, Static582.orthoAngle, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
         } else {
-            Static283.method4100(TimeUtils.clock, Camera.x, Camera.y, Camera.z, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, ClientOptions.instance.flickeringEffects.getValue() == 0, Static504.renderOrtho ? Static582.orthoAngle : -1, 0, false);
+            Static283.method4100(TimeUtils.clock, Camera.x, Camera.y, Camera.z, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, ClientOptions.instance.flickeringEffects.getValue() == 0, OrthoMode.enabled ? Static582.orthoAngle : -1, 0, false);
         }
         Static557.method7331();
         if (MainLogicManager.step == 11) {

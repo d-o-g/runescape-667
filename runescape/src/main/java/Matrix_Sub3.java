@@ -69,10 +69,10 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "c", descriptor = "(III[I)V")
     @Override
-    public void method7124(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
-        arg3[0] = (int) (this.aFloat152 + this.aFloat160 * (float) arg2 + (float) arg0 * this.aFloat153 + this.aFloat157 * (float) arg1);
-        arg3[2] = (int) (this.aFloat159 + this.aFloat154 * (float) arg2 + (float) arg0 * this.aFloat155 + this.aFloat151 * (float) arg1);
-        arg3[1] = (int) (this.aFloat161 * (float) arg0 + (float) arg1 * this.aFloat156 + (float) arg2 * this.aFloat150 + this.aFloat158);
+    public void project(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination) {
+        destination[0] = (int) (this.aFloat152 + this.aFloat160 * (float) z + (float) x * this.aFloat153 + this.aFloat157 * (float) y);
+        destination[2] = (int) (this.aFloat159 + this.aFloat154 * (float) z + (float) x * this.aFloat155 + this.aFloat151 * (float) y);
+        destination[1] = (int) (this.aFloat161 * (float) x + (float) y * this.aFloat156 + (float) z * this.aFloat150 + this.aFloat158);
     }
 
     @OriginalMember(owner = "client!qr", name = "i", descriptor = "(I)V")
@@ -106,7 +106,7 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "b", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method7129() {
+    public Matrix copy() {
         @Pc(7) Matrix_Sub3 local7 = new Matrix_Sub3();
         local7.aFloat158 = this.aFloat158;
         local7.aFloat156 = this.aFloat156;
@@ -125,13 +125,13 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(III[I)V")
     @Override
-    public void method7140(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
-        @Pc(6) int local6 = (int) ((float) arg1 - this.aFloat158);
-        @Pc(13) int local13 = (int) ((float) arg0 - this.aFloat152);
-        @Pc(24) int local24 = (int) ((float) arg2 - this.aFloat159);
-        arg3[1] = (int) ((float) local24 * this.aFloat151 + (float) local6 * this.aFloat156 + this.aFloat157 * (float) local13);
-        arg3[2] = (int) ((float) local13 * this.aFloat160 + this.aFloat150 * (float) local6 + this.aFloat154 * (float) local24);
-        arg3[0] = (int) ((float) local24 * this.aFloat155 + (float) local6 * this.aFloat161 + (float) local13 * this.aFloat153);
+    public void projectRelative(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination) {
+        @Pc(6) int local6 = (int) ((float) y - this.aFloat158);
+        @Pc(13) int local13 = (int) ((float) x - this.aFloat152);
+        @Pc(24) int local24 = (int) ((float) z - this.aFloat159);
+        destination[1] = (int) ((float) local24 * this.aFloat151 + (float) local6 * this.aFloat156 + this.aFloat157 * (float) local13);
+        destination[2] = (int) ((float) local13 * this.aFloat160 + this.aFloat150 * (float) local6 + this.aFloat154 * (float) local24);
+        destination[0] = (int) ((float) local24 * this.aFloat155 + (float) local6 * this.aFloat161 + (float) local13 * this.aFloat153);
     }
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "()V")
@@ -143,13 +143,13 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "([I)V")
     @Override
-    public void method7126(@OriginalArg(0) int[] arg0) {
-        @Pc(12) float local12 = (float) arg0[0] - this.aFloat152;
-        @Pc(20) float local20 = (float) arg0[1] - this.aFloat158;
-        @Pc(29) float local29 = (float) arg0[2] - this.aFloat159;
-        arg0[0] = (int) (this.aFloat161 * local20 + this.aFloat153 * local12 + local29 * this.aFloat155);
-        arg0[1] = (int) (this.aFloat151 * local29 + this.aFloat157 * local12 + this.aFloat156 * local20);
-        arg0[2] = (int) (local29 * this.aFloat154 + local20 * this.aFloat150 + this.aFloat160 * local12);
+    public void project(@OriginalArg(0) int[] destination) {
+        @Pc(12) float local12 = (float) destination[0] - this.aFloat152;
+        @Pc(20) float local20 = (float) destination[1] - this.aFloat158;
+        @Pc(29) float local29 = (float) destination[2] - this.aFloat159;
+        destination[0] = (int) (this.aFloat161 * local20 + this.aFloat153 * local12 + local29 * this.aFloat155);
+        destination[1] = (int) (this.aFloat151 * local29 + this.aFloat157 * local12 + this.aFloat156 * local20);
+        destination[2] = (int) (local29 * this.aFloat154 + local20 * this.aFloat150 + this.aFloat160 * local12);
     }
 
     @OriginalMember(owner = "client!qr", name = "b", descriptor = "(I)V")
@@ -201,13 +201,13 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(IIIIII)V")
     @Override
-    public void method7135(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        @Pc(9) float local9 = GlToolkit.COS[arg3 & 0x3FFF];
-        @Pc(15) float local15 = GlToolkit.SIN[arg3 & 0x3FFF];
-        @Pc(21) float local21 = GlToolkit.COS[arg4 & 0x3FFF];
-        @Pc(27) float local27 = GlToolkit.SIN[arg4 & 0x3FFF];
-        @Pc(33) float local33 = GlToolkit.COS[arg5 & 0x3FFF];
-        @Pc(39) float local39 = GlToolkit.SIN[arg5 & 0x3FFF];
+    public void createCamera(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int rotateX, @OriginalArg(4) int rotateY, @OriginalArg(5) int rotateZ) {
+        @Pc(9) float local9 = GlToolkit.COS[rotateX & 0x3FFF];
+        @Pc(15) float local15 = GlToolkit.SIN[rotateX & 0x3FFF];
+        @Pc(21) float local21 = GlToolkit.COS[rotateY & 0x3FFF];
+        @Pc(27) float local27 = GlToolkit.SIN[rotateY & 0x3FFF];
+        @Pc(33) float local33 = GlToolkit.COS[rotateZ & 0x3FFF];
+        @Pc(39) float local39 = GlToolkit.SIN[rotateZ & 0x3FFF];
         @Pc(43) float local43 = local33 * local15;
         @Pc(47) float local47 = local15 * local39;
         this.aFloat151 = -local15;
@@ -219,9 +219,9 @@ public final class Matrix_Sub3 extends Matrix {
         this.aFloat154 = local21 * local9;
         this.aFloat156 = local9 * local33;
         this.aFloat153 = local27 * local47 + local21 * local33;
-        this.aFloat158 = -(this.aFloat150 * (float) arg2) + this.aFloat161 * (float) -arg0 - this.aFloat156 * (float) arg1;
-        this.aFloat152 = (float) -arg0 * this.aFloat153 - (float) arg1 * this.aFloat157 - this.aFloat160 * (float) arg2;
-        this.aFloat159 = -((float) arg2 * this.aFloat154) + this.aFloat155 * (float) -arg0 - (float) arg1 * this.aFloat151;
+        this.aFloat158 = -(this.aFloat150 * (float) z) + this.aFloat161 * (float) -x - this.aFloat156 * (float) y;
+        this.aFloat152 = (float) -x * this.aFloat153 - (float) y * this.aFloat157 - this.aFloat160 * (float) z;
+        this.aFloat159 = -((float) z * this.aFloat154) + this.aFloat155 * (float) -x - (float) y * this.aFloat151;
     }
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(BIFIIFF)V")
@@ -329,10 +329,10 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "b", descriptor = "(III[I)V")
     @Override
-    public void projectDirection(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int[] arg3) {
-        arg3[2] = (int) ((float) arg0 * this.aFloat155 + this.aFloat151 * (float) arg1 + this.aFloat154 * (float) arg2);
-        arg3[0] = (int) (this.aFloat160 * (float) arg2 + (float) arg0 * this.aFloat153 + (float) arg1 * this.aFloat157);
-        arg3[1] = (int) ((float) arg1 * this.aFloat156 + this.aFloat161 * (float) arg0 + this.aFloat150 * (float) arg2);
+    public void projectDirection(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int[] destination) {
+        destination[2] = (int) ((float) x * this.aFloat155 + this.aFloat151 * (float) y + this.aFloat154 * (float) z);
+        destination[0] = (int) (this.aFloat160 * (float) z + (float) x * this.aFloat153 + (float) y * this.aFloat157);
+        destination[1] = (int) ((float) y * this.aFloat156 + this.aFloat161 * (float) x + this.aFloat150 * (float) z);
     }
 
     @OriginalMember(owner = "client!qr", name = "g", descriptor = "(I)V")
@@ -357,8 +357,8 @@ public final class Matrix_Sub3 extends Matrix {
 
     @OriginalMember(owner = "client!qr", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
-    public void method7128(@OriginalArg(0) Matrix arg0) {
-        @Pc(6) Matrix_Sub3 local6 = (Matrix_Sub3) arg0;
+    public void apply(@OriginalArg(0) Matrix other) {
+        @Pc(6) Matrix_Sub3 local6 = (Matrix_Sub3) other;
         this.aFloat155 = local6.aFloat155;
         this.aFloat160 = local6.aFloat160;
         this.aFloat158 = local6.aFloat158;

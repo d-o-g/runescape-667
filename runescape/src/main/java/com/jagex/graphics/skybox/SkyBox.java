@@ -249,7 +249,7 @@ public final class SkyBox {
 
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(IIIIILclient!ha;)V")
     public void method3164(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) Toolkit arg4) {
-        @Pc(7) Matrix local7 = arg4.method8017().method7129();
+        @Pc(7) Matrix local7 = arg4.method8017().copy();
         @Pc(10) Matrix local10 = arg4.createMatrix();
         local10.applyTranslation(0, 0, 0);
         local10.rotateAxisY(arg0 & 0x3FFF);

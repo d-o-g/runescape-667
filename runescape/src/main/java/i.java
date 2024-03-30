@@ -208,9 +208,9 @@ public final class i extends Model implements SoftwareObject {
                 local91 = local89.next;
             }
             if (local89.matrix == null) {
-                local89.matrix = arg0.method7129();
+                local89.matrix = arg0.copy();
             } else {
-                local89.matrix.method7128(arg0);
+                local89.matrix.apply(arg0);
             }
             local91.x = Static445.anIntArray537[local5++];
             local91.y = Static445.anIntArray537[local5++];

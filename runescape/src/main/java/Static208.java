@@ -16,20 +16,20 @@ public final class Static208 {
     public static void method3105(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         @Pc(5) int local5 = Static676.crossX;
         @Pc(7) int local7 = Static305.crossY;
-        if (InterfaceManager.aBoolean210) {
-            local5 += Static130.method2283();
+        if (OrthoMode.toolkitActive) {
+            local5 += OrthoMode.method2283();
             local7 += Static422.method5771();
         }
         @Pc(30) Sprite local30;
         if (Static616.crossType == 1) {
             local30 = Sprites.cross[Static481.crossDuration / 100];
             local30.render(local5 - 8, local7 + -8);
-            Static682.method8927(local5 - 8, local30.scaleWidth() + -8 + local5, local7 - 8, local7 - 8 - -local30.scaleHeight());
+            OrthoMode.method8927(local5 - 8, local30.scaleWidth() + -8 + local5, local7 - 8, local7 - 8 - -local30.scaleHeight());
         }
         if (Static616.crossType == 2) {
             local30 = Sprites.cross[Static481.crossDuration / 100 + 4];
             local30.render(local5 - 8, local7 + -8);
-            Static682.method8927(local5 - 8, local30.scaleWidth() + local5 + -8, local7 - 8, local30.scaleHeight() + -8 + local7);
+            OrthoMode.method8927(local5 - 8, local30.scaleWidth() + local5 + -8, local7 - 8, local30.scaleHeight() + -8 + local7);
         }
         Static494.method6597();
     }

@@ -9,13 +9,13 @@ public final class Static648 {
 
     @OriginalMember(owner = "client!ui", name = "a", descriptor = "(IIII)V")
     public static void method8483(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (Static693.anInt10382 == arg2 && Static138.anInt2512 == arg0 && arg1 == Static49.anInt1045) {
+        if (OrthoMode.cameraRotateX == arg2 && OrthoMode.cameraRotateY == arg0 && arg1 == OrthoMode.cameraRotateZ) {
             return;
         }
         Static75.hasOpaqueStationaryEntities = true;
-        Static138.anInt2512 = arg0;
-        Static693.anInt10382 = arg2;
-        Static49.anInt1045 = arg1;
+        OrthoMode.cameraRotateY = arg0;
+        OrthoMode.cameraRotateX = arg2;
+        OrthoMode.cameraRotateZ = arg1;
         @Pc(49) double local49 = -((double) (arg2 * 2) * 3.141592653589793D) / 16384.0D;
         @Pc(59) double local59 = -((double) (arg0 * 2) * 3.141592653589793D) / 16384.0D;
         @Pc(62) double local62 = Math.cos(local59);

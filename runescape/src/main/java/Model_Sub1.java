@@ -1369,9 +1369,9 @@ public final class Model_Sub1 extends Model {
                 local369 = local367.next;
             }
             if (local367.matrix == null) {
-                local367.matrix = local8.method7129();
+                local367.matrix = local8.copy();
             } else {
-                local367.matrix.method7128(local8);
+                local367.matrix.apply(local8);
             }
             local369.x = (int) ((float) this.anIntArray244[local367.vertex] * local8.aFloat38 + local8.aFloat39 * (float) this.anIntArray240[local367.vertex] + (float) this.anIntArray242[local367.vertex] * local8.aFloat40 + local8.aFloat46);
             local369.y = (int) ((float) this.anIntArray244[local367.vertex] * local8.aFloat41 + local8.aFloat42 * (float) this.anIntArray242[local367.vertex] + local8.aFloat44 * (float) this.anIntArray240[local367.vertex] + local8.aFloat37);
@@ -3748,9 +3748,9 @@ public final class Model_Sub1 extends Model {
         for (@Pc(15) int local15 = 0; local15 < this.anInt2773; local15++) {
             if ((this.aShortArray41[local15] & arg1) != 0) {
                 if (arg2) {
-                    matrix.method7140(this.anIntArray240[local15], this.anIntArray242[local15], this.anIntArray244[local15], local13);
+                    matrix.projectRelative(this.anIntArray240[local15], this.anIntArray242[local15], this.anIntArray244[local15], local13);
                 } else {
-                    matrix.method7124(this.anIntArray240[local15], this.anIntArray242[local15], this.anIntArray244[local15], local13);
+                    matrix.project(this.anIntArray240[local15], this.anIntArray242[local15], this.anIntArray244[local15], local13);
                 }
                 this.anIntArray240[local15] = local13[0];
                 this.anIntArray242[local15] = local13[1];

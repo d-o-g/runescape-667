@@ -19,7 +19,7 @@ import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.FlipException;
 import com.jagex.graphics.Ground;
-import com.jagex.graphics.Interface9;
+import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
@@ -1751,7 +1751,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public Interface9 method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
+    public OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
         return null;
     }
 
@@ -3023,8 +3023,8 @@ public final class GlToolkit extends Toolkit {
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
     public void setCamera(@OriginalArg(0) Matrix matrix) {
-        this.aClass73_Sub3_3.method7128(matrix);
-        this.aClass73_Sub3_4.method7128(this.aClass73_Sub3_3);
+        this.aClass73_Sub3_3.apply(matrix);
+        this.aClass73_Sub3_4.apply(this.aClass73_Sub3_3);
         this.aClass73_Sub3_4.method7141();
         this.aClass73_Sub3_5.method7142(this.aClass73_Sub3_4);
         if (this.anInt8005 != 1) {
@@ -3307,7 +3307,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!gaa;)V")
     @Override
-    public void method7939(@OriginalArg(0) Interface9 arg0) {
+    public void swapSurface(@OriginalArg(0) OffscreenSurface surface) {
     }
 
     @OriginalMember(owner = "client!qha", name = "k", descriptor = "()Z")

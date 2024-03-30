@@ -41,16 +41,4 @@ public final class Static181 {
         }
     }
 
-    @OriginalMember(owner = "client!fl", name = "a", descriptor = "(B)V")
-    public static void method2781() {
-        Static632.anInt9503 = 0;
-        Static482.anInt7265 = 0;
-        for (@Pc(27) int local27 = 0; local27 < Static617.anInt9434; local27++) {
-            @Pc(33) int local33 = Static211.anInt5574 * local27;
-            for (@Pc(35) int local35 = 0; local35 < Static211.anInt5574; local35++) {
-                @Pc(41) int local41 = local35 + local33;
-                Static651.anInterface9Array1[local41].method9039(local35 * Static437.horizontalAspectRatio, Static714.verticalAspectRatio * local27, Static437.horizontalAspectRatio, Static714.verticalAspectRatio, true);
-            }
-        }
-    }
 }

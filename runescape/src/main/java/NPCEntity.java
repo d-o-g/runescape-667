@@ -142,7 +142,7 @@ public final class NPCEntity extends PathingEntity {
                 }
                 @Pc(89) boolean local89 = var10000;
                 @Pc(105) boolean local105;
-                if (Static504.renderOrtho) {
+                if (OrthoMode.enabled) {
                     local105 = super.aModelArray3[local40].pickedOrtho(y, x, local20, local89, this.type.pickSizeShift, Static582.orthoAngle);
                 } else {
                     local105 = super.aModelArray3[local40].picked(y, x, local20, local89, this.type.pickSizeShift);
@@ -188,7 +188,7 @@ public final class NPCEntity extends PathingEntity {
                 local123 = Static642.method8441(this.method9330(), super.aModelArray3.length + 1);
                 super.transparent = true;
                 arg0.C(false);
-                if (Static504.renderOrtho) {
+                if (OrthoMode.enabled) {
                     local223.renderOrtho(local22, local123.pickingCylinders[super.aModelArray3.length], Static582.orthoAngle, 0);
                 } else {
                     local223.render(local22, local123.pickingCylinders[super.aModelArray3.length], 0);
@@ -203,7 +203,7 @@ public final class NPCEntity extends PathingEntity {
         }
         this.method9319(arg0, false, super.aModelArray3, local22);
         @Pc(314) int local314;
-        if (Static504.renderOrtho) {
+        if (OrthoMode.enabled) {
             for (local314 = 0; local314 < super.aModelArray3.length; local314++) {
                 if (super.aModelArray3[local314] != null) {
                     super.aModelArray3[local314].renderOrtho(local22, local123.pickingCylinders[local314], Static582.orthoAngle, 0);
@@ -218,7 +218,7 @@ public final class NPCEntity extends PathingEntity {
         }
         if (super.particleSystem != null) {
             @Pc(394) ParticleList local394 = super.particleSystem.getList();
-            if (Static504.renderOrtho) {
+            if (OrthoMode.enabled) {
                 arg0.renderOrtho(local394, Static582.orthoAngle);
             } else {
                 arg0.render(local394);

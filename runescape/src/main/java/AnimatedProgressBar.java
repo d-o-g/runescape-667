@@ -17,6 +17,6 @@ public final class AnimatedProgressBar extends FancyProgressBar {
     protected void drawCompleted(@OriginalArg(0) int y, @OriginalArg(1) int x, @OriginalArg(3) int width, @OriginalArg(4) int height) {
         @Pc(14) int barWidth = super.bar.scaleWidth();
         @Pc(26) int offsetX = ((AnimatedProgressBarInstance) super.instance).speed * AwtLoadingScreen.cycles() / 10 % barWidth;
-        super.bar.renderTiled(x + offsetX - barWidth, y, barWidth + barWidth - offsetX, height);
+        super.bar.renderTiled(x + offsetX - barWidth, y, barWidth + width - offsetX, height);
     }
 }

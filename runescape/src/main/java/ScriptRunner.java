@@ -5106,7 +5106,7 @@ public final class ScriptRunner {
                 stringStackPointer -= 2;
                 @Pc(95) String recipient = stringStack[stringStackPointer];
                 @Pc(101) String text = stringStack[stringStackPointer + 1];
-                if (Client.staffModLevel != 0 || (!Static389.underage || Static34.parentalChatConsent) && !Static617.quickChatWorld) {
+                if (Client.staffModLevel != 0 || (!UserDetail.underage || UserDetail.parentalChatConsent) && !Static617.quickChatWorld) {
                     @Pc(360) ServerConnection connection = ConnectionManager.active();
                     @Pc(366) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, connection.cipher);
                     message.bitPacket.p2(0);
@@ -7510,25 +7510,25 @@ public final class ScriptRunner {
                 }
             } else if (opcode < 7000) {
                 if (opcode == USERDETAIL_QUICKCHAT) {
-                    intStack[intStackPointer++] = Static389.underage && !Static34.parentalChatConsent ? 1 : 0;
+                    intStack[intStackPointer++] = UserDetail.underage && !UserDetail.parentalChatConsent ? 1 : 0;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_MEMBERSHIP) {
                     intStack[intStackPointer++] = (int) (Static416.subscriptionExpiration / TimeUtils.MILLISECONDS_PER_MINUTE);
                     intStack[intStackPointer++] = (int) ((Static416.subscriptionExpiration - SystemTimer.safetime() - Static94.remainingSubscription) / TimeUtils.MILLISECONDS_PER_MINUTE);
-                    intStack[intStackPointer++] = Static425.activeSubscription ? 1 : 0;
+                    intStack[intStackPointer++] = UserDetail.activeSubscription ? 1 : 0;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_RECOVERYDAY) {
-                    intStack[intStackPointer++] = Static677.lobbyRecoveryDay;
+                    intStack[intStackPointer++] = UserDetail.lobbyRecoveryDay;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_UNREADMESSAGES) {
-                    intStack[intStackPointer++] = Static476.lobbyUnreadMessages;
+                    intStack[intStackPointer++] = UserDetail.lobbyUnreadMessages;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_LASTLOGINDAY) {
-                    intStack[intStackPointer++] = Static323.lobbyLastLoginDay;
+                    intStack[intStackPointer++] = UserDetail.lobbyLastLoginDay;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_LASTLOGINADDRESS) {
@@ -7544,43 +7544,43 @@ public final class ScriptRunner {
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_EMAILSTATUS) {
-                    intStack[intStackPointer++] = Static335.lobbyEmailStatus;
+                    intStack[intStackPointer++] = UserDetail.lobbyEmailStatus;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_CCEXPIRY) {
-                    intStack[intStackPointer++] = Static626.lobbyCCExpiry;
+                    intStack[intStackPointer++] = UserDetail.lobbyCCExpiry;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_GRACEEXPIRY) {
-                    intStack[intStackPointer++] = Static636.lobbyGraceExpiry;
+                    intStack[intStackPointer++] = UserDetail.lobbyGraceExpiry;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_DOBREQUESTED) {
-                    intStack[intStackPointer++] = Static420.lobbyDOBRequested ? 1 : 0;
+                    intStack[intStackPointer++] = UserDetail.lobbyDOBRequested ? 1 : 0;
                     return;
                 }
                 if (opcode == UDETAIL_DOB) {
-                    intStack[intStackPointer++] = Static106.dob;
+                    intStack[intStackPointer++] = UserDetail.dob;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_MEMBERSSTATS) {
-                    intStack[intStackPointer++] = Static639.lobbyMembersStats;
+                    intStack[intStackPointer++] = UserDetail.lobbyMembersStats;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_PLAYAGE) {
-                    intStack[intStackPointer++] = Static438.lobbyPlayAge;
+                    intStack[intStackPointer++] = UserDetail.lobbyPlayAge;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_JCOINS_BALANCE) {
-                    intStack[intStackPointer++] = Static435.lobbyJcoinsBalance;
+                    intStack[intStackPointer++] = UserDetail.lobbyJcoinsBalance;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_LOYALTY) {
-                    intStack[intStackPointer++] = Static684.lobbyLoyalty ? 1 : 0;
+                    intStack[intStackPointer++] = UserDetail.lobbyLoyalty ? 1 : 0;
                     return;
                 }
                 if (opcode == USERDETAIL_LOBBY_LOYALTYBALANCE) {
-                    intStack[intStackPointer++] = Static134.lobbyLoyaltyBalance;
+                    intStack[intStackPointer++] = UserDetail.lobbyLoyaltyBalance;
                     return;
                 }
             } else if (opcode < 7100) {
@@ -7933,7 +7933,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Ljava/lang/String;I)V")
     public static void sendPublicChat(@OriginalArg(0) String arg0, @OriginalArg(1) int opcode) {
-        if (Client.staffModLevel == 0 && (Static389.underage && !Static34.parentalChatConsent || Static617.quickChatWorld)) {
+        if (Client.staffModLevel == 0 && (UserDetail.underage && !UserDetail.parentalChatConsent || Static617.quickChatWorld)) {
             return;
         }
         @Pc(18) String local18 = arg0.toLowerCase();
@@ -8084,7 +8084,7 @@ public final class ScriptRunner {
         }
         intVars = new int[local5.intVarCount];
         stringVars = new String[local5.stringVarCount];
-        if (local5.triggerType == Static5.A_CLIENT_TRIGGER_TYPE___1 || local5.triggerType == Static639.A_CLIENT_TRIGGER_TYPE___13 || local5.triggerType == Static280.A_CLIENT_TRIGGER_TYPE___7) {
+        if (local5.triggerType == Static5.A_CLIENT_TRIGGER_TYPE___1 || local5.triggerType == ClientTriggerType.MAP_ELEMENT_MOUSEREPEAT || local5.triggerType == Static280.A_CLIENT_TRIGGER_TYPE___7) {
             @Pc(35) int local35 = 0;
             @Pc(37) int local37 = 0;
             if (WorldMap.component != null) {

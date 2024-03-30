@@ -11,9 +11,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static684 {
 
-    @OriginalMember(owner = "client!vla", name = "k", descriptor = "Z")
-    public static boolean lobbyLoyalty;
-
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "[Lclient!qe;")
     public static Class302[] aClass302Array1;
 

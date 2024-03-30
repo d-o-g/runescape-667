@@ -8,9 +8,6 @@ public final class Static134 {
     @OriginalMember(owner = "client!eda", name = "f", descriptor = "Lclient!taa;")
     public static MapRegion aMapRegion_3;
 
-    @OriginalMember(owner = "client!eda", name = "e", descriptor = "I")
-    public static int lobbyLoyaltyBalance;
-
     @OriginalMember(owner = "client!eda", name = "h", descriptor = "[J")
     public static final long[] aLongArray20 = new long[10];
 

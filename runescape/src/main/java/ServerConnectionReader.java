@@ -322,9 +322,9 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.LOYALTY_UPDATE) {
             @Pc(277) int balance = bitPacket.g4();
             @Pc(892) boolean loyalty = bitPacket.g1() == 1;
-            if (Static684.lobbyLoyalty != loyalty || Static134.lobbyLoyaltyBalance != balance) {
-                Static134.lobbyLoyaltyBalance = balance;
-                Static684.lobbyLoyalty = loyalty;
+            if (UserDetail.lobbyLoyalty != loyalty || UserDetail.lobbyLoyaltyBalance != balance) {
+                UserDetail.lobbyLoyaltyBalance = balance;
+                UserDetail.lobbyLoyalty = loyalty;
                 ScriptRunner.executeTrigger(ClientTriggerType.LOYALTY_UPDATED, -1, -1);
             }
             context.currentProt = null;
@@ -986,7 +986,7 @@ public final class ServerConnectionReader {
                     }
 
                     if (rank <= 1) {
-                        if ((Static389.underage && !Static34.parentalChatConsent) || Static617.quickChatWorld) {
+                        if ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld) {
                             blocked = true;
                         } else if (IgnoreList.contains(name)) {
                             blocked = true;
@@ -1586,7 +1586,7 @@ public final class ServerConnectionReader {
             while (true) {
                 if (i >= 100) {
                     if (rank <= 1) {
-                        if ((Static389.underage && !Static34.parentalChatConsent) || Static617.quickChatWorld) {
+                        if ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld) {
                             blocked = true;
                         } else if (IgnoreList.contains(accountName)) {
                             blocked = true;
@@ -1760,7 +1760,7 @@ public final class ServerConnectionReader {
 
             @Pc(6565) boolean blocked = false;
             if (rank <= 1) {
-                if ((Static389.underage && !Static34.parentalChatConsent) || Static617.quickChatWorld) {
+                if ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld) {
                     blocked = true;
                 } else if (rank <= 1 && IgnoreList.contains(accountName)) {
                     blocked = true;
@@ -1904,8 +1904,8 @@ public final class ServerConnectionReader {
             return true;
         } else if (context.currentProt == ServerProt.JCOINS_UPDATE) {
             @Pc(277) int jcoins = bitPacket.g4_alt2();
-            if (jcoins != Static435.lobbyJcoinsBalance) {
-                Static435.lobbyJcoinsBalance = jcoins;
+            if (jcoins != UserDetail.lobbyJcoinsBalance) {
+                UserDetail.lobbyJcoinsBalance = jcoins;
                 ScriptRunner.executeTrigger(ClientTriggerType.JCOINS_UPDATE, -1, -1);
             }
             context.currentProt = null;
@@ -2087,7 +2087,7 @@ public final class ServerConnectionReader {
             if (player.accountName != null && player.playerModel != null) {
                 @Pc(1425) boolean blocked = false;
                 if (rank <= 1) {
-                    if (!quickChat && ((Static389.underage && !Static34.parentalChatConsent) || Static617.quickChatWorld)) {
+                    if (!quickChat && ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld)) {
                         blocked = true;
                     } else if (IgnoreList.contains(player.accountName)) {
                         blocked = true;
@@ -2211,8 +2211,8 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (ServerProt.UPDATE_DOB == context.currentProt) {
-            Static106.dob = bitPacket.g3s();
-            Static389.underage = bitPacket.g1() == 1;
+            UserDetail.dob = bitPacket.g3s();
+            UserDetail.underage = bitPacket.g1() == 1;
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.CLIENT_SETVARC_SMALL) {
@@ -2402,7 +2402,7 @@ public final class ServerConnectionReader {
             while (true) {
                 if (i >= 100) {
                     if (rank <= 1) {
-                        if ((Static389.underage && !Static34.parentalChatConsent) || Static617.quickChatWorld) {
+                        if ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld) {
                             blocked = true;
                         } else if (IgnoreList.contains(accountName)) {
                             blocked = true;

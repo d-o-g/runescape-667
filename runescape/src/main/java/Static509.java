@@ -82,7 +82,7 @@ public final class Static509 {
                     ScriptRunner.executeTrigger(Static5.A_CLIENT_TRIGGER_TYPE___1, local197.aClass2_Sub20_1.id, local206.category);
                 }
                 if (local197.aClass2_Sub20_1.aBoolean256) {
-                    ScriptRunner.executeTrigger(Static639.A_CLIENT_TRIGGER_TYPE___13, local197.aClass2_Sub20_1.id, local206.category);
+                    ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEREPEAT, local197.aClass2_Sub20_1.id, local206.category);
                 }
             } else if (local197.aClass2_Sub20_1.aBoolean256) {
                 local197.aClass2_Sub20_1.aBoolean256 = false;

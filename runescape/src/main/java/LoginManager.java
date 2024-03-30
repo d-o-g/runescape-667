@@ -629,13 +629,13 @@ public final class LoginManager {
                         bitPacket.pos = 0;
                         Client.staffModLevel = bitPacket.g1();
                         Static38.playerModLevel = bitPacket.g1();
-                        Static389.underage = bitPacket.g1() == 1;
-                        Static34.parentalChatConsent = bitPacket.g1() == 1;
+                        UserDetail.underage = bitPacket.g1() == 1;
+                        UserDetail.parentalChatConsent = bitPacket.g1() == 1;
                         Static298.parentalAdvertConsent = bitPacket.g1() == 1;
                         Static617.quickChatWorld = bitPacket.g1() == 1;
                         PlayerList.activePlayerSlot = bitPacket.g2();
                         Client.isMember = bitPacket.g1() == 1;
-                        Static106.dob = bitPacket.g3s();
+                        UserDetail.dob = bitPacket.g3s();
                         Static174.mapMembers = bitPacket.g1() == 1;
                         Static416.mapOwner = bitPacket.gjstr();
                         LocTypeList.instance.setAllowMembers(Static174.mapMembers);
@@ -650,29 +650,29 @@ public final class LoginManager {
                         bitPacket.pos = 0;
                         Client.staffModLevel = bitPacket.g1();
                         Static38.playerModLevel = bitPacket.g1();
-                        Static389.underage = bitPacket.g1() == 1;
-                        Static34.parentalChatConsent = bitPacket.g1() == 1;
+                        UserDetail.underage = bitPacket.g1() == 1;
+                        UserDetail.parentalChatConsent = bitPacket.g1() == 1;
                         Static298.parentalAdvertConsent = bitPacket.g1() == 1;
                         Static416.subscriptionExpiration = bitPacket.g8();
                         Static94.remainingSubscription = Static416.subscriptionExpiration - SystemTimer.safetime() - bitPacket.g5();
                         @Pc(203) int membershipInfo = bitPacket.g1();
                         Client.isMember = (membershipInfo & 0x1) != 0;
-                        Static425.activeSubscription = (membershipInfo & 0x2) != 0;
-                        Static435.lobbyJcoinsBalance = bitPacket.g4();
-                        Static684.lobbyLoyalty = bitPacket.g1() == 1;
-                        Static134.lobbyLoyaltyBalance = bitPacket.g4();
-                        Static677.lobbyRecoveryDay = bitPacket.g2();
-                        Static476.lobbyUnreadMessages = bitPacket.g2();
-                        Static323.lobbyLastLoginDay = bitPacket.g2();
-                        Static392.lastLoginAddress = bitPacket.g4();
-                        Static439.hostnameResource = GameShell.signLink.lookupHostname(Static392.lastLoginAddress);
-                        Static335.lobbyEmailStatus = bitPacket.g1();
-                        Static626.lobbyCCExpiry = bitPacket.g2();
-                        Static636.lobbyGraceExpiry = bitPacket.g2();
-                        Static420.lobbyDOBRequested = bitPacket.g1() == 1;
+                        UserDetail.activeSubscription = (membershipInfo & 0x2) != 0;
+                        UserDetail.lobbyJcoinsBalance = bitPacket.g4();
+                        UserDetail.lobbyLoyalty = bitPacket.g1() == 1;
+                        UserDetail.lobbyLoyaltyBalance = bitPacket.g4();
+                        UserDetail.lobbyRecoveryDay = bitPacket.g2();
+                        UserDetail.lobbyUnreadMessages = bitPacket.g2();
+                        UserDetail.lobbyLastLoginDay = bitPacket.g2();
+                        UserDetail.lastLoginAddress = bitPacket.g4();
+                        Static439.hostnameResource = GameShell.signLink.lookupHostname(UserDetail.lastLoginAddress);
+                        UserDetail.lobbyEmailStatus = bitPacket.g1();
+                        UserDetail.lobbyCCExpiry = bitPacket.g2();
+                        UserDetail.lobbyGraceExpiry = bitPacket.g2();
+                        UserDetail.lobbyDOBRequested = bitPacket.g1() == 1;
                         PlayerEntity.self.accountName = PlayerEntity.self.displayName = Client.playerDisplayName = bitPacket.gjstr2();
-                        Static639.lobbyMembersStats = bitPacket.g1();
-                        Static438.lobbyPlayAge = bitPacket.g4();
+                        UserDetail.lobbyMembersStats = bitPacket.g1();
+                        UserDetail.lobbyPlayAge = bitPacket.g4();
                         Static587.aBoolean663 = bitPacket.g1() == 1;
 
                         ConnectionInfo.auto = new ConnectionInfo();
@@ -692,7 +692,7 @@ public final class LoginManager {
                         }
                     }
 
-                    if (Static389.underage && !Static298.parentalAdvertConsent || Client.isMember) {
+                    if (UserDetail.underage && !Static298.parentalAdvertConsent || Client.isMember) {
                         try {
                             JavaScript.call("zap", GameShell.loaderApplet);
                         } catch (@Pc(1850) Throwable ignored) {

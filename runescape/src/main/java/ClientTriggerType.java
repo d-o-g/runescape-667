@@ -23,6 +23,9 @@ public final class ClientTriggerType implements TriggerType {
     @OriginalMember(owner = "client!bb", name = "b", descriptor = "Lclient!mia;")
     public static final ClientTriggerType OP_MAPELEMENT5 = new ClientTriggerType("", 14);
 
+    @OriginalMember(owner = "client!ud", name = "K", descriptor = "Lclient!mia;")
+    public static final ClientTriggerType MAP_ELEMENT_MOUSEREPEAT = new ClientTriggerType("", 17);
+
     @OriginalMember(owner = "client!hda", name = "u", descriptor = "Lclient!mia;")
     public static final ClientTriggerType LOYALTY_UPDATED = new ClientTriggerType("", 21);
 

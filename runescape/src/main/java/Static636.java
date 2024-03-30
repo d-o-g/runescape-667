@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static636 {
 
-    @OriginalMember(owner = "client!uba", name = "b", descriptor = "I")
-    public static int lobbyGraceExpiry;
-
     @OriginalMember(owner = "client!uba", name = "d", descriptor = "Lclient!pda;")
     public static final BASType A_BAS_TYPE___1 = new BASType();
 

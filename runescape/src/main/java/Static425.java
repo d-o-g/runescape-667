@@ -4,9 +4,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static425 {
 
-    @OriginalMember(owner = "client!nh", name = "a", descriptor = "Z")
-    public static boolean activeSubscription;
-
     @OriginalMember(owner = "client!nh", name = "c", descriptor = "Lclient!ha;")
     public static Toolkit toolkit;
 

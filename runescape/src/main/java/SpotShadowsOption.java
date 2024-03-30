@@ -21,7 +21,7 @@ public final class SpotShadowsOption extends Option {
     }
 
     @OriginalMember(owner = "client!g", name = "c", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return !super.options.isLowDetail();
     }
 
@@ -44,7 +44,7 @@ public final class SpotShadowsOption extends Option {
 
     @OriginalMember(owner = "client!g", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return super.options.isLowDetail() ? 3 : 1;
     }
 

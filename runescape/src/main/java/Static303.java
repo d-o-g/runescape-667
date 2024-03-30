@@ -7,19 +7,6 @@ import rs2.client.loading.screen.op.instance.ProgressBarInstance;
 
 public final class Static303 {
 
-    @OriginalMember(owner = "client!jka", name = "a", descriptor = "(IB)V")
-    public static void method4428(@OriginalArg(0) int arg0) {
-        if (!LoginManager.isAtLoginScreen()) {
-            return;
-        }
-        if (LoginManager.socialNetworkId != arg0) {
-            LoginManager.previousUsername = "";
-        }
-        LoginManager.socialNetworkId = arg0;
-        ServerConnection.LOBBY.close();
-        MainLogicManager.setStep(5);
-    }
-
     @OriginalMember(owner = "client!jka", name = "a", descriptor = "(Lclient!ge;B)Lclient!gha;")
     public static ImageProgressBarInstance method4430(@OriginalArg(0) Packet arg0) {
         @Pc(15) ProgressBarInstance local15 = ProgressBarInstance.decode(arg0);

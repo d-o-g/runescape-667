@@ -19,7 +19,7 @@ public final class Static587 {
 
     @OriginalMember(owner = "client!sia", name = "b", descriptor = "(I)V")
     public static void method7704() {
-        if (!Static60.aBoolean86) {
+        if (!WorldList.pingWorlds) {
             return;
         }
         while (true) {

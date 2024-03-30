@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static626 {
 
     @OriginalMember(owner = "client!tq", name = "a", descriptor = "I")
-    public static int creditCardExpiry;
+    public static int lobbyCCExpiry;
 
     @OriginalMember(owner = "client!tq", name = "i", descriptor = "I")
     public static int updateZoneX;

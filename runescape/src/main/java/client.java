@@ -17,7 +17,7 @@ import com.jagex.core.io.BufferedFile;
 import com.jagex.core.io.BufferedSocket;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base64;
-import com.jagex.core.stringtools.general.Url;
+import com.jagex.core.stringtools.general.WebTools;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
@@ -578,7 +578,7 @@ public final class client extends GameShell {
         }
 
         if (((MainLogicManager.step == MainLogicStep.STEP_LOGIN_SCREEN) || (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME) || (MainLogicManager.step == MainLogicStep.STEP_LOBBY_SCREEN)) && (!LoginManager.inProgress() || ((MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME) && (LoginManager.gameLoginResponse == LoginResponseCode.IN_QUEUE))) && (LobbyManager.step == 0)) {
-            if (Camera.mode == CameraMode.MODE_FIXED) {
+            if (Camera.mode == CameraMode.MODE_FOLLOWPLAYER) {
                 Camera.moveToTick();
             } else {
                 Camera.splineTick();
@@ -1278,7 +1278,7 @@ public final class client extends GameShell {
 
         @Pc(356) String ssKeyParam = this.getParameter("sskey");
         if (ssKeyParam != null) {
-            Client.ssKey = Base64.encode(Url.decode(ssKeyParam));
+            Client.ssKey = Base64.encode(WebTools.urlEncode(ssKeyParam));
 
             if (Client.ssKey.length < 16) {
                 Client.ssKey = null;

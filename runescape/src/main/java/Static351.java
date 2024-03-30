@@ -21,8 +21,8 @@ public final class Static351 {
         @Pc(11) int local11 = Integer.MAX_VALUE;
         @Pc(13) int local13 = Integer.MIN_VALUE;
         if (arg1.landmarkPolygons != null) {
-            local13 = WorldMap.anInt5646 - (arg2.y + arg1.maxZ - WorldMap.anInt5654) * (WorldMap.anInt5646 - WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
-            local11 = WorldMap.anInt5646 - (arg2.y + arg1.minZ - WorldMap.anInt5654) * (WorldMap.anInt5646 + -WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
+            local13 = WorldMap.anInt5646 - (arg2.z + arg1.maxZ - WorldMap.anInt5654) * (WorldMap.anInt5646 - WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
+            local11 = WorldMap.anInt5646 - (arg2.z + arg1.minZ - WorldMap.anInt5654) * (WorldMap.anInt5646 + -WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);
             local7 = WorldMap.anInt5649 + (WorldMap.anInt5651 - WorldMap.anInt5649) * (-WorldMap.anInt5652 + arg1.maxX - -arg2.x) / (WorldMap.anInt5647 - WorldMap.anInt5652);
             local9 = WorldMap.anInt5649 + (arg1.minX + arg2.x - WorldMap.anInt5652) * (WorldMap.anInt5651 - WorldMap.anInt5649) / (WorldMap.anInt5647 - WorldMap.anInt5652);
         }
@@ -67,7 +67,7 @@ public final class Static351 {
         @Pc(233) int local233 = 0;
         @Pc(312) int local312;
         if (arg1.text != null) {
-            local209 = Static390.method5493(arg1.font);
+            local209 = Static390.method5493(arg1.textSize);
             if (local209 != null) {
                 local211 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg1.text);
                 local215 = arg2.anInt3122 - arg1.anInt2617 * (WorldMap.anInt5646 - WorldMap.anInt5653) / (WorldMap.anInt5645 - WorldMap.anInt5654);

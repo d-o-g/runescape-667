@@ -18,11 +18,4 @@ public final class Static170 {
         }
     }
 
-    @OriginalMember(owner = "client!fea", name = "a", descriptor = "(II)V")
-    public static void method2653(@OriginalArg(0) int arg0) {
-        Static212.anInt3467 = 100;
-        Static409.anInt6318 = arg0;
-        Static320.anInt5084 = 3;
-        Static475.anInt7168 = -1;
-    }
 }

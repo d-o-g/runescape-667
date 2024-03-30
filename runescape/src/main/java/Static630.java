@@ -42,7 +42,7 @@ public final class Static630 {
         if (ClientOptions.instance.animateBackground.getValue() == 0 && Static164.areaLevel != Camera.renderingLevel) {
             Static684.updateMapArea(false, Static62.areaCenterX, 12, Static525.areaCenterZ);
         } else {
-            Static106.method2046(Toolkit.active);
+            Minimap.method2046(Toolkit.active);
             if (Static514.anInt7680 != Camera.renderingLevel) {
                 Static77.method1561();
             }

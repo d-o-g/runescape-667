@@ -16,7 +16,7 @@ public final class FogOption extends Option {
     }
 
     @OriginalMember(owner = "client!mea", name = "b", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return true;
     }
 
@@ -33,7 +33,7 @@ public final class FogOption extends Option {
 
     @OriginalMember(owner = "client!mea", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return value == 0 || super.options.groundBlending.getValue() == 1 ? 1 : 2;
     }
 

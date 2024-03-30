@@ -903,7 +903,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "o", descriptor = "()Z")
     @Override
-    public boolean method7936() {
+    public boolean supportsBloom() {
         return false;
     }
 
@@ -2644,7 +2644,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "m", descriptor = "()Z")
     @Override
-    public boolean supportsBloom() {
+    public boolean hasBloom() {
         return false;
     }
 
@@ -2829,7 +2829,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "t", descriptor = "()Z")
     @Override
-    public boolean method8015() {
+    public boolean supportsAntiAliasing() {
         return false;
     }
 

@@ -58,7 +58,7 @@ public final class ToolkitOption extends Option {
     }
 
     @OriginalMember(owner = "client!tba", name = "c", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return super.options.getEnvironment().isSigned();
     }
 
@@ -69,7 +69,7 @@ public final class ToolkitOption extends Option {
 
     @OriginalMember(owner = "client!tba", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         if (super.options.getEnvironment().isSigned()) {
             return value == 3 && !LibraryManager.isLoaded("jagdx") ? 3 : 2;
         } else {

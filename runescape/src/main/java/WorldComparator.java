@@ -37,7 +37,7 @@ public final class WorldComparator {
 
             return populationA - populationB;
         } else if (comparison == COMPARE_BY_LANGUAGE) {
-            return Static540.compare(b.method6717().name, Client.language, a.method6717().name);
+            return Static540.compare(b.getCountry().name, Client.language, a.getCountry().name);
         } else if (comparison == COMPARE_BY_ACTIVITY) {
             if (a.activity.equals("-")) {
                 if (b.activity.equals("-")) {

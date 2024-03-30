@@ -17,7 +17,7 @@ public final class WaterDetailOption extends Option {
 
     @OriginalMember(owner = "client!ro", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         if (super.options.isLowDetail()) {
             return 3;
         } else if (value == 0 || super.options.groundBlending.getValue() == 1) {
@@ -33,7 +33,7 @@ public final class WaterDetailOption extends Option {
     }
 
     @OriginalMember(owner = "client!ro", name = "b", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return !super.options.isLowDetail();
     }
 

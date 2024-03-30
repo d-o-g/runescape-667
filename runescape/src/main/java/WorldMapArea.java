@@ -79,7 +79,7 @@ public final class WorldMapArea extends Node2 {
     public boolean method4085(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int[] arg2) {
         for (@Pc(23) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
             if (chunk.method8914(arg0, arg1)) {
-                chunk.method8907(arg2, arg0, arg1);
+                chunk.project(arg2, arg0, arg1);
                 return true;
             }
         }
@@ -97,10 +97,10 @@ public final class WorldMapArea extends Node2 {
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(I[IIII)Z")
-    public boolean method4088(@OriginalArg(1) int[] destination, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
+    public boolean method4088(@OriginalArg(1) int[] destination, @OriginalArg(2) int z, @OriginalArg(3) int level, @OriginalArg(4) int x) {
         for (@Pc(15) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.method8912(arg1, arg2, arg3)) {
-                chunk.method8907(destination, arg3, arg1);
+            if (chunk.method8912(z, level, x)) {
+                chunk.project(destination, x, z);
                 return true;
             }
         }
@@ -115,14 +115,14 @@ public final class WorldMapArea extends Node2 {
         this.maxX = 0;
 
         for (@Pc(28) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.minY < this.minY) {
-                this.minY = chunk.minY;
+            if (chunk.minZ < this.minY) {
+                this.minY = chunk.minZ;
             }
             if (chunk.maxX > this.maxX) {
                 this.maxX = chunk.maxX;
             }
-            if (chunk.maxY > this.maxY) {
-                this.maxY = chunk.maxY;
+            if (chunk.maxZ > this.maxY) {
+                this.maxY = chunk.maxZ;
             }
             if (chunk.minX < this.minX) {
                 this.minX = chunk.minX;

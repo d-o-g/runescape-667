@@ -6,8 +6,8 @@ public final class Static182 {
     @OriginalMember(owner = "client!fla", name = "a", descriptor = "(ZI)V")
     public static void method2786(@OriginalArg(1) int arg0) {
         WorldMap.anInt9389 = arg0;
-        WorldMap.anInt3181 = -1;
-        WorldMap.anInt3181 = -1;
+        WorldMap.jumpZ = -1;
+        WorldMap.jumpZ = -1;
         WorldMap.method5440();
     }
 }

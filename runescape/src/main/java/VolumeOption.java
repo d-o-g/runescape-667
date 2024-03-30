@@ -31,7 +31,7 @@ public final class VolumeOption extends Option {
 
     @OriginalMember(owner = "client!rba", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return 1;
     }
 

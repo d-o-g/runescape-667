@@ -4,10 +4,10 @@ import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-public final class Url {
+public final class WebTools {
 
     @OriginalMember(owner = "client!wk", name = "a", descriptor = "(BLjava/lang/String;)Ljava/lang/String;")
-    public static String decode(@OriginalArg(1) String string) {
+    public static String urlEncode(@OriginalArg(1) String string) {
         @Pc(9) StringBuffer buffer = new StringBuffer();
         @Pc(12) int length = string.length();
 
@@ -58,7 +58,15 @@ public final class Url {
         return buffer.toString();
     }
 
-    private Url() {
+    @OriginalMember(owner = "client!ne", name = "a", descriptor = "(BI)Ljava/lang/String;")
+    public static String ipDecode(@OriginalArg(1) int ip) {
+        return (ip >> 24 & 0xFF) +
+            "." + (ip >> 16 & 0xFF) +
+            "." + (ip >> 8 & 0xFF) +
+            "." + (ip & 0xFF);
+    }
+
+    private WebTools() {
         /* empty */
     }
 }

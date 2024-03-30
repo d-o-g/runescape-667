@@ -91,7 +91,7 @@ public final class MapElementType {
     public int hoverSprite = -1;
 
     @OriginalMember(owner = "client!el", name = "K", descriptor = "Z")
-    public boolean aBoolean214 = true;
+    public boolean enabled = true;
 
     @OriginalMember(owner = "client!el", name = "j", descriptor = "Z")
     public boolean randomise = true;
@@ -136,7 +136,7 @@ public final class MapElementType {
     public int worldMapSprite = -1;
 
     @OriginalMember(owner = "client!el", name = "N", descriptor = "I")
-    public int font = 0;
+    public int textSize = 0;
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(BLclient!ge;)V")
     public void decode(@OriginalArg(1) Packet packet) {
@@ -276,11 +276,11 @@ public final class MapElementType {
         } else if (code == 5) {
             this.hoverTextColour = packet.g3();
         } else if (code == 6) {
-            this.font = packet.g1();
+            this.textSize = packet.g1();
         } else if (code == 7) {
             @Pc(74) int flags = packet.g1();
             if ((flags & 0x1) == 0) {
-                this.aBoolean214 = false;
+                this.enabled = false;
             }
             if ((flags & 0x2) == 2) {
                 this.aBoolean218 = true;

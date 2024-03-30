@@ -1,5 +1,7 @@
+import com.jagex.core.io.ConnectionInfo;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -41,6 +43,9 @@ public final class WorldList {
 
     @OriginalMember(owner = "client!bv", name = "n", descriptor = "I")
     public static int iterator = 999999;
+
+    @OriginalMember(owner = "client!bw", name = "Q", descriptor = "Z")
+    public static boolean pingWorlds = false;
 
     @OriginalMember(owner = "client!tha", name = "a", descriptor = "(II)Lclient!pq;")
     public static GameWorld list(@OriginalArg(1) int id) {
@@ -172,5 +177,19 @@ public final class WorldList {
     @OriginalMember(owner = "client!rja", name = "d", descriptor = "(I)Lclient!pq;")
     public static GameWorld next() {
         return iterator < activeWorlds.length ? activeWorlds[iterator++] : null;
+    }
+
+    @OriginalMember(owner = "client!gia", name = "a", descriptor = "(BZIIZ)V")
+    public static void quicksortWorldList(@OriginalArg(3) int primaryComparison, @OriginalArg(1) boolean primaryDescending, @OriginalArg(2) int secondaryComparison, @OriginalArg(4) boolean secondaryDescending) {
+        quicksort(activeWorlds.length - 1, 0, primaryDescending, primaryComparison, secondaryDescending, secondaryComparison);
+        Static419.anInt6434 = 0;
+        Static522.aClass2_Sub12_4 = null;
+    }
+
+    @OriginalMember(owner = "client!ep", name = "f", descriptor = "(I)V")
+    public static void selectAutoWorld() {
+        if (GameShell.signLink.signed && ConnectionInfo.auto.world != -1) {
+            client.connectTo(ConnectionInfo.auto.world, ConnectionInfo.auto.address);
+        }
     }
 }

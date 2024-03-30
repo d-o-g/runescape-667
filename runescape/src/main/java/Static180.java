@@ -14,9 +14,6 @@ public final class Static180 {
     @OriginalMember(owner = "client!fka", name = "n", descriptor = "J")
     public static long lastMouseClick = -1L;
 
-    @OriginalMember(owner = "client!fka", name = "g", descriptor = "I")
-    public static int anInt3001 = -1;
-
     @OriginalMember(owner = "client!fka", name = "a", descriptor = "(II)V")
     public static void ban(@OriginalArg(1) int arg0) {
         if (ClanChannel.affined == null || (arg0 < 0 || arg0 >= ClanChannel.affined.userCount)) {

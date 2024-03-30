@@ -105,7 +105,7 @@ public final class Minimap {
         @Pc(93) int selfZ;
         @Pc(87) int yaw;
         @Pc(79) int scale;
-        if (Camera.mode == CameraMode.MODE_FOUR) {
+        if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
             yaw = (int) -Camera.playerCameraYaw & 0x3FFF;
             scale = 4096;
             selfZ = Camera.anInt4018;
@@ -271,7 +271,7 @@ public final class Minimap {
             }
         }
 
-        if (Camera.mode != CameraMode.MODE_FOUR) {
+        if (Camera.mode != CameraMode.MODE_FOLLOWCOORD) {
             if (flagX != 0) {
                 @Pc(585) int arrowX = ((flagX * 4) + ((PlayerEntity.self.getSize() - 1) * 2) + 2) - (selfX / 128);
                 @Pc(878) int arrowZ = ((flagY * 4) + (PlayerEntity.self.getSize() * 2) + 2) - (selfZ / 128) - 2;
@@ -491,7 +491,7 @@ public final class Minimap {
 
             for (@Pc(36) int i = 0; i < local34.length / 2; i++) {
                 @Pc(51) int yaw;
-                if (Camera.mode == CameraMode.MODE_FOUR) {
+                if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
                     yaw = (int) Camera.playerCameraYaw & 0x3FFF;
                 } else {
                     yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
@@ -500,7 +500,7 @@ public final class Minimap {
                 @Pc(62) int local62 = Trig1.SIN[yaw];
                 @Pc(66) int local66 = Trig1.COS[yaw];
 
-                if (Camera.mode != CameraMode.MODE_FOUR) {
+                if (Camera.mode != CameraMode.MODE_FOLLOWCOORD) {
                     local62 = local62 * 256 / (Camera.scaleOffset + 256);
                     local66 = local66 * 256 / (Camera.scaleOffset + 256);
                 }
@@ -587,11 +587,11 @@ public final class Minimap {
 
             @Pc(553) Font font = Fonts.p11;
             @Pc(555) FontMetrics metrics = Fonts.p11Metrics;
-            if (elementType.font == 1) {
+            if (elementType.textSize == 1) {
                 font = Fonts.p12;
                 metrics = Fonts.p12Metrics;
             }
-            if (elementType.font == 2) {
+            if (elementType.textSize == 2) {
                 metrics = Fonts.b12Metrics;
                 font = Fonts.b12;
             }
@@ -851,7 +851,7 @@ public final class Minimap {
         }
 
         @Pc(15) int yaw;
-        if (Camera.mode == CameraMode.MODE_FOUR) {
+        if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
             yaw = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
             yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
@@ -865,7 +865,7 @@ public final class Minimap {
 
         @Pc(60) int local60 = Trig1.SIN[yaw];
         @Pc(64) int local64 = Trig1.COS[yaw];
-        if (Camera.mode != CameraMode.MODE_FOUR) {
+        if (Camera.mode != CameraMode.MODE_FOLLOWCOORD) {
             local60 = (local60 * 256) / (Camera.scaleOffset + 256);
             local64 = (local64 * 256) / (Camera.scaleOffset + 256);
         }
@@ -891,7 +891,7 @@ public final class Minimap {
         local37 -= 10;
 
         @Pc(64) int yaw;
-        if (Camera.mode == CameraMode.MODE_FOUR) {
+        if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
             yaw = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
             yaw = Camera.yawOffset + (int) Camera.playerCameraYaw & 0x3FFF;
@@ -899,7 +899,7 @@ public final class Minimap {
 
         @Pc(77) int local77 = Trig1.SIN[yaw];
         @Pc(81) int local81 = Trig1.COS[yaw];
-        if (Camera.mode != CameraMode.MODE_FOUR) {
+        if (Camera.mode != CameraMode.MODE_FOLLOWCOORD) {
             local81 = local81 * 256 / (Camera.scaleOffset + 256);
             local77 = local77 * 256 / (Camera.scaleOffset + 256);
         }
@@ -925,5 +925,12 @@ public final class Minimap {
         flagX = -1;
         toggle = 0;
         flagY = -1;
+    }
+
+    @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ILclient!ha;)V")
+    public static void method2046(@OriginalArg(1) Toolkit arg0) {
+        if (level != PlayerEntity.self.level && (Static334.activeTiles != null && drawLevel(arg0, PlayerEntity.self.level))) {
+            level = PlayerEntity.self.level;
+        }
     }
 }

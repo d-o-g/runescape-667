@@ -17,7 +17,7 @@ public final class ScreenSizeOption extends Option {
 
     @OriginalMember(owner = "client!cc", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return 1;
     }
 

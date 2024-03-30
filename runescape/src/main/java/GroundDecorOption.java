@@ -29,7 +29,7 @@ public final class GroundDecorOption extends Option {
 
     @OriginalMember(owner = "client!fia", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         if (super.options.isLowDetail()) {
             return 3;
         } else if (super.options.getModeGame() == ModeGame.RUNESCAPE) {
@@ -40,7 +40,7 @@ public final class GroundDecorOption extends Option {
     }
 
     @OriginalMember(owner = "client!fia", name = "b", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         if (super.options.isLowDetail()) {
             return false;
         } else {

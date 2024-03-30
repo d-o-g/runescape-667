@@ -112,9 +112,9 @@ public final class TimeUtils {
     }
 
     @OriginalMember(owner = "client!gka", name = "a", descriptor = "(II)[I")
-    public static int[] dateFromRunedays(@OriginalArg(0) int runedays) {
+    public static int[] dateFromRuneday(@OriginalArg(0) int runeday) {
         @Pc(6) int[] date = new int[3];
-        setTime(timeFromRunedays(runedays));
+        setTime(timeFromRuneday(runeday));
         date[0] = CALENDAR.get(Calendar.DAY_OF_MONTH);
         date[1] = CALENDAR.get(Calendar.MONTH);
         date[2] = CALENDAR.get(Calendar.YEAR);
@@ -135,12 +135,12 @@ public final class TimeUtils {
     }
 
     @OriginalMember(owner = "client!bea", name = "a", descriptor = "(IZ)J")
-    public static long timeFromRunedays(@OriginalArg(0) int days) {
-        return (long) (days + RUNEDAYS_SINCE_UNIX_EPOCH) * MILLISECONDS_PER_DAY;
+    public static long timeFromRuneday(@OriginalArg(0) int day) {
+        return (long) (day + RUNEDAYS_SINCE_UNIX_EPOCH) * MILLISECONDS_PER_DAY;
     }
 
     @OriginalMember(owner = "client!cd", name = "a", descriptor = "(JZ)I")
-    public static int runedaysFromTime(@OriginalArg(0) long time) {
+    public static int runedayFromTime(@OriginalArg(0) long time) {
         return (int) (time / MILLISECONDS_PER_DAY) - RUNEDAYS_SINCE_UNIX_EPOCH;
     }
 

@@ -11,12 +11,4 @@ public final class Static300 {
         LoginManager.username = "";
     }
 
-    @OriginalMember(owner = "client!jj", name = "a", descriptor = "(I)V")
-    public static void method4393() {
-        WorldMap.reset(false);
-        if (Static114.toolkitType >= 0 && Static114.toolkitType != 0) {
-            Static32.setToolkit(Static114.toolkitType, false);
-            Static114.toolkitType = -1;
-        }
-    }
 }

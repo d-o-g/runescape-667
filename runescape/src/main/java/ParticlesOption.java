@@ -25,7 +25,7 @@ public final class ParticlesOption extends Option {
 
     @OriginalMember(owner = "client!su", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return super.options.getEnvironment().getHeapSize() < 96 ? 3 : 1;
     }
 
@@ -37,7 +37,7 @@ public final class ParticlesOption extends Option {
     }
 
     @OriginalMember(owner = "client!su", name = "c", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return super.options.getEnvironment().getHeapSize() >= 96;
     }
 

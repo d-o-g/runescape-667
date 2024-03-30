@@ -40,7 +40,7 @@ public final class Static249 {
 
         if (!bloom) {
             Toolkit.active.stopBloom();
-        } else if (!Toolkit.active.supportsBloom()) {
+        } else if (!Toolkit.active.hasBloom()) {
             bloom = false;
         }
 

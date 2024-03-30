@@ -214,7 +214,7 @@ public final class MiniMenu {
     public static boolean collapsed = false;
 
     @OriginalMember(owner = "client!eia", name = "y", descriptor = "I")
-    public static int collapseAtCount = -1;
+    public static int subMenuMinLength = -1;
 
     @OriginalMember(owner = "client!gi", name = "d", descriptor = "Z")
     public static boolean shiftClick = false;
@@ -1899,7 +1899,7 @@ public final class MiniMenu {
     @OriginalMember(owner = "client!kc", name = "a", descriptor = "(Z)V")
     public static void update() {
         if (!open) {
-            collapsed = ((collapseAtCount != -1) && (innerEntryCount >= collapseAtCount)) || (((innerEntryCount * ENTRY_HEIGHT) + (useSprites ? 26 : 22)) > GameShell.canvasHei);
+            collapsed = ((subMenuMinLength != -1) && (innerEntryCount >= subMenuMinLength)) || (((innerEntryCount * ENTRY_HEIGHT) + (useSprites ? 26 : 22)) > GameShell.canvasHei);
         }
 
         otherInnerEntries.clear();
@@ -2457,6 +2457,40 @@ public final class MiniMenu {
         entryTable.clear();
         entryQueue.clear();
         open = false;
+    }
+
+    @OriginalMember(owner = "client!ho", name = "a", descriptor = "(BII)Z")
+    public static boolean isOpen(@OriginalArg(1) int idAndSlot, @OriginalArg(2) int arg1) {
+        if (!open) {
+            return false;
+        }
+
+        @Pc(12) int id = idAndSlot >> 16;
+        @Pc(23) int slot = idAndSlot & 0xFFFF;
+        if (InterfaceList.interfaces[id] == null || InterfaceList.interfaces[id][slot] == null) {
+            return false;
+        }
+
+        @Pc(44) Component component = InterfaceList.interfaces[id][slot];
+        @Pc(57) MiniMenuEntryInner inner;
+        if (arg1 == -1 && component.type == 0) {
+            for (inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
+                if (inner.action == MiniMenuAction.IF_BUTTONT || inner.action == MiniMenuAction.IF_BUTTONX2 || inner.action == MiniMenuAction.TGT_BUTTON || inner.action == MiniMenuAction.IF_BUTTONX1 || inner.action == MiniMenuAction.PAUSE_BUTTON) {
+                    for (@Pc(160) Component parent = InterfaceList.list(inner.v3); parent != null; parent = InterfaceManager.getParentLayer(parent)) {
+                        if (parent.slot == component.slot) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        } else {
+            for (inner = (MiniMenuEntryInner) innerEntryQueue.first(); inner != null; inner = (MiniMenuEntryInner) innerEntryQueue.next()) {
+                if (inner.v2 == arg1 && component.slot == inner.v3 && (inner.action == MiniMenuAction.IF_BUTTONT || inner.action == MiniMenuAction.IF_BUTTONX2 || inner.action == MiniMenuAction.TGT_BUTTON || inner.action == MiniMenuAction.IF_BUTTONX1 || inner.action == MiniMenuAction.PAUSE_BUTTON)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private MiniMenu() {

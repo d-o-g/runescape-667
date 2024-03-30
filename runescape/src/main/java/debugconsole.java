@@ -607,7 +607,7 @@ public final class debugconsole {
                 }
 
                 if (command.equals("autoworld")) {
-                    Static152.selectAutoWorld();
+                    WorldList.selectAutoWorld();
                     addline("auto world selected");
                     return;
                 }

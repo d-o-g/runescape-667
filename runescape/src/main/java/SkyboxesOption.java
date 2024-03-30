@@ -17,13 +17,13 @@ public final class SkyboxesOption extends Option {
     }
 
     @OriginalMember(owner = "client!dc", name = "b", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return ToolkitType.isHardware(super.options.toolkit.getValue());
     }
 
     @OriginalMember(owner = "client!dc", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return ToolkitType.isHardware(super.options.toolkit.getValue()) ? 1 : 3;
     }
 

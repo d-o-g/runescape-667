@@ -592,7 +592,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "m", descriptor = "()Z")
     @Override
-    public boolean supportsBloom() {
+    public boolean hasBloom() {
         return false;
     }
 

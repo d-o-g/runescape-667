@@ -218,7 +218,7 @@ public final class Static256 {
     @OriginalMember(owner = "client!hu", name = "a", descriptor = "(Lclient!da;Ljava/lang/String;Lclient!ve;IIIZLclient!hda;Lclient!aa;III)V")
     public static void method3639(@OriginalArg(0) Font font, @OriginalArg(1) String text, @OriginalArg(2) FontMetrics metrics, @OriginalArg(3) int offsetX, @OriginalArg(4) int colour, @OriginalArg(5) int height, @OriginalArg(7) Component component, @OriginalArg(8) ClippingMask arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int offsetY, @OriginalArg(11) int arg10) {
         @Pc(11) int yaw;
-        if (Camera.mode == CameraMode.MODE_FOUR) {
+        if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
             yaw = (int) Camera.playerCameraYaw & 0x3FFF;
         } else {
             yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
@@ -232,7 +232,7 @@ public final class Static256 {
 
         @Pc(74) int local74 = Trig1.SIN[yaw];
         @Pc(78) int local78 = Trig1.COS[yaw];
-        if (Camera.mode != CameraMode.MODE_FOUR) {
+        if (Camera.mode != CameraMode.MODE_FOLLOWCOORD) {
             local74 = (local74 * 256) / (Camera.scaleOffset + 256);
             local78 = (local78 * 256) / (Camera.scaleOffset + 256);
         }

@@ -320,11 +320,11 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.LOYALTY_UPDATE) {
-            @Pc(277) int autosetupLevel = bitPacket.g4();
-            @Pc(892) boolean autosetupDosetup = bitPacket.g1() == 1;
-            if (Static684.autosetupDosetup != autosetupDosetup || Static134.autosetupLevel != autosetupLevel) {
-                Static134.autosetupLevel = autosetupLevel;
-                Static684.autosetupDosetup = autosetupDosetup;
+            @Pc(277) int balance = bitPacket.g4();
+            @Pc(892) boolean loyalty = bitPacket.g1() == 1;
+            if (Static684.lobbyLoyalty != loyalty || Static134.lobbyLoyaltyBalance != balance) {
+                Static134.lobbyLoyaltyBalance = balance;
+                Static684.lobbyLoyalty = loyalty;
                 ScriptRunner.executeTrigger(ClientTriggerType.LOYALTY_UPDATED, -1, -1);
             }
             context.currentProt = null;
@@ -730,7 +730,7 @@ public final class ServerConnectionReader {
             @Pc(100) int type = bitPacket.g1_alt3();
             Static574.method7573();
             if (type == 2) {
-                MainLogicManager.forceMapRebuild();
+                WorldMap.close();
             }
             InterfaceManager.topLevelInterface = id;
             InterfaceManager.restartInterfaceAnims(id);
@@ -2211,7 +2211,7 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (ServerProt.UPDATE_DOB == context.currentProt) {
-            Static106.lobbyMembersStats = bitPacket.g3s();
+            Static106.dob = bitPacket.g3s();
             Static389.underage = bitPacket.g1() == 1;
             context.currentProt = null;
             return true;

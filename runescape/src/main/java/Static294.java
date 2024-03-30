@@ -79,7 +79,7 @@ public final class Static294 {
             }
             local204 = Static288.anInt4621 + (int) Camera.playerCameraYaw & 0x3FFF;
             Camera.method4606(local169, (local169 >> 3) * 3 + 600 << 2, local161, Static494.anInt7409, local204, Static38.anInt920, Static102.averageHeight(Camera.renderingLevel, PlayerEntity.self.x, PlayerEntity.self.z) - 200);
-        } else if (Camera.mode == CameraMode.MODE_FOUR) {
+        } else if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
             local169 = (int) Camera.playerCameraPitch;
             if (Static188.anInt3103 >> 8 > local169) {
                 local169 = Static188.anInt3103 >> 8;

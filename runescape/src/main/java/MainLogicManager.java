@@ -131,28 +131,6 @@ public final class MainLogicManager {
         }
     }
 
-    @OriginalMember(owner = "client!rp", name = "b", descriptor = "(B)V")
-    public static void method7465() {
-        if (Static656.method6691(step)) {
-            if (ServerConnection.LOBBY.connection == null) {
-                setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_LOBBY);
-            } else {
-                setStep(MainLogicStep.STEP_LOBBY_SCREEN);
-            }
-        } else if (step == MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_LOBBY || step == MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_GAME) {
-            setStep(MainLogicStep.STEP_LOGIN_SCREEN);
-        } else if (step == MainLogicStep.STEP_LOGGING_IN_FROM_GAMESCREEN_TO_LOBBY) {
-            setStep(MainLogicStep.STEP_LOGIN_SCREEN);
-        }
-    }
-
-    @OriginalMember(owner = "client!kd", name = "a", descriptor = "(Z)V")
-    public static void forceMapRebuild() {
-        setStep(MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD);
-        Static300.method4393();
-        System.gc();
-    }
-
     @OriginalMember(owner = "client!bda", name = "a", descriptor = "(IB)V")
     public static void method977(@OriginalArg(0) int id) {
         SoundManager.method2000();
@@ -376,7 +354,7 @@ public final class MainLogicManager {
         }
 
         if (Static334.activeTiles != null) {
-            if (Camera.mode == CameraMode.MODE_FIXED) {
+            if (Camera.mode == CameraMode.MODE_FOLLOWPLAYER) {
                 Camera.moveToTick();
             } else if (Camera.mode == CameraMode.MODE_SPLINE) {
                 Camera.splineTick();

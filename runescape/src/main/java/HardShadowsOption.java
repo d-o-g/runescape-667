@@ -16,7 +16,7 @@ public final class HardShadowsOption extends Option {
     }
 
     @OriginalMember(owner = "client!jh", name = "b", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         if (super.options.isLowDetail()) {
             return false;
         } else {
@@ -43,7 +43,7 @@ public final class HardShadowsOption extends Option {
 
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         if (super.options.isLowDetail()) {
             return 3;
         } else if (super.options.textures.getValue() == 0) {

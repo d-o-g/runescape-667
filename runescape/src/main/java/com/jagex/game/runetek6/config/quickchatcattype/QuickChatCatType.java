@@ -50,8 +50,8 @@ public final class QuickChatCatType extends Node2 {
             for (@Pc(32) int i = 0; i < count; i++) {
                 this.subcategories[i] = packet.g2();
 
-                @Pc(44) byte c = packet.g1b();
-                this.subcategoryShortcuts[i] = c == 0 ? 0 : Cp1252.decode(c);
+                @Pc(44) byte shortcut = packet.g1b();
+                this.subcategoryShortcuts[i] = shortcut == 0 ? 0 : Cp1252.decode(shortcut);
             }
         } else if (code == 3) {
             @Pc(22) int count = packet.g1();
@@ -61,19 +61,19 @@ public final class QuickChatCatType extends Node2 {
             for (@Pc(32) int i = 0; i < count; i++) {
                 this.phrases[i] = packet.g2();
 
-                @Pc(44) byte local44 = packet.g1b();
-                this.phraseShortcuts[i] = local44 == 0 ? 0 : Cp1252.decode(local44);
+                @Pc(44) byte shortcut = packet.g1b();
+                this.phraseShortcuts[i] = shortcut == 0 ? 0 : Cp1252.decode(shortcut);
             }
         }
     }
 
     @OriginalMember(owner = "client!bq", name = "a", descriptor = "(CI)I")
-    public int findPhraseByShortcut(@OriginalArg(0) char c) {
+    public int findPhraseByShortcut(@OriginalArg(0) char shortcut) {
         if (this.phrases == null) {
             return -1;
         }
         for (@Pc(11) int i = 0; i < this.phrases.length; i++) {
-            if (this.phraseShortcuts[i] == c) {
+            if (this.phraseShortcuts[i] == shortcut) {
                 return this.phrases[i];
             }
         }
@@ -81,12 +81,12 @@ public final class QuickChatCatType extends Node2 {
     }
 
     @OriginalMember(owner = "client!bq", name = "a", descriptor = "(BC)I")
-    public int findSubcategoryByShortcut(@OriginalArg(1) char c) {
+    public int findSubcategoryByShortcut(@OriginalArg(1) char shortcut) {
         if (this.subcategories == null) {
             return -1;
         }
         for (@Pc(11) int i = 0; i < this.subcategories.length; i++) {
-            if (this.subcategoryShortcuts[i] == c) {
+            if (this.subcategoryShortcuts[i] == shortcut) {
                 return this.subcategories[i];
             }
         }

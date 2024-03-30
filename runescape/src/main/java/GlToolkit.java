@@ -782,7 +782,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "o", descriptor = "()Z")
     @Override
-    public boolean method7936() {
+    public boolean supportsBloom() {
         return this.aClass2_Sub31_Sub1_1 != null && (this.anInt7986 <= 1 || this.aBoolean614);
     }
 
@@ -1449,7 +1449,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "m", descriptor = "()Z")
     @Override
-    public boolean supportsBloom() {
+    public boolean hasBloom() {
         if (this.aClass2_Sub31_Sub1_1 == null) {
             return false;
         }
@@ -3255,7 +3255,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "t", descriptor = "()Z")
     @Override
-    public boolean method8015() {
+    public boolean supportsAntiAliasing() {
         return this.aBoolean615 && (!this.bloom() || this.aBoolean614);
     }
 

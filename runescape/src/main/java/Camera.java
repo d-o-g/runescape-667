@@ -297,7 +297,7 @@ public final class Camera {
             Camera.z = (moveToZ * 512) + 256;
             Camera.y = Static102.averageHeight(renderingLevel, Camera.x, Camera.z) - moveToY;
         }
-        mode = CameraMode.MODE_FIXED;
+        mode = CameraMode.MODE_FOLLOWPLAYER;
         anInt10383 = -1;
         anInt10376 = -1;
     }
@@ -459,7 +459,7 @@ public final class Camera {
         @Pc(11) int shiftedPitch = pitch << 3;
         @Pc(15) int shiftedYaw = yaw << 3;
         int shiftedRoll = roll << 3;
-        if (mode == CameraMode.MODE_FIXED) {
+        if (mode == CameraMode.MODE_FOLLOWPLAYER) {
             Camera.pitch = shiftedPitch;
             Camera.roll = shiftedRoll;
             Camera.yaw = shiftedYaw;
@@ -501,15 +501,42 @@ public final class Camera {
 
         anInt10383 = -1;
         anInt10376 = -1;
-        mode = CameraMode.MODE_FIXED;
+        mode = CameraMode.MODE_FOLLOWPLAYER;
+    }
+
+    @OriginalMember(owner = "client!su", name = "b", descriptor = "(B)V")
+    public static void increaseY() {
+        if (!angleChangingY) {
+            angleAxisY += (12.0F - angleAxisY) / 2.0F;
+            angleChangingY = true;
+            angleUpdated = true;
+        }
     }
 
     @OriginalMember(owner = "client!pja", name = "e", descriptor = "(I)V")
-    public static void method6596() {
+    public static void decreaseY() {
         if (!angleChangingY) {
             angleUpdated = true;
             angleAxisY += (-12.0F - angleAxisY) / 2.0F;
             angleChangingY = true;
+        }
+    }
+
+    @OriginalMember(owner = "client!hr", name = "b", descriptor = "(I)V")
+    public static void increaseX() {
+        if (!angleChangingX) {
+            angleUpdated = true;
+            angleChangingX = true;
+            angleAxisX += (24.0F - angleAxisX) / 2.0F;
+        }
+    }
+
+    @OriginalMember(owner = "client!or", name = "d", descriptor = "(B)V")
+    public static void decreaseX() {
+        if (!angleChangingX) {
+            angleAxisX += (-angleAxisX - 24.0F) / 2.0F;
+            angleChangingX = true;
+            angleUpdated = true;
         }
     }
 }

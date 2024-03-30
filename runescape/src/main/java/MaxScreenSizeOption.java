@@ -51,13 +51,13 @@ public final class MaxScreenSizeOption extends Option {
     }
 
     @OriginalMember(owner = "client!nf", name = "c", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return !super.options.isLowDetail();
     }
 
     @OriginalMember(owner = "client!nf", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return super.options.isLowDetail() ? 3 : 1;
     }
 }

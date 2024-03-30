@@ -17,7 +17,7 @@ public final class GameWorld extends Class297 {
     public int ping = -1;
 
     @OriginalMember(owner = "client!pq", name = "a", descriptor = "(B)Lclient!ci;")
-    public Country method6717() {
+    public Country getCountry() {
         return WorldList.countries[super.country];
     }
 }

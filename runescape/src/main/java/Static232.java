@@ -1,5 +1,4 @@
 import com.jagex.sign.SignedResourceStatus;
-import com.jagex.core.datastruct.key.IterableHashTable;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -13,9 +12,6 @@ public final class Static232 {
 
     @OriginalMember(owner = "client!hda", name = "sd", descriptor = "I")
     public static int cameraNotifyDelay = 0;
-
-    @OriginalMember(owner = "client!hda", name = "ob", descriptor = "Lclient!av;")
-    public static final IterableHashTable A_HASH_TABLE___18 = new IterableHashTable(8);
 
     @OriginalMember(owner = "client!hda", name = "c", descriptor = "(I)V")
     public static void method3392() {

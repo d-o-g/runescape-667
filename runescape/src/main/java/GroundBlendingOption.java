@@ -18,7 +18,7 @@ public final class GroundBlendingOption extends Option {
 
     @OriginalMember(owner = "client!qia", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         if (super.options.isLowDetail()) {
             return 3;
         } else if (super.options.getModeGame() == ModeGame.RUNESCAPE) {
@@ -59,7 +59,7 @@ public final class GroundBlendingOption extends Option {
     }
 
     @OriginalMember(owner = "client!qia", name = "c", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         if (super.options.isLowDetail()) {
             return false;
         } else {

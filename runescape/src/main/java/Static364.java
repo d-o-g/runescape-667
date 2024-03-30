@@ -1,4 +1,3 @@
-import com.jagex.game.runetek6.config.meltype.MapElementType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -10,20 +9,6 @@ public final class Static364 {
 
     @OriginalMember(owner = "client!lia", name = "p", descriptor = "D")
     public static double aDouble17;
-
-    @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Z)Lclient!fu;")
-    public static MapElementListEntry method5248() {
-        if (WorldMap.elements == null || Static444.A_DEQUE_ITERATOR___1 == null) {
-            return null;
-        }
-        for (@Pc(17) MapElementListEntry local17 = (MapElementListEntry) Static444.A_DEQUE_ITERATOR___1.next(); local17 != null; local17 = (MapElementListEntry) Static444.A_DEQUE_ITERATOR___1.next()) {
-            @Pc(30) MapElementType local30 = WorldMap.mapElementTypeList.list(local17.id);
-            if (local30 != null && local30.aBoolean217 && local30.variableTest(WorldMap.varDomain)) {
-                return local17;
-            }
-        }
-        return null;
-    }
 
     @OriginalMember(owner = "client!lia", name = "a", descriptor = "(IFFILclient!tk;[BFIBFIIIF)V")
     public static void method5251(@OriginalArg(1) float arg0, @OriginalArg(2) float arg1, @OriginalArg(3) int arg2, @OriginalArg(4) Class59 arg3, @OriginalArg(5) byte[] arg4, @OriginalArg(6) float arg5, @OriginalArg(9) float arg6, @OriginalArg(12) int arg7, @OriginalArg(13) float arg8) {

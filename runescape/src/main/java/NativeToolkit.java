@@ -1889,7 +1889,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "o", descriptor = "()Z")
     @Override
-    public final boolean method7936() {
+    public final boolean supportsBloom() {
         return false;
     }
 
@@ -2069,7 +2069,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "t", descriptor = "()Z")
     @Override
-    public final boolean method8015() {
+    public final boolean supportsAntiAliasing() {
         return this.aBoolean692;
     }
 

@@ -22,7 +22,7 @@ public final class OrthographicOption extends Option {
     }
 
     @OriginalMember(owner = "client!dja", name = "c", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return true;
     }
 
@@ -52,7 +52,7 @@ public final class OrthographicOption extends Option {
 
     @OriginalMember(owner = "client!dja", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         if (ToolkitType.is3d(value)) {
             if (super.options.toolkit.isActive() && !isSoftware(super.options.toolkit.getValue())) {
                 return 3;

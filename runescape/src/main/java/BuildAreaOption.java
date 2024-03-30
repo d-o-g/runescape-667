@@ -28,7 +28,7 @@ public final class BuildAreaOption extends Option {
     }
 
     @OriginalMember(owner = "client!dma", name = "b", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         @Pc(10) int heapSize = super.options.getEnvironment().getHeapSize();
         return heapSize >= 96;
     }
@@ -60,7 +60,7 @@ public final class BuildAreaOption extends Option {
 
     @OriginalMember(owner = "client!dma", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         @Pc(10) int heapSize = super.options.getEnvironment().getHeapSize();
 
         if (heapSize < 96) {

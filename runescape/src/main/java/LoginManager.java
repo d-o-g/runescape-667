@@ -127,6 +127,9 @@ public final class LoginManager {
     @OriginalMember(owner = "client!wo", name = "x", descriptor = "Z")
     public static boolean reconnectToPrevious;
 
+    @OriginalMember(owner = "client!uu", name = "q", descriptor = "I")
+    public static int positionInQueue = 0;
+
     @OriginalMember(owner = "client!he", name = "a", descriptor = "(IZ)V")
     public static void logout(@OriginalArg(1) boolean toLobby) {
         @Pc(12) ServerConnection[] connections = ServerConnection.VALUES;
@@ -151,8 +154,8 @@ public final class LoginManager {
         Static501.aBoolean575 = false;
         AudioRenderer.mixBussReset();
         SoundManager.removeActiveStreams(true);
-        Static300.method4393();
-        Static723.method9450();
+        WorldMap.method4393();
+        WorldMap.resetDisabledElements();
         Static187.method2842();
 
         if (toLobby) {
@@ -332,7 +335,7 @@ public final class LoginManager {
                     step = LoginStep.DELAY;
                     setLoginResponse(responseCode);
                     ServerConnection.active.close();
-                    MainLogicManager.method7465();
+                    updateMainState();
                     return;
                 }
 
@@ -538,7 +541,7 @@ public final class LoginManager {
                     setLoginResponse(responseCode);
                     ServerConnection.active.connection.close();
                     ServerConnection.active.connection = null;
-                    MainLogicManager.method7465();
+                    updateMainState();
                     return;
                 } else {
                     socialNetworkLogin = true;
@@ -571,14 +574,14 @@ public final class LoginManager {
                 setLoginResponse(LoginResponseCode.HOP_BLOCKED);
                 ServerConnection.active.connection.close();
                 ServerConnection.active.connection = null;
-                MainLogicManager.method7465();
+                updateMainState();
             } else if (step == LoginStep.WAIT_FOR_QUEUE_POSITION) {
                 if (!ServerConnection.active.connection.hasAvailable(2)) {
                     return;
                 }
 
                 ServerConnection.active.connection.read(ServerConnection.active.bitPacket.data, 2, 0);
-                Static660.anInt9837 = (ServerConnection.active.bitPacket.data[1] & 0xFF) + ((ServerConnection.active.bitPacket.data[0] & 0xFF) << 8);
+                positionInQueue = (ServerConnection.active.bitPacket.data[1] & 0xFF) + ((ServerConnection.active.bitPacket.data[0] & 0xFF) << 8);
                 step = LoginStep.WAIT_FOR_LOGIN_RESPONSE;
             } else if (step == LoginStep.WAIT_FOR_SCRIPT_DISALLOW_REASON) {
                 if (pendingResponse == LoginResponseCode.DISALLOWED_BY_SCRIPT) {
@@ -604,7 +607,7 @@ public final class LoginManager {
                 setLoginResponse(pendingResponse);
                 ServerConnection.active.connection.close();
                 ServerConnection.active.connection = null;
-                MainLogicManager.method7465();
+                updateMainState();
             } else if (step == LoginStep.WAIT_FOR_LOGIN_OK_LENGTH) {
                 if (!ServerConnection.active.connection.hasAvailable(1)) {
                     return;
@@ -632,7 +635,7 @@ public final class LoginManager {
                         Static617.quickChatWorld = bitPacket.g1() == 1;
                         PlayerList.activePlayerSlot = bitPacket.g2();
                         Client.isMember = bitPacket.g1() == 1;
-                        Static106.lobbyMembersStats = bitPacket.g3s();
+                        Static106.dob = bitPacket.g3s();
                         Static174.mapMembers = bitPacket.g1() == 1;
                         Static416.mapOwner = bitPacket.gjstr();
                         LocTypeList.instance.setAllowMembers(Static174.mapMembers);
@@ -656,20 +659,20 @@ public final class LoginManager {
                         Client.isMember = (membershipInfo & 0x1) != 0;
                         Static425.activeSubscription = (membershipInfo & 0x2) != 0;
                         Static435.lobbyJcoinsBalance = bitPacket.g4();
-                        Static684.autosetupDosetup = bitPacket.g1() == 1;
-                        Static134.autosetupLevel = bitPacket.g4();
-                        Static677.recoverySetDate = bitPacket.g2();
-                        Static476.unreadMessages = bitPacket.g2();
-                        Static323.lastLoginDate = bitPacket.g2();
+                        Static684.lobbyLoyalty = bitPacket.g1() == 1;
+                        Static134.lobbyLoyaltyBalance = bitPacket.g4();
+                        Static677.lobbyRecoveryDay = bitPacket.g2();
+                        Static476.lobbyUnreadMessages = bitPacket.g2();
+                        Static323.lobbyLastLoginDay = bitPacket.g2();
                         Static392.lastLoginAddress = bitPacket.g4();
                         Static439.hostnameResource = GameShell.signLink.lookupHostname(Static392.lastLoginAddress);
-                        Static335.emailStatus = bitPacket.g1();
-                        Static626.creditCardExpiry = bitPacket.g2();
-                        Static636.loyaltyRateExpiry = bitPacket.g2();
-                        Static420.lobbyDobRequested = bitPacket.g1() == 1;
+                        Static335.lobbyEmailStatus = bitPacket.g1();
+                        Static626.lobbyCCExpiry = bitPacket.g2();
+                        Static636.lobbyGraceExpiry = bitPacket.g2();
+                        Static420.lobbyDOBRequested = bitPacket.g1() == 1;
                         PlayerEntity.self.accountName = PlayerEntity.self.displayName = Client.playerDisplayName = bitPacket.gjstr2();
-                        Static639.lobbyPlayAge = bitPacket.g1();
-                        Static438.lobbyLoyaltyBalance = bitPacket.g4();
+                        Static639.lobbyMembersStats = bitPacket.g1();
+                        Static438.lobbyPlayAge = bitPacket.g4();
                         Static587.aBoolean663 = bitPacket.g1() == 1;
 
                         ConnectionInfo.auto = new ConnectionInfo();
@@ -685,7 +688,7 @@ public final class LoginManager {
                         }
 
                         if (ModeWhere.LOCAL != Client.modeWhere && (Client.modeWhere != ModeWhere.WTQA || Client.staffModLevel < 2) && ConnectionInfo.login.equalTo(ConnectionInfo.game)) {
-                            Static152.selectAutoWorld();
+                            WorldList.selectAutoWorld();
                         }
                     }
 
@@ -824,17 +827,17 @@ public final class LoginManager {
             } else {
                 step = LoginStep.DELAY;
                 setLoginResponse(LoginResponseCode.ERROR_CONNECTING_TO_SERVER);
-                MainLogicManager.method7465();
+                updateMainState();
             }
         }
     }
 
     @OriginalMember(owner = "client!bs", name = "b", descriptor = "(I)V")
-    public static void method1220() {
+    public static void cancel() {
         if (step != LoginStep.DELAY) {
             ServerConnection.active.close();
             reset();
-            MainLogicManager.method7465();
+            updateMainState();
         }
     }
 
@@ -1207,5 +1210,33 @@ public final class LoginManager {
 
     private LoginManager() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!rp", name = "b", descriptor = "(B)V")
+    public static void updateMainState() {
+        if (Static656.method6691(MainLogicManager.step)) {
+            if (ServerConnection.LOBBY.connection == null) {
+                MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_LOBBY);
+            } else {
+                MainLogicManager.setStep(MainLogicStep.STEP_LOBBY_SCREEN);
+            }
+        } else if (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_LOBBY || MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_GAME) {
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGIN_SCREEN);
+        } else if (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_GAMESCREEN_TO_LOBBY) {
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGIN_SCREEN);
+        }
+    }
+
+    @OriginalMember(owner = "client!jka", name = "a", descriptor = "(IB)V")
+    public static void loginToLobby(@OriginalArg(0) int arg0) {
+        if (!isAtLoginScreen()) {
+            return;
+        }
+        if (socialNetworkId != arg0) {
+            previousUsername = "";
+        }
+        socialNetworkId = arg0;
+        ServerConnection.LOBBY.close();
+        MainLogicManager.setStep(5);
     }
 }

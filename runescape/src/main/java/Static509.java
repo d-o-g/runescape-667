@@ -27,19 +27,19 @@ public final class Static509 {
             WorldMap.tileSize = (int) WorldMap.currentZoom >> 1;
             WorldMap.tileShapes = Static640.method8437(WorldMap.tileSize);
         }
-        if (Static180.anInt3001 != -1 && WorldMap.anInt3181 != -1) {
-            @Pc(101) int local101 = Static180.anInt3001 - WorldMap.anInt2809;
+        if (WorldMap.jumpX != -1 && WorldMap.jumpZ != -1) {
+            @Pc(101) int local101 = WorldMap.jumpX - WorldMap.anInt2809;
             if (local101 < 2 || local101 > 2) {
                 local101 /= 8;
             }
-            @Pc(120) int local120 = WorldMap.anInt3181 - WorldMap.anInt9389;
+            @Pc(120) int local120 = WorldMap.jumpZ - WorldMap.anInt9389;
             WorldMap.anInt2809 += local101;
             if (local120 < 2 || local120 > 2) {
                 local120 /= 8;
             }
             if (local101 == 0 && local120 == 0) {
-                WorldMap.anInt3181 = -1;
-                Static180.anInt3001 = -1;
+                WorldMap.jumpZ = -1;
+                WorldMap.jumpX = -1;
             }
             WorldMap.anInt9389 -= -local120;
             WorldMap.method5440();

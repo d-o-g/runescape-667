@@ -1049,7 +1049,7 @@ public final class InterfaceManager {
         if (Static334.activeTiles != null) {
             if (Camera.mode == CameraMode.MODE_DEFAULT || Camera.mode == CameraMode.MODE_SMOOTH_RESET) {
                 Static604.method7903(arg0);
-            } else if (Camera.mode == CameraMode.MODE_FOUR) {
+            } else if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
                 Static349.method5121(arg0);
             }
         }
@@ -1457,7 +1457,7 @@ public final class InterfaceManager {
                                 y -= component.height / 2;
 
                                 @Pc(1125) int yaw;
-                                if (Camera.mode == CameraMode.MODE_FOUR) {
+                                if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
                                     yaw = (int) Camera.playerCameraYaw & 0x3FFF;
                                 } else {
                                     yaw = (int) Camera.playerCameraYaw + Camera.yawOffset & 0x3FFF;
@@ -1465,7 +1465,7 @@ public final class InterfaceManager {
 
                                 @Pc(1137) int sinYaw = Trig1.SIN[yaw];
                                 @Pc(1141) int cosYaw = Trig1.COS[yaw];
-                                if (Camera.mode != CameraMode.MODE_FOUR) {
+                                if (Camera.mode != CameraMode.MODE_FOLLOWCOORD) {
                                     sinYaw = sinYaw * (Camera.scaleOffset + 256) >> 8;
                                     cosYaw = cosYaw * (Camera.scaleOffset + 256) >> 8;
                                 }
@@ -1475,7 +1475,7 @@ public final class InterfaceManager {
 
                                 @Pc(1191) int local1191;
                                 @Pc(1199) int local1199;
-                                if (Camera.mode == CameraMode.MODE_FOUR) {
+                                if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
                                     local1191 = (Camera.anInt6262 >> 9) + (local1170 >> 2);
                                     local1199 = (Camera.anInt4018 >> 9) - (local1180 >> 2);
                                 } else {
@@ -1514,7 +1514,7 @@ public final class InterfaceManager {
                                     @Pc(402) int local402 = (int) ((double) (orthoDeltaX + log.getX() - startX - component.width / 2) * 2.0D / (double) WorldMap.currentZoom);
                                     @Pc(549) int local549 = (int) -((double) (orthoDeltaY + log.getY() - startY - component.height / 2) * 2.0D / (double) WorldMap.currentZoom);
                                     @Pc(555) int local555 = WorldMap.anInt2809 + local402 + WorldMap.areaX;
-                                    @Pc(569) int local569 = WorldMap.anInt9389 + local549 + WorldMap.areaY;
+                                    @Pc(569) int local569 = WorldMap.anInt9389 + local549 + WorldMap.areaZ;
 
                                     @Pc(1383) WorldMapArea area = WorldMap.getArea();
                                     if (area == null) {
@@ -1944,8 +1944,8 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!dn", name = "a", descriptor = "(IIILjava/lang/String;I)V")
-    public static void ifButtonXSend(@OriginalArg(1) int component, @OriginalArg(2) int idAndSlot, @OriginalArg(3) String arg2, @OriginalArg(4) int op) {
-        @Pc(8) Component button = InterfaceList.getComponent(component, idAndSlot);
+    public static void ifButtonXSend(@OriginalArg(1) int idAndSlot, @OriginalArg(2) int component, @OriginalArg(3) String arg2, @OriginalArg(4) int op) {
+        @Pc(8) Component button = InterfaceList.getComponent(idAndSlot, component);
         if (button == null) {
             return;
         }
@@ -1965,43 +1965,43 @@ public final class InterfaceManager {
 
         if (op == 1) {
             @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON1, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 2) {
             @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON2, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 3) {
             @Pc(64) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON3, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 4) {
             @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON4, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 5) {
             @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON5, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 6) {
             @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON6, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 7) {
             @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON7, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 8) {
             @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON8, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 9) {
             @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON9, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         } else if (op == 10) {
             @Pc(148) ClientMessage message = ClientMessage.create(ClientProt.IF_BUTTON10, ServerConnection.GAME.cipher);
-            ClientMessage.addComponentData(component, button.invObject, message, idAndSlot);
+            ClientMessage.addComponentData(idAndSlot, button.invObject, message, component);
             ServerConnection.GAME.send(message);
         }
     }
@@ -2579,7 +2579,7 @@ public final class InterfaceManager {
         Camera.x = 0;
         PlayerEntity.self.pathZ[0] = Static501.mapLength / 2;
 
-        if (Camera.mode == CameraMode.MODE_FIXED) {
+        if (Camera.mode == CameraMode.MODE_FOLLOWPLAYER) {
             Camera.z = Camera.moveToZ << 9;
             Camera.x = Camera.moveToX << 9;
         } else {

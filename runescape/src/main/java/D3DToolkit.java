@@ -734,7 +734,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "m", descriptor = "()Z")
     @Override
-    public boolean supportsBloom() {
+    public boolean hasBloom() {
         return false;
     }
 

@@ -17,7 +17,7 @@ public final class TextureQuality extends Option {
     }
 
     @OriginalMember(owner = "client!tv", name = "b", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         if (super.options.getModeGame() == ModeGame.RUNESCAPE) {
             return !super.options.isLowDetail();
         } else {
@@ -51,7 +51,7 @@ public final class TextureQuality extends Option {
 
     @OriginalMember(owner = "client!tv", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         if (super.options.getModeGame() != ModeGame.RUNESCAPE) {
             return 3;
         } else if (super.options.isLowDetail()) {

@@ -1,5 +1,3 @@
-import com.jagex.game.runetek6.config.meltype.MapElementType;
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import rs2.client.clan.settings.ClanSettings;
 
@@ -25,18 +23,4 @@ public final class Static408 {
         FriendChat.users = null;
     }
 
-    @OriginalMember(owner = "client!ms", name = "a", descriptor = "(ZLclient!el;)Z")
-    public static boolean method5634(@OriginalArg(1) MapElementType arg0) {
-        if (arg0 == null) {
-            return false;
-        } else if (!arg0.aBoolean214) {
-            return false;
-        } else if (!arg0.variableTest(WorldMap.varDomain)) {
-            return false;
-        } else if (Static268.A_HASH_TABLE___22.get(arg0.id) == null) {
-            return Static232.A_HASH_TABLE___18.get(arg0.category) == null;
-        } else {
-            return false;
-        }
-    }
 }

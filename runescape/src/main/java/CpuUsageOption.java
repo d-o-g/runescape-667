@@ -36,7 +36,7 @@ public final class CpuUsageOption extends Option {
 
     @OriginalMember(owner = "client!oq", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return 1;
     }
 

@@ -24,7 +24,7 @@ public final class AntialiasingMode extends Option {
 
     @OriginalMember(owner = "client!jha", name = "a", descriptor = "(IB)I")
     @Override
-    public int getCompatibility(@OriginalArg(0) int value) {
+    public int canSet(@OriginalArg(0) int value) {
         return ToolkitType.isHardware(super.options.toolkit.getValue()) ? 1 : 3;
     }
 
@@ -40,7 +40,7 @@ public final class AntialiasingMode extends Option {
     }
 
     @OriginalMember(owner = "client!jha", name = "c", descriptor = "(B)Z")
-    public boolean isCompatible() {
+    public boolean canMod() {
         return ToolkitType.isHardware(super.options.toolkit.getValue());
     }
 

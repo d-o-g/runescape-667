@@ -308,7 +308,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "m", descriptor = "()Z")
     @Override
-    public boolean supportsBloom() {
+    public boolean hasBloom() {
         return false;
     }
 
@@ -482,7 +482,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "o", descriptor = "()Z")
     @Override
-    public boolean method7936() {
+    public boolean supportsBloom() {
         return false;
     }
 
@@ -542,7 +542,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "t", descriptor = "()Z")
     @Override
-    public boolean method8015() {
+    public boolean supportsAntiAliasing() {
         return false;
     }
 

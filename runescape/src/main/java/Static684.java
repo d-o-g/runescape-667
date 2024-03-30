@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static684 {
 
     @OriginalMember(owner = "client!vla", name = "k", descriptor = "Z")
-    public static boolean autosetupDosetup;
+    public static boolean lobbyLoyalty;
 
     @OriginalMember(owner = "client!vla", name = "a", descriptor = "[Lclient!qe;")
     public static Class302[] aClass302Array1;
@@ -47,7 +47,7 @@ public final class Static684 {
         @Pc(85) int baseZ = WorldMap.areaBaseZ;
         WorldMap.areaBaseZ = (Static525.areaCenterZ - (Static501.mapLength >> 4)) * 8;
 
-        Static162.aClass2_Sub2_Sub13_2 = WorldMap.method5078(Static62.areaCenterX * 8, Static525.areaCenterZ * 8);
+        Static162.aClass2_Sub2_Sub13_2 = WorldMap.getMap(Static62.areaCenterX * 8, Static525.areaCenterZ * 8);
         Minimap.elements = null;
 
         @Pc(109) int deltaX = WorldMap.areaBaseX - baseX;
@@ -190,7 +190,7 @@ public final class Static684 {
             if (Math.abs(deltaX) > Static720.mapWidth || Math.abs(deltaZ) > Static501.mapLength) {
                 InterfaceManager.loginOpened();
             }
-        } else if (Camera.mode == CameraMode.MODE_FOUR) {
+        } else if (Camera.mode == CameraMode.MODE_FOLLOWCOORD) {
             Camera.anInt6262 -= deltaX * 512;
             Static38.anInt920 -= deltaZ * 512;
             Camera.anInt4018 -= deltaZ * 512;

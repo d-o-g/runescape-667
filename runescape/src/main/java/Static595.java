@@ -115,7 +115,7 @@ public final class Static595 {
         Static59.aMatrix_5 = Toolkit.active.createMatrix();
         Static209.method3110();
         Toolkit.active.setShrinkTextures(ClientOptions.instance.smallTextures.getValue() == 1);
-        if (Toolkit.active.method7936()) {
+        if (Toolkit.active.supportsBloom()) {
             Static249.setBloom(ClientOptions.instance.bloom.getValue() == 1);
         }
         Static613.method8239(Toolkit.active, Static501.mapLength >> 3, Static720.mapWidth >> 3);

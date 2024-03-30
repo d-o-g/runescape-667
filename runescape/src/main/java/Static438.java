@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class Static438 {
 
     @OriginalMember(owner = "client!nq", name = "f", descriptor = "I")
-    public static int lobbyLoyaltyBalance;
+    public static int lobbyPlayAge;
 
     @OriginalMember(owner = "client!nq", name = "k", descriptor = "Lclient!fba;")
     public static final Class121 aClass121_5 = new Class121();

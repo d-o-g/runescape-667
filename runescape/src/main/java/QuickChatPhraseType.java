@@ -29,8 +29,12 @@ public final class QuickChatPhraseType extends Node2 {
     public boolean searchable = true;
 
     @OriginalMember(owner = "client!ih", name = "b", descriptor = "(II)Lclient!it;")
-    public QuickChatDynamicCommand getDynamicCommand(@OriginalArg(1) int arg0) {
-        return this.dynamicCommands == null || arg0 < 0 || arg0 > this.dynamicCommands.length ? null : QuickChatDynamicCommand.fromId(this.dynamicCommands[arg0]);
+    public QuickChatDynamicCommand getDynamicCommand(@OriginalArg(1) int index) {
+        if (this.dynamicCommands != null && index >= 0 && index <= this.dynamicCommands.length) {
+            return QuickChatDynamicCommand.fromId(this.dynamicCommands[index]);
+        } else {
+            return null;
+        }
     }
 
     @OriginalMember(owner = "client!ih", name = "a", descriptor = "(Lclient!ge;I)V")
@@ -46,13 +50,13 @@ public final class QuickChatPhraseType extends Node2 {
     }
 
     @OriginalMember(owner = "client!ih", name = "a", descriptor = "(IZI)I")
-    public int getDynamicCommandParam(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (this.dynamicCommands == null || arg0 < 0 || arg0 > this.dynamicCommands.length) {
+    public int getDynamicCommandParam(@OriginalArg(0) int type, @OriginalArg(2) int index) {
+        if (this.dynamicCommands == null || type < 0 || type > this.dynamicCommands.length) {
             return -1;
-        } else if (this.dynamicCommandParams[arg0] == null || arg1 < 0 || arg1 > this.dynamicCommandParams[arg0].length) {
+        } else if (this.dynamicCommandParams[type] == null || index < 0 || index > this.dynamicCommandParams[type].length) {
             return -1;
         } else {
-            return this.dynamicCommandParams[arg0][arg1];
+            return this.dynamicCommandParams[type][index];
         }
     }
 

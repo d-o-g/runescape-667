@@ -68,7 +68,7 @@ public abstract class Toolkit {
     public abstract void resizeCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!ha", name = "o", descriptor = "()Z")
-    public abstract boolean method7936();
+    public abstract boolean supportsBloom();
 
     @OriginalMember(owner = "client!ha", name = "x", descriptor = "()Z")
     public abstract boolean method7937();
@@ -247,7 +247,7 @@ public abstract class Toolkit {
     public abstract void method7969();
 
     @OriginalMember(owner = "client!ha", name = "m", descriptor = "()Z")
-    public abstract boolean supportsBloom();
+    public abstract boolean hasBloom();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIBII)V")
     public final void fillRect(@OriginalArg(4) int x, @OriginalArg(2) int y, @OriginalArg(0) int width, @OriginalArg(1) int height, @OriginalArg(5) int colour) {
@@ -487,7 +487,7 @@ public abstract class Toolkit {
     public abstract boolean bloom();
 
     @OriginalMember(owner = "client!ha", name = "t", descriptor = "()Z")
-    public abstract boolean method8015();
+    public abstract boolean supportsAntiAliasing();
 
     @OriginalMember(owner = "client!ha", name = "c", descriptor = "(I)V")
     public abstract void method8016(@OriginalArg(0) int arg0);

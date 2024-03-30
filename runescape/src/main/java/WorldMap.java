@@ -1,4 +1,6 @@
 import com.jagex.Client;
+import com.jagex.core.constants.MainLogicStep;
+import com.jagex.core.datastruct.key.DequeIterator;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.LinkedList;
@@ -44,6 +46,15 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "B", descriptor = "[S")
     public static final short[] aShortArray77 = new short[1];
+
+    @OriginalMember(owner = "client!o", name = "jb", descriptor = "Lclient!jg;")
+    public static final DequeIterator elementIterator = new DequeIterator();
+
+    @OriginalMember(owner = "client!hda", name = "ob", descriptor = "Lclient!av;")
+    public static final IterableHashTable disabledElementCategories = new IterableHashTable(8);
+
+    @OriginalMember(owner = "client!ih", name = "D", descriptor = "Lclient!av;")
+    public static final IterableHashTable disabledElements = new IterableHashTable(8);
 
     @OriginalMember(owner = "client!gia", name = "s", descriptor = "Lclient!hda;")
     public static Component component;
@@ -103,7 +114,7 @@ public final class WorldMap {
     public static int areaX;
 
     @OriginalMember(owner = "client!baa", name = "F", descriptor = "I")
-    public static int areaY;
+    public static int areaZ;
 
     @OriginalMember(owner = "client!dl", name = "k", descriptor = "I")
     public static int areaBaseZ;
@@ -202,7 +213,7 @@ public final class WorldMap {
     public static LinkedList[][][] tiles;
 
     @OriginalMember(owner = "client!rk", name = "w", descriptor = "I")
-    public static int anInt3181 = -1;
+    public static int jumpZ = -1;
 
     @OriginalMember(owner = "client!fba", name = "c", descriptor = "I")
     public static int anInt2809;
@@ -212,6 +223,12 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!lea", name = "c", descriptor = "I")
     public static int lastAreaId;
+
+    @OriginalMember(owner = "client!fka", name = "g", descriptor = "I")
+    public static int jumpX = -1;
+
+    @OriginalMember(owner = "client!fj", name = "C", descriptor = "Z")
+    public static boolean disableElements = false;
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
     public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) MapElementTypeList mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
@@ -263,7 +280,7 @@ public final class WorldMap {
             @Pc(155) int local155 = anInt9389 - (int) ((float) childHeight / currentZoom);
             Static510.anInt7639 = anInt9389 - (int) ((float) childHeight / currentZoom);
             Static534.anInt8111 = anInt2809 - (int) ((float) childWidth / currentZoom);
-            method5062(areaX + local114, z - -areaY, x + areaX, local155 + areaY, childX, childY, childWidth + childX, childHeight + childY + 1);
+            method5062(areaX + local114, z - -areaZ, x + areaX, local155 + areaZ, childX, childY, childWidth + childX, childHeight + childY + 1);
             method5060(toolkit);
 
             @Pc(203) Deque local203 = method5081(toolkit);
@@ -318,7 +335,7 @@ public final class WorldMap {
         @Pc(84) int newY = z + ((height - newHeight) / 2);
 
         if (Static13.aSprite_4 == null || Static13.aSprite_4.getWidth() != width || Static13.aSprite_4.getHeight() != height) {
-            method5062(areaX, areaY + areaHeight, areaWidth + areaX, areaY, newX, newY, newX + newWidth, newY - -newHeight);
+            method5062(areaX, areaZ + areaHeight, areaWidth + areaX, areaZ, newX, newY, newX + newWidth, newY - -newHeight);
             method5060(arg1);
             Static13.aSprite_4 = arg1.createSprite(newX, newY, newWidth, newHeight, false);
         }
@@ -352,14 +369,14 @@ public final class WorldMap {
         for (@Pc(213) MapElementListEntry entry = (MapElementListEntry) elements.first(); entry != null; entry = (MapElementListEntry) elements.next()) {
             @Pc(221) MapElementType elementType = mapElementTypeList.list(entry.id);
 
-            if (Static408.method5634(elementType)) {
+            if (isEnabled(elementType)) {
                 if (Static475.anInt7168 == entry.id) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
-                    @Pc(269) int drawY = newY + ((newHeight * (areaHeight - entry.y)) / areaHeight);
+                    @Pc(269) int drawY = newY + ((newHeight * (areaHeight - entry.z)) / areaHeight);
                     arg1.fillRect(drawX - 2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
                 } else if (Static409.anInt6318 != -1 && Static409.anInt6318 == elementType.category) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
-                    @Pc(269) int drawY = newY + (((areaHeight - entry.y) * newHeight) / areaHeight);
+                    @Pc(269) int drawY = newY + (((areaHeight - entry.z) * newHeight) / areaHeight);
                     arg1.fillRect(drawX + -2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
                 }
             }
@@ -392,8 +409,8 @@ public final class WorldMap {
         @Pc(56) int newY = x - (width - newWidth) / 2;
         anInt2809 = (newY * areaWidth) / newWidth;
         anInt9389 = areaHeight - ((areaHeight * newX) / newHeight);
-        anInt3181 = -1;
-        Static180.anInt3001 = -1;
+        jumpZ = -1;
+        jumpX = -1;
         method5440();
     }
 
@@ -422,17 +439,17 @@ public final class WorldMap {
 
         if (loadingPercent == 10) {
             areaX = area.minX >> 6 << 6;
-            areaY = area.minY >> 6 << 6;
+            areaZ = area.minY >> 6 << 6;
 
             areaWidth = (area.maxX >> 6 << 6) - (areaX - 64);
-            areaHeight = (area.maxY >> 6 << 6) + 64 - areaY;
+            areaHeight = (area.maxY >> 6 << 6) + 64 - areaZ;
 
             @Pc(77) int[] coord = new int[3];
             @Pc(79) int relativeX = -1;
             @Pc(81) int relativeY = -1;
             if (area.method4088(coord, areaBaseZ + (PlayerEntity.self.z >> 9), PlayerEntity.self.level, (PlayerEntity.self.x >> 9) + areaBaseX)) {
                 relativeX = coord[1] - areaX;
-                relativeY = coord[2] - areaY;
+                relativeY = coord[2] - areaZ;
             }
 
             if (!Static696.aBoolean784 && relativeX >= 0 && areaWidth > relativeX && relativeY >= 0 && relativeY < areaHeight) {
@@ -442,14 +459,14 @@ public final class WorldMap {
                 anInt9389 = relativeY;
             } else if (Static227.anInt3694 == -1 || Static529.anInt8089 == -1) {
                 area.method4085((area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF, coord);
-                anInt9389 = coord[2] - areaY;
+                anInt9389 = coord[2] - areaZ;
                 anInt2809 = coord[1] - areaX;
             } else {
                 area.method4085(Static227.anInt3694, Static529.anInt8089, coord);
 
                 if (coord != null) {
                     anInt2809 = coord[1] - areaX;
-                    anInt9389 = coord[2] - areaY;
+                    anInt9389 = coord[2] - areaZ;
                 }
 
                 Static696.aBoolean784 = false;
@@ -574,26 +591,26 @@ public final class WorldMap {
     @OriginalMember(owner = "client!mc", name = "b", descriptor = "(I)V")
     public static void method5440() {
         if (anInt2809 < 0) {
-            Static180.anInt3001 = -1;
-            anInt3181 = -1;
+            jumpX = -1;
+            jumpZ = -1;
             anInt2809 = 0;
         }
 
         if (areaWidth < anInt2809) {
-            Static180.anInt3001 = -1;
+            jumpX = -1;
             anInt2809 = areaWidth;
-            anInt3181 = -1;
+            jumpZ = -1;
         }
 
         if (anInt9389 < 0) {
-            anInt3181 = -1;
-            Static180.anInt3001 = -1;
+            jumpZ = -1;
+            jumpX = -1;
             anInt9389 = 0;
         }
 
         if (areaHeight < anInt9389) {
-            anInt3181 = -1;
-            Static180.anInt3001 = -1;
+            jumpZ = -1;
+            jumpX = -1;
             anInt9389 = areaHeight;
         }
     }
@@ -716,9 +733,9 @@ public final class WorldMap {
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(IIIIIIII)V")
     public static void method5062(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
         anInt5652 = arg0 - areaX;
-        anInt5645 = arg1 - areaY;
+        anInt5645 = arg1 - areaZ;
         anInt5647 = arg2 - areaX;
-        anInt5654 = arg3 - areaY;
+        anInt5654 = arg3 - areaZ;
         anInt5649 = arg4;
         anInt5653 = arg5;
         anInt5651 = arg6;
@@ -967,10 +984,10 @@ public final class WorldMap {
                     @Pc(589) LinkedList local589 = tiles[local70][local80][local84];
                     if (local589 != null) {
                         local173 = (local80 + (areaX >> 6)) * 64;
-                        local175 = (local84 + (areaY >> 6)) * 64;
+                        local175 = (local84 + (areaZ >> 6)) * 64;
                         for (@Pc(612) WorldMapTile local612 = (WorldMapTile) local589.first(); local612 != null; local612 = (WorldMapTile) local589.next()) {
                             local179 = local173 + local612.aByte138 - areaX - anInt5652;
-                            local631 = local175 + local612.aByte139 - areaY - anInt5654;
+                            local631 = local175 + local612.aByte139 - areaZ - anInt5654;
                             local641 = (arg1 * local179 >> 16) + anInt5649;
                             local653 = (arg1 * (local179 + 1) >> 16) + anInt5649;
                             local665 = anInt5646 - (arg2 * (local631 + 1) >> 16);
@@ -985,10 +1002,10 @@ public final class WorldMap {
                     @Pc(727) LinkedList local727 = tiles[local70][local84][local93];
                     if (local727 != null) {
                         local175 = (local84 + (areaX >> 6)) * 64;
-                        local177 = (local93 + (areaY >> 6)) * 64;
+                        local177 = (local93 + (areaZ >> 6)) * 64;
                         for (@Pc(750) WorldMapTile local750 = (WorldMapTile) local727.first(); local750 != null; local750 = (WorldMapTile) local727.next()) {
                             local631 = local175 + local750.aByte138 - areaX - anInt5652;
-                            local641 = local177 + local750.aByte139 - areaY - anInt5654;
+                            local641 = local177 + local750.aByte139 - areaZ - anInt5654;
                             local653 = (arg1 * local631 >> 16) + anInt5649;
                             local665 = (arg1 * (local631 + 1) >> 16) + anInt5649;
                             local675 = anInt5646 - (arg2 * (local641 + 1) >> 16);
@@ -1081,7 +1098,7 @@ public final class WorldMap {
         @Pc(32) int local32;
         for (@Pc(9) int local9 = 0; local9 < local7.length / 2; local9++) {
             local20 = arg2.landmarkPolygons[local9 * 2] + arg1.x;
-            local32 = arg2.landmarkPolygons[local9 * 2 + 1] + arg1.y;
+            local32 = arg2.landmarkPolygons[local9 * 2 + 1] + arg1.z;
             local7[local9 * 2] = anInt5649 + (anInt5651 - anInt5649) * (local20 - anInt5652) / (anInt5647 - anInt5652);
             local7[local9 * 2 + 1] = anInt5646 - (anInt5646 - anInt5653) * (local32 - anInt5654) / (anInt5645 - anInt5654);
         }
@@ -1139,7 +1156,7 @@ public final class WorldMap {
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;IIII)V")
     public static void method5073(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) MapElementListEntry arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         arg1.anInt3130 = anInt5649 + (arg2 * (arg1.x - anInt5652) >> 16);
-        arg1.anInt3122 = anInt5646 - (arg3 * (arg1.y - anInt5654) >> 16);
+        arg1.anInt3122 = anInt5646 - (arg3 * (arg1.z - anInt5654) >> 16);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!ge;IIII[I[I)V")
@@ -1214,11 +1231,11 @@ public final class WorldMap {
                         local218[local220] = packet.g1b();
                     }
                 }
-                if (tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaY >> 6)] == null) {
-                    tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaY >> 6)] = new LinkedList();
+                if (tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaZ >> 6)] == null) {
+                    tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaZ >> 6)] = new LinkedList();
                 }
                 @Pc(338) WorldMapTile tile = new WorldMapTile(arg4 & 0x3F, arg5 & 0x3F, local123, local125, local127, local215, local218);
-                tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaY >> 6)].add(tile);
+                tiles[local118 - 1][arg2 - (areaX >> 6)][arg3 - (areaZ >> 6)].add(tile);
             }
         }
     }
@@ -1248,7 +1265,7 @@ public final class WorldMap {
                                 if (local49 != -1) {
                                     @Pc(70) MapElementListEntry local70 = new MapElementListEntry(local49);
                                     local70.x = local1;
-                                    local70.y = local4;
+                                    local70.z = local4;
                                     elements.addLast(local70);
                                 }
                             }
@@ -1265,7 +1282,7 @@ public final class WorldMap {
                         if (local35 != -1) {
                             @Pc(118) MapElementListEntry local118 = new MapElementListEntry(local35);
                             local118.x = local1;
-                            local118.y = local4;
+                            local118.z = local4;
                             elements.addLast(local118);
                         }
                     }
@@ -1291,7 +1308,7 @@ public final class WorldMap {
                                     if (local180 != -1) {
                                         @Pc(201) MapElementListEntry local201 = new MapElementListEntry(local180);
                                         local201.x = (local15 + (areaX >> 6)) * 64 + local160.aByte138 - areaX;
-                                        local201.y = (local144 + (areaY >> 6)) * 64 + local160.aByte139 - areaY;
+                                        local201.z = (local144 + (areaZ >> 6)) * 64 + local160.aByte139 - areaZ;
                                         elements.addLast(local201);
                                     }
                                 }
@@ -1304,18 +1321,18 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(II)Lclient!jga;")
-    public static Queue method5076(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        @Pc(3) Queue local3 = new Queue();
-        for (@Pc(8) WorldMapArea local8 = (WorldMapArea) areas.first(); local8 != null; local8 = (WorldMapArea) areas.next()) {
-            if (local8.aBoolean354 && local8.contains(arg0, arg1)) {
-                local3.add(local8);
+    public static Queue method5076(@OriginalArg(0) int x, @OriginalArg(1) int z) {
+        @Pc(3) Queue queue = new Queue();
+        for (@Pc(8) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
+            if (area.aBoolean354 && area.contains(x, z)) {
+                queue.add(area);
             }
         }
-        return local3;
+        return queue;
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(II)Lclient!ip;")
-    public static WorldMapArea method5078(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public static WorldMapArea getMap(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         for (@Pc(4) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
             if (area.aBoolean354 && area.contains(arg0, arg1)) {
                 return area;
@@ -1332,7 +1349,7 @@ public final class WorldMap {
             if (local32) {
                 @Pc(42) MapElementListEntry local42 = new MapElementListEntry(staticElements.elements[local4]);
                 local42.x = local2[1] - areaX;
-                local42.y = local2[2] - areaY;
+                local42.z = local2[2] - areaZ;
                 elements.addLast(local42);
             }
         }
@@ -1366,7 +1383,7 @@ public final class WorldMap {
                     for (local66 = 0; local66 < 64; local66++) {
                         for (local69 = 0; local69 < 64; local69++) {
                             local78 = local60 * 64 + local66 - areaX;
-                            local86 = local64 * 64 + local69 - areaY;
+                            local86 = local64 * 64 + local69 - areaZ;
                             decodeTile(arg0, local11, local60, local64, local78, local86, local18, local38);
                         }
                     }
@@ -1378,7 +1395,7 @@ public final class WorldMap {
                     for (local78 = 0; local78 < 8; local78++) {
                         for (local86 = 0; local86 < 8; local86++) {
                             @Pc(138) int local138 = local60 * 64 + local66 * 8 + local78 - areaX;
-                            local150 = local64 * 64 + local69 * 8 + local86 - areaY;
+                            local150 = local64 * 64 + local69 * 8 + local86 - areaZ;
                             decodeTile(arg0, local11, local60, local64, local138, local150, local18, local38);
                         }
                     }
@@ -1452,8 +1469,8 @@ public final class WorldMap {
             targetZoom = 16.0F;
         }
 
-        anInt3181 = -1;
-        anInt3181 = -1;
+        jumpZ = -1;
+        jumpZ = -1;
     }
 
     @OriginalMember(owner = "client!om", name = "a", descriptor = "(Z)I")
@@ -1472,7 +1489,7 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
-    public static void method1293(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public static void setMap(@OriginalArg(0) int id, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
             reset(false);
         } else {
@@ -1482,9 +1499,9 @@ public final class WorldMap {
         Static696.aBoolean784 = arg1;
         Static529.anInt8089 = arg2;
         Static227.anInt3694 = arg3;
-        setArea(arg0);
+        setArea(id);
         if (arg4 != -11493) {
-            Static60.aBoolean86 = false;
+            WorldList.pingWorlds = false;
         }
     }
 
@@ -1510,14 +1527,14 @@ public final class WorldMap {
         Static484.aClass327_6 = null;
         staticElements = null;
         Static651.aClass327_8 = null;
-        Static180.anInt3001 = -1;
+        jumpX = -1;
         Static13.aSprite_4 = null;
         Static142.aClass327_1 = null;
         Static390.aClass327_5 = null;
         Static559.aClass327_7 = null;
         Static364.aClass327_4 = null;
         Static275.aClass327_2 = null;
-        anInt3181 = -1;
+        jumpZ = -1;
         if (mapElementTypeList != null) {
             mapElementTypeList.cacheReset();
             mapElementTypeList.setCaches(128, 64);
@@ -1534,16 +1551,142 @@ public final class WorldMap {
     @OriginalMember(owner = "client!tc", name = "e", descriptor = "(I)V")
     public static void method7934() {
         if (lastAreaId != -1) {
-            method1293(lastAreaId, false, -1, -1, -11493);
+            setMap(lastAreaId, false, -1, -1, -11493);
             lastAreaId = -1;
         }
     }
 
     @OriginalMember(owner = "client!vd", name = "a", descriptor = "(II)V")
     public static void method8711(@OriginalArg(0) int arg0) {
-        Static180.anInt3001 = -1;
-        anInt3181 = -1;
+        jumpX = -1;
+        jumpZ = -1;
         anInt2809 = arg0;
         method5440();
+    }
+
+    @OriginalMember(owner = "client!dq", name = "b", descriptor = "(B)Lclient!fu;")
+    public static MapElementListEntry startElement() {
+        if (elements == null || elementIterator == null) {
+            return null;
+        }
+
+        elementIterator.setDeque(elements);
+
+        @Pc(23) MapElementListEntry entry = (MapElementListEntry) elementIterator.first();
+        if (entry == null) {
+            return null;
+        } else {
+            @Pc(42) MapElementType type = mapElementTypeList.list(entry.id);
+            return type != null && type.aBoolean217 && type.variableTest(varDomain) ? entry : nextElement();
+        }
+    }
+
+    @OriginalMember(owner = "client!lia", name = "a", descriptor = "(Z)Lclient!fu;")
+    public static MapElementListEntry nextElement() {
+        if (elements == null || elementIterator == null) {
+            return null;
+        }
+
+        for (@Pc(17) MapElementListEntry entry = (MapElementListEntry) elementIterator.next(); entry != null; entry = (MapElementListEntry) elementIterator.next()) {
+            @Pc(30) MapElementType type = mapElementTypeList.list(entry.id);
+
+            if (type != null && type.aBoolean217 && type.variableTest(varDomain)) {
+                return entry;
+            }
+        }
+
+        return null;
+    }
+
+    @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ZII)V")
+    public static void jumpToDisplayCoord(@OriginalArg(1) int x, @OriginalArg(2) int z) {
+        jumpX = x - areaX;
+        jumpZ = z - areaZ;
+    }
+
+    @OriginalMember(owner = "client!vp", name = "a", descriptor = "(BI)V")
+    public static void flashElement(@OriginalArg(1) int arg0) {
+        Static475.anInt7168 = arg0;
+        Static320.anInt5084 = 3;
+        Static409.anInt6318 = -1;
+        Static212.anInt3467 = 100;
+    }
+
+    @OriginalMember(owner = "client!fea", name = "a", descriptor = "(II)V")
+    public static void flashElementCategory(@OriginalArg(0) int arg0) {
+        Static212.anInt3467 = 100;
+        Static409.anInt6318 = arg0;
+        Static320.anInt5084 = 3;
+        Static475.anInt7168 = -1;
+    }
+
+    @OriginalMember(owner = "client!ms", name = "a", descriptor = "(ZLclient!el;)Z")
+    public static boolean isEnabled(@OriginalArg(1) MapElementType type) {
+        if (type == null) {
+            return false;
+        } else if (!type.enabled) {
+            return false;
+        } else if (!type.variableTest(varDomain)) {
+            return false;
+        } else if (disabledElements.get(type.id) != null) {
+            return false;
+        } else if (disabledElementCategories.get(type.category) != null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @OriginalMember(owner = "client!wu", name = "e", descriptor = "(I)V")
+    public static void resetDisabledElements() {
+        disabledElements.clear();
+        disabledElementCategories.clear();
+    }
+
+    @OriginalMember(owner = "client!vo", name = "a", descriptor = "(IIII)I")
+    public static int findNearestElement(@OriginalArg(0) int id, @OriginalArg(1) int z, @OriginalArg(3) int x) {
+        if (loadingPercent < 100) {
+            return -2;
+        }
+
+        @Pc(13) int bestCoord = -2;
+        @Pc(15) int bestDistance = Integer.MAX_VALUE;
+
+        @Pc(19) int x1 = x - areaX;
+        @Pc(23) int z1 = z - areaZ;
+
+        for (@Pc(34) MapElementListEntry entry = (MapElementListEntry) elements.first(); entry != null; entry = (MapElementListEntry) elements.next()) {
+            if (entry.id == id) {
+                @Pc(46) int x2 = entry.x;
+                @Pc(49) int z2 = entry.z;
+
+                @Pc(59) int coord = ((areaX + x2) << 14) | (areaZ + z2);
+                @Pc(78) int distance = (z1 - z2) * (z1 - z2) + (x1 - x2) * (x1 - x2);
+
+                if (bestCoord < 0 || distance < bestDistance) {
+                    bestDistance = distance;
+                    bestCoord = coord;
+                }
+            }
+        }
+
+        return bestCoord;
+    }
+
+    @OriginalMember(owner = "client!jj", name = "a", descriptor = "(I)V")
+    public static void method4393() {
+        reset(false);
+
+        if (Static114.toolkitType >= 0 && Static114.toolkitType != 0) {
+            Static32.setToolkit(Static114.toolkitType, false);
+            Static114.toolkitType = -1;
+        }
+    }
+
+    @OriginalMember(owner = "client!kd", name = "a", descriptor = "(Z)V")
+    public static void close() {
+        MainLogicManager.setStep(MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD);
+        method4393();
+        System.gc();
     }
 }

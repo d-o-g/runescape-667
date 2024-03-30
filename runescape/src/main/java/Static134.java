@@ -9,7 +9,7 @@ public final class Static134 {
     public static MapRegion aMapRegion_3;
 
     @OriginalMember(owner = "client!eda", name = "e", descriptor = "I")
-    public static int autosetupLevel;
+    public static int lobbyLoyaltyBalance;
 
     @OriginalMember(owner = "client!eda", name = "h", descriptor = "[J")
     public static final long[] aLongArray20 = new long[10];

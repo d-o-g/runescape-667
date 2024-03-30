@@ -6,12 +6,6 @@ public final class Static723 {
     @OriginalMember(owner = "client!wu", name = "x", descriptor = "[[I")
     public static int[][] anIntArrayArray266;
 
-    @OriginalMember(owner = "client!wu", name = "e", descriptor = "(I)V")
-    public static void method9450() {
-        Static268.A_HASH_TABLE___22.clear();
-        Static232.A_HASH_TABLE___18.clear();
-    }
-
     @OriginalMember(owner = "client!wu", name = "c", descriptor = "(B)V")
     public static void method9451() {
         @Pc(5) short local5 = 1024;

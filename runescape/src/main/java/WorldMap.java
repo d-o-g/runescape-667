@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.core.constants.MainLogicStep;
+import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.datastruct.key.DequeIterator;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ModeGame;
@@ -22,11 +23,13 @@ import com.jagex.game.runetek6.config.loctype.LocType;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.graphics.Fonts;
+import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureSource;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
 import com.jagex.math.ColourUtils;
+import com.jagex.trigger.ClientTriggerType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -230,6 +233,45 @@ public final class WorldMap {
     @OriginalMember(owner = "client!fj", name = "C", descriptor = "Z")
     public static boolean disableElements = false;
 
+    @OriginalMember(owner = "client!mt", name = "G", descriptor = "I")
+    public static int flashingElementCategory = -1;
+
+    @OriginalMember(owner = "client!pa", name = "a", descriptor = "I")
+    public static int flashingElement = -1;
+
+    @OriginalMember(owner = "client!kc", name = "f", descriptor = "I")
+    public static int anInt5084;
+
+    @OriginalMember(owner = "client!gka", name = "m", descriptor = "I")
+    public static int anInt3467;
+
+    @OriginalMember(owner = "client!dk", name = "v", descriptor = "I")
+    public static int toolkitType = -1;
+
+    @OriginalMember(owner = "client!rka", name = "Ub", descriptor = "Lclient!rt;")
+    public static WorldMapFont aWorldMapFont_7;
+
+    @OriginalMember(owner = "client!pea", name = "l", descriptor = "Lclient!rt;")
+    public static WorldMapFont aWorldMapFont_6;
+
+    @OriginalMember(owner = "client!eha", name = "d", descriptor = "Lclient!rt;")
+    public static WorldMapFont aWorldMapFont_1;
+
+    @OriginalMember(owner = "client!uja", name = "j", descriptor = "Lclient!rt;")
+    public static WorldMapFont aWorldMapFont_8;
+
+    @OriginalMember(owner = "client!il", name = "v", descriptor = "Lclient!rt;")
+    public static WorldMapFont aWorldMapFont_2;
+
+    @OriginalMember(owner = "client!mda", name = "P", descriptor = "Lclient!rt;")
+    public static WorldMapFont aWorldMapFont_5;
+
+    @OriginalMember(owner = "client!lia", name = "r", descriptor = "Lclient!rt;")
+    public static WorldMapFont aWorldMapFont_4;
+
+    @OriginalMember(owner = "client!lfa", name = "k", descriptor = "Lclient!rt;")
+    public static WorldMapFont aWorldMapFont_3;
+
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
     public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) MapElementTypeList mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
         WorldMap.data = data;
@@ -286,11 +328,11 @@ public final class WorldMap {
             @Pc(203) Deque local203 = method5081(toolkit);
             Static368.method5272(local203, toolkit);
 
-            if (Static320.anInt5084 > 0) {
-                Static212.anInt3467--;
-                if (Static212.anInt3467 == 0) {
-                    Static320.anInt5084--;
-                    Static212.anInt3467 = 20;
+            if (anInt5084 > 0) {
+                anInt3467--;
+                if (anInt3467 == 0) {
+                    anInt5084--;
+                    anInt3467 = 20;
                 }
             }
 
@@ -355,26 +397,26 @@ public final class WorldMap {
         arg1.aa(local152, local166, local138, local144, colour, 1);
         arg1.outlineRect(local152, local166, local138, local144, colour, 0);
 
-        if (Static320.anInt5084 <= 0) {
+        if (anInt5084 <= 0) {
             return;
         }
 
         @Pc(202) int alpha;
-        if (Static212.anInt3467 > 50) {
-            alpha = (100 - Static212.anInt3467) * 5;
+        if (anInt3467 > 50) {
+            alpha = (100 - anInt3467) * 5;
         } else {
-            alpha = Static212.anInt3467 * 5;
+            alpha = anInt3467 * 5;
         }
 
         for (@Pc(213) MapElementListEntry entry = (MapElementListEntry) elements.first(); entry != null; entry = (MapElementListEntry) elements.next()) {
             @Pc(221) MapElementType elementType = mapElementTypeList.list(entry.id);
 
             if (isEnabled(elementType)) {
-                if (Static475.anInt7168 == entry.id) {
+                if (flashingElement == entry.id) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
                     @Pc(269) int drawY = newY + ((newHeight * (areaHeight - entry.z)) / areaHeight);
                     arg1.fillRect(drawX - 2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
-                } else if (Static409.anInt6318 != -1 && Static409.anInt6318 == elementType.category) {
+                } else if (flashingElementCategory != -1 && flashingElementCategory == elementType.category) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
                     @Pc(269) int drawY = newY + (((areaHeight - entry.z) * newHeight) / areaHeight);
                     arg1.fillRect(drawX + -2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
@@ -545,42 +587,42 @@ public final class WorldMap {
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 70) {
-            Static559.aClass327_7 = new Class327(toolkit, 11, true, GameShell.canvas);
+            aWorldMapFont_7 = new WorldMapFont(toolkit, 11, true, GameShell.canvas);
             loadingPercent = 73;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 73) {
-            Static484.aClass327_6 = new Class327(toolkit, 12, true, GameShell.canvas);
+            aWorldMapFont_6 = new WorldMapFont(toolkit, 12, true, GameShell.canvas);
             loadingPercent = 76;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 76) {
-            Static142.aClass327_1 = new Class327(toolkit, 14, true, GameShell.canvas);
+            aWorldMapFont_1 = new WorldMapFont(toolkit, 14, true, GameShell.canvas);
             loadingPercent = 79;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 79) {
-            Static651.aClass327_8 = new Class327(toolkit, 17, true, GameShell.canvas);
+            aWorldMapFont_8 = new WorldMapFont(toolkit, 17, true, GameShell.canvas);
             loadingPercent = 82;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 82) {
-            Static275.aClass327_2 = new Class327(toolkit, 19, true, GameShell.canvas);
+            aWorldMapFont_2 = new WorldMapFont(toolkit, 19, true, GameShell.canvas);
             loadingPercent = 85;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 85) {
-            Static390.aClass327_5 = new Class327(toolkit, 22, true, GameShell.canvas);
+            aWorldMapFont_5 = new WorldMapFont(toolkit, 22, true, GameShell.canvas);
             loadingPercent = 88;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 88) {
-            Static364.aClass327_4 = new Class327(toolkit, 26, true, GameShell.canvas);
+            aWorldMapFont_4 = new WorldMapFont(toolkit, 26, true, GameShell.canvas);
             loadingPercent = 91;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else {
-            Static359.aClass327_3 = new Class327(toolkit, 30, true, GameShell.canvas);
+            aWorldMapFont_3 = new WorldMapFont(toolkit, 30, true, GameShell.canvas);
             loadingPercent = 100;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
@@ -1493,7 +1535,7 @@ public final class WorldMap {
         if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
             reset(false);
         } else {
-            Static114.toolkitType = ClientOptions.instance.toolkit.getValue();
+            toolkitType = ClientOptions.instance.toolkit.getValue();
             Static32.setToolkit(ToolkitType.JAVA, true);
         }
         Static696.aBoolean784 = arg1;
@@ -1523,17 +1565,17 @@ public final class WorldMap {
         loadingPercent = 0;
         method5070();
         elements.clear();
-        Static359.aClass327_3 = null;
-        Static484.aClass327_6 = null;
+        aWorldMapFont_3 = null;
+        aWorldMapFont_6 = null;
         staticElements = null;
-        Static651.aClass327_8 = null;
+        aWorldMapFont_8 = null;
         jumpX = -1;
         Static13.aSprite_4 = null;
-        Static142.aClass327_1 = null;
-        Static390.aClass327_5 = null;
-        Static559.aClass327_7 = null;
-        Static364.aClass327_4 = null;
-        Static275.aClass327_2 = null;
+        aWorldMapFont_1 = null;
+        aWorldMapFont_5 = null;
+        aWorldMapFont_7 = null;
+        aWorldMapFont_4 = null;
+        aWorldMapFont_2 = null;
         jumpZ = -1;
         if (mapElementTypeList != null) {
             mapElementTypeList.cacheReset();
@@ -1605,19 +1647,19 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!vp", name = "a", descriptor = "(BI)V")
-    public static void flashElement(@OriginalArg(1) int arg0) {
-        Static475.anInt7168 = arg0;
-        Static320.anInt5084 = 3;
-        Static409.anInt6318 = -1;
-        Static212.anInt3467 = 100;
+    public static void flashElement(@OriginalArg(1) int element) {
+        flashingElement = element;
+        anInt5084 = 3;
+        flashingElementCategory = -1;
+        anInt3467 = 100;
     }
 
     @OriginalMember(owner = "client!fea", name = "a", descriptor = "(II)V")
     public static void flashElementCategory(@OriginalArg(0) int arg0) {
-        Static212.anInt3467 = 100;
-        Static409.anInt6318 = arg0;
-        Static320.anInt5084 = 3;
-        Static475.anInt7168 = -1;
+        anInt3467 = 100;
+        flashingElementCategory = arg0;
+        anInt5084 = 3;
+        flashingElement = -1;
     }
 
     @OriginalMember(owner = "client!ms", name = "a", descriptor = "(ZLclient!el;)Z")
@@ -1674,19 +1716,394 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!jj", name = "a", descriptor = "(I)V")
-    public static void method4393() {
+    public static void resetoreToolkit() {
         reset(false);
 
-        if (Static114.toolkitType >= 0 && Static114.toolkitType != 0) {
-            Static32.setToolkit(Static114.toolkitType, false);
-            Static114.toolkitType = -1;
+        if (toolkitType >= 0 && toolkitType != 0) {
+            Static32.setToolkit(toolkitType, false);
+            toolkitType = -1;
         }
     }
 
     @OriginalMember(owner = "client!kd", name = "a", descriptor = "(Z)V")
     public static void close() {
         MainLogicManager.setStep(MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD);
-        method4393();
+        resetoreToolkit();
         System.gc();
+    }
+
+    @OriginalMember(owner = "client!laa", name = "a", descriptor = "(Lclient!ha;ILclient!el;ILclient!fu;I)Z")
+    public static boolean method5138(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) MapElementType mapElementType, @OriginalArg(4) MapElementListEntry arg2) {
+        @Pc(7) int local7 = Integer.MAX_VALUE;
+        @Pc(9) int local9 = Integer.MIN_VALUE;
+        @Pc(11) int local11 = Integer.MAX_VALUE;
+        @Pc(13) int local13 = Integer.MIN_VALUE;
+        if (mapElementType.landmarkPolygons != null) {
+            local13 = anInt5646 - (arg2.z + mapElementType.maxZ - anInt5654) * (anInt5646 - anInt5653) / (anInt5645 - anInt5654);
+            local11 = anInt5646 - (arg2.z + mapElementType.minZ - anInt5654) * (anInt5646 + -anInt5653) / (anInt5645 - anInt5654);
+            local7 = anInt5649 + (anInt5651 - anInt5649) * (-anInt5652 + mapElementType.maxX - -arg2.x) / (anInt5647 - anInt5652);
+            local9 = anInt5649 + (mapElementType.minX + arg2.x - anInt5652) * (anInt5651 - anInt5649) / (anInt5647 - anInt5652);
+        }
+
+        @Pc(102) Sprite local102 = null;
+        @Pc(104) int local104 = 0;
+        @Pc(106) int local106 = 0;
+        @Pc(108) int local108 = 0;
+        @Pc(110) int local110 = 0;
+        if (mapElementType.sprite != -1) {
+            if (arg2.mouseOver && mapElementType.hoverSprite != -1) {
+                local102 = mapElementType.method2431(true, arg0);
+            } else {
+                local102 = mapElementType.method2431(false, arg0);
+            }
+            if (local102 != null) {
+                local104 = arg2.anInt3130 - (local102.scaleWidth() + 1 >> 1);
+                local106 = arg2.anInt3130 + (local102.scaleWidth() + 1 >> 1);
+                if (local7 > local104) {
+                    local7 = local104;
+                }
+                if (local106 > local9) {
+                    local9 = local106;
+                }
+                local108 = arg2.anInt3122 - (local102.scaleHeight() + 1 >> 1);
+                if (local11 > local108) {
+                    local11 = local108;
+                }
+                local110 = arg2.anInt3122 + (local102.scaleHeight() + 1 >> 1);
+                if (local110 > local13) {
+                    local13 = local110;
+                }
+            }
+        }
+
+        @Pc(209) WorldMapFont local209 = null;
+        @Pc(211) int local211 = 0;
+        @Pc(213) int local213 = 0;
+        @Pc(215) int local215 = 0;
+        @Pc(217) int local217 = 0;
+        @Pc(227) int local227 = 0;
+        @Pc(229) int local229 = 0;
+        @Pc(231) int local231 = 0;
+        @Pc(233) int local233 = 0;
+        @Pc(312) int local312;
+        if (mapElementType.text != null) {
+            local209 = method5493(mapElementType.textSize);
+
+            if (local209 != null) {
+                local211 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, mapElementType.text);
+                local215 = arg2.anInt3122 - mapElementType.anInt2617 * (anInt5646 - anInt5653) / (anInt5645 - anInt5654);
+                local213 = mapElementType.anInt2600 * (anInt5651 - anInt5649) / (anInt5647 - anInt5652) + arg2.anInt3130;
+                if (local102 == null) {
+                    local215 -= local211 * local209.getWidth() / 2;
+                } else {
+                    local215 -= (local102.scaleHeight() >> 1) + (local209.getHeight() * local211);
+                }
+                for (local312 = 0; local312 < local211; local312++) {
+                    @Pc(318) String local318 = Static37.aStringArray5[local312];
+                    if (local312 < local211 - 1) {
+                        local318 = local318.substring(0, local318.length() - 4);
+                    }
+                    @Pc(335) int local335 = local209.totalWidth(local318);
+                    if (local335 > local217) {
+                        local217 = local335;
+                    }
+                }
+                local227 = local213 - local217 / 2;
+                local229 = local217 / 2 + local213;
+                if (local7 > local227) {
+                    local7 = local227;
+                }
+                if (local9 < local229) {
+                    local9 = local229;
+                }
+                local231 = local215;
+                local233 = local215 + local211 * local209.getHeight();
+                if (local11 > local231) {
+                    local11 = local231;
+                }
+                if (local233 > local13) {
+                    local13 = local233;
+                }
+            }
+        }
+        if (local9 < anInt5649 || anInt5651 < local7 || anInt5653 > local13 || local11 > anInt5646) {
+            return true;
+        }
+        method5071(arg0, arg2, mapElementType);
+        if (local102 != null) {
+            if (anInt5084 > 0 && (flashingElement != -1 && arg2.id == flashingElement || flashingElementCategory != -1 && mapElementType.category == flashingElementCategory)) {
+                if (anInt3467 > 50) {
+                    local312 = 200 - anInt3467 * 2;
+                } else {
+                    local312 = anInt3467 * 2;
+                }
+                @Pc(495) int colour = (local312 << 24) | 0xFFFF00;
+                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2 + 7, colour);
+                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2 + 5, colour);
+                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2 + 3, colour);
+                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2 + 1, colour);
+                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2, colour);
+            }
+            local102.render(arg2.anInt3130 - (local102.scaleWidth() >> 1), arg2.anInt3122 - (local102.scaleHeight() >> 1));
+        }
+        if (mapElementType.text != null && local209 != null) {
+            method9396(local211, arg2, local213, mapElementType, local209, local217, arg0, local215);
+        }
+        if (mapElementType.sprite != -1 || mapElementType.text != null) {
+            @Pc(612) Node_Sub37 local612 = new Node_Sub37(arg2);
+            local612.anInt6185 = local229;
+            local612.anInt6186 = local108;
+            local612.anInt6192 = local227;
+            local612.anInt6190 = local106;
+            local612.anInt6191 = local110;
+            local612.anInt6184 = local231;
+            local612.anInt6187 = local233;
+            local612.anInt6195 = local104;
+            aDeque_54.addLast(local612);
+        }
+        return false;
+    }
+
+    @OriginalMember(owner = "client!taa", name = "a", descriptor = "(BLclient!fu;Lclient!ha;Lclient!el;)V")
+    public static void method7902(@OriginalArg(1) MapElementListEntry arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) MapElementType arg2) {
+        @Pc(8) Sprite local8 = arg2.method2428(arg1);
+        if (local8 == null) {
+            return;
+        }
+        @Pc(15) int local15 = local8.getWidth();
+        if (local8.getHeight() > local15) {
+            local15 = local8.getHeight();
+        }
+        @Pc(31) int local31 = arg0.anInt3130;
+        @Pc(34) int local34 = arg0.anInt3122;
+        @Pc(36) int local36 = 0;
+        @Pc(38) int local38 = 0;
+        @Pc(40) int local40 = 0;
+        @Pc(56) int local56;
+        @Pc(78) int local78;
+        if (arg2.text != null) {
+            local36 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg2.text);
+            for (local56 = 0; local56 < local36; local56++) {
+                @Pc(61) String local61 = Static37.aStringArray5[local56];
+                if (local56 < local36 - 1) {
+                    local61 = local61.substring(0, local61.length() - 4);
+                }
+                local78 = aWorldMapFont_1.totalWidth(local61);
+                if (local78 > local38) {
+                    local38 = local78;
+                }
+            }
+            local40 = aWorldMapFont_1.getHeight() * local36 + aWorldMapFont_1.getWidth() / 2;
+        }
+        local56 = local15 / 2 + arg0.anInt3130;
+        if (local31 < anInt5649 + local15) {
+            local56 = local15 / 2 + anInt5649 + local38 / 2 + 15;
+            local31 = anInt5649;
+        } else if (anInt5651 - local15 < local31) {
+            local31 = anInt5651 - local15;
+            local56 = anInt5651 - local15 / 2 - local38 / 2 - 10 - 5;
+        }
+        @Pc(163) int local163 = arg0.anInt3122;
+        if (local15 + anInt5653 > local34) {
+            local163 = anInt5653 + local15 / 2 + 10;
+            local34 = anInt5653;
+        } else if (anInt5646 - local15 < local34) {
+            local163 = anInt5646 - local15 / 2 - local40 - 10;
+            local34 = anInt5646 - local15;
+        }
+        local78 = (int) (Math.atan2(local31 - arg0.anInt3130, local34 - arg0.anInt3122) / 3.141592653589793D * 32767.0D) & 0xFFFF;
+        local8.renderRotated((float) local31 + (float) local15 / 2.0F, (float) local34 + (float) local15 / 2.0F, 4096, local78);
+        @Pc(246) int local246 = -2;
+        @Pc(248) int local248 = -2;
+        @Pc(257) int local257 = -2;
+        @Pc(259) int local259 = -2;
+        if (arg2.text != null) {
+            local246 = local56 - local38 / 2 - 5;
+            local248 = local163;
+            local257 = local38 + local246 + 10;
+            local259 = aWorldMapFont_1.getHeight() * local36 + local163 + 3;
+            if (arg2.fillColour != 0) {
+                arg1.fillRect(local246, local163, local257 - local246, local259 - local163, arg2.fillColour);
+            }
+            if (arg2.outlineColour != 0) {
+                arg1.outlineRect(local246, local163, local257 - local246, local259 - local163, arg2.outlineColour);
+            }
+            for (@Pc(333) int local333 = 0; local333 < local36; local333++) {
+                @Pc(338) String local338 = Static37.aStringArray5[local333];
+                if (local36 - 1 > local333) {
+                    local338 = local338.substring(0, local338.length() - 4);
+                }
+                aWorldMapFont_1.renderCenter(arg1, local338, local56, local163, arg2.textColour);
+                local163 += aWorldMapFont_1.getHeight();
+            }
+        }
+        if (arg2.sprite == -1 && arg2.text == null) {
+            return;
+        }
+        local15 >>= 0x1;
+        @Pc(393) Node_Sub37 local393 = new Node_Sub37(arg0);
+        local393.anInt6190 = local15 + local31;
+        local393.anInt6187 = local259;
+        local393.anInt6192 = local246;
+        local393.anInt6195 = local31 - local15;
+        local393.anInt6191 = local34 + local15;
+        local393.anInt6186 = local34 - local15;
+        local393.anInt6184 = local248;
+        local393.anInt6185 = local257;
+        aDeque_54.addLast(local393);
+    }
+
+    @OriginalMember(owner = "client!qa", name = "a", descriptor = "(BII)V")
+    public static void method6759(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
+        if (targetZoom > currentZoom) {
+            currentZoom = (float) ((double) currentZoom + (double) currentZoom / 30.0D);
+            if (targetZoom < currentZoom) {
+                currentZoom = targetZoom;
+            }
+            method5440();
+            tileSize = (int) currentZoom >> 1;
+            tileShapes = Static640.method8437(tileSize);
+        } else if (currentZoom > targetZoom) {
+            currentZoom = (float) ((double) currentZoom - (double) currentZoom / 30.0D);
+            if (targetZoom > currentZoom) {
+                currentZoom = targetZoom;
+            }
+            method5440();
+            tileSize = (int) currentZoom >> 1;
+            tileShapes = Static640.method8437(tileSize);
+        }
+        if (jumpX != -1 && jumpZ != -1) {
+            @Pc(101) int local101 = jumpX - anInt2809;
+            if (local101 < 2 || local101 > 2) {
+                local101 /= 8;
+            }
+            @Pc(120) int local120 = jumpZ - anInt9389;
+            anInt2809 += local101;
+            if (local120 < 2 || local120 > 2) {
+                local120 /= 8;
+            }
+            if (local101 == 0 && local120 == 0) {
+                jumpZ = -1;
+                jumpX = -1;
+            }
+            anInt9389 -= -local120;
+            method5440();
+        }
+        if (anInt5084 > 0) {
+            anInt3467--;
+            if (anInt3467 == 0) {
+                anInt5084--;
+                anInt3467 = 100;
+            }
+        } else {
+            flashingElement = -1;
+            flashingElementCategory = -1;
+        }
+
+        if (hovered && aDeque_54 != null) {
+            for (@Pc(197) Node_Sub37 local197 = (Node_Sub37) aDeque_54.first(); local197 != null; local197 = (Node_Sub37) aDeque_54.next()) {
+                @Pc(206) MapElementType elementType = mapElementTypeList.list(local197.entry.id);
+                if (local197.method5553(arg0, arg1)) {
+                    if (elementType.ops != null) {
+                        if (elementType.ops[4] != null) {
+                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[4], MiniMenuAction.OP_MAPELEMENT5, true, -1, elementType.opBase, local197.entry.id, false);
+                        }
+                        if (elementType.ops[3] != null) {
+                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[3], MiniMenuAction.OP_MAPELEMENT4, true, -1, elementType.opBase, local197.entry.id, false);
+                        }
+                        if (elementType.ops[2] != null) {
+                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[2], MiniMenuAction.OP_MAPELEMENT3, true, -1, elementType.opBase, local197.entry.id, false);
+                        }
+                        if (elementType.ops[1] != null) {
+                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[1], MiniMenuAction.OP_MAPELEMENT2, true, -1, elementType.opBase, local197.entry.id, false);
+                        }
+                        if (elementType.ops[0] != null) {
+                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[0], MiniMenuAction.OP_MAPELEMENT1, true, -1, elementType.opBase, local197.entry.id, false);
+                        }
+                    }
+
+                    if (!local197.entry.mouseOver) {
+                        local197.entry.mouseOver = true;
+                        ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEOVER, local197.entry.id, elementType.category);
+                    }
+
+                    if (local197.entry.mouseOver) {
+                        ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEREPEAT, local197.entry.id, elementType.category);
+                    }
+                } else if (local197.entry.mouseOver) {
+                    local197.entry.mouseOver = false;
+                    ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSELEAVE, local197.entry.id, elementType.category);
+                }
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ZI)Lclient!rt;")
+    public static WorldMapFont method5493(@OriginalArg(1) int arg0) {
+        if (arg0 == 0) {
+            if ((double) currentZoom == 3.0D) {
+                return aWorldMapFont_7;
+            }
+            if ((double) currentZoom == 4.0D) {
+                return aWorldMapFont_6;
+            }
+            if ((double) currentZoom == 6.0D) {
+                return aWorldMapFont_1;
+            }
+            if ((double) currentZoom >= 8.0D) {
+                return aWorldMapFont_8;
+            }
+        } else if (arg0 == 1) {
+            if ((double) currentZoom == 3.0D) {
+                return aWorldMapFont_1;
+            }
+            if ((double) currentZoom == 4.0D) {
+                return aWorldMapFont_8;
+            }
+            if ((double) currentZoom == 6.0D) {
+                return aWorldMapFont_2;
+            }
+            if ((double) currentZoom >= 8.0D) {
+                return aWorldMapFont_5;
+            }
+        } else if (arg0 == 2) {
+            if ((double) currentZoom == 3.0D) {
+                return aWorldMapFont_2;
+            }
+            if ((double) currentZoom == 4.0D) {
+                return aWorldMapFont_5;
+            }
+            if ((double) currentZoom == 6.0D) {
+                return aWorldMapFont_4;
+            }
+            if ((double) currentZoom >= 8.0D) {
+                return aWorldMapFont_3;
+            }
+        }
+        return null;
+    }
+
+    @OriginalMember(owner = "client!wr", name = "a", descriptor = "(ILclient!fu;ILclient!el;Lclient!rt;IBLclient!ha;I)V")
+    public static void method9396(@OriginalArg(0) int arg0, @OriginalArg(1) MapElementListEntry arg1, @OriginalArg(2) int arg2, @OriginalArg(3) MapElementType arg3, @OriginalArg(4) WorldMapFont arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) int arg7) {
+        @Pc(14) int local14 = arg2 - arg5 / 2 - 5;
+        @Pc(18) int local18 = arg7 + 2;
+        if (arg3.fillColour != 0) {
+            arg6.fillRect(local14, local18, arg5 + 10, arg0 * arg4.getHeight() + 1 + arg7 + -local18, arg3.fillColour);
+        }
+        if (arg3.outlineColour != 0) {
+            arg6.outlineRect(local14, local18, arg5 + 10, arg4.getHeight() * arg0 + 1 + arg7 + -local18, arg3.outlineColour);
+        }
+        @Pc(73) int local73 = arg3.textColour;
+        if (arg1.mouseOver && arg3.hoverTextColour != -1) {
+            local73 = arg3.hoverTextColour;
+        }
+        for (@Pc(87) int local87 = 0; local87 < arg0; local87++) {
+            @Pc(93) String local93 = Static37.aStringArray5[local87];
+            if (local87 < arg0 - 1) {
+                local93 = local93.substring(0, local93.length() - 4);
+            }
+            arg4.renderCenter(arg6, local93, arg2, arg7, local73);
+            arg7 += arg4.getHeight();
+        }
     }
 }

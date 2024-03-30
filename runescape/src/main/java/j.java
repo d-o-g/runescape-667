@@ -135,8 +135,8 @@ public final class j extends Sprite implements SoftwareObject {
 
     @OriginalMember(owner = "client!j", name = "a", descriptor = "(IIIII)V")
     @Override
-    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
-        this.W(this.nativeid, x, y, width, height, op);
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int op, @OriginalArg(3) int color, @OriginalArg(4) int mode) {
+        this.W(this.nativeid, x, y, op, color, mode);
     }
 
     @OriginalMember(owner = "client!j", name = "c", descriptor = "(IIII)V")

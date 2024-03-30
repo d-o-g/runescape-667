@@ -766,4 +766,5 @@ public final class MainLogicManager {
     public static boolean isNotLoading() {
         return step >= MainLogicStep.STEP_LOADING_1;
     }
+
 }

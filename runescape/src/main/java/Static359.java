@@ -5,7 +5,4 @@ public final class Static359 {
     @OriginalMember(owner = "client!lfa", name = "c", descriptor = "[I")
     public static int[] anIntArray449;
 
-    @OriginalMember(owner = "client!lfa", name = "k", descriptor = "Lclient!rt;")
-    public static Class327 aClass327_3;
-
 }

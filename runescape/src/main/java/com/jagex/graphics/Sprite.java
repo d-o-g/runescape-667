@@ -96,7 +96,7 @@ public abstract class Sprite implements Surface {
     public abstract void copyAlpha(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int channel);
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(IIIII)V")
-    public abstract void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op);
+    public abstract void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int op, @OriginalArg(3) int color, @OriginalArg(4) int mode);
 
     @OriginalMember(owner = "client!st", name = "a", descriptor = "(IIII)V")
     public final void renderTiled(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {

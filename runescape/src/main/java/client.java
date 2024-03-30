@@ -711,7 +711,7 @@ public final class client extends GameShell {
             Static719.aPcmPlayer_5.method3592();
         }
 
-        if (Static475.method6445(MainLogicManager.step)) {
+        if (MainLogicStep.method6445(MainLogicManager.step)) {
             if (Static297.aLong153 != 0L && SystemTimer.safetime() > Static297.aLong153) {
                 InterfaceManager.changeWindowMode(InterfaceManager.getWindowMode(), Static560.anInt8429, false, Static433.anInt6258);
             } else if (!Toolkit.active.method8001() && GameShell.canvasReplaceRecommended) {
@@ -750,7 +750,7 @@ public final class client extends GameShell {
             }
         }
 
-        if (GameShell.fsframe != null && !GameShell.focus && Static475.method6445(MainLogicManager.step)) {
+        if (GameShell.fsframe != null && !GameShell.focus && MainLogicStep.method6445(MainLogicManager.step)) {
             InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
         }
 
@@ -818,7 +818,7 @@ public final class client extends GameShell {
             debugconsole.draw(Toolkit.active);
         }
 
-        if (GameShell.signLink.microsoftjava && Static475.method6445(MainLogicManager.step) && InterfaceManager.rectDebug == 0 && InterfaceManager.getWindowMode() == 1 && !local209) {
+        if (GameShell.signLink.microsoftjava && MainLogicStep.method6445(MainLogicManager.step) && InterfaceManager.rectDebug == 0 && InterfaceManager.getWindowMode() == 1 && !local209) {
             @Pc(110) int rectangle = 0;
 
             for (@Pc(114) int i = 0; i < InterfaceManager.rectangleCount; i++) {

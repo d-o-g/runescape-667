@@ -90,6 +90,14 @@ public final class MainLogicStep {
             || step == STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME_MAP_BUILD;
     }
 
+    @OriginalMember(owner = "client!pa", name = "a", descriptor = "(IB)Z")
+    public static boolean method6445(@OriginalArg(0) int step) {
+        return step == STEP_LOGIN_SCREEN
+            || step == STEP_LOBBY_SCREEN
+            || step == STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME
+            || step == STEP_GAME_SCREEN;
+    }
+
     private MainLogicStep() {
         /* empty */
     }

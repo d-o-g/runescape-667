@@ -139,7 +139,7 @@ public abstract class JavaSprite extends Sprite {
     }
 
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(IIIII)V")
-    public abstract void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op);
+    public abstract void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int op, @OriginalArg(3) int color, @OriginalArg(4) int mode);
 
     @OriginalMember(owner = "client!qc", name = "b", descriptor = "(IIIIIII)V")
     @Override

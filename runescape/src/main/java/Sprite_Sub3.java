@@ -138,7 +138,7 @@ public final class Sprite_Sub3 extends Sprite {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(IIIII)V")
     @Override
-    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int op, @OriginalArg(3) int color, @OriginalArg(4) int mode) {
         @Pc(8) Matrix_Sub1 local8 = this.aClass19_Sub1_12.method8040();
         @Pc(13) Matrix_Sub1 local13 = this.aClass19_Sub1_12.method8082();
         @Pc(18) int local18 = y + this.anInt6624;
@@ -146,11 +146,11 @@ public final class Sprite_Sub3 extends Sprite {
         this.anInterface18_3.method9041(Static363.aClass259_14);
         this.aClass19_Sub1_12.method8099();
         this.aClass19_Sub1_12.method8088(this.anInterface18_3);
-        this.aClass19_Sub1_12.method8053(op);
-        this.aClass19_Sub1_12.method8054(width);
+        this.aClass19_Sub1_12.method8053(mode);
+        this.aClass19_Sub1_12.method8054(op);
         this.aClass19_Sub1_12.method8080(1, Static454.aClass168_5);
         this.aClass19_Sub1_12.method8142(Static454.aClass168_5, 1);
-        this.aClass19_Sub1_12.method8112(height);
+        this.aClass19_Sub1_12.method8112(color);
         local8.method1884(0.0F, (float) this.anInt6606, (float) this.anInt6626);
         local8.translate(local23, local18, 0);
         local13.method1884(1.0F, this.anInterface18_3.method9050((float) this.anInt6606), this.anInterface18_3.method9046((float) this.anInt6626));

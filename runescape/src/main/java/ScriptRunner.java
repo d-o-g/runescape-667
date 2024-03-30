@@ -5523,10 +5523,12 @@ public final class ScriptRunner {
                 WorldMap.setZoomPercentage(intStack[--intStackPointer]);
                 return;
             }
+
             if (opcode == WORLDMAP_GETZOOM) {
                 intStack[intStackPointer++] = WorldMap.getZoom();
                 return;
             }
+
             if (opcode == WORLDMAP_SETMAP) {
                 WorldMap.setMap(intStack[--intStackPointer], false, -1, -1, -11493);
                 return;
@@ -5534,19 +5536,19 @@ public final class ScriptRunner {
 
             if (opcode == WORLDMAP_GETMAP) {
                 @Pc(192) int coord = intStack[--intStackPointer];
-                @Pc(1908) WorldMapArea local1908 = WorldMap.getMap(coord >> 14 & 0x3FFF, coord & 0x3FFF);
-                if (local1908 == null) {
+                @Pc(1908) WorldMapArea area = WorldMap.getMap(coord >> 14 & 0x3FFF, coord & 0x3FFF);
+                if (area == null) {
                     intStack[intStackPointer++] = -1;
                     return;
                 }
-                intStack[intStackPointer++] = local1908.id;
+                intStack[intStackPointer++] = area.id;
                 return;
             }
 
             if (opcode == ORLDMAP_GETMAPNAME) {
-                @Pc(1942) WorldMapArea local1942 = WorldMap.getArea(intStack[--intStackPointer]);
-                if (local1942 != null && local1942.aString49 != null) {
-                    stringStack[stringStackPointer++] = local1942.aString49;
+                @Pc(1942) WorldMapArea area = WorldMap.getArea(intStack[--intStackPointer]);
+                if (area != null && area.aString49 != null) {
+                    stringStack[stringStackPointer++] = area.aString49;
                     return;
                 }
                 stringStack[stringStackPointer++] = "";

@@ -67,7 +67,7 @@ public abstract class CutsceneAction {
             action = new VarUpdate(packet, true);
         } else if (CutsceneActionType.A_CUTSCENE_ACTION_TYPE___23 == type) {
             action = new CutsceneAction_Sub8(packet);
-        } else if (type == Static212.A_CUTSCENE_ACTION_TYPE___16) {
+        } else if (type == CutsceneActionType.A_CUTSCENE_ACTION_TYPE___16) {
             action = new CutsceneAction_Sub22(packet);
         }
 

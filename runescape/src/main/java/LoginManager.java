@@ -154,7 +154,7 @@ public final class LoginManager {
         Static501.aBoolean575 = false;
         AudioRenderer.mixBussReset();
         SoundManager.removeActiveStreams(true);
-        WorldMap.method4393();
+        WorldMap.resetoreToolkit();
         WorldMap.resetDisabledElements();
         Static187.method2842();
 

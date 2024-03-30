@@ -31,11 +31,11 @@ public final class Node_Sub37 extends Node {
     public int anInt6192 = Integer.MAX_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "p", descriptor = "Lclient!fu;")
-    public final MapElementListEntry aClass2_Sub20_1;
+    public final MapElementListEntry entry;
 
     @OriginalMember(owner = "client!mi", name = "<init>", descriptor = "(Lclient!fu;)V")
     public Node_Sub37(@OriginalArg(0) MapElementListEntry arg0) {
-        this.aClass2_Sub20_1 = arg0;
+        this.entry = arg0;
     }
 
     @OriginalMember(owner = "client!mi", name = "a", descriptor = "(IBI)Z")
@@ -43,7 +43,7 @@ public final class Node_Sub37 extends Node {
         if (arg0 >= this.anInt6195 && arg0 <= this.anInt6190 && arg1 >= this.anInt6186 && arg1 <= this.anInt6191) {
             return true;
         } else {
-            return this.anInt6192 <= arg0 && arg0 <= this.anInt6185 && this.anInt6184 <= arg1 && arg1 <= this.anInt6187;
+            return arg0 >= this.anInt6192 && arg0 <= this.anInt6185 && arg1 >= this.anInt6184 && arg1 <= this.anInt6187;
         }
     }
 }

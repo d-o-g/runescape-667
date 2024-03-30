@@ -8,9 +8,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static651 {
 
-    @OriginalMember(owner = "client!uja", name = "j", descriptor = "Lclient!rt;")
-    public static Class327 aClass327_8;
-
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
     public static void basTick(@OriginalArg(0) int moveSpeed, @OriginalArg(1) int deltaYaw, @OriginalArg(2) int motionFlags, @OriginalArg(4) PathingEntity entity) {
         @Pc(9) BASType basType = entity.getBASType();

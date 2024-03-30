@@ -22,7 +22,7 @@ public final class MapElementListEntry extends Node {
     public int anInt3130;
 
     @OriginalMember(owner = "client!fu", name = "n", descriptor = "Z")
-    public boolean aBoolean256 = false;
+    public boolean mouseOver = false;
 
     @OriginalMember(owner = "client!fu", name = "m", descriptor = "I")
     public int id = -1;

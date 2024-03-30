@@ -46,9 +46,9 @@ public final class Static368 {
         for (@Pc(27) MapElementListEntry local27 = (MapElementListEntry) arg0.first(); local27 != null; local27 = (MapElementListEntry) arg0.next()) {
             @Pc(35) MapElementType local35 = WorldMap.mapElementTypeList.list(local27.id);
             if (WorldMap.isEnabled(local35)) {
-                @Pc(47) boolean local47 = Static351.method5138(arg1, local35, local27);
+                @Pc(47) boolean local47 = WorldMap.method5138(arg1, local35, local27);
                 if (local47) {
-                    Static603.method7902(local27, arg1, local35);
+                    WorldMap.method7902(local27, arg1, local35);
                 }
             }
         }

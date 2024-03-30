@@ -233,8 +233,8 @@ public abstract class Toolkit {
     public abstract void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIBI)V")
-    public final void method7966(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
-        this.za(arg2, arg0, arg3, arg1, 1);
+    public final void fillCircle(@OriginalArg(2) int x, @OriginalArg(0) int y, @OriginalArg(4) int radius, @OriginalArg(1) int colour) {
+        this.za(x, y, radius, colour, 1);
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!lk;I)V")

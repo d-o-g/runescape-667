@@ -301,16 +301,16 @@ public final class Sprite_Sub2 extends Sprite {
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(IIIII)V")
     @Override
-    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int op, @OriginalArg(3) int color, @OriginalArg(4) int mode) {
         this.aClass93_Sub2_Sub1_3.method9438(false);
         this.aClass19_Sub3_28.method7018();
-        this.aClass19_Sub3_28.setBlendMode(op);
-        OpenGL.glColor4ub((byte) (height >> 16), (byte) (height >> 8), (byte) height, (byte) (height >> 24));
+        this.aClass19_Sub3_28.setBlendMode(mode);
+        OpenGL.glColor4ub((byte) (color >> 16), (byte) (color >> 8), (byte) color, (byte) (color >> 24));
         @Pc(37) int local37 = x + this.anInt6041;
         @Pc(42) int local42 = y + this.anInt6027;
         if (this.aClass93_Sub2_Sub1_2 == null) {
             this.aClass19_Sub3_28.method7001(this.aClass93_Sub2_Sub1_3);
-            this.aClass19_Sub3_28.method6991(width);
+            this.aClass19_Sub3_28.method6991(op);
             OpenGL.glBegin(OpenGL.GL_QUADS);
             OpenGL.glTexCoord2f(0.0F, this.aClass93_Sub2_Sub1_3.aFloat68);
             OpenGL.glVertex2i(local37, local42);
@@ -323,7 +323,7 @@ public final class Sprite_Sub2 extends Sprite {
             OpenGL.glEnd();
             return;
         }
-        this.method5425(width);
+        this.method5425(op);
         this.aClass93_Sub2_Sub1_2.method9438(false);
         OpenGL.glBegin(OpenGL.GL_QUADS);
         OpenGL.glMultiTexCoord2f(OpenGL.GL_TEXTURE1, 0.0F, this.aClass93_Sub2_Sub1_3.aFloat68);

@@ -2670,7 +2670,7 @@ public final class JavaRgbSprite extends JavaSprite {
 
     @OriginalMember(owner = "client!ap", name = "a", descriptor = "(IIIII)V")
     @Override
-    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
+    public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int op, @OriginalArg(3) int color, @OriginalArg(4) int mode) {
         if (super.toolkit.stopped()) {
             throw new IllegalStateException();
         }
@@ -2723,12 +2723,12 @@ public final class JavaRgbSprite extends JavaSprite {
         @Pc(297) int local297;
         @Pc(305) int local305;
         @Pc(433) int local433;
-        if (op != 0) {
+        if (mode != 0) {
             @Pc(764) int local764;
             @Pc(772) int local772;
             @Pc(784) int local784;
-            if (op == 1) {
-                if (width == 1) {
+            if (mode == 1) {
+                if (op == 1) {
                     for (local174 = -local33; local174 < 0; local174++) {
                         local181 = local28 + local36 - 3;
                         while (local28 < local181) {
@@ -2769,9 +2769,9 @@ public final class JavaRgbSprite extends JavaSprite {
                         local28 += local40;
                         local30 += local42;
                     }
-                } else if (width == 0) {
-                    if ((height & 0xFFFFFF) == 16777215) {
-                        local174 = height >>> 24;
+                } else if (op == 0) {
+                    if ((color & 0xFFFFFF) == 16777215) {
+                        local174 = color >>> 24;
                         local181 = 256 - local174;
                         for (local267 = -local33; local267 < 0; local267++) {
                             for (local270 = -local36; local270 < 0; local270++) {
@@ -2787,10 +2787,10 @@ public final class JavaRgbSprite extends JavaSprite {
                             local30 += local42;
                         }
                     } else {
-                        local174 = height >> 16 & 0xFF;
-                        local181 = height >> 8 & 0xFF;
-                        local267 = height & 0xFF;
-                        local270 = height >>> 24;
+                        local174 = color >> 16 & 0xFF;
+                        local181 = color >> 8 & 0xFF;
+                        local267 = color & 0xFF;
+                        local270 = color >>> 24;
                         local274 = 256 - local270;
                         for (local281 = -local33; local281 < 0; local281++) {
                             for (local289 = -local36; local289 < 0; local289++) {
@@ -2815,14 +2815,14 @@ public final class JavaRgbSprite extends JavaSprite {
                             local30 += local42;
                         }
                     }
-                } else if (width == 3) {
-                    local174 = height >>> 24;
+                } else if (op == 3) {
+                    local174 = color >>> 24;
                     local181 = 256 - local174;
                     for (local267 = -local33; local267 < 0; local267++) {
                         for (local270 = -local36; local270 < 0; local270++) {
                             local274 = this.anIntArray32[local30++];
-                            local281 = local274 + height;
-                            local289 = (local274 & 0xFF00FF) + (height & 0xFF00FF);
+                            local281 = local274 + color;
+                            local289 = (local274 & 0xFF00FF) + (color & 0xFF00FF);
                             local297 = (local289 & 0x1000100) + (local281 - local289 & 0x10000);
                             local297 = local281 - local297 | local297 - (local297 >>> 8);
                             if (local274 == 0 && local174 != 255) {
@@ -2835,11 +2835,11 @@ public final class JavaRgbSprite extends JavaSprite {
                         local28 += local40;
                         local30 += local42;
                     }
-                } else if (width == 2) {
-                    local174 = height >>> 24;
+                } else if (op == 2) {
+                    local174 = color >>> 24;
                     local181 = 256 - local174;
-                    local267 = (height & 0xFF00FF) * local181 & 0xFF00FF00;
-                    local270 = (height & 0xFF00) * local181 & 0xFF0000;
+                    local267 = (color & 0xFF00FF) * local181 & 0xFF00FF00;
+                    local270 = (color & 0xFF00) * local181 & 0xFF0000;
                     local433 = (local267 | local270) >>> 8;
                     for (local274 = -local33; local274 < 0; local274++) {
                         for (local281 = -local36; local281 < 0; local281++) {
@@ -2858,9 +2858,9 @@ public final class JavaRgbSprite extends JavaSprite {
                 } else {
                     throw new IllegalArgumentException();
                 }
-            } else if (op != 2) {
+            } else if (mode != 2) {
                 throw new IllegalArgumentException();
-            } else if (width == 1) {
+            } else if (op == 1) {
                 for (local174 = -local33; local174 < 0; local174++) {
                     for (local181 = -local36; local181 < 0; local181++) {
                         local267 = this.anIntArray32[local30++];
@@ -2877,10 +2877,10 @@ public final class JavaRgbSprite extends JavaSprite {
                     local28 += local40;
                     local30 += local42;
                 }
-            } else if (width == 0) {
-                local174 = height >> 16 & 0xFF;
-                local181 = height >> 8 & 0xFF;
-                local267 = height & 0xFF;
+            } else if (op == 0) {
+                local174 = color >> 16 & 0xFF;
+                local181 = color >> 8 & 0xFF;
+                local267 = color & 0xFF;
                 for (local270 = -local33; local270 < 0; local270++) {
                     for (local274 = -local36; local274 < 0; local274++) {
                         local281 = this.anIntArray32[local30++];
@@ -2901,12 +2901,12 @@ public final class JavaRgbSprite extends JavaSprite {
                     local28 += local40;
                     local30 += local42;
                 }
-            } else if (width == 3) {
+            } else if (op == 3) {
                 for (local174 = -local33; local174 < 0; local174++) {
                     for (local181 = -local36; local181 < 0; local181++) {
                         local267 = this.anIntArray32[local30++];
-                        local270 = local267 + height;
-                        local274 = (local267 & 0xFF00FF) + (height & 0xFF00FF);
+                        local270 = local267 + color;
+                        local274 = (local267 & 0xFF00FF) + (color & 0xFF00FF);
                         local281 = (local274 & 0x1000100) + (local270 - local274 & 0x10000);
                         local267 = local270 - local281 | local281 - (local281 >>> 8);
                         local281 = local164[local28];
@@ -2918,11 +2918,11 @@ public final class JavaRgbSprite extends JavaSprite {
                     local28 += local40;
                     local30 += local42;
                 }
-            } else if (width == 2) {
-                local174 = height >>> 24;
+            } else if (op == 2) {
+                local174 = color >>> 24;
                 local181 = 256 - local174;
-                local267 = (height & 0xFF00FF) * local181 & 0xFF00FF00;
-                local270 = (height & 0xFF00) * local181 & 0xFF0000;
+                local267 = (color & 0xFF00FF) * local181 & 0xFF00FF00;
+                local270 = (color & 0xFF00) * local181 & 0xFF0000;
                 local433 = (local267 | local270) >>> 8;
                 for (local274 = -local33; local274 < 0; local274++) {
                     for (local281 = -local36; local281 < 0; local281++) {
@@ -2946,7 +2946,7 @@ public final class JavaRgbSprite extends JavaSprite {
             } else {
                 throw new IllegalArgumentException();
             }
-        } else if (width == 1) {
+        } else if (op == 1) {
             for (local174 = -local33; local174 < 0; local174++) {
                 local181 = local28 + local36 - 3;
                 while (local28 < local181) {
@@ -2962,10 +2962,10 @@ public final class JavaRgbSprite extends JavaSprite {
                 local28 += local40;
                 local30 += local42;
             }
-        } else if (width == 0) {
-            local174 = height >> 16 & 0xFF;
-            local181 = height >> 8 & 0xFF;
-            local267 = height & 0xFF;
+        } else if (op == 0) {
+            local174 = color >> 16 & 0xFF;
+            local181 = color >> 8 & 0xFF;
+            local267 = color & 0xFF;
             for (local270 = -local33; local270 < 0; local270++) {
                 for (local274 = -local36; local274 < 0; local274++) {
                     local281 = this.anIntArray32[local30++];
@@ -2977,23 +2977,23 @@ public final class JavaRgbSprite extends JavaSprite {
                 local28 += local40;
                 local30 += local42;
             }
-        } else if (width == 3) {
+        } else if (op == 3) {
             for (local174 = -local33; local174 < 0; local174++) {
                 for (local181 = -local36; local181 < 0; local181++) {
                     local267 = this.anIntArray32[local30++];
-                    local270 = local267 + height;
-                    local274 = (local267 & 0xFF00FF) + (height & 0xFF00FF);
+                    local270 = local267 + color;
+                    local274 = (local267 & 0xFF00FF) + (color & 0xFF00FF);
                     local281 = (local274 & 0x1000100) + (local270 - local274 & 0x10000);
                     local164[local28++] = local270 - local281 | local281 - (local281 >>> 8);
                 }
                 local28 += local40;
                 local30 += local42;
             }
-        } else if (width == 2) {
-            local174 = height >>> 24;
+        } else if (op == 2) {
+            local174 = color >>> 24;
             local181 = 256 - local174;
-            local267 = (height & 0xFF00FF) * local181 & 0xFF00FF00;
-            local270 = (height & 0xFF00) * local181 & 0xFF0000;
+            local267 = (color & 0xFF00FF) * local181 & 0xFF00FF00;
+            local270 = (color & 0xFF00) * local181 & 0xFF0000;
             local433 = (local267 | local270) >>> 8;
             for (local274 = -local33; local274 < 0; local274++) {
                 for (local281 = -local36; local281 < 0; local281++) {

@@ -1,4 +1,4 @@
-import com.jagex.graphics.Node_Sub13;
+import com.jagex.graphics.MemoryPool;
 import com.jagex.graphics.sw.SoftwareMemoryManager;
 import com.jagex.graphics.sw.SoftwareObject;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ya")
-public final class ya extends Node_Sub13 implements SoftwareObject {
+public final class ya extends MemoryPool implements SoftwareObject {
 
     @OriginalMember(owner = "client!ya", name = "nativeid", descriptor = "J")
     public long nativeid;

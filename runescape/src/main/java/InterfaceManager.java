@@ -897,7 +897,7 @@ public final class InterfaceManager {
                         }
 
                         if (child.lineWidth != 1) {
-                            Toolkit.active.method7947(offsetX, local323, local744, local1255, child.colour, child.lineWidth);
+                            Toolkit.active.strongLine(offsetX, local323, local744, local1255, child.colour, child.lineWidth, 0);
                         } else {
                             Toolkit.active.line(offsetX, local323, local744, local1255, child.colour, 0);
                         }
@@ -2450,7 +2450,7 @@ public final class InterfaceManager {
             if (OrthoMode.toolkitActive) {
                 OrthoMode.method7606(GameShell.canvas);
             } else {
-                Toolkit.active.method7935(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
+                Toolkit.active.resizeCanvas(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
             }
 
             if (topContainer == GameShell.frame) {

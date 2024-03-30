@@ -83,7 +83,7 @@ public final class Ground_Sub3 extends Ground {
         this.aClass19_Sub2_8 = arg0;
         this.anInt8146 = arg2;
         this.aByteArrayArray31 = new byte[arg3 + 1][arg4 + 1];
-        @Pc(29) int local29 = this.aClass19_Sub2_8.anInt4202 >> 9;
+        @Pc(29) int local29 = this.aClass19_Sub2_8.ambient >> 9;
         for (@Pc(31) int local31 = 1; local31 < arg4; local31++) {
             for (@Pc(34) int local34 = 1; local34 < arg3; local34++) {
                 @Pc(53) int local53 = arg6[local34 + 1][local31] - arg6[local34 - 1][local31];
@@ -92,7 +92,7 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(90) int local90 = (local53 << 8) / local84;
                 @Pc(96) int local96 = arg7 * -512 / local84;
                 @Pc(102) int local102 = (local69 << 8) / local84;
-                @Pc(124) int local124 = local29 + (this.aClass19_Sub2_8.anInt4189 * local90 + this.aClass19_Sub2_8.anInt4204 * local96 + this.aClass19_Sub2_8.anInt4198 * local102 >> 17);
+                @Pc(124) int local124 = local29 + (this.aClass19_Sub2_8.sunX * local90 + this.aClass19_Sub2_8.sunY * local96 + this.aClass19_Sub2_8.sunZ * local102 >> 17);
                 local124 >>= 0x1;
                 if (local124 < 2) {
                     local124 = 2;
@@ -108,20 +108,20 @@ public final class Ground_Sub3 extends Ground {
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(III[[ZZI)V")
     @Override
     public void method7870(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5) {
-        @Pc(3) JavaMatrix local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
+        @Pc(3) JavaMatrix local3 = this.aClass19_Sub2_8.camera;
         this.anInt8145 = -1;
-        this.aFloat170 = local3.aFloat59;
-        this.aFloat167 = local3.aFloat55;
-        this.aFloat162 = local3.aFloat53;
-        this.aFloat171 = local3.aFloat60;
-        this.aFloat168 = local3.aFloat57;
-        this.aFloat163 = local3.aFloat52;
-        this.aFloat166 = local3.aFloat51;
-        this.aFloat169 = local3.aFloat58;
-        this.aFloat164 = local3.aFloat56;
-        this.aFloat172 = local3.aFloat54;
-        this.aFloat165 = local3.aFloat61;
-        this.aFloat173 = local3.aFloat62;
+        this.aFloat170 = local3.e1_1;
+        this.aFloat167 = local3.e1_2;
+        this.aFloat162 = local3.e1_3;
+        this.aFloat171 = local3.tx;
+        this.aFloat168 = local3.e2_1;
+        this.aFloat163 = local3.e2_2;
+        this.aFloat166 = local3.e2_3;
+        this.aFloat169 = local3.ty;
+        this.aFloat164 = local3.e3_1;
+        this.aFloat172 = local3.e3_2;
+        this.aFloat165 = local3.e3_3;
+        this.aFloat173 = local3.tz;
         for (@Pc(56) int local56 = 0; local56 < arg2 + arg2; local56++) {
             for (@Pc(59) int local59 = 0; local59 < arg2 + arg2; local59++) {
                 if (arg3[local56][local59]) {
@@ -152,7 +152,7 @@ public final class Ground_Sub3 extends Ground {
     }
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(IIZLclient!wf;Lclient!lb;[I[I[I[II)V")
-    public void method7161(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class399 arg3, @OriginalArg(4) Class219 arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int arg9) {
+    public void method7161(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) JavaThreadResource arg3, @OriginalArg(4) Rasterizer arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int arg9) {
         @Pc(6) Class320 local6 = this.aClass320ArrayArray1[arg0][arg1];
         if (arg9 != 0 && (arg9 & 0x2) != 0 || local6 == null) {
             return;
@@ -177,7 +177,7 @@ public final class Ground_Sub3 extends Ground {
                 }
                 arg8[local26] = 0;
                 if (arg2) {
-                    local95 = (int) (local73 - (float) arg3.anInt10601);
+                    local95 = (int) (local73 - (float) arg3.fogPlane);
                     if (local95 > 255) {
                         local95 = 255;
                     }
@@ -188,8 +188,8 @@ public final class Ground_Sub3 extends Ground {
                             local42 -= local115;
                         }
                     }
-                } else if (arg3.aBoolean806) {
-                    local95 = (int) (local73 - (float) arg3.anInt10601);
+                } else if (arg3.fogActive) {
+                    local95 = (int) (local73 - (float) arg3.fogPlane);
                     if (local95 > 0) {
                         arg8[local26] = local95;
                         if (arg8[local26] > 255) {
@@ -199,8 +199,8 @@ public final class Ground_Sub3 extends Ground {
                 }
                 local172 = this.aFloat171 + this.aFloat170 * (float) local37 + this.aFloat167 * (float) local42 + this.aFloat162 * (float) local52;
                 local193 = this.aFloat169 + this.aFloat168 * (float) local37 + this.aFloat163 * (float) local42 + this.aFloat166 * (float) local52;
-                arg5[local26] = arg4.anInt5723 + (int) (local172 * (float) this.aClass19_Sub2_8.projectionScaleX / local73);
-                arg6[local26] = arg4.anInt5721 + (int) (local193 * (float) this.aClass19_Sub2_8.projectionScaleY / local73);
+                arg5[local26] = arg4.minX + (int) (local172 * (float) this.aClass19_Sub2_8.projectionScaleX / local73);
+                arg6[local26] = arg4.minY + (int) (local193 * (float) this.aClass19_Sub2_8.projectionScaleY / local73);
                 arg7[local26] = (int) local73;
             }
         } else {
@@ -211,7 +211,7 @@ public final class Ground_Sub3 extends Ground {
                 local73 = this.aFloat173 + this.aFloat164 * (float) local37 + this.aFloat172 * (float) local42 + this.aFloat165 * (float) local52;
                 arg8[local26] = 0;
                 if (arg2) {
-                    local95 = this.anInt8145 - arg3.anInt10601;
+                    local95 = this.anInt8145 - arg3.fogPlane;
                     if (local95 > 255) {
                         local95 = 255;
                     }
@@ -222,8 +222,8 @@ public final class Ground_Sub3 extends Ground {
                             local42 -= local115;
                         }
                     }
-                } else if (arg3.aBoolean806) {
-                    local95 = this.anInt8145 - arg3.anInt10601;
+                } else if (arg3.fogActive) {
+                    local95 = this.anInt8145 - arg3.fogPlane;
                     if (local95 > 0) {
                         arg8[local26] = local95;
                         if (arg8[local26] > 255) {
@@ -233,8 +233,8 @@ public final class Ground_Sub3 extends Ground {
                 }
                 local172 = this.aFloat171 + this.aFloat170 * (float) local37 + this.aFloat167 * (float) local42 + this.aFloat162 * (float) local52;
                 local193 = this.aFloat169 + this.aFloat168 * (float) local37 + this.aFloat163 * (float) local42 + this.aFloat166 * (float) local52;
-                arg5[local26] = arg4.anInt5723 + (int) (local172 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
-                arg6[local26] = arg4.anInt5721 + (int) (local193 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                arg5[local26] = arg4.minX + (int) (local172 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                arg6[local26] = arg4.minY + (int) (local193 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 arg7[local26] = (int) local73;
             }
         }
@@ -250,19 +250,19 @@ public final class Ground_Sub3 extends Ground {
             @Pc(476) int local476 = arg6[local452];
             @Pc(480) int local480 = arg6[local456];
             if ((local460 - local464) * (local480 - local476) - (local472 - local476) * (local468 - local464) > 0) {
-                arg4.aBoolean434 = local460 < 0 || local464 < 0 || local468 < 0 || local460 > arg4.anInt5725 || local464 > arg4.anInt5725 || local468 > arg4.anInt5725;
+                arg4.clamp = local460 < 0 || local464 < 0 || local468 < 0 || local460 > arg4.width || local464 > arg4.width || local468 > arg4.width;
                 if (arg8[local115] + arg8[local452] + arg8[local456] < 765) {
                     @Pc(550) int local550 = arg0 << super.anInt8895;
                     @Pc(555) int local555 = arg1 << super.anInt8895;
                     if ((local6.anIntArray646[local115] & 0xFFFFFF) != 0) {
                         if (local6.aShortArray115[local115] == local6.aShortArray115[local452] && local6.aShortArray115[local115] == local6.aShortArray115[local456] && local6.aShortArray118[local115] == local6.aShortArray118[local452] && local6.aShortArray118[local115] == local6.aShortArray118[local456]) {
-                            arg4.method5150((float) local472, (float) local476, (float) local480, (float) local460, (float) local464, (float) local468, (float) arg7[local115], (float) arg7[local452], (float) arg7[local456], (float) (local550 + local6.aShortArray116[local115]) / (float) local6.aShortArray118[local115], (float) (local550 + local6.aShortArray116[local452]) / (float) local6.aShortArray118[local452], (float) (local550 + local6.aShortArray116[local456]) / (float) local6.aShortArray118[local456], (float) (local555 + local6.aShortArray113[local115]) / (float) local6.aShortArray118[local115], (float) (local555 + local6.aShortArray113[local452]) / (float) local6.aShortArray118[local452], (float) (local555 + local6.aShortArray113[local456]) / (float) local6.aShortArray118[local456], local6.anIntArray646[local115], local6.anIntArray646[local452], local6.anIntArray646[local456], arg3.anInt10597, arg8[local115], arg8[local452], arg8[local456], local6.aShortArray115[local115]);
+                            arg4.method5150((float) local472, (float) local476, (float) local480, (float) local460, (float) local464, (float) local468, (float) arg7[local115], (float) arg7[local452], (float) arg7[local456], (float) (local550 + local6.aShortArray116[local115]) / (float) local6.aShortArray118[local115], (float) (local550 + local6.aShortArray116[local452]) / (float) local6.aShortArray118[local452], (float) (local550 + local6.aShortArray116[local456]) / (float) local6.aShortArray118[local456], (float) (local555 + local6.aShortArray113[local115]) / (float) local6.aShortArray118[local115], (float) (local555 + local6.aShortArray113[local452]) / (float) local6.aShortArray118[local452], (float) (local555 + local6.aShortArray113[local456]) / (float) local6.aShortArray118[local456], local6.anIntArray646[local115], local6.anIntArray646[local452], local6.anIntArray646[local456], arg3.fogColour, arg8[local115], arg8[local452], arg8[local456], local6.aShortArray115[local115]);
                         } else {
-                            arg4.method5155((float) local472, (float) local476, (float) local480, (float) local460, (float) local464, (float) local468, (float) arg7[local115], (float) arg7[local452], (float) arg7[local456], (float) (local550 + local6.aShortArray116[local115]) / local441, (float) (local550 + local6.aShortArray116[local452]) / local441, (float) (local550 + local6.aShortArray116[local456]) / local441, (float) (local555 + local6.aShortArray113[local115]) / local441, (float) (local555 + local6.aShortArray113[local452]) / local441, (float) (local555 + local6.aShortArray113[local456]) / local441, local6.anIntArray646[local115], local6.anIntArray646[local452], local6.anIntArray646[local456], arg3.anInt10597, arg8[local115], arg8[local452], arg8[local456], local6.aShortArray115[local115], local441 / (float) local6.aShortArray118[local115], local6.aShortArray115[local452], local441 / (float) local6.aShortArray118[local452], local6.aShortArray115[local456], local441 / (float) local6.aShortArray118[local456]);
+                            arg4.method5155((float) local472, (float) local476, (float) local480, (float) local460, (float) local464, (float) local468, (float) arg7[local115], (float) arg7[local452], (float) arg7[local456], (float) (local550 + local6.aShortArray116[local115]) / local441, (float) (local550 + local6.aShortArray116[local452]) / local441, (float) (local550 + local6.aShortArray116[local456]) / local441, (float) (local555 + local6.aShortArray113[local115]) / local441, (float) (local555 + local6.aShortArray113[local452]) / local441, (float) (local555 + local6.aShortArray113[local456]) / local441, local6.anIntArray646[local115], local6.anIntArray646[local452], local6.anIntArray646[local456], arg3.fogColour, arg8[local115], arg8[local452], arg8[local456], local6.aShortArray115[local115], local441 / (float) local6.aShortArray118[local115], local6.aShortArray115[local452], local441 / (float) local6.aShortArray118[local452], local6.aShortArray115[local456], local441 / (float) local6.aShortArray118[local456]);
                         }
                     }
                 } else {
-                    arg4.method5158((float) local472, (float) local476, (float) local480, (float) local460, (float) local464, (float) local468, (float) arg7[local115], (float) arg7[local452], (float) arg7[local456], arg3.anInt10597);
+                    arg4.renderFlatTriangleRgb((float) local472, (float) local476, (float) local480, (float) local460, (float) local464, (float) local468, (float) arg7[local115], (float) arg7[local452], (float) arg7[local456], arg3.fogColour);
                 }
             }
         }
@@ -525,7 +525,7 @@ public final class Ground_Sub3 extends Ground {
             }
             @Pc(2164) boolean local2164 = false;
             for (local530 = 0; local530 < local1760.aShort129; local530++) {
-                if (arg8[local530 * 3] != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(arg8[local530 * 3]).aBoolean240) {
+                if (arg8[local530 * 3] != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(arg8[local530 * 3]).disableable) {
                     local2164 = true;
                 }
             }
@@ -547,19 +547,19 @@ public final class Ground_Sub3 extends Ground {
                     @Pc(2258) boolean local2258 = false;
                     @Pc(2260) boolean local2260 = true;
                     @Pc(2264) int local2264 = arg8[local1961];
-                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).disableable) {
                         local2260 = false;
                     } else {
                         local2258 = true;
                     }
                     local2264 = arg8[local2008];
-                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).disableable) {
                         local2260 = false;
                     } else {
                         local2258 = true;
                     }
                     local2264 = arg8[local2098];
-                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                    if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).disableable) {
                         local2260 = false;
                     } else {
                         local2258 = true;
@@ -570,15 +570,15 @@ public final class Ground_Sub3 extends Ground {
                     } else {
                         if (local2258) {
                             local2264 = arg8[local1961];
-                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).disableable) {
                                 local1760.anIntArray802[local1961] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                             local2264 = arg8[local2008];
-                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).disableable) {
                                 local1760.anIntArray802[local2008] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                             local2264 = arg8[local2098];
-                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aBoolean240) {
+                            if (local2264 != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(local2264).disableable) {
                                 local1760.anIntArray802[local2098] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aClass19_Sub2_8.textureSource.getMetrics(local2264).aShort37 & 0xFFFF) & 0xFFFF];
                             }
                         }
@@ -603,7 +603,7 @@ public final class Ground_Sub3 extends Ground {
         if (super.tileHeights[arg0][arg1] == super.tileHeights[arg0 + 1][arg1] && super.tileHeights[arg0][arg1] == super.tileHeights[arg0 + 1][arg1 + 1] && super.tileHeights[arg0][arg1] == super.tileHeights[arg0][arg1 + 1]) {
             local931.aByte126 = (byte) (local931.aByte126 | 0x1);
         }
-        if (local498 == -1 || (local931.aByte126 & 0x2) != 0 || this.aClass19_Sub2_8.textureSource.getMetrics(local498).aBoolean240) {
+        if (local498 == -1 || (local931.aByte126 & 0x2) != 0 || this.aClass19_Sub2_8.textureSource.getMetrics(local498).disableable) {
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
@@ -740,12 +740,12 @@ public final class Ground_Sub3 extends Ground {
     }
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(IIIIIII[[ZLclient!wf;Lclient!lb;[I[I)V")
-    public void method7163(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) boolean[][] arg4, @OriginalArg(8) Class399 arg5, @OriginalArg(9) Class219 arg6, @OriginalArg(10) int[] arg7, @OriginalArg(11) int[] arg8) {
+    public void method7163(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) boolean[][] arg4, @OriginalArg(8) JavaThreadResource arg5, @OriginalArg(9) Rasterizer arg6, @OriginalArg(10) int[] arg7, @OriginalArg(11) int[] arg8) {
         @Pc(7) int local7 = (arg3 - arg1) * 1024 / 256;
-        @Pc(14) boolean local14 = arg5.aBoolean804;
+        @Pc(14) boolean local14 = arg5.zWrite;
         this.aClass19_Sub2_8.C(false);
-        arg6.aBoolean436 = false;
-        arg6.aBoolean433 = false;
+        arg6.fastScanline = false;
+        arg6.halfBlend = false;
         @Pc(26) int local26 = 0;
         @Pc(30) int local30 = local7;
         for (@Pc(32) int local32 = arg0; local32 < arg2; local32++) {
@@ -801,17 +801,17 @@ public final class Ground_Sub3 extends Ground {
             local30 = local7;
             local26 += 4;
         }
-        arg6.aBoolean436 = true;
+        arg6.fastScanline = true;
         this.aClass19_Sub2_8.C(local14);
     }
 
     @OriginalMember(owner = "client!qs", name = "b", descriptor = "(IIIIIII[[ZLclient!wf;Lclient!lb;[I[I)V")
-    public void method7164(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) boolean[][] arg4, @OriginalArg(8) Class399 arg5, @OriginalArg(9) Class219 arg6, @OriginalArg(10) int[] arg7, @OriginalArg(11) int[] arg8) {
+    public void method7164(@OriginalArg(3) int arg0, @OriginalArg(4) int arg1, @OriginalArg(5) int arg2, @OriginalArg(6) int arg3, @OriginalArg(7) boolean[][] arg4, @OriginalArg(8) JavaThreadResource arg5, @OriginalArg(9) Rasterizer arg6, @OriginalArg(10) int[] arg7, @OriginalArg(11) int[] arg8) {
         @Pc(7) int local7 = (arg3 - arg1) * 1024 / 256;
-        @Pc(14) boolean local14 = arg5.aBoolean804;
+        @Pc(14) boolean local14 = arg5.zWrite;
         this.aClass19_Sub2_8.C(false);
-        arg6.aBoolean436 = false;
-        arg6.aBoolean433 = false;
+        arg6.fastScanline = false;
+        arg6.halfBlend = false;
         @Pc(26) int local26 = 0;
         @Pc(30) int local30 = local7;
         for (@Pc(32) int local32 = arg0; local32 < arg2; local32++) {
@@ -847,10 +847,10 @@ public final class Ground_Sub3 extends Ground {
                                 local412 = arg8[local388];
                                 local416 = arg8[local392];
                                 if (local593.anIntArray647 == null || local593.anIntArray647[local379] == 0) {
-                                    arg6.method5141((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, local593.anIntArray646[local384], local593.anIntArray646[local388], local593.anIntArray646[local392]);
+                                    arg6.renderTriangleRgb((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, local593.anIntArray646[local384], local593.anIntArray646[local388], local593.anIntArray646[local392]);
                                 } else {
                                     local449 = local593.anIntArray647[local379];
-                                    arg6.method5141((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, local449, local449, local449);
+                                    arg6.renderTriangleRgb((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, local449, local449, local449);
                                 }
                             }
                         }
@@ -861,12 +861,12 @@ public final class Ground_Sub3 extends Ground {
                             arg6.method5156((float) (local30 - 4), (float) (local30 - 4), (float) local30, (float) (local26 + 4), (float) local26, (float) (local26 + 4), 100.0F, 100.0F, 100.0F, (float) Static244.method3513(local67.anInt7767, local89), (float) Static244.method3513(local67.anInt7769, local89), (float) Static244.method3513(local67.anInt7771, local89));
                             arg6.method5156((float) local30, (float) local30, (float) (local30 - 4), (float) local26, (float) (local26 + 4), (float) local26, 100.0F, 100.0F, 100.0F, (float) Static244.method3513(local67.anInt7768, local89), (float) Static244.method3513(local67.anInt7771, local89), (float) Static244.method3513(local67.anInt7769, local89));
                         } else if (local67.anInt7770 == 0) {
-                            arg6.method5141((float) (local30 - 4), (float) (local30 - 4), (float) local30, (float) (local26 + 4), (float) local26, (float) (local26 + 4), 100.0F, 100.0F, 100.0F, local67.anInt7767, local67.anInt7769, local67.anInt7771);
-                            arg6.method5141((float) local30, (float) local30, (float) (local30 - 4), (float) local26, (float) (local26 + 4), (float) local26, 100.0F, 100.0F, 100.0F, local67.anInt7768, local67.anInt7771, local67.anInt7769);
+                            arg6.renderTriangleRgb((float) (local30 - 4), (float) (local30 - 4), (float) local30, (float) (local26 + 4), (float) local26, (float) (local26 + 4), 100.0F, 100.0F, 100.0F, local67.anInt7767, local67.anInt7769, local67.anInt7771);
+                            arg6.renderTriangleRgb((float) local30, (float) local30, (float) (local30 - 4), (float) local26, (float) (local26 + 4), (float) local26, 100.0F, 100.0F, 100.0F, local67.anInt7768, local67.anInt7771, local67.anInt7769);
                         } else {
                             local89 = local67.anInt7770;
-                            arg6.method5141((float) (local30 - 4), (float) (local30 - 4), (float) local30, (float) (local26 + 4), (float) local26, (float) (local26 + 4), 100.0F, 100.0F, 100.0F, Static462.method6270(local67.anInt7767 & 0xFF000000, local89), Static462.method6270(local67.anInt7769 & 0xFF000000, local89), Static462.method6270(local67.anInt7771 & 0xFF000000, local89));
-                            arg6.method5141((float) local30, (float) local30, (float) (local30 - 4), (float) local26, (float) (local26 + 4), (float) local26, 100.0F, 100.0F, 100.0F, Static462.method6270(local67.anInt7768 & 0xFF000000, local89), Static462.method6270(local67.anInt7771 & 0xFF000000, local89), Static462.method6270(local67.anInt7769 & 0xFF000000, local89));
+                            arg6.renderTriangleRgb((float) (local30 - 4), (float) (local30 - 4), (float) local30, (float) (local26 + 4), (float) local26, (float) (local26 + 4), 100.0F, 100.0F, 100.0F, Static462.method6270(local67.anInt7767 & 0xFF000000, local89), Static462.method6270(local67.anInt7769 & 0xFF000000, local89), Static462.method6270(local67.anInt7771 & 0xFF000000, local89));
+                            arg6.renderTriangleRgb((float) local30, (float) local30, (float) (local30 - 4), (float) local26, (float) (local26 + 4), (float) local26, 100.0F, 100.0F, 100.0F, Static462.method6270(local67.anInt7768 & 0xFF000000, local89), Static462.method6270(local67.anInt7771 & 0xFF000000, local89), Static462.method6270(local67.anInt7769 & 0xFF000000, local89));
                         }
                     } else if (this.aClass383ArrayArray1[local32][local35] != null) {
                         @Pc(341) Class383 local341 = this.aClass383ArrayArray1[local32][local35];
@@ -886,9 +886,9 @@ public final class Ground_Sub3 extends Ground {
                             local416 = arg8[local392];
                             if (local341.anIntArray801 != null && local341.anIntArray801[local379] != 0 && (local341.aShortArray139 == null || local341.aShortArray139 != null && local341.aShortArray139[local379] == -1)) {
                                 local449 = local341.anIntArray801[local379];
-                                arg6.method5141((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, Static462.method6270(-(local341.anIntArray802[local384] & -16777216) - 16777216, local449), Static462.method6270(-(local341.anIntArray802[local388] & -16777216) - 16777216, local449), Static462.method6270(-(local341.anIntArray802[local392] & -16777216) - 16777216, local449));
+                                arg6.renderTriangleRgb((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, Static462.method6270(-(local341.anIntArray802[local384] & -16777216) - 16777216, local449), Static462.method6270(-(local341.anIntArray802[local388] & -16777216) - 16777216, local449), Static462.method6270(-(local341.anIntArray802[local392] & -16777216) - 16777216, local449));
                             } else if (local341.aShortArray139 == null || local341.aShortArray139[local379] == -1) {
-                                arg6.method5141((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, local341.anIntArray802[local384], local341.anIntArray802[local388], local341.anIntArray802[local392]);
+                                arg6.renderTriangleRgb((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, local341.anIntArray802[local384], local341.anIntArray802[local388], local341.anIntArray802[local392]);
                             } else {
                                 local449 = this.aClass19_Sub2_8.method3793(local341.aShortArray139[local379]);
                                 arg6.method5156((float) local408, (float) local412, (float) local416, (float) local396, (float) local400, (float) local404, 100.0F, 100.0F, 100.0F, (float) local449, (float) local449, (float) local449);
@@ -901,12 +901,12 @@ public final class Ground_Sub3 extends Ground {
             local30 = local7;
             local26 += 4;
         }
-        arg6.aBoolean436 = true;
+        arg6.fastScanline = true;
         this.aClass19_Sub2_8.C(local14);
     }
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(IILclient!lb;[I[I[I[II)V")
-    public void method7165(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Class219 arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int arg7) {
+    public void method7165(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Rasterizer arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int arg7) {
         @Pc(6) Class127 local6 = this.aClass127ArrayArray1[arg0][arg1];
         @Pc(50) int local50;
         @Pc(60) int local60;
@@ -939,8 +939,8 @@ public final class Ground_Sub3 extends Ground {
                         }
                         local2314 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local2253 + this.aFloat162 * (float) local60;
                         local2335 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local2253 + this.aFloat166 * (float) local60;
-                        arg3[local480] = arg2.anInt5723 + (int) (local2314 * (float) this.aClass19_Sub2_8.projectionScaleX / local2284);
-                        arg4[local480] = arg2.anInt5721 + (int) (local2335 * (float) this.aClass19_Sub2_8.projectionScaleY / local2284);
+                        arg3[local480] = arg2.minX + (int) (local2314 * (float) this.aClass19_Sub2_8.projectionScaleX / local2284);
+                        arg4[local480] = arg2.minY + (int) (local2335 * (float) this.aClass19_Sub2_8.projectionScaleY / local2284);
                         arg5[local480] = (int) local2284;
                     }
                 } else {
@@ -951,8 +951,8 @@ public final class Ground_Sub3 extends Ground {
                         local2284 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local2253 + this.aFloat165 * (float) local60;
                         local2314 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local2253 + this.aFloat162 * (float) local60;
                         local2335 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local2253 + this.aFloat166 * (float) local60;
-                        arg3[local480] = arg2.anInt5723 + (int) (local2314 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
-                        arg4[local480] = arg2.anInt5721 + (int) (local2335 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                        arg3[local480] = arg2.minX + (int) (local2314 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                        arg4[local480] = arg2.minY + (int) (local2335 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                         arg5[local480] = (int) local2284;
                     }
                 }
@@ -979,7 +979,7 @@ public final class Ground_Sub3 extends Ground {
                             local2561 = arg4[local2536];
                             local2565 = arg4[local2541];
                             if ((local510 - local2549) * (local2565 - local2561) - (local2557 - local2561) * (local2553 - local2549) > 0) {
-                                arg2.aBoolean434 = local510 < 0 || local2549 < 0 || local2553 < 0 || local510 > arg2.anInt5725 || local2549 > arg2.anInt5725 || local2553 > arg2.anInt5725;
+                                arg2.clamp = local510 < 0 || local2549 < 0 || local2553 < 0 || local510 > arg2.width || local2549 > arg2.width || local2553 > arg2.width;
                                 local2622 = local2204.aShortArray30[local480];
                                 if (local2622 == -1) {
                                     local2753 = local2204.anIntArray230[local480];
@@ -1004,7 +1004,7 @@ public final class Ground_Sub3 extends Ground {
                         local2561 = arg4[local2536];
                         local2565 = arg4[local2541];
                         if ((local510 - local2549) * (local2565 - local2561) - (local2557 - local2561) * (local2553 - local2549) > 0) {
-                            arg2.aBoolean434 = local510 < 0 || local2549 < 0 || local2553 < 0 || local510 > arg2.anInt5725 || local2549 > arg2.anInt5725 || local2553 > arg2.anInt5725;
+                            arg2.clamp = local510 < 0 || local2549 < 0 || local2553 < 0 || local510 > arg2.width || local2549 > arg2.width || local2553 > arg2.width;
                             local2622 = local2204.aShortArray30[local480];
                             if (local2622 == -1) {
                                 local2753 = local2204.anIntArray230[local480];
@@ -1031,7 +1031,7 @@ public final class Ground_Sub3 extends Ground {
                     if ((local510 - local2549) * (local2565 - local2561) - (local2557 - local2561) * (local2553 - local2549) > 0) {
                         @Pc(3170) int local3170 = local2204.anIntArray230[local480];
                         if (local3170 != -1) {
-                            arg2.aBoolean434 = local510 < 0 || local2549 < 0 || local2553 < 0 || local510 > arg2.anInt5725 || local2549 > arg2.anInt5725 || local2553 > arg2.anInt5725;
+                            arg2.clamp = local510 < 0 || local2549 < 0 || local2553 < 0 || local510 > arg2.width || local2549 > arg2.width || local2553 > arg2.width;
                             arg2.method5156((float) local2557, (float) local2561, (float) local2565, (float) local510, (float) local2549, (float) local2553, (float) arg5[local2531], (float) arg5[local2536], (float) arg5[local2541], (float) Static244.method3513(local2204.aShortArray35[local2531], local3170), (float) Static244.method3513(local2204.aShortArray35[local2536], local3170), (float) Static244.method3513(local2204.aShortArray35[local2541], local3170));
                         }
                     }
@@ -1093,42 +1093,42 @@ public final class Ground_Sub3 extends Ground {
                         return;
                     }
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local72 + this.aFloat162 * (float) local55;
-                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / local99);
+                    local300 = arg2.minX + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / local99);
                     local317 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local72 + this.aFloat166 * (float) local55;
-                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / local99);
+                    local330 = arg2.minY + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / local99);
                     local347 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local784 + this.aFloat162 * (float) local55;
-                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / local125);
+                    local360 = arg2.minX + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / local125);
                     local377 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local784 + this.aFloat166 * (float) local55;
-                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / local125);
+                    local390 = arg2.minY + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / local125);
                     local407 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local795 + this.aFloat162 * (float) local60;
-                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / local151);
+                    local420 = arg2.minX + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / local151);
                     local437 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local795 + this.aFloat166 * (float) local60;
-                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / local151);
+                    local450 = arg2.minY + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / local151);
                     local467 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local804 + this.aFloat162 * (float) local60;
-                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / local177);
+                    local480 = arg2.minX + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / local177);
                     local497 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local804 + this.aFloat166 * (float) local60;
-                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / local177);
+                    local510 = arg2.minY + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / local177);
                 } else {
                     local99 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local72 + this.aFloat165 * (float) local55;
                     local125 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local784 + this.aFloat165 * (float) local55;
                     local151 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local795 + this.aFloat165 * (float) local60;
                     local177 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local804 + this.aFloat165 * (float) local60;
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local72 + this.aFloat162 * (float) local55;
-                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local300 = arg2.minX + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local317 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local72 + this.aFloat166 * (float) local55;
-                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local330 = arg2.minY + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local347 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local784 + this.aFloat162 * (float) local55;
-                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local360 = arg2.minX + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local377 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local784 + this.aFloat166 * (float) local55;
-                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local390 = arg2.minY + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local407 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local795 + this.aFloat162 * (float) local60;
-                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local420 = arg2.minX + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local437 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local795 + this.aFloat166 * (float) local60;
-                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local450 = arg2.minY + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local467 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local804 + this.aFloat162 * (float) local60;
-                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local480 = arg2.minX + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local497 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local804 + this.aFloat166 * (float) local60;
-                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local510 = arg2.minY + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 }
             } else {
                 local72 = super.tileHeights[arg0][arg1];
@@ -1160,43 +1160,43 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(266) float local266 = this.aFloat163 * (float) local72;
                 if (this.anInt8145 == -1) {
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + local260 + this.aFloat162 * (float) local55;
-                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / local99);
+                    local300 = arg2.minX + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / local99);
                     local317 = this.aFloat169 + this.aFloat168 * (float) local45 + local266 + this.aFloat166 * (float) local55;
-                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / local99);
+                    local330 = arg2.minY + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / local99);
                     local347 = this.aFloat171 + this.aFloat170 * (float) local50 + local260 + this.aFloat162 * (float) local55;
-                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / local125);
+                    local360 = arg2.minX + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / local125);
                     local377 = this.aFloat169 + this.aFloat168 * (float) local50 + local266 + this.aFloat166 * (float) local55;
-                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / local125);
+                    local390 = arg2.minY + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / local125);
                     local407 = this.aFloat171 + this.aFloat170 * (float) local50 + local260 + this.aFloat162 * (float) local60;
-                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / local151);
+                    local420 = arg2.minX + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / local151);
                     local437 = this.aFloat169 + this.aFloat168 * (float) local50 + local266 + this.aFloat166 * (float) local60;
-                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / local151);
+                    local450 = arg2.minY + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / local151);
                     local467 = this.aFloat171 + this.aFloat170 * (float) local45 + local260 + this.aFloat162 * (float) local60;
-                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / local177);
+                    local480 = arg2.minX + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / local177);
                     local497 = this.aFloat169 + this.aFloat168 * (float) local45 + local266 + this.aFloat166 * (float) local60;
-                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / local177);
+                    local510 = arg2.minY + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / local177);
                 } else {
                     local287 = this.aFloat171 + this.aFloat170 * (float) local45 + local260 + this.aFloat162 * (float) local55;
-                    local300 = arg2.anInt5723 + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local300 = arg2.minX + (int) (local287 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local317 = this.aFloat169 + this.aFloat168 * (float) local45 + local266 + this.aFloat166 * (float) local55;
-                    local330 = arg2.anInt5721 + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local330 = arg2.minY + (int) (local317 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local347 = this.aFloat171 + this.aFloat170 * (float) local50 + local260 + this.aFloat162 * (float) local55;
-                    local360 = arg2.anInt5723 + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local360 = arg2.minX + (int) (local347 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local377 = this.aFloat169 + this.aFloat168 * (float) local50 + local266 + this.aFloat166 * (float) local55;
-                    local390 = arg2.anInt5721 + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local390 = arg2.minY + (int) (local377 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local407 = this.aFloat171 + this.aFloat170 * (float) local50 + local260 + this.aFloat162 * (float) local60;
-                    local420 = arg2.anInt5723 + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local420 = arg2.minX + (int) (local407 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local437 = this.aFloat169 + this.aFloat168 * (float) local50 + local266 + this.aFloat166 * (float) local60;
-                    local450 = arg2.anInt5721 + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local450 = arg2.minY + (int) (local437 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local467 = this.aFloat171 + this.aFloat170 * (float) local45 + local260 + this.aFloat162 * (float) local60;
-                    local480 = arg2.anInt5723 + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local480 = arg2.minX + (int) (local467 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local497 = this.aFloat169 + this.aFloat168 * (float) local45 + local266 + this.aFloat166 * (float) local60;
-                    local510 = arg2.anInt5721 + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local510 = arg2.minY + (int) (local497 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 }
             }
             if (this.anInt8145 == -1) {
                 if ((local420 - local480) * (local390 - local510) - (local450 - local510) * (local360 - local480) > 0) {
-                    arg2.aBoolean434 = local420 < 0 || local480 < 0 || local360 < 0 || local420 > arg2.anInt5725 || local480 > arg2.anInt5725 || local360 > arg2.anInt5725;
+                    arg2.clamp = local420 < 0 || local480 < 0 || local360 < 0 || local420 > arg2.width || local480 > arg2.width || local360 > arg2.width;
                     if (local6.aShort38 >= 0) {
                         arg2.method5150((float) local450, (float) local510, (float) local390, (float) local420, (float) local480, (float) local360, local151, local177, local125, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, ColourUtils.HSV_TO_RGB[local6.aShort41 & 0xFFFF] & 0xFFFFFF | 0xFF000000, ColourUtils.HSV_TO_RGB[local6.aShort40 & 0xFFFF] & 0xFFFFFF | 0xFF000000, ColourUtils.HSV_TO_RGB[local6.aShort39 & 0xFFFF] & 0xFFFFFF | 0xFF000000, 0, 0, 0, 0, local6.aShort38);
                     } else {
@@ -1204,7 +1204,7 @@ public final class Ground_Sub3 extends Ground {
                     }
                 }
                 if ((local300 - local360) * (local510 - local390) - (local330 - local390) * (local480 - local360) > 0) {
-                    arg2.aBoolean434 = local300 < 0 || local360 < 0 || local480 < 0 || local300 > arg2.anInt5725 || local360 > arg2.anInt5725 || local480 > arg2.anInt5725;
+                    arg2.clamp = local300 < 0 || local360 < 0 || local480 < 0 || local300 > arg2.width || local360 > arg2.width || local480 > arg2.width;
                     if (local6.aShort38 >= 0) {
                         arg2.method5150((float) local330, (float) local390, (float) local510, (float) local300, (float) local360, (float) local480, local99, local125, local177, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, ColourUtils.HSV_TO_RGB[local6.aShort42 & 0xFFFF] & 0xFFFFFF | 0xFF000000, ColourUtils.HSV_TO_RGB[local6.aShort39 & 0xFFFF] & 0xFFFFFF | 0xFF000000, ColourUtils.HSV_TO_RGB[local6.aShort40 & 0xFFFF] & 0xFFFFFF | 0xFF000000, 0, 0, 0, 0, local6.aShort38);
                         return;
@@ -1214,7 +1214,7 @@ public final class Ground_Sub3 extends Ground {
                 }
             } else {
                 if ((local420 - local480) * (local390 - local510) - (local450 - local510) * (local360 - local480) > 0) {
-                    arg2.aBoolean434 = local420 < 0 || local480 < 0 || local360 < 0 || local420 > arg2.anInt5725 || local480 > arg2.anInt5725 || local360 > arg2.anInt5725;
+                    arg2.clamp = local420 < 0 || local480 < 0 || local360 < 0 || local420 > arg2.width || local480 > arg2.width || local360 > arg2.width;
                     if (local6.aShort38 >= 0) {
                         arg2.method5150((float) local450, (float) local510, (float) local390, (float) local420, (float) local480, (float) local360, local151, local177, local125, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, ColourUtils.HSV_TO_RGB[local6.aShort41 & 0xFFFF] & 0xFFFFFF | 0xFF000000, ColourUtils.HSV_TO_RGB[local6.aShort40 & 0xFFFF] & 0xFFFFFF | 0xFF000000, ColourUtils.HSV_TO_RGB[local6.aShort39 & 0xFFFF] & 0xFFFFFF | 0xFF000000, 0, 0, 0, 0, local6.aShort38);
                     } else {
@@ -1222,7 +1222,7 @@ public final class Ground_Sub3 extends Ground {
                     }
                 }
                 if ((local300 - local360) * (local510 - local390) - (local330 - local390) * (local480 - local360) > 0) {
-                    arg2.aBoolean434 = local300 < 0 || local360 < 0 || local480 < 0 || local300 > arg2.anInt5725 || local360 > arg2.anInt5725 || local480 > arg2.anInt5725;
+                    arg2.clamp = local300 < 0 || local360 < 0 || local480 < 0 || local300 > arg2.width || local360 > arg2.width || local480 > arg2.width;
                     if (local6.aShort38 >= 0) {
                         arg2.method5150((float) local330, (float) local390, (float) local510, (float) local300, (float) local360, (float) local480, local99, local125, local177, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, ColourUtils.HSV_TO_RGB[local6.aShort42 & 0xFFFF] & 0xFFFFFF | 0xFF000000, ColourUtils.HSV_TO_RGB[local6.aShort39 & 0xFFFF] & 0xFFFFFF | 0xFF000000, ColourUtils.HSV_TO_RGB[local6.aShort40 & 0xFFFF] & 0xFFFFFF | 0xFF000000, 0, 0, 0, 0, local6.aShort38);
                         return;
@@ -1236,20 +1236,20 @@ public final class Ground_Sub3 extends Ground {
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(III[[ZZII)V")
     @Override
     public void method7877(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean[][] arg3, @OriginalArg(4) boolean arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        @Pc(3) JavaMatrix local3 = this.aClass19_Sub2_8.aClass73_Sub2_1;
+        @Pc(3) JavaMatrix local3 = this.aClass19_Sub2_8.camera;
         this.anInt8145 = arg5;
-        this.aFloat170 = local3.aFloat59;
-        this.aFloat167 = local3.aFloat55;
-        this.aFloat162 = local3.aFloat53;
-        this.aFloat171 = local3.aFloat60;
-        this.aFloat168 = local3.aFloat57;
-        this.aFloat163 = local3.aFloat52;
-        this.aFloat166 = local3.aFloat51;
-        this.aFloat169 = local3.aFloat58;
-        this.aFloat164 = local3.aFloat56;
-        this.aFloat172 = local3.aFloat54;
-        this.aFloat165 = local3.aFloat61;
-        this.aFloat173 = local3.aFloat62;
+        this.aFloat170 = local3.e1_1;
+        this.aFloat167 = local3.e1_2;
+        this.aFloat162 = local3.e1_3;
+        this.aFloat171 = local3.tx;
+        this.aFloat168 = local3.e2_1;
+        this.aFloat163 = local3.e2_2;
+        this.aFloat166 = local3.e2_3;
+        this.aFloat169 = local3.ty;
+        this.aFloat164 = local3.e3_1;
+        this.aFloat172 = local3.e3_2;
+        this.aFloat165 = local3.e3_3;
+        this.aFloat173 = local3.tz;
         for (@Pc(56) int local56 = 0; local56 < arg2 + arg2; local56++) {
             for (@Pc(59) int local59 = 0; local59 < arg2 + arg2; local59++) {
                 if (arg3[local56][local59]) {
@@ -1266,10 +1266,10 @@ public final class Ground_Sub3 extends Ground {
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(IIIIIII[[Z)V")
     @Override
     public void method7873(@OriginalArg(3) int x1, @OriginalArg(4) int y1, @OriginalArg(5) int x2, @OriginalArg(6) int y2, @OriginalArg(7) boolean[][] visibility) {
-        @Pc(4) Class399 local4 = this.aClass19_Sub2_8.method3787(Thread.currentThread());
-        @Pc(7) Class219 local7 = local4.aClass219_2;
-        local7.anInt5724 = 0;
-        local7.aBoolean434 = true;
+        @Pc(4) JavaThreadResource local4 = this.aClass19_Sub2_8.threadResource(Thread.currentThread());
+        @Pc(7) Rasterizer local7 = local4.rasterizer;
+        local7.alpha = 0;
+        local7.clamp = true;
         this.aClass19_Sub2_8.ya();
         if (this.aClass305ArrayArray1 != null || this.aClass320ArrayArray1 != null) {
             this.method7164(x1, y1, x2, y2, visibility, local4, local7, local4.anIntArray840, local4.anIntArray843);
@@ -1352,7 +1352,7 @@ public final class Ground_Sub3 extends Ground {
                 local370 = arg11[local323];
                 if (local370 != -1) {
                     @Pc(490) TextureMetrics local490 = this.aClass19_Sub2_8.textureSource.getMetrics(local370);
-                    if (!local490.aBoolean240) {
+                    if (!local490.disableable) {
                         local454 = true;
                         if (this.method7162(local490.effectType) || local490.speedU != 0 || local490.speedV != 0) {
                             local118.aByte51 = (byte) (local118.aByte51 | 0x4);
@@ -1389,7 +1389,7 @@ public final class Ground_Sub3 extends Ground {
                     local118.aShortArray37[local118.aShort33] = (short) arg7[local370];
                     local118.aShortArray36[local118.aShort33] = (short) arg8[local370];
                     if (local454) {
-                        if (arg11[local370] == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(arg11[local370]).aBoolean240) {
+                        if (arg11[local370] == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(arg11[local370]).disableable) {
                             local118.aShortArray30[local118.aShort33] = -1;
                         } else {
                             local118.aShortArray30[local118.aShort33] = (short) arg11[local370];
@@ -1417,7 +1417,7 @@ public final class Ground_Sub3 extends Ground {
             if (local85 != -1) {
                 local849 = this.aClass19_Sub2_8.textureSource.getMetrics(local85);
             }
-            if (local849 == null || (local741.aByte59 & 0x2) != 0 || local849.aBoolean240) {
+            if (local849 == null || (local741.aByte59 & 0x2) != 0 || local849.disableable) {
                 @Pc(987) short local987 = ColourUtils.hslToHsv(local79);
                 local741.aShort42 = (short) Static244.method3513(this.aByteArrayArray31[arg0][arg1] - this.aByteArrayArray30[arg0][arg1], local987);
                 local741.aShort39 = (short) Static244.method3513(this.aByteArrayArray31[arg0 + 1][arg1] - this.aByteArrayArray30[arg0 + 1][arg1], local987);
@@ -1447,7 +1447,7 @@ public final class Ground_Sub3 extends Ground {
     }
 
     @OriginalMember(owner = "client!qs", name = "b", descriptor = "(IIZLclient!wf;Lclient!lb;[I[I[I[II)V")
-    public void method7166(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) Class399 arg3, @OriginalArg(4) Class219 arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int arg9) {
+    public void method7166(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) JavaThreadResource arg3, @OriginalArg(4) Rasterizer arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int arg9) {
         @Pc(6) Class305 local6 = this.aClass305ArrayArray1[arg0][arg1];
         @Pc(50) int local50;
         @Pc(55) int local55;
@@ -1483,7 +1483,7 @@ public final class Ground_Sub3 extends Ground {
                         }
                         arg8[local559] = 0;
                         if (arg2) {
-                            local409 = (int) (local3222 - (float) arg3.anInt10601);
+                            local409 = (int) (local3222 - (float) arg3.fogPlane);
                             if (local409 > 255) {
                                 local409 = 255;
                             }
@@ -1494,8 +1494,8 @@ public final class Ground_Sub3 extends Ground {
                                     local55 -= local469;
                                 }
                             }
-                        } else if (arg3.aBoolean806) {
-                            local409 = (int) (local3222 - (float) arg3.anInt10601);
+                        } else if (arg3.fogActive) {
+                            local409 = (int) (local3222 - (float) arg3.fogPlane);
                             if (local409 > 0) {
                                 arg8[local559] = local409;
                                 if (arg8[local559] > 255) {
@@ -1505,8 +1505,8 @@ public final class Ground_Sub3 extends Ground {
                         }
                         local3321 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local55 + this.aFloat162 * (float) local60;
                         local3342 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local55 + this.aFloat166 * (float) local60;
-                        arg5[local559] = arg4.anInt5723 + (int) (local3321 * (float) this.aClass19_Sub2_8.projectionScaleX / local3222);
-                        arg6[local559] = arg4.anInt5721 + (int) (local3342 * (float) this.aClass19_Sub2_8.projectionScaleY / local3222);
+                        arg5[local559] = arg4.minX + (int) (local3321 * (float) this.aClass19_Sub2_8.projectionScaleX / local3222);
+                        arg6[local559] = arg4.minY + (int) (local3342 * (float) this.aClass19_Sub2_8.projectionScaleY / local3222);
                         arg7[local559] = (int) local3222;
                     }
                 } else {
@@ -1517,7 +1517,7 @@ public final class Ground_Sub3 extends Ground {
                         local3222 = this.aFloat173 + this.aFloat164 * (float) local50 + this.aFloat172 * (float) local55 + this.aFloat165 * (float) local60;
                         arg8[local559] = 0;
                         if (arg2) {
-                            local409 = this.anInt8145 - arg3.anInt10601;
+                            local409 = this.anInt8145 - arg3.fogPlane;
                             if (local409 > 255) {
                                 local409 = 255;
                             }
@@ -1528,8 +1528,8 @@ public final class Ground_Sub3 extends Ground {
                                     local55 -= local469;
                                 }
                             }
-                        } else if (arg3.aBoolean806) {
-                            local409 = this.anInt8145 - arg3.anInt10601;
+                        } else if (arg3.fogActive) {
+                            local409 = this.anInt8145 - arg3.fogPlane;
                             if (local409 > 0) {
                                 arg8[local559] = local409;
                                 if (arg8[local559] > 255) {
@@ -1539,8 +1539,8 @@ public final class Ground_Sub3 extends Ground {
                         }
                         local3321 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local55 + this.aFloat162 * (float) local60;
                         local3342 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local55 + this.aFloat166 * (float) local60;
-                        arg5[local559] = arg4.anInt5723 + (int) (local3321 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
-                        arg6[local559] = arg4.anInt5721 + (int) (local3342 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                        arg5[local559] = arg4.minX + (int) (local3321 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                        arg6[local559] = arg4.minY + (int) (local3342 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                         arg7[local559] = (int) local3222;
                     }
                 }
@@ -1566,23 +1566,23 @@ public final class Ground_Sub3 extends Ground {
                             local3636 = arg6[local529];
                             local3648 = arg8[local409] + arg8[local469] + arg8[local529];
                             if ((local589 - local3620) * (local3636 - local3632) - (local3628 - local3632) * (local3624 - local3620) > 0) {
-                                arg4.aBoolean434 = local589 < 0 || local3620 < 0 || local3624 < 0 || local589 > arg4.anInt5725 || local3620 > arg4.anInt5725 || local3624 > arg4.anInt5725;
+                                arg4.clamp = local589 < 0 || local3620 < 0 || local3624 < 0 || local589 > arg4.width || local3620 > arg4.width || local3624 > arg4.width;
                                 local3705 = local3142.aShortArray139[local559];
                                 if (local3648 >= 765) {
-                                    arg4.method5158((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], arg3.anInt10597);
+                                    arg4.renderFlatTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], arg3.fogColour);
                                 } else if (local3648 > 0) {
                                     if (local3705 != -1) {
                                         local3719 = -16777216;
                                         if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).effectType)) {
                                             local3719 = -1694498816;
                                         }
-                                        arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, arg3.anInt10597, arg8[local409], arg8[local469], arg8[local529], local3705);
+                                        arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, arg3.fogColour, arg8[local409], arg8[local469], arg8[local529], local3705);
                                     } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
                                         if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).effectType)) {
-                                            arg4.anInt5724 = -1694498816;
+                                            arg4.alpha = -1694498816;
                                         }
-                                        arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], Static462.method6270(arg8[local409] << 24 | arg3.anInt10597, local3142.anIntArray802[local409]), Static462.method6270(arg8[local469] << 24 | arg3.anInt10597, local3142.anIntArray802[local469]), Static462.method6270(arg8[local529] << 24 | arg3.anInt10597, local3142.anIntArray802[local529]));
-                                        arg4.anInt5724 = 0;
+                                        arg4.renderTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], Static462.method6270(arg8[local409] << 24 | arg3.fogColour, local3142.anIntArray802[local409]), Static462.method6270(arg8[local469] << 24 | arg3.fogColour, local3142.anIntArray802[local469]), Static462.method6270(arg8[local529] << 24 | arg3.fogColour, local3142.anIntArray802[local529]));
+                                        arg4.alpha = 0;
                                     }
                                 } else if (local3705 != -1) {
                                     local3719 = -16777216;
@@ -1592,10 +1592,10 @@ public final class Ground_Sub3 extends Ground {
                                     arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, 0, 0, 0, 0, local3705);
                                 } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
                                     if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).effectType)) {
-                                        arg4.anInt5724 = -1694498816;
+                                        arg4.alpha = -1694498816;
                                     }
-                                    arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], local3142.anIntArray802[local409], local3142.anIntArray802[local469], local3142.anIntArray802[local529]);
-                                    arg4.anInt5724 = 0;
+                                    arg4.renderTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], local3142.anIntArray802[local409], local3142.anIntArray802[local469], local3142.anIntArray802[local529]);
+                                    arg4.alpha = 0;
                                 }
                             }
                         }
@@ -1613,11 +1613,11 @@ public final class Ground_Sub3 extends Ground {
                         local3636 = arg6[local529];
                         local3648 = arg8[local409] + arg8[local469] + arg8[local529];
                         if ((local589 - local3620) * (local3636 - local3632) - (local3628 - local3632) * (local3624 - local3620) > 0) {
-                            arg4.aBoolean434 = local589 < 0 || local3620 < 0 || local3624 < 0 || local589 > arg4.anInt5725 || local3620 > arg4.anInt5725 || local3624 > arg4.anInt5725;
+                            arg4.clamp = local589 < 0 || local3620 < 0 || local3624 < 0 || local589 > arg4.width || local3620 > arg4.width || local3624 > arg4.width;
                             local3705 = local3142.aShortArray139[local559];
                             if (local3648 < 765) {
                                 if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).effectType)) {
-                                    arg4.anInt5724 = -1694498816;
+                                    arg4.alpha = -1694498816;
                                 }
                                 if (local3648 > 0) {
                                     if (local3705 != -1) {
@@ -1625,13 +1625,13 @@ public final class Ground_Sub3 extends Ground {
                                         if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).effectType)) {
                                             local3719 = -1694498816;
                                         }
-                                        arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, arg3.anInt10597, arg8[local409], arg8[local469], arg8[local529], local3705);
+                                        arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, arg3.fogColour, arg8[local409], arg8[local469], arg8[local529], local3705);
                                     } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
                                         if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).effectType)) {
-                                            arg4.anInt5724 = -1694498816;
+                                            arg4.alpha = -1694498816;
                                         }
-                                        arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], Static462.method6270(arg8[local409] << 24 | arg3.anInt10597, local3142.anIntArray802[local409]), Static462.method6270(arg8[local469] << 24 | arg3.anInt10597, local3142.anIntArray802[local469]), Static462.method6270(arg8[local529] << 24 | arg3.anInt10597, local3142.anIntArray802[local529]));
-                                        arg4.anInt5724 = 0;
+                                        arg4.renderTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], Static462.method6270(arg8[local409] << 24 | arg3.fogColour, local3142.anIntArray802[local409]), Static462.method6270(arg8[local469] << 24 | arg3.fogColour, local3142.anIntArray802[local469]), Static462.method6270(arg8[local529] << 24 | arg3.fogColour, local3142.anIntArray802[local529]));
+                                        arg4.alpha = 0;
                                     }
                                 } else if (local3705 != -1) {
                                     local3719 = -16777216;
@@ -1641,14 +1641,14 @@ public final class Ground_Sub3 extends Ground {
                                     arg4.method5150((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], (float) local3142.aShortArray142[local409] / (float) super.anInt8888, (float) local3142.aShortArray142[local469] / (float) super.anInt8888, (float) local3142.aShortArray142[local529] / (float) super.anInt8888, (float) local3142.aShortArray141[local409] / (float) super.anInt8888, (float) local3142.aShortArray141[local469] / (float) super.anInt8888, (float) local3142.aShortArray141[local529] / (float) super.anInt8888, local3719 | local3142.anIntArray802[local409] & 0xFFFFFF, local3719 | local3142.anIntArray802[local469] & 0xFFFFFF, local3719 | local3142.anIntArray802[local529] & 0xFFFFFF, 0, 0, 0, 0, local3705);
                                 } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
                                     if (local3705 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local3705).effectType)) {
-                                        arg4.anInt5724 = -1694498816;
+                                        arg4.alpha = -1694498816;
                                     }
-                                    arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], local3142.anIntArray802[local409], local3142.anIntArray802[local469], local3142.anIntArray802[local529]);
-                                    arg4.anInt5724 = 0;
+                                    arg4.renderTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], local3142.anIntArray802[local409], local3142.anIntArray802[local469], local3142.anIntArray802[local529]);
+                                    arg4.alpha = 0;
                                 }
-                                arg4.anInt5724 = 0;
+                                arg4.alpha = 0;
                             } else {
-                                arg4.method5158((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], arg3.anInt10597);
+                                arg4.renderFlatTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], arg3.fogColour);
                             }
                         }
                     }
@@ -1666,15 +1666,15 @@ public final class Ground_Sub3 extends Ground {
                     local3636 = arg6[local529];
                     local3648 = arg8[local409] + arg8[local469] + arg8[local529];
                     if ((local589 - local3620) * (local3636 - local3632) - (local3628 - local3632) * (local3624 - local3620) > 0) {
-                        arg4.aBoolean434 = local589 < 0 || local3620 < 0 || local3624 < 0 || local589 > arg4.anInt5725 || local3620 > arg4.anInt5725 || local3624 > arg4.anInt5725;
+                        arg4.clamp = local589 < 0 || local3620 < 0 || local3624 < 0 || local589 > arg4.width || local3620 > arg4.width || local3624 > arg4.width;
                         if (local3648 >= 765) {
-                            arg4.method5158((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], arg3.anInt10597);
+                            arg4.renderFlatTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], arg3.fogColour);
                         } else if (local3648 > 0) {
                             if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
-                                arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], Static572.method7867(arg3.anInt10597, local3142.anIntArray802[local409], arg8[local409]), Static572.method7867(arg3.anInt10597, local3142.anIntArray802[local469], arg8[local469]), Static572.method7867(arg3.anInt10597, local3142.anIntArray802[local529], arg8[local529]));
+                                arg4.renderTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], Static572.method7867(arg3.fogColour, local3142.anIntArray802[local409], arg8[local409]), Static572.method7867(arg3.fogColour, local3142.anIntArray802[local469], arg8[local469]), Static572.method7867(arg3.fogColour, local3142.anIntArray802[local529], arg8[local529]));
                             }
                         } else if ((local3142.anIntArray802[local409] & 0xFFFFFF) != 0) {
-                            arg4.method5141((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], local3142.anIntArray802[local409], local3142.anIntArray802[local469], local3142.anIntArray802[local529]);
+                            arg4.renderTriangleRgb((float) local3628, (float) local3632, (float) local3636, (float) local589, (float) local3620, (float) local3624, (float) arg7[local409], (float) arg7[local469], (float) arg7[local529], local3142.anIntArray802[local409], local3142.anIntArray802[local469], local3142.anIntArray802[local529]);
                         }
                     }
                 }
@@ -1745,7 +1745,7 @@ public final class Ground_Sub3 extends Ground {
                     local189 = this.aFloat173 + this.aFloat164 * (float) local45 + this.aFloat172 * (float) local883 + this.aFloat165 * (float) local60;
                 }
                 if (arg2) {
-                    local276 = (int) (local111 - (float) arg3.anInt10601);
+                    local276 = (int) (local111 - (float) arg3.fogPlane);
                     if (local276 > 255) {
                         local276 = 255;
                     }
@@ -1757,7 +1757,7 @@ public final class Ground_Sub3 extends Ground {
                             local84 -= local1116;
                         }
                     }
-                    local276 = (int) (local137 - (float) arg3.anInt10601);
+                    local276 = (int) (local137 - (float) arg3.fogPlane);
                     if (local276 > 255) {
                         local276 = 255;
                     }
@@ -1768,7 +1768,7 @@ public final class Ground_Sub3 extends Ground {
                             local863 -= local1116;
                         }
                     }
-                    local276 = (int) (local163 - (float) arg3.anInt10601);
+                    local276 = (int) (local163 - (float) arg3.fogPlane);
                     if (local276 > 255) {
                         local276 = 255;
                     }
@@ -1779,7 +1779,7 @@ public final class Ground_Sub3 extends Ground {
                             local874 -= local1116;
                         }
                     }
-                    local276 = (int) (local189 - (float) arg3.anInt10601);
+                    local276 = (int) (local189 - (float) arg3.fogPlane);
                     if (local276 > 255) {
                         local276 = 255;
                     }
@@ -1790,29 +1790,29 @@ public final class Ground_Sub3 extends Ground {
                             local883 -= local1116;
                         }
                     }
-                } else if (arg3.aBoolean806) {
-                    local276 = (int) (local111 - (float) arg3.anInt10601);
+                } else if (arg3.fogActive) {
+                    local276 = (int) (local111 - (float) arg3.fogPlane);
                     if (local276 > 0) {
                         local62 = local276;
                         if (local276 > 255) {
                             local62 = 255;
                         }
                     }
-                    local276 = (int) (local137 - (float) arg3.anInt10601);
+                    local276 = (int) (local137 - (float) arg3.fogPlane);
                     if (local276 > 0) {
                         local64 = local276;
                         if (local276 > 255) {
                             local64 = 255;
                         }
                     }
-                    local276 = (int) (local163 - (float) arg3.anInt10601);
+                    local276 = (int) (local163 - (float) arg3.fogPlane);
                     if (local276 > 0) {
                         local66 = local276;
                         if (local276 > 255) {
                             local66 = 255;
                         }
                     }
-                    local276 = (int) (local189 - (float) arg3.anInt10601);
+                    local276 = (int) (local189 - (float) arg3.fogPlane);
                     if (local276 > 0) {
                         local68 = local276;
                         if (local276 > 255) {
@@ -1822,38 +1822,38 @@ public final class Ground_Sub3 extends Ground {
                 }
                 if (this.anInt8145 == -1) {
                     local366 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local84 + this.aFloat162 * (float) local55;
-                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / local111);
+                    local379 = arg4.minX + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / local111);
                     local396 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local84 + this.aFloat166 * (float) local55;
-                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / local111);
+                    local409 = arg4.minY + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / local111);
                     local426 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local863 + this.aFloat162 * (float) local55;
-                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / local137);
+                    local439 = arg4.minX + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / local137);
                     local456 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local863 + this.aFloat166 * (float) local55;
-                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / local137);
+                    local469 = arg4.minY + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / local137);
                     local486 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local874 + this.aFloat162 * (float) local60;
-                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / local163);
+                    local499 = arg4.minX + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / local163);
                     local516 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local874 + this.aFloat166 * (float) local60;
-                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / local163);
+                    local529 = arg4.minY + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / local163);
                     local546 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local883 + this.aFloat162 * (float) local60;
-                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / local189);
+                    local559 = arg4.minX + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / local189);
                     local576 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local883 + this.aFloat166 * (float) local60;
-                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / local189);
+                    local589 = arg4.minY + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / local189);
                 } else {
                     local366 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local84 + this.aFloat162 * (float) local55;
-                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local379 = arg4.minX + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local396 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local84 + this.aFloat166 * (float) local55;
-                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local409 = arg4.minY + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local426 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local863 + this.aFloat162 * (float) local55;
-                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local439 = arg4.minX + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local456 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local863 + this.aFloat166 * (float) local55;
-                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local469 = arg4.minY + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local486 = this.aFloat171 + this.aFloat170 * (float) local50 + this.aFloat167 * (float) local874 + this.aFloat162 * (float) local60;
-                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local499 = arg4.minX + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local516 = this.aFloat169 + this.aFloat168 * (float) local50 + this.aFloat163 * (float) local874 + this.aFloat166 * (float) local60;
-                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local529 = arg4.minY + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local546 = this.aFloat171 + this.aFloat170 * (float) local45 + this.aFloat167 * (float) local883 + this.aFloat162 * (float) local60;
-                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local559 = arg4.minX + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local576 = this.aFloat169 + this.aFloat168 * (float) local45 + this.aFloat163 * (float) local883 + this.aFloat166 * (float) local60;
-                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local589 = arg4.minY + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 }
             } else {
                 local84 = super.tileHeights[arg0][arg1];
@@ -1881,29 +1881,29 @@ public final class Ground_Sub3 extends Ground {
                     local163 = this.aFloat173 + this.aFloat164 * (float) local50 + local90 + this.aFloat165 * (float) local60;
                     local189 = this.aFloat173 + this.aFloat164 * (float) local45 + local90 + this.aFloat165 * (float) local60;
                 }
-                if (arg3.aBoolean806) {
-                    local276 = (int) (local111 - (float) arg3.anInt10601);
+                if (arg3.fogActive) {
+                    local276 = (int) (local111 - (float) arg3.fogPlane);
                     if (local276 > 0) {
                         local62 = local276;
                         if (local276 > 255) {
                             local62 = 255;
                         }
                     }
-                    local276 = (int) (local137 - (float) arg3.anInt10601);
+                    local276 = (int) (local137 - (float) arg3.fogPlane);
                     if (local276 > 0) {
                         local64 = local276;
                         if (local276 > 255) {
                             local64 = 255;
                         }
                     }
-                    local276 = (int) (local163 - (float) arg3.anInt10601);
+                    local276 = (int) (local163 - (float) arg3.fogPlane);
                     if (local276 > 0) {
                         local66 = local276;
                         if (local276 > 255) {
                             local66 = 255;
                         }
                     }
-                    local276 = (int) (local189 - (float) arg3.anInt10601);
+                    local276 = (int) (local189 - (float) arg3.fogPlane);
                     if (local276 > 0) {
                         local68 = local276;
                         if (local276 > 255) {
@@ -1915,60 +1915,60 @@ public final class Ground_Sub3 extends Ground {
                 @Pc(345) float local345 = this.aFloat163 * (float) local84;
                 if (this.anInt8145 == -1) {
                     local366 = this.aFloat171 + this.aFloat170 * (float) local45 + local339 + this.aFloat162 * (float) local55;
-                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / local111);
+                    local379 = arg4.minX + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / local111);
                     local396 = this.aFloat169 + this.aFloat168 * (float) local45 + local345 + this.aFloat166 * (float) local55;
-                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / local111);
+                    local409 = arg4.minY + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / local111);
                     local426 = this.aFloat171 + this.aFloat170 * (float) local50 + local339 + this.aFloat162 * (float) local55;
-                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / local137);
+                    local439 = arg4.minX + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / local137);
                     local456 = this.aFloat169 + this.aFloat168 * (float) local50 + local345 + this.aFloat166 * (float) local55;
-                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / local137);
+                    local469 = arg4.minY + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / local137);
                     local486 = this.aFloat171 + this.aFloat170 * (float) local50 + local339 + this.aFloat162 * (float) local60;
-                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / local163);
+                    local499 = arg4.minX + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / local163);
                     local516 = this.aFloat169 + this.aFloat168 * (float) local50 + local345 + this.aFloat166 * (float) local60;
-                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / local163);
+                    local529 = arg4.minY + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / local163);
                     local546 = this.aFloat171 + this.aFloat170 * (float) local45 + local339 + this.aFloat162 * (float) local60;
-                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / local189);
+                    local559 = arg4.minX + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / local189);
                     local576 = this.aFloat169 + this.aFloat168 * (float) local45 + local345 + this.aFloat166 * (float) local60;
-                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / local189);
+                    local589 = arg4.minY + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / local189);
                 } else {
                     local366 = this.aFloat171 + this.aFloat170 * (float) local45 + local339 + this.aFloat162 * (float) local55;
-                    local379 = arg4.anInt5723 + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local379 = arg4.minX + (int) (local366 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local396 = this.aFloat169 + this.aFloat168 * (float) local45 + local345 + this.aFloat166 * (float) local55;
-                    local409 = arg4.anInt5721 + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local409 = arg4.minY + (int) (local396 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local426 = this.aFloat171 + this.aFloat170 * (float) local50 + local339 + this.aFloat162 * (float) local55;
-                    local439 = arg4.anInt5723 + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local439 = arg4.minX + (int) (local426 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local456 = this.aFloat169 + this.aFloat168 * (float) local50 + local345 + this.aFloat166 * (float) local55;
-                    local469 = arg4.anInt5721 + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local469 = arg4.minY + (int) (local456 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local486 = this.aFloat171 + this.aFloat170 * (float) local50 + local339 + this.aFloat162 * (float) local60;
-                    local499 = arg4.anInt5723 + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local499 = arg4.minX + (int) (local486 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local516 = this.aFloat169 + this.aFloat168 * (float) local50 + local345 + this.aFloat166 * (float) local60;
-                    local529 = arg4.anInt5721 + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local529 = arg4.minY + (int) (local516 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                     local546 = this.aFloat171 + this.aFloat170 * (float) local45 + local339 + this.aFloat162 * (float) local60;
-                    local559 = arg4.anInt5723 + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
+                    local559 = arg4.minX + (int) (local546 * (float) this.aClass19_Sub2_8.projectionScaleX / (float) this.anInt8145);
                     local576 = this.aFloat169 + this.aFloat168 * (float) local45 + local345 + this.aFloat166 * (float) local60;
-                    local589 = arg4.anInt5721 + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
+                    local589 = arg4.minY + (int) (local576 * (float) this.aClass19_Sub2_8.projectionScaleY / (float) this.anInt8145);
                 }
             }
             @Pc(1864) boolean local1864 = local6.aShort105 != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(local6.aShort105).effectType);
             if (this.anInt8145 == -1) {
                 local863 = local64 + local66 + local68;
                 if ((local499 - local559) * (local469 - local589) - (local529 - local589) * (local439 - local559) > 0) {
-                    arg4.aBoolean434 = local499 < 0 || local559 < 0 || local439 < 0 || local499 > arg4.anInt5725 || local559 > arg4.anInt5725 || local439 > arg4.anInt5725;
+                    arg4.clamp = local499 < 0 || local559 < 0 || local439 < 0 || local499 > arg4.width || local559 > arg4.width || local439 > arg4.width;
                     if (local863 >= 765) {
-                        arg4.method5158((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, arg3.anInt10597);
+                        arg4.renderFlatTriangleRgb((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, arg3.fogColour);
                     } else if (local863 > 0) {
                         if (local6.aShort105 >= 0) {
                             local874 = -16777216;
                             if (local1864) {
                                 local874 = -1694498816;
                             }
-                            arg4.method5150((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, local163, local189, local137, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, local874 | local6.anInt7767 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, arg3.anInt10597, local66, local68, local64, local6.aShort105);
+                            arg4.method5150((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, local163, local189, local137, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, local874 | local6.anInt7767 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, arg3.fogColour, local66, local68, local64, local6.aShort105);
                         } else {
                             if (local1864) {
-                                arg4.anInt5724 = 100;
+                                arg4.alpha = 100;
                             }
-                            arg4.method5141((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, Static462.method6270(local66 << 24 | arg3.anInt10597, local6.anInt7767), Static462.method6270(local68 << 24 | arg3.anInt10597, local6.anInt7769), Static462.method6270(local64 << 24 | arg3.anInt10597, local6.anInt7771));
-                            arg4.anInt5724 = 0;
+                            arg4.renderTriangleRgb((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, Static462.method6270(local66 << 24 | arg3.fogColour, local6.anInt7767), Static462.method6270(local68 << 24 | arg3.fogColour, local6.anInt7769), Static462.method6270(local64 << 24 | arg3.fogColour, local6.anInt7771));
+                            arg4.alpha = 0;
                         }
                     } else if (local6.aShort105 >= 0) {
                         local874 = -16777216;
@@ -1978,18 +1978,18 @@ public final class Ground_Sub3 extends Ground {
                         arg4.method5150((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, local163, local189, local137, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, local874 | local6.anInt7767 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, 0, 0, 0, 0, local6.aShort105);
                     } else {
                         if (local1864) {
-                            arg4.anInt5724 = 100;
+                            arg4.alpha = 100;
                         }
-                        arg4.method5141((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, local6.anInt7767, local6.anInt7769, local6.anInt7771);
-                        arg4.anInt5724 = 0;
+                        arg4.renderTriangleRgb((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, local6.anInt7767, local6.anInt7769, local6.anInt7771);
+                        arg4.alpha = 0;
                     }
                 }
                 local863 = local62 + local64 + local68;
                 if ((local379 - local439) * (local589 - local469) - (local409 - local469) * (local559 - local439) > 0) {
-                    arg4.aBoolean434 = local379 < 0 || local439 < 0 || local559 < 0 || local379 > arg4.anInt5725 || local439 > arg4.anInt5725 || local559 > arg4.anInt5725;
+                    arg4.clamp = local379 < 0 || local439 < 0 || local559 < 0 || local379 > arg4.width || local439 > arg4.width || local559 > arg4.width;
                     if (local863 < 765) {
                         if (local1864) {
-                            arg4.anInt5724 = -1694498816;
+                            arg4.alpha = -1694498816;
                         }
                         if (local863 > 0) {
                             if (local6.aShort105 >= 0) {
@@ -1997,14 +1997,14 @@ public final class Ground_Sub3 extends Ground {
                                 if (local1864) {
                                     local874 = -1694498816;
                                 }
-                                arg4.method5150((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, local111, local137, local189, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, local874 | local6.anInt7768 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, arg3.anInt10597, local62, local64, local68, local6.aShort105);
+                                arg4.method5150((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, local111, local137, local189, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, local874 | local6.anInt7768 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, arg3.fogColour, local62, local64, local68, local6.aShort105);
                                 return;
                             }
                             if (local1864) {
-                                arg4.anInt5724 = 100;
+                                arg4.alpha = 100;
                             }
-                            arg4.method5141((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, Static462.method6270(local62 << 24 | arg3.anInt10597, local6.anInt7768), Static462.method6270(local64 << 24 | arg3.anInt10597, local6.anInt7771), Static462.method6270(local68 << 24 | arg3.anInt10597, local6.anInt7769));
-                            arg4.anInt5724 = 0;
+                            arg4.renderTriangleRgb((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, Static462.method6270(local62 << 24 | arg3.fogColour, local6.anInt7768), Static462.method6270(local64 << 24 | arg3.fogColour, local6.anInt7771), Static462.method6270(local68 << 24 | arg3.fogColour, local6.anInt7769));
+                            arg4.alpha = 0;
                             return;
                         }
                         if (local6.aShort105 >= 0) {
@@ -2016,22 +2016,22 @@ public final class Ground_Sub3 extends Ground {
                             return;
                         }
                         if (local1864) {
-                            arg4.anInt5724 = 100;
+                            arg4.alpha = 100;
                         }
-                        arg4.method5141((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, local6.anInt7768, local6.anInt7771, local6.anInt7769);
-                        arg4.anInt5724 = 0;
+                        arg4.renderTriangleRgb((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, local6.anInt7768, local6.anInt7771, local6.anInt7769);
+                        arg4.alpha = 0;
                         return;
                     }
-                    arg4.method5158((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, arg3.anInt10597);
+                    arg4.renderFlatTriangleRgb((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, arg3.fogColour);
                     return;
                 }
             } else {
                 local863 = local64 + local66 + local68;
                 if ((local499 - local559) * (local469 - local589) - (local529 - local589) * (local439 - local559) > 0) {
-                    arg4.aBoolean434 = local499 < 0 || local559 < 0 || local439 < 0 || local499 > arg4.anInt5725 || local559 > arg4.anInt5725 || local439 > arg4.anInt5725;
+                    arg4.clamp = local499 < 0 || local559 < 0 || local439 < 0 || local499 > arg4.width || local559 > arg4.width || local439 > arg4.width;
                     if (local863 < 765) {
                         if (local1864) {
-                            arg4.anInt5724 = -1694498816;
+                            arg4.alpha = -1694498816;
                         }
                         if (local863 > 0) {
                             if (local6.aShort105 >= 0) {
@@ -2039,13 +2039,13 @@ public final class Ground_Sub3 extends Ground {
                                 if (local1864) {
                                     local874 = -1694498816;
                                 }
-                                arg4.method5150((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, local163, local189, local137, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, local874 | local6.anInt7767 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, arg3.anInt10597, local66, local68, local64, local6.aShort105);
+                                arg4.method5150((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, local163, local189, local137, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, local874 | local6.anInt7767 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, arg3.fogColour, local66, local68, local64, local6.aShort105);
                             } else {
                                 if (local1864) {
-                                    arg4.anInt5724 = 100;
+                                    arg4.alpha = 100;
                                 }
-                                arg4.method5141((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, Static462.method6270(local66 << 24 | arg3.anInt10597, local6.anInt7767), Static462.method6270(local68 << 24 | arg3.anInt10597, local6.anInt7769), Static462.method6270(local64 << 24 | arg3.anInt10597, local6.anInt7771));
-                                arg4.anInt5724 = 0;
+                                arg4.renderTriangleRgb((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, Static462.method6270(local66 << 24 | arg3.fogColour, local6.anInt7767), Static462.method6270(local68 << 24 | arg3.fogColour, local6.anInt7769), Static462.method6270(local64 << 24 | arg3.fogColour, local6.anInt7771));
+                                arg4.alpha = 0;
                             }
                         } else if (local6.aShort105 >= 0) {
                             local874 = -16777216;
@@ -2055,21 +2055,21 @@ public final class Ground_Sub3 extends Ground {
                             arg4.method5150((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, local163, local189, local137, 1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, local874 | local6.anInt7767 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, 0, 0, 0, 0, local6.aShort105);
                         } else {
                             if (local1864) {
-                                arg4.anInt5724 = 100;
+                                arg4.alpha = 100;
                             }
-                            arg4.method5141((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, local6.anInt7767, local6.anInt7769, local6.anInt7771);
-                            arg4.anInt5724 = 0;
+                            arg4.renderTriangleRgb((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, local6.anInt7767, local6.anInt7769, local6.anInt7771);
+                            arg4.alpha = 0;
                         }
                     } else {
-                        arg4.method5158((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, arg3.anInt10597);
+                        arg4.renderFlatTriangleRgb((float) local529, (float) local589, (float) local469, (float) local499, (float) local559, (float) local439, (float) (int) local163, (float) (int) local189, (float) (int) local137, arg3.fogColour);
                     }
                 }
                 local863 = local62 + local64 + local68;
                 if ((local379 - local439) * (local589 - local469) - (local409 - local469) * (local559 - local439) > 0) {
-                    arg4.aBoolean434 = local379 < 0 || local439 < 0 || local559 < 0 || local379 > arg4.anInt5725 || local439 > arg4.anInt5725 || local559 > arg4.anInt5725;
+                    arg4.clamp = local379 < 0 || local439 < 0 || local559 < 0 || local379 > arg4.width || local439 > arg4.width || local559 > arg4.width;
                     if (local863 < 765) {
                         if (local1864) {
-                            arg4.anInt5724 = -1694498816;
+                            arg4.alpha = -1694498816;
                         }
                         if (local863 > 0) {
                             if (local6.aShort105 >= 0) {
@@ -2077,14 +2077,14 @@ public final class Ground_Sub3 extends Ground {
                                 if (local1864) {
                                     local874 = -1694498816;
                                 }
-                                arg4.method5150((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, local111, local137, local189, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, local874 | local6.anInt7768 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, arg3.anInt10597, local62, local64, local68, local6.aShort105);
+                                arg4.method5150((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, local111, local137, local189, 0.0F, 1.0F, 1.0F, 0.0F, 0.0F, 1.0F, local874 | local6.anInt7768 & 0xFFFFFF, local874 | local6.anInt7771 & 0xFFFFFF, local874 | local6.anInt7769 & 0xFFFFFF, arg3.fogColour, local62, local64, local68, local6.aShort105);
                                 return;
                             }
                             if (local1864) {
-                                arg4.anInt5724 = 100;
+                                arg4.alpha = 100;
                             }
-                            arg4.method5141((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, Static462.method6270(local62 << 24 | arg3.anInt10597, local6.anInt7768), Static462.method6270(local64 << 24 | arg3.anInt10597, local6.anInt7771), Static462.method6270(local68 << 24 | arg3.anInt10597, local6.anInt7769));
-                            arg4.anInt5724 = 0;
+                            arg4.renderTriangleRgb((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, Static462.method6270(local62 << 24 | arg3.fogColour, local6.anInt7768), Static462.method6270(local64 << 24 | arg3.fogColour, local6.anInt7771), Static462.method6270(local68 << 24 | arg3.fogColour, local6.anInt7769));
+                            arg4.alpha = 0;
                             return;
                         }
                         if (local6.aShort105 >= 0) {
@@ -2096,13 +2096,13 @@ public final class Ground_Sub3 extends Ground {
                             return;
                         }
                         if (local1864) {
-                            arg4.anInt5724 = 100;
+                            arg4.alpha = 100;
                         }
-                        arg4.method5141((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, local6.anInt7768, local6.anInt7771, local6.anInt7769);
-                        arg4.anInt5724 = 0;
+                        arg4.renderTriangleRgb((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, local6.anInt7768, local6.anInt7771, local6.anInt7769);
+                        arg4.alpha = 0;
                         return;
                     }
-                    arg4.method5158((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, arg3.anInt10597);
+                    arg4.renderFlatTriangleRgb((float) local409, (float) local469, (float) local589, (float) local379, (float) local439, (float) local559, (float) (int) local111, (float) (int) local137, (float) (int) local189, arg3.fogColour);
                 }
             }
         }
@@ -2110,14 +2110,14 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "c", descriptor = "(III)V")
     public void method7168(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(4) Class399 local4 = this.aClass19_Sub2_8.method3787(Thread.currentThread());
-        local4.aClass219_2.anInt5724 = 0;
+        @Pc(4) JavaThreadResource local4 = this.aClass19_Sub2_8.threadResource(Thread.currentThread());
+        local4.rasterizer.alpha = 0;
         if (this.aClass305ArrayArray1 != null) {
-            this.method7166(arg0, arg1, local4.aBoolean805, local4, local4.aClass219_2, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
+            this.method7166(arg0, arg1, local4.aBoolean805, local4, local4.rasterizer, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
         } else if (this.aClass127ArrayArray1 != null) {
-            this.method7165(arg0, arg1, local4.aClass219_2, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
+            this.method7165(arg0, arg1, local4.rasterizer, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
         } else if (this.aClass320ArrayArray1 != null) {
-            this.method7161(arg0, arg1, local4.aBoolean805, local4, local4.aClass219_2, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
+            this.method7161(arg0, arg1, local4.aBoolean805, local4, local4.rasterizer, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
         }
     }
 

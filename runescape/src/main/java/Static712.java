@@ -72,7 +72,7 @@ public final class Static712 {
                 if (OrthoMode.toolkitActive) {
                     OrthoMode.method7606(GameShell.canvas);
                 } else {
-                    Toolkit.active.method7935(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
+                    Toolkit.active.resizeCanvas(GameShell.canvas, GameShell.canvasWid, GameShell.canvasHei);
                 }
             }
 

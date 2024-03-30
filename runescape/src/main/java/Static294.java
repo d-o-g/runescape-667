@@ -64,7 +64,7 @@ public final class Static294 {
         Static498.method6643(arg4, true, arg0, arg3, arg2);
         @Pc(153) int local153 = Static32.anInt773;
         @Pc(155) int local155 = Static242.anInt3971;
-        Static582.orthoAngle = Static582.orthoZoom;
+        OrthoMode.renderZoom = OrthoMode.zoom;
         @Pc(159) int local159 = Static290.anInt4657;
         @Pc(161) int local161 = Static200.anInt3305;
         @Pc(169) int local169;
@@ -144,10 +144,10 @@ public final class Static294 {
         Toolkit.active.DA(local155 / 2 + local153, local161 / 2 + local159, Static428.anInt6495 << 1, Static428.anInt6495 << 1);
         if (OrthoMode.toolkitActive) {
             OrthoMode.method6448(Static251.anInt4037);
-            if (Static162.anInt2800 != Static582.orthoAngle) {
+            if (Static162.anInt2800 != OrthoMode.renderZoom) {
                 Static75.hasOpaqueStationaryEntities = true;
             }
-            Static162.anInt2800 = Static582.orthoAngle;
+            Static162.anInt2800 = OrthoMode.renderZoom;
             Toolkit.active.GA(local375);
             Toolkit.active.ya();
         } else if (Static456.aSkyBox_3 == null) {
@@ -165,9 +165,9 @@ public final class Static294 {
         @Pc(688) byte local688 = ClientOptions.instance.removeRoofsOverride.getValue() == 2 ? (byte) Static198.anInt3276 : 1;
         if (OrthoMode.toolkitActive) {
             Static648.method8483(-Camera.yaw & 0x3FFF, -Camera.roll & 0x3FFF, -Camera.pitch & 0x3FFF);
-            OrthoMode.method6324(local688, Camera.x, Camera.z, Camera.y, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, ClientOptions.instance.flickeringEffects.getValue() == 0, Static582.orthoAngle, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
+            OrthoMode.method6324(local688, Camera.x, Camera.z, Camera.y, PlayerEntity.self.z >> 9, Static457.anIntArray552, Static682.anIntArray817, TimeUtils.clock, PlayerEntity.self.level + 1, Static482.anIntArray588, ClientOptions.instance.flickeringEffects.getValue() == 0, OrthoMode.renderZoom, Static9.anIntArray18, Static328.aByteArrayArrayArray4, Static153.anIntArray235, PlayerEntity.self.x >> 9);
         } else {
-            Static283.method4100(TimeUtils.clock, Camera.x, Camera.y, Camera.z, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, ClientOptions.instance.flickeringEffects.getValue() == 0, OrthoMode.enabled ? Static582.orthoAngle : -1, 0, false);
+            Static283.method4100(TimeUtils.clock, Camera.x, Camera.y, Camera.z, Static328.aByteArrayArrayArray4, Static482.anIntArray588, Static9.anIntArray18, Static457.anIntArray552, Static153.anIntArray235, Static682.anIntArray817, PlayerEntity.self.level + 1, local688, PlayerEntity.self.x >> 9, PlayerEntity.self.z >> 9, ClientOptions.instance.flickeringEffects.getValue() == 0, OrthoMode.enabled ? OrthoMode.renderZoom : -1, 0, false);
         }
         Static557.method7331();
         if (MainLogicManager.step == 11) {

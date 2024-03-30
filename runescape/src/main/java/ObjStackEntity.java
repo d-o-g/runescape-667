@@ -122,7 +122,7 @@ public final class ObjStackEntity extends Class8_Sub2_Sub5 {
 
         @Pc(32) ObjType firstType = ObjTypeList.instance.list(this.firstId);
         @Pc(42) Model model = firstType.model(null, 0x20000, null, this.firstCount, toolkit);
-        if (model != null && (OrthoMode.enabled ? model.pickedOrtho(y, x, matrix, true, firstType.picksizeshift, Static582.orthoAngle) : model.picked(y, x, matrix, true, firstType.picksizeshift))) {
+        if (model != null && (OrthoMode.enabled ? model.pickedOrtho(y, x, matrix, true, firstType.picksizeshift, OrthoMode.renderZoom) : model.picked(y, x, matrix, true, firstType.picksizeshift))) {
             return true;
         }
 
@@ -130,7 +130,7 @@ public final class ObjStackEntity extends Class8_Sub2_Sub5 {
             @Pc(82) ObjType secondType = ObjTypeList.instance.list(this.secondId);
             model = secondType.model(null, 0x20000, null, this.secondCount, toolkit);
 
-            if (model != null && (OrthoMode.enabled ? model.pickedOrtho(y, x, matrix, true, secondType.picksizeshift, Static582.orthoAngle) : model.picked(y, x, matrix, true, secondType.picksizeshift))) {
+            if (model != null && (OrthoMode.enabled ? model.pickedOrtho(y, x, matrix, true, secondType.picksizeshift, OrthoMode.renderZoom) : model.picked(y, x, matrix, true, secondType.picksizeshift))) {
                 return true;
             }
         }
@@ -139,7 +139,7 @@ public final class ObjStackEntity extends Class8_Sub2_Sub5 {
             @Pc(82) ObjType thirdType = ObjTypeList.instance.list(this.thirdId);
             model = thirdType.model(null, 0x20000, null, this.thirdCount, toolkit);
 
-            if (model != null && (OrthoMode.enabled ? model.pickedOrtho(y, x, matrix, true, thirdType.picksizeshift, Static582.orthoAngle) : model.picked(y, x, matrix, true, thirdType.picksizeshift))) {
+            if (model != null && (OrthoMode.enabled ? model.pickedOrtho(y, x, matrix, true, thirdType.picksizeshift, OrthoMode.renderZoom) : model.picked(y, x, matrix, true, thirdType.picksizeshift))) {
                 return true;
             }
         }
@@ -239,7 +239,7 @@ public final class ObjStackEntity extends Class8_Sub2_Sub5 {
 
             if (model != null) {
                 if (OrthoMode.enabled) {
-                    model.renderOrtho(matrix, local345.pickingCylinders[2], Static582.orthoAngle, 0);
+                    model.renderOrtho(matrix, local345.pickingCylinders[2], OrthoMode.renderZoom, 0);
                 } else {
                     model.render(matrix, local345.pickingCylinders[2], 0);
                 }
@@ -254,7 +254,7 @@ public final class ObjStackEntity extends Class8_Sub2_Sub5 {
 
             if (model != null) {
                 if (OrthoMode.enabled) {
-                    model.renderOrtho(matrix, local345.pickingCylinders[1], Static582.orthoAngle, 0);
+                    model.renderOrtho(matrix, local345.pickingCylinders[1], OrthoMode.renderZoom, 0);
                 } else {
                     model.render(matrix, local345.pickingCylinders[1], 0);
                 }
@@ -271,7 +271,7 @@ public final class ObjStackEntity extends Class8_Sub2_Sub5 {
 
         if (model != null) {
             if (OrthoMode.enabled) {
-                model.renderOrtho(matrix, local345.pickingCylinders[0], Static582.orthoAngle, 0);
+                model.renderOrtho(matrix, local345.pickingCylinders[0], OrthoMode.renderZoom, 0);
             } else {
                 model.render(matrix, local345.pickingCylinders[0], 0);
             }

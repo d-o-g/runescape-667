@@ -107,7 +107,7 @@ public final class Class170 {
         this.aClass19_Sub3_18.method6972(false);
         this.aClass19_Sub3_18.method7046(-2);
         this.aClass19_Sub3_18.method6991(1);
-        this.aClass19_Sub3_18.method7017(1);
+        this.aClass19_Sub3_18.setBlendMode(1);
         @Pc(50) float local50 = 1.0F / (float) (this.aClass19_Sub3_18.anInt7988 * 128);
         @Pc(54) int local54;
         @Pc(61) int local61;

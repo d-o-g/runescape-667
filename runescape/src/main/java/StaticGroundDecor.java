@@ -96,7 +96,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
         local20.applyTranslation(super.x, super.y, super.z);
         @Pc(34) PickableEntity entity = Static642.method8441(this.interactive, 1);
         if (OrthoMode.enabled) {
-            this.model.renderOrtho(local20, entity.pickingCylinders[0], Static582.orthoAngle, 0);
+            this.model.renderOrtho(local20, entity.pickingCylinders[0], OrthoMode.renderZoom, 0);
         } else {
             this.model.render(local20, entity.pickingCylinders[0], 0);
         }
@@ -142,7 +142,7 @@ public final class StaticGroundDecor extends GroundDecor implements Location {
         } else {
             @Pc(21) Matrix matrix = toolkit.scratchMatrix();
             matrix.applyTranslation(super.x, super.y, super.z);
-            return OrthoMode.enabled ? model.pickedOrtho(x, y, matrix, false, 0, Static582.orthoAngle) : model.picked(x, y, matrix, false, 0);
+            return OrthoMode.enabled ? model.pickedOrtho(x, y, matrix, false, 0, OrthoMode.renderZoom) : model.picked(x, y, matrix, false, 0);
         }
     }
 

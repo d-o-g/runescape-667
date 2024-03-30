@@ -15,12 +15,6 @@ public final class Static582 {
     @OriginalMember(owner = "client!sfa", name = "h", descriptor = "Lclient!hc;")
     public static final CutsceneActionType A_CUTSCENE_ACTION_TYPE___39 = new CutsceneActionType(3);
 
-    @OriginalMember(owner = "client!sfa", name = "g", descriptor = "I")
-    public static int orthoZoom = 7000;
-
-    @OriginalMember(owner = "client!sfa", name = "e", descriptor = "I")
-    public static int orthoAngle = orthoZoom;
-
     @OriginalMember(owner = "client!sfa", name = "a", descriptor = "Lclient!hw;")
     public static final Class172 aClass172_4 = new Class172();
 

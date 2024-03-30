@@ -187,7 +187,7 @@ public final class a implements SoftwareObject {
     }
 
     @OriginalMember(owner = "client!a", name = "a", descriptor = "(Lclient!ha;IIIIIII)V")
-    public void method16(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6) {
-        this.na(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5, arg6, 0);
+    public void method16(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int mode) {
+        this.na(this.nativeid, arg0, arg1, arg2, arg3, arg4, arg5, arg6, mode);
     }
 }

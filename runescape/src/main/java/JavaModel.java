@@ -17,10 +17,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!rs")
-public final class Model_Sub3 extends Model {
+public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "Fb", descriptor = "Lclient!lb;")
-    public Class219 aClass219_1;
+    public Rasterizer aRasterizer_1;
 
     @OriginalMember(owner = "client!rs", name = "Db", descriptor = "[I")
     public int[] anIntArray655;
@@ -47,7 +47,7 @@ public final class Model_Sub3 extends Model {
     public int[][] anIntArrayArray213;
 
     @OriginalMember(owner = "client!rs", name = "pb", descriptor = "Lclient!wf;")
-    public Class399 aClass399_2;
+    public JavaThreadResource aJavaThreadResource_2;
 
     @OriginalMember(owner = "client!rs", name = "Mb", descriptor = "I")
     public int anInt8485;
@@ -68,7 +68,7 @@ public final class Model_Sub3 extends Model {
     public short aShort112;
 
     @OriginalMember(owner = "client!rs", name = "O", descriptor = "[Lclient!rs;")
-    public Model_Sub3[] aClass114_Sub3Array1;
+    public JavaModel[] aClass114_Sub3Array1;
 
     @OriginalMember(owner = "client!rs", name = "Cb", descriptor = "[Lclient!um;")
     public Class378[] aClass378Array1;
@@ -89,7 +89,7 @@ public final class Model_Sub3 extends Model {
     public short[] aShortArray120;
 
     @OriginalMember(owner = "client!rs", name = "eb", descriptor = "Lclient!wf;")
-    public Class399 aClass399_3;
+    public JavaThreadResource aJavaThreadResource_3;
 
     @OriginalMember(owner = "client!rs", name = "V", descriptor = "I")
     public int anInt8487;
@@ -110,7 +110,7 @@ public final class Model_Sub3 extends Model {
     public int[] anIntArray667;
 
     @OriginalMember(owner = "client!rs", name = "t", descriptor = "[Lclient!rs;")
-    public Model_Sub3[] aClass114_Sub3Array2;
+    public JavaModel[] aClass114_Sub3Array2;
 
     @OriginalMember(owner = "client!rs", name = "p", descriptor = "S")
     public short aShort113;
@@ -257,12 +257,12 @@ public final class Model_Sub3 extends Model {
     public final JavaToolkit aClass19_Sub2_9;
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;)V")
-    public Model_Sub3(@OriginalArg(0) JavaToolkit arg0) {
+    public JavaModel(@OriginalArg(0) JavaToolkit arg0) {
         this.aClass19_Sub2_9 = arg0;
     }
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;Lclient!dv;IIII)V")
-    public Model_Sub3(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public JavaModel(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass19_Sub2_9 = arg0;
         this.anInt8489 = arg2;
         this.anInt8495 = arg3;
@@ -327,7 +327,7 @@ public final class Model_Sub3 extends Model {
                 local226 = arg1.faceTexture[local152];
                 if (local226 != -1) {
                     local154 = local47.getMetrics(local226 & 0xFFFF);
-                    if ((arg5 & 0x40) != 0 && local154.aBoolean240) {
+                    if ((arg5 & 0x40) != 0 && local154.disableable) {
                         local226 = -1;
                     } else {
                         local160 = local154.effectType;
@@ -366,7 +366,7 @@ public final class Model_Sub3 extends Model {
         this.aFloatArrayArray17 = new float[this.anInt8482][];
         this.aFloatArrayArray18 = new float[this.anInt8482][];
         @Pc(500) Class369 local500 = Static50.method6635(arg1, this.anInt8482, local119);
-        @Pc(505) Class399 local505 = this.aClass19_Sub2_9.method3787(Thread.currentThread());
+        @Pc(505) JavaThreadResource local505 = this.aClass19_Sub2_9.threadResource(Thread.currentThread());
         @Pc(508) float[] local508 = local505.aFloatArray82;
         @Pc(510) boolean local510 = false;
         @Pc(517) int local517;
@@ -384,7 +384,7 @@ public final class Model_Sub3 extends Model {
             local539 = arg1.faceTexture == null ? -1 : arg1.faceTexture[local517];
             if (local539 != -1 && (arg5 & 0x40) != 0) {
                 local555 = local47.getMetrics(local539 & 0xFFFF);
-                if (local555.aBoolean240) {
+                if (local555.disableable) {
                     local539 = -1;
                 }
             }
@@ -590,7 +590,7 @@ public final class Model_Sub3 extends Model {
                     this.aShortArray123[local616] = -1;
                 } else {
                     local555 = this.aClass19_Sub2_9.textureSource.getMetrics(local539);
-                    if ((arg5 & 0x40) != 0 && local555.aBoolean240) {
+                    if ((arg5 & 0x40) != 0 && local555.disableable) {
                         this.aShortArray123[local616] = -1;
                     } else {
                         this.aShortArray123[local616] = local539;
@@ -756,32 +756,32 @@ public final class Model_Sub3 extends Model {
         @Pc(65) int local65;
         @Pc(81) int local81;
         @Pc(333) int local333;
-        if (this.aClass399_3.aBoolean805) {
+        if (this.aJavaThreadResource_3.aBoolean805) {
             local8 = this.aShortArray122[arg0];
             local13 = this.lb[arg0];
             local18 = this.aShortArray125[arg0];
             local27 = 0;
             local46 = 0;
             local65 = 0;
-            if (this.anIntArray673[local8] > this.aClass399_3.anInt10602) {
+            if (this.anIntArray673[local8] > this.aJavaThreadResource_3.waterDepth) {
                 local27 = 255;
-            } else if (this.anIntArray673[local8] > this.aClass399_3.anInt10604) {
-                local27 = (this.aClass399_3.anInt10604 - this.anIntArray673[local8]) * 255 / (this.aClass399_3.anInt10604 - this.aClass399_3.anInt10602);
+            } else if (this.anIntArray673[local8] > this.aJavaThreadResource_3.waterHeight) {
+                local27 = (this.aJavaThreadResource_3.waterHeight - this.anIntArray673[local8]) * 255 / (this.aJavaThreadResource_3.waterHeight - this.aJavaThreadResource_3.waterDepth);
             }
-            if (this.anIntArray673[local13] > this.aClass399_3.anInt10602) {
+            if (this.anIntArray673[local13] > this.aJavaThreadResource_3.waterDepth) {
                 local46 = 255;
-            } else if (this.anIntArray673[local13] > this.aClass399_3.anInt10604) {
-                local46 = (this.aClass399_3.anInt10604 - this.anIntArray673[local13]) * 255 / (this.aClass399_3.anInt10604 - this.aClass399_3.anInt10602);
+            } else if (this.anIntArray673[local13] > this.aJavaThreadResource_3.waterHeight) {
+                local46 = (this.aJavaThreadResource_3.waterHeight - this.anIntArray673[local13]) * 255 / (this.aJavaThreadResource_3.waterHeight - this.aJavaThreadResource_3.waterDepth);
             }
-            if (this.anIntArray673[local18] > this.aClass399_3.anInt10602) {
+            if (this.anIntArray673[local18] > this.aJavaThreadResource_3.waterDepth) {
                 local65 = 255;
-            } else if (this.anIntArray673[local18] > this.aClass399_3.anInt10604) {
-                local65 = (this.aClass399_3.anInt10604 - this.anIntArray673[local18]) * 255 / (this.aClass399_3.anInt10604 - this.aClass399_3.anInt10602);
+            } else if (this.anIntArray673[local18] > this.aJavaThreadResource_3.waterHeight) {
+                local65 = (this.aJavaThreadResource_3.waterHeight - this.anIntArray673[local18]) * 255 / (this.aJavaThreadResource_3.waterHeight - this.aJavaThreadResource_3.waterDepth);
             }
             if (this.aByteArray96 == null) {
-                this.aClass219_1.anInt5724 = 0;
+                this.aRasterizer_1.alpha = 0;
             } else {
-                this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
+                this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
             }
             if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
                 local81 = -16777216;
@@ -790,33 +790,33 @@ public final class Model_Sub3 extends Model {
                 }
                 if (this.anIntArray672[arg0] == -1) {
                     local333 = local81 | this.anIntArray668[arg0] & 0xFFFFFF;
-                    this.aClass219_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333, local333, local333, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333, local333, local333, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
                 } else {
-                    this.aClass219_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
-                this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
+                this.aRasterizer_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
             } else {
-                this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
+                this.aRasterizer_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
             }
             return;
         }
         local8 = this.aShortArray122[arg0];
         local13 = this.lb[arg0];
         local18 = this.aShortArray125[arg0];
-        local27 = this.anIntArray670[local8] - this.aClass399_3.anInt10601;
+        local27 = this.anIntArray670[local8] - this.aJavaThreadResource_3.fogPlane;
         if (local27 > 255) {
             local27 = 255;
         } else if (local27 < 0) {
             local27 = 0;
         }
-        local46 = this.anIntArray670[local13] - this.aClass399_3.anInt10601;
+        local46 = this.anIntArray670[local13] - this.aJavaThreadResource_3.fogPlane;
         if (local46 > 255) {
             local46 = 255;
         } else if (local46 < 0) {
             local46 = 0;
         }
-        local65 = this.anIntArray670[local18] - this.aClass399_3.anInt10601;
+        local65 = this.anIntArray670[local18] - this.aJavaThreadResource_3.fogPlane;
         if (local65 > 255) {
             local65 = 255;
         } else if (local65 < 0) {
@@ -831,9 +831,9 @@ public final class Model_Sub3 extends Model {
             return;
         }
         if (this.aByteArray96 == null) {
-            this.aClass219_1.anInt5724 = 0;
+            this.aRasterizer_1.alpha = 0;
         } else {
-            this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
         }
         if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
             local333 = -16777216;
@@ -842,20 +842,20 @@ public final class Model_Sub3 extends Model {
             }
             if (this.anIntArray672[arg0] == -1) {
                 @Pc(362) int local362 = local333 | this.anIntArray668[arg0] & 0xFFFFFF;
-                this.aClass219_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local362, local362, local362, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local362, local362, local362, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
             } else {
-                this.aClass219_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
             }
         } else if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
+            this.aRasterizer_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
         } else {
-            this.aClass219_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
+            this.aRasterizer_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
         }
     }
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(Z)V")
     public void method7503(@OriginalArg(0) boolean arg0) {
-        if (this.aClass19_Sub2_9.anInt4211 > 1) {
+        if (this.aClass19_Sub2_9.threadCount > 1) {
             synchronized (this) {
                 this.method7512(arg0);
             }
@@ -1441,32 +1441,32 @@ public final class Model_Sub3 extends Model {
         @Pc(65) int local65;
         @Pc(81) int local81;
         @Pc(333) int local333;
-        if (this.aClass399_3.aBoolean805) {
+        if (this.aJavaThreadResource_3.aBoolean805) {
             local8 = this.aShortArray122[arg0];
             local13 = this.lb[arg0];
             local18 = this.aShortArray125[arg0];
             local27 = 0;
             local46 = 0;
             local65 = 0;
-            if (this.anIntArray673[local8] > this.aClass399_3.anInt10602) {
+            if (this.anIntArray673[local8] > this.aJavaThreadResource_3.waterDepth) {
                 local27 = 255;
-            } else if (this.anIntArray673[local8] > this.aClass399_3.anInt10604) {
-                local27 = (this.aClass399_3.anInt10604 - this.anIntArray673[local8]) * 255 / (this.aClass399_3.anInt10604 - this.aClass399_3.anInt10602);
+            } else if (this.anIntArray673[local8] > this.aJavaThreadResource_3.waterHeight) {
+                local27 = (this.aJavaThreadResource_3.waterHeight - this.anIntArray673[local8]) * 255 / (this.aJavaThreadResource_3.waterHeight - this.aJavaThreadResource_3.waterDepth);
             }
-            if (this.anIntArray673[local13] > this.aClass399_3.anInt10602) {
+            if (this.anIntArray673[local13] > this.aJavaThreadResource_3.waterDepth) {
                 local46 = 255;
-            } else if (this.anIntArray673[local13] > this.aClass399_3.anInt10604) {
-                local46 = (this.aClass399_3.anInt10604 - this.anIntArray673[local13]) * 255 / (this.aClass399_3.anInt10604 - this.aClass399_3.anInt10602);
+            } else if (this.anIntArray673[local13] > this.aJavaThreadResource_3.waterHeight) {
+                local46 = (this.aJavaThreadResource_3.waterHeight - this.anIntArray673[local13]) * 255 / (this.aJavaThreadResource_3.waterHeight - this.aJavaThreadResource_3.waterDepth);
             }
-            if (this.anIntArray673[local18] > this.aClass399_3.anInt10602) {
+            if (this.anIntArray673[local18] > this.aJavaThreadResource_3.waterDepth) {
                 local65 = 255;
-            } else if (this.anIntArray673[local18] > this.aClass399_3.anInt10604) {
-                local65 = (this.aClass399_3.anInt10604 - this.anIntArray673[local18]) * 255 / (this.aClass399_3.anInt10604 - this.aClass399_3.anInt10602);
+            } else if (this.anIntArray673[local18] > this.aJavaThreadResource_3.waterHeight) {
+                local65 = (this.aJavaThreadResource_3.waterHeight - this.anIntArray673[local18]) * 255 / (this.aJavaThreadResource_3.waterHeight - this.aJavaThreadResource_3.waterDepth);
             }
             if (this.aByteArray96 == null) {
-                this.aClass219_1.anInt5724 = 0;
+                this.aRasterizer_1.alpha = 0;
             } else {
-                this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
+                this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
             }
             if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
                 local81 = -16777216;
@@ -1475,33 +1475,33 @@ public final class Model_Sub3 extends Model {
                 }
                 if (this.anIntArray672[arg0] == -1) {
                     local333 = local81 | this.anIntArray668[arg0] & 0xFFFFFF;
-                    this.aClass219_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333, local333, local333, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333, local333, local333, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
                 } else {
-                    this.aClass219_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
-                this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
+                this.aRasterizer_1.renderTriangleRgb((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
             } else {
-                this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
+                this.aRasterizer_1.renderTriangleRgb((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
             }
             return;
         }
         local8 = this.aShortArray122[arg0];
         local13 = this.lb[arg0];
         local18 = this.aShortArray125[arg0];
-        local27 = this.anIntArray670[local8] - this.aClass399_3.anInt10601;
+        local27 = this.anIntArray670[local8] - this.aJavaThreadResource_3.fogPlane;
         if (local27 > 255) {
             local27 = 255;
         } else if (local27 < 0) {
             local27 = 0;
         }
-        local46 = this.anIntArray670[local13] - this.aClass399_3.anInt10601;
+        local46 = this.anIntArray670[local13] - this.aJavaThreadResource_3.fogPlane;
         if (local46 > 255) {
             local46 = 255;
         } else if (local46 < 0) {
             local46 = 0;
         }
-        local65 = this.anIntArray670[local18] - this.aClass399_3.anInt10601;
+        local65 = this.anIntArray670[local18] - this.aJavaThreadResource_3.fogPlane;
         if (local65 > 255) {
             local65 = 255;
         } else if (local65 < 0) {
@@ -1516,9 +1516,9 @@ public final class Model_Sub3 extends Model {
             return;
         }
         if (this.aByteArray96 == null) {
-            this.aClass219_1.anInt5724 = 0;
+            this.aRasterizer_1.alpha = 0;
         } else {
-            this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
         }
         if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
             local333 = -16777216;
@@ -1527,14 +1527,14 @@ public final class Model_Sub3 extends Model {
             }
             if (this.anIntArray672[arg0] == -1) {
                 @Pc(362) int local362 = local333 | this.anIntArray668[arg0] & 0xFFFFFF;
-                this.aClass219_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local362, local362, local362, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local362, local362, local362, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
             } else {
-                this.aClass219_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, local27, local46, local65, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
             }
         } else if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
+            this.aRasterizer_1.renderTriangleRgb((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
         } else {
-            this.aClass219_1.method5141((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aClass399_3.anInt10597, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
+            this.aRasterizer_1.renderTriangleRgb((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray664[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray672[arg0] & 0xFFFF]));
         }
     }
 
@@ -1543,14 +1543,14 @@ public final class Model_Sub3 extends Model {
     public Model copy(@OriginalArg(0) byte arg0, @OriginalArg(1) int functionMask, @OriginalArg(2) boolean arg2) {
         this.method7535(Thread.currentThread());
         @Pc(4) boolean local4 = false;
-        @Pc(25) Model_Sub3 local25;
-        @Pc(18) Model_Sub3 local18;
+        @Pc(25) JavaModel local25;
+        @Pc(18) JavaModel local18;
         if (arg0 > 0 && arg0 <= 7) {
             local18 = this.aClass114_Sub3Array1[arg0 - 1];
             local25 = this.aClass114_Sub3Array2[arg0 - 1];
             local4 = true;
         } else {
-            local25 = local18 = new Model_Sub3(this.aClass19_Sub2_9);
+            local25 = local18 = new JavaModel(this.aClass19_Sub2_9);
         }
         return this.method7514(local25, local18, functionMask, local4, arg2);
     }
@@ -1558,7 +1558,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "g", descriptor = "()V")
     @Override
     protected void method7491() {
-        if (this.aClass19_Sub2_9.anInt4211 <= 1) {
+        if (this.aClass19_Sub2_9.threadCount <= 1) {
             return;
         }
         synchronized (this) {
@@ -1749,15 +1749,15 @@ public final class Model_Sub3 extends Model {
                 if (local13.next != null) {
                     local15 = local13.next;
                 }
-                local15.anInt8518 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat55 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat53 * (float) this.anIntArray658[local13.anInt8514]);
-                local15.anInt8502 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat52 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat51 * (float) this.anIntArray658[local13.anInt8514]);
-                local15.anInt8504 = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local13.anInt8514] + local2.aFloat54 * (float) this.anIntArray675[local13.anInt8514] + local2.aFloat61 * (float) this.anIntArray658[local13.anInt8514]);
-                local15.anInt8516 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local13.anInt8508] + local2.aFloat55 * (float) this.anIntArray675[local13.anInt8508] + local2.aFloat53 * (float) this.anIntArray658[local13.anInt8508]);
-                local15.anInt8507 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local13.anInt8508] + local2.aFloat52 * (float) this.anIntArray675[local13.anInt8508] + local2.aFloat51 * (float) this.anIntArray658[local13.anInt8508]);
-                local15.anInt8509 = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local13.anInt8508] + local2.aFloat54 * (float) this.anIntArray675[local13.anInt8508] + local2.aFloat61 * (float) this.anIntArray658[local13.anInt8508]);
-                local15.anInt8512 = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local13.anInt8505] + local2.aFloat55 * (float) this.anIntArray675[local13.anInt8505] + local2.aFloat53 * (float) this.anIntArray658[local13.anInt8505]);
-                local15.anInt8503 = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local13.anInt8505] + local2.aFloat52 * (float) this.anIntArray675[local13.anInt8505] + local2.aFloat51 * (float) this.anIntArray658[local13.anInt8505]);
-                local15.anInt8520 = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local13.anInt8505] + local2.aFloat54 * (float) this.anIntArray675[local13.anInt8505] + local2.aFloat61 * (float) this.anIntArray658[local13.anInt8505]);
+                local15.anInt8518 = (int) (local2.tx + local2.e1_1 * (float) this.anIntArray666[local13.anInt8514] + local2.e1_2 * (float) this.anIntArray675[local13.anInt8514] + local2.e1_3 * (float) this.anIntArray658[local13.anInt8514]);
+                local15.anInt8502 = (int) (local2.ty + local2.e2_1 * (float) this.anIntArray666[local13.anInt8514] + local2.e2_2 * (float) this.anIntArray675[local13.anInt8514] + local2.e2_3 * (float) this.anIntArray658[local13.anInt8514]);
+                local15.anInt8504 = (int) (local2.tz + local2.e3_1 * (float) this.anIntArray666[local13.anInt8514] + local2.e3_2 * (float) this.anIntArray675[local13.anInt8514] + local2.e3_3 * (float) this.anIntArray658[local13.anInt8514]);
+                local15.anInt8516 = (int) (local2.tx + local2.e1_1 * (float) this.anIntArray666[local13.anInt8508] + local2.e1_2 * (float) this.anIntArray675[local13.anInt8508] + local2.e1_3 * (float) this.anIntArray658[local13.anInt8508]);
+                local15.anInt8507 = (int) (local2.ty + local2.e2_1 * (float) this.anIntArray666[local13.anInt8508] + local2.e2_2 * (float) this.anIntArray675[local13.anInt8508] + local2.e2_3 * (float) this.anIntArray658[local13.anInt8508]);
+                local15.anInt8509 = (int) (local2.tz + local2.e3_1 * (float) this.anIntArray666[local13.anInt8508] + local2.e3_2 * (float) this.anIntArray675[local13.anInt8508] + local2.e3_3 * (float) this.anIntArray658[local13.anInt8508]);
+                local15.anInt8512 = (int) (local2.tx + local2.e1_1 * (float) this.anIntArray666[local13.anInt8505] + local2.e1_2 * (float) this.anIntArray675[local13.anInt8505] + local2.e1_3 * (float) this.anIntArray658[local13.anInt8505]);
+                local15.anInt8503 = (int) (local2.ty + local2.e2_1 * (float) this.anIntArray666[local13.anInt8505] + local2.e2_2 * (float) this.anIntArray675[local13.anInt8505] + local2.e2_3 * (float) this.anIntArray658[local13.anInt8505]);
+                local15.anInt8520 = (int) (local2.tz + local2.e3_1 * (float) this.anIntArray666[local13.anInt8505] + local2.e3_2 * (float) this.anIntArray675[local13.anInt8505] + local2.e3_3 * (float) this.anIntArray658[local13.anInt8505]);
             }
         }
         if (this.aModelParticleEffectorArray5 == null) {
@@ -1774,9 +1774,9 @@ public final class Model_Sub3 extends Model {
             } else {
                 local355.matrix.apply(local2);
             }
-            local357.x = (int) (local2.aFloat60 + local2.aFloat59 * (float) this.anIntArray666[local355.vertex] + local2.aFloat55 * (float) this.anIntArray675[local355.vertex] + local2.aFloat53 * (float) this.anIntArray658[local355.vertex]);
-            local357.y = (int) (local2.aFloat58 + local2.aFloat57 * (float) this.anIntArray666[local355.vertex] + local2.aFloat52 * (float) this.anIntArray675[local355.vertex] + local2.aFloat51 * (float) this.anIntArray658[local355.vertex]);
-            local357.z = (int) (local2.aFloat62 + local2.aFloat56 * (float) this.anIntArray666[local355.vertex] + local2.aFloat54 * (float) this.anIntArray675[local355.vertex] + local2.aFloat61 * (float) this.anIntArray658[local355.vertex]);
+            local357.x = (int) (local2.tx + local2.e1_1 * (float) this.anIntArray666[local355.vertex] + local2.e1_2 * (float) this.anIntArray675[local355.vertex] + local2.e1_3 * (float) this.anIntArray658[local355.vertex]);
+            local357.y = (int) (local2.ty + local2.e2_1 * (float) this.anIntArray666[local355.vertex] + local2.e2_2 * (float) this.anIntArray675[local355.vertex] + local2.e2_3 * (float) this.anIntArray658[local355.vertex]);
+            local357.z = (int) (local2.tz + local2.e3_1 * (float) this.anIntArray666[local355.vertex] + local2.e3_2 * (float) this.anIntArray675[local355.vertex] + local2.e3_3 * (float) this.anIntArray658[local355.vertex]);
         }
     }
 
@@ -1816,10 +1816,10 @@ public final class Model_Sub3 extends Model {
                 return;
             }
         } else if (this.anIntArray669[arg0] != -1 || (local27 - local32) * (this.anIntArray657[local22] - this.anIntArray657[local17]) - (this.anIntArray657[local12] - this.anIntArray657[local17]) * (local37 - local32) > 0) {
-            if (local27 >= 0 && local32 >= 0 && local37 >= 0 && local27 <= this.aClass399_3.anInt10607 && local32 <= this.aClass399_3.anInt10607 && local37 <= this.aClass399_3.anInt10607) {
-                this.aClass219_1.aBoolean434 = false;
+            if (local27 >= 0 && local32 >= 0 && local37 >= 0 && local27 <= this.aJavaThreadResource_3.anInt10607 && local32 <= this.aJavaThreadResource_3.anInt10607 && local37 <= this.aJavaThreadResource_3.anInt10607) {
+                this.aRasterizer_1.clamp = false;
             } else {
-                this.aClass219_1.aBoolean434 = true;
+                this.aRasterizer_1.clamp = true;
             }
             if (arg2) {
                 local59 = this.anIntArray669[arg0];
@@ -1846,7 +1846,7 @@ public final class Model_Sub3 extends Model {
     public void method7509() {
         if (this.anInt8488 == 0) {
             this.method7503(false);
-        } else if (this.aClass19_Sub2_9.anInt4211 > 1) {
+        } else if (this.aClass19_Sub2_9.threadCount > 1) {
             synchronized (this) {
                 this.method7527();
             }
@@ -2025,7 +2025,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!ka;IIIZ)V")
     @Override
     public void method7481(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
-        @Pc(2) Model_Sub3 local2 = (Model_Sub3) arg0;
+        @Pc(2) JavaModel local2 = (JavaModel) arg0;
         if ((this.anInt8489 & 0x10000) != 65536) {
             throw new IllegalStateException("");
         } else if ((local2.anInt8489 & 0x10000) == 65536) {
@@ -2426,10 +2426,10 @@ public final class Model_Sub3 extends Model {
             }
         } else {
             this.method7523();
-            @Pc(42) int local42 = this.aClass19_Sub2_9.anInt4189;
-            @Pc(46) int local46 = this.aClass19_Sub2_9.anInt4204;
-            @Pc(50) int local50 = this.aClass19_Sub2_9.anInt4198;
-            @Pc(56) int local56 = this.aClass19_Sub2_9.anInt4202 >> 8;
+            @Pc(42) int local42 = this.aClass19_Sub2_9.sunX;
+            @Pc(46) int local46 = this.aClass19_Sub2_9.sunY;
+            @Pc(50) int local50 = this.aClass19_Sub2_9.sunZ;
+            @Pc(56) int local56 = this.aClass19_Sub2_9.ambient >> 8;
             @Pc(65) int local65 = this.aClass19_Sub2_9.sunIntensity * 768 / this.anInt8485;
             @Pc(74) int local74 = this.aClass19_Sub2_9.reverseSunIntensity * 768 / this.anInt8485;
             if (this.anIntArray668 == null) {
@@ -2596,19 +2596,19 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(IILclient!tt;ZII)Z")
     public boolean method7513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass73_Sub2_2 = (JavaMatrix) arg2;
-        @Pc(7) JavaMatrix local7 = this.aClass19_Sub2_9.aClass73_Sub2_1;
-        @Pc(31) float local31 = local7.aFloat60 + local7.aFloat59 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat55 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat53 * this.aClass73_Sub2_2.aFloat62;
-        @Pc(55) float local55 = local7.aFloat58 + local7.aFloat57 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat52 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat51 * this.aClass73_Sub2_2.aFloat62;
-        @Pc(79) float local79 = local7.aFloat62 + local7.aFloat56 * this.aClass73_Sub2_2.aFloat60 + local7.aFloat54 * this.aClass73_Sub2_2.aFloat58 + local7.aFloat61 * this.aClass73_Sub2_2.aFloat62;
-        @Pc(100) float local100 = local7.aFloat59 * this.aClass73_Sub2_2.aFloat59 + local7.aFloat55 * this.aClass73_Sub2_2.aFloat57 + local7.aFloat53 * this.aClass73_Sub2_2.aFloat56;
-        @Pc(121) float local121 = local7.aFloat59 * this.aClass73_Sub2_2.aFloat55 + local7.aFloat55 * this.aClass73_Sub2_2.aFloat52 + local7.aFloat53 * this.aClass73_Sub2_2.aFloat54;
-        @Pc(142) float local142 = local7.aFloat59 * this.aClass73_Sub2_2.aFloat53 + local7.aFloat55 * this.aClass73_Sub2_2.aFloat51 + local7.aFloat53 * this.aClass73_Sub2_2.aFloat61;
-        @Pc(163) float local163 = local7.aFloat57 * this.aClass73_Sub2_2.aFloat59 + local7.aFloat52 * this.aClass73_Sub2_2.aFloat57 + local7.aFloat51 * this.aClass73_Sub2_2.aFloat56;
-        @Pc(184) float local184 = local7.aFloat57 * this.aClass73_Sub2_2.aFloat55 + local7.aFloat52 * this.aClass73_Sub2_2.aFloat52 + local7.aFloat51 * this.aClass73_Sub2_2.aFloat54;
-        @Pc(205) float local205 = local7.aFloat57 * this.aClass73_Sub2_2.aFloat53 + local7.aFloat52 * this.aClass73_Sub2_2.aFloat51 + local7.aFloat51 * this.aClass73_Sub2_2.aFloat61;
-        @Pc(226) float local226 = local7.aFloat56 * this.aClass73_Sub2_2.aFloat59 + local7.aFloat54 * this.aClass73_Sub2_2.aFloat57 + local7.aFloat61 * this.aClass73_Sub2_2.aFloat56;
-        @Pc(247) float local247 = local7.aFloat56 * this.aClass73_Sub2_2.aFloat55 + local7.aFloat54 * this.aClass73_Sub2_2.aFloat52 + local7.aFloat61 * this.aClass73_Sub2_2.aFloat54;
-        @Pc(268) float local268 = local7.aFloat56 * this.aClass73_Sub2_2.aFloat53 + local7.aFloat54 * this.aClass73_Sub2_2.aFloat51 + local7.aFloat61 * this.aClass73_Sub2_2.aFloat61;
+        @Pc(7) JavaMatrix local7 = this.aClass19_Sub2_9.camera;
+        @Pc(31) float local31 = local7.tx + local7.e1_1 * this.aClass73_Sub2_2.tx + local7.e1_2 * this.aClass73_Sub2_2.ty + local7.e1_3 * this.aClass73_Sub2_2.tz;
+        @Pc(55) float local55 = local7.ty + local7.e2_1 * this.aClass73_Sub2_2.tx + local7.e2_2 * this.aClass73_Sub2_2.ty + local7.e2_3 * this.aClass73_Sub2_2.tz;
+        @Pc(79) float local79 = local7.tz + local7.e3_1 * this.aClass73_Sub2_2.tx + local7.e3_2 * this.aClass73_Sub2_2.ty + local7.e3_3 * this.aClass73_Sub2_2.tz;
+        @Pc(100) float local100 = local7.e1_1 * this.aClass73_Sub2_2.e1_1 + local7.e1_2 * this.aClass73_Sub2_2.e2_1 + local7.e1_3 * this.aClass73_Sub2_2.e3_1;
+        @Pc(121) float local121 = local7.e1_1 * this.aClass73_Sub2_2.e1_2 + local7.e1_2 * this.aClass73_Sub2_2.e2_2 + local7.e1_3 * this.aClass73_Sub2_2.e3_2;
+        @Pc(142) float local142 = local7.e1_1 * this.aClass73_Sub2_2.e1_3 + local7.e1_2 * this.aClass73_Sub2_2.e2_3 + local7.e1_3 * this.aClass73_Sub2_2.e3_3;
+        @Pc(163) float local163 = local7.e2_1 * this.aClass73_Sub2_2.e1_1 + local7.e2_2 * this.aClass73_Sub2_2.e2_1 + local7.e2_3 * this.aClass73_Sub2_2.e3_1;
+        @Pc(184) float local184 = local7.e2_1 * this.aClass73_Sub2_2.e1_2 + local7.e2_2 * this.aClass73_Sub2_2.e2_2 + local7.e2_3 * this.aClass73_Sub2_2.e3_2;
+        @Pc(205) float local205 = local7.e2_1 * this.aClass73_Sub2_2.e1_3 + local7.e2_2 * this.aClass73_Sub2_2.e2_3 + local7.e2_3 * this.aClass73_Sub2_2.e3_3;
+        @Pc(226) float local226 = local7.e3_1 * this.aClass73_Sub2_2.e1_1 + local7.e3_2 * this.aClass73_Sub2_2.e2_1 + local7.e3_3 * this.aClass73_Sub2_2.e3_1;
+        @Pc(247) float local247 = local7.e3_1 * this.aClass73_Sub2_2.e1_2 + local7.e3_2 * this.aClass73_Sub2_2.e2_2 + local7.e3_3 * this.aClass73_Sub2_2.e3_2;
+        @Pc(268) float local268 = local7.e3_1 * this.aClass73_Sub2_2.e1_3 + local7.e3_2 * this.aClass73_Sub2_2.e2_3 + local7.e3_3 * this.aClass73_Sub2_2.e3_3;
         @Pc(270) boolean local270 = false;
         @Pc(274) int local274 = this.aClass19_Sub2_9.projectionCenterX;
         @Pc(278) int local278 = this.aClass19_Sub2_9.projectionCenterY;
@@ -2725,7 +2725,7 @@ public final class Model_Sub3 extends Model {
     }
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!rs;Lclient!rs;IZZ)Lclient!ka;")
-    public Model method7514(@OriginalArg(0) Model_Sub3 arg0, @OriginalArg(1) Model_Sub3 arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) boolean arg4) {
+    public Model method7514(@OriginalArg(0) JavaModel arg0, @OriginalArg(1) JavaModel arg1, @OriginalArg(2) int arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) boolean arg4) {
         arg0.aBoolean652 = this.aBoolean652;
         if (this.aBoolean652) {
             arg0.aShort117 = this.aShort117;
@@ -3106,21 +3106,21 @@ public final class Model_Sub3 extends Model {
             }
             if (this.anIntArray672[arg0] == -1) {
                 @Pc(210) int local210 = local181 | this.anIntArray668[arg0] & 0xFFFFFF;
-                this.aClass219_1.method5154((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local210, local210, local210, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5154((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local210, local210, local210, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
             } else {
-                this.aClass219_1.method5154((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local181 | this.anIntArray668[arg0] & 0xFFFFFF, local181 | this.anIntArray664[arg0] & 0xFFFFFF, local181 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5154((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local181 | this.anIntArray668[arg0] & 0xFFFFFF, local181 | this.anIntArray664[arg0] & 0xFFFFFF, local181 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
             }
             return;
         }
         if (this.aByteArray96 == null) {
-            this.aClass219_1.anInt5724 = 0;
+            this.aRasterizer_1.alpha = 0;
         } else {
-            this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
         }
         if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5144((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
+            this.aRasterizer_1.method5144((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
         } else {
-            this.aClass219_1.method5153((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], (float) (this.anIntArray668[arg0] & 0xFFFF), (float) (this.anIntArray664[arg0] & 0xFFFF), (float) (this.anIntArray672[arg0] & 0xFFFF));
+            this.aRasterizer_1.method5153((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], (float) (this.anIntArray668[arg0] & 0xFFFF), (float) (this.anIntArray664[arg0] & 0xFFFF), (float) (this.anIntArray672[arg0] & 0xFFFF));
         }
     }
 
@@ -3141,9 +3141,9 @@ public final class Model_Sub3 extends Model {
         @Pc(30) int local30 = this.anIntArray659[local15];
         @Pc(35) int local35 = this.anIntArray659[local20];
         if (this.aByteArray96 == null) {
-            this.aClass219_1.anInt5724 = 0;
+            this.aRasterizer_1.alpha = 0;
         } else {
-            this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
         }
         @Pc(98) int local98;
         @Pc(103) int local103;
@@ -3161,16 +3161,16 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray668[arg0] & 0xFFFF;
             if (local35 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local35 - local25));
-                this.anIntArray663[0] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[0] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[0] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[0] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[0] = local5;
                 local1++;
                 this.anIntArray677[0] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local30 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local30 - local25));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3186,15 +3186,15 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray664[arg0] & 0xFFFF;
             if (local25 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local25 - local30));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local35 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local35 - local30));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3210,15 +3210,15 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray672[arg0] & 0xFFFF;
             if (local30 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local30 - local35));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local25 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local25 - local35));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3232,12 +3232,12 @@ public final class Model_Sub3 extends Model {
         local25 = this.anIntArray671[0];
         local30 = this.anIntArray671[1];
         local35 = this.anIntArray671[2];
-        this.aClass219_1.aBoolean434 = false;
+        this.aRasterizer_1.clamp = false;
         @Pc(938) int local938;
         @Pc(961) int local961;
         if (local1 == 3) {
-            if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aClass399_3.anInt10607 || local103 > this.aClass399_3.anInt10607 || local110 > this.aClass399_3.anInt10607) {
-                this.aClass219_1.aBoolean434 = true;
+            if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aJavaThreadResource_3.anInt10607 || local103 > this.aJavaThreadResource_3.anInt10607 || local110 > this.aJavaThreadResource_3.anInt10607) {
+                this.aRasterizer_1.clamp = true;
             }
             if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
                 local938 = -16777216;
@@ -3246,31 +3246,31 @@ public final class Model_Sub3 extends Model {
                 }
                 local961 = local938 | this.anIntArray668[arg0] & 0xFFFFFF;
                 if (this.anIntArray672[arg0] == -1) {
-                    this.aClass219_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
                 } else {
-                    this.aClass219_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
-                this.aClass219_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
+                this.aRasterizer_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
             } else {
-                this.aClass219_1.method5153((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
+                this.aRasterizer_1.method5153((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
             }
         }
         if (local1 != 4) {
             return;
         }
-        if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aClass399_3.anInt10607 || local103 > this.aClass399_3.anInt10607 || local110 > this.aClass399_3.anInt10607 || this.anIntArray663[3] < 0 || this.anIntArray663[3] > this.aClass399_3.anInt10607) {
-            this.aClass219_1.aBoolean434 = true;
+        if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aJavaThreadResource_3.anInt10607 || local103 > this.aJavaThreadResource_3.anInt10607 || local110 > this.aJavaThreadResource_3.anInt10607 || this.anIntArray663[3] < 0 || this.anIntArray663[3] > this.aJavaThreadResource_3.anInt10607) {
+            this.aRasterizer_1.clamp = true;
         }
         if (this.aShortArray123 == null || this.aShortArray123[arg0] == -1) {
             if (this.anIntArray672[arg0] == -1) {
                 local938 = ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF];
-                this.aClass219_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, local938);
-                this.aClass219_1.method5144((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], local938);
+                this.aRasterizer_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, local938);
+                this.aRasterizer_1.method5144((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], local938);
                 return;
             } else {
-                this.aClass219_1.method5153((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
-                this.aClass219_1.method5153((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], (float) this.anIntArray677[0], (float) this.anIntArray677[2], (float) this.anIntArray677[3]);
+                this.aRasterizer_1.method5153((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
+                this.aRasterizer_1.method5153((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], (float) this.anIntArray677[0], (float) this.anIntArray677[2], (float) this.anIntArray677[3]);
                 return;
             }
         }
@@ -3280,39 +3280,39 @@ public final class Model_Sub3 extends Model {
         }
         local961 = local938 | this.anIntArray668[arg0] & 0xFFFFFF;
         if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
-            this.aClass219_1.method5154((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+            this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+            this.aRasterizer_1.method5154((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
             return;
         }
-        this.aClass219_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
-        this.aClass219_1.method5154((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+        this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+        this.aRasterizer_1.method5154((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
     }
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Ljava/lang/Thread;)V")
     public void method7519(@OriginalArg(0) Thread arg0) {
-        @Pc(4) Class399 local4 = this.aClass19_Sub2_9.method3787(arg0);
-        this.aClass219_1 = local4.aClass219_2;
-        if (local4 == this.aClass399_3) {
+        @Pc(4) JavaThreadResource local4 = this.aClass19_Sub2_9.threadResource(arg0);
+        this.aRasterizer_1 = local4.rasterizer;
+        if (local4 == this.aJavaThreadResource_3) {
             return;
         }
-        this.aClass399_3 = local4;
-        this.anIntArray673 = this.aClass399_3.anIntArray845;
-        this.anIntArray656 = this.aClass399_3.anIntArray854;
-        this.anIntArray660 = this.aClass399_3.anIntArray849;
-        this.anIntArray659 = this.aClass399_3.anIntArray839;
-        this.anIntArray655 = this.aClass399_3.anIntArray851;
-        this.anIntArray657 = this.aClass399_3.anIntArray846;
-        this.anIntArray670 = this.aClass399_3.anIntArray838;
-        this.anIntArray662 = this.aClass399_3.anIntArray844;
-        this.anIntArray665 = this.aClass399_3.anIntArray842;
-        this.anIntArray661 = this.aClass399_3.anIntArray837;
-        this.anIntArray663 = this.aClass399_3.anIntArray847;
-        this.anIntArray676 = this.aClass399_3.anIntArray850;
-        this.anIntArray671 = this.aClass399_3.anIntArray841;
-        this.anIntArray677 = this.aClass399_3.anIntArray848;
-        this.anIntArray674 = this.aClass399_3.anIntArray835;
-        this.anIntArray667 = this.aClass399_3.anIntArray836;
-        this.anIntArray669 = this.aClass399_3.anIntArray853;
+        this.aJavaThreadResource_3 = local4;
+        this.anIntArray673 = this.aJavaThreadResource_3.anIntArray845;
+        this.anIntArray656 = this.aJavaThreadResource_3.anIntArray854;
+        this.anIntArray660 = this.aJavaThreadResource_3.anIntArray849;
+        this.anIntArray659 = this.aJavaThreadResource_3.anIntArray839;
+        this.anIntArray655 = this.aJavaThreadResource_3.anIntArray851;
+        this.anIntArray657 = this.aJavaThreadResource_3.anIntArray846;
+        this.anIntArray670 = this.aJavaThreadResource_3.anIntArray838;
+        this.anIntArray662 = this.aJavaThreadResource_3.anIntArray844;
+        this.anIntArray665 = this.aJavaThreadResource_3.anIntArray842;
+        this.anIntArray661 = this.aJavaThreadResource_3.anIntArray837;
+        this.anIntArray663 = this.aJavaThreadResource_3.anIntArray847;
+        this.anIntArray676 = this.aJavaThreadResource_3.anIntArray850;
+        this.anIntArray671 = this.aJavaThreadResource_3.anIntArray841;
+        this.anIntArray677 = this.aJavaThreadResource_3.anIntArray848;
+        this.anIntArray674 = this.aJavaThreadResource_3.anIntArray835;
+        this.anIntArray667 = this.aJavaThreadResource_3.anIntArray836;
+        this.anIntArray669 = this.aJavaThreadResource_3.anIntArray853;
     }
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(IIIIIIII)Z")
@@ -3360,9 +3360,9 @@ public final class Model_Sub3 extends Model {
         @Pc(30) int local30 = this.anIntArray659[local15];
         @Pc(35) int local35 = this.anIntArray659[local20];
         if (this.aByteArray96 == null) {
-            this.aClass219_1.anInt5724 = 0;
+            this.aRasterizer_1.alpha = 0;
         } else {
-            this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
         }
         @Pc(98) int local98;
         @Pc(103) int local103;
@@ -3380,16 +3380,16 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray668[arg0] & 0xFFFF;
             if (local35 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local35 - local25));
-                this.anIntArray663[0] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[0] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[0] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[0] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[0] = local5;
                 local1++;
                 this.anIntArray677[0] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local30 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local30 - local25));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3405,15 +3405,15 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray664[arg0] & 0xFFFF;
             if (local25 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local25 - local30));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local35 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local35 - local30));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3429,15 +3429,15 @@ public final class Model_Sub3 extends Model {
             local110 = this.anIntArray672[arg0] & 0xFFFF;
             if (local30 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local30 - local35));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local25 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local25 - local35));
-                this.anIntArray663[local1] = this.aClass399_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aClass399_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3451,12 +3451,12 @@ public final class Model_Sub3 extends Model {
         local25 = this.anIntArray671[0];
         local30 = this.anIntArray671[1];
         local35 = this.anIntArray671[2];
-        this.aClass219_1.aBoolean434 = false;
+        this.aRasterizer_1.clamp = false;
         @Pc(938) int local938;
         @Pc(961) int local961;
         if (local1 == 3) {
-            if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aClass399_3.anInt10607 || local103 > this.aClass399_3.anInt10607 || local110 > this.aClass399_3.anInt10607) {
-                this.aClass219_1.aBoolean434 = true;
+            if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aJavaThreadResource_3.anInt10607 || local103 > this.aJavaThreadResource_3.anInt10607 || local110 > this.aJavaThreadResource_3.anInt10607) {
+                this.aRasterizer_1.clamp = true;
             }
             if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
                 local938 = -16777216;
@@ -3465,31 +3465,31 @@ public final class Model_Sub3 extends Model {
                 }
                 local961 = local938 | this.anIntArray668[arg0] & 0xFFFFFF;
                 if (this.anIntArray672[arg0] == -1) {
-                    this.aClass219_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
                 } else {
-                    this.aClass219_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
-                this.aClass219_1.method5158((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
+                this.aRasterizer_1.renderFlatTriangleRgb((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
             } else {
-                this.aClass219_1.method5156((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
+                this.aRasterizer_1.method5156((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
             }
         }
         if (local1 != 4) {
             return;
         }
-        if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aClass399_3.anInt10607 || local103 > this.aClass399_3.anInt10607 || local110 > this.aClass399_3.anInt10607 || this.anIntArray663[3] < 0 || this.anIntArray663[3] > this.aClass399_3.anInt10607) {
-            this.aClass219_1.aBoolean434 = true;
+        if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aJavaThreadResource_3.anInt10607 || local103 > this.aJavaThreadResource_3.anInt10607 || local110 > this.aJavaThreadResource_3.anInt10607 || this.anIntArray663[3] < 0 || this.anIntArray663[3] > this.aJavaThreadResource_3.anInt10607) {
+            this.aRasterizer_1.clamp = true;
         }
         if (this.aShortArray123 == null || this.aShortArray123[arg0] == -1) {
             if (this.anIntArray672[arg0] == -1) {
                 local938 = ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF];
-                this.aClass219_1.method5158((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, local938);
-                this.aClass219_1.method5158((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], local938);
+                this.aRasterizer_1.renderFlatTriangleRgb((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, local938);
+                this.aRasterizer_1.renderFlatTriangleRgb((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], local938);
                 return;
             } else {
-                this.aClass219_1.method5156((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
-                this.aClass219_1.method5156((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], (float) this.anIntArray677[0], (float) this.anIntArray677[2], (float) this.anIntArray677[3]);
+                this.aRasterizer_1.method5156((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, (float) this.anIntArray677[0], (float) this.anIntArray677[1], (float) this.anIntArray677[2]);
+                this.aRasterizer_1.method5156((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local30, (float) this.anIntArray671[3], (float) this.anIntArray677[0], (float) this.anIntArray677[2], (float) this.anIntArray677[3]);
                 return;
             }
         }
@@ -3499,12 +3499,12 @@ public final class Model_Sub3 extends Model {
         }
         local961 = local938 | this.anIntArray668[arg0] & 0xFFFFFF;
         if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
-            this.aClass219_1.method5150((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+            this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+            this.aRasterizer_1.method5150((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
             return;
         }
-        this.aClass219_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
-        this.aClass219_1.method5150((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+        this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+        this.aRasterizer_1.method5150((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
     }
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(IZZ)V")
@@ -3543,10 +3543,10 @@ public final class Model_Sub3 extends Model {
                 return;
             }
         } else if (this.anIntArray669[arg0] != -1 || (local27 - local32) * (this.anIntArray657[local22] - this.anIntArray657[local17]) - (this.anIntArray657[local12] - this.anIntArray657[local17]) * (local37 - local32) > 0) {
-            if (local27 >= 0 && local32 >= 0 && local37 >= 0 && local27 <= this.aClass399_3.anInt10607 && local32 <= this.aClass399_3.anInt10607 && local37 <= this.aClass399_3.anInt10607) {
-                this.aClass219_1.aBoolean434 = false;
+            if (local27 >= 0 && local32 >= 0 && local37 >= 0 && local27 <= this.aJavaThreadResource_3.anInt10607 && local32 <= this.aJavaThreadResource_3.anInt10607 && local37 <= this.aJavaThreadResource_3.anInt10607) {
+                this.aRasterizer_1.clamp = false;
             } else {
-                this.aClass219_1.aBoolean434 = true;
+                this.aRasterizer_1.clamp = true;
             }
             if (arg2) {
                 local59 = this.anIntArray669[arg0];
@@ -3586,7 +3586,7 @@ public final class Model_Sub3 extends Model {
             return true;
         }
         for (@Pc(7) int local7 = 0; local7 < this.aShortArray123.length; local7++) {
-            if (this.aShortArray123[local7] != -1 && !this.aClass19_Sub2_9.method3786(this.aShortArray123[local7])) {
+            if (this.aShortArray123[local7] != -1 && !this.aClass19_Sub2_9.textureAvailable(this.aShortArray123[local7])) {
                 return false;
             }
         }
@@ -3628,7 +3628,7 @@ public final class Model_Sub3 extends Model {
         if (this.anInt8488 != 0 || this.aClass378Array2 != null) {
             return;
         }
-        if (this.aClass19_Sub2_9.anInt4211 > 1) {
+        if (this.aClass19_Sub2_9.threadCount > 1) {
             synchronized (this) {
                 this.method7510();
             }
@@ -3769,7 +3769,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "d", descriptor = "()V")
     @Override
     protected void method7494() {
-        if (this.aClass19_Sub2_9.anInt4211 > 1) {
+        if (this.aClass19_Sub2_9.threadCount > 1) {
             synchronized (this) {
                 super.locked = false;
                 this.notifyAll();
@@ -3783,16 +3783,16 @@ public final class Model_Sub3 extends Model {
             return;
         }
         this.aClass73_Sub2_2 = (JavaMatrix) arg0;
-        @Pc(13) JavaMatrix local13 = this.aClass19_Sub2_9.aClass73_Sub2_1;
+        @Pc(13) JavaMatrix local13 = this.aClass19_Sub2_9.camera;
         if (!this.aBoolean652) {
             this.method7525();
         }
         @Pc(22) boolean local22 = false;
-        if (this.aClass73_Sub2_2.aFloat59 == 16384.0F && this.aClass73_Sub2_2.aFloat55 == 0.0F && this.aClass73_Sub2_2.aFloat53 == 0.0F && this.aClass73_Sub2_2.aFloat57 == 0.0F && this.aClass73_Sub2_2.aFloat52 == 16384.0F && this.aClass73_Sub2_2.aFloat51 == 0.0F && this.aClass73_Sub2_2.aFloat56 == 0.0F && this.aClass73_Sub2_2.aFloat54 == 0.0F && this.aClass73_Sub2_2.aFloat61 == 16384.0F) {
+        if (this.aClass73_Sub2_2.e1_1 == 16384.0F && this.aClass73_Sub2_2.e1_2 == 0.0F && this.aClass73_Sub2_2.e1_3 == 0.0F && this.aClass73_Sub2_2.e2_1 == 0.0F && this.aClass73_Sub2_2.e2_2 == 16384.0F && this.aClass73_Sub2_2.e2_3 == 0.0F && this.aClass73_Sub2_2.e3_1 == 0.0F && this.aClass73_Sub2_2.e3_2 == 0.0F && this.aClass73_Sub2_2.e3_3 == 16384.0F) {
             local22 = true;
         }
-        @Pc(118) float local118 = local13.aFloat62 + local13.aFloat56 * this.aClass73_Sub2_2.aFloat60 + local13.aFloat54 * this.aClass73_Sub2_2.aFloat58 + local13.aFloat61 * this.aClass73_Sub2_2.aFloat62;
-        @Pc(145) float local145 = local22 ? local13.aFloat54 : local13.aFloat56 * this.aClass73_Sub2_2.aFloat55 + local13.aFloat54 * this.aClass73_Sub2_2.aFloat52 + local13.aFloat61 * this.aClass73_Sub2_2.aFloat54;
+        @Pc(118) float local118 = local13.tz + local13.e3_1 * this.aClass73_Sub2_2.tx + local13.e3_2 * this.aClass73_Sub2_2.ty + local13.e3_3 * this.aClass73_Sub2_2.tz;
+        @Pc(145) float local145 = local22 ? local13.e3_2 : local13.e3_1 * this.aClass73_Sub2_2.e1_2 + local13.e3_2 * this.aClass73_Sub2_2.e2_2 + local13.e3_3 * this.aClass73_Sub2_2.e3_2;
         @Pc(154) int local154 = (int) (local118 + (float) this.aShort116 * local145);
         @Pc(163) int local163 = (int) (local118 + (float) this.aShort113 * local145);
         @Pc(171) int local171;
@@ -3807,8 +3807,8 @@ public final class Model_Sub3 extends Model {
         if (local171 >= this.aClass19_Sub2_9.zFar || local176 <= this.aClass19_Sub2_9.zNear) {
             return;
         }
-        @Pc(225) float local225 = local13.aFloat60 + local13.aFloat59 * this.aClass73_Sub2_2.aFloat60 + local13.aFloat55 * this.aClass73_Sub2_2.aFloat58 + local13.aFloat53 * this.aClass73_Sub2_2.aFloat62;
-        @Pc(252) float local252 = local22 ? local13.aFloat55 : local13.aFloat59 * this.aClass73_Sub2_2.aFloat55 + local13.aFloat55 * this.aClass73_Sub2_2.aFloat52 + local13.aFloat53 * this.aClass73_Sub2_2.aFloat54;
+        @Pc(225) float local225 = local13.tx + local13.e1_1 * this.aClass73_Sub2_2.tx + local13.e1_2 * this.aClass73_Sub2_2.ty + local13.e1_3 * this.aClass73_Sub2_2.tz;
+        @Pc(252) float local252 = local22 ? local13.e1_2 : local13.e1_1 * this.aClass73_Sub2_2.e1_2 + local13.e1_2 * this.aClass73_Sub2_2.e2_2 + local13.e1_3 * this.aClass73_Sub2_2.e3_2;
         @Pc(261) int local261 = (int) (local225 + (float) this.aShort116 * local252);
         @Pc(270) int local270 = (int) (local225 + (float) this.aShort113 * local252);
         @Pc(282) int local282;
@@ -3821,19 +3821,19 @@ public final class Model_Sub3 extends Model {
             local291 = (local270 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
         }
         if (arg2 == -1) {
-            if (local282 / local176 >= this.aClass19_Sub2_9.anInt4193) {
+            if (local282 / local176 >= this.aClass19_Sub2_9.viewX2) {
                 return;
             }
-            if (local291 / local176 <= this.aClass19_Sub2_9.anInt4210) {
+            if (local291 / local176 <= this.aClass19_Sub2_9.viewX1) {
                 return;
             }
-        } else if (local282 / arg2 >= this.aClass19_Sub2_9.anInt4193) {
+        } else if (local282 / arg2 >= this.aClass19_Sub2_9.viewX2) {
             return;
-        } else if (local291 / arg2 <= this.aClass19_Sub2_9.anInt4210) {
+        } else if (local291 / arg2 <= this.aClass19_Sub2_9.viewX1) {
             return;
         }
-        @Pc(375) float local375 = local13.aFloat58 + local13.aFloat57 * this.aClass73_Sub2_2.aFloat60 + local13.aFloat52 * this.aClass73_Sub2_2.aFloat58 + local13.aFloat51 * this.aClass73_Sub2_2.aFloat62;
-        @Pc(402) float local402 = local22 ? local13.aFloat52 : local13.aFloat57 * this.aClass73_Sub2_2.aFloat55 + local13.aFloat52 * this.aClass73_Sub2_2.aFloat52 + local13.aFloat51 * this.aClass73_Sub2_2.aFloat54;
+        @Pc(375) float local375 = local13.ty + local13.e2_1 * this.aClass73_Sub2_2.tx + local13.e2_2 * this.aClass73_Sub2_2.ty + local13.e2_3 * this.aClass73_Sub2_2.tz;
+        @Pc(402) float local402 = local22 ? local13.e2_2 : local13.e2_1 * this.aClass73_Sub2_2.e1_2 + local13.e2_2 * this.aClass73_Sub2_2.e2_2 + local13.e2_3 * this.aClass73_Sub2_2.e3_2;
         @Pc(411) int local411 = (int) (local375 + (float) this.aShort116 * local402);
         @Pc(420) int local420 = (int) (local375 + (float) this.aShort113 * local402);
         @Pc(432) int local432;
@@ -3846,15 +3846,15 @@ public final class Model_Sub3 extends Model {
             local441 = (local420 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
         }
         if (arg2 == -1) {
-            if (local432 / local176 >= this.aClass19_Sub2_9.anInt4201) {
+            if (local432 / local176 >= this.aClass19_Sub2_9.vewY2) {
                 return;
             }
-            if (local441 / local176 <= this.aClass19_Sub2_9.anInt4208) {
+            if (local441 / local176 <= this.aClass19_Sub2_9.viewY1) {
                 return;
             }
-        } else if (local432 / arg2 >= this.aClass19_Sub2_9.anInt4201) {
+        } else if (local432 / arg2 >= this.aClass19_Sub2_9.vewY2) {
             return;
-        } else if (local441 / arg2 <= this.aClass19_Sub2_9.anInt4208) {
+        } else if (local441 / arg2 <= this.aClass19_Sub2_9.viewY1) {
             return;
         }
         @Pc(506) float local506;
@@ -3864,21 +3864,21 @@ public final class Model_Sub3 extends Model {
         @Pc(518) float local518;
         @Pc(521) float local521;
         if (local22) {
-            local506 = local13.aFloat59;
-            local509 = local13.aFloat57;
-            local512 = local13.aFloat56;
-            local515 = local13.aFloat53;
-            local518 = local13.aFloat51;
-            local521 = local13.aFloat61;
+            local506 = local13.e1_1;
+            local509 = local13.e2_1;
+            local512 = local13.e3_1;
+            local515 = local13.e1_3;
+            local518 = local13.e2_3;
+            local521 = local13.e3_3;
         } else {
-            local506 = local13.aFloat59 * this.aClass73_Sub2_2.aFloat59 + local13.aFloat55 * this.aClass73_Sub2_2.aFloat57 + local13.aFloat53 * this.aClass73_Sub2_2.aFloat56;
-            local509 = local13.aFloat57 * this.aClass73_Sub2_2.aFloat59 + local13.aFloat52 * this.aClass73_Sub2_2.aFloat57 + local13.aFloat51 * this.aClass73_Sub2_2.aFloat56;
-            local512 = local13.aFloat56 * this.aClass73_Sub2_2.aFloat59 + local13.aFloat54 * this.aClass73_Sub2_2.aFloat57 + local13.aFloat61 * this.aClass73_Sub2_2.aFloat56;
-            local515 = local13.aFloat59 * this.aClass73_Sub2_2.aFloat53 + local13.aFloat55 * this.aClass73_Sub2_2.aFloat51 + local13.aFloat53 * this.aClass73_Sub2_2.aFloat61;
-            local518 = local13.aFloat57 * this.aClass73_Sub2_2.aFloat53 + local13.aFloat52 * this.aClass73_Sub2_2.aFloat51 + local13.aFloat51 * this.aClass73_Sub2_2.aFloat61;
-            local521 = local13.aFloat56 * this.aClass73_Sub2_2.aFloat53 + local13.aFloat54 * this.aClass73_Sub2_2.aFloat51 + local13.aFloat61 * this.aClass73_Sub2_2.aFloat61;
+            local506 = local13.e1_1 * this.aClass73_Sub2_2.e1_1 + local13.e1_2 * this.aClass73_Sub2_2.e2_1 + local13.e1_3 * this.aClass73_Sub2_2.e3_1;
+            local509 = local13.e2_1 * this.aClass73_Sub2_2.e1_1 + local13.e2_2 * this.aClass73_Sub2_2.e2_1 + local13.e2_3 * this.aClass73_Sub2_2.e3_1;
+            local512 = local13.e3_1 * this.aClass73_Sub2_2.e1_1 + local13.e3_2 * this.aClass73_Sub2_2.e2_1 + local13.e3_3 * this.aClass73_Sub2_2.e3_1;
+            local515 = local13.e1_1 * this.aClass73_Sub2_2.e1_3 + local13.e1_2 * this.aClass73_Sub2_2.e2_3 + local13.e1_3 * this.aClass73_Sub2_2.e3_3;
+            local518 = local13.e2_1 * this.aClass73_Sub2_2.e1_3 + local13.e2_2 * this.aClass73_Sub2_2.e2_3 + local13.e2_3 * this.aClass73_Sub2_2.e3_3;
+            local521 = local13.e3_1 * this.aClass73_Sub2_2.e1_3 + local13.e3_2 * this.aClass73_Sub2_2.e2_3 + local13.e3_3 * this.aClass73_Sub2_2.e3_3;
         }
-        if (this.aClass19_Sub2_9.anInt4211 > 1) {
+        if (this.aClass19_Sub2_9.threadCount > 1) {
             synchronized (this) {
                 while (this.aBoolean646) {
                     try {
@@ -3891,16 +3891,16 @@ public final class Model_Sub3 extends Model {
         }
         this.method7519(Thread.currentThread());
         if ((arg3 & 0x2) == 0) {
-            this.aClass219_1.method5142(false);
+            this.aRasterizer_1.method5142(false);
         } else {
-            this.aClass219_1.method5142(true);
+            this.aRasterizer_1.method5142(true);
         }
         @Pc(694) boolean local694 = false;
         @Pc(704) boolean local704 = local171 <= this.aClass19_Sub2_9.zNear;
         @Pc(721) boolean local721 = local704 || this.aModelParticleEmitterArray5 != null || this.aModelParticleEffectorArray5 != null;
-        this.aClass399_3.anInt10607 = this.aClass219_1.anInt5725;
-        this.aClass399_3.anInt10606 = this.aClass219_1.anInt5723;
-        this.aClass399_3.anInt10608 = this.aClass219_1.anInt5721;
+        this.aJavaThreadResource_3.anInt10607 = this.aRasterizer_1.width;
+        this.aJavaThreadResource_3.anInt10606 = this.aRasterizer_1.minX;
+        this.aJavaThreadResource_3.anInt10608 = this.aRasterizer_1.minY;
         @Pc(743) int local743 = this.aClass19_Sub2_9.projectionScaleX;
         @Pc(747) int local747 = this.aClass19_Sub2_9.projectionScaleY;
         @Pc(751) int local751 = this.aClass19_Sub2_9.zNear;
@@ -3927,8 +3927,8 @@ public final class Model_Sub3 extends Model {
                 local823 = local118 + local512 * (float) local762 + local145 * (float) local767 + local521 * (float) local772;
                 this.anIntArray670[local756] = (int) local823;
                 if (local823 >= (float) local751) {
-                    this.anIntArray655[local756] = this.aClass399_3.anInt10606 + (int) (local789 * (float) local743 / local823);
-                    this.anIntArray657[local756] = this.aClass399_3.anInt10608 + (int) (local806 * (float) local747 / local823);
+                    this.anIntArray655[local756] = this.aJavaThreadResource_3.anInt10606 + (int) (local789 * (float) local743 / local823);
+                    this.anIntArray657[local756] = this.aJavaThreadResource_3.anInt10608 + (int) (local806 * (float) local747 / local823);
                 } else {
                     this.anIntArray655[local756] = -5000;
                     local694 = true;
@@ -3938,8 +3938,8 @@ public final class Model_Sub3 extends Model {
                     this.anIntArray660[local756] = (int) local806;
                     this.anIntArray659[local756] = (int) local823;
                 }
-                if (this.aClass399_3.aBoolean805) {
-                    this.anIntArray673[local756] = (int) (this.aClass73_Sub2_2.aFloat58 + this.aClass73_Sub2_2.aFloat57 * (float) local762 + this.aClass73_Sub2_2.aFloat52 * (float) local767 + this.aClass73_Sub2_2.aFloat51 * (float) local772);
+                if (this.aJavaThreadResource_3.aBoolean805) {
+                    this.anIntArray673[local756] = (int) (this.aClass73_Sub2_2.ty + this.aClass73_Sub2_2.e2_1 * (float) local762 + this.aClass73_Sub2_2.e2_2 * (float) local767 + this.aClass73_Sub2_2.e2_3 * (float) local772);
                 }
             }
             if (this.aClass239Array1 != null) {
@@ -3975,15 +3975,15 @@ public final class Model_Sub3 extends Model {
                 local806 = local375 + local509 * (float) local762 + local402 * (float) local767 + local518 * (float) local772;
                 local823 = local118 + local512 * (float) local762 + local145 * (float) local767 + local521 * (float) local772;
                 this.anIntArray670[local756] = (int) local823;
-                this.anIntArray655[local756] = this.aClass399_3.anInt10606 + (int) (local789 * (float) local743 / (float) arg2);
-                this.anIntArray657[local756] = this.aClass399_3.anInt10608 + (int) (local806 * (float) local747 / (float) arg2);
+                this.anIntArray655[local756] = this.aJavaThreadResource_3.anInt10606 + (int) (local789 * (float) local743 / (float) arg2);
+                this.anIntArray657[local756] = this.aJavaThreadResource_3.anInt10608 + (int) (local806 * (float) local747 / (float) arg2);
                 if (local721) {
                     this.anIntArray656[local756] = (int) local789;
                     this.anIntArray660[local756] = (int) local806;
                     this.anIntArray659[local756] = arg2;
                 }
-                if (this.aClass399_3.aBoolean805) {
-                    this.anIntArray673[local756] = (int) (this.aClass73_Sub2_2.aFloat58 + this.aClass73_Sub2_2.aFloat57 * (float) local762 + this.aClass73_Sub2_2.aFloat52 * (float) local767 + this.aClass73_Sub2_2.aFloat51 * (float) local772);
+                if (this.aJavaThreadResource_3.aBoolean805) {
+                    this.anIntArray673[local756] = (int) (this.aClass73_Sub2_2.ty + this.aClass73_Sub2_2.e2_1 * (float) local762 + this.aClass73_Sub2_2.e2_2 * (float) local767 + this.aClass73_Sub2_2.e2_3 * (float) local772);
                 }
             }
             if (this.aClass239Array1 != null) {
@@ -4090,14 +4090,14 @@ public final class Model_Sub3 extends Model {
             }
         }
         this.method7503(true);
-        this.aClass219_1.aBoolean436 = (arg3 & 0x1) == 0;
-        this.aClass219_1.aBoolean433 = false;
+        this.aRasterizer_1.fastScanline = (arg3 & 0x1) == 0;
+        this.aRasterizer_1.halfBlend = false;
         try {
             local1543 = (arg3 & 0x4) != 0;
             if (local1543) {
-                this.method7516(local694, this.aClass399_3.aBoolean806 && local176 > this.aClass399_3.anInt10601 || this.aClass399_3.aBoolean805, local171, local176 - local171);
+                this.method7516(local694, this.aJavaThreadResource_3.fogActive && local176 > this.aJavaThreadResource_3.fogPlane || this.aJavaThreadResource_3.aBoolean805, local171, local176 - local171);
             } else {
-                this.method7529(local694, this.aClass399_3.aBoolean806 && local176 > this.aClass399_3.anInt10601 || this.aClass399_3.aBoolean805, local171, local176 - local171);
+                this.method7529(local694, this.aJavaThreadResource_3.fogActive && local176 > this.aJavaThreadResource_3.fogPlane || this.aJavaThreadResource_3.aBoolean805, local171, local176 - local171);
             }
         } catch (@Pc(2068) Exception local2068) {
         }
@@ -4106,8 +4106,8 @@ public final class Model_Sub3 extends Model {
                 this.anIntArray669[local756] = -1;
             }
         }
-        this.aClass219_1 = null;
-        if (this.aClass19_Sub2_9.anInt4211 > 1) {
+        this.aRasterizer_1 = null;
+        if (this.aClass19_Sub2_9.threadCount > 1) {
             synchronized (this) {
                 this.aBoolean646 = false;
                 this.notifyAll();
@@ -4118,7 +4118,7 @@ public final class Model_Sub3 extends Model {
     @OriginalMember(owner = "client!rs", name = "s", descriptor = "(I)V")
     @Override
     public void s(@OriginalArg(0) int functionMask) {
-        if (this.aClass19_Sub2_9.anInt4211 <= 1) {
+        if (this.aClass19_Sub2_9.threadCount <= 1) {
             if ((this.anInt8489 & 0x10000) == 65536 && (functionMask & 0x10000) == 0) {
                 this.method7503(true);
             }
@@ -4343,21 +4343,21 @@ public final class Model_Sub3 extends Model {
             }
             if (this.anIntArray672[arg0] == -1) {
                 @Pc(210) int local210 = local181 | this.anIntArray668[arg0] & 0xFFFFFF;
-                this.aClass219_1.method5150((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local210, local210, local210, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5150((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local210, local210, local210, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
             } else {
-                this.aClass219_1.method5150((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local181 | this.anIntArray668[arg0] & 0xFFFFFF, local181 | this.anIntArray664[arg0] & 0xFFFFFF, local181 | this.anIntArray672[arg0] & 0xFFFFFF, this.aClass399_3.anInt10597, 0, 0, 0, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5150((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local181 | this.anIntArray668[arg0] & 0xFFFFFF, local181 | this.anIntArray664[arg0] & 0xFFFFFF, local181 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
             }
             return;
         }
         if (this.aByteArray96 == null) {
-            this.aClass219_1.anInt5724 = 0;
+            this.aRasterizer_1.alpha = 0;
         } else {
-            this.aClass219_1.anInt5724 = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
         }
         if (this.anIntArray672[arg0] == -1) {
-            this.aClass219_1.method5158((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
+            this.aRasterizer_1.renderFlatTriangleRgb((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
         } else {
-            this.aClass219_1.method5156((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], (float) (this.anIntArray668[arg0] & 0xFFFF), (float) (this.anIntArray664[arg0] & 0xFFFF), (float) (this.anIntArray672[arg0] & 0xFFFF));
+            this.aRasterizer_1.method5156((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], (float) (this.anIntArray668[arg0] & 0xFFFF), (float) (this.anIntArray664[arg0] & 0xFFFF), (float) (this.anIntArray672[arg0] & 0xFFFF));
         }
     }
 
@@ -4597,11 +4597,11 @@ public final class Model_Sub3 extends Model {
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(Ljava/lang/Thread;)V")
     public void method7535(@OriginalArg(0) Thread arg0) {
-        @Pc(4) Class399 local4 = this.aClass19_Sub2_9.method3787(arg0);
-        if (local4 != this.aClass399_2) {
-            this.aClass399_2 = local4;
-            this.aClass114_Sub3Array2 = this.aClass399_2.aClass114_Sub3Array4;
-            this.aClass114_Sub3Array1 = this.aClass399_2.aClass114_Sub3Array3;
+        @Pc(4) JavaThreadResource local4 = this.aClass19_Sub2_9.threadResource(arg0);
+        if (local4 != this.aJavaThreadResource_2) {
+            this.aJavaThreadResource_2 = local4;
+            this.aClass114_Sub3Array2 = this.aJavaThreadResource_2.aClass114_Sub3Array4;
+            this.aClass114_Sub3Array1 = this.aJavaThreadResource_2.aClass114_Sub3Array3;
         }
     }
 }

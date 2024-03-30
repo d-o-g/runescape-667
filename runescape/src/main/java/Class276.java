@@ -195,7 +195,7 @@ public final class Class276 {
             this.aClass19_Sub3_32.method7004(this.aClass406_4);
         }
         this.aClass19_Sub3_32.method7018();
-        this.aClass19_Sub3_32.method7017(0);
+        this.aClass19_Sub3_32.setBlendMode(0);
         this.aClass19_Sub3_32.method6991(1);
         this.aClass19_Sub3_32.la();
         @Pc(90) int local90 = 0;

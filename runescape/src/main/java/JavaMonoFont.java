@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vh")
-public final class Font_Sub5 extends Font {
+public final class JavaMonoFont extends Font {
 
     @OriginalMember(owner = "client!vh", name = "B", descriptor = "Lclient!iaa;")
     public final JavaToolkit aClass19_Sub2_11;
@@ -29,7 +29,7 @@ public final class Font_Sub5 extends Font {
     public final int[] anIntArray804;
 
     @OriginalMember(owner = "client!vh", name = "<init>", descriptor = "(Lclient!iaa;Lclient!ve;[Lclient!wp;[I[I)V")
-    public Font_Sub5(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public JavaMonoFont(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         super(arg0, arg1);
         this.aClass19_Sub2_11 = arg0;
         this.anIntArray805 = arg3;
@@ -52,7 +52,7 @@ public final class Font_Sub5 extends Font {
         @Pc(10) int local10 = arg10;
         if (arg14 > arg10) {
             local10 = arg14;
-            arg4 += (arg14 - arg10) * this.aClass19_Sub2_11.anInt4207;
+            arg4 += (arg14 - arg10) * this.aClass19_Sub2_11.surfaceWidth;
             arg3 += (arg14 - arg10) * arg11;
         }
         @Pc(50) int local50 = arg14 + local5.length < arg10 + arg6 ? arg14 + local5.length : arg10 + arg6;
@@ -107,7 +107,7 @@ public final class Font_Sub5 extends Font {
         @Pc(16) int local16 = arg10;
         if (arg14 > arg10) {
             local16 = arg14;
-            arg4 += (arg14 - arg10) * this.aClass19_Sub2_11.anInt4207;
+            arg4 += (arg14 - arg10) * this.aClass19_Sub2_11.surfaceWidth;
             arg3 += (arg14 - arg10) * arg11;
         }
         @Pc(56) int local56 = arg14 + local5.length < arg10 + arg6 ? arg14 + local5.length : arg10 + arg6;
@@ -164,7 +164,7 @@ public final class Font_Sub5 extends Font {
         y += this.anIntArray806[c];
         @Pc(18) int local18 = this.anIntArray805[c];
         @Pc(23) int local23 = this.anIntArray803[c];
-        @Pc(27) int local27 = this.aClass19_Sub2_11.anInt4207;
+        @Pc(27) int local27 = this.aClass19_Sub2_11.surfaceWidth;
         @Pc(33) int local33 = x + y * local27;
         @Pc(37) int local37 = local27 - local18;
         @Pc(39) int local39 = 0;
@@ -199,9 +199,9 @@ public final class Font_Sub5 extends Font {
             return;
         }
         if ((colour & -16777216) == -16777216) {
-            this.method8840(this.aByteArrayArray35[c], this.aClass19_Sub2_11.anIntArray319, colour, local41, local33, local18, local23, local37, local39);
+            this.method8840(this.aByteArrayArray35[c], this.aClass19_Sub2_11.surfaceRaster, colour, local41, local33, local18, local23, local37, local39);
         } else if ((colour & 0xFF000000) != 0) {
-            this.method8839(this.aByteArrayArray35[c], this.aClass19_Sub2_11.anIntArray319, colour, local41, local33, local18, local23, local37, local39);
+            this.method8839(this.aByteArrayArray35[c], this.aClass19_Sub2_11.surfaceRaster, colour, local41, local33, local18, local23, local37, local39);
         }
     }
 
@@ -216,7 +216,7 @@ public final class Font_Sub5 extends Font {
         y += this.anIntArray806[c];
         @Pc(28) int local28 = this.anIntArray805[c];
         @Pc(33) int local33 = this.anIntArray803[c];
-        @Pc(37) int local37 = this.aClass19_Sub2_11.anInt4207;
+        @Pc(37) int local37 = this.aClass19_Sub2_11.surfaceWidth;
         @Pc(43) int local43 = x + y * local37;
         @Pc(47) int local47 = local37 - local28;
         @Pc(49) int local49 = 0;
@@ -251,9 +251,9 @@ public final class Font_Sub5 extends Font {
             return;
         }
         if ((colour & -16777216) == -16777216) {
-            this.method8837(this.aByteArrayArray35[c], this.aClass19_Sub2_11.anIntArray319, colour, local51, local43, local28, local33, local47, local49, x, y, this.anIntArray805[c], mask, offsetX, offsetY);
+            this.method8837(this.aByteArrayArray35[c], this.aClass19_Sub2_11.surfaceRaster, colour, local51, local43, local28, local33, local47, local49, x, y, this.anIntArray805[c], mask, offsetX, offsetY);
         } else {
-            this.method8838(this.aByteArrayArray35[c], this.aClass19_Sub2_11.anIntArray319, colour, local51, local43, local28, local33, local47, local49, x, y, this.anIntArray805[c], mask, offsetX, offsetY);
+            this.method8838(this.aByteArrayArray35[c], this.aClass19_Sub2_11.surfaceRaster, colour, local51, local43, local28, local33, local47, local49, x, y, this.anIntArray805[c], mask, offsetX, offsetY);
         }
     }
 

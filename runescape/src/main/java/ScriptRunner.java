@@ -5838,11 +5838,11 @@ public final class ScriptRunner {
                         return;
                     }
                     if (arg0 == 5514) {
-                        Static582.orthoZoom = intStack[--intStackPointer];
+                        OrthoMode.zoom = intStack[--intStackPointer];
                         return;
                     }
                     if (arg0 == 5516) {
-                        intStack[intStackPointer++] = Static582.orthoZoom;
+                        intStack[intStackPointer++] = OrthoMode.zoom;
                         return;
                     }
                     if (arg0 == 5517) {

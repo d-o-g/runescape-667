@@ -1,4 +1,4 @@
-import com.jagex.Interface26;
+import com.jagex.DepthBuffer;
 import com.jagex.graphics.sw.SoftwareMemoryManager;
 import com.jagex.graphics.sw.SoftwareObject;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!xa")
-public final class xa implements Interface26, SoftwareObject {
+public final class xa implements DepthBuffer, SoftwareObject {
 
     @OriginalMember(owner = "client!xa", name = "nativeid", descriptor = "J")
     public final long nativeid = 0L;

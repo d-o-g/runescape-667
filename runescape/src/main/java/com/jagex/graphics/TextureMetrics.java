@@ -55,7 +55,7 @@ public final class TextureMetrics {
     public boolean aBoolean239;
 
     @OriginalMember(owner = "client!fa", name = "t", descriptor = "Z")
-    public boolean aBoolean240;
+    public boolean disableable;
 
     @OriginalMember(owner = "client!fa", name = "m", descriptor = "B")
     public byte alpha;

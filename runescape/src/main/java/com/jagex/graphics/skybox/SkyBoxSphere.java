@@ -334,7 +334,7 @@ public final class SkyBoxSphere {
         @Pc(14) int local14 = -(this.anInt5635 - arg7 << 16);
         @Pc(21) int local21 = this.anInt5626 - arg8 << 15;
         @Pc(29) int local29 = -(this.anInt5630 - arg9 << 16);
-        @Pc(32) Matrix local32 = arg0.method8017();
+        @Pc(32) Matrix local32 = arg0.camera();
         local32.project(0, 0, 0, local6);
         @Pc(44) int local44 = local14 + local6[0];
         @Pc(50) int local50 = local21 + local6[1];

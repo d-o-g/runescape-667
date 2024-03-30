@@ -214,7 +214,7 @@ public final class Model_Sub1 extends Model {
             if (arg1.shadingTypes == null || arg1.shadingTypes[local24] != 2) {
                 if (arg1.faceTexture != null && arg1.faceTexture[local24] != -1) {
                     @Pc(65) TextureMetrics local65 = local11.getMetrics(arg1.faceTexture[local24] & 0xFFFF);
-                    if (((this.anInt2765 & 0x40) == 0 || !local65.aBoolean240) && local65.aBoolean234) {
+                    if (((this.anInt2765 & 0x40) == 0 || !local65.disableable) && local65.aBoolean234) {
                         continue;
                     }
                 }
@@ -265,7 +265,7 @@ public final class Model_Sub1 extends Model {
                 local257 = arg1.faceTexture[local167];
                 if (local257 != -1) {
                     local169 = local11.getMetrics(local257 & 0xFFFF);
-                    if ((this.anInt2765 & 0x40) != 0 && local169.aBoolean240) {
+                    if ((this.anInt2765 & 0x40) != 0 && local169.disableable) {
                         local257 = -1;
                         local169 = null;
                     } else {
@@ -429,7 +429,7 @@ public final class Model_Sub1 extends Model {
             local1164 = arg1.faceTexture == null ? -1 : arg1.faceTexture[local1120];
             if (local1164 != -1 && (this.anInt2765 & 0x40) != 0) {
                 @Pc(1181) TextureMetrics local1181 = local11.getMetrics(local1164 & 0xFFFF);
-                if (local1181.aBoolean240) {
+                if (local1181.disableable) {
                     local1164 = -1;
                 }
             }

@@ -26,7 +26,7 @@ public final class Static65 {
 
         @Pc(36) long startTime = SystemTimer.safetime();
         for (@Pc(38) int i = 0; i < 10000; i++) {
-            toolkit.method7994();
+            toolkit.drawTriangle(5, 10, 100, 75, 50, 100, 15, 90, 100, 0xFFFF0000, 0xFFFF0000, 0xFFFF0000, 1);
         }
 
         @Pc(71) int deltaTime = (int) (SystemTimer.safetime() - startTime);

@@ -5,40 +5,40 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!lb")
-public final class Class219 {
+public final class Rasterizer {
 
     @OriginalMember(owner = "client!lb", name = "l", descriptor = "I")
-    public int anInt5721;
+    public int minY;
 
     @OriginalMember(owner = "client!lb", name = "x", descriptor = "I")
-    public int anInt5723;
+    public int minX;
 
     @OriginalMember(owner = "client!lb", name = "q", descriptor = "I")
-    public int anInt5725;
+    public int width;
 
     @OriginalMember(owner = "client!lb", name = "f", descriptor = "I")
-    public int anInt5726;
+    public int height;
 
     @OriginalMember(owner = "client!lb", name = "B", descriptor = "I")
     public int anInt5729;
 
     @OriginalMember(owner = "client!lb", name = "m", descriptor = "Z")
-    public boolean aBoolean433 = false;
+    public boolean halfBlend = false;
 
     @OriginalMember(owner = "client!lb", name = "u", descriptor = "Z")
-    public boolean aBoolean434 = false;
+    public boolean clamp = false;
 
     @OriginalMember(owner = "client!lb", name = "H", descriptor = "Z")
     public final boolean aBoolean435 = false;
 
     @OriginalMember(owner = "client!lb", name = "p", descriptor = "Z")
-    public boolean aBoolean436 = true;
+    public boolean fastScanline = true;
 
     @OriginalMember(owner = "client!lb", name = "o", descriptor = "I")
-    public int anInt5724 = 0;
+    public int alpha = 0;
 
     @OriginalMember(owner = "client!lb", name = "r", descriptor = "[I")
-    public final int[] anIntArray439 = new int[4096];
+    public final int[] lineOffsets = new int[4096];
 
     @OriginalMember(owner = "client!lb", name = "g", descriptor = "Z")
     public boolean aBoolean437 = false;
@@ -98,7 +98,7 @@ public final class Class219 {
     public final JavaToolkit aClass19_Sub2_5;
 
     @OriginalMember(owner = "client!lb", name = "D", descriptor = "Lclient!wf;")
-    public final Class399 aClass399_1;
+    public final JavaThreadResource aJavaThreadResource_1;
 
     @OriginalMember(owner = "client!lb", name = "A", descriptor = "I")
     public final int anInt5722;
@@ -110,21 +110,21 @@ public final class Class219 {
     public final float[] aFloatArray41;
 
     @OriginalMember(owner = "client!lb", name = "<init>", descriptor = "(Lclient!iaa;Lclient!wf;)V")
-    public Class219(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) Class399 arg1) {
+    public Rasterizer(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) JavaThreadResource arg1) {
         this.aClass19_Sub2_5 = arg0;
-        this.aClass399_1 = arg1;
-        this.anInt5722 = this.aClass19_Sub2_5.anInt4207;
-        this.anIntArray438 = this.aClass19_Sub2_5.anIntArray319;
-        this.aFloatArray41 = this.aClass19_Sub2_5.aFloatArray24;
+        this.aJavaThreadResource_1 = arg1;
+        this.anInt5722 = this.aClass19_Sub2_5.surfaceWidth;
+        this.anIntArray438 = this.aClass19_Sub2_5.surfaceRaster;
+        this.aFloatArray41 = this.aClass19_Sub2_5.depthBuffer;
     }
 
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "()I")
-    public int method5140() {
-        return this.anIntArray439[0] / this.anInt5722;
+    public int offsetY() {
+        return this.lineOffsets[0] / this.anInt5722;
     }
 
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "(FFFFFFFFFIII)V")
-    public void method5141(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11) {
+    public void renderTriangleRgb(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) int arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11) {
         if (this.aBoolean437) {
             this.aClass19_Sub2_5.line((int) arg1, (int) arg0, (int) arg4, arg9 | 0xFF000000, (int) arg3);
             this.aClass19_Sub2_5.line((int) arg2, (int) arg1, (int) arg5, arg9 | 0xFF000000, (int) arg4);
@@ -177,12 +177,12 @@ public final class Class219 {
         @Pc(321) float local321;
         @Pc(332) float local332;
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 arg6 = arg6 + local186 - local186 * arg3;
                 local310 = (float) (arg9 & 0xFF0000) + local206 - local206 * arg3;
@@ -206,7 +206,7 @@ public final class Class219 {
                     if ((arg0 == arg1 || !(local160 < local149)) && (arg0 != arg1 || !(local160 > local138))) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg3, (int) arg5, arg6, local186, local310, local206, local321, local226, local332, local246);
                             arg5 += local160;
@@ -230,7 +230,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg5, (int) arg3, arg6, local186, local310, local206, local321, local226, local332, local246);
                             arg5 += local160;
@@ -270,7 +270,7 @@ public final class Class219 {
                     if (arg0 != arg2 && local160 < local149 || arg0 == arg2 && local138 > local149) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg4, (int) arg3, arg6, local186, local310, local206, local321, local226, local332, local246);
                             arg4 += local160;
@@ -294,7 +294,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg3, (int) arg4, arg6, local186, local310, local206, local321, local226, local332, local246);
                             arg4 += local160;
@@ -319,12 +319,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 arg7 = arg7 + local186 - local186 * arg4;
                 local310 = (float) (arg10 & 0xFF0000) + local206 - local206 * arg4;
@@ -348,7 +348,7 @@ public final class Class219 {
                     if ((arg1 == arg2 || !(local149 < local138)) && (arg1 != arg2 || !(local149 > local160))) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg4, (int) arg3, arg7, local186, local310, local206, local321, local226, local332, local246);
                             arg3 += local149;
@@ -372,7 +372,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg3, (int) arg4, arg7, local186, local310, local206, local321, local226, local332, local246);
                             arg3 += local149;
@@ -412,7 +412,7 @@ public final class Class219 {
                     if (local149 < local138) {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg5, (int) arg4, arg7, local186, local310, local206, local321, local226, local332, local246);
                             arg5 += local149;
@@ -436,7 +436,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg4, (int) arg5, arg7, local186, local310, local206, local321, local226, local332, local246);
                             arg5 += local149;
@@ -460,12 +460,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             arg8 = arg8 + local186 - local186 * arg5;
             local310 = (float) (arg11 & 0xFF0000) + local206 - local206 * arg5;
@@ -489,7 +489,7 @@ public final class Class219 {
                 if (local138 < local160) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg4, (int) arg5, arg8, local186, local310, local206, local321, local226, local332, local246);
                         arg4 += local138;
@@ -513,7 +513,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg5, (int) arg4, arg8, local186, local310, local206, local321, local226, local332, local246);
                         arg4 += local138;
@@ -553,7 +553,7 @@ public final class Class219 {
                 if (local138 < local160) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg3, (int) arg5, arg8, local186, local310, local206, local321, local226, local332, local246);
                         arg3 += local138;
@@ -577,7 +577,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5148(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg5, (int) arg3, arg8, local186, local310, local206, local321, local226, local332, local246);
                         arg3 += local138;
@@ -662,12 +662,12 @@ public final class Class219 {
         @Pc(321) float local321;
         @Pc(332) float local332;
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 arg6 = arg6 + local186 - local186 * arg3;
                 local310 = (float) (arg9 & 0xFF0000) + local206 - local206 * arg3;
@@ -691,7 +691,7 @@ public final class Class219 {
                     if ((arg0 == arg1 || !(local160 < local149)) && (arg0 != arg1 || !(local160 > local138))) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg3, (int) arg5, arg6, local186, local310, local206, local321, local226, local332, local246);
                             arg5 += local160;
@@ -715,7 +715,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg5, (int) arg3, arg6, local186, local310, local206, local321, local226, local332, local246);
                             arg5 += local160;
@@ -755,7 +755,7 @@ public final class Class219 {
                     if (arg0 != arg2 && local160 < local149 || arg0 == arg2 && local138 > local149) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg4, (int) arg3, arg6, local186, local310, local206, local321, local226, local332, local246);
                             arg4 += local160;
@@ -779,7 +779,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg3, (int) arg4, arg6, local186, local310, local206, local321, local226, local332, local246);
                             arg4 += local160;
@@ -804,12 +804,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 arg7 = arg7 + local186 - local186 * arg4;
                 local310 = (float) (arg10 & 0xFF0000) + local206 - local206 * arg4;
@@ -833,7 +833,7 @@ public final class Class219 {
                     if ((arg1 == arg2 || !(local149 < local138)) && (arg1 != arg2 || !(local149 > local160))) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg4, (int) arg3, arg7, local186, local310, local206, local321, local226, local332, local246);
                             arg3 += local149;
@@ -857,7 +857,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg3, (int) arg4, arg7, local186, local310, local206, local321, local226, local332, local246);
                             arg3 += local149;
@@ -897,7 +897,7 @@ public final class Class219 {
                     if (local149 < local138) {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg5, (int) arg4, arg7, local186, local310, local206, local321, local226, local332, local246);
                             arg5 += local149;
@@ -921,7 +921,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg4, (int) arg5, arg7, local186, local310, local206, local321, local226, local332, local246);
                             arg5 += local149;
@@ -945,12 +945,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             arg8 = arg8 + local186 - local186 * arg5;
             local310 = (float) (arg11 & 0xFF0000) + local206 - local206 * arg5;
@@ -974,7 +974,7 @@ public final class Class219 {
                 if (local138 < local160) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg4, (int) arg5, arg8, local186, local310, local206, local321, local226, local332, local246);
                         arg4 += local138;
@@ -998,7 +998,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg5, (int) arg4, arg8, local186, local310, local206, local321, local226, local332, local246);
                         arg4 += local138;
@@ -1038,7 +1038,7 @@ public final class Class219 {
                 if (local138 < local160) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg3, (int) arg5, arg8, local186, local310, local206, local321, local226, local332, local246);
                         arg3 += local138;
@@ -1062,7 +1062,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5146(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg5, (int) arg3, arg8, local186, local310, local206, local321, local226, local332, local246);
                         arg3 += local138;
@@ -1121,12 +1121,12 @@ public final class Class219 {
         @Pc(131) float local131 = (local62 * local58 - local66 * local50) / local116;
         @Pc(141) float local141 = (local66 * local46 - local62 * local54) / local116;
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 arg6 = arg6 + local131 - local131 * arg3;
                 if (arg1 < arg2) {
@@ -1144,7 +1144,7 @@ public final class Class219 {
                     if (arg0 != arg1 && local96 < local68 || arg0 == arg1 && local96 > local82) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg0, arg9, (int) arg5, (int) arg3, arg6, local131);
                             arg5 += local96;
@@ -1162,7 +1162,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg0, arg9, (int) arg3, (int) arg5, arg6, local131);
                             arg5 += local96;
@@ -1193,7 +1193,7 @@ public final class Class219 {
                     if ((arg0 == arg2 || !(local96 < local68)) && (arg0 != arg2 || !(local82 > local68))) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg0, arg9, (int) arg3, (int) arg4, arg6, local131);
                             arg4 += local96;
@@ -1211,7 +1211,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg0, arg9, (int) arg4, (int) arg3, arg6, local131);
                             arg4 += local96;
@@ -1230,12 +1230,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 arg7 = arg7 + local131 - local131 * arg4;
                 if (arg2 < arg0) {
@@ -1253,7 +1253,7 @@ public final class Class219 {
                     if (arg1 != arg2 && local68 < local82 || arg1 == arg2 && local68 > local96) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg1, arg9, (int) arg3, (int) arg4, arg7, local131);
                             arg3 += local68;
@@ -1271,7 +1271,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg1, arg9, (int) arg4, (int) arg3, arg7, local131);
                             arg3 += local68;
@@ -1302,7 +1302,7 @@ public final class Class219 {
                     if (local68 < local82) {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg1, arg9, (int) arg5, (int) arg4, arg7, local131);
                             arg5 += local68;
@@ -1320,7 +1320,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg1, arg9, (int) arg4, (int) arg5, arg7, local131);
                             arg5 += local68;
@@ -1338,12 +1338,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             arg8 = arg8 + local131 - local131 * arg5;
             if (arg0 < arg1) {
@@ -1361,7 +1361,7 @@ public final class Class219 {
                 if (local82 < local96) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg2, arg9, (int) arg4, (int) arg5, arg8, local131);
                         arg4 += local82;
@@ -1379,7 +1379,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg2, arg9, (int) arg5, (int) arg4, arg8, local131);
                         arg4 += local82;
@@ -1410,7 +1410,7 @@ public final class Class219 {
                 if (local82 < local96) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg2, arg9, (int) arg3, (int) arg5, arg8, local131);
                         arg3 += local82;
@@ -1428,7 +1428,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5152(this.anIntArray438, this.aFloatArray41, (int) arg2, arg9, (int) arg5, (int) arg3, arg8, local131);
                         arg3 += local82;
@@ -1460,9 +1460,9 @@ public final class Class219 {
         @Pc(44) float local44 = (arg16 - arg15) * local8;
         @Pc(50) float local50 = (arg18 - arg17) * local8;
         @Pc(56) float local56 = (arg20 - arg19) * local8;
-        if (this.aBoolean434) {
-            if (arg4 > this.anInt5725) {
-                arg4 = this.anInt5725;
+        if (this.clamp) {
+            if (arg4 > this.width) {
+                arg4 = this.width;
             }
             if (arg3 < 0) {
                 arg5 -= local14 * (float) arg3;
@@ -1551,9 +1551,9 @@ public final class Class219 {
 
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "([I[FIIIIIFFFFFFFF)V")
     public void method5146(@OriginalArg(0) int[] arg0, @OriginalArg(1) float[] arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(7) float arg5, @OriginalArg(8) float arg6, @OriginalArg(9) float arg7, @OriginalArg(10) float arg8, @OriginalArg(11) float arg9, @OriginalArg(12) float arg10, @OriginalArg(13) float arg11, @OriginalArg(14) float arg12) {
-        if (this.aBoolean434) {
-            if (arg4 > this.anInt5725) {
-                arg4 = this.anInt5725;
+        if (this.clamp) {
+            if (arg4 > this.width) {
+                arg4 = this.width;
             }
             if (arg3 < 0) {
                 arg3 = 0;
@@ -1579,12 +1579,12 @@ public final class Class219 {
             arg7 += arg8 * (float) arg3;
             arg9 += arg10 * (float) arg3;
             arg11 += arg12 * (float) arg3;
-            if (this.aBoolean436) {
+            if (this.fastScanline) {
                 local54 = arg4 - arg3 >> 2;
                 local58 = arg8 * 4.0F;
                 local62 = arg10 * 4.0F;
                 local66 = arg12 * 4.0F;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -1609,7 +1609,7 @@ public final class Class219 {
                         } while (local54 > 0);
                         return;
                     }
-                } else if (this.aBoolean433) {
+                } else if (this.halfBlend) {
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -1657,8 +1657,8 @@ public final class Class219 {
                         } while (local54 > 0);
                     }
                 } else {
-                    local163 = this.anInt5724;
-                    local168 = 256 - this.anInt5724;
+                    local163 = this.alpha;
+                    local168 = 256 - this.alpha;
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -1693,7 +1693,7 @@ public final class Class219 {
                 }
             } else {
                 local54 = arg4 - arg3;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     do {
                         arg0[arg2++] = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
                         arg7 += arg8;
@@ -1701,7 +1701,7 @@ public final class Class219 {
                         arg11 += arg12;
                         local54--;
                     } while (local54 > 0);
-                } else if (this.aBoolean433) {
+                } else if (this.halfBlend) {
                     do {
                         local168 = arg2++;
                         local223 = (int) arg7 & 0xFF0000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -1716,8 +1716,8 @@ public final class Class219 {
                         local54--;
                     } while (local54 > 0);
                 } else {
-                    local163 = this.anInt5724;
-                    local168 = 256 - this.anInt5724;
+                    local163 = this.alpha;
+                    local168 = 256 - this.alpha;
                     do {
                         local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
                         arg7 += arg8;
@@ -1738,13 +1738,13 @@ public final class Class219 {
         arg9 += arg10 * (float) arg3;
         arg11 += arg12 * (float) arg3;
         @Pc(1082) float local1082;
-        if (this.aClass399_1.aBoolean804) {
-            if (this.aBoolean436) {
+        if (this.aJavaThreadResource_1.zWrite) {
+            if (this.fastScanline) {
                 local54 = arg4 - arg3 >> 2;
                 local58 = arg8 * 4.0F;
                 local62 = arg10 * 4.0F;
                 local66 = arg12 * 4.0F;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -1792,7 +1792,7 @@ public final class Class219 {
                         } while (local54 > 0);
                         return;
                     }
-                } else if (this.aBoolean433) {
+                } else if (this.halfBlend) {
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -1860,8 +1860,8 @@ public final class Class219 {
                         } while (local54 > 0);
                     }
                 } else {
-                    local163 = this.anInt5724;
-                    local168 = 256 - this.anInt5724;
+                    local163 = this.alpha;
+                    local168 = 256 - this.alpha;
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -1919,7 +1919,7 @@ public final class Class219 {
                 }
             } else {
                 local54 = arg4 - arg3;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     do {
                         arg2++;
                         if (arg5 < arg1[arg2]) {
@@ -1932,7 +1932,7 @@ public final class Class219 {
                         arg11 += arg12;
                         local54--;
                     } while (local54 > 0);
-                } else if (this.aBoolean433) {
+                } else if (this.halfBlend) {
                     do {
                         arg2++;
                         if (arg5 < arg1[arg2]) {
@@ -1951,8 +1951,8 @@ public final class Class219 {
                         local54--;
                     } while (local54 > 0);
                 } else {
-                    local163 = this.anInt5724;
-                    local168 = 256 - this.anInt5724;
+                    local163 = this.alpha;
+                    local168 = 256 - this.alpha;
                     do {
                         arg2++;
                         if (arg5 < arg1[arg2]) {
@@ -1970,12 +1970,12 @@ public final class Class219 {
                     } while (local54 > 0);
                 }
             }
-        } else if (this.aBoolean436) {
+        } else if (this.fastScanline) {
             local54 = arg4 - arg3 >> 2;
             local58 = arg8 * 4.0F;
             local62 = arg10 * 4.0F;
             local66 = arg12 * 4.0F;
-            if (this.anInt5724 == 0) {
+            if (this.alpha == 0) {
                 if (local54 > 0) {
                     do {
                         local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2018,7 +2018,7 @@ public final class Class219 {
                     } while (local54 > 0);
                     return;
                 }
-            } else if (this.aBoolean433) {
+            } else if (this.halfBlend) {
                 if (local54 > 0) {
                     do {
                         local88 = (int) arg7 & 0xFF0000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2081,8 +2081,8 @@ public final class Class219 {
                     } while (local54 > 0);
                 }
             } else {
-                local163 = this.anInt5724;
-                local168 = 256 - this.anInt5724;
+                local163 = this.alpha;
+                local168 = 256 - this.alpha;
                 if (local54 > 0) {
                     do {
                         local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2135,7 +2135,7 @@ public final class Class219 {
             }
         } else {
             local54 = arg4 - arg3;
-            if (this.anInt5724 == 0) {
+            if (this.alpha == 0) {
                 do {
                     arg2++;
                     if (arg5 < arg1[arg2]) {
@@ -2147,7 +2147,7 @@ public final class Class219 {
                     arg11 += arg12;
                     local54--;
                 } while (local54 > 0);
-            } else if (this.aBoolean433) {
+            } else if (this.halfBlend) {
                 do {
                     arg2++;
                     if (arg5 < arg1[arg2]) {
@@ -2165,8 +2165,8 @@ public final class Class219 {
                     local54--;
                 } while (local54 > 0);
             } else {
-                local163 = this.anInt5724;
-                local168 = 256 - this.anInt5724;
+                local163 = this.alpha;
+                local168 = 256 - this.alpha;
                 do {
                     arg2++;
                     if (arg5 < arg1[arg2]) {
@@ -2197,9 +2197,9 @@ public final class Class219 {
         @Pc(44) float local44 = (arg16 - arg15) * local8;
         @Pc(50) float local50 = (arg18 - arg17) * local8;
         @Pc(56) float local56 = (arg20 - arg19) * local8;
-        if (this.aBoolean434) {
-            if (arg4 > this.anInt5725) {
-                arg4 = this.anInt5725;
+        if (this.clamp) {
+            if (arg4 > this.width) {
+                arg4 = this.width;
             }
             if (arg3 < 0) {
                 arg5 -= local14 * (float) arg3;
@@ -2288,9 +2288,9 @@ public final class Class219 {
 
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "([I[FIIIIIFFFFFFFF)V")
     public void method5148(@OriginalArg(0) int[] arg0, @OriginalArg(1) float[] arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(7) float arg5, @OriginalArg(8) float arg6, @OriginalArg(9) float arg7, @OriginalArg(10) float arg8, @OriginalArg(11) float arg9, @OriginalArg(12) float arg10, @OriginalArg(13) float arg11, @OriginalArg(14) float arg12) {
-        if (this.aBoolean434) {
-            if (arg4 > this.anInt5725) {
-                arg4 = this.anInt5725;
+        if (this.clamp) {
+            if (arg4 > this.width) {
+                arg4 = this.width;
             }
             if (arg3 < 0) {
                 arg3 = 0;
@@ -2316,12 +2316,12 @@ public final class Class219 {
             arg7 += arg8 * (float) arg3;
             arg9 += arg10 * (float) arg3;
             arg11 += arg12 * (float) arg3;
-            if (this.aBoolean436) {
+            if (this.fastScanline) {
                 local54 = arg4 - arg3 >> 2;
                 local58 = arg8 * 4.0F;
                 local62 = arg10 * 4.0F;
                 local66 = arg12 * 4.0F;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2346,7 +2346,7 @@ public final class Class219 {
                         } while (local54 > 0);
                         return;
                     }
-                } else if (this.aBoolean433) {
+                } else if (this.halfBlend) {
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2394,8 +2394,8 @@ public final class Class219 {
                         } while (local54 > 0);
                     }
                 } else {
-                    local163 = this.anInt5724;
-                    local168 = 256 - this.anInt5724;
+                    local163 = this.alpha;
+                    local168 = 256 - this.alpha;
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2430,7 +2430,7 @@ public final class Class219 {
                 }
             } else {
                 local54 = arg4 - arg3;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     do {
                         arg0[arg2++] = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
                         arg7 += arg8;
@@ -2438,7 +2438,7 @@ public final class Class219 {
                         arg11 += arg12;
                         local54--;
                     } while (local54 > 0);
-                } else if (this.aBoolean433) {
+                } else if (this.halfBlend) {
                     do {
                         local168 = arg2++;
                         local223 = (int) arg7 & 0xFF0000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2453,8 +2453,8 @@ public final class Class219 {
                         local54--;
                     } while (local54 > 0);
                 } else {
-                    local163 = this.anInt5724;
-                    local168 = 256 - this.anInt5724;
+                    local163 = this.alpha;
+                    local168 = 256 - this.alpha;
                     do {
                         local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
                         arg7 += arg8;
@@ -2475,13 +2475,13 @@ public final class Class219 {
         arg9 += arg10 * (float) arg3;
         arg11 += arg12 * (float) arg3;
         @Pc(1034) float local1034;
-        if (this.aClass399_1.aBoolean804) {
-            if (this.aBoolean436) {
+        if (this.aJavaThreadResource_1.zWrite) {
+            if (this.fastScanline) {
                 local54 = arg4 - arg3 >> 2;
                 local58 = arg8 * 4.0F;
                 local62 = arg10 * 4.0F;
                 local66 = arg12 * 4.0F;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2529,7 +2529,7 @@ public final class Class219 {
                         } while (local54 > 0);
                         return;
                     }
-                } else if (this.aBoolean433) {
+                } else if (this.halfBlend) {
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2597,8 +2597,8 @@ public final class Class219 {
                         } while (local54 > 0);
                     }
                 } else {
-                    local163 = this.anInt5724;
-                    local168 = 256 - this.anInt5724;
+                    local163 = this.alpha;
+                    local168 = 256 - this.alpha;
                     if (local54 > 0) {
                         do {
                             local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2656,7 +2656,7 @@ public final class Class219 {
                 }
             } else {
                 local54 = arg4 - arg3;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     do {
                         arg2++;
                         if (arg5 < arg1[arg2]) {
@@ -2669,7 +2669,7 @@ public final class Class219 {
                         arg11 += arg12;
                         local54--;
                     } while (local54 > 0);
-                } else if (this.aBoolean433) {
+                } else if (this.halfBlend) {
                     do {
                         arg2++;
                         if (arg5 < arg1[arg2]) {
@@ -2688,8 +2688,8 @@ public final class Class219 {
                         local54--;
                     } while (local54 > 0);
                 } else {
-                    local163 = this.anInt5724;
-                    local168 = 256 - this.anInt5724;
+                    local163 = this.alpha;
+                    local168 = 256 - this.alpha;
                     do {
                         arg2++;
                         if (arg5 < arg1[arg2]) {
@@ -2707,12 +2707,12 @@ public final class Class219 {
                     } while (local54 > 0);
                 }
             }
-        } else if (this.aBoolean436) {
+        } else if (this.fastScanline) {
             local54 = arg4 - arg3 >> 2;
             local58 = arg8 * 4.0F;
             local62 = arg10 * 4.0F;
             local66 = arg12 * 4.0F;
-            if (this.anInt5724 == 0) {
+            if (this.alpha == 0) {
                 if (local54 > 0) {
                     do {
                         local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2755,7 +2755,7 @@ public final class Class219 {
                     } while (local54 > 0);
                     return;
                 }
-            } else if (this.aBoolean433) {
+            } else if (this.halfBlend) {
                 if (local54 > 0) {
                     do {
                         local88 = (int) arg7 & 0xFF0000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2818,8 +2818,8 @@ public final class Class219 {
                     } while (local54 > 0);
                 }
             } else {
-                local163 = this.anInt5724;
-                local168 = 256 - this.anInt5724;
+                local163 = this.alpha;
+                local168 = 256 - this.alpha;
                 if (local54 > 0) {
                     do {
                         local88 = (int) arg7 & 0xFF0000 | 0xFF000000 | (int) arg9 & 0xFF00 | (int) arg11 & 0xFF;
@@ -2872,7 +2872,7 @@ public final class Class219 {
             }
         } else {
             local54 = arg4 - arg3;
-            if (this.anInt5724 == 0) {
+            if (this.alpha == 0) {
                 do {
                     arg2++;
                     if (arg5 < arg1[arg2]) {
@@ -2884,7 +2884,7 @@ public final class Class219 {
                     arg11 += arg12;
                     local54--;
                 } while (local54 > 0);
-            } else if (this.aBoolean433) {
+            } else if (this.halfBlend) {
                 do {
                     arg2++;
                     if (arg5 < arg1[arg2]) {
@@ -2902,8 +2902,8 @@ public final class Class219 {
                     local54--;
                 } while (local54 > 0);
             } else {
-                local163 = this.anInt5724;
-                local168 = 256 - this.anInt5724;
+                local163 = this.alpha;
+                local168 = 256 - this.alpha;
                 do {
                     arg2++;
                     if (arg5 < arg1[arg2]) {
@@ -2935,9 +2935,9 @@ public final class Class219 {
         @Pc(50) float local50 = (arg20 - arg19) * local8;
         @Pc(56) float local56 = (arg22 - arg21) * local8;
         @Pc(62) float local62 = (arg24 - arg23) * local8;
-        if (this.aBoolean434) {
-            if (arg4 > this.anInt5725) {
-                arg4 = this.anInt5725;
+        if (this.clamp) {
+            if (arg4 > this.width) {
+                arg4 = this.width;
             }
             if (arg3 < 0) {
                 arg5 -= local14 * (float) arg3;
@@ -3001,15 +3001,15 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "(FFFFFFFFFFFFFFFIIIIIIII)V")
     public void method5150(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) float arg9, @OriginalArg(10) float arg10, @OriginalArg(11) float arg11, @OriginalArg(12) float arg12, @OriginalArg(13) float arg13, @OriginalArg(14) float arg14, @OriginalArg(15) int arg15, @OriginalArg(16) int arg16, @OriginalArg(17) int arg17, @OriginalArg(18) int arg18, @OriginalArg(19) int arg19, @OriginalArg(20) int arg20, @OriginalArg(21) int arg21, @OriginalArg(22) int arg22) {
         if (arg22 != this.anInt5732) {
-            this.anIntArray442 = this.aClass19_Sub2_5.method3788(arg22);
+            this.anIntArray442 = this.aClass19_Sub2_5.getArgbTexture(arg22);
             if (this.anIntArray442 == null) {
-                this.method5141((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
+                this.renderTriangleRgb((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
+            this.anInt5730 = this.aClass19_Sub2_5.smallTexture(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5735 = this.anInt5730 - 1;
-            this.anInt5728 = this.aClass19_Sub2_5.method3795(arg22);
-            this.aBoolean438 = this.aClass19_Sub2_5.method3796(arg22);
+            this.anInt5728 = this.aClass19_Sub2_5.textureAlphaBlendMode(arg22);
+            this.aBoolean438 = this.aClass19_Sub2_5.textureRepeats(arg22);
         }
         this.anInt5729 = arg18;
         @Pc(106) float local106 = (float) (arg15 >> 24 & 0xFF);
@@ -3099,12 +3099,12 @@ public final class Class219 {
             local393 = (local167 - local177) / local401;
         }
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 if (arg1 < arg2) {
                     arg5 = arg3;
@@ -3152,7 +3152,7 @@ public final class Class219 {
                     if (arg0 != arg1 && local320 < local215 || arg0 == arg1 && local320 > local239) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5145(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg5, (int) arg3, arg8, arg6, arg11, arg9, arg14, arg12, (float) arg21, (float) arg19, local120, local106, local141, local127, local162, local148, local177, local167);
                             arg3 += local215;
@@ -3200,7 +3200,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5145(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg3, (int) arg5, arg6, arg8, arg9, arg11, arg12, arg14, (float) arg19, (float) arg21, local106, local120, local127, local141, local148, local162, local167, local177);
                             arg3 += local215;
@@ -3292,7 +3292,7 @@ public final class Class219 {
                     if (arg0 != arg2 && local320 < local215 || arg0 == arg2 && local239 > local215) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5145(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg4, (int) arg3, arg7, arg6, arg10, arg9, arg13, arg12, (float) arg20, (float) arg19, local113, local106, local134, local127, local155, local148, local172, local167);
                             arg3 += local215;
@@ -3340,7 +3340,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5145(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg3, (int) arg4, arg6, arg7, arg9, arg10, arg12, arg13, (float) arg19, (float) arg20, local106, local113, local127, local134, local148, local155, local167, local172);
                             arg4 += local320;
@@ -3389,12 +3389,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 if (arg2 < arg0) {
                     arg3 = arg4;
@@ -3442,7 +3442,7 @@ public final class Class219 {
                     if ((arg1 == arg2 || !(local215 < local239)) && (arg1 != arg2 || !(local215 > local320))) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5145(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg4, (int) arg3, arg7, arg6, arg10, arg9, arg13, arg12, (float) arg20, (float) arg19, local113, local106, local134, local127, local155, local148, local172, local167);
                             arg4 += local239;
@@ -3490,7 +3490,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5145(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg3, (int) arg4, arg6, arg7, arg9, arg10, arg12, arg13, (float) arg19, (float) arg20, local106, local113, local127, local134, local148, local155, local167, local172);
                             arg3 += local215;
@@ -3581,7 +3581,7 @@ public final class Class219 {
                     }
                     arg2 -= arg0;
                     arg0 -= arg1;
-                    arg1 = (float) this.anIntArray439[(int) arg1];
+                    arg1 = (float) this.lineOffsets[(int) arg1];
                     if (local215 < local239) {
                         while (--arg0 >= 0.0F) {
                             this.method5145(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg5, (int) arg4, arg8, arg7, arg11, arg10, arg14, arg13, (float) arg21, (float) arg20, local120, local113, local141, local134, local162, local155, local177, local172);
@@ -3675,12 +3675,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             if (arg0 < arg1) {
                 arg4 = arg5;
@@ -3728,7 +3728,7 @@ public final class Class219 {
                 if (local239 < local320) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5145(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg4, (int) arg5, arg7, arg8, arg10, arg11, arg13, arg14, (float) arg20, (float) arg21, local113, local120, local134, local141, local155, local162, local172, local177);
                         arg4 += local239;
@@ -3776,7 +3776,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5145(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg5, (int) arg4, arg8, arg7, arg11, arg10, arg14, arg13, (float) arg21, (float) arg20, local120, local113, local141, local134, local162, local155, local177, local172);
                         arg5 += local320;
@@ -3868,7 +3868,7 @@ public final class Class219 {
                 if (local239 < local320) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5145(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg3, (int) arg5, arg6, arg8, arg9, arg11, arg12, arg14, (float) arg19, (float) arg21, local106, local120, local127, local141, local148, local162, local167, local177);
                         arg3 += local239;
@@ -3916,7 +3916,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5145(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg5, (int) arg3, arg8, arg6, arg11, arg9, arg14, arg12, (float) arg21, (float) arg19, local120, local106, local141, local127, local162, local148, local177, local167);
                         arg5 += local320;
@@ -3968,9 +3968,9 @@ public final class Class219 {
 
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "([I[FIIIIIFFFF)V")
     public void method5151(@OriginalArg(0) int[] arg0, @OriginalArg(1) float[] arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(7) float arg5, @OriginalArg(8) float arg6, @OriginalArg(9) float arg7, @OriginalArg(10) float arg8) {
-        if (this.aBoolean434) {
-            if (arg4 > this.anInt5725) {
-                arg4 = this.anInt5725;
+        if (this.clamp) {
+            if (arg4 > this.width) {
+                arg4 = this.width;
             }
             if (arg3 < 0) {
                 arg3 = 0;
@@ -3990,11 +3990,11 @@ public final class Class219 {
         @Pc(71) int local71;
         @Pc(54) float local54;
         @Pc(87) float local87;
-        if (this.aClass399_1.aBoolean804) {
-            if (this.aBoolean436) {
+        if (this.aJavaThreadResource_1.zWrite) {
+            if (this.fastScanline) {
                 local50 = arg4 - arg3 >> 2;
                 local54 = arg6 * 4.0F;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     if (local50 > 0) {
                         do {
                             local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
@@ -4041,8 +4041,8 @@ public final class Class219 {
                         return;
                     }
                 } else {
-                    local186 = this.anInt5724;
-                    local191 = 256 - this.anInt5724;
+                    local186 = this.alpha;
+                    local191 = 256 - this.alpha;
                     if (local50 > 0) {
                         do {
                             local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
@@ -4098,7 +4098,7 @@ public final class Class219 {
                 }
             } else {
                 local50 = arg4 - arg3;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
@@ -4110,8 +4110,8 @@ public final class Class219 {
                         local50--;
                     } while (local50 > 0);
                 } else {
-                    local186 = this.anInt5724;
-                    local191 = 256 - this.anInt5724;
+                    local186 = this.alpha;
+                    local191 = 256 - this.alpha;
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
@@ -4127,10 +4127,10 @@ public final class Class219 {
                     } while (local50 > 0);
                 }
             }
-        } else if (this.aBoolean436) {
+        } else if (this.fastScanline) {
             local50 = arg4 - arg3 >> 2;
             local54 = arg6 * 4.0F;
-            if (this.anInt5724 == 0) {
+            if (this.alpha == 0) {
                 if (local50 > 0) {
                     do {
                         local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
@@ -4172,8 +4172,8 @@ public final class Class219 {
                     return;
                 }
             } else {
-                local186 = this.anInt5724;
-                local191 = 256 - this.anInt5724;
+                local186 = this.alpha;
+                local191 = 256 - this.alpha;
                 if (local50 > 0) {
                     do {
                         local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
@@ -4224,7 +4224,7 @@ public final class Class219 {
             }
         } else {
             local50 = arg4 - arg3;
-            if (this.anInt5724 == 0) {
+            if (this.alpha == 0) {
                 do {
                     arg2++;
                     if (arg7 < arg1[arg2]) {
@@ -4235,8 +4235,8 @@ public final class Class219 {
                     local50--;
                 } while (local50 > 0);
             } else {
-                local186 = this.anInt5724;
-                local191 = 256 - this.anInt5724;
+                local186 = this.alpha;
+                local191 = 256 - this.alpha;
                 do {
                     arg2++;
                     if (arg7 < arg1[arg2]) {
@@ -4255,9 +4255,9 @@ public final class Class219 {
 
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "([I[FIIIIIFF)V")
     public void method5152(@OriginalArg(0) int[] arg0, @OriginalArg(1) float[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) float arg6, @OriginalArg(8) float arg7) {
-        if (this.aBoolean434) {
-            if (arg5 > this.anInt5725) {
-                arg5 = this.anInt5725;
+        if (this.clamp) {
+            if (arg5 > this.width) {
+                arg5 = this.width;
             }
             if (arg4 < 0) {
                 arg4 = 0;
@@ -4275,8 +4275,8 @@ public final class Class219 {
         @Pc(47) int local47;
         @Pc(303) int local303;
         @Pc(63) float local63;
-        if (this.aClass399_1.aBoolean804) {
-            if (this.anInt5724 == 0) {
+        if (this.aJavaThreadResource_1.zWrite) {
+            if (this.alpha == 0) {
                 while (true) {
                     local29--;
                     if (local29 < 0) {
@@ -4319,9 +4319,9 @@ public final class Class219 {
                     }
                     arg6 = local63 + arg7;
                 }
-            } else if (this.anInt5724 != 254) {
-                local278 = this.anInt5724;
-                local283 = 256 - this.anInt5724;
+            } else if (this.alpha != 254) {
+                local278 = this.alpha;
+                local283 = 256 - this.alpha;
                 local303 = ((arg3 & 0xFF00FF) * local283 >> 8 & 0xFF00FF) + ((arg3 & 0xFF00) * local283 >> 8 & 0xFF00);
                 while (true) {
                     local29--;
@@ -4370,7 +4370,7 @@ public final class Class219 {
                     }
                     arg6 = local63 + arg7;
                 }
-            } else if (arg4 != 0 && arg5 <= this.anInt5725 - 1) {
+            } else if (arg4 != 0 && arg5 <= this.width - 1) {
                 while (true) {
                     local29--;
                     if (local29 < 0) {
@@ -4409,7 +4409,7 @@ public final class Class219 {
                     arg6 = local63 + arg7;
                 }
             }
-        } else if (this.anInt5724 == 0) {
+        } else if (this.alpha == 0) {
             while (true) {
                 local29--;
                 if (local29 < 0) {
@@ -4447,9 +4447,9 @@ public final class Class219 {
                 }
                 arg6 = local63 + arg7;
             }
-        } else if (this.anInt5724 != 254) {
-            local278 = this.anInt5724;
-            local283 = 256 - this.anInt5724;
+        } else if (this.alpha != 254) {
+            local278 = this.alpha;
+            local283 = 256 - this.alpha;
             local303 = ((arg3 & 0xFF00FF) * local283 >> 8 & 0xFF00FF) + ((arg3 & 0xFF00) * local283 >> 8 & 0xFF00);
             while (true) {
                 local29--;
@@ -4493,7 +4493,7 @@ public final class Class219 {
                 }
                 arg6 = local63 + arg7;
             }
-        } else if (arg4 != 0 && arg5 <= this.anInt5725 - 1) {
+        } else if (arg4 != 0 && arg5 <= this.width - 1) {
             while (true) {
                 local29--;
                 if (local29 < 0) {
@@ -4577,12 +4577,12 @@ public final class Class219 {
         @Pc(163) float local163 = (local79 * local67 - local83 * local59) / local128;
         @Pc(173) float local173 = (local83 * local55 - local79 * local63) / local128;
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 arg9 = arg9 + local143 - local143 * arg3;
                 arg6 = arg6 + local163 - local163 * arg3;
@@ -4602,7 +4602,7 @@ public final class Class219 {
                     if ((arg0 == arg1 || !(local117 < local106)) && (arg0 != arg1 || !(local117 > local95))) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg3, (int) arg5, arg9, local143, arg6, local163);
                             arg5 += local117;
@@ -4622,7 +4622,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg5, (int) arg3, arg9, local143, arg6, local163);
                             arg5 += local117;
@@ -4656,7 +4656,7 @@ public final class Class219 {
                     if (arg0 != arg2 && local117 < local106 || arg0 == arg2 && local95 > local106) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg4, (int) arg3, arg9, local143, arg6, local163);
                             arg4 += local117;
@@ -4676,7 +4676,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg3, (int) arg4, arg9, local143, arg6, local163);
                             arg4 += local117;
@@ -4697,12 +4697,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 arg10 = arg10 + local143 - local143 * arg4;
                 arg7 = arg7 + local163 - local163 * arg4;
@@ -4722,7 +4722,7 @@ public final class Class219 {
                     if ((arg1 == arg2 || !(local106 < local95)) && (arg1 != arg2 || !(local106 > local117))) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg4, (int) arg3, arg10, local143, arg7, local163);
                             arg3 += local106;
@@ -4742,7 +4742,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg3, (int) arg4, arg10, local143, arg7, local163);
                             arg3 += local106;
@@ -4776,7 +4776,7 @@ public final class Class219 {
                     if (local106 < local95) {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg5, (int) arg4, arg10, local143, arg7, local163);
                             arg5 += local106;
@@ -4796,7 +4796,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg4, (int) arg5, arg10, local143, arg7, local163);
                             arg5 += local106;
@@ -4816,12 +4816,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             arg11 = arg11 + local143 - local143 * arg5;
             arg8 = arg8 + local163 - local163 * arg5;
@@ -4841,7 +4841,7 @@ public final class Class219 {
                 if (local95 < local117) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg4, (int) arg5, arg11, local143, arg8, local163);
                         arg4 += local95;
@@ -4861,7 +4861,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg5, (int) arg4, arg11, local143, arg8, local163);
                         arg4 += local95;
@@ -4895,7 +4895,7 @@ public final class Class219 {
                 if (local95 < local117) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg3, (int) arg5, arg11, local143, arg8, local163);
                         arg3 += local95;
@@ -4915,7 +4915,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5157(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg5, (int) arg3, arg11, local143, arg8, local163);
                         arg3 += local95;
@@ -4940,15 +4940,15 @@ public final class Class219 {
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "(FFFFFFFFFFFFFFFIIIIIIII)V")
     public void method5154(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) float arg9, @OriginalArg(10) float arg10, @OriginalArg(11) float arg11, @OriginalArg(12) float arg12, @OriginalArg(13) float arg13, @OriginalArg(14) float arg14, @OriginalArg(15) int arg15, @OriginalArg(16) int arg16, @OriginalArg(17) int arg17, @OriginalArg(18) int arg18, @OriginalArg(19) int arg19, @OriginalArg(20) int arg20, @OriginalArg(21) int arg21, @OriginalArg(22) int arg22) {
         if (arg22 != this.anInt5732) {
-            this.anIntArray442 = this.aClass19_Sub2_5.method3788(arg22);
+            this.anIntArray442 = this.aClass19_Sub2_5.getArgbTexture(arg22);
             if (this.anIntArray442 == null) {
                 this.method5143((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
+            this.anInt5730 = this.aClass19_Sub2_5.smallTexture(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5735 = this.anInt5730 - 1;
-            this.anInt5728 = this.aClass19_Sub2_5.method3795(arg22);
-            this.aBoolean438 = this.aClass19_Sub2_5.method3796(arg22);
+            this.anInt5728 = this.aClass19_Sub2_5.textureAlphaBlendMode(arg22);
+            this.aBoolean438 = this.aClass19_Sub2_5.textureRepeats(arg22);
         }
         this.anInt5729 = arg18;
         @Pc(106) float local106 = (float) (arg15 >> 24 & 0xFF);
@@ -5038,12 +5038,12 @@ public final class Class219 {
             local393 = (local167 - local177) / local401;
         }
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 if (arg1 < arg2) {
                     arg5 = arg3;
@@ -5091,7 +5091,7 @@ public final class Class219 {
                     if (arg0 != arg1 && local320 < local215 || arg0 == arg1 && local320 > local239) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5147(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg5, (int) arg3, arg8, arg6, arg11, arg9, arg14, arg12, (float) arg21, (float) arg19, local120, local106, local141, local127, local162, local148, local177, local167);
                             arg3 += local215;
@@ -5139,7 +5139,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5147(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg3, (int) arg5, arg6, arg8, arg9, arg11, arg12, arg14, (float) arg19, (float) arg21, local106, local120, local127, local141, local148, local162, local167, local177);
                             arg3 += local215;
@@ -5231,7 +5231,7 @@ public final class Class219 {
                     if (arg0 != arg2 && local320 < local215 || arg0 == arg2 && local239 > local215) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5147(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg4, (int) arg3, arg7, arg6, arg10, arg9, arg13, arg12, (float) arg20, (float) arg19, local113, local106, local134, local127, local155, local148, local172, local167);
                             arg3 += local215;
@@ -5279,7 +5279,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5147(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg3, (int) arg4, arg6, arg7, arg9, arg10, arg12, arg13, (float) arg19, (float) arg20, local106, local113, local127, local134, local148, local155, local167, local172);
                             arg4 += local320;
@@ -5328,12 +5328,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 if (arg2 < arg0) {
                     arg3 = arg4;
@@ -5381,7 +5381,7 @@ public final class Class219 {
                     if ((arg1 == arg2 || !(local215 < local239)) && (arg1 != arg2 || !(local215 > local320))) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5147(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg4, (int) arg3, arg7, arg6, arg10, arg9, arg13, arg12, (float) arg20, (float) arg19, local113, local106, local134, local127, local155, local148, local172, local167);
                             arg4 += local239;
@@ -5429,7 +5429,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5147(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg3, (int) arg4, arg6, arg7, arg9, arg10, arg12, arg13, (float) arg19, (float) arg20, local106, local113, local127, local134, local148, local155, local167, local172);
                             arg3 += local215;
@@ -5520,7 +5520,7 @@ public final class Class219 {
                     }
                     arg2 -= arg0;
                     arg0 -= arg1;
-                    arg1 = (float) this.anIntArray439[(int) arg1];
+                    arg1 = (float) this.lineOffsets[(int) arg1];
                     if (local215 < local239) {
                         while (--arg0 >= 0.0F) {
                             this.method5147(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg5, (int) arg4, arg8, arg7, arg11, arg10, arg14, arg13, (float) arg21, (float) arg20, local120, local113, local141, local134, local162, local155, local177, local172);
@@ -5614,12 +5614,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             if (arg0 < arg1) {
                 arg4 = arg5;
@@ -5667,7 +5667,7 @@ public final class Class219 {
                 if (local239 < local320) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5147(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg4, (int) arg5, arg7, arg8, arg10, arg11, arg13, arg14, (float) arg20, (float) arg21, local113, local120, local134, local141, local155, local162, local172, local177);
                         arg4 += local239;
@@ -5715,7 +5715,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5147(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg5, (int) arg4, arg8, arg7, arg11, arg10, arg14, arg13, (float) arg21, (float) arg20, local120, local113, local141, local134, local162, local155, local177, local172);
                         arg5 += local320;
@@ -5807,7 +5807,7 @@ public final class Class219 {
                 if (local239 < local320) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5147(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg3, (int) arg5, arg6, arg8, arg9, arg11, arg12, arg14, (float) arg19, (float) arg21, local106, local120, local127, local141, local148, local162, local167, local177);
                         arg3 += local239;
@@ -5855,7 +5855,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5147(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg5, (int) arg3, arg8, arg6, arg11, arg9, arg14, arg12, (float) arg21, (float) arg19, local120, local106, local141, local127, local162, local148, local177, local167);
                         arg5 += local320;
@@ -5910,31 +5910,31 @@ public final class Class219 {
         if (arg22 != this.anInt5732) {
             this.anIntArray442 = this.aClass19_Sub2_5.method3792(arg22);
             if (this.anIntArray442 == null) {
-                this.method5141((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
+                this.renderTriangleRgb((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5730 = this.aClass19_Sub2_5.method3798(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
+            this.anInt5730 = this.aClass19_Sub2_5.smallTexture(arg22) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5735 = this.anInt5730 - 1;
-            this.anInt5728 = this.aClass19_Sub2_5.method3795(arg22);
+            this.anInt5728 = this.aClass19_Sub2_5.textureAlphaBlendMode(arg22);
         }
         this.aFloat109 = arg23;
         if (arg24 != this.anInt5737) {
             this.anIntArray440 = this.aClass19_Sub2_5.method3792(arg24);
             if (this.anIntArray440 == null) {
-                this.method5141((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
+                this.renderTriangleRgb((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5734 = this.aClass19_Sub2_5.method3798(arg24) ? 64 : this.aClass19_Sub2_5.textureSize;
+            this.anInt5734 = this.aClass19_Sub2_5.smallTexture(arg24) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5733 = this.anInt5734 - 1;
         }
         this.aFloat108 = arg25;
         if (arg26 != this.anInt5736) {
             this.anIntArray441 = this.aClass19_Sub2_5.method3792(arg26);
             if (this.anIntArray441 == null) {
-                this.method5141((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
+                this.renderTriangleRgb((float) (int) arg0, (float) (int) arg1, (float) (int) arg2, (float) (int) arg3, (float) (int) arg4, (float) (int) arg5, (float) (int) arg6, (float) (int) arg7, (float) (int) arg8, Static462.method6270(arg18 | arg19 << 24, arg15), Static462.method6270(arg18 | arg20 << 24, arg16), Static462.method6270(arg18 | arg21 << 24, arg17));
                 return;
             }
-            this.anInt5727 = this.aClass19_Sub2_5.method3798(arg26) ? 64 : this.aClass19_Sub2_5.textureSize;
+            this.anInt5727 = this.aClass19_Sub2_5.smallTexture(arg26) ? 64 : this.aClass19_Sub2_5.textureSize;
             this.anInt5731 = this.anInt5727 - 1;
         }
         this.aFloat110 = arg27;
@@ -6044,12 +6044,12 @@ public final class Class219 {
             local614 = (local394 - local398) / local622;
         }
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 if (arg1 < arg2) {
                     arg5 = arg3;
@@ -6105,7 +6105,7 @@ public final class Class219 {
                     if (arg0 != arg1 && local525 < local400 || arg0 == arg1 && local525 > local428) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5149(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg5, (int) arg3, arg8, arg6, arg11, arg9, arg14, arg12, (float) arg21, (float) arg19, local293, local279, local314, local300, local335, local321, local350, local340, local392, local388, local398, local394);
                             arg3 += local400;
@@ -6161,7 +6161,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5149(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg3, (int) arg5, arg6, arg8, arg9, arg11, arg12, arg14, (float) arg19, (float) arg21, local279, local293, local300, local314, local321, local335, local340, local350, local388, local392, local394, local398);
                             arg3 += local400;
@@ -6269,7 +6269,7 @@ public final class Class219 {
                     if (arg0 != arg2 && local525 < local400 || arg0 == arg2 && local428 > local400) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5149(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg4, (int) arg3, arg7, arg6, arg10, arg9, arg13, arg12, (float) arg20, (float) arg19, local286, local279, local307, local300, local328, local321, local345, local340, local390, local388, local396, local394);
                             arg3 += local400;
@@ -6325,7 +6325,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5149(this.anIntArray438, this.anIntArray442, (int) arg0, (int) arg3, (int) arg4, arg6, arg7, arg9, arg10, arg12, arg13, (float) arg19, (float) arg20, local279, local286, local300, local307, local321, local328, local340, local345, local388, local390, local394, local396);
                             arg4 += local525;
@@ -6382,12 +6382,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 if (arg2 < arg0) {
                     arg3 = arg4;
@@ -6443,7 +6443,7 @@ public final class Class219 {
                     if (arg1 != arg2 && local400 < local428 || arg1 == arg2 && local400 > local525) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5149(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg3, (int) arg4, arg6, arg7, arg9, arg10, arg12, arg13, (float) arg19, (float) arg20, local279, local286, local300, local307, local321, local328, local340, local345, local388, local390, local394, local396);
                             arg3 += local400;
@@ -6499,7 +6499,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5149(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg4, (int) arg3, arg7, arg6, arg10, arg9, arg13, arg12, (float) arg20, (float) arg19, local286, local279, local307, local300, local328, local321, local345, local340, local390, local388, local396, local394);
                             arg4 += local428;
@@ -6606,7 +6606,7 @@ public final class Class219 {
                     }
                     arg2 -= arg0;
                     arg0 -= arg1;
-                    arg1 = (float) this.anIntArray439[(int) arg1];
+                    arg1 = (float) this.lineOffsets[(int) arg1];
                     if (local400 < local428) {
                         while (--arg0 >= 0.0F) {
                             this.method5149(this.anIntArray438, this.anIntArray442, (int) arg1, (int) arg5, (int) arg4, arg8, arg7, arg11, arg10, arg14, arg13, (float) arg21, (float) arg20, local293, local286, local314, local307, local335, local328, local350, local345, local392, local390, local398, local396);
@@ -6716,12 +6716,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             if (arg0 < arg1) {
                 arg4 = arg5;
@@ -6777,7 +6777,7 @@ public final class Class219 {
                 if (local428 < local525) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5149(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg4, (int) arg5, arg7, arg8, arg10, arg11, arg13, arg14, (float) arg20, (float) arg21, local286, local293, local307, local314, local328, local335, local345, local350, local390, local392, local396, local398);
                         arg4 += local428;
@@ -6833,7 +6833,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5149(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg5, (int) arg4, arg8, arg7, arg11, arg10, arg14, arg13, (float) arg21, (float) arg20, local293, local286, local314, local307, local335, local328, local350, local345, local392, local390, local398, local396);
                         arg5 += local525;
@@ -6941,7 +6941,7 @@ public final class Class219 {
                 if (local428 < local525) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5149(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg3, (int) arg5, arg6, arg8, arg9, arg11, arg12, arg14, (float) arg19, (float) arg21, local279, local293, local300, local314, local321, local335, local340, local350, local388, local392, local394, local398);
                         arg3 += local428;
@@ -6997,7 +6997,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5149(this.anIntArray438, this.anIntArray442, (int) arg2, (int) arg5, (int) arg3, arg8, arg6, arg11, arg9, arg14, arg12, (float) arg21, (float) arg19, local293, local279, local314, local300, local335, local321, local350, local340, local392, local388, local398, local394);
                         arg5 += local525;
@@ -7098,12 +7098,12 @@ public final class Class219 {
         @Pc(163) float local163 = (local79 * local67 - local83 * local59) / local128;
         @Pc(173) float local173 = (local83 * local55 - local79 * local63) / local128;
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 arg9 = arg9 + local143 - local143 * arg3;
                 arg6 = arg6 + local163 - local163 * arg3;
@@ -7123,7 +7123,7 @@ public final class Class219 {
                     if ((arg0 == arg1 || !(local117 < local106)) && (arg0 != arg1 || !(local117 > local95))) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg3, (int) arg5, arg9, local143, arg6, local163);
                             arg5 += local117;
@@ -7143,7 +7143,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg5, (int) arg3, arg9, local143, arg6, local163);
                             arg5 += local117;
@@ -7177,7 +7177,7 @@ public final class Class219 {
                     if (arg0 != arg2 && local117 < local106 || arg0 == arg2 && local95 > local106) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg4, (int) arg3, arg9, local143, arg6, local163);
                             arg4 += local117;
@@ -7197,7 +7197,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg0, (int) arg3, (int) arg4, arg9, local143, arg6, local163);
                             arg4 += local117;
@@ -7218,12 +7218,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 arg10 = arg10 + local143 - local143 * arg4;
                 arg7 = arg7 + local163 - local163 * arg4;
@@ -7243,7 +7243,7 @@ public final class Class219 {
                     if ((arg1 == arg2 || !(local106 < local95)) && (arg1 != arg2 || !(local106 > local117))) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg4, (int) arg3, arg10, local143, arg7, local163);
                             arg3 += local106;
@@ -7263,7 +7263,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg3, (int) arg4, arg10, local143, arg7, local163);
                             arg3 += local106;
@@ -7297,7 +7297,7 @@ public final class Class219 {
                     if (local106 < local95) {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg5, (int) arg4, arg10, local143, arg7, local163);
                             arg5 += local106;
@@ -7317,7 +7317,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg1, (int) arg4, (int) arg5, arg10, local143, arg7, local163);
                             arg5 += local106;
@@ -7337,12 +7337,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             arg11 = arg11 + local143 - local143 * arg5;
             arg8 = arg8 + local163 - local163 * arg5;
@@ -7362,7 +7362,7 @@ public final class Class219 {
                 if (local95 < local117) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg4, (int) arg5, arg11, local143, arg8, local163);
                         arg4 += local95;
@@ -7382,7 +7382,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg5, (int) arg4, arg11, local143, arg8, local163);
                         arg4 += local95;
@@ -7416,7 +7416,7 @@ public final class Class219 {
                 if (local95 < local117) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg3, (int) arg5, arg11, local143, arg8, local163);
                         arg3 += local95;
@@ -7436,7 +7436,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5151(this.anIntArray438, this.aFloatArray41, (int) arg2, (int) arg5, (int) arg3, arg11, local143, arg8, local163);
                         arg3 += local95;
@@ -7460,9 +7460,9 @@ public final class Class219 {
 
     @OriginalMember(owner = "client!lb", name = "b", descriptor = "([I[FIIIIIFFFF)V")
     public void method5157(@OriginalArg(0) int[] arg0, @OriginalArg(1) float[] arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(7) float arg5, @OriginalArg(8) float arg6, @OriginalArg(9) float arg7, @OriginalArg(10) float arg8) {
-        if (this.aBoolean434) {
-            if (arg4 > this.anInt5725) {
-                arg4 = this.anInt5725;
+        if (this.clamp) {
+            if (arg4 > this.width) {
+                arg4 = this.width;
             }
             if (arg3 < 0) {
                 arg3 = 0;
@@ -7482,11 +7482,11 @@ public final class Class219 {
         @Pc(71) int local71;
         @Pc(54) float local54;
         @Pc(87) float local87;
-        if (this.aClass399_1.aBoolean804) {
-            if (this.aBoolean436) {
+        if (this.aJavaThreadResource_1.zWrite) {
+            if (this.fastScanline) {
                 local50 = arg4 - arg3 >> 2;
                 local54 = arg6 * 4.0F;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     if (local50 > 0) {
                         do {
                             local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
@@ -7533,8 +7533,8 @@ public final class Class219 {
                         return;
                     }
                 } else {
-                    local186 = this.anInt5724;
-                    local191 = 256 - this.anInt5724;
+                    local186 = this.alpha;
+                    local191 = 256 - this.alpha;
                     if (local50 > 0) {
                         do {
                             local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
@@ -7590,7 +7590,7 @@ public final class Class219 {
                 }
             } else {
                 local50 = arg4 - arg3;
-                if (this.anInt5724 == 0) {
+                if (this.alpha == 0) {
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
@@ -7602,8 +7602,8 @@ public final class Class219 {
                         local50--;
                     } while (local50 > 0);
                 } else {
-                    local186 = this.anInt5724;
-                    local191 = 256 - this.anInt5724;
+                    local186 = this.alpha;
+                    local191 = 256 - this.alpha;
                     do {
                         arg2++;
                         if (arg7 < arg1[arg2]) {
@@ -7619,10 +7619,10 @@ public final class Class219 {
                     } while (local50 > 0);
                 }
             }
-        } else if (this.aBoolean436) {
+        } else if (this.fastScanline) {
             local50 = arg4 - arg3 >> 2;
             local54 = arg6 * 4.0F;
-            if (this.anInt5724 == 0) {
+            if (this.alpha == 0) {
                 if (local50 > 0) {
                     do {
                         local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
@@ -7664,8 +7664,8 @@ public final class Class219 {
                     return;
                 }
             } else {
-                local186 = this.anInt5724;
-                local191 = 256 - this.anInt5724;
+                local186 = this.alpha;
+                local191 = 256 - this.alpha;
                 if (local50 > 0) {
                     do {
                         local64 = ColourUtils.HSV_TO_RGB[(int) arg5];
@@ -7716,7 +7716,7 @@ public final class Class219 {
             }
         } else {
             local50 = arg4 - arg3;
-            if (this.anInt5724 == 0) {
+            if (this.alpha == 0) {
                 do {
                     arg2++;
                     if (arg7 < arg1[arg2]) {
@@ -7727,8 +7727,8 @@ public final class Class219 {
                     local50--;
                 } while (local50 > 0);
             } else {
-                local186 = this.anInt5724;
-                local191 = 256 - this.anInt5724;
+                local186 = this.alpha;
+                local191 = 256 - this.alpha;
                 do {
                     arg2++;
                     if (arg7 < arg1[arg2]) {
@@ -7746,7 +7746,7 @@ public final class Class219 {
     }
 
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "(FFFFFFFFFI)V")
-    public void method5158(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) int arg9) {
+    public void renderFlatTriangleRgb(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float arg6, @OriginalArg(7) float arg7, @OriginalArg(8) float arg8, @OriginalArg(9) int arg9) {
         if (this.aBoolean437) {
             this.aClass19_Sub2_5.line((int) arg1, (int) arg0, (int) arg4, arg9, (int) arg3);
             this.aClass19_Sub2_5.line((int) arg2, (int) arg1, (int) arg5, arg9, (int) arg4);
@@ -7778,12 +7778,12 @@ public final class Class219 {
         @Pc(131) float local131 = (local62 * local58 - local66 * local50) / local116;
         @Pc(141) float local141 = (local66 * local46 - local62 * local54) / local116;
         if (arg0 <= arg1 && arg0 <= arg2) {
-            if (!(arg0 >= (float) this.anInt5726)) {
-                if (arg1 > (float) this.anInt5726) {
-                    arg1 = (float) this.anInt5726;
+            if (!(arg0 >= (float) this.height)) {
+                if (arg1 > (float) this.height) {
+                    arg1 = (float) this.height;
                 }
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
                 arg6 = arg6 + local131 - local131 * arg3;
                 if (arg1 < arg2) {
@@ -7801,7 +7801,7 @@ public final class Class219 {
                     if (arg0 != arg1 && local96 < local68 || arg0 == arg1 && local96 > local82) {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg0, arg9, (int) arg5, (int) arg3, arg6, local131);
                             arg5 += local96;
@@ -7819,7 +7819,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg1;
                         arg1 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg1 >= 0.0F) {
                             this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg0, arg9, (int) arg3, (int) arg5, arg6, local131);
                             arg5 += local96;
@@ -7850,7 +7850,7 @@ public final class Class219 {
                     if ((arg0 == arg2 || !(local96 < local68)) && (arg0 != arg2 || !(local82 > local68))) {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg0, arg9, (int) arg3, (int) arg4, arg6, local131);
                             arg4 += local96;
@@ -7868,7 +7868,7 @@ public final class Class219 {
                     } else {
                         arg1 -= arg2;
                         arg2 -= arg0;
-                        arg0 = (float) this.anIntArray439[(int) arg0];
+                        arg0 = (float) this.lineOffsets[(int) arg0];
                         while (--arg2 >= 0.0F) {
                             this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg0, arg9, (int) arg4, (int) arg3, arg6, local131);
                             arg4 += local96;
@@ -7887,12 +7887,12 @@ public final class Class219 {
                 }
             }
         } else if (arg1 <= arg2) {
-            if (!(arg1 >= (float) this.anInt5726)) {
-                if (arg2 > (float) this.anInt5726) {
-                    arg2 = (float) this.anInt5726;
+            if (!(arg1 >= (float) this.height)) {
+                if (arg2 > (float) this.height) {
+                    arg2 = (float) this.height;
                 }
-                if (arg0 > (float) this.anInt5726) {
-                    arg0 = (float) this.anInt5726;
+                if (arg0 > (float) this.height) {
+                    arg0 = (float) this.height;
                 }
                 arg7 = arg7 + local131 - local131 * arg4;
                 if (arg2 < arg0) {
@@ -7910,7 +7910,7 @@ public final class Class219 {
                     if (arg1 != arg2 && local68 < local82 || arg1 == arg2 && local68 > local96) {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg1, arg9, (int) arg3, (int) arg4, arg7, local131);
                             arg3 += local68;
@@ -7928,7 +7928,7 @@ public final class Class219 {
                     } else {
                         arg0 -= arg2;
                         arg2 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg2 >= 0.0F) {
                             this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg1, arg9, (int) arg4, (int) arg3, arg7, local131);
                             arg3 += local68;
@@ -7959,7 +7959,7 @@ public final class Class219 {
                     if (local68 < local82) {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg1, arg9, (int) arg5, (int) arg4, arg7, local131);
                             arg5 += local68;
@@ -7977,7 +7977,7 @@ public final class Class219 {
                     } else {
                         arg2 -= arg0;
                         arg0 -= arg1;
-                        arg1 = (float) this.anIntArray439[(int) arg1];
+                        arg1 = (float) this.lineOffsets[(int) arg1];
                         while (--arg0 >= 0.0F) {
                             this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg1, arg9, (int) arg4, (int) arg5, arg7, local131);
                             arg5 += local68;
@@ -7995,12 +7995,12 @@ public final class Class219 {
                     }
                 }
             }
-        } else if (!(arg2 >= (float) this.anInt5726)) {
-            if (arg0 > (float) this.anInt5726) {
-                arg0 = (float) this.anInt5726;
+        } else if (!(arg2 >= (float) this.height)) {
+            if (arg0 > (float) this.height) {
+                arg0 = (float) this.height;
             }
-            if (arg1 > (float) this.anInt5726) {
-                arg1 = (float) this.anInt5726;
+            if (arg1 > (float) this.height) {
+                arg1 = (float) this.height;
             }
             arg8 = arg8 + local131 - local131 * arg5;
             if (arg0 < arg1) {
@@ -8018,7 +8018,7 @@ public final class Class219 {
                 if (local82 < local96) {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg2, arg9, (int) arg4, (int) arg5, arg8, local131);
                         arg4 += local82;
@@ -8036,7 +8036,7 @@ public final class Class219 {
                 } else {
                     arg1 -= arg0;
                     arg0 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg0 >= 0.0F) {
                         this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg2, arg9, (int) arg5, (int) arg4, arg8, local131);
                         arg4 += local82;
@@ -8067,7 +8067,7 @@ public final class Class219 {
                 if (local82 < local96) {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg2, arg9, (int) arg3, (int) arg5, arg8, local131);
                         arg3 += local82;
@@ -8085,7 +8085,7 @@ public final class Class219 {
                 } else {
                     arg0 -= arg1;
                     arg1 -= arg2;
-                    arg2 = (float) this.anIntArray439[(int) arg2];
+                    arg2 = (float) this.lineOffsets[(int) arg2];
                     while (--arg1 >= 0.0F) {
                         this.method5159(this.anIntArray438, this.aFloatArray41, (int) arg2, arg9, (int) arg5, (int) arg3, arg8, local131);
                         arg3 += local82;
@@ -8107,9 +8107,9 @@ public final class Class219 {
 
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "([I[FIIIIIFF)V")
     public void method5159(@OriginalArg(0) int[] arg0, @OriginalArg(1) float[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) float arg6, @OriginalArg(8) float arg7) {
-        if (this.aBoolean434) {
-            if (arg5 > this.anInt5725) {
-                arg5 = this.anInt5725;
+        if (this.clamp) {
+            if (arg5 > this.width) {
+                arg5 = this.width;
             }
             if (arg4 < 0) {
                 arg4 = 0;
@@ -8127,8 +8127,8 @@ public final class Class219 {
         @Pc(47) int local47;
         @Pc(303) int local303;
         @Pc(63) float local63;
-        if (this.aClass399_1.aBoolean804) {
-            if (this.anInt5724 == 0) {
+        if (this.aJavaThreadResource_1.zWrite) {
+            if (this.alpha == 0) {
                 while (true) {
                     local29--;
                     if (local29 < 0) {
@@ -8171,9 +8171,9 @@ public final class Class219 {
                     }
                     arg6 = local63 + arg7;
                 }
-            } else if (this.anInt5724 != 254) {
-                local278 = this.anInt5724;
-                local283 = 256 - this.anInt5724;
+            } else if (this.alpha != 254) {
+                local278 = this.alpha;
+                local283 = 256 - this.alpha;
                 local303 = ((arg3 & 0xFF00FF) * local283 >> 8 & 0xFF00FF) + ((arg3 & 0xFF00) * local283 >> 8 & 0xFF00);
                 while (true) {
                     local29--;
@@ -8222,7 +8222,7 @@ public final class Class219 {
                     }
                     arg6 = local63 + arg7;
                 }
-            } else if (arg4 != 0 && arg5 <= this.anInt5725 - 1) {
+            } else if (arg4 != 0 && arg5 <= this.width - 1) {
                 while (true) {
                     local29--;
                     if (local29 < 0) {
@@ -8261,7 +8261,7 @@ public final class Class219 {
                     arg6 = local63 + arg7;
                 }
             }
-        } else if (this.anInt5724 == 0) {
+        } else if (this.alpha == 0) {
             while (true) {
                 local29--;
                 if (local29 < 0) {
@@ -8299,9 +8299,9 @@ public final class Class219 {
                 }
                 arg6 = local63 + arg7;
             }
-        } else if (this.anInt5724 != 254) {
-            local278 = this.anInt5724;
-            local283 = 256 - this.anInt5724;
+        } else if (this.alpha != 254) {
+            local278 = this.alpha;
+            local283 = 256 - this.alpha;
             local303 = ((arg3 & 0xFF00FF) * local283 >> 8 & 0xFF00FF) + ((arg3 & 0xFF00) * local283 >> 8 & 0xFF00);
             while (true) {
                 local29--;
@@ -8345,7 +8345,7 @@ public final class Class219 {
                 }
                 arg6 = local63 + arg7;
             }
-        } else if (arg4 != 0 && arg5 <= this.anInt5725 - 1) {
+        } else if (arg4 != 0 && arg5 <= this.width - 1) {
             while (true) {
                 local29--;
                 if (local29 < 0) {
@@ -8387,7 +8387,7 @@ public final class Class219 {
     }
 
     @OriginalMember(owner = "client!lb", name = "a", descriptor = "()I")
-    public int method5160() {
-        return this.anIntArray439[0] % this.anInt5722;
+    public int offsetX() {
+        return this.lineOffsets[0] % this.anInt5722;
     }
 }

@@ -11,7 +11,7 @@ import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.Node_Sub13;
+import com.jagex.graphics.MemoryPool;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.TextureMetrics;
@@ -541,39 +541,39 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "ZA", descriptor = "(IFFFFF)V")
     @Override
-    public final void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
+    public final void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float intensity, @OriginalArg(2) float reverseIntensity, @OriginalArg(3) float x, @OriginalArg(4) float y, @OriginalArg(5) float z) {
         @Pc(12) boolean local12 = colour != this.anInt9162;
-        if (local12 || this.aFloat181 != arg1 || arg2 != this.aFloat180) {
+        if (local12 || this.aFloat181 != intensity || reverseIntensity != this.aFloat180) {
             this.anInt9162 = colour;
-            this.aFloat180 = arg2;
-            this.aFloat181 = arg1;
+            this.aFloat180 = reverseIntensity;
+            this.aFloat181 = intensity;
             if (local12) {
                 this.aFloat191 = (float) (this.anInt9162 & 0xFF0000) / 1.671168E7F;
                 this.aFloat184 = (float) (this.anInt9162 & 0xFF00) / 65280.0F;
                 this.aFloat195 = (float) (this.anInt9162 & 0xFF) / 255.0F;
                 this.method8129();
             }
-            this.aNativeInterface3.setSunColour(this.aFloat191, this.aFloat184, this.aFloat195, arg1, arg2);
+            this.aNativeInterface3.setSunColour(this.aFloat191, this.aFloat184, this.aFloat195, intensity, reverseIntensity);
             this.method8065();
         }
-        if (arg3 != this.aFloatArray59[0] || arg4 != this.aFloatArray59[1] || this.aFloatArray59[2] != arg5) {
-            this.aFloatArray59[2] = arg5;
-            this.aFloatArray59[1] = arg4;
-            this.aFloatArray59[0] = arg3;
-            this.aFloatArray58[2] = -arg5;
-            this.aFloatArray58[0] = -arg3;
-            this.aFloatArray58[1] = -arg4;
-            @Pc(162) float local162 = (float) (1.0D / Math.sqrt(arg4 * arg4 + arg3 * arg3 + arg5 * arg5));
-            this.aFloatArray60[2] = local162 * arg5;
-            this.aFloatArray60[0] = arg3 * local162;
-            this.aFloatArray60[1] = arg4 * local162;
+        if (x != this.aFloatArray59[0] || y != this.aFloatArray59[1] || this.aFloatArray59[2] != z) {
+            this.aFloatArray59[2] = z;
+            this.aFloatArray59[1] = y;
+            this.aFloatArray59[0] = x;
+            this.aFloatArray58[2] = -z;
+            this.aFloatArray58[0] = -x;
+            this.aFloatArray58[1] = -y;
+            @Pc(162) float local162 = (float) (1.0D / Math.sqrt(y * y + x * x + z * z));
+            this.aFloatArray60[2] = local162 * z;
+            this.aFloatArray60[0] = x * local162;
+            this.aFloatArray60[1] = y * local162;
             this.aFloatArray61[1] = -this.aFloatArray60[1];
             this.aFloatArray61[0] = -this.aFloatArray60[0];
             this.aFloatArray61[2] = -this.aFloatArray60[2];
             this.aNativeInterface3.setSunDirection(this.aFloatArray60[0], this.aFloatArray60[1], this.aFloatArray60[2]);
             this.method8158();
-            this.anInt9149 = (int) (arg5 * 256.0F / arg4);
-            this.anInt9168 = (int) (arg3 * 256.0F / arg4);
+            this.anInt9149 = (int) (z * 256.0F / y);
+            this.anInt9168 = (int) (x * 256.0F / y);
         }
         this.method8109();
     }
@@ -644,7 +644,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "Q", descriptor = "(IIIIII[BII)V")
     @Override
-    public final void Q(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8) {
+    public final void Q(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int overlayColour, @OriginalArg(5) int underlayColour, @OriginalArg(6) byte[] shape, @OriginalArg(7) int size, @OriginalArg(8) int mode) {
     }
 
     @OriginalMember(owner = "client!am", name = "l", descriptor = "()Z")
@@ -685,8 +685,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public final Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        return new Sprite_Sub3(this, arg0, arg1, arg2);
+    public final Sprite createSprite(@OriginalArg(0) int with, @OriginalArg(1) int height, @OriginalArg(2) boolean transparent) {
+        return new Sprite_Sub3(this, with, height, transparent);
     }
 
     @OriginalMember(owner = "client!am", name = "M", descriptor = "()I")
@@ -751,7 +751,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public final void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public final void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
     }
 
     @OriginalMember(owner = "client!am", name = "g", descriptor = "(B)V")
@@ -1063,8 +1063,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public final void renderOrtho(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
-        this.aClass316_3.method7210(arg0, arg1, this);
+    public final void renderOrtho(@OriginalArg(0) ParticleList particleList, @OriginalArg(1) int zoom) {
+        this.aClass316_3.method7210(particleList, zoom, this);
     }
 
     @OriginalMember(owner = "client!am", name = "k", descriptor = "()Z")
@@ -1085,7 +1085,7 @@ public abstract class NativeToolkit extends Toolkit {
             return;
         }
         for (@Pc(9) Node local9 = this.aDeque_59.first(); local9 != null; local9 = this.aDeque_59.next()) {
-            ((Node_Sub13_Sub2) local9).method2101();
+            ((NativeMemoryPool) local9).deallocate();
         }
         @Pc(28) Enumeration local28 = this.aHashtable6.keys();
         while (local28.hasMoreElements()) {
@@ -1161,7 +1161,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "n", descriptor = "()Lclient!tt;")
     @Override
-    public final Matrix method8017() {
+    public final Matrix camera() {
         return this.aClass73_Sub1_16;
     }
 
@@ -1246,8 +1246,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!za;)V")
     @Override
-    public final void method7938(@OriginalArg(0) Node_Sub13 arg0) {
-        this.aNativeHeap5 = ((Node_Sub13_Sub2) arg0).aNativeHeap3;
+    public final void method7938(@OriginalArg(0) MemoryPool arg0) {
+        this.aNativeHeap5 = ((NativeMemoryPool) arg0).heap;
         this.aNativeHeapBuffer6 = this.aNativeHeap5.a(32768, false);
     }
 
@@ -1310,27 +1310,27 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "L", descriptor = "(III)V")
     @Override
-    public final void L(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (this.anInt9146 == arg0 && this.anInt9175 == arg1 && arg2 == this.anInt9185) {
+    public final void L(@OriginalArg(0) int colour, @OriginalArg(1) int range, @OriginalArg(2) int offset) {
+        if (this.anInt9146 == colour && this.anInt9175 == range && offset == this.anInt9185) {
             return;
         }
-        this.anInt9146 = arg0;
-        this.anInt9175 = arg1;
-        this.anInt9185 = arg2;
+        this.anInt9146 = colour;
+        this.anInt9175 = range;
+        this.anInt9185 = offset;
         this.method8093();
         this.method8084();
     }
 
     @OriginalMember(owner = "client!am", name = "EA", descriptor = "(IIII)V")
     @Override
-    public final void EA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public final void EA(@OriginalArg(0) int height, @OriginalArg(1) int colour, @OriginalArg(2) int depth, @OriginalArg(3) int bias) {
         if (!this.aBoolean681) {
             throw new RuntimeException("");
         }
-        this.anInt9156 = arg1;
-        this.anInt9150 = arg2;
-        this.anInt9160 = arg0;
-        this.anInt9169 = arg3;
+        this.anInt9156 = colour;
+        this.anInt9150 = depth;
+        this.anInt9160 = height;
+        this.anInt9169 = bias;
         if (this.aBoolean694) {
             this.aClass26Array3[3].method8295();
             this.aClass26Array3[3].method8291();
@@ -1369,8 +1369,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "U", descriptor = "(IIIII)V")
     @Override
-    public final void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
-        this.line(x, y, x + height, y, colour, arg4);
+    public final void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int strength, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
+        this.line(x, y, x + strength, y, colour, arg4);
     }
 
     @OriginalMember(owner = "client!am", name = "l", descriptor = "(B)Lclient!cw;")
@@ -1383,8 +1383,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(I)Lclient!za;")
     @Override
-    public final Node_Sub13 method7961(@OriginalArg(0) int arg0) {
-        @Pc(8) Node_Sub13_Sub2 local8 = new Node_Sub13_Sub2(arg0);
+    public final MemoryPool createHeap(@OriginalArg(0) int size) {
+        @Pc(8) NativeMemoryPool local8 = new NativeMemoryPool(size);
         this.aDeque_59.addLast(local8);
         return local8;
     }
@@ -1609,7 +1609,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public final void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public final void resizeCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(5) Object local5 = null;
         if (arg0 == null || this.aCanvas13 == arg0) {
             local5 = this.anObject15;
@@ -1633,8 +1633,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "C", descriptor = "(Z)V")
     @Override
-    public final void C(@OriginalArg(0) boolean arg0) {
-        this.aBoolean677 = arg0;
+    public final void C(@OriginalArg(0) boolean zWrite) {
+        this.aBoolean677 = zWrite;
         this.method8146();
     }
 
@@ -1709,8 +1709,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "P", descriptor = "(IIIII)V")
     @Override
-    public final void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
-        this.line(x, y, x, width + y, colour, arg4);
+    public final void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int strength, @OriginalArg(3) int colour, @OriginalArg(4) int mode) {
+        this.line(x, y, x, strength + y, colour, mode);
     }
 
     @OriginalMember(owner = "client!am", name = "b", descriptor = "(I)V")
@@ -1758,12 +1758,12 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "b", descriptor = "(Ljava/awt/Canvas;)V")
     @Override
-    public final void method7972(@OriginalArg(0) Canvas arg0) {
-        if (this.aCanvas13 == arg0) {
+    public final void releaseSurface(@OriginalArg(0) Canvas canvas) {
+        if (this.aCanvas13 == canvas) {
             throw new RuntimeException();
-        } else if (this.aHashtable6.containsKey(arg0)) {
-            this.method8051(arg0, this.aHashtable6.get(arg0));
-            this.aHashtable6.remove(arg0);
+        } else if (this.aHashtable6.containsKey(canvas)) {
+            this.method8051(canvas, this.aHashtable6.get(canvas));
+            this.aHashtable6.remove(canvas);
         }
     }
 
@@ -1902,9 +1902,9 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIIII)V")
     @Override
-    public final void method7947(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        @Pc(10) float local10 = (float) -arg0 + (float) arg2;
-        @Pc(16) float local16 = (float) arg3 - (float) arg1;
+    public final void strongLine(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int width, @OriginalArg(6) int mode) {
+        @Pc(10) float local10 = (float) -x1 + (float) x2;
+        @Pc(16) float local16 = (float) y2 - (float) y1;
         @Pc(18) float local18 = 0.0F;
         @Pc(20) float local20 = 1.0F;
         if (local10 != 0.0F || local16 != 0.0F) {
@@ -1912,14 +1912,14 @@ public abstract class NativeToolkit extends Toolkit {
             local18 = (float) Math.atan2(local16, local10);
         }
         this.method8149();
-        this.method8112(arg4);
+        this.method8112(colour);
         this.method8080(0, Static454.aClass168_5);
         this.method8142(Static454.aClass168_5, 0);
-        this.method8053(0);
-        this.aClass73_Sub1_15.method1884(1.0F, (float) arg5, local20);
-        this.aClass73_Sub1_15.translate(0, -arg5 / 2, 0);
+        this.method8053(mode);
+        this.aClass73_Sub1_15.method1884(1.0F, (float) width, local20);
+        this.aClass73_Sub1_15.translate(0, -width / 2, 0);
         this.aClass73_Sub1_15.rotateAxisZ((int) ((double) local18 * 2607.5945876176133D) & 0x3FFF);
-        this.aClass73_Sub1_15.translate(arg0, arg1, 0);
+        this.aClass73_Sub1_15.translate(x1, y1, 0);
         this.method8042();
         this.method8141(false);
         this.method8059();
@@ -2052,7 +2052,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIIIIIIIIII)V")
     @Override
-    public final void method7994() {
+    public final void drawTriangle(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int z1, @OriginalArg(3) int x2, @OriginalArg(4) int y2, @OriginalArg(5) int z2, @OriginalArg(6) int x3, @OriginalArg(7) int y3, @OriginalArg(8) int z3, @OriginalArg(9) int c1, @OriginalArg(10) int c2, @OriginalArg(11) int c3, @OriginalArg(12) int type) {
     }
 
     @OriginalMember(owner = "client!am", name = "d", descriptor = "(I)V")
@@ -2288,24 +2288,24 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public final void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (arg0 == this.aCanvas13) {
+    public final void addCanvas(@OriginalArg(0) Canvas canvas, @OriginalArg(1) int width, @OriginalArg(2) int height) {
+        if (canvas == this.aCanvas13) {
             throw new RuntimeException();
-        } else if (!this.aHashtable6.containsKey(arg0)) {
-            if (!arg0.isShowing()) {
+        } else if (!this.aHashtable6.containsKey(canvas)) {
+            if (!canvas.isShowing()) {
                 throw new RuntimeException();
             }
             try {
                 @Pc(32) Class local32 = Class.forName("java.awt.Canvas");
                 @Pc(44) Method local44 = local32.getMethod("setIgnoreRepaint", Boolean.TYPE);
-                local44.invoke(arg0, Boolean.TRUE);
+                local44.invoke(canvas, Boolean.TRUE);
             } catch (@Pc(56) Exception local56) {
             }
-            @Pc(61) Object local61 = this.method8127(arg0);
+            @Pc(61) Object local61 = this.method8127(canvas);
             if (local61 == null) {
                 throw new RuntimeException();
             }
-            this.aHashtable6.put(arg0, local61);
+            this.aHashtable6.put(canvas, local61);
         }
     }
 
@@ -2406,8 +2406,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public final Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
-        return new Font_Sub1(this, arg0, arg1, arg2);
+    public final Font createFont(@OriginalArg(0) FontMetrics metrics, @OriginalArg(1) IndexedImage[] image, @OriginalArg(2) boolean monospaced) {
+        return new Font_Sub1(this, metrics, image, monospaced);
     }
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(II[[I[[IIII)Lclient!s;")
@@ -2418,7 +2418,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public final void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
+    public final void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
     }
 
     @OriginalMember(owner = "client!am", name = "Q", descriptor = "(I)V")
@@ -2438,7 +2438,7 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Z)V")
     @Override
-    public final void method7997(@OriginalArg(0) boolean arg0) {
+    public final void setShrinkTextures(@OriginalArg(0) boolean arg0) {
     }
 
     @OriginalMember(owner = "client!am", name = "i", descriptor = "()I")
@@ -2459,8 +2459,8 @@ public abstract class NativeToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!am", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public final void render(@OriginalArg(0) ParticleList arg0) {
-        this.aClass316_3.method7210(arg0, -1, this);
+    public final void render(@OriginalArg(0) ParticleList particleList) {
+        this.aClass316_3.method7210(particleList, -1, this);
     }
 
     @OriginalMember(owner = "client!am", name = "W", descriptor = "(I)V")
@@ -2478,7 +2478,7 @@ public abstract class NativeToolkit extends Toolkit {
         }
         this.aClass2_Sub7Array6 = new PointLight[this.anInt9182 - 2];
         this.anInterface17_3 = this.method8067(Static172.aClass92_8, Static702.aClass397_16, 1, 1);
-        this.method7938(new Node_Sub13_Sub2(262144));
+        this.method7938(new NativeMemoryPool(262144));
         this.aClass244_17 = this.method8148(new Class237[]{new Class237(new Class157[]{Static231.aClass157_1, Static231.aClass157_5})});
         this.aClass244_21 = this.method8148(new Class237[]{new Class237(new Class157[]{Static231.aClass157_1, Static231.aClass157_3})});
         this.aClass244_20 = this.method8148(new Class237[]{new Class237(Static231.aClass157_1), new Class237(Static231.aClass157_3), new Class237(Static231.aClass157_5), new Class237(Static231.aClass157_2)});

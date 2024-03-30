@@ -3,7 +3,7 @@ import com.jagex.IndexedImage;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.Fonts;
-import com.jagex.graphics.Node_Sub13;
+import com.jagex.graphics.MemoryPool;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
@@ -58,11 +58,11 @@ public final class Static595 {
                             local141 = SystemInfo.instance.totalMemory > 256;
                         } catch (@Pc(152) Throwable local152) {
                         }
-                        @Pc(158) Node_Sub13 local158;
+                        @Pc(158) MemoryPool local158;
                         if (local141) {
-                            local158 = Toolkit.active.method7961(0x8C00000);
+                            local158 = Toolkit.active.createHeap(0x8C00000);
                         } else {
-                            local158 = Toolkit.active.method7961(0x6400000);
+                            local158 = Toolkit.active.createHeap(0x6400000);
                         }
                         Toolkit.active.method7938(local158);
                         var14 = false;
@@ -114,7 +114,7 @@ public final class Static595 {
         Static460.aMatrix_10 = Toolkit.active.createMatrix();
         Static59.aMatrix_5 = Toolkit.active.createMatrix();
         Static209.method3110();
-        Toolkit.active.method7997(ClientOptions.instance.smallTextures.getValue() == 1);
+        Toolkit.active.setShrinkTextures(ClientOptions.instance.smallTextures.getValue() == 1);
         if (Toolkit.active.method7936()) {
             Static249.setBloom(ClientOptions.instance.bloom.getValue() == 1);
         }

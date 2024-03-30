@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!qc")
-public abstract class Sprite_Sub1 extends Sprite {
+public abstract class JavaSprite extends Sprite {
 
     @OriginalMember(owner = "client!qc", name = "j", descriptor = "I")
     protected int anInt9294;
@@ -33,7 +33,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     public final int anInt9306;
 
     @OriginalMember(owner = "client!qc", name = "<init>", descriptor = "(Lclient!iaa;II)V")
-    public Sprite_Sub1(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public JavaSprite(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.toolkit = arg0;
         this.anInt9302 = arg1;
         this.anInt9306 = arg2;
@@ -81,7 +81,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(FFFFFFILclient!aa;II)V")
     @Override
     protected final void renderParallelogramImpl(@OriginalArg(0) float centerX, @OriginalArg(1) float centerY, @OriginalArg(2) float x1, @OriginalArg(3) float y1, @OriginalArg(4) float x2, @OriginalArg(5) float y2, @OriginalArg(7) ClippingMask mask, @OriginalArg(8) int maskX, @OriginalArg(9) int maskY) {
-        if (this.toolkit.method3785()) {
+        if (this.toolkit.stopped()) {
             throw new IllegalStateException();
         } else if (this.method8211(centerX, centerY, x1, y1, x2, y2)) {
             @Pc(22) JavaClippingMask local22 = (JavaClippingMask) mask;
@@ -92,7 +92,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     @OriginalMember(owner = "client!qc", name = "a", descriptor = "(FFFFFFIIII)V")
     @Override
     protected final void renderImpl(@OriginalArg(0) float x, @OriginalArg(1) float y, @OriginalArg(2) float width, @OriginalArg(3) float height, @OriginalArg(4) float op, @OriginalArg(5) float colour, @OriginalArg(6) int mode, @OriginalArg(7) int filter) {
-        if (this.toolkit.method3785()) {
+        if (this.toolkit.stopped()) {
             throw new IllegalStateException();
         } else if (this.method8211(x, y, width, height, op, colour)) {
             Static513.anInt9313 = filter;
@@ -144,7 +144,7 @@ public abstract class Sprite_Sub1 extends Sprite {
     @OriginalMember(owner = "client!qc", name = "b", descriptor = "(IIIIIII)V")
     @Override
     public final void renderTiled(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
-        if (this.toolkit.method3785()) {
+        if (this.toolkit.stopped()) {
             throw new IllegalStateException();
         }
         if (this.anIntArray713 == null) {
@@ -263,7 +263,7 @@ public abstract class Sprite_Sub1 extends Sprite {
         if (local67 >= 0.0F) {
             return false;
         }
-        Static513.anInt9291 = this.toolkit.anInt4207;
+        Static513.anInt9291 = this.toolkit.surfaceWidth;
         Static513.anInt9292 = (int) ((float) ((int) local61 * Static513.anInt9291) + local48);
         local73 = (arg2 - arg0) * (arg5 - arg1) - (arg3 - arg1) * (arg4 - arg0);
         local79 = (arg4 - arg0) * (arg3 - arg1) - (arg5 - arg1) * (arg2 - arg0);

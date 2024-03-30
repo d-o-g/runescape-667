@@ -28,7 +28,7 @@ public final class Static418 {
             Toolkit.active.setCamera(Static460.aMatrix_10);
         }
         if (OrthoMode.enabled) {
-            Toolkit.active.HA(arg3, local58, arg1, Static582.orthoAngle, OverlayManager.hitmarkpos);
+            Toolkit.active.HA(arg3, local58, arg1, OrthoMode.renderZoom, OverlayManager.hitmarkpos);
         } else {
             Toolkit.active.da(arg3, local58, arg1, OverlayManager.hitmarkpos);
         }

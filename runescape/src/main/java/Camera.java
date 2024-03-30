@@ -260,7 +260,7 @@ public final class Camera {
             local7 = 100;
         }
         @Pc(33) int local33 = local7 * (zoom - Static228.aShort45) / 100 + Static228.aShort45;
-        Static582.orthoAngle = Static582.orthoZoom * local33 >> 8;
+        OrthoMode.renderZoom = OrthoMode.zoom * local33 >> 8;
 
         @Pc(45) int local45 = local33 * arg1 >> 8;
         @Pc(52) int local52 = 16384 - pitch & 0x3FFF;

@@ -105,15 +105,15 @@ public final class Class42 {
                 if (local117 > 0) {
                     for (local123 = local117 - 1; local123 >= 0; local123--) {
                         local134 = this.aParticleArrayArray1[local99][local123];
-                        local137 = local134.anInt7539;
+                        local137 = local134.colour;
                         local142 = (byte) (local137 >> 16);
                         local147 = (byte) (local137 >> 8);
                         local150 = (byte) local137;
                         local155 = (byte) (local137 >>> 24);
-                        local161 = (float) (local134.anInt7537 >> 12);
-                        local167 = (float) (local134.anInt7534 >> 12);
-                        local173 = (float) (local134.anInt7536 >> 12);
-                        local178 = local134.anInt7535 >> 12;
+                        local161 = (float) (local134.x >> 12);
+                        local167 = (float) (local134.y >> 12);
+                        local173 = (float) (local134.z >> 12);
+                        local178 = local134.size >> 12;
                         this.aClass2_Sub21_Sub1_1.method4336(0.0F);
                         this.aClass2_Sub21_Sub1_1.method4336(0.0F);
                         this.aClass2_Sub21_Sub1_1.method4336(local161 + (float) -local178 * local54);
@@ -155,15 +155,15 @@ public final class Class42 {
                         local448 = this.anIntArray74[local99] - 64 - 1;
                         for (local137 = this.anIntArray76[local448] - 1; local137 >= 0; local137--) {
                             local464 = this.aParticle[local448][local137];
-                            local467 = local464.anInt7539;
+                            local467 = local464.colour;
                             local150 = (byte) (local467 >> 16);
                             local155 = (byte) (local467 >> 8);
                             local480 = (byte) local467;
                             local485 = (byte) (local467 >>> 24);
-                            local173 = (float) (local464.anInt7537 >> 12);
-                            local497 = (float) (local464.anInt7534 >> 12);
-                            local503 = (float) (local464.anInt7536 >> 12);
-                            local508 = local464.anInt7535 >> 12;
+                            local173 = (float) (local464.x >> 12);
+                            local497 = (float) (local464.y >> 12);
+                            local503 = (float) (local464.z >> 12);
+                            local508 = local464.size >> 12;
                             this.aClass2_Sub21_Sub1_1.method4336(0.0F);
                             this.aClass2_Sub21_Sub1_1.method4336(0.0F);
                             this.aClass2_Sub21_Sub1_1.method4336((float) -local508 * local54 + local173);
@@ -210,15 +210,15 @@ public final class Class42 {
                 if (local117 > 0) {
                     for (local123 = local117 - 1; local123 >= 0; local123--) {
                         local134 = this.aParticleArrayArray1[local99][local123];
-                        local137 = local134.anInt7539;
+                        local137 = local134.colour;
                         local142 = (byte) (local137 >> 16);
                         local147 = (byte) (local137 >> 8);
                         local150 = (byte) local137;
                         local155 = (byte) (local137 >>> 24);
-                        local161 = (float) (local134.anInt7537 >> 12);
-                        local167 = (float) (local134.anInt7534 >> 12);
-                        local173 = (float) (local134.anInt7536 >> 12);
-                        local178 = local134.anInt7535 >> 12;
+                        local161 = (float) (local134.x >> 12);
+                        local167 = (float) (local134.y >> 12);
+                        local173 = (float) (local134.z >> 12);
+                        local178 = local134.size >> 12;
                         this.aClass2_Sub21_Sub1_1.method4337(0.0F);
                         this.aClass2_Sub21_Sub1_1.method4337(0.0F);
                         this.aClass2_Sub21_Sub1_1.method4337(local54 * (float) -local178 + local161);
@@ -260,15 +260,15 @@ public final class Class42 {
                         local448 = this.anIntArray74[local99] - 64 - 1;
                         for (local137 = this.anIntArray76[local448] - 1; local137 >= 0; local137--) {
                             local464 = this.aParticle[local448][local137];
-                            local467 = local464.anInt7539;
+                            local467 = local464.colour;
                             local150 = (byte) (local467 >> 16);
                             local155 = (byte) (local467 >> 8);
                             local480 = (byte) local467;
                             local485 = (byte) (local467 >>> 24);
-                            local173 = (float) (local464.anInt7537 >> 12);
-                            local497 = (float) (local464.anInt7534 >> 12);
-                            local503 = (float) (local464.anInt7536 >> 12);
-                            local508 = local464.anInt7535 >> 12;
+                            local173 = (float) (local464.x >> 12);
+                            local497 = (float) (local464.y >> 12);
+                            local503 = (float) (local464.z >> 12);
+                            local508 = local464.size >> 12;
                             this.aClass2_Sub21_Sub1_1.method4337(0.0F);
                             this.aClass2_Sub21_Sub1_1.method4337(0.0F);
                             this.aClass2_Sub21_Sub1_1.method4337(local173 + local54 * (float) -local508);
@@ -361,7 +361,7 @@ public final class Class42 {
             @Pc(91) int local91;
             for (local59 = local56.next2; local59 != local56; local59 = local59.next2) {
                 @Pc(64) Particle local64 = (Particle) local59;
-                local91 = (int) (local46 + local42 * (float) (local64.anInt7536 >> 12) + (float) (local64.anInt7537 >> 12) * local34 + (float) (local64.anInt7534 >> 12) * local38);
+                local91 = (int) (local46 + local42 * (float) (local64.z >> 12) + (float) (local64.x >> 12) * local34 + (float) (local64.y >> 12) * local38);
                 if (local91 > local52) {
                     local52 = local91;
                 }
@@ -395,10 +395,10 @@ public final class Class42 {
                     @Pc(210) Particle local210 = (Particle) local59;
                     if (local156) {
                         local154 = local210.aBoolean574;
-                        local152 = local210.anInt7540;
+                        local152 = local210.texture;
                         local156 = false;
                     }
-                    if (local48 > 0 && (local210.anInt7540 != local152 || local210.aBoolean574 != local154)) {
+                    if (local48 > 0 && (local210.texture != local152 || local210.aBoolean574 != local154)) {
                         local156 = true;
                         break;
                     }

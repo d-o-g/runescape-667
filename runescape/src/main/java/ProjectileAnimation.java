@@ -357,7 +357,7 @@ public final class ProjectileAnimation extends PositionEntity {
 
         @Pc(57) PickableEntity local57 = Static642.method8441(false, 1);
         if (OrthoMode.enabled) {
-            model.renderOrtho(matrix, local57.pickingCylinders[0], Static582.orthoAngle, 0);
+            model.renderOrtho(matrix, local57.pickingCylinders[0], OrthoMode.renderZoom, 0);
         } else {
             model.render(matrix, local57.pickingCylinders[0], 0);
         }
@@ -366,7 +366,7 @@ public final class ProjectileAnimation extends PositionEntity {
             @Pc(89) ParticleList particles = this.particleSystem.getList();
 
             if (OrthoMode.enabled) {
-                toolkit.renderOrtho(particles, Static582.orthoAngle);
+                toolkit.renderOrtho(particles, OrthoMode.renderZoom);
             } else {
                 toolkit.render(particles);
             }

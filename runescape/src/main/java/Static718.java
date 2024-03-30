@@ -17,7 +17,7 @@ public final class Static718 {
         }
         if (arg0.texture != -1) {
             @Pc(31) TextureMetrics local31 = arg1.textureSource.getMetrics(arg0.texture);
-            if (!local31.aBoolean240) {
+            if (!local31.disableable) {
                 return local31.aShort37;
             }
         }

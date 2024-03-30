@@ -14,7 +14,7 @@ public interface TextureSource {
     boolean textureAvailable(@OriginalArg(1) int arg0);
 
     @OriginalMember(owner = "client!d", name = "a", descriptor = "(FIIZZI)[I")
-    int[] argbOutput(@OriginalArg(0) float arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3);
+    int[] argbOutput(@OriginalArg(0) float f, @OriginalArg(1) int id, @OriginalArg(2) int width, @OriginalArg(5) int height);
 
     @OriginalMember(owner = "client!d", name = "a", descriptor = "(IIFBIZ)[F")
     float[] floatArgbOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) float arg2, @OriginalArg(4) int arg3);

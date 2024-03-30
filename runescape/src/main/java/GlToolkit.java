@@ -3,7 +3,7 @@ import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.core.constants.PciVendorId;
 import com.jagex.graphics.Renderer;
-import com.jagex.Interface26;
+import com.jagex.DepthBuffer;
 import com.jagex.Static14;
 import com.jagex.math.ColourUtils;
 import com.jagex.core.datastruct.key.Deque;
@@ -23,7 +23,7 @@ import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.Node_Sub13;
+import com.jagex.graphics.MemoryPool;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.skybox.SkyBoxSphere;
 import com.jagex.graphics.Sprite;
@@ -867,24 +867,24 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (this.aCanvas10 == arg0) {
+    public void addCanvas(@OriginalArg(0) Canvas canvas, @OriginalArg(1) int width, @OriginalArg(2) int height) {
+        if (this.aCanvas10 == canvas) {
             throw new RuntimeException();
-        } else if (!this.aHashtable5.containsKey(arg0)) {
-            if (!arg0.isShowing()) {
+        } else if (!this.aHashtable5.containsKey(canvas)) {
+            if (!canvas.isShowing()) {
                 throw new RuntimeException();
             }
             try {
                 @Pc(32) Class local32 = Class.forName("java.awt.Canvas");
                 @Pc(44) Method local44 = local32.getMethod("setIgnoreRepaint", Boolean.TYPE);
-                local44.invoke(arg0, Boolean.TRUE);
+                local44.invoke(canvas, Boolean.TRUE);
             } catch (@Pc(56) Exception local56) {
             }
-            @Pc(61) long local61 = this.anOpenGL1.prepareSurface(arg0);
+            @Pc(61) long local61 = this.anOpenGL1.prepareSurface(canvas);
             if (local61 == -1L) {
                 throw new RuntimeException();
             }
-            this.aHashtable5.put(arg0, Long.valueOf(local61));
+            this.aHashtable5.put(canvas, Long.valueOf(local61));
         }
     }
 
@@ -908,7 +908,7 @@ public final class GlToolkit extends Toolkit {
         this.method7006(false);
         this.method6972(false);
         this.method7046(-2);
-        this.method7017(1);
+        this.setBlendMode(1);
         this.anInt7997 = 4;
     }
 
@@ -921,8 +921,8 @@ public final class GlToolkit extends Toolkit {
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIII)V")
     @Override
     public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode) {
-        this.method7026();
-        this.method7017(mode);
+        this.enter2dMode();
+        this.setBlendMode(mode);
         @Pc(16) float local16 = (float) x2 - (float) x1;
         @Pc(23) float local23 = (float) -y1 + (float) y2;
         if (local16 == 0.0F && local23 == 0.0F) {
@@ -1004,7 +1004,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "b", descriptor = "(IIIID)V")
     @Override
-    public void b(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) double arg4) {
+    public void b(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) double zDepth) {
     }
 
     @OriginalMember(owner = "client!qha", name = "b", descriptor = "(II)I")
@@ -1021,8 +1021,8 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        return new Sprite_Sub2(this, arg0, arg1, arg2);
+    public Sprite createSprite(@OriginalArg(0) int with, @OriginalArg(1) int height, @OriginalArg(2) boolean transparent) {
+        return new Sprite_Sub2(this, with, height, transparent);
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIZ)Lclient!st;")
@@ -1096,7 +1096,7 @@ public final class GlToolkit extends Toolkit {
         this.method7035(true);
         this.method7006(true);
         this.method6972(true);
-        this.method7017(1);
+        this.setBlendMode(1);
         this.anInt7997 = 16;
     }
 
@@ -1106,9 +1106,9 @@ public final class GlToolkit extends Toolkit {
         @Pc(8) float local8 = (float) x + 0.35F;
         @Pc(13) float local13 = (float) y + 0.35F;
         @Pc(18) float local18 = local8 + (float) width;
-        this.method7026();
+        this.enter2dMode();
         @Pc(26) float local26 = (float) height + local13;
-        this.method7017(mode);
+        this.setBlendMode(mode);
         OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         if (this.aBoolean615) {
             OpenGL.glDisable(OpenGL.GL_MULTISAMPLE);
@@ -1132,8 +1132,8 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public void renderOrtho(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
-        this.aClass42_1.method1080(this, arg0, arg1);
+    public void renderOrtho(@OriginalArg(0) ParticleList particleList, @OriginalArg(1) int zoom) {
+        this.aClass42_1.method1080(this, particleList, zoom);
     }
 
     @OriginalMember(owner = "client!qha", name = "w", descriptor = "()Z")
@@ -1149,7 +1149,7 @@ public final class GlToolkit extends Toolkit {
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local6.aClass93_Sub2_Sub1_5);
-        this.method7017(1);
+        this.setBlendMode(1);
         this.method7031(8448, 7681);
         this.method7021(34167, 768, 0);
         @Pc(39) float local39 = local9.aFloat67 / (float) local9.anInt3259;
@@ -1172,7 +1172,7 @@ public final class GlToolkit extends Toolkit {
     @Override
     protected void stop() {
         for (@Pc(8) Node local8 = this.aDeque_46.first(); local8 != null; local8 = this.aDeque_46.next()) {
-            ((Node_Sub13_Sub1) local8).method1609();
+            ((GlMemoryPool) local8).deallocate();
         }
         if (this.aClass276_1 != null) {
             this.aClass276_1.method6249();
@@ -1215,7 +1215,7 @@ public final class GlToolkit extends Toolkit {
         this.method7001(null);
         this.method7046(-2);
         this.method6991(1);
-        this.method7017(0);
+        this.setBlendMode(0);
         OpenGL.glMatrixMode(OpenGL.GL_PROJECTION);
         OpenGL.glLoadIdentity();
         OpenGL.glOrtho(0.0D, 1.0D, 0.0D, 1.0D, -1.0D, 1.0D);
@@ -1403,7 +1403,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "d", descriptor = "(II)Lclient!wja;")
     @Override
-    public Interface26 method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public DepthBuffer method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return null;
     }
 
@@ -1436,7 +1436,7 @@ public final class GlToolkit extends Toolkit {
     @OriginalMember(owner = "client!qha", name = "GA", descriptor = "(I)V")
     @Override
     public void GA(@OriginalArg(0) int colour) {
-        this.method7017(0);
+        this.setBlendMode(0);
         OpenGL.glClearColor((float) (colour & 0xFF0000) / 1.671168E7F, (float) (colour & 0xFF00) / 65280.0F, (float) (colour & 0xFF) / 255.0F, (float) (colour >>> 24) / 255.0F);
         OpenGL.glClear(OpenGL.GL_COLOR_BUFFER_BIT);
     }
@@ -1464,8 +1464,8 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!za;)V")
     @Override
-    public void method7938(@OriginalArg(0) Node_Sub13 arg0) {
-        this.lb = ((Node_Sub13_Sub1) arg0).aNativeHeap2;
+    public void method7938(@OriginalArg(0) MemoryPool arg0) {
+        this.lb = ((GlMemoryPool) arg0).heap;
         if (this.anInterface12_7 != null) {
             return;
         }
@@ -1645,8 +1645,8 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public void render(@OriginalArg(0) ParticleList arg0) {
-        this.aClass42_1.method1080(this, arg0, -1);
+    public void render(@OriginalArg(0) ParticleList particleList) {
+        this.aClass42_1.method1080(this, particleList, -1);
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(BFF)V")
@@ -1751,7 +1751,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
+    public OffscreenSurface createOffscreenSurface(@OriginalArg(0) Surface surface, @OriginalArg(1) DepthBuffer buffer) {
         return null;
     }
 
@@ -1778,12 +1778,12 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
+    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
         @Pc(6) ClippingMask_Sub3 local6 = (ClippingMask_Sub3) mask;
         @Pc(9) Class93_Sub2_Sub1 local9 = local6.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local6.aClass93_Sub2_Sub1_5);
-        this.method7017(mode);
+        this.setBlendMode(mode);
         this.method7031(8448, 7681);
         this.method7021(34167, 768, 0);
         @Pc(39) float local39 = local9.aFloat67 / (float) local9.anInt3259;
@@ -1815,8 +1815,8 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(I)Lclient!za;")
     @Override
-    public Node_Sub13 method7961(@OriginalArg(0) int arg0) {
-        @Pc(8) Node_Sub13_Sub1 local8 = new Node_Sub13_Sub1(arg0);
+    public MemoryPool createHeap(@OriginalArg(0) int size) {
+        @Pc(8) GlMemoryPool local8 = new GlMemoryPool(size);
         this.aDeque_46.addLast(local8);
         return local8;
     }
@@ -1843,14 +1843,14 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "EA", descriptor = "(IIII)V")
     @Override
-    public void EA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public void EA(@OriginalArg(0) int height, @OriginalArg(1) int colour, @OriginalArg(2) int depth, @OriginalArg(3) int bias) {
         if (!this.aBoolean605) {
             throw new RuntimeException("");
         }
-        this.anInt8006 = arg0;
-        this.anInt8026 = arg1;
-        this.anInt8013 = arg2;
-        this.anInt8029 = arg3;
+        this.anInt8006 = height;
+        this.anInt8026 = colour;
+        this.anInt8013 = depth;
+        this.anInt8029 = bias;
         if (this.aBoolean609) {
             this.aClass98_1.aClass101_Sub6_1.method5797();
             this.aClass98_1.aClass101_Sub6_1.method5798();
@@ -2036,8 +2036,8 @@ public final class GlToolkit extends Toolkit {
         @Pc(13) float local13 = (float) y + 0.35F;
         @Pc(20) float local20 = (float) width + local8 - 1.0F;
         @Pc(27) float local27 = (float) height + local13 - 1.0F;
-        this.method7026();
-        this.method7017(mode);
+        this.enter2dMode();
+        this.setBlendMode(mode);
         OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         if (this.aBoolean615) {
             OpenGL.glDisable(OpenGL.GL_MULTISAMPLE);
@@ -2096,9 +2096,9 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIII)V")
     @Override
-    public void method7947(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        OpenGL.glLineWidth((float) arg5);
-        this.line(arg0, arg1, arg2, arg3, arg4, 0);
+    public void strongLine(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int width, @OriginalArg(6) int mode) {
+        OpenGL.glLineWidth((float) width);
+        this.line(x1, y1, x2, y2, colour, mode);
         OpenGL.glLineWidth(1.0F);
     }
 
@@ -2173,7 +2173,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void resizeCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(5) long local5 = 0L;
         if (arg0 == null || this.aCanvas10 == arg0) {
             local5 = this.aLong247;
@@ -2192,15 +2192,15 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "U", descriptor = "(IIIII)V")
     @Override
-    public void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
-        this.method7026();
-        this.method7017(arg4);
+    public void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int strength, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
+        this.enter2dMode();
+        this.setBlendMode(arg4);
         @Pc(15) float local15 = (float) x + 0.35F;
         @Pc(20) float local20 = (float) y + 0.35F;
         OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         OpenGL.glBegin(OpenGL.GL_LINES);
         OpenGL.glVertex2f(local15, local20);
-        OpenGL.glVertex2f((float) height + local15, local20);
+        OpenGL.glVertex2f((float) strength + local15, local20);
         OpenGL.glEnd();
     }
 
@@ -2245,12 +2245,12 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "ZA", descriptor = "(IFFFFF)V")
     @Override
-    public void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5) {
+    public void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float intensity, @OriginalArg(2) float reverseIntensity, @OriginalArg(3) float x, @OriginalArg(4) float y, @OriginalArg(5) float z) {
         @Pc(16) boolean local16 = colour != this.anInt8011;
-        if (local16 || this.aFloat129 != arg1 || arg2 != this.aFloat130) {
-            this.aFloat129 = arg1;
+        if (local16 || this.aFloat129 != intensity || reverseIntensity != this.aFloat130) {
+            this.aFloat129 = intensity;
             this.anInt8011 = colour;
-            this.aFloat130 = arg2;
+            this.aFloat130 = reverseIntensity;
             if (local16) {
                 this.aFloat137 = (float) (this.anInt8011 & 0xFF) / 255.0F;
                 this.aFloat143 = (float) (this.anInt8011 & 0xFF00) / 65280.0F;
@@ -2259,29 +2259,29 @@ public final class GlToolkit extends Toolkit {
             }
             this.method6966();
         }
-        if (this.aFloatArray52[0] == arg3 && this.aFloatArray52[1] == arg4 && this.aFloatArray52[2] == arg5) {
+        if (this.aFloatArray52[0] == x && this.aFloatArray52[1] == y && this.aFloatArray52[2] == z) {
             return;
         }
-        this.aFloatArray52[1] = arg4;
-        this.aFloatArray52[2] = arg5;
-        this.aFloatArray52[0] = arg3;
-        this.aFloatArray50[0] = -arg3;
-        this.aFloatArray50[2] = -arg5;
-        this.aFloatArray50[1] = -arg4;
-        @Pc(155) float local155 = (float) (1.0D / Math.sqrt(arg3 * arg3 + arg4 * arg4 + arg5 * arg5));
-        this.aFloatArray51[0] = arg3 * local155;
-        this.aFloatArray51[1] = local155 * arg4;
-        this.aFloatArray51[2] = arg5 * local155;
+        this.aFloatArray52[1] = y;
+        this.aFloatArray52[2] = z;
+        this.aFloatArray52[0] = x;
+        this.aFloatArray50[0] = -x;
+        this.aFloatArray50[2] = -z;
+        this.aFloatArray50[1] = -y;
+        @Pc(155) float local155 = (float) (1.0D / Math.sqrt(x * x + y * y + z * z));
+        this.aFloatArray51[0] = x * local155;
+        this.aFloatArray51[1] = local155 * y;
+        this.aFloatArray51[2] = z * local155;
         this.aFloatArray54[0] = -this.aFloatArray51[0];
         this.aFloatArray54[1] = -this.aFloatArray51[1];
         this.aFloatArray54[2] = -this.aFloatArray51[2];
         this.method6987();
-        this.anInt8023 = (int) (arg5 * 256.0F / arg4);
-        this.anInt8027 = (int) (arg3 * 256.0F / arg4);
+        this.anInt8023 = (int) (z * 256.0F / y);
+        this.anInt8027 = (int) (x * 256.0F / y);
     }
 
     @OriginalMember(owner = "client!qha", name = "h", descriptor = "(II)V")
-    public void method7017(@OriginalArg(0) int arg0) {
+    public void setBlendMode(@OriginalArg(0) int arg0) {
         if (this.anInt7998 == arg0) {
             return;
         }
@@ -2461,8 +2461,8 @@ public final class GlToolkit extends Toolkit {
         if (arg2 == arg0 && arg3 == arg1) {
             return;
         }
-        this.method7026();
-        this.method7017(1);
+        this.enter2dMode();
+        this.setBlendMode(1);
         @Pc(37) float local37 = (float) -arg0 + (float) arg2;
         @Pc(44) float local44 = (float) -arg1 + (float) arg3;
         @Pc(57) float local57 = (float) (1.0D / Math.sqrt(local37 * local37 + local44 * local44));
@@ -2548,28 +2548,28 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIIIIIIIII)V")
     @Override
-    public void method7994() {
-        this.method7026();
-        this.method7017(1);
+    public void drawTriangle(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int z1, @OriginalArg(3) int x2, @OriginalArg(4) int y2, @OriginalArg(5) int z2, @OriginalArg(6) int x3, @OriginalArg(7) int y3, @OriginalArg(8) int z3, @OriginalArg(9) int c1, @OriginalArg(10) int c2, @OriginalArg(11) int c3, @OriginalArg(12) int type) {
+        this.enter2dMode();
+        this.setBlendMode(type);
         OpenGL.glBegin(OpenGL.GL_TRIANGLES);
-        OpenGL.glColor4ub((byte) -1, (byte) 0, (byte) 0, (byte) -1);
-        OpenGL.glVertex3f((float) 5 + 0.35F, (float) 10 + 0.35F, (float) 100);
-        OpenGL.glColor4ub((byte) -1, (byte) 0, (byte) 0, (byte) -1);
-        OpenGL.glVertex3f((float) 75 + 0.35F, (float) 50 + 0.35F, (float) 100);
-        OpenGL.glColor4ub((byte) -1, (byte) 0, (byte) 0, (byte) -1);
-        OpenGL.glVertex3f((float) 15 + 0.35F, (float) 90 + 0.35F, (float) 100);
+        OpenGL.glColor4ub((byte) (c1 >> 16), (byte) (c1 >> 8), (byte) c1, (byte) (c1 >> 24));
+        OpenGL.glVertex3f((float) x1 + 0.35F, (float) y1 + 0.35F, (float) z1);
+        OpenGL.glColor4ub((byte) (c2 >> 16), (byte) (c2 >> 8), (byte) c2, (byte) (c2 >> 24));
+        OpenGL.glVertex3f((float) x2 + 0.35F, (float) y2 + 0.35F, (float) z2);
+        OpenGL.glColor4ub((byte) (c3 >> 16), (byte) (c3 >> 8), (byte) c3, (byte) (c3 >> 24));
+        OpenGL.glVertex3f((float) x3 + 0.35F, (float) y3 + 0.35F, (float) z3);
         OpenGL.glEnd();
     }
 
     @OriginalMember(owner = "client!qha", name = "L", descriptor = "(III)V")
     @Override
-    public void L(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (arg0 == this.anInt8002 && this.anInt8008 == arg1 && arg2 == this.anInt8009) {
+    public void L(@OriginalArg(0) int colour, @OriginalArg(1) int range, @OriginalArg(2) int offset) {
+        if (colour == this.anInt8002 && this.anInt8008 == range && offset == this.anInt8009) {
             return;
         }
-        this.anInt8008 = arg1;
-        this.anInt8009 = arg2;
-        this.anInt8002 = arg0;
+        this.anInt8008 = range;
+        this.anInt8009 = offset;
+        this.anInt8002 = colour;
         this.method6969();
         this.method7044();
     }
@@ -2653,7 +2653,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Z)V")
     @Override
-    public void method7997(@OriginalArg(0) boolean arg0) {
+    public void setShrinkTextures(@OriginalArg(0) boolean arg0) {
     }
 
     @OriginalMember(owner = "client!qha", name = "C", descriptor = "(I)V")
@@ -2759,7 +2759,7 @@ public final class GlToolkit extends Toolkit {
     }
 
     @OriginalMember(owner = "client!qha", name = "i", descriptor = "(B)V")
-    public void method7026() {
+    public void enter2dMode() {
         if (this.anInt7997 == 1) {
             return;
         }
@@ -2792,7 +2792,7 @@ public final class GlToolkit extends Toolkit {
         this.method7035(true);
         this.method7006(true);
         this.method6972(true);
-        this.method7017(1);
+        this.setBlendMode(1);
         this.anInt7997 = 8;
     }
 
@@ -2840,8 +2840,8 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "C", descriptor = "(Z)V")
     @Override
-    public void C(@OriginalArg(0) boolean arg0) {
-        this.aBoolean596 = arg0;
+    public void C(@OriginalArg(0) boolean zWrite) {
+        this.aBoolean596 = zWrite;
         this.method7032();
     }
 
@@ -2870,7 +2870,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
         if (x2 == x1 && y1 == y2) {
             return;
         }
@@ -2878,7 +2878,7 @@ public final class GlToolkit extends Toolkit {
         @Pc(25) Class93_Sub2_Sub1 local25 = local22.aClass93_Sub2_Sub1_5;
         this.method7018();
         this.method7001(local22.aClass93_Sub2_Sub1_5);
-        this.method7017(1);
+        this.setBlendMode(mode);
         this.method7031(8448, 7681);
         this.method7021(34167, 768, 0);
         @Pc(55) float local55 = local25.aFloat67 / (float) local25.anInt3259;
@@ -2939,9 +2939,9 @@ public final class GlToolkit extends Toolkit {
                 }
             }
             OpenGL.glBegin(OpenGL.GL_LINES);
-            OpenGL.glTexCoord2f(local55 * (local187 - (float) arg6), local62 * ((float) -arg7 + local194));
+            OpenGL.glTexCoord2f(local55 * (local187 - (float) maskX), local62 * ((float) -maskY + local194));
             OpenGL.glVertex2f(local187, local194);
-            OpenGL.glTexCoord2f(((float) -arg6 + local187 + local134) * local55, local62 * (local136 + local194 - (float) arg7));
+            OpenGL.glTexCoord2f(((float) -maskX + local187 + local134) * local55, local62 * (local136 + local194 - (float) maskY));
             OpenGL.glVertex2f(local134 + local187, local194 + local136);
             local187 += local134 + local199;
             OpenGL.glEnd();
@@ -2973,8 +2973,8 @@ public final class GlToolkit extends Toolkit {
         if (x + radius < this.anInt8000 || x - radius > this.anInt8028 || this.anInt8032 > y + radius || this.anInt8012 < y - radius) {
             return;
         }
-        this.method7026();
-        this.method7017(mode);
+        this.enter2dMode();
+        this.setBlendMode(mode);
         OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         @Pc(83) float local83 = (float) x + 0.35F;
         @Pc(88) float local88 = (float) y + 0.35F;
@@ -3063,15 +3063,15 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "P", descriptor = "(IIIII)V")
     @Override
-    public void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4) {
-        this.method7026();
-        this.method7017(arg4);
+    public void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int strength, @OriginalArg(3) int colour, @OriginalArg(4) int mode) {
+        this.enter2dMode();
+        this.setBlendMode(mode);
         @Pc(15) float local15 = (float) x + 0.35F;
         OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         @Pc(35) float local35 = (float) y + 0.35F;
         OpenGL.glBegin(OpenGL.GL_LINES);
         OpenGL.glVertex2f(local15, local35);
-        OpenGL.glVertex2f(local15, local35 + (float) width);
+        OpenGL.glVertex2f(local15, local35 + (float) strength);
         OpenGL.glEnd();
     }
 
@@ -3127,34 +3127,34 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "Q", descriptor = "(IIIIII[BII)V")
     @Override
-    public void Q(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8) {
+    public void Q(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int overlayColour, @OriginalArg(5) int underlayColour, @OriginalArg(6) byte[] shape, @OriginalArg(7) int size, @OriginalArg(8) int mode) {
         @Pc(45) float local45;
         @Pc(49) float local49;
-        if (this.aClass93_Sub2_Sub1_4 == null || arg2 > this.aClass93_Sub2_Sub1_4.anInt3248 || arg3 > this.aClass93_Sub2_Sub1_4.anInt3255) {
-            this.aClass93_Sub2_Sub1_4 = Static469.method6359(arg3, arg6, this, arg2);
+        if (this.aClass93_Sub2_Sub1_4 == null || width > this.aClass93_Sub2_Sub1_4.anInt3248 || height > this.aClass93_Sub2_Sub1_4.anInt3255) {
+            this.aClass93_Sub2_Sub1_4 = Static469.method6359(height, shape, this, width);
             this.aClass93_Sub2_Sub1_4.method2946(false, false);
             local45 = this.aClass93_Sub2_Sub1_4.aFloat68;
             local49 = this.aClass93_Sub2_Sub1_4.aFloat67;
         } else {
-            this.aClass93_Sub2_Sub1_4.method2945(6406, arg3, arg2, arg6, false);
-            local49 = (float) arg2 * this.aClass93_Sub2_Sub1_4.aFloat67 / (float) this.aClass93_Sub2_Sub1_4.anInt3248;
-            local45 = (float) arg3 * this.aClass93_Sub2_Sub1_4.aFloat68 / (float) this.aClass93_Sub2_Sub1_4.anInt3255;
+            this.aClass93_Sub2_Sub1_4.method2945(6406, height, width, shape, false);
+            local49 = (float) width * this.aClass93_Sub2_Sub1_4.aFloat67 / (float) this.aClass93_Sub2_Sub1_4.anInt3248;
+            local45 = (float) height * this.aClass93_Sub2_Sub1_4.aFloat68 / (float) this.aClass93_Sub2_Sub1_4.anInt3255;
         }
         this.method7018();
         this.method7001(this.aClass93_Sub2_Sub1_4);
-        this.method7017(arg8);
-        OpenGL.glColor4ub((byte) (arg4 >> 16), (byte) (arg4 >> 8), (byte) arg4, (byte) (arg4 >> 24));
-        this.method6985(arg5);
+        this.setBlendMode(mode);
+        OpenGL.glColor4ub((byte) (overlayColour >> 16), (byte) (overlayColour >> 8), (byte) overlayColour, (byte) (overlayColour >> 24));
+        this.method6985(underlayColour);
         this.method7031(34165, 34165);
         this.method7021(34166, 768, 0);
         this.method7021(5890, 770, 2);
         this.method7029(0, 34166);
         this.method7029(2, 5890);
-        @Pc(151) float local151 = (float) arg0;
-        @Pc(154) float local154 = (float) arg1;
-        @Pc(159) float local159 = local151 + (float) arg2;
+        @Pc(151) float local151 = (float) x;
+        @Pc(154) float local154 = (float) y;
+        @Pc(159) float local159 = local151 + (float) width;
         OpenGL.glBegin(OpenGL.GL_QUADS);
-        @Pc(166) float local166 = (float) arg3 + local154;
+        @Pc(166) float local166 = (float) height + local154;
         OpenGL.glTexCoord2f(0.0F, 0.0F);
         OpenGL.glVertex2f(local151, local154);
         OpenGL.glTexCoord2f(0.0F, local49);
@@ -3237,19 +3237,19 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
-        return new Font_Sub2(this, arg0, arg1, arg2);
+    public Font createFont(@OriginalArg(0) FontMetrics metrics, @OriginalArg(1) IndexedImage[] image, @OriginalArg(2) boolean monospaced) {
+        return new Font_Sub2(this, metrics, image, monospaced);
     }
 
     @OriginalMember(owner = "client!qha", name = "b", descriptor = "(Ljava/awt/Canvas;)V")
     @Override
-    public void method7972(@OriginalArg(0) Canvas arg0) {
-        if (arg0 == this.aCanvas10) {
+    public void releaseSurface(@OriginalArg(0) Canvas canvas) {
+        if (canvas == this.aCanvas10) {
             throw new RuntimeException();
-        } else if (this.aHashtable5.containsKey(arg0)) {
-            @Pc(23) Long local23 = (Long) this.aHashtable5.get(arg0);
-            this.anOpenGL1.releaseSurface(arg0, local23);
-            this.aHashtable5.remove(arg0);
+        } else if (this.aHashtable5.containsKey(canvas)) {
+            @Pc(23) Long local23 = (Long) this.aHashtable5.get(canvas);
+            this.anOpenGL1.releaseSurface(canvas, local23);
+            this.aHashtable5.remove(canvas);
         }
     }
 
@@ -3284,7 +3284,7 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "F", descriptor = "(II)V")
     @Override
-    public void F(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public void F(@OriginalArg(0) int x, @OriginalArg(1) int y) {
     }
 
     @OriginalMember(owner = "client!qha", name = "e", descriptor = "(II)V")
@@ -3328,16 +3328,16 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "n", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method8017() {
+    public Matrix camera() {
         return this.aClass73_Sub3_3;
     }
 
     @OriginalMember(owner = "client!qha", name = "na", descriptor = "(IIII)[I")
     @Override
-    public int[] na(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        @Pc(10) int[] local10 = new int[arg2 * arg3];
-        for (@Pc(12) int local12 = 0; local12 < arg3; local12++) {
-            OpenGL.glReadPixelsi(arg0, this.anInt7956 - arg1 - local12, arg2, 1, OpenGL.GL_BGRA, this.anInt8030, local10, local12 * arg2);
+    public int[] na(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {
+        @Pc(10) int[] local10 = new int[width * height];
+        for (@Pc(12) int local12 = 0; local12 < height; local12++) {
+            OpenGL.glReadPixelsi(x, this.anInt7956 - y - local12, width, 1, OpenGL.GL_BGRA, this.anInt8030, local10, local12 * width);
         }
         return local10;
     }

@@ -179,15 +179,21 @@ public final class OrthoMode {
     @OriginalMember(owner = "client!uga", name = "c", descriptor = "I")
     public static int anInt9621;
 
+    @OriginalMember(owner = "client!sfa", name = "g", descriptor = "I")
+    public static int zoom = 7000;
+
+    @OriginalMember(owner = "client!sfa", name = "e", descriptor = "I")
+    public static int renderZoom = zoom;
+
     @OriginalMember(owner = "client!sb", name = "a", descriptor = "(Ljava/awt/Canvas;Z)V")
     public static void method7606(@OriginalArg(0) Canvas canvas) {
         @Pc(6) Dimension dimension = canvas.getSize();
         method5454(dimension.height, dimension.width);
 
         if (anInt6796 == 1) {
-            toolkit.method7935(canvas, anInt8534, anInt8585);
+            toolkit.resizeCanvas(canvas, anInt8534, anInt8585);
         } else {
-            toolkit.method7935(canvas, orthoWidth, orthoHeight);
+            toolkit.resizeCanvas(canvas, orthoWidth, orthoHeight);
         }
     }
 
@@ -289,11 +295,11 @@ public final class OrthoMode {
         method2821(height, width);
         if (anInt6796 == 0) {
             anOffscreenSurface_1 = null;
-            anOffscreenSurface_1 = toolkit.method7988(toolkit.method7962(anInt8534, anInt8585), toolkit.method7986(anInt8534, anInt8585));
+            anOffscreenSurface_1 = toolkit.createOffscreenSurface(toolkit.method7962(anInt8534, anInt8585), toolkit.method7986(anInt8534, anInt8585));
         } else if (anInt6796 == 1 && (anOffscreenSurfaceArray1 == null || local9 != maxX || local16 != maxY)) {
             anOffscreenSurfaceArray1 = new OffscreenSurface[maxX * maxY];
             for (@Pc(74) int local74 = 0; local74 < anOffscreenSurfaceArray1.length; local74++) {
-                anOffscreenSurfaceArray1[local74] = toolkit.method7988(toolkit.method7962(horizontalAspectRatio, verticalAspectRatio), toolkit.method7986(horizontalAspectRatio, verticalAspectRatio));
+                anOffscreenSurfaceArray1[local74] = toolkit.createOffscreenSurface(toolkit.method7962(horizontalAspectRatio, verticalAspectRatio), toolkit.method7986(horizontalAspectRatio, verticalAspectRatio));
             }
             anInt6436 = 1;
             anIntArray252 = new int[maxX * maxY];
@@ -704,7 +710,7 @@ public final class OrthoMode {
 
     @OriginalMember(owner = "client!wk", name = "a", descriptor = "(IZ)V")
     public static void method9331(@OriginalArg(1) boolean arg0) {
-        aMatrix_11.apply(toolkit.method8017());
+        aMatrix_11.apply(toolkit.camera());
         @Pc(10) int[] local10 = toolkit.Y();
         anInt5563 = local10[0];
         anInt9536 = local10[1];

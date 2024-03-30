@@ -3,5 +3,5 @@ package com.jagex;
 import org.openrs2.deob.annotation.OriginalClass;
 
 @OriginalClass("client!wja")
-public interface Interface26 {
+public interface DepthBuffer {
 }

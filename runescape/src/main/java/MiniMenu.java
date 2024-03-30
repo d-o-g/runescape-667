@@ -266,7 +266,7 @@ public final class MiniMenu {
         @Pc(69) int local69;
         if (OrthoMode.toolkitActive) {
             OrthoMode.method9331(false);
-            local38 = toolkit.method8017();
+            local38 = toolkit.camera();
             @Pc(41) int[] local41 = toolkit.Y();
             local45 = local41[1];
             local49 = local41[2];
@@ -311,8 +311,8 @@ public final class MiniMenu {
             @Pc(159) int local159;
             @Pc(168) int local168;
             if (OrthoMode.enabled) {
-                local177 = local168 = Static582.orthoAngle * (local63 - local57) / local49;
-                local159 = local186 = Static582.orthoAngle * (local69 - local45) / local53;
+                local177 = local168 = OrthoMode.renderZoom * (local63 - local57) / local49;
+                local159 = local186 = OrthoMode.renderZoom * (local69 - local45) / local53;
             } else {
                 local159 = (local69 - local45) * local145 / local53;
                 local168 = local148 * (local63 - local57) / local49;

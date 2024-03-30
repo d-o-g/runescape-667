@@ -168,7 +168,7 @@ public final class debugconsole {
 
         Fonts.p11.renderRight("Build: 667", GameShell.canvasWid + local7 - 25, local9 + 350 - 20, -1, -16777216);
         toolkit.KA(local7, local9, GameShell.canvasWid + local7, local9 + 350);
-        toolkit.horizontalLine(local9 + 350 - b12VerticalPadding, -1, local7, GameShell.canvasWid);
+        toolkit.horizontalLine(local7, local9 + 350 - b12VerticalPadding, GameShell.canvasWid, -1);
         Fonts.b12.render("--> " + Static386.method5439(currententry), local7 + 10, local9 - (Fonts.b12Metrics.paddingBottom + -350 + 1), -16777216, -1);
         if (!GameShell.focus) {
             return;
@@ -179,7 +179,7 @@ public final class debugconsole {
             colour = 0xFFFFFF;
         }
 
-        toolkit.verticalLine(12, local9 + 350 - Fonts.b12Metrics.paddingBottom - 11, colour, Fonts.b12Metrics.stringWidth("--> " + Static386.method5439(currententry).substring(0, currententryLength)) + local7 + 10);
+        toolkit.verticalLine(Fonts.b12Metrics.stringWidth("--> " + Static386.method5439(currententry).substring(0, currententryLength)) + local7 + 10, local9 + 350 - Fonts.b12Metrics.paddingBottom - 11, 12, colour);
     }
 
     @OriginalMember(owner = "client!hd", name = "a", descriptor = "(IZZLjava/lang/String;)V")
@@ -804,8 +804,8 @@ public final class debugconsole {
                     }
 
                     @Pc(501) int local501 = StringTools.parseDecimal(command.substring(command.indexOf(' ') + 1));
-                    Static582.orthoZoom = local501;
-                    addline("orthozoom=" + Static582.orthoZoom);
+                    OrthoMode.zoom = local501;
+                    addline("orthozoom=" + OrthoMode.zoom);
                     return;
                 }
 

@@ -3,7 +3,7 @@ package com.jagex.graphics;
 import com.jagex.ParticleList;
 import com.jagex.Class67;
 import com.jagex.IndexedImage;
-import com.jagex.Interface26;
+import com.jagex.DepthBuffer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -56,7 +56,7 @@ public abstract class Toolkit {
      * verticalLine
      */
     @OriginalMember(owner = "client!ha", name = "P", descriptor = "(IIIII)V")
-    public abstract void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
+    public abstract void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int strength, @OriginalArg(3) int colour, @OriginalArg(4) int mode);
 
     /**
      * setZPlanes
@@ -65,7 +65,7 @@ public abstract class Toolkit {
     public abstract void f(@OriginalArg(0) int near, @OriginalArg(1) int far);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
-    public abstract void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public abstract void resizeCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
 
     @OriginalMember(owner = "client!ha", name = "o", descriptor = "()Z")
     public abstract boolean method7936();
@@ -74,7 +74,7 @@ public abstract class Toolkit {
     public abstract boolean method7937();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!za;)V")
-    public abstract void method7938(@OriginalArg(0) Node_Sub13 arg0);
+    public abstract void method7938(@OriginalArg(0) MemoryPool arg0);
 
     /**
      * fillRect
@@ -91,8 +91,11 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "KA", descriptor = "(IIII)V")
     public abstract void KA(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2);
 
+    /**
+     * adjustUnderwaterMode
+     */
     @OriginalMember(owner = "client!ha", name = "EA", descriptor = "(IIII)V")
-    public abstract void EA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public abstract void EA(@OriginalArg(0) int height, @OriginalArg(1) int colour, @OriginalArg(2) int depth, @OriginalArg(3) int bias);
 
     @OriginalMember(owner = "client!ha", name = "i", descriptor = "(I)V")
     public final void free() {
@@ -113,10 +116,10 @@ public abstract class Toolkit {
     public abstract PointLight method7941(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
-    public abstract void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10);
+    public abstract void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10);
 
     /**
-     * polyCount
+     * polygonCount
      */
     @OriginalMember(owner = "client!ha", name = "I", descriptor = "()I")
     public abstract int I();
@@ -147,7 +150,7 @@ public abstract class Toolkit {
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIII)V")
-    public abstract void method7947(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
+    public abstract void strongLine(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int width, @OriginalArg(6) int mode);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     public abstract Sprite createSprite(@OriginalArg(0) IndexedImage arg0, @OriginalArg(1) boolean arg1);
@@ -203,13 +206,13 @@ public abstract class Toolkit {
     public abstract int compareFunctionMasks(@OriginalArg(0) int maskA, @OriginalArg(1) int maskB);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(I)Lclient!za;")
-    public abstract Node_Sub13 method7961(@OriginalArg(0) int arg0);
+    public abstract MemoryPool createHeap(@OriginalArg(0) int size);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(II)Lclient!eca;")
     public abstract Surface method7962(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIZ)Lclient!st;")
-    public abstract Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2);
+    public abstract Sprite createSprite(@OriginalArg(0) int with, @OriginalArg(1) int height, @OriginalArg(2) boolean transparent);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIZ)Lclient!st;")
     public abstract Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4);
@@ -218,7 +221,7 @@ public abstract class Toolkit {
      * setGlobalSun
      */
     @OriginalMember(owner = "client!ha", name = "ZA", descriptor = "(IFFFFF)V")
-    public abstract void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5);
+    public abstract void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float intensity, @OriginalArg(2) float reverseIntensity, @OriginalArg(3) float x, @OriginalArg(4) float y, @OriginalArg(5) float z);
 
     /**
      * cls
@@ -227,7 +230,7 @@ public abstract class Toolkit {
     public abstract void GA(@OriginalArg(0) int colour);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
-    public abstract void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY);
+    public abstract void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIBI)V")
     public final void method7966(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
@@ -235,7 +238,7 @@ public abstract class Toolkit {
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!lk;I)V")
-    public abstract void renderOrtho(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1);
+    public abstract void renderOrtho(@OriginalArg(0) ParticleList particleList, @OriginalArg(1) int zoom);
 
     @OriginalMember(owner = "client!ha", name = "p", descriptor = "()Z")
     public abstract boolean increaseRenderDistance();
@@ -252,7 +255,7 @@ public abstract class Toolkit {
     }
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(Ljava/awt/Canvas;)V")
-    public abstract void method7972(@OriginalArg(0) Canvas arg0);
+    public abstract void releaseSurface(@OriginalArg(0) Canvas canvas);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!pu;)V")
     public abstract void method7973(@OriginalArg(0) Class67 arg0);
@@ -264,7 +267,7 @@ public abstract class Toolkit {
      * setZWrite
      */
     @OriginalMember(owner = "client!ha", name = "C", descriptor = "(Z)V")
-    public abstract void C(@OriginalArg(0) boolean arg0);
+    public abstract void C(@OriginalArg(0) boolean zWrite);
 
     @OriginalMember(owner = "client!ha", name = "e", descriptor = "(II)V")
     public abstract void flip(@OriginalArg(0) int x, @OriginalArg(1) int y) throws FlipException;
@@ -278,8 +281,11 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "l", descriptor = "()Z")
     public abstract boolean method7978();
 
+    /**
+     * correct
+     */
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(IIIID)V")
-    public abstract void b(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) double arg4);
+    public abstract void b(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) double zDepth);
 
     @OriginalMember(owner = "client!ha", name = "s", descriptor = "()Z")
     public abstract boolean method7979();
@@ -288,7 +294,7 @@ public abstract class Toolkit {
      * getArea
      */
     @OriginalMember(owner = "client!ha", name = "na", descriptor = "(IIII)[I")
-    public abstract int[] na(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public abstract int[] na(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height);
 
     @OriginalMember(owner = "client!ha", name = "f", descriptor = "()V")
     public abstract void stopBloom();
@@ -303,7 +309,7 @@ public abstract class Toolkit {
      * horizontalLine
      */
     @OriginalMember(owner = "client!ha", name = "U", descriptor = "(IIIII)V")
-    public abstract void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
+    public abstract void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int strength, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!ha", name = "g", descriptor = "(I)V")
     public final void flip() throws FlipException {
@@ -313,11 +319,14 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "A", descriptor = "()Lclient!tt;")
     public abstract Matrix scratchMatrix();
 
+    /**
+     * renderTile
+     */
     @OriginalMember(owner = "client!ha", name = "Q", descriptor = "(IIIIII[BII)V")
-    public abstract void Q(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8);
+    public abstract void Q(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int overlayColour, @OriginalArg(5) int underlayColour, @OriginalArg(6) byte[] shape, @OriginalArg(7) int size, @OriginalArg(8) int mode);
 
     @OriginalMember(owner = "client!ha", name = "d", descriptor = "(II)Lclient!wja;")
-    public abstract Interface26 method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
+    public abstract DepthBuffer method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
 
     @OriginalMember(owner = "client!ha", name = "finalize", descriptor = "()V")
     @Override
@@ -329,7 +338,7 @@ public abstract class Toolkit {
     protected abstract void stop();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
-    public abstract OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1);
+    public abstract OffscreenSurface createOffscreenSurface(@OriginalArg(0) Surface surface, @OriginalArg(1) DepthBuffer buffer);
 
     @OriginalMember(owner = "client!ha", name = "Y", descriptor = "()[I")
     public abstract int[] Y();
@@ -349,15 +358,18 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "M", descriptor = "()I")
     public abstract int M();
 
+    /**
+     * scroll
+     */
     @OriginalMember(owner = "client!ha", name = "F", descriptor = "(II)V")
-    public abstract void F(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
+    public abstract void F(@OriginalArg(0) int x, @OriginalArg(1) int y);
 
     @OriginalMember(owner = "client!ha", name = "z", descriptor = "()Z")
     public abstract boolean method7990();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIZI)V")
-    public final void horizontalLine(@OriginalArg(0) int y, @OriginalArg(1) int colour, @OriginalArg(2) int x, @OriginalArg(4) int height) {
-        this.U(x, y, height, colour, 1);
+    public final void horizontalLine(@OriginalArg(2) int x, @OriginalArg(0) int y, @OriginalArg(4) int strength, @OriginalArg(1) int colour) {
+        this.U(x, y, strength, colour, 1);
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "()Z")
@@ -367,7 +379,7 @@ public abstract class Toolkit {
     public abstract void method7993(@OriginalArg(0) float arg0, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIIIIIIIII)V")
-    public abstract void method7994();
+    public abstract void drawTriangle(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int z1, @OriginalArg(3) int x2, @OriginalArg(4) int y2, @OriginalArg(5) int z2, @OriginalArg(6) int x3, @OriginalArg(7) int y3, @OriginalArg(8) int z3, @OriginalArg(9) int c1, @OriginalArg(10) int c2, @OriginalArg(11) int c3, @OriginalArg(12) int type);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIIIIIII)V")
     public abstract void method7995(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7);
@@ -376,11 +388,11 @@ public abstract class Toolkit {
     public abstract Ground createGround(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[][] arg2, @OriginalArg(3) int[][] arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Z)V")
-    public abstract void method7997(@OriginalArg(0) boolean arg0);
+    public abstract void setShrinkTextures(@OriginalArg(0) boolean arg0);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(IIIII)V")
-    public final void verticalLine(@OriginalArg(0) int width, @OriginalArg(1) int y, @OriginalArg(2) int colour, @OriginalArg(3) int x) {
-        this.P(x, y, width, colour, 1);
+    public final void verticalLine(@OriginalArg(3) int x, @OriginalArg(1) int y, @OriginalArg(0) int strength, @OriginalArg(2) int colour) {
+        this.P(x, y, strength, colour, 1);
     }
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!tt;)V")
@@ -391,7 +403,7 @@ public abstract class Toolkit {
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!st;I)V")
     public final void method8002(@OriginalArg(0) Sprite arg0) {
-        this.swapSurface(this.method7988(arg0, this.method7986(arg0.getWidth(), arg0.getHeight())));
+        this.swapSurface(this.createOffscreenSurface(arg0, this.method7986(arg0.getWidth(), arg0.getHeight())));
     }
 
     @OriginalMember(owner = "client!ha", name = "pa", descriptor = "()V")
@@ -445,7 +457,7 @@ public abstract class Toolkit {
     public abstract void method8009(@OriginalArg(0) int arg0, @OriginalArg(1) PointLight[] arg1);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
-    public abstract Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2);
+    public abstract Font createFont(@OriginalArg(0) FontMetrics metrics, @OriginalArg(1) IndexedImage[] image, @OriginalArg(2) boolean monospaced);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "([Ljava/awt/Rectangle;III)V")
     public abstract void flipDirtyRect(@OriginalArg(0) Rectangle[] rectangles, @OriginalArg(1) int count, @OriginalArg(2) int x, @OriginalArg(3) int y) throws FlipException;
@@ -481,7 +493,7 @@ public abstract class Toolkit {
     public abstract void method8016(@OriginalArg(0) int arg0);
 
     @OriginalMember(owner = "client!ha", name = "n", descriptor = "()Lclient!tt;")
-    public abstract Matrix method8017();
+    public abstract Matrix camera();
 
     @OriginalMember(owner = "client!ha", name = "JA", descriptor = "(IIIIII)I")
     public abstract int JA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
@@ -504,12 +516,15 @@ public abstract class Toolkit {
     @OriginalMember(owner = "client!ha", name = "k", descriptor = "(I)V")
     public abstract void linkThreads(@OriginalArg(0) int arg0);
 
+    /**
+     * setFog
+     */
     @OriginalMember(owner = "client!ha", name = "L", descriptor = "(III)V")
-    public abstract void L(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public abstract void L(@OriginalArg(0) int colour, @OriginalArg(1) int range, @OriginalArg(2) int offset);
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(Lclient!lk;)V")
-    public abstract void render(@OriginalArg(0) ParticleList arg0);
+    public abstract void render(@OriginalArg(0) ParticleList particleList);
 
     @OriginalMember(owner = "client!ha", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
-    public abstract void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public abstract void addCanvas(@OriginalArg(0) Canvas canvas, @OriginalArg(1) int width, @OriginalArg(2) int height);
 }

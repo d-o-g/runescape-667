@@ -1009,7 +1009,7 @@ public final class WorldMap {
         }
 
         @Pc(11) int texture = type.texture;
-        if (texture >= 0 && textureSource.getMetrics(texture).aBoolean240) {
+        if (texture >= 0 && textureSource.getMetrics(texture).disableable) {
             texture = -1;
         }
 

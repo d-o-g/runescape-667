@@ -2,7 +2,7 @@ import com.jagex.Class67;
 import com.jagex.core.constants.PciVendorId;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.graphics.Renderer;
-import com.jagex.Interface26;
+import com.jagex.DepthBuffer;
 import com.jagex.Static14;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.Node;
@@ -255,7 +255,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "b", descriptor = "(IIIID)V")
     @Override
-    public void b(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) double arg4) {
+    public void b(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) double zDepth) {
     }
 
     @OriginalMember(owner = "client!tca", name = "t", descriptor = "(B)V")
@@ -354,7 +354,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
+    public OffscreenSurface createOffscreenSurface(@OriginalArg(0) Surface surface, @OriginalArg(1) DepthBuffer buffer) {
         return null;
     }
 
@@ -717,7 +717,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "F", descriptor = "(II)V")
     @Override
-    public void F(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public void F(@OriginalArg(0) int x, @OriginalArg(1) int y) {
     }
 
     @OriginalMember(owner = "client!tca", name = "a", descriptor = "(IJ)V")
@@ -960,10 +960,10 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "na", descriptor = "(IIII)[I")
     @Override
-    public int[] na(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        @Pc(10) int[] local10 = new int[arg3 * arg2];
-        for (@Pc(12) int local12 = 0; local12 < arg3; local12++) {
-            OpenGL.glReadPixelsi(arg0, super.anInt9013 - arg1 - local12 - 1, arg2, 1, OpenGL.GL_BGRA, this.anInt9277, local10, arg2 * local12);
+    public int[] na(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {
+        @Pc(10) int[] local10 = new int[height * width];
+        for (@Pc(12) int local12 = 0; local12 < height; local12++) {
+            OpenGL.glReadPixelsi(x, super.anInt9013 - y - local12 - 1, width, 1, OpenGL.GL_BGRA, this.anInt9277, local10, width * local12);
         }
         return local10;
     }
@@ -1000,7 +1000,7 @@ public final class GlxToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!tca", name = "d", descriptor = "(II)Lclient!wja;")
     @Override
-    public Interface26 method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public DepthBuffer method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return null;
     }
 

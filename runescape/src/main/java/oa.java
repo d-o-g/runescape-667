@@ -2,7 +2,7 @@ import com.jagex.ParticleList;
 import com.jagex.IndexedImage;
 import com.jagex.Class67;
 import com.jagex.graphics.Renderer;
-import com.jagex.Interface26;
+import com.jagex.DepthBuffer;
 import com.jagex.Static14;
 import com.jagex.graphics.sw.SoftwareMemoryManager;
 import com.jagex.graphics.sw.SoftwareObject;
@@ -18,7 +18,7 @@ import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.Model;
-import com.jagex.graphics.Node_Sub13;
+import com.jagex.graphics.MemoryPool;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Sprite;
 import com.jagex.graphics.Surface;
@@ -172,12 +172,12 @@ public final class oa extends Toolkit implements SoftwareObject {
         @Pc(5) int local5 = 0;
         @Pc(7) int local7 = 0;
         for (@Pc(15) Particle local15 = (Particle) arg0.particles.first(); local15 != null; local15 = (Particle) arg0.particles.next()) {
-            Static445.anIntArray539[local1++] = local15.anInt7537;
-            Static445.anIntArray539[local1++] = local15.anInt7534;
-            Static445.anIntArray539[local1++] = local15.anInt7536;
-            Static445.anIntArray541[local3++] = local15.anInt7539;
-            Static445.aShortArray103[local7++] = (short) local15.anInt7540;
-            Static445.anIntArray538[local5++] = local15.anInt7535;
+            Static445.anIntArray539[local1++] = local15.x;
+            Static445.anIntArray539[local1++] = local15.y;
+            Static445.anIntArray539[local1++] = local15.z;
+            Static445.anIntArray541[local3++] = local15.colour;
+            Static445.aShortArray103[local7++] = (short) local15.texture;
+            Static445.anIntArray538[local5++] = local15.size;
         }
     }
 
@@ -205,7 +205,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public void method7935(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+    public void resizeCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
         local8.method6439(arg0, arg1, arg2);
         if (arg0 != null && arg0 == this.aP1.aCanvas9) {
@@ -229,26 +229,26 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!ve;[Lclient!wp;Z)Lclient!da;")
     @Override
-    public Font createFont(@OriginalArg(0) FontMetrics arg0, @OriginalArg(1) IndexedImage[] arg1, @OriginalArg(2) boolean arg2) {
-        @Pc(3) int[] local3 = new int[arg1.length];
-        @Pc(7) int[] local7 = new int[arg1.length];
+    public Font createFont(@OriginalArg(0) FontMetrics metrics, @OriginalArg(1) IndexedImage[] image, @OriginalArg(2) boolean monospaced) {
+        @Pc(3) int[] local3 = new int[image.length];
+        @Pc(7) int[] local7 = new int[image.length];
         @Pc(9) boolean local9 = false;
-        for (@Pc(11) int local11 = 0; local11 < arg1.length; local11++) {
-            local3[local11] = arg1[local11].width;
-            local7[local11] = arg1[local11].height;
-            if (arg1[local11].alpha != null) {
+        for (@Pc(11) int local11 = 0; local11 < image.length; local11++) {
+            local3[local11] = image[local11].width;
+            local7[local11] = image[local11].height;
+            if (image[local11].alpha != null) {
                 local9 = true;
             }
         }
-        if (arg2) {
+        if (monospaced) {
             if (local9) {
                 throw new IllegalArgumentException("Cannot specify alpha with non-mono font unless someone writes it");
             }
-            return new h(this, this.aYa2, arg0, arg1, null);
+            return new h(this, this.aYa2, metrics, image, null);
         } else if (local9) {
             throw new IllegalArgumentException("Cannot specify alpha with non-mono font unless someone writes it");
         } else {
-            return new n(this, this.aYa2, arg0, arg1, null);
+            return new n(this, this.aYa2, metrics, image, null);
         }
     }
 
@@ -266,8 +266,8 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIII)V")
     @Override
-    public void method7947(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.method6087().method16(this, arg0, arg1, arg2, arg3, arg4, arg5);
+    public void strongLine(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int width, @OriginalArg(6) int mode) {
+        this.method6087().method16(this, x1, y1, x2, y2, colour, width, mode);
     }
 
     @OriginalMember(owner = "client!oa", name = "k", descriptor = "()Z")
@@ -278,7 +278,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!za;)V")
     @Override
-    public void method7938(@OriginalArg(0) Node_Sub13 arg0) {
+    public void method7938(@OriginalArg(0) MemoryPool arg0) {
         this.aYa2 = (ya) arg0;
         this.va(arg0);
     }
@@ -347,22 +347,22 @@ public final class oa extends Toolkit implements SoftwareObject {
             if (local9 == null) {
                 return false;
             } else {
-                this.AA(arg0, local9.aShort37, local9.alphaBlendMode, local9.effectType, local9.effectParam1, local9.effectParam2, local9.small, local9.alpha, local9.aByte57, local9.speedU, local9.speedV, local9.aBoolean240, local9.aBoolean234, local9.aBoolean239, local9.aBoolean236, local9.aBoolean235, local9.aByte53, local9.aBoolean237, local9.aBoolean238, local9.colorOp);
+                this.AA(arg0, local9.aShort37, local9.alphaBlendMode, local9.effectType, local9.effectParam1, local9.effectParam2, local9.small, local9.alpha, local9.aByte57, local9.speedU, local9.speedV, local9.disableable, local9.aBoolean234, local9.aBoolean239, local9.aBoolean236, local9.aBoolean235, local9.aByte53, local9.aBoolean237, local9.aBoolean238, local9.colorOp);
                 return true;
             }
         }
     }
 
     @OriginalMember(owner = "client!oa", name = "F", descriptor = "(II)V")
-    public native void F(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1);
+    public native void F(@OriginalArg(0) int x, @OriginalArg(1) int y);
 
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(Ljava/awt/Canvas;)V")
     @Override
-    public void method7972(@OriginalArg(0) Canvas arg0) {
-        if (this.aP1.aCanvas9 == arg0) {
+    public void releaseSurface(@OriginalArg(0) Canvas canvas) {
+        if (this.aP1.aCanvas9 == canvas) {
             this.setCanvas(null);
         }
-        @Pc(18) p local18 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
+        @Pc(18) p local18 = (p) this.aIterableHashTable_33.get(canvas.hashCode());
         if (local18 != null) {
             local18.unlink();
             local18.method6442();
@@ -371,7 +371,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIILclient!aa;II)V")
     @Override
-    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
+    public void line(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY) {
         this.Z(x1, y1, x2, y2, colour, mode, mask, maskX, maskY);
     }
 
@@ -403,8 +403,8 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(I)Lclient!za;")
     @Override
-    public Node_Sub13 method7961(@OriginalArg(0) int arg0) {
-        @Pc(5) ya local5 = new ya(this, arg0);
+    public MemoryPool createHeap(@OriginalArg(0) int size) {
+        @Pc(5) ya local5 = new ya(this, size);
         this.aDeque_38.addLast(local5);
         return local5;
     }
@@ -436,7 +436,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     }
 
     @OriginalMember(owner = "client!oa", name = "ZA", descriptor = "(IFFFFF)V")
-    public native void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float arg1, @OriginalArg(2) float arg2, @OriginalArg(3) float arg3, @OriginalArg(4) float arg4, @OriginalArg(5) float arg5);
+    public native void ZA(@OriginalArg(0) int colour, @OriginalArg(1) float intensity, @OriginalArg(2) float reverseIntensity, @OriginalArg(3) float x, @OriginalArg(4) float y, @OriginalArg(5) float z);
 
     @OriginalMember(owner = "client!oa", name = "q", descriptor = "()V")
     @Override
@@ -445,7 +445,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIILclient!aa;IIIII)V")
     @Override
-    public void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
+    public void method7942(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int x2, @OriginalArg(3) int y2, @OriginalArg(4) int colour, @OriginalArg(5) int mode, @OriginalArg(6) ClippingMask mask, @OriginalArg(7) int maskX, @OriginalArg(8) int maskY, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9, @OriginalArg(11) int arg10) {
     }
 
     @OriginalMember(owner = "client!oa", name = "za", descriptor = "(IIIII)V")
@@ -455,7 +455,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     public native void HA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int[] arg4);
 
     @OriginalMember(owner = "client!oa", name = "Q", descriptor = "(IIIIII[BII)V")
-    public native void Q(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) byte[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8);
+    public native void Q(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int overlayColour, @OriginalArg(5) int underlayColour, @OriginalArg(6) byte[] shape, @OriginalArg(7) int size, @OriginalArg(8) int mode);
 
     @OriginalMember(owner = "client!oa", name = "X", descriptor = "(I)V")
     public native void X(@OriginalArg(0) int arg0);
@@ -477,7 +477,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIIIIIIIIII)V")
     @Override
-    public void method7994() {
+    public void drawTriangle(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int z1, @OriginalArg(3) int x2, @OriginalArg(4) int y2, @OriginalArg(5) int z2, @OriginalArg(6) int x3, @OriginalArg(7) int y3, @OriginalArg(8) int z3, @OriginalArg(9) int c1, @OriginalArg(10) int c2, @OriginalArg(11) int c3, @OriginalArg(12) int type) {
     }
 
     @OriginalMember(owner = "client!oa", name = "o", descriptor = "()Z")
@@ -506,24 +506,24 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
-    public void addCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
+    public void addCanvas(@OriginalArg(0) Canvas canvas, @OriginalArg(1) int width, @OriginalArg(2) int height) {
+        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(canvas.hashCode());
         if (local8 == null) {
             try {
                 @Pc(15) Class local15 = Class.forName("java.awt.Canvas");
                 @Pc(27) Method local27 = local15.getMethod("setIgnoreRepaint", Boolean.TYPE);
-                local27.invoke(arg0, Boolean.TRUE);
+                local27.invoke(canvas, Boolean.TRUE);
             } catch (@Pc(39) Exception local39) {
             }
-            local8 = new p(this, arg0, arg1, arg2);
-            this.aIterableHashTable_33.put(arg0.hashCode(), local8);
-        } else if (local8.anInt7161 != arg1 || local8.anInt7162 != arg2) {
-            local8.method6439(arg0, arg1, arg2);
+            local8 = new p(this, canvas, width, height);
+            this.aIterableHashTable_33.put(canvas.hashCode(), local8);
+        } else if (local8.anInt7161 != width || local8.anInt7162 != height) {
+            local8.method6439(canvas, width, height);
         }
     }
 
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(IIIID)V")
-    public native void b(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) double arg4);
+    public native void b(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) double zDepth);
 
     @OriginalMember(owner = "client!oa", name = "w", descriptor = "(Z)V")
     public native void w(@OriginalArg(0) boolean arg0);
@@ -574,8 +574,8 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIZ)Lclient!st;")
     @Override
-    public Sprite createSprite(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        return new j(this, arg0, arg1);
+    public Sprite createSprite(@OriginalArg(0) int with, @OriginalArg(1) int height, @OriginalArg(2) boolean transparent) {
+        return new j(this, with, height);
     }
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(IIIIII)V")
@@ -607,7 +607,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     public native void xa(@OriginalArg(0) float globalAmbient);
 
     @OriginalMember(owner = "client!oa", name = "L", descriptor = "(III)V")
-    public native void L(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2);
+    public native void L(@OriginalArg(0) int colour, @OriginalArg(1) int range, @OriginalArg(2) int offset);
 
     @OriginalMember(owner = "client!oa", name = "wa", descriptor = "(IIIIII)V")
     public native void wa(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5);
@@ -629,7 +629,7 @@ public final class oa extends Toolkit implements SoftwareObject {
             } else {
                 local44 = super.textureSource.rgbOutput(128, true, 128, arg0, 0.7F);
             }
-            this.CA(arg0, local44, local22.aShort37, local22.alphaBlendMode, local22.effectType, local22.effectParam1, local22.effectParam2, local22.small, local22.alpha, local22.aByte57, local22.speedU, local22.speedV, local22.aBoolean240, local22.aBoolean234, local22.aBoolean239, local22.aBoolean236, local22.aBoolean235, local22.aByte53, local22.aBoolean237, local22.aBoolean238, local22.colorOp);
+            this.CA(arg0, local44, local22.aShort37, local22.alphaBlendMode, local22.effectType, local22.effectParam1, local22.effectParam2, local22.small, local22.alpha, local22.aByte57, local22.speedU, local22.speedV, local22.disableable, local22.aBoolean234, local22.aBoolean239, local22.aBoolean236, local22.aBoolean235, local22.aByte53, local22.aBoolean237, local22.aBoolean238, local22.colorOp);
             return true;
         }
     }
@@ -701,7 +701,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "n", descriptor = "()Lclient!tt;")
     @Override
-    public Matrix method8017() {
+    public Matrix camera() {
         return this.aMatrix_9;
     }
 
@@ -711,25 +711,25 @@ public final class oa extends Toolkit implements SoftwareObject {
     }
 
     @OriginalMember(owner = "client!oa", name = "U", descriptor = "(IIIII)V")
-    public native void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int height, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
+    public native void U(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int strength, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
 
     @OriginalMember(owner = "client!oa", name = "I", descriptor = "()I")
     public native int I();
 
     @OriginalMember(owner = "client!oa", name = "EA", descriptor = "(IIII)V")
-    public native void EA(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public native void EA(@OriginalArg(0) int height, @OriginalArg(1) int colour, @OriginalArg(2) int depth, @OriginalArg(3) int bias);
 
     @OriginalMember(owner = "client!oa", name = "na", descriptor = "(IIII)[I")
-    public native int[] na(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3);
+    public native int[] na(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height);
 
     @OriginalMember(owner = "client!oa", name = "K", descriptor = "([I)V")
     public native void K(@OriginalArg(0) int[] destination);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;I)V")
     @Override
-    public void renderOrtho(@OriginalArg(0) ParticleList arg0, @OriginalArg(1) int arg1) {
-        this.method6085(arg0);
-        this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, arg0.particles.size());
+    public void renderOrtho(@OriginalArg(0) ParticleList particleList, @OriginalArg(1) int zoom) {
+        this.method6085(particleList);
+        this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, particleList.particles.size());
     }
 
     @OriginalMember(owner = "client!oa", name = "T", descriptor = "(IIII)V")
@@ -744,15 +744,15 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!lk;)V")
     @Override
-    public void render(@OriginalArg(0) ParticleList arg0) {
-        if (arg0.particles.size() != 0) {
-            this.method6085(arg0);
-            this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, arg0.particles.size());
+    public void render(@OriginalArg(0) ParticleList particleList) {
+        if (particleList.particles.size() != 0) {
+            this.method6085(particleList);
+            this.method6087().method4(this, Static445.anIntArray539, Static445.anIntArray541, Static445.anIntArray538, Static445.aShortArray103, particleList.particles.size());
         }
     }
 
     @OriginalMember(owner = "client!oa", name = "P", descriptor = "(IIIII)V")
-    public native void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int colour, @OriginalArg(4) int arg4);
+    public native void P(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int strength, @OriginalArg(3) int colour, @OriginalArg(4) int mode);
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!wp;Z)Lclient!st;")
     @Override
@@ -833,7 +833,7 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "d", descriptor = "(II)Lclient!wja;")
     @Override
-    public Interface26 method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public DepthBuffer method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return new xa(arg0, arg1);
     }
 
@@ -841,10 +841,10 @@ public final class oa extends Toolkit implements SoftwareObject {
     public native void la();
 
     @OriginalMember(owner = "client!oa", name = "va", descriptor = "(Lclient!za;)V")
-    public native void va(@OriginalArg(0) Node_Sub13 arg0);
+    public native void va(@OriginalArg(0) MemoryPool arg0);
 
     @OriginalMember(owner = "client!oa", name = "C", descriptor = "(Z)V")
-    public native void C(@OriginalArg(0) boolean arg0);
+    public native void C(@OriginalArg(0) boolean zWrite);
 
     @OriginalMember(owner = "client!oa", name = "aa", descriptor = "(IIIIII)V")
     public native void aa(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int colour, @OriginalArg(5) int mode);
@@ -857,8 +857,8 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
-        return new wa(this, (j) arg0, (xa) arg1);
+    public OffscreenSurface createOffscreenSurface(@OriginalArg(0) Surface surface, @OriginalArg(1) DepthBuffer buffer) {
+        return new wa(this, (j) surface, (xa) buffer);
     }
 
     @OriginalMember(owner = "client!oa", name = "A", descriptor = "()Lclient!tt;")
@@ -878,6 +878,6 @@ public final class oa extends Toolkit implements SoftwareObject {
 
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Z)V")
     @Override
-    public void method7997(@OriginalArg(0) boolean arg0) {
+    public void setShrinkTextures(@OriginalArg(0) boolean arg0) {
     }
 }

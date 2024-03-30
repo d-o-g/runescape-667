@@ -61,14 +61,14 @@ public final class DynamicWallDecor extends WallDecor implements Location {
         @Pc(60) int local60 = super.z >> 9;
         this.entity.method7681(local60, local14, true, -9827, arg0, local55, local55, local60, local22);
         if (OrthoMode.enabled) {
-            local14.renderOrtho(local22, local42.pickingCylinders[0], Static582.orthoAngle, 0);
+            local14.renderOrtho(local22, local42.pickingCylinders[0], OrthoMode.renderZoom, 0);
         } else {
             local14.render(local22, local42.pickingCylinders[0], 0);
         }
         if (this.entity.particleSystem != null) {
             @Pc(106) ParticleList local106 = this.entity.particleSystem.getList();
             if (OrthoMode.enabled) {
-                arg0.renderOrtho(local106, Static582.orthoAngle);
+                arg0.renderOrtho(local106, OrthoMode.renderZoom);
             } else {
                 arg0.render(local106);
             }
@@ -108,7 +108,7 @@ public final class DynamicWallDecor extends WallDecor implements Location {
         } else {
             @Pc(25) Matrix local25 = toolkit.scratchMatrix();
             local25.applyTranslation(super.aShort101 + super.x, super.y, super.z + super.aShort102);
-            return OrthoMode.enabled ? local17.pickedOrtho(y, x, local25, false, 0, Static582.orthoAngle) : local17.picked(y, x, local25, false, 0);
+            return OrthoMode.enabled ? local17.pickedOrtho(y, x, local25, false, 0, OrthoMode.renderZoom) : local17.picked(y, x, local25, false, 0);
         }
     }
 

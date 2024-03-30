@@ -203,10 +203,10 @@ public abstract class Font {
 
                     @Pc(174) int width = this.metrics.glyphWidth(curr);
                     if (strikeColour != -1) {
-                        this.toolkit.horizontalLine((int) ((double) this.metrics.verticalSpacing * 0.7D) + adjustedY, strikeColour, x, width);
+                        this.toolkit.horizontalLine(x, (int) ((double) this.metrics.verticalSpacing * 0.7D) + adjustedY, width, strikeColour);
                     }
                     if (underlineColour != -1) {
-                        this.toolkit.horizontalLine(this.metrics.verticalSpacing + adjustedY, underlineColour, x, width);
+                        this.toolkit.horizontalLine(x, this.metrics.verticalSpacing + adjustedY, width, underlineColour);
                     }
                     x += width;
 
@@ -320,10 +320,10 @@ public abstract class Font {
 
                     @Pc(328) int width = this.metrics.glyphWidth(curr);
                     if (strikeColour != -1) {
-                        this.toolkit.horizontalLine(adjustedY + (int) ((double) this.metrics.verticalSpacing * 0.7D), strikeColour, x, width);
+                        this.toolkit.horizontalLine(x, adjustedY + (int) ((double) this.metrics.verticalSpacing * 0.7D), width, strikeColour);
                     }
                     if (underlineColour != -1) {
-                        this.toolkit.horizontalLine(this.metrics.verticalSpacing + adjustedY + 1, underlineColour, x, width);
+                        this.toolkit.horizontalLine(x, this.metrics.verticalSpacing + adjustedY + 1, width, underlineColour);
                     }
 
                     prev = curr;

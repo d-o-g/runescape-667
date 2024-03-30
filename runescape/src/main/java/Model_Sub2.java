@@ -236,7 +236,7 @@ public final class Model_Sub2 extends Model {
             if (arg1.shadingTypes == null || arg1.shadingTypes[local129] != 2) {
                 if (arg1.faceTexture != null && arg1.faceTexture[local129] != -1) {
                     @Pc(168) TextureMetrics local168 = local116.getMetrics(arg1.faceTexture[local129] & 0xFFFF);
-                    if (((this.anInt5529 & 0x40) == 0 || !local168.aBoolean240) && local168.aBoolean234) {
+                    if (((this.anInt5529 & 0x40) == 0 || !local168.disableable) && local168.aBoolean234) {
                         continue;
                     }
                 }
@@ -287,7 +287,7 @@ public final class Model_Sub2 extends Model {
                 local358 = arg1.faceTexture[local274];
                 if (local358 != -1) {
                     local276 = local116.getMetrics(local358 & 0xFFFF);
-                    if ((this.anInt5529 & 0x40) != 0 && local276.aBoolean240) {
+                    if ((this.anInt5529 & 0x40) != 0 && local276.disableable) {
                         local358 = -1;
                         local276 = null;
                     } else {
@@ -454,7 +454,7 @@ public final class Model_Sub2 extends Model {
             local1260 = arg1.faceTexture == null ? -1 : arg1.faceTexture[local1216];
             if (local1260 != -1 && (this.anInt5529 & 0x40) != 0) {
                 @Pc(1278) TextureMetrics local1278 = local116.getMetrics(local1260 & 0xFFFF);
-                if (local1278.aBoolean240) {
+                if (local1278.disableable) {
                     local1260 = -1;
                 }
             }
@@ -1247,7 +1247,7 @@ public final class Model_Sub2 extends Model {
                 @Pc(253) int local253 = local63.anInt5805;
                 OpenGL.glColor4ub((byte) (local253 >> 16), (byte) (local253 >> 8), (byte) local253, (byte) (local253 >> 24));
                 this.aClass19_Sub3_24.method7046(local58.aShort31);
-                this.aClass19_Sub3_24.method7017(local58.aByte48);
+                this.aClass19_Sub3_24.setBlendMode(local58.aByte48);
                 this.aClass19_Sub3_24.method6998(4);
             }
         }

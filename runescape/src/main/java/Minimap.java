@@ -322,13 +322,13 @@ public final class Minimap {
 
                 if (shape == LocShapes.WALL_STRAIGHT || shape == LocShapes.WALL_L) {
                     if (rotation == 0) {
-                        toolkit.verticalLine(4, drawY, colour, drawX);
+                        toolkit.verticalLine(drawX, drawY, 4, colour);
                     } else if (rotation == 1) {
-                        toolkit.horizontalLine(drawY, colour, drawX, 4);
+                        toolkit.horizontalLine(drawX, drawY, 4, colour);
                     } else if (rotation == 2) {
-                        toolkit.verticalLine(4, drawY, colour, drawX + 3);
+                        toolkit.verticalLine(drawX + 3, drawY, 4, colour);
                     } else if (rotation == 3) {
-                        toolkit.horizontalLine(drawY + 3, colour, drawX, 4);
+                        toolkit.horizontalLine(drawX, drawY + 3, 4, colour);
                     }
                 }
 
@@ -346,13 +346,13 @@ public final class Minimap {
 
                 if (shape == LocShapes.WALL_L) {
                     if (rotation == 0) {
-                        toolkit.horizontalLine(drawY, colour, drawX, 4);
+                        toolkit.horizontalLine(drawX, drawY, 4, colour);
                     } else if (rotation == 1) {
-                        toolkit.verticalLine(4, drawY, colour, drawX + 3);
+                        toolkit.verticalLine(drawX + 3, drawY, 4, colour);
                     } else if (rotation == 2) {
-                        toolkit.horizontalLine(drawY + 3, colour, drawX, 4);
+                        toolkit.horizontalLine(drawX, drawY + 3, 4, colour);
                     } else if (rotation == 3) {
-                        toolkit.verticalLine(4, drawY, colour, drawX);
+                        toolkit.verticalLine(drawX, drawY, 4, colour);
                     }
                 }
             } else {
@@ -538,7 +538,7 @@ public final class Minimap {
                         y2 = maxX;
                     }
 
-                    toolkit.method7942(x1, y1, x2, y2, elementType.landmarkPalette[elementType.landmarkColorIndices[local62] & 0xFF], mask, screenX, screenY, elementType.anInt2603, elementType.anInt2587, elementType.anInt2607);
+                    toolkit.method7942(x1, y1, x2, y2, elementType.landmarkPalette[elementType.landmarkColorIndices[local62] & 0xFF], 1, mask, screenX, screenY, elementType.anInt2603, elementType.anInt2587, elementType.anInt2607);
                 }
 
                 @Pc(66) int x1 = local34[local34.length - 2];
@@ -560,7 +560,7 @@ public final class Minimap {
                     y2 = maxX;
                 }
 
-                toolkit.method7942(x1, y1, x2, y2, elementType.landmarkPalette[elementType.landmarkColorIndices[elementType.landmarkColorIndices.length - 1] & 0xFF], mask, screenX, screenY, elementType.anInt2603, elementType.anInt2587, elementType.anInt2607);
+                toolkit.method7942(x1, y1, x2, y2, elementType.landmarkPalette[elementType.landmarkColorIndices[elementType.landmarkColorIndices.length - 1] & 0xFF], 1, mask, screenX, screenY, elementType.anInt2603, elementType.anInt2587, elementType.anInt2607);
             } else {
                 for (@Pc(62) int i = 0; i < local34.length / 2 - 1; i++) {
                     toolkit.line(local34[i * 2], local34[i * 2 + 1], local34[i * 2 + 2], local34[(i + 1) * 2 + 1], elementType.landmarkPalette[elementType.landmarkColorIndices[i] & 0xFF], 0, mask, screenX, screenY);
@@ -709,13 +709,13 @@ public final class Minimap {
                             if ((local365 & (LOCATION_BREAKROUTEFINDING | BLOCKWALK | GROUND_DECOR)) != 0) {
                                 toolkit.fillRect(local214 + (offsetX * 4), (((anInt3302 - offsetY) * 4) + local216) - 4, 4, 4, 0x99DD00AA);
                             } else if ((local365 & WALL_NORTH_BREAKROUTEFINDING) != 0) {
-                                toolkit.horizontalLine((((anInt3302 - offsetY) * 4) + local216) - 4, 0x99DD00AA, local214 + (offsetX * 4), 4);
+                                toolkit.horizontalLine(local214 + (offsetX * 4), (((anInt3302 - offsetY) * 4) + local216) - 4, 4, 0x99DD00AA);
                             } else if ((local365 & WALL_EAST_BREAKROUTEFINDING) != 0) {
-                                toolkit.verticalLine(4, (local216 + ((-offsetY + anInt3302) * 4)) - 4, 0x99DD00AA, (offsetX * 4) + local214 + 3);
+                                toolkit.verticalLine((offsetX * 4) + local214 + 3, (local216 + ((-offsetY + anInt3302) * 4)) - 4, 4, 0x99DD00AA);
                             } else if ((local365 & WALL_SOUTH_BREAKROUTEFINDING) != 0) {
-                                toolkit.horizontalLine((((anInt3302 - offsetY) * 4) + local216 + 3) - 4, 0x99DD00AA, (offsetX * 4) + local214, 4);
+                                toolkit.horizontalLine((offsetX * 4) + local214, (((anInt3302 - offsetY) * 4) + local216 + 3) - 4, 4, 0x99DD00AA);
                             } else if ((local365 & WALL_WEST_BLOCK_BREAKROUTEFINDING) != 0) {
-                                toolkit.verticalLine(4, (((anInt3302 - offsetY) * 4) + local216) - 4, 0x99DD00AA, (offsetX * 4) + local214);
+                                toolkit.verticalLine((offsetX * 4) + local214, (((anInt3302 - offsetY) * 4) + local216) - 4, 4, 0x99DD00AA);
                             }
                         }
                     }

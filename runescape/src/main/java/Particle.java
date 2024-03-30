@@ -9,22 +9,22 @@ public class Particle extends Node2 {
     public boolean aBoolean574;
 
     @OriginalMember(owner = "client!up", name = "n", descriptor = "I")
-    public int anInt7534;
+    public int y;
 
     @OriginalMember(owner = "client!up", name = "v", descriptor = "I")
-    public int anInt7535;
+    public int size;
 
     @OriginalMember(owner = "client!up", name = "m", descriptor = "I")
-    public int anInt7536;
+    public int z;
 
     @OriginalMember(owner = "client!up", name = "p", descriptor = "I")
-    public int anInt7537;
+    public int x;
 
     @OriginalMember(owner = "client!up", name = "t", descriptor = "I")
-    public int anInt7539;
+    public int colour;
 
     @OriginalMember(owner = "client!up", name = "o", descriptor = "I")
-    public int anInt7540;
+    public int texture;
 
     @OriginalMember(owner = "client!up", name = "s", descriptor = "B")
     public byte aByte122 = 5;

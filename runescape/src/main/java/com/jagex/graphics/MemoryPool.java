@@ -5,9 +5,9 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!za")
-public abstract class Node_Sub13 extends Node {
+public abstract class MemoryPool extends Node {
 
     @OriginalMember(owner = "client!za", name = "<init>", descriptor = "()V")
-    protected Node_Sub13() {
+    protected MemoryPool() {
     }
 }

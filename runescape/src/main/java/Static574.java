@@ -13,7 +13,7 @@ public final class Static574 {
     @OriginalMember(owner = "client!saa", name = "b", descriptor = "(I)V")
     public static void method7572() {
         if (Toolkit.active.method7978()) {
-            Toolkit.active.method7972(GameShell.canvas);
+            Toolkit.active.releaseSurface(GameShell.canvas);
             Static208.method3106();
             if (OrthoMode.toolkitActive) {
                 Static720.method9397(GameShell.canvas);

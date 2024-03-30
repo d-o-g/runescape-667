@@ -1,10 +1,10 @@
-import com.jagex.Interface26;
+import com.jagex.DepthBuffer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!hia")
-public final class Class165 implements Interface26 {
+public final class Class165 implements DepthBuffer {
 
     @OriginalMember(owner = "client!hia", name = "e", descriptor = "I")
     public final int anInt3961;

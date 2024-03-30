@@ -45,7 +45,7 @@ public final class Js5TextureSource implements TextureSource {
         }
         for (@Pc(65) int i = 0; i < this.textureCount; i++) {
             if (this.textureMetrics[i] != null) {
-                this.textureMetrics[i].aBoolean240 = packet.g1() == 0;
+                this.textureMetrics[i].disableable = packet.g1() == 0;
             }
         }
         for (@Pc(98) int i = 0; i < this.textureCount; i++) {
@@ -190,7 +190,7 @@ public final class Js5TextureSource implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(FIIZZI)[I")
     @Override
-    public int[] argbOutput(@OriginalArg(0) float arg0, @OriginalArg(1) int id, @OriginalArg(2) int arg2, @OriginalArg(5) int arg3) {
-        return this.list(id).method8948(arg2, arg0, this.textureMetrics[id].aBoolean238, arg3, this, this.sprites);
+    public int[] argbOutput(@OriginalArg(0) float f, @OriginalArg(1) int id, @OriginalArg(2) int width, @OriginalArg(5) int height) {
+        return this.list(id).method8948(width, f, this.textureMetrics[id].aBoolean238, height, this, this.sprites);
     }
 }

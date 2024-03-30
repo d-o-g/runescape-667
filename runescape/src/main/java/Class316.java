@@ -145,7 +145,7 @@ public final class Class316 {
             @Pc(81) int local81;
             for (local50 = local47.next2; local50 != local47; local50 = local50.next2) {
                 @Pc(54) Particle local54 = (Particle) local50;
-                local81 = (int) (local29 * (float) (local54.anInt7534 >> 12) + local25 * (float) (local54.anInt7537 >> 12) + local33 * (float) (local54.anInt7536 >> 12) + local37);
+                local81 = (int) (local29 * (float) (local54.y >> 12) + local25 * (float) (local54.x >> 12) + local33 * (float) (local54.z >> 12) + local37);
                 if (local81 < local41) {
                     local41 = local81;
                 }
@@ -180,9 +180,9 @@ public final class Class316 {
                     if (local151) {
                         local149 = local184.aBoolean574;
                         local151 = false;
-                        local147 = local184.anInt7540;
+                        local147 = local184.texture;
                     }
-                    if (local39 > 0 && (local147 != local184.anInt7540 || local184.aBoolean574 != local149)) {
+                    if (local39 > 0 && (local147 != local184.texture || local184.aBoolean574 != local149)) {
                         local151 = true;
                         break;
                     }
@@ -302,15 +302,15 @@ public final class Class316 {
                 if (local114 > 0) {
                     for (local123 = local114 - 1; local123 >= 0; local123--) {
                         local131 = this.aParticleArrayArray3[local97][local123];
-                        local134 = local131.anInt7539;
+                        local134 = local131.colour;
                         local139 = (byte) (local134 >> 16);
                         local144 = (byte) (local134 >> 8);
                         local147 = (byte) local134;
                         local152 = (byte) (local134 >>> 24);
-                        local158 = (float) (local131.anInt7537 >> 12);
-                        local164 = (float) (local131.anInt7534 >> 12);
-                        local170 = (float) (local131.anInt7536 >> 12);
-                        local175 = local131.anInt7535 >> 12;
+                        local158 = (float) (local131.x >> 12);
+                        local164 = (float) (local131.y >> 12);
+                        local170 = (float) (local131.z >> 12);
+                        local175 = local131.size >> 12;
                         local91.a((float) -local175 * local36 + local158);
                         local91.a((float) -local175 * local40 + local164);
                         local91.a(local170 + (float) -local175 * local44);
@@ -357,15 +357,15 @@ public final class Class316 {
                         local395 = this.anIntArray635[local97] - 1 - 64;
                         for (local134 = this.anIntArray634[local395] - 1; local134 >= 0; local134--) {
                             local410 = this.aClass8_Sub4_Sub2ArrayArray4[local395][local134];
-                            local413 = local410.anInt7539;
+                            local413 = local410.colour;
                             local147 = (byte) (local413 >> 16);
                             local152 = (byte) (local413 >> 8);
                             local426 = (byte) local413;
                             local431 = (byte) (local413 >>> 24);
-                            local170 = (float) (local410.anInt7537 >> 12);
-                            local443 = (float) (local410.anInt7534 >> 12);
-                            local449 = (float) (local410.anInt7536 >> 12);
-                            local454 = local410.anInt7535 >> 12;
+                            local170 = (float) (local410.x >> 12);
+                            local443 = (float) (local410.y >> 12);
+                            local449 = (float) (local410.z >> 12);
+                            local454 = local410.size >> 12;
                             local91.a(local36 * (float) -local454 + local170);
                             local91.a(local443 + (float) -local454 * local40);
                             local91.a((float) -local454 * local44 + local449);
@@ -417,15 +417,15 @@ public final class Class316 {
                 if (local114 > 0) {
                     for (local123 = local114 - 1; local123 >= 0; local123--) {
                         local131 = this.aParticleArrayArray3[local97][local123];
-                        local134 = local131.anInt7539;
+                        local134 = local131.colour;
                         local139 = (byte) (local134 >> 16);
                         local144 = (byte) (local134 >> 8);
                         local147 = (byte) local134;
                         local152 = (byte) (local134 >>> 24);
-                        local158 = (float) (local131.anInt7537 >> 12);
-                        local164 = (float) (local131.anInt7534 >> 12);
-                        local170 = (float) (local131.anInt7536 >> 12);
-                        local175 = local131.anInt7535 >> 12;
+                        local158 = (float) (local131.x >> 12);
+                        local164 = (float) (local131.y >> 12);
+                        local170 = (float) (local131.z >> 12);
+                        local175 = local131.size >> 12;
                         local91.b(local36 * (float) -local175 + local158);
                         local91.b(local164 + (float) -local175 * local40);
                         local91.b(local170 + local44 * (float) -local175);
@@ -472,15 +472,15 @@ public final class Class316 {
                         local395 = this.anIntArray635[local97] - 65;
                         for (local134 = this.anIntArray634[local395] - 1; local134 >= 0; local134--) {
                             local410 = this.aClass8_Sub4_Sub2ArrayArray4[local395][local134];
-                            local413 = local410.anInt7539;
+                            local413 = local410.colour;
                             local147 = (byte) (local413 >> 16);
                             local152 = (byte) (local413 >> 8);
                             local426 = (byte) local413;
                             local431 = (byte) (local413 >>> 24);
-                            local170 = (float) (local410.anInt7537 >> 12);
-                            local443 = (float) (local410.anInt7534 >> 12);
-                            local449 = (float) (local410.anInt7536 >> 12);
-                            local454 = local410.anInt7535 >> 12;
+                            local170 = (float) (local410.x >> 12);
+                            local443 = (float) (local410.y >> 12);
+                            local449 = (float) (local410.z >> 12);
+                            local454 = local410.size >> 12;
                             local91.b(local36 * (float) -local454 + local170);
                             local91.b(local443 + (float) -local454 * local40);
                             local91.b(local44 * (float) -local454 + local449);

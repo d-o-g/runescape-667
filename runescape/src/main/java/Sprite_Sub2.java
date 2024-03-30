@@ -78,7 +78,7 @@ public final class Sprite_Sub2 extends Sprite {
     protected void renderImpl(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
         this.aClass93_Sub2_Sub1_3.method9438(true);
         this.aClass19_Sub3_28.method7018();
-        this.aClass19_Sub3_28.method7017(mode);
+        this.aClass19_Sub3_28.setBlendMode(mode);
         OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         if (this.aBoolean456) {
             @Pc(52) float local52 = (float) width / (float) this.scaleWidth();
@@ -205,7 +205,7 @@ public final class Sprite_Sub2 extends Sprite {
         this.aClass19_Sub3_28.method7001(local7);
         this.aClass19_Sub3_28.method7031(8448, 7681);
         this.aClass19_Sub3_28.method7021(34168, 768, 0);
-        this.aClass19_Sub3_28.method7017(1);
+        this.aClass19_Sub3_28.setBlendMode(1);
         local25 = local7.aFloat67 / (float) local7.anInt3259;
         local32 = local7.aFloat68 / (float) local7.anInt3257;
         OpenGL.glBegin(OpenGL.GL_QUADS);
@@ -242,7 +242,7 @@ public final class Sprite_Sub2 extends Sprite {
         this.aClass19_Sub3_28.method7001(local9);
         this.aClass19_Sub3_28.method7031(8448, 7681);
         this.aClass19_Sub3_28.method7021(34168, 768, 0);
-        this.aClass19_Sub3_28.method7017(1);
+        this.aClass19_Sub3_28.setBlendMode(1);
         @Pc(62) int local62 = x + this.anInt6041;
         @Pc(67) int local67 = y + this.anInt6027;
         @Pc(73) int local73 = this.aClass93_Sub2_Sub1_3.anInt3259 + local62;
@@ -304,7 +304,7 @@ public final class Sprite_Sub2 extends Sprite {
     public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
         this.aClass93_Sub2_Sub1_3.method9438(false);
         this.aClass19_Sub3_28.method7018();
-        this.aClass19_Sub3_28.method7017(op);
+        this.aClass19_Sub3_28.setBlendMode(op);
         OpenGL.glColor4ub((byte) (height >> 16), (byte) (height >> 8), (byte) height, (byte) (height >> 24));
         @Pc(37) int local37 = x + this.anInt6041;
         @Pc(42) int local42 = y + this.anInt6027;
@@ -374,7 +374,7 @@ public final class Sprite_Sub2 extends Sprite {
         this.aClass93_Sub2_Sub1_3.method9438(true);
         this.aClass19_Sub3_28.method7018();
         this.aClass19_Sub3_28.method7001(this.aClass93_Sub2_Sub1_3);
-        this.aClass19_Sub3_28.method7017(1);
+        this.aClass19_Sub3_28.setBlendMode(1);
         this.aClass19_Sub3_28.method6991(mode);
         OpenGL.glColor4ub((byte) (filter >> 16), (byte) (filter >> 8), (byte) filter, (byte) (filter >> 24));
         OpenGL.glBegin(OpenGL.GL_QUADS);
@@ -408,7 +408,7 @@ public final class Sprite_Sub2 extends Sprite {
         @Pc(18) int local18 = height + y;
         this.aClass19_Sub3_28.method7018();
         this.aClass19_Sub3_28.method7001(this.aClass93_Sub2_Sub1_3);
-        this.aClass19_Sub3_28.method7017(mode);
+        this.aClass19_Sub3_28.setBlendMode(mode);
         this.aClass19_Sub3_28.method6991(op);
         OpenGL.glColor4ub((byte) (colour >> 16), (byte) (colour >> 8), (byte) colour, (byte) (colour >> 24));
         if (this.aClass93_Sub2_Sub1_3.aBoolean261 && !this.aBoolean456) {

@@ -1,6 +1,6 @@
 import com.jagex.Class67;
 import com.jagex.graphics.Renderer;
-import com.jagex.Interface26;
+import com.jagex.DepthBuffer;
 import com.jagex.Static14;
 import com.jagex.graphics.FlipException;
 import com.jagex.graphics.OffscreenSurface;
@@ -394,7 +394,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "b", descriptor = "(IIIID)V")
     @Override
-    public void b(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) double arg4) {
+    public void b(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) double zDepth) {
     }
 
     @OriginalMember(owner = "client!kea", name = "i", descriptor = "(II)Lclient!rea;")
@@ -494,24 +494,24 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "d", descriptor = "(II)Lclient!wja;")
     @Override
-    public Interface26 method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public DepthBuffer method7986(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return null;
     }
 
     @OriginalMember(owner = "client!kea", name = "na", descriptor = "(IIII)[I")
     @Override
-    public int[] na(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public int[] na(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height) {
         @Pc(1) int[] local1 = null;
         @Pc(6) IDirect3DSurface local6 = this.anIDirect3DDevice1.c(0);
-        @Pc(16) IDirect3DSurface local16 = this.anIDirect3DDevice1.a(arg2, arg3, 21, 0, 0, true);
-        if (lh.a((byte) 78, this.anIDirect3DDevice1.StretchRect(local6, arg0, arg1, arg2, arg3, local16, 0, 0, arg2, arg3, 0)) && lh.a((byte) 65, local16.LockRect(0, 0, arg2, arg3, 16, this.aPixelBuffer1))) {
-            local1 = new int[arg2 * arg3];
+        @Pc(16) IDirect3DSurface local16 = this.anIDirect3DDevice1.a(width, height, 21, 0, 0, true);
+        if (lh.a((byte) 78, this.anIDirect3DDevice1.StretchRect(local6, x, y, width, height, local16, 0, 0, width, height, 0)) && lh.a((byte) 65, local16.LockRect(0, 0, width, height, 16, this.aPixelBuffer1))) {
+            local1 = new int[width * height];
             @Pc(56) int local56 = this.aPixelBuffer1.getRowPitch();
-            if (local56 == arg2 * 4) {
-                this.aPixelBuffer1.a(local1, 0, 0, arg3 * arg2);
+            if (local56 == width * 4) {
+                this.aPixelBuffer1.a(local1, 0, 0, height * width);
             } else {
-                for (@Pc(74) int local74 = 0; local74 < arg3; local74++) {
-                    this.aPixelBuffer1.a(local1, arg2 * local74, local74 * local56, arg2);
+                for (@Pc(74) int local74 = 0; local74 < height; local74++) {
+                    this.aPixelBuffer1.a(local1, width * local74, local74 * local56, width);
                 }
             }
             local16.UnlockRect();
@@ -560,7 +560,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "F", descriptor = "(II)V")
     @Override
-    public void F(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public void F(@OriginalArg(0) int x, @OriginalArg(1) int y) {
     }
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(II[IIIZI)Lclient!og;")
@@ -687,7 +687,7 @@ public final class D3DToolkit extends NativeToolkit {
 
     @OriginalMember(owner = "client!kea", name = "a", descriptor = "(Lclient!eca;Lclient!wja;)Lclient!gaa;")
     @Override
-    public OffscreenSurface method7988(@OriginalArg(0) Surface arg0, @OriginalArg(1) Interface26 arg1) {
+    public OffscreenSurface createOffscreenSurface(@OriginalArg(0) Surface surface, @OriginalArg(1) DepthBuffer buffer) {
         return null;
     }
 

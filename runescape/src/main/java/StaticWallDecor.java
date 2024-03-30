@@ -115,7 +115,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
         } else {
             @Pc(23) Matrix local23 = toolkit.scratchMatrix();
             local23.applyTranslation(super.x, super.y, super.z);
-            return OrthoMode.enabled ? local18.pickedOrtho(y, x, local23, false, 0, Static582.orthoAngle) : local18.picked(y, x, local23, false, 0);
+            return OrthoMode.enabled ? local18.pickedOrtho(y, x, local23, false, 0, OrthoMode.renderZoom) : local18.picked(y, x, local23, false, 0);
         }
     }
 
@@ -231,7 +231,7 @@ public final class StaticWallDecor extends WallDecor implements Location {
         matrix.applyTranslation(super.x + super.aShort101, super.y, super.aShort102 + super.z);
         @Pc(41) PickableEntity entity = Static642.method8441(this.interactive, 1);
         if (OrthoMode.enabled) {
-            this.model.renderOrtho(matrix, entity.pickingCylinders[0], Static582.orthoAngle, 0);
+            this.model.renderOrtho(matrix, entity.pickingCylinders[0], OrthoMode.renderZoom, 0);
         } else {
             this.model.render(matrix, entity.pickingCylinders[0], 0);
         }

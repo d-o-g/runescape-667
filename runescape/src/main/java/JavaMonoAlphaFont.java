@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!mq")
-public final class Font_Sub4 extends Font {
+public final class JavaMonoAlphaFont extends Font {
 
     @OriginalMember(owner = "client!mq", name = "y", descriptor = "Lclient!iaa;")
     public JavaToolkit aClass19_Sub2_6;
@@ -29,7 +29,7 @@ public final class Font_Sub4 extends Font {
     public final int[] anIntArray485;
 
     @OriginalMember(owner = "client!mq", name = "<init>", descriptor = "(Lclient!iaa;Lclient!ve;[Lclient!wp;[I[I)V")
-    public Font_Sub4(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
+    public JavaMonoAlphaFont(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) FontMetrics arg1, @OriginalArg(2) IndexedImage[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4) {
         super(arg0, arg1);
         this.aClass19_Sub2_6 = arg0;
         this.aClass19_Sub2_6 = arg0;
@@ -63,7 +63,7 @@ public final class Font_Sub4 extends Font {
         @Pc(16) int local16 = arg10;
         if (arg14 > arg10) {
             local16 = arg14;
-            arg4 += (arg14 - arg10) * this.aClass19_Sub2_6.anInt4207;
+            arg4 += (arg14 - arg10) * this.aClass19_Sub2_6.surfaceWidth;
             arg3 += (arg14 - arg10) * arg11;
         }
         @Pc(56) int local56 = arg14 + local5.length < arg10 + arg6 ? arg14 + local5.length : arg10 + arg6;
@@ -124,7 +124,7 @@ public final class Font_Sub4 extends Font {
         y += this.anIntArray488[c];
         @Pc(28) int local28 = this.anIntArray486[c];
         @Pc(33) int local33 = this.anIntArray487[c];
-        @Pc(37) int local37 = this.aClass19_Sub2_6.anInt4207;
+        @Pc(37) int local37 = this.aClass19_Sub2_6.surfaceWidth;
         @Pc(43) int local43 = x + y * local37;
         @Pc(47) int local47 = local37 - local28;
         @Pc(49) int local49 = 0;
@@ -156,7 +156,7 @@ public final class Font_Sub4 extends Font {
             local47 += local62;
         }
         if (local28 > 0 && local33 > 0) {
-            this.method5625(this.aByteArrayArray18[c], this.aClass19_Sub2_6.anIntArray319, colour, local51, local43, local28, local33, local47, local49, x, y, this.anIntArray486[c], mask, offsetX, offsetY);
+            this.method5625(this.aByteArrayArray18[c], this.aClass19_Sub2_6.surfaceRaster, colour, local51, local43, local28, local33, local47, local49, x, y, this.anIntArray486[c], mask, offsetX, offsetY);
         }
     }
 
@@ -186,7 +186,7 @@ public final class Font_Sub4 extends Font {
         y += this.anIntArray488[c];
         @Pc(18) int local18 = this.anIntArray486[c];
         @Pc(23) int local23 = this.anIntArray487[c];
-        @Pc(27) int local27 = this.aClass19_Sub2_6.anInt4207;
+        @Pc(27) int local27 = this.aClass19_Sub2_6.surfaceWidth;
         @Pc(33) int local33 = x + y * local27;
         @Pc(37) int local37 = local27 - local18;
         @Pc(39) int local39 = 0;
@@ -218,7 +218,7 @@ public final class Font_Sub4 extends Font {
             local37 += local52;
         }
         if (local18 > 0 && local23 > 0) {
-            this.method5626(this.aByteArrayArray18[c], this.aClass19_Sub2_6.anIntArray319, colour, local41, local33, local18, local23, local37, local39);
+            this.method5626(this.aByteArrayArray18[c], this.aClass19_Sub2_6.surfaceRaster, colour, local41, local33, local18, local23, local37, local39);
         }
     }
 }

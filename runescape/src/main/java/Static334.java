@@ -20,7 +20,7 @@ public final class Static334 {
         Static665.aToolkit_15.K(Static238.anIntArray307);
 
         for (@Pc(14) int local14 = 0; local14 < Static537.anIntArray633.length; local14++) {
-            Static665.aToolkit_15.verticalLine(Static238.anIntArray307[3] - Static238.anIntArray307[1], Static238.anIntArray307[1], -256, Static537.anIntArray633[local14] + Static621.anIntArray766[local14]);
+            Static665.aToolkit_15.verticalLine(Static537.anIntArray633[local14] + Static621.anIntArray766[local14], Static238.anIntArray307[1], Static238.anIntArray307[3] - Static238.anIntArray307[1], -256);
         }
 
         for (@Pc(43) int local43 = 0; local43 < Static469.activeOccluderCount; local43++) {

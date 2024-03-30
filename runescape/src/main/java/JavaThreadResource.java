@@ -4,13 +4,13 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!wf")
-public final class Class399 {
+public final class JavaThreadResource {
 
     @OriginalMember(owner = "client!wf", name = "v", descriptor = "Z")
-    public boolean aBoolean806;
+    public boolean fogActive;
 
     @OriginalMember(owner = "client!wf", name = "R", descriptor = "Ljava/lang/Runnable;")
-    public Runnable aRunnable2;
+    public Runnable thread;
 
     @OriginalMember(owner = "client!wf", name = "N", descriptor = "I")
     public int anInt10606;
@@ -22,16 +22,16 @@ public final class Class399 {
     public int anInt10608;
 
     @OriginalMember(owner = "client!wf", name = "k", descriptor = "I")
-    public int anInt10597 = 0;
+    public int fogColour = 0;
 
     @OriginalMember(owner = "client!wf", name = "H", descriptor = "Z")
-    public boolean aBoolean804 = true;
+    public boolean zWrite = true;
 
     @OriginalMember(owner = "client!wf", name = "P", descriptor = "I")
-    public int anInt10602 = 0;
+    public int waterDepth = 0;
 
     @OriginalMember(owner = "client!wf", name = "z", descriptor = "I")
-    public int anInt10604 = 0;
+    public int waterHeight = 0;
 
     @OriginalMember(owner = "client!wf", name = "x", descriptor = "Z")
     public boolean aBoolean805 = false;
@@ -40,7 +40,7 @@ public final class Class399 {
     public int anInt10600 = 0;
 
     @OriginalMember(owner = "client!wf", name = "M", descriptor = "Lclient!eaa;")
-    public final JavaMatrix aClass73_Sub2_3 = new JavaMatrix();
+    public final JavaMatrix scratchMatrix = new JavaMatrix();
 
     @OriginalMember(owner = "client!wf", name = "h", descriptor = "[I")
     public final int[] anIntArray842 = new int[8];
@@ -106,31 +106,31 @@ public final class Class399 {
     public final int[] anIntArray841 = new int[10];
 
     @OriginalMember(owner = "client!wf", name = "g", descriptor = "[Lclient!rs;")
-    public final Model_Sub3[] aClass114_Sub3Array4 = new Model_Sub3[7];
+    public final JavaModel[] aClass114_Sub3Array4 = new JavaModel[7];
 
     @OriginalMember(owner = "client!wf", name = "Q", descriptor = "[Lclient!rs;")
-    public final Model_Sub3[] aClass114_Sub3Array3 = new Model_Sub3[7];
+    public final JavaModel[] aClass114_Sub3Array3 = new JavaModel[7];
 
     @OriginalMember(owner = "client!wf", name = "y", descriptor = "Lclient!iaa;")
     public final JavaToolkit aClass19_Sub2_12;
 
     @OriginalMember(owner = "client!wf", name = "I", descriptor = "I")
-    public int anInt10601;
+    public int fogPlane;
 
     @OriginalMember(owner = "client!wf", name = "p", descriptor = "Lclient!lb;")
-    public Class219 aClass219_2;
+    public Rasterizer rasterizer;
 
     @OriginalMember(owner = "client!wf", name = "B", descriptor = "[I")
     public final int[] anIntArray853;
 
     @OriginalMember(owner = "client!wf", name = "<init>", descriptor = "(Lclient!iaa;)V")
-    public Class399(@OriginalArg(0) JavaToolkit arg0) {
+    public JavaThreadResource(@OriginalArg(0) JavaToolkit arg0) {
         this.aClass19_Sub2_12 = arg0;
-        this.anInt10601 = this.aClass19_Sub2_12.zFar - 255;
-        this.aClass219_2 = new Class219(arg0, this);
+        this.fogPlane = this.aClass19_Sub2_12.zFar - 255;
+        this.rasterizer = new Rasterizer(arg0, this);
         for (@Pc(135) int local135 = 0; local135 < 7; local135++) {
-            this.aClass114_Sub3Array4[local135] = new Model_Sub3(this.aClass19_Sub2_12);
-            this.aClass114_Sub3Array3[local135] = new Model_Sub3(this.aClass19_Sub2_12);
+            this.aClass114_Sub3Array4[local135] = new JavaModel(this.aClass19_Sub2_12);
+            this.aClass114_Sub3Array3[local135] = new JavaModel(this.aClass19_Sub2_12);
         }
         this.anIntArray853 = new int[Static567.anInt8486];
         for (@Pc(166) int local166 = 0; local166 < Static567.anInt8486; local166++) {
@@ -140,11 +140,11 @@ public final class Class399 {
 
     @OriginalMember(owner = "client!wf", name = "a", descriptor = "(Z)V")
     public void method9194() {
-        this.aClass219_2 = new Class219(this.aClass19_Sub2_12, this);
+        this.rasterizer = new Rasterizer(this.aClass19_Sub2_12, this);
     }
 
     @OriginalMember(owner = "client!wf", name = "a", descriptor = "(Ljava/lang/Runnable;I)V")
     public void method9196(@OriginalArg(0) Runnable arg0) {
-        this.aRunnable2 = arg0;
+        this.thread = arg0;
     }
 }

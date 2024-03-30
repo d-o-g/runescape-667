@@ -194,7 +194,7 @@ public final class Ground_Sub2 extends Ground {
         this.aClass19_Sub3_33.method7008(false);
         this.aClass19_Sub3_33.method7006(false);
         this.aClass19_Sub3_33.method6972(false);
-        this.aClass19_Sub3_33.method7017(0);
+        this.aClass19_Sub3_33.setBlendMode(0);
         this.aClass19_Sub3_33.method7046(-2);
         this.aClass19_Sub3_33.method7001(null);
         Static699.aFloatArray81[5] = (float) 1024 / ((float) super.anInt8888 * 128.0F * (float) this.aClass19_Sub3_33.anInt7956);
@@ -698,7 +698,7 @@ public final class Ground_Sub2 extends Ground {
         for (@Pc(106) int local106 = 0; local106 < arg6.length; local106++) {
             @Pc(114) int local114 = arg8[local106];
             @Pc(118) int local118 = arg9[local106];
-            if ((this.anInt7486 & 0x20) != 0 && local114 != -1 && local41.getMetrics(local114).aBoolean240) {
+            if ((this.anInt7486 & 0x20) != 0 && local114 != -1 && local41.getMetrics(local114).disableable) {
                 local114 = -1;
                 local118 = 128;
             }
@@ -790,7 +790,7 @@ public final class Ground_Sub2 extends Ground {
             this.aClass19_Sub3_33.L(0, local252, this.aClass19_Sub3_33.anInt8009);
             this.aClass19_Sub3_33.method7008(false);
             this.aClass19_Sub3_33.method6972(false);
-            this.aClass19_Sub3_33.method7017(128);
+            this.aClass19_Sub3_33.setBlendMode(128);
             this.aClass19_Sub3_33.method7046(-2);
             this.aClass19_Sub3_33.method7001(this.aClass19_Sub3_33.aClass93_Sub2_5);
             this.aClass19_Sub3_33.method7031(7681, 8448);

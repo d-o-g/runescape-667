@@ -107,7 +107,7 @@ public final class DynamicWall extends Wall implements Location {
         this.entity.method7681(localZ, model, true, -9827, arg0, localX, localX, localZ, matrix);
 
         if (OrthoMode.enabled) {
-            model.renderOrtho(matrix, local36.pickingCylinders[0], Static582.orthoAngle, 0);
+            model.renderOrtho(matrix, local36.pickingCylinders[0], OrthoMode.renderZoom, 0);
         } else {
             model.render(matrix, local36.pickingCylinders[0], 0);
         }
@@ -116,7 +116,7 @@ public final class DynamicWall extends Wall implements Location {
             @Pc(100) ParticleList particles = this.entity.particleSystem.getList();
 
             if (OrthoMode.enabled) {
-                arg0.renderOrtho(particles, Static582.orthoAngle);
+                arg0.renderOrtho(particles, OrthoMode.renderZoom);
             } else {
                 arg0.render(particles);
             }
@@ -159,7 +159,7 @@ public final class DynamicWall extends Wall implements Location {
         } else {
             @Pc(20) Matrix local20 = toolkit.scratchMatrix();
             local20.applyTranslation(super.x, super.y, super.z);
-            return OrthoMode.enabled ? local12.pickedOrtho(y, x, local20, false, 0, Static582.orthoAngle) : local12.picked(y, x, local20, false, 0);
+            return OrthoMode.enabled ? local12.pickedOrtho(y, x, local20, false, 0, OrthoMode.renderZoom) : local12.picked(y, x, local20, false, 0);
         }
     }
 

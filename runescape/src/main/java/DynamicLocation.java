@@ -61,7 +61,7 @@ public final class DynamicLocation extends PositionEntity implements Location {
         } else {
             @Pc(20) Matrix local20 = toolkit.scratchMatrix();
             local20.applyTranslation(super.x, super.y, super.z);
-            return OrthoMode.enabled ? local12.pickedOrtho(y, x, local20, false, 0, Static582.orthoAngle) : local12.picked(y, x, local20, false, 0);
+            return OrthoMode.enabled ? local12.pickedOrtho(y, x, local20, false, 0, OrthoMode.renderZoom) : local12.picked(y, x, local20, false, 0);
         }
     }
 
@@ -80,7 +80,7 @@ public final class DynamicLocation extends PositionEntity implements Location {
         this.entity.method7681(super.z2, local14, true, -9827, toolkit, super.x2, super.x1, super.z1, matrix);
 
         if (OrthoMode.enabled) {
-            local14.renderOrtho(matrix, local44.pickingCylinders[0], Static582.orthoAngle, 0);
+            local14.renderOrtho(matrix, local44.pickingCylinders[0], OrthoMode.renderZoom, 0);
         } else {
             local14.render(matrix, local44.pickingCylinders[0], 0);
         }
@@ -88,7 +88,7 @@ public final class DynamicLocation extends PositionEntity implements Location {
         if (this.entity.particleSystem != null) {
             @Pc(94) ParticleList particles = this.entity.particleSystem.getList();
             if (OrthoMode.enabled) {
-                toolkit.renderOrtho(particles, Static582.orthoAngle);
+                toolkit.renderOrtho(particles, OrthoMode.renderZoom);
             } else {
                 toolkit.render(particles);
             }

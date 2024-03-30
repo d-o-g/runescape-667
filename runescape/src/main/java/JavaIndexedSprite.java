@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!te")
-public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
+public final class JavaIndexedSprite extends JavaSprite {
 
     @OriginalMember(owner = "client!te", name = "D", descriptor = "[B")
     public final byte[] aByteArray100;
@@ -14,7 +14,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     public final int[] anIntArray714;
 
     @OriginalMember(owner = "client!te", name = "<init>", descriptor = "(Lclient!iaa;[B[III)V")
-    public Sprite_Sub1_Sub3(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public JavaIndexedSprite(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) byte[] arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         super(arg0, arg3, arg4);
         this.aByteArray100 = arg1;
         this.anIntArray714 = arg2;
@@ -23,10 +23,10 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(IIIII)V")
     @Override
     public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op) {
-        if (super.toolkit.method3785()) {
+        if (super.toolkit.stopped()) {
             throw new IllegalStateException();
         }
-        @Pc(12) int local12 = super.toolkit.anInt4207;
+        @Pc(12) int local12 = super.toolkit.surfaceWidth;
         x += super.anInt9298;
         y += super.anInt9308;
         @Pc(28) int local28 = y * local12 + x;
@@ -64,7 +64,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (local36 <= 0 || local33 <= 0) {
             return;
         }
-        @Pc(164) int[] local164 = super.toolkit.anIntArray319;
+        @Pc(164) int[] local164 = super.toolkit.surfaceRaster;
         @Pc(174) int local174;
         @Pc(181) int local181;
         @Pc(292) int local292;
@@ -355,7 +355,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     @OriginalMember(owner = "client!te", name = "a", descriptor = "([I[III)V")
     @Override
     protected void method8210(@OriginalArg(0) int[] arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        @Pc(3) int[] local3 = super.toolkit.anIntArray319;
+        @Pc(3) int[] local3 = super.toolkit.surfaceRaster;
         @Pc(206) int local206;
         @Pc(11) int local11;
         @Pc(16) int local16;
@@ -897,7 +897,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     @OriginalMember(owner = "client!te", name = "b", descriptor = "(II)V")
     @Override
     protected void method8209(@OriginalArg(0) int arg0) {
-        @Pc(3) int[] local3 = super.toolkit.anIntArray319;
+        @Pc(3) int[] local3 = super.toolkit.surfaceRaster;
         @Pc(963) int local963;
         @Pc(11) int local11;
         @Pc(14) int local14;
@@ -1737,8 +1737,8 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (super.anInt9306 < local29) {
             arg4 = ((super.anInt9306 << 16) + local41 - local11 - 1) / local41;
         }
-        local55 = arg0 + arg1 * super.toolkit.anInt4207;
-        @Pc(147) int local147 = super.toolkit.anInt4207 - arg3;
+        local55 = arg0 + arg1 * super.toolkit.surfaceWidth;
+        @Pc(147) int local147 = super.toolkit.surfaceWidth - arg3;
         if (arg1 + arg4 > super.toolkit.clipY2) {
             arg4 -= arg1 + arg4 - super.toolkit.clipY2;
         }
@@ -1746,7 +1746,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (arg1 < super.toolkit.clipY1) {
             local175 = super.toolkit.clipY1 - arg1;
             arg4 -= local175;
-            local55 += local175 * super.toolkit.anInt4207;
+            local55 += local175 * super.toolkit.surfaceWidth;
             local11 += local41 * local175;
         }
         if (arg0 + arg3 > super.toolkit.clipX2) {
@@ -1761,8 +1761,8 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
             local9 += local35 * local175;
             local147 += local175;
         }
-        @Pc(249) float[] local249 = super.toolkit.aFloatArray24;
-        @Pc(253) int[] local253 = super.toolkit.anIntArray319;
+        @Pc(249) float[] local249 = super.toolkit.depthBuffer;
+        @Pc(253) int[] local253 = super.toolkit.surfaceRaster;
         @Pc(262) int local262;
         @Pc(265) int local265;
         @Pc(273) int local273;
@@ -2162,8 +2162,8 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (super.anInt9306 < local29) {
             arg4 = ((super.anInt9306 << 16) + local41 - local11 - 1) / local41;
         }
-        local55 = arg0 + arg1 * super.toolkit.anInt4207;
-        @Pc(147) int local147 = super.toolkit.anInt4207 - arg3;
+        local55 = arg0 + arg1 * super.toolkit.surfaceWidth;
+        @Pc(147) int local147 = super.toolkit.surfaceWidth - arg3;
         if (arg1 + arg4 > super.toolkit.clipY2) {
             arg4 -= arg1 + arg4 - super.toolkit.clipY2;
         }
@@ -2171,7 +2171,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         if (arg1 < super.toolkit.clipY1) {
             local175 = super.toolkit.clipY1 - arg1;
             arg4 -= local175;
-            local55 += local175 * super.toolkit.anInt4207;
+            local55 += local175 * super.toolkit.surfaceWidth;
             local11 += local41 * local175;
         }
         if (arg0 + arg3 > super.toolkit.clipX2) {
@@ -2186,8 +2186,8 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
             local9 += local35 * local175;
             local147 += local175;
         }
-        @Pc(249) float[] local249 = super.toolkit.aFloatArray24;
-        @Pc(253) int[] local253 = super.toolkit.anIntArray319;
+        @Pc(249) float[] local249 = super.toolkit.depthBuffer;
+        @Pc(253) int[] local253 = super.toolkit.surfaceRaster;
         @Pc(262) int local262;
         @Pc(265) int local265;
         @Pc(273) int local273;
@@ -2561,13 +2561,13 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(IILclient!aa;II)V")
     @Override
     public void render(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) ClippingMask mask, @OriginalArg(3) int maskX, @OriginalArg(4) int maskY) {
-        if (super.toolkit.method3785()) {
+        if (super.toolkit.stopped()) {
             throw new IllegalStateException();
         }
         x += super.anInt9298;
         y += super.anInt9308;
         @Pc(20) int local20 = 0;
-        @Pc(24) int local24 = super.toolkit.anInt4207;
+        @Pc(24) int local24 = super.toolkit.surfaceWidth;
         @Pc(27) int local27 = super.anInt9302;
         @Pc(30) int local30 = super.anInt9306;
         @Pc(34) int local34 = local24 - local27;
@@ -2605,7 +2605,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
         @Pc(163) JavaClippingMask local163 = (JavaClippingMask) mask;
         @Pc(166) int[] local166 = local163.lineOffsets;
         @Pc(169) int[] local169 = local163.lineWidths;
-        @Pc(173) int[] local173 = super.toolkit.anIntArray319;
+        @Pc(173) int[] local173 = super.toolkit.surfaceRaster;
         @Pc(175) int local175 = y;
         if (maskY > y) {
             local175 = maskY;
@@ -2659,12 +2659,12 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
     @OriginalMember(owner = "client!te", name = "a", descriptor = "(IIIIIIII)V")
     @Override
     protected void renderImpl(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int width, @OriginalArg(3) int height, @OriginalArg(4) int op, @OriginalArg(5) int colour, @OriginalArg(6) int mode) {
-        if (super.toolkit.method3785()) {
+        if (super.toolkit.stopped()) {
             throw new IllegalStateException();
         } else if (width > 0 && height > 0) {
             @Pc(18) int local18 = 0;
             @Pc(20) int local20 = 0;
-            @Pc(24) int local24 = super.toolkit.anInt4207;
+            @Pc(24) int local24 = super.toolkit.surfaceWidth;
             @Pc(33) int local33 = super.anInt9298 + super.anInt9302 + super.anInt9295;
             @Pc(42) int local42 = super.anInt9308 + super.anInt9306 + super.anInt9294;
             @Pc(48) int local48 = (local33 << 16) / width;
@@ -2710,7 +2710,7 @@ public final class Sprite_Sub1_Sub3 extends Sprite_Sub1 {
                 local18 += local48 * local184;
                 local156 += local184;
             }
-            @Pc(256) int[] local256 = super.toolkit.anIntArray319;
+            @Pc(256) int[] local256 = super.toolkit.surfaceRaster;
             @Pc(265) int local265;
             @Pc(268) int local268;
             @Pc(276) int local276;

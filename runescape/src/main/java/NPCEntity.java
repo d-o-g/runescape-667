@@ -143,7 +143,7 @@ public final class NPCEntity extends PathingEntity {
                 @Pc(89) boolean local89 = var10000;
                 @Pc(105) boolean local105;
                 if (OrthoMode.enabled) {
-                    local105 = super.aModelArray3[local40].pickedOrtho(y, x, local20, local89, this.type.pickSizeShift, Static582.orthoAngle);
+                    local105 = super.aModelArray3[local40].pickedOrtho(y, x, local20, local89, this.type.pickSizeShift, OrthoMode.renderZoom);
                 } else {
                     local105 = super.aModelArray3[local40].picked(y, x, local20, local89, this.type.pickSizeShift);
                 }
@@ -189,7 +189,7 @@ public final class NPCEntity extends PathingEntity {
                 super.transparent = true;
                 arg0.C(false);
                 if (OrthoMode.enabled) {
-                    local223.renderOrtho(local22, local123.pickingCylinders[super.aModelArray3.length], Static582.orthoAngle, 0);
+                    local223.renderOrtho(local22, local123.pickingCylinders[super.aModelArray3.length], OrthoMode.renderZoom, 0);
                 } else {
                     local223.render(local22, local123.pickingCylinders[super.aModelArray3.length], 0);
                 }
@@ -206,7 +206,7 @@ public final class NPCEntity extends PathingEntity {
         if (OrthoMode.enabled) {
             for (local314 = 0; local314 < super.aModelArray3.length; local314++) {
                 if (super.aModelArray3[local314] != null) {
-                    super.aModelArray3[local314].renderOrtho(local22, local123.pickingCylinders[local314], Static582.orthoAngle, 0);
+                    super.aModelArray3[local314].renderOrtho(local22, local123.pickingCylinders[local314], OrthoMode.renderZoom, 0);
                 }
             }
         } else {
@@ -219,7 +219,7 @@ public final class NPCEntity extends PathingEntity {
         if (super.particleSystem != null) {
             @Pc(394) ParticleList local394 = super.particleSystem.getList();
             if (OrthoMode.enabled) {
-                arg0.renderOrtho(local394, Static582.orthoAngle);
+                arg0.renderOrtho(local394, OrthoMode.renderZoom);
             } else {
                 arg0.render(local394);
             }

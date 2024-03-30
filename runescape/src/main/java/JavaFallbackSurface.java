@@ -11,10 +11,9 @@ import java.awt.image.ColorModel;
 import java.awt.image.DirectColorModel;
 import java.awt.image.ImageConsumer;
 import java.awt.image.ImageProducer;
-import java.util.Hashtable;
 
 @OriginalClass("client!ji")
-public final class Node_Sub10_Sub1 extends Node_Sub10 implements ImageProducer {
+public final class JavaFallbackSurface extends JavaSurface implements ImageProducer {
 
     @OriginalMember(owner = "client!ji", name = "B", descriptor = "Ljava/awt/Image;")
     public Image anImage2;
@@ -38,19 +37,19 @@ public final class Node_Sub10_Sub1 extends Node_Sub10 implements ImageProducer {
 
     @OriginalMember(owner = "client!ji", name = "a", descriptor = "(IIIZLjava/awt/Graphics;III)V")
     @Override
-    public void method6334(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) Graphics arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6) {
-        this.method4383(arg1, arg6, arg4, arg0);
-        @Pc(18) Shape local18 = arg3.getClip();
-        arg3.clipRect(arg2, arg5, arg0, arg4);
-        arg3.drawImage(this.anImage2, arg2 - arg1, -arg6 + arg5, this.aCanvas4);
-        arg3.setClip(local18);
+    public void clip(@OriginalArg(2) int centerX, @OriginalArg(6) int centerY, @OriginalArg(1) int x, @OriginalArg(7) int y, @OriginalArg(0) int width, @OriginalArg(5) int height, @OriginalArg(4) Graphics graphics) {
+        this.method4383(x, y, height, width);
+        @Pc(18) Shape local18 = graphics.getClip();
+        graphics.clipRect(centerX, centerY, width, height);
+        graphics.drawImage(this.anImage2, centerX - x, -y + centerY, this.aCanvas4);
+        graphics.setClip(local18);
     }
 
     @OriginalMember(owner = "client!ji", name = "addConsumer", descriptor = "(Ljava/awt/image/ImageConsumer;)V")
     @Override
     public synchronized void addConsumer(@OriginalArg(0) ImageConsumer arg0) {
         this.anImageConsumer1 = arg0;
-        arg0.setDimensions(super.anInt7053, super.anInt7050);
+        arg0.setDimensions(super.width, super.height);
         arg0.setProperties(null);
         arg0.setColorModel(this.aColorModel1);
         arg0.setHints(14);
@@ -58,11 +57,11 @@ public final class Node_Sub10_Sub1 extends Node_Sub10 implements ImageProducer {
 
     @OriginalMember(owner = "client!ji", name = "a", descriptor = "(ZIILjava/awt/Canvas;)V")
     @Override
-    public void method6332(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) Canvas arg2) {
-        super.anInt7050 = arg1;
-        this.aCanvas4 = arg2;
-        super.anInt7053 = arg0;
-        super.anIntArray567 = new int[super.anInt7053 * super.anInt7050];
+    public void initialize(@OriginalArg(3) Canvas canvas, @OriginalArg(1) int width, @OriginalArg(2) int height) {
+        super.height = height;
+        this.aCanvas4 = canvas;
+        super.width = width;
+        super.raster = new int[super.width * super.height];
         this.aColorModel1 = new DirectColorModel(32, 16711680, 65280, 255);
         this.anImage2 = this.aCanvas4.createImage(this);
         this.method4384();
@@ -76,7 +75,7 @@ public final class Node_Sub10_Sub1 extends Node_Sub10 implements ImageProducer {
     @OriginalMember(owner = "client!ji", name = "a", descriptor = "(IIIZI)V")
     public synchronized void method4383(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(4) int arg3) {
         if (this.anImageConsumer1 != null) {
-            this.anImageConsumer1.setPixels(arg0, arg1, arg3, arg2, this.aColorModel1, super.anIntArray567, arg0 + arg1 * super.anInt7053, super.anInt7053);
+            this.anImageConsumer1.setPixels(arg0, arg1, arg3, arg2, this.aColorModel1, super.raster, arg0 + arg1 * super.width, super.width);
             this.anImageConsumer1.imageComplete(2);
         }
     }
@@ -90,7 +89,7 @@ public final class Node_Sub10_Sub1 extends Node_Sub10 implements ImageProducer {
     @OriginalMember(owner = "client!ji", name = "a", descriptor = "(I)V")
     public synchronized void method4384() {
         if (this.anImageConsumer1 != null) {
-            this.anImageConsumer1.setPixels(0, 0, super.anInt7053, super.anInt7050, this.aColorModel1, super.anIntArray567, 0, super.anInt7053);
+            this.anImageConsumer1.setPixels(0, 0, super.width, super.height, this.aColorModel1, super.raster, 0, super.width);
             this.anImageConsumer1.imageComplete(2);
         }
     }

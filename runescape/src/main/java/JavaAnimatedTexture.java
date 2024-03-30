@@ -5,7 +5,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ika")
-public final class Node_Sub29 extends Node {
+public final class JavaAnimatedTexture extends Node {
 
     @OriginalMember(owner = "client!ika", name = "m", descriptor = "I")
     public int runningTime;
@@ -23,7 +23,7 @@ public final class Node_Sub29 extends Node {
     public int[] anIntArray344;
 
     @OriginalMember(owner = "client!ika", name = "<init>", descriptor = "(II[IZ)V")
-    public Node_Sub29(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) boolean arg3) {
+    public JavaAnimatedTexture(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) boolean arg3) {
         this.anInt4408 = arg0;
         this.anInt4410 = arg1;
         this.anIntArray344 = arg2;
@@ -123,8 +123,8 @@ public final class Node_Sub29 extends Node {
     }
 
     @OriginalMember(owner = "client!ika", name = "a", descriptor = "(II)V")
-    public void method3973(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
-        if (arg0 == 0 && arg1 == 0) {
+    public void translate(@OriginalArg(0) int du, @OriginalArg(1) int dv) {
+        if (du == 0 && dv == 0) {
             return;
         }
         if (Static274.anIntArray343 == null || Static274.anIntArray343.length != this.anIntArray344.length) {
@@ -132,13 +132,13 @@ public final class Node_Sub29 extends Node {
         }
         @Pc(21) int local21 = this.anIntArray344.length;
         @Pc(28) int local28 = this.anInt4410 - 1;
-        @Pc(33) int local33 = this.anInt4410 * arg1;
+        @Pc(33) int local33 = this.anInt4410 * dv;
         @Pc(37) int local37 = local21 - 1;
         for (@Pc(39) int local39 = 0; local39 < local21; local39 += this.anInt4410) {
             @Pc(46) int local46 = local39 + local33 & local37;
             for (@Pc(48) int local48 = 0; local48 < this.anInt4410; local48++) {
                 @Pc(53) int local53 = local39 + local48;
-                @Pc(61) int local61 = local46 + (local48 + arg0 & local28);
+                @Pc(61) int local61 = local46 + (local48 + du & local28);
                 Static274.anIntArray343[local53] = this.anIntArray344[local61];
             }
         }

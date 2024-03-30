@@ -10,11 +10,6 @@ public final class Static402 {
         return (arg1 & 0x70000) != 0 | Static58.method1257(arg0, arg1) || Static598.method7828(arg1, arg0);
     }
 
-    @OriginalMember(owner = "client!ml", name = "a", descriptor = "(B)I")
-    public static int method5578() {
-        return ChatHistory.length;
-    }
-
     @OriginalMember(owner = "client!ml", name = "c", descriptor = "(II)Lclient!uja;")
     public static Class376 method5582(@OriginalArg(1) int arg0) {
         @Pc(10) Class376 local10 = (Class376) Static153.A_WEIGHTED_CACHE___56.get(arg0);

@@ -15,7 +15,7 @@ public final class ChatHistory {
     public static int length;
 
     @OriginalMember(owner = "client!aea", name = "a", descriptor = "(II)Lclient!pa;")
-    public static ChatLine get(@OriginalArg(0) int index) {
+    public static ChatLine getLine(@OriginalArg(0) int index) {
         return index >= 0 && index < 100 ? lines[index] : null;
     }
 
@@ -54,5 +54,10 @@ public final class ChatHistory {
 
     private ChatHistory() {
         /* empty */
+    }
+
+    @OriginalMember(owner = "client!ml", name = "a", descriptor = "(B)I")
+    public static int length() {
+        return length;
     }
 }

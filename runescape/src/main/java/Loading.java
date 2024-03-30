@@ -1,5 +1,6 @@
 import com.jagex.Client;
 import com.jagex.IndexedImage;
+import com.jagex.game.runetek6.config.quickchatcattype.QuickChatCatTypeList;
 import rs2.client.loading.library.LibraryManager;
 import com.jagex.core.compress.GzipDecompressor;
 import com.jagex.core.constants.MainLogicStep;

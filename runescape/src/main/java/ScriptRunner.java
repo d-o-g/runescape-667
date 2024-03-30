@@ -46,6 +46,8 @@ import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.paramtype.ParamType;
 import com.jagex.game.runetek6.config.paramtype.ParamTypeList;
+import com.jagex.game.runetek6.config.quickchatcattype.QuickChatCatType;
+import com.jagex.game.runetek6.config.quickchatcattype.QuickChatCatTypeList;
 import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingType;
@@ -562,6 +564,34 @@ public final class ScriptRunner {
     public static final int BRANCH_IF_TRUE = 86;
 
     public static final int BRANCH_IF_FALSE = 87;
+
+    public static final int CHAT_GETFILTER_PUBLIC = 5000;
+
+    public static final int CHAT_SETFILTER = 5001;
+
+    public static final int CHAT_SENDABUSEREPORT = 5002;
+
+    public static final int CHAT_GETHISTORY_BYTYPEANDLINE = 5003;
+
+    public static final int CHAT_GETHISTORY_BYUID = 5004;
+
+    public static final int CHAT_GETFILTER_PRIVATE = 5005;
+
+    public static final int CHAT_SETMODE = 5006;
+
+    public static final int CHAT_SENDPUBLIC = 5008;
+
+    public static final int CHAT_SENDPRIVATE = 5009;
+
+    public static final int CHAT_PLAYERNAME = 5010;
+
+    public static final int CHAT_GETHISTORYCLAN = 5011;
+
+    public static final int CHAT_GETPLAYERNAME = 5015;
+
+    public static final int CHAT_GETFILTER_TRADE = 5016;
+
+    public static final int CHAT_GETHISTORY_LENGTH = 5017;
 
     @OriginalMember(owner = "client!ou", name = "y", descriptor = "[Ljava/lang/String;")
     public static String[] stringVars;
@@ -4745,13 +4775,12 @@ public final class ScriptRunner {
     @OriginalMember(owner = "client!ou", name = "c", descriptor = "(IZ)V")
     public static void handleLargeOp(@OriginalArg(0) int opcode, @OriginalArg(1) boolean unfocused) {
         if (opcode < 5100) {
-            if (opcode == 5000) {
+            if (opcode == CHAT_GETFILTER_PUBLIC) {
                 intStack[intStackPointer++] = Static133.publicChatFilter;
                 return;
             }
-            @Pc(57) ServerConnection local57;
-            @Pc(63) ClientMessage local63;
-            if (opcode == 5001) {
+
+            if (opcode == CHAT_SETFILTER) {
                 intStackPointer -= 3;
                 Static133.publicChatFilter = intStack[intStackPointer];
                 Static726.privateChatMode = PrivateChatMode.fromId(intStack[intStackPointer + 1]);
@@ -4759,59 +4788,62 @@ public final class ScriptRunner {
                     Static726.privateChatMode = PrivateChatMode.FRIENDS;
                 }
                 Static87.tradeChatFilter = intStack[intStackPointer + 2];
-                local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(ClientProt.SET_CHATFILTERSETTINGS, local57.cipher);
-                local63.bitPacket.p1(Static133.publicChatFilter);
-                local63.bitPacket.p1(Static726.privateChatMode.id);
-                local63.bitPacket.p1(Static87.tradeChatFilter);
-                local57.send(local63);
+                @Pc(57) ServerConnection connection = ConnectionManager.active();
+                @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.SET_CHATFILTERSETTINGS, connection.cipher);
+                message.bitPacket.p1(Static133.publicChatFilter);
+                message.bitPacket.p1(Static726.privateChatMode.id);
+                message.bitPacket.p1(Static87.tradeChatFilter);
+                connection.send(message);
                 return;
             }
-            if (opcode == 5002) {
+
+            if (opcode == CHAT_SENDABUSEREPORT) {
                 stringStackPointer -= 2;
-                @Pc(95) String local95 = stringStack[stringStackPointer];
+                @Pc(95) String name = stringStack[stringStackPointer];
                 @Pc(101) String local101 = stringStack[stringStackPointer + 1];
                 intStackPointer -= 2;
-                @Pc(109) int local109 = intStack[intStackPointer];
-                @Pc(115) int local115 = intStack[intStackPointer + 1];
+                @Pc(109) int rule = intStack[intStackPointer];
+                @Pc(115) int muted = intStack[intStackPointer + 1];
                 if (local101 == null) {
                     local101 = "";
                 }
                 if (local101.length() > 80) {
                     local101 = local101.substring(0, 80);
                 }
-                @Pc(135) ServerConnection local135 = ConnectionManager.active();
-                @Pc(141) ClientMessage local141 = ClientMessage.create(ClientProt.SEND_SNAPSHOT, local135.cipher);
-                local141.bitPacket.p1(Packet.pjstrlen(local95) + Packet.pjstrlen(local101) + 2);
-                local141.bitPacket.pjstr(local95);
-                local141.bitPacket.p1(local109 - 1);
-                local141.bitPacket.p1(local115);
-                local141.bitPacket.pjstr(local101);
-                local135.send(local141);
+                @Pc(135) ServerConnection connection = ConnectionManager.active();
+                @Pc(141) ClientMessage message = ClientMessage.create(ClientProt.SEND_SNAPSHOT, connection.cipher);
+                message.bitPacket.p1(Packet.pjstrlen(name) + Packet.pjstrlen(local101) + 2);
+                message.bitPacket.pjstr(name);
+                message.bitPacket.p1(rule - 1);
+                message.bitPacket.p1(muted);
+                message.bitPacket.pjstr(local101);
+                connection.send(message);
                 return;
             }
-            @Pc(196) ChatLine local196;
-            if (opcode == 5003) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(198) String local198 = "";
-                if (local196 != null && local196.message != null) {
-                    local198 = local196.message;
+
+            if (opcode == CHAT_GETHISTORY_BYTYPEANDLINE) {
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(198) String message = "";
+                if (line != null && line.message != null) {
+                    message = line.message;
                 }
-                stringStack[stringStackPointer++] = local198;
+                stringStack[stringStackPointer++] = message;
                 return;
             }
-            if (opcode == 5004) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(109) int local109 = -1;
-                if (local196 != null) {
-                    local109 = local196.type;
+
+            if (opcode == CHAT_GETHISTORY_BYUID) {
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(109) int type = -1;
+                if (line != null) {
+                    type = line.type;
                 }
-                intStack[intStackPointer++] = local109;
+                intStack[intStackPointer++] = type;
                 return;
             }
-            if (opcode == 5005) {
+
+            if (opcode == CHAT_GETFILTER_PRIVATE) {
                 if (Static726.privateChatMode == null) {
                     intStack[intStackPointer++] = -1;
                     return;
@@ -4819,184 +4851,201 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = Static726.privateChatMode.id;
                 return;
             }
-            @Pc(295) ClientMessage local295;
-            @Pc(289) ServerConnection local289;
-            if (opcode == 5006) {
+
+            if (opcode == CHAT_SETMODE) {
                 @Pc(192) int local192 = intStack[--intStackPointer];
-                local289 = ConnectionManager.active();
-                local295 = ClientMessage.create(ClientProt.CHAT_SETMODE, local289.cipher);
+                @Pc(289) ServerConnection local289 = ConnectionManager.active();
+                @Pc(295) ClientMessage local295 = ClientMessage.create(ClientProt.CHAT_SETMODE, local289.cipher);
                 local295.bitPacket.p1(local192);
                 local289.send(local295);
                 return;
             }
-            if (opcode == 5008) {
-                @Pc(95) String local95 = stringStack[--stringStackPointer];
-                method6426(local95, opcode);
+
+            if (opcode == CHAT_SENDPUBLIC) {
+                @Pc(95) String message = stringStack[--stringStackPointer];
+                sendPublicChat(message, opcode);
                 return;
             }
-            if (opcode == 5009) {
+
+            if (opcode == CHAT_SENDPRIVATE) {
                 stringStackPointer -= 2;
-                @Pc(95) String local95 = stringStack[stringStackPointer];
-                @Pc(101) String local101 = stringStack[stringStackPointer + 1];
+                @Pc(95) String recipient = stringStack[stringStackPointer];
+                @Pc(101) String text = stringStack[stringStackPointer + 1];
                 if (Client.staffModLevel != 0 || (!Static389.underage || Static34.parentalChatConsent) && !Static617.quickChatWorld) {
-                    @Pc(360) ServerConnection local360 = ConnectionManager.active();
-                    @Pc(366) ClientMessage local366 = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, local360.cipher);
-                    local366.bitPacket.p2(0);
-                    @Pc(375) int local375 = local366.bitPacket.pos;
-                    local366.bitPacket.pjstr(local95);
-                    WordPack.encode(local366.bitPacket, local101);
-                    local366.bitPacket.psize2(local366.bitPacket.pos - local375);
-                    local360.send(local366);
+                    @Pc(360) ServerConnection connection = ConnectionManager.active();
+                    @Pc(366) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, connection.cipher);
+                    message.bitPacket.p2(0);
+                    @Pc(375) int pos = message.bitPacket.pos;
+                    message.bitPacket.pjstr(recipient);
+                    WordPack.encode(message.bitPacket, text);
+                    message.bitPacket.psize2(message.bitPacket.pos - pos);
+                    connection.send(message);
                     return;
                 }
                 return;
             }
-            if (opcode == 5010) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(198) String local198 = "";
-                if (local196 != null && local196.name != null) {
-                    local198 = local196.name;
+
+            if (opcode == CHAT_PLAYERNAME) {
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(198) String name = "";
+                if (line != null && line.name != null) {
+                    name = line.name;
                 }
-                stringStack[stringStackPointer++] = local198;
+                stringStack[stringStackPointer++] = name;
                 return;
             }
-            if (opcode == 5011) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(198) String local198 = "";
-                if (local196 != null && local196.channel != null) {
-                    local198 = local196.channel;
+
+            if (opcode == CHAT_GETHISTORYCLAN) {
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(198) String clan = "";
+                if (line != null && line.clan != null) {
+                    clan = line.clan;
                 }
-                stringStack[stringStackPointer++] = local198;
+                stringStack[stringStackPointer++] = clan;
                 return;
             }
+
             if (opcode == 5012) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(109) int local109 = -1;
-                if (local196 != null) {
-                    local109 = local196.quickChatId;
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(109) int quickChatId = -1;
+                if (line != null) {
+                    quickChatId = line.quickChatId;
                 }
-                intStack[intStackPointer++] = local109;
+                intStack[intStackPointer++] = quickChatId;
                 return;
             }
-            if (opcode == 5015) {
+
+            if (opcode == CHAT_GETPLAYERNAME) {
+                @Pc(95) String name;
                 if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
-                    local95 = "";
+                    name = "";
                 } else {
-                    local95 = PlayerEntity.self.getDisplayName(false, true);
+                    name = PlayerEntity.self.getDisplayName(false, true);
                 }
-                stringStack[stringStackPointer++] = local95;
+                stringStack[stringStackPointer++] = name;
                 return;
             }
-            if (opcode == 5016) {
+
+            if (opcode == CHAT_GETFILTER_TRADE) {
                 intStack[intStackPointer++] = Static87.tradeChatFilter;
                 return;
             }
-            if (opcode == 5017) {
-                intStack[intStackPointer++] = Static402.method5578();
+
+            if (opcode == CHAT_GETHISTORY_LENGTH) {
+                intStack[intStackPointer++] = ChatHistory.length();
                 return;
             }
+
             if (opcode == 5018) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(109) int local109 = 0;
-                if (local196 != null) {
-                    local109 = local196.flags;
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(109) int flags = 0;
+                if (line != null) {
+                    flags = line.flags;
                 }
-                intStack[intStackPointer++] = local109;
+                intStack[intStackPointer++] = flags;
                 return;
             }
+
             if (opcode == 5019) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(198) String local198 = "";
-                if (local196 != null && local196.accountName != null) {
-                    local198 = local196.accountName;
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(198) String name = "";
+                if (line != null && line.accountName != null) {
+                    name = line.accountName;
                 }
-                stringStack[stringStackPointer++] = local198;
+                stringStack[stringStackPointer++] = name;
                 return;
             }
+
             if (opcode == 5020) {
+                @Pc(95) String name;
                 if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
-                    local95 = "";
+                    name = "";
                 } else {
-                    local95 = PlayerEntity.self.getAccountName();
+                    name = PlayerEntity.self.getAccountName();
                 }
-                stringStack[stringStackPointer++] = local95;
+                stringStack[stringStackPointer++] = name;
                 return;
             }
+
             if (opcode == 5023) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(109) int local109 = -1;
-                if (local196 != null) {
-                    local109 = local196.uid;
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(109) int uid = -1;
+                if (line != null) {
+                    uid = line.uid;
                 }
-                intStack[intStackPointer++] = local109;
+                intStack[intStackPointer++] = uid;
                 return;
             }
+
             if (opcode == 5024) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(109) int local109 = -1;
-                if (local196 != null) {
-                    local109 = local196.clock;
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(109) int clock = -1;
+                if (line != null) {
+                    clock = line.clock;
                 }
-                intStack[intStackPointer++] = local109;
+                intStack[intStackPointer++] = clock;
                 return;
             }
+
             if (opcode == 5025) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                local196 = ChatHistory.get(local192);
-                @Pc(198) String local198 = "";
-                if (local196 != null && local196.displayName != null) {
-                    local198 = local196.displayName;
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(196) ChatLine line = ChatHistory.getLine(index);
+                @Pc(198) String name = "";
+                if (line != null && line.displayName != null) {
+                    name = line.displayName;
                 }
-                stringStack[stringStackPointer++] = local198;
+                stringStack[stringStackPointer++] = name;
                 return;
             }
+
             if (opcode == 5050) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                stringStack[stringStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aString4;
+                @Pc(192) int id = intStack[--intStackPointer];
+                stringStack[stringStackPointer++] = QuickChatCatTypeList.instance.list(id).desc;
                 return;
             }
-            @Pc(793) DoublyLinkedNode_Sub2_Sub3 local793;
+
+            @Pc(793) QuickChatCatType local793;
             if (opcode == 5051) {
                 @Pc(192) int local192 = intStack[--intStackPointer];
-                local793 = QuickChatCatTypeList.instance.method3234(local192);
-                if (local793.anIntArray93 == null) {
+                local793 = QuickChatCatTypeList.instance.list(local192);
+                if (local793.subcategories == null) {
                     intStack[intStackPointer++] = 0;
                     return;
                 }
-                intStack[intStackPointer++] = local793.anIntArray93.length;
+                intStack[intStackPointer++] = local793.subcategories.length;
                 return;
             }
             if (opcode == 5052) {
                 intStackPointer -= 2;
                 @Pc(192) int local192 = intStack[intStackPointer];
                 @Pc(834) int local834 = intStack[intStackPointer + 1];
-                @Pc(839) DoublyLinkedNode_Sub2_Sub3 local839 = QuickChatCatTypeList.instance.method3234(local192);
-                @Pc(115) int local115 = local839.anIntArray93[local834];
+                @Pc(839) QuickChatCatType local839 = QuickChatCatTypeList.instance.list(local192);
+                @Pc(115) int local115 = local839.subcategories[local834];
                 intStack[intStackPointer++] = local115;
                 return;
             }
             if (opcode == 5053) {
                 @Pc(192) int local192 = intStack[--intStackPointer];
-                local793 = QuickChatCatTypeList.instance.method3234(local192);
-                if (local793.anIntArray94 == null) {
+                local793 = QuickChatCatTypeList.instance.list(local192);
+                if (local793.phrases == null) {
                     intStack[intStackPointer++] = 0;
                     return;
                 }
-                intStack[intStackPointer++] = local793.anIntArray94.length;
+                intStack[intStackPointer++] = local793.phrases.length;
                 return;
             }
             if (opcode == 5054) {
                 intStackPointer -= 2;
                 @Pc(192) int local192 = intStack[intStackPointer];
                 @Pc(834) int local834 = intStack[intStackPointer + 1];
-                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).anIntArray94[local834];
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.list(local192).phrases[local834];
                 return;
             }
             if (opcode == 5055) {
@@ -5029,8 +5078,8 @@ public final class ScriptRunner {
                 return;
             }
             if (opcode == 5059) {
-                local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
+                @Pc(57) ServerConnection local57 = ConnectionManager.active();
+                @Pc(63) ClientMessage local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
                 @Pc(109) int local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(0);
@@ -5042,8 +5091,8 @@ public final class ScriptRunner {
             }
             if (opcode == 5060) {
                 @Pc(95) String local95 = stringStack[--stringStackPointer];
-                local289 = ConnectionManager.active();
-                local295 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PRIVATE, local289.cipher);
+                @Pc(289) ServerConnection local289 = ConnectionManager.active();
+                @Pc(295) ClientMessage local295 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PRIVATE, local289.cipher);
                 local295.bitPacket.p1(0);
                 @Pc(115) int local115 = local295.bitPacket.pos;
                 local295.bitPacket.pjstr(local95);
@@ -5054,8 +5103,8 @@ public final class ScriptRunner {
                 return;
             }
             if (opcode == 5061) {
-                local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
+                @Pc(57) ServerConnection local57 = ConnectionManager.active();
+                @Pc(63) ClientMessage local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
                 @Pc(109) int local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(1);
@@ -5069,14 +5118,14 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(192) int local192 = intStack[intStackPointer];
                 @Pc(834) int local834 = intStack[intStackPointer + 1];
-                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray2[local834];
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.list(local192).subcategoryShortcuts[local834];
                 return;
             }
             if (opcode == 5063) {
                 intStackPointer -= 2;
                 @Pc(192) int local192 = intStack[intStackPointer];
                 @Pc(834) int local834 = intStack[intStackPointer + 1];
-                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray3[local834];
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.list(local192).phraseShortcuts[local834];
                 return;
             }
             if (opcode == 5064) {
@@ -5087,7 +5136,7 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = -1;
                     return;
                 }
-                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).method1185((char) local834);
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.list(local192).findSubcategoryByShortcut((char) local834);
                 return;
             }
             if (opcode == 5065) {
@@ -5098,7 +5147,7 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = -1;
                     return;
                 }
-                intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).method1184((char) local834);
+                intStack[intStackPointer++] = QuickChatCatTypeList.instance.list(local192).findPhraseByShortcut((char) local834);
                 return;
             }
             if (opcode == 5066) {
@@ -5160,8 +5209,8 @@ public final class ScriptRunner {
                 return;
             }
             if (opcode == 5074) {
-                local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
+                @Pc(57) ServerConnection local57 = ConnectionManager.active();
+                @Pc(63) ClientMessage local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
                 @Pc(109) int local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(2);
@@ -5172,8 +5221,8 @@ public final class ScriptRunner {
                 return;
             }
             if (opcode == 5075) {
-                local57 = ConnectionManager.active();
-                local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
+                @Pc(57) ServerConnection local57 = ConnectionManager.active();
+                @Pc(63) ClientMessage local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
                 @Pc(109) int local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(3);
@@ -5501,9 +5550,9 @@ public final class ScriptRunner {
                     intStackPointer -= 2;
                     @Pc(192) int local192 = intStack[intStackPointer];
                     @Pc(834) int local834 = intStack[intStackPointer + 1];
-                    local109 = local834 >> 14 & 0x3FFF;
+                    @Pc(109) int local109 = local834 >> 14 & 0x3FFF;
                     @Pc(115) int local115 = local834 & 0x3FFF;
-                    local375 = Static687.method8957(local192, local115, local109);
+                    @Pc(375) int local375 = Static687.method8957(local192, local115, local109);
                     if (local375 < 0) {
                         intStack[intStackPointer++] = -1;
                         return;
@@ -5545,9 +5594,9 @@ public final class ScriptRunner {
                 if (opcode == 5305) {
                     @Pc(192) int local192 = GameShell.fullscreenWidth;
                     @Pc(834) int local834 = GameShell.fullscreenHeight;
-                    local109 = -1;
+                    @Pc(109) int local109 = -1;
                     @Pc(3245) DisplayProperties[] local3245 = Static587.method7710();
-                    for (local375 = 0; local375 < local3245.length; local375++) {
+                    for (@Pc(375) int local375 = 0; local375 < local3245.length; local375++) {
                         @Pc(3252) DisplayProperties local3252 = local3245[local375];
                         if (local3252.width == local192 && local3252.height == local834) {
                             local109 = local375;
@@ -5772,7 +5821,7 @@ public final class ScriptRunner {
                         }
                     }
                     if (opcode == 5432) {
-                        local95 = "";
+                        @Pc(95) String local95 = "";
                         if (client.clipboard != null) {
                             @Pc(4173) Transferable local4173 = client.clipboard.getContents(null);
                             if (local4173 != null) {
@@ -5893,7 +5942,7 @@ public final class ScriptRunner {
                     if (opcode == 5511) {
                         @Pc(192) int local192 = intStack[--intStackPointer];
                         @Pc(834) int local834 = local192 >> 14 & 0x3FFF;
-                        local109 = local192 & 0x3FFF;
+                        @Pc(109) int local109 = local192 & 0x3FFF;
                         local834 -= WorldMap.areaBaseX;
                         if (local834 < 0) {
                             local834 = 0;
@@ -6352,7 +6401,7 @@ public final class ScriptRunner {
                     }
                     if (opcode == 6038) {
                         @Pc(192) int local192 = intStack[--intStackPointer];
-                        local834 = ClientOptions.instance.loginVolume.getValue();
+                        @Pc(834) int local834 = ClientOptions.instance.loginVolume.getValue();
                         if (local192 != local834 && SongManager.playing == AudioDefaults.themeMusic) {
                             if (!MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
                                 if (local834 == 0) {
@@ -6818,7 +6867,7 @@ public final class ScriptRunner {
                 } else if (opcode >= 6700) {
                     if (opcode < 6800 && Client.modeWhat == ModeWhat.WIP) {
                         if (opcode == 6700) {
-                            @Pc(192) int local192 = interfaceManager.subInterfaces.size();
+                            @Pc(192) int local192 = InterfaceManager.subInterfaces.size();
                             if (InterfaceManager.topLevelInterface != -1) {
                                 local192++;
                             }
@@ -7051,7 +7100,7 @@ public final class ScriptRunner {
                             return;
                         }
                         if (opcode == 6905) {
-                            local95 = "";
+                            @Pc(95) String local95 = "";
                             if (Static439.hostnameResource != null) {
                                 if (Static439.hostnameResource.result == null) {
                                     local95 = Static419.method5756(Static439.hostnameResource.intData1);
@@ -7428,7 +7477,7 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Ljava/lang/String;I)V")
-    public static void method6426(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
+    public static void sendPublicChat(@OriginalArg(0) String arg0, @OriginalArg(1) int opcode) {
         if (Client.staffModLevel == 0 && (Static389.underage && !Static34.parentalChatConsent || Static617.quickChatWorld)) {
             return;
         }

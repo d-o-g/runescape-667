@@ -4743,24 +4743,15 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "c", descriptor = "(IZ)V")
-    public static void handleLargeOp(@OriginalArg(0) int arg0, @OriginalArg(1) boolean arg1) {
-        @Pc(109) int local109;
-        @Pc(375) int local375;
-        @Pc(95) String local95;
-        @Pc(192) int local192;
-        @Pc(1578) boolean local1578;
-        @Pc(834) int local834;
-        @Pc(115) int local115;
-        @Pc(198) String local198;
-        @Pc(101) String local101;
-        if (arg0 < 5100) {
-            if (arg0 == 5000) {
+    public static void handleLargeOp(@OriginalArg(0) int opcode, @OriginalArg(1) boolean unfocused) {
+        if (opcode < 5100) {
+            if (opcode == 5000) {
                 intStack[intStackPointer++] = Static133.publicChatFilter;
                 return;
             }
             @Pc(57) ServerConnection local57;
             @Pc(63) ClientMessage local63;
-            if (arg0 == 5001) {
+            if (opcode == 5001) {
                 intStackPointer -= 3;
                 Static133.publicChatFilter = intStack[intStackPointer];
                 Static726.privateChatMode = PrivateChatMode.fromId(intStack[intStackPointer + 1]);
@@ -4776,13 +4767,13 @@ public final class ScriptRunner {
                 local57.send(local63);
                 return;
             }
-            if (arg0 == 5002) {
+            if (opcode == 5002) {
                 stringStackPointer -= 2;
-                local95 = stringStack[stringStackPointer];
-                local101 = stringStack[stringStackPointer + 1];
+                @Pc(95) String local95 = stringStack[stringStackPointer];
+                @Pc(101) String local101 = stringStack[stringStackPointer + 1];
                 intStackPointer -= 2;
-                local109 = intStack[intStackPointer];
-                local115 = intStack[intStackPointer + 1];
+                @Pc(109) int local109 = intStack[intStackPointer];
+                @Pc(115) int local115 = intStack[intStackPointer + 1];
                 if (local101 == null) {
                     local101 = "";
                 }
@@ -4800,27 +4791,27 @@ public final class ScriptRunner {
                 return;
             }
             @Pc(196) ChatLine local196;
-            if (arg0 == 5003) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5003) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local198 = "";
+                @Pc(198) String local198 = "";
                 if (local196 != null && local196.message != null) {
                     local198 = local196.message;
                 }
                 stringStack[stringStackPointer++] = local198;
                 return;
             }
-            if (arg0 == 5004) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5004) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local109 = -1;
+                @Pc(109) int local109 = -1;
                 if (local196 != null) {
                     local109 = local196.type;
                 }
                 intStack[intStackPointer++] = local109;
                 return;
             }
-            if (arg0 == 5005) {
+            if (opcode == 5005) {
                 if (Static726.privateChatMode == null) {
                     intStack[intStackPointer++] = -1;
                     return;
@@ -4830,28 +4821,28 @@ public final class ScriptRunner {
             }
             @Pc(295) ClientMessage local295;
             @Pc(289) ServerConnection local289;
-            if (arg0 == 5006) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5006) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local289 = ConnectionManager.active();
                 local295 = ClientMessage.create(ClientProt.CHAT_SETMODE, local289.cipher);
                 local295.bitPacket.p1(local192);
                 local289.send(local295);
                 return;
             }
-            if (arg0 == 5008) {
-                local95 = stringStack[--stringStackPointer];
-                method6426(local95, arg0);
+            if (opcode == 5008) {
+                @Pc(95) String local95 = stringStack[--stringStackPointer];
+                method6426(local95, opcode);
                 return;
             }
-            if (arg0 == 5009) {
+            if (opcode == 5009) {
                 stringStackPointer -= 2;
-                local95 = stringStack[stringStackPointer];
-                local101 = stringStack[stringStackPointer + 1];
+                @Pc(95) String local95 = stringStack[stringStackPointer];
+                @Pc(101) String local101 = stringStack[stringStackPointer + 1];
                 if (Client.staffModLevel != 0 || (!Static389.underage || Static34.parentalChatConsent) && !Static617.quickChatWorld) {
                     @Pc(360) ServerConnection local360 = ConnectionManager.active();
                     @Pc(366) ClientMessage local366 = ClientMessage.create(ClientProt.MESSAGE_PRIVATE, local360.cipher);
                     local366.bitPacket.p2(0);
-                    local375 = local366.bitPacket.pos;
+                    @Pc(375) int local375 = local366.bitPacket.pos;
                     local366.bitPacket.pjstr(local95);
                     WordPack.encode(local366.bitPacket, local101);
                     local366.bitPacket.psize2(local366.bitPacket.pos - local375);
@@ -4860,37 +4851,37 @@ public final class ScriptRunner {
                 }
                 return;
             }
-            if (arg0 == 5010) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5010) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local198 = "";
+                @Pc(198) String local198 = "";
                 if (local196 != null && local196.name != null) {
                     local198 = local196.name;
                 }
                 stringStack[stringStackPointer++] = local198;
                 return;
             }
-            if (arg0 == 5011) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5011) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local198 = "";
+                @Pc(198) String local198 = "";
                 if (local196 != null && local196.channel != null) {
                     local198 = local196.channel;
                 }
                 stringStack[stringStackPointer++] = local198;
                 return;
             }
-            if (arg0 == 5012) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5012) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local109 = -1;
+                @Pc(109) int local109 = -1;
                 if (local196 != null) {
                     local109 = local196.quickChatId;
                 }
                 intStack[intStackPointer++] = local109;
                 return;
             }
-            if (arg0 == 5015) {
+            if (opcode == 5015) {
                 if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
                     local95 = "";
                 } else {
@@ -4899,35 +4890,35 @@ public final class ScriptRunner {
                 stringStack[stringStackPointer++] = local95;
                 return;
             }
-            if (arg0 == 5016) {
+            if (opcode == 5016) {
                 intStack[intStackPointer++] = Static87.tradeChatFilter;
                 return;
             }
-            if (arg0 == 5017) {
+            if (opcode == 5017) {
                 intStack[intStackPointer++] = Static402.method5578();
                 return;
             }
-            if (arg0 == 5018) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5018) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local109 = 0;
+                @Pc(109) int local109 = 0;
                 if (local196 != null) {
                     local109 = local196.flags;
                 }
                 intStack[intStackPointer++] = local109;
                 return;
             }
-            if (arg0 == 5019) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5019) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local198 = "";
+                @Pc(198) String local198 = "";
                 if (local196 != null && local196.accountName != null) {
                     local198 = local196.accountName;
                 }
                 stringStack[stringStackPointer++] = local198;
                 return;
             }
-            if (arg0 == 5020) {
+            if (opcode == 5020) {
                 if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
                     local95 = "";
                 } else {
@@ -4936,44 +4927,44 @@ public final class ScriptRunner {
                 stringStack[stringStackPointer++] = local95;
                 return;
             }
-            if (arg0 == 5023) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5023) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local109 = -1;
+                @Pc(109) int local109 = -1;
                 if (local196 != null) {
                     local109 = local196.uid;
                 }
                 intStack[intStackPointer++] = local109;
                 return;
             }
-            if (arg0 == 5024) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5024) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local109 = -1;
+                @Pc(109) int local109 = -1;
                 if (local196 != null) {
                     local109 = local196.clock;
                 }
                 intStack[intStackPointer++] = local109;
                 return;
             }
-            if (arg0 == 5025) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5025) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local196 = ChatHistory.get(local192);
-                local198 = "";
+                @Pc(198) String local198 = "";
                 if (local196 != null && local196.displayName != null) {
                     local198 = local196.displayName;
                 }
                 stringStack[stringStackPointer++] = local198;
                 return;
             }
-            if (arg0 == 5050) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5050) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 stringStack[stringStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aString4;
                 return;
             }
             @Pc(793) DoublyLinkedNode_Sub2_Sub3 local793;
-            if (arg0 == 5051) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5051) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local793 = QuickChatCatTypeList.instance.method3234(local192);
                 if (local793.anIntArray93 == null) {
                     intStack[intStackPointer++] = 0;
@@ -4982,17 +4973,17 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = local793.anIntArray93.length;
                 return;
             }
-            if (arg0 == 5052) {
+            if (opcode == 5052) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 @Pc(839) DoublyLinkedNode_Sub2_Sub3 local839 = QuickChatCatTypeList.instance.method3234(local192);
-                local115 = local839.anIntArray93[local834];
+                @Pc(115) int local115 = local839.anIntArray93[local834];
                 intStack[intStackPointer++] = local115;
                 return;
             }
-            if (arg0 == 5053) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5053) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 local793 = QuickChatCatTypeList.instance.method3234(local192);
                 if (local793.anIntArray94 == null) {
                     intStack[intStackPointer++] = 0;
@@ -5001,20 +4992,20 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = local793.anIntArray94.length;
                 return;
             }
-            if (arg0 == 5054) {
+            if (opcode == 5054) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).anIntArray94[local834];
                 return;
             }
-            if (arg0 == 5055) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5055) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 stringStack[stringStackPointer++] = QuickChatPhraseTypeList.instance.get(local192).getText();
                 return;
             }
-            if (arg0 == 5056) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5056) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 @Pc(966) QuickChatPhraseType local966 = QuickChatPhraseTypeList.instance.get(local192);
                 if (local966.autoResponses == null) {
                     intStack[intStackPointer++] = 0;
@@ -5023,25 +5014,25 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = local966.autoResponses.length;
                 return;
             }
-            if (arg0 == 5057) {
+            if (opcode == 5057) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 intStack[intStackPointer++] = QuickChatPhraseTypeList.instance.get(local192).autoResponses[local834];
                 return;
             }
-            if (arg0 == 5058) {
+            if (opcode == 5058) {
                 aQuickChatPhrase_1 = new QuickChatPhrase();
                 aQuickChatPhrase_1.id = intStack[--intStackPointer];
                 aQuickChatPhrase_1.type = QuickChatPhraseTypeList.instance.get(aQuickChatPhrase_1.id);
                 aQuickChatPhrase_1.fillerValues = new int[aQuickChatPhrase_1.type.getDynamicCommandCount()];
                 return;
             }
-            if (arg0 == 5059) {
+            if (opcode == 5059) {
                 local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
-                local109 = local63.bitPacket.pos;
+                @Pc(109) int local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(0);
                 local63.bitPacket.p2(aQuickChatPhrase_1.id);
                 aQuickChatPhrase_1.type.encode(local63.bitPacket, aQuickChatPhrase_1.fillerValues);
@@ -5049,12 +5040,12 @@ public final class ScriptRunner {
                 local57.send(local63);
                 return;
             }
-            if (arg0 == 5060) {
-                local95 = stringStack[--stringStackPointer];
+            if (opcode == 5060) {
+                @Pc(95) String local95 = stringStack[--stringStackPointer];
                 local289 = ConnectionManager.active();
                 local295 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PRIVATE, local289.cipher);
                 local295.bitPacket.p1(0);
-                local115 = local295.bitPacket.pos;
+                @Pc(115) int local115 = local295.bitPacket.pos;
                 local295.bitPacket.pjstr(local95);
                 local295.bitPacket.p2(aQuickChatPhrase_1.id);
                 aQuickChatPhrase_1.type.encode(local295.bitPacket, aQuickChatPhrase_1.fillerValues);
@@ -5062,11 +5053,11 @@ public final class ScriptRunner {
                 local289.send(local295);
                 return;
             }
-            if (arg0 == 5061) {
+            if (opcode == 5061) {
                 local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
-                local109 = local63.bitPacket.pos;
+                @Pc(109) int local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(1);
                 local63.bitPacket.p2(aQuickChatPhrase_1.id);
                 aQuickChatPhrase_1.type.encode(local63.bitPacket, aQuickChatPhrase_1.fillerValues);
@@ -5074,24 +5065,24 @@ public final class ScriptRunner {
                 local57.send(local63);
                 return;
             }
-            if (arg0 == 5062) {
+            if (opcode == 5062) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray2[local834];
                 return;
             }
-            if (arg0 == 5063) {
+            if (opcode == 5063) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).aCharArray3[local834];
                 return;
             }
-            if (arg0 == 5064) {
+            if (opcode == 5064) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 if (local834 == -1) {
                     intStack[intStackPointer++] = -1;
                     return;
@@ -5099,10 +5090,10 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).method1185((char) local834);
                 return;
             }
-            if (arg0 == 5065) {
+            if (opcode == 5065) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 if (local834 == -1) {
                     intStack[intStackPointer++] = -1;
                     return;
@@ -5110,38 +5101,38 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = QuickChatCatTypeList.instance.method3234(local192).method1184((char) local834);
                 return;
             }
-            if (arg0 == 5066) {
-                local192 = intStack[--intStackPointer];
+            if (opcode == 5066) {
+                @Pc(192) int local192 = intStack[--intStackPointer];
                 intStack[intStackPointer++] = QuickChatPhraseTypeList.instance.get(local192).getDynamicCommandCount();
                 return;
             }
-            if (arg0 == 5067) {
+            if (opcode == 5067) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
-                local109 = QuickChatPhraseTypeList.instance.get(local192).getDynamicCommand(local834).id;
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
+                @Pc(109) int local109 = QuickChatPhraseTypeList.instance.get(local192).getDynamicCommand(local834).id;
                 intStack[intStackPointer++] = local109;
                 return;
             }
-            if (arg0 == 5068) {
+            if (opcode == 5068) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 aQuickChatPhrase_1.fillerValues[local192] = local834;
                 return;
             }
-            if (arg0 == 5069) {
+            if (opcode == 5069) {
                 intStackPointer -= 2;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
                 aQuickChatPhrase_1.fillerValues[local192] = local834;
                 return;
             }
-            if (arg0 == 5070) {
+            if (opcode == 5070) {
                 intStackPointer -= 3;
-                local192 = intStack[intStackPointer];
-                local834 = intStack[intStackPointer + 1];
-                local109 = intStack[intStackPointer + 2];
+                @Pc(192) int local192 = intStack[intStackPointer];
+                @Pc(834) int local834 = intStack[intStackPointer + 1];
+                @Pc(109) int local109 = intStack[intStackPointer + 2];
                 @Pc(1526) QuickChatPhraseType local1526 = QuickChatPhraseTypeList.instance.get(local192);
                 if (local1526.getDynamicCommand(local834).id != 0) {
                     throw new RuntimeException("bad command");
@@ -5149,14 +5140,14 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = local1526.getDynamicCommandParam(local834, local109);
                 return;
             }
-            if (arg0 == 5071) {
-                local95 = stringStack[--stringStackPointer];
-                local1578 = intStack[--intStackPointer] == 1;
+            if (opcode == 5071) {
+                @Pc(95) String local95 = stringStack[--stringStackPointer];
+                @Pc(1578) boolean local1578 = intStack[--intStackPointer] == 1;
                 Static494.method6599(local95, local1578);
                 intStack[intStackPointer++] = ObjFinder.resultCount;
                 return;
             }
-            if (arg0 == 5072) {
+            if (opcode == 5072) {
                 if (ObjFinder.results != null && ObjFinder.pointer < ObjFinder.resultCount) {
                     intStack[intStackPointer++] = ObjFinder.results[ObjFinder.pointer++] & 0xFFFF;
                     return;
@@ -5164,15 +5155,15 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = -1;
                 return;
             }
-            if (arg0 == 5073) {
+            if (opcode == 5073) {
                 ObjFinder.pointer = 0;
                 return;
             }
-            if (arg0 == 5074) {
+            if (opcode == 5074) {
                 local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
-                local109 = local63.bitPacket.pos;
+                @Pc(109) int local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(2);
                 local63.bitPacket.p2(aQuickChatPhrase_1.id);
                 aQuickChatPhrase_1.type.encode(local63.bitPacket, aQuickChatPhrase_1.fillerValues);
@@ -5180,11 +5171,11 @@ public final class ScriptRunner {
                 local57.send(local63);
                 return;
             }
-            if (arg0 == 5075) {
+            if (opcode == 5075) {
                 local57 = ConnectionManager.active();
                 local63 = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, local57.cipher);
                 local63.bitPacket.p1(0);
-                local109 = local63.bitPacket.pos;
+                @Pc(109) int local109 = local63.bitPacket.pos;
                 local63.bitPacket.p1(3);
                 local63.bitPacket.p2(aQuickChatPhrase_1.id);
                 aQuickChatPhrase_1.type.encode(local63.bitPacket, aQuickChatPhrase_1.fillerValues);
@@ -5192,8 +5183,8 @@ public final class ScriptRunner {
                 local57.send(local63);
                 return;
             }
-        } else if (arg0 < 5200) {
-            if (arg0 == 5100) {
+        } else if (opcode < 5200) {
+            if (opcode == 5100) {
                 if (KeyboardMonitor.instance.isPressed(86)) {
                     intStack[intStackPointer++] = 1;
                     return;
@@ -5201,7 +5192,7 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = 0;
                 return;
             }
-            if (arg0 == 5101) {
+            if (opcode == 5101) {
                 if (KeyboardMonitor.instance.isPressed(82)) {
                     intStack[intStackPointer++] = 1;
                     return;
@@ -5209,7 +5200,7 @@ public final class ScriptRunner {
                 intStack[intStackPointer++] = 0;
                 return;
             }
-            if (arg0 == 5102) {
+            if (opcode == 5102) {
                 if (KeyboardMonitor.instance.isPressed(81)) {
                     intStack[intStackPointer++] = 1;
                     return;
@@ -5219,22 +5210,22 @@ public final class ScriptRunner {
             }
         } else {
             @Pc(2331) boolean local2331;
-            if (arg0 < 5300) {
-                if (arg0 == 5200) {
+            if (opcode < 5300) {
+                if (opcode == 5200) {
                     WorldMap.setZoomPercentage(intStack[--intStackPointer]);
                     return;
                 }
-                if (arg0 == 5201) {
+                if (opcode == 5201) {
                     intStack[intStackPointer++] = WorldMap.getZoom();
                     return;
                 }
-                if (arg0 == 5205) {
+                if (opcode == 5205) {
                     WorldMap.method1293(intStack[--intStackPointer], false, -1, -1, -11493);
                     return;
                 }
                 @Pc(1908) WorldMapArea local1908;
-                if (arg0 == 5206) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5206) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.method5078(local192 >> 14 & 0x3FFF, local192 & 0x3FFF);
                     if (local1908 == null) {
                         intStack[intStackPointer++] = -1;
@@ -5244,7 +5235,7 @@ public final class ScriptRunner {
                     return;
                 }
                 @Pc(1942) WorldMapArea local1942;
-                if (arg0 == 5207) {
+                if (opcode == 5207) {
                     local1942 = WorldMap.getArea(intStack[--intStackPointer]);
                     if (local1942 != null && local1942.aString49 != null) {
                         stringStack[stringStackPointer++] = local1942.aString49;
@@ -5253,18 +5244,18 @@ public final class ScriptRunner {
                     stringStack[stringStackPointer++] = "";
                     return;
                 }
-                if (arg0 == 5208) {
+                if (opcode == 5208) {
                     intStack[intStackPointer++] = WorldMap.width;
                     intStack[intStackPointer++] = WorldMap.height;
                     return;
                 }
-                if (arg0 == 5209) {
+                if (opcode == 5209) {
                     intStack[intStackPointer++] = WorldMap.anInt2809 + WorldMap.areaX;
                     intStack[intStackPointer++] = WorldMap.anInt9389 + WorldMap.areaY;
                     return;
                 }
-                if (arg0 == 5210) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5210) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea(local192);
                     if (local1908 == null) {
                         intStack[intStackPointer++] = 0;
@@ -5275,8 +5266,8 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = local1908.origin & 0x3FFF;
                     return;
                 }
-                if (arg0 == 5211) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5211) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea(local192);
                     if (local1908 == null) {
                         intStack[intStackPointer++] = 0;
@@ -5288,7 +5279,7 @@ public final class ScriptRunner {
                     return;
                 }
                 @Pc(2139) MapElementListEntry local2139;
-                if (arg0 == 5212) {
+                if (opcode == 5212) {
                     local2139 = Static122.method2207();
                     if (local2139 == null) {
                         intStack[intStackPointer++] = -1;
@@ -5296,11 +5287,11 @@ public final class ScriptRunner {
                         return;
                     }
                     intStack[intStackPointer++] = local2139.id;
-                    local834 = local2139.level << 28 | local2139.x + WorldMap.areaX << 14 | local2139.y + WorldMap.areaY;
+                    @Pc(834) int local834 = local2139.level << 28 | local2139.x + WorldMap.areaX << 14 | local2139.y + WorldMap.areaY;
                     intStack[intStackPointer++] = local834;
                     return;
                 }
-                if (arg0 == 5213) {
+                if (opcode == 5213) {
                     local2139 = Static364.method5248();
                     if (local2139 == null) {
                         intStack[intStackPointer++] = -1;
@@ -5308,13 +5299,13 @@ public final class ScriptRunner {
                         return;
                     }
                     intStack[intStackPointer++] = local2139.id;
-                    local834 = local2139.level << 28 | local2139.x + WorldMap.areaX << 14 | local2139.y + WorldMap.areaY;
+                    @Pc(834) int local834 = local2139.level << 28 | local2139.x + WorldMap.areaX << 14 | local2139.y + WorldMap.areaY;
                     intStack[intStackPointer++] = local834;
                     return;
                 }
                 @Pc(2289) boolean local2289;
-                if (arg0 == 5214) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5214) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea();
                     if (local1908 != null) {
                         local2289 = local1908.method4088(areaCoords, local192 & 0x3FFF, local192 >> 28 & 0x3, local192 >> 14 & 0x3FFF);
@@ -5324,10 +5315,10 @@ public final class ScriptRunner {
                     }
                     return;
                 }
-                if (arg0 == 5215) {
+                if (opcode == 5215) {
                     intStackPointer -= 2;
-                    local192 = intStack[intStackPointer];
-                    local834 = intStack[intStackPointer + 1];
+                    @Pc(192) int local192 = intStack[intStackPointer];
+                    @Pc(834) int local834 = intStack[intStackPointer + 1];
                     @Pc(2329) Queue local2329 = WorldMap.method5076(local192 >> 14 & 0x3FFF, local192 & 0x3FFF);
                     local2331 = false;
                     for (@Pc(2336) WorldMapArea local2336 = (WorldMapArea) local2329.first(); local2336 != null; local2336 = (WorldMapArea) local2329.next()) {
@@ -5343,8 +5334,8 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = 0;
                     return;
                 }
-                if (arg0 == 5218) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5218) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea(local192);
                     if (local1908 == null) {
                         intStack[intStackPointer++] = -1;
@@ -5353,19 +5344,19 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = local1908.zoom;
                     return;
                 }
-                if (arg0 == 5220) {
+                if (opcode == 5220) {
                     intStack[intStackPointer++] = WorldMap.loadingPercent == 100 ? 1 : 0;
                     return;
                 }
-                if (arg0 == 5221) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5221) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     Static106.method2048(local192 >> 14 & 0x3FFF, local192 & 0x3FFF);
                     return;
                 }
-                if (arg0 == 5222) {
+                if (opcode == 5222) {
                     local1942 = WorldMap.getArea();
                     if (local1942 != null) {
-                        local1578 = local1942.method4091(WorldMap.anInt9389 + WorldMap.areaY, WorldMap.anInt2809 + WorldMap.areaX, areaCoords);
+                        @Pc(1578) boolean local1578 = local1942.method4091(WorldMap.anInt9389 + WorldMap.areaY, WorldMap.anInt2809 + WorldMap.areaX, areaCoords);
                         if (local1578) {
                             intStack[intStackPointer++] = areaCoords[1];
                             intStack[intStackPointer++] = areaCoords[2];
@@ -5379,15 +5370,15 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = -1;
                     return;
                 }
-                if (arg0 == 5223) {
+                if (opcode == 5223) {
                     intStackPointer -= 2;
-                    local192 = intStack[intStackPointer];
-                    local834 = intStack[intStackPointer + 1];
+                    @Pc(192) int local192 = intStack[intStackPointer];
+                    @Pc(834) int local834 = intStack[intStackPointer + 1];
                     WorldMap.method1293(local192, false, local834 & 0x3FFF, local834 >> 14 & 0x3FFF, -11493);
                     return;
                 }
-                if (arg0 == 5224) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5224) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea();
                     if (local1908 != null) {
                         local2289 = local1908.method4088(areaCoords, local192 & 0x3FFF, local192 >> 28 & 0x3, local192 >> 14 & 0x3FFF);
@@ -5404,8 +5395,8 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = -1;
                     return;
                 }
-                if (arg0 == 5225) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5225) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     local1908 = WorldMap.getArea();
                     if (local1908 != null) {
                         local2289 = local1908.method4091(local192 & 0x3FFF, local192 >> 14 & 0x3FFF, areaCoords);
@@ -5422,35 +5413,35 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = -1;
                     return;
                 }
-                if (arg0 == 5226) {
+                if (opcode == 5226) {
                     Static688.method8975(intStack[--intStackPointer]);
                     return;
                 }
-                if (arg0 == 5227) {
+                if (opcode == 5227) {
                     intStackPointer -= 2;
-                    local192 = intStack[intStackPointer];
-                    local834 = intStack[intStackPointer + 1];
+                    @Pc(192) int local192 = intStack[intStackPointer];
+                    @Pc(834) int local834 = intStack[intStackPointer + 1];
                     WorldMap.method1293(local192, true, local834 & 0x3FFF, local834 >> 14 & 0x3FFF, -11493);
                     return;
                 }
-                if (arg0 == 5228) {
+                if (opcode == 5228) {
                     Static178.aBoolean251 = intStack[--intStackPointer] == 1;
                     return;
                 }
-                if (arg0 == 5229) {
+                if (opcode == 5229) {
                     intStack[intStackPointer++] = Static178.aBoolean251 ? 1 : 0;
                     return;
                 }
-                if (arg0 == 5230) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5230) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     Static170.method2653(local192);
                     return;
                 }
                 @Pc(2867) Node local2867;
-                if (arg0 == 5231) {
+                if (opcode == 5231) {
                     intStackPointer -= 2;
-                    local192 = intStack[intStackPointer];
-                    local1578 = intStack[intStackPointer + 1] == 1;
+                    @Pc(192) int local192 = intStack[intStackPointer];
+                    @Pc(1578) boolean local1578 = intStack[intStackPointer + 1] == 1;
                     if (Static232.A_HASH_TABLE___18 != null) {
                         local2867 = Static232.A_HASH_TABLE___18.get(local192);
                         if (local2867 != null && !local1578) {
@@ -5465,8 +5456,8 @@ public final class ScriptRunner {
                     return;
                 }
                 @Pc(2914) Node local2914;
-                if (arg0 == 5232) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5232) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     if (Static232.A_HASH_TABLE___18 != null) {
                         local2914 = Static232.A_HASH_TABLE___18.get(local192);
                         intStack[intStackPointer++] = local2914 == null ? 0 : 1;
@@ -5475,10 +5466,10 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = 0;
                     return;
                 }
-                if (arg0 == 5233) {
+                if (opcode == 5233) {
                     intStackPointer -= 2;
-                    local192 = intStack[intStackPointer];
-                    local1578 = intStack[intStackPointer + 1] == 1;
+                    @Pc(192) int local192 = intStack[intStackPointer];
+                    @Pc(1578) boolean local1578 = intStack[intStackPointer + 1] == 1;
                     if (Static268.A_HASH_TABLE___22 != null) {
                         local2867 = Static268.A_HASH_TABLE___22.get(local192);
                         if (local2867 != null && !local1578) {
@@ -5492,8 +5483,8 @@ public final class ScriptRunner {
                     }
                     return;
                 }
-                if (arg0 == 5234) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5234) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     if (Static268.A_HASH_TABLE___22 != null) {
                         local2914 = Static268.A_HASH_TABLE___22.get(local192);
                         intStack[intStackPointer++] = local2914 == null ? 0 : 1;
@@ -5502,16 +5493,16 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = 0;
                     return;
                 }
-                if (arg0 == 5235) {
+                if (opcode == 5235) {
                     intStack[intStackPointer++] = WorldMap.area == null ? -1 : WorldMap.area.id;
                     return;
                 }
-                if (arg0 == 5236) {
+                if (opcode == 5236) {
                     intStackPointer -= 2;
-                    local192 = intStack[intStackPointer];
-                    local834 = intStack[intStackPointer + 1];
+                    @Pc(192) int local192 = intStack[intStackPointer];
+                    @Pc(834) int local834 = intStack[intStackPointer + 1];
                     local109 = local834 >> 14 & 0x3FFF;
-                    local115 = local834 & 0x3FFF;
+                    @Pc(115) int local115 = local834 & 0x3FFF;
                     local375 = Static687.method8957(local192, local115, local109);
                     if (local375 < 0) {
                         intStack[intStackPointer++] = -1;
@@ -5520,40 +5511,40 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = local375;
                     return;
                 }
-                if (arg0 == 5237) {
+                if (opcode == 5237) {
                     MainLogicManager.forceMapRebuild();
                     return;
                 }
-            } else if (arg0 < 5400) {
-                if (arg0 == 5300) {
+            } else if (opcode < 5400) {
+                if (opcode == 5300) {
                     intStackPointer -= 2;
-                    local192 = intStack[intStackPointer];
-                    local834 = intStack[intStackPointer + 1];
+                    @Pc(192) int local192 = intStack[intStackPointer];
+                    @Pc(834) int local834 = intStack[intStackPointer + 1];
                     InterfaceManager.changeWindowMode(3, local192, false, local834);
                     intStack[intStackPointer++] = GameShell.fsframe == null ? 0 : 1;
                     return;
                 }
-                if (arg0 == 5301) {
+                if (opcode == 5301) {
                     if (GameShell.fsframe != null) {
                         InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                     }
                     return;
                 }
-                if (arg0 == 5302) {
+                if (opcode == 5302) {
                     @Pc(3186) DisplayProperties[] local3186 = Static587.method7710();
                     intStack[intStackPointer++] = local3186.length;
                     return;
                 }
-                if (arg0 == 5303) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5303) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     @Pc(3210) DisplayProperties[] local3210 = Static587.method7710();
                     intStack[intStackPointer++] = local3210[local192].width;
                     intStack[intStackPointer++] = local3210[local192].height;
                     return;
                 }
-                if (arg0 == 5305) {
-                    local192 = GameShell.fullscreenWidth;
-                    local834 = GameShell.fullscreenHeight;
+                if (opcode == 5305) {
+                    @Pc(192) int local192 = GameShell.fullscreenWidth;
+                    @Pc(834) int local834 = GameShell.fullscreenHeight;
                     local109 = -1;
                     @Pc(3245) DisplayProperties[] local3245 = Static587.method7710();
                     for (local375 = 0; local375 < local3245.length; local375++) {
@@ -5566,24 +5557,24 @@ public final class ScriptRunner {
                     intStack[intStackPointer++] = local109;
                     return;
                 }
-                if (arg0 == 5306) {
+                if (opcode == 5306) {
                     intStack[intStackPointer++] = InterfaceManager.getWindowMode();
                     return;
                 }
-                if (arg0 == 5307) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5307) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     if (local192 >= 1 && local192 <= 2) {
                         InterfaceManager.changeWindowMode(local192, -1, false, -1);
                         return;
                     }
                     return;
                 }
-                if (arg0 == 5308) {
+                if (opcode == 5308) {
                     intStack[intStackPointer++] = ClientOptions.instance.screenSizeDefault.getValue();
                     return;
                 }
-                if (arg0 == 5309) {
-                    local192 = intStack[--intStackPointer];
+                if (opcode == 5309) {
+                    @Pc(192) int local192 = intStack[--intStackPointer];
                     if (local192 >= 1 && local192 <= 2) {
                         ClientOptions.instance.update(local192, ClientOptions.instance.screenSizeDefault);
                         ClientOptions.instance.update(local192, ClientOptions.instance.screenSize);
@@ -5594,12 +5585,12 @@ public final class ScriptRunner {
                 }
             } else {
                 @Pc(3561) int local3561;
-                if (arg0 < 5500) {
-                    if (arg0 == 5400) {
+                if (opcode < 5500) {
+                    if (opcode == 5400) {
                         stringStackPointer -= 2;
-                        local95 = stringStack[stringStackPointer];
-                        local101 = stringStack[stringStackPointer + 1];
-                        local109 = intStack[--intStackPointer];
+                        @Pc(95) String local95 = stringStack[stringStackPointer];
+                        @Pc(101) String local101 = stringStack[stringStackPointer + 1];
+                        @Pc(109) int local109 = intStack[--intStackPointer];
                         @Pc(3411) ServerConnection local3411 = ConnectionManager.active();
                         @Pc(3417) ClientMessage local3417 = ClientMessage.create(ClientProt.URL_REQUEST, local3411.cipher);
                         local3417.bitPacket.p1(Packet.pjstrlen(local95) + Packet.pjstrlen(local101) + 1);
@@ -5609,7 +5600,7 @@ public final class ScriptRunner {
                         local3411.send(local3417);
                         return;
                     }
-                    if (arg0 == 5401) {
+                    if (opcode == 5401) {
                         intStackPointer -= 2;
                         Client.clientpalette[intStack[intStackPointer]] = (short) ColourUtils.rgbToHsl(intStack[intStackPointer + 1]);
                         ObjTypeList.instance.modelCacheReset();
@@ -5618,22 +5609,22 @@ public final class ScriptRunner {
                         InterfaceManager.redrawAll();
                         return;
                     }
-                    if (arg0 == 5405) {
+                    if (opcode == 5405) {
                         intStackPointer -= 2;
-                        local192 = intStack[intStackPointer];
-                        local834 = intStack[intStackPointer + 1];
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(834) int local834 = intStack[intStackPointer + 1];
                         if (local192 >= 0 && local192 < 2) {
                             Camera.spline[local192] = new int[local834 << 1][4];
                         }
                         return;
                     }
-                    if (arg0 == 5406) {
+                    if (opcode == 5406) {
                         intStackPointer -= 7;
-                        local192 = intStack[intStackPointer];
-                        local834 = intStack[intStackPointer + 1] << 1;
-                        local109 = intStack[intStackPointer + 2];
-                        local115 = intStack[intStackPointer + 3];
-                        local375 = intStack[intStackPointer + 4];
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(834) int local834 = intStack[intStackPointer + 1] << 1;
+                        @Pc(109) int local109 = intStack[intStackPointer + 2];
+                        @Pc(115) int local115 = intStack[intStackPointer + 3];
+                        @Pc(375) int local375 = intStack[intStackPointer + 4];
                         local3561 = intStack[intStackPointer + 5];
                         @Pc(3567) int local3567 = intStack[intStackPointer + 6];
                         if (local192 >= 0 && local192 < 2 && Camera.spline[local192] != null && local834 >= 0 && local834 < Camera.spline[local192].length) {
@@ -5642,12 +5633,12 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 5407) {
-                        local192 = Camera.spline[intStack[--intStackPointer]].length >> 1;
+                    if (opcode == 5407) {
+                        @Pc(192) int local192 = Camera.spline[intStack[--intStackPointer]].length >> 1;
                         intStack[intStackPointer++] = local192;
                         return;
                     }
-                    if (arg0 == 5411) {
+                    if (opcode == 5411) {
                         if (GameShell.fsframe != null) {
                             InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                         }
@@ -5656,12 +5647,12 @@ public final class ScriptRunner {
                             System.exit(0);
                             return;
                         }
-                        local95 = Client.quitUrl == null ? Static659.method8605() : Client.quitUrl;
+                        @Pc(95) String local95 = Client.quitUrl == null ? Static659.method8605() : Client.quitUrl;
                         Static664.openjs(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local95, false, GameShell.signLink);
                         return;
                     }
-                    if (arg0 == 5419) {
-                        local95 = "";
+                    if (opcode == 5419) {
+                        @Pc(95) String local95 = "";
                         if (Static439.hostnameResource != null) {
                             if (Static439.hostnameResource.result == null) {
                                 local95 = Static419.method5756(Static439.hostnameResource.intData1);
@@ -5672,25 +5663,25 @@ public final class ScriptRunner {
                         stringStack[stringStackPointer++] = local95;
                         return;
                     }
-                    if (arg0 == 5420) {
+                    if (opcode == 5420) {
                         intStack[intStackPointer++] = GameShell.signLink.signed ? 0 : 1;
                         return;
                     }
-                    if (arg0 == 5421) {
+                    if (opcode == 5421) {
                         if (GameShell.fsframe != null) {
                             InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
                         }
-                        local95 = stringStack[--stringStackPointer];
-                        local1578 = intStack[--intStackPointer] == 1;
-                        local198 = Static659.method8605() + local95;
+                        @Pc(95) String local95 = stringStack[--stringStackPointer];
+                        @Pc(1578) boolean local1578 = intStack[--intStackPointer] == 1;
+                        @Pc(198) String local198 = Static659.method8605() + local95;
                         Static664.openjs(ClientOptions.instance.toolkit.getValue() == ToolkitType.GL, local198, local1578, GameShell.signLink);
                         return;
                     }
-                    if (arg0 == 5422) {
+                    if (opcode == 5422) {
                         stringStackPointer -= 2;
-                        local95 = stringStack[stringStackPointer];
-                        local101 = stringStack[stringStackPointer + 1];
-                        local109 = intStack[--intStackPointer];
+                        @Pc(95) String local95 = stringStack[stringStackPointer];
+                        @Pc(101) String local101 = stringStack[stringStackPointer + 1];
+                        @Pc(109) int local109 = intStack[--intStackPointer];
                         if (local95.length() > 0) {
                             if (Static685.prefixTitles == null) {
                                 Static685.prefixTitles = new String[Static390.anIntArray476[Client.modeGame.id]];
@@ -5705,11 +5696,11 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 5423) {
+                    if (opcode == 5423) {
                         System.out.println(stringStack[--stringStackPointer]);
                         return;
                     }
-                    if (arg0 == 5424) {
+                    if (opcode == 5424) {
                         intStackPointer -= 11;
                         MiniMenu.topColour = intStack[intStackPointer];
                         MiniMenu.topOpacity = intStack[intStackPointer + 1];
@@ -5738,33 +5729,33 @@ public final class ScriptRunner {
                         MiniMenu.useSprites = true;
                         return;
                     }
-                    if (arg0 == 5425) {
+                    if (opcode == 5425) {
                         MiniMenu.resetSprites();
                         MiniMenu.useSprites = false;
                         return;
                     }
-                    if (arg0 == 5426) {
+                    if (opcode == 5426) {
                         intStackPointer -= 2;
                         Cursor.dflt = intStack[intStackPointer];
                         Cursor.interaction = intStack[intStackPointer + 1];
                         return;
                     }
-                    if (arg0 == 5427) {
+                    if (opcode == 5427) {
                         intStackPointer -= 2;
                         return;
                     }
-                    if (arg0 == 5428) {
+                    if (opcode == 5428) {
                         intStackPointer -= 2;
-                        local192 = intStack[intStackPointer];
-                        local834 = intStack[intStackPointer + 1];
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(834) int local834 = intStack[intStackPointer + 1];
                         intStack[intStackPointer++] = Static251.method3549(local192, local834) ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 5429) {
+                    if (opcode == 5429) {
                         debugconsole.executeComand(false, false, stringStack[--stringStackPointer]);
                         return;
                     }
-                    if (arg0 == 5430) {
+                    if (opcode == 5430) {
                         try {
                             JavaScript.call("accountcreated", GameShell.loaderApplet);
                             return;
@@ -5772,7 +5763,7 @@ public final class ScriptRunner {
                             return;
                         }
                     }
-                    if (arg0 == 5431) {
+                    if (opcode == 5431) {
                         try {
                             JavaScript.call("accountcreatestarted", GameShell.loaderApplet);
                             return;
@@ -5780,7 +5771,7 @@ public final class ScriptRunner {
                             return;
                         }
                     }
-                    if (arg0 == 5432) {
+                    if (opcode == 5432) {
                         local95 = "";
                         if (client.clipboard != null) {
                             @Pc(4173) Transferable local4173 = client.clipboard.getContents(null);
@@ -5797,15 +5788,15 @@ public final class ScriptRunner {
                         stringStack[stringStackPointer++] = local95;
                         return;
                     }
-                    if (arg0 == 5433) {
+                    if (opcode == 5433) {
                         MiniMenu.collapseAtCount = intStack[--intStackPointer];
                         return;
                     }
-                    if (arg0 == 5435) {
+                    if (opcode == 5435) {
                         intStack[intStackPointer++] = Client.js ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 5436) {
+                    if (opcode == 5436) {
                         if (SystemInfo.instance.javaRelease < 6) {
                             intStack[intStackPointer++] = 0;
                             return;
@@ -5817,33 +5808,33 @@ public final class ScriptRunner {
                         intStack[intStackPointer++] = 1;
                         return;
                     }
-                } else if (arg0 < 5600) {
-                    if (arg0 == 5500) {
+                } else if (opcode < 5600) {
+                    if (opcode == 5500) {
                         intStackPointer -= 4;
-                        local192 = intStack[intStackPointer];
-                        local834 = intStack[intStackPointer + 1];
-                        local109 = intStack[intStackPointer + 2];
-                        local115 = intStack[intStackPointer + 3];
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(834) int local834 = intStack[intStackPointer + 1];
+                        @Pc(109) int local109 = intStack[intStackPointer + 2];
+                        @Pc(115) int local115 = intStack[intStackPointer + 3];
                         Camera.moveTo((local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, local834 << 2, (local192 & 0x3FFF) - WorldMap.areaBaseZ, local109, local115, false);
                         return;
                     }
-                    if (arg0 == 5501) {
+                    if (opcode == 5501) {
                         intStackPointer -= 4;
-                        local192 = intStack[intStackPointer];
-                        local834 = intStack[intStackPointer + 1];
-                        local109 = intStack[intStackPointer + 2];
-                        local115 = intStack[intStackPointer + 3];
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(834) int local834 = intStack[intStackPointer + 1];
+                        @Pc(109) int local109 = intStack[intStackPointer + 2];
+                        @Pc(115) int local115 = intStack[intStackPointer + 3];
                         Camera.lookAt((local192 >> 14 & 0x3FFF) - WorldMap.areaBaseX, local834 << 2, (local192 & 0x3FFF) - WorldMap.areaBaseZ, local109, local115);
                         return;
                     }
-                    if (arg0 == 5502) {
+                    if (opcode == 5502) {
                         intStackPointer -= 6;
-                        local192 = intStack[intStackPointer];
+                        @Pc(192) int local192 = intStack[intStackPointer];
                         if (local192 >= 2) {
                             throw new RuntimeException();
                         }
                         Camera.posSpline = local192;
-                        local834 = intStack[intStackPointer + 1];
+                        @Pc(834) int local834 = intStack[intStackPointer + 1];
                         if (local834 + 1 >= Camera.spline[Camera.posSpline].length >> 1) {
                             throw new RuntimeException();
                         }
@@ -5851,12 +5842,12 @@ public final class ScriptRunner {
                         Camera.splineRate = 0;
                         Camera.splineStart = intStack[intStackPointer + 2];
                         Camera.splineEnd = intStack[intStackPointer + 3];
-                        local109 = intStack[intStackPointer + 4];
+                        @Pc(109) int local109 = intStack[intStackPointer + 4];
                         if (local109 >= 2) {
                             throw new RuntimeException();
                         }
                         Camera.lookSpline = local109;
-                        local115 = intStack[intStackPointer + 5];
+                        @Pc(115) int local115 = intStack[intStackPointer + 5];
                         if (local115 + 1 >= Camera.spline[Camera.lookSpline].length >> 1) {
                             throw new RuntimeException();
                         }
@@ -5866,42 +5857,42 @@ public final class ScriptRunner {
                         Camera.anInt10376 = -1;
                         return;
                     }
-                    if (arg0 == 5503) {
+                    if (opcode == 5503) {
                         Camera.reset();
                         return;
                     }
-                    if (arg0 == 5504) {
+                    if (opcode == 5504) {
                         intStackPointer -= 2;
                         Camera.forceAngle(intStack[intStackPointer], intStack[intStackPointer + 1], 0);
                         return;
                     }
-                    if (arg0 == 5505) {
+                    if (opcode == 5505) {
                         intStack[intStackPointer++] = (int) Camera.playerCameraPitch >> 3;
                         return;
                     }
-                    if (arg0 == 5506) {
+                    if (opcode == 5506) {
                         intStack[intStackPointer++] = (int) Camera.playerCameraYaw >> 3;
                         return;
                     }
-                    if (arg0 == 5507) {
+                    if (opcode == 5507) {
                         Static599.method7835();
                         return;
                     }
-                    if (arg0 == 5508) {
+                    if (opcode == 5508) {
                         Camera.method6596();
                         return;
                     }
-                    if (arg0 == 5509) {
+                    if (opcode == 5509) {
                         Static254.method3606();
                         return;
                     }
-                    if (arg0 == 5510) {
+                    if (opcode == 5510) {
                         Static470.method6386();
                         return;
                     }
-                    if (arg0 == 5511) {
-                        local192 = intStack[--intStackPointer];
-                        local834 = local192 >> 14 & 0x3FFF;
+                    if (opcode == 5511) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
+                        @Pc(834) int local834 = local192 >> 14 & 0x3FFF;
                         local109 = local192 & 0x3FFF;
                         local834 -= WorldMap.areaBaseX;
                         if (local834 < 0) {
@@ -5922,23 +5913,23 @@ public final class ScriptRunner {
                         Camera.anInt10376 = -1;
                         return;
                     }
-                    if (arg0 == 5512) {
+                    if (opcode == 5512) {
                         Camera.smoothReset();
                         return;
                     }
-                    if (arg0 == 5514) {
+                    if (opcode == 5514) {
                         OrthoMode.zoom = intStack[--intStackPointer];
                         return;
                     }
-                    if (arg0 == 5516) {
+                    if (opcode == 5516) {
                         intStack[intStackPointer++] = OrthoMode.zoom;
                         return;
                     }
-                    if (arg0 == 5517) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 5517) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         if (local192 == -1) {
-                            local834 = local192 >> 14 & 0x3FFF;
-                            local109 = local192 & 0x3FFF;
+                            @Pc(834) int local834 = local192 >> 14 & 0x3FFF;
+                            @Pc(109) int local109 = local192 & 0x3FFF;
                             local834 -= WorldMap.areaBaseX;
                             if (local834 < 0) {
                                 local834 = 0;
@@ -5959,30 +5950,30 @@ public final class ScriptRunner {
                         Camera.anInt10383 = -1;
                         return;
                     }
-                    if (arg0 == 5547) {
+                    if (opcode == 5547) {
                         intStack[intStackPointer++] = Camera.mode == CameraMode.MODE_DEFAULT ? 1 : 0;
                         return;
                     }
-                } else if (arg0 < 5700) {
-                    if (arg0 == 5600) {
+                } else if (opcode < 5700) {
+                    if (opcode == 5600) {
                         stringStackPointer -= 2;
-                        local95 = stringStack[stringStackPointer];
-                        local101 = stringStack[stringStackPointer + 1];
-                        local109 = intStack[--intStackPointer];
+                        @Pc(95) String local95 = stringStack[stringStackPointer];
+                        @Pc(101) String local101 = stringStack[stringStackPointer + 1];
+                        @Pc(109) int local109 = intStack[--intStackPointer];
                         LoginManager.requestLoginWithUsername(local109, local101, local95);
                         return;
                     }
-                    if (arg0 == 5601) {
+                    if (opcode == 5601) {
                         LoginManager.videoAdvertisementFinished();
                         return;
                     }
-                    if (arg0 == 5602) {
+                    if (opcode == 5602) {
                         if (!LoginManager.inProgress()) {
                             LoginManager.reset();
                         }
                         return;
                     }
-                    if (arg0 == 5604) {
+                    if (opcode == 5604) {
                         stringStackPointer--;
                         if (MainLogicManager.step != 3) {
                             return;
@@ -5993,7 +5984,7 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 5605) {
+                    if (opcode == 5605) {
                         stringStackPointer -= 2;
                         intStackPointer -= 2;
                         if (MainLogicManager.step != 3) {
@@ -6005,73 +5996,73 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 5606) {
+                    if (opcode == 5606) {
                         if (LobbyManager.step == 0) {
                             LobbyManager.response = LobbyManager.LOBBY_RESPONSE_DEFAULT;
                         }
                         return;
                     }
-                    if (arg0 == 5607) {
+                    if (opcode == 5607) {
                         intStack[intStackPointer++] = LoginManager.gameLoginResponse;
                         return;
                     }
-                    if (arg0 == 5608) {
+                    if (opcode == 5608) {
                         intStack[intStackPointer++] = LoginManager.profileTransferTicks;
                         return;
                     }
-                    if (arg0 == 5609) {
+                    if (opcode == 5609) {
                         intStack[intStackPointer++] = LobbyManager.response;
                         return;
                     }
-                    if (arg0 == 5611) {
+                    if (opcode == 5611) {
                         intStack[intStackPointer++] = LoginManager.disallowResult;
                         return;
                     }
-                    if (arg0 == 5612) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 5612) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         LoginManager.loginToGame(local192);
                         return;
                     }
-                    if (arg0 == 5613) {
+                    if (opcode == 5613) {
                         intStack[intStackPointer++] = LoginManager.gameLoginResponse;
                         return;
                     }
-                    if (arg0 == 5615) {
+                    if (opcode == 5615) {
                         stringStackPointer -= 2;
-                        local95 = stringStack[stringStackPointer];
-                        local101 = stringStack[stringStackPointer + 1];
+                        @Pc(95) String local95 = stringStack[stringStackPointer];
+                        @Pc(101) String local101 = stringStack[stringStackPointer + 1];
                         Static218.method3188(local101, local95);
                         return;
                     }
-                    if (arg0 == 5616) {
+                    if (opcode == 5616) {
                         LoginManager.logout(false);
                         return;
                     }
-                    if (arg0 == 5617) {
+                    if (opcode == 5617) {
                         intStack[intStackPointer++] = LoginManager.lobbyLoginResponse;
                         return;
                     }
-                    if (arg0 == 5618) {
+                    if (opcode == 5618) {
                         intStackPointer--;
                         return;
                     }
-                    if (arg0 == 5619) {
+                    if (opcode == 5619) {
                         intStackPointer--;
                         return;
                     }
-                    if (arg0 == 5620) {
+                    if (opcode == 5620) {
                         intStack[intStackPointer++] = 0;
                         return;
                     }
-                    if (arg0 == 5621) {
+                    if (opcode == 5621) {
                         stringStackPointer -= 2;
                         intStackPointer -= 2;
                         return;
                     }
-                    if (arg0 == 5622) {
+                    if (opcode == 5622) {
                         return;
                     }
-                    if (arg0 == 5623) {
+                    if (opcode == 5623) {
                         if (Client.ssKey != null) {
                             intStack[intStackPointer++] = 1;
                             return;
@@ -6079,21 +6070,21 @@ public final class ScriptRunner {
                         intStack[intStackPointer++] = 0;
                         return;
                     }
-                    if (arg0 == 5624) {
+                    if (opcode == 5624) {
                         intStack[intStackPointer++] = (int) (Client.userFlow >> 32);
                         intStack[intStackPointer++] = (int) (Client.userFlow & 0xFFFFFFFFFFFFFFFFL);
                         return;
                     }
-                    if (arg0 == 5625) {
+                    if (opcode == 5625) {
                         intStack[intStackPointer++] = Client.under13 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 5626) {
+                    if (opcode == 5626) {
                         Client.under13 = true;
                         Static358.setUnderageCookie();
                         return;
                     }
-                    if (arg0 == 5627) {
+                    if (opcode == 5627) {
                         intStack[intStackPointer++] = LoginManager.lastGameLoginResponse;
                         intStack[intStackPointer++] = LoginManager.lastDisallowResult;
                         intStack[intStackPointer++] = LoginManager.lastDisallowTrigger;
@@ -6102,37 +6093,37 @@ public final class ScriptRunner {
                         LoginManager.lastDisallowTrigger = -1;
                         return;
                     }
-                    if (arg0 == 5628) {
+                    if (opcode == 5628) {
                         intStack[intStackPointer++] = LoginManager.inProgress() ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 5629) {
+                    if (opcode == 5629) {
                         intStack[intStackPointer++] = Static660.anInt9837;
                         return;
                     }
-                    if (arg0 == 5630) {
+                    if (opcode == 5630) {
                         LoginManager.method1220();
                         return;
                     }
-                    if (arg0 == 5631) {
+                    if (opcode == 5631) {
                         intStackPointer -= 2;
-                        local192 = intStack[intStackPointer];
-                        local834 = intStack[intStackPointer + 1];
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(834) int local834 = intStack[intStackPointer + 1];
                         LoginManager.requestLoginFromSocialNetwork(local192, local834);
                         return;
                     }
-                    if (arg0 == 5632) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 5632) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         Static303.method4428(local192);
                         return;
                     }
-                    if (arg0 == 5633) {
+                    if (opcode == 5633) {
                         intStack[intStackPointer++] = LoginManager.disallowTrigger;
                         return;
                     }
-                } else if (arg0 < 6100) {
-                    if (arg0 == 6001) {
-                        local192 = intStack[--intStackPointer];
+                } else if (opcode < 6100) {
+                    if (opcode == 6001) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         ClientOptions.instance.update(local192, ClientOptions.instance.brightness);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
@@ -6140,7 +6131,7 @@ public final class ScriptRunner {
                         return;
                     }
                     @Pc(5337) boolean local5337;
-                    if (arg0 == 6002) {
+                    if (opcode == 6002) {
                         local5337 = intStack[--intStackPointer] == 1;
                         ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animateBackgroundDefault);
                         ClientOptions.instance.update(local5337 ? 1 : 0, ClientOptions.instance.animateBackground);
@@ -6150,7 +6141,7 @@ public final class ScriptRunner {
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6003) {
+                    if (opcode == 6003) {
                         local5337 = intStack[--intStackPointer] == 1;
                         ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.removeRoofs);
                         ClientOptions.instance.update(local5337 ? 2 : 1, ClientOptions.instance.removeRoofsOverride);
@@ -6159,39 +6150,39 @@ public final class ScriptRunner {
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6005) {
+                    if (opcode == 6005) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.groundDecor);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6007) {
+                    if (opcode == 6007) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.idleAnimations);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6008) {
+                    if (opcode == 6008) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.flickeringEffects);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6010) {
+                    if (opcode == 6010) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.spotShadows);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6011) {
+                    if (opcode == 6011) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.hardShadows);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6012) {
+                    if (opcode == 6012) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.lightDetail);
                         Static296.updateFeatureMask();
                         InterfaceManager.loginOpened();
@@ -6199,42 +6190,42 @@ public final class ScriptRunner {
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6014) {
+                    if (opcode == 6014) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 2 : 0, ClientOptions.instance.waterDetail);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6015) {
+                    if (opcode == 6015) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.fog);
                         MainLogicManager.mapBuild();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6016) {
+                    if (opcode == 6016) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.antialiasingQuality);
                         Static32.setToolkit(ClientOptions.instance.toolkit.getValue(), false);
                         ClientOptions.save();
                         return;
                     }
-                    if (arg0 == 6017) {
+                    if (opcode == 6017) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.stereoSound);
                         Static150.method2455();
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6018) {
+                    if (opcode == 6018) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.soundVolume);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6019) {
-                        local192 = intStack[--intStackPointer];
-                        local834 = ClientOptions.instance.musicVolume.getValue();
+                    if (opcode == 6019) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
+                        @Pc(834) int local834 = ClientOptions.instance.musicVolume.getValue();
                         if (local192 != local834) {
                             if (MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
                                 if (local834 == 0 && SongManager.playing != -1) {
@@ -6254,72 +6245,72 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 6020) {
+                    if (opcode == 6020) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.backgroundSoundVolume);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6021) {
-                        local192 = ClientOptions.instance.removeRoofs.getValue();
+                    if (opcode == 6021) {
+                        @Pc(192) int local192 = ClientOptions.instance.removeRoofs.getValue();
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 0 : local192, ClientOptions.instance.removeRoofsOverride);
                         Static77.method1561();
                         return;
                     }
-                    if (arg0 == 6023) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6023) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         ClientOptions.instance.update(local192, ClientOptions.instance.particles);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6024) {
+                    if (opcode == 6024) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.antialiasingMode);
                         ClientOptions.save();
                         return;
                     }
-                    if (arg0 == 6025) {
+                    if (opcode == 6025) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.buildArea);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6027) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6027) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         if (local192 < 0 || local192 > 1) {
                             local192 = 0;
                         }
                         Static249.setBloom(local192 == 1);
                         return;
                     }
-                    if (arg0 == 6028) {
+                    if (opcode == 6028) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 0 ? 0 : 1, ClientOptions.instance.customCursors);
                         ClientOptions.save();
                         return;
                     }
-                    if (arg0 == 6029) {
+                    if (opcode == 6029) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.idleAnimations);
                         ClientOptions.save();
                         return;
                     }
-                    if (arg0 == 6030) {
+                    if (opcode == 6030) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 0 ? 0 : 1, ClientOptions.instance.groundBlending);
                         ClientOptions.save();
                         MainLogicManager.mapBuild();
                         return;
                     }
-                    if (arg0 == 6031) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6031) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         if (local192 < 0 || local192 > 5) {
                             local192 = 2;
                         }
                         Static32.setToolkit(local192, false);
                         return;
                     }
-                    if (arg0 == 6032) {
+                    if (opcode == 6032) {
                         intStackPointer -= 2;
-                        local192 = intStack[intStackPointer];
-                        local1578 = intStack[intStackPointer + 1] == 1;
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(1578) boolean local1578 = intStack[intStackPointer + 1] == 1;
                         ClientOptions.instance.update(local192, ClientOptions.instance.toolkitDefault);
                         if (!local1578) {
                             ClientOptions.instance.update(0, ClientOptions.instance.graphicsQuality);
@@ -6328,39 +6319,39 @@ public final class ScriptRunner {
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6033) {
+                    if (opcode == 6033) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.cpuUsage);
                         ClientOptions.save();
                         return;
                     }
-                    if (arg0 == 6034) {
+                    if (opcode == 6034) {
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : 0, ClientOptions.instance.textures);
                         ClientOptions.save();
                         Static296.updateFeatureMask();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6035) {
-                        local192 = ClientOptions.instance.animateBackgroundDefault.getValue();
+                    if (opcode == 6035) {
+                        @Pc(192) int local192 = ClientOptions.instance.animateBackgroundDefault.getValue();
                         ClientOptions.instance.update(intStack[--intStackPointer] == 1 ? 1 : local192, ClientOptions.instance.animateBackground);
                         MainLogicManager.mapBuild();
                         Static77.method1561();
                         return;
                     }
-                    if (arg0 == 6036) {
+                    if (opcode == 6036) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.maxScreenSize);
                         ClientOptions.save();
                         Static284.aBoolean355 = true;
                         return;
                     }
-                    if (arg0 == 6037) {
+                    if (opcode == 6037) {
                         ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.speechVolume);
                         ClientOptions.save();
                         Static503.sentPreferences = false;
                         return;
                     }
-                    if (arg0 == 6038) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6038) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         local834 = ClientOptions.instance.loginVolume.getValue();
                         if (local192 != local834 && SongManager.playing == AudioDefaults.themeMusic) {
                             if (!MainLogicStep.isAtGameScreen(MainLogicManager.step)) {
@@ -6381,8 +6372,8 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 6039) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6039) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         if (local192 > 255 || local192 < 0) {
                             local192 = 0;
                         }
@@ -6393,8 +6384,8 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 6040) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6040) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         if (local192 != ClientOptions.instance.orthographic.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.orthographic);
                             ClientOptions.save();
@@ -6403,8 +6394,8 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 6041) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6041) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         if (local192 != ClientOptions.instance.skydetail.getValue()) {
                             ClientOptions.instance.update(local192, ClientOptions.instance.skydetail);
                             ClientOptions.save();
@@ -6412,161 +6403,161 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                } else if (arg0 < 6200) {
-                    if (arg0 == 6101) {
+                } else if (opcode < 6200) {
+                    if (opcode == 6101) {
                         intStack[intStackPointer++] = ClientOptions.instance.brightness.getValue();
                         return;
                     }
-                    if (arg0 == 6102) {
+                    if (opcode == 6102) {
                         intStack[intStackPointer++] = ClientOptions.instance.animateBackgroundDefault.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6103) {
+                    if (opcode == 6103) {
                         intStack[intStackPointer++] = ClientOptions.instance.removeRoofs.getValue() == 2 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6105) {
+                    if (opcode == 6105) {
                         intStack[intStackPointer++] = ClientOptions.instance.groundDecor.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6107) {
+                    if (opcode == 6107) {
                         intStack[intStackPointer++] = ClientOptions.instance.idleAnimations.getValue();
                         return;
                     }
-                    if (arg0 == 6108) {
+                    if (opcode == 6108) {
                         intStack[intStackPointer++] = ClientOptions.instance.flickeringEffects.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6110) {
+                    if (opcode == 6110) {
                         intStack[intStackPointer++] = ClientOptions.instance.spotShadows.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6111) {
+                    if (opcode == 6111) {
                         intStack[intStackPointer++] = ClientOptions.instance.hardShadows.getValue();
                         return;
                     }
-                    if (arg0 == 6112) {
+                    if (opcode == 6112) {
                         intStack[intStackPointer++] = ClientOptions.instance.lightDetail.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6114) {
+                    if (opcode == 6114) {
                         intStack[intStackPointer++] = ClientOptions.instance.waterDetail.getValue() == 2 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6115) {
+                    if (opcode == 6115) {
                         intStack[intStackPointer++] = ClientOptions.instance.fog.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6116) {
+                    if (opcode == 6116) {
                         intStack[intStackPointer++] = ClientOptions.instance.antialiasingQuality.getValue();
                         return;
                     }
-                    if (arg0 == 6117) {
+                    if (opcode == 6117) {
                         intStack[intStackPointer++] = ClientOptions.instance.stereoSound.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6118) {
+                    if (opcode == 6118) {
                         intStack[intStackPointer++] = ClientOptions.instance.soundVolume.getValue();
                         return;
                     }
-                    if (arg0 == 6119) {
+                    if (opcode == 6119) {
                         intStack[intStackPointer++] = ClientOptions.instance.musicVolume.getValue();
                         return;
                     }
-                    if (arg0 == 6120) {
+                    if (opcode == 6120) {
                         intStack[intStackPointer++] = ClientOptions.instance.backgroundSoundVolume.getValue();
                         return;
                     }
-                    if (arg0 == 6123) {
+                    if (opcode == 6123) {
                         intStack[intStackPointer++] = ParticleManager.getOption();
                         return;
                     }
-                    if (arg0 == 6124) {
+                    if (opcode == 6124) {
                         intStack[intStackPointer++] = ClientOptions.instance.antialiasingMode.getValue();
                         return;
                     }
-                    if (arg0 == 6125) {
+                    if (opcode == 6125) {
                         intStack[intStackPointer++] = ClientOptions.instance.buildArea.getValue();
                         return;
                     }
-                    if (arg0 == 6127) {
+                    if (opcode == 6127) {
                         intStack[intStackPointer++] = ClientOptions.instance.bloom.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6128) {
+                    if (opcode == 6128) {
                         intStack[intStackPointer++] = ClientOptions.instance.customCursors.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6129) {
+                    if (opcode == 6129) {
                         intStack[intStackPointer++] = ClientOptions.instance.idleAnimations.getValue();
                         return;
                     }
-                    if (arg0 == 6130) {
+                    if (opcode == 6130) {
                         intStack[intStackPointer++] = ClientOptions.instance.groundBlending.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6131) {
+                    if (opcode == 6131) {
                         intStack[intStackPointer++] = ClientOptions.instance.toolkit.getValue();
                         return;
                     }
-                    if (arg0 == 6132) {
+                    if (opcode == 6132) {
                         intStack[intStackPointer++] = ClientOptions.instance.toolkitDefault.getValue();
                         return;
                     }
-                    if (arg0 == 6133) {
+                    if (opcode == 6133) {
                         intStack[intStackPointer++] = GameShell.signLink.signed && !GameShell.signLink.microsoftjava ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6135) {
+                    if (opcode == 6135) {
                         intStack[intStackPointer++] = ClientOptions.instance.cpuUsage.value();
                         return;
                     }
-                    if (arg0 == 6136) {
+                    if (opcode == 6136) {
                         intStack[intStackPointer++] = ClientOptions.instance.textures.getValue() == 1 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6138) {
+                    if (opcode == 6138) {
                         intStack[intStackPointer++] = Static363.profileToolkit(200, ClientOptions.instance.toolkit.getValue());
                         return;
                     }
-                    if (arg0 == 6139) {
+                    if (opcode == 6139) {
                         intStack[intStackPointer++] = ClientOptions.instance.maxScreenSize.getValue();
                         return;
                     }
-                    if (arg0 == 6142) {
+                    if (opcode == 6142) {
                         intStack[intStackPointer++] = ClientOptions.instance.speechVolume.getValue();
                         return;
                     }
-                    if (arg0 == 6143) {
+                    if (opcode == 6143) {
                         intStack[intStackPointer++] = ClientOptions.instance.loginVolume.getValue();
                         return;
                     }
-                    if (arg0 == 6144) {
+                    if (opcode == 6144) {
                         intStack[intStackPointer++] = Static3.chooseSafeMode ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6145) {
+                    if (opcode == 6145) {
                         intStack[intStackPointer++] = ClientOptions.instance.loadingSequence.getValue();
                         return;
                     }
-                    if (arg0 == 6146) {
+                    if (opcode == 6146) {
                         intStack[intStackPointer++] = ClientOptions.instance.orthographic.getValue();
                         return;
                     }
-                    if (arg0 == 6147) {
+                    if (opcode == 6147) {
                         intStack[intStackPointer++] = SystemInfo.instance.totalMemory < 512 || Static3.chooseSafeMode || Static171.graphicsError ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6148) {
+                    if (opcode == 6148) {
                         intStack[intStackPointer++] = Static416.aBoolean472 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6149) {
+                    if (opcode == 6149) {
                         intStack[intStackPointer++] = ClientOptions.instance.skydetail.getValue();
                         return;
                     }
-                } else if (arg0 < 6300) {
-                    if (arg0 == 6200) {
+                } else if (opcode < 6300) {
+                    if (opcode == 6200) {
                         intStackPointer -= 2;
                         Static640.aShort122 = (short) intStack[intStackPointer];
                         if (Static640.aShort122 <= 0) {
@@ -6578,7 +6569,7 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 6201) {
+                    if (opcode == 6201) {
                         intStackPointer -= 2;
                         Static228.aShort45 = (short) intStack[intStackPointer];
                         if (Static228.aShort45 <= 0) {
@@ -6590,7 +6581,7 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 6202) {
+                    if (opcode == 6202) {
                         intStackPointer -= 4;
                         Static25.aShort1 = (short) intStack[intStackPointer];
                         if (Static25.aShort1 <= 0) {
@@ -6616,36 +6607,36 @@ public final class ScriptRunner {
                         }
                         return;
                     }
-                    if (arg0 == 6203) {
+                    if (opcode == 6203) {
                         Static498.method6643(0, false, 0, InterfaceManager.scene.height, InterfaceManager.scene.width);
                         intStack[intStackPointer++] = Static242.anInt3971;
                         intStack[intStackPointer++] = Static200.anInt3305;
                         return;
                     }
-                    if (arg0 == 6204) {
+                    if (opcode == 6204) {
                         intStack[intStackPointer++] = Static228.aShort45;
                         intStack[intStackPointer++] = Camera.zoom;
                         return;
                     }
-                    if (arg0 == 6205) {
+                    if (opcode == 6205) {
                         intStack[intStackPointer++] = Static640.aShort122;
                         intStack[intStackPointer++] = Static640.aShort121;
                         return;
                     }
-                } else if (arg0 < 6400) {
-                    if (arg0 == 6300) {
+                } else if (opcode < 6400) {
+                    if (opcode == 6300) {
                         intStack[intStackPointer++] = (int) (SystemTimer.safetime() / TimeUtils.MILLISECONDS_PER_MINUTE);
                         return;
                     }
-                    if (arg0 == 6301) {
+                    if (opcode == 6301) {
                         intStack[intStackPointer++] = (int) (SystemTimer.safetime() / TimeUtils.MILLISECONDS_PER_DAY) - TimeUtils.RUNEDAYS_SINCE_UNIX_EPOCH;
                         return;
                     }
-                    if (arg0 == 6302) {
+                    if (opcode == 6302) {
                         intStackPointer -= 3;
-                        local192 = intStack[intStackPointer];
-                        local834 = intStack[intStackPointer + 1];
-                        local109 = intStack[intStackPointer + 2];
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(834) int local834 = intStack[intStackPointer + 1];
+                        @Pc(109) int local109 = intStack[intStackPointer + 2];
                         @Pc(7384) long local7384 = TimeUtils.timeFromDate(local192, local834, local109);
                         local3561 = TimeUtils.runedaysFromTime(local7384);
                         if (local109 < 1970) {
@@ -6654,13 +6645,13 @@ public final class ScriptRunner {
                         intStack[intStackPointer++] = local3561;
                         return;
                     }
-                    if (arg0 == 6303) {
+                    if (opcode == 6303) {
                         intStack[intStackPointer++] = TimeUtils.yearFromTime(SystemTimer.safetime());
                         return;
                     }
-                    if (arg0 == 6304) {
-                        local192 = intStack[--intStackPointer];
-                        local1578 = true;
+                    if (opcode == 6304) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
+                        @Pc(1578) boolean local1578 = true;
                         if (local192 < 0) {
                             local1578 = (local192 + 1) % 4 == 0;
                         } else if (local192 < 1582) {
@@ -6675,29 +6666,29 @@ public final class ScriptRunner {
                         intStack[intStackPointer++] = local1578 ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6305) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6305) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         @Pc(7512) int[] local7512 = TimeUtils.dateFromRunedays(local192);
                         Arrays.copy(local7512, 0, intStack, intStackPointer, 3);
                         intStackPointer += 3;
                         return;
                     }
-                    if (arg0 == 6306) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6306) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         intStack[intStackPointer++] = (int) (TimeUtils.timeFromRunedays(local192) / TimeUtils.MILLISECONDS_PER_MINUTE);
                         return;
                     }
-                } else if (arg0 < 6500) {
-                    if (arg0 == 6405) {
+                } else if (opcode < 6500) {
+                    if (opcode == 6405) {
                         intStack[intStackPointer++] = Static21.method8119() ? 1 : 0;
                         return;
                     }
-                    if (arg0 == 6406) {
+                    if (opcode == 6406) {
                         intStack[intStackPointer++] = Static385.method5421() ? 1 : 0;
                         return;
                     }
-                } else if (arg0 < 6600) {
-                    if (arg0 == 6500) {
+                } else if (opcode < 6600) {
+                    if (opcode == 6500) {
                         if (MainLogicManager.step == 7 && !LoginManager.inProgress() && LobbyManager.step == 0) {
                             if (WorldList.fetching) {
                                 intStack[intStackPointer++] = 0;
@@ -6719,7 +6710,7 @@ public final class ScriptRunner {
                     }
                     @Pc(7719) Country local7719;
                     @Pc(7686) GameWorld local7686;
-                    if (arg0 == 6501) {
+                    if (opcode == 6501) {
                         local7686 = WorldList.first();
                         if (local7686 != null) {
                             intStack[intStackPointer++] = local7686.id;
@@ -6743,7 +6734,7 @@ public final class ScriptRunner {
                         stringStack[stringStackPointer++] = "";
                         return;
                     }
-                    if (arg0 == 6502) {
+                    if (opcode == 6502) {
                         local7686 = WorldList.next();
                         if (local7686 != null) {
                             intStack[intStackPointer++] = local7686.id;
@@ -6767,9 +6758,9 @@ public final class ScriptRunner {
                         stringStack[stringStackPointer++] = "";
                         return;
                     }
-                    if (arg0 == 6503) {
-                        local192 = intStack[--intStackPointer];
-                        local101 = stringStack[--stringStackPointer];
+                    if (opcode == 6503) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
+                        @Pc(101) String local101 = stringStack[--stringStackPointer];
                         if (MainLogicManager.step == 7 && !LoginManager.inProgress() && LobbyManager.step == 0) {
                             intStack[intStackPointer++] = client.connectTo(local192, local101) ? 1 : 0;
                             return;
@@ -6777,8 +6768,8 @@ public final class ScriptRunner {
                         intStack[intStackPointer++] = 0;
                         return;
                     }
-                    if (arg0 == 6506) {
-                        local192 = intStack[--intStackPointer];
+                    if (opcode == 6506) {
+                        @Pc(192) int local192 = intStack[--intStackPointer];
                         @Pc(8053) GameWorld local8053 = WorldList.list(local192);
                         if (local8053 != null) {
                             intStack[intStackPointer++] = local8053.flags;
@@ -6800,42 +6791,42 @@ public final class ScriptRunner {
                         stringStack[stringStackPointer++] = "";
                         return;
                     }
-                    if (arg0 == 6507) {
+                    if (opcode == 6507) {
                         intStackPointer -= 4;
-                        local192 = intStack[intStackPointer];
-                        local1578 = intStack[intStackPointer + 1] == 1;
-                        local109 = intStack[intStackPointer + 2];
+                        @Pc(192) int local192 = intStack[intStackPointer];
+                        @Pc(1578) boolean local1578 = intStack[intStackPointer + 1] == 1;
+                        @Pc(109) int local109 = intStack[intStackPointer + 2];
                         local2331 = intStack[intStackPointer + 3] == 1;
                         Static210.quicksortWorldList(local1578, local109, local192, local2331);
                         return;
                     }
-                    if (arg0 == 6508) {
+                    if (opcode == 6508) {
                         Static152.selectAutoWorld();
                         return;
                     }
-                    if (arg0 == 6509) {
+                    if (opcode == 6509) {
                         if (MainLogicManager.step != 7) {
                             return;
                         }
                         Static60.aBoolean86 = intStack[--intStackPointer] == 1;
                         return;
                     }
-                    if (arg0 == 6510) {
+                    if (opcode == 6510) {
                         intStack[intStackPointer++] = Client.worldFlags;
                         return;
                     }
-                } else if (arg0 >= 6700) {
-                    if (arg0 < 6800 && Client.modeWhat == ModeWhat.WIP) {
-                        if (arg0 == 6700) {
-                            local192 = InterfaceManager.subInterfaces.size();
+                } else if (opcode >= 6700) {
+                    if (opcode < 6800 && Client.modeWhat == ModeWhat.WIP) {
+                        if (opcode == 6700) {
+                            @Pc(192) int local192 = interfaceManager.subInterfaces.size();
                             if (InterfaceManager.topLevelInterface != -1) {
                                 local192++;
                             }
                             intStack[intStackPointer++] = local192;
                             return;
                         }
-                        if (arg0 == 6701) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 6701) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             if (InterfaceManager.topLevelInterface != -1) {
                                 if (local192 == 0) {
                                     intStack[intStackPointer++] = InterfaceManager.topLevelInterface;
@@ -6850,13 +6841,13 @@ public final class ScriptRunner {
                             intStack[intStackPointer++] = local8344.id;
                             return;
                         }
-                        if (arg0 == 6702) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 6702) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             if (InterfaceList.interfaces[local192] == null) {
                                 stringStack[stringStackPointer++] = "";
                                 return;
                             }
-                            local101 = InterfaceList.interfaces[local192][0].name;
+                            @Pc(101) String local101 = InterfaceList.interfaces[local192][0].name;
                             if (local101 == null) {
                                 stringStack[stringStackPointer++] = "";
                                 return;
@@ -6864,8 +6855,8 @@ public final class ScriptRunner {
                             stringStack[stringStackPointer++] = local101.substring(0, local101.indexOf(58));
                             return;
                         }
-                        if (arg0 == 6703) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 6703) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             if (InterfaceList.interfaces[local192] == null) {
                                 intStack[intStackPointer++] = 0;
                                 return;
@@ -6873,15 +6864,15 @@ public final class ScriptRunner {
                             intStack[intStackPointer++] = InterfaceList.interfaces[local192].length;
                             return;
                         }
-                        if (arg0 == 6704) {
+                        if (opcode == 6704) {
                             intStackPointer -= 2;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
                             if (InterfaceList.interfaces[local192] == null) {
                                 stringStack[stringStackPointer++] = "";
                                 return;
                             }
-                            local198 = InterfaceList.interfaces[local192][local834].name;
+                            @Pc(198) String local198 = InterfaceList.interfaces[local192][local834].name;
                             if (local198 == null) {
                                 stringStack[stringStackPointer++] = "";
                                 return;
@@ -6889,10 +6880,10 @@ public final class ScriptRunner {
                             stringStack[stringStackPointer++] = local198;
                             return;
                         }
-                        if (arg0 == 6705) {
+                        if (opcode == 6705) {
                             intStackPointer -= 2;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
                             if (InterfaceList.interfaces[local192] == null) {
                                 intStack[intStackPointer++] = 0;
                                 return;
@@ -6900,104 +6891,104 @@ public final class ScriptRunner {
                             intStack[intStackPointer++] = InterfaceList.interfaces[local192][local834].serverTriggers;
                             return;
                         }
-                        if (arg0 == 6706) {
+                        if (opcode == 6706) {
                             return;
                         }
-                        if (arg0 == 6707) {
+                        if (opcode == 6707) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 1);
                             return;
                         }
-                        if (arg0 == 6708) {
+                        if (opcode == 6708) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 2);
                             return;
                         }
-                        if (arg0 == 6709) {
+                        if (opcode == 6709) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 3);
                             return;
                         }
-                        if (arg0 == 6710) {
+                        if (opcode == 6710) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 4);
                             return;
                         }
-                        if (arg0 == 6711) {
+                        if (opcode == 6711) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 5);
                             return;
                         }
-                        if (arg0 == 6712) {
+                        if (opcode == 6712) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 6);
                             return;
                         }
-                        if (arg0 == 6713) {
+                        if (opcode == 6713) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 7);
                             return;
                         }
-                        if (arg0 == 6714) {
+                        if (opcode == 6714) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 8);
                             return;
                         }
-                        if (arg0 == 6715) {
+                        if (opcode == 6715) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 9);
                             return;
                         }
-                        if (arg0 == 6716) {
+                        if (opcode == 6716) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             InterfaceManager.ifButtonXSend(local192 << 16 | local834, local109, "", 10);
                             return;
                         }
-                        if (arg0 == 6717) {
+                        if (opcode == 6717) {
                             intStackPointer -= 3;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
-                            local109 = intStack[intStackPointer + 2];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
+                            @Pc(109) int local109 = intStack[intStackPointer + 2];
                             @Pc(8940) Component local8940 = InterfaceList.getComponent(local192 << 16 | local834, local109);
                             InterfaceManager.endTargetMode();
                             @Pc(8945) ServerActiveProperties local8945 = InterfaceManager.serverActiveProperties(local8940);
                             InterfaceManager.enterTargetMode(local8945.getTargetMask(), local8940, local8945.targetParam);
                             return;
                         }
-                    } else if (arg0 < 6900) {
+                    } else if (opcode < 6900) {
                         @Pc(8975) MapElementType local8975;
-                        if (arg0 == 6800) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 6800) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             local8975 = MapElementTypeList.instance.list(local192);
                             if (local8975.text == null) {
                                 stringStack[stringStackPointer++] = "";
@@ -7006,28 +6997,28 @@ public final class ScriptRunner {
                             stringStack[stringStackPointer++] = local8975.text;
                             return;
                         }
-                        if (arg0 == 6801) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 6801) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             local8975 = MapElementTypeList.instance.list(local192);
                             intStack[intStackPointer++] = local8975.sprite;
                             return;
                         }
-                        if (arg0 == 6802) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 6802) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             local8975 = MapElementTypeList.instance.list(local192);
                             intStack[intStackPointer++] = local8975.font;
                             return;
                         }
-                        if (arg0 == 6803) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 6803) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             local8975 = MapElementTypeList.instance.list(local192);
                             intStack[intStackPointer++] = local8975.category;
                             return;
                         }
-                        if (arg0 == 6804) {
+                        if (opcode == 6804) {
                             intStackPointer -= 2;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
                             @Pc(9098) ParamType local9098 = ParamTypeList.instance.list(local834);
                             if (local9098.isString()) {
                                 stringStack[stringStackPointer++] = MapElementTypeList.instance.list(local192).param(local834, local9098.defaultstr);
@@ -7036,30 +7027,30 @@ public final class ScriptRunner {
                             intStack[intStackPointer++] = MapElementTypeList.instance.list(local192).param(local9098.defaultint, local834);
                             return;
                         }
-                    } else if (arg0 < 7000) {
-                        if (arg0 == 6900) {
+                    } else if (opcode < 7000) {
+                        if (opcode == 6900) {
                             intStack[intStackPointer++] = Static389.underage && !Static34.parentalChatConsent ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 6901) {
+                        if (opcode == 6901) {
                             intStack[intStackPointer++] = (int) (Static416.subscriptionExpiration / TimeUtils.MILLISECONDS_PER_MINUTE);
                             intStack[intStackPointer++] = (int) ((Static416.subscriptionExpiration - SystemTimer.safetime() - Static94.remainingSubscription) / TimeUtils.MILLISECONDS_PER_MINUTE);
                             intStack[intStackPointer++] = Static425.activeSubscription ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 6902) {
+                        if (opcode == 6902) {
                             intStack[intStackPointer++] = Static677.recoverySetDate;
                             return;
                         }
-                        if (arg0 == 6903) {
+                        if (opcode == 6903) {
                             intStack[intStackPointer++] = Static476.unreadMessages;
                             return;
                         }
-                        if (arg0 == 6904) {
+                        if (opcode == 6904) {
                             intStack[intStackPointer++] = Static323.lastLoginDate;
                             return;
                         }
-                        if (arg0 == 6905) {
+                        if (opcode == 6905) {
                             local95 = "";
                             if (Static439.hostnameResource != null) {
                                 if (Static439.hostnameResource.result == null) {
@@ -7071,49 +7062,49 @@ public final class ScriptRunner {
                             stringStack[stringStackPointer++] = local95;
                             return;
                         }
-                        if (arg0 == 6906) {
+                        if (opcode == 6906) {
                             intStack[intStackPointer++] = Static335.emailStatus;
                             return;
                         }
-                        if (arg0 == 6907) {
+                        if (opcode == 6907) {
                             intStack[intStackPointer++] = Static626.creditCardExpiry;
                             return;
                         }
-                        if (arg0 == 6908) {
+                        if (opcode == 6908) {
                             intStack[intStackPointer++] = Static636.loyaltyRateExpiry;
                             return;
                         }
-                        if (arg0 == 6909) {
+                        if (opcode == 6909) {
                             intStack[intStackPointer++] = Static420.lobbyDobRequested ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 6910) {
+                        if (opcode == 6910) {
                             intStack[intStackPointer++] = Static106.lobbyMembersStats;
                             return;
                         }
-                        if (arg0 == 6911) {
+                        if (opcode == 6911) {
                             intStack[intStackPointer++] = Static639.lobbyPlayAge;
                             return;
                         }
-                        if (arg0 == 6912) {
+                        if (opcode == 6912) {
                             intStack[intStackPointer++] = Static438.lobbyLoyaltyBalance;
                             return;
                         }
-                        if (arg0 == 6913) {
+                        if (opcode == 6913) {
                             intStack[intStackPointer++] = Static435.lobbyJcoinsBalance;
                             return;
                         }
-                        if (arg0 == 6914) {
+                        if (opcode == 6914) {
                             intStack[intStackPointer++] = Static684.autosetupDosetup ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 6915) {
+                        if (opcode == 6915) {
                             intStack[intStackPointer++] = Static134.autosetupLevel;
                             return;
                         }
-                    } else if (arg0 < 7100) {
-                        if (arg0 == 7000) {
-                            local192 = Static519.autosetup();
+                    } else if (opcode < 7100) {
+                        if (opcode == 7000) {
+                            @Pc(192) int local192 = Static519.autosetup();
                             intStack[intStackPointer++] = Static165.anInt2810 = ClientOptions.instance.toolkit.getValue();
                             intStack[intStackPointer++] = local192;
                             MainLogicManager.mapBuild();
@@ -7121,41 +7112,41 @@ public final class ScriptRunner {
                             Static503.sentPreferences = false;
                             return;
                         }
-                        if (arg0 == 7001) {
+                        if (opcode == 7001) {
                             Static395.method9162();
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.sentPreferences = false;
                             return;
                         }
-                        if (arg0 == 7002) {
+                        if (opcode == 7002) {
                             Static133.method2316();
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.sentPreferences = false;
                             return;
                         }
-                        if (arg0 == 7003) {
+                        if (opcode == 7003) {
                             Static75.method6239();
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.sentPreferences = false;
                             return;
                         }
-                        if (arg0 == 7004) {
+                        if (opcode == 7004) {
                             Static468.method7643();
                             MainLogicManager.mapBuild();
                             ClientOptions.save();
                             Static503.sentPreferences = false;
                             return;
                         }
-                        if (arg0 == 7005) {
+                        if (opcode == 7005) {
                             ClientOptions.instance.update(0, ClientOptions.instance.graphicsQuality);
                             ClientOptions.save();
                             Static503.sentPreferences = false;
                             return;
                         }
-                        if (arg0 == 7006) {
+                        if (opcode == 7006) {
                             if (Static165.anInt2810 == 2) {
                                 Static449.aBoolean511 = true;
                                 return;
@@ -7169,15 +7160,15 @@ public final class ScriptRunner {
                             }
                             return;
                         }
-                        if (arg0 == 7007) {
+                        if (opcode == 7007) {
                             intStack[intStackPointer++] = ClientOptions.instance.graphicsQuality.getValue();
                             return;
                         }
-                    } else if (arg0 < 7200) {
-                        if (arg0 == 7100) {
+                    } else if (opcode < 7200) {
+                        if (opcode == 7100) {
                             intStackPointer -= 2;
-                            local192 = intStack[intStackPointer];
-                            local834 = intStack[intStackPointer + 1];
+                            @Pc(192) int local192 = intStack[intStackPointer];
+                            @Pc(834) int local834 = intStack[intStackPointer + 1];
                             if (local192 != -1) {
                                 if (local834 > 255) {
                                     local834 = 255;
@@ -7188,108 +7179,108 @@ public final class ScriptRunner {
                             }
                             return;
                         }
-                        if (arg0 == 7101) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7101) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             if (local192 != -1) {
                                 VideoManager.stop(local192);
                             }
                             return;
                         }
-                        if (arg0 == 7102) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7102) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             if (local192 != -1) {
                                 VideoTypeList.method9267(local192);
                             }
                             return;
                         }
-                        if (arg0 == 7103) {
+                        if (opcode == 7103) {
                             intStack[intStackPointer++] = LibraryManager.isNativeLoaded("jagtheora") ? 1 : 0;
                             return;
                         }
-                    } else if (arg0 < 7300) {
-                        if (arg0 == 7201) {
+                    } else if (opcode < 7300) {
+                        if (opcode == 7201) {
                             intStack[intStackPointer++] = ClientOptions.instance.groundDecor.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7202) {
+                        if (opcode == 7202) {
                             intStack[intStackPointer++] = ClientOptions.instance.spotShadows.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7203) {
+                        if (opcode == 7203) {
                             intStack[intStackPointer++] = ClientOptions.instance.hardShadows.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7204) {
+                        if (opcode == 7204) {
                             intStack[intStackPointer++] = ClientOptions.instance.waterDetail.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7205) {
+                        if (opcode == 7205) {
                             intStack[intStackPointer++] = ClientOptions.instance.antialiasingMode.isCompatible() && Toolkit.active.method8015() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7206) {
+                        if (opcode == 7206) {
                             intStack[intStackPointer++] = ClientOptions.instance.particles.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7207) {
+                        if (opcode == 7207) {
                             intStack[intStackPointer++] = ClientOptions.instance.buildArea.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7208) {
+                        if (opcode == 7208) {
                             intStack[intStackPointer++] = ClientOptions.instance.bloom.isCompatible() && Toolkit.active.method7936() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7209) {
+                        if (opcode == 7209) {
                             intStack[intStackPointer++] = ClientOptions.instance.groundBlending.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7210) {
+                        if (opcode == 7210) {
                             intStack[intStackPointer++] = ClientOptions.instance.textures.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7211) {
+                        if (opcode == 7211) {
                             intStack[intStackPointer++] = ClientOptions.instance.maxScreenSize.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7212) {
+                        if (opcode == 7212) {
                             intStack[intStackPointer++] = ClientOptions.instance.fog.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7213) {
+                        if (opcode == 7213) {
                             intStack[intStackPointer++] = ClientOptions.instance.orthographic.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7214) {
+                        if (opcode == 7214) {
                             intStack[intStackPointer++] = ClientOptions.instance.toolkitDefault.isCompatible() ? 1 : 0;
                             return;
                         }
-                        if (arg0 == 7215) {
+                        if (opcode == 7215) {
                             intStack[intStackPointer++] = ClientOptions.instance.skydetail.isCompatible() ? 1 : 0;
                             return;
                         }
-                    } else if (arg0 < 7400) {
-                        if (arg0 == 7301) {
-                            local192 = intStack[--intStackPointer];
+                    } else if (opcode < 7400) {
+                        if (opcode == 7301) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.groundDecor.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7302) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7302) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.spotShadows.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7303) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7303) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.hardShadows.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7304) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7304) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.waterDetail.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7305) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7305) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             if (!Toolkit.active.method8015()) {
                                 intStack[intStackPointer++] = 3;
                                 return;
@@ -7297,18 +7288,18 @@ public final class ScriptRunner {
                             intStack[intStackPointer++] = ClientOptions.instance.antialiasingMode.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7306) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7306) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.particles.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7307) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7307) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.buildArea.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7308) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7308) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             if (!Toolkit.active.method7936()) {
                                 intStack[intStackPointer++] = 3;
                                 return;
@@ -7316,38 +7307,38 @@ public final class ScriptRunner {
                             intStack[intStackPointer++] = ClientOptions.instance.bloom.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7309) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7309) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.groundBlending.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7310) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7310) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.textures.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7311) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7311) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.maxScreenSize.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7312) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7312) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.fog.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7313) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7313) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.orthographic.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7314) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7314) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.toolkitDefault.getCompatibility(local192);
                             return;
                         }
-                        if (arg0 == 7315) {
-                            local192 = intStack[--intStackPointer];
+                        if (opcode == 7315) {
+                            @Pc(192) int local192 = intStack[--intStackPointer];
                             intStack[intStackPointer++] = ClientOptions.instance.skydetail.getCompatibility(local192);
                             return;
                         }
@@ -7355,7 +7346,7 @@ public final class ScriptRunner {
                 }
             }
         }
-        throw new IllegalStateException(String.valueOf(arg0));
+        throw new IllegalStateException(String.valueOf(opcode));
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!pd;I)V")

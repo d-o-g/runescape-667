@@ -8,6 +8,4 @@ public final class Static37 {
     @OriginalMember(owner = "client!be", name = "O", descriptor = "I")
     public static int anInt916 = 0;
 
-    @OriginalMember(owner = "client!be", name = "L", descriptor = "[Ljava/lang/String;")
-    public static final String[] aStringArray5 = new String[5];
 }

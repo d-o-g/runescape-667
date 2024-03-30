@@ -1,6 +1,3 @@
-import com.jagex.core.datastruct.key.Deque;
-import com.jagex.game.runetek6.config.meltype.MapElementType;
-import com.jagex.graphics.Toolkit;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -34,23 +31,6 @@ public final class Static368 {
             arg1[local38] = 1;
             arg2 = local43 + 1;
             arg1[local43] = 1;
-        }
-    }
-
-    @OriginalMember(owner = "client!lka", name = "a", descriptor = "(ILclient!sia;ILclient!ha;I)V")
-    public static void method5272(@OriginalArg(1) Deque arg0, @OriginalArg(3) Toolkit arg1) {
-        WorldMap.aDeque_54.clear();
-        if (WorldMap.disableElements) {
-            return;
-        }
-        for (@Pc(27) MapElementListEntry local27 = (MapElementListEntry) arg0.first(); local27 != null; local27 = (MapElementListEntry) arg0.next()) {
-            @Pc(35) MapElementType local35 = WorldMap.mapElementTypeList.list(local27.id);
-            if (WorldMap.isEnabled(local35)) {
-                @Pc(47) boolean local47 = WorldMap.method5138(arg1, local35, local27);
-                if (local47) {
-                    WorldMap.method7902(local27, arg1, local35);
-                }
-            }
         }
     }
 

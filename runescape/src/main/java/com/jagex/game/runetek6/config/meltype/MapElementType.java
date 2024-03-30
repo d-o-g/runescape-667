@@ -202,7 +202,7 @@ public final class MapElementType {
     }
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(ILclient!ha;)Lclient!st;")
-    public Sprite method2428(@OriginalArg(1) Toolkit toolkit) {
+    public Sprite worldMapSprite(@OriginalArg(1) Toolkit toolkit) {
         @Pc(28) Sprite sprite = (Sprite) this.myList.spriteCache.get(this.worldMapSprite | 0x20000 | (toolkit.index << 29));
         if (sprite != null) {
             return sprite;
@@ -241,7 +241,7 @@ public final class MapElementType {
     }
 
     @OriginalMember(owner = "client!el", name = "a", descriptor = "(ZBLclient!ha;)Lclient!st;")
-    public Sprite method2431(@OriginalArg(0) boolean hovered, @OriginalArg(2) Toolkit toolkit) {
+    public Sprite sprite(@OriginalArg(2) Toolkit toolkit, @OriginalArg(0) boolean hovered) {
         @Pc(22) int id = hovered ? this.hoverSprite : this.sprite;
         @Pc(29) int key = toolkit.index << 29 | id;
 

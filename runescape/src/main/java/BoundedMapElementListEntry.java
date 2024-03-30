@@ -4,46 +4,48 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!mi")
-public final class Node_Sub37 extends Node {
+public final class BoundedMapElementListEntry extends Node {
 
     @OriginalMember(owner = "client!mi", name = "s", descriptor = "I")
-    public int anInt6187 = Integer.MIN_VALUE;
+    public int rectY2 = Integer.MIN_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "q", descriptor = "I")
-    public int anInt6186 = Integer.MAX_VALUE;
+    public int textY2 = Integer.MAX_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "v", descriptor = "I")
-    public int anInt6185 = Integer.MIN_VALUE;
+    public int rectX2 = Integer.MIN_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "k", descriptor = "I")
-    public int anInt6191 = Integer.MIN_VALUE;
+    public int textY1 = Integer.MIN_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "u", descriptor = "I")
-    public int anInt6184 = Integer.MAX_VALUE;
+    public int rectY1 = Integer.MAX_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "l", descriptor = "I")
-    public int anInt6190 = Integer.MIN_VALUE;
+    public int textX2 = Integer.MIN_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "m", descriptor = "I")
-    public int anInt6195 = Integer.MAX_VALUE;
+    public int textX1 = Integer.MAX_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "t", descriptor = "I")
-    public int anInt6192 = Integer.MAX_VALUE;
+    public int rectX1 = Integer.MAX_VALUE;
 
     @OriginalMember(owner = "client!mi", name = "p", descriptor = "Lclient!fu;")
     public final MapElementListEntry entry;
 
     @OriginalMember(owner = "client!mi", name = "<init>", descriptor = "(Lclient!fu;)V")
-    public Node_Sub37(@OriginalArg(0) MapElementListEntry arg0) {
-        this.entry = arg0;
+    public BoundedMapElementListEntry(@OriginalArg(0) MapElementListEntry entry) {
+        this.entry = entry;
     }
 
     @OriginalMember(owner = "client!mi", name = "a", descriptor = "(IBI)Z")
-    public boolean method5553(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
-        if (arg0 >= this.anInt6195 && arg0 <= this.anInt6190 && arg1 >= this.anInt6186 && arg1 <= this.anInt6191) {
+    public boolean contains(@OriginalArg(0) int x, @OriginalArg(2) int y) {
+        if (x >= this.textX1 && x <= this.textX2 && y >= this.textY2 && y <= this.textY1) {
+            return true;
+        } else if (x >= this.rectX1 && x <= this.rectX2 && y >= this.rectY1 && y <= this.rectY2) {
             return true;
         } else {
-            return arg0 >= this.anInt6192 && arg0 <= this.anInt6185 && arg1 >= this.anInt6184 && arg1 <= this.anInt6187;
+            return false;
         }
     }
 }

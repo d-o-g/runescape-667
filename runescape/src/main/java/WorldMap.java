@@ -59,6 +59,9 @@ public final class WorldMap {
     @OriginalMember(owner = "client!ih", name = "D", descriptor = "Lclient!av;")
     public static final IterableHashTable disabledElements = new IterableHashTable(8);
 
+    @OriginalMember(owner = "client!be", name = "L", descriptor = "[Ljava/lang/String;")
+    public static final String[] mapElementTextLines = new String[5];
+
     @OriginalMember(owner = "client!gia", name = "s", descriptor = "Lclient!hda;")
     public static Component component;
 
@@ -135,7 +138,7 @@ public final class WorldMap {
     public static byte[][][] tileShapes;
 
     @OriginalMember(owner = "client!rfa", name = "y", descriptor = "Lclient!sia;")
-    public static Deque aDeque_54;
+    public static Deque boundedEntries;
 
     @OriginalMember(owner = "client!baa", name = "g", descriptor = "I")
     public static int mapDl = (int) (Math.random() * 17.0D) - 8;
@@ -249,28 +252,28 @@ public final class WorldMap {
     public static int toolkitType = -1;
 
     @OriginalMember(owner = "client!rka", name = "Ub", descriptor = "Lclient!rt;")
-    public static WorldMapFont aWorldMapFont_7;
+    public static WorldMapFont font11;
 
     @OriginalMember(owner = "client!pea", name = "l", descriptor = "Lclient!rt;")
-    public static WorldMapFont aWorldMapFont_6;
+    public static WorldMapFont font12;
 
     @OriginalMember(owner = "client!eha", name = "d", descriptor = "Lclient!rt;")
-    public static WorldMapFont aWorldMapFont_1;
+    public static WorldMapFont font14;
 
     @OriginalMember(owner = "client!uja", name = "j", descriptor = "Lclient!rt;")
-    public static WorldMapFont aWorldMapFont_8;
+    public static WorldMapFont font17;
 
     @OriginalMember(owner = "client!il", name = "v", descriptor = "Lclient!rt;")
-    public static WorldMapFont aWorldMapFont_2;
+    public static WorldMapFont font19;
 
     @OriginalMember(owner = "client!mda", name = "P", descriptor = "Lclient!rt;")
-    public static WorldMapFont aWorldMapFont_5;
+    public static WorldMapFont font22;
 
     @OriginalMember(owner = "client!lia", name = "r", descriptor = "Lclient!rt;")
-    public static WorldMapFont aWorldMapFont_4;
+    public static WorldMapFont font26;
 
     @OriginalMember(owner = "client!lfa", name = "k", descriptor = "Lclient!rt;")
-    public static WorldMapFont aWorldMapFont_3;
+    public static WorldMapFont font30;
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
     public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) MapElementTypeList mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
@@ -326,7 +329,7 @@ public final class WorldMap {
             method5060(toolkit);
 
             @Pc(203) Deque local203 = method5081(toolkit);
-            Static368.method5272(local203, toolkit);
+            renderElements(local203, toolkit);
 
             if (anInt5084 > 0) {
                 anInt3467--;
@@ -538,9 +541,11 @@ public final class WorldMap {
 
             tileSize = (int) currentZoom >> 1;
             tileShapes = Static640.method8437(tileSize);
+
             method5440();
             method5069();
-            aDeque_54 = new Deque();
+
+            boundedEntries = new Deque();
 
             mapDh += (int) (Math.random() * 5.0D) - 2;
             if (mapDh < -8) {
@@ -587,42 +592,42 @@ public final class WorldMap {
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 70) {
-            aWorldMapFont_7 = new WorldMapFont(toolkit, 11, true, GameShell.canvas);
+            font11 = new WorldMapFont(toolkit, 11, true, GameShell.canvas);
             loadingPercent = 73;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 73) {
-            aWorldMapFont_6 = new WorldMapFont(toolkit, 12, true, GameShell.canvas);
+            font12 = new WorldMapFont(toolkit, 12, true, GameShell.canvas);
             loadingPercent = 76;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 76) {
-            aWorldMapFont_1 = new WorldMapFont(toolkit, 14, true, GameShell.canvas);
+            font14 = new WorldMapFont(toolkit, 14, true, GameShell.canvas);
             loadingPercent = 79;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 79) {
-            aWorldMapFont_8 = new WorldMapFont(toolkit, 17, true, GameShell.canvas);
+            font17 = new WorldMapFont(toolkit, 17, true, GameShell.canvas);
             loadingPercent = 82;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 82) {
-            aWorldMapFont_2 = new WorldMapFont(toolkit, 19, true, GameShell.canvas);
+            font19 = new WorldMapFont(toolkit, 19, true, GameShell.canvas);
             loadingPercent = 85;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 85) {
-            aWorldMapFont_5 = new WorldMapFont(toolkit, 22, true, GameShell.canvas);
+            font22 = new WorldMapFont(toolkit, 22, true, GameShell.canvas);
             loadingPercent = 88;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else if (loadingPercent == 88) {
-            aWorldMapFont_4 = new WorldMapFont(toolkit, 26, true, GameShell.canvas);
+            font26 = new WorldMapFont(toolkit, 26, true, GameShell.canvas);
             loadingPercent = 91;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
         } else {
-            aWorldMapFont_3 = new WorldMapFont(toolkit, 30, true, GameShell.canvas);
+            font30 = new WorldMapFont(toolkit, 30, true, GameShell.canvas);
             loadingPercent = 100;
             Static314.noTimeout(true);
             Static199.doneslowupdate();
@@ -1197,8 +1202,8 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!fu;IIII)V")
     public static void method5073(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) MapElementListEntry arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        arg1.anInt3130 = anInt5649 + (arg2 * (arg1.x - anInt5652) >> 16);
-        arg1.anInt3122 = anInt5646 - (arg3 * (arg1.z - anInt5654) >> 16);
+        arg1.spriteX = anInt5649 + (arg2 * (arg1.x - anInt5652) >> 16);
+        arg1.spriteY = anInt5646 - (arg3 * (arg1.z - anInt5654) >> 16);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;Lclient!ge;IIII[I[I)V")
@@ -1559,23 +1564,23 @@ public final class WorldMap {
             lastAreaId = -1;
         }
 
-        aDeque_54 = null;
+        boundedEntries = null;
         component = null;
         area = null;
         loadingPercent = 0;
         method5070();
         elements.clear();
-        aWorldMapFont_3 = null;
-        aWorldMapFont_6 = null;
+        font30 = null;
+        font12 = null;
         staticElements = null;
-        aWorldMapFont_8 = null;
+        font17 = null;
         jumpX = -1;
         Static13.aSprite_4 = null;
-        aWorldMapFont_1 = null;
-        aWorldMapFont_5 = null;
-        aWorldMapFont_7 = null;
-        aWorldMapFont_4 = null;
-        aWorldMapFont_2 = null;
+        font14 = null;
+        font22 = null;
+        font11 = null;
+        font26 = null;
+        font19 = null;
         jumpZ = -1;
         if (mapElementTypeList != null) {
             mapElementTypeList.cacheReset();
@@ -1733,229 +1738,257 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!laa", name = "a", descriptor = "(Lclient!ha;ILclient!el;ILclient!fu;I)Z")
-    public static boolean method5138(@OriginalArg(0) Toolkit arg0, @OriginalArg(2) MapElementType mapElementType, @OriginalArg(4) MapElementListEntry arg2) {
-        @Pc(7) int local7 = Integer.MAX_VALUE;
-        @Pc(9) int local9 = Integer.MIN_VALUE;
-        @Pc(11) int local11 = Integer.MAX_VALUE;
-        @Pc(13) int local13 = Integer.MIN_VALUE;
-        if (mapElementType.landmarkPolygons != null) {
-            local13 = anInt5646 - (arg2.z + mapElementType.maxZ - anInt5654) * (anInt5646 - anInt5653) / (anInt5645 - anInt5654);
-            local11 = anInt5646 - (arg2.z + mapElementType.minZ - anInt5654) * (anInt5646 + -anInt5653) / (anInt5645 - anInt5654);
-            local7 = anInt5649 + (anInt5651 - anInt5649) * (-anInt5652 + mapElementType.maxX - -arg2.x) / (anInt5647 - anInt5652);
-            local9 = anInt5649 + (mapElementType.minX + arg2.x - anInt5652) * (anInt5651 - anInt5649) / (anInt5647 - anInt5652);
+    public static boolean renderElement(@OriginalArg(0) Toolkit toolkit, @OriginalArg(2) MapElementType element, @OriginalArg(4) MapElementListEntry entry) {
+        @Pc(7) int minRectX = Integer.MAX_VALUE;
+        @Pc(9) int maxRectX = Integer.MIN_VALUE;
+        @Pc(11) int minRectY = Integer.MAX_VALUE;
+        @Pc(13) int maxRectY = Integer.MIN_VALUE;
+        if (element.landmarkPolygons != null) {
+            maxRectY = anInt5646 - (entry.z + element.maxZ - anInt5654) * (anInt5646 - anInt5653) / (anInt5645 - anInt5654);
+            minRectY = anInt5646 - (entry.z + element.minZ - anInt5654) * (anInt5646 + -anInt5653) / (anInt5645 - anInt5654);
+            minRectX = anInt5649 + (anInt5651 - anInt5649) * (-anInt5652 + element.maxX - -entry.x) / (anInt5647 - anInt5652);
+            maxRectX = anInt5649 + (element.minX + entry.x - anInt5652) * (anInt5651 - anInt5649) / (anInt5647 - anInt5652);
         }
 
-        @Pc(102) Sprite local102 = null;
-        @Pc(104) int local104 = 0;
-        @Pc(106) int local106 = 0;
-        @Pc(108) int local108 = 0;
-        @Pc(110) int local110 = 0;
-        if (mapElementType.sprite != -1) {
-            if (arg2.mouseOver && mapElementType.hoverSprite != -1) {
-                local102 = mapElementType.method2431(true, arg0);
+        @Pc(102) Sprite sprite = null;
+        @Pc(104) int textX1 = 0;
+        @Pc(106) int textX2 = 0;
+        @Pc(108) int textY2 = 0;
+        @Pc(110) int textY1 = 0;
+        if (element.sprite != -1) {
+            if (entry.mouseOver && element.hoverSprite != -1) {
+                sprite = element.sprite(toolkit, true);
             } else {
-                local102 = mapElementType.method2431(false, arg0);
+                sprite = element.sprite(toolkit, false);
             }
-            if (local102 != null) {
-                local104 = arg2.anInt3130 - (local102.scaleWidth() + 1 >> 1);
-                local106 = arg2.anInt3130 + (local102.scaleWidth() + 1 >> 1);
-                if (local7 > local104) {
-                    local7 = local104;
+
+            if (sprite != null) {
+                textX1 = entry.spriteX - (sprite.scaleWidth() + 1 >> 1);
+                textX2 = entry.spriteX + (sprite.scaleWidth() + 1 >> 1);
+                if (minRectX > textX1) {
+                    minRectX = textX1;
                 }
-                if (local106 > local9) {
-                    local9 = local106;
+                if (textX2 > maxRectX) {
+                    maxRectX = textX2;
                 }
-                local108 = arg2.anInt3122 - (local102.scaleHeight() + 1 >> 1);
-                if (local11 > local108) {
-                    local11 = local108;
+
+                textY2 = entry.spriteY - (sprite.scaleHeight() + 1 >> 1);
+                if (minRectY > textY2) {
+                    minRectY = textY2;
                 }
-                local110 = arg2.anInt3122 + (local102.scaleHeight() + 1 >> 1);
-                if (local110 > local13) {
-                    local13 = local110;
+
+                textY1 = entry.spriteY + (sprite.scaleHeight() + 1 >> 1);
+                if (textY1 > maxRectY) {
+                    maxRectY = textY1;
                 }
             }
         }
 
-        @Pc(209) WorldMapFont local209 = null;
-        @Pc(211) int local211 = 0;
-        @Pc(213) int local213 = 0;
-        @Pc(215) int local215 = 0;
-        @Pc(217) int local217 = 0;
-        @Pc(227) int local227 = 0;
-        @Pc(229) int local229 = 0;
-        @Pc(231) int local231 = 0;
-        @Pc(233) int local233 = 0;
-        @Pc(312) int local312;
-        if (mapElementType.text != null) {
-            local209 = method5493(mapElementType.textSize);
+        @Pc(209) WorldMapFont font = null;
+        @Pc(211) int lineCount = 0;
+        @Pc(213) int textX = 0;
+        @Pc(215) int textY = 0;
+        @Pc(217) int maxLineWidth = 0;
+        @Pc(227) int rectX1 = 0;
+        @Pc(229) int rectX2 = 0;
+        @Pc(231) int rectY1 = 0;
+        @Pc(233) int rectY2 = 0;
+        if (element.text != null) {
+            font = getFont(element.textSize);
 
-            if (local209 != null) {
-                local211 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, mapElementType.text);
-                local215 = arg2.anInt3122 - mapElementType.anInt2617 * (anInt5646 - anInt5653) / (anInt5645 - anInt5654);
-                local213 = mapElementType.anInt2600 * (anInt5651 - anInt5649) / (anInt5647 - anInt5652) + arg2.anInt3130;
-                if (local102 == null) {
-                    local215 -= local211 * local209.getWidth() / 2;
+            if (font != null) {
+                lineCount = Fonts.p11Metrics.splitLines(mapElementTextLines, null, null, element.text);
+                textY = entry.spriteY - element.anInt2617 * (anInt5646 - anInt5653) / (anInt5645 - anInt5654);
+                textX = element.anInt2600 * (anInt5651 - anInt5649) / (anInt5647 - anInt5652) + entry.spriteX;
+
+                if (sprite != null) {
+                    textY -= (sprite.scaleHeight() >> 1) + (font.getHeight() * lineCount);
                 } else {
-                    local215 -= (local102.scaleHeight() >> 1) + (local209.getHeight() * local211);
+                    textY -= (lineCount * font.getWidth()) / 2;
                 }
-                for (local312 = 0; local312 < local211; local312++) {
-                    @Pc(318) String local318 = Static37.aStringArray5[local312];
-                    if (local312 < local211 - 1) {
-                        local318 = local318.substring(0, local318.length() - 4);
+
+                for (@Pc(312) int i = 0; i < lineCount; i++) {
+                    @Pc(318) String line = mapElementTextLines[i];
+                    if (i < lineCount - 1) {
+                        line = line.substring(0, line.length() - 4);
                     }
-                    @Pc(335) int local335 = local209.totalWidth(local318);
-                    if (local335 > local217) {
-                        local217 = local335;
+
+                    @Pc(335) int lineWidth = font.totalWidth(line);
+                    if (lineWidth > maxLineWidth) {
+                        maxLineWidth = lineWidth;
                     }
                 }
-                local227 = local213 - local217 / 2;
-                local229 = local217 / 2 + local213;
-                if (local7 > local227) {
-                    local7 = local227;
+
+                rectX1 = textX - maxLineWidth / 2;
+                rectX2 = maxLineWidth / 2 + textX;
+                if (rectX1 < minRectX) {
+                    minRectX = rectX1;
                 }
-                if (local9 < local229) {
-                    local9 = local229;
+                if (rectX2 > maxRectX) {
+                    maxRectX = rectX2;
                 }
-                local231 = local215;
-                local233 = local215 + local211 * local209.getHeight();
-                if (local11 > local231) {
-                    local11 = local231;
+
+                rectY1 = textY;
+                rectY2 = textY + lineCount * font.getHeight();
+                if (rectY1 < minRectY) {
+                    minRectY = rectY1;
                 }
-                if (local233 > local13) {
-                    local13 = local233;
+                if (rectY2 > maxRectY) {
+                    maxRectY = rectY2;
                 }
             }
         }
-        if (local9 < anInt5649 || anInt5651 < local7 || anInt5653 > local13 || local11 > anInt5646) {
+
+        if (anInt5649 <= maxRectX && anInt5651 >= minRectX && anInt5653 <= maxRectY && anInt5646 >= minRectY) {
+            method5071(toolkit, entry, element);
+
+            if (sprite != null) {
+                if ((anInt5084 > 0) && ((flashingElement != -1 && entry.id == flashingElement) || (flashingElementCategory != -1 && element.category == flashingElementCategory))) {
+                    @Pc(312) int local312;
+                    if (anInt3467 > 50) {
+                        local312 = 200 - anInt3467 * 2;
+                    } else {
+                        local312 = anInt3467 * 2;
+                    }
+
+                    @Pc(495) int colour = (local312 << 24) | 0xFFFF00;
+                    toolkit.fillCircle(entry.spriteX, entry.spriteY, sprite.getWidth() / 2 + 7, colour);
+                    toolkit.fillCircle(entry.spriteX, entry.spriteY, sprite.getWidth() / 2 + 5, colour);
+                    toolkit.fillCircle(entry.spriteX, entry.spriteY, sprite.getWidth() / 2 + 3, colour);
+                    toolkit.fillCircle(entry.spriteX, entry.spriteY, sprite.getWidth() / 2 + 1, colour);
+                    toolkit.fillCircle(entry.spriteX, entry.spriteY, sprite.getWidth() / 2, colour);
+                }
+
+                sprite.render(entry.spriteX - (sprite.scaleWidth() >> 1), entry.spriteY - (sprite.scaleHeight() >> 1));
+            }
+
+            if (element.text != null && font != null) {
+                renderText(toolkit, element, entry, font, textX, textY, maxLineWidth, lineCount);
+            }
+
+            if (element.sprite != -1 || element.text != null) {
+                @Pc(612) BoundedMapElementListEntry boundedEntry = new BoundedMapElementListEntry(entry);
+                boundedEntry.rectX2 = rectX2;
+                boundedEntry.textY2 = textY2;
+                boundedEntry.rectX1 = rectX1;
+                boundedEntry.textX2 = textX2;
+                boundedEntry.textY1 = textY1;
+                boundedEntry.rectY1 = rectY1;
+                boundedEntry.rectY2 = rectY2;
+                boundedEntry.textX1 = textX1;
+                boundedEntries.addLast(boundedEntry);
+            }
+
+            return false;
+        } else {
             return true;
         }
-        method5071(arg0, arg2, mapElementType);
-        if (local102 != null) {
-            if (anInt5084 > 0 && (flashingElement != -1 && arg2.id == flashingElement || flashingElementCategory != -1 && mapElementType.category == flashingElementCategory)) {
-                if (anInt3467 > 50) {
-                    local312 = 200 - anInt3467 * 2;
-                } else {
-                    local312 = anInt3467 * 2;
-                }
-                @Pc(495) int colour = (local312 << 24) | 0xFFFF00;
-                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2 + 7, colour);
-                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2 + 5, colour);
-                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2 + 3, colour);
-                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2 + 1, colour);
-                arg0.fillCircle(arg2.anInt3130, arg2.anInt3122, local102.getWidth() / 2, colour);
-            }
-            local102.render(arg2.anInt3130 - (local102.scaleWidth() >> 1), arg2.anInt3122 - (local102.scaleHeight() >> 1));
-        }
-        if (mapElementType.text != null && local209 != null) {
-            method9396(local211, arg2, local213, mapElementType, local209, local217, arg0, local215);
-        }
-        if (mapElementType.sprite != -1 || mapElementType.text != null) {
-            @Pc(612) Node_Sub37 local612 = new Node_Sub37(arg2);
-            local612.anInt6185 = local229;
-            local612.anInt6186 = local108;
-            local612.anInt6192 = local227;
-            local612.anInt6190 = local106;
-            local612.anInt6191 = local110;
-            local612.anInt6184 = local231;
-            local612.anInt6187 = local233;
-            local612.anInt6195 = local104;
-            aDeque_54.addLast(local612);
-        }
-        return false;
     }
 
     @OriginalMember(owner = "client!taa", name = "a", descriptor = "(BLclient!fu;Lclient!ha;Lclient!el;)V")
-    public static void method7902(@OriginalArg(1) MapElementListEntry arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) MapElementType arg2) {
-        @Pc(8) Sprite local8 = arg2.method2428(arg1);
-        if (local8 == null) {
+    public static void renderElementOffscreen(@OriginalArg(2) Toolkit toolkit, @OriginalArg(3) MapElementType element, @OriginalArg(1) MapElementListEntry entry) {
+        @Pc(8) Sprite sprite = element.worldMapSprite(toolkit);
+        if (sprite == null) {
             return;
         }
-        @Pc(15) int local15 = local8.getWidth();
-        if (local8.getHeight() > local15) {
-            local15 = local8.getHeight();
+
+        @Pc(15) int size = sprite.getWidth();
+        if (sprite.getHeight() > size) {
+            size = sprite.getHeight();
         }
-        @Pc(31) int local31 = arg0.anInt3130;
-        @Pc(34) int local34 = arg0.anInt3122;
-        @Pc(36) int local36 = 0;
-        @Pc(38) int local38 = 0;
+
+        @Pc(31) int textX1 = entry.spriteX;
+        @Pc(34) int textY1 = entry.spriteY;
+        @Pc(36) int lineCount = 0;
+        @Pc(38) int maxTotalWidth = 0;
         @Pc(40) int local40 = 0;
-        @Pc(56) int local56;
-        @Pc(78) int local78;
-        if (arg2.text != null) {
-            local36 = Fonts.p11Metrics.splitLines(Static37.aStringArray5, null, null, arg2.text);
-            for (local56 = 0; local56 < local36; local56++) {
-                @Pc(61) String local61 = Static37.aStringArray5[local56];
-                if (local56 < local36 - 1) {
-                    local61 = local61.substring(0, local61.length() - 4);
+
+        if (element.text != null) {
+            lineCount = Fonts.p11Metrics.splitLines(mapElementTextLines, null, null, element.text);
+
+            for (@Pc(56) int i = 0; i < lineCount; i++) {
+                @Pc(61) String line = mapElementTextLines[i];
+                if (i < lineCount - 1) {
+                    line = line.substring(0, line.length() - 4);
                 }
-                local78 = aWorldMapFont_1.totalWidth(local61);
-                if (local78 > local38) {
-                    local38 = local78;
+
+                @Pc(78) int totalWidth = font14.totalWidth(line);
+                if (totalWidth > maxTotalWidth) {
+                    maxTotalWidth = totalWidth;
                 }
             }
-            local40 = aWorldMapFont_1.getHeight() * local36 + aWorldMapFont_1.getWidth() / 2;
+
+            local40 = font14.getHeight() * lineCount + font14.getWidth() / 2;
         }
-        local56 = local15 / 2 + arg0.anInt3130;
-        if (local31 < anInt5649 + local15) {
-            local56 = local15 / 2 + anInt5649 + local38 / 2 + 15;
-            local31 = anInt5649;
-        } else if (anInt5651 - local15 < local31) {
-            local31 = anInt5651 - local15;
-            local56 = anInt5651 - local15 / 2 - local38 / 2 - 10 - 5;
+
+        @Pc(56) int centerX = entry.spriteX + size / 2;
+        if (textX1 < anInt5649 + size) {
+            centerX = size / 2 + anInt5649 + maxTotalWidth / 2 + 15;
+            textX1 = anInt5649;
+        } else if (anInt5651 - size < textX1) {
+            textX1 = anInt5651 - size;
+            centerX = anInt5651 - size / 2 - maxTotalWidth / 2 - 10 - 5;
         }
-        @Pc(163) int local163 = arg0.anInt3122;
-        if (local15 + anInt5653 > local34) {
-            local163 = anInt5653 + local15 / 2 + 10;
-            local34 = anInt5653;
-        } else if (anInt5646 - local15 < local34) {
-            local163 = anInt5646 - local15 / 2 - local40 - 10;
-            local34 = anInt5646 - local15;
+
+        @Pc(163) int centerY = entry.spriteY;
+        if (size + anInt5653 > textY1) {
+            centerY = anInt5653 + size / 2 + 10;
+            textY1 = anInt5653;
+        } else if (anInt5646 - size < textY1) {
+            centerY = anInt5646 - size / 2 - local40 - 10;
+            textY1 = anInt5646 - size;
         }
-        local78 = (int) (Math.atan2(local31 - arg0.anInt3130, local34 - arg0.anInt3122) / 3.141592653589793D * 32767.0D) & 0xFFFF;
-        local8.renderRotated((float) local31 + (float) local15 / 2.0F, (float) local34 + (float) local15 / 2.0F, 4096, local78);
-        @Pc(246) int local246 = -2;
-        @Pc(248) int local248 = -2;
-        @Pc(257) int local257 = -2;
-        @Pc(259) int local259 = -2;
-        if (arg2.text != null) {
-            local246 = local56 - local38 / 2 - 5;
-            local248 = local163;
-            local257 = local38 + local246 + 10;
-            local259 = aWorldMapFont_1.getHeight() * local36 + local163 + 3;
-            if (arg2.fillColour != 0) {
-                arg1.fillRect(local246, local163, local257 - local246, local259 - local163, arg2.fillColour);
+
+        @Pc(78) int angle = (int) (Math.atan2(textX1 - entry.spriteX, textY1 - entry.spriteY) / 3.141592653589793D * 32767.0D) & 0xFFFF;
+        sprite.renderRotated((float) textX1 + (float) size / 2.0F, (float) textY1 + (float) size / 2.0F, 4096, angle);
+
+        @Pc(246) int rectX1 = -2;
+        @Pc(248) int rectY1 = -2;
+        @Pc(257) int rectX2 = -2;
+        @Pc(259) int rectY2 = -2;
+        if (element.text != null) {
+            rectX1 = centerX - maxTotalWidth / 2 - 5;
+            rectY1 = centerY;
+            rectX2 = maxTotalWidth + rectX1 + 10;
+            rectY2 = font14.getHeight() * lineCount + centerY + 3;
+
+            if (element.fillColour != 0) {
+                toolkit.fillRect(rectX1, centerY, rectX2 - rectX1, rectY2 - centerY, element.fillColour);
             }
-            if (arg2.outlineColour != 0) {
-                arg1.outlineRect(local246, local163, local257 - local246, local259 - local163, arg2.outlineColour);
+            if (element.outlineColour != 0) {
+                toolkit.outlineRect(rectX1, centerY, rectX2 - rectX1, rectY2 - centerY, element.outlineColour);
             }
-            for (@Pc(333) int local333 = 0; local333 < local36; local333++) {
-                @Pc(338) String local338 = Static37.aStringArray5[local333];
-                if (local36 - 1 > local333) {
-                    local338 = local338.substring(0, local338.length() - 4);
+
+            for (@Pc(333) int i = 0; i < lineCount; i++) {
+                @Pc(338) String line = mapElementTextLines[i];
+
+                if (lineCount - 1 > i) {
+                    line = line.substring(0, line.length() - 4);
                 }
-                aWorldMapFont_1.renderCenter(arg1, local338, local56, local163, arg2.textColour);
-                local163 += aWorldMapFont_1.getHeight();
+
+                font14.renderCenter(toolkit, line, centerX, centerY, element.textColour);
+                centerY += font14.getHeight();
             }
         }
-        if (arg2.sprite == -1 && arg2.text == null) {
-            return;
+
+        if (element.sprite != -1 || element.text != null) {
+            size >>= 0x1;
+            @Pc(393) BoundedMapElementListEntry boundedEntry = new BoundedMapElementListEntry(entry);
+            boundedEntry.textX2 = textX1 + size;
+            boundedEntry.rectY2 = rectY2;
+            boundedEntry.rectX1 = rectX1;
+            boundedEntry.textX1 = textX1 - size;
+            boundedEntry.textY1 = textY1 + size;
+            boundedEntry.textY2 = textY1 - size;
+            boundedEntry.rectY1 = rectY1;
+            boundedEntry.rectX2 = rectX2;
+            boundedEntries.addLast(boundedEntry);
         }
-        local15 >>= 0x1;
-        @Pc(393) Node_Sub37 local393 = new Node_Sub37(arg0);
-        local393.anInt6190 = local15 + local31;
-        local393.anInt6187 = local259;
-        local393.anInt6192 = local246;
-        local393.anInt6195 = local31 - local15;
-        local393.anInt6191 = local34 + local15;
-        local393.anInt6186 = local34 - local15;
-        local393.anInt6184 = local248;
-        local393.anInt6185 = local257;
-        aDeque_54.addLast(local393);
     }
 
     @OriginalMember(owner = "client!qa", name = "a", descriptor = "(BII)V")
-    public static void method6759(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
-        if (targetZoom > currentZoom) {
+    public static void method6759(@OriginalArg(1) int x, @OriginalArg(2) int y) {
+        if (currentZoom < targetZoom) {
             currentZoom = (float) ((double) currentZoom + (double) currentZoom / 30.0D);
             if (targetZoom < currentZoom) {
                 currentZoom = targetZoom;
@@ -1972,20 +2005,24 @@ public final class WorldMap {
             tileSize = (int) currentZoom >> 1;
             tileShapes = Static640.method8437(tileSize);
         }
+
         if (jumpX != -1 && jumpZ != -1) {
             @Pc(101) int local101 = jumpX - anInt2809;
             if (local101 < 2 || local101 > 2) {
                 local101 /= 8;
             }
+
             @Pc(120) int local120 = jumpZ - anInt9389;
             anInt2809 += local101;
             if (local120 < 2 || local120 > 2) {
                 local120 /= 8;
             }
+
             if (local101 == 0 && local120 == 0) {
                 jumpZ = -1;
                 jumpX = -1;
             }
+
             anInt9389 -= -local120;
             method5440();
         }
@@ -2000,110 +2037,135 @@ public final class WorldMap {
             flashingElementCategory = -1;
         }
 
-        if (hovered && aDeque_54 != null) {
-            for (@Pc(197) Node_Sub37 local197 = (Node_Sub37) aDeque_54.first(); local197 != null; local197 = (Node_Sub37) aDeque_54.next()) {
-                @Pc(206) MapElementType elementType = mapElementTypeList.list(local197.entry.id);
-                if (local197.method5553(arg0, arg1)) {
+        if (hovered && boundedEntries != null) {
+            for (@Pc(197) BoundedMapElementListEntry entry = (BoundedMapElementListEntry) boundedEntries.first(); entry != null; entry = (BoundedMapElementListEntry) boundedEntries.next()) {
+                @Pc(206) MapElementType elementType = mapElementTypeList.list(entry.entry.id);
+
+                if (entry.contains(x, y)) {
                     if (elementType.ops != null) {
                         if (elementType.ops[4] != null) {
-                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[4], MiniMenuAction.OP_MAPELEMENT5, true, -1, elementType.opBase, local197.entry.id, false);
+                            MiniMenu.addEntryInner(false, -1, entry.entry.id, elementType.category, 0, elementType.ops[4], MiniMenuAction.OP_MAPELEMENT5, true, -1, elementType.opBase, entry.entry.id, false);
                         }
                         if (elementType.ops[3] != null) {
-                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[3], MiniMenuAction.OP_MAPELEMENT4, true, -1, elementType.opBase, local197.entry.id, false);
+                            MiniMenu.addEntryInner(false, -1, entry.entry.id, elementType.category, 0, elementType.ops[3], MiniMenuAction.OP_MAPELEMENT4, true, -1, elementType.opBase, entry.entry.id, false);
                         }
                         if (elementType.ops[2] != null) {
-                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[2], MiniMenuAction.OP_MAPELEMENT3, true, -1, elementType.opBase, local197.entry.id, false);
+                            MiniMenu.addEntryInner(false, -1, entry.entry.id, elementType.category, 0, elementType.ops[2], MiniMenuAction.OP_MAPELEMENT3, true, -1, elementType.opBase, entry.entry.id, false);
                         }
                         if (elementType.ops[1] != null) {
-                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[1], MiniMenuAction.OP_MAPELEMENT2, true, -1, elementType.opBase, local197.entry.id, false);
+                            MiniMenu.addEntryInner(false, -1, entry.entry.id, elementType.category, 0, elementType.ops[1], MiniMenuAction.OP_MAPELEMENT2, true, -1, elementType.opBase, entry.entry.id, false);
                         }
                         if (elementType.ops[0] != null) {
-                            MiniMenu.addEntryInner(false, -1, local197.entry.id, elementType.category, 0, elementType.ops[0], MiniMenuAction.OP_MAPELEMENT1, true, -1, elementType.opBase, local197.entry.id, false);
+                            MiniMenu.addEntryInner(false, -1, entry.entry.id, elementType.category, 0, elementType.ops[0], MiniMenuAction.OP_MAPELEMENT1, true, -1, elementType.opBase, entry.entry.id, false);
                         }
                     }
 
-                    if (!local197.entry.mouseOver) {
-                        local197.entry.mouseOver = true;
-                        ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEOVER, local197.entry.id, elementType.category);
+                    if (!entry.entry.mouseOver) {
+                        entry.entry.mouseOver = true;
+                        ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEOVER, entry.entry.id, elementType.category);
                     }
 
-                    if (local197.entry.mouseOver) {
-                        ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEREPEAT, local197.entry.id, elementType.category);
+                    if (entry.entry.mouseOver) {
+                        ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSEREPEAT, entry.entry.id, elementType.category);
                     }
-                } else if (local197.entry.mouseOver) {
-                    local197.entry.mouseOver = false;
-                    ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSELEAVE, local197.entry.id, elementType.category);
+                } else if (entry.entry.mouseOver) {
+                    entry.entry.mouseOver = false;
+                    ScriptRunner.executeTrigger(ClientTriggerType.MAP_ELEMENT_MOUSELEAVE, entry.entry.id, elementType.category);
                 }
             }
         }
     }
 
     @OriginalMember(owner = "client!mda", name = "a", descriptor = "(ZI)Lclient!rt;")
-    public static WorldMapFont method5493(@OriginalArg(1) int arg0) {
-        if (arg0 == 0) {
+    public static WorldMapFont getFont(@OriginalArg(1) int textSize) {
+        if (textSize == 0) {
             if ((double) currentZoom == 3.0D) {
-                return aWorldMapFont_7;
+                return font11;
             }
             if ((double) currentZoom == 4.0D) {
-                return aWorldMapFont_6;
+                return font12;
             }
             if ((double) currentZoom == 6.0D) {
-                return aWorldMapFont_1;
+                return font14;
             }
             if ((double) currentZoom >= 8.0D) {
-                return aWorldMapFont_8;
+                return font17;
             }
-        } else if (arg0 == 1) {
+        } else if (textSize == 1) {
             if ((double) currentZoom == 3.0D) {
-                return aWorldMapFont_1;
+                return font14;
             }
             if ((double) currentZoom == 4.0D) {
-                return aWorldMapFont_8;
+                return font17;
             }
             if ((double) currentZoom == 6.0D) {
-                return aWorldMapFont_2;
+                return font19;
             }
             if ((double) currentZoom >= 8.0D) {
-                return aWorldMapFont_5;
+                return font22;
             }
-        } else if (arg0 == 2) {
+        } else if (textSize == 2) {
             if ((double) currentZoom == 3.0D) {
-                return aWorldMapFont_2;
+                return font19;
             }
             if ((double) currentZoom == 4.0D) {
-                return aWorldMapFont_5;
+                return font22;
             }
             if ((double) currentZoom == 6.0D) {
-                return aWorldMapFont_4;
+                return font26;
             }
             if ((double) currentZoom >= 8.0D) {
-                return aWorldMapFont_3;
+                return font30;
             }
         }
         return null;
     }
 
     @OriginalMember(owner = "client!wr", name = "a", descriptor = "(ILclient!fu;ILclient!el;Lclient!rt;IBLclient!ha;I)V")
-    public static void method9396(@OriginalArg(0) int arg0, @OriginalArg(1) MapElementListEntry arg1, @OriginalArg(2) int arg2, @OriginalArg(3) MapElementType arg3, @OriginalArg(4) WorldMapFont arg4, @OriginalArg(5) int arg5, @OriginalArg(7) Toolkit arg6, @OriginalArg(8) int arg7) {
-        @Pc(14) int local14 = arg2 - arg5 / 2 - 5;
-        @Pc(18) int local18 = arg7 + 2;
-        if (arg3.fillColour != 0) {
-            arg6.fillRect(local14, local18, arg5 + 10, arg0 * arg4.getHeight() + 1 + arg7 + -local18, arg3.fillColour);
+    public static void renderText(@OriginalArg(7) Toolkit toolkit, @OriginalArg(3) MapElementType type, @OriginalArg(1) MapElementListEntry entry, @OriginalArg(4) WorldMapFont font, @OriginalArg(2) int x, @OriginalArg(8) int y, @OriginalArg(5) int width, @OriginalArg(0) int lineCount) {
+        @Pc(14) int boxX = x - (width / 2) - 5;
+        @Pc(18) int boxy = y + 2;
+        if (type.fillColour != 0) {
+            toolkit.fillRect(boxX, boxy, width + 10, lineCount * font.getHeight() + 1 + y + -boxy, type.fillColour);
         }
-        if (arg3.outlineColour != 0) {
-            arg6.outlineRect(local14, local18, arg5 + 10, arg4.getHeight() * arg0 + 1 + arg7 + -local18, arg3.outlineColour);
+        if (type.outlineColour != 0) {
+            toolkit.outlineRect(boxX, boxy, width + 10, font.getHeight() * lineCount + 1 + y + -boxy, type.outlineColour);
         }
-        @Pc(73) int local73 = arg3.textColour;
-        if (arg1.mouseOver && arg3.hoverTextColour != -1) {
-            local73 = arg3.hoverTextColour;
+
+        @Pc(73) int textColour = type.textColour;
+        if (entry.mouseOver && type.hoverTextColour != -1) {
+            textColour = type.hoverTextColour;
         }
-        for (@Pc(87) int local87 = 0; local87 < arg0; local87++) {
-            @Pc(93) String local93 = Static37.aStringArray5[local87];
-            if (local87 < arg0 - 1) {
-                local93 = local93.substring(0, local93.length() - 4);
+
+        for (@Pc(87) int i = 0; i < lineCount; i++) {
+            @Pc(93) String line = mapElementTextLines[i];
+            if (i < lineCount - 1) {
+                line = line.substring(0, line.length() - 4);
             }
-            arg4.renderCenter(arg6, local93, arg2, arg7, local73);
-            arg7 += arg4.getHeight();
+
+            font.renderCenter(toolkit, line, x, y, textColour);
+            y += font.getHeight();
+        }
+    }
+
+    @OriginalMember(owner = "client!lka", name = "a", descriptor = "(ILclient!sia;ILclient!ha;I)V")
+    public static void renderElements(@OriginalArg(1) Deque arg0, @OriginalArg(3) Toolkit toolkit) {
+        boundedEntries.clear();
+
+        if (disableElements) {
+            return;
+        }
+
+        for (@Pc(27) MapElementListEntry entry = (MapElementListEntry) arg0.first(); entry != null; entry = (MapElementListEntry) arg0.next()) {
+            @Pc(35) MapElementType type = mapElementTypeList.list(entry.id);
+
+            if (isEnabled(type)) {
+                @Pc(47) boolean offscreen = renderElement(toolkit, type, entry);
+
+                if (offscreen) {
+                    renderElementOffscreen(toolkit, type, entry);
+                }
+            }
         }
     }
 }

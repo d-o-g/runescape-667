@@ -572,7 +572,7 @@ public final class Minimap {
 
         @Pc(517) Sprite sprite = null;
         if (elementType.sprite != -1) {
-            sprite = elementType.method2431(false, toolkit);
+            sprite = elementType.sprite(toolkit, false);
 
             if (sprite != null) {
                 drawDot(screenY, mask, sprite, drawY, drawX, component, screenX);

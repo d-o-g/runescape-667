@@ -163,7 +163,7 @@ public final class FontMetrics {
     }
 
     @OriginalMember(owner = "client!ve", name = "a", descriptor = "([Ljava/lang/String;[II[Lclient!st;Ljava/lang/String;)I")
-    public int splitLines(@OriginalArg(0) String[] lines, @OriginalArg(1) int[] lineBounds, @OriginalArg(3) Sprite[] icons, @OriginalArg(4) String text) {
+    public int splitLines(@OriginalArg(0) String[] destination, @OriginalArg(1) int[] lineBounds, @OriginalArg(3) Sprite[] icons, @OriginalArg(4) String text) {
         if (text == null) {
             return 0;
         }
@@ -203,9 +203,9 @@ public final class FontMetrics {
                     openBracket = -1;
 
                     if (escaped.equals("br")) {
-                        lines[lineCount] = text.substring(lineStart, i + 1);
+                        destination[lineCount] = text.substring(lineStart, i + 1);
                         lineCount++;
-                        if (lines.length <= lineCount) {
+                        if (destination.length <= lineCount) {
                             return 0;
                         }
                         lineWidth = 0;
@@ -288,9 +288,9 @@ public final class FontMetrics {
 
                         if (lineBounds[lineBounds.length <= lineCount ? lineBounds.length - 1 : lineCount] < lineWidth) {
                             if (lastSpace < 0) {
-                                lines[lineCount] = text.substring(lineStart, lineEnd);
+                                destination[lineCount] = text.substring(lineStart, lineEnd);
                                 lineCount++;
-                                if (lineCount >= lines.length) {
+                                if (lineCount >= destination.length) {
                                     return 0;
                                 }
                                 lineStart = lineEnd;
@@ -298,9 +298,9 @@ public final class FontMetrics {
                                 prev = -1;
                                 lastSpace = -1;
                             } else {
-                                lines[lineCount] = text.substring(lineStart, lastSpace + 1 - spaceOffset);
+                                destination[lineCount] = text.substring(lineStart, lastSpace + 1 - spaceOffset);
                                 lineCount++;
-                                if (lines.length <= lineCount) {
+                                if (destination.length <= lineCount) {
                                     return 0;
                                 }
                                 lineStart = lastSpace + 1;
@@ -321,7 +321,7 @@ public final class FontMetrics {
         }
 
         if (text.length() > lineStart) {
-            lines[lineCount] = text.substring(lineStart, text.length());
+            destination[lineCount] = text.substring(lineStart, text.length());
             lineCount++;
         }
 

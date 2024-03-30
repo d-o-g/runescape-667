@@ -7,7 +7,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class MapElementListEntry extends Node {
 
     @OriginalMember(owner = "client!fu", name = "u", descriptor = "I")
-    public int anInt3122;
+    public int spriteY;
 
     @OriginalMember(owner = "client!fu", name = "v", descriptor = "I")
     public int z;
@@ -19,7 +19,7 @@ public final class MapElementListEntry extends Node {
     public int x;
 
     @OriginalMember(owner = "client!fu", name = "t", descriptor = "I")
-    public int anInt3130;
+    public int spriteX;
 
     @OriginalMember(owner = "client!fu", name = "n", descriptor = "Z")
     public boolean mouseOver = false;

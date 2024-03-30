@@ -5746,7 +5746,7 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(192) int id = intStack[intStackPointer];
                 @Pc(834) int coord = intStack[intStackPointer + 1];
-                WorldMap.setMap(id, true, coord & 0x3FFF, coord >> 14 & 0x3FFF);
+                WorldMap.setMap(id, true, coord & 0x3FFF, (coord >> 14) & 0x3FFF);
                 return;
             }
 

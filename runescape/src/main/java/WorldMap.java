@@ -286,13 +286,13 @@ public final class WorldMap {
     public static int anInt8111;
 
     @OriginalMember(owner = "client!w", name = "i", descriptor = "Z")
-    public static boolean aBoolean784 = false;
+    public static boolean mapOverride = false;
 
     @OriginalMember(owner = "client!qla", name = "d", descriptor = "I")
-    public static int anInt8089 = -1;
+    public static int mapZ = -1;
 
     @OriginalMember(owner = "client!hb", name = "g", descriptor = "I")
-    public static int anInt3694 = -1;
+    public static int mapX = -1;
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
     public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) MapElementTypeList mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
@@ -503,11 +503,11 @@ public final class WorldMap {
         }
 
         if (loadingPercent == 10) {
-            areaX = area.chunkMinX >> 6 << 6;
-            areaZ = area.chunkMinZ >> 6 << 6;
+            areaX = (area.chunkMinX >> 6) << 6;
+            areaZ = (area.chunkMinZ >> 6) << 6;
 
-            areaWidth = (area.chunkMaxX >> 6 << 6) - (areaX - 64);
-            areaHeight = (area.chunkMaxZ >> 6 << 6) + 64 - areaZ;
+            areaWidth = ((area.chunkMaxX >> 6) << 6) - areaX + 64;
+            areaHeight = ((area.chunkMaxZ >> 6) << 6) - areaZ + 64;
 
             @Pc(77) int[] coord = new int[3];
             @Pc(79) int relativeX = -1;
@@ -517,26 +517,26 @@ public final class WorldMap {
                 relativeY = coord[2] - areaZ;
             }
 
-            if (!aBoolean784 && relativeX >= 0 && areaWidth > relativeX && relativeY >= 0 && relativeY < areaHeight) {
+            if (!mapOverride && relativeX >= 0 && relativeX < areaWidth && relativeY >= 0 && relativeY < areaHeight) {
                 relativeY += (int) (Math.random() * 10.0D) - 5;
                 relativeX += (int) (Math.random() * 10.0D) - 5;
                 displayX = relativeX;
                 displayZ = relativeY;
-            } else if (anInt3694 == -1 || anInt8089 == -1) {
-                area.projectFloor(coord, (area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF);
-                displayZ = coord[2] - areaZ;
-                displayX = coord[1] - areaX;
-            } else {
-                area.projectFloor(coord, anInt3694, anInt8089);
+            } else if (mapX != -1 && mapZ != -1) {
+                area.projectFloor(coord, mapX, mapZ);
 
                 if (coord != null) {
                     displayX = coord[1] - areaX;
                     displayZ = coord[2] - areaZ;
                 }
 
-                aBoolean784 = false;
-                anInt8089 = -1;
-                anInt3694 = -1;
+                mapOverride = false;
+                mapZ = -1;
+                mapX = -1;
+            } else {
+                area.projectFloor(coord, (area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF);
+                displayZ = coord[2] - areaZ;
+                displayX = coord[1] - areaX;
             }
 
             if (area.zoom == 37) {
@@ -1558,16 +1558,16 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!bw", name = "a", descriptor = "(IZIII)V")
-    public static void setMap(@OriginalArg(0) int id, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
+    public static void setMap(@OriginalArg(0) int id, @OriginalArg(1) boolean override, @OriginalArg(2) int z, @OriginalArg(3) int x) {
         if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
             reset(false);
         } else {
             toolkitType = ClientOptions.instance.toolkit.getValue();
             Static32.setToolkit(ToolkitType.JAVA, true);
         }
-        aBoolean784 = arg1;
-        anInt8089 = arg2;
-        anInt3694 = arg3;
+        mapOverride = override;
+        mapZ = z;
+        mapX = x;
         setArea(id);
     }
 

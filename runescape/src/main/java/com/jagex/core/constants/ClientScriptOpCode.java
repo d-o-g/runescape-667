@@ -2,6 +2,90 @@ package com.jagex.core.constants;
 
 public final class ClientScriptOpCode {
 
+    public static final int PUSH_CONSTANT_INT = 0;
+
+    public static final int PUSH_VAR = 1;
+
+    public static final int POP_VAR = 2;
+
+    public static final int PUSH_CONSTANT_STRING = 3;
+
+    public static final int BRANCH = 6;
+
+    public static final int BRANCH_NOT = 7;
+
+    public static final int BRANCH_EQUALS = 8;
+
+    public static final int BRANCH_LESS_THAN = 9;
+
+    public static final int BRANCH_GREATER_THAN = 10;
+
+    public static final int RETURN = 21;
+
+    public static final int POP_VARBIT = 25;
+
+    public static final int PUSH_VARBIT = 27;
+
+    public static final int BRANCH_LESS_THAN_OR_EQUALS = 31;
+
+    public static final int BRANCH_GREATER_THAN_OR_EQUALS = 32;
+
+    public static final int PUSH_INT_LOCAL = 33;
+
+    public static final int POP_INT_LOCAL = 34;
+
+    public static final int PUSH_STRING_LOCAL = 35;
+
+    public static final int POP_STRING_LOCAL = 36;
+
+    public static final int JOIN_STRING = 37;
+
+    public static final int POP_INT_DISCARD = 38;
+
+    public static final int POP_STRING_DISCARD = 39;
+
+    public static final int GOSUB_WITH_PARAMS = 40;
+
+    public static final int PUSH_VARC = 42;
+
+    public static final int POP_VARC = 43;
+
+    public static final int DEFINE_ARRAY = 44;
+
+    public static final int PUSH_ARRAY_INT = 45;
+
+    public static final int POP_ARRAY_INT = 46;
+
+    public static final int PUSH_VARCSTR = 47;
+
+    public static final int POP_VARCSTR = 48;
+
+    public static final int SWITCH = 51;
+
+    public static final int PUSH_LONG_CONSTANT = 54;
+
+    public static final int POP_LONG_DISCARD = 55;
+
+    public static final int PUSH_LONG_LOCAL = 66;
+
+    public static final int POP_LONG_LOCAL = 67;
+
+    public static final int LONG_BRANCH_NOT = 68;
+
+    public static final int LONG_BRANCH_EQUALS = 69;
+
+    public static final int LONG_BRANCH_LESS_THAN = 70;
+
+    public static final int LONG_BRANCH_GREATER_THAN = 71;
+
+    public static final int LONG_BRANCH_LESS_THAN_OR_EQUALS = 72;
+
+    public static final int LONG_BRANCH_GREATER_THAN_OR_EQUALS = 73;
+
+    public static final int BRANCH_IF_TRUE = 86;
+
+    public static final int BRANCH_IF_FALSE = 87;
+
     public static final int CC_CREATE = 150;
 
     public static final int CC_DELETE = 151;
@@ -807,6 +891,612 @@ public final class ClientScriptOpCode {
     public static final int STRUCT_PARAM = 4500;
 
     public static final int BAS_GETANIM_READY = 4600;
+
+    public static final int CHAT_GETFILTER_PUBLIC = 5000;
+
+    public static final int CHAT_SETFILTER = 5001;
+
+    public static final int CHAT_SENDABUSEREPORT = 5002;
+
+    public static final int CHAT_GETHISTORY_BYTYPEANDLINE = 5003;
+
+    public static final int CHAT_GETHISTORY_BYUID = 5004;
+
+    public static final int CHAT_GETFILTER_PRIVATE = 5005;
+
+    public static final int CHAT_SETMODE = 5006;
+
+    public static final int CHAT_SENDPUBLIC = 5008;
+
+    public static final int CHAT_SENDPRIVATE = 5009;
+
+    public static final int CHAT_PLAYERNAME = 5010;
+
+    public static final int CHAT_GETHISTORYCLAN = 5011;
+
+    public static final int CHAT_GETPLAYERNAME = 5015;
+
+    public static final int CHAT_GETFILTER_TRADE = 5016;
+
+    public static final int CHAT_GETHISTORY_LENGTH = 5017;
+
+    public static final int CHATCAT_GETDESC = 5050;
+
+    public static final int CHATCAT_GETSUBCATCOUNT = 5051;
+
+    public static final int CHATCAT_GETSUBCAT = 5052;
+
+    public static final int CHATCAT_GETPHRASECOUNT = 5053;
+
+    public static final int CHATCAT_GETPHRASE = 5054;
+
+    public static final int CHATPHRASE_GETTEXT = 5055;
+
+    public static final int CHATPHRASE_GETAUTORESPONSECOUNT = 5056;
+
+    public static final int CHATPHRASE_GETAUTORESPONSE = 5057;
+
+    public static final int ACTIVECHATPHRASE_PREPARE = 5058;
+
+    public static final int ACTIVECHATPHRASE_SEND = 5059;
+
+    public static final int ACTIVECHATPHRASE_SENDPRIVATE = 5060;
+
+    public static final int CHATCAT_GETSUBCATSHORTCUT = 5062;
+
+    public static final int CHATCAT_GETPHRASESHORTCUT = 5063;
+
+    public static final int CHATCAT_FINDSUBCATBYSHORTCUT = 5064;
+
+    public static final int CHATCAT_FINDPHRASEBYSHORTCUT = 5065;
+
+    public static final int CHATPHRASE_GETDYNAMICCOMMANDCOUNT = 5066;
+
+    public static final int CHATPHRASE_GETDYNAMICCOMMAND = 5067;
+
+    public static final int CHATPHRASE_GETDYNAMICCOMMANDPARAM_ENUM = 5070;
+
+    public static final int CHATPHRASE_FINDNEXT = 5072;
+
+    public static final int KEYHELD_ALT = 5100;
+
+    public static final int KEYHELD_CTRL = 5101;
+
+    public static final int KEYHELD_SHIFT = 5102;
+
+    public static final int WORLDMAP_SETZOOM = 5200;
+
+    public static final int WORLDMAP_GETZOOM = 5201;
+
+    public static final int WORLDMAP_SETMAP = 5205;
+
+    public static final int WORLDMAP_GETMAP = 5206;
+
+    public static final int ORLDMAP_GETMAPNAME = 5207;
+
+    public static final int WORLDMAP_GETSIZE = 5208;
+
+    public static final int WORLDMAP_GETDISPLAYPOSITION = 5209;
+
+    public static final int WORLDMAP_GETCONFIGORIGIN = 5210;
+
+    public static final int WORLDMAP_GETCONFIGBOUNDS = 5211;
+
+    public static final int WORLDMAP_LISTELEMENT_START = 5212;
+
+    public static final int WORLDMAP_LISTELEMENT_NEXT = 5213;
+
+    public static final int WORLDMAP_JUMPTOSOURCECOORD = 5214;
+
+    public static final int WORLDMAP_COORDINMAP = 5215;
+
+    public static final int WORLDMAP_GETCONFIGZOOM = 5218;
+
+    public static final int WORLDMAP_ISLOADED = 5220;
+
+    public static final int WORLDMAP_JUMPTODISPLAYCOORD = 5221;
+
+    public static final int WORLDMAP_GETSOURCEPOSITION = 5222;
+
+    public static final int WORLDMAP_SETMAP_COORD = 5223;
+
+    public static final int WORLDMAP_GETDISPLAYCOORD = 5224;
+
+    public static final int WORLDMAP_GETSOURCECOORD = 5225;
+
+    public static final int WORLDMAP_FLASHELEMENT = 5226;
+
+    public static final int WORLDMAP_SETMAP_COORD_OVERRIDE = 5227;
+
+    public static final int WORLDMAP_DISABLEELEMENTS = 5228;
+
+    public static final int WORLDMAP_GETDISABLEELEMENTS = 5229;
+
+    public static final int WORLDMAP_FLASHELEMENTCATEGORY = 5230;
+
+    public static final int WORLDMAP_DISABLEELEMENTCATEGORY = 5231;
+
+    public static final int WORLDMAP_GETDISABLEELEMENTCATEGORY = 5232;
+
+    public static final int WORLDMAP_DISABLEELEMENT = 5233;
+
+    public static final int WORLDMAP_GETDISABLEELEMENT = 5234;
+
+    public static final int WORLDMAP_GETCURRENTMAP = 5235;
+
+    public static final int WORLDMAP_FINDNEARESTELEMENT = 5236;
+
+    public static final int WORLDMAP_CLOSEMAP = 5237;
+
+    public static final int FULLSCREEN_ENTER = 5300;
+
+    public static final int FULLSCREEN_EXIT = 5301;
+
+    public static final int FULLSCREEN_MODECOUNT = 5302;
+
+    public static final int FULLSCREEN_GETMODE = 5303;
+
+    public static final int FULLSCREEN_LASTMODE = 5305;
+
+    public static final int GETWINDOWMODE = 5306;
+
+    public static final int SETWINDOWMODE = 5307;
+
+    public static final int GETDEFAULTWINDOWMODE = 5308;
+
+    public static final int SETDEFAULTWINDOWMODE = 5309;
+
+    public static final int OPENURL = 5400;
+
+    public static final int SPLINE_NEW = 5405;
+
+    public static final int SPLINE_ADDPOINT = 5406;
+
+    public static final int SPLINE_LENGTH = 5407;
+
+    public static final int QUIT = 5411;
+
+    public static final int LASTLOGIN = 5419;
+
+    public static final int OPENURL_NOLOGIN = 5421;
+
+    public static final int WRITECONSOLE = 5423;
+
+    public static final int FORMATMINIMENU = 5424;
+
+    public static final int DEFAULTMINIMENU = 5425;
+
+    public static final int SETDEFAULTCURSORS = 5426;
+
+    public static final int SETHARDCODEDOPCURSORS = 5427;
+
+    public static final int MINIMENUOPEN = 5428;
+
+    public static final int DOCHEAT = 5429;
+
+    public static final int NOTIFY_ACCOUNTCREATED = 5430;
+
+    public static final int NOTIFY_ACCOUNTCREATESTARTED = 5431;
+
+    public static final int GETCLIPBOARD = 5432;
+
+    public static final int SETSUBMENUMINLENGTH = 5433;
+
+    public static final int CAN_RUN_JAVA_CLIENT = 5436;
+
+    public static final int CAM_MOVETO = 5500;
+
+    public static final int CAM_LOOKAT = 5501;
+
+    public static final int CAM_MOVEALONG = 5502;
+
+    public static final int CAM_RESET = 5503;
+
+    public static final int CAM_FORCEANGLE = 5504;
+
+    public static final int CAM_GETANGLE_XA = 5505;
+
+    public static final int CAM_GETANGLE_YA = 5506;
+
+    public static final int CAM_INC_Y = 5507;
+
+    public static final int CAM_DEC_Y = 5508;
+
+    public static final int CAM_INC_X = 5509;
+
+    public static final int CAM_DEC_X = 5510;
+
+    public static final int CAM_SMOOTH_RESET = 5512;
+
+    public static final int CAM_FOLLOWCOORD = 5511;
+
+    public static final int CAM_REMOVEROOF = 5517;
+
+    public static final int LOGIN_REQUEST = 5600;
+
+    public static final int LOGIN_RESETREPLY = 5602;
+
+    public static final int CREATE_AVAILABLEREQUEST = 5604;
+
+    public static final int CREATE_CONNECTREQUEST = 5605;
+
+    public static final int LOGIN_HOPTIME = 5608;
+
+    public static final int LOGIN_REPLY = 5609;
+
+    public static final int LOGIN_DISALLOWRESULT = 5611;
+
+    public static final int LOBBY_ENTERGAME = 5612;
+
+    public static final int LOBBY_ENTERGAME_REPLY = 5613;
+
+    public static final int LOBBY_ENTERLOBBY = 5615;
+
+    public static final int LOBBY_LEAVELOBBY = 5616;
+
+    public static final int LOBBY_ENTERLOBBYREPLY = 5617;
+
+    public static final int USERFLOW_FLAGS = 5624;
+
+    public static final int CREATE_UNDER13 = 5625;
+
+    public static final int CREATE_SETUNDER13 = 5626;
+
+    public static final int LOGIN_LAST_TRANSFER_REPLY = 5627;
+
+    public static final int LOGIN_INPROGRESS = 5628;
+
+    public static final int LOGIN_QUEUE_POSITION = 5629;
+
+    public static final int LOGIN_CANCEL = 5630;
+
+    public static final int LOGIN_REQUEST_SOCIAL_NETWORK = 5631;
+
+    public static final int LOBBY_ENTERLOBBY_SOCIAL_NETWORK = 5632;
+
+    public static final int LOGIN_DISALLOWETRIGGER = 5633;
+
+    public static final int DETAIL_BRIGHTNESS = 6001;
+
+    public static final int DETAIL_REMOVEROOFS_OPTION = 6003;
+
+    public static final int DETAIL_GROUNDDECOR_ON = 6005;
+
+    public static final int DETAIL_IDLEANIMS_MANY = 6007;
+
+    public static final int DETAIL_FLICKERING_ON = 6008;
+
+    public static final int DETAIL_SPOTSHADOWS_ON = 6010;
+
+    public static final int DETAIL_HARDSHADOWS = 6011;
+
+    public static final int DETAIL_LIGHTDETAIL_HIGH = 6012;
+
+    public static final int DETAIL_WATERDETAIL_HIGH = 6014;
+
+    public static final int DETAIL_FOG_ON = 6015;
+
+    public static final int DETAIL_ANTIALIASING_QUALITY = 6016;
+
+    public static final int DETAIL_STEREO = 6017;
+
+    public static final int DETAIL_SOUNDVOL = 6018;
+
+    public static final int DETAIL_MUSICVOL = 6019;
+
+    public static final int DETAIL_BGSOUNDVOL = 6020;
+
+    public static final int DETAIL_REMOVEROOFS_OPTION_OVERRIDE = 6021;
+
+    public static final int DETAIL_PARTICLES = 6023;
+
+    public static final int DETAIL_ANTIALIASING_DEFAULT = 6024;
+
+    public static final int DETAIL_BUILDAREA = 6025;
+
+    public static final int DETAIL_BLOOM = 6027;
+
+    public static final int DETAIL_CUSTOMCURSORS = 6028;
+
+    public static final int DETAIL_IDLEANIMS = 6029;
+
+    public static final int DETAIL_GROUNDBLOUNDING = 6030;
+
+    public static final int DETAIL_TOOLKIT = 6031;
+
+    public static final int DETAIL_TOOLKIT_DEFAULT = 6032;
+
+    public static final int DETAIL_CPUUSAGE = 6033;
+
+    public static final int DETAIL_TEXTURING = 6034;
+
+    public static final int DETAIL_ANIMDETAIL = 6035;
+
+    public static final int DETAIL_MAXSCREENSIZE = 6036;
+
+    public static final int DETAIL_SPEECHVOL = 6037;
+
+    public static final int DETAIL_LOGINVOL = 6038;
+
+    public static final int DETAIL_LOADINGSCREENTYPE = 6039;
+
+    public static final int DETAIL_ORTHOGRAPHIC = 6040;
+
+    public static final int DETAIL_SKYDETAIL = 6041;
+
+    public static final int DETAILGET_BRIGHTNESS = 6101;
+
+    public static final int DETAILGET_ANIMDETAIL = 6102;
+
+    public static final int DETAILGET_REMOVEROOFS_OPTIONS = 6103;
+
+    public static final int DETAILGET_GROUNDDECOR_ON = 6105;
+
+    public static final int DETAILGET_IDLEANIMS_MANY = 6107;
+
+    public static final int DETAILGET_FLICKERING_ON = 6108;
+
+    public static final int DETAILGET_SPOTSHADOWS = 6110;
+
+    public static final int DETAILGET_HARDSHADOWS = 6111;
+
+    public static final int DETAILGET_LIGHTDETAIL_HIGH = 6112;
+
+    public static final int DETAILGET_WATERDETAIL_HIGH = 6114;
+
+    public static final int DETAILGET_FOG_ON = 6115;
+
+    public static final int DETAILGET_ANTIALIASING_QUALITY = 6116;
+
+    public static final int DETAILGET_STEREO = 6117;
+
+    public static final int DETAILGET_SOUNDVOL = 6118;
+
+    public static final int DETAILGET_MUSICVOL = 6119;
+
+    public static final int DETAILGET_BGSOUNDVOL = 6120;
+
+    public static final int DETAILGET_PARTICLES = 6123;
+
+    public static final int DETAILGET_ANTIALIASING = 6124;
+
+    public static final int DETAILGET_BUILDAREA = 6125;
+
+    public static final int DETAILGET_BLOOM = 6127;
+
+    public static final int DETAILGET_CUSTOMCURSORS = 6128;
+
+    public static final int DETAILGET_IDLEANIMS = 6129;
+
+    public static final int DETAILGET_GROUNDBLENDING = 6130;
+
+    public static final int DETAILGET_TOOLKIT = 6131;
+
+    public static final int DETAILGET_TOOLKIT_DEFAULT = 6132;
+
+    public static final int DETAILGET_CPUUSAGE = 6135;
+
+    public static final int DETAILGET_TEXTURING = 6136;
+
+    public static final int DETAILGET_PERFORMANCE_METRIC = 6138;
+
+    public static final int DETAILGET_MAXSCREENSIZE = 6139;
+
+    public static final int DETAILGET_SPEECHVOL = 6142;
+
+    public static final int DETAILGET_LOGINVOL = 6143;
+
+    public static final int DETAILGET_SAFEMODE = 6144;
+
+    public static final int DETAILGET_LOADINGSCREENTYPE = 6145;
+
+    public static final int DETAILGET_ORTHOGRAPHIC = 6146;
+
+    public static final int DETAILGET_CANCHOOSESAFEMODE = 6147;
+
+    public static final int DETAILGET_CHOSESAFEMODE = 6148;
+
+    public static final int DETAILGET_SKYDETAIL = 6149;
+
+    public static final int VIEWPORT_SETFOV = 6200;
+
+    public static final int VIEWPORT_SETZOOM = 6201;
+
+    public static final int VIEWPORT_CLAMPFOV = 6202;
+
+    public static final int VIEWPORT_GETEFFECTIVESIZE = 6203;
+
+    public static final int VIEWPORT_GETZOOM = 6204;
+
+    public static final int VIEWPORT_GETFOV = 6205;
+
+    public static final int DATE_MINUTES = 6300;
+
+    public static final int DATE_RUNEDAY = 6301;
+
+    public static final int DATE_RUNEDAY_FROMDATE = 6302;
+
+    public static final int DATE_YEAR = 6303;
+
+    public static final int DATE_ISLEAPYEAR = 6304;
+
+    public static final int DATE_RUNEDAY_TODATE = 6305;
+
+    public static final int DATE_MINUTES_FROMRUNEDAY = 6306;
+
+    public static final int WORLDLIST_FETCH = 6500;
+
+    public static final int WORLDLIST_START = 6501;
+
+    public static final int WORLDLIST_NEXT = 6502;
+
+    public static final int WORLDLIST_SWITCH = 6503;
+
+    public static final int WORLDLIST_SPECIFIC = 6506;
+
+    public static final int WORLDLIST_SORT = 6507;
+
+    public static final int WORLDLIST_AUTOWORLD = 6508;
+
+    public static final int WORLDLIST_PINGWORLDS = 6509;
+
+    public static final int IF_DEBUG_GETOPENIFCOUNT = 6700;
+
+    public static final int IF_GETTOP = 6701;
+
+    public static final int IF_DEBUG_GETNAME = 6702;
+
+    public static final int IF_DEBUG_GETCOMCOUNT = 6703;
+
+    public static final int IF_DEBUG_GETCOMNAME = 6704;
+
+    public static final int IF_DEBUG_GETSERVERTRIGGERS = 6705;
+
+    public static final int IF_DEBUG_BUTTON1 = 6707;
+
+    public static final int IF_DEBUG_BUTTON2 = 6708;
+
+    public static final int IF_DEBUG_BUTTON3 = 6709;
+
+    public static final int IF_DEBUG_BUTTON4 = 6710;
+
+    public static final int IF_DEBUG_BUTTON5 = 6711;
+
+    public static final int IF_DEBUG_BUTTON6 = 6712;
+
+    public static final int IF_DEBUG_BUTTON7 = 6713;
+
+    public static final int IF_DEBUG_BUTTON8 = 6714;
+
+    public static final int IF_DEBUG_BUTTON9 = 6715;
+
+    public static final int IF_DEBUG_BUTTON10 = 6716;
+
+    public static final int IF_DEBUG_TARGET = 6717;
+
+    public static final int MEC_TEXT = 6800;
+
+    public static final int MEC_SPRITE = 6801;
+
+    public static final int MEC_TEXTSIZE = 6802;
+
+    public static final int MEC_CATEGORY = 6803;
+
+    public static final int MEC_PARAM = 6804;
+
+    public static final int USERDETAIL_QUICKCHAT = 6900;
+
+    public static final int USERDETAIL_LOBBY_MEMBERSHIP = 6901;
+
+    public static final int USERDETAIL_LOBBY_RECOVERYDAY = 6902;
+
+    public static final int USERDETAIL_LOBBY_UNREADMESSAGES = 6903;
+
+    public static final int USERDETAIL_LOBBY_LASTLOGINDAY = 6904;
+
+    public static final int USERDETAIL_LOBBY_LASTLOGINADDRESS = 6905;
+
+    public static final int USERDETAIL_LOBBY_EMAILSTATUS = 6906;
+
+    public static final int USERDETAIL_LOBBY_CCEXPIRY = 6907;
+
+    public static final int USERDETAIL_LOBBY_GRACEEXPIRY = 6908;
+
+    public static final int USERDETAIL_LOBBY_DOBREQUESTED = 6909;
+
+    public static final int UDETAIL_DOB = 6910;
+
+    public static final int USERDETAIL_LOBBY_MEMBERSSTATS = 6911;
+
+    public static final int USERDETAIL_LOBBY_PLAYAGE = 6912;
+
+    public static final int USERDETAIL_LOBBY_JCOINS_BALANCE = 6913;
+
+    public static final int USERDETAIL_LOBBY_LOYALTY = 6914;
+
+    public static final int USERDETAIL_LOBBY_LOYALTYBALANCE = 6915;
+
+    public static final int AUTOSETUP_DOSETUP = 7000;
+
+    public static final int AUTOSETUP_SETHIGH = 7001;
+
+    public static final int AUTOSETUP_SETMEDIUM = 7002;
+
+    public static final int AUTOSETUP_SETLOW = 7003;
+
+    public static final int AUTOSETUP_SETMIN = 7004;
+
+    public static final int AUTOSETUP_SETCUSTOM = 7005;
+
+    public static final int AUTOSETUP_BLACKFLAGLAST = 7006;
+
+    public static final int AUTOSETUP_GETLEVEL = 7007;
+
+    public static final int VIDEO_ADVERT_PLAY = 7100;
+
+    public static final int VIDEO_ADVERT_FORCE_REMOVE = 7101;
+
+    public static final int VIDEO_ADVERT_ALLOW_SKIP = 7102;
+
+    public static final int DETAILCANMOD_GROUNDDECOR = 7201;
+
+    public static final int DETAILCANMOD_SPOTSHADOWS = 7202;
+
+    public static final int DETAILCANMOD_HARDSHADOWS = 7203;
+
+    public static final int DETAILCANMOD_WATERDETAIL = 7204;
+
+    public static final int DETAILCANMOD_ANTIALIASING = 7205;
+
+    public static final int DETAILCANMOD_PARTICLES = 7206;
+
+    public static final int DETAILCANMOD_BUILDAREA = 7207;
+
+    public static final int DETAILCANMOD_BLOOM = 7208;
+
+    public static final int DETAILCANMOD_GROUNDBLENDING = 7209;
+
+    public static final int DETAILCANMOD_TEXTURING = 7210;
+
+    public static final int DETAILCANMOD_MAXSCREENSIZE = 7211;
+
+    public static final int DETAILCANMOD_FOG = 7212;
+
+    public static final int DETAILCANMOD_ORTHOGRAPHIC = 7213;
+
+    public static final int DETAILCANMOD_TOOLKIT_DEFAULT = 7214;
+
+    public static final int DETAILCANMOD_SKYDETAIL = 7215;
+
+    public static final int DETAILCANSET_GROUNDDECOR = 7301;
+
+    public static final int DETAILCANSET_SPOTSHADOWS = 7302;
+
+    public static final int DETAILCANSET_HARDSHADOWS = 7303;
+
+    public static final int DETAILCANSET_WATERDETAIL = 7304;
+
+    public static final int DETAILCANSET_ANTIALIASING = 7305;
+
+    public static final int DETAILCANSET_PARTICLES = 7306;
+
+    public static final int DETAILCANSET_BUILDAREA = 7307;
+
+    public static final int DETAILCANSET_BLOOM = 7308;
+
+    public static final int DETAILCANSET_GROUNDBLENDING = 7309;
+
+    public static final int DETAILCANSET_TEXTURING = 7310;
+
+    public static final int DETAILCANSET_MAXSCREENSIZE = 7311;
+
+    public static final int DETAILCANSET_FOG = 7312;
+
+    public static final int DETAILCANSET_ORTHOGRAPHIC = 7313;
+
+    public static final int DETAILCANSET_TOOLKIT_DEFAULT = 7314;
+
+    public static final int DETAILCANSET_SKYDETAIL = 7315;
 
     private ClientScriptOpCode() {
         /* empty */

@@ -3502,7 +3502,7 @@ public final class ScriptRunner {
             if (op == CLAN_ISSELF) {
                 @Pc(15) int index = intStack[--intStackPointer];
 
-                if (FriendChat.users != null && index < FriendChat.count && FriendChat.users[index].accountName.equalsIgnoreCase(PlayerEntity.self.accountName)) {
+                if (FriendChat.users != null && index < FriendChat.count && FriendChat.users[index].usernameUnfiltered.equalsIgnoreCase(PlayerEntity.self.name)) {
                     intStack[intStackPointer++] = 1;
                     return;
                 }
@@ -3575,7 +3575,7 @@ public final class ScriptRunner {
             if (op == CLAN_GETCHATUSERNAME_UNFILTERED) {
                 @Pc(15) int index = intStack[--intStackPointer];
                 if (FriendChat.name != null && index < FriendChat.count) {
-                    stringStack[stringStackPointer++] = FriendChat.users[index].accountName;
+                    stringStack[stringStackPointer++] = FriendChat.users[index].usernameUnfiltered;
                     return;
                 }
 
@@ -3586,7 +3586,7 @@ public final class ScriptRunner {
             if (op == IGNORE_GETNAME_UNFILTERED) {
                 @Pc(15) int index = intStack[--intStackPointer];
                 if (FriendsList.status != 0 && index < IgnoreList.count) {
-                    stringStack[stringStackPointer++] = IgnoreList.accountNames[index];
+                    stringStack[stringStackPointer++] = IgnoreList.namesUnfiltered[index];
                     return;
                 }
 
@@ -5190,8 +5190,8 @@ public final class ScriptRunner {
                 @Pc(192) int index = intStack[--intStackPointer];
                 @Pc(196) ChatLine line = ChatHistory.getLine(index);
                 @Pc(198) String name = "";
-                if (line != null && line.accountName != null) {
-                    name = line.accountName;
+                if (line != null && line.nameUnfiltered != null) {
+                    name = line.nameUnfiltered;
                 }
                 stringStack[stringStackPointer++] = name;
                 return;
@@ -5202,7 +5202,7 @@ public final class ScriptRunner {
                 if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
                     name = "";
                 } else {
-                    name = PlayerEntity.self.getAccountName();
+                    name = PlayerEntity.self.getName();
                 }
                 stringStack[stringStackPointer++] = name;
                 return;

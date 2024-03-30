@@ -10,10 +10,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class IgnoreList {
 
     @OriginalMember(owner = "client!oaa", name = "g", descriptor = "[Ljava/lang/String;")
-    public static final String[] accountNames = new String[100];
+    public static final String[] namesUnfiltered = new String[100];
 
     @OriginalMember(owner = "client!ka", name = "h", descriptor = "[Ljava/lang/String;")
-    public static final String[] formerAccountNames = new String[100];
+    public static final String[] formerNamesUnfiltered = new String[100];
 
     @OriginalMember(owner = "client!u", name = "l", descriptor = "[Ljava/lang/String;")
     public static final String[] names = new String[100];
@@ -34,10 +34,10 @@ public final class IgnoreList {
         }
 
         for (@Pc(16) int i = 0; i < count; i++) {
-            if (name.equalsIgnoreCase(accountNames[i])) {
+            if (name.equalsIgnoreCase(namesUnfiltered[i])) {
                 return true;
             }
-            if (name.equalsIgnoreCase(formerAccountNames[i])) {
+            if (name.equalsIgnoreCase(formerNamesUnfiltered[i])) {
                 return true;
             }
         }
@@ -92,7 +92,7 @@ public final class IgnoreList {
                 }
             }
         }
-        if (NameTools.format(PlayerEntity.self.accountName).equals(local27)) {
+        if (NameTools.format(PlayerEntity.self.name).equals(local27)) {
             ChatHistory.addPrivateError(LocalisedText.IGNORECANTADDSELF.localise(Client.language));
             return;
         }
@@ -120,9 +120,9 @@ public final class IgnoreList {
                 count--;
                 for (@Pc(47) int local47 = local25; local47 < count; local47++) {
                     names[local47] = names[local47 + 1];
-                    accountNames[local47] = accountNames[local47 + 1];
+                    namesUnfiltered[local47] = namesUnfiltered[local47 + 1];
                     formerNames[local47] = formerNames[local47 + 1];
-                    formerAccountNames[local47] = formerAccountNames[local47 + 1];
+                    formerNamesUnfiltered[local47] = formerNamesUnfiltered[local47 + 1];
                     temporary[local47] = temporary[local47 + 1];
                 }
                 FriendsList.lastTransmit = World.tick;

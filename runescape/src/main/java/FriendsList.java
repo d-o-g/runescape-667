@@ -44,16 +44,16 @@ public final class FriendsList {
     public static int status = 0;
 
     @OriginalMember(owner = "client!lha", name = "a", descriptor = "(ILjava/lang/String;)Z")
-    public static boolean contains(@OriginalArg(0) int arg0, @OriginalArg(1) String arg1) {
-        if (arg1 == null) {
+    public static boolean contains(@OriginalArg(0) int start, @OriginalArg(1) String name) {
+        if (name == null) {
             return false;
         }
-        for (@Pc(10) int local10 = arg0; local10 < count; local10++) {
-            if (arg1.equalsIgnoreCase(names[local10])) {
+        for (@Pc(10) int i = start; i < count; i++) {
+            if (name.equalsIgnoreCase(names[i])) {
                 return true;
             }
         }
-        return arg1.equalsIgnoreCase(PlayerEntity.self.accountName);
+        return name.equalsIgnoreCase(PlayerEntity.self.name);
     }
 
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(Ljava/lang/String;II)V")
@@ -108,7 +108,7 @@ public final class FriendsList {
                 }
             }
         }
-        if (NameTools.format(PlayerEntity.self.accountName).equals(local34)) {
+        if (NameTools.format(PlayerEntity.self.name).equals(local34)) {
             ChatHistory.addPrivateError(LocalisedText.FRIENDCANTADDSELF.localise(Client.language));
             return;
         }

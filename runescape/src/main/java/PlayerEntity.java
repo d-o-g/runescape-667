@@ -162,7 +162,7 @@ public final class PlayerEntity extends PathingEntity {
     public PlayerModel playerModel;
 
     @OriginalMember(owner = "client!ca", name = "xd", descriptor = "Ljava/lang/String;")
-    public String accountName;
+    public String name;
 
     @OriginalMember(owner = "client!ca", name = "bd", descriptor = "I")
     public int moveX;
@@ -646,7 +646,7 @@ public final class PlayerEntity extends PathingEntity {
         if (self == this) {
             Client.playerDisplayName = this.displayName;
         }
-        this.accountName = this.displayName;
+        this.name = this.displayName;
         this.combatLevel = packet.g1();
 
         if (skillArea) {
@@ -806,8 +806,8 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ZI)Ljava/lang/String;")
-    public String getAccountName() {
-        return this.accountName;
+    public String getName() {
+        return this.name;
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ZZ)Ljava/lang/String;")
@@ -842,7 +842,7 @@ public final class PlayerEntity extends PathingEntity {
         if (useDisplayName) {
             name += this.displayName;
         } else {
-            name += this.accountName;
+            name += this.name;
         }
 
         if (Static377.suffixTitles != null) {
@@ -862,7 +862,7 @@ public final class PlayerEntity extends PathingEntity {
             if (super.line.text == null) {
                 return null;
             }
-            if (Static133.publicChatFilter == 0 || Static133.publicChatFilter == 3 || Static133.publicChatFilter == 1 && FriendsList.contains(arg0 + 3109, this.accountName)) {
+            if (Static133.publicChatFilter == 0 || Static133.publicChatFilter == 3 || Static133.publicChatFilter == 1 && FriendsList.contains(arg0 + 3109, this.name)) {
                 return super.line;
             }
         }

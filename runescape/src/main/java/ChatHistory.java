@@ -30,21 +30,21 @@ public final class ChatHistory {
     }
 
     @OriginalMember(owner = "client!bia", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;I)V")
-    public static void add(@OriginalArg(6) int type, @OriginalArg(3) int flags, @OriginalArg(1) String name, @OriginalArg(5) String accountName, @OriginalArg(4) String displayName, @OriginalArg(0) String message) {
-        add(type, flags, name, accountName, displayName, null, -1, message);
+    public static void add(@OriginalArg(6) int type, @OriginalArg(3) int flags, @OriginalArg(1) String name, @OriginalArg(5) String nameUnfiltered, @OriginalArg(4) String displayName, @OriginalArg(0) String message) {
+        add(type, flags, name, nameUnfiltered, displayName, null, -1, message);
     }
 
     @OriginalMember(owner = "client!v", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ZILjava/lang/String;I)V")
-    public static void add(@OriginalArg(8) int type, @OriginalArg(6) int flags, @OriginalArg(1) String name, @OriginalArg(0) String accountName, @OriginalArg(7) String displayName, @OriginalArg(4) String channel, @OriginalArg(2) int quickChatId, @OriginalArg(3) String message) {
+    public static void add(@OriginalArg(8) int type, @OriginalArg(6) int flags, @OriginalArg(1) String name, @OriginalArg(0) String nameUnfiltered, @OriginalArg(7) String displayName, @OriginalArg(4) String channel, @OriginalArg(2) int quickChatId, @OriginalArg(3) String message) {
         @Pc(7) ChatLine line = lines[99];
         for (@Pc(9) int i = 99; i > 0; i--) {
             lines[i] = lines[i - 1];
         }
 
         if (line == null) {
-            line = new ChatLine(type, flags, name, accountName, displayName, channel, quickChatId, message);
+            line = new ChatLine(type, flags, name, nameUnfiltered, displayName, channel, quickChatId, message);
         } else {
-            line.update(type, flags, name, accountName, displayName, channel, quickChatId, message);
+            line.update(type, flags, name, nameUnfiltered, displayName, channel, quickChatId, message);
         }
 
         lines[0] = line;

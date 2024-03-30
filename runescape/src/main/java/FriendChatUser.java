@@ -14,11 +14,11 @@ public final class FriendChatUser {
     public int world;
 
     @OriginalMember(owner = "client!mga", name = "e", descriptor = "Ljava/lang/String;")
-    public String accountName;
+    public String usernameUnfiltered;
 
     @OriginalMember(owner = "client!mga", name = "c", descriptor = "Ljava/lang/String;")
     public String name;
 
     @OriginalMember(owner = "client!mga", name = "f", descriptor = "Ljava/lang/String;")
-    public String accountNameFormatted;
+    public String usernameFormatted;
 }

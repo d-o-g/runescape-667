@@ -27,7 +27,7 @@ public final class ChatLine {
     public String clan;
 
     @OriginalMember(owner = "client!pa", name = "l", descriptor = "Ljava/lang/String;")
-    public String accountName;
+    public String nameUnfiltered;
 
     @OriginalMember(owner = "client!pa", name = "d", descriptor = "Ljava/lang/String;")
     public String name;
@@ -45,11 +45,11 @@ public final class ChatLine {
     public String message;
 
     @OriginalMember(owner = "client!pa", name = "<init>", descriptor = "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V")
-    public ChatLine(@OriginalArg(0) int type, @OriginalArg(1) int flags, @OriginalArg(2) String name, @OriginalArg(3) String accountName, @OriginalArg(4) String displayName, @OriginalArg(5) String clan, @OriginalArg(6) int quickChatId, @OriginalArg(7) String message) {
+    public ChatLine(@OriginalArg(0) int type, @OriginalArg(1) int flags, @OriginalArg(2) String name, @OriginalArg(3) String nameUnfiltered, @OriginalArg(4) String displayName, @OriginalArg(5) String clan, @OriginalArg(6) int quickChatId, @OriginalArg(7) String message) {
         this.flags = flags;
         this.quickChatId = quickChatId;
         this.clan = clan;
-        this.accountName = accountName;
+        this.nameUnfiltered = nameUnfiltered;
         this.name = name;
         this.clock = TimeUtils.clock;
         this.type = type;
@@ -58,13 +58,13 @@ public final class ChatLine {
     }
 
     @OriginalMember(owner = "client!pa", name = "a", descriptor = "(IILjava/lang/String;Ljava/lang/String;ILjava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V")
-    public void update(@OriginalArg(4) int type, @OriginalArg(1) int flags, @OriginalArg(2) String name, @OriginalArg(5) String accountName, @OriginalArg(8) String displayName, @OriginalArg(7) String channel, @OriginalArg(0) int quickChatId, @OriginalArg(3) String message) {
+    public void update(@OriginalArg(4) int type, @OriginalArg(1) int flags, @OriginalArg(2) String name, @OriginalArg(5) String nameUnfiltered, @OriginalArg(8) String displayName, @OriginalArg(7) String channel, @OriginalArg(0) int quickChatId, @OriginalArg(3) String message) {
         this.uid = nextUid();
         this.name = name;
         this.clan = channel;
         this.clock = TimeUtils.clock;
         this.message = message;
-        this.accountName = accountName;
+        this.nameUnfiltered = nameUnfiltered;
         this.displayName = displayName;
         this.type = type;
         this.quickChatId = quickChatId;

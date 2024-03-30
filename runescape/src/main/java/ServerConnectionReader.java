@@ -267,11 +267,11 @@ public final class ServerConnectionReader {
             }
             return true;
         } else if (context.currentProt == ServerProt.MESSAGE_QUICKCHAT_FRIENDCHAT) {
-            @Pc(446) boolean hasDisplayName = bitPacket.g1() == 1;
+            @Pc(446) boolean filtered = bitPacket.g1() == 1;
             @Pc(627) String name = bitPacket.gjstr();
-            @Pc(629) String accountName = name;
-            if (hasDisplayName) {
-                accountName = bitPacket.gjstr();
+            @Pc(629) String nameUnfiltered = name;
+            if (filtered) {
+                nameUnfiltered = bitPacket.gjstr();
             }
             @Pc(639) long channel = bitPacket.g8();
             @Pc(644) long idHi = bitPacket.g2();
@@ -284,7 +284,7 @@ public final class ServerConnectionReader {
             @Pc(667) int index = 0;
             while (true) {
                 if (index >= 100) {
-                    if (rank <= 1 && IgnoreList.contains(accountName)) {
+                    if (rank <= 1 && IgnoreList.contains(nameUnfiltered)) {
                         blocked = true;
                     }
                     break;
@@ -303,11 +303,11 @@ public final class ServerConnectionReader {
                 @Pc(737) String message = QuickChatPhraseTypeList.instance.get(quickchatId).decodeText(bitPacket);
 
                 if (rank == 2) {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, "<img=1>" + name, "<img=1>" + accountName, name, Base37.decodeName(channel), quickchatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, "<img=1>" + name, "<img=1>" + nameUnfiltered, name, Base37.decodeName(channel), quickchatId, message);
                 } else if (rank == 1) {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, "<img=0>" + name, "<img=0>" + accountName, name, Base37.decodeName(channel), quickchatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, "<img=0>" + name, "<img=0>" + nameUnfiltered, name, Base37.decodeName(channel), quickchatId, message);
                 } else {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, name, accountName, name, Base37.decodeName(channel), quickchatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_FRIENDCHAT, 0, name, nameUnfiltered, name, Base37.decodeName(channel), quickchatId, message);
                 }
             }
 
@@ -881,11 +881,11 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.MESSAGE_QUICKCHAT_PRIVATE) {
-            @Pc(446) boolean hasDisplayName = bitPacket.g1() == 1;
+            @Pc(446) boolean filtered = bitPacket.g1() == 1;
             @Pc(627) String name = bitPacket.gjstr();
-            @Pc(629) String accountName = name;
-            if (hasDisplayName) {
-                accountName = bitPacket.gjstr();
+            @Pc(629) String nameUnfiltered = name;
+            if (filtered) {
+                nameUnfiltered = bitPacket.gjstr();
             }
 
             @Pc(639) long idHi = bitPacket.g2();
@@ -898,7 +898,7 @@ public final class ServerConnectionReader {
             @Pc(1021) int i = 0;
             while (true) {
                 if (i >= 100) {
-                    if (rank <= 1 && IgnoreList.contains(accountName)) {
+                    if (rank <= 1 && IgnoreList.contains(nameUnfiltered)) {
                         blocked = true;
                     }
                     break;
@@ -916,11 +916,11 @@ public final class ServerConnectionReader {
                 @Pc(1090) String message = QuickChatPhraseTypeList.instance.get(quickChatId).decodeText(bitPacket);
 
                 if (rank == 2) {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, "<img=1>" + name, "<img=1>" + accountName, name, null, quickChatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, "<img=1>" + name, "<img=1>" + nameUnfiltered, name, null, quickChatId, message);
                 } else if (rank == 1) {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, "<img=0>" + name, "<img=0>" + accountName, name, null, quickChatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, "<img=0>" + name, "<img=0>" + nameUnfiltered, name, null, quickChatId, message);
                 } else {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, name, accountName, name, null, quickChatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PRIVATE, 0, name, nameUnfiltered, name, null, quickChatId, message);
                 }
             }
 
@@ -1140,14 +1140,14 @@ public final class ServerConnectionReader {
             @Pc(526) int data = bitPacket.g1();
 
             @Pc(4175) String name = "";
-            @Pc(4177) String accountName = name;
+            @Pc(4177) String nameUnfiltered = name;
             if ((data & 0x1) != 0) {
                 name = bitPacket.gjstr();
 
-                if ((data & 0x2) == 0) {
-                    accountName = name;
+                if ((data & 0x2) != 0) {
+                    nameUnfiltered = bitPacket.gjstr();
                 } else {
-                    accountName = bitPacket.gjstr();
+                    nameUnfiltered = name;
                 }
             }
 
@@ -1156,8 +1156,8 @@ public final class ServerConnectionReader {
                 debugconsole.addline(message);
             } else if (type == ChatLineType.CONSOLE_SET) {
                 debugconsole.set(message);
-            } else if (accountName.equals("") || !IgnoreList.contains(accountName)) {
-                ChatHistory.add(type, flags, name, accountName, name, message);
+            } else if (nameUnfiltered.equals("") || !IgnoreList.contains(nameUnfiltered)) {
+                ChatHistory.add(type, flags, name, nameUnfiltered, name, message);
             } else {
                 context.currentProt = null;
                 return true;
@@ -1199,15 +1199,15 @@ public final class ServerConnectionReader {
 
             for (@Pc(277) int i = 0; i < IgnoreList.count; i++) {
                 IgnoreList.names[i] = bitPacket.gjstr();
-                IgnoreList.accountNames[i] = bitPacket.gjstr();
-                if (IgnoreList.accountNames[i].equals("")) {
-                    IgnoreList.accountNames[i] = IgnoreList.names[i];
+                IgnoreList.namesUnfiltered[i] = bitPacket.gjstr();
+                if (IgnoreList.namesUnfiltered[i].equals("")) {
+                    IgnoreList.namesUnfiltered[i] = IgnoreList.names[i];
                 }
 
                 IgnoreList.formerNames[i] = bitPacket.gjstr();
-                IgnoreList.formerAccountNames[i] = bitPacket.gjstr();
-                if (IgnoreList.formerAccountNames[i].equals("")) {
-                    IgnoreList.formerAccountNames[i] = IgnoreList.formerNames[i];
+                IgnoreList.formerNamesUnfiltered[i] = bitPacket.gjstr();
+                if (IgnoreList.formerNamesUnfiltered[i].equals("")) {
+                    IgnoreList.formerNamesUnfiltered[i] = IgnoreList.formerNames[i];
                 }
 
                 IgnoreList.temporary[i] = false;
@@ -1571,11 +1571,11 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.MESSAGE_PRIVATE) {
-            @Pc(446) boolean hasDisplayName = bitPacket.g1() == 1;
+            @Pc(446) boolean filtered = bitPacket.g1() == 1;
             @Pc(627) String name = bitPacket.gjstr();
-            @Pc(629) String accountName = name;
-            if (hasDisplayName) {
-                accountName = bitPacket.gjstr();
+            @Pc(629) String nameUnfiltered = name;
+            if (filtered) {
+                nameUnfiltered = bitPacket.gjstr();
             }
             @Pc(639) long idHi = bitPacket.g2();
             @Pc(644) long idLo = bitPacket.g3();
@@ -1589,7 +1589,7 @@ public final class ServerConnectionReader {
                     if (rank <= 1) {
                         if ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld) {
                             blocked = true;
-                        } else if (IgnoreList.contains(accountName)) {
+                        } else if (IgnoreList.contains(nameUnfiltered)) {
                             blocked = true;
                         }
                     }
@@ -1609,11 +1609,11 @@ public final class ServerConnectionReader {
                 @Pc(3582) String message = StringTools.escapeBrackets(WordPack.decode(bitPacket));
 
                 if (rank == 2) {
-                    ChatHistory.add(ChatLineType.PRIVATE_RANK, 0, "<img=1>" + name, "<img=1>" + accountName, name, null, -1, message);
+                    ChatHistory.add(ChatLineType.PRIVATE_RANK, 0, "<img=1>" + name, "<img=1>" + nameUnfiltered, name, null, -1, message);
                 } else if (rank == 1) {
-                    ChatHistory.add(ChatLineType.PRIVATE_RANK, 0, "<img=0>" + name, "<img=0>" + accountName, name, null, -1, message);
+                    ChatHistory.add(ChatLineType.PRIVATE_RANK, 0, "<img=0>" + name, "<img=0>" + nameUnfiltered, name, null, -1, message);
                 } else {
-                    ChatHistory.add(ChatLineType.PRIVATE, 0, name, accountName, name, null, -1, message);
+                    ChatHistory.add(ChatLineType.PRIVATE, 0, name, nameUnfiltered, name, null, -1, message);
                 }
             }
 
@@ -1751,11 +1751,11 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (ServerProt.MESSAGE_PLAYER_GROUP == context.currentProt) {
-            @Pc(446) boolean hasDisplayName = bitPacket.g1() == 1;
+            @Pc(446) boolean filtered = bitPacket.g1() == 1;
             @Pc(627) String name = bitPacket.gjstr();
-            @Pc(629) String accountName = name;
-            if (hasDisplayName) {
-                accountName = bitPacket.gjstr();
+            @Pc(629) String nameUnfiltered = name;
+            if (filtered) {
+                nameUnfiltered = bitPacket.gjstr();
             }
             @Pc(1409) int rank = bitPacket.g1();
 
@@ -1763,7 +1763,7 @@ public final class ServerConnectionReader {
             if (rank <= 1) {
                 if ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld) {
                     blocked = true;
-                } else if (rank <= 1 && IgnoreList.contains(accountName)) {
+                } else if (rank <= 1 && IgnoreList.contains(nameUnfiltered)) {
                     blocked = true;
                 }
             }
@@ -1772,11 +1772,11 @@ public final class ServerConnectionReader {
                 @Pc(1750) String message = StringTools.escapeBrackets(WordPack.decode(bitPacket));
 
                 if (rank == 2) {
-                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, "<img=1>" + name, "<img=1>" + accountName, name, null, -1, message);
+                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, "<img=1>" + name, "<img=1>" + nameUnfiltered, name, null, -1, message);
                 } else if (rank == 1) {
-                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, "<img=0>" + name, "<img=0>" + accountName, name, null, -1, message);
+                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, "<img=0>" + name, "<img=0>" + nameUnfiltered, name, null, -1, message);
                 } else {
-                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, name, accountName, name, null, -1, message);
+                    ChatHistory.add(ChatLineType.PLAYER_GROUP, 0, name, nameUnfiltered, name, null, -1, message);
                 }
             }
 
@@ -1870,32 +1870,32 @@ public final class ServerConnectionReader {
             @Pc(892) boolean update = (flags & 0x1) == 1;
 
             @Pc(629) String name = bitPacket.gjstr();
-            @Pc(4175) String accountName = bitPacket.gjstr();
-            if (accountName.equals("")) {
-                accountName = name;
+            @Pc(4175) String nameUnfiltered = bitPacket.gjstr();
+            if (nameUnfiltered.equals("")) {
+                nameUnfiltered = name;
             }
 
             @Pc(4177) String formerName = bitPacket.gjstr();
-            @Pc(1750) String formerAccountName = bitPacket.gjstr();
-            if (formerAccountName.equals("")) {
-                formerAccountName = formerName;
+            @Pc(1750) String formerNameUnfiltered = bitPacket.gjstr();
+            if (formerNameUnfiltered.equals("")) {
+                formerNameUnfiltered = formerName;
             }
 
             if (update) {
                 for (@Pc(992) int i = 0; i < IgnoreList.count; i++) {
-                    if (IgnoreList.accountNames[i].equals(formerAccountName)) {
+                    if (IgnoreList.namesUnfiltered[i].equals(formerNameUnfiltered)) {
                         IgnoreList.names[i] = name;
-                        IgnoreList.accountNames[i] = accountName;
+                        IgnoreList.namesUnfiltered[i] = nameUnfiltered;
                         IgnoreList.formerNames[i] = formerName;
-                        IgnoreList.formerAccountNames[i] = formerAccountName;
+                        IgnoreList.formerNamesUnfiltered[i] = formerNameUnfiltered;
                         break;
                     }
                 }
             } else {
                 IgnoreList.names[IgnoreList.count] = name;
-                IgnoreList.accountNames[IgnoreList.count] = accountName;
+                IgnoreList.namesUnfiltered[IgnoreList.count] = nameUnfiltered;
                 IgnoreList.formerNames[IgnoreList.count] = formerName;
-                IgnoreList.formerAccountNames[IgnoreList.count] = formerAccountName;
+                IgnoreList.formerNamesUnfiltered[IgnoreList.count] = formerNameUnfiltered;
                 IgnoreList.temporary[IgnoreList.count] = (flags & 0x2) == 2;
                 IgnoreList.count++;
             }
@@ -1912,17 +1912,17 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (ServerProt.MESSAGE_QUICKCHAT_PLAYER_GROUP == context.currentProt) {
-            @Pc(446) boolean hasDisplayName = bitPacket.g1() == 1;
+            @Pc(446) boolean filtered = bitPacket.g1() == 1;
             @Pc(627) String name = bitPacket.gjstr();
-            @Pc(629) String accountName = name;
-            if (hasDisplayName) {
-                accountName = bitPacket.gjstr();
+            @Pc(629) String nameUnfiltered = name;
+            if (filtered) {
+                nameUnfiltered = bitPacket.gjstr();
             }
             @Pc(1409) int rank = bitPacket.g1();
             @Pc(1413) int quickchatId = bitPacket.g2();
 
             @Pc(1425) boolean blocked = false;
-            if (rank <= 1 && IgnoreList.contains(accountName)) {
+            if (rank <= 1 && IgnoreList.contains(nameUnfiltered)) {
                 blocked = true;
             }
 
@@ -1930,11 +1930,11 @@ public final class ServerConnectionReader {
                 @Pc(1427) String message = QuickChatPhraseTypeList.instance.get(quickchatId).decodeText(bitPacket);
 
                 if (rank == 2) {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, "<img=1>" + name, "<img=1>" + accountName, name, null, quickchatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, "<img=1>" + name, "<img=1>" + nameUnfiltered, name, null, quickchatId, message);
                 } else if (rank == 1) {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, "<img=0>" + name, "<img=0>" + accountName, name, null, quickchatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, "<img=0>" + name, "<img=0>" + nameUnfiltered, name, null, quickchatId, message);
                 } else {
-                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, name, accountName, name, null, quickchatId, message);
+                    ChatHistory.add(ChatLineType.QUICKCHAT_PLAYER_GROUP, 0, name, nameUnfiltered, name, null, quickchatId, message);
                 }
             }
 
@@ -1955,12 +1955,12 @@ public final class ServerConnectionReader {
             return true;
         } else if (context.currentProt == ServerProt.UPDATE_FRIENDCHAT_CHANNEL_SINGLEUSER) {
             @Pc(1937) String name = bitPacket.gjstr();
-            @Pc(2080) boolean hasDisplayName = bitPacket.g1() == 1;
-            @Pc(627) String accountName;
-            if (hasDisplayName) {
-                accountName = bitPacket.gjstr();
+            @Pc(2080) boolean filtered = bitPacket.g1() == 1;
+            @Pc(627) String nameUnfiltered;
+            if (filtered) {
+                nameUnfiltered = bitPacket.gjstr();
             } else {
-                accountName = name;
+                nameUnfiltered = name;
             }
             @Pc(1409) int world = bitPacket.g2();
             @Pc(7377) byte rank = bitPacket.g1b();
@@ -1978,7 +1978,7 @@ public final class ServerConnectionReader {
 
                 @Pc(992) int index;
                 for (index = 0; index < FriendChat.count; index++) {
-                    if (FriendChat.users[index].accountName.equals(accountName) && world == FriendChat.users[index].world) {
+                    if (FriendChat.users[index].usernameUnfiltered.equals(nameUnfiltered) && world == FriendChat.users[index].world) {
                         break;
                     }
                 }
@@ -1996,22 +1996,22 @@ public final class ServerConnectionReader {
                 @Pc(1427) String worldName = bitPacket.gjstr();
                 @Pc(7394) FriendChatUser user = new FriendChatUser();
                 user.name = name;
-                user.accountName = accountName;
-                user.accountNameFormatted = NameTools.format(user.accountName);
+                user.usernameUnfiltered = nameUnfiltered;
+                user.usernameFormatted = NameTools.format(user.usernameUnfiltered);
                 user.world = world;
                 user.worldName = worldName;
                 user.rank = rank;
 
                 @Pc(1449) int index;
                 for (index = FriendChat.count - 1; index >= 0; index--) {
-                    @Pc(653) int comparison = FriendChat.users[index].accountNameFormatted.compareTo(user.accountNameFormatted);
+                    @Pc(653) int comparison = FriendChat.users[index].usernameFormatted.compareTo(user.usernameFormatted);
 
                     if (comparison == 0) {
                         FriendChat.users[index].world = world;
                         FriendChat.users[index].rank = rank;
                         FriendChat.users[index].worldName = worldName;
 
-                        if (accountName.equals(PlayerEntity.self.accountName)) {
+                        if (nameUnfiltered.equals(PlayerEntity.self.name)) {
                             FriendChat.rank = rank;
                         }
 
@@ -2048,7 +2048,7 @@ public final class ServerConnectionReader {
                 FriendChat.users[index + 1] = user;
                 FriendChat.count++;
 
-                if (accountName.equals(PlayerEntity.self.accountName)) {
+                if (nameUnfiltered.equals(PlayerEntity.self.name)) {
                     FriendChat.rank = rank;
                 }
             }
@@ -2085,12 +2085,12 @@ public final class ServerConnectionReader {
             @Pc(1409) int rank = bitPacket.g1();
             @Pc(6565) boolean quickChat = (flags & 0x8000) != 0;
 
-            if (player.accountName != null && player.playerModel != null) {
+            if (player.name != null && player.playerModel != null) {
                 @Pc(1425) boolean blocked = false;
                 if (rank <= 1) {
                     if (!quickChat && ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld)) {
                         blocked = true;
-                    } else if (IgnoreList.contains(player.accountName)) {
+                    } else if (IgnoreList.contains(player.name)) {
                         blocked = true;
                     }
                 }
@@ -2117,11 +2117,11 @@ public final class ServerConnectionReader {
                     }
 
                     if (rank == 2) {
-                        ChatHistory.add(type, 0, "<img=1>" + player.getDisplayName(false, true), "<img=1>" + player.getAccountName(), player.displayName, null, quickChatId, quickChatText);
+                        ChatHistory.add(type, 0, "<img=1>" + player.getDisplayName(false, true), "<img=1>" + player.getName(), player.displayName, null, quickChatId, quickChatText);
                     } else if (rank == 1) {
-                        ChatHistory.add(type, 0, "<img=0>" + player.getDisplayName(false, true), "<img=0>" + player.getAccountName(), player.displayName, null, quickChatId, quickChatText);
+                        ChatHistory.add(type, 0, "<img=0>" + player.getDisplayName(false, true), "<img=0>" + player.getName(), player.displayName, null, quickChatId, quickChatText);
                     } else {
-                        ChatHistory.add(type, 0, player.getDisplayName(false, true), player.getAccountName(), player.displayName, null, quickChatId, quickChatText);
+                        ChatHistory.add(type, 0, player.getDisplayName(false, true), player.getName(), player.displayName, null, quickChatId, quickChatText);
                     }
                 }
             }
@@ -2289,8 +2289,8 @@ public final class ServerConnectionReader {
             }
 
             FriendChat.owner = bitPacket.gjstr();
-            @Pc(446) boolean hasDisplayName = bitPacket.g1() == 1;
-            if (hasDisplayName) {
+            @Pc(446) boolean filtered = bitPacket.g1() == 1;
+            if (filtered) {
                 bitPacket.gjstr();
             }
 
@@ -2311,19 +2311,19 @@ public final class ServerConnectionReader {
                 users[i] = new FriendChatUser();
                 users[i].name = bitPacket.gjstr();
 
-                hasDisplayName = bitPacket.g1() == 1;
-                if (hasDisplayName) {
-                    users[i].accountName = bitPacket.gjstr();
+                filtered = bitPacket.g1() == 1;
+                if (filtered) {
+                    users[i].usernameUnfiltered = bitPacket.gjstr();
                 } else {
-                    users[i].accountName = users[i].name;
+                    users[i].usernameUnfiltered = users[i].name;
                 }
 
-                users[i].accountNameFormatted = NameTools.format(users[i].accountName);
+                users[i].usernameFormatted = NameTools.format(users[i].usernameUnfiltered);
                 users[i].world = bitPacket.g2();
                 users[i].rank = bitPacket.g1b();
                 users[i].worldName = bitPacket.gjstr();
 
-                if (users[i].accountName.equals(PlayerEntity.self.accountName)) {
+                if (users[i].usernameUnfiltered.equals(PlayerEntity.self.name)) {
                     FriendChat.rank = users[i].rank;
                 }
             }
@@ -2334,7 +2334,7 @@ public final class ServerConnectionReader {
                 end--;
 
                 for (@Pc(653) int i = 0; i < end; i++) {
-                    if (users[i].accountNameFormatted.compareTo(users[i + 1].accountNameFormatted) > 0) {
+                    if (users[i].usernameFormatted.compareTo(users[i + 1].usernameFormatted) > 0) {
                         @Pc(7394) FriendChatUser user = users[i];
                         users[i] = users[i + 1];
                         users[i + 1] = user;
@@ -2386,11 +2386,11 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.MESSAGE_FRIENDCHANNEL) {
-            @Pc(446) boolean hasDisplayName = bitPacket.g1() == 1;
+            @Pc(446) boolean filtered = bitPacket.g1() == 1;
             @Pc(627) String name = bitPacket.gjstr();
-            @Pc(629) String accountName = name;
-            if (hasDisplayName) {
-                accountName = bitPacket.gjstr();
+            @Pc(629) String nameUnfiltered = name;
+            if (filtered) {
+                nameUnfiltered = bitPacket.gjstr();
             }
             @Pc(639) long channel = bitPacket.g8();
             @Pc(644) long idHi = bitPacket.g2();
@@ -2405,7 +2405,7 @@ public final class ServerConnectionReader {
                     if (rank <= 1) {
                         if ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld) {
                             blocked = true;
-                        } else if (IgnoreList.contains(accountName)) {
+                        } else if (IgnoreList.contains(nameUnfiltered)) {
                             blocked = true;
                         }
                     }
@@ -2426,11 +2426,11 @@ public final class ServerConnectionReader {
                 @Pc(9032) String message = StringTools.escapeBrackets(WordPack.decode(bitPacket));
 
                 if (rank == 2 || rank == 3) {
-                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, "<img=1>" + name, "<img=1>" + accountName, name, Base37.decodeName(channel), -1, message);
+                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, "<img=1>" + name, "<img=1>" + nameUnfiltered, name, Base37.decodeName(channel), -1, message);
                 } else if (rank == 1) {
-                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, "<img=0>" + name, "<img=0>" + accountName, name, Base37.decodeName(channel), -1, message);
+                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, "<img=0>" + name, "<img=0>" + nameUnfiltered, name, Base37.decodeName(channel), -1, message);
                 } else {
-                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, name, accountName, name, Base37.decodeName(channel), -1, message);
+                    ChatHistory.add(ChatLineType.FRIENDCHANNEL, 0, name, nameUnfiltered, name, Base37.decodeName(channel), -1, message);
                 }
             }
 

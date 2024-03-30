@@ -670,7 +670,7 @@ public final class LoginManager {
                         UserDetail.lobbyCCExpiry = bitPacket.g2();
                         UserDetail.lobbyGraceExpiry = bitPacket.g2();
                         UserDetail.lobbyDOBRequested = bitPacket.g1() == 1;
-                        PlayerEntity.self.accountName = PlayerEntity.self.displayName = Client.playerDisplayName = bitPacket.gjstr2();
+                        PlayerEntity.self.name = PlayerEntity.self.displayName = Client.playerDisplayName = bitPacket.gjstr2();
                         UserDetail.lobbyMembersStats = bitPacket.g1();
                         UserDetail.lobbyPlayAge = bitPacket.g4();
                         Static587.aBoolean663 = bitPacket.g1() == 1;

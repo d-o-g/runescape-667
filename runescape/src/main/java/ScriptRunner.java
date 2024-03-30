@@ -836,22 +836,22 @@ public final class ScriptRunner {
     public static int[] intVars;
 
     @OriginalMember(owner = "client!ou", name = "m", descriptor = "Lclient!hda;")
-    public static Component focusedComponent;
+    public static Component activeComponent;
 
     @OriginalMember(owner = "client!ou", name = "i", descriptor = "[J")
     public static long[] longVars;
 
     @OriginalMember(owner = "client!ou", name = "H", descriptor = "Lclient!an;")
-    public static QuickChatPhrase quickChatPhrase;
+    public static QuickChatPhrase activeChatPhrase;
 
     @OriginalMember(owner = "client!ou", name = "z", descriptor = "Lclient!rfa;")
-    public static ClanChannel clanChannel;
+    public static ClanChannel activeClanChannel;
 
     @OriginalMember(owner = "client!ou", name = "G", descriptor = "Lclient!hi;")
-    public static ClanSettings clanSettings;
+    public static ClanSettings activeClanSettings;
 
     @OriginalMember(owner = "client!ou", name = "k", descriptor = "Lclient!hda;")
-    public static Component unfocusedComponent;
+    public static Component activeComponent2;
 
     @OriginalMember(owner = "client!ou", name = "B", descriptor = "[J")
     public static final long[] longStack = new long[1000];
@@ -905,7 +905,7 @@ public final class ScriptRunner {
             throw new RuntimeException("sr-c113");
         }
 
-        @Pc(29) Integer setting = clanSettings.getExtraSettingVarbit((Client.modeGame.id << 16) | type.baseVar, type.endBit, type.startBit);
+        @Pc(29) Integer setting = activeClanSettings.getExtraSettingVarbit((Client.modeGame.id << 16) | type.baseVar, type.endBit, type.startBit);
         if (setting == null) {
             return 0;
         } else {
@@ -920,7 +920,7 @@ public final class ScriptRunner {
             throw new RuntimeException("sr-c112");
         }
 
-        @Pc(24) Integer setting = clanSettings.getExtraSettingInt((Client.modeGame.id << 16) | id);
+        @Pc(24) Integer setting = activeClanSettings.getExtraSettingInt((Client.modeGame.id << 16) | id);
         if (setting == null) {
             return (type.dataType == 'i' || type.dataType == '1') ? 0 : -1;
         } else {
@@ -930,7 +930,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "c", descriptor = "(I)J")
     public static long getClanSettingLong(@OriginalArg(0) int id) {
-        @Pc(9) Long setting = clanSettings.getExtraSettingLong(Client.modeGame.id << 16 | id);
+        @Pc(9) Long setting = activeClanSettings.getExtraSettingLong(Client.modeGame.id << 16 | id);
         if (setting == null) {
             return -1L;
         } else {
@@ -1017,7 +1017,7 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(IZ)V")
-    public static void handleSmallOp(@OriginalArg(0) int op, @OriginalArg(1) boolean unfocused) {
+    public static void handleSmallOp(@OriginalArg(0) int op, @OriginalArg(1) boolean secondary) {
         if (op < 300) {
             if (op == CC_CREATE) {
                 intStackPointer -= 3;
@@ -1070,10 +1070,10 @@ public final class ScriptRunner {
                     parent.dynamicComponents[componentId] = createdComponent;
                 }
 
-                if (unfocused) {
-                    unfocusedComponent = createdComponent;
+                if (secondary) {
+                    activeComponent2 = createdComponent;
                 } else {
-                    focusedComponent = createdComponent;
+                    activeComponent = createdComponent;
                 }
 
                 InterfaceManager.redraw(parent);
@@ -1081,9 +1081,9 @@ public final class ScriptRunner {
             }
 
             if (op == CC_DELETE) {
-                @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+                @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
                 if (createdComponent.id == -1) {
-                    if (unfocused) {
+                    if (secondary) {
                         throw new RuntimeException("Tried to .cc_delete static .active-component!");
                     }
 
@@ -1113,11 +1113,11 @@ public final class ScriptRunner {
                 if (createdComponent != null && component != -1) {
                     intStack[intStackPointer++] = 1;
 
-                    if (unfocused) {
-                        unfocusedComponent = createdComponent;
+                    if (secondary) {
+                        activeComponent2 = createdComponent;
                         return;
                     } else {
-                        focusedComponent = createdComponent;
+                        activeComponent = createdComponent;
                         return;
                     }
                 }
@@ -1133,12 +1133,12 @@ public final class ScriptRunner {
                 if (component != null) {
                     intStack[intStackPointer++] = 1;
 
-                    if (unfocused) {
-                        unfocusedComponent = component;
+                    if (secondary) {
+                        activeComponent2 = component;
                         return;
                     }
 
-                    focusedComponent = component;
+                    activeComponent = component;
                     return;
                 }
 
@@ -1153,7 +1153,7 @@ public final class ScriptRunner {
                     @Pc(21) int idAndSlot = intStack[--intStackPointer];
                     component = InterfaceList.list(idAndSlot);
                 } else {
-                    component = unfocused ? unfocusedComponent : focusedComponent;
+                    component = secondary ? activeComponent2 : activeComponent;
                 }
 
                 sendToFront(component);
@@ -1167,7 +1167,7 @@ public final class ScriptRunner {
                     @Pc(21) int idAndSlot = intStack[--intStackPointer];
                     component = InterfaceList.list(idAndSlot);
                 } else {
-                    component = unfocused ? unfocusedComponent : focusedComponent;
+                    component = secondary ? activeComponent2 : activeComponent;
                 }
 
                 sendToBack(component);
@@ -1245,7 +1245,7 @@ public final class ScriptRunner {
                 op -= 1000;
                 component = InterfaceList.list(intStack[--intStackPointer]);
             } else {
-                component = unfocused ? unfocusedComponent : focusedComponent;
+                component = secondary ? activeComponent2 : activeComponent;
             }
 
             if (op == CC_IF_SETPOSITION) {
@@ -1354,7 +1354,7 @@ public final class ScriptRunner {
                 op -= 1000;
                 component = InterfaceList.list(intStack[--intStackPointer]);
             } else {
-                component = unfocused ? unfocusedComponent : focusedComponent;
+                component = secondary ? activeComponent2 : activeComponent;
             }
 
             if (op == CC_IF_SETSCROLLPOS) {
@@ -1743,7 +1743,7 @@ public final class ScriptRunner {
                 op -= 1000;
                 component = InterfaceList.list(intStack[--intStackPointer]);
             } else {
-                component = unfocused ? unfocusedComponent : focusedComponent;
+                component = secondary ? activeComponent2 : activeComponent;
             }
 
             InterfaceManager.redraw(component);
@@ -1904,7 +1904,7 @@ public final class ScriptRunner {
                 op -= 1000;
                 component = InterfaceList.list(intStack[--intStackPointer]);
             } else {
-                component = unfocused ? unfocusedComponent : focusedComponent;
+                component = secondary ? activeComponent2 : activeComponent;
             }
 
             if (op == CC_IF_SETOP) {
@@ -2057,7 +2057,7 @@ public final class ScriptRunner {
                 op -= 1000;
                 component = InterfaceList.list(intStack[--intStackPointer]);
             } else {
-                component = unfocused ? unfocusedComponent : focusedComponent;
+                component = secondary ? activeComponent2 : activeComponent;
             }
 
             if (op == CC_IF_CLEARSCRIPTHOOKS) {
@@ -2175,7 +2175,7 @@ public final class ScriptRunner {
             component.hasHook = true;
             return;
         } else if (op < 1600) {
-            @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+            @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
 
             if (op == CC_GETX) {
                 intStack[intStackPointer++] = createdComponent.x;
@@ -2211,7 +2211,7 @@ public final class ScriptRunner {
                 return;
             }
         } else if (op < 1700) {
-            @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+            @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
 
             if (op == CC_GETSCROLLX) {
                 intStack[intStackPointer++] = createdComponent.scrollX;
@@ -2290,7 +2290,7 @@ public final class ScriptRunner {
                 return;
             }
         } else if (op < 1800) {
-            @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+            @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
 
             if (op == CC_GETINVOBJECT) {
                 intStack[intStackPointer++] = createdComponent.invObject;
@@ -2309,7 +2309,7 @@ public final class ScriptRunner {
                 return;
             }
         } else if (op < 1900) {
-            @Pc(220) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+            @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
 
             if (op == CC_GETTARGETMASK) {
                 intStack[intStackPointer++] = InterfaceManager.serverActiveProperties(createdComponent).getTargetMask();
@@ -2344,7 +2344,7 @@ public final class ScriptRunner {
                 component = InterfaceList.list(intStack[--intStackPointer]);
                 op -= 1000;
             } else {
-                component = unfocused ? unfocusedComponent : focusedComponent;
+                component = secondary ? activeComponent2 : activeComponent;
             }
 
             if (lastHookId >= 10) {
@@ -2635,7 +2635,7 @@ public final class ScriptRunner {
 
                 @Pc(15) int x = intStack[intStackPointer];
                 @Pc(21) int y = intStack[intStackPointer + 1];
-                @Pc(303) Component createdComponent = unfocused ? unfocusedComponent : focusedComponent;
+                @Pc(303) Component createdComponent = secondary ? activeComponent2 : activeComponent;
 
                 InterfaceManager.dragTryPickup(createdComponent, x, y);
                 return;
@@ -3608,7 +3608,7 @@ public final class ScriptRunner {
             if (op == ACTIVELCANSETTINGS_FIND_LISTENED) {
                 if (ClanSettings.listened != null) {
                     intStack[intStackPointer++] = 1;
-                    clanSettings = ClanSettings.listened;
+                    activeClanSettings = ClanSettings.listened;
                     return;
                 }
 
@@ -3619,7 +3619,7 @@ public final class ScriptRunner {
             if (op == ACTIVECLANSETTINGS_FIND_AFFINED) {
                 if (ClanSettings.affined != null) {
                     intStack[intStackPointer++] = 1;
-                    clanSettings = ClanSettings.affined;
+                    activeClanSettings = ClanSettings.affined;
                     return;
                 }
 
@@ -3628,60 +3628,60 @@ public final class ScriptRunner {
             }
 
             if (op == ACTIVECLANSETTINGS_GETCLANNAME) {
-                stringStack[stringStackPointer++] = clanSettings.name;
+                stringStack[stringStackPointer++] = activeClanSettings.name;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETALLOWUNAFFINED) {
-                intStack[intStackPointer++] = clanSettings.allowNonMembers ? 1 : 0;
+                intStack[intStackPointer++] = activeClanSettings.allowNonMembers ? 1 : 0;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETRANKTALK) {
-                intStack[intStackPointer++] = clanSettings.rankTalk;
+                intStack[intStackPointer++] = activeClanSettings.rankTalk;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETRANKKICK) {
-                intStack[intStackPointer++] = clanSettings.rankKick;
+                intStack[intStackPointer++] = activeClanSettings.rankKick;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETRANKLOOTSHARE) {
-                intStack[intStackPointer++] = clanSettings.rankLootShare;
+                intStack[intStackPointer++] = activeClanSettings.rankLootShare;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETCOINSHARE) {
-                intStack[intStackPointer++] = clanSettings.coinshare;
+                intStack[intStackPointer++] = activeClanSettings.coinshare;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETAFFINEDCOUNT) {
-                intStack[intStackPointer++] = clanSettings.affinedCount;
+                intStack[intStackPointer++] = activeClanSettings.affinedCount;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETAFFINEDDISPLAYNAME) {
                 @Pc(15) int index = intStack[--intStackPointer];
-                stringStack[stringStackPointer++] = clanSettings.affinedDisplayNames[index];
+                stringStack[stringStackPointer++] = activeClanSettings.affinedDisplayNames[index];
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETAFFINEDRANK) {
                 @Pc(15) int local15 = intStack[--intStackPointer];
-                intStack[intStackPointer++] = clanSettings.affinedRanks[local15];
+                intStack[intStackPointer++] = activeClanSettings.affinedRanks[local15];
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETBANNEDCOUNT) {
-                intStack[intStackPointer++] = clanSettings.bannedCount;
+                intStack[intStackPointer++] = activeClanSettings.bannedCount;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETBANNEDDISPLAYNAME) {
                 @Pc(15) int index = intStack[--intStackPointer];
-                stringStack[stringStackPointer++] = clanSettings.bannedDisplayNames[index];
+                stringStack[stringStackPointer++] = activeClanSettings.bannedDisplayNames[index];
                 return;
             }
 
@@ -3690,27 +3690,27 @@ public final class ScriptRunner {
                 @Pc(15) int id = intStack[intStackPointer];
                 @Pc(21) int startBit = intStack[intStackPointer + 1];
                 @Pc(27) int endBit = intStack[intStackPointer + 2];
-                intStack[intStackPointer++] = clanSettings.getAffinedExtraInfo(id, startBit, endBit);
+                intStack[intStackPointer++] = activeClanSettings.getAffinedExtraInfo(id, startBit, endBit);
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETCURRENTOWNER_SLOT) {
-                intStack[intStackPointer++] = clanSettings.currentOwnerSlot;
+                intStack[intStackPointer++] = activeClanSettings.currentOwnerSlot;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETREPLACEMENTOWNER_SLOT) {
-                intStack[intStackPointer++] = clanSettings.replacementOwnerSlot;
+                intStack[intStackPointer++] = activeClanSettings.replacementOwnerSlot;
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETAFFINEDSLOT) {
-                intStack[intStackPointer++] = clanSettings.affinedSlot(stringStack[--stringStackPointer]);
+                intStack[intStackPointer++] = activeClanSettings.affinedSlot(stringStack[--stringStackPointer]);
                 return;
             }
 
             if (op == ACTIVECLANSETTINGS_GETSORTEDAFFINEDSLOT) {
-                intStack[intStackPointer - 1] = clanSettings.sortedAffinedSlots()[intStack[intStackPointer - 1]];
+                intStack[intStackPointer - 1] = activeClanSettings.sortedAffinedSlots()[intStack[intStackPointer - 1]];
                 return;
             }
 
@@ -3721,14 +3721,14 @@ public final class ScriptRunner {
 
             if (op == ACTIVECLANSETTINGS_GETAFFINEDJOINRUNEDAY) {
                 @Pc(15) int index = intStack[--intStackPointer];
-                intStack[intStackPointer++] = clanSettings.affinedJoinRuneday[index];
+                intStack[intStackPointer++] = activeClanSettings.affinedJoinRuneday[index];
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_FIND_LISTENED) {
                 if (ClanChannel.listened != null) {
                     intStack[intStackPointer++] = 1;
-                    clanChannel = ClanChannel.listened;
+                    activeClanChannel = ClanChannel.listened;
                     return;
                 }
 
@@ -3739,7 +3739,7 @@ public final class ScriptRunner {
             if (op == ACTIVECLANCHANNEL_FIND_AFFINED) {
                 if (ClanChannel.affined != null) {
                     intStack[intStackPointer++] = 1;
-                    clanChannel = ClanChannel.affined;
+                    activeClanChannel = ClanChannel.affined;
                     return;
                 }
 
@@ -3748,56 +3748,56 @@ public final class ScriptRunner {
             }
 
             if (op == ACTIVECLANCHANNEL_GETCLANNAME) {
-                stringStack[stringStackPointer++] = clanChannel.clanName;
+                stringStack[stringStackPointer++] = activeClanChannel.clanName;
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_GETRANKKICK) {
-                intStack[intStackPointer++] = clanChannel.kickRank;
+                intStack[intStackPointer++] = activeClanChannel.kickRank;
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_GETRANKTALK) {
-                intStack[intStackPointer++] = clanChannel.talkRank;
+                intStack[intStackPointer++] = activeClanChannel.talkRank;
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_GETUSERCOUNT) {
-                intStack[intStackPointer++] = clanChannel.userCount;
+                intStack[intStackPointer++] = activeClanChannel.userCount;
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_GETUSERDISPLAYNAME) {
                 @Pc(15) int index = intStack[--intStackPointer];
-                stringStack[stringStackPointer++] = clanChannel.users[index].displayName;
+                stringStack[stringStackPointer++] = activeClanChannel.users[index].displayName;
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_GETUSERRANK) {
                 @Pc(15) int index = intStack[--intStackPointer];
-                intStack[intStackPointer++] = clanChannel.users[index].rank;
+                intStack[intStackPointer++] = activeClanChannel.users[index].rank;
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_GETUSERWORLD) {
                 @Pc(15) int index = intStack[--intStackPointer];
-                intStack[intStackPointer++] = clanChannel.users[index].world;
+                intStack[intStackPointer++] = activeClanChannel.users[index].world;
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_KICKUSER) {
                 @Pc(15) int index = intStack[--intStackPointer];
-                Static525.kick(index, clanChannel == ClanChannel.affined);
+                Static525.kick(index, activeClanChannel == ClanChannel.affined);
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_GETUSERSLOT) {
-                intStack[intStackPointer++] = clanChannel.userSlot(stringStack[--stringStackPointer]);
+                intStack[intStackPointer++] = activeClanChannel.userSlot(stringStack[--stringStackPointer]);
                 return;
             }
 
             if (op == ACTIVECLANCHANNEL_GETSORTEDUSERSLOT) {
-                intStack[intStackPointer - 1] = clanChannel.sortedUserSlots()[intStack[intStackPointer - 1]];
+                intStack[intStackPointer - 1] = activeClanChannel.sortedUserSlots()[intStack[intStackPointer - 1]];
                 return;
             }
 
@@ -4702,17 +4702,17 @@ public final class ScriptRunner {
                 }
 
                 if (op >= 150) {
-                    @Pc(1436) boolean unfocused;
+                    @Pc(1436) boolean secondary;
                     if (operands[pc] == 1) {
-                        unfocused = true;
+                        secondary = true;
                     } else {
-                        unfocused = false;
+                        secondary = false;
                     }
 
                     if (op >= 150 && op < 5000) {
-                        handleSmallOp(op, unfocused);
+                        handleSmallOp(op, secondary);
                     } else if (op >= 5000 && op < 10000) {
-                        handleLargeOp(op, unfocused);
+                        handleLargeOp(op, secondary);
                     } else {
                         break;
                     }
@@ -5313,10 +5313,10 @@ public final class ScriptRunner {
             }
 
             if (opcode == ACTIVECHATPHRASE_PREPARE) {
-                quickChatPhrase = new QuickChatPhrase();
-                quickChatPhrase.id = intStack[--intStackPointer];
-                quickChatPhrase.type = QuickChatPhraseTypeList.instance.get(quickChatPhrase.id);
-                quickChatPhrase.fillerValues = new int[quickChatPhrase.type.getDynamicCommandCount()];
+                activeChatPhrase = new QuickChatPhrase();
+                activeChatPhrase.id = intStack[--intStackPointer];
+                activeChatPhrase.type = QuickChatPhraseTypeList.instance.get(activeChatPhrase.id);
+                activeChatPhrase.fillerValues = new int[activeChatPhrase.type.getDynamicCommandCount()];
                 return;
             }
 
@@ -5326,8 +5326,8 @@ public final class ScriptRunner {
                 message.bitPacket.p1(0);
                 @Pc(109) int pos = message.bitPacket.pos;
                 message.bitPacket.p1(0);
-                message.bitPacket.p2(quickChatPhrase.id);
-                quickChatPhrase.type.encode(message.bitPacket, quickChatPhrase.fillerValues);
+                message.bitPacket.p2(activeChatPhrase.id);
+                activeChatPhrase.type.encode(message.bitPacket, activeChatPhrase.fillerValues);
                 message.bitPacket.psize1(message.bitPacket.pos - pos);
                 connection.send(message);
                 return;
@@ -5340,8 +5340,8 @@ public final class ScriptRunner {
                 message.bitPacket.p1(0);
                 @Pc(115) int pos = message.bitPacket.pos;
                 message.bitPacket.pjstr(text);
-                message.bitPacket.p2(quickChatPhrase.id);
-                quickChatPhrase.type.encode(message.bitPacket, quickChatPhrase.fillerValues);
+                message.bitPacket.p2(activeChatPhrase.id);
+                activeChatPhrase.type.encode(message.bitPacket, activeChatPhrase.fillerValues);
                 message.bitPacket.psize1(message.bitPacket.pos - pos);
                 connection.send(message);
                 return;
@@ -5353,8 +5353,8 @@ public final class ScriptRunner {
                 message.bitPacket.p1(0);
                 @Pc(109) int pos = message.bitPacket.pos;
                 message.bitPacket.p1(1);
-                message.bitPacket.p2(quickChatPhrase.id);
-                quickChatPhrase.type.encode(message.bitPacket, quickChatPhrase.fillerValues);
+                message.bitPacket.p2(activeChatPhrase.id);
+                activeChatPhrase.type.encode(message.bitPacket, activeChatPhrase.fillerValues);
                 message.bitPacket.psize1(message.bitPacket.pos - pos);
                 connection.send(message);
                 return;
@@ -5419,7 +5419,7 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(192) int id = intStack[intStackPointer];
                 @Pc(834) int value = intStack[intStackPointer + 1];
-                quickChatPhrase.fillerValues[id] = value;
+                activeChatPhrase.fillerValues[id] = value;
                 return;
             }
 
@@ -5427,7 +5427,7 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(192) int id = intStack[intStackPointer];
                 @Pc(834) int value = intStack[intStackPointer + 1];
-                quickChatPhrase.fillerValues[id] = value;
+                activeChatPhrase.fillerValues[id] = value;
                 return;
             }
 
@@ -5472,8 +5472,8 @@ public final class ScriptRunner {
                 message.bitPacket.p1(0);
                 @Pc(109) int local109 = message.bitPacket.pos;
                 message.bitPacket.p1(2);
-                message.bitPacket.p2(quickChatPhrase.id);
-                quickChatPhrase.type.encode(message.bitPacket, quickChatPhrase.fillerValues);
+                message.bitPacket.p2(activeChatPhrase.id);
+                activeChatPhrase.type.encode(message.bitPacket, activeChatPhrase.fillerValues);
                 message.bitPacket.psize1(message.bitPacket.pos - local109);
                 connection.send(message);
                 return;
@@ -5485,8 +5485,8 @@ public final class ScriptRunner {
                 message.bitPacket.p1(0);
                 @Pc(109) int local109 = message.bitPacket.pos;
                 message.bitPacket.p1(3);
-                message.bitPacket.p2(quickChatPhrase.id);
-                quickChatPhrase.type.encode(message.bitPacket, quickChatPhrase.fillerValues);
+                message.bitPacket.p2(activeChatPhrase.id);
+                activeChatPhrase.type.encode(message.bitPacket, activeChatPhrase.fillerValues);
                 message.bitPacket.psize1(message.bitPacket.pos - local109);
                 connection.send(message);
                 return;
@@ -7930,7 +7930,7 @@ public final class ScriptRunner {
 
     @OriginalMember(owner = "client!ou", name = "e", descriptor = "(I)Ljava/lang/String;")
     public static String getClanSettingString(@OriginalArg(0) int arg0) {
-        @Pc(9) String local9 = clanSettings.getExtraSettingString(Client.modeGame.id << 16 | arg0);
+        @Pc(9) String local9 = activeClanSettings.getExtraSettingString(Client.modeGame.id << 16 | arg0);
         return local9 == null ? "" : local9;
     }
 

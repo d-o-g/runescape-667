@@ -1,4 +1,3 @@
-import com.jagex.graphics.Sprite;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -6,9 +5,6 @@ public final class Static13 {
 
     @OriginalMember(owner = "client!aha", name = "l", descriptor = "I")
     public static int anInt148;
-
-    @OriginalMember(owner = "client!aha", name = "k", descriptor = "Lclient!st;")
-    public static Sprite aSprite_4;
 
     @OriginalMember(owner = "client!aha", name = "p", descriptor = "I")
     public static int anInt150 = 0;

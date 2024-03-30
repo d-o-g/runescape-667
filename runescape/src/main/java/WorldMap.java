@@ -16,6 +16,7 @@ import com.jagex.game.runetek6.config.flutype.FloorUnderlayType;
 import com.jagex.game.runetek6.config.flutype.FloorUnderlayTypeList;
 import com.jagex.game.runetek6.config.meltype.MapElementType;
 import com.jagex.game.runetek6.config.meltype.MapElementTypeList;
+import com.jagex.game.runetek6.config.msitype.MSIType;
 import com.jagex.game.runetek6.config.msitype.MSITypeList;
 import com.jagex.game.runetek6.config.vartype.VarDomain;
 import com.jagex.game.runetek6.config.loctype.LocInteractivity;
@@ -222,10 +223,10 @@ public final class WorldMap {
     public static int jumpZ = -1;
 
     @OriginalMember(owner = "client!fba", name = "c", descriptor = "I")
-    public static int anInt2809;
+    public static int jumpWidth;
 
     @OriginalMember(owner = "client!tha", name = "e", descriptor = "I")
-    public static int anInt9389;
+    public static int jumpHeight;
 
     @OriginalMember(owner = "client!lea", name = "c", descriptor = "I")
     public static int lastAreaId;
@@ -275,6 +276,15 @@ public final class WorldMap {
     @OriginalMember(owner = "client!lfa", name = "k", descriptor = "Lclient!rt;")
     public static WorldMapFont font30;
 
+    @OriginalMember(owner = "client!aha", name = "k", descriptor = "Lclient!st;")
+    public static Sprite overviewSprite;
+
+    @OriginalMember(owner = "client!qaa", name = "c", descriptor = "I")
+    public static int anInt7639;
+
+    @OriginalMember(owner = "client!qq", name = "c", descriptor = "I")
+    public static int anInt8111;
+
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!sb;Lclient!ef;Lclient!dh;Lclient!gea;Lclient!ml;Lclient!u;Lclient!uk;)V")
     public static void init(@OriginalArg(0) js5 data, @OriginalArg(1) FloorOverlayTypeList floorOverlayTypeList, @OriginalArg(2) FloorUnderlayTypeList floorUnderlayTypeList, @OriginalArg(3) LocTypeList locTypeList, @OriginalArg(4) MapElementTypeList mapElementTypeList, @OriginalArg(5) MSITypeList msiTypeList, @OriginalArg(6) VarDomain varDomain) {
         WorldMap.data = data;
@@ -315,17 +325,18 @@ public final class WorldMap {
             toolkit.aa(x - 150, y + 2, loadingPercent * 3, 30, Client.FILL_COLOURS[Client.colourId].getRGB(), 0);
             Fonts.b12.renderCentre(LocalisedText.LOADINGDOTDOTDOT.localise(Client.language), x, y + 20, Client.TEXT_COLOURS[Client.colourId].getRGB(), -1);
         } else {
-            @Pc(114) int local114 = anInt2809 - (int) ((float) childWidth / currentZoom);
-            @Pc(38) int z = anInt9389 + (int) ((float) childHeight / currentZoom);
-            @Pc(57) int x = anInt2809 + (int) ((float) childWidth / currentZoom);
+            @Pc(114) int x1 = jumpWidth - (int) ((float) childWidth / currentZoom);
+            @Pc(155) int y1 = jumpHeight - (int) ((float) childHeight / currentZoom);
+            @Pc(57) int x2 = jumpWidth + (int) ((float) childWidth / currentZoom);
+            @Pc(38) int y2 = jumpHeight + (int) ((float) childHeight / currentZoom);
 
             width = (int) ((float) (childWidth * 2) / currentZoom);
             height = (int) ((float) (childHeight * 2) / currentZoom);
 
-            @Pc(155) int local155 = anInt9389 - (int) ((float) childHeight / currentZoom);
-            Static510.anInt7639 = anInt9389 - (int) ((float) childHeight / currentZoom);
-            Static534.anInt8111 = anInt2809 - (int) ((float) childWidth / currentZoom);
-            method5062(areaX + local114, z - -areaZ, x + areaX, local155 + areaZ, childX, childY, childWidth + childX, childHeight + childY + 1);
+            anInt7639 = jumpHeight - (int) ((float) childHeight / currentZoom);
+            anInt8111 = jumpWidth - (int) ((float) childWidth / currentZoom);
+
+            method5062(x1 + areaX, y1 + areaZ, x2 + areaX, y2 + areaZ, childX, childY, childWidth + childX, childHeight + childY + 1);
             method5060(toolkit);
 
             @Pc(203) Deque local203 = method5081(toolkit);
@@ -358,9 +369,9 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!qda", name = "a", descriptor = "(BILclient!ha;III)V")
-    public static void drawOverview(@OriginalArg(1) int width, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int height, @OriginalArg(4) int x, @OriginalArg(5) int z) {
-        arg1.KA(x, z, x + width, height + z);
-        arg1.fillRect(x, z, width, height, 0xFF000000);
+    public static void drawOverview(@OriginalArg(1) int width, @OriginalArg(2) Toolkit toolkit, @OriginalArg(3) int height, @OriginalArg(4) int x, @OriginalArg(5) int z) {
+        toolkit.KA(x, z, x + width, height + z);
+        toolkit.fillRect(x, z, width, height, 0xFF000000);
 
         if (loadingPercent < 100) {
             return;
@@ -379,26 +390,26 @@ public final class WorldMap {
         @Pc(75) int newX = x + ((width - newWidth) / 2);
         @Pc(84) int newY = z + ((height - newHeight) / 2);
 
-        if (Static13.aSprite_4 == null || Static13.aSprite_4.getWidth() != width || Static13.aSprite_4.getHeight() != height) {
-            method5062(areaX, areaZ + areaHeight, areaWidth + areaX, areaZ, newX, newY, newX + newWidth, newY - -newHeight);
-            method5060(arg1);
-            Static13.aSprite_4 = arg1.createSprite(newX, newY, newWidth, newHeight, false);
+        if (overviewSprite == null || overviewSprite.getWidth() != width || overviewSprite.getHeight() != height) {
+            method5062(areaX, areaZ, areaWidth + areaX, areaZ + areaHeight, newX, newY, newX + newWidth, newY - -newHeight);
+            method5060(toolkit);
+            overviewSprite = toolkit.createSprite(newX, newY, newWidth, newHeight, false);
         }
 
-        Static13.aSprite_4.render(newX, newY);
+        overviewSprite.render(newX, newY);
 
         @Pc(138) int local138 = (newWidth * WorldMap.width) / areaWidth;
         @Pc(144) int local144 = (newHeight * WorldMap.height) / areaHeight;
-        @Pc(152) int local152 = Static534.anInt8111 * newWidth / areaWidth + newX;
-        @Pc(166) int local166 = newHeight + newY - local144 - Static510.anInt7639 * newHeight / areaHeight;
+        @Pc(152) int local152 = anInt8111 * newWidth / areaWidth + newX;
+        @Pc(166) int local166 = newHeight + newY - local144 - anInt7639 * newHeight / areaHeight;
 
         @Pc(168) int colour = 0x88FF0000;
         if (Client.modeGame == ModeGame.STELLAR_DAWN) {
             colour = 0x88FFFFFF;
         }
 
-        arg1.aa(local152, local166, local138, local144, colour, 1);
-        arg1.outlineRect(local152, local166, local138, local144, colour, 0);
+        toolkit.aa(local152, local166, local138, local144, colour, 1);
+        toolkit.outlineRect(local152, local166, local138, local144, colour, 0);
 
         if (anInt5084 <= 0) {
             return;
@@ -418,11 +429,11 @@ public final class WorldMap {
                 if (flashingElement == entry.id) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
                     @Pc(269) int drawY = newY + ((newHeight * (areaHeight - entry.z)) / areaHeight);
-                    arg1.fillRect(drawX - 2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
+                    toolkit.fillRect(drawX - 2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
                 } else if (flashingElementCategory != -1 && flashingElementCategory == elementType.category) {
                     @Pc(256) int drawX = newX + ((newWidth * entry.x) / areaWidth);
                     @Pc(269) int drawY = newY + (((areaHeight - entry.z) * newHeight) / areaHeight);
-                    arg1.fillRect(drawX + -2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
+                    toolkit.fillRect(drawX + -2, drawY - 2, 4, 4, (alpha << 24) | 0xFFFF00);
                 }
             }
         }
@@ -452,11 +463,11 @@ public final class WorldMap {
 
         @Pc(47) int newX = y - (height - newHeight) / 2;
         @Pc(56) int newY = x - (width - newWidth) / 2;
-        anInt2809 = (newY * areaWidth) / newWidth;
-        anInt9389 = areaHeight - ((areaHeight * newX) / newHeight);
+        jumpWidth = (newY * areaWidth) / newWidth;
+        jumpHeight = areaHeight - ((areaHeight * newX) / newHeight);
         jumpZ = -1;
         jumpX = -1;
-        method5440();
+        checkJump();
     }
 
     @OriginalMember(owner = "client!cba", name = "a", descriptor = "(IZILclient!hda;)V")
@@ -500,18 +511,18 @@ public final class WorldMap {
             if (!Static696.aBoolean784 && relativeX >= 0 && areaWidth > relativeX && relativeY >= 0 && relativeY < areaHeight) {
                 relativeY += (int) (Math.random() * 10.0D) - 5;
                 relativeX += (int) (Math.random() * 10.0D) - 5;
-                anInt2809 = relativeX;
-                anInt9389 = relativeY;
+                jumpWidth = relativeX;
+                jumpHeight = relativeY;
             } else if (Static227.anInt3694 == -1 || Static529.anInt8089 == -1) {
                 area.method4085((area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF, coord);
-                anInt9389 = coord[2] - areaZ;
-                anInt2809 = coord[1] - areaX;
+                jumpHeight = coord[2] - areaZ;
+                jumpWidth = coord[1] - areaX;
             } else {
                 area.method4085(Static227.anInt3694, Static529.anInt8089, coord);
 
                 if (coord != null) {
-                    anInt2809 = coord[1] - areaX;
-                    anInt9389 = coord[2] - areaZ;
+                    jumpWidth = coord[1] - areaX;
+                    jumpHeight = coord[2] - areaZ;
                 }
 
                 Static696.aBoolean784 = false;
@@ -542,7 +553,7 @@ public final class WorldMap {
             tileSize = (int) currentZoom >> 1;
             tileShapes = Static640.method8437(tileSize);
 
-            method5440();
+            checkJump();
             method5069();
 
             boundedEntries = new Deque();
@@ -636,29 +647,29 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!mc", name = "b", descriptor = "(I)V")
-    public static void method5440() {
-        if (anInt2809 < 0) {
+    public static void checkJump() {
+        if (jumpWidth < 0) {
             jumpX = -1;
             jumpZ = -1;
-            anInt2809 = 0;
+            jumpWidth = 0;
         }
 
-        if (areaWidth < anInt2809) {
+        if (jumpWidth > areaWidth) {
             jumpX = -1;
-            anInt2809 = areaWidth;
+            jumpWidth = areaWidth;
             jumpZ = -1;
         }
 
-        if (anInt9389 < 0) {
+        if (jumpHeight < 0) {
             jumpZ = -1;
             jumpX = -1;
-            anInt9389 = 0;
+            jumpHeight = 0;
         }
 
-        if (areaHeight < anInt9389) {
+        if (jumpHeight > areaHeight) {
             jumpZ = -1;
             jumpX = -1;
-            anInt9389 = areaHeight;
+            jumpHeight = areaHeight;
         }
     }
 
@@ -778,11 +789,11 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(IIIIIIII)V")
-    public static void method5062(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
-        anInt5652 = arg0 - areaX;
-        anInt5645 = arg1 - areaZ;
-        anInt5647 = arg2 - areaX;
-        anInt5654 = arg3 - areaZ;
+    public static void method5062(@OriginalArg(0) int x1, @OriginalArg(3) int z1, @OriginalArg(2) int x2, @OriginalArg(1) int z2, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5, @OriginalArg(6) int arg6, @OriginalArg(7) int arg7) {
+        anInt5652 = x1 - areaX;
+        anInt5645 = z2 - areaZ;
+        anInt5647 = x2 - areaX;
+        anInt5654 = z1 - areaZ;
         anInt5649 = arg4;
         anInt5653 = arg5;
         anInt5651 = arg6;
@@ -987,16 +998,16 @@ public final class WorldMap {
                             if (local173 >= 0 && local173 < areaHeight) {
                                 local175 = aShortArray78[local57 + local173 * areaWidth] & 0xFFFF;
                                 if (local175 <= 0) {
-                                    Minimap.drawMsiMultiple(arg0, local40, local80, local50, local93, null, null);
+                                    drawMsiMultiple(arg0, local40, local80, local50, local93, null, null);
                                 } else if (local175 == 65535) {
                                     @Pc(459) Node_Sub23 local459 = (Node_Sub23) aIterableHashTable.get(local57 << 16 | local173);
                                     if (local459 != null) {
-                                        Minimap.drawMsiMultiple(arg0, local40, local80, local50, local93, local459.aShortArray59, local459.aByteArray38);
+                                        drawMsiMultiple(arg0, local40, local80, local50, local93, local459.aShortArray59, local459.aByteArray38);
                                     }
                                 } else {
                                     aShortArray77[0] = (short) (local175 - 1);
                                     aByteArray55[0] = aByteArray58[local57 + local173 * areaWidth];
-                                    Minimap.drawMsiMultiple(arg0, local40, local80, local50, local93, aShortArray77, aByteArray55);
+                                    drawMsiMultiple(arg0, local40, local80, local50, local93, aShortArray77, aByteArray55);
                                 }
                             }
                         }
@@ -1057,7 +1068,7 @@ public final class WorldMap {
                             local665 = (arg1 * (local631 + 1) >> 16) + anInt5649;
                             local675 = anInt5646 - (arg2 * (local641 + 1) >> 16);
                             @Pc(813) int local813 = anInt5646 - (arg2 * local641 >> 16);
-                            Minimap.drawMsiMultiple(arg0, local653, local675, local665 - local653, local813 - local675, local750.aShortArray133, local750.aByteArray104);
+                            drawMsiMultiple(arg0, local653, local675, local665 - local653, local813 - local675, local750.aShortArray133, local750.aByteArray104);
                         }
                     }
                 }
@@ -1149,7 +1160,7 @@ public final class WorldMap {
             local7[local9 * 2] = anInt5649 + (anInt5651 - anInt5649) * (local20 - anInt5652) / (anInt5647 - anInt5652);
             local7[local9 * 2 + 1] = anInt5646 - (anInt5646 - anInt5653) * (local32 - anInt5654) / (anInt5645 - anInt5654);
         }
-        Static141.method2371(arg0, local7, arg2.landmarkBackground);
+        Minimap.method2371(arg0, local7, arg2.landmarkBackground);
         if (arg2.anInt2603 > 0) {
             @Pc(102) int local102;
             @Pc(110) int local110;
@@ -1575,7 +1586,7 @@ public final class WorldMap {
         staticElements = null;
         font17 = null;
         jumpX = -1;
-        Static13.aSprite_4 = null;
+        overviewSprite = null;
         font14 = null;
         font22 = null;
         font11 = null;
@@ -1607,8 +1618,8 @@ public final class WorldMap {
     public static void method8711(@OriginalArg(0) int arg0) {
         jumpX = -1;
         jumpZ = -1;
-        anInt2809 = arg0;
-        method5440();
+        jumpWidth = arg0;
+        checkJump();
     }
 
     @OriginalMember(owner = "client!dq", name = "b", descriptor = "(B)Lclient!fu;")
@@ -1990,30 +2001,32 @@ public final class WorldMap {
     public static void method6759(@OriginalArg(1) int x, @OriginalArg(2) int y) {
         if (currentZoom < targetZoom) {
             currentZoom = (float) ((double) currentZoom + (double) currentZoom / 30.0D);
-            if (targetZoom < currentZoom) {
+            if (currentZoom > targetZoom) {
                 currentZoom = targetZoom;
             }
-            method5440();
+
+            checkJump();
             tileSize = (int) currentZoom >> 1;
             tileShapes = Static640.method8437(tileSize);
         } else if (currentZoom > targetZoom) {
             currentZoom = (float) ((double) currentZoom - (double) currentZoom / 30.0D);
-            if (targetZoom > currentZoom) {
+            if (currentZoom < targetZoom) {
                 currentZoom = targetZoom;
             }
-            method5440();
+
+            checkJump();
             tileSize = (int) currentZoom >> 1;
             tileShapes = Static640.method8437(tileSize);
         }
 
         if (jumpX != -1 && jumpZ != -1) {
-            @Pc(101) int local101 = jumpX - anInt2809;
+            @Pc(101) int local101 = jumpX - jumpWidth;
             if (local101 < 2 || local101 > 2) {
                 local101 /= 8;
             }
 
-            @Pc(120) int local120 = jumpZ - anInt9389;
-            anInt2809 += local101;
+            @Pc(120) int local120 = jumpZ - jumpHeight;
+            jumpWidth += local101;
             if (local120 < 2 || local120 > 2) {
                 local120 /= 8;
             }
@@ -2023,9 +2036,10 @@ public final class WorldMap {
                 jumpX = -1;
             }
 
-            anInt9389 -= -local120;
-            method5440();
+            jumpHeight -= -local120;
+            checkJump();
         }
+
         if (anInt5084 > 0) {
             anInt3467--;
             if (anInt3467 == 0) {
@@ -2164,6 +2178,52 @@ public final class WorldMap {
 
                 if (offscreen) {
                     renderElementOffscreen(toolkit, type, entry);
+                }
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIII[S[B)V")
+    public static void drawMsiMultiple(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int drawX, @OriginalArg(2) int drawY, @OriginalArg(3) int width, @OriginalArg(4) int height, @OriginalArg(5) short[] locIds, @OriginalArg(6) byte[] rotations) {
+        if (locIds == null) {
+            return;
+        }
+
+        for (@Pc(4) int i = 0; i < locIds.length; i++) {
+            @Pc(14) LocType locType = locTypeList.list(locIds[i] & 0xFFFF);
+
+            @Pc(17) int msi = locType.msi;
+            if (msi == -1) {
+                continue;
+            }
+
+            @Pc(25) MSIType msiType = msiTypeList.list(msi);
+            @Pc(49) Sprite sprite = msiType.sprite(locType.msirotate ? ((rotations[i] >> 6) & 0x3) : 0, toolkit, locType.msiflip ? locType.mirror : false);
+
+            if (sprite != null) {
+                @Pc(58) int spriteWidth = (width * sprite.scaleWidth()) >> 2;
+                @Pc(65) int spriteHeight = (height * sprite.scaleHeight()) >> 2;
+
+                if (msiType.enlarge) {
+                    @Pc(71) int locWidth = locType.width;
+                    @Pc(74) int locLength = locType.length;
+
+                    if ((rotations[i] >> 6 & 0x1) == 1) {
+                        @Pc(85) int temp = locWidth;
+                        locWidth = locLength;
+                        locLength = temp;
+                    }
+
+                    spriteWidth = locWidth * width;
+                    spriteHeight = locLength * height;
+                }
+
+                if (spriteWidth != 0 && spriteHeight != 0) {
+                    if (msiType.colour != 0) {
+                        sprite.render(drawX, drawY + height - spriteHeight, spriteWidth, spriteHeight, 0, msiType.colour | 0xFF000000, 1);
+                    } else {
+                        sprite.render(drawX, drawY + height - spriteHeight, spriteWidth, spriteHeight);
+                    }
                 }
             }
         }

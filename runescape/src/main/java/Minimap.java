@@ -433,52 +433,6 @@ public final class Minimap {
         }
     }
 
-    @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;IIII[S[B)V")
-    public static void drawMsiMultiple(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int drawX, @OriginalArg(2) int drawY, @OriginalArg(3) int width, @OriginalArg(4) int height, @OriginalArg(5) short[] locIds, @OriginalArg(6) byte[] rotations) {
-        if (locIds == null) {
-            return;
-        }
-
-        for (@Pc(4) int i = 0; i < locIds.length; i++) {
-            @Pc(14) LocType locType = WorldMap.locTypeList.list(locIds[i] & 0xFFFF);
-
-            @Pc(17) int msi = locType.msi;
-            if (msi == -1) {
-                continue;
-            }
-
-            @Pc(25) MSIType msiType = WorldMap.msiTypeList.list(msi);
-            @Pc(49) Sprite sprite = msiType.sprite(locType.msirotate ? ((rotations[i] >> 6) & 0x3) : 0, toolkit, locType.msiflip ? locType.mirror : false);
-
-            if (sprite != null) {
-                @Pc(58) int spriteWidth = (width * sprite.scaleWidth()) >> 2;
-                @Pc(65) int spriteHeight = (height * sprite.scaleHeight()) >> 2;
-
-                if (msiType.enlarge) {
-                    @Pc(71) int locWidth = locType.width;
-                    @Pc(74) int locLength = locType.length;
-
-                    if ((rotations[i] >> 6 & 0x1) == 1) {
-                        @Pc(85) int temp = locWidth;
-                        locWidth = locLength;
-                        locLength = temp;
-                    }
-
-                    spriteWidth = locWidth * width;
-                    spriteHeight = locLength * height;
-                }
-
-                if (spriteWidth != 0 && spriteHeight != 0) {
-                    if (msiType.colour != 0) {
-                        sprite.render(drawX, drawY + height - spriteHeight, spriteWidth, spriteHeight, 0, msiType.colour | 0xFF000000, 1);
-                    } else {
-                        sprite.render(drawX, drawY + height - spriteHeight, spriteWidth, spriteHeight);
-                    }
-                }
-            }
-        }
-    }
-
     @OriginalMember(owner = "client!tka", name = "a", descriptor = "(IIILclient!aa;Lclient!ha;IIILclient!hda;)V")
     public static void drawMapElement(@OriginalArg(0) int drawY, @OriginalArg(2) int screenX, @OriginalArg(3) ClippingMask mask, @OriginalArg(4) Toolkit toolkit, @OriginalArg(5) int id, @OriginalArg(6) int screenY, @OriginalArg(7) int drawX, @OriginalArg(8) Component component) {
         @Pc(10) MapElementType elementType = MapElementTypeList.instance.list(id);
@@ -932,5 +886,10 @@ public final class Minimap {
         if (level != PlayerEntity.self.level && (Static334.activeTiles != null && drawLevel(arg0, PlayerEntity.self.level))) {
             level = PlayerEntity.self.level;
         }
+    }
+
+    @OriginalMember(owner = "client!eh", name = "a", descriptor = "(Lclient!ha;[II)V")
+    public static void method2371(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2) {
+        Static141.method2376(arg0, arg1, arg1.length, arg2, null, null);
     }
 }

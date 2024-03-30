@@ -78,8 +78,8 @@ public final class WorldMapFont {
             if (!this.aBoolean653) {
                 this.aBoolean653 = false;
 
-                for (@Pc(103) int local103 = 0; local103 < CHAR_COUNT; local103++) {
-                    this.load(toolkit, font, metrics, CHARS.charAt(local103), local103, true);
+                for (@Pc(103) int i = 0; i < CHAR_COUNT; i++) {
+                    this.load(toolkit, font, metrics, CHARS.charAt(i), i, true);
                 }
             }
         }

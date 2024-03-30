@@ -90,11 +90,6 @@ public final class Static141 {
         return true;
     }
 
-    @OriginalMember(owner = "client!eh", name = "a", descriptor = "(Lclient!ha;[II)V")
-    public static void method2371(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int[] arg1, @OriginalArg(2) int arg2) {
-        method2376(arg0, arg1, arg1.length, arg2, null, null);
-    }
-
     @OriginalMember(owner = "client!eh", name = "b", descriptor = "(II)V")
     public static void method2372(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if (arg1 <= arg0 + 4) {

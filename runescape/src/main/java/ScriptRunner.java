@@ -5562,8 +5562,8 @@ public final class ScriptRunner {
             }
 
             if (opcode == WORLDMAP_GETDISPLAYPOSITION) {
-                intStack[intStackPointer++] = WorldMap.anInt2809 + WorldMap.areaX;
-                intStack[intStackPointer++] = WorldMap.anInt9389 + WorldMap.areaZ;
+                intStack[intStackPointer++] = WorldMap.jumpWidth + WorldMap.areaX;
+                intStack[intStackPointer++] = WorldMap.jumpHeight + WorldMap.areaZ;
                 return;
             }
 
@@ -5676,7 +5676,7 @@ public final class ScriptRunner {
             if (opcode == WORLDMAP_GETSOURCEPOSITION) {
                 @Pc(1942) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(1578) boolean local1578 = area.method4091(WorldMap.anInt9389 + WorldMap.areaZ, WorldMap.anInt2809 + WorldMap.areaX, areaCoords);
+                    @Pc(1578) boolean local1578 = area.method4091(WorldMap.jumpHeight + WorldMap.areaZ, WorldMap.jumpWidth + WorldMap.areaX, areaCoords);
                     if (local1578) {
                         intStack[intStackPointer++] = areaCoords[1];
                         intStack[intStackPointer++] = areaCoords[2];

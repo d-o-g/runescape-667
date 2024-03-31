@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.core.constants.MaxScreenSize;
 import org.openrs2.deob.annotation.OriginalMember;
 
@@ -36,6 +37,6 @@ public final class Static133 {
         ClientOptions.instance.update(3, ClientOptions.instance.graphicsQuality);
         Static296.updateFeatureMask();
         InterfaceManager.loginOpened();
-        Static284.aBoolean355 = true;
+        Client.changingWindowMode = true;
     }
 }

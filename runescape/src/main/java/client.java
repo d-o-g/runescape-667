@@ -712,8 +712,8 @@ public final class client extends GameShell {
         }
 
         if (MainLogicStep.method6445(MainLogicManager.step)) {
-            if (Static297.aLong153 != 0L && SystemTimer.safetime() > Static297.aLong153) {
-                InterfaceManager.changeWindowMode(InterfaceManager.getWindowMode(), Static560.anInt8429, Static433.anInt6258, false);
+            if (Client.nextWindowModeChange != 0L && SystemTimer.safetime() > Client.nextWindowModeChange) {
+                InterfaceManager.changeWindowMode(InterfaceManager.getWindowMode(), Client.nextWindowModeWidth, Client.nextWindowModeHeight, false);
             } else if (!Toolkit.active.method8001() && GameShell.canvasReplaceRecommended) {
                 Static574.method7572();
             }
@@ -737,7 +737,7 @@ public final class client extends GameShell {
                 width -= insets.right + insets.left;
             }
 
-            if (GameShell.frameWid != width || height != GameShell.frameHei || Static284.aBoolean355) {
+            if (GameShell.frameWid != width || height != GameShell.frameHei || Client.changingWindowMode) {
                 if (Toolkit.active == null || Toolkit.active.method7983()) {
                     Static712.method9329((byte) 11);
                 } else {
@@ -745,8 +745,8 @@ public final class client extends GameShell {
                     GameShell.frameHei = height;
                 }
 
-                Static297.aLong153 = SystemTimer.safetime() + 500L;
-                Static284.aBoolean355 = false;
+                Client.nextWindowModeChange = SystemTimer.safetime() + 500L;
+                Client.changingWindowMode = false;
             }
         }
 

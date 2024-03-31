@@ -1,5 +1,6 @@
 package com.jagex.graphics.skybox;
 
+import com.jagex.core.algorithms.Quicksort;
 import com.jagex.core.util.Arrays;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
@@ -290,7 +291,7 @@ public final class SkyBox {
                         this.aSkyBoxSphereArray2[this.anInt3508++] = local68;
                     }
                 }
-                Fullscreen.method5966(this.anInt3508 - 1, 0, local57, this.aSkyBoxSphereArray2);
+                Quicksort.sort(local57, this.aSkyBoxSphereArray2, 0, this.anInt3508 - 1);
             }
             this.aBoolean273 = true;
         }

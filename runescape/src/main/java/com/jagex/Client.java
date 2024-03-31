@@ -55,6 +55,12 @@ public final class Client {
     @OriginalMember(owner = "client!maa", name = "r", descriptor = "[Ljava/lang/String;")
     public static final String[] LANGUAGE_CODES = {"en", "de", "fr", "pt", "nl"};
 
+    @OriginalMember(owner = "client!rl", name = "l", descriptor = "I")
+    public static final int nextWindowModeWidth = -1;
+
+    @OriginalMember(owner = "client!nl", name = "b", descriptor = "I")
+    public static final int nextWindowModeHeight = -1;
+
     @OriginalMember(owner = "client!po", name = "h", descriptor = "Lclient!pla;")
     public static Js5WorkerThread js5WorkerThread;
 
@@ -186,6 +192,12 @@ public final class Client {
 
     @OriginalMember(owner = "client!fa", name = "b", descriptor = "[[[J")
     public static long[][][] tileLightFlags;
+
+    @OriginalMember(owner = "client!iu", name = "i", descriptor = "Z")
+    public static boolean changingWindowMode = false;
+
+    @OriginalMember(owner = "client!jha", name = "i", descriptor = "J")
+    public static long nextWindowModeChange = 0L;
 
     @OriginalMember(owner = "client!nha", name = "a", descriptor = "(BLjava/lang/String;)V")
     public static void error(@OriginalArg(1) String arg0) {

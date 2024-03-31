@@ -6786,7 +6786,7 @@ public final class ScriptRunner {
             if (opcode == DETAIL_MAXSCREENSIZE) {
                 ClientOptions.instance.update(intStack[--intStackPointer], ClientOptions.instance.maxScreenSize);
                 ClientOptions.save();
-                Static284.aBoolean355 = true;
+                Client.changingWindowMode = true;
                 return;
             }
 

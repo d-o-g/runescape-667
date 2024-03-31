@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.IndexedImage;
 import com.jagex.graphics.Font;
@@ -120,7 +121,7 @@ public final class Static595 {
         }
         Static613.method8239(Toolkit.active, Static501.mapLength >> 3, Static720.mapWidth >> 3);
         InterfaceManager.loginOpened();
-        Static284.aBoolean355 = true;
+        Client.changingWindowMode = true;
         Fullscreen.modes = null;
         Static503.sentPreferences = false;
         OrthoMode.enter();

@@ -2363,23 +2363,23 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(IIIZI)V")
-    public static void changeWindowMode(@OriginalArg(1) int mode, @OriginalArg(2) int width, @OriginalArg(4) int height, @OriginalArg(3) boolean modeDifferent) {
+    public static void changeWindowMode(@OriginalArg(1) int mode, @OriginalArg(2) int width, @OriginalArg(4) int height, @OriginalArg(3) boolean different) {
         OrthoMode.enter();
-        Static297.aLong153 = 0L;
+        Client.nextWindowModeChange = 0L;
 
         @Pc(10) int current = getWindowMode();
         if (mode == WindowMode.FULLSCREEN || current == WindowMode.FULLSCREEN) {
-            modeDifferent = true;
+            different = true;
         }
         if (!Toolkit.active.method7983()) {
-            modeDifferent = true;
+            different = true;
         }
 
-        windowModeChanged(current, height, mode, width, modeDifferent);
+        windowModeChanged(mode, current, width, height, different);
     }
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(IIIIIZ)V")
-    public static void windowModeChanged(@OriginalArg(0) int oldMode, @OriginalArg(1) int height, @OriginalArg(2) int newMode, @OriginalArg(4) int width, @OriginalArg(5) boolean modeChanged) {
+    public static void windowModeChanged(@OriginalArg(2) int newMode, @OriginalArg(0) int oldMode, @OriginalArg(4) int width, @OriginalArg(1) int height, @OriginalArg(5) boolean different) {
         if (GameShell.fsframe != null && (newMode != WindowMode.FULLSCREEN || width != GameShell.lastFullscreenWidth || height != GameShell.lastFullscreenHeight)) {
             exitFullscreen(GameShell.signLink, GameShell.fsframe);
             GameShell.fsframe = null;
@@ -2396,7 +2396,7 @@ public final class InterfaceManager {
         }
 
         if (newMode == WindowMode.FULLSCREEN && GameShell.fsframe == null) {
-            windowModeChanged(oldMode, -1, ClientOptions.instance.screenSizeDefault.getValue(), -1, true);
+            windowModeChanged(ClientOptions.instance.screenSizeDefault.getValue(), oldMode, -1, -1, true);
             return;
         }
 
@@ -2442,7 +2442,7 @@ public final class InterfaceManager {
             }
         }
 
-        if (modeChanged) {
+        if (different) {
             Static574.method7572();
         } else {
             GameShell.canvas.setSize(GameShell.canvasWid, GameShell.canvasHei);

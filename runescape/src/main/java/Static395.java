@@ -1,3 +1,4 @@
+import com.jagex.Client;
 import com.jagex.Entity;
 import com.jagex.core.constants.MaxScreenSize;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -39,7 +40,7 @@ public final class Static395 {
         ClientOptions.instance.update(4, ClientOptions.instance.graphicsQuality);
         Static296.updateFeatureMask();
         InterfaceManager.loginOpened();
-        Static284.aBoolean355 = true;
+        Client.changingWindowMode = true;
     }
 
     @OriginalMember(owner = "client!mha", name = "a", descriptor = "(FFFIIIII)[F")

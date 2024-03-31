@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static297 {
 
-    @OriginalMember(owner = "client!jha", name = "i", descriptor = "J")
-    public static long aLong153 = 0L;
-
     @OriginalMember(owner = "client!jha", name = "a", descriptor = "(IIIII)V")
     public static void method4371(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3) {
         if (arg3 <= arg1) {

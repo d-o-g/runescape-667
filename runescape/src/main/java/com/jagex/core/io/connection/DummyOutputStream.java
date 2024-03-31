@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 @OriginalClass("client!jp")
-public final class OutputStream_Sub1 extends OutputStream {
+public final class DummyOutputStream extends OutputStream {
 
     @OriginalMember(owner = "client!jp", name = "write", descriptor = "(I)V")
     @Override

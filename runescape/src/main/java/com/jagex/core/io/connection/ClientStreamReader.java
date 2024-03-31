@@ -71,7 +71,7 @@ public final class ClientStreamReader implements Runnable {
 
     @OriginalMember(owner = "client!je", name = "a", descriptor = "(Z)V")
     public void reset() {
-        this.input = new InputStream_Sub1();
+        this.input = new DummyInputStream();
     }
 
     @OriginalMember(owner = "client!je", name = "a", descriptor = "(B)V")

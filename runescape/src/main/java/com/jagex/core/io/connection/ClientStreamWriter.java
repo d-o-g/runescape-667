@@ -157,6 +157,6 @@ public final class ClientStreamWriter implements Runnable {
 
     @OriginalMember(owner = "client!vja", name = "b", descriptor = "(I)V")
     public void reset() {
-        this.output = new OutputStream_Sub1();
+        this.output = new DummyOutputStream();
     }
 }

@@ -17,6 +17,7 @@ import org.openrs2.deob.annotation.Pc;
 import java.awt.Color;
 
 public final class Client {
+
     public static final int BUILD = 667;
 
     @OriginalMember(owner = "client!gha", name = "t", descriptor = "[Lclient!mj;")

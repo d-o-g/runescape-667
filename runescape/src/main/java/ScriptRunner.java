@@ -964,32 +964,7 @@ public final class ScriptRunner {
             return;
         }
 
-        if (component.id == -1) {
-            @Pc(119) int parent = component.slot >>> 16;
-            @Pc(123) Component[] children = InterfaceList.cache[parent];
-
-            if (children == null) {
-                @Pc(71) Component[] newChildren = InterfaceList.interfaces[parent];
-                @Pc(132) int length = newChildren.length;
-                children = InterfaceList.cache[parent] = new Component[length];
-                Arrays.copy(newChildren, 0, children, 0, newChildren.length);
-            }
-
-            @Pc(148) int i;
-            for (i = 0; i < children.length; i++) {
-                if (component == children[i]) {
-                    break;
-                }
-            }
-
-            if (i >= children.length) {
-                return;
-            }
-
-            Arrays.copy(children, i + 1, children, i, children.length - i - 1);
-            children[children.length - 1] = component;
-            return;
-        } else {
+        if (component.id != -1) {
             @Pc(12) Component layer = InterfaceList.list(component.layer);
             if (layer == null) {
                 return;
@@ -1014,6 +989,29 @@ public final class ScriptRunner {
 
             Arrays.copy(dynamicComponents, i + 1, dynamicComponents, i, dynamicComponents.length - i - 1);
             dynamicComponents[layer.dynamicComponents.length - 1] = component;
+        } else {
+            @Pc(119) int parent = component.slot >>> 16;
+            @Pc(123) Component[] children = InterfaceList.cache[parent];
+
+            if (children == null) {
+                @Pc(71) Component[] newChildren = InterfaceList.interfaces[parent];
+                @Pc(132) int length = newChildren.length;
+                children = InterfaceList.cache[parent] = new Component[length];
+                Arrays.copy(newChildren, 0, children, 0, newChildren.length);
+            }
+
+            @Pc(148) int i;
+            for (i = 0; i < children.length; i++) {
+                if (component == children[i]) {
+                    break;
+                }
+            }
+            if (i >= children.length) {
+                return;
+            }
+
+            Arrays.copy(children, i + 1, children, i, children.length - i - 1);
+            children[children.length - 1] = component;
         }
     }
 
@@ -1060,21 +1058,21 @@ public final class ScriptRunner {
                     throw new RuntimeException("Gap at:" + (componentId - 1));
                 }
 
-                @Pc(166) Component createdComponent = new Component();
-                createdComponent.type = componentType;
-                createdComponent.layer = createdComponent.slot = parent.slot;
-                createdComponent.id = componentId;
+                @Pc(166) Component cc = new Component();
+                cc.type = componentType;
+                cc.layer = cc.slot = parent.slot;
+                cc.id = componentId;
 
-                parent.staticComponents[componentId] = createdComponent;
+                parent.staticComponents[componentId] = cc;
 
                 if (parent.dynamicComponents != parent.staticComponents) {
-                    parent.dynamicComponents[componentId] = createdComponent;
+                    parent.dynamicComponents[componentId] = cc;
                 }
 
                 if (secondary) {
-                    activeComponent2 = createdComponent;
+                    activeComponent2 = cc;
                 } else {
-                    activeComponent = createdComponent;
+                    activeComponent = cc;
                 }
 
                 InterfaceManager.redraw(parent);
@@ -1082,8 +1080,8 @@ public final class ScriptRunner {
             }
 
             if (op == CC_DELETE) {
-                @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
-                if (createdComponent.id == -1) {
+                @Pc(220) Component cc = secondary ? activeComponent2 : activeComponent;
+                if (cc.id == -1) {
                     if (secondary) {
                         throw new RuntimeException("Tried to .cc_delete static .active-component!");
                     }
@@ -1091,17 +1089,17 @@ public final class ScriptRunner {
                     throw new RuntimeException("Tried to cc_delete static active-component!");
                 }
 
-                @Pc(248) Component component = InterfaceList.list(createdComponent.slot);
-                component.staticComponents[createdComponent.id] = null;
+                @Pc(248) Component component = InterfaceList.list(cc.slot);
+                component.staticComponents[cc.id] = null;
                 InterfaceManager.redraw(component);
                 return;
             }
 
             if (op == CC_DELETEALL) {
-                @Pc(220) Component createdComponent = InterfaceList.list(intStack[--intStackPointer]);
-                createdComponent.staticComponents = null;
-                createdComponent.dynamicComponents = null;
-                InterfaceManager.redraw(createdComponent);
+                @Pc(220) Component cc = InterfaceList.list(intStack[--intStackPointer]);
+                cc.staticComponents = null;
+                cc.dynamicComponents = null;
+                InterfaceManager.redraw(cc);
                 return;
             }
 
@@ -1109,16 +1107,16 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(15) int idAndSlot = intStack[intStackPointer];
                 @Pc(21) int component = intStack[intStackPointer + 1];
-                @Pc(303) Component createdComponent = InterfaceList.getComponent(idAndSlot, component);
+                @Pc(303) Component cc = InterfaceList.getComponent(idAndSlot, component);
 
-                if (createdComponent != null && component != -1) {
+                if (cc != null && component != -1) {
                     intStack[intStackPointer++] = 1;
 
                     if (secondary) {
-                        activeComponent2 = createdComponent;
+                        activeComponent2 = cc;
                         return;
                     } else {
-                        activeComponent = createdComponent;
+                        activeComponent = cc;
                         return;
                     }
                 }
@@ -2176,94 +2174,94 @@ public final class ScriptRunner {
             component.hasHook = true;
             return;
         } else if (op < 1600) {
-            @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
+            @Pc(220) Component cc = secondary ? activeComponent2 : activeComponent;
 
             if (op == CC_GETX) {
-                intStack[intStackPointer++] = createdComponent.x;
+                intStack[intStackPointer++] = cc.x;
                 return;
             }
             if (op == CC_GETY) {
-                intStack[intStackPointer++] = createdComponent.y;
+                intStack[intStackPointer++] = cc.y;
                 return;
             }
             if (op == CC_GETWIDTH) {
-                intStack[intStackPointer++] = createdComponent.width;
+                intStack[intStackPointer++] = cc.width;
                 return;
             }
             if (op == CC_GETHEIGHT) {
-                intStack[intStackPointer++] = createdComponent.height;
+                intStack[intStackPointer++] = cc.height;
                 return;
             }
             if (op == CC_GETHIDE) {
-                intStack[intStackPointer++] = createdComponent.hidden ? 1 : 0;
+                intStack[intStackPointer++] = cc.hidden ? 1 : 0;
                 return;
             }
             if (op == CC_GETLAYER) {
-                intStack[intStackPointer++] = createdComponent.layer;
+                intStack[intStackPointer++] = cc.layer;
                 return;
             }
             if (op == CC_GETPARENTLAYER) {
-                @Pc(248) Component parent = InterfaceManager.getParentLayer(createdComponent);
+                @Pc(248) Component parent = InterfaceManager.getParentLayer(cc);
                 intStack[intStackPointer++] = parent == null ? -1 : parent.slot;
                 return;
             }
             if (op == CC_GETCOLOUR) {
-                intStack[intStackPointer++] = createdComponent.colour;
+                intStack[intStackPointer++] = cc.colour;
                 return;
             }
         } else if (op < 1700) {
-            @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
+            @Pc(220) Component cc = secondary ? activeComponent2 : activeComponent;
 
             if (op == CC_GETSCROLLX) {
-                intStack[intStackPointer++] = createdComponent.scrollX;
+                intStack[intStackPointer++] = cc.scrollX;
                 return;
             }
             if (op == CC_GETSCROLLY) {
-                intStack[intStackPointer++] = createdComponent.scrollY;
+                intStack[intStackPointer++] = cc.scrollY;
                 return;
             }
             if (op == CC_GETTEXT) {
-                stringStack[stringStackPointer++] = createdComponent.text;
+                stringStack[stringStackPointer++] = cc.text;
                 return;
             }
             if (op == CC_GETSCROLLWIDTH) {
-                intStack[intStackPointer++] = createdComponent.scrollWidth;
+                intStack[intStackPointer++] = cc.scrollWidth;
                 return;
             }
             if (op == CC_GETSCROLLHEIGHT) {
-                intStack[intStackPointer++] = createdComponent.scrollHeight;
+                intStack[intStackPointer++] = cc.scrollHeight;
                 return;
             }
             if (op == CC_GETMODELZOOM) {
-                intStack[intStackPointer++] = createdComponent.zoom2d;
+                intStack[intStackPointer++] = cc.zoom2d;
                 return;
             }
             if (op == CC_GETMODELANGLE_X) {
-                intStack[intStackPointer++] = createdComponent.xan2d;
+                intStack[intStackPointer++] = cc.xan2d;
                 return;
             }
             if (op == CC_GETMODELANGLE_Z) {
-                intStack[intStackPointer++] = createdComponent.zan2d;
+                intStack[intStackPointer++] = cc.zan2d;
                 return;
             }
             if (op == CC_GETMODELANGLE_Y) {
-                intStack[intStackPointer++] = createdComponent.yan2d;
+                intStack[intStackPointer++] = cc.yan2d;
                 return;
             }
             if (op == CC_GETTRANS) {
-                intStack[intStackPointer++] = createdComponent.transparency;
+                intStack[intStackPointer++] = cc.transparency;
                 return;
             }
             if (op == CC_GETMODELXOF) {
-                intStack[intStackPointer++] = createdComponent.xof2d;
+                intStack[intStackPointer++] = cc.xof2d;
                 return;
             }
             if (op == CC_GETMODELYOF) {
-                intStack[intStackPointer++] = createdComponent.yof2d;
+                intStack[intStackPointer++] = cc.yof2d;
                 return;
             }
             if (op == CC_GETGRAPHIC) {
-                intStack[intStackPointer++] = createdComponent.graphic;
+                intStack[intStackPointer++] = cc.graphic;
                 return;
             }
             if (op == CC_PARAM) {
@@ -2271,49 +2269,49 @@ public final class ScriptRunner {
                 @Pc(3848) ParamType paramType = ParamTypeList.instance.list(id);
 
                 if (paramType.isString()) {
-                    stringStack[stringStackPointer++] = createdComponent.param(paramType.defaultstr, id);
+                    stringStack[stringStackPointer++] = cc.param(paramType.defaultstr, id);
                     return;
                 }
 
-                intStack[intStackPointer++] = createdComponent.param(paramType.defaultint, id);
+                intStack[intStackPointer++] = cc.param(paramType.defaultint, id);
                 return;
             }
             if (op == CC_GET2DANGLE) {
-                intStack[intStackPointer++] = createdComponent.angle2d;
+                intStack[intStackPointer++] = cc.angle2d;
                 return;
             }
             if (op == CC_GETMODEL) {
-                intStack[intStackPointer++] = createdComponent.objType == Component.OBJ_TYPE_MODEL ? createdComponent.obj : -1;
+                intStack[intStackPointer++] = cc.objType == Component.OBJ_TYPE_MODEL ? cc.obj : -1;
                 return;
             }
             if (op == CC_GETFONTGRAPHIC) {
-                intStack[intStackPointer++] = createdComponent.fontGraphic;
+                intStack[intStackPointer++] = cc.fontGraphic;
                 return;
             }
         } else if (op < 1800) {
-            @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
+            @Pc(220) Component cc = secondary ? activeComponent2 : activeComponent;
 
             if (op == CC_GETINVOBJECT) {
-                intStack[intStackPointer++] = createdComponent.invObject;
+                intStack[intStackPointer++] = cc.invObject;
                 return;
             }
             if (op == CC_GETINVCOUNT) {
-                if (createdComponent.invObject != -1) {
-                    intStack[intStackPointer++] = createdComponent.invCount;
+                if (cc.invObject != -1) {
+                    intStack[intStackPointer++] = cc.invCount;
                     return;
                 }
                 intStack[intStackPointer++] = 0;
                 return;
             }
             if (op == CC_GETID) {
-                intStack[intStackPointer++] = createdComponent.id;
+                intStack[intStackPointer++] = cc.id;
                 return;
             }
         } else if (op < 1900) {
-            @Pc(220) Component createdComponent = secondary ? activeComponent2 : activeComponent;
+            @Pc(220) Component cc = secondary ? activeComponent2 : activeComponent;
 
             if (op == CC_GETTARGETMASK) {
-                intStack[intStackPointer++] = InterfaceManager.serverActiveProperties(createdComponent).getTargetMask();
+                intStack[intStackPointer++] = InterfaceManager.serverActiveProperties(cc).getTargetMask();
                 return;
             }
 
@@ -2321,8 +2319,8 @@ public final class ScriptRunner {
                 @Pc(21) int opNum = intStack[--intStackPointer];
                 opNum--;
 
-                if (createdComponent.ops != null && opNum < createdComponent.ops.length && createdComponent.ops[opNum] != null) {
-                    stringStack[stringStackPointer++] = createdComponent.ops[opNum];
+                if (cc.ops != null && opNum < cc.ops.length && cc.ops[opNum] != null) {
+                    stringStack[stringStackPointer++] = cc.ops[opNum];
                     return;
                 }
 
@@ -2331,12 +2329,12 @@ public final class ScriptRunner {
             }
 
             if (op == CC_GETOPBASE) {
-                if (createdComponent.opBase == null) {
+                if (cc.opBase == null) {
                     stringStack[stringStackPointer++] = "";
                     return;
                 }
 
-                stringStack[stringStackPointer++] = createdComponent.opBase;
+                stringStack[stringStackPointer++] = cc.opBase;
                 return;
             }
         } else if (op < 2000 || op >= 2900 && op < 3000) {
@@ -2636,9 +2634,9 @@ public final class ScriptRunner {
 
                 @Pc(15) int x = intStack[intStackPointer];
                 @Pc(21) int y = intStack[intStackPointer + 1];
-                @Pc(303) Component createdComponent = secondary ? activeComponent2 : activeComponent;
+                @Pc(303) Component cc = secondary ? activeComponent2 : activeComponent;
 
-                InterfaceManager.dragTryPickup(createdComponent, x, y);
+                InterfaceManager.dragTryPickup(cc, x, y);
                 return;
             }
 
@@ -4622,52 +4620,60 @@ public final class ScriptRunner {
     }
 
     @OriginalMember(owner = "client!ou", name = "a", descriptor = "(Lclient!hda;)V")
-    public static void sendToBack(@OriginalArg(0) Component arg0) {
-        if (arg0 == null) {
+    public static void sendToBack(@OriginalArg(0) Component component) {
+        if (component == null) {
             return;
         }
-        @Pc(69) Component[] local69;
-        if (arg0.id == -1) {
-            @Pc(106) int local106 = arg0.slot >>> 16;
-            @Pc(110) Component[] local110 = InterfaceList.cache[local106];
-            if (local110 == null) {
-                local69 = InterfaceList.interfaces[local106];
-                @Pc(119) int local119 = local69.length;
-                local110 = InterfaceList.cache[local106] = new Component[local119];
-                Arrays.copy(local69, 0, local110, 0, local69.length);
-            }
-            @Pc(135) int local135;
-            for (local135 = 0; local135 < local110.length && local110[local135] != arg0; local135++) {
-            }
-            if (local135 >= local110.length) {
+
+        if (component.id != -1) {
+            @Pc(12) Component layer = InterfaceList.list(component.layer);
+            if (layer == null) {
                 return;
             }
-            Arrays.copy(local110, 0, local110, 1, local135);
-            local110[0] = arg0;
-            return;
+
+            if (layer.dynamicComponents == layer.staticComponents) {
+                layer.dynamicComponents = new Component[layer.staticComponents.length];
+                layer.dynamicComponents[0] = component;
+                Arrays.copy(layer.staticComponents, 0, layer.dynamicComponents, 1, component.id);
+                Arrays.copy(layer.staticComponents, component.id + 1, layer.dynamicComponents, component.id + 1, layer.staticComponents.length - component.id - 1);
+                return;
+            }
+
+            @Pc(66) int i = 0;
+            @Pc(69) Component[] dynamicComponents = layer.dynamicComponents;
+            while (i < dynamicComponents.length && dynamicComponents[i] != component) {
+                i++;
+            }
+            if (i >= dynamicComponents.length) {
+                return;
+            }
+
+            Arrays.copy(dynamicComponents, 0, dynamicComponents, 1, i);
+            dynamicComponents[0] = component;
+        } else {
+            @Pc(106) int parent = component.slot >>> 16;
+            @Pc(110) Component[] children = InterfaceList.cache[parent];
+
+            if (children == null) {
+                @Pc(69) Component[] newChildren = InterfaceList.interfaces[parent];
+                @Pc(119) int length = newChildren.length;
+                children = InterfaceList.cache[parent] = new Component[length];
+                Arrays.copy(newChildren, 0, children, 0, newChildren.length);
+            }
+
+            @Pc(135) int i;
+            for (i = 0; i < children.length; i++) {
+                if (children[i] == component) {
+                    break;
+                }
+            }
+            if (i >= children.length) {
+                return;
+            }
+
+            Arrays.copy(children, 0, children, 1, i);
+            children[0] = component;
         }
-        @Pc(12) Component local12 = InterfaceList.list(arg0.layer);
-        if (local12 == null) {
-            return;
-        }
-        if (local12.dynamicComponents == local12.staticComponents) {
-            local12.dynamicComponents = new Component[local12.staticComponents.length];
-            local12.dynamicComponents[0] = arg0;
-            Arrays.copy(local12.staticComponents, 0, local12.dynamicComponents, 1, arg0.id);
-            Arrays.copy(local12.staticComponents, arg0.id + 1, local12.dynamicComponents, arg0.id + 1, local12.staticComponents.length - arg0.id - 1);
-            return;
-        }
-        @Pc(66) int local66 = 0;
-        local69 = local12.dynamicComponents;
-        while (local66 < local69.length && local69[local66] != arg0) {
-            local66++;
-        }
-        if (local66 >= local69.length) {
-            return;
-        }
-        Arrays.copy(local69, 0, local69, 1, local66);
-        local69[0] = arg0;
-        return;
     }
 
     @OriginalMember(owner = "client!ou", name = "b", descriptor = "(IZ)V")

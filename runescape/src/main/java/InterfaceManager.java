@@ -1522,7 +1522,7 @@ public final class InterfaceManager {
                                     }
 
                                     @Pc(1388) int[] local1388 = new int[3];
-                                    area.project(local1388, local555, local569);
+                                    area.projectSource(local1388, local555, local569);
 
                                     if (local1388 != null) {
                                         int level = local1388[0];

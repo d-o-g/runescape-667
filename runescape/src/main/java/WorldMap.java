@@ -512,7 +512,7 @@ public final class WorldMap {
             @Pc(77) int[] coord = new int[3];
             @Pc(79) int relativeX = -1;
             @Pc(81) int relativeY = -1;
-            if (area.projectFloor(coord, PlayerEntity.self.level, (PlayerEntity.self.x >> 9) + areaBaseX, areaBaseZ + (PlayerEntity.self.z >> 9))) {
+            if (area.projectDisplay(coord, PlayerEntity.self.level, (PlayerEntity.self.x >> 9) + areaBaseX, areaBaseZ + (PlayerEntity.self.z >> 9))) {
                 relativeX = coord[1] - areaX;
                 relativeY = coord[2] - areaZ;
             }
@@ -523,7 +523,7 @@ public final class WorldMap {
                 displayX = relativeX;
                 displayZ = relativeY;
             } else if (mapX != -1 && mapZ != -1) {
-                area.projectFloor(coord, mapX, mapZ);
+                area.projectDisplay(coord, mapX, mapZ);
 
                 if (coord != null) {
                     displayX = coord[1] - areaX;
@@ -534,7 +534,7 @@ public final class WorldMap {
                 mapZ = -1;
                 mapX = -1;
             } else {
-                area.projectFloor(coord, (area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF);
+                area.projectDisplay(coord, (area.origin >> 14) & 0x3FFF, area.origin & 0x3FFF);
                 displayZ = coord[2] - areaZ;
                 displayX = coord[1] - areaX;
             }
@@ -1391,7 +1391,7 @@ public final class WorldMap {
     public static Queue findAreas(@OriginalArg(0) int x, @OriginalArg(1) int z) {
         @Pc(3) Queue queue = new Queue();
         for (@Pc(8) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
-            if (area.aBoolean354 && area.contains(x, z)) {
+            if (area.aBoolean354 && area.sourceContains(x, z)) {
                 queue.add(area);
             }
         }
@@ -1401,7 +1401,7 @@ public final class WorldMap {
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(II)Lclient!ip;")
     public static WorldMapArea getMap(@OriginalArg(0) int x, @OriginalArg(1) int z) {
         for (@Pc(4) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
-            if (area.aBoolean354 && area.contains(x, z)) {
+            if (area.aBoolean354 && area.sourceContains(x, z)) {
                 return area;
             }
         }
@@ -1413,7 +1413,7 @@ public final class WorldMap {
         @Pc(2) int[] coord = new int[3];
 
         for (@Pc(4) int i = 0; i < staticElements.size; i++) {
-            @Pc(32) boolean projected = area.projectFloor(coord, (staticElements.coords[i] >> 28) & 0x3, (staticElements.coords[i] >> 14) & 0x3FFF, staticElements.coords[i] & 0x3FFF);
+            @Pc(32) boolean projected = area.projectDisplay(coord, (staticElements.coords[i] >> 28) & 0x3, (staticElements.coords[i] >> 14) & 0x3FFF, staticElements.coords[i] & 0x3FFF);
 
             if (projected) {
                 @Pc(42) MapElementListEntry entry = new MapElementListEntry(staticElements.elements[i]);
@@ -1665,7 +1665,7 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "(ZII)V")
-    public static void jumpToCoord(@OriginalArg(1) int x, @OriginalArg(2) int z) {
+    public static void jumpToDisplayCoord(@OriginalArg(1) int x, @OriginalArg(2) int z) {
         jumpX = x - areaX;
         jumpZ = z - areaZ;
     }

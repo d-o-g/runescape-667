@@ -5623,9 +5623,9 @@ public final class ScriptRunner {
                 @Pc(192) int id = intStack[--intStackPointer];
                 @Pc(1908) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(2289) boolean projected = area.projectFloor(areaCoord, (id >> 28) & 0x3, (id >> 14) & 0x3FFF, id & 0x3FFF);
+                    @Pc(2289) boolean projected = area.projectDisplay(areaCoord, (id >> 28) & 0x3, (id >> 14) & 0x3FFF, id & 0x3FFF);
                     if (projected) {
-                        WorldMap.jumpToCoord(areaCoord[1], areaCoord[2]);
+                        WorldMap.jumpToDisplayCoord(areaCoord[1], areaCoord[2]);
                     }
                 }
                 return;
@@ -5669,14 +5669,14 @@ public final class ScriptRunner {
 
             if (opcode == WORLDMAP_JUMPTODISPLAYCOORD) {
                 @Pc(192) int coord = intStack[--intStackPointer];
-                WorldMap.jumpToCoord((coord >> 14) & 0x3FFF, coord & 0x3FFF);
+                WorldMap.jumpToDisplayCoord((coord >> 14) & 0x3FFF, coord & 0x3FFF);
                 return;
             }
 
             if (opcode == WORLDMAP_GETSOURCEPOSITION) {
                 @Pc(1942) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(1578) boolean projected = area.project(areaCoord, WorldMap.displayX + WorldMap.areaX, WorldMap.displayZ + WorldMap.areaZ);
+                    @Pc(1578) boolean projected = area.projectSource(areaCoord, WorldMap.displayX + WorldMap.areaX, WorldMap.displayZ + WorldMap.areaZ);
                     if (projected) {
                         intStack[intStackPointer++] = areaCoord[1];
                         intStack[intStackPointer++] = areaCoord[2];
@@ -5703,7 +5703,7 @@ public final class ScriptRunner {
                 @Pc(192) int coord = intStack[--intStackPointer];
                 @Pc(1908) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(2289) boolean projected = area.projectFloor(areaCoord, coord >> 28 & 0x3, coord >> 14 & 0x3FFF, coord & 0x3FFF);
+                    @Pc(2289) boolean projected = area.projectDisplay(areaCoord, coord >> 28 & 0x3, coord >> 14 & 0x3FFF, coord & 0x3FFF);
                     if (projected) {
                         intStack[intStackPointer++] = areaCoord[1];
                         intStack[intStackPointer++] = areaCoord[2];
@@ -5722,7 +5722,7 @@ public final class ScriptRunner {
                 @Pc(192) int coord = intStack[--intStackPointer];
                 @Pc(1908) WorldMapArea area = WorldMap.getArea();
                 if (area != null) {
-                    @Pc(2289) boolean projected = area.project(areaCoord, (coord >> 14) & 0x3FFF, coord & 0x3FFF);
+                    @Pc(2289) boolean projected = area.projectSource(areaCoord, (coord >> 14) & 0x3FFF, coord & 0x3FFF);
                     if (projected) {
                         intStack[intStackPointer++] = areaCoord[1];
                         intStack[intStackPointer++] = areaCoord[2];

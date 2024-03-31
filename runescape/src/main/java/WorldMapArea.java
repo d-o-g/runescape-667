@@ -76,9 +76,9 @@ public final class WorldMapArea extends Node2 {
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(BII)Z")
-    public boolean contains(@OriginalArg(1) int x, @OriginalArg(2) int z) {
+    public boolean sourceContains(@OriginalArg(1) int x, @OriginalArg(2) int z) {
         for (@Pc(17) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.contains(x, z)) {
+            if (chunk.sourceContains(x, z)) {
                 return true;
             }
         }
@@ -86,10 +86,10 @@ public final class WorldMapArea extends Node2 {
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(IBI[I)Z")
-    public boolean project(@OriginalArg(3) int[] coords, @OriginalArg(2) int x, @OriginalArg(0) int z) {
+    public boolean projectSource(@OriginalArg(3) int[] coords, @OriginalArg(2) int x, @OriginalArg(0) int z) {
         for (@Pc(9) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.floorContains(x, z)) {
-                chunk.project(coords, x, z);
+            if (chunk.displayContains(x, z)) {
+                chunk.projectSource(coords, x, z);
                 return true;
             }
         }
@@ -97,10 +97,10 @@ public final class WorldMapArea extends Node2 {
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(III[I)Z")
-    public boolean projectFloor(@OriginalArg(3) int[] destination, @OriginalArg(1) int x, @OriginalArg(2) int z) {
+    public boolean projectDisplay(@OriginalArg(3) int[] destination, @OriginalArg(1) int x, @OriginalArg(2) int z) {
         for (@Pc(23) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.contains(x, z)) {
-                chunk.projectFloor(destination, x, z);
+            if (chunk.sourceContains(x, z)) {
+                chunk.projectDisplay(destination, x, z);
                 return true;
             }
         }
@@ -108,10 +108,10 @@ public final class WorldMapArea extends Node2 {
     }
 
     @OriginalMember(owner = "client!ip", name = "a", descriptor = "(I[IIII)Z")
-    public boolean projectFloor(@OriginalArg(1) int[] destination, @OriginalArg(3) int level, @OriginalArg(4) int x, @OriginalArg(2) int z) {
+    public boolean projectDisplay(@OriginalArg(1) int[] destination, @OriginalArg(3) int level, @OriginalArg(4) int x, @OriginalArg(2) int z) {
         for (@Pc(15) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.contains(level, x, z)) {
-                chunk.projectFloor(destination, x, z);
+            if (chunk.sourceContains(level, x, z)) {
+                chunk.projectDisplay(destination, x, z);
                 return true;
             }
         }
@@ -126,17 +126,17 @@ public final class WorldMapArea extends Node2 {
         this.chunkMaxX = 0;
 
         for (@Pc(28) WorldMapChunk chunk = (WorldMapChunk) this.chunks.first(); chunk != null; chunk = (WorldMapChunk) this.chunks.next()) {
-            if (chunk.floorZ1 < this.chunkMinZ) {
-                this.chunkMinZ = chunk.floorZ1;
+            if (chunk.displayZ1 < this.chunkMinZ) {
+                this.chunkMinZ = chunk.displayZ1;
             }
-            if (chunk.floorX2 > this.chunkMaxX) {
-                this.chunkMaxX = chunk.floorX2;
+            if (chunk.displayX2 > this.chunkMaxX) {
+                this.chunkMaxX = chunk.displayX2;
             }
-            if (chunk.floorZ2 > this.chunkMaxZ) {
-                this.chunkMaxZ = chunk.floorZ2;
+            if (chunk.displayZ2 > this.chunkMaxZ) {
+                this.chunkMaxZ = chunk.displayZ2;
             }
-            if (chunk.floorX1 < this.chunkMinX) {
-                this.chunkMinX = chunk.floorX1;
+            if (chunk.displayX1 < this.chunkMinX) {
+                this.chunkMinX = chunk.displayX1;
             }
         }
     }

@@ -363,7 +363,7 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("wm1")) {
-                    InterfaceManager.changeWindowMode(1, -1, false, -1);
+                    InterfaceManager.changeWindowMode(1, -1, -1, false);
                     if (InterfaceManager.getWindowMode() != 1) {
                         addline("wm1 failed");
                         return;
@@ -372,7 +372,7 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("wm2")) {
-                    InterfaceManager.changeWindowMode(2, -1, false, -1);
+                    InterfaceManager.changeWindowMode(2, -1, -1, false);
                     if (InterfaceManager.getWindowMode() != 2) {
                         addline("wm2 failed");
                         return;
@@ -381,7 +381,7 @@ public final class debugconsole {
                     return;
                 }
                 if (command.equalsIgnoreCase("wm3")) {
-                    InterfaceManager.changeWindowMode(3, 1024, false, 768);
+                    InterfaceManager.changeWindowMode(3, 1024, 768, false);
                     if (InterfaceManager.getWindowMode() != 3) {
                         addline("wm3 failed");
                         return;

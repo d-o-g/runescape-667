@@ -168,10 +168,10 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     public static SignLink signLink;
 
     @OriginalMember(owner = "client!kga", name = "M", descriptor = "I")
-    public static int fullscreenWidth;
+    public static int lastFullscreenWidth;
 
     @OriginalMember(owner = "client!dha", name = "s", descriptor = "I")
-    public static int fullscreenHeight;
+    public static int lastFullscreenHeight;
 
     @OriginalMember(owner = "client!pea", name = "i", descriptor = "Ljava/lang/String;")
     public static String loadingTitle = null;

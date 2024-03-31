@@ -1,7 +1,8 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
-import com.jagex.DisplayProperties;
+import com.jagex.FullscreenMode;
 import com.jagex.PrivateChatMode;
+import com.jagex.core.constants.WindowMode;
 import com.jagex.trigger.ClientTriggerType;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.MiniMenuAction;
@@ -5855,47 +5856,50 @@ public final class ScriptRunner {
         } else if (opcode < 5400) {
             if (opcode == FULLSCREEN_ENTER) {
                 intStackPointer -= 2;
-                @Pc(192) int local192 = intStack[intStackPointer];
-                @Pc(834) int local834 = intStack[intStackPointer + 1];
-                InterfaceManager.changeWindowMode(3, local192, false, local834);
+                @Pc(192) int width = intStack[intStackPointer];
+                @Pc(834) int height = intStack[intStackPointer + 1];
+                InterfaceManager.changeWindowMode(WindowMode.FULLSCREEN, width, height, false);
                 intStack[intStackPointer++] = GameShell.fsframe == null ? 0 : 1;
                 return;
             }
 
             if (opcode == FULLSCREEN_EXIT) {
                 if (GameShell.fsframe != null) {
-                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
+                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, -1, false);
                 }
                 return;
             }
 
             if (opcode == FULLSCREEN_MODECOUNT) {
-                @Pc(3186) DisplayProperties[] local3186 = Static587.method7710();
-                intStack[intStackPointer++] = local3186.length;
+                @Pc(3186) FullscreenMode[] modes = Fullscreen.getModes();
+                intStack[intStackPointer++] = modes.length;
                 return;
             }
 
             if (opcode == FULLSCREEN_GETMODE) {
-                @Pc(192) int local192 = intStack[--intStackPointer];
-                @Pc(3210) DisplayProperties[] local3210 = Static587.method7710();
-                intStack[intStackPointer++] = local3210[local192].width;
-                intStack[intStackPointer++] = local3210[local192].height;
+                @Pc(192) int index = intStack[--intStackPointer];
+                @Pc(3210) FullscreenMode[] modes = Fullscreen.getModes();
+                intStack[intStackPointer++] = modes[index].width;
+                intStack[intStackPointer++] = modes[index].height;
                 return;
             }
 
             if (opcode == FULLSCREEN_LASTMODE) {
-                @Pc(192) int local192 = GameShell.fullscreenWidth;
-                @Pc(834) int local834 = GameShell.fullscreenHeight;
-                @Pc(109) int local109 = -1;
-                @Pc(3245) DisplayProperties[] local3245 = Static587.method7710();
-                for (@Pc(375) int local375 = 0; local375 < local3245.length; local375++) {
-                    @Pc(3252) DisplayProperties local3252 = local3245[local375];
-                    if (local3252.width == local192 && local3252.height == local834) {
-                        local109 = local375;
+                @Pc(192) int lastWidth = GameShell.lastFullscreenWidth;
+                @Pc(834) int lastHeight = GameShell.lastFullscreenHeight;
+                @Pc(109) int index = -1;
+                @Pc(3245) FullscreenMode[] modes = Fullscreen.getModes();
+
+                for (@Pc(375) int i = 0; i < modes.length; i++) {
+                    @Pc(3252) FullscreenMode mode = modes[i];
+
+                    if (mode.width == lastWidth && mode.height == lastHeight) {
+                        index = i;
                         break;
                     }
                 }
-                intStack[intStackPointer++] = local109;
+
+                intStack[intStackPointer++] = index;
                 return;
             }
 
@@ -5907,7 +5911,7 @@ public final class ScriptRunner {
             if (opcode == SETWINDOWMODE) {
                 @Pc(192) int mode = intStack[--intStackPointer];
                 if (mode >= 1 && mode <= 2) {
-                    InterfaceManager.changeWindowMode(mode, -1, false, -1);
+                    InterfaceManager.changeWindowMode(mode, -1, -1, false);
                     return;
                 }
                 return;
@@ -5987,7 +5991,7 @@ public final class ScriptRunner {
             }
             if (opcode == QUIT) {
                 if (GameShell.fsframe != null) {
-                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
+                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, -1, false);
                 }
                 if (GameShell.frame != null) {
                     Static266.saveVarcs();
@@ -6019,7 +6023,7 @@ public final class ScriptRunner {
 
             if (opcode == OPENURL_NOLOGIN) {
                 if (GameShell.fsframe != null) {
-                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
+                    InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, -1, false);
                 }
                 @Pc(95) String local95 = stringStack[--stringStackPointer];
                 @Pc(1578) boolean loggedIn = intStack[--intStackPointer] == 1;

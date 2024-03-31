@@ -872,7 +872,7 @@ public final class ServerConnectionReader {
             return false;
         } else if (context.currentProt == ServerProt.URL_OPEN) {
             if (GameShell.fsframe != null) {
-                InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
+                InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, -1, false);
             }
             @Pc(3044) byte[] data = new byte[context.currentPacketSize];
             bitPacket.readEncrypted(data, context.currentPacketSize);
@@ -1641,7 +1641,7 @@ public final class ServerConnectionReader {
             return true;
         } else if (context.currentProt == ServerProt.JAVASCRIPT_RUN) {
             if (GameShell.fsframe != null) {
-                InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
+                InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, -1, false);
             }
 
             @Pc(3044) byte[] data = new byte[context.currentPacketSize];

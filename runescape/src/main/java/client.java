@@ -713,7 +713,7 @@ public final class client extends GameShell {
 
         if (MainLogicStep.method6445(MainLogicManager.step)) {
             if (Static297.aLong153 != 0L && SystemTimer.safetime() > Static297.aLong153) {
-                InterfaceManager.changeWindowMode(InterfaceManager.getWindowMode(), Static560.anInt8429, false, Static433.anInt6258);
+                InterfaceManager.changeWindowMode(InterfaceManager.getWindowMode(), Static560.anInt8429, Static433.anInt6258, false);
             } else if (!Toolkit.active.method8001() && GameShell.canvasReplaceRecommended) {
                 Static574.method7572();
             }
@@ -751,7 +751,7 @@ public final class client extends GameShell {
         }
 
         if (GameShell.fsframe != null && !GameShell.focus && MainLogicStep.method6445(MainLogicManager.step)) {
-            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
+            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, -1, false);
         }
 
         @Pc(209) boolean local209 = false;

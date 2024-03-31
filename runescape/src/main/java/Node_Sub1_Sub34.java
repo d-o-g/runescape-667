@@ -26,9 +26,6 @@ public final class Node_Sub1_Sub34 extends TextureOp {
     @Override
     public int[] monochromeOutput(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         @Pc(11) int[] local11 = super.monochromeCache.get(arg1);
-        if (arg0 <= 107) {
-            SignLink.getDisplayProperties(null, false);
-        }
         if (super.monochromeCache.dirty) {
             @Pc(28) int local28 = MonochromeImageCache.anIntArray341[arg1];
             for (@Pc(30) int local30 = 0; local30 < EnvironmentLight.anInt9289; local30++) {

@@ -1,6 +1,6 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
-import com.jagex.DisplayProperties;
+import com.jagex.FullscreenMode;
 import com.jagex.core.constants.ComponentClientCode;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.MaxScreenSize;
@@ -2363,7 +2363,7 @@ public final class InterfaceManager {
     }
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(IIIZI)V")
-    public static void changeWindowMode(@OriginalArg(1) int mode, @OriginalArg(2) int width, @OriginalArg(3) boolean modeDifferent, @OriginalArg(4) int height) {
+    public static void changeWindowMode(@OriginalArg(1) int mode, @OriginalArg(2) int width, @OriginalArg(4) int height, @OriginalArg(3) boolean modeDifferent) {
         OrthoMode.enter();
         Static297.aLong153 = 0L;
 
@@ -2380,7 +2380,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!li", name = "a", descriptor = "(IIIIIZ)V")
     public static void windowModeChanged(@OriginalArg(0) int oldMode, @OriginalArg(1) int height, @OriginalArg(2) int newMode, @OriginalArg(4) int width, @OriginalArg(5) boolean modeChanged) {
-        if (GameShell.fsframe != null && (newMode != WindowMode.FULLSCREEN || width != GameShell.fullscreenWidth || height != GameShell.fullscreenHeight)) {
+        if (GameShell.fsframe != null && (newMode != WindowMode.FULLSCREEN || width != GameShell.lastFullscreenWidth || height != GameShell.lastFullscreenHeight)) {
             exitFullscreen(GameShell.signLink, GameShell.fsframe);
             GameShell.fsframe = null;
         }
@@ -2389,8 +2389,8 @@ public final class InterfaceManager {
             GameShell.fsframe = createFullscreenFrame(GameShell.signLink, width, height, 0, 0);
 
             if (GameShell.fsframe != null) {
-                GameShell.fullscreenWidth = width;
-                GameShell.fullscreenHeight = height;
+                GameShell.lastFullscreenWidth = width;
+                GameShell.lastFullscreenHeight = height;
                 ClientOptions.save();
             }
         }
@@ -2710,7 +2710,7 @@ public final class InterfaceManager {
     @OriginalMember(owner = "client!un", name = "a", descriptor = "(Lclient!vq;ILjava/awt/Frame;)V")
     public static void exitFullscreen(@OriginalArg(0) SignLink signLink, @OriginalArg(2) Frame frame) {
         while (true) {
-            @Pc(10) SignedResource resource = signLink.exitFullscreen(frame);
+            @Pc(10) SignedResource resource = signLink.fullscreenExit(frame);
             while (resource.status == SignedResourceStatus.IDLE) {
                 TimeUtils.sleep(10L);
             }
@@ -2731,16 +2731,16 @@ public final class InterfaceManager {
             return null;
         }
 
-        @Pc(18) DisplayProperties[] properties = SignLink.getDisplayProperties(signlink, true);
+        @Pc(18) FullscreenMode[] properties = SignLink.fullscreenModes(signlink);
         if (properties == null) {
             return null;
         }
 
         @Pc(25) boolean found = false;
         for (@Pc(27) int i = 0; i < properties.length; i++) {
-            if (properties[i].width == width && properties[i].height == height && (oldHeight == 0 || oldHeight == properties[i].oldHeight) && (!found || properties[i].oldWidth > oldWidth)) {
+            if (properties[i].width == width && properties[i].height == height && (oldHeight == 0 || oldHeight == properties[i].refreshrate) && (!found || properties[i].bits > oldWidth)) {
                 found = true;
-                oldWidth = properties[i].oldWidth;
+                oldWidth = properties[i].bits;
             }
         }
 
@@ -2748,7 +2748,7 @@ public final class InterfaceManager {
             return null;
         }
 
-        @Pc(101) SignedResource resource = signlink.enterFullscreen(width, height, oldWidth, oldHeight);
+        @Pc(101) SignedResource resource = signlink.fullscreenEnter(width, height, oldWidth, oldHeight);
         while (resource.status == SignedResourceStatus.IDLE) {
             TimeUtils.sleep(10L);
         }

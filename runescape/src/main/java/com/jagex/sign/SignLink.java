@@ -1,6 +1,6 @@
 package com.jagex.sign;
 
-import com.jagex.DisplayProperties;
+import com.jagex.FullscreenMode;
 import com.jagex.core.constants.FileStore;
 import com.jagex.core.constants.SignedResourceType;
 import com.jagex.core.io.FileCache;
@@ -280,36 +280,32 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vf", name = "a", descriptor = "(Lclient!vq;Z)[Lclient!oga;")
-    public static DisplayProperties[] getDisplayProperties(@OriginalArg(0) SignLink signlink, @OriginalArg(1) boolean arg1) {
+    public static FullscreenMode[] fullscreenModes(@OriginalArg(0) SignLink signlink) {
         if (!signlink.supportsFullscreen()) {
-            return new DisplayProperties[0];
+            return new FullscreenMode[0];
         }
 
-        @Pc(15) SignedResource resource = signlink.getDisplayProperties();
+        @Pc(15) SignedResource resource = signlink.fullscreenModes();
         while (resource.status == SignedResourceStatus.IDLE) {
             TimeUtils.sleep(10L);
         }
 
         if (resource.status == SignedResourceStatus.ERROR) {
-            return new DisplayProperties[0];
+            return new FullscreenMode[0];
         }
 
         @Pc(38) int[] result = (int[]) resource.result;
-        @Pc(44) DisplayProperties[] properties = new DisplayProperties[result.length >> 2];
+        @Pc(44) FullscreenMode[] properties = new FullscreenMode[result.length >> 2];
         for (@Pc(46) int i = 0; i < properties.length; i++) {
-            @Pc(51) DisplayProperties current = new DisplayProperties();
+            @Pc(51) FullscreenMode current = new FullscreenMode();
             properties[i] = current;
             current.width = result[i << 2];
             current.height = result[(i << 2) + 1];
-            current.oldWidth = result[(i << 2) + 2];
-            current.oldHeight = result[(i << 2) + 3];
+            current.bits = result[(i << 2) + 2];
+            current.refreshrate = result[(i << 2) + 3];
         }
 
-        if (arg1) {
-            return properties;
-        } else {
-            return null;
-        }
+        return properties;
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(ILjava/lang/String;)Lclient!dm;")
@@ -360,8 +356,8 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(IIIII)Lclient!oba;")
-    public SignedResource enterFullscreen(@OriginalArg(3) int width, @OriginalArg(1) int height, @OriginalArg(0) int oldWidth, @OriginalArg(2) int oldHeight) {
-        return this.request(SignedResourceType.ENTER_FULLSCREEN, null, (width << 16) + height, (oldWidth << 16) + oldHeight);
+    public SignedResource fullscreenEnter(@OriginalArg(3) int width, @OriginalArg(1) int height, @OriginalArg(0) int oldWidth, @OriginalArg(2) int oldHeight) {
+        return this.request(SignedResourceType.FULLSCREEN_ENTER, null, (width << 16) + height, (oldWidth << 16) + oldHeight);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/lang/Class;Ljava/lang/String;I)Lclient!oba;")
@@ -389,8 +385,8 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(B)Lclient!oba;")
-    public SignedResource getDisplayProperties() {
-        return this.request(SignedResourceType.DISPLAY_PROPERTIES, null, 0, 0);
+    public SignedResource fullscreenModes() {
+        return this.request(SignedResourceType.FULLSCREEN_MODES, null, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "b", descriptor = "(I)V")
@@ -466,8 +462,8 @@ public final class SignLink implements Runnable {
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(Ljava/awt/Frame;I)Lclient!oba;")
-    public SignedResource exitFullscreen(@OriginalArg(0) Frame frame) {
-        return this.request(SignedResourceType.EXIT_FULLSCREEN, frame, 0, 0);
+    public SignedResource fullscreenExit(@OriginalArg(0) Frame frame) {
+        return this.request(SignedResourceType.FULLSCREEN_EXIT, frame, 0, 0);
     }
 
     @OriginalMember(owner = "client!vq", name = "a", descriptor = "(I)Z")
@@ -614,13 +610,13 @@ public final class SignLink implements Runnable {
                         }
 
                         request.result = InetAddress.getByName((String) request.objectData).getAddress();
-                    } else if (type == SignedResourceType.DISPLAY_PROPERTIES) {
+                    } else if (type == SignedResourceType.FULLSCREEN_MODES) {
                         if (this.microsoftjava) {
                             request.result = this.microsoftFullscreenAdapter.listmodes();
                         } else {
                             request.result = Class.forName("com.jagex.graphics.awt.AwtFullscreenAdapter").getMethod("listmodes").invoke(this.fullscreenAdapter);
                         }
-                    } else if (type == SignedResourceType.ENTER_FULLSCREEN) {
+                    } else if (type == SignedResourceType.FULLSCREEN_ENTER) {
                         @Pc(268) Frame frame = new Frame("Jagex Full Screen");
                         request.result = frame;
                         frame.setResizable(false);
@@ -630,7 +626,7 @@ public final class SignLink implements Runnable {
                         } else {
                             Class.forName("com.jagex.graphics.awt.AwtFullscreenAdapter").getMethod("enter", frameClass == null ? (frameClass = Class.forName("java.awt.Frame")) : frameClass, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE).invoke(this.fullscreenAdapter, frame, Integer.valueOf(request.intData1 >>> 16), new Integer(request.intData1 & 0xFFFF), Integer.valueOf(request.intData2 >> 16), new Integer(request.intData2 & 0xFFFF));
                         }
-                    } else if (type == SignedResourceType.EXIT_FULLSCREEN) {
+                    } else if (type == SignedResourceType.FULLSCREEN_EXIT) {
                         if (this.microsoftjava) {
                             this.microsoftFullscreenAdapter.exit((Frame) request.objectData);
                         } else {

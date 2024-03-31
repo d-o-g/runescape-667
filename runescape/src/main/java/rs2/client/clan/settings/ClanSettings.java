@@ -8,7 +8,7 @@ import com.jagex.core.datastruct.key.StringNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.util.Arrays;
-import com.jagex.core.util.Quicksort;
+import com.jagex.core.algorithms.Quicksort;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;

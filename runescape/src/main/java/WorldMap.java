@@ -2146,12 +2146,12 @@ public final class WorldMap {
     @OriginalMember(owner = "client!wr", name = "a", descriptor = "(ILclient!fu;ILclient!el;Lclient!rt;IBLclient!ha;I)V")
     public static void renderText(@OriginalArg(7) Toolkit toolkit, @OriginalArg(3) MapElementType type, @OriginalArg(1) MapElementListEntry entry, @OriginalArg(4) WorldMapFont font, @OriginalArg(2) int x, @OriginalArg(8) int y, @OriginalArg(5) int width, @OriginalArg(0) int lineCount) {
         @Pc(14) int boxX = x - (width / 2) - 5;
-        @Pc(18) int boxy = y + 2;
+        @Pc(18) int boxY = y + 2;
         if (type.fillColour != 0) {
-            toolkit.fillRect(boxX, boxy, width + 10, lineCount * font.getHeight() + 1 + y + -boxy, type.fillColour);
+            toolkit.fillRect(boxX, boxY, width + 10, lineCount * font.getHeight() + 1 + y + -boxY, type.fillColour);
         }
         if (type.outlineColour != 0) {
-            toolkit.outlineRect(boxX, boxy, width + 10, font.getHeight() * lineCount + 1 + y + -boxy, type.outlineColour);
+            toolkit.outlineRect(boxX, boxY, width + 10, font.getHeight() * lineCount + 1 + y + -boxY, type.outlineColour);
         }
 
         @Pc(73) int textColour = type.textColour;

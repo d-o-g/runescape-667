@@ -601,7 +601,7 @@ public final class Loading {
             } else {
                 Static32.setToolkit(ClientOptions.instance.toolkitDefault.getValue(), false);
             }
-            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, false, -1);
+            InterfaceManager.changeWindowMode(ClientOptions.instance.screenSizeDefault.getValue(), -1, -1, false);
             FontTypeList.method7549(Toolkit.active);
             Fonts.init(Toolkit.active);
             Sprites.init(js5.SPRITES, Toolkit.active);

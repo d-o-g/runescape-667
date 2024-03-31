@@ -103,38 +103,6 @@ public final class SkyBox {
         this.anInt3514 = arg7;
     }
 
-    @OriginalMember(owner = "client!nu", name = "a", descriptor = "(II[I[Ljava/lang/Object;Z)V")
-    public static void method5966(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) Object[] arg3) {
-        if (arg1 >= arg0) {
-            return;
-        }
-        @Pc(16) int local16 = (arg1 + arg0) / 2;
-        @Pc(18) int local18 = arg1;
-        @Pc(22) int local22 = arg2[local16];
-        arg2[local16] = arg2[arg0];
-        arg2[arg0] = local22;
-        @Pc(36) Object local36 = arg3[local16];
-        arg3[local16] = arg3[arg0];
-        arg3[arg0] = local36;
-        @Pc(56) int local56 = ~local22 == Integer.MIN_VALUE ? 0 : 1;
-        for (@Pc(58) int local58 = arg1; local58 < arg0; local58++) {
-            if (local22 + (local58 & local56) > arg2[local58]) {
-                @Pc(72) int local72 = arg2[local58];
-                arg2[local58] = arg2[local18];
-                arg2[local18] = local72;
-                @Pc(86) Object local86 = arg3[local58];
-                arg3[local58] = arg3[local18];
-                arg3[local18++] = local86;
-            }
-        }
-        arg2[arg0] = arg2[local18];
-        arg2[local18] = local22;
-        arg3[arg0] = arg3[local18];
-        arg3[local18] = local36;
-        method5966(local18 - 1, arg1, arg2, arg3);
-        method5966(arg0, local18 + 1, arg2, arg3);
-    }
-
     @OriginalMember(owner = "client!gm", name = "a", descriptor = "(ZILclient!ha;IIIIIIIIZB)V")
     public void method3159(@OriginalArg(1) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) int arg7, @OriginalArg(9) int arg8, @OriginalArg(10) int arg9) {
         @Pc(5) int local5 = 0;
@@ -322,7 +290,7 @@ public final class SkyBox {
                         this.aSkyBoxSphereArray2[this.anInt3508++] = local68;
                     }
                 }
-                method5966(this.anInt3508 - 1, 0, local57, this.aSkyBoxSphereArray2);
+                Fullscreen.method5966(this.anInt3508 - 1, 0, local57, this.aSkyBoxSphereArray2);
             }
             this.aBoolean273 = true;
         }

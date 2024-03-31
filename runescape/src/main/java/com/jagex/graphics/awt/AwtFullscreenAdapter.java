@@ -41,7 +41,7 @@ public final class AwtFullscreenAdapter {
     }
 
     @OriginalMember(owner = "client!cia", name = "a", descriptor = "(Ljava/awt/Frame;I)V")
-    private void method1562(@OriginalArg(0) Frame frame, @OriginalArg(1) int arg1) {
+    private void method1562(@OriginalArg(0) Frame frame) {
         @Pc(1) boolean wasValid = false;
 
         try {
@@ -55,10 +55,6 @@ public final class AwtFullscreenAdapter {
             }
         } catch (@Pc(33) Throwable ignored) {
             /* empty */
-        }
-
-        if (arg1 != 1503493474) {
-            this.previousDisplayMode = null;
         }
 
         try {
@@ -86,7 +82,7 @@ public final class AwtFullscreenAdapter {
 
         frame.setUndecorated(true);
         frame.enableInputMethods(false);
-        this.method1562(frame, 1503493474);
+        this.method1562(frame);
 
         if (refreshrate == 0) {
             @Pc(31) int currentrate = this.previousDisplayMode.getRefreshRate();
@@ -143,7 +139,7 @@ public final class AwtFullscreenAdapter {
             this.previousDisplayMode = null;
         }
 
-        this.method1562(null, 1503493474);
+        this.method1562(null);
         System.out.println("fullscreen.fsimp14: exited");
     }
 }

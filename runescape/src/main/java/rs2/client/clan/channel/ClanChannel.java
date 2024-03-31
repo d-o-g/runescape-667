@@ -3,7 +3,7 @@ package rs2.client.clan.channel;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
-import com.jagex.core.util.Quicksort;
+import com.jagex.core.algorithms.Quicksort;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;

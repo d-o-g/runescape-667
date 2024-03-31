@@ -378,14 +378,14 @@ public final class Arrays {
         return copy;
     }
 
-    private Arrays() {
-        /* empty */
-    }
-
     @OriginalMember(owner = "client!sh", name = "a", descriptor = "(IIZ[B)[B")
     public static byte[] copy(@OriginalArg(0) int srcOff, @OriginalArg(1) int len, @OriginalArg(3) byte[] src) {
         @Pc(6) byte[] dest = new byte[len];
         copy(src, srcOff, dest, 0, len);
         return dest;
+    }
+
+    private Arrays() {
+        /* empty */
     }
 }

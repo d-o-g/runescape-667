@@ -2548,9 +2548,9 @@ public final class GlToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(IIIIIIIIIIIII)V")
     @Override
-    public void drawTriangle(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int z1, @OriginalArg(3) int x2, @OriginalArg(4) int y2, @OriginalArg(5) int z2, @OriginalArg(6) int x3, @OriginalArg(7) int y3, @OriginalArg(8) int z3, @OriginalArg(9) int c1, @OriginalArg(10) int c2, @OriginalArg(11) int c3, @OriginalArg(12) int type) {
+    public void drawTriangle(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int z1, @OriginalArg(3) int x2, @OriginalArg(4) int y2, @OriginalArg(5) int z2, @OriginalArg(6) int x3, @OriginalArg(7) int y3, @OriginalArg(8) int z3, @OriginalArg(9) int c1, @OriginalArg(10) int c2, @OriginalArg(11) int c3, @OriginalArg(12) int mode) {
         this.enter2dMode();
-        this.setBlendMode(type);
+        this.setBlendMode(mode);
         OpenGL.glBegin(OpenGL.GL_TRIANGLES);
         OpenGL.glColor4ub((byte) (c1 >> 16), (byte) (c1 >> 8), (byte) c1, (byte) (c1 >> 24));
         OpenGL.glVertex3f((float) x1 + 0.35F, (float) y1 + 0.35F, (float) z1);

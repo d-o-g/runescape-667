@@ -1076,7 +1076,7 @@ public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(IIIIIIIIIIIII)V")
     @Override
-    public void drawTriangle(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int z1, @OriginalArg(3) int x2, @OriginalArg(4) int y2, @OriginalArg(5) int z2, @OriginalArg(6) int x3, @OriginalArg(7) int y3, @OriginalArg(8) int z3, @OriginalArg(9) int c1, @OriginalArg(10) int c2, @OriginalArg(11) int c3, @OriginalArg(12) int type) {
+    public void drawTriangle(@OriginalArg(0) int x1, @OriginalArg(1) int y1, @OriginalArg(2) int z1, @OriginalArg(3) int x2, @OriginalArg(4) int y2, @OriginalArg(5) int z2, @OriginalArg(6) int x3, @OriginalArg(7) int y3, @OriginalArg(8) int z3, @OriginalArg(9) int c1, @OriginalArg(10) int c2, @OriginalArg(11) int c3, @OriginalArg(12) int mode) {
         @Pc(3) JavaThreadResource resource = this.threadResource(Thread.currentThread());
         @Pc(6) Rasterizer rasterizer = resource.rasterizer;
         rasterizer.fastScanline = false;
@@ -1091,15 +1091,15 @@ public final class JavaToolkit extends Toolkit {
         rasterizer.clamp = newX1 < 0 || newX1 > rasterizer.width || newX2 < 0 || newX2 > rasterizer.width || newX3 < 0 || newX3 > rasterizer.width;
 
         int alpha = c1 >>> 24;
-        if (type == 0 || (type == 1 && alpha == 255)) {
+        if (mode == 0 || (mode == 1 && alpha == 255)) {
             rasterizer.alpha = 0;
             rasterizer.halfBlend = false;
             rasterizer.renderTriangleRgb((float) newY1, (float) newY2, (float) newY3, (float) newX1, (float) newX2, (float) newX3, (float) z1, (float) z2, (float) z3, c1, c2, c3);
-        } else if (type == 1) {
+        } else if (mode == 1) {
             rasterizer.alpha = 255 - alpha;
             rasterizer.halfBlend = false;
             rasterizer.renderTriangleRgb((float) newY1, (float) newY2, (float) newY3, (float) newX1, (float) newX2, (float) newX3, (float) z1, (float) z2, (float) z3, c1, c2, c3);
-        } else if (type == 2) {
+        } else if (mode == 2) {
             rasterizer.alpha = 128;
             rasterizer.halfBlend = false;
             rasterizer.renderTriangleRgb((float) newY1, (float) newY2, (float) newY3, (float) newX1, (float) newX2, (float) newX3, (float) z1, (float) z2, (float) z3, c1, c2, c3);

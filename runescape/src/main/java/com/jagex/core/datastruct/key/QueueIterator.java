@@ -25,13 +25,13 @@ public final class QueueIterator {
 
     @OriginalMember(owner = "client!ps", name = "b", descriptor = "(I)Lclient!cm;")
     public Node2 next() {
-        @Pc(6) Node2 local6 = this.node;
-        if (local6 == this.queue.sentinel) {
+        @Pc(6) Node2 node = this.node;
+        if (node == this.queue.sentinel) {
             this.node = null;
             return null;
         } else {
-            this.node = local6.next2;
-            return local6;
+            this.node = node.next2;
+            return node;
         }
     }
 

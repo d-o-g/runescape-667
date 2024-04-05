@@ -1,9 +1,10 @@
-import com.jagex.sign.SignLink;
 import com.jagex.core.constants.AreaMode;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.js5.js5;
+import com.jagex.sign.SignLink;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
@@ -122,7 +123,7 @@ public final class Static266 {
         }
         Static22.anIntArrayArray11 = CutsceneManager.anIntArrayArray265;
         CutsceneManager.anIntArrayArray265 = null;
-        Static684.updateMapArea(false, Static720.mapWidth >> 4, 12, Static501.mapLength >> 4);
+        Static684.updateMapArea(false, Static720.mapWidth >> 4, MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD, Static501.mapLength >> 4);
     }
 
     @OriginalMember(owner = "client!ifa", name = "a", descriptor = "(B)V")

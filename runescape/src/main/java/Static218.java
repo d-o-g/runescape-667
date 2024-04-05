@@ -1,28 +1,15 @@
-import com.jagex.sign.SignedResource;
-import com.jagex.sign.SignedResourceStatus;
 import com.jagex.core.io.FileOnDisk;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.runetek6.client.GameShell;
-import org.openrs2.deob.annotation.OriginalArg;
+import com.jagex.sign.SignedResource;
+import com.jagex.sign.SignedResourceStatus;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 import java.io.IOException;
 
 public final class Static218 {
-
-    @OriginalMember(owner = "client!go", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;B)V")
-    public static void method3188(@OriginalArg(0) String arg0, @OriginalArg(1) String arg1) {
-        if (arg1.length() > 320 || !LoginManager.isAtLoginScreen()) {
-            return;
-        }
-        ServerConnection.LOBBY.close();
-        LoginManager.resetSocialNetwork();
-        LoginManager.password = arg0;
-        LoginManager.username = arg1;
-        MainLogicManager.setStep(5);
-    }
 
     @OriginalMember(owner = "client!go", name = "b", descriptor = "(I)V")
     public static void readVarcs() {

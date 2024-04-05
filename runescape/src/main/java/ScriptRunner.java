@@ -2,11 +2,10 @@ import com.jagex.Client;
 import com.jagex.ClientProt;
 import com.jagex.FullscreenMode;
 import com.jagex.PrivateChatMode;
-import com.jagex.core.constants.WindowMode;
-import com.jagex.trigger.ClientTriggerType;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.MiniMenuAction;
 import com.jagex.core.constants.ModeWhat;
+import com.jagex.core.constants.WindowMode;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.Node;
@@ -64,6 +63,7 @@ import com.jagex.graphics.ToolkitType;
 import com.jagex.graphics.VerticalAlignment;
 import com.jagex.js5.js5;
 import com.jagex.math.ColourUtils;
+import com.jagex.trigger.ClientTriggerType;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -6437,7 +6437,7 @@ public final class ScriptRunner {
                 stringStackPointer -= 2;
                 @Pc(95) String local95 = stringStack[stringStackPointer];
                 @Pc(101) String local101 = stringStack[stringStackPointer + 1];
-                Static218.method3188(local101, local95);
+                LoginManager.enterLobby(local95, local101);
                 return;
             }
 

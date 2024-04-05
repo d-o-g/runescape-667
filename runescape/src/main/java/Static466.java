@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.io.BitPacket;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -79,7 +80,7 @@ public final class Static466 {
                 }
             }
         }
-        Static684.updateMapArea(forceUpdate, zoneX, 12, zoneZ);
+        Static684.updateMapArea(forceUpdate, zoneX, MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD, zoneZ);
     }
 
 }

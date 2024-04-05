@@ -1,10 +1,11 @@
 import com.jagex.Client;
 import com.jagex.ClientProt;
-import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.AreaMode;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
@@ -332,19 +333,21 @@ public final class Static489 {
             }
         }
 
-        if (MainLogicManager.step == 4) {
-            MainLogicManager.setStep(3);
-        } else if (MainLogicManager.step == 8) {
-            MainLogicManager.setStep(7);
-        } else if (MainLogicManager.step == 10) {
-            MainLogicManager.setStep(9);
+        if (MainLogicManager.step == MainLogicStep.STEP_LOGIN_SCREEN_MAP_BUILD) {
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGIN_SCREEN);
+        } else if (MainLogicManager.step == MainLogicStep.STEP_LOBBY_SCREEN_MAP_BUILD) {
+            MainLogicManager.setStep(MainLogicStep.STEP_LOBBY_SCREEN);
+        } else if (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME_MAP_BUILD) {
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME);
         } else {
-            MainLogicManager.setStep(11);
+            MainLogicManager.setStep(MainLogicStep.STEP_GAME_SCREEN);
+
             if (ServerConnection.GAME.connection != null) {
                 local920 = ClientMessage.create(ClientProt.MAP_BUILD_COMPLETE, ServerConnection.GAME.isaac);
                 ServerConnection.GAME.send(local920);
             }
         }
+
         WorldMap.method7934();
         Static557.method7331();
         Static199.doneslowupdate();

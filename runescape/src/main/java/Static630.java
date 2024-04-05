@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.Toolkit;
@@ -40,7 +41,7 @@ public final class Static630 {
     @OriginalMember(owner = "client!tv", name = "b", descriptor = "(I)V")
     public static void method8358() {
         if (ClientOptions.instance.animateBackground.getValue() == 0 && Static164.areaLevel != Camera.renderingLevel) {
-            Static684.updateMapArea(false, Static62.areaCenterX, 12, Static525.areaCenterZ);
+            Static684.updateMapArea(false, Static62.areaCenterX, MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD, Static525.areaCenterZ);
         } else {
             Minimap.method2046(Toolkit.active);
             if (Static514.anInt7680 != Camera.renderingLevel) {

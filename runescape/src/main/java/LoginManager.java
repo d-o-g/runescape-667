@@ -1,9 +1,6 @@
 import com.jagex.Client;
-import rs2.client.loading.library.LibraryManager;
 import com.jagex.LoginProt;
 import com.jagex.ServerProt;
-import com.jagex.core.io.connection.Connection;
-import com.jagex.sign.SignedResourceStatus;
 import com.jagex.StockmarketOffer;
 import com.jagex.core.constants.LoginResponseCode;
 import com.jagex.core.constants.LoginStep;
@@ -15,6 +12,7 @@ import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.io.BitPacket;
 import com.jagex.core.io.ConnectionInfo;
 import com.jagex.core.io.Packet;
+import com.jagex.core.io.connection.Connection;
 import com.jagex.core.stringtools.general.Base37;
 import com.jagex.core.util.JavaScript;
 import com.jagex.core.util.SystemTimer;
@@ -32,9 +30,11 @@ import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
+import com.jagex.sign.SignedResourceStatus;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.library.LibraryManager;
 import rs2.client.web.ClientURLTools;
 import rs2.client.web.OpenUrlType;
 
@@ -687,7 +687,7 @@ public final class LoginManager {
                             ConnectionInfo.auto.alternatePort = ConnectionInfo.auto.world + 50000;
                         }
 
-                        if (ModeWhere.LOCAL != Client.modeWhere && (Client.modeWhere != ModeWhere.WTQA || Client.staffModLevel < 2) && ConnectionInfo.login.equalTo(ConnectionInfo.game)) {
+                        if ((ModeWhere.LOCAL != Client.modeWhere) && ((Client.modeWhere != ModeWhere.WTQA) || (Client.staffModLevel < 2)) && ConnectionInfo.login.equalTo(ConnectionInfo.game)) {
                             WorldList.selectAutoWorld();
                         }
                     }
@@ -1237,6 +1237,18 @@ public final class LoginManager {
         }
         socialNetworkId = arg0;
         ServerConnection.LOBBY.close();
-        MainLogicManager.setStep(5);
+        MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_LOBBY);
+    }
+
+    @OriginalMember(owner = "client!go", name = "a", descriptor = "(Ljava/lang/String;Ljava/lang/String;B)V")
+    public static void enterLobby(@OriginalArg(1) String username, @OriginalArg(0) String password) {
+        if (username.length() > 320 || !isAtLoginScreen()) {
+            return;
+        }
+        ServerConnection.LOBBY.close();
+        resetSocialNetwork();
+        LoginManager.password = password;
+        LoginManager.username = username;
+        MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOGINSCREEN_TO_LOBBY);
     }
 }

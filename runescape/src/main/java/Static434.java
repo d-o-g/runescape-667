@@ -1,4 +1,5 @@
 import com.jagex.core.constants.AreaMode;
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.io.BitPacket;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -46,6 +47,6 @@ public final class Static434 {
                 local46++;
             }
         }
-        Static684.updateMapArea(local24, local28, 12, local32);
+        Static684.updateMapArea(local24, local28, MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD, local32);
     }
 }

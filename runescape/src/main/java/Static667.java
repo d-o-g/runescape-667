@@ -1,3 +1,4 @@
+import com.jagex.core.constants.MainLogicStep;
 import com.jagex.game.runetek6.config.fonttype.FontTypeList;
 import com.jagex.graphics.Fonts;
 import com.jagex.graphics.Toolkit;
@@ -21,15 +22,15 @@ public final class Static667 {
         MiniMenu.setIcons(Sprites.nameIcons);
         InterfaceManager.redrawAll();
         Static296.updateFeatureMask();
-        if (MainLogicManager.step == 3) {
-            MainLogicManager.setStep(4);
-        } else if (MainLogicManager.step == 7) {
-            MainLogicManager.setStep(8);
-        } else if (MainLogicManager.step == 9) {
-            MainLogicManager.setStep(10);
-        } else if (MainLogicManager.step == 11) {
-            MainLogicManager.setStep(12);
-        } else if (MainLogicManager.step == 1 || MainLogicManager.step == 2) {
+        if (MainLogicManager.step == MainLogicStep.STEP_LOGIN_SCREEN) {
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGIN_SCREEN_MAP_BUILD);
+        } else if (MainLogicManager.step == MainLogicStep.STEP_LOBBY_SCREEN) {
+            MainLogicManager.setStep(MainLogicStep.STEP_LOBBY_SCREEN_MAP_BUILD);
+        } else if (MainLogicManager.step == MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME) {
+            MainLogicManager.setStep(MainLogicStep.STEP_LOGGING_IN_FROM_LOBBYSCREEN_TO_GAME_MAP_BUILD);
+        } else if (MainLogicManager.step == MainLogicStep.STEP_GAME_SCREEN) {
+            MainLogicManager.setStep(MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD);
+        } else if (MainLogicManager.step == MainLogicStep.STEP_LOADING_1 || MainLogicManager.step == MainLogicStep.STEP_LOADING_2) {
             Static143.method3572();
         }
     }

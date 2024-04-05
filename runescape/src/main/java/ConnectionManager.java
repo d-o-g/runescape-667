@@ -14,7 +14,7 @@ public final class ConnectionManager {
         } else {
             reconnect = ServerConnection.GAME.connection;
             ServerConnection.GAME.connection = null;
-            MainLogicManager.setStep(14);
+            MainLogicManager.setStep(MainLogicStep.STEP_RECONNECTING);
         }
     }
 

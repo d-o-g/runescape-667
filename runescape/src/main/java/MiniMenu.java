@@ -1893,7 +1893,7 @@ public final class MiniMenu {
     public static void drawFrame(@OriginalArg(5) Toolkit toolkit, @OriginalArg(2) int x, @OriginalArg(0) int y, @OriginalArg(7) int width, @OriginalArg(3) int height) {
         toolkit.fillRect(x, y, width, height, 0xFF5D5447);
         toolkit.fillRect(x + 1, y + 1, width - 2, ENTRY_HEIGHT, 0xFF000000);
-        toolkit.outlineRect(x + 1, y + ENTRY_HEIGHT + 2, width - 2, height - ENTRY_HEIGHT + 3, 0xFF000000);
+        toolkit.outlineRect(x + 1, y + ENTRY_HEIGHT + 2, width - 2, height - ENTRY_HEIGHT - 3, 0xFF000000);
     }
 
     @OriginalMember(owner = "client!kc", name = "a", descriptor = "(Z)V")

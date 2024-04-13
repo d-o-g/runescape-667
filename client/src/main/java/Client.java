@@ -7,6 +7,7 @@ import java.applet.AppletContext;
 import java.applet.AppletStub;
 import java.awt.Color;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -15,6 +16,8 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.jagex.Messages.FIRST_PATH_MISSING;
 import static com.jagex.Messages.JAWT_FAILED;
@@ -143,6 +146,12 @@ public final class Client implements AppletStub {
         client c = new client();
         c.init();
         c.start();
+
+        var images = Stream.of("icon16.png", "icon32.png", "icon48.png")
+            .map(file -> Toolkit.getDefaultToolkit().getImage(getClass().getResource(file)))
+            .collect(Collectors.toList());
+
+        frame.setIconImages(images);
 
         frame.add(applet);
         frame.addWindowListener(new CloseWindowListener());

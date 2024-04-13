@@ -1,10 +1,11 @@
+import com.jagex.awt.CloseWindowListener;
+import com.jagex.crypto.rsa.RsaPublicKeyReader;
 import com.jagex.game.runetek6.client.GameShell;
 
 import java.applet.Applet;
 import java.applet.AppletContext;
 import java.applet.AppletStub;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Frame;
 import java.io.IOException;
 import java.net.URL;
@@ -13,44 +14,79 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+
+import static com.jagex.Messages.FIRST_PATH_MISSING;
+import static com.jagex.Messages.JAWT_FAILED;
+import static com.jagex.Messages.JS5_KEY_READING;
+import static com.jagex.Messages.LOGIN_KEY_READING;
+import static com.jagex.Messages.LOGIN_KEY_REUSING_JS5;
+import static com.jagex.Messages.PUBLIC_KEY_NOT_FOUND;
+import static com.jagex.awt.Dimensions.MINIMUM_SIZE;
+import static com.jagex.awt.Dimensions.PREFERRED_SIZE;
 
 public final class Client implements AppletStub {
-    private static final Dimension MINIMUM_SIZE = new Dimension(765, 503);
-    private static final Dimension PREFERRED_SIZE = new Dimension(1024, 768);
 
-    public static void main(String[] args) throws IOException {
-        if (args.length < 1) {
-            System.err.println("Provide path to public key as first program argument");
-            System.exit(1);
+    public static void main(String[] args) {
+        try {
+            setPublicKeys(args);
+            loadJawtCatching();
+
+            URL url = new URL("http://127.0.0.1/");
+            Client client = new Client(url);
+            client.start();
+        } catch (Throwable t) {
+            System.out.println("Failed to start client:");
+            t.printStackTrace();
         }
+    }
 
-        Path publicKeyPath = Paths.get(args[0]);
-        if (!Files.exists(publicKeyPath)) {
-            System.err.println("No public key file found at: " + publicKeyPath);
-            System.exit(1);
+    private static void setPublicKeys(String[] args) throws IOException {
+        var firstPath = optionalPathFrom(args, 0).orElseThrow(() -> new IOException(FIRST_PATH_MISSING));
+        var js5Msg = String.format(JS5_KEY_READING, firstPath);
+        System.out.println(js5Msg);
+
+        var secondPath = optionalPathFrom(args, 1);
+        var loginMsg = secondPath.map(path -> String.format(LOGIN_KEY_READING, path)).orElse(LOGIN_KEY_REUSING_JS5);
+        System.out.println(loginMsg);
+
+        var js5 = RsaPublicKeyReader.read(firstPath);
+        Static442.JS5_RSA_EXPONENT = js5.getExponent();
+        Static670.JS5_RSA_MODULUS = js5.getModulus();
+
+        var login = secondPath.map(RsaPublicKeyReader::readUnchecked).orElse(js5);
+        LoginManager.RSA_EXPONENT = login.getExponent();
+        LoginManager.RSA_MODULUS = login.getModulus();
+    }
+
+    private static Optional<Path> optionalPathFrom(String[] args, int index) throws IOException {
+        if (args.length > index) {
+            var arg = args[index];
+            var path = Paths.get(arg);
+            checkPublicKeyExists(path);
+            return Optional.of(path);
+        } else {
+            return Optional.empty();
         }
+    }
 
-        System.out.println("Reading public key from: " + publicKeyPath);
+    private static void checkPublicKeyExists(Path path) throws IOException {
+        if (!Files.exists(path)) {
+            throw new IOException(String.format(PUBLIC_KEY_NOT_FOUND, path));
+        }
+    }
 
-        RsaKeyPair keyPair = RsaKeyPair.read(publicKeyPath);
-        LoginManager.RSA_EXPONENT = keyPair.getExponent();
-        LoginManager.RSA_MODULUS = keyPair.getModulus();
-        Static442.JS5_RSA_EXPONENT = keyPair.getExponent();
-        Static670.JS5_RSA_MODULUS = keyPair.getModulus();
-
+    private static void loadJawtCatching() {
         try {
             System.loadLibrary("jawt");
         } catch (Throwable t) {
             String os = System.getProperty("os.name");
 
             if (os.toLowerCase().contains("windows")) {
-                System.err.println("Failed to load jawt.dll - only safe mode will function. Try reinstalling Java.");
+                System.err.println(JAWT_FAILED);
                 t.printStackTrace();
             }
         }
-
-        Client client = new Client(new URL("http://127.0.0.1/"));
-        client.start();
     }
 
     private final Frame frame = new Frame("Jagex");

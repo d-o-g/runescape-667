@@ -22,6 +22,7 @@ import static com.jagex.Messages.JS5_KEY_READING;
 import static com.jagex.Messages.LOGIN_KEY_READING;
 import static com.jagex.Messages.LOGIN_KEY_REUSING_JS5;
 import static com.jagex.Messages.PUBLIC_KEY_NOT_FOUND;
+import static com.jagex.Messages.formatAbsolute;
 import static com.jagex.awt.Dimensions.MINIMUM_SIZE;
 import static com.jagex.awt.Dimensions.PREFERRED_SIZE;
 
@@ -43,11 +44,11 @@ public final class Client implements AppletStub {
 
     private static void setPublicKeys(String[] args) throws IOException {
         var firstPath = optionalPathFrom(args, 0).orElseThrow(() -> new IOException(FIRST_PATH_MISSING));
-        var js5Msg = String.format(JS5_KEY_READING, firstPath);
+        var js5Msg = formatAbsolute(JS5_KEY_READING, firstPath);
         System.out.println(js5Msg);
 
         var secondPath = optionalPathFrom(args, 1);
-        var loginMsg = secondPath.map(path -> String.format(LOGIN_KEY_READING, path)).orElse(LOGIN_KEY_REUSING_JS5);
+        var loginMsg = secondPath.map(path -> formatAbsolute(LOGIN_KEY_READING, path)).orElse(LOGIN_KEY_REUSING_JS5);
         System.out.println(loginMsg);
 
         var js5 = RsaPublicKeyReader.read(firstPath);
@@ -72,7 +73,7 @@ public final class Client implements AppletStub {
 
     private static void checkPublicKeyExists(Path path) throws IOException {
         if (!Files.exists(path)) {
-            throw new IOException(String.format(PUBLIC_KEY_NOT_FOUND, path));
+            throw new IOException(formatAbsolute(PUBLIC_KEY_NOT_FOUND, path));
         }
     }
 

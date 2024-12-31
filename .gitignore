@@ -14,15 +14,24 @@
 !.editorconfig
 
 # IntelliJ Idea
-out/
+!.idea/
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
 *.iml
 *.ipr
-*.iws
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
 # Gradle
 build/
-local.properties
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 # JVM error logs
 hs_err_pid*.log
 replay_pid*.log
+java_pid*.hprof

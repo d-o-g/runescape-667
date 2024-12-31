@@ -2,6 +2,7 @@ package com.jagex.js5;
 
 import com.jagex.core.compress.BzipDecompressor;
 import com.jagex.core.compress.GzipDecompressor;
+import com.jagex.core.constants.CompressionType;
 import com.jagex.core.io.ByteArrayWrapper;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.StringTools;
@@ -137,7 +138,7 @@ public final class js5 {
 
         if ((clen < 0) || ((maxsize != 0) && (clen > maxsize))) {
             throw new RuntimeException("ctype=" + ctype + " clen=" + clen + " maxsize=" + maxsize);
-        } else if (ctype == 0) {
+        } else if (ctype == CompressionType.NONE) {
             @Pc(98) byte[] decoded = new byte[clen];
             packet.gdata(0, clen, decoded);
             return decoded;
@@ -148,7 +149,7 @@ public final class js5 {
             }
 
             @Pc(66) byte[] decoded = new byte[ulen];
-            if (ctype == 1) {
+            if (ctype == CompressionType.BZIP2) {
                 BzipDecompressor.bunzip(decoded, ulen, compressed, clen);
             } else {
                 @Pc(73) GzipDecompressor local73 = GzipDecompressor.INSTANCE;

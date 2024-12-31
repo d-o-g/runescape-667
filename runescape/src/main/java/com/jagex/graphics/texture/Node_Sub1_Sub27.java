@@ -5,7 +5,6 @@ import com.jagex.core.io.Packet;
 import com.jagex.graphics.DoublyLinkedNode_Sub2_Sub7;
 import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.MonochromeImageCache;
-import com.jagex.graphics.texture.TextureOp;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -21,6 +20,20 @@ public final class Node_Sub1_Sub27 extends TextureOp {
 
     @OriginalMember(owner = "client!ra", name = "p", descriptor = "Lclient!ts;")
     public static final LruCache A_DOUBLY_LINKED_LIST___4 = new LruCache(16);
+
+    @OriginalMember(owner = "client!c", name = "a", descriptor = "(II)I")
+    public static int method1310(@OriginalArg(0) int arg0) {
+        @Pc(22) int local22 = (arg0 * arg0 >> 12) * arg0 >> 12;
+        @Pc(28) int local28 = arg0 * 6 - 61440;
+        @Pc(36) int local36 = (arg0 * local28 >> 12) + 40960;
+        return local36 * local22 >> 12;
+    }
+
+    static {
+        for (@Pc(123) int local123 = 0; local123 < 4096; local123++) {
+            anIntArray768[local123] = method1310(local123);
+        }
+    }
 
     @OriginalMember(owner = "client!so", name = "Y", descriptor = "[S")
     public short[] aShortArray126;

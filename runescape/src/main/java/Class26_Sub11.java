@@ -8,9 +8,6 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!tj")
 public final class Class26_Sub11 extends Class26 {
 
-    static {
-    }
-
     @OriginalMember(owner = "client!tj", name = "k", descriptor = "Z")
     public boolean aBoolean722;
 

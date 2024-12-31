@@ -8,8 +8,6 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
-import java.awt.Rectangle;
-
 @OriginalClass("client!tia")
 public final class Node_Sub1_Sub28 extends TextureOp {
 
@@ -27,12 +25,6 @@ public final class Node_Sub1_Sub28 extends TextureOp {
 
     @OriginalMember(owner = "client!tia", name = "N", descriptor = "I")
     public int anInt9415 = 10;
-
-    static {
-        for (@Pc(87) int local87 = 0; local87 < 100; local87++) {
-            InterfaceManager.rectangles[local87] = new Rectangle();
-        }
-    }
 
     @OriginalMember(owner = "client!tia", name = "<init>", descriptor = "()V")
     public Node_Sub1_Sub28() {

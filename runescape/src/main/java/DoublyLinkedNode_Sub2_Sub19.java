@@ -1,10 +1,8 @@
 import com.jagex.core.datastruct.key.Node2;
-import com.jagex.graphics.texture.Node_Sub1_Sub27;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ut")
 public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interface3 {
@@ -32,12 +30,6 @@ public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interfac
 
     @OriginalMember(owner = "client!ut", name = "J", descriptor = "I")
     public final int anInt9815;
-
-    static {
-        for (@Pc(123) int local123 = 0; local123 < 4096; local123++) {
-            Node_Sub1_Sub27.anIntArray768[local123] = Static61.method1310(local123);
-        }
-    }
 
     @OriginalMember(owner = "client!ut", name = "<init>", descriptor = "(Lclient!qha;III)V")
     public DoublyLinkedNode_Sub2_Sub19(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {

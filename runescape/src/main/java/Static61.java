@@ -32,12 +32,4 @@ public final class Static61 {
         Static542.method7200(arg1, arg0, 0, arg0.length - 1);
     }
 
-    @OriginalMember(owner = "client!c", name = "a", descriptor = "(II)I")
-    public static int method1310(@OriginalArg(0) int arg0) {
-        @Pc(22) int local22 = (arg0 * arg0 >> 12) * arg0 >> 12;
-        @Pc(28) int local28 = arg0 * 6 - 61440;
-        @Pc(36) int local36 = (arg0 * local28 >> 12) + 40960;
-        return local36 * local22 >> 12;
-    }
-
 }

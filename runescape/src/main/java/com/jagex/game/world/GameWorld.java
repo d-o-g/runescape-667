@@ -1,8 +1,10 @@
+package com.jagex.game.world;
+
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!pq")
-public final class GameWorld extends Class297 {
+public final class GameWorld extends World {
 
     @OriginalMember(owner = "client!pq", name = "q", descriptor = "Ljava/lang/String;")
     public String address;
@@ -18,6 +20,6 @@ public final class GameWorld extends Class297 {
 
     @OriginalMember(owner = "client!pq", name = "a", descriptor = "(B)Lclient!ci;")
     public Country getCountry() {
-        return WorldList.countries[super.country];
+        return Country.countries[super.country];
     }
 }

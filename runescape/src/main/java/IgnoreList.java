@@ -3,6 +3,7 @@ import com.jagex.ClientProt;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.NameTools;
 import com.jagex.game.LocalisedText;
+import com.jagex.game.world.World;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

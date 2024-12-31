@@ -56,6 +56,8 @@ import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingType;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanType;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanTypeList;
+import com.jagex.game.world.Country;
+import com.jagex.game.world.GameWorld;
 import com.jagex.graphics.FontMetrics;
 import com.jagex.graphics.HorizontalAlignment;
 import com.jagex.graphics.Toolkit;

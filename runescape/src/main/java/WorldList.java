@@ -2,6 +2,8 @@ import com.jagex.core.io.ConnectionInfo;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
 import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.game.world.Country;
+import com.jagex.game.world.GameWorld;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -22,9 +24,6 @@ public final class WorldList {
 
     @OriginalMember(owner = "client!paa", name = "e", descriptor = "I")
     public static int count;
-
-    @OriginalMember(owner = "client!qb", name = "i", descriptor = "[Lclient!ci;")
-    public static Country[] countries;
 
     @OriginalMember(owner = "client!lu", name = "G", descriptor = "I")
     public static int checksum;
@@ -55,11 +54,11 @@ public final class WorldList {
     @OriginalMember(owner = "client!jj", name = "a", descriptor = "(ILclient!ge;)V")
     public static void decode(@OriginalArg(1) Packet packet) {
         @Pc(7) int countyCount = packet.gsmart();
-        countries = new Country[countyCount];
+        Country.countries = new Country[countyCount];
         for (@Pc(12) int i = 0; i < countyCount; i++) {
-            countries[i] = new Country();
-            countries[i].flag = packet.gsmart();
-            countries[i].name = packet.gjstr2();
+            Country.countries[i] = new Country();
+            Country.countries[i].flag = packet.gsmart();
+            Country.countries[i].name = packet.gjstr2();
         }
 
         minId = packet.gsmart();

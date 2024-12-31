@@ -1,8 +1,13 @@
+package com.jagex.game.world;
+
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!wha")
-public abstract class Class297 {
+public abstract class World {
+
+    @OriginalMember(owner = "client!uea", name = "h", descriptor = "I")
+    public static int tick = 1;
 
     @OriginalMember(owner = "client!wha", name = "m", descriptor = "I")
     public int population;

@@ -1,4 +1,5 @@
 import com.jagex.core.constants.ChatLineType;
+import com.jagex.game.world.World;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;

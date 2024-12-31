@@ -14,6 +14,7 @@ import com.jagex.game.runetek6.config.defaults.AudioDefaults;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.player.VarPlayerTypeListClient;
+import com.jagex.game.world.World;
 import com.jagex.graphics.Toolkit;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;

@@ -588,7 +588,7 @@ public class Packet extends Node {
         for (@Pc(22) int i = 0; i < blocks; i++) {
             @Pc(28) int v0 = this.g4();
             @Pc(32) int v1 = this.g4();
-            @Pc(34) int sum = -957401312;
+            @Pc(34) int sum = GOLDEN_RATIO << 5;
             @Pc(38) int rounds = 32;
             while (rounds-- > 0) {
                 v1 -= (v0 >>> 5 ^ v0 << 4) + v0 ^ sum + key[sum >>> 11 & 0x3];
@@ -609,7 +609,7 @@ public class Packet extends Node {
         for (@Pc(27) int i = 0; i < blocks; i++) {
             @Pc(34) int v0 = this.g4();
             @Pc(38) int v1 = this.g4();
-            @Pc(40) int sum = -957401312;
+            @Pc(40) int sum = GOLDEN_RATIO << 5;
             @Pc(44) int rounds = 32;
             while (rounds-- > 0) {
                 v1 -= (v0 << 4 ^ v0 >>> 5) + v0 ^ key[sum >>> 11 & 0x3] + sum;

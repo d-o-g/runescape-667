@@ -29,7 +29,7 @@ import static com.jagex.Messages.formatAbsolute;
 import static com.jagex.awt.Dimensions.MINIMUM_SIZE;
 import static com.jagex.awt.Dimensions.PREFERRED_SIZE;
 
-public final class Client implements AppletStub {
+public final class Application implements AppletStub {
 
     public static void main(String[] args) {
         try {
@@ -37,8 +37,8 @@ public final class Client implements AppletStub {
             loadJawtCatching();
 
             URL url = new URL("http://127.0.0.1/");
-            Client client = new Client(url);
-            client.start();
+            Application application = new Application(url);
+            application.start();
         } catch (Throwable t) {
             System.out.println("Failed to start client:");
             t.printStackTrace();
@@ -98,7 +98,7 @@ public final class Client implements AppletStub {
     private final Map<String, String> parameters = new HashMap<>();
     private final URL url;
 
-    private Client(URL url) {
+    private Application(URL url) {
         this.url = url;
 
         parameters.put("cabbase", "g.cab");

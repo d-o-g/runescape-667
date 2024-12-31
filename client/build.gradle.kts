@@ -18,6 +18,6 @@ tasks.withType(JavaCompile::class) {
 }
 
 application {
-    mainClass = "Client"
+    mainClass = "Application"
     applicationDefaultJvmArgs = listOf("-Xmx256m", "-Dsun.java2d.noddraw=true")
 }

@@ -2,13 +2,11 @@
     <a href="https://github.com/StrongHold/runescape-667" rel="noopener noreferrer">
         <img src="https://github.com/StrongHold/runescape-667/raw/master/logo.png" alt="RuneScape Logo" />
     </a>
-</p>
-<p align="center">
+    <br />
     <a href="https://github.com/StrongHold/runescape-667" rel="noopener noreferrer">
         <img src="https://github.com/StrongHold/runescape-667/raw/master/preview.png" alt="Preview" />
     </a>
 </p>
-<br />
 
 # runescape-667
 

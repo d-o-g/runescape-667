@@ -2,10 +2,6 @@
     <a href="https://github.com/StrongHold/runescape-667" rel="noopener noreferrer">
         <img src="https://github.com/StrongHold/runescape-667/raw/master/logo.png" alt="RuneScape Logo" width="278" height="90" />
     </a>
-    <br />
-    <a href="https://github.com/StrongHold/runescape-667/actions/workflows/ci.yaml">
-        <img src="https://github.com/StrongHold/runescape-667/actions/workflows/ci.yaml/badge.svg" alt="CI Status" />
-    </a>
 </p>
 <br />
 

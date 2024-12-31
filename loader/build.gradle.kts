@@ -12,6 +12,10 @@ java {
     }
 }
 
+tasks.withType(JavaCompile::class) {
+    options.encoding = "UTF-8"
+}
+
 application {
     mainClass = "loader"
 }

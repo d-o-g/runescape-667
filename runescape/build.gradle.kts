@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementation(files("lib/stub.jar"))
-    implementation(project(":openrs2-deob-annotations") /* libs.openrs2.deob.annotations */)
+    implementation(libs.openrs2.deob.annotations)
 }
 
 java {

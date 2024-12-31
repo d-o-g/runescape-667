@@ -22,5 +22,4 @@ include(
     "client",
     "loader",
     "runescape",
-    "openrs2-deob-annotations",
 )

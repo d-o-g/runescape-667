@@ -22,8 +22,6 @@ application {
     applicationDefaultJvmArgs = listOf("-Xmx256m", "-Dsun.java2d.noddraw=true")
 }
 
-tasks {
-    run.configure {
-        args = listOf("1", "1000", "local", "live", "english", "game0")
-    }
+tasks.run.configure {
+    args = listOf("1", "1000", "local", "live", "english", "game0")
 }

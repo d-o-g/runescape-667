@@ -28,7 +28,7 @@ public final class RsaPublicKeyReader {
     }
 
     public static RsaPublicKey read(Path path) throws IOException {
-        try (PemReader reader = new PemReader(Files.newBufferedReader(path))) {
+        try (var reader = new PemReader(Files.newBufferedReader(path))) {
             var spki = SubjectPublicKeyInfoReader.read(reader);
             var parameters = rsaParametersFrom(spki);
 

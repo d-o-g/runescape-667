@@ -1,6 +1,11 @@
 <p align="center">
     <a href="https://github.com/StrongHold/runescape-667" rel="noopener noreferrer">
-        <img src="https://github.com/StrongHold/runescape-667/raw/master/logo.png" alt="RuneScape Logo" width="278" height="90" />
+        <img src="https://github.com/StrongHold/runescape-667/raw/master/logo.png" alt="RuneScape Logo" />
+    </a>
+</p>
+<p align="center">
+    <a href="https://github.com/StrongHold/runescape-667" rel="noopener noreferrer">
+        <img src="https://github.com/StrongHold/runescape-667/raw/master/preview.png" alt="Preview" />
     </a>
 </p>
 <br />
@@ -9,19 +14,26 @@
 
 Client build [667][build] of [RuneScape 2][rs2], originally released on [2011-10-04][update].
 
-## Running via Gradle
+## Getting Started
 
-Single public key for both JS5 and Login protocols.
-
-```bash
-./gradlew client:run --args="/path/to/public.key"
-```
-
-Separate public keys for JS5 and Login protocols.
+Run the client either directly via Gradle:
 
 ```bash
-./gradlew client:run --args="/path/to/js5.public.key /path/to/login.public.key"
+./gradlew client:run --args="--js5 '/path/to/js5.public.key' --login '/path/to/login.public.key'"
 ```
+
+Or via the built distributable:
+
+```bash
+./gradlew installDist
+./client/build/install/client/bin/client --js5 "/path/to/js5.public.key" --login "/path/to/login.public.key"
+```
+
+## Docs
+
+1. [Command-line Interface](docs/cli.md)
+2. [Applet](docs/applet.md)
+3. [Parameters](docs/parameters.md)
 
 [rs2]: https://www.runescape.com/
 [build]: https://runescape.wiki/w/Build_number

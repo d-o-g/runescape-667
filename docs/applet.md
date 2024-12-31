@@ -3,7 +3,7 @@
 The `runescape.jar` was originally embedded on a webpage using the `<applet>`
 element.
 
-The [parameters](./parameters.md) of the client are configured using the
+The [parameters](parameters.md) of the client are configured using the
 `<param>` element.
 
 Below is an example of how it occurred on the original RuneScape website:

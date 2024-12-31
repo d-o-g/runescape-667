@@ -1,8 +1,8 @@
 # Parameters
 
 The `runescape.jar` is configured using parameters, passed either as positional
-arguments via the [command line](./cli.md) or as `<param>` elements in an
-[applet](./applet.md).
+arguments via the [command line](cli.md) or as `<param>` elements in an
+[applet](applet.md).
 
 ## worldid
 
@@ -14,7 +14,7 @@ the client is connecting to.
 The numerical identifier of the [game lobby](https://runescape.wiki/w/RuneScape_Lobby)
 the client is connecting to.
 
-## modewhere
+## [modewhere](../runescape/src/main/java/com/jagex/core/constants/ModeWhere.java)
 
 The environment the client is connecting to.
 
@@ -50,15 +50,15 @@ Each `modewhere` specifies a different prefix to the website domain:
 
 | ModeWhere | Prefix    |
 |:----------|:----------|
-| LIVE      | www       |
-| WTRC      | www-wtrc  |
-| WTQA      | www-wtqa  |
-| WTWIP     | www-wtwip |
-| LOCAL     | www       |
-| WTI       | www       |
-| INTBETA   | www       |
+| `LIVE`    | www       |
+| `WTRC`    | www-wtrc  |
+| `WTQA`    | www-wtqa  |
+| `WTWIP`   | www-wtwip |
+| `LOCAL`   | www       |
+| `WTI`     | www       |
+| `INTBETA` | www       |
 
-## modewhat
+## [modewhat](../runescape/src/main/java/com/jagex/core/constants/ModeWhat.java)
 
 The mode of the client.
 
@@ -68,20 +68,20 @@ The ID of the client's file system is calculated by adding 32 to the ID of the s
 
 |   | ModeWhat | Description       |
 |--:|:---------|:------------------|
-| 0 | LIVE     | Live              |
-| 1 | RC       | Release candidate |
-| 2 | WIP      | Work in progress  |
+| 0 | `LIVE`   | Live              |
+| 1 | `RC`     | Release candidate |
+| 2 | `WIP`    | Work in progress  |
 
 ## lang
 
 The language of the client.
 
-|   | Language   |
-|--:|:-----------|
-| 0 | ENGLISH    |
-| 1 | GERMAN     |
-| 2 | FRENCH     |
-| 3 | PORTUGUESE |
+|   | Language     |
+|--:|:-------------|
+| 0 | `ENGLISH`    |
+| 1 | `GERMAN`     |
+| 2 | `FRENCH`     |
+| 3 | `PORTUGUESE` |
 
 ## objecttag
 
@@ -95,16 +95,16 @@ Set to `1` if the client is loaded in an environment that supports JavaScript.
 
 Set to `1` if an advertisement is shown alongside the client.
 
-## game
+## [game](../runescape/src/main/java/com/jagex/core/constants/ModeGame.java)
 
 The type of game the client is running.
 
-|   | game         | Description                                                |
-|--:|:-------------|:-----------------------------------------------------------|
-| 0 | RUNESCAPE    | [RuneScape](https://en.wikipedia.org/wiki/RuneScape)       |
-| 1 | STELLAR_DAWN | [Stellar Dawn](https://en.wikipedia.org/wiki/Stellar_Dawn) |
-| 2 | GAME_3       |                                                            |
-| 3 | GAME_4       |                                                            |
+|   | game           | Description                                                |
+|--:|:---------------|:-----------------------------------------------------------|
+| 0 | `RUNESCAPE`    | [RuneScape](https://en.wikipedia.org/wiki/RuneScape)       |
+| 1 | `STELLAR_DAWN` | [Stellar Dawn](https://en.wikipedia.org/wiki/Stellar_Dawn) |
+| 2 | `GAME_3`       |                                                            |
+| 3 | `GAME_4`       |                                                            |
 
 ## affid
 

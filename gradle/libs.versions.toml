@@ -1,7 +1,9 @@
 [versions]
 openrs2 = "0.1.0-SNAPSHOT"
-bouncycastle = "1.70"
+bouncycastle = "1.79"
+jcommander = "2.0"
 
 [libraries]
 openrs2-deob-annotations = { module = "org.openrs2:openrs2-deob-annotations", version.ref = "openrs2" }
-bouncycastle-bcpkix = { module = "org.bouncycastle:bcpkix-jdk15on", version.ref = "bouncycastle" }
+bouncycastle-bcpkix = { module = "org.bouncycastle:bcpkix-jdk18on", version.ref = "bouncycastle" }
+jcommander = { module = "org.jcommander:jcommander", version.ref = "jcommander" }

@@ -7,7 +7,7 @@ public final class Static350 {
     public static long[] aLongArray9;
 
     @OriginalMember(owner = "client!la", name = "a", descriptor = "(II)I")
-    public static int method5124(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
+    public static int getWaterDepth(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         return Static272.waterDepth == null ? 0 : Static272.waterDepth[arg0][arg1] & 0xFFFF;
     }
 

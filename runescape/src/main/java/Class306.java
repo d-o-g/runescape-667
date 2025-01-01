@@ -1,5 +1,4 @@
 import com.jagex.core.io.Packet;
-import com.jagex.game.camera.Shake;
 import com.jagex.game.collision.CollisionMap;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayTypeList;
@@ -15,17 +14,89 @@ import org.openrs2.deob.annotation.Pc;
 @OriginalClass("client!qja")
 public class Class306 {
 
+    @OriginalMember(owner = "client!ji", name = "I", descriptor = "[I")
+    public static final int[] OVERLAY_FACE_COUNT = {2, 1, 1, 1, 2, 2, 2, 1, 3, 3, 3, 2, 0, 4, 0};
+
+    @OriginalMember(owner = "client!iba", name = "i", descriptor = "[[I")
+    public static final int[][] TILE_FACE_A = {{0, 2}, {0, 2}, {0, 0, 2}, {2, 0, 0}, {0, 2, 0}, {0, 0, 2}, {0, 5, 1, 4}, {0, 4, 4, 4}, {4, 4, 4, 0}, {6, 6, 6, 2, 2, 2}, {2, 2, 2, 6, 6, 6}, {0, 11, 6, 6, 6, 4}, {0, 2}, {0, 4, 4, 4}, {0, 4, 4, 4}};
+
+    @OriginalMember(owner = "client!rfa", name = "w", descriptor = "[[I")
+    public static final int[][] TILE_FACE_C = {{6, 6}, {6, 6}, {6, 5, 5}, {5, 6, 5}, {5, 5, 6}, {6, 5, 5}, {5, 0, 4, 1}, {7, 7, 1, 2}, {7, 1, 2, 7}, {8, 9, 4, 0, 8, 9}, {0, 8, 9, 8, 9, 4}, {11, 0, 10, 11, 4, 2}, {6, 6}, {7, 7, 1, 2}, {7, 7, 1, 2}};
+
+    @OriginalMember(owner = "client!qb", name = "o", descriptor = "[[I")
+    public static final int[][] anIntArrayArray193 = {{2, 4, 6, 0}, {0, 2, 3, 5, 6, 4}, {0, 1, 4, 5}, {4, 6, 0, 2}, {2, 4, 0}, {0, 2, 4}, {6, 0, 1, 2, 4, 5}, {0, 1, 2, 4, 6, 7}, {4, 7, 6, 0}, {0, 8, 6, 1, 9, 2, 9, 4}, {2, 9, 4, 0, 8, 6}, {2, 11, 3, 7, 10, 10, 6, 6}, {2, 4, 6, 0}};
+
+    @OriginalMember(owner = "client!he", name = "f", descriptor = "[[I")
+    public static final int[][] anIntArrayArray90 = {{0, 2, 4, 6}, {6, 0, 2, 3, 5, 3}, {6, 0, 2, 4}, {2, 5, 6, 1}, {0, 2, 6}, {6, 0, 2}, {5, 6, 0, 1, 2, 4}, {7, 7, 1, 2, 4, 6}, {2, 4, 4, 7}, {6, 6, 4, 0, 1, 1, 3, 3}, {0, 2, 2, 6, 6, 4}, {0, 2, 2, 3, 7, 0, 4, 3}, {0, 2, 4, 6}};
+
+    @OriginalMember(owner = "client!gka", name = "q", descriptor = "[[I")
+    public static final int[][] anIntArrayArray86 = {{12, 12, 12, 12}, {12, 12, 12, 12, 12, 5}, {5, 5, 1, 1}, {5, 1, 1, 5}, {5, 5, 5}, {5, 5, 5}, {12, 12, 12, 12, 12, 12}, {1, 12, 12, 12, 12, 12}, {1, 1, 7, 1}, {8, 9, 9, 8, 8, 3, 1, 9}, {8, 8, 9, 8, 9, 9}, {10, 10, 11, 11, 11, 7, 3, 7}, {12, 12, 12, 12}};
+
+    @OriginalMember(owner = "client!kv", name = "C", descriptor = "[I")
+    public static final int[] anIntArray424 = {4, 2, 1, 1, 2, 2, 3, 1, 3, 3, 3, 2, 0};
+
+    @OriginalMember(owner = "client!dd", name = "F", descriptor = "[I")
+    public static final int[] UNDERLAY_FACE_COUNT = {0, 1, 2, 2, 1, 1, 2, 3, 1, 3, 3, 4, 2, 0, 4};
+
+    @OriginalMember(owner = "client!uw", name = "y", descriptor = "[I")
+    public static final int[] anIntArray468 = {0, 4, 3, 3, 1, 1, 3, 5, 1, 5, 3, 6, 4};
+
+    @OriginalMember(owner = "client!rga", name = "j", descriptor = "[[I")
+    public static final int[][] anIntArrayArray206 = {{0, 1, 2, 3}, {1, -1, -1, 0}, {-1, 2, -1, 0}, {-1, 0, -1, 2}, {0, 1, -1, 2}, {1, 2, -1, 0}, {-1, 4, -1, 1}, {-1, 3, 4, -1}, {-1, 0, 2, -1}, {-1, -1, 2, 0}, {0, 2, 5, 3}, {0, -1, 6, -1}, {0, 1, 2, 3}};
+
+    @OriginalMember(owner = "client!lw", name = "j", descriptor = "[I")
+    public static final int[] anIntArray464 = {0, 2, 2, 2, 1, 1, 3, 3, 1, 3, 3, 4, 4};
+
+    @OriginalMember(owner = "client!sha", name = "k", descriptor = "[[I")
+    public static final int[][] TILE_FACE_B = new int[][]{{2, 4}, {2, 4}, {5, 2, 4}, {4, 5, 2}, {2, 4, 5}, {5, 2, 4}, {1, 6, 2, 5}, {1, 6, 7, 1}, {6, 7, 1, 1}, {0, 8, 9, 8, 9, 4}, {8, 9, 4, 0, 8, 9}, {2, 10, 0, 10, 11, 11}, {2, 4}, {1, 6, 7, 1}, {1, 6, 7, 1}};
+
+    @OriginalMember(owner = "client!tha", name = "f", descriptor = "[I")
+    public static final int[] OVERLAY_BLEND_PRIORITIES = new int[13];
+
+    @OriginalMember(owner = "client!oka", name = "c", descriptor = "[[Z")
+    public static final boolean[][] aBooleanArrayArray6 = new boolean[][]{new boolean[4], {false, true, true, false}, {true, false, true, false}, {true, false, true, false}, {false, false, true, false}, {false, false, true, false}, {true, false, true, false}, {true, false, false, true}, {true, false, false, true}, {true, true, false, false}, new boolean[4], {false, true, false, true}, new boolean[4]};
+
+    @OriginalMember(owner = "client!nm", name = "B", descriptor = "[[Z")
+    public static final boolean[][] aBooleanArrayArray5 = new boolean[][]{new boolean[4], new boolean[4], {false, false, true, false}, {false, false, true, false}, {false, false, true, false}, {false, false, true, false}, {true, false, true, false}, {true, false, false, true}, {true, false, false, true}, new boolean[4], new boolean[4], new boolean[4], new boolean[4]};
+
+    @OriginalMember(owner = "client!kba", name = "H", descriptor = "[I")
+    public static final int[] OVERLAY_COLOURS = new int[13];
+
+    @OriginalMember(owner = "client!ica", name = "n", descriptor = "[I")
+    public static final int[] OVERLAY_BLEND_COLOURS = new int[13];
+
+    @OriginalMember(owner = "client!eq", name = "m", descriptor = "[I")
+    public static final int[] OVERLAY_TEXTURES = new int[13];
+
+    @OriginalMember(owner = "client!pn", name = "db", descriptor = "[[Z")
+    public static final boolean[][] aBooleanArrayArray7 = new boolean[][]{{true, true, true, true, true, true, true, true, true, true, true, true, true}, {true, true, true, false, false, false, true, true, false, false, false, false, true}, {true, false, false, false, false, true, true, true, false, false, false, false, false}, {false, false, true, true, true, true, false, false, false, false, false, false, false}, {true, true, true, true, true, true, false, false, false, false, false, false, false}, {true, true, true, false, false, true, true, true, false, false, false, false, false}, {true, true, false, false, false, true, true, true, false, false, false, false, true}, {true, true, false, false, false, false, false, true, false, false, false, false, false}, {false, true, true, true, true, true, true, true, false, false, false, false, false}, {true, false, false, false, true, true, true, true, true, true, false, false, false}, {true, true, true, true, true, false, false, false, true, true, false, false, false}, {true, true, true, false, false, false, false, false, false, false, true, true, false}, new boolean[13], {true, true, true, true, true, true, true, true, true, true, true, true, true}, new boolean[13]};
+
+    @OriginalMember(owner = "client!hm", name = "b", descriptor = "[I")
+    public static final int[] anIntArray313 = new int[13];
+
+    @OriginalMember(owner = "client!pka", name = "d", descriptor = "[I")
+    public static final int[] anIntArray601 = new int[]{4, 2, 1, 1, 2, 2, 3, 1, 3, 3, 3, 2, 0};
+
+    @OriginalMember(owner = "client!pi", name = "c", descriptor = "[[I")
+    public static final int[][] anIntArrayArray257 = new int[][]{{12, 12, 12, 12}, {12, 12, 12, 12}, {5, 5, 5}, {5, 5, 5}, {5, 5, 5}, {5, 5, 5}, {12, 12, 12, 12, 12, 12}, {1, 1, 1, 7}, {1, 1, 7, 1}, {8, 9, 9, 8, 8, 9}, {8, 8, 9, 8, 9, 9}, {10, 10, 11, 11, 11, 10}, {12, 12, 12, 12}};
+
+    @OriginalMember(owner = "client!ww", name = "c", descriptor = "[I")
+    public static int[] OVERLAY_SIZES = new int[13];
+
+    @OriginalMember(owner = "client!ska", name = "H", descriptor = "[I")
+    public static int[] anIntArray695 = new int[6];
+
     @OriginalMember(owner = "client!qja", name = "e", descriptor = "[[[B")
     public byte[][][] aByteArrayArrayArray12;
 
     @OriginalMember(owner = "client!qja", name = "j", descriptor = "[I")
-    public final int[] anIntArray706 = new int[]{0, 0, 0, 256, 512, 512, 512, 256, 256, 384, 128, 128, 256};
+    public final int[] tileOffsetY = {0, 0, 0, 256, 512, 512, 512, 256, 256, 384, 128, 128, 256};
 
     @OriginalMember(owner = "client!qja", name = "h", descriptor = "[I")
-    public final int[] anIntArray707 = new int[]{0, 256, 512, 512, 512, 256, 0, 0, 128, 256, 128, 384, 256};
+    public final int[] tileOffsetX = {0, 256, 512, 512, 512, 256, 0, 0, 128, 256, 128, 384, 256};
 
     @OriginalMember(owner = "client!qja", name = "k", descriptor = "Lclient!dh;")
-    public final FloorUnderlayTypeList aFloorUnderlayTypeList_8;
+    public final FloorUnderlayTypeList underlayTypeList;
 
     @OriginalMember(owner = "client!qja", name = "q", descriptor = "I")
     protected final int length;
@@ -40,7 +111,7 @@ public class Class306 {
     protected final int width;
 
     @OriginalMember(owner = "client!qja", name = "l", descriptor = "Lclient!ef;")
-    public final FloorOverlayTypeList aFloorOverlayTypeList_6;
+    public final FloorOverlayTypeList floorOverlayTypeList;
 
     @OriginalMember(owner = "client!qja", name = "x", descriptor = "[[[B")
     public final byte[][][] tileDirections;
@@ -62,12 +133,12 @@ public class Class306 {
 
     @OriginalMember(owner = "client!qja", name = "<init>", descriptor = "(IIIZLclient!ef;Lclient!dh;)V")
     protected Class306(@OriginalArg(0) int levels, @OriginalArg(1) int width, @OriginalArg(2) int length, @OriginalArg(3) boolean underwater, @OriginalArg(4) FloorOverlayTypeList arg4, @OriginalArg(5) FloorUnderlayTypeList arg5) {
-        this.aFloorUnderlayTypeList_8 = arg5;
+        this.underlayTypeList = arg5;
         this.length = length;
         this.levels = levels;
         this.underwater = underwater;
         this.width = width;
-        this.aFloorOverlayTypeList_6 = arg4;
+        this.floorOverlayTypeList = arg4;
         this.tileDirections = new byte[this.levels][this.width][this.length];
         this.underlay = new byte[this.levels][this.width][this.length];
         this.occluderFlags = new byte[this.levels][this.width + 1][this.length + 1];
@@ -164,145 +235,160 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(IBLclient!ha;[[ILclient!s;Lclient!s;Lclient!s;)V")
-    public void method7882(@OriginalArg(0) int arg0, @OriginalArg(2) Toolkit arg1, @OriginalArg(3) int[][] arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Ground arg4, @OriginalArg(6) Ground arg5) {
-        for (@Pc(1) int local1 = 0; local1 < this.width; local1++) {
-            for (@Pc(4) int local4 = 0; local4 < this.length; local4++) {
-                if (Static478.anInt7198 == -1 || Static696.isTileVisibleFrom(local4, Static478.anInt7198, local1, arg0)) {
-                    @Pc(28) byte local28 = this.tileShapes[arg0][local1][local4];
-                    @Pc(37) byte local37 = this.tileDirections[arg0][local1][local4];
-                    @Pc(48) int local48 = this.overlay[arg0][local1][local4] & 0xFF;
-                    @Pc(59) int local59 = this.underlay[arg0][local1][local4] & 0xFF;
-                    @Pc(72) FloorOverlayType local72 = local48 == 0 ? null : this.aFloorOverlayTypeList_6.list(local48 - 1);
-                    if (local28 == 0 && local72 == null) {
-                        local28 = 12;
+    public void loadUnblended(@OriginalArg(0) int level, @OriginalArg(2) Toolkit toolkit, @OriginalArg(3) int[][] colour, @OriginalArg(4) Ground surfaceGround, @OriginalArg(5) Ground ground, @OriginalArg(6) Ground underwaterGround) {
+        for (@Pc(1) int x = 0; x < this.width; x++) {
+            for (@Pc(4) int z = 0; z < this.length; z++) {
+
+                if (AnimatedBackground.level == -1 || Static696.isTileVisibleFrom(z, AnimatedBackground.level, x, level)) {
+                    @Pc(28) byte shape = this.tileShapes[level][x][z];
+                    @Pc(37) byte direction = this.tileDirections[level][x][z];
+                    @Pc(48) int overlay = this.overlay[level][x][z] & 0xFF;
+                    @Pc(59) int underlay = this.underlay[level][x][z] & 0xFF;
+
+                    @Pc(72) FloorOverlayType overlayType = overlay == 0 ? null : this.floorOverlayTypeList.list(overlay - 1);
+                    if (shape == 0 && overlayType == null) {
+                        shape = 12;
                     }
-                    @Pc(93) FloorUnderlayType local93 = local59 == 0 ? null : this.aFloorUnderlayTypeList_8.list(local59 - 1);
-                    @Pc(95) FloorOverlayType local95 = local72;
-                    if (local72 != null && local72.colour == -1 && local72.blendColour == -1) {
-                        local95 = local72;
-                        local72 = null;
+
+                    @Pc(93) FloorUnderlayType underlayType = underlay == 0 ? null : this.underlayTypeList.list(underlay - 1);
+                    @Pc(95) FloorOverlayType local95 = overlayType;
+                    if (overlayType != null && overlayType.colour == -1 && overlayType.blendColour == -1) {
+                        local95 = overlayType;
+                        overlayType = null;
                     }
-                    if (local72 != null || local93 != null) {
-                        @Pc(125) int local125 = Static102.anIntArray183[local28];
-                        @Pc(129) int local129 = Static298.anIntArray366[local28];
-                        @Pc(143) int local143 = (local93 == null ? 0 : local125) + (local72 == null ? 0 : local129);
-                        @Pc(145) int local145 = 0;
-                        @Pc(147) int local147 = 0;
-                        @Pc(155) int local155 = local72 == null ? -1 : local72.texture;
-                        @Pc(163) int local163 = local93 == null ? -1 : local93.texture;
-                        @Pc(166) int[] local166 = new int[local143];
-                        @Pc(169) int[] local169 = new int[local143];
-                        @Pc(172) int[] local172 = new int[local143];
-                        @Pc(175) int[] local175 = new int[local143];
-                        @Pc(178) int[] local178 = new int[local143];
-                        @Pc(181) int[] local181 = new int[local143];
-                        @Pc(195) int[] local195 = local72 == null || local72.blendColour == -1 ? null : new int[local143];
-                        @Pc(199) int local199;
-                        if (local72 == null) {
-                            local147 = local129;
+
+                    if (overlayType != null || underlayType != null) {
+                        @Pc(125) int underlayFaces = UNDERLAY_FACE_COUNT[shape];
+                        @Pc(129) int overlayFaces = OVERLAY_FACE_COUNT[shape];
+                        @Pc(143) int faces = (underlayType == null ? 0 : underlayFaces) + (overlayType == null ? 0 : overlayFaces);
+                        @Pc(145) int faceIndex = 0;
+                        @Pc(147) int vertexIndex = 0;
+                        @Pc(155) int overlayTexture = overlayType == null ? -1 : overlayType.texture;
+                        @Pc(163) int underlayTexture = underlayType == null ? -1 : underlayType.texture;
+                        @Pc(166) int[] faceA = new int[faces];
+                        @Pc(169) int[] faceB = new int[faces];
+                        @Pc(172) int[] faceC = new int[faces];
+                        @Pc(175) int[] colours = new int[faces];
+                        @Pc(178) int[] textures = new int[faces];
+                        @Pc(181) int[] sizes = new int[faces];
+                        @Pc(195) int[] blendedColours = overlayType == null || overlayType.blendColour == -1 ? null : new int[faces];
+
+                        if (overlayType == null) {
+                            vertexIndex = overlayFaces;
                         } else {
-                            for (local199 = 0; local199 < local129; local199++) {
-                                local166[local145] = Static260.anIntArrayArray96[local28][local147];
-                                local169[local145] = Static586.anIntArrayArray220[local28][local147];
-                                local172[local145] = Static551.anIntArrayArray204[local28][local147];
-                                local178[local145] = local155;
-                                local181[local145] = local72.size;
-                                local175[local145] = local72.colour;
-                                if (local195 != null) {
-                                    local195[local145] = local72.blendColour;
+                            for (@Pc(199) int i = 0; i < overlayFaces; i++) {
+                                faceA[faceIndex] = TILE_FACE_A[shape][vertexIndex];
+                                faceB[faceIndex] = TILE_FACE_B[shape][vertexIndex];
+                                faceC[faceIndex] = TILE_FACE_C[shape][vertexIndex];
+                                textures[faceIndex] = overlayTexture;
+                                sizes[faceIndex] = overlayType.size;
+                                colours[faceIndex] = overlayType.colour;
+                                if (blendedColours != null) {
+                                    blendedColours[faceIndex] = overlayType.blendColour;
                                 }
-                                local145++;
-                                local147++;
+                                faceIndex++;
+                                vertexIndex++;
                             }
-                            if (!this.underwater && arg0 == 0) {
-                                Static295.method4354(local1, local4, local72.waterColour, local72.waterDepth * 8, local72.waterBias);
+
+                            if (!this.underwater && level == 0) {
+                                Static295.setWaterParams(x, z, overlayType.waterColour, overlayType.waterDepth * 8, overlayType.waterBias);
                             }
                         }
-                        if (local93 != null) {
-                            for (local199 = 0; local199 < local125; local199++) {
-                                local166[local145] = Static260.anIntArrayArray96[local28][local147];
-                                local169[local145] = Static586.anIntArrayArray220[local28][local147];
-                                local172[local145] = Static551.anIntArrayArray204[local28][local147];
-                                local178[local145] = local163;
-                                local181[local145] = local93.size;
-                                local175[local145] = arg2[local1][local4];
-                                if (local195 != null) {
-                                    local195[local145] = local175[local145];
+
+                        if (underlayType != null) {
+                            for (@Pc(199) int i = 0; i < underlayFaces; i++) {
+                                faceA[faceIndex] = TILE_FACE_A[shape][vertexIndex];
+                                faceB[faceIndex] = TILE_FACE_B[shape][vertexIndex];
+                                faceC[faceIndex] = TILE_FACE_C[shape][vertexIndex];
+                                textures[faceIndex] = underlayTexture;
+                                sizes[faceIndex] = underlayType.size;
+                                colours[faceIndex] = colour[x][z];
+
+                                if (blendedColours != null) {
+                                    blendedColours[faceIndex] = colours[faceIndex];
                                 }
-                                local147++;
-                                local145++;
+
+                                vertexIndex++;
+                                faceIndex++;
                             }
                         }
-                        local199 = this.anIntArray707.length;
-                        @Pc(352) int[] local352 = new int[local199];
-                        @Pc(355) int[] local355 = new int[local199];
-                        @Pc(363) int[] local363 = arg3 == null ? null : new int[local199];
-                        @Pc(375) int[] local375 = arg3 == null && arg5 == null ? null : new int[local199];
-                        @Pc(383) int local383;
-                        @Pc(388) int local388;
-                        @Pc(477) int local477;
-                        @Pc(485) int local485;
-                        for (@Pc(377) int local377 = 0; local377 < local199; local377++) {
-                            local383 = this.anIntArray707[local377];
-                            local388 = this.anIntArray706[local377];
-                            if (local37 == 0) {
-                                local352[local377] = local383;
-                                local355[local377] = local388;
-                            } else if (local37 == 1) {
-                                local352[local377] = local388;
-                                local355[local377] = 512 - local383;
-                            } else if (local37 == 2) {
-                                local352[local377] = 512 - local383;
-                                local355[local377] = 512 - local388;
-                            } else if (local37 == 3) {
-                                local352[local377] = 512 - local388;
-                                local355[local377] = local383;
+
+                        @Pc(199) int vertices = this.tileOffsetX.length;
+                        @Pc(352) int[] offsetX = new int[vertices];
+                        @Pc(355) int[] offsetY = new int[vertices];
+                        @Pc(363) int[] offsetLevel = surfaceGround == null ? null : new int[vertices];
+                        @Pc(375) int[] depths = surfaceGround == null && underwaterGround == null ? null : new int[vertices];
+
+                        for (@Pc(377) int i = 0; i < vertices; i++) {
+                            @Pc(383) int deltaX = this.tileOffsetX[i];
+                            @Pc(388) int deltaY = this.tileOffsetY[i];
+
+                            if (direction == 0) {
+                                offsetX[i] = deltaX;
+                                offsetY[i] = deltaY;
+                            } else if (direction == 1) {
+                                offsetX[i] = deltaY;
+                                offsetY[i] = 512 - deltaX;
+                            } else if (direction == 2) {
+                                offsetX[i] = 512 - deltaX;
+                                offsetY[i] = 512 - deltaY;
+                            } else if (direction == 3) {
+                                offsetX[i] = 512 - deltaY;
+                                offsetY[i] = deltaX;
                             }
-                            if (local363 != null && Static499.aBooleanArrayArray7[local28][local377]) {
-                                local477 = local352[local377] + (local1 << 9);
-                                local485 = (local4 << 9) + local355[local377];
-                                local363[local377] = arg3.averageHeight(local477, local485) - arg4.averageHeight(local477, local485);
+
+                            if (offsetLevel != null && aBooleanArrayArray7[shape][i]) {
+                                @Pc(477) int waterX = offsetX[i] + (x << 9);
+                                @Pc(485) int waterY = (z << 9) + offsetY[i];
+                                offsetLevel[i] = surfaceGround.averageHeight(waterX, waterY) - ground.averageHeight(waterX, waterY);
                             }
-                            if (local375 != null) {
-                                if (arg3 != null && !Static499.aBooleanArrayArray7[local28][local377]) {
-                                    local477 = local352[local377] + (local1 << 9);
-                                    local485 = (local4 << 9) + local355[local377];
-                                    local375[local377] = arg4.averageHeight(local477, local485) - arg3.averageHeight(local477, local485);
-                                } else if (arg5 != null && !Static355.aBooleanArrayArray4[local28][local377]) {
-                                    local477 = (local1 << 9) + local352[local377];
-                                    local485 = local355[local377] + (local4 << 9);
-                                    local375[local377] = arg5.averageHeight(local477, local485) - arg4.averageHeight(local477, local485);
+
+                            if (depths != null) {
+                                if (surfaceGround != null && !aBooleanArrayArray7[shape][i]) {
+                                    @Pc(477) int waterX = offsetX[i] + (x << 9);
+                                    @Pc(485) int waterY = (z << 9) + offsetY[i];
+                                    depths[i] = ground.averageHeight(waterX, waterY) - surfaceGround.averageHeight(waterX, waterY);
+                                } else if (underwaterGround != null && !Static355.aBooleanArrayArray4[shape][i]) {
+                                    @Pc(477) int waterX = (x << 9) + offsetX[i];
+                                    @Pc(485) int waterY = offsetY[i] + (z << 9);
+                                    depths[i] = underwaterGround.averageHeight(waterX, waterY) - ground.averageHeight(waterX, waterY);
                                 }
                             }
                         }
-                        local383 = arg4.getHeight(local1, local4);
-                        local388 = arg4.getHeight(local1 + 1, local4);
-                        local477 = arg4.getHeight(local1 - -1, local4 + 1);
-                        local485 = arg4.getHeight(local1, local4 + 1);
-                        @Pc(633) boolean local633 = Static441.isBridgeAt(local4, local1);
-                        if (local633 && arg0 > 1 || !local633 && arg0 > 0) {
-                            @Pc(652) boolean local652 = true;
-                            if (local93 != null && !local93.occludes) {
-                                local652 = false;
-                            } else if (local59 == 0 && local28 != 0) {
-                                local652 = false;
-                            } else if (local48 > 0 && local95 != null && !local95.occludes) {
-                                local652 = false;
+
+                        @Pc(383) int heightSW = ground.getHeight(x, z);
+                        @Pc(388) int heightSE = ground.getHeight(x + 1, z);
+                        @Pc(477) int heightNE = ground.getHeight(x - -1, z + 1);
+                        @Pc(485) int heightNW = ground.getHeight(x, z + 1);
+
+                        @Pc(633) boolean bridge = Static441.isBridgeAt(z, x);
+                        if (bridge && level > 1 || !bridge && level > 0) {
+                            @Pc(652) boolean occlused = true;
+                            if (underlayType != null && !underlayType.occludes) {
+                                occlused = false;
+                            } else if (underlay == 0 && shape != 0) {
+                                occlused = false;
+                            } else if (overlay > 0 && local95 != null && !local95.occludes) {
+                                occlused = false;
                             }
-                            if (local652 && local388 == local383 && local477 == local383 && local383 == local485) {
-                                this.occluderFlags[arg0][local1][local4] = (byte) (this.occluderFlags[arg0][local1][local4] | 0x4);
+
+                            if (occlused && heightSE == heightSW && heightNE == heightSW && heightSW == heightNW) {
+                                this.occluderFlags[level][x][z] = (byte) (this.occluderFlags[level][x][z] | 0x4);
                             }
                         }
-                        @Pc(740) int local740 = 0;
-                        @Pc(742) int local742 = 0;
-                        @Pc(744) int local744 = 0;
+
+                        @Pc(740) int waterColour = 0;
+                        @Pc(742) int waterDepth = 0;
+                        @Pc(744) int waterBias = 0;
+
                         if (this.underwater) {
-                            local740 = Static100.method1987(local1, local4);
-                            local742 = Static350.method5124(local1, local4);
-                            local744 = Static339.method5005(local1, local4);
+                            waterColour = Static100.getWaterColour(x, z);
+                            waterDepth = Static350.getWaterDepth(x, z);
+                            waterBias = Static339.getWaterBias(x, z);
                         }
-                        arg4.method7871(local1, local4, local352, local363, local355, local375, local166, local169, local172, local175, local195, local178, local181, local740, local742, local744);
-                        Static527.method7084(arg0, local1, local4);
+
+                        ground.addTile(x, z, offsetX, offsetLevel, offsetY, depths, faceA, faceB, faceC, colours, blendedColours, textures, sizes, waterColour, waterDepth, waterBias);
+                        Static527.method7084(level, x, z);
                     }
                 }
             }
@@ -310,272 +396,323 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(ILclient!re;[[BIIIIILclient!ha;I[ZLclient!nq;[[B[[B)V")
-    public void method7883(@OriginalArg(0) int arg0, @OriginalArg(1) FloorOverlayType arg1, @OriginalArg(2) byte[][] arg2, @OriginalArg(3) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5, @OriginalArg(7) int arg6, @OriginalArg(8) Toolkit arg7, @OriginalArg(9) int arg8, @OriginalArg(10) boolean[] arg9, @OriginalArg(11) FloorUnderlayType arg10, @OriginalArg(12) byte[][] arg11, @OriginalArg(13) byte[][] arg12) {
-        @Pc(19) boolean[] local19 = arg1 != null && arg1.blendable ? Static463.aBooleanArrayArray6[arg0] : Static435.aBooleanArrayArray5[arg0];
-        @Pc(37) int local37;
-        @Pc(50) FloorOverlayType local50;
-        @Pc(70) byte local70;
-        @Pc(86) int local86;
-        @Pc(91) int local91;
-        if (arg8 > 0) {
-            if (arg4 > 0) {
-                local37 = arg12[arg4 - 1][arg8 - 1] & 0xFF;
-                if (local37 > 0) {
-                    local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                    if (local50.colour != -1 && local50.blendable) {
-                        local70 = arg11[arg4 - 1][arg8 - 1];
-                        local86 = arg2[arg4 - 1][arg8 - 1] * 2 + 4 & 0x7;
-                        local91 = Static718.method9367(local50, arg7);
-                        if (Static499.aBooleanArrayArray7[local70][local86]) {
-                            Static319.anIntArray385[0] = local50.colour;
-                            Static262.anIntArray326[0] = local91;
-                            Static153.anIntArray234[0] = local50.texture;
-                            Static725.anIntArray890[0] = local50.size;
-                            Static615.anIntArray719[0] = local50.blendPriority;
-                            Static248.anIntArray313[0] = 256;
+    public void blendOverlay(@OriginalArg(0) int shape, @OriginalArg(1) FloorOverlayType overlayType, @OriginalArg(2) byte[][] directions, @OriginalArg(3) int width, @OriginalArg(5) int x, @OriginalArg(6) int direction, @OriginalArg(7) int length, @OriginalArg(8) Toolkit toolkit, @OriginalArg(9) int z, @OriginalArg(10) boolean[] arg9, @OriginalArg(11) FloorUnderlayType underlayType, @OriginalArg(12) byte[][] shapes, @OriginalArg(13) byte[][] overlays) {
+        @Pc(19) boolean[] local19 = overlayType != null && overlayType.blendable ? aBooleanArrayArray6[shape] : aBooleanArrayArray5[shape];
+
+        if (z > 0) {
+            if (x > 0) {
+                @Pc(37) int overlaySW = overlays[x - 1][z - 1] & 0xFF;
+
+                if (overlaySW > 0) {
+                    @Pc(50) FloorOverlayType overlayTypeSW = this.floorOverlayTypeList.list(overlaySW - 1);
+                    if (overlayTypeSW.colour != -1 && overlayTypeSW.blendable) {
+                        @Pc(70) byte shapeSW = shapes[x - 1][z - 1];
+                        @Pc(86) int directionSW = ((directions[x - 1][z - 1] * 2) + 4) & 0x7;
+                        @Pc(91) int colourSW = Static718.blendColour(overlayTypeSW, toolkit);
+
+                        if (aBooleanArrayArray7[shapeSW][directionSW]) {
+                            OVERLAY_COLOURS[0] = overlayTypeSW.colour;
+                            OVERLAY_BLEND_COLOURS[0] = colourSW;
+                            OVERLAY_TEXTURES[0] = overlayTypeSW.texture;
+                            OVERLAY_SIZES[0] = overlayTypeSW.size;
+                            OVERLAY_BLEND_PRIORITIES[0] = overlayTypeSW.blendPriority;
+                            anIntArray313[0] = 256;
                         }
                     }
                 }
             }
-            if (arg3 - 1 > arg4) {
-                local37 = arg12[arg4 + 1][arg8 - 1] & 0xFF;
-                if (local37 > 0) {
-                    local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                    if (local50.colour != -1 && local50.blendable) {
-                        local70 = arg11[arg4 + 1][arg8 - 1];
-                        local86 = arg2[arg4 + 1][arg8 - 1] * 2 + 6 & 0x7;
-                        local91 = Static718.method9367(local50, arg7);
-                        if (Static499.aBooleanArrayArray7[local70][local86]) {
-                            Static319.anIntArray385[2] = local50.colour;
-                            Static262.anIntArray326[2] = local91;
-                            Static153.anIntArray234[2] = local50.texture;
-                            Static725.anIntArray890[2] = local50.size;
-                            Static615.anIntArray719[2] = local50.blendPriority;
-                            Static248.anIntArray313[2] = 512;
-                        }
-                    }
-                }
-            }
-        }
-        if (arg6 - 1 > arg8) {
-            if (arg4 > 0) {
-                local37 = arg12[arg4 - 1][arg8 + 1] & 0xFF;
-                if (local37 > 0) {
-                    local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                    if (local50.colour != -1 && local50.blendable) {
-                        local70 = arg11[arg4 - 1][arg8 + 1];
-                        local86 = arg2[arg4 - 1][arg8 + 1] * 2 + 2 & 0x7;
-                        local91 = Static718.method9367(local50, arg7);
-                        if (Static499.aBooleanArrayArray7[local70][local86]) {
-                            Static319.anIntArray385[6] = local50.colour;
-                            Static262.anIntArray326[6] = local91;
-                            Static153.anIntArray234[6] = local50.texture;
-                            Static725.anIntArray890[6] = local50.size;
-                            Static615.anIntArray719[6] = local50.blendPriority;
-                            Static248.anIntArray313[6] = 64;
-                        }
-                    }
-                }
-            }
-            if (arg3 - 1 > arg4) {
-                local37 = arg12[arg4 + 1][arg8 + 1] & 0xFF;
-                if (local37 > 0) {
-                    local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                    if (local50.colour != -1 && local50.blendable) {
-                        local70 = arg11[arg4 + 1][arg8 + 1];
-                        local86 = (arg2[arg4 + 1][arg8 + 1] * 2) & 0x7;
-                        local91 = Static718.method9367(local50, arg7);
-                        if (Static499.aBooleanArrayArray7[local70][local86]) {
-                            Static319.anIntArray385[4] = local50.colour;
-                            Static262.anIntArray326[4] = local91;
-                            Static153.anIntArray234[4] = local50.texture;
-                            Static725.anIntArray890[4] = local50.size;
-                            Static615.anIntArray719[4] = local50.blendPriority;
-                            Static248.anIntArray313[4] = 128;
+
+            if (x < width - 1) {
+                @Pc(37) int overlaySE = overlays[x + 1][z - 1] & 0xFF;
+
+                if (overlaySE > 0) {
+                    @Pc(50) FloorOverlayType overlayTypeSE = this.floorOverlayTypeList.list(overlaySE - 1);
+
+                    if (overlayTypeSE.colour != -1 && overlayTypeSE.blendable) {
+                        @Pc(70) byte shapeSE = shapes[x + 1][z - 1];
+                        @Pc(86) int directionSE = ((directions[x + 1][z - 1] * 2) + 6) & 0x7;
+                        @Pc(91) int colourSE = Static718.blendColour(overlayTypeSE, toolkit);
+                        if (aBooleanArrayArray7[shapeSE][directionSE]) {
+                            OVERLAY_COLOURS[2] = overlayTypeSE.colour;
+                            OVERLAY_BLEND_COLOURS[2] = colourSE;
+                            OVERLAY_TEXTURES[2] = overlayTypeSE.texture;
+                            OVERLAY_SIZES[2] = overlayTypeSE.size;
+                            OVERLAY_BLEND_PRIORITIES[2] = overlayTypeSE.blendPriority;
+                            anIntArray313[2] = 512;
                         }
                     }
                 }
             }
         }
-        @Pc(509) int local509;
-        @Pc(514) int local514;
-        @Pc(516) int local516;
-        @Pc(498) byte local498;
-        if (arg8 > 0) {
-            local37 = arg12[arg4][arg8 - 1] & 0xFF;
-            if (local37 > 0) {
-                local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                if (local50.colour != -1) {
-                    local70 = arg11[arg4][arg8 - 1];
-                    local498 = arg2[arg4][arg8 - 1];
-                    if (local50.blendable) {
-                        local91 = 2;
-                        local509 = local498 * 2 + 4;
-                        local514 = Static718.method9367(local50, arg7);
-                        for (local516 = 0; local516 < 3; local516++) {
-                            local91 &= 0x7;
+
+        if (z < length - 1) {
+            if (x > 0) {
+                @Pc(37) int overlayNW = overlays[x - 1][z + 1] & 0xFF;
+
+                if (overlayNW > 0) {
+                    @Pc(50) FloorOverlayType overlayTypeNW = this.floorOverlayTypeList.list(overlayNW - 1);
+
+                    if (overlayTypeNW.colour != -1 && overlayTypeNW.blendable) {
+                        @Pc(70) byte shapeNW = shapes[x - 1][z + 1];
+                        @Pc(86) int directionNW = directions[x - 1][z + 1] * 2 + 2 & 0x7;
+                        @Pc(91) int colourNW = Static718.blendColour(overlayTypeNW, toolkit);
+
+                        if (aBooleanArrayArray7[shapeNW][directionNW]) {
+                            OVERLAY_COLOURS[6] = overlayTypeNW.colour;
+                            OVERLAY_BLEND_COLOURS[6] = colourNW;
+                            OVERLAY_TEXTURES[6] = overlayTypeNW.texture;
+                            OVERLAY_SIZES[6] = overlayTypeNW.size;
+                            OVERLAY_BLEND_PRIORITIES[6] = overlayTypeNW.blendPriority;
+                            anIntArray313[6] = 64;
+                        }
+                    }
+                }
+            }
+
+            if (width - 1 > x) {
+                @Pc(37) int overlayNE = overlays[x + 1][z + 1] & 0xFF;
+
+                if (overlayNE > 0) {
+                    @Pc(50) FloorOverlayType overlayTypeNE = this.floorOverlayTypeList.list(overlayNE - 1);
+
+                    if (overlayTypeNE.colour != -1 && overlayTypeNE.blendable) {
+                        @Pc(70) byte shapeNE = shapes[x + 1][z + 1];
+                        @Pc(86) int directionNE = (directions[x + 1][z + 1] * 2) & 0x7;
+                        @Pc(91) int colourNE = Static718.blendColour(overlayTypeNE, toolkit);
+
+                        if (aBooleanArrayArray7[shapeNE][directionNE]) {
+                            OVERLAY_COLOURS[4] = overlayTypeNE.colour;
+                            OVERLAY_BLEND_COLOURS[4] = colourNE;
+                            OVERLAY_TEXTURES[4] = overlayTypeNE.texture;
+                            OVERLAY_SIZES[4] = overlayTypeNE.size;
+                            OVERLAY_BLEND_PRIORITIES[4] = overlayTypeNE.blendPriority;
+                            anIntArray313[4] = 128;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (z > 0) {
+            @Pc(37) int overlaySouth = overlays[x][z - 1] & 0xFF;
+
+            if (overlaySouth > 0) {
+                @Pc(50) FloorOverlayType overlayTypeSouth = this.floorOverlayTypeList.list(overlaySouth - 1);
+
+                if (overlayTypeSouth.colour != -1) {
+                    @Pc(70) byte shapeSouth = shapes[x][z - 1];
+                    @Pc(498) byte directionSouth = directions[x][z - 1];
+
+                    if (overlayTypeSouth.blendable) {
+                        @Pc(91) int colour = 2;
+                        @Pc(509) int local509 = (directionSouth * 2) + 4;
+                        @Pc(514) int local514 = Static718.blendColour(overlayTypeSouth, toolkit);
+
+                        for (@Pc(516) int i = 0; i < 3; i++) {
+                            colour &= 0x7;
                             local509 &= 0x7;
-                            if (Static499.aBooleanArrayArray7[local70][local509] && local50.blendPriority >= Static615.anIntArray719[local91]) {
-                                Static319.anIntArray385[local91] = local50.colour;
-                                Static262.anIntArray326[local91] = local514;
-                                Static153.anIntArray234[local91] = local50.texture;
-                                Static725.anIntArray890[local91] = local50.size;
-                                if (Static615.anIntArray719[local91] == local50.blendPriority) {
-                                    Static248.anIntArray313[local91] |= 0x20;
+
+                            if (aBooleanArrayArray7[shapeSouth][local509] && overlayTypeSouth.blendPriority >= OVERLAY_BLEND_PRIORITIES[colour]) {
+                                OVERLAY_COLOURS[colour] = overlayTypeSouth.colour;
+                                OVERLAY_BLEND_COLOURS[colour] = local514;
+                                OVERLAY_TEXTURES[colour] = overlayTypeSouth.texture;
+                                OVERLAY_SIZES[colour] = overlayTypeSouth.size;
+
+                                if (OVERLAY_BLEND_PRIORITIES[colour] == overlayTypeSouth.blendPriority) {
+                                    anIntArray313[colour] |= 0x20;
                                 } else {
-                                    Static248.anIntArray313[local91] = 32;
+                                    anIntArray313[colour] = 0x20;
                                 }
-                                Static615.anIntArray719[local91] = local50.blendPriority;
+
+                                OVERLAY_BLEND_PRIORITIES[colour] = overlayTypeSouth.blendPriority;
                             }
-                            local91--;
+
+                            colour--;
                             local509++;
                         }
-                        if (!local19[arg5 & 0x3]) {
-                            arg9[0] = Static463.aBooleanArrayArray6[local70][local498 + 2 & 0x3];
+
+                        if (!local19[direction & 0x3]) {
+                            arg9[0] = aBooleanArrayArray6[shapeSouth][(directionSouth + 2) & 0x3];
                         }
-                    } else if (!local19[arg5 & 0x3]) {
-                        arg9[0] = Static435.aBooleanArrayArray5[local70][local498 + 2 & 0x3];
+                    } else if (!local19[direction & 0x3]) {
+                        arg9[0] = aBooleanArrayArray5[shapeSouth][(directionSouth + 2) & 0x3];
                     }
                 }
             }
         }
-        if (arg6 - 1 > arg8) {
-            local37 = arg12[arg4][arg8 + 1] & 0xFF;
-            if (local37 > 0) {
-                local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                if (local50.colour != -1) {
-                    local70 = arg11[arg4][arg8 + 1];
-                    local498 = arg2[arg4][arg8 + 1];
-                    if (local50.blendable) {
-                        local91 = 4;
-                        local509 = local498 * 2 + 2;
-                        local514 = Static718.method9367(local50, arg7);
-                        for (local516 = 0; local516 < 3; local516++) {
-                            local91 &= 0x7;
+
+        if (z < length - 1) {
+            @Pc(37) int overlayNorth = overlays[x][z + 1] & 0xFF;
+
+            if (overlayNorth > 0) {
+                @Pc(50) FloorOverlayType overlayTypeNorth = this.floorOverlayTypeList.list(overlayNorth - 1);
+
+                if (overlayTypeNorth.colour != -1) {
+                    @Pc(70) byte shapeNorth = shapes[x][z + 1];
+                    @Pc(498) byte directionNorth = directions[x][z + 1];
+
+                    if (overlayTypeNorth.blendable) {
+                        @Pc(91) int colour = 4;
+                        @Pc(509) int local509 = directionNorth * 2 + 2;
+                        @Pc(514) int local514 = Static718.blendColour(overlayTypeNorth, toolkit);
+
+                        for (@Pc(516) int i = 0; i < 3; i++) {
+                            colour &= 0x7;
                             local509 &= 0x7;
-                            if (Static499.aBooleanArrayArray7[local70][local509] && Static615.anIntArray719[local91] <= local50.blendPriority) {
-                                Static319.anIntArray385[local91] = local50.colour;
-                                Static262.anIntArray326[local91] = local514;
-                                Static153.anIntArray234[local91] = local50.texture;
-                                Static725.anIntArray890[local91] = local50.size;
-                                if (Static615.anIntArray719[local91] == local50.blendPriority) {
-                                    Static248.anIntArray313[local91] |= 0x10;
+
+                            if (aBooleanArrayArray7[shapeNorth][local509] && OVERLAY_BLEND_PRIORITIES[colour] <= overlayTypeNorth.blendPriority) {
+                                OVERLAY_COLOURS[colour] = overlayTypeNorth.colour;
+                                OVERLAY_BLEND_COLOURS[colour] = local514;
+                                OVERLAY_TEXTURES[colour] = overlayTypeNorth.texture;
+                                OVERLAY_SIZES[colour] = overlayTypeNorth.size;
+
+                                if (OVERLAY_BLEND_PRIORITIES[colour] == overlayTypeNorth.blendPriority) {
+                                    anIntArray313[colour] |= 0x10;
                                 } else {
-                                    Static248.anIntArray313[local91] = 16;
+                                    anIntArray313[colour] = 0x10;
                                 }
-                                Static615.anIntArray719[local91] = local50.blendPriority;
+
+                                OVERLAY_BLEND_PRIORITIES[colour] = overlayTypeNorth.blendPriority;
                             }
-                            local91++;
+
+                            colour++;
                             local509--;
                         }
-                        if (!local19[arg5 + 2 & 0x3]) {
-                            arg9[2] = Static463.aBooleanArrayArray6[local70][--local498 & 0x3];
+
+                        if (!local19[(direction + 2) & 0x3]) {
+                            arg9[2] = aBooleanArrayArray6[shapeNorth][--directionNorth & 0x3];
                         }
-                    } else if (!local19[arg5 + 2 & 0x3]) {
-                        arg9[2] = Static435.aBooleanArrayArray5[local70][local498 & 0x3];
+                    } else if (!local19[(direction + 2) & 0x3]) {
+                        arg9[2] = aBooleanArrayArray5[shapeNorth][directionNorth & 0x3];
                     }
                 }
             }
         }
-        if (arg4 > 0) {
-            local37 = arg12[arg4 - 1][arg8] & 0xFF;
-            if (local37 > 0) {
-                local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                if (local50.colour != -1) {
-                    local70 = arg11[arg4 - 1][arg8];
-                    local498 = arg2[arg4 - 1][arg8];
-                    if (local50.blendable) {
-                        local91 = 6;
-                        local509 = local498 * 2 + 4;
-                        local514 = Static718.method9367(local50, arg7);
-                        for (local516 = 0; local516 < 3; local516++) {
-                            local91 &= 0x7;
+
+        if (x > 0) {
+            @Pc(37) int overlayWest = overlays[x - 1][z] & 0xFF;
+
+            if (overlayWest > 0) {
+                @Pc(50) FloorOverlayType overlayTypeWest = this.floorOverlayTypeList.list(overlayWest - 1);
+
+                if (overlayTypeWest.colour != -1) {
+                    @Pc(70) byte shapeWest = shapes[x - 1][z];
+                    @Pc(498) byte directionWest = directions[x - 1][z];
+
+                    if (overlayTypeWest.blendable) {
+                        @Pc(91) int colour = 6;
+                        @Pc(509) int local509 = directionWest * 2 + 4;
+                        @Pc(514) int local514 = Static718.blendColour(overlayTypeWest, toolkit);
+
+                        for (@Pc(516) int i = 0; i < 3; i++) {
+                            colour &= 0x7;
                             local509 &= 0x7;
-                            if (Static499.aBooleanArrayArray7[local70][local509] && Static615.anIntArray719[local91] <= local50.blendPriority) {
-                                Static319.anIntArray385[local91] = local50.colour;
-                                Static262.anIntArray326[local91] = local514;
-                                Static153.anIntArray234[local91] = local50.texture;
-                                Static725.anIntArray890[local91] = local50.size;
-                                if (local50.blendPriority == Static615.anIntArray719[local91]) {
-                                    Static248.anIntArray313[local91] |= 0x8;
+
+                            if (aBooleanArrayArray7[shapeWest][local509] && OVERLAY_BLEND_PRIORITIES[colour] <= overlayTypeWest.blendPriority) {
+                                OVERLAY_COLOURS[colour] = overlayTypeWest.colour;
+                                OVERLAY_BLEND_COLOURS[colour] = local514;
+                                OVERLAY_TEXTURES[colour] = overlayTypeWest.texture;
+                                OVERLAY_SIZES[colour] = overlayTypeWest.size;
+
+                                if (overlayTypeWest.blendPriority == OVERLAY_BLEND_PRIORITIES[colour]) {
+                                    anIntArray313[colour] |= 0x8;
                                 } else {
-                                    Static248.anIntArray313[local91] = 8;
+                                    anIntArray313[colour] = 0x8;
                                 }
-                                Static615.anIntArray719[local91] = local50.blendPriority;
+
+                                OVERLAY_BLEND_PRIORITIES[colour] = overlayTypeWest.blendPriority;
                             }
-                            local91++;
+
+                            colour++;
                             local509--;
                         }
-                        if (!local19[arg5 + 3 & 0x3]) {
-                            arg9[3] = Static463.aBooleanArrayArray6[local70][local498 + 1 & 0x3];
+
+                        if (!local19[(direction + 3) & 0x3]) {
+                            arg9[3] = aBooleanArrayArray6[shapeWest][(directionWest + 1) & 0x3];
                         }
-                    } else if (!local19[arg5 + 3 & 0x3]) {
-                        arg9[3] = Static435.aBooleanArrayArray5[local70][local498 + 1 & 0x3];
+                    } else if (!local19[(direction + 3) & 0x3]) {
+                        arg9[3] = aBooleanArrayArray5[shapeWest][(directionWest + 1) & 0x3];
                     }
                 }
             }
         }
-        if (arg4 < arg3 - 1) {
-            local37 = arg12[arg4 + 1][arg8] & 0xFF;
-            if (local37 > 0) {
-                local50 = this.aFloorOverlayTypeList_6.list(local37 - 1);
-                if (local50.colour != -1) {
-                    local70 = arg11[arg4 + 1][arg8];
-                    local498 = arg2[arg4 + 1][arg8];
-                    if (local50.blendable) {
-                        local91 = 4;
-                        local509 = local498 * 2 + 6;
-                        local514 = Static718.method9367(local50, arg7);
-                        for (local516 = 0; local516 < 3; local516++) {
+
+        if (x < width - 1) {
+            @Pc(37) int overlayEast = overlays[x + 1][z] & 0xFF;
+
+            if (overlayEast > 0) {
+                @Pc(50) FloorOverlayType overlayTypeEast = this.floorOverlayTypeList.list(overlayEast - 1);
+
+                if (overlayTypeEast.colour != -1) {
+                    @Pc(70) byte local70 = shapes[x + 1][z];
+                    @Pc(498) byte local498 = directions[x + 1][z];
+
+                    if (overlayTypeEast.blendable) {
+                        @Pc(91) int colour = 4;
+                        @Pc(509) int local509 = local498 * 2 + 6;
+                        @Pc(514) int local514 = Static718.blendColour(overlayTypeEast, toolkit);
+
+                        for (@Pc(516) int local516 = 0; local516 < 3; local516++) {
                             local509 &= 0x7;
-                            local91 &= 0x7;
-                            if (Static499.aBooleanArrayArray7[local70][local509] && local50.blendPriority >= Static615.anIntArray719[local91]) {
-                                Static319.anIntArray385[local91] = local50.colour;
-                                Static262.anIntArray326[local91] = local514;
-                                Static153.anIntArray234[local91] = local50.texture;
-                                Static725.anIntArray890[local91] = local50.size;
-                                if (Static615.anIntArray719[local91] == local50.blendPriority) {
-                                    Static248.anIntArray313[local91] |= 0x4;
+                            colour &= 0x7;
+
+                            if (aBooleanArrayArray7[local70][local509] && overlayTypeEast.blendPriority >= OVERLAY_BLEND_PRIORITIES[colour]) {
+                                OVERLAY_COLOURS[colour] = overlayTypeEast.colour;
+                                OVERLAY_BLEND_COLOURS[colour] = local514;
+                                OVERLAY_TEXTURES[colour] = overlayTypeEast.texture;
+                                OVERLAY_SIZES[colour] = overlayTypeEast.size;
+
+                                if (OVERLAY_BLEND_PRIORITIES[colour] == overlayTypeEast.blendPriority) {
+                                    anIntArray313[colour] |= 0x4;
                                 } else {
-                                    Static248.anIntArray313[local91] = 4;
+                                    anIntArray313[colour] = 0x4;
                                 }
-                                Static615.anIntArray719[local91] = local50.blendPriority;
+
+                                OVERLAY_BLEND_PRIORITIES[colour] = overlayTypeEast.blendPriority;
                             }
-                            local91--;
+
+                            colour--;
                             local509++;
                         }
-                        if (!local19[arg5 + 1 & 0x3]) {
-                            arg9[1] = Static463.aBooleanArrayArray6[local70][local498 + 3 & 0x3];
+
+                        if (!local19[(direction + 1) & 0x3]) {
+                            arg9[1] = aBooleanArrayArray6[local70][(local498 + 3) & 0x3];
                         }
-                    } else if (!local19[arg5 + 1 & 0x3]) {
-                        arg9[1] = Static435.aBooleanArrayArray5[local70][local498 + 3 & 0x3];
+
+                    } else if (!local19[(direction + 1) & 0x3]) {
+                        arg9[1] = aBooleanArrayArray5[local70][(local498 + 3) & 0x3];
                     }
                 }
             }
         }
-        if (arg1 == null) {
+
+        if (overlayType == null) {
             return;
         }
-        local37 = Static718.method9367(arg1, arg7);
-        if (!arg1.blendable) {
+
+        @Pc(37) int local37 = Static718.blendColour(overlayType, toolkit);
+        if (!overlayType.blendable) {
             return;
         }
-        for (@Pc(1245) int local1245 = 0; local1245 < 8; local1245++) {
-            @Pc(1255) int local1255 = local1245 - arg5 * 2 & 0x7;
-            if (Static499.aBooleanArrayArray7[arg0][local1245] && arg1.blendPriority >= Static615.anIntArray719[local1255]) {
-                Static319.anIntArray385[local1255] = arg1.colour;
-                Static262.anIntArray326[local1255] = local37;
-                Static153.anIntArray234[local1255] = arg1.texture;
-                Static725.anIntArray890[local1255] = arg1.size;
-                if (arg1.blendPriority == Static615.anIntArray719[local1255]) {
-                    Static248.anIntArray313[local1255] |= 0x2;
+
+        for (@Pc(1245) int i = 0; i < 8; i++) {
+            @Pc(1255) int local1255 = (i - (direction * 2)) & 0x7;
+
+            if (aBooleanArrayArray7[shape][i] && overlayType.blendPriority >= OVERLAY_BLEND_PRIORITIES[local1255]) {
+                OVERLAY_COLOURS[local1255] = overlayType.colour;
+                OVERLAY_BLEND_COLOURS[local1255] = local37;
+                OVERLAY_TEXTURES[local1255] = overlayType.texture;
+                OVERLAY_SIZES[local1255] = overlayType.size;
+
+                if (overlayType.blendPriority == OVERLAY_BLEND_PRIORITIES[local1255]) {
+                    anIntArray313[local1255] |= 0x2;
                 } else {
-                    Static248.anIntArray313[local1255] = 2;
+                    anIntArray313[local1255] = 2;
                 }
-                Static615.anIntArray719[local1255] = arg1.blendPriority;
+
+                OVERLAY_BLEND_PRIORITIES[local1255] = overlayType.blendPriority;
             }
         }
-        return;
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "([[IBI)V")
@@ -670,7 +807,7 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(BLclient!ha;Lclient!s;Lclient!s;)V")
-    public final void method7888(@OriginalArg(1) Toolkit arg0, @OriginalArg(2) Ground arg1, @OriginalArg(3) Ground arg2) {
+    public final void method7888(@OriginalArg(1) Toolkit toolkit, @OriginalArg(2) Ground underwaterGround, @OriginalArg(3) Ground surfaceGround) {
         if (Static397.anIntArray482 == null || this.length != Static397.anIntArray482.length) {
             Static501.anIntArray606 = new int[this.length];
             Static418.anIntArray704 = new int[this.length];
@@ -678,9 +815,9 @@ public class Class306 {
             Static359.anIntArray449 = new int[this.length];
             Static467.anIntArray568 = new int[this.length];
         }
-        @Pc(45) int[][] local45 = new int[this.width][this.length];
+        @Pc(45) int[][] colour = new int[this.width][this.length];
         @Pc(50) int local50;
-        for (@Pc(47) int local47 = 0; local47 < this.levels; local47++) {
+        for (@Pc(47) int level = 0; level < this.levels; level++) {
             for (local50 = 0; local50 < this.length; local50++) {
                 Static397.anIntArray482[local50] = 0;
                 Static467.anIntArray568[local50] = 0;
@@ -696,9 +833,9 @@ public class Class306 {
                     local86 = local78 + 5;
                     @Pc(150) int local150;
                     if (local86 < this.width) {
-                        local101 = this.underlay[local47][local86][local81] & 0xFF;
+                        local101 = this.underlay[level][local86][local81] & 0xFF;
                         if (local101 > 0) {
-                            @Pc(114) FloorUnderlayType local114 = this.aFloorUnderlayTypeList_8.list(local101 - 1);
+                            @Pc(114) FloorUnderlayType local114 = this.underlayTypeList.list(local101 - 1);
                             Static397.anIntArray482[local81] += local114.anInt6630;
                             Static467.anIntArray568[local81] += local114.anInt6637;
                             Static501.anIntArray606[local81] += local114.anInt6639;
@@ -708,9 +845,9 @@ public class Class306 {
                     }
                     local101 = local78 - 5;
                     if (local101 >= 0) {
-                        local170 = this.underlay[local47][local101][local81] & 0xFF;
+                        local170 = this.underlay[level][local101][local81] & 0xFF;
                         if (local170 > 0) {
-                            @Pc(180) FloorUnderlayType local180 = this.aFloorUnderlayTypeList_8.list(local170 - 1);
+                            @Pc(180) FloorUnderlayType local180 = this.underlayTypeList.list(local170 - 1);
                             Static397.anIntArray482[local81] -= local180.anInt6630;
                             Static467.anIntArray568[local81] -= local180.anInt6637;
                             Static501.anIntArray606[local81] -= local180.anInt6639;
@@ -743,20 +880,20 @@ public class Class306 {
                             local101 -= Static467.anIntArray568[local291];
                         }
                         if (local244 >= 0 && local240 > 0 && local242 > 0) {
-                            local45[local78][local244] = Static318.method8555(local170 / local242, local101 / local242, local86 * 256 / local240);
+                            colour[local78][local244] = Static318.method8555(local170 / local242, local101 / local242, local86 * 256 / local240);
                         }
                     }
                 }
             }
-            if (Static718.aBoolean822) {
-                this.method7890(local47 == 0 ? arg2 : null, local45, local47 == 0 ? arg1 : null, Static246.ground[local47], arg0, local47);
+            if (Static718.groundBlending) {
+                this.loadBlended(level == 0 ? surfaceGround : null, colour, level == 0 ? underwaterGround : null, Static246.ground[level], toolkit, level);
             } else {
-                this.method7882(local47, arg0, local45, local47 == 0 ? arg2 : null, Static246.ground[local47], local47 == 0 ? arg1 : null);
+                this.loadUnblended(level, toolkit, colour, level == 0 ? surfaceGround : null, Static246.ground[level], level == 0 ? underwaterGround : null);
             }
-            this.underlay[local47] = null;
-            this.overlay[local47] = null;
-            this.tileShapes[local47] = null;
-            this.tileDirections[local47] = null;
+            this.underlay[level] = null;
+            this.overlay[level] = null;
+            this.tileShapes[level] = null;
+            this.tileDirections[level] = null;
         }
         if (!this.underwater) {
             if (Static439.anInt6674 != 0) {
@@ -834,504 +971,561 @@ public class Class306 {
     }
 
     @OriginalMember(owner = "client!qja", name = "a", descriptor = "(Lclient!s;Z[[ILclient!s;Lclient!s;Lclient!ha;I)V")
-    public void method7890(@OriginalArg(0) Ground arg0, @OriginalArg(2) int[][] arg1, @OriginalArg(3) Ground arg2, @OriginalArg(4) Ground arg3, @OriginalArg(5) Toolkit arg4, @OriginalArg(6) int arg5) {
-        @Pc(8) byte[][] local8 = this.tileShapes[arg5];
-        @Pc(13) byte[][] local13 = this.tileDirections[arg5];
-        @Pc(26) byte[][] local26 = this.underlay[arg5];
-        @Pc(31) byte[][] local31 = this.overlay[arg5];
-        for (@Pc(33) int local33 = 0; local33 < this.width; local33++) {
-            @Pc(47) int local47 = this.width - 1 > local33 ? local33 + 1 : local33;
-            for (@Pc(49) int local49 = 0; local49 < this.length; local49++) {
-                @Pc(67) int local67 = local49 < this.length - 1 ? local49 + 1 : local49;
-                if (Static478.anInt7198 == -1 || Static696.isTileVisibleFrom(local49, Static478.anInt7198, local33, arg5)) {
-                    @Pc(83) boolean local83 = false;
-                    @Pc(85) boolean local85 = false;
+    public void loadBlended(@OriginalArg(0) Ground surfaceGround, @OriginalArg(2) int[][] colours, @OriginalArg(3) Ground underwaterGround, @OriginalArg(4) Ground ground, @OriginalArg(5) Toolkit toolkit, @OriginalArg(6) int level) {
+        @Pc(8) byte[][] shapes = this.tileShapes[level];
+        @Pc(13) byte[][] directions = this.tileDirections[level];
+        @Pc(26) byte[][] underlay = this.underlay[level];
+        @Pc(31) byte[][] overlay = this.overlay[level];
+
+        for (@Pc(33) int x = 0; x < this.width; x++) {
+            @Pc(47) int nextX = this.width - 1 > x ? x + 1 : x;
+
+            for (@Pc(49) int z = 0; z < this.length; z++) {
+                @Pc(67) int nextZ = z < this.length - 1 ? z + 1 : z;
+
+                if (AnimatedBackground.level == -1 || Static696.isTileVisibleFrom(z, AnimatedBackground.level, x, level)) {
+                    @Pc(83) boolean allowShadow = false;
+                    @Pc(85) boolean blendable = false;
                     @Pc(88) boolean[] local88 = new boolean[4];
-                    @Pc(94) int local94 = local8[local33][local49];
-                    @Pc(100) int local100 = local13[local33][local49];
-                    @Pc(108) int local108 = local31[local33][local49] & 0xFF;
-                    @Pc(116) int local116 = local26[local33][local49] & 0xFF;
-                    @Pc(124) int local124 = local26[local33][local67] & 0xFF;
-                    @Pc(132) int local132 = local26[local47][local67] & 0xFF;
-                    @Pc(140) int local140 = local26[local47][local49] & 0xFF;
-                    if (local108 != 0 || local116 != 0) {
-                        @Pc(164) FloorOverlayType local164 = local108 == 0 ? null : this.aFloorOverlayTypeList_6.list(local108 - 1);
-                        @Pc(177) FloorUnderlayType local177 = local116 == 0 ? null : this.aFloorUnderlayTypeList_8.list(local116 - 1);
-                        if (local94 == 0 && local164 == null) {
-                            local94 = 12;
+
+                    @Pc(94) int shape = shapes[x][z];
+                    @Pc(100) int direction = directions[x][z];
+                    @Pc(108) int overlaySW = overlay[x][z] & 0xFF;
+
+                    @Pc(116) int underlaySW = underlay[x][z] & 0xFF;
+                    @Pc(124) int underlayNW = underlay[x][nextZ] & 0xFF;
+                    @Pc(132) int underlayNE = underlay[nextX][nextZ] & 0xFF;
+                    @Pc(140) int underlaySE = underlay[nextX][z] & 0xFF;
+
+                    if (overlaySW != 0 || underlaySW != 0) {
+                        @Pc(164) FloorOverlayType overlayType = overlaySW == 0 ? null : this.floorOverlayTypeList.list(overlaySW - 1);
+                        @Pc(177) FloorUnderlayType underlayType = underlaySW == 0 ? null : this.underlayTypeList.list(underlaySW - 1);
+                        if (shape == 0 && overlayType == null) {
+                            shape = 12;
                         }
-                        @Pc(187) FloorOverlayType local187 = local164;
-                        if (local164 != null) {
-                            if (local164.colour == -1 && local164.blendColour == -1) {
-                                local187 = local164;
-                                local164 = null;
-                            } else if (local177 != null && local94 != 0) {
-                                local85 = local164.blendable;
+
+                        @Pc(187) FloorOverlayType local187 = overlayType;
+                        if (overlayType != null) {
+                            if (overlayType.colour != -1 || overlayType.blendColour != -1) {
+                                if (underlayType != null && shape != 0) {
+                                    blendable = overlayType.blendable;
+                                }
+                            } else {
+                                local187 = overlayType;
+                                overlayType = null;
                             }
                         }
-                        @Pc(294) int local294;
-                        @Pc(345) int local345;
-                        @Pc(391) int local391;
-                        @Pc(403) int local403;
-                        if ((local94 == 0 || local94 == 12) && local33 > 0 && local49 > 0 && local33 < this.width && this.length > local49) {
-                            @Pc(276) int local276 = local116 == local26[local47][local49 - 1] ? 1 : -1;
-                            local294 = local26[local33 - 1][local49 - 1] == local116 ? 1 : -1;
-                            @Pc(308) int local308 = local116 == local26[local47][local67] ? 1 : -1;
-                            if (local26[local33][local49 - 1] == local116) {
+
+                        if ((shape == 0 || shape == 12) && x > 0 && z > 0 && x < this.width && this.length > z) {
+                            @Pc(276) int local276 = underlaySW == underlay[nextX][z - 1] ? 1 : -1;
+                            @Pc(294) int local294 = underlay[x - 1][z - 1] == underlaySW ? 1 : -1;
+                            @Pc(308) int local308 = underlaySW == underlay[nextX][nextZ] ? 1 : -1;
+
+                            if (underlay[x][z - 1] == underlaySW) {
                                 local276++;
                                 local294++;
                             } else {
                                 local276--;
                                 local294--;
                             }
-                            local345 = local26[local33 - 1][local67] == local116 ? 1 : -1;
-                            if (local116 == local26[local47][local49]) {
+
+                            @Pc(345) int local345 = underlay[x - 1][nextZ] == underlaySW ? 1 : -1;
+
+                            if (underlaySW == underlay[nextX][z]) {
                                 local308++;
                                 local276++;
                             } else {
                                 local276--;
                                 local308--;
                             }
-                            if (local116 == local26[local33][local67]) {
+
+                            if (underlaySW == underlay[x][nextZ]) {
                                 local308++;
                                 local345++;
                             } else {
                                 local308--;
                                 local345--;
                             }
-                            if (local116 == local26[local33 - 1][local49]) {
+
+                            if (underlaySW == underlay[x - 1][z]) {
                                 local294++;
                                 local345++;
                             } else {
                                 local294--;
                                 local345--;
                             }
-                            local391 = local294 - local308;
+
+                            @Pc(391) int local391 = local294 - local308;
                             if (local391 < 0) {
                                 local391 = -local391;
                             }
-                            local403 = local276 - local345;
+
+                            @Pc(403) int local403 = local276 - local345;
                             if (local403 < 0) {
                                 local403 = -local403;
                             }
+
                             if (local391 == local403) {
-                                local391 = arg3.getHeight(local33, local49) - arg3.getHeight(local47, local67);
+                                local391 = ground.getHeight(x, z) - ground.getHeight(nextX, nextZ);
                                 if (local391 < 0) {
                                     local391 = -local391;
                                 }
-                                local403 = arg3.getHeight(local47, local49) - arg3.getHeight(local33, local67);
+
+                                local403 = ground.getHeight(nextX, z) - ground.getHeight(x, nextZ);
                                 if (local403 < 0) {
                                     local403 = -local403;
                                 }
                             }
-                            local100 = local403 > local391 ? 1 : 0;
+
+                            direction = local403 > local391 ? 1 : 0;
                         }
-                        for (local294 = 0; local294 < 13; local294++) {
-                            Static615.anIntArray719[local294] = -1;
-                            Static248.anIntArray313[local294] = 1;
+
+                        for (@Pc(294) int i = 0; i < 13; i++) {
+                            OVERLAY_BLEND_PRIORITIES[i] = -1;
+                            anIntArray313[i] = 1;
                         }
-                        @Pc(496) boolean[] local496 = local164 != null && local164.blendable ? Static463.aBooleanArrayArray6[local94] : Static435.aBooleanArrayArray5[local94];
-                        this.method7883(local94, local164, local13, this.width, local33, local100, this.length, arg4, local49, local88, local177, local8, local31);
-                        @Pc(532) boolean local532 = local164 != null && local164.colour != local164.blendColour;
-                        if (!local532) {
-                            for (local345 = 0; local345 < 8; local345++) {
-                                if (Static615.anIntArray719[local345] >= 0 && Static262.anIntArray326[local345] != Static319.anIntArray385[local345]) {
-                                    local532 = true;
+
+                        @Pc(496) boolean[] local496 = overlayType != null && overlayType.blendable ? aBooleanArrayArray6[shape] : aBooleanArrayArray5[shape];
+                        this.blendOverlay(shape, overlayType, directions, this.width, x, direction, this.length, toolkit, z, local88, underlayType, shapes, overlay);
+
+                        @Pc(532) boolean blendOverlay = overlayType != null && overlayType.colour != overlayType.blendColour;
+                        if (!blendOverlay) {
+                            for (@Pc(345) int local345 = 0; local345 < 8; local345++) {
+                                if (OVERLAY_BLEND_PRIORITIES[local345] >= 0 && OVERLAY_BLEND_COLOURS[local345] != OVERLAY_COLOURS[local345]) {
+                                    blendOverlay = true;
                                     break;
                                 }
                             }
                         }
-                        if (!local496[local100 + 1 & 0x3]) {
-                            local88[1] = Static588.method7712(local88[1], (Static248.anIntArray313[2] & Static248.anIntArray313[4]) == 0);
+
+                        if (!local496[(direction + 1) & 0x3]) {
+                            local88[1] = Static588.method7712(local88[1], (anIntArray313[2] & anIntArray313[4]) == 0);
                         }
-                        if (!local496[local100 + 3 & 0x3]) {
-                            local88[3] = Static588.method7712(local88[3], (Static248.anIntArray313[6] & Static248.anIntArray313[0]) == 0);
+                        if (!local496[(direction + 3) & 0x3]) {
+                            local88[3] = Static588.method7712(local88[3], (anIntArray313[6] & anIntArray313[0]) == 0);
                         }
-                        if (!local496[local100 & 0x3]) {
-                            local88[0] = Static588.method7712(local88[0], (Static248.anIntArray313[0] & Static248.anIntArray313[2]) == 0);
+                        if (!local496[direction & 0x3]) {
+                            local88[0] = Static588.method7712(local88[0], (anIntArray313[0] & anIntArray313[2]) == 0);
                         }
-                        if (!local496[local100 + 2 & 0x3]) {
-                            local88[2] = Static588.method7712(local88[2], (Static248.anIntArray313[6] & Static248.anIntArray313[4]) == 0);
+                        if (!local496[(direction + 2) & 0x3]) {
+                            local88[2] = Static588.method7712(local88[2], (anIntArray313[6] & anIntArray313[4]) == 0);
                         }
-                        if (!local85 && (local94 == 0 || local94 == 12)) {
+
+                        if (!blendable && (shape == 0 || shape == 12)) {
                             if (local88[0] && !local88[1] && !local88[2] && local88[3]) {
                                 local88[0] = local88[3] = false;
-                                local94 = local94 == 0 ? 13 : 14;
-                                local100 = 0;
+                                shape = shape == 0 ? 13 : 14;
+                                direction = 0;
                             } else if (local88[0] && local88[1] && !local88[2] && !local88[3]) {
-                                local94 = local94 == 0 ? 13 : 14;
-                                local100 = 3;
+                                shape = shape == 0 ? 13 : 14;
+                                direction = 3;
                                 local88[0] = local88[1] = false;
                             } else if (!local88[0] && local88[1] && local88[2] && !local88[3]) {
-                                local94 = local94 == 0 ? 13 : 14;
+                                shape = shape == 0 ? 13 : 14;
                                 local88[1] = local88[2] = false;
-                                local100 = 2;
+                                direction = 2;
                             } else if (!local88[0] && !local88[1] && local88[2] && local88[3]) {
-                                local94 = local94 == 0 ? 13 : 14;
-                                local100 = 1;
+                                shape = shape == 0 ? 13 : 14;
+                                direction = 1;
                                 local88[2] = local88[3] = false;
                             }
                         }
-                        @Pc(909) boolean local909 = !local85 && !local88[0] && !local88[2] && !local88[1] && !local88[3];
+
+                        @Pc(909) boolean local909 = !blendable && !local88[0] && !local88[2] && !local88[1] && !local88[3];
                         @Pc(911) int[] local911 = null;
-                        @Pc(917) int[] local917;
-                        @Pc(934) int[] local934;
-                        @Pc(930) int[] local930;
+                        @Pc(917) int[] faceA;
+                        @Pc(934) int[] faceB;
+                        @Pc(930) int[] faceC;
+                        @Pc(391) int faceUnderlay;
+                        @Pc(403) int faceOverlay;
                         if (local909) {
-                            local917 = Static260.anIntArrayArray96[local94];
-                            local403 = local164 == null ? 0 : Static298.anIntArray366[local94];
-                            local930 = Static551.anIntArrayArray204[local94];
-                            local934 = Static586.anIntArrayArray220[local94];
-                            local391 = local177 == null ? 0 : Static102.anIntArray183[local94];
-                        } else if (local85) {
-                            local930 = Shake.anIntArrayArray86[local94];
-                            local403 = local164 == null ? 0 : Static348.anIntArray424[local94];
-                            local917 = Static233.anIntArrayArray90[local94];
-                            local911 = Static553.anIntArrayArray206[local94];
-                            local934 = Static511.anIntArrayArray193[local94];
-                            local391 = local177 == null ? 0 : Static661.anIntArray468[local94];
+                            faceA = TILE_FACE_A[shape];
+                            faceOverlay = overlayType == null ? 0 : OVERLAY_FACE_COUNT[shape];
+                            faceC = TILE_FACE_C[shape];
+                            faceB = TILE_FACE_B[shape];
+                            faceUnderlay = underlayType == null ? 0 : UNDERLAY_FACE_COUNT[shape];
+                        } else if (blendable) {
+                            faceC = anIntArrayArray86[shape];
+                            faceOverlay = overlayType == null ? 0 : anIntArray424[shape];
+                            faceA = anIntArrayArray90[shape];
+                            local911 = anIntArrayArray206[shape];
+                            faceB = anIntArrayArray193[shape];
+                            faceUnderlay = underlayType == null ? 0 : anIntArray468[shape];
                         } else {
-                            local391 = local177 == null ? 0 : Static381.anIntArray464[local94];
-                            local930 = Static491.anIntArrayArray257[local94];
-                            local403 = local164 == null ? 0 : Static496.anIntArray601[local94];
-                            local917 = Static115.anIntArrayArray56[local94];
-                            local911 = Static264.anIntArrayArray267[local94];
-                            local934 = Static206.anIntArrayArray84[local94];
+                            faceUnderlay = underlayType == null ? 0 : anIntArray464[shape];
+                            faceC = anIntArrayArray257[shape];
+                            faceOverlay = overlayType == null ? 0 : anIntArray601[shape];
+                            faceA = Static115.anIntArrayArray56[shape];
+                            local911 = Static264.anIntArrayArray267[shape];
+                            faceB = Static206.anIntArrayArray84[shape];
                         }
-                        @Pc(1021) int local1021 = local403 + local391;
-                        if (local1021 <= 0) {
-                            Static527.method7084(arg5, local33, local49);
+
+                        @Pc(1021) int faceCount = faceOverlay + faceUnderlay;
+                        if (faceCount <= 0) {
+                            Static527.method7084(level, x, z);
                         } else {
                             if (local88[0]) {
-                                local1021++;
+                                faceCount++;
                             }
                             if (local88[2]) {
-                                local1021++;
+                                faceCount++;
                             }
                             if (local88[1]) {
-                                local1021++;
+                                faceCount++;
                             }
                             if (local88[3]) {
-                                local1021++;
+                                faceCount++;
                             }
+
                             @Pc(1062) int local1062 = 0;
                             @Pc(1064) int local1064 = 0;
-                            @Pc(1068) int local1068 = local1021 * 3;
-                            @Pc(1076) int[] local1076 = local532 ? new int[local1068] : null;
-                            @Pc(1079) int[] local1079 = new int[local1068];
-                            @Pc(1082) int[] local1082 = new int[local1068];
-                            @Pc(1085) int[] local1085 = new int[local1068];
-                            @Pc(1088) int[] local1088 = new int[local1068];
-                            @Pc(1091) int[] local1091 = new int[local1068];
-                            @Pc(1099) int[] local1099 = arg0 == null ? null : new int[local1068];
-                            @Pc(1111) int[] local1111 = arg0 == null && arg2 == null ? null : new int[local1068];
-                            @Pc(1113) int local1113 = -1;
-                            @Pc(1115) int local1115 = -1;
-                            @Pc(1117) int local1117 = 256;
-                            @Pc(1277) byte local1277;
-                            @Pc(1162) int local1162;
-                            @Pc(1164) int local1164;
-                            @Pc(1411) int local1411;
-                            @Pc(1416) int local1416;
-                            @Pc(1425) int local1425;
-                            @Pc(1430) int local1430;
-                            @Pc(1452) int local1452;
-                            @Pc(1435) int local1435;
-                            @Pc(1448) int local1448;
-                            @Pc(1501) int local1501;
-                            @Pc(1508) int local1508;
-                            if (local164 != null) {
-                                local1117 = local164.size;
-                                local1113 = local164.colour;
-                                local1115 = local164.texture;
-                                local1162 = Static718.method9367(local164, arg4);
-                                for (local1164 = 0; local1164 < local403; local1164++) {
-                                    if (local88[-local100 & 0x3] && local911[0] == local1062) {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = 1;
-                                        Static590.anIntArray695[2] = local930[local1062];
-                                        Static590.anIntArray695[3] = 1;
-                                        Static590.anIntArray695[4] = local934[local1062];
-                                        Static590.anIntArray695[5] = local930[local1062];
+                            @Pc(1068) int vertexCount = faceCount * 3;
+                            @Pc(1076) int[] overlayBlendColours = blendOverlay ? new int[vertexCount] : null;
+                            @Pc(1079) int[] local1079 = new int[vertexCount];
+                            @Pc(1082) int[] local1082 = new int[vertexCount];
+                            @Pc(1085) int[] blendedColours = new int[vertexCount];
+                            @Pc(1088) int[] blendedTextures = new int[vertexCount];
+                            @Pc(1091) int[] blendedSizes = new int[vertexCount];
+                            @Pc(1099) int[] local1099 = surfaceGround == null ? null : new int[vertexCount];
+                            @Pc(1111) int[] waterDepths = surfaceGround == null && underwaterGround == null ? null : new int[vertexCount];
+
+                            @Pc(1113) int colour = -1;
+                            @Pc(1115) int texture = -1;
+                            @Pc(1117) int size = 256;
+
+                            if (overlayType == null) {
+                                if (local909) {
+                                    local1062 = OVERLAY_FACE_COUNT[shape];
+                                } else if (blendable) {
+                                    local1062 = anIntArray424[shape];
+                                } else {
+                                    local1062 = anIntArray601[shape];
+                                }
+                            } else {
+                                size = overlayType.size;
+                                colour = overlayType.colour;
+                                texture = overlayType.texture;
+
+                                @Pc(1162) int local1162 = Static718.blendColour(overlayType, toolkit);
+                                @Pc(1277) byte local1277;
+
+                                for (@Pc(1164) int local1164 = 0; local1164 < faceOverlay; local1164++) {
+                                    if (local88[-direction & 0x3] && local911[0] == local1062) {
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = 1;
+                                        anIntArray695[2] = faceC[local1062];
+                                        anIntArray695[3] = 1;
+                                        anIntArray695[4] = faceB[local1062];
+                                        anIntArray695[5] = faceC[local1062];
                                         local1277 = 6;
-                                    } else if (local88[2 - local100 & 0x3] && local911[2] == local1062) {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = 5;
-                                        Static590.anIntArray695[2] = local930[local1062];
-                                        Static590.anIntArray695[3] = 5;
-                                        Static590.anIntArray695[4] = local934[local1062];
-                                        Static590.anIntArray695[5] = local930[local1062];
+                                    } else if (local88[(2 - direction) & 0x3] && local911[2] == local1062) {
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = 5;
+                                        anIntArray695[2] = faceC[local1062];
+                                        anIntArray695[3] = 5;
+                                        anIntArray695[4] = faceB[local1062];
+                                        anIntArray695[5] = faceC[local1062];
                                         local1277 = 6;
-                                    } else if (local88[1 - local100 & 0x3] && local911[1] == local1062) {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = 3;
-                                        Static590.anIntArray695[2] = local930[local1062];
-                                        Static590.anIntArray695[3] = 3;
-                                        Static590.anIntArray695[4] = local934[local1062];
+                                    } else if (local88[(1 - direction) & 0x3] && local911[1] == local1062) {
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = 3;
+                                        anIntArray695[2] = faceC[local1062];
+                                        anIntArray695[3] = 3;
+                                        anIntArray695[4] = faceB[local1062];
                                         local1277 = 6;
-                                        Static590.anIntArray695[5] = local930[local1062];
-                                    } else if (local88[3 - local100 & 0x3] && local911[3] == local1062) {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = 7;
-                                        Static590.anIntArray695[2] = local930[local1062];
-                                        Static590.anIntArray695[3] = 7;
-                                        Static590.anIntArray695[4] = local934[local1062];
+                                        anIntArray695[5] = faceC[local1062];
+                                    } else if (local88[(3 - direction) & 0x3] && local911[3] == local1062) {
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = 7;
+                                        anIntArray695[2] = faceC[local1062];
+                                        anIntArray695[3] = 7;
+                                        anIntArray695[4] = faceB[local1062];
                                         local1277 = 6;
-                                        Static590.anIntArray695[5] = local930[local1062];
+                                        anIntArray695[5] = faceC[local1062];
                                     } else {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = local934[local1062];
-                                        Static590.anIntArray695[2] = local930[local1062];
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = faceB[local1062];
+                                        anIntArray695[2] = faceC[local1062];
                                         local1277 = 3;
                                     }
-                                    for (local1411 = 0; local1411 < local1277; local1411++) {
-                                        local1416 = Static590.anIntArray695[local1411];
-                                        local1425 = local1416 - local100 * 2 & 0x7;
-                                        local1430 = this.anIntArray707[local1416];
-                                        local1435 = this.anIntArray706[local1416];
-                                        if (local100 == 1) {
+
+                                    for (@Pc(1411) int local1411 = 0; local1411 < local1277; local1411++) {
+                                        @Pc(1416) int local1416 = anIntArray695[local1411];
+                                        @Pc(1425) int local1425 = (local1416 - (direction * 2)) & 0x7;
+                                        @Pc(1430) int local1430 = this.tileOffsetX[local1416];
+                                        @Pc(1435) int local1435 = this.tileOffsetY[local1416];
+
+                                        @Pc(1452) int local1452;
+                                        @Pc(1448) int local1448;
+                                        if (direction == 1) {
                                             local1448 = 512 - local1430;
                                             local1452 = local1435;
-                                        } else if (local100 == 2) {
+                                        } else if (direction == 2) {
                                             local1448 = 512 - local1435;
                                             local1452 = 512 - local1430;
-                                        } else if (local100 == 3) {
+                                        } else if (direction == 3) {
                                             local1452 = 512 - local1435;
                                             local1448 = local1430;
                                         } else {
                                             local1452 = local1430;
                                             local1448 = local1435;
                                         }
+
                                         local1079[local1064] = local1452;
                                         local1082[local1064] = local1448;
-                                        if (local1099 != null && Static499.aBooleanArrayArray7[local94][local1416]) {
-                                            local1501 = local1452 + (local33 << 9);
-                                            local1508 = (local49 << 9) + local1448;
-                                            local1099[local1064] = arg0.averageHeight(local1501, local1508) - arg3.averageHeight(local1501, local1508);
+                                        if (local1099 != null && aBooleanArrayArray7[shape][local1416]) {
+                                            @Pc(1501) int local1501 = local1452 + (x << 9);
+                                            @Pc(1508) int local1508 = (z << 9) + local1448;
+                                            local1099[local1064] = surfaceGround.averageHeight(local1501, local1508) - ground.averageHeight(local1501, local1508);
                                         }
-                                        if (local1111 != null) {
-                                            if (arg0 != null && !Static499.aBooleanArrayArray7[local94][local1416]) {
-                                                local1501 = local1452 + (local33 << 9);
-                                                local1508 = (local49 << 9) + local1448;
-                                                local1111[local1064] = arg3.averageHeight(local1501, local1508) - arg0.averageHeight(local1501, local1508);
-                                            } else if (arg2 != null && !Static355.aBooleanArrayArray4[local94][local1416]) {
-                                                local1501 = local1452 + (local33 << 9);
-                                                local1508 = local1448 + (local49 << 9);
-                                                local1111[local1064] = arg2.averageHeight(local1501, local1508) - arg3.averageHeight(local1501, local1508);
+
+                                        if (waterDepths != null) {
+                                            if (surfaceGround != null && !aBooleanArrayArray7[shape][local1416]) {
+                                                @Pc(1501) int local1501 = local1452 + (x << 9);
+                                                @Pc(1508) int local1508 = (z << 9) + local1448;
+                                                waterDepths[local1064] = ground.averageHeight(local1501, local1508) - surfaceGround.averageHeight(local1501, local1508);
+                                            } else if (underwaterGround != null && !Static355.aBooleanArrayArray4[shape][local1416]) {
+                                                @Pc(1501) int local1501 = local1452 + (x << 9);
+                                                @Pc(1508) int local1508 = local1448 + (z << 9);
+                                                waterDepths[local1064] = underwaterGround.averageHeight(local1501, local1508) - ground.averageHeight(local1501, local1508);
                                             }
                                         }
-                                        if (local1416 < 8 && Static615.anIntArray719[local1425] > local164.blendPriority) {
-                                            if (local1076 != null) {
-                                                local1076[local1064] = Static262.anIntArray326[local1425];
+
+                                        if (local1416 < 8 && OVERLAY_BLEND_PRIORITIES[local1425] > overlayType.blendPriority) {
+                                            if (overlayBlendColours != null) {
+                                                overlayBlendColours[local1064] = OVERLAY_BLEND_COLOURS[local1425];
                                             }
-                                            local1091[local1064] = Static725.anIntArray890[local1425];
-                                            local1088[local1064] = Static153.anIntArray234[local1425];
-                                            local1085[local1064] = Static319.anIntArray385[local1425];
+
+                                            blendedSizes[local1064] = OVERLAY_SIZES[local1425];
+                                            blendedTextures[local1064] = OVERLAY_TEXTURES[local1425];
+                                            blendedColours[local1064] = OVERLAY_COLOURS[local1425];
                                         } else {
-                                            if (local1076 != null) {
-                                                local1076[local1064] = local1162;
+                                            if (overlayBlendColours != null) {
+                                                overlayBlendColours[local1064] = local1162;
                                             }
-                                            local1088[local1064] = local164.texture;
-                                            local1091[local1064] = local164.size;
-                                            local1085[local1064] = local1113;
+
+                                            blendedTextures[local1064] = overlayType.texture;
+                                            blendedSizes[local1064] = overlayType.size;
+                                            blendedColours[local1064] = colour;
                                         }
+
                                         local1064++;
                                     }
+
                                     local1062++;
                                 }
-                                if (!this.underwater && arg5 == 0) {
-                                    Static295.method4354(local33, local49, local164.waterColour, local164.waterDepth * 8, local164.waterBias);
+
+                                if (!this.underwater && level == 0) {
+                                    Static295.setWaterParams(x, z, overlayType.waterColour, overlayType.waterDepth * 8, overlayType.waterBias);
                                 }
-                                if (local94 != 12 && local164.colour != -1 && local164.blockShadow) {
-                                    local83 = true;
+
+                                if (shape != 12 && overlayType.colour != -1 && overlayType.blockShadow) {
+                                    allowShadow = true;
                                 }
-                            } else if (local909) {
-                                local1062 = Static298.anIntArray366[local94];
-                            } else if (local85) {
-                                local1062 = Static348.anIntArray424[local94];
-                            } else {
-                                local1062 = Static496.anIntArray601[local94];
                             }
-                            if (local177 != null) {
-                                if (local140 == 0) {
-                                    local140 = local116;
+
+                            if (underlayType != null) {
+                                if (underlaySE == 0) {
+                                    underlaySE = underlaySW;
                                 }
-                                if (local132 == 0) {
-                                    local132 = local116;
+
+                                if (underlayNE == 0) {
+                                    underlayNE = underlaySW;
                                 }
-                                if (local124 == 0) {
-                                    local124 = local116;
+
+                                if (underlayNW == 0) {
+                                    underlayNW = underlaySW;
                                 }
-                                @Pc(1750) FloorUnderlayType local1750 = this.aFloorUnderlayTypeList_8.list(local116 - 1);
-                                @Pc(1758) FloorUnderlayType local1758 = this.aFloorUnderlayTypeList_8.list(local124 - 1);
-                                @Pc(1766) FloorUnderlayType local1766 = this.aFloorUnderlayTypeList_8.list(local132 - 1);
-                                @Pc(1774) FloorUnderlayType local1774 = this.aFloorUnderlayTypeList_8.list(local140 - 1);
-                                for (local1425 = 0; local1425 < local391; local1425++) {
-                                    if (local88[-local100 & 0x3] && local911[0] == local1062) {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = 1;
-                                        Static590.anIntArray695[2] = local930[local1062];
-                                        Static590.anIntArray695[3] = 1;
-                                        Static590.anIntArray695[4] = local934[local1062];
+
+                                @Pc(1750) FloorUnderlayType underlayTypeSW = this.underlayTypeList.list(underlaySW - 1);
+                                @Pc(1758) FloorUnderlayType underlayTypeNW = this.underlayTypeList.list(underlayNW - 1);
+                                @Pc(1766) FloorUnderlayType underlayTypeNE = this.underlayTypeList.list(underlayNE - 1);
+                                @Pc(1774) FloorUnderlayType underlayTypeSE = this.underlayTypeList.list(underlaySE - 1);
+
+                                @Pc(1277) byte local1277;
+                                for (@Pc(1425) int local1425 = 0; local1425 < faceUnderlay; local1425++) {
+                                    if (local88[-direction & 0x3] && local911[0] == local1062) {
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = 1;
+                                        anIntArray695[2] = faceC[local1062];
+                                        anIntArray695[3] = 1;
+                                        anIntArray695[4] = faceB[local1062];
                                         local1277 = 6;
-                                        Static590.anIntArray695[5] = local930[local1062];
-                                    } else if (local88[2 - local100 & 0x3] && local911[2] == local1062) {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = 5;
-                                        Static590.anIntArray695[2] = local930[local1062];
-                                        Static590.anIntArray695[3] = 5;
-                                        Static590.anIntArray695[4] = local934[local1062];
+                                        anIntArray695[5] = faceC[local1062];
+                                    } else if (local88[2 - direction & 0x3] && local911[2] == local1062) {
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = 5;
+                                        anIntArray695[2] = faceC[local1062];
+                                        anIntArray695[3] = 5;
+                                        anIntArray695[4] = faceB[local1062];
                                         local1277 = 6;
-                                        Static590.anIntArray695[5] = local930[local1062];
-                                    } else if (local88[1 - local100 & 0x3] && local911[1] == local1062) {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = 3;
-                                        Static590.anIntArray695[2] = local930[local1062];
-                                        Static590.anIntArray695[3] = 3;
-                                        Static590.anIntArray695[4] = local934[local1062];
+                                        anIntArray695[5] = faceC[local1062];
+                                    } else if (local88[1 - direction & 0x3] && local911[1] == local1062) {
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = 3;
+                                        anIntArray695[2] = faceC[local1062];
+                                        anIntArray695[3] = 3;
+                                        anIntArray695[4] = faceB[local1062];
                                         local1277 = 6;
-                                        Static590.anIntArray695[5] = local930[local1062];
-                                    } else if (local88[3 - local100 & 0x3] && local911[3] == local1062) {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = 7;
-                                        Static590.anIntArray695[2] = local930[local1062];
-                                        Static590.anIntArray695[3] = 7;
-                                        Static590.anIntArray695[4] = local934[local1062];
-                                        Static590.anIntArray695[5] = local930[local1062];
+                                        anIntArray695[5] = faceC[local1062];
+                                    } else if (local88[3 - direction & 0x3] && local911[3] == local1062) {
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = 7;
+                                        anIntArray695[2] = faceC[local1062];
+                                        anIntArray695[3] = 7;
+                                        anIntArray695[4] = faceB[local1062];
+                                        anIntArray695[5] = faceC[local1062];
                                         local1277 = 6;
                                     } else {
-                                        Static590.anIntArray695[0] = local917[local1062];
-                                        Static590.anIntArray695[1] = local934[local1062];
+                                        anIntArray695[0] = faceA[local1062];
+                                        anIntArray695[1] = faceB[local1062];
                                         local1277 = 3;
-                                        Static590.anIntArray695[2] = local930[local1062];
+                                        anIntArray695[2] = faceC[local1062];
                                     }
+
                                     local1062++;
-                                    for (local1430 = 0; local1430 < local1277; local1430++) {
-                                        local1452 = Static590.anIntArray695[local1430];
-                                        local1435 = local1452 - local100 * 2 & 0x7;
-                                        local1448 = this.anIntArray707[local1452];
-                                        local1508 = this.anIntArray706[local1452];
+
+                                    for (@Pc(1430) int local1430 = 0; local1430 < local1277; local1430++) {
+                                        @Pc(1452) int local1452 = anIntArray695[local1430];
+                                        @Pc(1435) int local1435 = (local1452 - (direction * 2)) & 0x7;
+                                        @Pc(1448) int offsetX = this.tileOffsetX[local1452];
+                                        @Pc(1508) int offsetY = this.tileOffsetY[local1452];
+
                                         @Pc(2056) int local2056;
-                                        if (local100 == 1) {
-                                            local1501 = local1508;
-                                            local2056 = 512 - local1448;
-                                        } else if (local100 == 2) {
-                                            local1501 = 512 - local1448;
-                                            local2056 = 512 - local1508;
-                                        } else if (local100 == 3) {
-                                            local2056 = local1448;
-                                            local1501 = 512 - local1508;
+                                        @Pc(1501) int local1501;
+                                        if (direction == 1) {
+                                            local1501 = offsetY;
+                                            local2056 = 512 - offsetX;
+                                        } else if (direction == 2) {
+                                            local1501 = 512 - offsetX;
+                                            local2056 = 512 - offsetY;
+                                        } else if (direction == 3) {
+                                            local2056 = offsetX;
+                                            local1501 = 512 - offsetY;
                                         } else {
-                                            local1501 = local1448;
-                                            local2056 = local1508;
+                                            local1501 = offsetX;
+                                            local2056 = offsetY;
                                         }
+
                                         local1079[local1064] = local1501;
                                         local1082[local1064] = local2056;
+
                                         @Pc(2106) int local2106;
                                         @Pc(2112) int local2112;
-                                        if (local1099 != null && Static499.aBooleanArrayArray7[local94][local1452]) {
-                                            local2106 = local1501 + (local33 << 9);
-                                            local2112 = local2056 + (local49 << 9);
-                                            local1099[local1064] = arg0.averageHeight(local2106, local2112) - arg3.averageHeight(local2106, local2112);
+                                        if (local1099 != null && aBooleanArrayArray7[shape][local1452]) {
+                                            local2106 = local1501 + (x << 9);
+                                            local2112 = local2056 + (z << 9);
+                                            local1099[local1064] = surfaceGround.averageHeight(local2106, local2112) - ground.averageHeight(local2106, local2112);
                                         }
-                                        if (local1111 != null) {
-                                            if (arg0 != null && !Static499.aBooleanArrayArray7[local94][local1452]) {
-                                                local2106 = (local33 << 9) + local1501;
-                                                local2112 = local2056 + (local49 << 9);
-                                                local1111[local1064] = arg3.averageHeight(local2106, local2112) - arg0.averageHeight(local2106, local2112);
-                                            } else if (arg2 != null && !Static355.aBooleanArrayArray4[local94][local1452]) {
-                                                local2106 = local1501 + (local33 << 9);
-                                                local2112 = (local49 << 9) + local2056;
-                                                local1111[local1064] = arg2.averageHeight(local2106, local2112) - arg3.averageHeight(local2106, local2112);
+
+                                        if (waterDepths != null) {
+                                            if (surfaceGround != null && !aBooleanArrayArray7[shape][local1452]) {
+                                                local2106 = (x << 9) + local1501;
+                                                local2112 = local2056 + (z << 9);
+                                                waterDepths[local1064] = ground.averageHeight(local2106, local2112) - surfaceGround.averageHeight(local2106, local2112);
+                                            } else if (underwaterGround != null && !Static355.aBooleanArrayArray4[shape][local1452]) {
+                                                local2106 = local1501 + (x << 9);
+                                                local2112 = (z << 9) + local2056;
+                                                waterDepths[local1064] = underwaterGround.averageHeight(local2106, local2112) - ground.averageHeight(local2106, local2112);
                                             }
                                         }
-                                        if (local1452 < 8 && Static615.anIntArray719[local1435] >= 0) {
-                                            if (local1076 != null) {
-                                                local1076[local1064] = Static262.anIntArray326[local1435];
+
+                                        if (local1452 < 8 && OVERLAY_BLEND_PRIORITIES[local1435] >= 0) {
+                                            if (overlayBlendColours != null) {
+                                                overlayBlendColours[local1064] = OVERLAY_BLEND_COLOURS[local1435];
                                             }
-                                            local1091[local1064] = Static725.anIntArray890[local1435];
-                                            local1088[local1064] = Static153.anIntArray234[local1435];
-                                            local1085[local1064] = Static319.anIntArray385[local1435];
+                                            blendedSizes[local1064] = OVERLAY_SIZES[local1435];
+                                            blendedTextures[local1064] = OVERLAY_TEXTURES[local1435];
+                                            blendedColours[local1064] = OVERLAY_COLOURS[local1435];
                                         } else {
-                                            if (local85 && Static499.aBooleanArrayArray7[local94][local1452]) {
-                                                local1088[local1064] = local1115;
-                                                local1091[local1064] = local1117;
-                                                local1085[local1064] = local1113;
+                                            if (blendable && aBooleanArrayArray7[shape][local1452]) {
+                                                blendedTextures[local1064] = texture;
+                                                blendedSizes[local1064] = size;
+                                                blendedColours[local1064] = colour;
                                             } else if (local1501 == 0 && local2056 == 0) {
-                                                local1085[local1064] = arg1[local33][local49];
-                                                local1088[local1064] = local1750.texture;
-                                                local1091[local1064] = local1750.size;
+                                                blendedColours[local1064] = colours[x][z];
+                                                blendedTextures[local1064] = underlayTypeSW.texture;
+                                                blendedSizes[local1064] = underlayTypeSW.size;
                                             } else if (local1501 == 0 && local2056 == 512) {
-                                                local1085[local1064] = arg1[local33][local67];
-                                                local1088[local1064] = local1758.texture;
-                                                local1091[local1064] = local1758.size;
+                                                blendedColours[local1064] = colours[x][nextZ];
+                                                blendedTextures[local1064] = underlayTypeNW.texture;
+                                                blendedSizes[local1064] = underlayTypeNW.size;
                                             } else if (local1501 == 512 && local2056 == 512) {
-                                                local1085[local1064] = arg1[local47][local67];
-                                                local1088[local1064] = local1766.texture;
-                                                local1091[local1064] = local1766.size;
+                                                blendedColours[local1064] = colours[nextX][nextZ];
+                                                blendedTextures[local1064] = underlayTypeNE.texture;
+                                                blendedSizes[local1064] = underlayTypeNE.size;
                                             } else if (local1501 == 512 && local2056 == 0) {
-                                                local1085[local1064] = arg1[local47][local49];
-                                                local1088[local1064] = local1774.texture;
-                                                local1091[local1064] = local1774.size;
+                                                blendedColours[local1064] = colours[nextX][z];
+                                                blendedTextures[local1064] = underlayTypeSE.texture;
+                                                blendedSizes[local1064] = underlayTypeSE.size;
                                             } else {
                                                 if (local1501 >= 256) {
                                                     if (local2056 < 256) {
-                                                        local1088[local1064] = local1774.texture;
-                                                        local1091[local1064] = local1774.size;
+                                                        blendedTextures[local1064] = underlayTypeSE.texture;
+                                                        blendedSizes[local1064] = underlayTypeSE.size;
                                                     } else {
-                                                        local1088[local1064] = local1766.texture;
-                                                        local1091[local1064] = local1766.size;
+                                                        blendedTextures[local1064] = underlayTypeNE.texture;
+                                                        blendedSizes[local1064] = underlayTypeNE.size;
                                                     }
                                                 } else if (local2056 < 256) {
-                                                    local1088[local1064] = local1750.texture;
-                                                    local1091[local1064] = local1750.size;
+                                                    blendedTextures[local1064] = underlayTypeSW.texture;
+                                                    blendedSizes[local1064] = underlayTypeSW.size;
                                                 } else {
-                                                    local1088[local1064] = local1758.texture;
-                                                    local1091[local1064] = local1758.size;
+                                                    blendedTextures[local1064] = underlayTypeNW.texture;
+                                                    blendedSizes[local1064] = underlayTypeNW.size;
                                                 }
-                                                local2106 = Static273.method3966(arg1[local47][local49], local1501 << 7 >> 9, arg1[local33][local49]);
-                                                local2112 = Static273.method3966(arg1[local47][local67], local1501 << 7 >> 9, arg1[local33][local67]);
-                                                local1085[local1064] = Static273.method3966(local2112, local2056 << 7 >> 9, local2106);
+                                                local2106 = Static273.method3966(colours[nextX][z], local1501 << 7 >> 9, colours[x][z]);
+                                                local2112 = Static273.method3966(colours[nextX][nextZ], local1501 << 7 >> 9, colours[x][nextZ]);
+                                                blendedColours[local1064] = Static273.method3966(local2112, local2056 << 7 >> 9, local2106);
                                             }
-                                            if (local1076 != null) {
-                                                local1076[local1064] = local1085[local1064];
+
+                                            if (overlayBlendColours != null) {
+                                                overlayBlendColours[local1064] = blendedColours[local1064];
                                             }
                                         }
+
                                         local1064++;
                                     }
                                 }
-                                if (local94 != 0 && local177.allowShadow) {
-                                    local83 = true;
+
+                                if (shape != 0 && underlayType.allowShadow) {
+                                    allowShadow = true;
                                 }
                             }
-                            local1162 = arg3.getHeight(local33, local49);
-                            local1164 = arg3.getHeight(local47, local49);
-                            local1411 = arg3.getHeight(local47, local67);
-                            local1416 = arg3.getHeight(local33, local67);
-                            @Pc(2560) boolean local2560 = Static441.isBridgeAt(local49, local33);
-                            if (local2560 && arg5 > 1 || !local2560 && arg5 > 0) {
-                                @Pc(2579) boolean local2579 = true;
-                                if (local177 != null && !local177.occludes) {
-                                    local2579 = false;
-                                } else if (local116 == 0 && local94 != 0) {
-                                    local2579 = false;
-                                } else if (local108 > 0 && local187 != null && !local187.occludes) {
-                                    local2579 = false;
+
+                            @Pc(1162) int heightSW = ground.getHeight(x, z);
+                            @Pc(1164) int heightSE = ground.getHeight(nextX, z);
+                            @Pc(1411) int heightNE = ground.getHeight(nextX, nextZ);
+                            @Pc(1416) int heightNW = ground.getHeight(x, nextZ);
+
+                            @Pc(2560) boolean bridge = Static441.isBridgeAt(z, x);
+                            if (bridge && level > 1 || !bridge && level > 0) {
+                                @Pc(2579) boolean occludes = true;
+
+                                if (underlayType != null && !underlayType.occludes) {
+                                    occludes = false;
+                                } else if (underlaySW == 0 && shape != 0) {
+                                    occludes = false;
+                                } else if (overlaySW > 0 && local187 != null && !local187.occludes) {
+                                    occludes = false;
                                 }
-                                if (local2579 && local1164 == local1162 && local1411 == local1162 && local1162 == local1416) {
-                                    this.occluderFlags[arg5][local33][local49] = (byte) (this.occluderFlags[arg5][local33][local49] | 0x4);
+
+                                if (occludes && heightSE == heightSW && heightNE == heightSW && heightSW == heightNW) {
+                                    this.occluderFlags[level][x][z] = (byte) (this.occluderFlags[level][x][z] | 0x4);
                                 }
                             }
-                            local1430 = 0;
-                            local1452 = 0;
-                            local1435 = 0;
+
+                            @Pc(1430) int waterColour = 0;
+                            @Pc(1452) int waterDepth = 0;
+                            @Pc(1435) int waterBias = 0;
                             if (this.underwater) {
-                                local1430 = Static100.method1987(local33, local49);
-                                local1452 = Static350.method5124(local33, local49);
-                                local1435 = Static339.method5005(local33, local49);
+                                waterColour = Static100.getWaterColour(x, z);
+                                waterDepth = Static350.getWaterDepth(x, z);
+                                waterBias = Static339.getWaterBias(x, z);
                             }
-                            arg3.U(local33, local49, local1079, local1099, local1082, local1111, local1085, local1076, local1088, local1091, local1430, local1452, local1435, local83);
-                            Static527.method7084(arg5, local33, local49);
+
+                            ground.U(x, z, local1079, local1099, local1082, waterDepths, blendedColours, overlayBlendColours, blendedTextures, blendedSizes, waterColour, waterDepth, waterBias, allowShadow);
+                            Static527.method7084(level, x, z);
                         }
                     }
                 }

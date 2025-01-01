@@ -17,7 +17,7 @@ public final class Static295 {
     }
 
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(IIIII)V")
-    public static void method4354(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
+    public static void setWaterParams(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4) {
         if (Static62.waterColour != null) {
             Static62.waterColour[arg0][arg1] = arg2 | 0xFF000000;
         }

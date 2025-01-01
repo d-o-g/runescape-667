@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!vg")
-public final class Class383 {
+public final class JavaComplexBlendedTile {
 
     @OriginalMember(owner = "client!vg", name = "g", descriptor = "[I")
     public int[] anIntArray801;

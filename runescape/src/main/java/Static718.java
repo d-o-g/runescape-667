@@ -8,19 +8,22 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static718 {
 
     @OriginalMember(owner = "client!wo", name = "r", descriptor = "Z")
-    public static boolean aBoolean822 = false;
+    public static boolean groundBlending = false;
 
     @OriginalMember(owner = "client!wo", name = "a", descriptor = "(Lclient!re;BLclient!ha;)I")
-    public static int method9367(@OriginalArg(0) FloorOverlayType arg0, @OriginalArg(2) Toolkit arg1) {
-        if (arg0.blendColour != -1) {
-            return arg0.blendColour;
+    public static int blendColour(@OriginalArg(0) FloorOverlayType overlayType, @OriginalArg(2) Toolkit toolkit) {
+        if (overlayType.blendColour != -1) {
+            return overlayType.blendColour;
         }
-        if (arg0.texture != -1) {
-            @Pc(31) TextureMetrics local31 = arg1.textureSource.getMetrics(arg0.texture);
-            if (!local31.disableable) {
-                return local31.aShort37;
+
+        if (overlayType.texture != -1) {
+            @Pc(31) TextureMetrics metrics = toolkit.textureSource.getMetrics(overlayType.texture);
+
+            if (!metrics.disableable) {
+                return metrics.aShort37;
             }
         }
-        return arg0.colour;
+
+        return overlayType.colour;
     }
 }

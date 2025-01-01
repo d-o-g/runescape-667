@@ -1,8 +1,8 @@
-import com.jagex.math.ColourUtils;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.PointLight;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureMetrics;
+import com.jagex.math.ColourUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -27,19 +27,19 @@ public final class Ground_Sub3 extends Ground {
     public float aFloat166;
 
     @OriginalMember(owner = "client!qs", name = "M", descriptor = "[[Lclient!fg;")
-    public Class127[][] aClass127ArrayArray1;
+    public Class127[][] simpleTiles;
 
     @OriginalMember(owner = "client!qs", name = "F", descriptor = "F")
     public float aFloat167;
 
     @OriginalMember(owner = "client!qs", name = "P", descriptor = "[[Lclient!qh;")
-    public Class305[][] aClass305ArrayArray1;
+    public JavaSimpleBlendedTile[][] simpleBlendedTiles;
 
     @OriginalMember(owner = "client!qs", name = "O", descriptor = "F")
     public float aFloat168;
 
     @OriginalMember(owner = "client!qs", name = "J", descriptor = "[[Lclient!vg;")
-    public Class383[][] aClass383ArrayArray1;
+    public JavaComplexBlendedTile[][] complexBlendedTiles;
 
     @OriginalMember(owner = "client!qs", name = "A", descriptor = "F")
     public float aFloat169;
@@ -54,7 +54,7 @@ public final class Ground_Sub3 extends Ground {
     public float aFloat172;
 
     @OriginalMember(owner = "client!qs", name = "K", descriptor = "[[Lclient!rh;")
-    public Class320[][] aClass320ArrayArray1;
+    public JavaGenericBlendedTile[][] genericBlendedTiles;
 
     @OriginalMember(owner = "client!qs", name = "E", descriptor = "[[Lclient!em;")
     public Class107[][] aClass107ArrayArray1;
@@ -153,7 +153,7 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(IIZLclient!wf;Lclient!lb;[I[I[I[II)V")
     public void method7161(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) JavaThreadResource arg3, @OriginalArg(4) Rasterizer arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int arg9) {
-        @Pc(6) Class320 local6 = this.aClass320ArrayArray1[arg0][arg1];
+        @Pc(6) JavaGenericBlendedTile local6 = this.genericBlendedTiles[arg0][arg1];
         if (arg9 != 0 && (arg9 & 0x2) != 0 || local6 == null) {
             return;
         }
@@ -284,18 +284,21 @@ public final class Ground_Sub3 extends Ground {
     @OriginalMember(owner = "client!qs", name = "U", descriptor = "(II[I[I[I[I[I[I[I[IIIIZ)V")
     @Override
     public void U(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int[] arg9, @OriginalArg(10) int arg10, @OriginalArg(11) int arg11, @OriginalArg(12) int arg12, @OriginalArg(13) boolean arg13) {
-        @Pc(9) boolean local9 = (this.anInt8146 & 0x20) == 0;
-        if (this.aClass305ArrayArray1 == null && !local9) {
-            this.aClass305ArrayArray1 = new Class305[super.anInt8894][super.anInt8892];
-            this.aClass383ArrayArray1 = new Class383[super.anInt8894][super.anInt8892];
-        } else if (this.aClass320ArrayArray1 == null && local9) {
-            this.aClass320ArrayArray1 = new Class320[super.anInt8894][super.anInt8892];
-        } else if (this.aClass127ArrayArray1 != null) {
+        @Pc(9) boolean allTexturesEnabled = (this.anInt8146 & 0x20) == 0;
+
+        if (this.simpleBlendedTiles == null && !allTexturesEnabled) {
+            this.simpleBlendedTiles = new JavaSimpleBlendedTile[super.anInt8894][super.anInt8892];
+            this.complexBlendedTiles = new JavaComplexBlendedTile[super.anInt8894][super.anInt8892];
+        } else if (this.genericBlendedTiles == null && allTexturesEnabled) {
+            this.genericBlendedTiles = new JavaGenericBlendedTile[super.anInt8894][super.anInt8892];
+        } else if (this.simpleTiles != null) {
             throw new IllegalStateException();
         }
+
         if (arg2 == null || arg2.length == 0) {
             return;
         }
+
         for (@Pc(67) int local67 = 0; local67 < arg6.length; local67++) {
             if (arg6[local67] == -1) {
                 arg6[local67] = 0;
@@ -303,6 +306,7 @@ public final class Ground_Sub3 extends Ground {
                 arg6[local67] = ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(arg6[local67]) & 0xFFFF] << 8 | 0xFF;
             }
         }
+
         if (arg7 != null) {
             for (@Pc(106) int local106 = 0; local106 < arg7.length; local106++) {
                 if (arg7[local106] == -1) {
@@ -312,6 +316,7 @@ public final class Ground_Sub3 extends Ground {
                 }
             }
         }
+
         @Pc(205) int local205;
         @Pc(210) int local210;
         @Pc(214) int local214;
@@ -320,21 +325,23 @@ public final class Ground_Sub3 extends Ground {
         @Pc(410) int local410;
         @Pc(498) int local498;
         @Pc(530) int local530;
-        if (local9) {
-            @Pc(147) Class320 local147 = new Class320();
-            local147.aShort110 = (short) arg2.length;
-            local147.aShort109 = (short) (arg2.length / 3);
-            local147.aShortArray116 = new short[local147.aShort110];
-            local147.aShortArray117 = new short[local147.aShort110];
-            local147.aShortArray113 = new short[local147.aShort110];
-            local147.anIntArray646 = new int[local147.aShort110];
-            local147.aShortArray115 = new short[local147.aShort110];
-            local147.aShortArray118 = new short[local147.aShort110];
-            local147.aByteArray92 = new byte[local147.aShort110];
+        if (allTexturesEnabled) {
+            @Pc(147) JavaGenericBlendedTile tile = new JavaGenericBlendedTile();
+            tile.aShort110 = (short) arg2.length;
+            tile.aShort109 = (short) (arg2.length / 3);
+            tile.aShortArray116 = new short[tile.aShort110];
+            tile.aShortArray117 = new short[tile.aShort110];
+            tile.aShortArray113 = new short[tile.aShort110];
+            tile.anIntArray646 = new int[tile.aShort110];
+            tile.aShortArray115 = new short[tile.aShort110];
+            tile.aShortArray118 = new short[tile.aShort110];
+            tile.aByteArray92 = new byte[tile.aShort110];
+
             if (arg5 != null) {
-                local147.aShortArray114 = new short[local147.aShort110];
+                tile.aShortArray114 = new short[tile.aShort110];
             }
-            for (local205 = 0; local205 < local147.aShort110; local205++) {
+
+            for (local205 = 0; local205 < tile.aShort110; local205++) {
                 local210 = arg2[local205];
                 local214 = arg4[local205];
                 if (local210 == 0 && local214 == 0) {
@@ -350,23 +357,27 @@ public final class Ground_Sub3 extends Ground {
                     local410 = (this.aByteArrayArray31[arg0][arg1 + 1] - this.aByteArrayArray30[arg0][arg1 + 1]) * (super.anInt8888 - local210) + (this.aByteArrayArray31[arg0 + 1][arg1 + 1] - this.aByteArrayArray30[arg0 + 1][arg1 + 1]) * local210;
                     local236 = local363 * (super.anInt8888 - local214) + local410 * local214 >> super.anInt8895 * 2;
                 }
+
                 local363 = (arg0 << super.anInt8895) + local210;
                 local410 = (arg1 << super.anInt8895) + local214;
-                local147.aShortArray116[local205] = (short) local210;
-                local147.aShortArray113[local205] = (short) local214;
-                local147.aShortArray117[local205] = (short) (this.averageHeight(local363, local410) + (arg3 == null ? 0 : arg3[local205]));
+
+                tile.aShortArray116[local205] = (short) local210;
+                tile.aShortArray113[local205] = (short) local214;
+                tile.aShortArray117[local205] = (short) (this.averageHeight(local363, local410) + (arg3 == null ? 0 : arg3[local205]));
+
                 if (local236 < 0) {
                     local236 = 0;
                 }
+
                 if (arg6[local205] == 0) {
-                    local147.anIntArray646[local205] = 0;
+                    tile.anIntArray646[local205] = 0;
                     if (arg7 != null) {
-                        local147.aByteArray92[local205] = (byte) local236;
+                        tile.aByteArray92[local205] = (byte) local236;
                     }
                 } else {
                     local498 = 0;
                     if (arg5 != null) {
-                        @Pc(510) short local510 = local147.aShortArray114[local205] = (short) arg5[local205];
+                        @Pc(510) short local510 = tile.aShortArray114[local205] = (short) arg5[local205];
                         if (arg11 != 0) {
                             local498 = local510 * 255 / arg11;
                             if (local498 < 0) {
@@ -376,35 +387,44 @@ public final class Ground_Sub3 extends Ground {
                             }
                         }
                     }
+
                     local530 = -16777216;
                     if (arg8[local205] != -1 && this.method7162(this.aClass19_Sub2_8.textureSource.getMetrics(arg8[local205]).effectType)) {
                         local530 = -1694498816;
                     }
-                    local147.anIntArray646[local205] = local530 | Static572.method7867(arg10, Static732.method7167(arg6[local205] >> 8, local236), local498);
+
+                    tile.anIntArray646[local205] = local530 | Static572.method7867(arg10, Static732.method7167(arg6[local205] >> 8, local236), local498);
                     if (arg7 != null) {
-                        local147.aByteArray92[local205] = (byte) local236;
+                        tile.aByteArray92[local205] = (byte) local236;
                     }
                 }
-                local147.aShortArray115[local205] = (short) arg8[local205];
-                local147.aShortArray118[local205] = (short) arg9[local205];
+
+                tile.aShortArray115[local205] = (short) arg8[local205];
+                tile.aShortArray118[local205] = (short) arg9[local205];
             }
+
             if (arg7 != null) {
-                local147.anIntArray647 = new int[local147.aShort109];
+                tile.anIntArray647 = new int[tile.aShort109];
             }
-            for (local210 = 0; local210 < local147.aShort109; local210++) {
+
+            for (local210 = 0; local210 < tile.aShort109; local210++) {
                 local214 = local210 * 3;
+
                 if (arg7 != null && arg7[local214] != 0) {
-                    local147.anIntArray647[local210] = arg7[local214] >> 8 | 0xFF000000;
+                    tile.anIntArray647[local210] = arg7[local214] >> 8 | 0xFF000000;
                 }
             }
-            this.aClass320ArrayArray1[arg0][arg1] = local147;
+
+            this.genericBlendedTiles[arg0][arg1] = tile;
             return;
         }
+
         @Pc(654) boolean local654 = true;
         local205 = -1;
         local210 = -1;
         local214 = -1;
         local236 = -1;
+
         if (arg2.length == 6) {
             for (local363 = 0; local363 < 6; local363++) {
                 if (arg2[local363] == 0 && arg4[local363] == 0) {
@@ -412,30 +432,36 @@ public final class Ground_Sub3 extends Ground {
                         local654 = false;
                         break;
                     }
+
                     local205 = local363;
                 } else if (arg2[local363] == super.anInt8888 && arg4[local363] == 0) {
                     if (local210 != -1 && arg6[local210] != arg6[local363]) {
                         local654 = false;
                         break;
                     }
+
                     local210 = local363;
                 } else if (arg2[local363] == super.anInt8888 && arg4[local363] == super.anInt8888) {
                     if (local214 != -1 && arg6[local214] != arg6[local363]) {
                         local654 = false;
                         break;
                     }
+
                     local214 = local363;
                 } else if (arg2[local363] == 0 && arg4[local363] == super.anInt8888) {
                     if (local236 != -1 && arg6[local236] != arg6[local363]) {
                         local654 = false;
                         break;
                     }
+
                     local236 = local363;
                 }
             }
+
             if (local205 == -1 || local210 == -1 || local214 == -1 || local236 == -1) {
                 local654 = false;
             }
+
             if (local654) {
                 if (arg3 != null) {
                     for (local410 = 0; local410 < 4; local410++) {
@@ -445,12 +471,14 @@ public final class Ground_Sub3 extends Ground {
                         }
                     }
                 }
+
                 if (local654) {
                     for (local410 = 1; local410 < 4; local410++) {
                         if (arg2[local410] != arg2[0] && arg2[local410] != arg2[0] + super.anInt8888 && arg2[local410] != arg2[0] - super.anInt8888) {
                             local654 = false;
                             break;
                         }
+
                         if (arg4[local410] != arg4[0] && arg4[local410] != arg4[0] + super.anInt8888 && arg4[local410] != arg4[0] - super.anInt8888) {
                             local654 = false;
                             break;
@@ -461,8 +489,9 @@ public final class Ground_Sub3 extends Ground {
         } else {
             local654 = false;
         }
+
         if (!local654) {
-            @Pc(1760) Class383 local1760 = new Class383();
+            @Pc(1760) JavaComplexBlendedTile local1760 = new JavaComplexBlendedTile();
             local1760.aShort128 = (short) arg2.length;
             local1760.aShort129 = (short) (arg2.length / 3);
             local1760.aShortArray142 = new short[local1760.aShort128];
@@ -472,6 +501,7 @@ public final class Ground_Sub3 extends Ground {
             if (arg5 != null) {
                 local1760.aShortArray138 = new short[local1760.aShort128];
             }
+
             @Pc(1834) int local1834;
             @Pc(1961) int local1961;
             @Pc(2008) int local2008;
@@ -479,6 +509,7 @@ public final class Ground_Sub3 extends Ground {
             for (local410 = 0; local410 < local1760.aShort128; local410++) {
                 local498 = arg2[local410];
                 local530 = arg4[local410];
+
                 if (local498 == 0 && local530 == 0) {
                     local1834 = this.aByteArrayArray31[arg0][arg1] - this.aByteArrayArray30[arg0][arg1];
                 } else if (local498 == 0 && local530 == super.anInt8888) {
@@ -492,6 +523,7 @@ public final class Ground_Sub3 extends Ground {
                     local2008 = (this.aByteArrayArray31[arg0][arg1 + 1] - this.aByteArrayArray30[arg0][arg1 + 1]) * (super.anInt8888 - local498) + (this.aByteArrayArray31[arg0 + 1][arg1 + 1] - this.aByteArrayArray30[arg0 + 1][arg1 + 1]) * local498;
                     local1834 = local1961 * (super.anInt8888 - local530) + local2008 * local530 >> super.anInt8895 * 2;
                 }
+
                 local1961 = (arg0 << super.anInt8895) + local498;
                 local2008 = (arg1 << super.anInt8895) + local530;
                 local1760.aShortArray142[local410] = (short) local498;
@@ -500,6 +532,7 @@ public final class Ground_Sub3 extends Ground {
                 if (local1834 < 0) {
                     local1834 = 0;
                 }
+
                 if (arg6[local410] != 0) {
                     local2098 = 0;
                     if (arg5 != null) {
@@ -513,6 +546,7 @@ public final class Ground_Sub3 extends Ground {
                             }
                         }
                     }
+
                     local1760.anIntArray802[local410] = Static572.method7867(arg10, Static732.method7167(arg6[local410] >> 8, local1834), local2098);
                     if (arg7 != null) {
                         local1760.anIntArray802[local410] |= local1834 << 25;
@@ -523,24 +557,29 @@ public final class Ground_Sub3 extends Ground {
                     local1760.anIntArray802[local410] = local1834 << 25;
                 }
             }
+
             @Pc(2164) boolean local2164 = false;
             for (local530 = 0; local530 < local1760.aShort129; local530++) {
                 if (arg8[local530 * 3] != -1 && !this.aClass19_Sub2_8.textureSource.getMetrics(arg8[local530 * 3]).disableable) {
                     local2164 = true;
                 }
             }
+
             if (arg7 != null) {
                 local1760.anIntArray801 = new int[local1760.aShort129];
             }
+
             if (local2164) {
                 local1760.aShortArray139 = new short[local1760.aShort129];
                 local1760.aShortArray140 = new short[local1760.aShort129];
             }
+
             for (local1834 = 0; local1834 < local1760.aShort129; local1834++) {
                 local1961 = local1834 * 3;
                 if (arg7 != null && arg7[local1961] != 0) {
                     local1760.anIntArray801[local1834] = arg7[local1961] >> 8;
                 }
+
                 if (local2164) {
                     local2008 = local1961 + 1;
                     local2098 = local2008 + 1;
@@ -552,18 +591,21 @@ public final class Ground_Sub3 extends Ground {
                     } else {
                         local2258 = true;
                     }
+
                     local2264 = arg8[local2008];
                     if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).disableable) {
                         local2260 = false;
                     } else {
                         local2258 = true;
                     }
+
                     local2264 = arg8[local2098];
                     if (local2264 == -1 || this.aClass19_Sub2_8.textureSource.getMetrics(local2264).disableable) {
                         local2260 = false;
                     } else {
                         local2258 = true;
                     }
+
                     if (local2260) {
                         local1760.aShortArray139[local1834] = (short) local2264;
                         local1760.aShortArray140[local1834] = (short) arg9[local1961];
@@ -586,66 +628,81 @@ public final class Ground_Sub3 extends Ground {
                     }
                 }
             }
-            this.aClass383ArrayArray1[arg0][arg1] = local1760;
+
+            this.complexBlendedTiles[arg0][arg1] = local1760;
             return;
         }
-        @Pc(931) Class305 local931 = new Class305();
+
+        @Pc(931) JavaSimpleBlendedTile local931 = new JavaSimpleBlendedTile();
         local410 = arg6[0];
         local498 = arg8[0];
+
         if (arg7 != null) {
             local931.anInt7770 = arg7[0] >> 8;
+
             if (local410 == 0) {
                 local931.aByte126 = (byte) (local931.aByte126 | 0x2);
             }
         } else if (local410 == 0) {
             return;
         }
+
         if (super.tileHeights[arg0][arg1] == super.tileHeights[arg0 + 1][arg1] && super.tileHeights[arg0][arg1] == super.tileHeights[arg0 + 1][arg1 + 1] && super.tileHeights[arg0][arg1] == super.tileHeights[arg0][arg1 + 1]) {
             local931.aByte126 = (byte) (local931.aByte126 | 0x1);
         }
+
         if (local498 == -1 || (local931.aByte126 & 0x2) != 0 || this.aClass19_Sub2_8.textureSource.getMetrics(local498).disableable) {
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
                 local530 = arg5[local205] * 255 / arg11;
+
                 if (local530 < 0) {
                     local530 = 0;
                 } else if (local530 > 255) {
                     local530 = 255;
                 }
             }
+
             local931.anInt7768 = Static572.method7867(arg10, Static732.method7167(arg6[local205] >> 8, this.aByteArrayArray31[arg0][arg1] - this.aByteArrayArray30[arg0][arg1]), local530);
             if (local931.anInt7770 != 0) {
                 local931.anInt7768 |= this.aByteArrayArray30[arg0][arg1] + 255 - this.aByteArrayArray31[arg0][arg1] << 25;
             }
+
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
                 local530 = arg5[local210] * 255 / arg11;
+
                 if (local530 < 0) {
                     local530 = 0;
                 } else if (local530 > 255) {
                     local530 = 255;
                 }
             }
+
             local931.anInt7771 = Static572.method7867(arg10, Static732.method7167(arg6[local210] >> 8, this.aByteArrayArray31[arg0 + 1][arg1] - this.aByteArrayArray30[arg0 + 1][arg1]), local530);
             if (local931.anInt7770 != 0) {
                 local931.anInt7771 |= this.aByteArrayArray30[arg0 + 1][arg1] + 255 - this.aByteArrayArray31[arg0 + 1][arg1] << 25;
             }
+
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
                 local530 = arg5[local214] * 255 / arg11;
+
                 if (local530 < 0) {
                     local530 = 0;
                 } else if (local530 > 255) {
                     local530 = 255;
                 }
             }
+
             local931.anInt7767 = Static572.method7867(arg10, Static732.method7167(arg6[local214] >> 8, this.aByteArrayArray31[arg0 + 1][arg1 + 1] - this.aByteArrayArray30[arg0 + 1][arg1 + 1]), local530);
             if (local931.anInt7770 != 0) {
                 local931.anInt7767 |= this.aByteArrayArray30[arg0 + 1][arg1 + 1] + 255 - this.aByteArrayArray31[arg0 + 1][arg1 + 1] << 25;
             }
+
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
@@ -656,26 +713,31 @@ public final class Ground_Sub3 extends Ground {
                     local530 = 255;
                 }
             }
+
             local931.anInt7769 = Static572.method7867(arg10, Static732.method7167(arg6[local236] >> 8, this.aByteArrayArray31[arg0][arg1 + 1] - this.aByteArrayArray30[arg0][arg1 + 1]), local530);
             if (local931.anInt7770 != 0) {
                 local931.anInt7769 |= this.aByteArrayArray30[arg0][arg1 + 1] + 255 - this.aByteArrayArray31[arg0][arg1 + 1] << 25;
             }
+
             local931.aShort105 = -1;
         } else {
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
                 local530 = arg5[local205] * 255 / arg11;
+
                 if (local530 < 0) {
                     local530 = 0;
                 } else if (local530 > 255) {
                     local530 = 255;
                 }
             }
+
             local931.anInt7768 = Static572.method7867(arg10, Static732.method7167(arg6[local205] >> 8, this.aByteArrayArray31[arg0][arg1] - this.aByteArrayArray30[arg0][arg1]), local530);
             if (local931.anInt7770 != 0) {
                 local931.anInt7768 |= this.aByteArrayArray30[arg0][arg1] + 255 - this.aByteArrayArray31[arg0][arg1] << 25;
             }
+
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
@@ -686,10 +748,12 @@ public final class Ground_Sub3 extends Ground {
                     local530 = 255;
                 }
             }
+
             local931.anInt7771 = Static572.method7867(arg10, Static732.method7167(arg6[local210] >> 8, this.aByteArrayArray31[arg0 + 1][arg1] - this.aByteArrayArray30[arg0 + 1][arg1]), local530);
             if (local931.anInt7770 != 0) {
                 local931.anInt7771 |= this.aByteArrayArray30[arg0 + 1][arg1] + 255 - this.aByteArrayArray31[arg0 + 1][arg1] << 25;
             }
+
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
@@ -700,30 +764,36 @@ public final class Ground_Sub3 extends Ground {
                     local530 = 255;
                 }
             }
+
             local931.anInt7767 = Static572.method7867(arg10, Static732.method7167(arg6[local214] >> 8, this.aByteArrayArray31[arg0 + 1][arg1 + 1] - this.aByteArrayArray30[arg0 + 1][arg1 + 1]), local530);
             if (local931.anInt7770 != 0) {
                 local931.anInt7767 |= this.aByteArrayArray30[arg0 + 1][arg1 + 1] + 255 - this.aByteArrayArray31[arg0 + 1][arg1 + 1] << 25;
             }
+
             if (arg5 == null || arg11 == 0) {
                 local530 = 0;
             } else {
                 local530 = arg5[local236] * 255 / arg11;
+
                 if (local530 < 0) {
                     local530 = 0;
                 } else if (local530 > 255) {
                     local530 = 255;
                 }
             }
+
             local931.anInt7769 = Static572.method7867(arg10, Static732.method7167(arg6[local236] >> 8, this.aByteArrayArray31[arg0][arg1 + 1] - this.aByteArrayArray30[arg0][arg1 + 1]), local530);
             local931.aShort105 = (short) local498;
         }
+
         if (arg5 != null) {
             local931.aShort106 = (short) arg5[local214];
             local931.aShort104 = (short) arg5[local236];
             local931.aShort103 = (short) arg5[local210];
             local931.aShort107 = (short) arg5[local205];
         }
-        this.aClass305ArrayArray1[arg0][arg1] = local931;
+
+        this.simpleBlendedTiles[arg0][arg1] = local931;
     }
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(I)Z")
@@ -752,8 +822,8 @@ public final class Ground_Sub3 extends Ground {
             for (@Pc(35) int local35 = arg1; local35 < arg3; local35++) {
                 if (arg4[local32 - arg0][local35 - arg1]) {
                     @Pc(85) int local85;
-                    if (this.aClass127ArrayArray1[local32][local35] != null) {
-                        @Pc(62) Class127 local62 = this.aClass127ArrayArray1[local32][local35];
+                    if (this.simpleTiles[local32][local35] != null) {
+                        @Pc(62) Class127 local62 = this.simpleTiles[local32][local35];
                         if (local62.aShort38 != -1 && (local62.aByte59 & 0x2) == 0 && local62.anInt2898 == -1) {
                             local85 = this.aClass19_Sub2_8.method3793(local62.aShort38);
                             arg6.method5156((float) (local30 - 4), (float) (local30 - 4), (float) local30, (float) (local26 + 4), (float) local26, (float) (local26 + 4), 100.0F, 100.0F, 100.0F, (float) Static244.method3513(local62.aShort41 & 0xFFFF, local85), (float) Static244.method3513(local62.aShort40 & 0xFFFF, local85), (float) Static244.method3513(local62.aShort39 & 0xFFFF, local85));
@@ -829,9 +899,9 @@ public final class Ground_Sub3 extends Ground {
                     @Pc(412) int local412;
                     @Pc(416) int local416;
                     @Pc(449) int local449;
-                    if (this.aClass305ArrayArray1 == null) {
-                        if (this.aClass320ArrayArray1[local32][local35] != null) {
-                            @Pc(593) Class320 local593 = this.aClass320ArrayArray1[local32][local35];
+                    if (this.simpleBlendedTiles == null) {
+                        if (this.genericBlendedTiles[local32][local35] != null) {
+                            @Pc(593) JavaGenericBlendedTile local593 = this.genericBlendedTiles[local32][local35];
                             for (local89 = 0; local89 < local593.aShort110; local89++) {
                                 arg7[local89] = local26 + local593.aShortArray116[local89] * 4 / super.anInt8888;
                                 arg8[local89] = local30 - local593.aShortArray113[local89] * 4 / super.anInt8888;
@@ -854,8 +924,8 @@ public final class Ground_Sub3 extends Ground {
                                 }
                             }
                         }
-                    } else if (this.aClass305ArrayArray1[local32][local35] != null) {
-                        @Pc(67) Class305 local67 = this.aClass305ArrayArray1[local32][local35];
+                    } else if (this.simpleBlendedTiles[local32][local35] != null) {
+                        @Pc(67) JavaSimpleBlendedTile local67 = this.simpleBlendedTiles[local32][local35];
                         if (local67.aShort105 != -1 && (local67.aByte126 & 0x2) == 0 && local67.anInt7770 == 0) {
                             local89 = this.aClass19_Sub2_8.method3793(local67.aShort105);
                             arg6.method5156((float) (local30 - 4), (float) (local30 - 4), (float) local30, (float) (local26 + 4), (float) local26, (float) (local26 + 4), 100.0F, 100.0F, 100.0F, (float) Static244.method3513(local67.anInt7767, local89), (float) Static244.method3513(local67.anInt7769, local89), (float) Static244.method3513(local67.anInt7771, local89));
@@ -868,8 +938,8 @@ public final class Ground_Sub3 extends Ground {
                             arg6.renderTriangleRgb((float) (local30 - 4), (float) (local30 - 4), (float) local30, (float) (local26 + 4), (float) local26, (float) (local26 + 4), 100.0F, 100.0F, 100.0F, Static462.method6270(local67.anInt7767 & 0xFF000000, local89), Static462.method6270(local67.anInt7769 & 0xFF000000, local89), Static462.method6270(local67.anInt7771 & 0xFF000000, local89));
                             arg6.renderTriangleRgb((float) local30, (float) local30, (float) (local30 - 4), (float) local26, (float) (local26 + 4), (float) local26, 100.0F, 100.0F, 100.0F, Static462.method6270(local67.anInt7768 & 0xFF000000, local89), Static462.method6270(local67.anInt7771 & 0xFF000000, local89), Static462.method6270(local67.anInt7769 & 0xFF000000, local89));
                         }
-                    } else if (this.aClass383ArrayArray1[local32][local35] != null) {
-                        @Pc(341) Class383 local341 = this.aClass383ArrayArray1[local32][local35];
+                    } else if (this.complexBlendedTiles[local32][local35] != null) {
+                        @Pc(341) JavaComplexBlendedTile local341 = this.complexBlendedTiles[local32][local35];
                         for (local89 = 0; local89 < local341.aShort128; local89++) {
                             arg7[local89] = local26 + local341.aShortArray142[local89] * 4 / super.anInt8888;
                             arg8[local89] = local30 - local341.aShortArray141[local89] * 4 / super.anInt8888;
@@ -907,7 +977,7 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(IILclient!lb;[I[I[I[II)V")
     public void method7165(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Rasterizer arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int arg7) {
-        @Pc(6) Class127 local6 = this.aClass127ArrayArray1[arg0][arg1];
+        @Pc(6) Class127 local6 = this.simpleTiles[arg0][arg1];
         @Pc(50) int local50;
         @Pc(60) int local60;
         @Pc(480) int local480;
@@ -1271,9 +1341,9 @@ public final class Ground_Sub3 extends Ground {
         local7.alpha = 0;
         local7.clamp = true;
         this.aClass19_Sub2_8.ya();
-        if (this.aClass305ArrayArray1 != null || this.aClass320ArrayArray1 != null) {
+        if (this.simpleBlendedTiles != null || this.genericBlendedTiles != null) {
             this.method7164(x1, y1, x2, y2, visibility, local4, local7, local4.anIntArray840, local4.anIntArray843);
-        } else if (this.aClass127ArrayArray1 != null) {
+        } else if (this.simpleTiles != null) {
             this.method7163(x1, y1, x2, y2, visibility, local4, local7, local4.anIntArray840, local4.anIntArray843);
         }
     }
@@ -1285,11 +1355,11 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "a", descriptor = "(II[I[I[I[I[I[I[I[I[I[I[IIIIZ)V")
     @Override
-    public void method7871(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int[] arg9, @OriginalArg(10) int[] arg10, @OriginalArg(11) int[] arg11, @OriginalArg(12) int[] arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14, @OriginalArg(15) int arg15) {
-        if (this.aClass127ArrayArray1 == null) {
-            this.aClass127ArrayArray1 = new Class127[super.anInt8894][super.anInt8892];
+    public void addTile(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int[] arg2, @OriginalArg(3) int[] arg3, @OriginalArg(4) int[] arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int[] arg9, @OriginalArg(10) int[] arg10, @OriginalArg(11) int[] arg11, @OriginalArg(12) int[] arg12, @OriginalArg(13) int arg13, @OriginalArg(14) int arg14, @OriginalArg(15) int arg15) {
+        if (this.simpleTiles == null) {
+            this.simpleTiles = new Class127[super.anInt8894][super.anInt8892];
             this.aClass107ArrayArray1 = new Class107[super.anInt8894][super.anInt8892];
-        } else if (this.aClass305ArrayArray1 != null || this.aClass320ArrayArray1 != null) {
+        } else if (this.simpleBlendedTiles != null || this.genericBlendedTiles != null) {
             throw new IllegalStateException();
         }
         @Pc(33) boolean local33 = false;
@@ -1434,7 +1504,7 @@ public final class Ground_Sub3 extends Ground {
                     local741.aByte59 = (byte) (local741.aByte59 | 0x4);
                 }
             }
-            this.aClass127ArrayArray1[arg0][arg1] = local741;
+            this.simpleTiles[arg0][arg1] = local741;
         }
     }
 
@@ -1448,7 +1518,7 @@ public final class Ground_Sub3 extends Ground {
 
     @OriginalMember(owner = "client!qs", name = "b", descriptor = "(IIZLclient!wf;Lclient!lb;[I[I[I[II)V")
     public void method7166(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2, @OriginalArg(3) JavaThreadResource arg3, @OriginalArg(4) Rasterizer arg4, @OriginalArg(5) int[] arg5, @OriginalArg(6) int[] arg6, @OriginalArg(7) int[] arg7, @OriginalArg(8) int[] arg8, @OriginalArg(9) int arg9) {
-        @Pc(6) Class305 local6 = this.aClass305ArrayArray1[arg0][arg1];
+        @Pc(6) JavaSimpleBlendedTile local6 = this.simpleBlendedTiles[arg0][arg1];
         @Pc(50) int local50;
         @Pc(55) int local55;
         @Pc(60) int local60;
@@ -1458,7 +1528,7 @@ public final class Ground_Sub3 extends Ground {
         @Pc(529) int local529;
         @Pc(589) int local589;
         if (local6 == null) {
-            @Pc(3142) Class383 local3142 = this.aClass383ArrayArray1[arg0][arg1];
+            @Pc(3142) JavaComplexBlendedTile local3142 = this.complexBlendedTiles[arg0][arg1];
             if (local3142 != null) {
                 if (arg9 != 0) {
                     if ((local3142.aByte141 & 0x4) == 0) {
@@ -2112,11 +2182,11 @@ public final class Ground_Sub3 extends Ground {
     public void method7168(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         @Pc(4) JavaThreadResource local4 = this.aClass19_Sub2_8.threadResource(Thread.currentThread());
         local4.rasterizer.alpha = 0;
-        if (this.aClass305ArrayArray1 != null) {
+        if (this.simpleBlendedTiles != null) {
             this.method7166(arg0, arg1, local4.aBoolean805, local4, local4.rasterizer, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
-        } else if (this.aClass127ArrayArray1 != null) {
+        } else if (this.simpleTiles != null) {
             this.method7165(arg0, arg1, local4.rasterizer, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
-        } else if (this.aClass320ArrayArray1 != null) {
+        } else if (this.genericBlendedTiles != null) {
             this.method7161(arg0, arg1, local4.aBoolean805, local4, local4.rasterizer, local4.anIntArray840, local4.anIntArray843, local4.anIntArray852, local4.anIntArray855, arg2);
         }
     }

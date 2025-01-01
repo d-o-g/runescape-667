@@ -2,7 +2,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!qh")
-public final class Class305 {
+public final class JavaSimpleBlendedTile {
 
     @OriginalMember(owner = "client!qh", name = "k", descriptor = "S")
     public short aShort103;

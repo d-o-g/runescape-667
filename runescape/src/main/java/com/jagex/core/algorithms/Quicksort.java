@@ -1,5 +1,6 @@
 package com.jagex.core.algorithms;
 
+import com.jagex.Entity;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -137,6 +138,34 @@ public final class Quicksort {
 
         sort(longs, ints, start, mid - 1);
         sort(longs, ints, mid + 1, end);
+    }
+
+    @OriginalMember(owner = "client!ska", name = "a", descriptor = "([Lclient!eo;II)V")
+    public static void quicksort(@OriginalArg(0) Entity[] entities, @OriginalArg(1) int start, @OriginalArg(2) int end) {
+        if (start >= end) {
+            return;
+        }
+
+        @Pc(8) int pivotIndex = (start + end) / 2;
+        @Pc(10) int mid = start;
+
+        @Pc(14) Entity pivotEntity = entities[pivotIndex];
+        entities[pivotIndex] = entities[end];
+        entities[end] = pivotEntity;
+
+        @Pc(27) int mask = pivotEntity.anInt10697;
+        for (@Pc(29) int i = start; i < end; i++) {
+            if (mask + (i & 0x1) > entities[i].anInt10697) {
+                @Pc(44) Entity tempEntity = entities[i];
+                entities[i] = entities[mid];
+                entities[mid++] = tempEntity;
+            }
+        }
+
+        entities[end] = entities[mid];
+        entities[mid] = pivotEntity;
+        quicksort(entities, start, mid - 1);
+        quicksort(entities, mid + 1, end);
     }
 
     private Quicksort() {

@@ -1,4 +1,5 @@
 import com.jagex.Entity;
+import com.jagex.core.algorithms.Quicksort;
 import com.jagex.game.runetek6.sound.Audio;
 import com.jagex.sound.Node_Sub6_Sub5;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -82,7 +83,7 @@ public final class Static517 {
         }
         @Pc(225) int local225;
         if (Static546.onscreenOpaqueEntityCount > 0) {
-            Static590.quicksort(Static48.aEntityArray3, 0, Static546.onscreenOpaqueEntityCount - 1);
+            Quicksort.quicksort(Static48.aEntityArray3, 0, Static546.onscreenOpaqueEntityCount - 1);
             for (local225 = 0; local225 < Static546.onscreenOpaqueEntityCount; local225++) {
                 Static632.method8368(Static48.aEntityArray3[local225], arg6);
             }

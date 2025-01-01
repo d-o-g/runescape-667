@@ -1,8 +1,8 @@
 import com.jagex.Entity;
 import com.jagex.PickableEntity;
 import com.jagex.graphics.EnvironmentLight;
-import com.jagex.graphics.PointLight;
 import com.jagex.graphics.PickingCylinder;
+import com.jagex.graphics.PointLight;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -28,7 +28,7 @@ public final class Static658 {
                 local6 = arg0.x >> EnvironmentLight.anInt1066;
                 local28 = arg0.z >> EnvironmentLight.anInt1066;
             }
-            Static665.aToolkit_15.EA(Static706.floor[0].averageHeight(arg0.x, arg0.z), Static100.method1987(local6, local28), Static350.method5124(local6, local28), Static339.method5005(local6, local28));
+            Static665.aToolkit_15.EA(Static706.floor[0].averageHeight(arg0.x, arg0.z), Static100.getWaterColour(local6, local28), Static350.getWaterDepth(local6, local28), Static339.getWaterBias(local6, local28));
         }
         @Pc(64) PickableEntity local64 = arg0.render(Static665.aToolkit_15);
         if (local64 == null) {

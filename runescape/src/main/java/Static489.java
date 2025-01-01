@@ -223,8 +223,8 @@ public final class Static489 {
         Static428.aBoolean487 = GameShell.maxmemory >= 96;
         Static50.aBoolean566 = ClientOptions.instance.waterDetail.getValue() == 2;
         Static305.aBoolean371 = ClientOptions.instance.lightDetail.getValue() == 1;
-        Static478.anInt7198 = ClientOptions.instance.animateBackground.getValue() == 1 ? -1 : Static164.areaLevel;
-        Static718.aBoolean822 = ClientOptions.instance.groundBlending.getValue() == 1;
+        AnimatedBackground.level = ClientOptions.instance.animateBackground.getValue() == 1 ? -1 : Static164.areaLevel;
+        Static718.groundBlending = ClientOptions.instance.groundBlending.getValue() == 1;
         Static196.aBoolean262 = ClientOptions.instance.textures.getValue() == 1;
         MapRegion.active = new MapRegion(4, Static720.mapWidth, Static501.mapLength, false);
         if (Static117.areaMode == AreaMode.STATIC_AREA) {

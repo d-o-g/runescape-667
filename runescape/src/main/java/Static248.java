@@ -3,9 +3,6 @@ import org.openrs2.deob.annotation.OriginalMember;
 
 public final class Static248 {
 
-    @OriginalMember(owner = "client!hm", name = "b", descriptor = "[I")
-    public static final int[] anIntArray313 = new int[13];
-
     @OriginalMember(owner = "client!hm", name = "a", descriptor = "(BLclient!wda;)I")
     public static int method3526(@OriginalArg(1) Class397 arg0) {
         if (Static702.aClass397_13 == arg0) {

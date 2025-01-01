@@ -8,9 +8,6 @@ public final class Static102 {
     @OriginalMember(owner = "client!dd", name = "O", descriptor = "[I")
     public static int[] anIntArray184;
 
-    @OriginalMember(owner = "client!dd", name = "F", descriptor = "[I")
-    public static final int[] anIntArray183 = new int[]{0, 1, 2, 2, 1, 1, 2, 3, 1, 3, 3, 4, 2, 0, 4};
-
     @OriginalMember(owner = "client!dd", name = "G", descriptor = "I")
     public static int lastAreaMode = 0;
 

@@ -1,8 +1,0 @@
-import org.openrs2.deob.annotation.OriginalMember;
-
-public final class Static463 {
-
-    @OriginalMember(owner = "client!oka", name = "c", descriptor = "[[Z")
-    public static final boolean[][] aBooleanArrayArray6 = new boolean[][]{new boolean[4], {false, true, true, false}, {true, false, true, false}, {true, false, true, false}, {false, false, true, false}, {false, false, true, false}, {true, false, true, false}, {true, false, false, true}, {true, false, false, true}, {true, true, false, false}, new boolean[4], {false, true, false, true}, new boolean[4]};
-
-}

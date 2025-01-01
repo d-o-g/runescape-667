@@ -18,9 +18,6 @@ public final class Static319 {
     @OriginalMember(owner = "client!kba", name = "K", descriptor = "I")
     public static int permVarcCount = 0;
 
-    @OriginalMember(owner = "client!kba", name = "H", descriptor = "[I")
-    public static final int[] anIntArray385 = new int[13];
-
     @OriginalMember(owner = "client!kba", name = "a", descriptor = "(IBI)Z")
     public static boolean method4594(@OriginalArg(0) int arg0, @OriginalArg(2) int arg1) {
         return Static483.method6488(arg1, arg0) & Static340.method5012(arg1, arg0);

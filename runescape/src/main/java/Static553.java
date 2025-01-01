@@ -5,9 +5,6 @@ import org.openrs2.deob.annotation.Pc;
 
 public final class Static553 {
 
-    @OriginalMember(owner = "client!rga", name = "j", descriptor = "[[I")
-    public static final int[][] anIntArrayArray206 = new int[][]{{0, 1, 2, 3}, {1, -1, -1, 0}, {-1, 2, -1, 0}, {-1, 0, -1, 2}, {0, 1, -1, 2}, {1, 2, -1, 0}, {-1, 4, -1, 1}, {-1, 3, 4, -1}, {-1, 0, 2, -1}, {-1, -1, 2, 0}, {0, 2, 5, 3}, {0, -1, 6, -1}, {0, 1, 2, 3}};
-
     @OriginalMember(owner = "client!rga", name = "a", descriptor = "(IIIIIIIZ)V")
     public static void changeLocation(@OriginalArg(3) int x, @OriginalArg(6) int z, @OriginalArg(4) int level, @OriginalArg(5) int shape, @OriginalArg(0) int rotation, @OriginalArg(2) int layer, @OriginalArg(1) int id) {
         @Pc(7) ChangeLocationRequest local7 = null;

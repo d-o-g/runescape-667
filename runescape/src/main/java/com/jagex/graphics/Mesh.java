@@ -65,16 +65,16 @@ public final class Mesh {
     public int[] texSpaceScaleZ;
 
     @OriginalMember(owner = "client!dv", name = "i", descriptor = "[B")
-    public byte[] shadingTypes;
+    public byte[] shadingType;
 
     @OriginalMember(owner = "client!dv", name = "W", descriptor = "[I")
-    public int[] vertexGroup;
+    public int[] vertexLabel;
 
     @OriginalMember(owner = "client!dv", name = "Z", descriptor = "[S")
     public short[] faceA;
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "[I")
-    public int[] faceGroup;
+    public int[] faceLabel;
 
     @OriginalMember(owner = "client!dv", name = "l", descriptor = "[I")
     public int[] texSpaceScaleX;
@@ -83,7 +83,7 @@ public final class Mesh {
     public short[] texSpaceDefC;
 
     @OriginalMember(owner = "client!dv", name = "E", descriptor = "[B")
-    public byte[] facePriorities;
+    public byte[] facePriority;
 
     @OriginalMember(owner = "client!dv", name = "X", descriptor = "[B")
     public byte[] aByteArray27;
@@ -145,12 +145,12 @@ public final class Mesh {
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "(III)V")
     public Mesh(@OriginalArg(0) int vertexCount, @OriginalArg(1) int faceCount, @OriginalArg(2) int texCount) {
-        this.faceGroup = new int[faceCount];
+        this.faceLabel = new int[faceCount];
         this.faceTexture = new short[faceCount];
         this.faceColour = new short[faceCount];
         this.faceB = new short[faceCount];
-        this.facePriorities = new byte[faceCount];
-        this.shadingTypes = new byte[faceCount];
+        this.facePriority = new byte[faceCount];
+        this.shadingType = new byte[faceCount];
         this.vertexY = new int[vertexCount];
         this.faceA = new short[faceCount];
         if (texCount > 0) {
@@ -168,7 +168,7 @@ public final class Mesh {
             this.texSpaceScaleY = new int[texCount];
         }
         this.vertexX = new int[vertexCount];
-        this.vertexGroup = new int[vertexCount];
+        this.vertexLabel = new int[vertexCount];
         this.vertexZ = new int[vertexCount];
         this.faceTexSpace = new byte[faceCount];
         this.faceAlpha = new byte[faceCount];
@@ -210,10 +210,10 @@ public final class Mesh {
                     emitterCount += mesh.emitters.length;
                 }
 
-                hasShadingTypes |= mesh.shadingTypes != null;
+                hasShadingTypes |= mesh.shadingType != null;
                 hasTexSpaces |= mesh.faceAlpha != null;
 
-                if (mesh.facePriorities != null) {
+                if (mesh.facePriority != null) {
                     hasPriorities = true;
                 } else {
                     if (this.globalPriority == -1) {
@@ -226,7 +226,7 @@ public final class Mesh {
                 }
 
                 hasAlpha |= mesh.faceTexSpace != null;
-                hasFaceGroups |= mesh.faceGroup != null;
+                hasFaceGroups |= mesh.faceLabel != null;
                 hasFaceTextures |= mesh.faceTexture != null;
             }
         }
@@ -234,7 +234,7 @@ public final class Mesh {
         this.vertexX = new int[this.vertexCount];
         this.faceA = new short[this.faceCount];
         if (hasShadingTypes) {
-            this.shadingTypes = new byte[this.faceCount];
+            this.shadingType = new byte[this.faceCount];
         }
         if (effectorCount > 0) {
             this.effectors = new ModelParticleEffector[effectorCount];
@@ -243,7 +243,7 @@ public final class Mesh {
         this.vertexY = new int[this.vertexCount];
         this.aShortArray20 = new short[this.faceCount];
         if (hasFaceGroups) {
-            this.faceGroup = new int[this.faceCount];
+            this.faceLabel = new int[this.faceCount];
         }
         this.faceColour = new short[this.faceCount];
         this.faceB = new short[this.faceCount];
@@ -272,7 +272,7 @@ public final class Mesh {
             this.faceTexSpace = new byte[this.faceCount];
         }
 
-        this.vertexGroup = new int[this.vertexCount];
+        this.vertexLabel = new int[this.vertexCount];
         this.vertexZ = new int[this.vertexCount];
 
         if (hasFaceTextures) {
@@ -288,7 +288,7 @@ public final class Mesh {
         }
 
         if (hasPriorities) {
-            this.facePriorities = new byte[this.faceCount];
+            this.facePriority = new byte[this.faceCount];
         }
 
         effectorCount = 0;
@@ -311,15 +311,15 @@ public final class Mesh {
                 }
 
                 for (@Pc(420) int j = 0; j < mesh.faceCount; j++) {
-                    if (hasShadingTypes && mesh.shadingTypes != null) {
-                        this.shadingTypes[this.faceCount] = mesh.shadingTypes[j];
+                    if (hasShadingTypes && mesh.shadingType != null) {
+                        this.shadingType[this.faceCount] = mesh.shadingType[j];
                     }
 
                     if (hasPriorities) {
-                        if (mesh.facePriorities == null) {
-                            this.facePriorities[this.faceCount] = mesh.globalPriority;
+                        if (mesh.facePriority == null) {
+                            this.facePriority[this.faceCount] = mesh.globalPriority;
                         } else {
-                            this.facePriorities[this.faceCount] = mesh.facePriorities[j];
+                            this.facePriority[this.faceCount] = mesh.facePriority[j];
                         }
                     }
 
@@ -336,10 +336,10 @@ public final class Mesh {
                     }
 
                     if (hasFaceGroups) {
-                        if (mesh.faceGroup == null) {
-                            this.faceGroup[this.faceCount] = -1;
+                        if (mesh.faceLabel == null) {
+                            this.faceLabel[this.faceCount] = -1;
                         } else {
-                            this.faceGroup[this.faceCount] = mesh.faceGroup[j];
+                            this.faceLabel[this.faceCount] = mesh.faceLabel[j];
                         }
                     }
 
@@ -436,7 +436,7 @@ public final class Mesh {
         this.faceA[this.faceCount] = (short) a;
         this.faceB[this.faceCount] = (short) b;
         this.faceC[this.faceCount] = (short) c;
-        this.shadingTypes[this.faceCount] = shading;
+        this.shadingType[this.faceCount] = shading;
         this.faceTexSpace[this.faceCount] = alpha;
         this.faceColour[this.faceCount] = colour;
         this.faceAlpha[this.faceCount] = space;
@@ -476,13 +476,13 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(IZ)[[I")
-    public int[][] vertexGroups(@OriginalArg(1) boolean flag) {
+    public int[][] vertexLabels(@OriginalArg(1) boolean flag) {
         @Pc(8) int[] counts = new int[256];
         @Pc(10) int max = 0;
         @Pc(19) int count = flag ? this.vertexCount : this.maxVertex;
 
         for (@Pc(21) int i = 0; i < count; i++) {
-            @Pc(30) int group = this.vertexGroup[i];
+            @Pc(30) int group = this.vertexLabel[i];
             if (group >= 0) {
                 if (group > max) {
                     max = group;
@@ -499,7 +499,7 @@ public final class Mesh {
         }
 
         for (@Pc(95) int i = 0; i < count; i++) {
-            @Pc(104) int group = this.vertexGroup[i];
+            @Pc(104) int group = this.vertexLabel[i];
 
             if (group >= 0) {
                 groups[group][counts[group]++] = i;
@@ -541,7 +541,7 @@ public final class Mesh {
         @Pc(138) int faceAlphaFlag = packet1.g1();
         @Pc(142) int faceGroupFlag = packet1.g1();
         @Pc(146) int faceTextureFlag = packet1.g1();
-        @Pc(150) int vertexGroupFlag = packet1.g1();
+        @Pc(150) int vertexLabelFlag = packet1.g1();
         @Pc(154) int vertexLengthX = packet1.g2();
         @Pc(158) int vertexLengthY = packet1.g2();
         @Pc(162) int vertexLengthZ = packet1.g2();
@@ -596,8 +596,8 @@ public final class Mesh {
             ptr += this.faceCount;
         }
 
-        @Pc(287) int vertexGroupPtr = ptr;
-        if (vertexGroupFlag == 1) {
+        @Pc(287) int vertexLabelPtr = ptr;
+        if (vertexLabelFlag == 1) {
             ptr += this.vertexCount;
         }
 
@@ -658,7 +658,7 @@ public final class Mesh {
         packet1.pos = vertexFlagsPtr;
 
         if (hasSmoothingTypes) {
-            this.shadingTypes = new byte[this.faceCount];
+            this.shadingType = new byte[this.faceCount];
         }
 
         if (this.texSpaceCount > 0) {
@@ -692,7 +692,7 @@ public final class Mesh {
         }
 
         if (priorityFlag == 255) {
-            this.facePriorities = new byte[this.faceCount];
+            this.facePriority = new byte[this.faceCount];
         } else {
             this.globalPriority = (byte) priorityFlag;
         }
@@ -701,8 +701,8 @@ public final class Mesh {
             this.faceAlpha = new byte[this.faceCount];
         }
 
-        if (vertexGroupFlag == 1) {
-            this.vertexGroup = new int[this.vertexCount];
+        if (vertexLabelFlag == 1) {
+            this.vertexLabel = new int[this.vertexCount];
         }
 
         this.vertexX = new int[this.vertexCount];
@@ -712,7 +712,7 @@ public final class Mesh {
         }
 
         if (faceGroupFlag == 1) {
-            this.faceGroup = new int[this.faceCount];
+            this.faceLabel = new int[this.faceCount];
         }
 
         this.faceB = new short[this.faceCount];
@@ -720,7 +720,7 @@ public final class Mesh {
         packet2.pos = vertexXPtr;
         packet3.pos = vertexYPtr;
         packet4.pos = vertexZPtr;
-        packet5.pos = vertexGroupPtr;
+        packet5.pos = vertexLabelPtr;
 
         @Pc(627) int pvx = 0;
         @Pc(629) int pvy = 0;
@@ -752,8 +752,8 @@ public final class Mesh {
             pvz = this.vertexZ[i];
             pvx = this.vertexX[i];
 
-            if (vertexGroupFlag == 1) {
-                this.vertexGroup[i] = packet5.g1();
+            if (vertexLabelFlag == 1) {
+                this.vertexLabel[i] = packet5.g1();
             }
         }
 
@@ -769,11 +769,11 @@ public final class Mesh {
             this.faceColour[i] = (short) packet1.g2();
 
             if (hasSmoothingTypes) {
-                this.shadingTypes[i] = packet2.g1b();
+                this.shadingType[i] = packet2.g1b();
             }
 
             if (priorityFlag == 255) {
-                this.facePriorities[i] = packet3.g1b();
+                this.facePriority[i] = packet3.g1b();
             }
 
             if (faceAlphaFlag == 1) {
@@ -781,7 +781,7 @@ public final class Mesh {
             }
 
             if (faceGroupFlag == 1) {
-                this.faceGroup[i] = packet5.g1();
+                this.faceLabel[i] = packet5.g1();
             }
 
             if (faceTextureFlag == 1) {
@@ -987,7 +987,7 @@ public final class Mesh {
                     @Pc(1573) byte priority;
 
                     if (priorityFlag == 255) {
-                        priority = this.facePriorities[face];
+                        priority = this.facePriority[face];
                     } else {
                         priority = (byte) priorityFlag;
                     }
@@ -1142,7 +1142,7 @@ public final class Mesh {
 
         @Pc(18) int max = 0;
         for (@Pc(20) int i = 0; i < this.faceCount; i++) {
-            @Pc(29) int group = this.faceGroup[i];
+            @Pc(29) int group = this.faceLabel[i];
 
             if (group >= 0) {
                 @Pc(38) int local38 = counts[group]++;
@@ -1160,7 +1160,7 @@ public final class Mesh {
         }
 
         for (@Pc(87) int i = 0; i < this.faceCount; i++) {
-            @Pc(96) int group = this.faceGroup[i];
+            @Pc(96) int group = this.faceLabel[i];
 
             if (group >= 0) {
                 groups[group][counts[group]++] = i;
@@ -1189,8 +1189,8 @@ public final class Mesh {
         @Pc(57) int texFlag = packet1.g1();
         @Pc(61) int priorityFlag = packet1.g1();
         @Pc(65) int alphaFlag = packet1.g1();
-        @Pc(69) int faceGroupFlag = packet1.g1();
-        @Pc(73) int vertexGroupFlag = packet1.g1();
+        @Pc(69) int faceLabelFlag = packet1.g1();
+        @Pc(73) int vertexLabelFlag = packet1.g1();
         @Pc(77) int xLen = packet1.g2();
         @Pc(81) int yLen = packet1.g2();
         @Pc(85) int zLen = packet1.g2();
@@ -1209,7 +1209,7 @@ public final class Mesh {
         }
 
         @Pc(117) int fGroupPtr = ptr;
-        if (faceGroupFlag == 1) {
+        if (faceLabelFlag == 1) {
             ptr += this.faceCount;
         }
 
@@ -1219,7 +1219,7 @@ public final class Mesh {
         }
 
         @Pc(139) int vGroupPtr = ptr;
-        if (vertexGroupFlag == 1) {
+        if (vertexLabelFlag == 1) {
             ptr += this.vertexCount;
         }
 
@@ -1247,20 +1247,20 @@ public final class Mesh {
         ptr += zLen;
 
         if (priorityFlag == 255) {
-            this.facePriorities = new byte[this.faceCount];
+            this.facePriority = new byte[this.faceCount];
         } else {
             this.globalPriority = (byte) priorityFlag;
         }
 
-        if (faceGroupFlag == 1) {
-            this.faceGroup = new int[this.faceCount];
+        if (faceLabelFlag == 1) {
+            this.faceLabel = new int[this.faceCount];
         }
 
         this.faceColour = new short[this.faceCount];
         this.vertexZ = new int[this.vertexCount];
 
-        if (vertexGroupFlag == 1) {
-            this.vertexGroup = new int[this.vertexCount];
+        if (vertexLabelFlag == 1) {
+            this.vertexLabel = new int[this.vertexCount];
         }
 
         this.faceB = new short[this.faceCount];
@@ -1277,7 +1277,7 @@ public final class Mesh {
         }
 
         if (texFlag == 1) {
-            this.shadingTypes = new byte[this.faceCount];
+            this.shadingType = new byte[this.faceCount];
             this.faceTexture = new short[this.faceCount];
             this.faceTexSpace = new byte[this.faceCount];
         }
@@ -1324,8 +1324,8 @@ public final class Mesh {
             pvy = this.vertexY[i];
             pvz = this.vertexZ[i];
 
-            if (vertexGroupFlag == 1) {
-                this.vertexGroup[i] = packet5.g1();
+            if (vertexLabelFlag == 1) {
+                this.vertexLabel[i] = packet5.g1();
             }
         }
 
@@ -1342,10 +1342,10 @@ public final class Mesh {
                 @Pc(367) int type = packet2.g1();
 
                 if ((type & 0x1) == 1) {
-                    this.shadingTypes[i] = 1;
+                    this.shadingType[i] = 1;
                     hasSmoothingTypes = true;
                 } else {
-                    this.shadingTypes[i] = 0;
+                    this.shadingType[i] = 0;
                 }
 
                 if ((type & 0x2) == 2) {
@@ -1363,15 +1363,15 @@ public final class Mesh {
             }
 
             if (priorityFlag == 255) {
-                this.facePriorities[i] = packet3.g1b();
+                this.facePriority[i] = packet3.g1b();
             }
 
             if (alphaFlag == 1) {
                 this.faceAlpha[i] = packet4.g1b();
             }
 
-            if (faceGroupFlag == 1) {
-                this.faceGroup[i] = packet5.g1();
+            if (faceLabelFlag == 1) {
+                this.faceLabel[i] = packet5.g1();
             }
         }
 
@@ -1483,7 +1483,7 @@ public final class Mesh {
         }
 
         if (!hasSmoothingTypes) {
-            this.shadingTypes = null;
+            this.shadingType = null;
         }
 
         if (!hasTextures) {
@@ -1509,7 +1509,7 @@ public final class Mesh {
         this.vertexZ[this.vertexCount] = z;
 
         this.originModels[this.vertexCount] = modelFlag;
-        this.vertexGroup[this.vertexCount] = mesh.vertexGroup == null ? -1 : mesh.vertexGroup[v];
+        this.vertexLabel[this.vertexCount] = mesh.vertexLabel == null ? -1 : mesh.vertexLabel[v];
 
         return this.vertexCount++;
     }

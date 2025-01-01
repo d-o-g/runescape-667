@@ -141,9 +141,9 @@ public final class SkyBoxSphere {
             }
         }
         mesh.maxVertex = mesh.vertexCount;
-        mesh.faceGroup = null;
-        mesh.vertexGroup = null;
-        mesh.facePriorities = null;
+        mesh.faceLabel = null;
+        mesh.vertexLabel = null;
+        mesh.facePriority = null;
         model = arg0.createModel(mesh, 51200, 33, 64, 768);
     }
 

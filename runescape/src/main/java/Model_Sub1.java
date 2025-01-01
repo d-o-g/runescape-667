@@ -211,7 +211,7 @@ public final class Model_Sub1 extends Model {
         @Pc(15) int[] local15 = new int[arg1.faceCount];
         this.anIntArray243 = new int[arg1.maxVertex + 1];
         for (@Pc(24) int local24 = 0; local24 < arg1.faceCount; local24++) {
-            if (arg1.shadingTypes == null || arg1.shadingTypes[local24] != 2) {
+            if (arg1.shadingType == null || arg1.shadingType[local24] != 2) {
                 if (arg1.faceTexture != null && arg1.faceTexture[local24] != -1) {
                     @Pc(65) TextureMetrics local65 = local11.getMetrics(arg1.faceTexture[local24] & 0xFFFF);
                     if (((this.anInt2765 & 0x40) == 0 || !local65.disableable) && local65.aBoolean234) {
@@ -275,8 +275,8 @@ public final class Model_Sub1 extends Model {
                 }
             }
             @Pc(327) boolean local327 = arg1.faceAlpha != null && arg1.faceAlpha[local167] != 0 || local169 != null && local169.alphaBlendMode != 0;
-            if ((local157 || local327) && arg1.facePriorities != null) {
-                local171 += arg1.facePriorities[local167] << 17;
+            if ((local157 || local327) && arg1.facePriority != null) {
+                local171 += arg1.facePriority[local167] << 17;
             }
             if (local327) {
                 local171 += 65536;
@@ -387,7 +387,7 @@ public final class Model_Sub1 extends Model {
             local899 = local899 * 256 / local957;
             local882 = local882 * 256 / local957;
             local891 = local891 * 256 / local957;
-            @Pc(990) byte local990 = arg1.shadingTypes == null ? 0 : arg1.shadingTypes[local566];
+            @Pc(990) byte local990 = arg1.shadingType == null ? 0 : arg1.shadingType[local566];
             if (local990 == 0) {
                 @Pc(999) Class368 local999 = local470[local798];
                 local999.anInt9597++;
@@ -638,10 +638,10 @@ public final class Model_Sub1 extends Model {
                     }
                 }
             }
-            if (arg1.shadingTypes == null) {
+            if (arg1.shadingType == null) {
                 local1221 = 0;
             } else {
-                local1221 = arg1.shadingTypes[local1120];
+                local1221 = arg1.shadingType[local1120];
             }
             if (local1221 == 0) {
                 @Pc(2456) long local2456 = ((long) local830 + (long) (local1204 << 24) + (long) (local1127 << 8) << 32) + (long) (local819 << 2);
@@ -735,17 +735,17 @@ public final class Model_Sub1 extends Model {
         this.aByteArray32 = Static396.method5550(this.anInt2759, this.aByteArray32);
         this.aFloatArray18 = Static617.method8299(this.anInt2759, this.aFloatArray18);
         this.lb = Static617.method8299(this.anInt2759, this.lb);
-        if (arg1.vertexGroup != null && Static1.method9338(this.anInt2765, arg2)) {
-            this.anIntArrayArray66 = arg1.vertexGroups(false);
+        if (arg1.vertexLabel != null && Static1.method9338(this.anInt2765, arg2)) {
+            this.anIntArrayArray66 = arg1.vertexLabels(false);
         }
         if (arg1.billboards != null && Static178.method2730(arg2, this.anInt2765)) {
             this.anIntArrayArray67 = arg1.getBillboardGroups();
         }
-        if (arg1.faceGroup != null && Static176.method6689(-1, this.anInt2765, arg2)) {
+        if (arg1.faceLabel != null && Static176.method6689(-1, this.anInt2765, arg2)) {
             local1120 = 0;
             @Pc(3065) int[] local3065 = new int[256];
             for (local819 = 0; local819 < this.anInt2715; local819++) {
-                local830 = arg1.faceGroup[local15[local819]];
+                local830 = arg1.faceLabel[local15[local819]];
                 if (local830 >= 0) {
                     @Pc(3082) int local3082 = local3065[local830]++;
                     if (local1120 < local830) {
@@ -759,7 +759,7 @@ public final class Model_Sub1 extends Model {
                 local3065[local830] = 0;
             }
             for (local841 = 0; local841 < this.anInt2715; local841++) {
-                local852 = arg1.faceGroup[local15[local841]];
+                local852 = arg1.faceLabel[local15[local841]];
                 if (local852 >= 0) {
                     this.anIntArrayArray68[local852][local3065[local852]++] = local841;
                 }

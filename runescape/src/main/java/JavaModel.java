@@ -277,11 +277,11 @@ public final class JavaModel extends Model {
         this.aShortArray122 = arg1.faceA;
         this.lb = arg1.faceB;
         this.aShortArray125 = arg1.faceC;
-        this.aByteArray95 = arg1.facePriorities;
+        this.aByteArray95 = arg1.facePriority;
         this.aShortArray120 = arg1.faceColour;
         this.aByteArray96 = arg1.faceAlpha;
         this.aShortArray124 = arg1.aShortArray20;
-        this.aByteArray94 = arg1.shadingTypes;
+        this.aByteArray94 = arg1.shadingType;
         this.aModelParticleEmitterArray5 = arg1.emitters;
         this.aModelParticleEffectorArray5 = arg1.effectors;
         this.aShortArray121 = arg1.originModels;
@@ -570,10 +570,10 @@ public final class JavaModel extends Model {
         if (!local510) {
             this.aFloatArrayArray17 = this.aFloatArrayArray18 = null;
         }
-        if (arg1.vertexGroup != null && (this.anInt8489 & 0x20) != 0) {
-            this.anIntArrayArray212 = arg1.vertexGroups(true);
+        if (arg1.vertexLabel != null && (this.anInt8489 & 0x20) != 0) {
+            this.anIntArrayArray212 = arg1.vertexLabels(true);
         }
-        if (arg1.faceGroup != null && (this.anInt8489 & 0x180) != 0) {
+        if (arg1.faceLabel != null && (this.anInt8489 & 0x180) != 0) {
             this.anIntArrayArray213 = arg1.getFaceGroups();
         }
         if (arg1.billboards != null && (this.anInt8489 & 0x400) != 0) {

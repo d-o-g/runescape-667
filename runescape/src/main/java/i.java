@@ -68,7 +68,7 @@ public final class i extends Model implements SoftwareObject {
             @Pc(184) MeshBillboard local184 = arg2.billboards[local178];
             local110[local112++] = local184.group;
         }
-        this.R(this.anOa2, this.aYa1, arg2.vertexCount, arg2.maxVertex, arg2.vertexX, arg2.vertexY, arg2.vertexZ, arg2.vertexGroup, arg2.originModels, arg2.faceCount, arg2.faceA, arg2.faceB, arg2.faceC, arg2.shadingTypes, arg2.facePriorities, arg2.faceAlpha, arg2.faceTexSpace, arg2.faceColour, arg2.faceTexture, arg2.faceGroup, arg2.globalPriority, arg2.aShortArray20, arg2.texSpaceCount, arg2.texMappingType, arg2.texSpaceDefA, arg2.texSpaceDefB, arg2.texSpaceDefC, arg2.texSpaceScaleX, arg2.texSpaceScaleY, arg2.texSpaceScaleZ, arg2.aByteArray27, arg2.aByteArray23, arg2.anIntArray214, arg2.anIntArray212, arg2.anIntArray206, local43, local24, local34, arg3, arg4, arg5, arg6, local110);
+        this.R(this.anOa2, this.aYa1, arg2.vertexCount, arg2.maxVertex, arg2.vertexX, arg2.vertexY, arg2.vertexZ, arg2.vertexLabel, arg2.originModels, arg2.faceCount, arg2.faceA, arg2.faceB, arg2.faceC, arg2.shadingType, arg2.facePriority, arg2.faceAlpha, arg2.faceTexSpace, arg2.faceColour, arg2.faceTexture, arg2.faceLabel, arg2.globalPriority, arg2.aShortArray20, arg2.texSpaceCount, arg2.texMappingType, arg2.texSpaceDefA, arg2.texSpaceDefB, arg2.texSpaceDefC, arg2.texSpaceScaleX, arg2.texSpaceScaleY, arg2.texSpaceScaleZ, arg2.aByteArray27, arg2.aByteArray23, arg2.anIntArray214, arg2.anIntArray212, arg2.anIntArray206, local43, local24, local34, arg3, arg4, arg5, arg6, local110);
     }
 
     @OriginalMember(owner = "client!i", name = "<init>", descriptor = "(Lclient!oa;)V")

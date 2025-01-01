@@ -1,15 +1,15 @@
-import com.jagex.math.ColourUtils;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.MeshBillboard;
-import com.jagex.graphics.particles.ModelParticleEmitter;
-import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.particles.ModelParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.math.ColourUtils;
 import com.jagex.math.Trig1;
 import jaclib.memory.Buffer;
 import jaclib.memory.Stream;
@@ -274,7 +274,7 @@ public final class Model_Sub1 extends Model {
                     }
                 }
             }
-            @Pc(327) boolean local327 = arg1.faceTexSpace != null && arg1.faceTexSpace[local167] != 0 || local169 != null && local169.alphaBlendMode != 0;
+            @Pc(327) boolean local327 = arg1.faceAlpha != null && arg1.faceAlpha[local167] != 0 || local169 != null && local169.alphaBlendMode != 0;
             if ((local157 || local327) && arg1.facePriorities != null) {
                 local171 += arg1.facePriorities[local167] << 17;
             }
@@ -320,7 +320,7 @@ public final class Model_Sub1 extends Model {
                     throw new RuntimeException();
                 }
                 local566 = ColourUtils.HSL_TO_RGB[arg1.faceColour[local503.face] & 0xFFFF] & 0xFFFFFF;
-                @Pc(585) int local585 = local566 | 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local503.face]) << 24;
+                @Pc(585) int local585 = local566 | 255 - (arg1.faceAlpha == null ? 0 : arg1.faceAlpha[local503.face]) << 24;
                 this.aClass298Array1[local494] = new Class298(local510, arg1.faceA[local503.face], arg1.faceB[local503.face], arg1.faceC[local503.face], local508.anInt9696, local508.anInt9690, local508.anInt9693, local508.anInt9697, local508.anInt9689, local508.aBoolean747, local508.aBoolean748, local503.anInt591);
                 this.aClass18Array1[local494] = new Class18(local585);
             }
@@ -416,15 +416,15 @@ public final class Model_Sub1 extends Model {
         for (local184 = 0; local184 < this.anInt2715; local184++) {
             local1120 = local15[local184];
             @Pc(1127) int local1127 = arg1.faceColour[local1120] & 0xFFFF;
-            if (arg1.faceAlpha == null) {
+            if (arg1.faceTexSpace == null) {
                 local819 = -1;
             } else {
-                local819 = arg1.faceAlpha[local1120];
+                local819 = arg1.faceTexSpace[local1120];
             }
-            if (arg1.faceTexSpace == null) {
+            if (arg1.faceAlpha == null) {
                 local830 = 0;
             } else {
-                local830 = arg1.faceTexSpace[local1120] & 0xFF;
+                local830 = arg1.faceAlpha[local1120] & 0xFF;
             }
             local1164 = arg1.faceTexture == null ? -1 : arg1.faceTexture[local1120];
             if (local1164 != -1 && (this.anInt2765 & 0x40) != 0) {
@@ -661,8 +661,8 @@ public final class Model_Sub1 extends Model {
                 this.aShortArray44[local184] = this.method2555(local2565.anInt6321, 0, local1192, arg1.faceB[local1120], local2565.anInt6320, local184, local1194, local2612 + (long) local1200, local2565.anInt6319, arg1);
                 this.aShortArray51[local184] = this.method2555(local2565.anInt6321, 0, local1196, arg1.faceC[local1120], local2565.anInt6320, local184, local1198, local2612 + (long) local1202, local2565.anInt6319, arg1);
             }
-            if (arg1.faceTexSpace != null) {
-                this.aByteArray33[local184] = arg1.faceTexSpace[local1120];
+            if (arg1.faceAlpha != null) {
+                this.aByteArray33[local184] = arg1.faceAlpha[local1120];
             }
             if (arg1.aShortArray20 != null) {
                 this.aShortArray45[local184] = arg1.aShortArray20[local1120];

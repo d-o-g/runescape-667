@@ -89,7 +89,7 @@ public final class Mesh {
     public byte[] aByteArray27;
 
     @OriginalMember(owner = "client!dv", name = "J", descriptor = "[B")
-    public byte[] faceAlpha;
+    public byte[] faceTexSpace;
 
     @OriginalMember(owner = "client!dv", name = "c", descriptor = "[S")
     public short[] texSpaceDefA;
@@ -110,7 +110,7 @@ public final class Mesh {
     public MeshBillboard[] billboards;
 
     @OriginalMember(owner = "client!dv", name = "B", descriptor = "[B")
-    public byte[] faceTexSpace;
+    public byte[] faceAlpha;
 
     @OriginalMember(owner = "client!dv", name = "n", descriptor = "I")
     public int faceCount = 0;
@@ -144,35 +144,35 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "(III)V")
-    public Mesh(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        this.faceGroup = new int[arg1];
-        this.faceTexture = new short[arg1];
-        this.faceColour = new short[arg1];
-        this.faceB = new short[arg1];
-        this.facePriorities = new byte[arg1];
-        this.shadingTypes = new byte[arg1];
-        this.vertexY = new int[arg0];
-        this.faceA = new short[arg1];
-        if (arg2 > 0) {
-            this.texSpaceDefB = new short[arg2];
-            this.texSpaceScaleX = new int[arg2];
-            this.aByteArray23 = new byte[arg2];
-            this.anIntArray214 = new int[arg2];
-            this.texSpaceDefA = new short[arg2];
-            this.texSpaceDefC = new short[arg2];
-            this.texMappingType = new byte[arg2];
-            this.texSpaceScaleZ = new int[arg2];
-            this.aByteArray27 = new byte[arg2];
-            this.anIntArray212 = new int[arg2];
-            this.anIntArray206 = new int[arg2];
-            this.texSpaceScaleY = new int[arg2];
+    public Mesh(@OriginalArg(0) int vertexCount, @OriginalArg(1) int faceCount, @OriginalArg(2) int texCount) {
+        this.faceGroup = new int[faceCount];
+        this.faceTexture = new short[faceCount];
+        this.faceColour = new short[faceCount];
+        this.faceB = new short[faceCount];
+        this.facePriorities = new byte[faceCount];
+        this.shadingTypes = new byte[faceCount];
+        this.vertexY = new int[vertexCount];
+        this.faceA = new short[faceCount];
+        if (texCount > 0) {
+            this.texSpaceDefB = new short[texCount];
+            this.texSpaceScaleX = new int[texCount];
+            this.aByteArray23 = new byte[texCount];
+            this.anIntArray214 = new int[texCount];
+            this.texSpaceDefA = new short[texCount];
+            this.texSpaceDefC = new short[texCount];
+            this.texMappingType = new byte[texCount];
+            this.texSpaceScaleZ = new int[texCount];
+            this.aByteArray27 = new byte[texCount];
+            this.anIntArray212 = new int[texCount];
+            this.anIntArray206 = new int[texCount];
+            this.texSpaceScaleY = new int[texCount];
         }
-        this.vertexX = new int[arg0];
-        this.vertexGroup = new int[arg0];
-        this.vertexZ = new int[arg0];
-        this.faceAlpha = new byte[arg1];
-        this.faceTexSpace = new byte[arg1];
-        this.faceC = new short[arg1];
+        this.vertexX = new int[vertexCount];
+        this.vertexGroup = new int[vertexCount];
+        this.vertexZ = new int[vertexCount];
+        this.faceTexSpace = new byte[faceCount];
+        this.faceAlpha = new byte[faceCount];
+        this.faceC = new short[faceCount];
     }
 
     @OriginalMember(owner = "client!dv", name = "<init>", descriptor = "([Lclient!dv;I)V")
@@ -211,7 +211,7 @@ public final class Mesh {
                 }
 
                 hasShadingTypes |= mesh.shadingTypes != null;
-                hasTexSpaces |= mesh.faceTexSpace != null;
+                hasTexSpaces |= mesh.faceAlpha != null;
 
                 if (mesh.facePriorities != null) {
                     hasPriorities = true;
@@ -225,7 +225,7 @@ public final class Mesh {
                     }
                 }
 
-                hasAlpha |= mesh.faceAlpha != null;
+                hasAlpha |= mesh.faceTexSpace != null;
                 hasFaceGroups |= mesh.faceGroup != null;
                 hasFaceTextures |= mesh.faceTexture != null;
             }
@@ -269,7 +269,7 @@ public final class Mesh {
         }
 
         if (hasAlpha) {
-            this.faceAlpha = new byte[this.faceCount];
+            this.faceTexSpace = new byte[this.faceCount];
         }
 
         this.vertexGroup = new int[this.vertexCount];
@@ -280,7 +280,7 @@ public final class Mesh {
         }
 
         if (hasTexSpaces) {
-            this.faceTexSpace = new byte[this.faceCount];
+            this.faceAlpha = new byte[this.faceCount];
         }
 
         if (emitterCount > 0) {
@@ -323,8 +323,8 @@ public final class Mesh {
                         }
                     }
 
-                    if (hasTexSpaces && mesh.faceTexSpace != null) {
-                        this.faceTexSpace[this.faceCount] = mesh.faceTexSpace[j];
+                    if (hasTexSpaces && mesh.faceAlpha != null) {
+                        this.faceAlpha[this.faceCount] = mesh.faceAlpha[j];
                     }
 
                     if (hasFaceTextures) {
@@ -381,7 +381,7 @@ public final class Mesh {
             if (mesh != null) {
                 for (@Pc(648) int i = 0; i < mesh.faceCount; i++) {
                     if (hasAlpha) {
-                        this.faceAlpha[textSpaceCount++] = (byte) (mesh.faceAlpha == null || mesh.faceAlpha[i] == -1 ? -1 : mesh.faceAlpha[i] + this.texSpaceCount);
+                        this.faceTexSpace[textSpaceCount++] = (byte) (mesh.faceTexSpace == null || mesh.faceTexSpace[i] == -1 ? -1 : mesh.faceTexSpace[i] + this.texSpaceCount);
                     }
                 }
 
@@ -437,9 +437,9 @@ public final class Mesh {
         this.faceB[this.faceCount] = (short) b;
         this.faceC[this.faceCount] = (short) c;
         this.shadingTypes[this.faceCount] = shading;
-        this.faceAlpha[this.faceCount] = alpha;
+        this.faceTexSpace[this.faceCount] = alpha;
         this.faceColour[this.faceCount] = colour;
-        this.faceTexSpace[this.faceCount] = space;
+        this.faceAlpha[this.faceCount] = space;
         this.faceTexture[this.faceCount] = texture;
         return this.faceCount++;
     }
@@ -698,7 +698,7 @@ public final class Mesh {
         }
 
         if (faceAlphaFlag == 1) {
-            this.faceTexSpace = new byte[this.faceCount];
+            this.faceAlpha = new byte[this.faceCount];
         }
 
         if (vertexGroupFlag == 1) {
@@ -708,7 +708,7 @@ public final class Mesh {
         this.vertexX = new int[this.vertexCount];
 
         if (faceTextureFlag == 1 && this.texSpaceCount > 0) {
-            this.faceAlpha = new byte[this.faceCount];
+            this.faceTexSpace = new byte[this.faceCount];
         }
 
         if (faceGroupFlag == 1) {
@@ -777,7 +777,7 @@ public final class Mesh {
             }
 
             if (faceAlphaFlag == 1) {
-                this.faceTexSpace[i] = packet4.g1b();
+                this.faceAlpha[i] = packet4.g1b();
             }
 
             if (faceGroupFlag == 1) {
@@ -788,11 +788,11 @@ public final class Mesh {
                 this.faceTexture[i] = (short) (packet6.g2() - 1);
             }
 
-            if (this.faceAlpha != null) {
+            if (this.faceTexSpace != null) {
                 if (this.faceTexture[i] == -1) {
-                    this.faceAlpha[i] = -1;
+                    this.faceTexSpace[i] = -1;
                 } else {
-                    this.faceAlpha[i] = (byte) (packet7.g1() - 1);
+                    this.faceTexSpace[i] = (byte) (packet7.g1() - 1);
                 }
             }
         }
@@ -1279,11 +1279,11 @@ public final class Mesh {
         if (texFlag == 1) {
             this.shadingTypes = new byte[this.faceCount];
             this.faceTexture = new short[this.faceCount];
-            this.faceAlpha = new byte[this.faceCount];
+            this.faceTexSpace = new byte[this.faceCount];
         }
 
         if (alphaFlag == 1) {
-            this.faceTexSpace = new byte[this.faceCount];
+            this.faceAlpha = new byte[this.faceCount];
         }
 
         this.faceA = new short[this.faceCount];
@@ -1349,7 +1349,7 @@ public final class Mesh {
                 }
 
                 if ((type & 0x2) == 2) {
-                    this.faceAlpha[i] = (byte) (type >> 2);
+                    this.faceTexSpace[i] = (byte) (type >> 2);
                     this.faceTexture[i] = this.faceColour[i];
                     this.faceColour[i] = 127;
 
@@ -1357,7 +1357,7 @@ public final class Mesh {
                         hasTextures = true;
                     }
                 } else {
-                    this.faceAlpha[i] = -1;
+                    this.faceTexSpace[i] = -1;
                     this.faceTexture[i] = -1;
                 }
             }
@@ -1367,7 +1367,7 @@ public final class Mesh {
             }
 
             if (alphaFlag == 1) {
-                this.faceTexSpace[i] = packet4.g1b();
+                this.faceAlpha[i] = packet4.g1b();
             }
 
             if (faceGroupFlag == 1) {
@@ -1463,14 +1463,14 @@ public final class Mesh {
             this.texSpaceDefC[i] = (short) packet1.g2();
         }
 
-        if (this.faceAlpha != null) {
+        if (this.faceTexSpace != null) {
             @Pc(884) boolean hasTexSpaces = false;
 
             for (@Pc(886) int i = 0; i < this.faceCount; i++) {
-                @Pc(894) int space = this.faceAlpha[i] & 0xFF;
+                @Pc(894) int space = this.faceTexSpace[i] & 0xFF;
                 if (space != 255) {
                     if ((this.faceA[i] == (this.texSpaceDefA[space] & 0xFFFF)) && (this.faceB[i] == (this.texSpaceDefB[space] & 0xFFFF)) && (this.faceC[i] == (this.texSpaceDefC[space] & 0xFFFF))) {
-                        this.faceAlpha[i] = -1;
+                        this.faceTexSpace[i] = -1;
                     } else {
                         hasTexSpaces = true;
                     }
@@ -1478,7 +1478,7 @@ public final class Mesh {
             }
 
             if (!hasTexSpaces) {
-                this.faceAlpha = null;
+                this.faceTexSpace = null;
             }
         }
 

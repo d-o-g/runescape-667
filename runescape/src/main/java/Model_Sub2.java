@@ -1,16 +1,16 @@
-import com.jagex.graphics.texture.TextureOp;
-import com.jagex.math.ColourUtils;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.MeshBillboard;
-import com.jagex.graphics.particles.ModelParticleEmitter;
-import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.particles.ModelParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.graphics.texture.TextureOp;
+import com.jagex.math.ColourUtils;
 import com.jagex.math.Trig1;
 import jaclib.memory.Stream;
 import jaggl.OpenGL;
@@ -299,7 +299,7 @@ public final class Model_Sub2 extends Model {
                     }
                 }
             }
-            @Pc(439) boolean local439 = arg1.faceTexSpace != null && arg1.faceTexSpace[local274] != 0 || local276 != null && local276.alphaBlendMode != 0;
+            @Pc(439) boolean local439 = arg1.faceAlpha != null && arg1.faceAlpha[local274] != 0 || local276 != null && local276.alphaBlendMode != 0;
             if ((local264 || local439) && arg1.facePriorities != null) {
                 local278 += arg1.facePriorities[local274] << 17;
             }
@@ -345,7 +345,7 @@ public final class Model_Sub2 extends Model {
                     throw new RuntimeException();
                 }
                 local674 = ColourUtils.HSL_TO_RGB[arg1.faceColour[local612.face] & 0xFFFF] & 0xFFFFFF;
-                @Pc(692) int local692 = local674 | 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local612.face]) << 24;
+                @Pc(692) int local692 = local674 | 255 - (arg1.faceAlpha == null ? 0 : arg1.faceAlpha[local612.face]) << 24;
                 this.aClass97Array1[local603] = new Class97(local619, arg1.faceA[local612.face], arg1.faceB[local612.face], arg1.faceC[local612.face], local617.anInt9696, local617.anInt9690, local617.anInt9693, local617.anInt9697, local617.anInt9689, local617.aBoolean747, local617.aBoolean748, local612.anInt591);
                 this.aClass223Array1[local603] = new Class223(local692);
             }
@@ -441,15 +441,15 @@ public final class Model_Sub2 extends Model {
         for (local291 = 0; local291 < this.anInt5560; local291++) {
             local1216 = local120[local291];
             @Pc(1223) int local1223 = arg1.faceColour[local1216] & 0xFFFF;
-            if (arg1.faceAlpha == null) {
+            if (arg1.faceTexSpace == null) {
                 local918 = -1;
             } else {
-                local918 = arg1.faceAlpha[local1216];
+                local918 = arg1.faceTexSpace[local1216];
             }
-            if (arg1.faceTexSpace == null) {
+            if (arg1.faceAlpha == null) {
                 local928 = 0;
             } else {
-                local928 = arg1.faceTexSpace[local1216] & 0xFF;
+                local928 = arg1.faceAlpha[local1216] & 0xFF;
             }
             local1260 = arg1.faceTexture == null ? -1 : arg1.faceTexture[local1216];
             if (local1260 != -1 && (this.anInt5529 & 0x40) != 0) {
@@ -686,8 +686,8 @@ public final class Model_Sub2 extends Model {
                 this.aShortArray71[local291] = this.method4993((long) local1297 + local2591, local2544.anInt3967, local1289, local1291, local2544.anInt3963, 0, arg1, local2544.anInt3970, arg1.faceB[local1216]);
                 this.aShortArray76[local291] = this.method4993(local2591 + (long) local1299, local2544.anInt3967, local1293, local1295, local2544.anInt3963, 0, arg1, local2544.anInt3970, arg1.faceC[local1216]);
             }
-            if (arg1.faceTexSpace != null) {
-                this.aByteArray54[local291] = arg1.faceTexSpace[local1216];
+            if (arg1.faceAlpha != null) {
+                this.aByteArray54[local291] = arg1.faceAlpha[local1216];
             }
             if (arg1.aShortArray20 != null) {
                 this.aShortArray68[local291] = arg1.aShortArray20[local1216];

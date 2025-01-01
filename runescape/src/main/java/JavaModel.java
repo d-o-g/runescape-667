@@ -1,15 +1,15 @@
-import com.jagex.math.ColourUtils;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
 import com.jagex.graphics.MeshBillboard;
-import com.jagex.graphics.particles.ModelParticleEmitter;
-import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Shadow;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
+import com.jagex.graphics.particles.ModelParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
+import com.jagex.math.ColourUtils;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -279,7 +279,7 @@ public final class JavaModel extends Model {
         this.aShortArray125 = arg1.faceC;
         this.aByteArray95 = arg1.facePriorities;
         this.aShortArray120 = arg1.faceColour;
-        this.aByteArray96 = arg1.faceTexSpace;
+        this.aByteArray96 = arg1.faceAlpha;
         this.aShortArray124 = arg1.aShortArray20;
         this.aByteArray94 = arg1.shadingTypes;
         this.aModelParticleEmitterArray5 = arg1.emitters;
@@ -358,7 +358,7 @@ public final class JavaModel extends Model {
                 @Pc(394) MeshBillboard local394 = arg1.billboards[local152];
                 @Pc(399) Class376 local399 = Static402.method5582(local394.anInt592);
                 local335 = ColourUtils.HSV_TO_RGB[arg1.faceColour[local394.face] & 0xFFFF] & 0xFFFFFF;
-                local335 |= 255 - (arg1.faceTexSpace == null ? 0 : arg1.faceTexSpace[local394.face] & 0xFF) << 24;
+                local335 |= 255 - (arg1.faceAlpha == null ? 0 : arg1.faceAlpha[local394.face] & 0xFF) << 24;
                 this.aClass239Array1[local152] = new Class239(local394.face, arg1.faceA[local394.face], arg1.faceB[local394.face], arg1.faceC[local394.face], local399.anInt9696, local399.anInt9690, local399.anInt9693, local399.anInt9697, local399.anInt9689, local399.aBoolean747, local394.anInt591);
                 this.aClass245Array1[local152] = new Class245(local335);
             }
@@ -376,10 +376,10 @@ public final class JavaModel extends Model {
         for (@Pc(512) int local512 = 0; local512 < this.anInt8482; local512++) {
             local517 = local119[local512];
             @Pc(522) byte local522;
-            if (arg1.faceAlpha == null) {
+            if (arg1.faceTexSpace == null) {
                 local522 = -1;
             } else {
-                local522 = arg1.faceAlpha[local517];
+                local522 = arg1.faceTexSpace[local517];
             }
             local539 = arg1.faceTexture == null ? -1 : arg1.faceTexture[local517];
             if (local539 != -1 && (arg5 & 0x40) != 0) {

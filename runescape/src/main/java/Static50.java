@@ -22,7 +22,7 @@ public final class Static50 {
         @Pc(9) int[] local9 = null;
         @Pc(11) int[] local11 = null;
         @Pc(13) float[][] local13 = null;
-        if (arg0.faceAlpha != null) {
+        if (arg0.faceTexSpace != null) {
             @Pc(25) int local25 = arg0.texSpaceCount;
             @Pc(28) int[] local28 = new int[local25];
             @Pc(31) int[] local31 = new int[local25];
@@ -44,8 +44,8 @@ public final class Static50 {
             @Pc(158) int local158;
             for (@Pc(89) int local89 = 0; local89 < arg1; local89++) {
                 local97 = arg2[local89];
-                if (arg0.faceAlpha[local97] != -1) {
-                    @Pc(111) int local111 = arg0.faceAlpha[local97] & 0xFF;
+                if (arg0.faceTexSpace[local97] != -1) {
+                    @Pc(111) int local111 = arg0.faceTexSpace[local97] & 0xFF;
                     for (@Pc(113) int local113 = 0; local113 < 3; local113++) {
                         @Pc(134) short local134;
                         if (local113 == 0) {

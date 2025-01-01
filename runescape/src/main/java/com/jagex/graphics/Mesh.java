@@ -41,10 +41,10 @@ public final class Mesh {
     public short[] faceB;
 
     @OriginalMember(owner = "client!dv", name = "t", descriptor = "[I")
-    public int[] anIntArray206;
+    public int[] texOffsetZ;
 
     @OriginalMember(owner = "client!dv", name = "N", descriptor = "[B")
-    public byte[] aByteArray23;
+    public byte[] texDirection;
 
     @OriginalMember(owner = "client!dv", name = "I", descriptor = "[B")
     public byte[] texMappingType;
@@ -86,7 +86,7 @@ public final class Mesh {
     public byte[] facePriority;
 
     @OriginalMember(owner = "client!dv", name = "X", descriptor = "[B")
-    public byte[] aByteArray27;
+    public byte[] texRotation;
 
     @OriginalMember(owner = "client!dv", name = "J", descriptor = "[B")
     public byte[] faceTexSpace;
@@ -95,13 +95,13 @@ public final class Mesh {
     public short[] texSpaceDefA;
 
     @OriginalMember(owner = "client!dv", name = "g", descriptor = "[I")
-    public int[] anIntArray212;
+    public int[] texOffsetY;
 
     @OriginalMember(owner = "client!dv", name = "b", descriptor = "[I")
     public int[] vertexX;
 
     @OriginalMember(owner = "client!dv", name = "w", descriptor = "[I")
-    public int[] anIntArray214;
+    public int[] texOffsetX;
 
     @OriginalMember(owner = "client!dv", name = "p", descriptor = "[Lclient!mn;")
     public ModelParticleEffector[] effectors;
@@ -156,15 +156,15 @@ public final class Mesh {
         if (texCount > 0) {
             this.texSpaceDefB = new short[texCount];
             this.texSpaceScaleX = new int[texCount];
-            this.aByteArray23 = new byte[texCount];
-            this.anIntArray214 = new int[texCount];
+            this.texDirection = new byte[texCount];
+            this.texOffsetX = new int[texCount];
             this.texSpaceDefA = new short[texCount];
             this.texSpaceDefC = new short[texCount];
             this.texMappingType = new byte[texCount];
             this.texSpaceScaleZ = new int[texCount];
-            this.aByteArray27 = new byte[texCount];
-            this.anIntArray212 = new int[texCount];
-            this.anIntArray206 = new int[texCount];
+            this.texRotation = new byte[texCount];
+            this.texOffsetY = new int[texCount];
+            this.texOffsetZ = new int[texCount];
             this.texSpaceScaleY = new int[texCount];
         }
         this.vertexX = new int[vertexCount];
@@ -251,17 +251,17 @@ public final class Mesh {
 
         if (this.texSpaceCount > 0) {
             this.texSpaceScaleX = new int[this.texSpaceCount];
-            this.aByteArray27 = new byte[this.texSpaceCount];
-            this.aByteArray23 = new byte[this.texSpaceCount];
+            this.texRotation = new byte[this.texSpaceCount];
+            this.texDirection = new byte[this.texSpaceCount];
             this.texSpaceDefC = new short[this.texSpaceCount];
             this.texSpaceDefA = new short[this.texSpaceCount];
             this.texSpaceScaleZ = new int[this.texSpaceCount];
             this.texSpaceDefB = new short[this.texSpaceCount];
-            this.anIntArray212 = new int[this.texSpaceCount];
+            this.texOffsetY = new int[this.texSpaceCount];
             this.texMappingType = new byte[this.texSpaceCount];
-            this.anIntArray214 = new int[this.texSpaceCount];
+            this.texOffsetX = new int[this.texSpaceCount];
             this.texSpaceScaleY = new int[this.texSpaceCount];
-            this.anIntArray206 = new int[this.texSpaceCount];
+            this.texOffsetZ = new int[this.texSpaceCount];
         }
 
         if (billboardCount > 0) {
@@ -400,14 +400,14 @@ public final class Mesh {
                         this.texSpaceScaleX[this.texSpaceCount] = mesh.texSpaceScaleX[i];
                         this.texSpaceScaleY[this.texSpaceCount] = mesh.texSpaceScaleY[i];
                         this.texSpaceScaleZ[this.texSpaceCount] = mesh.texSpaceScaleZ[i];
-                        this.aByteArray27[this.texSpaceCount] = mesh.aByteArray27[i];
-                        this.aByteArray23[this.texSpaceCount] = mesh.aByteArray23[i];
-                        this.anIntArray214[this.texSpaceCount] = mesh.anIntArray214[i];
+                        this.texRotation[this.texSpaceCount] = mesh.texRotation[i];
+                        this.texDirection[this.texSpaceCount] = mesh.texDirection[i];
+                        this.texOffsetX[this.texSpaceCount] = mesh.texOffsetX[i];
                     }
 
                     if (type == 2) {
-                        this.anIntArray212[this.texSpaceCount] = mesh.anIntArray212[i];
-                        this.anIntArray206[this.texSpaceCount] = mesh.anIntArray206[i];
+                        this.texOffsetY[this.texSpaceCount] = mesh.texOffsetY[i];
+                        this.texOffsetZ[this.texSpaceCount] = mesh.texOffsetZ[i];
                     }
 
                     this.texSpaceCount++;
@@ -476,7 +476,7 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(IZ)[[I")
-    public int[][] vertexLabels(@OriginalArg(1) boolean flag) {
+    public int[][] getVertexLabels(@OriginalArg(1) boolean flag) {
         @Pc(8) int[] counts = new int[256];
         @Pc(10) int max = 0;
         @Pc(19) int count = flag ? this.vertexCount : this.maxVertex;
@@ -666,16 +666,16 @@ public final class Mesh {
 
             if (complexMappingCount > 0) {
                 this.texSpaceScaleZ = new int[complexMappingCount];
-                this.aByteArray23 = new byte[complexMappingCount];
+                this.texDirection = new byte[complexMappingCount];
                 this.texSpaceScaleX = new int[complexMappingCount];
-                this.aByteArray27 = new byte[complexMappingCount];
-                this.anIntArray214 = new int[complexMappingCount];
+                this.texRotation = new byte[complexMappingCount];
+                this.texOffsetX = new int[complexMappingCount];
                 this.texSpaceScaleY = new int[complexMappingCount];
             }
 
             if (cubeMappingCount > 0) {
-                this.anIntArray212 = new int[cubeMappingCount];
-                this.anIntArray206 = new int[cubeMappingCount];
+                this.texOffsetY = new int[cubeMappingCount];
+                this.texOffsetZ = new int[cubeMappingCount];
             }
 
             this.texSpaceDefB = new short[this.texSpaceCount];
@@ -919,9 +919,9 @@ public final class Mesh {
                     this.texSpaceScaleZ[i] = packet3.g2();
                 }
 
-                this.aByteArray27[i] = packet4.g1b();
-                this.aByteArray23[i] = packet5.g1b();
-                this.anIntArray214[i] = packet6.g1b();
+                this.texRotation[i] = packet4.g1b();
+                this.texDirection[i] = packet5.g1b();
+                this.texOffsetX[i] = packet6.g1b();
             }
             if (type == 2) {
                 this.texSpaceDefA[i] = (short) packet2.g2();
@@ -942,11 +942,11 @@ public final class Mesh {
                     this.texSpaceScaleZ[i] = packet3.g2();
                 }
 
-                this.aByteArray27[i] = packet4.g1b();
-                this.aByteArray23[i] = packet5.g1b();
-                this.anIntArray214[i] = packet6.g1b();
-                this.anIntArray212[i] = packet6.g1b();
-                this.anIntArray206[i] = packet6.g1b();
+                this.texRotation[i] = packet4.g1b();
+                this.texDirection[i] = packet5.g1b();
+                this.texOffsetX[i] = packet6.g1b();
+                this.texOffsetY[i] = packet6.g1b();
+                this.texOffsetZ[i] = packet6.g1b();
             }
 
             if (type == 3) {
@@ -968,9 +968,9 @@ public final class Mesh {
                     this.texSpaceScaleZ[i] = packet3.g2();
                 }
 
-                this.aByteArray27[i] = packet4.g1b();
-                this.aByteArray23[i] = packet5.g1b();
-                this.anIntArray214[i] = packet6.g1b();
+                this.texRotation[i] = packet4.g1b();
+                this.texDirection[i] = packet5.g1b();
+                this.texOffsetX[i] = packet6.g1b();
             }
         }
 
@@ -1074,9 +1074,9 @@ public final class Mesh {
         this.texSpaceScaleX[this.texSpaceCount] = 1024;
         this.texSpaceScaleY[this.texSpaceCount] = 1024;
         this.texSpaceScaleZ[this.texSpaceCount] = 1024;
-        this.aByteArray27[this.texSpaceCount] = 0;
-        this.aByteArray23[this.texSpaceCount] = 0;
-        this.anIntArray214[this.texSpaceCount] = 0;
+        this.texRotation[this.texSpaceCount] = 0;
+        this.texDirection[this.texSpaceCount] = 0;
+        this.texOffsetX[this.texSpaceCount] = 0;
         return (byte) this.texSpaceCount++;
     }
 
@@ -1137,7 +1137,7 @@ public final class Mesh {
     }
 
     @OriginalMember(owner = "client!dv", name = "b", descriptor = "(B)[[I")
-    public int[][] getFaceGroups() {
+    public int[][] getFaceLabels() {
         @Pc(16) int[] counts = new int[256];
 
         @Pc(18) int max = 0;

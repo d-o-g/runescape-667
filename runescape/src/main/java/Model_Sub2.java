@@ -1,3 +1,6 @@
+import com.jagex.core.algorithms.Quicksort;
+import com.jagex.game.runetek6.config.billboardtype.BillboardType;
+import com.jagex.game.runetek6.config.billboardtype.BillboardTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
@@ -264,12 +267,12 @@ public final class Model_Sub2 extends Model {
                 for (local291 = 0; local291 < arg1.billboards.length; local291++) {
                     @Pc(298) MeshBillboard local298 = arg1.billboards[local291];
                     if (local298.face == local274) {
-                        @Pc(307) Class376 local307 = Static402.method5582(local298.anInt592);
-                        if (local307.aBoolean747) {
+                        @Pc(307) BillboardType local307 = BillboardTypeList.list(local298.id);
+                        if (local307.hideFace) {
                             local289 = true;
                         }
-                        if (local307.anInt9693 != -1) {
-                            @Pc(323) TextureMetrics local323 = local116.getMetrics(local307.anInt9693);
+                        if (local307.texture != -1) {
+                            @Pc(323) TextureMetrics local323 = local116.getMetrics(local307.texture);
                             if (local323.alphaBlendMode == 2) {
                                 this.aBoolean421 = true;
                             }
@@ -314,7 +317,7 @@ public final class Model_Sub2 extends Model {
             this.aBoolean421 |= local439;
             this.aBoolean423 |= local276 != null && (local276.speedU != 0 || local276.speedV != 0);
         }
-        Static15.method187(local252, local120);
+        Quicksort.sort(local252, local120);
         this.anIntArray412 = arg1.vertexZ;
         this.anInt5523 = arg1.vertexCount;
         this.aShortArray66 = arg1.originModels;
@@ -333,7 +336,7 @@ public final class Model_Sub2 extends Model {
             this.aClass223Array1 = new Class223[this.anInt5533];
             for (local603 = 0; local603 < this.anInt5533; local603++) {
                 @Pc(612) MeshBillboard local612 = arg1.billboards[local603];
-                @Pc(617) Class376 local617 = Static402.method5582(local612.anInt592);
+                @Pc(617) BillboardType local617 = BillboardTypeList.list(local612.id);
                 local619 = -1;
                 for (@Pc(621) int local621 = 0; local621 < this.anInt5560; local621++) {
                     if (local612.face == local120[local621]) {
@@ -346,7 +349,7 @@ public final class Model_Sub2 extends Model {
                 }
                 local674 = ColourUtils.HSL_TO_RGB[arg1.faceColour[local612.face] & 0xFFFF] & 0xFFFFFF;
                 @Pc(692) int local692 = local674 | 255 - (arg1.faceAlpha == null ? 0 : arg1.faceAlpha[local612.face]) << 24;
-                this.aClass97Array1[local603] = new Class97(local619, arg1.faceA[local612.face], arg1.faceB[local612.face], arg1.faceC[local612.face], local617.anInt9696, local617.anInt9690, local617.anInt9693, local617.anInt9697, local617.anInt9689, local617.aBoolean747, local617.aBoolean748, local612.anInt591);
+                this.aClass97Array1[local603] = new Class97(local619, arg1.faceA[local612.face], arg1.faceB[local612.face], arg1.faceC[local612.face], local617.width, local617.height, local617.texture, local617.anInt9697, local617.blendMode, local617.hideFace, local617.aBoolean748, local612.distance);
                 this.aClass223Array1[local603] = new Class223(local692);
             }
         }
@@ -378,7 +381,7 @@ public final class Model_Sub2 extends Model {
             local575[local481] = new Class185();
         }
         this.anIntArray411[arg1.maxVertex] = local278;
-        @Pc(882) Class369 local882 = Static50.method6635(arg1, this.anInt5560, local120);
+        @Pc(882) TextureUniverse local882 = TextureUniverse.fromMesh(arg1, this.anInt5560, local120);
         @Pc(886) Class166[] local886 = new Class166[arg1.faceCount];
         @Pc(928) int local928;
         @Pc(939) int local939;
@@ -541,21 +544,21 @@ public final class Model_Sub2 extends Model {
                         local1345 = arg1.faceA[local1216];
                         local1350 = arg1.faceB[local1216];
                         local1355 = arg1.faceC[local1216];
-                        @Pc(1360) int local1360 = local882.anIntArray750[local918];
-                        @Pc(1365) int local1365 = local882.anIntArray751[local918];
-                        @Pc(1370) int local1370 = local882.anIntArray749[local918];
-                        @Pc(1375) float[] local1375 = local882.aFloatArrayArray19[local918];
-                        @Pc(1380) byte local1380 = arg1.aByteArray23[local918];
-                        local1388 = (float) arg1.anIntArray214[local918] / 256.0F;
+                        @Pc(1360) int local1360 = local882.originX[local918];
+                        @Pc(1365) int local1365 = local882.originY[local918];
+                        @Pc(1370) int local1370 = local882.originZ[local918];
+                        @Pc(1375) float[] local1375 = local882.matrices[local918];
+                        @Pc(1380) byte local1380 = arg1.texDirection[local918];
+                        local1388 = (float) arg1.texOffsetX[local918] / 256.0F;
                         if (local1338 == 1) {
                             local1626 = (float) arg1.texSpaceScaleZ[local918] / 1024.0F;
-                            Static89.method1715(local1375, local1388, local1370, arg1.vertexX[local1345], local1380, Static414.aFloatArray43, local1626, local1365, arg1.vertexY[local1345], arg1.vertexZ[local1345], local1360);
+                            TextureMapping.cylinderMap(arg1.vertexX[local1345], arg1.vertexY[local1345], arg1.vertexZ[local1345], local1360, local1365, local1370, local1375, local1626, local1388, local1380, Static414.aFloatArray43);
                             local1285 = Static414.aFloatArray43[0];
                             local1287 = Static414.aFloatArray43[1];
-                            Static89.method1715(local1375, local1388, local1370, arg1.vertexX[local1350], local1380, Static414.aFloatArray43, local1626, local1365, arg1.vertexY[local1350], arg1.vertexZ[local1350], local1360);
+                            TextureMapping.cylinderMap(arg1.vertexX[local1350], arg1.vertexY[local1350], arg1.vertexZ[local1350], local1360, local1365, local1370, local1375, local1626, local1388, local1380, Static414.aFloatArray43);
                             local1289 = Static414.aFloatArray43[0];
                             local1291 = Static414.aFloatArray43[1];
-                            Static89.method1715(local1375, local1388, local1370, arg1.vertexX[local1355], local1380, Static414.aFloatArray43, local1626, local1365, arg1.vertexY[local1355], arg1.vertexZ[local1355], local1360);
+                            TextureMapping.cylinderMap(arg1.vertexX[local1355], arg1.vertexY[local1355], arg1.vertexZ[local1355], local1360, local1365, local1370, local1375, local1626, local1388, local1380, Static414.aFloatArray43);
                             local1293 = Static414.aFloatArray43[0];
                             local1295 = Static414.aFloatArray43[1];
                             local1634 = local1626 / 2.0F;
@@ -591,8 +594,8 @@ public final class Model_Sub2 extends Model {
                                 }
                             }
                         } else if (local1338 == 2) {
-                            local1626 = (float) arg1.anIntArray212[local918] / 256.0F;
-                            local1634 = (float) arg1.anIntArray206[local918] / 256.0F;
+                            local1626 = (float) arg1.texOffsetY[local918] / 256.0F;
+                            local1634 = (float) arg1.texOffsetZ[local918] / 256.0F;
                             @Pc(1645) int local1645 = arg1.vertexX[local1350] - arg1.vertexX[local1345];
                             @Pc(1655) int local1655 = arg1.vertexY[local1350] - arg1.vertexY[local1345];
                             @Pc(1665) int local1665 = arg1.vertexZ[local1350] - arg1.vertexZ[local1345];
@@ -608,24 +611,24 @@ public final class Model_Sub2 extends Model {
                             local1772 = ((float) local1707 * local1375[0] + local1375[1] * (float) local1716 + local1375[2] * (float) local1725) / local1733;
                             local1795 = (local1375[5] * (float) local1725 + local1375[3] * (float) local1707 + (float) local1716 * local1375[4]) / local1741;
                             local1818 = ((float) local1725 * local1375[8] + local1375[7] * (float) local1716 + (float) local1707 * local1375[6]) / local1749;
-                            local1301 = Static161.method2589(local1818, local1772, local1795);
-                            Static57.method1224(local1388, local1301, arg1.vertexX[local1345], local1626, local1365, Static414.aFloatArray43, arg1.vertexY[local1345], arg1.vertexZ[local1345], local1360, local1370, local1634, local1375, local1380);
+                            local1301 = TextureMapping.cubeFace(local1772, local1795, local1818);
+                            TextureMapping.cubeMap(arg1.vertexX[local1345], arg1.vertexY[local1345], arg1.vertexZ[local1345], local1360, local1365, local1370, local1375, local1388, local1626, local1634, local1301, local1380, Static414.aFloatArray43);
                             local1287 = Static414.aFloatArray43[1];
                             local1285 = Static414.aFloatArray43[0];
-                            Static57.method1224(local1388, local1301, arg1.vertexX[local1350], local1626, local1365, Static414.aFloatArray43, arg1.vertexY[local1350], arg1.vertexZ[local1350], local1360, local1370, local1634, local1375, local1380);
+                            TextureMapping.cubeMap(arg1.vertexX[local1350], arg1.vertexY[local1350], arg1.vertexZ[local1350], local1360, local1365, local1370, local1375, local1388, local1626, local1634, local1301, local1380, Static414.aFloatArray43);
                             local1289 = Static414.aFloatArray43[0];
                             local1291 = Static414.aFloatArray43[1];
-                            Static57.method1224(local1388, local1301, arg1.vertexX[local1355], local1626, local1365, Static414.aFloatArray43, arg1.vertexY[local1355], arg1.vertexZ[local1355], local1360, local1370, local1634, local1375, local1380);
+                            TextureMapping.cubeMap(arg1.vertexX[local1355], arg1.vertexY[local1355], arg1.vertexZ[local1355], local1360, local1365, local1370, local1375, local1388, local1626, local1634, local1301, local1380, Static414.aFloatArray43);
                             local1293 = Static414.aFloatArray43[0];
                             local1295 = Static414.aFloatArray43[1];
                         } else if (local1338 == 3) {
-                            Static397.method5556(local1360, arg1.vertexZ[local1345], arg1.vertexY[local1345], Static414.aFloatArray43, local1370, local1388, local1375, local1380, arg1.vertexX[local1345], local1365);
+                            TextureMapping.sphereMap(arg1.vertexX[local1345], arg1.vertexY[local1345], arg1.vertexZ[local1345], local1360, local1365, local1370, local1375, local1388, local1380, Static414.aFloatArray43);
                             local1287 = Static414.aFloatArray43[1];
                             local1285 = Static414.aFloatArray43[0];
-                            Static397.method5556(local1360, arg1.vertexZ[local1350], arg1.vertexY[local1350], Static414.aFloatArray43, local1370, local1388, local1375, local1380, arg1.vertexX[local1350], local1365);
+                            TextureMapping.sphereMap(arg1.vertexX[local1350], arg1.vertexY[local1350], arg1.vertexZ[local1350], local1360, local1365, local1370, local1375, local1388, local1380, Static414.aFloatArray43);
                             local1291 = Static414.aFloatArray43[1];
                             local1289 = Static414.aFloatArray43[0];
-                            Static397.method5556(local1360, arg1.vertexZ[local1355], arg1.vertexY[local1355], Static414.aFloatArray43, local1370, local1388, local1375, local1380, arg1.vertexX[local1355], local1365);
+                            TextureMapping.sphereMap(arg1.vertexX[local1355], arg1.vertexY[local1355], arg1.vertexZ[local1355], local1360, local1365, local1370, local1375, local1388, local1380, Static414.aFloatArray43);
                             local1295 = Static414.aFloatArray43[1];
                             local1293 = Static414.aFloatArray43[0];
                             if ((local1380 & 0x1) == 0) {
@@ -723,7 +726,7 @@ public final class Model_Sub2 extends Model {
         this.aFloatArray37 = TextureOp.method9420(false, this.aFloatArray37, this.anInt5538);
         this.aFloatArray39 = TextureOp.method9420(false, this.aFloatArray39, this.anInt5538);
         if (arg1.vertexLabel != null && Static685.method8950(-60, arg2, this.anInt5529)) {
-            this.anIntArrayArray131 = arg1.vertexLabels(false);
+            this.anIntArrayArray131 = arg1.getVertexLabels(false);
         }
         if (arg1.billboards != null && Static90.method1732(this.anInt5529, arg2)) {
             this.anIntArrayArray130 = arg1.getBillboardGroups();
@@ -752,6 +755,11 @@ public final class Model_Sub2 extends Model {
                 }
             }
         }
+    }
+
+    @OriginalMember(owner = "client!ml", name = "a", descriptor = "(III)Z")
+    public static boolean method5577(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1) {
+        return (arg1 & 0x70000) != 0 | Static58.method1257(arg0, arg1) || Static598.method7828(arg1, arg0);
     }
 
     @OriginalMember(owner = "client!kla", name = "aa", descriptor = "(SS)V")
@@ -1099,7 +1107,7 @@ public final class Model_Sub2 extends Model {
                     local37 = true;
                 }
             }
-            if (this.anIntArray409 != null && !Static402.method5577(this.anInt5529, this.anInt5520)) {
+            if (this.anIntArray409 != null && !method5577(this.anInt5529, this.anInt5520)) {
                 if (this.aClass94_8 != null && this.aClass94_8.anInterface12_2 == null) {
                     this.aBoolean422 = true;
                 } else {

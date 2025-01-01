@@ -1,7 +1,7 @@
 import com.jagex.FullscreenMode;
+import com.jagex.core.algorithms.Quicksort;
 import com.jagex.core.constants.MaxScreenSize;
 import com.jagex.core.util.Arrays;
-import com.jagex.core.algorithms.Quicksort;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.sign.SignLink;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -54,7 +54,7 @@ public final class Fullscreen {
             sizes[i] = mode.height * mode.width;
         }
 
-        Quicksort.sort(sizes, Fullscreen.modes);
+        Quicksort.sort(Fullscreen.modes, sizes);
         return Fullscreen.modes;
     }
 

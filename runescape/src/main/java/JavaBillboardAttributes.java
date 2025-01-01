@@ -3,7 +3,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!mka")
-public final class Class245 {
+public final class JavaBillboardAttributes {
 
     @OriginalMember(owner = "client!mka", name = "l", descriptor = "I")
     public int anInt6220;
@@ -39,12 +39,12 @@ public final class Class245 {
     public int anInt6225;
 
     @OriginalMember(owner = "client!mka", name = "<init>", descriptor = "(I)V")
-    public Class245(@OriginalArg(0) int arg0) {
+    public JavaBillboardAttributes(@OriginalArg(0) int arg0) {
         this.anInt6225 = arg0;
     }
 
     @OriginalMember(owner = "client!mka", name = "<init>", descriptor = "(IIIIII)V")
-    public Class245(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
+    public JavaBillboardAttributes(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.anInt6222 = arg3;
         this.anInt6226 = arg2;
         this.anInt6229 = arg4;
@@ -54,7 +54,7 @@ public final class Class245 {
     }
 
     @OriginalMember(owner = "client!mka", name = "a", descriptor = "(Lclient!mka;I)V")
-    public void method5573(@OriginalArg(0) Class245 arg0) {
+    public void method5573(@OriginalArg(0) JavaBillboardAttributes arg0) {
         this.anInt6229 = arg0.anInt6229;
         this.anInt6222 = arg0.anInt6222;
         this.anInt6223 = arg0.anInt6223;
@@ -64,7 +64,7 @@ public final class Class245 {
     }
 
     @OriginalMember(owner = "client!mka", name = "a", descriptor = "(B)Lclient!mka;")
-    public Class245 method5574() {
-        return new Class245(this.anInt6225, this.anInt6223, this.anInt6226, this.anInt6222, this.anInt6229, this.anInt6231);
+    public JavaBillboardAttributes method5574() {
+        return new JavaBillboardAttributes(this.anInt6225, this.anInt6223, this.anInt6226, this.anInt6222, this.anInt6229, this.anInt6231);
     }
 }

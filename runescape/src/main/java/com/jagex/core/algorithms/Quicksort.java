@@ -51,12 +51,12 @@ public final class Quicksort {
     }
 
     @OriginalMember(owner = "client!qaa", name = "a", descriptor = "([Ljava/lang/Object;[IB)V")
-    public static void sort(@OriginalArg(1) int[] ints, @OriginalArg(0) Object[] objects) {
-        sort(ints, objects, 0, ints.length - 1);
+    public static void sort(@OriginalArg(0) Object[] objects, @OriginalArg(1) int[] ints) {
+        sort(objects, ints, 0, ints.length - 1);
     }
 
     @OriginalMember(owner = "client!nu", name = "a", descriptor = "(II[I[Ljava/lang/Object;Z)V")
-    public static void sort(@OriginalArg(2) int[] ints, @OriginalArg(3) Object[] objects, @OriginalArg(1) int start, @OriginalArg(0) int end) {
+    public static void sort(@OriginalArg(3) Object[] objects, @OriginalArg(2) int[] ints, @OriginalArg(1) int start, @OriginalArg(0) int end) {
         if (start >= end) {
             return;
         }
@@ -91,8 +91,52 @@ public final class Quicksort {
         objects[end] = objects[mid];
         objects[mid] = pivotObj;
 
-        sort(ints, objects, start, mid - 1);
-        sort(ints, objects, mid + 1, end);
+        sort(objects, ints, start, mid - 1);
+        sort(objects, ints, mid + 1, end);
+    }
+
+    @OriginalMember(owner = "client!aia", name = "a", descriptor = "(I[J[I)V")
+    public static void sort(@OriginalArg(1) long[] longs, @OriginalArg(2) int[] ints) {
+        sort(longs, ints, 0, longs.length - 1);
+    }
+
+    @OriginalMember(owner = "client!hca", name = "a", descriptor = "(BI[I[JI)V")
+    public static void sort(@OriginalArg(3) long[] longs, @OriginalArg(2) int[] ints, @OriginalArg(4) int start, @OriginalArg(1) int end) {
+        if (start >= end) {
+            return;
+        }
+
+        @Pc(22) int pivotIndex = (start + end) / 2;
+        @Pc(24) int mid = start;
+
+        @Pc(28) long pivotLong = longs[pivotIndex];
+        longs[pivotIndex] = longs[end];
+        longs[end] = pivotLong;
+
+        @Pc(42) int pivotInt = ints[pivotIndex];
+        ints[pivotIndex] = ints[end];
+        ints[end] = pivotInt;
+
+        @Pc(63) int i = ~pivotLong == Long.MIN_VALUE ? 0 : 1;
+        for (@Pc(65) int local65 = start; local65 < end; local65++) {
+            if (pivotLong + (long) (i & local65) > longs[local65]) {
+                @Pc(84) long local84 = longs[local65];
+                longs[local65] = longs[mid];
+                longs[mid] = local84;
+                @Pc(98) int local98 = ints[local65];
+                ints[local65] = ints[mid];
+                ints[mid++] = local98;
+            }
+        }
+
+        longs[end] = longs[mid];
+        longs[mid] = pivotLong;
+
+        ints[end] = ints[mid];
+        ints[mid] = pivotInt;
+
+        sort(longs, ints, start, mid - 1);
+        sort(longs, ints, mid + 1, end);
     }
 
     private Quicksort() {

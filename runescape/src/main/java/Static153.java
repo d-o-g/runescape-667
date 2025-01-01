@@ -1,4 +1,3 @@
-import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -7,9 +6,6 @@ public final class Static153 {
 
     @OriginalMember(owner = "client!eq", name = "m", descriptor = "[I")
     public static final int[] anIntArray234 = new int[13];
-
-    @OriginalMember(owner = "client!eq", name = "w", descriptor = "Lclient!dla;")
-    public static final ReferenceCache A_WEIGHTED_CACHE___56 = new ReferenceCache(64);
 
     @OriginalMember(owner = "client!eq", name = "o", descriptor = "[I")
     public static int[] anIntArray235 = new int[2];

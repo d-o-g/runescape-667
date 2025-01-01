@@ -1,3 +1,5 @@
+import com.jagex.game.runetek6.config.billboardtype.BillboardType;
+import com.jagex.game.runetek6.config.billboardtype.BillboardTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
@@ -55,20 +57,20 @@ public final class i extends Model implements SoftwareObject {
         @Pc(112) int local112 = 0;
         for (@Pc(114) int local114 = 0; local114 < local105; local114++) {
             @Pc(120) MeshBillboard local120 = arg2.billboards[local114];
-            @Pc(125) Class376 local125 = Static402.method5582(local120.anInt592);
+            @Pc(125) BillboardType local125 = BillboardTypeList.list(local120.id);
             local110[local112++] = local120.face;
-            local110[local112++] = local125.anInt9696;
-            local110[local112++] = local125.anInt9690;
-            local110[local112++] = local125.anInt9693;
+            local110[local112++] = local125.width;
+            local110[local112++] = local125.height;
+            local110[local112++] = local125.texture;
             local110[local112++] = local125.anInt9697;
-            local110[local112++] = local125.anInt9689;
-            local110[local112++] = local125.aBoolean747 ? -1 : 0;
+            local110[local112++] = local125.blendMode;
+            local110[local112++] = local125.hideFace ? -1 : 0;
         }
         for (@Pc(178) int local178 = 0; local178 < local105; local178++) {
             @Pc(184) MeshBillboard local184 = arg2.billboards[local178];
             local110[local112++] = local184.group;
         }
-        this.R(this.anOa2, this.aYa1, arg2.vertexCount, arg2.maxVertex, arg2.vertexX, arg2.vertexY, arg2.vertexZ, arg2.vertexLabel, arg2.originModels, arg2.faceCount, arg2.faceA, arg2.faceB, arg2.faceC, arg2.shadingType, arg2.facePriority, arg2.faceAlpha, arg2.faceTexSpace, arg2.faceColour, arg2.faceTexture, arg2.faceLabel, arg2.globalPriority, arg2.aShortArray20, arg2.texSpaceCount, arg2.texMappingType, arg2.texSpaceDefA, arg2.texSpaceDefB, arg2.texSpaceDefC, arg2.texSpaceScaleX, arg2.texSpaceScaleY, arg2.texSpaceScaleZ, arg2.aByteArray27, arg2.aByteArray23, arg2.anIntArray214, arg2.anIntArray212, arg2.anIntArray206, local43, local24, local34, arg3, arg4, arg5, arg6, local110);
+        this.R(this.anOa2, this.aYa1, arg2.vertexCount, arg2.maxVertex, arg2.vertexX, arg2.vertexY, arg2.vertexZ, arg2.vertexLabel, arg2.originModels, arg2.faceCount, arg2.faceA, arg2.faceB, arg2.faceC, arg2.shadingType, arg2.facePriority, arg2.faceAlpha, arg2.faceTexSpace, arg2.faceColour, arg2.faceTexture, arg2.faceLabel, arg2.globalPriority, arg2.aShortArray20, arg2.texSpaceCount, arg2.texMappingType, arg2.texSpaceDefA, arg2.texSpaceDefB, arg2.texSpaceDefC, arg2.texSpaceScaleX, arg2.texSpaceScaleY, arg2.texSpaceScaleZ, arg2.texRotation, arg2.texDirection, arg2.texOffsetX, arg2.texOffsetY, arg2.texOffsetZ, local43, local24, local34, arg3, arg4, arg5, arg6, local110);
     }
 
     @OriginalMember(owner = "client!i", name = "<init>", descriptor = "(Lclient!oa;)V")

@@ -1,3 +1,6 @@
+import com.jagex.core.algorithms.Quicksort;
+import com.jagex.game.runetek6.config.billboardtype.BillboardType;
+import com.jagex.game.runetek6.config.billboardtype.BillboardTypeList;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Mesh;
@@ -32,19 +35,19 @@ public final class JavaModel extends Model {
     public int[] anIntArray657;
 
     @OriginalMember(owner = "client!rs", name = "X", descriptor = "[I")
-    public int[] anIntArray658;
+    public int[] vertexZ;
 
     @OriginalMember(owner = "client!rs", name = "A", descriptor = "[S")
-    public short[] aShortArray119;
+    public short[] faceIndices;
 
     @OriginalMember(owner = "client!rs", name = "gb", descriptor = "[I")
     public int[] anIntArray659;
 
     @OriginalMember(owner = "client!rs", name = "Ab", descriptor = "[[I")
-    public int[][] anIntArrayArray212;
+    public int[][] vertexLabels;
 
     @OriginalMember(owner = "client!rs", name = "S", descriptor = "[[I")
-    public int[][] anIntArrayArray213;
+    public int[][] faceLabels;
 
     @OriginalMember(owner = "client!rs", name = "pb", descriptor = "Lclient!wf;")
     public JavaThreadResource aJavaThreadResource_2;
@@ -62,7 +65,7 @@ public final class JavaModel extends Model {
     public short aShort111;
 
     @OriginalMember(owner = "client!rs", name = "lb", descriptor = "[S")
-    public short[] lb;
+    public short[] faceB;
 
     @OriginalMember(owner = "client!rs", name = "x", descriptor = "S")
     public short aShort112;
@@ -74,7 +77,7 @@ public final class JavaModel extends Model {
     public Class378[] aClass378Array1;
 
     @OriginalMember(owner = "client!rs", name = "C", descriptor = "[B")
-    public byte[] aByteArray94;
+    public byte[] shadingType;
 
     @OriginalMember(owner = "client!rs", name = "qb", descriptor = "[I")
     public int[] anIntArray662;
@@ -86,7 +89,7 @@ public final class JavaModel extends Model {
     public int[] anIntArray664;
 
     @OriginalMember(owner = "client!rs", name = "q", descriptor = "[S")
-    public short[] aShortArray120;
+    public short[] faceColour;
 
     @OriginalMember(owner = "client!rs", name = "eb", descriptor = "Lclient!wf;")
     public JavaThreadResource aJavaThreadResource_3;
@@ -98,13 +101,13 @@ public final class JavaModel extends Model {
     public int[] anIntArray665;
 
     @OriginalMember(owner = "client!rs", name = "z", descriptor = "I")
-    public int anInt8489;
+    public int functionMask;
 
     @OriginalMember(owner = "client!rs", name = "Lb", descriptor = "[S")
-    public short[] aShortArray121;
+    public short[] originModels;
 
     @OriginalMember(owner = "client!rs", name = "xb", descriptor = "[I")
-    public int[] anIntArray666;
+    public int[] vertexX;
 
     @OriginalMember(owner = "client!rs", name = "o", descriptor = "[I")
     public int[] anIntArray667;
@@ -143,25 +146,25 @@ public final class JavaModel extends Model {
     public int[] anIntArray672;
 
     @OriginalMember(owner = "client!rs", name = "yb", descriptor = "I")
-    public int anInt8492;
+    public int billboardCount;
 
     @OriginalMember(owner = "client!rs", name = "fb", descriptor = "[[F")
-    public float[][] aFloatArrayArray17;
+    public float[][] texCoordU;
 
     @OriginalMember(owner = "client!rs", name = "Ob", descriptor = "[Lclient!mn;")
-    public ModelParticleEffector[] aModelParticleEffectorArray5;
+    public ModelParticleEffector[] effectors;
 
     @OriginalMember(owner = "client!rs", name = "W", descriptor = "[Lclient!mka;")
-    public Class245[] aClass245Array1;
+    public JavaBillboardAttributes[] billboardAttributes;
 
     @OriginalMember(owner = "client!rs", name = "D", descriptor = "S")
     public short aShort117;
 
     @OriginalMember(owner = "client!rs", name = "G", descriptor = "[S")
-    public short[] aShortArray122;
+    public short[] faceA;
 
     @OriginalMember(owner = "client!rs", name = "H", descriptor = "[B")
-    public byte[] aByteArray95;
+    public byte[] facePriority;
 
     @OriginalMember(owner = "client!rs", name = "rb", descriptor = "[I")
     public int[] anIntArray673;
@@ -170,10 +173,10 @@ public final class JavaModel extends Model {
     public int[] anIntArray674;
 
     @OriginalMember(owner = "client!rs", name = "u", descriptor = "[I")
-    public int[] anIntArray675;
+    public int[] vertexY;
 
     @OriginalMember(owner = "client!rs", name = "F", descriptor = "[S")
-    public short[] aShortArray123;
+    public short[] faceTextures;
 
     @OriginalMember(owner = "client!rs", name = "r", descriptor = "[Lclient!um;")
     public Class378[] aClass378Array2;
@@ -182,7 +185,7 @@ public final class JavaModel extends Model {
     public Class301[] aClass301Array1;
 
     @OriginalMember(owner = "client!rs", name = "Gb", descriptor = "[[F")
-    public float[][] aFloatArrayArray18;
+    public float[][] texCoordV;
 
     @OriginalMember(owner = "client!rs", name = "Q", descriptor = "S")
     public short aShort118;
@@ -197,13 +200,13 @@ public final class JavaModel extends Model {
     public int[] anIntArray676;
 
     @OriginalMember(owner = "client!rs", name = "mb", descriptor = "[Lclient!rv;")
-    public ModelParticleEmitter[] aModelParticleEmitterArray5;
+    public ModelParticleEmitter[] emitters;
 
     @OriginalMember(owner = "client!rs", name = "n", descriptor = "[[I")
-    public int[][] anIntArrayArray214;
+    public int[][] billboardLabels;
 
     @OriginalMember(owner = "client!rs", name = "Qb", descriptor = "[B")
-    public byte[] aByteArray96;
+    public byte[] faceAlpha;
 
     @OriginalMember(owner = "client!rs", name = "Z", descriptor = "[I")
     public int[] anIntArray677;
@@ -215,10 +218,10 @@ public final class JavaModel extends Model {
     public short[] aShortArray124;
 
     @OriginalMember(owner = "client!rs", name = "E", descriptor = "[S")
-    public short[] aShortArray125;
+    public short[] faceC;
 
     @OriginalMember(owner = "client!rs", name = "Ib", descriptor = "[Lclient!mf;")
-    public Class239[] aClass239Array1;
+    public JavaBillboardFace[] billboardFaces;
 
     @OriginalMember(owner = "client!rs", name = "J", descriptor = "I")
     public int anInt8495;
@@ -227,19 +230,19 @@ public final class JavaModel extends Model {
     public boolean aBoolean646 = false;
 
     @OriginalMember(owner = "client!rs", name = "sb", descriptor = "I")
-    public int anInt8482 = 0;
+    public int faceCount = 0;
 
     @OriginalMember(owner = "client!rs", name = "zb", descriptor = "I")
-    public int anInt8491 = 0;
+    public int maxVertex = 0;
 
     @OriginalMember(owner = "client!rs", name = "N", descriptor = "I")
-    public int anInt8483 = 0;
+    public int vertexCount = 0;
 
     @OriginalMember(owner = "client!rs", name = "hb", descriptor = "Z")
     public boolean aBoolean649 = false;
 
     @OriginalMember(owner = "client!rs", name = "K", descriptor = "Z")
-    public boolean aBoolean647 = false;
+    public boolean transparent = false;
 
     @OriginalMember(owner = "client!rs", name = "ib", descriptor = "I")
     public int anInt8488 = 0;
@@ -251,315 +254,362 @@ public final class JavaModel extends Model {
     public boolean aBoolean652 = false;
 
     @OriginalMember(owner = "client!rs", name = "Pb", descriptor = "Z")
-    public boolean aBoolean651 = false;
+    public boolean movingTextures = false;
 
     @OriginalMember(owner = "client!rs", name = "ub", descriptor = "Lclient!iaa;")
-    public final JavaToolkit aClass19_Sub2_9;
+    public final JavaToolkit toolkit;
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;)V")
     public JavaModel(@OriginalArg(0) JavaToolkit arg0) {
-        this.aClass19_Sub2_9 = arg0;
+        this.toolkit = arg0;
     }
 
     @OriginalMember(owner = "client!rs", name = "<init>", descriptor = "(Lclient!iaa;Lclient!dv;IIII)V")
-    public JavaModel(@OriginalArg(0) JavaToolkit arg0, @OriginalArg(1) Mesh arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
-        this.aClass19_Sub2_9 = arg0;
-        this.anInt8489 = arg2;
+    public JavaModel(@OriginalArg(0) JavaToolkit toolkit, @OriginalArg(1) Mesh base, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int featureMask) {
+        this.toolkit = toolkit;
+        this.functionMask = arg2;
         this.anInt8495 = arg3;
         this.anInt8485 = arg4;
-        @Pc(47) TextureSource local47 = this.aClass19_Sub2_9.textureSource;
-        this.anInt8483 = arg1.vertexCount;
-        this.anInt8491 = arg1.maxVertex;
-        this.anIntArray666 = arg1.vertexX;
-        this.anIntArray675 = arg1.vertexY;
-        this.anIntArray658 = arg1.vertexZ;
-        this.anInt8482 = arg1.faceCount;
-        this.aShortArray122 = arg1.faceA;
-        this.lb = arg1.faceB;
-        this.aShortArray125 = arg1.faceC;
-        this.aByteArray95 = arg1.facePriority;
-        this.aShortArray120 = arg1.faceColour;
-        this.aByteArray96 = arg1.faceAlpha;
-        this.aShortArray124 = arg1.aShortArray20;
-        this.aByteArray94 = arg1.shadingType;
-        this.aModelParticleEmitterArray5 = arg1.emitters;
-        this.aModelParticleEffectorArray5 = arg1.effectors;
-        this.aShortArray121 = arg1.originModels;
-        @Pc(119) int[] local119 = new int[this.anInt8482];
-        @Pc(121) int local121 = 0;
-        while (local121 < this.anInt8482) {
-            local119[local121] = local121++;
+        @Pc(47) TextureSource source = this.toolkit.textureSource;
+        this.vertexCount = base.vertexCount;
+        this.maxVertex = base.maxVertex;
+        this.vertexX = base.vertexX;
+        this.vertexY = base.vertexY;
+        this.vertexZ = base.vertexZ;
+        this.faceCount = base.faceCount;
+        this.faceA = base.faceA;
+        this.faceB = base.faceB;
+        this.faceC = base.faceC;
+        this.facePriority = base.facePriority;
+        this.faceColour = base.faceColour;
+        this.faceAlpha = base.faceAlpha;
+        this.aShortArray124 = base.aShortArray20;
+        this.shadingType = base.shadingType;
+        this.emitters = base.emitters;
+        this.effectors = base.effectors;
+        this.originModels = base.originModels;
+
+        @Pc(119) int[] faceIndex = new int[this.faceCount];
+        @Pc(121) int i = 0;
+        while (i < this.faceCount) {
+            faceIndex[i] = i++;
         }
-        @Pc(135) long[] local135 = new long[this.anInt8482];
-        @Pc(145) boolean local145 = (this.anInt8489 & 0x100) != 0;
-        @Pc(152) int local152;
-        @Pc(335) int local335;
-        for (@Pc(147) int local147 = 0; local147 < this.anInt8482; local147++) {
-            local152 = local119[local147];
-            @Pc(154) TextureMetrics local154 = null;
-            @Pc(156) int local156 = 0;
+
+        @Pc(135) long[] faceIds = new long[this.faceCount];
+        @Pc(145) boolean transparentMesh = (this.functionMask & 0x100) != 0;
+
+        for (@Pc(147) int j = 0; j < this.faceCount; j++) {
+            @Pc(152) int index = faceIndex[j];
+            @Pc(154) TextureMetrics metrics = null;
+            @Pc(156) int idHi = 0;
+            @Pc(335) int idLo;
             @Pc(158) byte local158 = 0;
-            @Pc(160) byte local160 = 0;
-            @Pc(162) byte local162 = 0;
-            if (arg1.billboards != null) {
-                @Pc(167) boolean local167 = false;
-                for (@Pc(169) int local169 = 0; local169 < arg1.billboards.length; local169++) {
-                    @Pc(175) MeshBillboard local175 = arg1.billboards[local169];
-                    if (local152 == local175.face) {
-                        @Pc(184) Class376 local184 = Static402.method5582(local175.anInt592);
-                        if (local184.aBoolean747) {
-                            local167 = true;
+            @Pc(160) byte effectType = 0;
+            @Pc(162) byte effectParam1 = 0;
+
+            if (base.billboards != null) {
+                @Pc(167) boolean hideFace = false;
+
+                for (@Pc(169) int k = 0; k < base.billboards.length; k++) {
+                    @Pc(175) MeshBillboard billboard = base.billboards[k];
+
+                    if (index == billboard.face) {
+                        @Pc(184) BillboardType type = BillboardTypeList.list(billboard.id);
+
+                        if (type.hideFace) {
+                            hideFace = true;
                         }
-                        if (local184.anInt9693 != -1) {
-                            @Pc(199) TextureMetrics local199 = local47.getMetrics(local184.anInt9693);
+
+                        if (type.texture != -1) {
+                            @Pc(199) TextureMetrics local199 = source.getMetrics(type.texture);
                             if (local199.alphaBlendMode == 2) {
-                                this.aBoolean647 = true;
+                                this.transparent = true;
                             }
                         }
                     }
                 }
-                if (local167) {
-                    local135[local147] = Long.MAX_VALUE;
+
+                if (hideFace) {
+                    faceIds[j] = Long.MAX_VALUE;
                 }
             }
-            @Pc(226) short local226 = -1;
-            if (arg1.faceTexture != null) {
-                local226 = arg1.faceTexture[local152];
-                if (local226 != -1) {
-                    local154 = local47.getMetrics(local226 & 0xFFFF);
-                    if ((arg5 & 0x40) != 0 && local154.disableable) {
-                        local226 = -1;
+
+            @Pc(226) short texture = -1;
+            if (base.faceTexture != null) {
+                texture = base.faceTexture[index];
+
+                if (texture != -1) {
+                    metrics = source.getMetrics(texture & 0xFFFF);
+
+                    if ((featureMask & 0x40) != 0 && metrics.disableable) {
+                        texture = -1;
                     } else {
-                        local160 = local154.effectType;
-                        local162 = local154.effectParam1;
+                        effectType = metrics.effectType;
+                        effectParam1 = metrics.effectParam1;
                     }
                 }
             }
-            @Pc(287) boolean local287 = this.aByteArray96 != null && this.aByteArray96[local152] != 0 || local154 != null && local154.alphaBlendMode == 2;
-            if ((local145 || local287) && this.aByteArray95 != null) {
-                local156 += this.aByteArray95[local152] << 17;
+
+            @Pc(287) boolean transparentFace = this.faceAlpha != null && this.faceAlpha[index] != 0 || metrics != null && metrics.alphaBlendMode == 2;
+            if ((transparentMesh || transparentFace) && this.facePriority != null) {
+                idHi += this.facePriority[index] << 17;
             }
-            if (local287) {
-                local156 += 65536;
+            if (transparentFace) {
+                idHi += 65536;
             }
-            local156 += (local160 & 0xFF) << 8;
-            local156 += local162 & 0xFF;
-            local335 = local158 + ((local226 & 0xFFFF) << 16);
-            @Pc(341) int local341 = local335 + (local147 & 0xFFFF);
-            local135[local147] = ((long) local156 << 32) + (long) local341;
-            this.aBoolean647 |= local287;
+            idHi += (effectType & 0xFF) << 8;
+            idHi += effectParam1 & 0xFF;
+            idLo = local158 + ((texture & 0xFFFF) << 16);
+            @Pc(341) int local341 = idLo + (j & 0xFFFF);
+            faceIds[j] = ((long) idHi << 32) + (long) local341;
+            this.transparent |= transparentFace;
         }
-        Static15.method187(local135, local119);
-        if (arg1.billboards != null) {
-            this.anInt8492 = arg1.billboards.length;
-            this.aClass239Array1 = new Class239[this.anInt8492];
-            this.aClass245Array1 = new Class245[this.anInt8492];
-            for (local152 = 0; local152 < arg1.billboards.length; local152++) {
-                @Pc(394) MeshBillboard local394 = arg1.billboards[local152];
-                @Pc(399) Class376 local399 = Static402.method5582(local394.anInt592);
-                local335 = ColourUtils.HSV_TO_RGB[arg1.faceColour[local394.face] & 0xFFFF] & 0xFFFFFF;
-                local335 |= 255 - (arg1.faceAlpha == null ? 0 : arg1.faceAlpha[local394.face] & 0xFF) << 24;
-                this.aClass239Array1[local152] = new Class239(local394.face, arg1.faceA[local394.face], arg1.faceB[local394.face], arg1.faceC[local394.face], local399.anInt9696, local399.anInt9690, local399.anInt9693, local399.anInt9697, local399.anInt9689, local399.aBoolean747, local394.anInt591);
-                this.aClass245Array1[local152] = new Class245(local335);
+
+        Quicksort.sort(faceIds, faceIndex);
+
+        if (base.billboards != null) {
+            this.billboardCount = base.billboards.length;
+            this.billboardFaces = new JavaBillboardFace[this.billboardCount];
+            this.billboardAttributes = new JavaBillboardAttributes[this.billboardCount];
+            for (@Pc(152) int index = 0; index < base.billboards.length; index++) {
+                @Pc(394) MeshBillboard billboard = base.billboards[index];
+                @Pc(399) BillboardType type = BillboardTypeList.list(billboard.id);
+                @Pc(335) int color = ColourUtils.HSV_TO_RGB[base.faceColour[billboard.face] & 0xFFFF] & 0xFFFFFF;
+                color |= 255 - (base.faceAlpha == null ? 0 : base.faceAlpha[billboard.face] & 0xFF) << 24;
+                this.billboardFaces[index] = new JavaBillboardFace(billboard.face, base.faceA[billboard.face], base.faceB[billboard.face], base.faceC[billboard.face], type.width, type.height, type.texture, type.anInt9697, type.blendMode, type.hideFace, billboard.distance);
+                this.billboardAttributes[index] = new JavaBillboardAttributes(color);
             }
         }
-        this.aFloatArrayArray17 = new float[this.anInt8482][];
-        this.aFloatArrayArray18 = new float[this.anInt8482][];
-        @Pc(500) Class369 local500 = Static50.method6635(arg1, this.anInt8482, local119);
-        @Pc(505) JavaThreadResource local505 = this.aClass19_Sub2_9.threadResource(Thread.currentThread());
-        @Pc(508) float[] local508 = local505.aFloatArray82;
-        @Pc(510) boolean local510 = false;
+
+        this.texCoordU = new float[this.faceCount][];
+        this.texCoordV = new float[this.faceCount][];
+        @Pc(500) TextureUniverse universe = TextureUniverse.fromMesh(base, this.faceCount, faceIndex);
+        @Pc(505) JavaThreadResource local505 = this.toolkit.threadResource(Thread.currentThread());
+        @Pc(508) float[] fs = local505.aFloatArray82;
+        @Pc(510) boolean hasTextureCoords = false;
         @Pc(517) int local517;
-        @Pc(539) short local539;
-        @Pc(555) TextureMetrics local555;
+        @Pc(539) short tex;
+        @Pc(555) TextureMetrics metrics;
         @Pc(616) int local616;
-        for (@Pc(512) int local512 = 0; local512 < this.anInt8482; local512++) {
-            local517 = local119[local512];
-            @Pc(522) byte local522;
-            if (arg1.faceTexSpace == null) {
-                local522 = -1;
+        for (@Pc(512) int j = 0; j < this.faceCount; j++) {
+            local517 = faceIndex[j];
+            @Pc(522) byte texSpace;
+            if (base.faceTexSpace == null) {
+                texSpace = -1;
             } else {
-                local522 = arg1.faceTexSpace[local517];
+                texSpace = base.faceTexSpace[local517];
             }
-            local539 = arg1.faceTexture == null ? -1 : arg1.faceTexture[local517];
-            if (local539 != -1 && (arg5 & 0x40) != 0) {
-                local555 = local47.getMetrics(local539 & 0xFFFF);
-                if (local555.disableable) {
-                    local539 = -1;
+
+            tex = base.faceTexture == null ? -1 : base.faceTexture[local517];
+
+            if (tex != -1 && (featureMask & 0x40) != 0) {
+                metrics = source.getMetrics(tex & 0xFFFF);
+
+                if (metrics.disableable) {
+                    tex = -1;
                 }
             }
-            if (local539 != -1) {
-                local510 = true;
-                @Pc(573) float[] local573 = this.aFloatArrayArray17[local517] = new float[3];
-                @Pc(581) float[] local581 = this.aFloatArrayArray18[local517] = new float[3];
-                if (local522 == -1) {
-                    local573[0] = 0.0F;
-                    local581[0] = 1.0F;
-                    local573[1] = 1.0F;
-                    local581[1] = 1.0F;
-                    local573[2] = 0.0F;
-                    local581[2] = 0.0F;
+
+            if (tex != -1) {
+                hasTextureCoords = true;
+                @Pc(573) float[] us = this.texCoordU[local517] = new float[3];
+                @Pc(581) float[] vs = this.texCoordV[local517] = new float[3];
+
+                if (texSpace == -1) {
+                    us[0] = 0.0F;
+                    vs[0] = 1.0F;
+                    us[1] = 1.0F;
+                    vs[1] = 1.0F;
+                    us[2] = 0.0F;
+                    vs[2] = 0.0F;
                 } else {
-                    local616 = local522 & 0xFF;
-                    @Pc(621) byte local621 = arg1.texMappingType[local616];
-                    @Pc(628) short local628;
-                    @Pc(633) short local633;
-                    @Pc(638) short local638;
-                    @Pc(671) float local671;
-                    @Pc(679) float local679;
-                    @Pc(687) float local687;
-                    @Pc(767) float local767;
-                    @Pc(775) float local775;
-                    @Pc(783) float local783;
-                    @Pc(791) float local791;
-                    @Pc(799) float local799;
-                    @Pc(807) float local807;
-                    if (local621 == 0) {
-                        local628 = this.aShortArray122[local517];
-                        local633 = this.lb[local517];
-                        local638 = this.aShortArray125[local517];
-                        @Pc(643) short local643 = arg1.texSpaceDefA[local616];
-                        @Pc(648) short local648 = arg1.texSpaceDefB[local616];
-                        @Pc(653) short local653 = arg1.texSpaceDefC[local616];
-                        @Pc(659) float local659 = (float) this.anIntArray666[local643];
-                        @Pc(665) float local665 = (float) this.anIntArray675[local643];
-                        local671 = (float) this.anIntArray658[local643];
-                        local679 = (float) this.anIntArray666[local648] - local659;
-                        local687 = (float) this.anIntArray675[local648] - local665;
-                        @Pc(695) float local695 = (float) this.anIntArray658[local648] - local671;
-                        @Pc(703) float local703 = (float) this.anIntArray666[local653] - local659;
-                        @Pc(711) float local711 = (float) this.anIntArray675[local653] - local665;
-                        @Pc(719) float local719 = (float) this.anIntArray658[local653] - local671;
-                        @Pc(727) float local727 = (float) this.anIntArray666[local628] - local659;
-                        @Pc(735) float local735 = (float) this.anIntArray675[local628] - local665;
-                        @Pc(743) float local743 = (float) this.anIntArray658[local628] - local671;
-                        @Pc(751) float local751 = (float) this.anIntArray666[local633] - local659;
-                        @Pc(759) float local759 = (float) this.anIntArray675[local633] - local665;
-                        local767 = (float) this.anIntArray658[local633] - local671;
-                        local775 = (float) this.anIntArray666[local638] - local659;
-                        local783 = (float) this.anIntArray675[local638] - local665;
-                        local791 = (float) this.anIntArray658[local638] - local671;
-                        local799 = local687 * local719 - local695 * local711;
-                        local807 = local695 * local703 - local679 * local719;
-                        @Pc(815) float local815 = local679 * local711 - local687 * local703;
-                        @Pc(823) float local823 = local711 * local815 - local719 * local807;
-                        @Pc(831) float local831 = local719 * local799 - local703 * local815;
-                        @Pc(839) float local839 = local703 * local807 - local711 * local799;
-                        @Pc(853) float local853 = 1.0F / (local823 * local679 + local831 * local687 + local839 * local695);
-                        local573[0] = (local823 * local727 + local831 * local735 + local839 * local743) * local853;
-                        local573[1] = (local823 * local751 + local831 * local759 + local839 * local767) * local853;
-                        local573[2] = (local823 * local775 + local831 * local783 + local839 * local791) * local853;
-                        @Pc(909) float local909 = local687 * local815 - local695 * local807;
-                        @Pc(917) float local917 = local695 * local799 - local679 * local815;
-                        @Pc(925) float local925 = local679 * local807 - local687 * local799;
-                        @Pc(939) float local939 = 1.0F / (local909 * local703 + local917 * local711 + local925 * local719);
-                        local581[0] = (local909 * local727 + local917 * local735 + local925 * local743) * local939;
-                        local581[1] = (local909 * local751 + local917 * local759 + local925 * local767) * local939;
-                        local581[2] = (local909 * local775 + local917 * local783 + local925 * local791) * local939;
+                    local616 = texSpace & 0xFF;
+                    @Pc(621) byte mappingType = base.texMappingType[local616];
+
+                    if (mappingType == 0) {
+                        @Pc(628) short faceA = this.faceA[local517];
+                        @Pc(633) short faceB = this.faceB[local517];
+                        @Pc(638) short faceC = this.faceC[local517];
+
+                        @Pc(643) short texSpaceDefA = base.texSpaceDefA[local616];
+                        @Pc(648) short texSpaceDefB = base.texSpaceDefB[local616];
+                        @Pc(653) short texSpaceDefC = base.texSpaceDefC[local616];
+
+                        @Pc(659) float vertexX = (float) this.vertexX[texSpaceDefA];
+                        @Pc(665) float vertexY = (float) this.vertexY[texSpaceDefA];
+                        @Pc(671) float vertexZ = (float) this.vertexZ[texSpaceDefA];
+
+                        @Pc(679) float relativeXSB = (float) this.vertexX[texSpaceDefB] - vertexX;
+                        @Pc(687) float relativeYSB = (float) this.vertexY[texSpaceDefB] - vertexY;
+                        @Pc(695) float relativeZSB = (float) this.vertexZ[texSpaceDefB] - vertexZ;
+
+                        @Pc(703) float relativeXSC = (float) this.vertexX[texSpaceDefC] - vertexX;
+                        @Pc(711) float relativeYSC = (float) this.vertexY[texSpaceDefC] - vertexY;
+                        @Pc(719) float relativeZSC = (float) this.vertexZ[texSpaceDefC] - vertexZ;
+
+                        @Pc(727) float relativeXFA = (float) this.vertexX[faceA] - vertexX;
+                        @Pc(735) float relativeYFA = (float) this.vertexY[faceA] - vertexY;
+                        @Pc(743) float relativeZFA = (float) this.vertexZ[faceA] - vertexZ;
+
+                        @Pc(751) float relativeXFB = (float) this.vertexX[faceB] - vertexX;
+                        @Pc(759) float relativeYFB = (float) this.vertexY[faceB] - vertexY;
+                        @Pc(767) float relativeZFB = (float) this.vertexZ[faceB] - vertexZ;
+
+                        @Pc(775) float relativeXFC = (float) this.vertexX[faceC] - vertexX;
+                        @Pc(783) float relativeYFC = (float) this.vertexY[faceC] - vertexY;
+                        @Pc(791) float relativeZFC = (float) this.vertexZ[faceC] - vertexZ;
+
+                        @Pc(799) float local799 = (relativeYSB * relativeZSC) - (relativeZSB * relativeYSC);
+                        @Pc(807) float local807 = (relativeZSB * relativeXSC) - (relativeXSB * relativeZSC);
+                        @Pc(815) float local815 = (relativeXSB * relativeYSC) - (relativeYSB * relativeXSC);
+
+                        @Pc(823) float local823 = (relativeYSC * local815) - (relativeZSC * local807);
+                        @Pc(831) float local831 = (relativeZSC * local799) - (relativeXSC * local815);
+                        @Pc(839) float local839 = (relativeXSC * local807) - (relativeYSC * local799);
+
+                        @Pc(853) float scale = 1.0F / ((local823 * relativeXSB) + (local831 * relativeYSB) + (local839 * relativeZSB));
+
+                        us[0] = ((local823 * relativeXFA) + (local831 * relativeYFA) + (local839 * relativeZFA)) * scale;
+                        us[1] = ((local823 * relativeXFB) + (local831 * relativeYFB) + (local839 * relativeZFB)) * scale;
+                        us[2] = ((local823 * relativeXFC) + (local831 * relativeYFC) + (local839 * relativeZFC)) * scale;
+
+                        @Pc(909) float local909 = relativeYSB * local815 - relativeZSB * local807;
+                        @Pc(917) float local917 = relativeZSB * local799 - relativeXSB * local815;
+
+                        @Pc(925) float local925 = relativeXSB * local807 - relativeYSB * local799;
+                        @Pc(939) float local939 = 1.0F / (local909 * relativeXSC + local917 * relativeYSC + local925 * relativeZSC);
+
+                        vs[0] = ((local909 * relativeXFA) + (local917 * relativeYFA) + (local925 * relativeZFA)) * local939;
+                        vs[1] = ((local909 * relativeXFB) + (local917 * relativeYFB) + (local925 * relativeZFB)) * local939;
+                        vs[2] = ((local909 * relativeXFC) + (local917 * relativeYFC) + (local925 * relativeZFC)) * local939;
                     } else {
-                        local628 = this.aShortArray122[local517];
-                        local633 = this.lb[local517];
-                        local638 = this.aShortArray125[local517];
-                        @Pc(1008) int local1008 = local500.anIntArray750[local616];
-                        @Pc(1013) int local1013 = local500.anIntArray751[local616];
-                        @Pc(1018) int local1018 = local500.anIntArray749[local616];
-                        @Pc(1023) float[] local1023 = local500.aFloatArrayArray19[local616];
-                        @Pc(1028) byte local1028 = arg1.aByteArray23[local616];
-                        local671 = (float) arg1.anIntArray214[local616] / 256.0F;
-                        if (local621 == 1) {
-                            local679 = (float) arg1.texSpaceScaleZ[local616] / 1024.0F;
-                            Static89.method1715(local1023, local671, local1018, this.anIntArray666[local628], local1028, local508, local679, local1013, this.anIntArray675[local628], this.anIntArray658[local628], local1008);
-                            local573[0] = local508[0];
-                            local581[0] = local508[1];
-                            Static89.method1715(local1023, local671, local1018, this.anIntArray666[local633], local1028, local508, local679, local1013, this.anIntArray675[local633], this.anIntArray658[local633], local1008);
-                            local573[1] = local508[0];
-                            local581[1] = local508[1];
-                            Static89.method1715(local1023, local671, local1018, this.anIntArray666[local638], local1028, local508, local679, local1013, this.anIntArray675[local638], this.anIntArray658[local638], local1008);
-                            local573[2] = local508[0];
-                            local581[2] = local508[1];
-                            local687 = local679 / 2.0F;
-                            if ((local1028 & 0x1) == 0) {
-                                if (local573[1] - local573[0] > local687) {
-                                    local573[1] -= local679;
-                                } else if (local573[0] - local573[1] > local687) {
-                                    local573[1] += local679;
+                        @Pc(628) short faceA = this.faceA[local517];
+                        @Pc(633) short faceB = this.faceB[local517];
+                        @Pc(638) short faceC = this.faceC[local517];
+
+                        @Pc(1008) int originX = universe.originX[local616];
+                        @Pc(1013) int originY = universe.originY[local616];
+                        @Pc(1018) int originZ = universe.originZ[local616];
+
+                        @Pc(1023) float[] matrix = universe.matrices[local616];
+                        @Pc(1028) byte direction = base.texDirection[local616];
+                        @Pc(671) float offsetX = (float) base.texOffsetX[local616] / 256.0F;
+
+                        if (mappingType == 1) {
+                            @Pc(679) float scaleZ = (float) base.texSpaceScaleZ[local616] / 1024.0F;
+
+                            TextureMapping.cylinderMap(this.vertexX[faceA], this.vertexY[faceA], this.vertexZ[faceA], originX, originY, originZ, matrix, scaleZ, offsetX, direction, fs);
+                            us[0] = fs[0];
+                            vs[0] = fs[1];
+
+                            TextureMapping.cylinderMap(this.vertexX[faceB], this.vertexY[faceB], this.vertexZ[faceB], originX, originY, originZ, matrix, scaleZ, offsetX, direction, fs);
+                            us[1] = fs[0];
+                            vs[1] = fs[1];
+
+                            TextureMapping.cylinderMap(this.vertexX[faceC], this.vertexY[faceC], this.vertexZ[faceC], originX, originY, originZ, matrix, scaleZ, offsetX, direction, fs);
+                            us[2] = fs[0];
+                            vs[2] = fs[1];
+
+                            @Pc(687) float scale = scaleZ / 2.0F;
+
+                            if ((direction & 0x1) != 0) {
+                                if (vs[1] - vs[0] > scale) {
+                                    vs[1] -= scaleZ;
+                                } else if (vs[0] - vs[1] > scale) {
+                                    vs[1] += scaleZ;
                                 }
-                                if (local573[2] - local573[0] > local687) {
-                                    local573[2] -= local679;
-                                } else if (local573[0] - local573[2] > local687) {
-                                    local573[2] += local679;
+
+                                if (vs[2] - vs[0] > scale) {
+                                    vs[2] -= scaleZ;
+                                } else if (vs[0] - vs[2] > scale) {
+                                    vs[2] += scaleZ;
                                 }
                             } else {
-                                if (local581[1] - local581[0] > local687) {
-                                    local581[1] -= local679;
-                                } else if (local581[0] - local581[1] > local687) {
-                                    local581[1] += local679;
+                                if (us[1] - us[0] > scale) {
+                                    us[1] -= scaleZ;
+                                } else if (us[0] - us[1] > scale) {
+                                    us[1] += scaleZ;
                                 }
-                                if (local581[2] - local581[0] > local687) {
-                                    local581[2] -= local679;
-                                } else if (local581[0] - local581[2] > local687) {
-                                    local581[2] += local679;
+
+                                if (us[2] - us[0] > scale) {
+                                    us[2] -= scaleZ;
+                                } else if (us[0] - us[2] > scale) {
+                                    us[2] += scaleZ;
                                 }
                             }
-                        } else if (local621 == 2) {
-                            local679 = (float) arg1.anIntArray212[local616] / 256.0F;
-                            local687 = (float) arg1.anIntArray206[local616] / 256.0F;
-                            @Pc(1340) int local1340 = this.anIntArray666[local633] - this.anIntArray666[local628];
-                            @Pc(1350) int local1350 = this.anIntArray675[local633] - this.anIntArray675[local628];
-                            @Pc(1360) int local1360 = this.anIntArray658[local633] - this.anIntArray658[local628];
-                            @Pc(1370) int local1370 = this.anIntArray666[local638] - this.anIntArray666[local628];
-                            @Pc(1380) int local1380 = this.anIntArray675[local638] - this.anIntArray675[local628];
-                            @Pc(1390) int local1390 = this.anIntArray658[local638] - this.anIntArray658[local628];
-                            @Pc(1398) int local1398 = local1350 * local1390 - local1380 * local1360;
-                            @Pc(1406) int local1406 = local1360 * local1370 - local1390 * local1340;
-                            @Pc(1414) int local1414 = local1340 * local1380 - local1370 * local1350;
-                            local767 = 64.0F / (float) arg1.texSpaceScaleX[local616];
-                            local775 = 64.0F / (float) arg1.texSpaceScaleY[local616];
-                            local783 = 64.0F / (float) arg1.texSpaceScaleZ[local616];
-                            local791 = ((float) local1398 * local1023[0] + (float) local1406 * local1023[1] + (float) local1414 * local1023[2]) / local767;
-                            local799 = ((float) local1398 * local1023[3] + (float) local1406 * local1023[4] + (float) local1414 * local1023[5]) / local775;
-                            local807 = ((float) local1398 * local1023[6] + (float) local1406 * local1023[7] + (float) local1414 * local1023[8]) / local783;
-                            @Pc(1513) int local1513 = Static161.method2589(local807, local791, local799);
-                            Static57.method1224(local671, local1513, this.anIntArray666[local628], local679, local1013, local508, this.anIntArray675[local628], this.anIntArray658[local628], local1008, local1018, local687, local1023, local1028);
-                            local573[0] = local508[0];
-                            local581[0] = local508[1];
-                            Static57.method1224(local671, local1513, this.anIntArray666[local633], local679, local1013, local508, this.anIntArray675[local633], this.anIntArray658[local633], local1008, local1018, local687, local1023, local1028);
-                            local573[1] = local508[0];
-                            local581[1] = local508[1];
-                            Static57.method1224(local671, local1513, this.anIntArray666[local638], local679, local1013, local508, this.anIntArray675[local638], this.anIntArray658[local638], local1008, local1018, local687, local1023, local1028);
-                            local573[2] = local508[0];
-                            local581[2] = local508[1];
-                        } else if (local621 == 3) {
-                            Static397.method5556(local1008, this.anIntArray658[local628], this.anIntArray675[local628], local508, local1018, local671, local1023, local1028, this.anIntArray666[local628], local1013);
-                            local573[0] = local508[0];
-                            local581[0] = local508[1];
-                            Static397.method5556(local1008, this.anIntArray658[local633], this.anIntArray675[local633], local508, local1018, local671, local1023, local1028, this.anIntArray666[local633], local1013);
-                            local573[1] = local508[0];
-                            local581[1] = local508[1];
-                            Static397.method5556(local1008, this.anIntArray658[local638], this.anIntArray675[local638], local508, local1018, local671, local1023, local1028, this.anIntArray666[local638], local1013);
-                            local573[2] = local508[0];
-                            local581[2] = local508[1];
-                            if ((local1028 & 0x1) == 0) {
-                                if (local573[1] - local573[0] > 0.5F) {
-                                    local573[1]--;
-                                } else if (local573[0] - local573[1] > 0.5F) {
-                                    local573[1]++;
+                        } else if (mappingType == 2) {
+                            @Pc(679) float offsetY = (float) base.texOffsetY[local616] / 256.0F;
+                            @Pc(687) float offsetZ = (float) base.texOffsetZ[local616] / 256.0F;
+
+                            @Pc(1340) int deltaX1 = this.vertexX[faceB] - this.vertexX[faceA];
+                            @Pc(1350) int deltaY1 = this.vertexY[faceB] - this.vertexY[faceA];
+                            @Pc(1360) int deltaZ1 = this.vertexZ[faceB] - this.vertexZ[faceA];
+
+                            @Pc(1370) int deltaX2 = this.vertexX[faceC] - this.vertexX[faceA];
+                            @Pc(1380) int deltaY2 = this.vertexY[faceC] - this.vertexY[faceA];
+                            @Pc(1390) int deltaZ2 = this.vertexZ[faceC] - this.vertexZ[faceA];
+
+                            @Pc(1398) int relativeX = (deltaY1 * deltaZ2) - (deltaY2 * deltaZ1);
+                            @Pc(1406) int relativeY = (deltaZ1 * deltaX2) - (deltaZ2 * deltaX1);
+                            @Pc(1414) int relativeZ = (deltaX1 * deltaY2) - (deltaX2 * deltaY1);
+
+                            @Pc(767) float scaleX = 64.0F / (float) base.texSpaceScaleX[local616];
+                            @Pc(775) float scaleY = 64.0F / (float) base.texSpaceScaleY[local616];
+                            @Pc(783) float scaleZ = 64.0F / (float) base.texSpaceScaleZ[local616];
+
+                            @Pc(791) float x = ((float) relativeX * matrix[0] + (float) relativeY * matrix[1] + (float) relativeZ * matrix[2]) / scaleX;
+                            @Pc(799) float y = ((float) relativeX * matrix[3] + (float) relativeY * matrix[4] + (float) relativeZ * matrix[5]) / scaleY;
+                            @Pc(807) float z = ((float) relativeX * matrix[6] + (float) relativeY * matrix[7] + (float) relativeZ * matrix[8]) / scaleZ;
+
+                            @Pc(1513) int cubeFace = TextureMapping.cubeFace(x, y, z);
+
+                            TextureMapping.cubeMap(this.vertexX[faceA], this.vertexY[faceA], this.vertexZ[faceA], originX, originY, originZ, matrix, offsetX, offsetY, offsetZ, cubeFace, direction, fs);
+                            us[0] = fs[0];
+                            vs[0] = fs[1];
+
+                            TextureMapping.cubeMap(this.vertexX[faceB], this.vertexY[faceB], this.vertexZ[faceB], originX, originY, originZ, matrix, offsetX, offsetY, offsetZ, cubeFace, direction, fs);
+                            us[1] = fs[0];
+                            vs[1] = fs[1];
+
+                            TextureMapping.cubeMap(this.vertexX[faceC], this.vertexY[faceC], this.vertexZ[faceC], originX, originY, originZ, matrix, offsetX, offsetY, offsetZ, cubeFace, direction, fs);
+                            us[2] = fs[0];
+                            vs[2] = fs[1];
+                        } else if (mappingType == 3) {
+                            TextureMapping.sphereMap(this.vertexX[faceA], this.vertexY[faceA], this.vertexZ[faceA], originX, originY, originZ, matrix, offsetX, direction, fs);
+                            us[0] = fs[0];
+                            vs[0] = fs[1];
+
+                            TextureMapping.sphereMap(this.vertexX[faceB], this.vertexY[faceB], this.vertexZ[faceB], originX, originY, originZ, matrix, offsetX, direction, fs);
+                            us[1] = fs[0];
+                            vs[1] = fs[1];
+
+                            TextureMapping.sphereMap(this.vertexX[faceC], this.vertexY[faceC], this.vertexZ[faceC], originX, originY, originZ, matrix, offsetX, direction, fs);
+                            us[2] = fs[0];
+                            vs[2] = fs[1];
+
+                            if ((direction & 0x1) != 0) {
+                                if (vs[1] - vs[0] > 0.5F) {
+                                    vs[1]--;
+                                } else if (vs[0] - vs[1] > 0.5F) {
+                                    vs[1]++;
                                 }
-                                if (local573[2] - local573[0] > 0.5F) {
-                                    local573[2]--;
-                                } else if (local573[0] - local573[2] > 0.5F) {
-                                    local573[2]++;
+
+                                if (vs[2] - vs[0] > 0.5F) {
+                                    vs[2]--;
+                                } else if (vs[0] - vs[2] > 0.5F) {
+                                    vs[2]++;
                                 }
                             } else {
-                                if (local581[1] - local581[0] > 0.5F) {
-                                    local581[1]--;
-                                } else if (local581[0] - local581[1] > 0.5F) {
-                                    local581[1]++;
+                                if (us[1] - us[0] > 0.5F) {
+                                    us[1]--;
+                                } else if (us[0] - us[1] > 0.5F) {
+                                    us[1]++;
                                 }
-                                if (local581[2] - local581[0] > 0.5F) {
-                                    local581[2]--;
-                                } else if (local581[0] - local581[2] > 0.5F) {
-                                    local581[2]++;
+
+                                if (us[2] - us[0] > 0.5F) {
+                                    us[2]--;
+                                } else if (us[0] - us[2] > 0.5F) {
+                                    us[2]++;
                                 }
                             }
                         }
@@ -567,51 +617,64 @@ public final class JavaModel extends Model {
                 }
             }
         }
-        if (!local510) {
-            this.aFloatArrayArray17 = this.aFloatArrayArray18 = null;
+
+        if (!hasTextureCoords) {
+            this.texCoordU = this.texCoordV = null;
         }
-        if (arg1.vertexLabel != null && (this.anInt8489 & 0x20) != 0) {
-            this.anIntArrayArray212 = arg1.vertexLabels(true);
+
+        if (base.vertexLabel != null && (this.functionMask & 0x20) != 0) {
+            this.vertexLabels = base.getVertexLabels(true);
         }
-        if (arg1.faceLabel != null && (this.anInt8489 & 0x180) != 0) {
-            this.anIntArrayArray213 = arg1.getFaceGroups();
+
+        if (base.faceLabel != null && (this.functionMask & 0x180) != 0) {
+            this.faceLabels = base.getFaceLabels();
         }
-        if (arg1.billboards != null && (this.anInt8489 & 0x400) != 0) {
-            this.anIntArrayArray214 = arg1.getBillboardGroups();
+
+        if (base.billboards != null && (this.functionMask & 0x400) != 0) {
+            this.billboardLabels = base.getBillboardGroups();
         }
-        if (arg1.faceTexture == null) {
-            this.aShortArray123 = null;
+
+        if (base.faceTexture == null) {
+            this.faceTextures = null;
         } else {
-            this.aShortArray123 = new short[this.anInt8482];
-            @Pc(1963) boolean local1963 = false;
-            for (local616 = 0; local616 < this.anInt8482; local616++) {
-                local539 = arg1.faceTexture[local616];
-                if (local539 == -1) {
-                    this.aShortArray123[local616] = -1;
+            this.faceTextures = new short[this.faceCount];
+
+            @Pc(1963) boolean hasTextures = false;
+            for (local616 = 0; local616 < this.faceCount; local616++) {
+                tex = base.faceTexture[local616];
+
+                if (tex == -1) {
+                    this.faceTextures[local616] = -1;
                 } else {
-                    local555 = this.aClass19_Sub2_9.textureSource.getMetrics(local539);
-                    if ((arg5 & 0x40) != 0 && local555.disableable) {
-                        this.aShortArray123[local616] = -1;
+                    metrics = this.toolkit.textureSource.getMetrics(tex);
+
+                    if ((featureMask & 0x40) != 0 && metrics.disableable) {
+                        this.faceTextures[local616] = -1;
                     } else {
-                        this.aShortArray123[local616] = local539;
-                        local1963 = true;
-                        if (local555.alphaBlendMode == 2) {
-                            this.aBoolean647 = true;
+                        this.faceTextures[local616] = tex;
+                        hasTextures = true;
+
+                        if (metrics.alphaBlendMode == 2) {
+                            this.transparent = true;
                         }
-                        if (local555.speedU != 0 || local555.speedV != 0) {
-                            this.aBoolean651 = true;
+
+                        if (metrics.speedU != 0 || metrics.speedV != 0) {
+                            this.movingTextures = true;
                         }
                     }
                 }
             }
-            if (!local1963) {
-                this.aShortArray123 = null;
+
+            if (!hasTextures) {
+                this.faceTextures = null;
             }
         }
-        if (this.aBoolean647 || this.aClass239Array1 != null) {
-            this.aShortArray119 = new short[this.anInt8482];
-            for (local517 = 0; local517 < this.anInt8482; local517++) {
-                this.aShortArray119[local517] = (short) local119[local517];
+
+        if (this.transparent || this.billboardFaces != null) {
+            this.faceIndices = new short[this.faceCount];
+
+            for (local517 = 0; local517 < this.faceCount; local517++) {
+                this.faceIndices[local517] = (short) faceIndex[local517];
             }
         }
     }
@@ -619,16 +682,16 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "O", descriptor = "(III)V")
     @Override
     public void O(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        if (arg0 != 128 && (this.anInt8489 & 0x1) != 1) {
+        if (arg0 != 128 && (this.functionMask & 0x1) != 1) {
             throw new IllegalStateException();
-        } else if (arg1 != 128 && (this.anInt8489 & 0x2) != 2) {
+        } else if (arg1 != 128 && (this.functionMask & 0x2) != 2) {
             throw new IllegalStateException();
-        } else if (arg2 == 128 || (this.anInt8489 & 0x4) == 4) {
+        } else if (arg2 == 128 || (this.functionMask & 0x4) == 4) {
             synchronized (this) {
-                for (@Pc(53) int local53 = 0; local53 < this.anInt8483; local53++) {
-                    this.anIntArray666[local53] = this.anIntArray666[local53] * arg0 >> 7;
-                    this.anIntArray675[local53] = this.anIntArray675[local53] * arg1 >> 7;
-                    this.anIntArray658[local53] = this.anIntArray658[local53] * arg2 >> 7;
+                for (@Pc(53) int local53 = 0; local53 < this.vertexCount; local53++) {
+                    this.vertexX[local53] = this.vertexX[local53] * arg0 >> 7;
+                    this.vertexY[local53] = this.vertexY[local53] * arg1 >> 7;
+                    this.vertexZ[local53] = this.vertexZ[local53] * arg2 >> 7;
                 }
                 this.aBoolean652 = false;
             }
@@ -649,9 +712,9 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "m", descriptor = "()V")
     public void method7501() {
         synchronized (this) {
-            for (@Pc(5) int local5 = 0; local5 < this.anInt8483; local5++) {
-                this.anIntArray666[local5] = -this.anIntArray666[local5];
-                this.anIntArray658[local5] = -this.anIntArray658[local5];
+            for (@Pc(5) int local5 = 0; local5 < this.vertexCount; local5++) {
+                this.vertexX[local5] = -this.vertexX[local5];
+                this.vertexZ[local5] = -this.vertexZ[local5];
             }
             this.method7504();
         }
@@ -660,50 +723,50 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "v", descriptor = "()V")
     @Override
     public void v() {
-        if ((this.anInt8489 & 0x10) != 16) {
+        if ((this.functionMask & 0x10) != 16) {
             throw new IllegalStateException();
         }
         synchronized (this) {
-            for (@Pc(16) int local16 = 0; local16 < this.anInt8483; local16++) {
-                this.anIntArray658[local16] = -this.anIntArray658[local16];
+            for (@Pc(16) int local16 = 0; local16 < this.vertexCount; local16++) {
+                this.vertexZ[local16] = -this.vertexZ[local16];
             }
             @Pc(38) int local38;
             if (this.aClass378Array2 != null) {
-                for (local38 = 0; local38 < this.anInt8491; local38++) {
+                for (local38 = 0; local38 < this.maxVertex; local38++) {
                     if (this.aClass378Array2[local38] != null) {
                         this.aClass378Array2[local38].anInt9745 = -this.aClass378Array2[local38].anInt9745;
                     }
                 }
             }
             if (this.aClass378Array1 != null) {
-                for (local38 = 0; local38 < this.anInt8491; local38++) {
+                for (local38 = 0; local38 < this.maxVertex; local38++) {
                     if (this.aClass378Array1[local38] != null) {
                         this.aClass378Array1[local38].anInt9745 = -this.aClass378Array1[local38].anInt9745;
                     }
                 }
             }
             if (this.aClass301Array1 != null) {
-                for (local38 = 0; local38 < this.anInt8482; local38++) {
+                for (local38 = 0; local38 < this.faceCount; local38++) {
                     if (this.aClass301Array1[local38] != null) {
                         this.aClass301Array1[local38].anInt7681 = -this.aClass301Array1[local38].anInt7681;
                     }
                 }
             }
-            @Pc(127) short[] local127 = this.aShortArray122;
-            this.aShortArray122 = this.aShortArray125;
-            this.aShortArray125 = local127;
-            if (this.aFloatArrayArray17 != null) {
-                for (@Pc(139) int local139 = 0; local139 < this.anInt8482; local139++) {
+            @Pc(127) short[] local127 = this.faceA;
+            this.faceA = this.faceC;
+            this.faceC = local127;
+            if (this.texCoordU != null) {
+                for (@Pc(139) int local139 = 0; local139 < this.faceCount; local139++) {
                     @Pc(152) float local152;
-                    if (this.aFloatArrayArray17[local139] != null) {
-                        local152 = this.aFloatArrayArray17[local139][0];
-                        this.aFloatArrayArray17[local139][0] = this.aFloatArrayArray17[local139][2];
-                        this.aFloatArrayArray17[local139][2] = local152;
+                    if (this.texCoordU[local139] != null) {
+                        local152 = this.texCoordU[local139][0];
+                        this.texCoordU[local139][0] = this.texCoordU[local139][2];
+                        this.texCoordU[local139][2] = local152;
                     }
-                    if (this.aFloatArrayArray18[local139] != null) {
-                        local152 = this.aFloatArrayArray18[local139][0];
-                        this.aFloatArrayArray18[local139][0] = this.aFloatArrayArray18[local139][2];
-                        this.aFloatArrayArray18[local139][2] = local152;
+                    if (this.texCoordV[local139] != null) {
+                        local152 = this.texCoordV[local139][0];
+                        this.texCoordV[local139][0] = this.texCoordV[local139][2];
+                        this.texCoordV[local139][2] = local152;
                     }
                 }
             }
@@ -724,7 +787,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(I)V")
     @Override
     public void a(@OriginalArg(0) int arg0) {
-        if ((this.anInt8489 & 0x5) != 5) {
+        if ((this.functionMask & 0x5) != 5) {
             throw new IllegalStateException();
         } else if (arg0 == 4096) {
             this.method7505();
@@ -736,10 +799,10 @@ public final class JavaModel extends Model {
             @Pc(35) int local35 = Trig1.SIN[arg0];
             @Pc(39) int local39 = Trig1.COS[arg0];
             synchronized (this) {
-                for (@Pc(45) int local45 = 0; local45 < this.anInt8483; local45++) {
-                    @Pc(62) int local62 = this.anIntArray658[local45] * local35 + this.anIntArray666[local45] * local39 >> 14;
-                    this.anIntArray658[local45] = this.anIntArray658[local45] * local39 - this.anIntArray666[local45] * local35 >> 14;
-                    this.anIntArray666[local45] = local62;
+                for (@Pc(45) int local45 = 0; local45 < this.vertexCount; local45++) {
+                    @Pc(62) int local62 = this.vertexZ[local45] * local35 + this.vertexX[local45] * local39 >> 14;
+                    this.vertexZ[local45] = this.vertexZ[local45] * local39 - this.vertexX[local45] * local35 >> 14;
+                    this.vertexX[local45] = local62;
                 }
                 this.method7504();
             }
@@ -757,9 +820,9 @@ public final class JavaModel extends Model {
         @Pc(81) int local81;
         @Pc(333) int local333;
         if (this.aJavaThreadResource_3.aBoolean805) {
-            local8 = this.aShortArray122[arg0];
-            local13 = this.lb[arg0];
-            local18 = this.aShortArray125[arg0];
+            local8 = this.faceA[arg0];
+            local13 = this.faceB[arg0];
+            local18 = this.faceC[arg0];
             local27 = 0;
             local46 = 0;
             local65 = 0;
@@ -778,21 +841,21 @@ public final class JavaModel extends Model {
             } else if (this.anIntArray673[local18] > this.aJavaThreadResource_3.waterHeight) {
                 local65 = (this.aJavaThreadResource_3.waterHeight - this.anIntArray673[local18]) * 255 / (this.aJavaThreadResource_3.waterHeight - this.aJavaThreadResource_3.waterDepth);
             }
-            if (this.aByteArray96 == null) {
+            if (this.faceAlpha == null) {
                 this.aRasterizer_1.alpha = 0;
             } else {
-                this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
+                this.aRasterizer_1.alpha = this.faceAlpha[arg0] & 0xFF;
             }
-            if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
+            if (this.faceTextures != null && this.faceTextures[arg0] != -1) {
                 local81 = -16777216;
-                if (this.aByteArray96 != null) {
-                    local81 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+                if (this.faceAlpha != null) {
+                    local81 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
                 }
                 if (this.anIntArray672[arg0] == -1) {
                     local333 = local81 | this.anIntArray668[arg0] & 0xFFFFFF;
-                    this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333, local333, local333, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local333, local333, local333, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.faceTextures[arg0]);
                 } else {
-                    this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.faceTextures[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
                 this.aRasterizer_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
@@ -801,9 +864,9 @@ public final class JavaModel extends Model {
             }
             return;
         }
-        local8 = this.aShortArray122[arg0];
-        local13 = this.lb[arg0];
-        local18 = this.aShortArray125[arg0];
+        local8 = this.faceA[arg0];
+        local13 = this.faceB[arg0];
+        local18 = this.faceC[arg0];
         local27 = this.anIntArray670[local8] - this.aJavaThreadResource_3.fogPlane;
         if (local27 > 255) {
             local27 = 255;
@@ -830,21 +893,21 @@ public final class JavaModel extends Model {
             this.method7517(arg0);
             return;
         }
-        if (this.aByteArray96 == null) {
+        if (this.faceAlpha == null) {
             this.aRasterizer_1.alpha = 0;
         } else {
-            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.faceAlpha[arg0] & 0xFF;
         }
-        if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
+        if (this.faceTextures != null && this.faceTextures[arg0] != -1) {
             local333 = -16777216;
-            if (this.aByteArray96 != null) {
-                local333 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+            if (this.faceAlpha != null) {
+                local333 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
             }
             if (this.anIntArray672[arg0] == -1) {
                 @Pc(362) int local362 = local333 | this.anIntArray668[arg0] & 0xFFFFFF;
-                this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local362, local362, local362, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local362, local362, local362, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.faceTextures[arg0]);
             } else {
-                this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5154((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.faceTextures[arg0]);
             }
         } else if (this.anIntArray672[arg0] == -1) {
             this.aRasterizer_1.method5143((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
@@ -855,7 +918,7 @@ public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(Z)V")
     public void method7503(@OriginalArg(0) boolean arg0) {
-        if (this.aClass19_Sub2_9.threadCount > 1) {
+        if (this.toolkit.threadCount > 1) {
             synchronized (this) {
                 this.method7512(arg0);
             }
@@ -875,12 +938,12 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(IIII)V")
     @Override
     public void adjustColours(@OriginalArg(0) int hue, @OriginalArg(1) int saturation, @OriginalArg(2) int lightness, @OriginalArg(3) int scale) {
-        if ((this.anInt8489 & 0x80000) != 524288) {
+        if ((this.functionMask & 0x80000) != 524288) {
             throw new IllegalStateException("FMT");
         }
         @Pc(21) int local21;
-        for (@Pc(13) int local13 = 0; local13 < this.anInt8482; local13++) {
-            local21 = this.aShortArray120[local13] & 0xFFFF;
+        for (@Pc(13) int local13 = 0; local13 < this.faceCount; local13++) {
+            local21 = this.faceColour[local13] & 0xFFFF;
             @Pc(27) int local27 = local21 >> 10 & 0x3F;
             @Pc(33) int local33 = local21 >> 7 & 0x7;
             @Pc(37) int local37 = local21 & 0x7F;
@@ -893,13 +956,13 @@ public final class JavaModel extends Model {
             if (lightness != -1) {
                 local37 += (lightness - local37) * scale >> 7;
             }
-            this.aShortArray120[local13] = (short) (local27 << 10 | local33 << 7 | local37);
+            this.faceColour[local13] = (short) (local27 << 10 | local33 << 7 | local37);
         }
-        if (this.aClass239Array1 != null) {
-            for (local21 = 0; local21 < this.anInt8492; local21++) {
-                @Pc(108) Class239 local108 = this.aClass239Array1[local21];
-                @Pc(113) Class245 local113 = this.aClass245Array1[local21];
-                local113.anInt6225 = local113.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local108.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+        if (this.billboardFaces != null) {
+            for (local21 = 0; local21 < this.billboardCount; local21++) {
+                @Pc(108) JavaBillboardFace local108 = this.billboardFaces[local21];
+                @Pc(113) JavaBillboardAttributes local113 = this.billboardAttributes[local21];
+                local113.anInt6225 = local113.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.faceColour[local108.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
             }
         }
         if (this.anInt8488 == 2) {
@@ -930,10 +993,10 @@ public final class JavaModel extends Model {
             arg3 <<= 0x4;
             arg4 <<= 0x4;
             if (!this.aBoolean648) {
-                for (local21 = 0; local21 < this.anInt8483; local21++) {
-                    this.anIntArray666[local21] <<= 0x4;
-                    this.anIntArray675[local21] <<= 0x4;
-                    this.anIntArray658[local21] <<= 0x4;
+                for (local21 = 0; local21 < this.vertexCount; local21++) {
+                    this.vertexX[local21] <<= 0x4;
+                    this.vertexY[local21] <<= 0x4;
+                    this.vertexZ[local21] <<= 0x4;
                 }
                 this.aBoolean648 = true;
             }
@@ -943,14 +1006,14 @@ public final class JavaModel extends Model {
             this.anInt8487 = 0;
             for (local69 = 0; local69 < local2; local69++) {
                 local74 = arg1[local69];
-                if (local74 < this.anIntArrayArray212.length) {
-                    @Pc(84) int[] local84 = this.anIntArrayArray212[local74];
+                if (local74 < this.vertexLabels.length) {
+                    @Pc(84) int[] local84 = this.vertexLabels[local74];
                     for (local86 = 0; local86 < local84.length; local86++) {
                         local91 = local84[local86];
-                        if (this.aShortArray121 == null || (arg6 & this.aShortArray121[local91]) != 0) {
-                            this.anInt8493 += this.anIntArray666[local91];
-                            this.anInt8490 += this.anIntArray675[local91];
-                            this.anInt8487 += this.anIntArray658[local91];
+                        if (this.originModels == null || (arg6 & this.originModels[local91]) != 0) {
+                            this.anInt8493 += this.vertexX[local91];
+                            this.anInt8490 += this.vertexY[local91];
+                            this.anInt8487 += this.vertexZ[local91];
                             local21++;
                         }
                     }
@@ -983,23 +1046,23 @@ public final class JavaModel extends Model {
             arg3 <<= 0x4;
             arg4 <<= 0x4;
             if (!this.aBoolean648) {
-                for (local21 = 0; local21 < this.anInt8483; local21++) {
-                    this.anIntArray666[local21] <<= 0x4;
-                    this.anIntArray675[local21] <<= 0x4;
-                    this.anIntArray658[local21] <<= 0x4;
+                for (local21 = 0; local21 < this.vertexCount; local21++) {
+                    this.vertexX[local21] <<= 0x4;
+                    this.vertexY[local21] <<= 0x4;
+                    this.vertexZ[local21] <<= 0x4;
                 }
                 this.aBoolean648 = true;
             }
             for (local21 = 0; local21 < local2; local21++) {
                 local69 = arg1[local21];
-                if (local69 < this.anIntArrayArray212.length) {
-                    local335 = this.anIntArrayArray212[local69];
+                if (local69 < this.vertexLabels.length) {
+                    local335 = this.vertexLabels[local69];
                     for (local337 = 0; local337 < local335.length; local337++) {
                         local86 = local335[local337];
-                        if (this.aShortArray121 == null || (arg6 & this.aShortArray121[local86]) != 0) {
-                            this.anIntArray666[local86] += arg2;
-                            this.anIntArray675[local86] += arg3;
-                            this.anIntArray658[local86] += arg4;
+                        if (this.originModels == null || (arg6 & this.originModels[local86]) != 0) {
+                            this.vertexX[local86] += arg2;
+                            this.vertexY[local86] += arg3;
+                            this.vertexZ[local86] += arg4;
                         }
                     }
                 }
@@ -1033,48 +1096,48 @@ public final class JavaModel extends Model {
             if (arg7 == null) {
                 for (local21 = 0; local21 < local2; local21++) {
                     local69 = arg1[local21];
-                    if (local69 < this.anIntArrayArray212.length) {
-                        local335 = this.anIntArrayArray212[local69];
+                    if (local69 < this.vertexLabels.length) {
+                        local335 = this.vertexLabels[local69];
                         for (local337 = 0; local337 < local335.length; local337++) {
                             local86 = local335[local337];
-                            if (this.aShortArray121 == null || (arg6 & this.aShortArray121[local86]) != 0) {
-                                this.anIntArray666[local86] -= this.anInt8493;
-                                this.anIntArray675[local86] -= this.anInt8490;
-                                this.anIntArray658[local86] -= this.anInt8487;
+                            if (this.originModels == null || (arg6 & this.originModels[local86]) != 0) {
+                                this.vertexX[local86] -= this.anInt8493;
+                                this.vertexY[local86] -= this.anInt8490;
+                                this.vertexZ[local86] -= this.anInt8487;
                                 if (arg4 != 0) {
                                     local91 = Trig1.SIN[arg4];
                                     local506 = Trig1.COS[arg4];
-                                    local531 = this.anIntArray675[local86] * local91 + this.anIntArray666[local86] * local506 + 16383 >> 14;
-                                    this.anIntArray675[local86] = this.anIntArray675[local86] * local506 + 16383 - this.anIntArray666[local86] * local91 >> 14;
-                                    this.anIntArray666[local86] = local531;
+                                    local531 = this.vertexY[local86] * local91 + this.vertexX[local86] * local506 + 16383 >> 14;
+                                    this.vertexY[local86] = this.vertexY[local86] * local506 + 16383 - this.vertexX[local86] * local91 >> 14;
+                                    this.vertexX[local86] = local531;
                                 }
                                 if (arg2 != 0) {
                                     local91 = Trig1.SIN[arg2];
                                     local506 = Trig1.COS[arg2];
-                                    local531 = this.anIntArray675[local86] * local506 + 16383 - this.anIntArray658[local86] * local91 >> 14;
-                                    this.anIntArray658[local86] = this.anIntArray675[local86] * local91 + this.anIntArray658[local86] * local506 + 16383 >> 14;
-                                    this.anIntArray675[local86] = local531;
+                                    local531 = this.vertexY[local86] * local506 + 16383 - this.vertexZ[local86] * local91 >> 14;
+                                    this.vertexZ[local86] = this.vertexY[local86] * local91 + this.vertexZ[local86] * local506 + 16383 >> 14;
+                                    this.vertexY[local86] = local531;
                                 }
                                 if (arg3 != 0) {
                                     local91 = Trig1.SIN[arg3];
                                     local506 = Trig1.COS[arg3];
-                                    local531 = this.anIntArray658[local86] * local91 + this.anIntArray666[local86] * local506 + 16383 >> 14;
-                                    this.anIntArray658[local86] = this.anIntArray658[local86] * local506 + 16383 - this.anIntArray666[local86] * local91 >> 14;
-                                    this.anIntArray666[local86] = local531;
+                                    local531 = this.vertexZ[local86] * local91 + this.vertexX[local86] * local506 + 16383 >> 14;
+                                    this.vertexZ[local86] = this.vertexZ[local86] * local506 + 16383 - this.vertexX[local86] * local91 >> 14;
+                                    this.vertexX[local86] = local531;
                                 }
-                                this.anIntArray666[local86] += this.anInt8493;
-                                this.anIntArray675[local86] += this.anInt8490;
-                                this.anIntArray658[local86] += this.anInt8487;
+                                this.vertexX[local86] += this.anInt8493;
+                                this.vertexY[local86] += this.anInt8490;
+                                this.vertexZ[local86] += this.anInt8487;
                             }
                         }
                     }
                 }
             } else {
                 if (!this.aBoolean648) {
-                    for (local21 = 0; local21 < this.anInt8483; local21++) {
-                        this.anIntArray666[local21] <<= 0x4;
-                        this.anIntArray675[local21] <<= 0x4;
-                        this.anIntArray658[local21] <<= 0x4;
+                    for (local21 = 0; local21 < this.vertexCount; local21++) {
+                        this.vertexX[local21] <<= 0x4;
+                        this.vertexY[local21] <<= 0x4;
+                        this.vertexZ[local21] <<= 0x4;
                     }
                     this.aBoolean648 = true;
                 }
@@ -1154,66 +1217,66 @@ public final class JavaModel extends Model {
                 local976 += local74;
                 for (local1103 = 0; local1103 < local2; local1103++) {
                     @Pc(1108) int local1108 = arg1[local1103];
-                    if (local1108 < this.anIntArrayArray212.length) {
-                        @Pc(1118) int[] local1118 = this.anIntArrayArray212[local1108];
+                    if (local1108 < this.vertexLabels.length) {
+                        @Pc(1118) int[] local1118 = this.vertexLabels[local1108];
                         for (@Pc(1120) int local1120 = 0; local1120 < local1118.length; local1120++) {
                             @Pc(1125) int local1125 = local1118[local1120];
-                            if (this.aShortArray121 == null || (arg6 & this.aShortArray121[local1125]) != 0) {
-                                @Pc(1168) int local1168 = local966[0] * this.anIntArray666[local1125] + local966[1] * this.anIntArray675[local1125] + local966[2] * this.anIntArray658[local1125] + 8192 >> 14;
-                                @Pc(1199) int local1199 = local966[3] * this.anIntArray666[local1125] + local966[4] * this.anIntArray675[local1125] + local966[5] * this.anIntArray658[local1125] + 8192 >> 14;
-                                @Pc(1230) int local1230 = local966[6] * this.anIntArray666[local1125] + local966[7] * this.anIntArray675[local1125] + local966[8] * this.anIntArray658[local1125] + 8192 >> 14;
+                            if (this.originModels == null || (arg6 & this.originModels[local1125]) != 0) {
+                                @Pc(1168) int local1168 = local966[0] * this.vertexX[local1125] + local966[1] * this.vertexY[local1125] + local966[2] * this.vertexZ[local1125] + 8192 >> 14;
+                                @Pc(1199) int local1199 = local966[3] * this.vertexX[local1125] + local966[4] * this.vertexY[local1125] + local966[5] * this.vertexZ[local1125] + 8192 >> 14;
+                                @Pc(1230) int local1230 = local966[6] * this.vertexX[local1125] + local966[7] * this.vertexY[local1125] + local966[8] * this.vertexZ[local1125] + 8192 >> 14;
                                 @Pc(1234) int local1234 = local1168 + local971;
                                 @Pc(1238) int local1238 = local1199 + local974;
                                 @Pc(1242) int local1242 = local1230 + local976;
-                                this.anIntArray666[local1125] = local1234;
-                                this.anIntArray675[local1125] = local1238;
-                                this.anIntArray658[local1125] = local1242;
+                                this.vertexX[local1125] = local1234;
+                                this.vertexY[local1125] = local1238;
+                                this.vertexZ[local1125] = local1242;
                             }
                         }
                     }
                 }
             }
         } else if (arg0 != 3) {
-            @Pc(2482) Class239 local2482;
-            @Pc(2487) Class245 local2487;
+            @Pc(2482) JavaBillboardFace local2482;
+            @Pc(2487) JavaBillboardAttributes local2487;
             if (arg0 == 5) {
-                if (this.anIntArrayArray213 != null && this.aByteArray96 != null) {
+                if (this.faceLabels != null && this.faceAlpha != null) {
                     for (local21 = 0; local21 < local2; local21++) {
                         local69 = arg1[local21];
-                        if (local69 < this.anIntArrayArray213.length) {
-                            local335 = this.anIntArrayArray213[local69];
+                        if (local69 < this.faceLabels.length) {
+                            local335 = this.faceLabels[local69];
                             for (local337 = 0; local337 < local335.length; local337++) {
                                 local86 = local335[local337];
                                 if (this.aShortArray124 == null || (arg6 & this.aShortArray124[local86]) != 0) {
-                                    local91 = (this.aByteArray96[local86] & 0xFF) + arg2 * 8;
+                                    local91 = (this.faceAlpha[local86] & 0xFF) + arg2 * 8;
                                     if (local91 < 0) {
                                         local91 = 0;
                                     } else if (local91 > 255) {
                                         local91 = 255;
                                     }
-                                    this.aByteArray96[local86] = (byte) local91;
+                                    this.faceAlpha[local86] = (byte) local91;
                                 }
                             }
                         }
                     }
-                    if (this.aClass239Array1 != null) {
-                        for (local69 = 0; local69 < this.anInt8492; local69++) {
-                            local2482 = this.aClass239Array1[local69];
-                            local2487 = this.aClass245Array1[local69];
-                            local2487.anInt6225 = local2487.anInt6225 & 0xFFFFFF | 255 - (this.aByteArray96[local2482.anInt6139] & 0xFF) << 24;
+                    if (this.billboardFaces != null) {
+                        for (local69 = 0; local69 < this.billboardCount; local69++) {
+                            local2482 = this.billboardFaces[local69];
+                            local2487 = this.billboardAttributes[local69];
+                            local2487.anInt6225 = local2487.anInt6225 & 0xFFFFFF | 255 - (this.faceAlpha[local2482.anInt6139] & 0xFF) << 24;
                         }
                     }
                 }
             } else if (arg0 != 7) {
-                @Pc(2723) Class245 local2723;
+                @Pc(2723) JavaBillboardAttributes local2723;
                 if (arg0 == 8) {
-                    if (this.anIntArrayArray214 != null) {
+                    if (this.billboardLabels != null) {
                         for (local21 = 0; local21 < local2; local21++) {
                             local69 = arg1[local21];
-                            if (local69 < this.anIntArrayArray214.length) {
-                                local335 = this.anIntArrayArray214[local69];
+                            if (local69 < this.billboardLabels.length) {
+                                local335 = this.billboardLabels[local69];
                                 for (local337 = 0; local337 < local335.length; local337++) {
-                                    local2723 = this.aClass245Array1[local335[local337]];
+                                    local2723 = this.billboardAttributes[local335[local337]];
                                     local2723.anInt6222 += arg2;
                                     local2723.anInt6229 += arg3;
                                 }
@@ -1221,40 +1284,40 @@ public final class JavaModel extends Model {
                         }
                     }
                 } else if (arg0 == 10) {
-                    if (this.anIntArrayArray214 != null) {
+                    if (this.billboardLabels != null) {
                         for (local21 = 0; local21 < local2; local21++) {
                             local69 = arg1[local21];
-                            if (local69 < this.anIntArrayArray214.length) {
-                                local335 = this.anIntArrayArray214[local69];
+                            if (local69 < this.billboardLabels.length) {
+                                local335 = this.billboardLabels[local69];
                                 for (local337 = 0; local337 < local335.length; local337++) {
-                                    local2723 = this.aClass245Array1[local335[local337]];
+                                    local2723 = this.billboardAttributes[local335[local337]];
                                     local2723.anInt6223 = local2723.anInt6223 * arg2 >> 7;
                                     local2723.anInt6226 = local2723.anInt6226 * arg3 >> 7;
                                 }
                             }
                         }
                     }
-                } else if (arg0 == 9 && this.anIntArrayArray214 != null) {
+                } else if (arg0 == 9 && this.billboardLabels != null) {
                     for (local21 = 0; local21 < local2; local21++) {
                         local69 = arg1[local21];
-                        if (local69 < this.anIntArrayArray214.length) {
-                            local335 = this.anIntArrayArray214[local69];
+                        if (local69 < this.billboardLabels.length) {
+                            local335 = this.billboardLabels[local69];
                             for (local337 = 0; local337 < local335.length; local337++) {
-                                local2723 = this.aClass245Array1[local335[local337]];
+                                local2723 = this.billboardAttributes[local335[local337]];
                                 local2723.anInt6231 = local2723.anInt6231 + arg2 & 0x3FFF;
                             }
                         }
                     }
                 }
-            } else if (this.anIntArrayArray213 != null) {
+            } else if (this.faceLabels != null) {
                 for (local21 = 0; local21 < local2; local21++) {
                     local69 = arg1[local21];
-                    if (local69 < this.anIntArrayArray213.length) {
-                        local335 = this.anIntArrayArray213[local69];
+                    if (local69 < this.faceLabels.length) {
+                        local335 = this.faceLabels[local69];
                         for (local337 = 0; local337 < local335.length; local337++) {
                             local86 = local335[local337];
                             if (this.aShortArray124 == null || (arg6 & this.aShortArray124[local86]) != 0) {
-                                local91 = this.aShortArray120[local86] & 0xFFFF;
+                                local91 = this.faceColour[local86] & 0xFFFF;
                                 local506 = local91 >> 10 & 0x3F;
                                 local531 = local91 >> 7 & 0x7;
                                 local556 = local91 & 0x7F;
@@ -1271,47 +1334,47 @@ public final class JavaModel extends Model {
                                 } else if (local556 > 127) {
                                     local556 = 127;
                                 }
-                                this.aShortArray120[local86] = (short) (local2585 << 10 | local531 << 7 | local556);
+                                this.faceColour[local86] = (short) (local2585 << 10 | local531 << 7 | local556);
                             }
                         }
                         this.aBoolean650 = true;
                     }
                 }
-                if (this.aClass239Array1 != null) {
-                    for (local69 = 0; local69 < this.anInt8492; local69++) {
-                        local2482 = this.aClass239Array1[local69];
-                        local2487 = this.aClass245Array1[local69];
-                        local2487.anInt6225 = local2487.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local2482.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                if (this.billboardFaces != null) {
+                    for (local69 = 0; local69 < this.billboardCount; local69++) {
+                        local2482 = this.billboardFaces[local69];
+                        local2487 = this.billboardAttributes[local69];
+                        local2487.anInt6225 = local2487.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.faceColour[local2482.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                     }
                 }
             }
         } else if (arg7 == null) {
             for (local21 = 0; local21 < local2; local21++) {
                 local69 = arg1[local21];
-                if (local69 < this.anIntArrayArray212.length) {
-                    local335 = this.anIntArrayArray212[local69];
+                if (local69 < this.vertexLabels.length) {
+                    local335 = this.vertexLabels[local69];
                     for (local337 = 0; local337 < local335.length; local337++) {
                         local86 = local335[local337];
-                        if (this.aShortArray121 == null || (arg6 & this.aShortArray121[local86]) != 0) {
-                            this.anIntArray666[local86] -= this.anInt8493;
-                            this.anIntArray675[local86] -= this.anInt8490;
-                            this.anIntArray658[local86] -= this.anInt8487;
-                            this.anIntArray666[local86] = this.anIntArray666[local86] * arg2 / 128;
-                            this.anIntArray675[local86] = this.anIntArray675[local86] * arg3 / 128;
-                            this.anIntArray658[local86] = this.anIntArray658[local86] * arg4 / 128;
-                            this.anIntArray666[local86] += this.anInt8493;
-                            this.anIntArray675[local86] += this.anInt8490;
-                            this.anIntArray658[local86] += this.anInt8487;
+                        if (this.originModels == null || (arg6 & this.originModels[local86]) != 0) {
+                            this.vertexX[local86] -= this.anInt8493;
+                            this.vertexY[local86] -= this.anInt8490;
+                            this.vertexZ[local86] -= this.anInt8487;
+                            this.vertexX[local86] = this.vertexX[local86] * arg2 / 128;
+                            this.vertexY[local86] = this.vertexY[local86] * arg3 / 128;
+                            this.vertexZ[local86] = this.vertexZ[local86] * arg4 / 128;
+                            this.vertexX[local86] += this.anInt8493;
+                            this.vertexY[local86] += this.anInt8490;
+                            this.vertexZ[local86] += this.anInt8487;
                         }
                     }
                 }
             }
         } else {
             if (!this.aBoolean648) {
-                for (local21 = 0; local21 < this.anInt8483; local21++) {
-                    this.anIntArray666[local21] <<= 0x4;
-                    this.anIntArray675[local21] <<= 0x4;
-                    this.anIntArray658[local21] <<= 0x4;
+                for (local21 = 0; local21 < this.vertexCount; local21++) {
+                    this.vertexX[local21] <<= 0x4;
+                    this.vertexY[local21] <<= 0x4;
+                    this.vertexZ[local21] <<= 0x4;
                 }
                 this.aBoolean648 = true;
             }
@@ -1368,20 +1431,20 @@ public final class JavaModel extends Model {
             local833 += local74;
             for (local836 = 0; local836 < local2; local836++) {
                 local838 = arg1[local836];
-                if (local838 < this.anIntArrayArray212.length) {
-                    local966 = this.anIntArrayArray212[local838];
+                if (local838 < this.vertexLabels.length) {
+                    local966 = this.vertexLabels[local838];
                     for (local968 = 0; local968 < local966.length; local968++) {
                         local971 = local966[local968];
-                        if (this.aShortArray121 == null || (arg6 & this.aShortArray121[local971]) != 0) {
-                            local974 = local1937[0] * this.anIntArray666[local971] + local1937[1] * this.anIntArray675[local971] + local1937[2] * this.anIntArray658[local971] + 8192 >> 14;
-                            local976 = local1937[3] * this.anIntArray666[local971] + local1937[4] * this.anIntArray675[local971] + local1937[5] * this.anIntArray658[local971] + 8192 >> 14;
-                            local1103 = local1937[6] * this.anIntArray666[local971] + local1937[7] * this.anIntArray675[local971] + local1937[8] * this.anIntArray658[local971] + 8192 >> 14;
+                        if (this.originModels == null || (arg6 & this.originModels[local971]) != 0) {
+                            local974 = local1937[0] * this.vertexX[local971] + local1937[1] * this.vertexY[local971] + local1937[2] * this.vertexZ[local971] + 8192 >> 14;
+                            local976 = local1937[3] * this.vertexX[local971] + local1937[4] * this.vertexY[local971] + local1937[5] * this.vertexZ[local971] + 8192 >> 14;
+                            local1103 = local1937[6] * this.vertexX[local971] + local1937[7] * this.vertexY[local971] + local1937[8] * this.vertexZ[local971] + 8192 >> 14;
                             @Pc(2205) int local2205 = local974 + local1942;
                             @Pc(2209) int local2209 = local976 + local830;
                             @Pc(2213) int local2213 = local1103 + local833;
-                            this.anIntArray666[local971] = local2205;
-                            this.anIntArray675[local971] = local2209;
-                            this.anIntArray658[local971] = local2213;
+                            this.vertexX[local971] = local2205;
+                            this.vertexY[local971] = local2209;
+                            this.vertexZ[local971] = local2213;
                         }
                     }
                 }
@@ -1398,10 +1461,10 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "o", descriptor = "()V")
     public void method7505() {
         synchronized (this) {
-            for (@Pc(5) int local5 = 0; local5 < this.anInt8483; local5++) {
-                @Pc(11) int local11 = this.anIntArray666[local5];
-                this.anIntArray666[local5] = this.anIntArray658[local5];
-                this.anIntArray658[local5] = -local11;
+            for (@Pc(5) int local5 = 0; local5 < this.vertexCount; local5++) {
+                @Pc(11) int local11 = this.vertexX[local5];
+                this.vertexX[local5] = this.vertexZ[local5];
+                this.vertexZ[local5] = -local11;
             }
             this.method7504();
         }
@@ -1415,10 +1478,10 @@ public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "g", descriptor = "(I)Z")
     public boolean method7506(@OriginalArg(0) int arg0) {
-        if (this.aByteArray96 == null) {
+        if (this.faceAlpha == null) {
             return false;
         } else {
-            return this.aByteArray96[arg0] != 0;
+            return this.faceAlpha[arg0] != 0;
         }
     }
 
@@ -1442,9 +1505,9 @@ public final class JavaModel extends Model {
         @Pc(81) int local81;
         @Pc(333) int local333;
         if (this.aJavaThreadResource_3.aBoolean805) {
-            local8 = this.aShortArray122[arg0];
-            local13 = this.lb[arg0];
-            local18 = this.aShortArray125[arg0];
+            local8 = this.faceA[arg0];
+            local13 = this.faceB[arg0];
+            local18 = this.faceC[arg0];
             local27 = 0;
             local46 = 0;
             local65 = 0;
@@ -1463,21 +1526,21 @@ public final class JavaModel extends Model {
             } else if (this.anIntArray673[local18] > this.aJavaThreadResource_3.waterHeight) {
                 local65 = (this.aJavaThreadResource_3.waterHeight - this.anIntArray673[local18]) * 255 / (this.aJavaThreadResource_3.waterHeight - this.aJavaThreadResource_3.waterDepth);
             }
-            if (this.aByteArray96 == null) {
+            if (this.faceAlpha == null) {
                 this.aRasterizer_1.alpha = 0;
             } else {
-                this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
+                this.aRasterizer_1.alpha = this.faceAlpha[arg0] & 0xFF;
             }
-            if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
+            if (this.faceTextures != null && this.faceTextures[arg0] != -1) {
                 local81 = -16777216;
-                if (this.aByteArray96 != null) {
-                    local81 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+                if (this.faceAlpha != null) {
+                    local81 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
                 }
                 if (this.anIntArray672[arg0] == -1) {
                     local333 = local81 | this.anIntArray668[arg0] & 0xFFFFFF;
-                    this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333, local333, local333, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local333, local333, local333, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.faceTextures[arg0]);
                 } else {
-                    this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local81 | this.anIntArray668[arg0] & 0xFFFFFF, local81 | this.anIntArray664[arg0] & 0xFFFFFF, local81 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.faceTextures[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
                 this.aRasterizer_1.renderTriangleRgb((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
@@ -1486,9 +1549,9 @@ public final class JavaModel extends Model {
             }
             return;
         }
-        local8 = this.aShortArray122[arg0];
-        local13 = this.lb[arg0];
-        local18 = this.aShortArray125[arg0];
+        local8 = this.faceA[arg0];
+        local13 = this.faceB[arg0];
+        local18 = this.faceC[arg0];
         local27 = this.anIntArray670[local8] - this.aJavaThreadResource_3.fogPlane;
         if (local27 > 255) {
             local27 = 255;
@@ -1515,21 +1578,21 @@ public final class JavaModel extends Model {
             this.method7533(arg0);
             return;
         }
-        if (this.aByteArray96 == null) {
+        if (this.faceAlpha == null) {
             this.aRasterizer_1.alpha = 0;
         } else {
-            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.faceAlpha[arg0] & 0xFF;
         }
-        if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
+        if (this.faceTextures != null && this.faceTextures[arg0] != -1) {
             local333 = -16777216;
-            if (this.aByteArray96 != null) {
-                local333 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+            if (this.faceAlpha != null) {
+                local333 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
             }
             if (this.anIntArray672[arg0] == -1) {
                 @Pc(362) int local362 = local333 | this.anIntArray668[arg0] & 0xFFFFFF;
-                this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local362, local362, local362, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local362, local362, local362, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.faceTextures[arg0]);
             } else {
-                this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5150((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local333 | this.anIntArray668[arg0] & 0xFFFFFF, local333 | this.anIntArray664[arg0] & 0xFFFFFF, local333 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, local27, local46, local65, this.faceTextures[arg0]);
             }
         } else if (this.anIntArray672[arg0] == -1) {
             this.aRasterizer_1.renderTriangleRgb((float) this.anIntArray657[local8], (float) this.anIntArray657[local13], (float) this.anIntArray657[local18], (float) this.anIntArray655[local8], (float) this.anIntArray655[local13], (float) this.anIntArray655[local18], (float) this.anIntArray670[local8], (float) this.anIntArray670[local13], (float) this.anIntArray670[local18], Static462.method6270(local27 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local46 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]), Static462.method6270(local65 << 24 | this.aJavaThreadResource_3.fogColour, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]));
@@ -1550,7 +1613,7 @@ public final class JavaModel extends Model {
             local25 = this.aClass114_Sub3Array2[arg0 - 1];
             local4 = true;
         } else {
-            local25 = local18 = new JavaModel(this.aClass19_Sub2_9);
+            local25 = local18 = new JavaModel(this.toolkit);
         }
         return this.method7514(local25, local18, functionMask, local4, arg2);
     }
@@ -1558,7 +1621,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "g", descriptor = "()V")
     @Override
     protected void method7491() {
-        if (this.aClass19_Sub2_9.threadCount <= 1) {
+        if (this.toolkit.threadCount <= 1) {
             return;
         }
         synchronized (this) {
@@ -1587,10 +1650,10 @@ public final class JavaModel extends Model {
             this.anInt8493 = 0;
             this.anInt8490 = 0;
             this.anInt8487 = 0;
-            for (local14 = 0; local14 < this.anInt8483; local14++) {
-                this.anInt8493 += this.anIntArray666[local14];
-                this.anInt8490 += this.anIntArray675[local14];
-                this.anInt8487 += this.anIntArray658[local14];
+            for (local14 = 0; local14 < this.vertexCount; local14++) {
+                this.anInt8493 += this.vertexX[local14];
+                this.anInt8490 += this.vertexY[local14];
+                this.anInt8487 += this.vertexZ[local14];
                 local3++;
             }
             if (local3 > 0) {
@@ -1603,79 +1666,79 @@ public final class JavaModel extends Model {
                 this.anInt8487 = arg3;
             }
         } else if (arg0 == 1) {
-            for (local3 = 0; local3 < this.anInt8483; local3++) {
-                this.anIntArray666[local3] += arg1;
-                this.anIntArray675[local3] += arg2;
-                this.anIntArray658[local3] += arg3;
+            for (local3 = 0; local3 < this.vertexCount; local3++) {
+                this.vertexX[local3] += arg1;
+                this.vertexY[local3] += arg2;
+                this.vertexZ[local3] += arg3;
             }
         } else {
             @Pc(168) int local168;
             @Pc(186) int local186;
             if (arg0 == 2) {
-                for (local3 = 0; local3 < this.anInt8483; local3++) {
-                    this.anIntArray666[local3] -= this.anInt8493;
-                    this.anIntArray675[local3] -= this.anInt8490;
-                    this.anIntArray658[local3] -= this.anInt8487;
+                for (local3 = 0; local3 < this.vertexCount; local3++) {
+                    this.vertexX[local3] -= this.anInt8493;
+                    this.vertexY[local3] -= this.anInt8490;
+                    this.vertexZ[local3] -= this.anInt8487;
                     if (arg3 != 0) {
                         local14 = Trig1.SIN[arg3];
                         local168 = Trig1.COS[arg3];
-                        local186 = this.anIntArray675[local3] * local14 + this.anIntArray666[local3] * local168 + 16383 >> 14;
-                        this.anIntArray675[local3] = this.anIntArray675[local3] * local168 + 16383 - this.anIntArray666[local3] * local14 >> 14;
-                        this.anIntArray666[local3] = local186;
+                        local186 = this.vertexY[local3] * local14 + this.vertexX[local3] * local168 + 16383 >> 14;
+                        this.vertexY[local3] = this.vertexY[local3] * local168 + 16383 - this.vertexX[local3] * local14 >> 14;
+                        this.vertexX[local3] = local186;
                     }
                     if (arg1 != 0) {
                         local14 = Trig1.SIN[arg1];
                         local168 = Trig1.COS[arg1];
-                        local186 = this.anIntArray675[local3] * local168 + 16383 - this.anIntArray658[local3] * local14 >> 14;
-                        this.anIntArray658[local3] = this.anIntArray675[local3] * local14 + this.anIntArray658[local3] * local168 + 16383 >> 14;
-                        this.anIntArray675[local3] = local186;
+                        local186 = this.vertexY[local3] * local168 + 16383 - this.vertexZ[local3] * local14 >> 14;
+                        this.vertexZ[local3] = this.vertexY[local3] * local14 + this.vertexZ[local3] * local168 + 16383 >> 14;
+                        this.vertexY[local3] = local186;
                     }
                     if (arg2 != 0) {
                         local14 = Trig1.SIN[arg2];
                         local168 = Trig1.COS[arg2];
-                        local186 = this.anIntArray658[local3] * local14 + this.anIntArray666[local3] * local168 + 16383 >> 14;
-                        this.anIntArray658[local3] = this.anIntArray658[local3] * local168 + 16383 - this.anIntArray666[local3] * local14 >> 14;
-                        this.anIntArray666[local3] = local186;
+                        local186 = this.vertexZ[local3] * local14 + this.vertexX[local3] * local168 + 16383 >> 14;
+                        this.vertexZ[local3] = this.vertexZ[local3] * local168 + 16383 - this.vertexX[local3] * local14 >> 14;
+                        this.vertexX[local3] = local186;
                     }
-                    this.anIntArray666[local3] += this.anInt8493;
-                    this.anIntArray675[local3] += this.anInt8490;
-                    this.anIntArray658[local3] += this.anInt8487;
+                    this.vertexX[local3] += this.anInt8493;
+                    this.vertexY[local3] += this.anInt8490;
+                    this.vertexZ[local3] += this.anInt8487;
                 }
             } else if (arg0 == 3) {
-                for (local3 = 0; local3 < this.anInt8483; local3++) {
-                    this.anIntArray666[local3] -= this.anInt8493;
-                    this.anIntArray675[local3] -= this.anInt8490;
-                    this.anIntArray658[local3] -= this.anInt8487;
-                    this.anIntArray666[local3] = this.anIntArray666[local3] * arg1 / 128;
-                    this.anIntArray675[local3] = this.anIntArray675[local3] * arg2 / 128;
-                    this.anIntArray658[local3] = this.anIntArray658[local3] * arg3 / 128;
-                    this.anIntArray666[local3] += this.anInt8493;
-                    this.anIntArray675[local3] += this.anInt8490;
-                    this.anIntArray658[local3] += this.anInt8487;
+                for (local3 = 0; local3 < this.vertexCount; local3++) {
+                    this.vertexX[local3] -= this.anInt8493;
+                    this.vertexY[local3] -= this.anInt8490;
+                    this.vertexZ[local3] -= this.anInt8487;
+                    this.vertexX[local3] = this.vertexX[local3] * arg1 / 128;
+                    this.vertexY[local3] = this.vertexY[local3] * arg2 / 128;
+                    this.vertexZ[local3] = this.vertexZ[local3] * arg3 / 128;
+                    this.vertexX[local3] += this.anInt8493;
+                    this.vertexY[local3] += this.anInt8490;
+                    this.vertexZ[local3] += this.anInt8487;
                 }
             } else {
-                @Pc(508) Class239 local508;
-                @Pc(513) Class245 local513;
+                @Pc(508) JavaBillboardFace local508;
+                @Pc(513) JavaBillboardAttributes local513;
                 if (arg0 == 5) {
-                    for (local3 = 0; local3 < this.anInt8482; local3++) {
-                        local14 = (this.aByteArray96[local3] & 0xFF) + arg1 * 8;
+                    for (local3 = 0; local3 < this.faceCount; local3++) {
+                        local14 = (this.faceAlpha[local3] & 0xFF) + arg1 * 8;
                         if (local14 < 0) {
                             local14 = 0;
                         } else if (local14 > 255) {
                             local14 = 255;
                         }
-                        this.aByteArray96[local3] = (byte) local14;
+                        this.faceAlpha[local3] = (byte) local14;
                     }
-                    if (this.aClass239Array1 != null) {
-                        for (local14 = 0; local14 < this.anInt8492; local14++) {
-                            local508 = this.aClass239Array1[local14];
-                            local513 = this.aClass245Array1[local14];
-                            local513.anInt6225 = local513.anInt6225 & 0xFFFFFF | 255 - (this.aByteArray96[local508.anInt6139] & 0xFF) << 24;
+                    if (this.billboardFaces != null) {
+                        for (local14 = 0; local14 < this.billboardCount; local14++) {
+                            local508 = this.billboardFaces[local14];
+                            local513 = this.billboardAttributes[local14];
+                            local513.anInt6225 = local513.anInt6225 & 0xFFFFFF | 255 - (this.faceAlpha[local508.anInt6139] & 0xFF) << 24;
                         }
                     }
                 } else if (arg0 == 7) {
-                    for (local3 = 0; local3 < this.anInt8482; local3++) {
-                        local14 = this.aShortArray120[local3] & 0xFFFF;
+                    for (local3 = 0; local3 < this.faceCount; local3++) {
+                        local14 = this.faceColour[local3] & 0xFFFF;
                         local168 = local14 >> 10 & 0x3F;
                         local186 = local14 >> 7 & 0x7;
                         @Pc(567) int local567 = local14 & 0x7F;
@@ -1692,33 +1755,33 @@ public final class JavaModel extends Model {
                         } else if (local567 > 127) {
                             local567 = 127;
                         }
-                        this.aShortArray120[local3] = (short) (local573 << 10 | local186 << 7 | local567);
+                        this.faceColour[local3] = (short) (local573 << 10 | local186 << 7 | local567);
                     }
                     this.aBoolean650 = true;
-                    if (this.aClass239Array1 != null) {
-                        for (local14 = 0; local14 < this.anInt8492; local14++) {
-                            local508 = this.aClass239Array1[local14];
-                            local513 = this.aClass245Array1[local14];
-                            local513.anInt6225 = local513.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local508.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                    if (this.billboardFaces != null) {
+                        for (local14 = 0; local14 < this.billboardCount; local14++) {
+                            local508 = this.billboardFaces[local14];
+                            local513 = this.billboardAttributes[local14];
+                            local513.anInt6225 = local513.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.faceColour[local508.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                         }
                     }
                 } else {
-                    @Pc(681) Class245 local681;
+                    @Pc(681) JavaBillboardAttributes local681;
                     if (arg0 == 8) {
-                        for (local3 = 0; local3 < this.anInt8492; local3++) {
-                            local681 = this.aClass245Array1[local3];
+                        for (local3 = 0; local3 < this.billboardCount; local3++) {
+                            local681 = this.billboardAttributes[local3];
                             local681.anInt6222 += arg1;
                             local681.anInt6229 += arg2;
                         }
                     } else if (arg0 == 10) {
-                        for (local3 = 0; local3 < this.anInt8492; local3++) {
-                            local681 = this.aClass245Array1[local3];
+                        for (local3 = 0; local3 < this.billboardCount; local3++) {
+                            local681 = this.billboardAttributes[local3];
                             local681.anInt6223 = local681.anInt6223 * arg1 >> 7;
                             local681.anInt6226 = local681.anInt6226 * arg2 >> 7;
                         }
                     } else if (arg0 == 9) {
-                        for (local3 = 0; local3 < this.anInt8492; local3++) {
-                            local681 = this.aClass245Array1[local3];
+                        for (local3 = 0; local3 < this.billboardCount; local3++) {
+                            local681 = this.billboardAttributes[local3];
                             local681.anInt6231 = local681.anInt6231 + arg1 & 0x3FFF;
                         }
                     }
@@ -1730,7 +1793,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "LA", descriptor = "(I)V")
     @Override
     public void LA(@OriginalArg(0) int contrast) {
-        if ((this.anInt8489 & 0x2000) != 8192) {
+        if ((this.functionMask & 0x2000) != 8192) {
             throw new IllegalStateException();
         }
         this.anInt8485 = contrast;
@@ -1742,29 +1805,29 @@ public final class JavaModel extends Model {
     public void apply(@OriginalArg(0) Matrix arg0) {
         @Pc(2) JavaMatrix local2 = (JavaMatrix) arg0;
         @Pc(7) int local7;
-        if (this.aModelParticleEmitterArray5 != null) {
-            for (local7 = 0; local7 < this.aModelParticleEmitterArray5.length; local7++) {
-                @Pc(13) ModelParticleEmitter local13 = this.aModelParticleEmitterArray5[local7];
+        if (this.emitters != null) {
+            for (local7 = 0; local7 < this.emitters.length; local7++) {
+                @Pc(13) ModelParticleEmitter local13 = this.emitters[local7];
                 @Pc(15) ModelParticleEmitter local15 = local13;
                 if (local13.next != null) {
                     local15 = local13.next;
                 }
-                local15.anInt8518 = (int) (local2.tx + local2.e1_1 * (float) this.anIntArray666[local13.anInt8514] + local2.e1_2 * (float) this.anIntArray675[local13.anInt8514] + local2.e1_3 * (float) this.anIntArray658[local13.anInt8514]);
-                local15.anInt8502 = (int) (local2.ty + local2.e2_1 * (float) this.anIntArray666[local13.anInt8514] + local2.e2_2 * (float) this.anIntArray675[local13.anInt8514] + local2.e2_3 * (float) this.anIntArray658[local13.anInt8514]);
-                local15.anInt8504 = (int) (local2.tz + local2.e3_1 * (float) this.anIntArray666[local13.anInt8514] + local2.e3_2 * (float) this.anIntArray675[local13.anInt8514] + local2.e3_3 * (float) this.anIntArray658[local13.anInt8514]);
-                local15.anInt8516 = (int) (local2.tx + local2.e1_1 * (float) this.anIntArray666[local13.anInt8508] + local2.e1_2 * (float) this.anIntArray675[local13.anInt8508] + local2.e1_3 * (float) this.anIntArray658[local13.anInt8508]);
-                local15.anInt8507 = (int) (local2.ty + local2.e2_1 * (float) this.anIntArray666[local13.anInt8508] + local2.e2_2 * (float) this.anIntArray675[local13.anInt8508] + local2.e2_3 * (float) this.anIntArray658[local13.anInt8508]);
-                local15.anInt8509 = (int) (local2.tz + local2.e3_1 * (float) this.anIntArray666[local13.anInt8508] + local2.e3_2 * (float) this.anIntArray675[local13.anInt8508] + local2.e3_3 * (float) this.anIntArray658[local13.anInt8508]);
-                local15.anInt8512 = (int) (local2.tx + local2.e1_1 * (float) this.anIntArray666[local13.anInt8505] + local2.e1_2 * (float) this.anIntArray675[local13.anInt8505] + local2.e1_3 * (float) this.anIntArray658[local13.anInt8505]);
-                local15.anInt8503 = (int) (local2.ty + local2.e2_1 * (float) this.anIntArray666[local13.anInt8505] + local2.e2_2 * (float) this.anIntArray675[local13.anInt8505] + local2.e2_3 * (float) this.anIntArray658[local13.anInt8505]);
-                local15.anInt8520 = (int) (local2.tz + local2.e3_1 * (float) this.anIntArray666[local13.anInt8505] + local2.e3_2 * (float) this.anIntArray675[local13.anInt8505] + local2.e3_3 * (float) this.anIntArray658[local13.anInt8505]);
+                local15.anInt8518 = (int) (local2.tx + local2.e1_1 * (float) this.vertexX[local13.anInt8514] + local2.e1_2 * (float) this.vertexY[local13.anInt8514] + local2.e1_3 * (float) this.vertexZ[local13.anInt8514]);
+                local15.anInt8502 = (int) (local2.ty + local2.e2_1 * (float) this.vertexX[local13.anInt8514] + local2.e2_2 * (float) this.vertexY[local13.anInt8514] + local2.e2_3 * (float) this.vertexZ[local13.anInt8514]);
+                local15.anInt8504 = (int) (local2.tz + local2.e3_1 * (float) this.vertexX[local13.anInt8514] + local2.e3_2 * (float) this.vertexY[local13.anInt8514] + local2.e3_3 * (float) this.vertexZ[local13.anInt8514]);
+                local15.anInt8516 = (int) (local2.tx + local2.e1_1 * (float) this.vertexX[local13.anInt8508] + local2.e1_2 * (float) this.vertexY[local13.anInt8508] + local2.e1_3 * (float) this.vertexZ[local13.anInt8508]);
+                local15.anInt8507 = (int) (local2.ty + local2.e2_1 * (float) this.vertexX[local13.anInt8508] + local2.e2_2 * (float) this.vertexY[local13.anInt8508] + local2.e2_3 * (float) this.vertexZ[local13.anInt8508]);
+                local15.anInt8509 = (int) (local2.tz + local2.e3_1 * (float) this.vertexX[local13.anInt8508] + local2.e3_2 * (float) this.vertexY[local13.anInt8508] + local2.e3_3 * (float) this.vertexZ[local13.anInt8508]);
+                local15.anInt8512 = (int) (local2.tx + local2.e1_1 * (float) this.vertexX[local13.anInt8505] + local2.e1_2 * (float) this.vertexY[local13.anInt8505] + local2.e1_3 * (float) this.vertexZ[local13.anInt8505]);
+                local15.anInt8503 = (int) (local2.ty + local2.e2_1 * (float) this.vertexX[local13.anInt8505] + local2.e2_2 * (float) this.vertexY[local13.anInt8505] + local2.e2_3 * (float) this.vertexZ[local13.anInt8505]);
+                local15.anInt8520 = (int) (local2.tz + local2.e3_1 * (float) this.vertexX[local13.anInt8505] + local2.e3_2 * (float) this.vertexY[local13.anInt8505] + local2.e3_3 * (float) this.vertexZ[local13.anInt8505]);
             }
         }
-        if (this.aModelParticleEffectorArray5 == null) {
+        if (this.effectors == null) {
             return;
         }
-        for (local7 = 0; local7 < this.aModelParticleEffectorArray5.length; local7++) {
-            @Pc(355) ModelParticleEffector local355 = this.aModelParticleEffectorArray5[local7];
+        for (local7 = 0; local7 < this.effectors.length; local7++) {
+            @Pc(355) ModelParticleEffector local355 = this.effectors[local7];
             @Pc(357) ModelParticleEffector local357 = local355;
             if (local355.next != null) {
                 local357 = local355.next;
@@ -1774,9 +1837,9 @@ public final class JavaModel extends Model {
             } else {
                 local355.matrix.apply(local2);
             }
-            local357.x = (int) (local2.tx + local2.e1_1 * (float) this.anIntArray666[local355.vertex] + local2.e1_2 * (float) this.anIntArray675[local355.vertex] + local2.e1_3 * (float) this.anIntArray658[local355.vertex]);
-            local357.y = (int) (local2.ty + local2.e2_1 * (float) this.anIntArray666[local355.vertex] + local2.e2_2 * (float) this.anIntArray675[local355.vertex] + local2.e2_3 * (float) this.anIntArray658[local355.vertex]);
-            local357.z = (int) (local2.tz + local2.e3_1 * (float) this.anIntArray666[local355.vertex] + local2.e3_2 * (float) this.anIntArray675[local355.vertex] + local2.e3_3 * (float) this.anIntArray658[local355.vertex]);
+            local357.x = (int) (local2.tx + local2.e1_1 * (float) this.vertexX[local355.vertex] + local2.e1_2 * (float) this.vertexY[local355.vertex] + local2.e1_3 * (float) this.vertexZ[local355.vertex]);
+            local357.y = (int) (local2.ty + local2.e2_1 * (float) this.vertexX[local355.vertex] + local2.e2_2 * (float) this.vertexY[local355.vertex] + local2.e2_3 * (float) this.vertexZ[local355.vertex]);
+            local357.z = (int) (local2.tz + local2.e3_1 * (float) this.vertexX[local355.vertex] + local2.e3_2 * (float) this.vertexY[local355.vertex] + local2.e3_3 * (float) this.vertexZ[local355.vertex]);
         }
     }
 
@@ -1785,9 +1848,9 @@ public final class JavaModel extends Model {
         if (this.anIntArray672[arg0] == -2) {
             return;
         }
-        @Pc(12) short local12 = this.aShortArray122[arg0];
-        @Pc(17) short local17 = this.lb[arg0];
-        @Pc(22) short local22 = this.aShortArray125[arg0];
+        @Pc(12) short local12 = this.faceA[arg0];
+        @Pc(17) short local17 = this.faceB[arg0];
+        @Pc(22) short local22 = this.faceC[arg0];
         @Pc(27) int local27 = this.anIntArray655[local12];
         @Pc(32) int local32 = this.anIntArray655[local17];
         @Pc(37) int local37 = this.anIntArray655[local22];
@@ -1823,19 +1886,19 @@ public final class JavaModel extends Model {
             }
             if (arg2) {
                 local59 = this.anIntArray669[arg0];
-                if (local59 == -1 || !this.aClass239Array1[local59].aBoolean464) {
+                if (local59 == -1 || !this.billboardFaces[local59].aBoolean464) {
                     this.method7502(arg0);
                 }
                 return;
             }
             local59 = this.anIntArray669[arg0];
             if (local59 != -1) {
-                @Pc(280) Class239 local280 = this.aClass239Array1[local59];
-                @Pc(285) Class245 local285 = this.aClass245Array1[local59];
+                @Pc(280) JavaBillboardFace local280 = this.billboardFaces[local59];
+                @Pc(285) JavaBillboardAttributes local285 = this.billboardAttributes[local59];
                 if (!local280.aBoolean464) {
                     this.method7517(arg0);
                 }
-                this.aClass19_Sub2_9.method3797(local285.anInt6221, local285.anInt6227, local285.anInt6224, local285.anInt6232, local285.anInt6220, local285.anInt6231, local280.aShort72 & 0xFFFF, local285.anInt6225, local280.aByte98, local280.aByte97);
+                this.toolkit.method3797(local285.anInt6221, local285.anInt6227, local285.anInt6224, local285.anInt6232, local285.anInt6220, local285.anInt6231, local280.aShort72 & 0xFFFF, local285.anInt6225, local280.aByte98, local280.aByte97);
                 return;
             }
             this.method7517(arg0);
@@ -1846,7 +1909,7 @@ public final class JavaModel extends Model {
     public void method7509() {
         if (this.anInt8488 == 0) {
             this.method7503(false);
-        } else if (this.aClass19_Sub2_9.threadCount > 1) {
+        } else if (this.toolkit.threadCount > 1) {
             synchronized (this) {
                 this.method7527();
             }
@@ -1858,21 +1921,21 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(B[B)V")
     @Override
     public void updateAlphas(@OriginalArg(0) byte arg0, @OriginalArg(1) byte[] arg1) {
-        if ((this.anInt8489 & 0x100000) == 0) {
+        if ((this.functionMask & 0x100000) == 0) {
             throw new RuntimeException();
         }
-        if (this.aByteArray96 == null) {
-            this.aByteArray96 = new byte[this.anInt8482];
+        if (this.faceAlpha == null) {
+            this.faceAlpha = new byte[this.faceCount];
         }
         @Pc(23) int local23;
         if (arg1 == null) {
-            for (local23 = 0; local23 < this.anInt8482; local23++) {
-                this.aByteArray96[local23] = arg0;
+            for (local23 = 0; local23 < this.faceCount; local23++) {
+                this.faceAlpha[local23] = arg0;
             }
         } else {
-            for (local23 = 0; local23 < this.anInt8482; local23++) {
+            for (local23 = 0; local23 < this.faceCount; local23++) {
                 @Pc(57) int local57 = 255 - (255 - (arg1[local23] & 0xFF)) * (255 - (arg0 & 0xFF)) / 255;
-                this.aByteArray96[local23] = (byte) local57;
+                this.faceAlpha[local23] = (byte) local57;
             }
         }
         if (this.anInt8488 == 2) {
@@ -1883,22 +1946,22 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "f", descriptor = "()[Lclient!rv;")
     @Override
     public ModelParticleEmitter[] particleEmitters() {
-        return this.aModelParticleEmitterArray5;
+        return this.emitters;
     }
 
     @OriginalMember(owner = "client!rs", name = "ia", descriptor = "(SS)V")
     @Override
     public void ia(@OriginalArg(0) short src, @OriginalArg(1) short dest) {
-        for (@Pc(1) int local1 = 0; local1 < this.anInt8482; local1++) {
-            if (this.aShortArray120[local1] == src) {
-                this.aShortArray120[local1] = dest;
+        for (@Pc(1) int local1 = 0; local1 < this.faceCount; local1++) {
+            if (this.faceColour[local1] == src) {
+                this.faceColour[local1] = dest;
             }
         }
-        if (this.aClass239Array1 != null) {
-            for (@Pc(27) int local27 = 0; local27 < this.anInt8492; local27++) {
-                @Pc(33) Class239 local33 = this.aClass239Array1[local27];
-                @Pc(38) Class245 local38 = this.aClass245Array1[local27];
-                local38.anInt6225 = local38.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local33.anInt6139]) & 0xFFFF] & 0xFFFFFF;
+        if (this.billboardFaces != null) {
+            for (@Pc(27) int local27 = 0; local27 < this.billboardCount; local27++) {
+                @Pc(33) JavaBillboardFace local33 = this.billboardFaces[local27];
+                @Pc(38) JavaBillboardAttributes local38 = this.billboardAttributes[local27];
+                local38.anInt6225 = local38.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.faceColour[local33.anInt6139]) & 0xFFFF] & 0xFFFFFF;
             }
         }
         if (this.anInt8488 == 2) {
@@ -1914,20 +1977,20 @@ public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "i", descriptor = "()V")
     public void method7510() {
-        this.aClass378Array2 = new Class378[this.anInt8491];
-        for (@Pc(6) int local6 = 0; local6 < this.anInt8491; local6++) {
+        this.aClass378Array2 = new Class378[this.maxVertex];
+        for (@Pc(6) int local6 = 0; local6 < this.maxVertex; local6++) {
             this.aClass378Array2[local6] = new Class378();
         }
-        for (@Pc(21) int local21 = 0; local21 < this.anInt8482; local21++) {
-            @Pc(27) short local27 = this.aShortArray122[local21];
-            @Pc(32) short local32 = this.lb[local21];
-            @Pc(37) short local37 = this.aShortArray125[local21];
-            @Pc(47) int local47 = this.anIntArray666[local32] - this.anIntArray666[local27];
-            @Pc(57) int local57 = this.anIntArray675[local32] - this.anIntArray675[local27];
-            @Pc(67) int local67 = this.anIntArray658[local32] - this.anIntArray658[local27];
-            @Pc(77) int local77 = this.anIntArray666[local37] - this.anIntArray666[local27];
-            @Pc(87) int local87 = this.anIntArray675[local37] - this.anIntArray675[local27];
-            @Pc(97) int local97 = this.anIntArray658[local37] - this.anIntArray658[local27];
+        for (@Pc(21) int local21 = 0; local21 < this.faceCount; local21++) {
+            @Pc(27) short local27 = this.faceA[local21];
+            @Pc(32) short local32 = this.faceB[local21];
+            @Pc(37) short local37 = this.faceC[local21];
+            @Pc(47) int local47 = this.vertexX[local32] - this.vertexX[local27];
+            @Pc(57) int local57 = this.vertexY[local32] - this.vertexY[local27];
+            @Pc(67) int local67 = this.vertexZ[local32] - this.vertexZ[local27];
+            @Pc(77) int local77 = this.vertexX[local37] - this.vertexX[local27];
+            @Pc(87) int local87 = this.vertexY[local37] - this.vertexY[local27];
+            @Pc(97) int local97 = this.vertexZ[local37] - this.vertexZ[local27];
             @Pc(105) int local105 = local57 * local97 - local87 * local67;
             @Pc(113) int local113 = local67 * local77 - local97 * local47;
             @Pc(121) int local121;
@@ -1943,10 +2006,10 @@ public final class JavaModel extends Model {
             local113 = local113 * 256 / local169;
             local121 = local121 * 256 / local169;
             @Pc(196) byte local196;
-            if (this.aByteArray94 == null) {
+            if (this.shadingType == null) {
                 local196 = 0;
             } else {
-                local196 = this.aByteArray94[local21];
+                local196 = this.shadingType[local21];
             }
             if (local196 == 0) {
                 @Pc(209) Class378 local209 = this.aClass378Array2[local27];
@@ -1966,7 +2029,7 @@ public final class JavaModel extends Model {
                 local267.anInt9744++;
             } else if (local196 == 1) {
                 if (this.aClass301Array1 == null) {
-                    this.aClass301Array1 = new Class301[this.anInt8482];
+                    this.aClass301Array1 = new Class301[this.faceCount];
                 }
                 @Pc(316) Class301 local316 = this.aClass301Array1[local21] = new Class301();
                 local316.anInt7682 = local105;
@@ -1985,17 +2048,17 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "c", descriptor = "()[Lclient!mn;")
     @Override
     public ModelParticleEffector[] particleEffectors() {
-        return this.aModelParticleEffectorArray5;
+        return this.effectors;
     }
 
     @OriginalMember(owner = "client!rs", name = "l", descriptor = "()V")
     public void method7511() {
         synchronized (this) {
             @Pc(11) int local11;
-            for (@Pc(5) int local5 = 0; local5 < this.anInt8491; local5++) {
-                local11 = this.anIntArray666[local5];
-                this.anIntArray666[local5] = this.anIntArray658[local5];
-                this.anIntArray658[local5] = -local11;
+            for (@Pc(5) int local5 = 0; local5 < this.maxVertex; local5++) {
+                local11 = this.vertexX[local5];
+                this.vertexX[local5] = this.vertexZ[local5];
+                this.vertexZ[local5] = -local11;
                 if (this.aClass378Array2[local5] != null) {
                     local11 = this.aClass378Array2[local5].anInt9746;
                     this.aClass378Array2[local5].anInt9746 = this.aClass378Array2[local5].anInt9745;
@@ -2004,7 +2067,7 @@ public final class JavaModel extends Model {
             }
             @Pc(77) int local77;
             if (this.aClass301Array1 != null) {
-                for (local11 = 0; local11 < this.anInt8482; local11++) {
+                for (local11 = 0; local11 < this.faceCount; local11++) {
                     if (this.aClass301Array1[local11] != null) {
                         local77 = this.aClass301Array1[local11].anInt7682;
                         this.aClass301Array1[local11].anInt7682 = this.aClass301Array1[local11].anInt7681;
@@ -2012,10 +2075,10 @@ public final class JavaModel extends Model {
                     }
                 }
             }
-            for (local11 = this.anInt8491; local11 < this.anInt8483; local11++) {
-                local77 = this.anIntArray666[local11];
-                this.anIntArray666[local11] = this.anIntArray658[local11];
-                this.anIntArray658[local11] = -local77;
+            for (local11 = this.maxVertex; local11 < this.vertexCount; local11++) {
+                local77 = this.vertexX[local11];
+                this.vertexX[local11] = this.vertexZ[local11];
+                this.vertexZ[local11] = -local77;
             }
             this.anInt8488 = 0;
             this.aBoolean652 = false;
@@ -2026,9 +2089,9 @@ public final class JavaModel extends Model {
     @Override
     public void method7481(@OriginalArg(0) Model arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(4) boolean arg4) {
         @Pc(2) JavaModel local2 = (JavaModel) arg0;
-        if ((this.anInt8489 & 0x10000) != 65536) {
+        if ((this.functionMask & 0x10000) != 65536) {
             throw new IllegalStateException("");
-        } else if ((local2.anInt8489 & 0x10000) == 65536) {
+        } else if ((local2.functionMask & 0x10000) == 65536) {
             this.method7519(Thread.currentThread());
             this.method7525();
             this.method7523();
@@ -2036,23 +2099,23 @@ public final class JavaModel extends Model {
             local2.method7523();
             Static567.anInt8494++;
             @Pc(43) int local43 = 0;
-            @Pc(46) int[] local46 = local2.anIntArray666;
-            @Pc(49) int local49 = local2.anInt8491;
+            @Pc(46) int[] local46 = local2.vertexX;
+            @Pc(49) int local49 = local2.maxVertex;
             @Pc(67) int local67;
-            for (@Pc(51) int local51 = 0; local51 < this.anInt8491; local51++) {
+            for (@Pc(51) int local51 = 0; local51 < this.maxVertex; local51++) {
                 @Pc(57) Class378 local57 = this.aClass378Array2[local51];
                 if (local57.anInt9744 != 0) {
-                    local67 = this.anIntArray675[local51] - arg2;
+                    local67 = this.vertexY[local51] - arg2;
                     if (local67 >= local2.aShort116 && local67 <= local2.aShort113) {
-                        @Pc(86) int local86 = this.anIntArray666[local51] - arg1;
+                        @Pc(86) int local86 = this.vertexX[local51] - arg1;
                         if (local86 >= local2.aShort115 && local86 <= local2.aShort117) {
-                            @Pc(105) int local105 = this.anIntArray658[local51] - arg3;
+                            @Pc(105) int local105 = this.vertexZ[local51] - arg3;
                             if (local105 >= local2.aShort112 && local105 <= local2.aShort111) {
                                 for (@Pc(119) int local119 = 0; local119 < local49; local119++) {
                                     @Pc(125) Class378 local125 = local2.aClass378Array2[local119];
-                                    if (local86 == local46[local119] && local105 == local2.anIntArray658[local119] && local67 == local2.anIntArray675[local119] && local125.anInt9744 != 0) {
+                                    if (local86 == local46[local119] && local105 == local2.vertexZ[local119] && local67 == local2.vertexY[local119] && local125.anInt9744 != 0) {
                                         if (this.aClass378Array1 == null) {
-                                            this.aClass378Array1 = new Class378[this.anInt8491];
+                                            this.aClass378Array1 = new Class378[this.maxVertex];
                                         }
                                         if (local2.aClass378Array1 == null) {
                                             local2.aClass378Array1 = new Class378[local49];
@@ -2084,20 +2147,20 @@ public final class JavaModel extends Model {
                 }
             }
             if (local43 >= 3 && arg4) {
-                for (@Pc(297) int local297 = 0; local297 < this.anInt8482; local297++) {
-                    if (this.anIntArray674[this.aShortArray122[local297]] == Static567.anInt8494 && this.anIntArray674[this.lb[local297]] == Static567.anInt8494 && this.anIntArray674[this.aShortArray125[local297]] == Static567.anInt8494) {
-                        if (this.aByteArray94 == null) {
-                            this.aByteArray94 = new byte[this.anInt8482];
+                for (@Pc(297) int local297 = 0; local297 < this.faceCount; local297++) {
+                    if (this.anIntArray674[this.faceA[local297]] == Static567.anInt8494 && this.anIntArray674[this.faceB[local297]] == Static567.anInt8494 && this.anIntArray674[this.faceC[local297]] == Static567.anInt8494) {
+                        if (this.shadingType == null) {
+                            this.shadingType = new byte[this.faceCount];
                         }
-                        this.aByteArray94[local297] = 2;
+                        this.shadingType[local297] = 2;
                     }
                 }
-                for (local67 = 0; local67 < local2.anInt8482; local67++) {
-                    if (this.anIntArray667[local2.aShortArray122[local67]] == Static567.anInt8494 && this.anIntArray667[local2.lb[local67]] == Static567.anInt8494 && this.anIntArray667[local2.aShortArray125[local67]] == Static567.anInt8494) {
-                        if (local2.aByteArray94 == null) {
-                            local2.aByteArray94 = new byte[local2.anInt8482];
+                for (local67 = 0; local67 < local2.faceCount; local67++) {
+                    if (this.anIntArray667[local2.faceA[local67]] == Static567.anInt8494 && this.anIntArray667[local2.faceB[local67]] == Static567.anInt8494 && this.anIntArray667[local2.faceC[local67]] == Static567.anInt8494) {
+                        if (local2.shadingType == null) {
+                            local2.shadingType = new byte[local2.faceCount];
                         }
-                        local2.aByteArray94[local67] = 2;
+                        local2.shadingType[local67] = 2;
                     }
                 }
             }
@@ -2109,22 +2172,22 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "F", descriptor = "()Z")
     @Override
     public boolean F() {
-        return this.aBoolean647;
+        return this.transparent;
     }
 
     @OriginalMember(owner = "client!rs", name = "H", descriptor = "(III)V")
     @Override
     public void H(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z) {
-        if (x != 0 && (this.anInt8489 & 0x1) != 1) {
+        if (x != 0 && (this.functionMask & 0x1) != 1) {
             throw new IllegalStateException();
-        } else if (y != 0 && (this.anInt8489 & 0x2) != 2) {
+        } else if (y != 0 && (this.functionMask & 0x2) != 2) {
             throw new IllegalStateException();
-        } else if (z == 0 || (this.anInt8489 & 0x4) == 4) {
+        } else if (z == 0 || (this.functionMask & 0x4) == 4) {
             synchronized (this) {
-                for (@Pc(50) int local50 = 0; local50 < this.anInt8483; local50++) {
-                    this.anIntArray666[local50] += x;
-                    this.anIntArray675[local50] += y;
-                    this.anIntArray658[local50] += z;
+                for (@Pc(50) int local50 = 0; local50 < this.vertexCount; local50++) {
+                    this.vertexX[local50] += x;
+                    this.vertexY[local50] += y;
+                    this.vertexZ[local50] += z;
                 }
             }
         } else {
@@ -2148,10 +2211,10 @@ public final class JavaModel extends Model {
             local12 = arg3 << 4;
             local16 = arg4 << 4;
             if (!this.aBoolean648) {
-                for (local21 = 0; local21 < this.anInt8483; local21++) {
-                    this.anIntArray666[local21] <<= 0x4;
-                    this.anIntArray675[local21] <<= 0x4;
-                    this.anIntArray658[local21] <<= 0x4;
+                for (local21 = 0; local21 < this.vertexCount; local21++) {
+                    this.vertexX[local21] <<= 0x4;
+                    this.vertexY[local21] <<= 0x4;
+                    this.vertexZ[local21] <<= 0x4;
                 }
                 this.aBoolean648 = true;
             }
@@ -2161,13 +2224,13 @@ public final class JavaModel extends Model {
             this.anInt8487 = 0;
             for (local69 = 0; local69 < local2; local69++) {
                 @Pc(74) int local74 = arg1[local69];
-                if (local74 < this.anIntArrayArray212.length) {
-                    @Pc(84) int[] local84 = this.anIntArrayArray212[local74];
+                if (local74 < this.vertexLabels.length) {
+                    @Pc(84) int[] local84 = this.vertexLabels[local74];
                     for (local86 = 0; local86 < local84.length; local86++) {
                         local91 = local84[local86];
-                        this.anInt8493 += this.anIntArray666[local91];
-                        this.anInt8490 += this.anIntArray675[local91];
-                        this.anInt8487 += this.anIntArray658[local91];
+                        this.anInt8493 += this.vertexX[local91];
+                        this.anInt8490 += this.vertexY[local91];
+                        this.anInt8487 += this.vertexZ[local91];
                         local21++;
                     }
                 }
@@ -2190,22 +2253,22 @@ public final class JavaModel extends Model {
             local12 = arg3 << 4;
             local16 = arg4 << 4;
             if (!this.aBoolean648) {
-                for (local21 = 0; local21 < this.anInt8483; local21++) {
-                    this.anIntArray666[local21] <<= 0x4;
-                    this.anIntArray675[local21] <<= 0x4;
-                    this.anIntArray658[local21] <<= 0x4;
+                for (local21 = 0; local21 < this.vertexCount; local21++) {
+                    this.vertexX[local21] <<= 0x4;
+                    this.vertexY[local21] <<= 0x4;
+                    this.vertexZ[local21] <<= 0x4;
                 }
                 this.aBoolean648 = true;
             }
             for (local21 = 0; local21 < local2; local21++) {
                 local69 = arg1[local21];
-                if (local69 < this.anIntArrayArray212.length) {
-                    local242 = this.anIntArrayArray212[local69];
+                if (local69 < this.vertexLabels.length) {
+                    local242 = this.vertexLabels[local69];
                     for (local244 = 0; local244 < local242.length; local244++) {
                         local86 = local242[local244];
-                        this.anIntArray666[local86] += local8;
-                        this.anIntArray675[local86] += local12;
-                        this.anIntArray658[local86] += local16;
+                        this.vertexX[local86] += local8;
+                        this.vertexY[local86] += local12;
+                        this.vertexZ[local86] += local16;
                     }
                 }
             }
@@ -2216,69 +2279,69 @@ public final class JavaModel extends Model {
         if (arg0 == 2) {
             for (local21 = 0; local21 < local2; local21++) {
                 local69 = arg1[local21];
-                if (local69 < this.anIntArrayArray212.length) {
-                    local242 = this.anIntArrayArray212[local69];
+                if (local69 < this.vertexLabels.length) {
+                    local242 = this.vertexLabels[local69];
                     if ((arg5 & 0x1) == 0) {
                         for (local244 = 0; local244 < local242.length; local244++) {
                             local86 = local242[local244];
-                            this.anIntArray666[local86] -= this.anInt8493;
-                            this.anIntArray675[local86] -= this.anInt8490;
-                            this.anIntArray658[local86] -= this.anInt8487;
+                            this.vertexX[local86] -= this.anInt8493;
+                            this.vertexY[local86] -= this.anInt8490;
+                            this.vertexZ[local86] -= this.anInt8487;
                             if (arg4 != 0) {
                                 local91 = Trig1.SIN[arg4];
                                 local354 = Trig1.COS[arg4];
-                                local372 = this.anIntArray675[local86] * local91 + this.anIntArray666[local86] * local354 + 16383 >> 14;
-                                this.anIntArray675[local86] = this.anIntArray675[local86] * local354 + 16383 - this.anIntArray666[local86] * local91 >> 14;
-                                this.anIntArray666[local86] = local372;
+                                local372 = this.vertexY[local86] * local91 + this.vertexX[local86] * local354 + 16383 >> 14;
+                                this.vertexY[local86] = this.vertexY[local86] * local354 + 16383 - this.vertexX[local86] * local91 >> 14;
+                                this.vertexX[local86] = local372;
                             }
                             if (arg2 != 0) {
                                 local91 = Trig1.SIN[arg2];
                                 local354 = Trig1.COS[arg2];
-                                local372 = this.anIntArray675[local86] * local354 + 16383 - this.anIntArray658[local86] * local91 >> 14;
-                                this.anIntArray658[local86] = this.anIntArray675[local86] * local91 + this.anIntArray658[local86] * local354 + 16383 >> 14;
-                                this.anIntArray675[local86] = local372;
+                                local372 = this.vertexY[local86] * local354 + 16383 - this.vertexZ[local86] * local91 >> 14;
+                                this.vertexZ[local86] = this.vertexY[local86] * local91 + this.vertexZ[local86] * local354 + 16383 >> 14;
+                                this.vertexY[local86] = local372;
                             }
                             if (arg3 != 0) {
                                 local91 = Trig1.SIN[arg3];
                                 local354 = Trig1.COS[arg3];
-                                local372 = this.anIntArray658[local86] * local91 + this.anIntArray666[local86] * local354 + 16383 >> 14;
-                                this.anIntArray658[local86] = this.anIntArray658[local86] * local354 + 16383 - this.anIntArray666[local86] * local91 >> 14;
-                                this.anIntArray666[local86] = local372;
+                                local372 = this.vertexZ[local86] * local91 + this.vertexX[local86] * local354 + 16383 >> 14;
+                                this.vertexZ[local86] = this.vertexZ[local86] * local354 + 16383 - this.vertexX[local86] * local91 >> 14;
+                                this.vertexX[local86] = local372;
                             }
-                            this.anIntArray666[local86] += this.anInt8493;
-                            this.anIntArray675[local86] += this.anInt8490;
-                            this.anIntArray658[local86] += this.anInt8487;
+                            this.vertexX[local86] += this.anInt8493;
+                            this.vertexY[local86] += this.anInt8490;
+                            this.vertexZ[local86] += this.anInt8487;
                         }
                     } else {
                         for (local244 = 0; local244 < local242.length; local244++) {
                             local86 = local242[local244];
-                            this.anIntArray666[local86] -= this.anInt8493;
-                            this.anIntArray675[local86] -= this.anInt8490;
-                            this.anIntArray658[local86] -= this.anInt8487;
+                            this.vertexX[local86] -= this.anInt8493;
+                            this.vertexY[local86] -= this.anInt8490;
+                            this.vertexZ[local86] -= this.anInt8487;
                             if (arg2 != 0) {
                                 local91 = Trig1.SIN[arg2];
                                 local354 = Trig1.COS[arg2];
-                                local372 = this.anIntArray675[local86] * local354 + 16383 - this.anIntArray658[local86] * local91 >> 14;
-                                this.anIntArray658[local86] = this.anIntArray675[local86] * local91 + this.anIntArray658[local86] * local354 + 16383 >> 14;
-                                this.anIntArray675[local86] = local372;
+                                local372 = this.vertexY[local86] * local354 + 16383 - this.vertexZ[local86] * local91 >> 14;
+                                this.vertexZ[local86] = this.vertexY[local86] * local91 + this.vertexZ[local86] * local354 + 16383 >> 14;
+                                this.vertexY[local86] = local372;
                             }
                             if (arg4 != 0) {
                                 local91 = Trig1.SIN[arg4];
                                 local354 = Trig1.COS[arg4];
-                                local372 = this.anIntArray675[local86] * local91 + this.anIntArray666[local86] * local354 + 16383 >> 14;
-                                this.anIntArray675[local86] = this.anIntArray675[local86] * local354 + 16383 - this.anIntArray666[local86] * local91 >> 14;
-                                this.anIntArray666[local86] = local372;
+                                local372 = this.vertexY[local86] * local91 + this.vertexX[local86] * local354 + 16383 >> 14;
+                                this.vertexY[local86] = this.vertexY[local86] * local354 + 16383 - this.vertexX[local86] * local91 >> 14;
+                                this.vertexX[local86] = local372;
                             }
                             if (arg3 != 0) {
                                 local91 = Trig1.SIN[arg3];
                                 local354 = Trig1.COS[arg3];
-                                local372 = this.anIntArray658[local86] * local91 + this.anIntArray666[local86] * local354 + 16383 >> 14;
-                                this.anIntArray658[local86] = this.anIntArray658[local86] * local354 + 16383 - this.anIntArray666[local86] * local91 >> 14;
-                                this.anIntArray666[local86] = local372;
+                                local372 = this.vertexZ[local86] * local91 + this.vertexX[local86] * local354 + 16383 >> 14;
+                                this.vertexZ[local86] = this.vertexZ[local86] * local354 + 16383 - this.vertexX[local86] * local91 >> 14;
+                                this.vertexX[local86] = local372;
                             }
-                            this.anIntArray666[local86] += this.anInt8493;
-                            this.anIntArray675[local86] += this.anInt8490;
-                            this.anIntArray658[local86] += this.anInt8487;
+                            this.vertexX[local86] += this.anInt8493;
+                            this.vertexY[local86] += this.anInt8490;
+                            this.vertexZ[local86] += this.anInt8487;
                         }
                     }
                 }
@@ -2286,61 +2349,61 @@ public final class JavaModel extends Model {
         } else if (arg0 == 3) {
             for (local21 = 0; local21 < local2; local21++) {
                 local69 = arg1[local21];
-                if (local69 < this.anIntArrayArray212.length) {
-                    local242 = this.anIntArrayArray212[local69];
+                if (local69 < this.vertexLabels.length) {
+                    local242 = this.vertexLabels[local69];
                     for (local244 = 0; local244 < local242.length; local244++) {
                         local86 = local242[local244];
-                        this.anIntArray666[local86] -= this.anInt8493;
-                        this.anIntArray675[local86] -= this.anInt8490;
-                        this.anIntArray658[local86] -= this.anInt8487;
-                        this.anIntArray666[local86] = this.anIntArray666[local86] * arg2 / 128;
-                        this.anIntArray675[local86] = this.anIntArray675[local86] * arg3 / 128;
-                        this.anIntArray658[local86] = this.anIntArray658[local86] * arg4 / 128;
-                        this.anIntArray666[local86] += this.anInt8493;
-                        this.anIntArray675[local86] += this.anInt8490;
-                        this.anIntArray658[local86] += this.anInt8487;
+                        this.vertexX[local86] -= this.anInt8493;
+                        this.vertexY[local86] -= this.anInt8490;
+                        this.vertexZ[local86] -= this.anInt8487;
+                        this.vertexX[local86] = this.vertexX[local86] * arg2 / 128;
+                        this.vertexY[local86] = this.vertexY[local86] * arg3 / 128;
+                        this.vertexZ[local86] = this.vertexZ[local86] * arg4 / 128;
+                        this.vertexX[local86] += this.anInt8493;
+                        this.vertexY[local86] += this.anInt8490;
+                        this.vertexZ[local86] += this.anInt8487;
                     }
                 }
             }
         } else {
-            @Pc(994) Class239 local994;
-            @Pc(999) Class245 local999;
+            @Pc(994) JavaBillboardFace local994;
+            @Pc(999) JavaBillboardAttributes local999;
             if (arg0 == 5) {
-                if (this.anIntArrayArray213 != null && this.aByteArray96 != null) {
+                if (this.faceLabels != null && this.faceAlpha != null) {
                     for (local21 = 0; local21 < local2; local21++) {
                         local69 = arg1[local21];
-                        if (local69 < this.anIntArrayArray213.length) {
-                            local242 = this.anIntArrayArray213[local69];
+                        if (local69 < this.faceLabels.length) {
+                            local242 = this.faceLabels[local69];
                             for (local244 = 0; local244 < local242.length; local244++) {
                                 local86 = local242[local244];
-                                local91 = (this.aByteArray96[local86] & 0xFF) + arg2 * 8;
+                                local91 = (this.faceAlpha[local86] & 0xFF) + arg2 * 8;
                                 if (local91 < 0) {
                                     local91 = 0;
                                 } else if (local91 > 255) {
                                     local91 = 255;
                                 }
-                                this.aByteArray96[local86] = (byte) local91;
+                                this.faceAlpha[local86] = (byte) local91;
                             }
                         }
                     }
-                    if (this.aClass239Array1 != null) {
-                        for (local69 = 0; local69 < this.anInt8492; local69++) {
-                            local994 = this.aClass239Array1[local69];
-                            local999 = this.aClass245Array1[local69];
-                            local999.anInt6225 = local999.anInt6225 & 0xFFFFFF | 255 - (this.aByteArray96[local994.anInt6139] & 0xFF) << 24;
+                    if (this.billboardFaces != null) {
+                        for (local69 = 0; local69 < this.billboardCount; local69++) {
+                            local994 = this.billboardFaces[local69];
+                            local999 = this.billboardAttributes[local69];
+                            local999.anInt6225 = local999.anInt6225 & 0xFFFFFF | 255 - (this.faceAlpha[local994.anInt6139] & 0xFF) << 24;
                         }
                     }
                 }
             } else if (arg0 != 7) {
-                @Pc(1223) Class245 local1223;
+                @Pc(1223) JavaBillboardAttributes local1223;
                 if (arg0 == 8) {
-                    if (this.anIntArrayArray214 != null) {
+                    if (this.billboardLabels != null) {
                         for (local21 = 0; local21 < local2; local21++) {
                             local69 = arg1[local21];
-                            if (local69 < this.anIntArrayArray214.length) {
-                                local242 = this.anIntArrayArray214[local69];
+                            if (local69 < this.billboardLabels.length) {
+                                local242 = this.billboardLabels[local69];
                                 for (local244 = 0; local244 < local242.length; local244++) {
-                                    local1223 = this.aClass245Array1[local242[local244]];
+                                    local1223 = this.billboardAttributes[local242[local244]];
                                     local1223.anInt6222 += arg2;
                                     local1223.anInt6229 += arg3;
                                 }
@@ -2348,39 +2411,39 @@ public final class JavaModel extends Model {
                         }
                     }
                 } else if (arg0 == 10) {
-                    if (this.anIntArrayArray214 != null) {
+                    if (this.billboardLabels != null) {
                         for (local21 = 0; local21 < local2; local21++) {
                             local69 = arg1[local21];
-                            if (local69 < this.anIntArrayArray214.length) {
-                                local242 = this.anIntArrayArray214[local69];
+                            if (local69 < this.billboardLabels.length) {
+                                local242 = this.billboardLabels[local69];
                                 for (local244 = 0; local244 < local242.length; local244++) {
-                                    local1223 = this.aClass245Array1[local242[local244]];
+                                    local1223 = this.billboardAttributes[local242[local244]];
                                     local1223.anInt6223 = local1223.anInt6223 * arg2 >> 7;
                                     local1223.anInt6226 = local1223.anInt6226 * arg3 >> 7;
                                 }
                             }
                         }
                     }
-                } else if (arg0 == 9 && this.anIntArrayArray214 != null) {
+                } else if (arg0 == 9 && this.billboardLabels != null) {
                     for (local21 = 0; local21 < local2; local21++) {
                         local69 = arg1[local21];
-                        if (local69 < this.anIntArrayArray214.length) {
-                            local242 = this.anIntArrayArray214[local69];
+                        if (local69 < this.billboardLabels.length) {
+                            local242 = this.billboardLabels[local69];
                             for (local244 = 0; local244 < local242.length; local244++) {
-                                local1223 = this.aClass245Array1[local242[local244]];
+                                local1223 = this.billboardAttributes[local242[local244]];
                                 local1223.anInt6231 = local1223.anInt6231 + arg2 & 0x3FFF;
                             }
                         }
                     }
                 }
-            } else if (this.anIntArrayArray213 != null) {
+            } else if (this.faceLabels != null) {
                 for (local21 = 0; local21 < local2; local21++) {
                     local69 = arg1[local21];
-                    if (local69 < this.anIntArrayArray213.length) {
-                        local242 = this.anIntArrayArray213[local69];
+                    if (local69 < this.faceLabels.length) {
+                        local242 = this.faceLabels[local69];
                         for (local244 = 0; local244 < local242.length; local244++) {
                             local86 = local242[local244];
-                            local91 = this.aShortArray120[local86] & 0xFFFF;
+                            local91 = this.faceColour[local86] & 0xFFFF;
                             local354 = local91 >> 10 & 0x3F;
                             local372 = local91 >> 7 & 0x7;
                             @Pc(1079) int local1079 = local91 & 0x7F;
@@ -2397,16 +2460,16 @@ public final class JavaModel extends Model {
                             } else if (local1079 > 127) {
                                 local1079 = 127;
                             }
-                            this.aShortArray120[local86] = (short) (local1085 << 10 | local372 << 7 | local1079);
+                            this.faceColour[local86] = (short) (local1085 << 10 | local372 << 7 | local1079);
                         }
                         this.aBoolean650 = true;
                     }
                 }
-                if (this.aClass239Array1 != null) {
-                    for (local69 = 0; local69 < this.anInt8492; local69++) {
-                        local994 = this.aClass239Array1[local69];
-                        local999 = this.aClass245Array1[local69];
-                        local999.anInt6225 = local999.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.aShortArray120[local994.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
+                if (this.billboardFaces != null) {
+                    for (local69 = 0; local69 < this.billboardCount; local69++) {
+                        local994 = this.billboardFaces[local69];
+                        local999 = this.billboardAttributes[local69];
+                        local999.anInt6225 = local999.anInt6225 & 0xFF000000 | ColourUtils.HSV_TO_RGB[ColourUtils.hslToHsv(this.faceColour[local994.anInt6139] & 0xFFFF) & 0xFFFF] & 0xFFFFFF;
                     }
                 }
             }
@@ -2418,43 +2481,43 @@ public final class JavaModel extends Model {
         if (this.anInt8488 == 1) {
             this.method7509();
         } else if (this.anInt8488 == 2) {
-            if ((this.anInt8489 & 0x97098) == 0 && this.aFloatArrayArray17 == null) {
-                this.aShortArray120 = null;
+            if ((this.functionMask & 0x97098) == 0 && this.texCoordU == null) {
+                this.faceColour = null;
             }
             if (arg0) {
-                this.aByteArray94 = null;
+                this.shadingType = null;
             }
         } else {
             this.method7523();
-            @Pc(42) int local42 = this.aClass19_Sub2_9.sunX;
-            @Pc(46) int local46 = this.aClass19_Sub2_9.sunY;
-            @Pc(50) int local50 = this.aClass19_Sub2_9.sunZ;
-            @Pc(56) int local56 = this.aClass19_Sub2_9.ambient >> 8;
-            @Pc(65) int local65 = this.aClass19_Sub2_9.sunIntensity * 768 / this.anInt8485;
-            @Pc(74) int local74 = this.aClass19_Sub2_9.reverseSunIntensity * 768 / this.anInt8485;
+            @Pc(42) int local42 = this.toolkit.sunX;
+            @Pc(46) int local46 = this.toolkit.sunY;
+            @Pc(50) int local50 = this.toolkit.sunZ;
+            @Pc(56) int local56 = this.toolkit.ambient >> 8;
+            @Pc(65) int local65 = this.toolkit.sunIntensity * 768 / this.anInt8485;
+            @Pc(74) int local74 = this.toolkit.reverseSunIntensity * 768 / this.anInt8485;
             if (this.anIntArray668 == null) {
-                this.anIntArray668 = new int[this.anInt8482];
-                this.anIntArray664 = new int[this.anInt8482];
-                this.anIntArray672 = new int[this.anInt8482];
+                this.anIntArray668 = new int[this.faceCount];
+                this.anIntArray664 = new int[this.faceCount];
+                this.anIntArray672 = new int[this.faceCount];
             }
-            for (@Pc(96) int local96 = 0; local96 < this.anInt8482; local96++) {
+            for (@Pc(96) int local96 = 0; local96 < this.faceCount; local96++) {
                 @Pc(102) byte local102;
-                if (this.aByteArray94 == null) {
+                if (this.shadingType == null) {
                     local102 = 0;
                 } else {
-                    local102 = this.aByteArray94[local96];
+                    local102 = this.shadingType[local96];
                 }
                 @Pc(113) byte local113;
-                if (this.aByteArray96 == null) {
+                if (this.faceAlpha == null) {
                     local113 = 0;
                 } else {
-                    local113 = this.aByteArray96[local96];
+                    local113 = this.faceAlpha[local96];
                 }
                 @Pc(124) short local124;
-                if (this.aShortArray123 == null) {
+                if (this.faceTextures == null) {
                     local124 = -1;
                 } else {
-                    local124 = this.aShortArray123[local96];
+                    local124 = this.faceTextures[local96];
                 }
                 if (local113 == -2) {
                     local102 = 3;
@@ -2470,39 +2533,39 @@ public final class JavaModel extends Model {
                     @Pc(171) short local171;
                     @Pc(163) int local163;
                     if (local102 == 0) {
-                        local154 = this.aShortArray120[local96] & 0xFFFF;
+                        local154 = this.faceColour[local96] & 0xFFFF;
                         local163 = (local154 & 0x7F) * this.anInt8495 >> 7;
                         local171 = ColourUtils.hslToHsv(local154 & 0xFFFFFF80 | local163);
                         @Pc(192) Class378 local192;
-                        if (this.aClass378Array1 == null || this.aClass378Array1[this.aShortArray122[local96]] == null) {
-                            local192 = this.aClass378Array2[this.aShortArray122[local96]];
+                        if (this.aClass378Array1 == null || this.aClass378Array1[this.faceA[local96]] == null) {
+                            local192 = this.aClass378Array2[this.faceA[local96]];
                         } else {
-                            local192 = this.aClass378Array1[this.aShortArray122[local96]];
+                            local192 = this.aClass378Array1[this.faceA[local96]];
                         }
                         local221 = (local42 * local192.anInt9746 + local46 * local192.anInt9747 + local50 * local192.anInt9745) / local192.anInt9744 >> 16;
                         local229 = local221 > 256 ? local65 : local74;
                         local239 = (local56 >> 1) + (local229 * local221 >> 17);
                         this.anIntArray668[local96] = local239 << 17 | Static244.method3513(local239, local171);
-                        if (this.aClass378Array1 == null || this.aClass378Array1[this.lb[local96]] == null) {
-                            local192 = this.aClass378Array2[this.lb[local96]];
+                        if (this.aClass378Array1 == null || this.aClass378Array1[this.faceB[local96]] == null) {
+                            local192 = this.aClass378Array2[this.faceB[local96]];
                         } else {
-                            local192 = this.aClass378Array1[this.lb[local96]];
+                            local192 = this.aClass378Array1[this.faceB[local96]];
                         }
                         local221 = (local42 * local192.anInt9746 + local46 * local192.anInt9747 + local50 * local192.anInt9745) / local192.anInt9744 >> 16;
                         local229 = local221 > 256 ? local65 : local74;
                         local239 = (local56 >> 1) + (local229 * local221 >> 17);
                         this.anIntArray664[local96] = local239 << 17 | Static244.method3513(local239, local171);
-                        if (this.aClass378Array1 == null || this.aClass378Array1[this.aShortArray125[local96]] == null) {
-                            local192 = this.aClass378Array2[this.aShortArray125[local96]];
+                        if (this.aClass378Array1 == null || this.aClass378Array1[this.faceC[local96]] == null) {
+                            local192 = this.aClass378Array2[this.faceC[local96]];
                         } else {
-                            local192 = this.aClass378Array1[this.aShortArray125[local96]];
+                            local192 = this.aClass378Array1[this.faceC[local96]];
                         }
                         local221 = (local42 * local192.anInt9746 + local46 * local192.anInt9747 + local50 * local192.anInt9745) / local192.anInt9744 >> 16;
                         local229 = local221 > 256 ? local65 : local74;
                         local239 = (local56 >> 1) + (local229 * local221 >> 17);
                         this.anIntArray672[local96] = local239 << 17 | Static244.method3513(local239, local171);
                     } else if (local102 == 1) {
-                        local154 = this.aShortArray120[local96] & 0xFFFF;
+                        local154 = this.faceColour[local96] & 0xFFFF;
                         local163 = (local154 & 0x7F) * this.anInt8495 >> 7;
                         local171 = ColourUtils.hslToHsv(local154 & 0xFFFFFF80 | local163);
                         @Pc(444) Class301 local444 = this.aClass301Array1[local96];
@@ -2518,33 +2581,33 @@ public final class JavaModel extends Model {
                         this.anIntArray672[local96] = -2;
                     }
                 } else {
-                    local154 = this.aShortArray120[local96] & 0xFFFF;
+                    local154 = this.faceColour[local96] & 0xFFFF;
                     @Pc(599) int local599;
                     @Pc(579) int local579;
                     if (local102 == 0) {
                         @Pc(550) Class378 local550;
-                        if (this.aClass378Array1 == null || this.aClass378Array1[this.aShortArray122[local96]] == null) {
-                            local550 = this.aClass378Array2[this.aShortArray122[local96]];
+                        if (this.aClass378Array1 == null || this.aClass378Array1[this.faceA[local96]] == null) {
+                            local550 = this.aClass378Array2[this.faceA[local96]];
                         } else {
-                            local550 = this.aClass378Array1[this.aShortArray122[local96]];
+                            local550 = this.aClass378Array1[this.faceA[local96]];
                         }
                         local579 = (local42 * local550.anInt9746 + local46 * local550.anInt9747 + local50 * local550.anInt9745) / local550.anInt9744 >> 16;
                         local239 = local579 > 256 ? local65 : local74;
                         local599 = this.method7524((local56 >> 2) + (local239 * local579 >> 18));
                         this.anIntArray668[local96] = local599 << 24 | this.method7531(local154, local124, local599);
-                        if (this.aClass378Array1 == null || this.aClass378Array1[this.lb[local96]] == null) {
-                            local550 = this.aClass378Array2[this.lb[local96]];
+                        if (this.aClass378Array1 == null || this.aClass378Array1[this.faceB[local96]] == null) {
+                            local550 = this.aClass378Array2[this.faceB[local96]];
                         } else {
-                            local550 = this.aClass378Array1[this.lb[local96]];
+                            local550 = this.aClass378Array1[this.faceB[local96]];
                         }
                         local579 = (local42 * local550.anInt9746 + local46 * local550.anInt9747 + local50 * local550.anInt9745) / local550.anInt9744 >> 16;
                         local239 = local579 > 256 ? local65 : local74;
                         local599 = this.method7524((local56 >> 2) + (local239 * local579 >> 18));
                         this.anIntArray664[local96] = local599 << 24 | this.method7531(local154, local124, local599);
-                        if (this.aClass378Array1 == null || this.aClass378Array1[this.aShortArray125[local96]] == null) {
-                            local550 = this.aClass378Array2[this.aShortArray125[local96]];
+                        if (this.aClass378Array1 == null || this.aClass378Array1[this.faceC[local96]] == null) {
+                            local550 = this.aClass378Array2[this.faceC[local96]];
                         } else {
-                            local550 = this.aClass378Array1[this.aShortArray125[local96]];
+                            local550 = this.aClass378Array1[this.faceC[local96]];
                         }
                         local579 = (local42 * local550.anInt9746 + local46 * local550.anInt9747 + local50 * local550.anInt9745) / local550.anInt9744 >> 16;
                         local239 = local579 > 256 ? local65 : local74;
@@ -2565,11 +2628,11 @@ public final class JavaModel extends Model {
             this.aClass378Array2 = null;
             this.aClass378Array1 = null;
             this.aClass301Array1 = null;
-            if ((this.anInt8489 & 0x97098) == 0 && this.aFloatArrayArray17 == null) {
-                this.aShortArray120 = null;
+            if ((this.functionMask & 0x97098) == 0 && this.texCoordU == null) {
+                this.faceColour = null;
             }
             if (arg0) {
-                this.aByteArray94 = null;
+                this.shadingType = null;
             }
             this.anInt8488 = 2;
         }
@@ -2579,10 +2642,10 @@ public final class JavaModel extends Model {
     @Override
     protected void wa() {
         if (this.aBoolean648) {
-            for (@Pc(4) int local4 = 0; local4 < this.anInt8483; local4++) {
-                this.anIntArray666[local4] = this.anIntArray666[local4] + 7 >> 4;
-                this.anIntArray675[local4] = this.anIntArray675[local4] + 7 >> 4;
-                this.anIntArray658[local4] = this.anIntArray658[local4] + 7 >> 4;
+            for (@Pc(4) int local4 = 0; local4 < this.vertexCount; local4++) {
+                this.vertexX[local4] = this.vertexX[local4] + 7 >> 4;
+                this.vertexY[local4] = this.vertexY[local4] + 7 >> 4;
+                this.vertexZ[local4] = this.vertexZ[local4] + 7 >> 4;
             }
             this.aBoolean648 = false;
         }
@@ -2596,7 +2659,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(IILclient!tt;ZII)Z")
     public boolean method7513(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Matrix arg2, @OriginalArg(3) boolean arg3, @OriginalArg(4) int arg4, @OriginalArg(5) int arg5) {
         this.aClass73_Sub2_2 = (JavaMatrix) arg2;
-        @Pc(7) JavaMatrix local7 = this.aClass19_Sub2_9.camera;
+        @Pc(7) JavaMatrix local7 = this.toolkit.camera;
         @Pc(31) float local31 = local7.tx + local7.e1_1 * this.aClass73_Sub2_2.tx + local7.e1_2 * this.aClass73_Sub2_2.ty + local7.e1_3 * this.aClass73_Sub2_2.tz;
         @Pc(55) float local55 = local7.ty + local7.e2_1 * this.aClass73_Sub2_2.tx + local7.e2_2 * this.aClass73_Sub2_2.ty + local7.e2_3 * this.aClass73_Sub2_2.tz;
         @Pc(79) float local79 = local7.tz + local7.e3_1 * this.aClass73_Sub2_2.tx + local7.e3_2 * this.aClass73_Sub2_2.ty + local7.e3_3 * this.aClass73_Sub2_2.tz;
@@ -2610,10 +2673,10 @@ public final class JavaModel extends Model {
         @Pc(247) float local247 = local7.e3_1 * this.aClass73_Sub2_2.e1_2 + local7.e3_2 * this.aClass73_Sub2_2.e2_2 + local7.e3_3 * this.aClass73_Sub2_2.e3_2;
         @Pc(268) float local268 = local7.e3_1 * this.aClass73_Sub2_2.e1_3 + local7.e3_2 * this.aClass73_Sub2_2.e2_3 + local7.e3_3 * this.aClass73_Sub2_2.e3_3;
         @Pc(270) boolean local270 = false;
-        @Pc(274) int local274 = this.aClass19_Sub2_9.projectionCenterX;
-        @Pc(278) int local278 = this.aClass19_Sub2_9.projectionCenterY;
-        @Pc(282) int local282 = this.aClass19_Sub2_9.projectionScaleX;
-        @Pc(286) int local286 = this.aClass19_Sub2_9.projectionScaleY;
+        @Pc(274) int local274 = this.toolkit.projectionCenterX;
+        @Pc(278) int local278 = this.toolkit.projectionCenterY;
+        @Pc(282) int local282 = this.toolkit.projectionScaleX;
+        @Pc(286) int local286 = this.toolkit.projectionScaleY;
         @Pc(288) int local288 = Integer.MAX_VALUE;
         @Pc(290) int local290 = Integer.MIN_VALUE;
         @Pc(292) int local292 = Integer.MAX_VALUE;
@@ -2673,7 +2736,7 @@ public final class JavaModel extends Model {
             local534 = local31 + local100 * (float) local507 + local121 * (float) local512 + local142 * (float) local517;
             local551 = local55 + local163 * (float) local507 + local184 * (float) local512 + local205 * (float) local517;
             local568 = local79 + local226 * (float) local507 + local247 * (float) local512 + local268 * (float) local517;
-            if (local568 >= (float) this.aClass19_Sub2_9.zNear) {
+            if (local568 >= (float) this.toolkit.zNear) {
                 if (arg5 > 0) {
                     local568 = (float) arg5;
                 }
@@ -2698,14 +2761,14 @@ public final class JavaModel extends Model {
             if (arg3) {
                 return true;
             }
-            for (local592 = 0; local592 < this.anInt8483; local592++) {
-                local507 = this.anIntArray666[local592];
-                local512 = this.anIntArray675[local592];
-                local517 = this.anIntArray658[local592];
+            for (local592 = 0; local592 < this.vertexCount; local592++) {
+                local507 = this.vertexX[local592];
+                local512 = this.vertexY[local592];
+                local517 = this.vertexZ[local592];
                 local534 = local31 + local100 * (float) local507 + local121 * (float) local512 + local142 * (float) local517;
                 local551 = local55 + local163 * (float) local507 + local184 * (float) local512 + local205 * (float) local517;
                 local568 = local79 + local226 * (float) local507 + local247 * (float) local512 + local268 * (float) local517;
-                if (local568 >= (float) this.aClass19_Sub2_9.zNear) {
+                if (local568 >= (float) this.toolkit.zNear) {
                     if (arg5 > 0) {
                         local568 = (float) arg5;
                     }
@@ -2715,8 +2778,8 @@ public final class JavaModel extends Model {
                     this.anIntArray655[local592] = -999999;
                 }
             }
-            for (local602 = 0; local602 < this.anInt8482; local602++) {
-                if (this.anIntArray655[this.aShortArray122[local602]] != -999999 && this.anIntArray655[this.lb[local602]] != -999999 && this.anIntArray655[this.aShortArray125[local602]] != -999999 && this.method7520(arg0, arg1, this.anIntArray657[this.aShortArray122[local602]], this.anIntArray657[this.lb[local602]], this.anIntArray657[this.aShortArray125[local602]], this.anIntArray655[this.aShortArray122[local602]], this.anIntArray655[this.lb[local602]], this.anIntArray655[this.aShortArray125[local602]])) {
+            for (local602 = 0; local602 < this.faceCount; local602++) {
+                if (this.anIntArray655[this.faceA[local602]] != -999999 && this.anIntArray655[this.faceB[local602]] != -999999 && this.anIntArray655[this.faceC[local602]] != -999999 && this.method7520(arg0, arg1, this.anIntArray657[this.faceA[local602]], this.anIntArray657[this.faceB[local602]], this.anIntArray657[this.faceC[local602]], this.anIntArray655[this.faceA[local602]], this.anIntArray655[this.faceB[local602]], this.anIntArray655[this.faceC[local602]])) {
                     return true;
                 }
             }
@@ -2739,16 +2802,16 @@ public final class JavaModel extends Model {
         }
         arg0.anInt8495 = this.anInt8495;
         arg0.anInt8485 = this.anInt8485;
-        arg0.anInt8483 = this.anInt8483;
-        arg0.anInt8491 = this.anInt8491;
-        arg0.anInt8482 = this.anInt8482;
-        arg0.anInt8492 = this.anInt8492;
+        arg0.vertexCount = this.vertexCount;
+        arg0.maxVertex = this.maxVertex;
+        arg0.faceCount = this.faceCount;
+        arg0.billboardCount = this.billboardCount;
         if ((arg2 & 0x100) == 0) {
-            arg0.aBoolean647 = this.aBoolean647;
+            arg0.transparent = this.transparent;
         } else {
-            arg0.aBoolean647 = true;
+            arg0.transparent = true;
         }
-        arg0.aBoolean651 = this.aBoolean651;
+        arg0.movingTextures = this.movingTextures;
         @Pc(100) boolean local100 = (arg2 & 0x7) == 7 | (arg2 & 0x20) != 0;
         @Pc(113) boolean local113 = local100 || (arg2 & 0x1) != 0;
         @Pc(126) boolean local126 = local100 || (arg2 & 0x2) != 0;
@@ -2756,57 +2819,57 @@ public final class JavaModel extends Model {
         @Pc(188) int local188;
         if (local113 || local126 || local145) {
             if (local113) {
-                if (arg1.anIntArray666 == null || arg1.anIntArray666.length < this.anInt8483) {
-                    arg0.anIntArray666 = arg1.anIntArray666 = new int[this.anInt8483];
+                if (arg1.vertexX == null || arg1.vertexX.length < this.vertexCount) {
+                    arg0.vertexX = arg1.vertexX = new int[this.vertexCount];
                 } else {
-                    arg0.anIntArray666 = arg1.anIntArray666;
+                    arg0.vertexX = arg1.vertexX;
                 }
-                for (local188 = 0; local188 < this.anInt8483; local188++) {
-                    arg0.anIntArray666[local188] = this.anIntArray666[local188];
+                for (local188 = 0; local188 < this.vertexCount; local188++) {
+                    arg0.vertexX[local188] = this.vertexX[local188];
                 }
             } else {
-                arg0.anIntArray666 = this.anIntArray666;
+                arg0.vertexX = this.vertexX;
             }
             if (local126) {
-                if (arg1.anIntArray675 == null || arg1.anIntArray675.length < this.anInt8483) {
-                    arg0.anIntArray675 = arg1.anIntArray675 = new int[this.anInt8483];
+                if (arg1.vertexY == null || arg1.vertexY.length < this.vertexCount) {
+                    arg0.vertexY = arg1.vertexY = new int[this.vertexCount];
                 } else {
-                    arg0.anIntArray675 = arg1.anIntArray675;
+                    arg0.vertexY = arg1.vertexY;
                 }
-                for (local188 = 0; local188 < this.anInt8483; local188++) {
-                    arg0.anIntArray675[local188] = this.anIntArray675[local188];
+                for (local188 = 0; local188 < this.vertexCount; local188++) {
+                    arg0.vertexY[local188] = this.vertexY[local188];
                 }
             } else {
-                arg0.anIntArray675 = this.anIntArray675;
+                arg0.vertexY = this.vertexY;
             }
             if (local145) {
-                if (arg1.anIntArray658 == null || arg1.anIntArray658.length < this.anInt8483) {
-                    arg0.anIntArray658 = arg1.anIntArray658 = new int[this.anInt8483];
+                if (arg1.vertexZ == null || arg1.vertexZ.length < this.vertexCount) {
+                    arg0.vertexZ = arg1.vertexZ = new int[this.vertexCount];
                 } else {
-                    arg0.anIntArray658 = arg1.anIntArray658;
+                    arg0.vertexZ = arg1.vertexZ;
                 }
-                for (local188 = 0; local188 < this.anInt8483; local188++) {
-                    arg0.anIntArray658[local188] = this.anIntArray658[local188];
+                for (local188 = 0; local188 < this.vertexCount; local188++) {
+                    arg0.vertexZ[local188] = this.vertexZ[local188];
                 }
             } else {
-                arg0.anIntArray658 = this.anIntArray658;
+                arg0.vertexZ = this.vertexZ;
             }
         } else {
-            arg0.anIntArray666 = this.anIntArray666;
-            arg0.anIntArray675 = this.anIntArray675;
-            arg0.anIntArray658 = this.anIntArray658;
+            arg0.vertexX = this.vertexX;
+            arg0.vertexY = this.vertexY;
+            arg0.vertexZ = this.vertexZ;
         }
         if ((arg2 & 0x84080) == 0) {
-            arg0.aShortArray120 = this.aShortArray120;
+            arg0.faceColour = this.faceColour;
         } else {
-            if (arg1.aShortArray120 == null || arg1.aShortArray120.length < this.anInt8482) {
-                local188 = this.anInt8482;
-                arg0.aShortArray120 = arg1.aShortArray120 = new short[local188];
+            if (arg1.faceColour == null || arg1.faceColour.length < this.faceCount) {
+                local188 = this.faceCount;
+                arg0.faceColour = arg1.faceColour = new short[local188];
             } else {
-                arg0.aShortArray120 = arg1.aShortArray120;
+                arg0.faceColour = arg1.faceColour;
             }
-            for (local188 = 0; local188 < this.anInt8482; local188++) {
-                arg0.aShortArray120[local188] = this.aShortArray120[local188];
+            for (local188 = 0; local188 < this.faceCount; local188++) {
+                arg0.faceColour[local188] = this.faceColour[local188];
             }
         }
         if ((arg2 & 0x97018) != 0) {
@@ -2825,8 +2888,8 @@ public final class JavaModel extends Model {
                 this.method7503(false);
             }
             if (this.anIntArray668 != null) {
-                if (arg1.anIntArray668 == null || arg1.anIntArray668.length < this.anInt8482) {
-                    local188 = this.anInt8482;
+                if (arg1.anIntArray668 == null || arg1.anIntArray668.length < this.faceCount) {
+                    local188 = this.faceCount;
                     arg0.anIntArray668 = arg1.anIntArray668 = new int[local188];
                     arg0.anIntArray664 = arg1.anIntArray664 = new int[local188];
                     arg0.anIntArray672 = arg1.anIntArray672 = new int[local188];
@@ -2835,7 +2898,7 @@ public final class JavaModel extends Model {
                     arg0.anIntArray664 = arg1.anIntArray664;
                     arg0.anIntArray672 = arg1.anIntArray672;
                 }
-                for (local188 = 0; local188 < this.anInt8482; local188++) {
+                for (local188 = 0; local188 < this.faceCount; local188++) {
                     arg0.anIntArray668[local188] = this.anIntArray668[local188];
                     arg0.anIntArray664[local188] = this.anIntArray664[local188];
                     arg0.anIntArray672[local188] = this.anIntArray672[local188];
@@ -2844,21 +2907,21 @@ public final class JavaModel extends Model {
             arg0.anInt8488 = this.anInt8488;
         }
         if ((arg2 & 0x100) == 0) {
-            arg0.aByteArray96 = this.aByteArray96;
+            arg0.faceAlpha = this.faceAlpha;
         } else {
-            if (arg1.aByteArray96 == null || arg1.aByteArray96.length < this.anInt8482) {
-                local188 = this.anInt8482;
-                arg0.aByteArray96 = arg1.aByteArray96 = new byte[local188];
+            if (arg1.faceAlpha == null || arg1.faceAlpha.length < this.faceCount) {
+                local188 = this.faceCount;
+                arg0.faceAlpha = arg1.faceAlpha = new byte[local188];
             } else {
-                arg0.aByteArray96 = arg1.aByteArray96;
+                arg0.faceAlpha = arg1.faceAlpha;
             }
-            if (this.aByteArray96 == null) {
-                for (local188 = 0; local188 < this.anInt8482; local188++) {
-                    arg0.aByteArray96[local188] = 0;
+            if (this.faceAlpha == null) {
+                for (local188 = 0; local188 < this.faceCount; local188++) {
+                    arg0.faceAlpha[local188] = 0;
                 }
             } else {
-                for (local188 = 0; local188 < this.anInt8482; local188++) {
-                    arg0.aByteArray96[local188] = this.aByteArray96[local188];
+                for (local188 = 0; local188 < this.faceCount; local188++) {
+                    arg0.faceAlpha[local188] = this.faceAlpha[local188];
                 }
             }
         }
@@ -2869,8 +2932,8 @@ public final class JavaModel extends Model {
             arg0.aClass378Array2 = this.aClass378Array2;
             arg0.aClass301Array1 = this.aClass301Array1;
         } else {
-            if (arg1.aClass378Array2 == null || arg1.aClass378Array2.length < this.anInt8491) {
-                local188 = this.anInt8491;
+            if (arg1.aClass378Array2 == null || arg1.aClass378Array2.length < this.maxVertex) {
+                local188 = this.maxVertex;
                 arg0.aClass378Array2 = arg1.aClass378Array2 = new Class378[local188];
             } else {
                 arg0.aClass378Array2 = arg1.aClass378Array2;
@@ -2878,124 +2941,124 @@ public final class JavaModel extends Model {
             if (this.aClass378Array2 == null) {
                 arg0.aClass378Array2 = null;
             } else {
-                for (local188 = 0; local188 < this.anInt8491; local188++) {
+                for (local188 = 0; local188 < this.maxVertex; local188++) {
                     arg0.aClass378Array2[local188] = new Class378(this.aClass378Array2[local188]);
                 }
             }
             if (this.aClass301Array1 == null) {
                 arg0.aClass301Array1 = null;
             } else {
-                if (arg1.aClass301Array1 == null || arg1.aClass301Array1.length < this.anInt8482) {
-                    local188 = this.anInt8482;
+                if (arg1.aClass301Array1 == null || arg1.aClass301Array1.length < this.faceCount) {
+                    local188 = this.faceCount;
                     arg0.aClass301Array1 = arg1.aClass301Array1 = new Class301[local188];
                 } else {
                     arg0.aClass301Array1 = arg1.aClass301Array1;
                 }
-                for (local188 = 0; local188 < this.anInt8482; local188++) {
+                for (local188 = 0; local188 < this.faceCount; local188++) {
                     arg0.aClass301Array1[local188] = this.aClass301Array1[local188] == null ? null : new Class301(this.aClass301Array1[local188]);
                 }
             }
         }
         if ((arg2 & 0x8000) == 0) {
-            arg0.aShortArray123 = this.aShortArray123;
-        } else if (this.aShortArray123 == null) {
-            arg0.aShortArray123 = null;
+            arg0.faceTextures = this.faceTextures;
+        } else if (this.faceTextures == null) {
+            arg0.faceTextures = null;
         } else {
-            if (arg1.aShortArray123 == null || arg1.aShortArray123.length < this.anInt8482) {
-                local188 = this.anInt8482;
-                arg0.aShortArray123 = arg1.aShortArray123 = new short[local188];
+            if (arg1.faceTextures == null || arg1.faceTextures.length < this.faceCount) {
+                local188 = this.faceCount;
+                arg0.faceTextures = arg1.faceTextures = new short[local188];
             } else {
-                arg0.aShortArray123 = arg1.aShortArray123;
+                arg0.faceTextures = arg1.faceTextures;
             }
-            for (local188 = 0; local188 < this.anInt8482; local188++) {
-                arg0.aShortArray123[local188] = this.aShortArray123[local188];
+            for (local188 = 0; local188 < this.faceCount; local188++) {
+                arg0.faceTextures[local188] = this.faceTextures[local188];
             }
         }
         if ((arg2 & 0x10000) == 0) {
-            arg0.aByteArray94 = this.aByteArray94;
-        } else if (this.aByteArray94 == null) {
-            arg0.aByteArray94 = null;
+            arg0.shadingType = this.shadingType;
+        } else if (this.shadingType == null) {
+            arg0.shadingType = null;
         } else {
-            if (arg1.aByteArray94 == null || arg1.aByteArray94.length < this.anInt8482) {
-                local188 = arg3 ? this.anInt8482 + 100 : this.anInt8482;
-                arg0.aByteArray94 = arg1.aByteArray94 = new byte[local188];
+            if (arg1.shadingType == null || arg1.shadingType.length < this.faceCount) {
+                local188 = arg3 ? this.faceCount + 100 : this.faceCount;
+                arg0.shadingType = arg1.shadingType = new byte[local188];
             } else {
-                arg0.aByteArray94 = arg1.aByteArray94;
+                arg0.shadingType = arg1.shadingType;
             }
-            for (local188 = 0; local188 < this.anInt8482; local188++) {
-                arg0.aByteArray94[local188] = this.aByteArray94[local188];
+            for (local188 = 0; local188 < this.faceCount; local188++) {
+                arg0.shadingType[local188] = this.shadingType[local188];
             }
         }
         @Pc(900) int local900;
         if ((arg2 & 0xC580) == 0) {
-            arg0.aClass245Array1 = this.aClass245Array1;
-        } else if (arg1.aClass245Array1 == null || arg1.aClass245Array1.length < this.anInt8492) {
-            local188 = this.anInt8492;
-            arg0.aClass245Array1 = arg1.aClass245Array1 = new Class245[local188];
-            for (local900 = 0; local900 < this.anInt8492; local900++) {
-                arg0.aClass245Array1[local900] = this.aClass245Array1[local900].method5574();
+            arg0.billboardAttributes = this.billboardAttributes;
+        } else if (arg1.billboardAttributes == null || arg1.billboardAttributes.length < this.billboardCount) {
+            local188 = this.billboardCount;
+            arg0.billboardAttributes = arg1.billboardAttributes = new JavaBillboardAttributes[local188];
+            for (local900 = 0; local900 < this.billboardCount; local900++) {
+                arg0.billboardAttributes[local900] = this.billboardAttributes[local900].method5574();
             }
         } else {
-            arg0.aClass245Array1 = arg1.aClass245Array1;
-            for (local188 = 0; local188 < this.anInt8492; local188++) {
-                arg0.aClass245Array1[local188].method5573(this.aClass245Array1[local188]);
+            arg0.billboardAttributes = arg1.billboardAttributes;
+            for (local188 = 0; local188 < this.billboardCount; local188++) {
+                arg0.billboardAttributes[local188].method5573(this.billboardAttributes[local188]);
             }
         }
-        if (this.aFloatArrayArray17 == null || (arg2 & 0x10) == 0) {
-            arg0.aFloatArrayArray17 = this.aFloatArrayArray17;
-            arg0.aFloatArrayArray18 = this.aFloatArrayArray18;
+        if (this.texCoordU == null || (arg2 & 0x10) == 0) {
+            arg0.texCoordU = this.texCoordU;
+            arg0.texCoordV = this.texCoordV;
         } else {
-            if (arg1.aFloatArrayArray17 == null || arg1.aFloatArrayArray17.length < this.anInt8482) {
-                local188 = arg3 ? this.anInt8482 + 100 : this.anInt8482;
-                arg0.aFloatArrayArray17 = arg1.aFloatArrayArray17 = new float[local188][3];
+            if (arg1.texCoordU == null || arg1.texCoordU.length < this.faceCount) {
+                local188 = arg3 ? this.faceCount + 100 : this.faceCount;
+                arg0.texCoordU = arg1.texCoordU = new float[local188][3];
             } else {
-                arg0.aFloatArrayArray17 = arg1.aFloatArrayArray17;
+                arg0.texCoordU = arg1.texCoordU;
             }
-            for (local188 = 0; local188 < this.anInt8482; local188++) {
-                if (this.aFloatArrayArray17[local188] != null) {
-                    arg0.aFloatArrayArray17[local188][0] = this.aFloatArrayArray17[local188][0];
-                    arg0.aFloatArrayArray17[local188][1] = this.aFloatArrayArray17[local188][1];
-                    arg0.aFloatArrayArray17[local188][2] = this.aFloatArrayArray17[local188][2];
+            for (local188 = 0; local188 < this.faceCount; local188++) {
+                if (this.texCoordU[local188] != null) {
+                    arg0.texCoordU[local188][0] = this.texCoordU[local188][0];
+                    arg0.texCoordU[local188][1] = this.texCoordU[local188][1];
+                    arg0.texCoordU[local188][2] = this.texCoordU[local188][2];
                 }
             }
-            if (arg1.aFloatArrayArray18 == null || arg1.aFloatArrayArray18.length < this.anInt8482) {
-                local900 = arg3 ? this.anInt8482 + 100 : this.anInt8482;
-                arg0.aFloatArrayArray18 = arg1.aFloatArrayArray18 = new float[local900][3];
+            if (arg1.texCoordV == null || arg1.texCoordV.length < this.faceCount) {
+                local900 = arg3 ? this.faceCount + 100 : this.faceCount;
+                arg0.texCoordV = arg1.texCoordV = new float[local900][3];
             } else {
-                arg0.aFloatArrayArray18 = arg1.aFloatArrayArray18;
+                arg0.texCoordV = arg1.texCoordV;
             }
-            for (local900 = 0; local900 < this.anInt8482; local900++) {
-                if (this.aFloatArrayArray18[local900] != null) {
-                    arg0.aFloatArrayArray18[local900][0] = this.aFloatArrayArray18[local900][0];
-                    arg0.aFloatArrayArray18[local900][1] = this.aFloatArrayArray18[local900][1];
-                    arg0.aFloatArrayArray18[local900][2] = this.aFloatArrayArray18[local900][2];
+            for (local900 = 0; local900 < this.faceCount; local900++) {
+                if (this.texCoordV[local900] != null) {
+                    arg0.texCoordV[local900][0] = this.texCoordV[local900][0];
+                    arg0.texCoordV[local900][1] = this.texCoordV[local900][1];
+                    arg0.texCoordV[local900][2] = this.texCoordV[local900][2];
                 }
             }
         }
-        arg0.anIntArrayArray212 = this.anIntArrayArray212;
-        arg0.anIntArrayArray213 = this.anIntArrayArray213;
-        arg0.anIntArrayArray214 = this.anIntArrayArray214;
-        arg0.aShortArray121 = this.aShortArray121;
+        arg0.vertexLabels = this.vertexLabels;
+        arg0.faceLabels = this.faceLabels;
+        arg0.billboardLabels = this.billboardLabels;
+        arg0.originModels = this.originModels;
         arg0.aShortArray124 = this.aShortArray124;
-        arg0.aByteArray95 = this.aByteArray95;
-        arg0.aShortArray122 = this.aShortArray122;
-        arg0.lb = this.lb;
-        arg0.aShortArray125 = this.aShortArray125;
-        arg0.aModelParticleEmitterArray5 = this.aModelParticleEmitterArray5;
-        arg0.aModelParticleEffectorArray5 = this.aModelParticleEffectorArray5;
-        arg0.aClass239Array1 = this.aClass239Array1;
-        arg0.aShortArray119 = this.aShortArray119;
-        arg0.anInt8489 = arg2;
+        arg0.facePriority = this.facePriority;
+        arg0.faceA = this.faceA;
+        arg0.faceB = this.faceB;
+        arg0.faceC = this.faceC;
+        arg0.emitters = this.emitters;
+        arg0.effectors = this.effectors;
+        arg0.billboardFaces = this.billboardFaces;
+        arg0.faceIndices = this.faceIndices;
+        arg0.functionMask = arg2;
         return arg0;
     }
 
     @OriginalMember(owner = "client!rs", name = "q", descriptor = "()V")
     public void method7515() {
         synchronized (this) {
-            for (@Pc(5) int local5 = 0; local5 < this.anInt8483; local5++) {
-                @Pc(11) int local11 = this.anIntArray658[local5];
-                this.anIntArray658[local5] = this.anIntArray666[local5];
-                this.anIntArray666[local5] = -local11;
+            for (@Pc(5) int local5 = 0; local5 < this.vertexCount; local5++) {
+                @Pc(11) int local11 = this.vertexZ[local5];
+                this.vertexZ[local5] = this.vertexX[local5];
+                this.vertexX[local5] = -local11;
             }
             this.method7504();
         }
@@ -3004,7 +3067,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "k", descriptor = "(I)V")
     @Override
     public void k(@OriginalArg(0) int arg0) {
-        if ((this.anInt8489 & 0xD) != 13) {
+        if ((this.functionMask & 0xD) != 13) {
             throw new IllegalStateException();
         } else if (this.aClass378Array2 == null) {
             this.a(arg0);
@@ -3019,10 +3082,10 @@ public final class JavaModel extends Model {
             @Pc(44) int local44 = Trig1.COS[arg0];
             synchronized (this) {
                 @Pc(67) int local67;
-                for (@Pc(50) int local50 = 0; local50 < this.anInt8491; local50++) {
-                    local67 = this.anIntArray658[local50] * local40 + this.anIntArray666[local50] * local44 >> 14;
-                    this.anIntArray658[local50] = this.anIntArray658[local50] * local44 - this.anIntArray666[local50] * local40 >> 14;
-                    this.anIntArray666[local50] = local67;
+                for (@Pc(50) int local50 = 0; local50 < this.maxVertex; local50++) {
+                    local67 = this.vertexZ[local50] * local40 + this.vertexX[local50] * local44 >> 14;
+                    this.vertexZ[local50] = this.vertexZ[local50] * local44 - this.vertexX[local50] * local40 >> 14;
+                    this.vertexX[local50] = local67;
                     if (this.aClass378Array2[local50] != null) {
                         local67 = this.aClass378Array2[local50].anInt9745 * local40 + this.aClass378Array2[local50].anInt9746 * local44 >> 14;
                         this.aClass378Array2[local50].anInt9745 = this.aClass378Array2[local50].anInt9745 * local44 - this.aClass378Array2[local50].anInt9746 * local40 >> 14;
@@ -3031,7 +3094,7 @@ public final class JavaModel extends Model {
                 }
                 @Pc(178) int local178;
                 if (this.aClass301Array1 != null) {
-                    for (local67 = 0; local67 < this.anInt8482; local67++) {
+                    for (local67 = 0; local67 < this.faceCount; local67++) {
                         if (this.aClass301Array1[local67] != null) {
                             local178 = this.aClass301Array1[local67].anInt7681 * local40 + this.aClass301Array1[local67].anInt7682 * local44 >> 14;
                             this.aClass301Array1[local67].anInt7681 = this.aClass301Array1[local67].anInt7681 * local44 - this.aClass301Array1[local67].anInt7682 * local40 >> 14;
@@ -3039,10 +3102,10 @@ public final class JavaModel extends Model {
                         }
                     }
                 }
-                for (local67 = this.anInt8491; local67 < this.anInt8483; local67++) {
-                    local178 = this.anIntArray658[local67] * local40 + this.anIntArray666[local67] * local44 >> 14;
-                    this.anIntArray658[local67] = this.anIntArray658[local67] * local44 - this.anIntArray666[local67] * local40 >> 14;
-                    this.anIntArray666[local67] = local178;
+                for (local67 = this.maxVertex; local67 < this.vertexCount; local67++) {
+                    local178 = this.vertexZ[local67] * local40 + this.vertexX[local67] * local44 >> 14;
+                    this.vertexZ[local67] = this.vertexZ[local67] * local44 - this.vertexX[local67] * local40 >> 14;
+                    this.vertexX[local67] = local178;
                 }
                 this.anInt8488 = 0;
                 this.aBoolean652 = false;
@@ -3053,39 +3116,39 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(ZZII)V")
     public void method7516(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         @Pc(4) int local4;
-        if (this.aClass239Array1 != null) {
+        if (this.billboardFaces != null) {
             local4 = 0;
-            while (local4 < this.anInt8492) {
-                @Pc(10) Class239 local10 = this.aClass239Array1[local4];
+            while (local4 < this.billboardCount) {
+                @Pc(10) JavaBillboardFace local10 = this.billboardFaces[local4];
                 this.anIntArray669[local10.anInt6139] = local4++;
             }
         }
-        if (!this.aBoolean647 && this.aClass239Array1 == null) {
-            for (local4 = 0; local4 < this.anInt8482; local4++) {
+        if (!this.transparent && this.billboardFaces == null) {
+            for (local4 = 0; local4 < this.faceCount; local4++) {
                 this.method7508(local4, arg0, arg1);
             }
-        } else if ((this.anInt8489 & 0x100) == 0 && this.aShortArray119 != null) {
-            for (local4 = 0; local4 < this.anInt8482; local4++) {
-                @Pc(51) short local51 = this.aShortArray119[local4];
+        } else if ((this.functionMask & 0x100) == 0 && this.faceIndices != null) {
+            for (local4 = 0; local4 < this.faceCount; local4++) {
+                @Pc(51) short local51 = this.faceIndices[local4];
                 this.method7508(local51, arg0, arg1);
             }
         } else {
-            for (local4 = 0; local4 < this.anInt8482; local4++) {
+            for (local4 = 0; local4 < this.faceCount; local4++) {
                 if (!this.method7506(local4) && !this.method7526(local4)) {
                     this.method7508(local4, arg0, arg1);
                 }
             }
             @Pc(95) int local95;
-            if (this.aByteArray95 == null) {
-                for (local95 = 0; local95 < this.anInt8482; local95++) {
+            if (this.facePriority == null) {
+                for (local95 = 0; local95 < this.faceCount; local95++) {
                     if (this.method7506(local95) || this.method7526(local95)) {
                         this.method7508(local95, arg0, arg1);
                     }
                 }
             } else {
                 for (local95 = 0; local95 < 12; local95++) {
-                    for (@Pc(125) int local125 = 0; local125 < this.anInt8482; local125++) {
-                        if (this.aByteArray95[local125] == local95 && (this.method7506(local125) || this.method7526(local125))) {
+                    for (@Pc(125) int local125 = 0; local125 < this.faceCount; local125++) {
+                        if (this.facePriority[local125] == local95 && (this.method7506(local125) || this.method7526(local125))) {
                             this.method7508(local125, arg0, arg1);
                         }
                     }
@@ -3096,26 +3159,26 @@ public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "f", descriptor = "(I)V")
     public void method7517(@OriginalArg(0) int arg0) {
-        @Pc(4) short local4 = this.aShortArray122[arg0];
-        @Pc(9) short local9 = this.lb[arg0];
-        @Pc(14) short local14 = this.aShortArray125[arg0];
-        if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
+        @Pc(4) short local4 = this.faceA[arg0];
+        @Pc(9) short local9 = this.faceB[arg0];
+        @Pc(14) short local14 = this.faceC[arg0];
+        if (this.faceTextures != null && this.faceTextures[arg0] != -1) {
             @Pc(181) int local181 = -16777216;
-            if (this.aByteArray96 != null) {
-                local181 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+            if (this.faceAlpha != null) {
+                local181 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
             }
             if (this.anIntArray672[arg0] == -1) {
                 @Pc(210) int local210 = local181 | this.anIntArray668[arg0] & 0xFFFFFF;
-                this.aRasterizer_1.method5154((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local210, local210, local210, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5154((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local210, local210, local210, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
             } else {
-                this.aRasterizer_1.method5154((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local181 | this.anIntArray668[arg0] & 0xFFFFFF, local181 | this.anIntArray664[arg0] & 0xFFFFFF, local181 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5154((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local181 | this.anIntArray668[arg0] & 0xFFFFFF, local181 | this.anIntArray664[arg0] & 0xFFFFFF, local181 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
             }
             return;
         }
-        if (this.aByteArray96 == null) {
+        if (this.faceAlpha == null) {
             this.aRasterizer_1.alpha = 0;
         } else {
-            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.faceAlpha[arg0] & 0xFF;
         }
         if (this.anIntArray672[arg0] == -1) {
             this.aRasterizer_1.method5144((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
@@ -3133,17 +3196,17 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "j", descriptor = "(I)V")
     public void method7518(@OriginalArg(0) int arg0) {
         @Pc(1) int local1 = 0;
-        @Pc(5) int local5 = this.aClass19_Sub2_9.zNear;
-        @Pc(10) short local10 = this.aShortArray122[arg0];
-        @Pc(15) short local15 = this.lb[arg0];
-        @Pc(20) short local20 = this.aShortArray125[arg0];
+        @Pc(5) int local5 = this.toolkit.zNear;
+        @Pc(10) short local10 = this.faceA[arg0];
+        @Pc(15) short local15 = this.faceB[arg0];
+        @Pc(20) short local20 = this.faceC[arg0];
         @Pc(25) int local25 = this.anIntArray659[local10];
         @Pc(30) int local30 = this.anIntArray659[local15];
         @Pc(35) int local35 = this.anIntArray659[local20];
-        if (this.aByteArray96 == null) {
+        if (this.faceAlpha == null) {
             this.aRasterizer_1.alpha = 0;
         } else {
-            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.faceAlpha[arg0] & 0xFF;
         }
         @Pc(98) int local98;
         @Pc(103) int local103;
@@ -3161,16 +3224,16 @@ public final class JavaModel extends Model {
             local110 = this.anIntArray668[arg0] & 0xFFFF;
             if (local35 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local35 - local25));
-                this.anIntArray663[0] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[0] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[0] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[0] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[0] = local5;
                 local1++;
                 this.anIntArray677[0] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local30 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local30 - local25));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3186,15 +3249,15 @@ public final class JavaModel extends Model {
             local110 = this.anIntArray664[arg0] & 0xFFFF;
             if (local25 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local25 - local30));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local35 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local35 - local30));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3210,15 +3273,15 @@ public final class JavaModel extends Model {
             local110 = this.anIntArray672[arg0] & 0xFFFF;
             if (local30 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local30 - local35));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local25 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local25 - local35));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3239,16 +3302,16 @@ public final class JavaModel extends Model {
             if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aJavaThreadResource_3.anInt10607 || local103 > this.aJavaThreadResource_3.anInt10607 || local110 > this.aJavaThreadResource_3.anInt10607) {
                 this.aRasterizer_1.clamp = true;
             }
-            if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
+            if (this.faceTextures != null && this.faceTextures[arg0] != -1) {
                 local938 = -16777216;
-                if (this.aByteArray96 != null) {
-                    local938 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+                if (this.faceAlpha != null) {
+                    local938 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
                 }
                 local961 = local938 | this.anIntArray668[arg0] & 0xFFFFFF;
                 if (this.anIntArray672[arg0] == -1) {
-                    this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
                 } else {
-                    this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
                 this.aRasterizer_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
@@ -3262,7 +3325,7 @@ public final class JavaModel extends Model {
         if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aJavaThreadResource_3.anInt10607 || local103 > this.aJavaThreadResource_3.anInt10607 || local110 > this.aJavaThreadResource_3.anInt10607 || this.anIntArray663[3] < 0 || this.anIntArray663[3] > this.aJavaThreadResource_3.anInt10607) {
             this.aRasterizer_1.clamp = true;
         }
-        if (this.aShortArray123 == null || this.aShortArray123[arg0] == -1) {
+        if (this.faceTextures == null || this.faceTextures[arg0] == -1) {
             if (this.anIntArray672[arg0] == -1) {
                 local938 = ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF];
                 this.aRasterizer_1.method5144((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, local938);
@@ -3275,22 +3338,22 @@ public final class JavaModel extends Model {
             }
         }
         local938 = -16777216;
-        if (this.aByteArray96 != null) {
-            local938 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+        if (this.faceAlpha != null) {
+            local938 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
         }
         local961 = local938 | this.anIntArray668[arg0] & 0xFFFFFF;
         if (this.anIntArray672[arg0] == -1) {
-            this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
-            this.aRasterizer_1.method5154((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+            this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
+            this.aRasterizer_1.method5154((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
             return;
         }
-        this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
-        this.aRasterizer_1.method5154((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+        this.aRasterizer_1.method5154((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
+        this.aRasterizer_1.method5154((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
     }
 
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Ljava/lang/Thread;)V")
     public void method7519(@OriginalArg(0) Thread arg0) {
-        @Pc(4) JavaThreadResource local4 = this.aClass19_Sub2_9.threadResource(arg0);
+        @Pc(4) JavaThreadResource local4 = this.toolkit.threadResource(arg0);
         this.aRasterizer_1 = local4.rasterizer;
         if (local4 == this.aJavaThreadResource_3) {
             return;
@@ -3331,20 +3394,20 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(Lclient!tt;IZ)V")
     @Override
     public void transform(@OriginalArg(0) Matrix matrix, @OriginalArg(1) int arg1, @OriginalArg(2) boolean arg2) {
-        if (this.aShortArray121 == null) {
+        if (this.originModels == null) {
             return;
         }
         @Pc(7) int[] local7 = new int[3];
-        for (@Pc(9) int local9 = 0; local9 < this.anInt8491; local9++) {
-            if ((arg1 & this.aShortArray121[local9]) != 0) {
+        for (@Pc(9) int local9 = 0; local9 < this.maxVertex; local9++) {
+            if ((arg1 & this.originModels[local9]) != 0) {
                 if (arg2) {
-                    matrix.projectRelative(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
+                    matrix.projectRelative(this.vertexX[local9], this.vertexY[local9], this.vertexZ[local9], local7);
                 } else {
-                    matrix.project(this.anIntArray666[local9], this.anIntArray675[local9], this.anIntArray658[local9], local7);
+                    matrix.project(this.vertexX[local9], this.vertexY[local9], this.vertexZ[local9], local7);
                 }
-                this.anIntArray666[local9] = local7[0];
-                this.anIntArray675[local9] = local7[1];
-                this.anIntArray658[local9] = local7[2];
+                this.vertexX[local9] = local7[0];
+                this.vertexY[local9] = local7[1];
+                this.vertexZ[local9] = local7[2];
             }
         }
     }
@@ -3352,17 +3415,17 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "i", descriptor = "(I)V")
     public void method7521(@OriginalArg(0) int arg0) {
         @Pc(1) int local1 = 0;
-        @Pc(5) int local5 = this.aClass19_Sub2_9.zNear;
-        @Pc(10) short local10 = this.aShortArray122[arg0];
-        @Pc(15) short local15 = this.lb[arg0];
-        @Pc(20) short local20 = this.aShortArray125[arg0];
+        @Pc(5) int local5 = this.toolkit.zNear;
+        @Pc(10) short local10 = this.faceA[arg0];
+        @Pc(15) short local15 = this.faceB[arg0];
+        @Pc(20) short local20 = this.faceC[arg0];
         @Pc(25) int local25 = this.anIntArray659[local10];
         @Pc(30) int local30 = this.anIntArray659[local15];
         @Pc(35) int local35 = this.anIntArray659[local20];
-        if (this.aByteArray96 == null) {
+        if (this.faceAlpha == null) {
             this.aRasterizer_1.alpha = 0;
         } else {
-            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.faceAlpha[arg0] & 0xFF;
         }
         @Pc(98) int local98;
         @Pc(103) int local103;
@@ -3380,16 +3443,16 @@ public final class JavaModel extends Model {
             local110 = this.anIntArray668[arg0] & 0xFFFF;
             if (local35 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local35 - local25));
-                this.anIntArray663[0] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[0] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[0] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[0] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[0] = local5;
                 local1++;
                 this.anIntArray677[0] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local30 >= local5) {
                 local123 = (local5 - local25) * (65536 / (local30 - local25));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3405,15 +3468,15 @@ public final class JavaModel extends Model {
             local110 = this.anIntArray664[arg0] & 0xFFFF;
             if (local25 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local25 - local30));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local35 >= local5) {
                 local123 = (local5 - local30) * (65536 / (local35 - local30));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local20] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local20] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray672[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3429,15 +3492,15 @@ public final class JavaModel extends Model {
             local110 = this.anIntArray672[arg0] & 0xFFFF;
             if (local30 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local30 - local35));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local15] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local15] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray664[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
             if (local25 >= local5) {
                 local123 = (local5 - local35) * (65536 / (local25 - local35));
-                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleX / local5;
-                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.aClass19_Sub2_9.projectionScaleY / local5;
+                this.anIntArray663[local1] = this.aJavaThreadResource_3.anInt10606 + (local98 + ((this.anIntArray656[local10] - local98) * local123 >> 16)) * this.toolkit.projectionScaleX / local5;
+                this.anIntArray676[local1] = this.aJavaThreadResource_3.anInt10608 + (local103 + ((this.anIntArray660[local10] - local103) * local123 >> 16)) * this.toolkit.projectionScaleY / local5;
                 this.anIntArray671[local1] = local5;
                 this.anIntArray677[local1++] = local110 + (((this.anIntArray668[arg0] & 0xFFFF) - local110) * local123 >> 16);
             }
@@ -3458,16 +3521,16 @@ public final class JavaModel extends Model {
             if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aJavaThreadResource_3.anInt10607 || local103 > this.aJavaThreadResource_3.anInt10607 || local110 > this.aJavaThreadResource_3.anInt10607) {
                 this.aRasterizer_1.clamp = true;
             }
-            if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
+            if (this.faceTextures != null && this.faceTextures[arg0] != -1) {
                 local938 = -16777216;
-                if (this.aByteArray96 != null) {
-                    local938 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+                if (this.faceAlpha != null) {
+                    local938 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
                 }
                 local961 = local938 | this.anIntArray668[arg0] & 0xFFFFFF;
                 if (this.anIntArray672[arg0] == -1) {
-                    this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
                 } else {
-                    this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+                    this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
                 }
             } else if (this.anIntArray672[arg0] == -1) {
                 this.aRasterizer_1.renderFlatTriangleRgb((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
@@ -3481,7 +3544,7 @@ public final class JavaModel extends Model {
         if (local98 < 0 || local103 < 0 || local110 < 0 || local98 > this.aJavaThreadResource_3.anInt10607 || local103 > this.aJavaThreadResource_3.anInt10607 || local110 > this.aJavaThreadResource_3.anInt10607 || this.anIntArray663[3] < 0 || this.anIntArray663[3] > this.aJavaThreadResource_3.anInt10607) {
             this.aRasterizer_1.clamp = true;
         }
-        if (this.aShortArray123 == null || this.aShortArray123[arg0] == -1) {
+        if (this.faceTextures == null || this.faceTextures[arg0] == -1) {
             if (this.anIntArray672[arg0] == -1) {
                 local938 = ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF];
                 this.aRasterizer_1.renderFlatTriangleRgb((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, local938);
@@ -3494,17 +3557,17 @@ public final class JavaModel extends Model {
             }
         }
         local938 = -16777216;
-        if (this.aByteArray96 != null) {
-            local938 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+        if (this.faceAlpha != null) {
+            local938 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
         }
         local961 = local938 | this.anIntArray668[arg0] & 0xFFFFFF;
         if (this.anIntArray672[arg0] == -1) {
-            this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
-            this.aRasterizer_1.method5150((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+            this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
+            this.aRasterizer_1.method5150((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
             return;
         }
-        this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
-        this.aRasterizer_1.method5150((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+        this.aRasterizer_1.method5150((float) local123, (float) local783, (float) local788, (float) local98, (float) local103, (float) local110, (float) local25, (float) local30, (float) local35, this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
+        this.aRasterizer_1.method5150((float) local123, (float) local788, (float) this.anIntArray676[3], (float) local98, (float) local110, (float) this.anIntArray663[3], (float) local25, (float) local35, (float) this.anIntArray671[3], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local961, local961, local961, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
     }
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(IZZ)V")
@@ -3512,9 +3575,9 @@ public final class JavaModel extends Model {
         if (this.anIntArray672[arg0] == -2) {
             return;
         }
-        @Pc(12) short local12 = this.aShortArray122[arg0];
-        @Pc(17) short local17 = this.lb[arg0];
-        @Pc(22) short local22 = this.aShortArray125[arg0];
+        @Pc(12) short local12 = this.faceA[arg0];
+        @Pc(17) short local17 = this.faceB[arg0];
+        @Pc(22) short local22 = this.faceC[arg0];
         @Pc(27) int local27 = this.anIntArray655[local12];
         @Pc(32) int local32 = this.anIntArray655[local17];
         @Pc(37) int local37 = this.anIntArray655[local22];
@@ -3550,19 +3613,19 @@ public final class JavaModel extends Model {
             }
             if (arg2) {
                 local59 = this.anIntArray669[arg0];
-                if (local59 == -1 || !this.aClass239Array1[local59].aBoolean464) {
+                if (local59 == -1 || !this.billboardFaces[local59].aBoolean464) {
                     this.method7507(arg0);
                 }
                 return;
             }
             local59 = this.anIntArray669[arg0];
             if (local59 != -1) {
-                @Pc(280) Class239 local280 = this.aClass239Array1[local59];
-                @Pc(285) Class245 local285 = this.aClass245Array1[local59];
+                @Pc(280) JavaBillboardFace local280 = this.billboardFaces[local59];
+                @Pc(285) JavaBillboardAttributes local285 = this.billboardAttributes[local59];
                 if (!local280.aBoolean464) {
                     this.method7533(arg0);
                 }
-                this.aClass19_Sub2_9.method3791(local285.anInt6221, local285.anInt6227, local285.anInt6224, local285.anInt6232, local285.anInt6220, local285.anInt6231, local280.aShort72 & 0xFFFF, local285.anInt6225, local280.aByte98, local280.aByte97);
+                this.toolkit.method3791(local285.anInt6221, local285.anInt6227, local285.anInt6224, local285.anInt6232, local285.anInt6220, local285.anInt6231, local280.aShort72 & 0xFFFF, local285.anInt6225, local280.aByte98, local280.aByte97);
                 return;
             }
             this.method7533(arg0);
@@ -3572,7 +3635,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "C", descriptor = "(I)V")
     @Override
     public void C(@OriginalArg(0) int ambient) {
-        if ((this.anInt8489 & 0x1000) != 4096) {
+        if ((this.functionMask & 0x1000) != 4096) {
             throw new IllegalStateException();
         }
         this.anInt8495 = ambient;
@@ -3582,11 +3645,11 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "()Z")
     @Override
     public boolean loadedTextures() {
-        if (this.aShortArray123 == null) {
+        if (this.faceTextures == null) {
             return true;
         }
-        for (@Pc(7) int local7 = 0; local7 < this.aShortArray123.length; local7++) {
-            if (this.aShortArray123[local7] != -1 && !this.aClass19_Sub2_9.textureAvailable(this.aShortArray123[local7])) {
+        for (@Pc(7) int local7 = 0; local7 < this.faceTextures.length; local7++) {
+            if (this.faceTextures[local7] != -1 && !this.toolkit.textureAvailable(this.faceTextures[local7])) {
                 return false;
             }
         }
@@ -3602,16 +3665,16 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "FA", descriptor = "(I)V")
     @Override
     public void FA(@OriginalArg(0) int arg0) {
-        if ((this.anInt8489 & 0x6) != 6) {
+        if ((this.functionMask & 0x6) != 6) {
             throw new IllegalStateException();
         }
         @Pc(14) int local14 = Trig1.SIN[arg0];
         @Pc(18) int local18 = Trig1.COS[arg0];
         synchronized (this) {
-            for (@Pc(24) int local24 = 0; local24 < this.anInt8483; local24++) {
-                @Pc(41) int local41 = this.anIntArray675[local24] * local18 - this.anIntArray658[local24] * local14 >> 14;
-                this.anIntArray658[local24] = this.anIntArray675[local24] * local14 + this.anIntArray658[local24] * local18 >> 14;
-                this.anIntArray675[local24] = local41;
+            for (@Pc(24) int local24 = 0; local24 < this.vertexCount; local24++) {
+                @Pc(41) int local41 = this.vertexY[local24] * local18 - this.vertexZ[local24] * local14 >> 14;
+                this.vertexZ[local24] = this.vertexY[local24] * local14 + this.vertexZ[local24] * local18 >> 14;
+                this.vertexY[local24] = local41;
             }
             this.method7504();
         }
@@ -3620,7 +3683,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "()[B")
     @Override
     public byte[] getFaceAlphas() {
-        return this.aByteArray96;
+        return this.faceAlpha;
     }
 
     @OriginalMember(owner = "client!rs", name = "t", descriptor = "()V")
@@ -3628,7 +3691,7 @@ public final class JavaModel extends Model {
         if (this.anInt8488 != 0 || this.aClass378Array2 != null) {
             return;
         }
-        if (this.aClass19_Sub2_9.threadCount > 1) {
+        if (this.toolkit.threadCount > 1) {
             synchronized (this) {
                 this.method7510();
             }
@@ -3646,7 +3709,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "ua", descriptor = "()I")
     @Override
     public int ua() {
-        return this.anInt8489;
+        return this.functionMask;
     }
 
     @OriginalMember(owner = "client!rs", name = "e", descriptor = "(I)I")
@@ -3681,10 +3744,10 @@ public final class JavaModel extends Model {
         @Pc(16) int local16 = -32768;
         @Pc(18) int local18 = -32768;
         @Pc(20) int local20 = -32768;
-        for (@Pc(22) int local22 = 0; local22 < this.anInt8491; local22++) {
-            @Pc(28) int local28 = this.anIntArray666[local22];
-            @Pc(33) int local33 = this.anIntArray675[local22];
-            @Pc(38) int local38 = this.anIntArray658[local22];
+        for (@Pc(22) int local22 = 0; local22 < this.maxVertex; local22++) {
+            @Pc(28) int local28 = this.vertexX[local22];
+            @Pc(33) int local33 = this.vertexY[local22];
+            @Pc(38) int local38 = this.vertexZ[local22];
             if (local28 < local10) {
                 local10 = local28;
             }
@@ -3734,10 +3797,10 @@ public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "h", descriptor = "()V")
     public void method7527() {
-        for (@Pc(1) int local1 = 0; local1 < this.anInt8482; local1++) {
-            @Pc(13) short local13 = this.aShortArray123 == null ? -1 : this.aShortArray123[local1];
+        for (@Pc(1) int local1 = 0; local1 < this.faceCount; local1++) {
+            @Pc(13) short local13 = this.faceTextures == null ? -1 : this.faceTextures[local1];
             if (local13 == -1) {
-                @Pc(23) int local23 = this.aShortArray120[local1] & 0xFFFF;
+                @Pc(23) int local23 = this.faceColour[local1] & 0xFFFF;
                 @Pc(32) int local32 = (local23 & 0x7F) * this.anInt8495 >> 7;
                 @Pc(40) short local40 = ColourUtils.hslToHsv(local23 & 0xFFFFFF80 | local32);
                 @Pc(53) int local53;
@@ -3769,7 +3832,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "d", descriptor = "()V")
     @Override
     protected void method7494() {
-        if (this.aClass19_Sub2_9.threadCount > 1) {
+        if (this.toolkit.threadCount > 1) {
             synchronized (this) {
                 super.locked = false;
                 this.notifyAll();
@@ -3779,11 +3842,11 @@ public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(Lclient!tt;Lclient!ima;II)V")
     public void method7528(@OriginalArg(0) Matrix arg0, @OriginalArg(1) PickingCylinder arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        if (this.anInt8491 < 1) {
+        if (this.maxVertex < 1) {
             return;
         }
         this.aClass73_Sub2_2 = (JavaMatrix) arg0;
-        @Pc(13) JavaMatrix local13 = this.aClass19_Sub2_9.camera;
+        @Pc(13) JavaMatrix local13 = this.toolkit.camera;
         if (!this.aBoolean652) {
             this.method7525();
         }
@@ -3804,7 +3867,7 @@ public final class JavaModel extends Model {
             local171 = local154 - this.aShort118;
             local176 = local163 + this.aShort118;
         }
-        if (local171 >= this.aClass19_Sub2_9.zFar || local176 <= this.aClass19_Sub2_9.zNear) {
+        if (local171 >= this.toolkit.zFar || local176 <= this.toolkit.zNear) {
             return;
         }
         @Pc(225) float local225 = local13.tx + local13.e1_1 * this.aClass73_Sub2_2.tx + local13.e1_2 * this.aClass73_Sub2_2.ty + local13.e1_3 * this.aClass73_Sub2_2.tz;
@@ -3814,22 +3877,22 @@ public final class JavaModel extends Model {
         @Pc(282) int local282;
         @Pc(291) int local291;
         if (local261 > local270) {
-            local282 = (local270 - this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
-            local291 = (local261 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
+            local282 = (local270 - this.aShort118) * this.toolkit.projectionScaleX;
+            local291 = (local261 + this.aShort118) * this.toolkit.projectionScaleX;
         } else {
-            local282 = (local261 - this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
-            local291 = (local270 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleX;
+            local282 = (local261 - this.aShort118) * this.toolkit.projectionScaleX;
+            local291 = (local270 + this.aShort118) * this.toolkit.projectionScaleX;
         }
         if (arg2 == -1) {
-            if (local282 / local176 >= this.aClass19_Sub2_9.viewX2) {
+            if (local282 / local176 >= this.toolkit.viewX2) {
                 return;
             }
-            if (local291 / local176 <= this.aClass19_Sub2_9.viewX1) {
+            if (local291 / local176 <= this.toolkit.viewX1) {
                 return;
             }
-        } else if (local282 / arg2 >= this.aClass19_Sub2_9.viewX2) {
+        } else if (local282 / arg2 >= this.toolkit.viewX2) {
             return;
-        } else if (local291 / arg2 <= this.aClass19_Sub2_9.viewX1) {
+        } else if (local291 / arg2 <= this.toolkit.viewX1) {
             return;
         }
         @Pc(375) float local375 = local13.ty + local13.e2_1 * this.aClass73_Sub2_2.tx + local13.e2_2 * this.aClass73_Sub2_2.ty + local13.e2_3 * this.aClass73_Sub2_2.tz;
@@ -3839,22 +3902,22 @@ public final class JavaModel extends Model {
         @Pc(432) int local432;
         @Pc(441) int local441;
         if (local411 > local420) {
-            local432 = (local420 - this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
-            local441 = (local411 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
+            local432 = (local420 - this.aShort118) * this.toolkit.projectionScaleY;
+            local441 = (local411 + this.aShort118) * this.toolkit.projectionScaleY;
         } else {
-            local432 = (local411 - this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
-            local441 = (local420 + this.aShort118) * this.aClass19_Sub2_9.projectionScaleY;
+            local432 = (local411 - this.aShort118) * this.toolkit.projectionScaleY;
+            local441 = (local420 + this.aShort118) * this.toolkit.projectionScaleY;
         }
         if (arg2 == -1) {
-            if (local432 / local176 >= this.aClass19_Sub2_9.vewY2) {
+            if (local432 / local176 >= this.toolkit.vewY2) {
                 return;
             }
-            if (local441 / local176 <= this.aClass19_Sub2_9.viewY1) {
+            if (local441 / local176 <= this.toolkit.viewY1) {
                 return;
             }
-        } else if (local432 / arg2 >= this.aClass19_Sub2_9.vewY2) {
+        } else if (local432 / arg2 >= this.toolkit.vewY2) {
             return;
-        } else if (local441 / arg2 <= this.aClass19_Sub2_9.viewY1) {
+        } else if (local441 / arg2 <= this.toolkit.viewY1) {
             return;
         }
         @Pc(506) float local506;
@@ -3878,7 +3941,7 @@ public final class JavaModel extends Model {
             local518 = local13.e2_1 * this.aClass73_Sub2_2.e1_3 + local13.e2_2 * this.aClass73_Sub2_2.e2_3 + local13.e2_3 * this.aClass73_Sub2_2.e3_3;
             local521 = local13.e3_1 * this.aClass73_Sub2_2.e1_3 + local13.e3_2 * this.aClass73_Sub2_2.e2_3 + local13.e3_3 * this.aClass73_Sub2_2.e3_3;
         }
-        if (this.aClass19_Sub2_9.threadCount > 1) {
+        if (this.toolkit.threadCount > 1) {
             synchronized (this) {
                 while (this.aBoolean646) {
                     try {
@@ -3896,14 +3959,14 @@ public final class JavaModel extends Model {
             this.aRasterizer_1.method5142(true);
         }
         @Pc(694) boolean local694 = false;
-        @Pc(704) boolean local704 = local171 <= this.aClass19_Sub2_9.zNear;
-        @Pc(721) boolean local721 = local704 || this.aModelParticleEmitterArray5 != null || this.aModelParticleEffectorArray5 != null;
+        @Pc(704) boolean local704 = local171 <= this.toolkit.zNear;
+        @Pc(721) boolean local721 = local704 || this.emitters != null || this.effectors != null;
         this.aJavaThreadResource_3.anInt10607 = this.aRasterizer_1.width;
         this.aJavaThreadResource_3.anInt10606 = this.aRasterizer_1.minX;
         this.aJavaThreadResource_3.anInt10608 = this.aRasterizer_1.minY;
-        @Pc(743) int local743 = this.aClass19_Sub2_9.projectionScaleX;
-        @Pc(747) int local747 = this.aClass19_Sub2_9.projectionScaleY;
-        @Pc(751) int local751 = this.aClass19_Sub2_9.zNear;
+        @Pc(743) int local743 = this.toolkit.projectionScaleX;
+        @Pc(747) int local747 = this.toolkit.projectionScaleY;
+        @Pc(751) int local751 = this.toolkit.zNear;
         @Pc(789) float local789;
         @Pc(806) float local806;
         @Pc(823) float local823;
@@ -3912,16 +3975,16 @@ public final class JavaModel extends Model {
         @Pc(772) int local772;
         @Pc(756) int local756;
         @Pc(942) int local942;
-        @Pc(948) Class239 local948;
-        @Pc(953) Class245 local953;
+        @Pc(948) JavaBillboardFace local948;
+        @Pc(953) JavaBillboardAttributes local953;
         @Pc(959) short local959;
         @Pc(965) short local965;
         @Pc(971) short local971;
         if (arg2 == -1) {
-            for (local756 = 0; local756 < this.anInt8483; local756++) {
-                local762 = this.anIntArray666[local756];
-                local767 = this.anIntArray675[local756];
-                local772 = this.anIntArray658[local756];
+            for (local756 = 0; local756 < this.vertexCount; local756++) {
+                local762 = this.vertexX[local756];
+                local767 = this.vertexY[local756];
+                local772 = this.vertexZ[local756];
                 local789 = local225 + local506 * (float) local762 + local252 * (float) local767 + local515 * (float) local772;
                 local806 = local375 + local509 * (float) local762 + local402 * (float) local767 + local518 * (float) local772;
                 local823 = local118 + local512 * (float) local762 + local145 * (float) local767 + local521 * (float) local772;
@@ -3942,22 +4005,22 @@ public final class JavaModel extends Model {
                     this.anIntArray673[local756] = (int) (this.aClass73_Sub2_2.ty + this.aClass73_Sub2_2.e2_1 * (float) local762 + this.aClass73_Sub2_2.e2_2 * (float) local767 + this.aClass73_Sub2_2.e2_3 * (float) local772);
                 }
             }
-            if (this.aClass239Array1 != null) {
-                for (local942 = 0; local942 < this.anInt8492; local942++) {
-                    local948 = this.aClass239Array1[local942];
-                    local953 = this.aClass245Array1[local942];
-                    local959 = this.aShortArray122[local948.anInt6139];
-                    local965 = this.lb[local948.anInt6139];
-                    local971 = this.aShortArray125[local948.anInt6139];
-                    local762 = (this.anIntArray666[local959] + this.anIntArray666[local965] + this.anIntArray666[local971]) / 3;
-                    local767 = (this.anIntArray675[local959] + this.anIntArray675[local965] + this.anIntArray675[local971]) / 3;
-                    local772 = (this.anIntArray658[local959] + this.anIntArray658[local965] + this.anIntArray658[local971]) / 3;
+            if (this.billboardFaces != null) {
+                for (local942 = 0; local942 < this.billboardCount; local942++) {
+                    local948 = this.billboardFaces[local942];
+                    local953 = this.billboardAttributes[local942];
+                    local959 = this.faceA[local948.anInt6139];
+                    local965 = this.faceB[local948.anInt6139];
+                    local971 = this.faceC[local948.anInt6139];
+                    local762 = (this.vertexX[local959] + this.vertexX[local965] + this.vertexX[local971]) / 3;
+                    local767 = (this.vertexY[local959] + this.vertexY[local965] + this.vertexY[local971]) / 3;
+                    local772 = (this.vertexZ[local959] + this.vertexZ[local965] + this.vertexZ[local971]) / 3;
                     local789 = (float) local953.anInt6222 + local225 + local506 * (float) local762 + local252 * (float) local767 + local515 * (float) local772;
                     local806 = (float) local953.anInt6229 + local375 + local509 * (float) local762 + local402 * (float) local767 + local518 * (float) local772;
                     local823 = local118 + local512 * (float) local762 + local145 * (float) local767 + local521 * (float) local772;
-                    if (local823 > (float) this.aClass19_Sub2_9.zNear) {
-                        local953.anInt6221 = this.aClass19_Sub2_9.projectionCenterX + (int) (local789 * (float) local743 / local823);
-                        local953.anInt6227 = this.aClass19_Sub2_9.projectionCenterY + (int) (local806 * (float) local747 / local823);
+                    if (local823 > (float) this.toolkit.zNear) {
+                        local953.anInt6221 = this.toolkit.projectionCenterX + (int) (local789 * (float) local743 / local823);
+                        local953.anInt6227 = this.toolkit.projectionCenterY + (int) (local806 * (float) local747 / local823);
                         local953.anInt6224 = (int) local823 - local948.anInt6140;
                         local953.anInt6232 = (int) ((float) (local953.anInt6223 * local948.aShort71 * local743) / (local823 * 128.0F));
                         local953.anInt6220 = (int) ((float) (local953.anInt6226 * local948.aShort73 * local747) / (local823 * 128.0F));
@@ -3967,10 +4030,10 @@ public final class JavaModel extends Model {
                 }
             }
         } else {
-            for (local756 = 0; local756 < this.anInt8483; local756++) {
-                local762 = this.anIntArray666[local756];
-                local767 = this.anIntArray675[local756];
-                local772 = this.anIntArray658[local756];
+            for (local756 = 0; local756 < this.vertexCount; local756++) {
+                local762 = this.vertexX[local756];
+                local767 = this.vertexY[local756];
+                local772 = this.vertexZ[local756];
                 local789 = local225 + local506 * (float) local762 + local252 * (float) local767 + local515 * (float) local772;
                 local806 = local375 + local509 * (float) local762 + local402 * (float) local767 + local518 * (float) local772;
                 local823 = local118 + local512 * (float) local762 + local145 * (float) local767 + local521 * (float) local772;
@@ -3986,20 +4049,20 @@ public final class JavaModel extends Model {
                     this.anIntArray673[local756] = (int) (this.aClass73_Sub2_2.ty + this.aClass73_Sub2_2.e2_1 * (float) local762 + this.aClass73_Sub2_2.e2_2 * (float) local767 + this.aClass73_Sub2_2.e2_3 * (float) local772);
                 }
             }
-            if (this.aClass239Array1 != null) {
-                for (local942 = 0; local942 < this.anInt8492; local942++) {
-                    local948 = this.aClass239Array1[local942];
-                    local953 = this.aClass245Array1[local942];
-                    local959 = this.aShortArray122[local948.anInt6139];
-                    local965 = this.lb[local948.anInt6139];
-                    local971 = this.aShortArray125[local948.anInt6139];
-                    local762 = (this.anIntArray666[local959] + this.anIntArray666[local965] + this.anIntArray666[local971]) / 3;
-                    local767 = (this.anIntArray675[local959] + this.anIntArray675[local965] + this.anIntArray675[local971]) / 3;
-                    local772 = (this.anIntArray658[local959] + this.anIntArray658[local965] + this.anIntArray658[local971]) / 3;
+            if (this.billboardFaces != null) {
+                for (local942 = 0; local942 < this.billboardCount; local942++) {
+                    local948 = this.billboardFaces[local942];
+                    local953 = this.billboardAttributes[local942];
+                    local959 = this.faceA[local948.anInt6139];
+                    local965 = this.faceB[local948.anInt6139];
+                    local971 = this.faceC[local948.anInt6139];
+                    local762 = (this.vertexX[local959] + this.vertexX[local965] + this.vertexX[local971]) / 3;
+                    local767 = (this.vertexY[local959] + this.vertexY[local965] + this.vertexY[local971]) / 3;
+                    local772 = (this.vertexZ[local959] + this.vertexZ[local965] + this.vertexZ[local971]) / 3;
                     local789 = local225 + local506 * (float) local762 + local252 * (float) local767 + local515 * (float) local772;
                     local806 = local375 + local509 * (float) local762 + local402 * (float) local767 + local518 * (float) local772;
-                    local953.anInt6221 = this.aClass19_Sub2_9.projectionCenterX + (int) (local789 * (float) local743 / (float) arg2);
-                    local953.anInt6227 = this.aClass19_Sub2_9.projectionCenterY + (int) (local806 * (float) local747 / (float) arg2);
+                    local953.anInt6221 = this.toolkit.projectionCenterX + (int) (local789 * (float) local743 / (float) arg2);
+                    local953.anInt6227 = this.toolkit.projectionCenterY + (int) (local806 * (float) local747 / (float) arg2);
                     local953.anInt6224 = arg2 - local948.anInt6140;
                     local953.anInt6232 = local953.anInt6223 * local948.aShort71 * local743 / (arg2 << 7);
                     local953.anInt6220 = local953.anInt6226 * local948.aShort73 * local747 / (arg2 << 7);
@@ -4021,8 +4084,8 @@ public final class JavaModel extends Model {
                 if (arg2 != -1) {
                     local1627 = arg2;
                 }
-                arg1.anInt4504 = this.aClass19_Sub2_9.projectionCenterX + (int) (local789 * (float) local743 / (float) local1627);
-                arg1.anInt4505 = this.aClass19_Sub2_9.projectionCenterY + (int) (local806 * (float) local747 / (float) local1627);
+                arg1.anInt4504 = this.toolkit.projectionCenterX + (int) (local789 * (float) local743 / (float) local1627);
+                arg1.anInt4505 = this.toolkit.projectionCenterY + (int) (local806 * (float) local747 / (float) local1627);
             } else {
                 local1543 = true;
             }
@@ -4036,8 +4099,8 @@ public final class JavaModel extends Model {
                 if (arg2 != -1) {
                     local1729 = arg2;
                 }
-                arg1.anInt4501 = this.aClass19_Sub2_9.projectionCenterX + (int) (local1687 * (float) local743 / (float) local1729);
-                arg1.anInt4503 = this.aClass19_Sub2_9.projectionCenterY + (int) (local1704 * (float) local747 / (float) local1729);
+                arg1.anInt4501 = this.toolkit.projectionCenterX + (int) (local1687 * (float) local743 / (float) local1729);
+                arg1.anInt4503 = this.toolkit.projectionCenterY + (int) (local1704 * (float) local747 / (float) local1729);
             } else {
                 local1543 = true;
             }
@@ -4050,15 +4113,15 @@ public final class JavaModel extends Model {
                     @Pc(1820) int local1820;
                     @Pc(1800) float local1800;
                     if (local823 < (float) local751) {
-                        local1800 = (local1721 - (float) this.aClass19_Sub2_9.zNear) / (local1721 - local823);
+                        local1800 = (local1721 - (float) this.toolkit.zNear) / (local1721 - local823);
                         local1809 = (int) (local1687 + (local1687 - local789) * local1800);
                         local1818 = (int) (local1704 + (local1704 - local806) * local1800);
                         local1820 = local751;
                         if (arg2 != -1) {
                             local1820 = arg2;
                         }
-                        arg1.anInt4504 = this.aClass19_Sub2_9.projectionCenterX + local1809 * local743 / local1820;
-                        arg1.anInt4505 = this.aClass19_Sub2_9.projectionCenterY + local1818 * local747 / local1820;
+                        arg1.anInt4504 = this.toolkit.projectionCenterX + local1809 * local743 / local1820;
+                        arg1.anInt4505 = this.toolkit.projectionCenterY + local1818 * local747 / local1820;
                     } else if (local1721 < (float) local751) {
                         local1800 = (local823 - (float) local751) / (local823 - local1721);
                         local1809 = (int) (local789 + (local789 - local1687) * local1800);
@@ -4067,8 +4130,8 @@ public final class JavaModel extends Model {
                         if (arg2 != -1) {
                             local1820 = arg2;
                         }
-                        arg1.anInt4504 = this.aClass19_Sub2_9.projectionCenterX + local1809 * local743 / local1820;
-                        arg1.anInt4505 = this.aClass19_Sub2_9.projectionCenterY + local1818 * local747 / local1820;
+                        arg1.anInt4504 = this.toolkit.projectionCenterX + local1809 * local743 / local1820;
+                        arg1.anInt4505 = this.toolkit.projectionCenterY + local1818 * local747 / local1820;
                     }
                 }
             }
@@ -4078,13 +4141,13 @@ public final class JavaModel extends Model {
                     if (arg2 != -1) {
                         local1729 = arg2;
                     }
-                    arg1.anInt4502 = this.aClass19_Sub2_9.projectionCenterX + (int) ((local789 + (float) this.aShort118) * (float) local743 / (float) local1729) - arg1.anInt4504;
+                    arg1.anInt4502 = this.toolkit.projectionCenterX + (int) ((local789 + (float) this.aShort118) * (float) local743 / (float) local1729) - arg1.anInt4504;
                 } else {
                     local1729 = (int) local1721;
                     if (arg2 != -1) {
                         local1729 = arg2;
                     }
-                    arg1.anInt4502 = this.aClass19_Sub2_9.projectionCenterX + (int) ((local1687 + (float) this.aShort118) * (float) local743 / (float) local1729) - arg1.anInt4501;
+                    arg1.anInt4502 = this.toolkit.projectionCenterX + (int) ((local1687 + (float) this.aShort118) * (float) local743 / (float) local1729) - arg1.anInt4501;
                 }
                 arg1.aBoolean352 = true;
             }
@@ -4101,13 +4164,13 @@ public final class JavaModel extends Model {
             }
         } catch (@Pc(2068) Exception local2068) {
         }
-        if (this.aClass239Array1 != null) {
-            for (local756 = 0; local756 < this.anInt8482; local756++) {
+        if (this.billboardFaces != null) {
+            for (local756 = 0; local756 < this.faceCount; local756++) {
                 this.anIntArray669[local756] = -1;
             }
         }
         this.aRasterizer_1 = null;
-        if (this.aClass19_Sub2_9.threadCount > 1) {
+        if (this.toolkit.threadCount > 1) {
             synchronized (this) {
                 this.aBoolean646 = false;
                 this.notifyAll();
@@ -4118,57 +4181,57 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "s", descriptor = "(I)V")
     @Override
     public void s(@OriginalArg(0) int functionMask) {
-        if (this.aClass19_Sub2_9.threadCount <= 1) {
-            if ((this.anInt8489 & 0x10000) == 65536 && (functionMask & 0x10000) == 0) {
+        if (this.toolkit.threadCount <= 1) {
+            if ((this.functionMask & 0x10000) == 65536 && (functionMask & 0x10000) == 0) {
                 this.method7503(true);
             }
-            this.anInt8489 = functionMask;
+            this.functionMask = functionMask;
             return;
         }
         synchronized (this) {
-            if ((this.anInt8489 & 0x10000) == 65536 && (functionMask & 0x10000) == 0) {
+            if ((this.functionMask & 0x10000) == 65536 && (functionMask & 0x10000) == 0) {
                 this.method7503(true);
             }
-            this.anInt8489 = functionMask;
+            this.functionMask = functionMask;
         }
     }
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(ZZII)V")
     public void method7529(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
         @Pc(4) int local4;
-        if (this.aClass239Array1 != null) {
+        if (this.billboardFaces != null) {
             local4 = 0;
-            while (local4 < this.anInt8492) {
-                @Pc(10) Class239 local10 = this.aClass239Array1[local4];
+            while (local4 < this.billboardCount) {
+                @Pc(10) JavaBillboardFace local10 = this.billboardFaces[local4];
                 this.anIntArray669[local10.anInt6139] = local4++;
             }
         }
-        if (!this.aBoolean647 && this.aClass239Array1 == null) {
-            for (local4 = 0; local4 < this.anInt8482; local4++) {
+        if (!this.transparent && this.billboardFaces == null) {
+            for (local4 = 0; local4 < this.faceCount; local4++) {
                 this.method7522(local4, arg0, arg1);
             }
-        } else if ((this.anInt8489 & 0x100) == 0 && this.aShortArray119 != null) {
-            for (local4 = 0; local4 < this.anInt8482; local4++) {
-                @Pc(51) short local51 = this.aShortArray119[local4];
+        } else if ((this.functionMask & 0x100) == 0 && this.faceIndices != null) {
+            for (local4 = 0; local4 < this.faceCount; local4++) {
+                @Pc(51) short local51 = this.faceIndices[local4];
                 this.method7522(local51, arg0, arg1);
             }
         } else {
-            for (local4 = 0; local4 < this.anInt8482; local4++) {
+            for (local4 = 0; local4 < this.faceCount; local4++) {
                 if (!this.method7506(local4) && !this.method7526(local4)) {
                     this.method7522(local4, arg0, arg1);
                 }
             }
             @Pc(95) int local95;
-            if (this.aByteArray95 == null) {
-                for (local95 = 0; local95 < this.anInt8482; local95++) {
+            if (this.facePriority == null) {
+                for (local95 = 0; local95 < this.faceCount; local95++) {
                     if (this.method7506(local95) || this.method7526(local95)) {
                         this.method7522(local95, arg0, arg1);
                     }
                 }
             } else {
                 for (local95 = 0; local95 < 12; local95++) {
-                    for (@Pc(125) int local125 = 0; local125 < this.anInt8482; local125++) {
-                        if (this.aByteArray95[local125] == local95 && (this.method7506(local125) || this.method7526(local125))) {
+                    for (@Pc(125) int local125 = 0; local125 < this.faceCount; local125++) {
+                        if (this.facePriority[local125] == local95 && (this.method7506(local125) || this.method7526(local125))) {
                             this.method7522(local125, arg0, arg1);
                         }
                     }
@@ -4189,18 +4252,18 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "aa", descriptor = "(SS)V")
     @Override
     public void aa(@OriginalArg(0) short src, @OriginalArg(1) short dest) {
-        if (this.aShortArray123 == null) {
+        if (this.faceTextures == null) {
             return;
         }
-        if (!this.aBoolean651 && dest >= 0) {
-            @Pc(20) TextureMetrics local20 = this.aClass19_Sub2_9.textureSource.getMetrics(dest & 0xFFFF);
+        if (!this.movingTextures && dest >= 0) {
+            @Pc(20) TextureMetrics local20 = this.toolkit.textureSource.getMetrics(dest & 0xFFFF);
             if (local20.speedU != 0 || local20.speedV != 0) {
-                this.aBoolean651 = true;
+                this.movingTextures = true;
             }
         }
-        for (@Pc(35) int local35 = 0; local35 < this.anInt8482; local35++) {
-            if (this.aShortArray123[local35] == src) {
-                this.aShortArray123[local35] = dest;
+        for (@Pc(35) int local35 = 0; local35 < this.faceCount; local35++) {
+            if (this.faceTextures[local35] == src) {
+                this.faceTextures[local35] = dest;
             }
         }
     }
@@ -4208,9 +4271,9 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "n", descriptor = "()V")
     public void method7530() {
         synchronized (this) {
-            for (@Pc(5) int local5 = 0; local5 < this.anInt8491; local5++) {
-                this.anIntArray666[local5] = -this.anIntArray666[local5];
-                this.anIntArray658[local5] = -this.anIntArray658[local5];
+            for (@Pc(5) int local5 = 0; local5 < this.maxVertex; local5++) {
+                this.vertexX[local5] = -this.vertexX[local5];
+                this.vertexZ[local5] = -this.vertexZ[local5];
                 if (this.aClass378Array2[local5] != null) {
                     this.aClass378Array2[local5].anInt9746 = -this.aClass378Array2[local5].anInt9746;
                     this.aClass378Array2[local5].anInt9745 = -this.aClass378Array2[local5].anInt9745;
@@ -4218,16 +4281,16 @@ public final class JavaModel extends Model {
             }
             @Pc(65) int local65;
             if (this.aClass301Array1 != null) {
-                for (local65 = 0; local65 < this.anInt8482; local65++) {
+                for (local65 = 0; local65 < this.faceCount; local65++) {
                     if (this.aClass301Array1[local65] != null) {
                         this.aClass301Array1[local65].anInt7682 = -this.aClass301Array1[local65].anInt7682;
                         this.aClass301Array1[local65].anInt7681 = -this.aClass301Array1[local65].anInt7681;
                     }
                 }
             }
-            for (local65 = this.anInt8491; local65 < this.anInt8483; local65++) {
-                this.anIntArray666[local65] = -this.anIntArray666[local65];
-                this.anIntArray658[local65] = -this.anIntArray658[local65];
+            for (local65 = this.maxVertex; local65 < this.vertexCount; local65++) {
+                this.vertexX[local65] = -this.vertexX[local65];
+                this.vertexZ[local65] = -this.vertexZ[local65];
             }
             this.anInt8488 = 0;
             this.aBoolean652 = false;
@@ -4237,7 +4300,7 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "a", descriptor = "(ISI)I")
     public int method7531(@OriginalArg(0) int arg0, @OriginalArg(1) short arg1, @OriginalArg(2) int arg2) {
         @Pc(6) int local6 = ColourUtils.HSL_TO_RGB[this.method7534(arg0, arg2)];
-        @Pc(15) TextureMetrics local15 = this.aClass19_Sub2_9.textureSource.getMetrics(arg1 & 0xFFFF);
+        @Pc(15) TextureMetrics local15 = this.toolkit.textureSource.getMetrics(arg1 & 0xFFFF);
         @Pc(20) int local20 = local15.alpha & 0xFF;
         @Pc(26) int local26;
         @Pc(38) int local38;
@@ -4273,16 +4336,16 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "VA", descriptor = "(I)V")
     @Override
     public void VA(@OriginalArg(0) int arg0) {
-        if ((this.anInt8489 & 0x3) != 3) {
+        if ((this.functionMask & 0x3) != 3) {
             throw new IllegalStateException();
         }
         @Pc(14) int local14 = Trig1.SIN[arg0];
         @Pc(18) int local18 = Trig1.COS[arg0];
         synchronized (this) {
-            for (@Pc(24) int local24 = 0; local24 < this.anInt8483; local24++) {
-                @Pc(41) int local41 = this.anIntArray675[local24] * local14 + this.anIntArray666[local24] * local18 >> 14;
-                this.anIntArray675[local24] = this.anIntArray675[local24] * local18 - this.anIntArray666[local24] * local14 >> 14;
-                this.anIntArray666[local24] = local41;
+            for (@Pc(24) int local24 = 0; local24 < this.vertexCount; local24++) {
+                @Pc(41) int local41 = this.vertexY[local24] * local14 + this.vertexX[local24] * local18 >> 14;
+                this.vertexY[local24] = this.vertexY[local24] * local18 - this.vertexX[local24] * local14 >> 14;
+                this.vertexX[local24] = local41;
             }
             this.method7504();
         }
@@ -4292,10 +4355,10 @@ public final class JavaModel extends Model {
     public void method7532() {
         synchronized (this) {
             @Pc(11) int local11;
-            for (@Pc(5) int local5 = 0; local5 < this.anInt8491; local5++) {
-                local11 = this.anIntArray658[local5];
-                this.anIntArray658[local5] = this.anIntArray666[local5];
-                this.anIntArray666[local5] = -local11;
+            for (@Pc(5) int local5 = 0; local5 < this.maxVertex; local5++) {
+                local11 = this.vertexZ[local5];
+                this.vertexZ[local5] = this.vertexX[local5];
+                this.vertexX[local5] = -local11;
                 if (this.aClass378Array2[local5] != null) {
                     local11 = this.aClass378Array2[local5].anInt9745;
                     this.aClass378Array2[local5].anInt9745 = this.aClass378Array2[local5].anInt9746;
@@ -4304,7 +4367,7 @@ public final class JavaModel extends Model {
             }
             @Pc(77) int local77;
             if (this.aClass301Array1 != null) {
-                for (local11 = 0; local11 < this.anInt8482; local11++) {
+                for (local11 = 0; local11 < this.faceCount; local11++) {
                     if (this.aClass301Array1[local11] != null) {
                         local77 = this.aClass301Array1[local11].anInt7681;
                         this.aClass301Array1[local11].anInt7681 = this.aClass301Array1[local11].anInt7682;
@@ -4312,10 +4375,10 @@ public final class JavaModel extends Model {
                     }
                 }
             }
-            for (local11 = this.anInt8491; local11 < this.anInt8483; local11++) {
-                local77 = this.anIntArray658[local11];
-                this.anIntArray658[local11] = this.anIntArray666[local11];
-                this.anIntArray666[local11] = -local77;
+            for (local11 = this.maxVertex; local11 < this.vertexCount; local11++) {
+                local77 = this.vertexZ[local11];
+                this.vertexZ[local11] = this.vertexX[local11];
+                this.vertexX[local11] = -local77;
             }
             this.anInt8488 = 0;
             this.aBoolean652 = false;
@@ -4333,26 +4396,26 @@ public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "l", descriptor = "(I)V")
     public void method7533(@OriginalArg(0) int arg0) {
-        @Pc(4) short local4 = this.aShortArray122[arg0];
-        @Pc(9) short local9 = this.lb[arg0];
-        @Pc(14) short local14 = this.aShortArray125[arg0];
-        if (this.aShortArray123 != null && this.aShortArray123[arg0] != -1) {
+        @Pc(4) short local4 = this.faceA[arg0];
+        @Pc(9) short local9 = this.faceB[arg0];
+        @Pc(14) short local14 = this.faceC[arg0];
+        if (this.faceTextures != null && this.faceTextures[arg0] != -1) {
             @Pc(181) int local181 = -16777216;
-            if (this.aByteArray96 != null) {
-                local181 = 255 - (this.aByteArray96[arg0] & 0xFF) << 24;
+            if (this.faceAlpha != null) {
+                local181 = 255 - (this.faceAlpha[arg0] & 0xFF) << 24;
             }
             if (this.anIntArray672[arg0] == -1) {
                 @Pc(210) int local210 = local181 | this.anIntArray668[arg0] & 0xFFFFFF;
-                this.aRasterizer_1.method5150((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local210, local210, local210, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5150((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local210, local210, local210, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
             } else {
-                this.aRasterizer_1.method5150((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.aFloatArrayArray17[arg0][0], this.aFloatArrayArray17[arg0][1], this.aFloatArrayArray17[arg0][2], this.aFloatArrayArray18[arg0][0], this.aFloatArrayArray18[arg0][1], this.aFloatArrayArray18[arg0][2], local181 | this.anIntArray668[arg0] & 0xFFFFFF, local181 | this.anIntArray664[arg0] & 0xFFFFFF, local181 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.aShortArray123[arg0]);
+                this.aRasterizer_1.method5150((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], this.texCoordU[arg0][0], this.texCoordU[arg0][1], this.texCoordU[arg0][2], this.texCoordV[arg0][0], this.texCoordV[arg0][1], this.texCoordV[arg0][2], local181 | this.anIntArray668[arg0] & 0xFFFFFF, local181 | this.anIntArray664[arg0] & 0xFFFFFF, local181 | this.anIntArray672[arg0] & 0xFFFFFF, this.aJavaThreadResource_3.fogColour, 0, 0, 0, this.faceTextures[arg0]);
             }
             return;
         }
-        if (this.aByteArray96 == null) {
+        if (this.faceAlpha == null) {
             this.aRasterizer_1.alpha = 0;
         } else {
-            this.aRasterizer_1.alpha = this.aByteArray96[arg0] & 0xFF;
+            this.aRasterizer_1.alpha = this.faceAlpha[arg0] & 0xFF;
         }
         if (this.anIntArray672[arg0] == -1) {
             this.aRasterizer_1.renderFlatTriangleRgb((float) this.anIntArray657[local4], (float) this.anIntArray657[local9], (float) this.anIntArray657[local14], (float) this.anIntArray655[local4], (float) this.anIntArray655[local9], (float) this.anIntArray655[local14], (float) this.anIntArray670[local4], (float) this.anIntArray670[local9], (float) this.anIntArray670[local14], ColourUtils.HSV_TO_RGB[this.anIntArray668[arg0] & 0xFFFF]);
@@ -4364,13 +4427,13 @@ public final class JavaModel extends Model {
     @OriginalMember(owner = "client!rs", name = "r", descriptor = "()Z")
     @Override
     public boolean r() {
-        return this.aBoolean651;
+        return this.movingTextures;
     }
 
     @OriginalMember(owner = "client!rs", name = "NA", descriptor = "()Z")
     @Override
     protected boolean NA() {
-        if (this.anIntArrayArray212 == null) {
+        if (this.vertexLabels == null) {
             return false;
         } else {
             this.anInt8493 = 0;
@@ -4384,10 +4447,10 @@ public final class JavaModel extends Model {
     @Override
     public void p(@OriginalArg(0) int hillType, @OriginalArg(1) int hillValue, @OriginalArg(2) Ground floor, @OriginalArg(3) Ground ceiling, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z) {
         if (hillType == 3) {
-            if ((this.anInt8489 & 0x7) != 7) {
+            if ((this.functionMask & 0x7) != 7) {
                 throw new IllegalStateException();
             }
-        } else if ((this.anInt8489 & 0x2) != 2) {
+        } else if ((this.functionMask & 0x2) != 2) {
             throw new IllegalStateException();
         }
         if (!this.aBoolean652) {
@@ -4436,9 +4499,9 @@ public final class JavaModel extends Model {
             @Pc(472) int local472;
             if (hillType == 1) {
                 local226 = floor.anInt8888 - 1;
-                for (local228 = 0; local228 < this.anInt8491; local228++) {
-                    local236 = this.anIntArray666[local228] + x;
-                    local243 = this.anIntArray658[local228] + z;
+                for (local228 = 0; local228 < this.maxVertex; local228++) {
+                    local236 = this.vertexX[local228] + x;
+                    local243 = this.vertexZ[local228] + z;
                     local247 = local236 & local226;
                     local251 = local243 & local226;
                     local256 = local236 >> floor.anInt8895;
@@ -4446,11 +4509,11 @@ public final class JavaModel extends Model {
                     local285 = local94[local256][local261] * (floor.anInt8888 - local247) + local94[local256 + 1][local261] * local247 >> floor.anInt8895;
                     local313 = local94[local256][local261 + 1] * (floor.anInt8888 - local247) + local94[local256 + 1][local261 + 1] * local247 >> floor.anInt8895;
                     local327 = local285 * (floor.anInt8888 - local251) + local313 * local251 >> floor.anInt8895;
-                    this.anIntArray675[local228] = this.anIntArray675[local228] + local327 - y;
+                    this.vertexY[local228] = this.vertexY[local228] + local327 - y;
                 }
-                for (local236 = this.anInt8491; local236 < this.anInt8483; local236++) {
-                    local243 = this.anIntArray666[local236] + x;
-                    local247 = this.anIntArray658[local236] + z;
+                for (local236 = this.maxVertex; local236 < this.vertexCount; local236++) {
+                    local243 = this.vertexX[local236] + x;
+                    local247 = this.vertexZ[local236] + z;
                     local251 = local243 & local226;
                     local256 = local247 & local226;
                     local261 = local243 >> floor.anInt8895;
@@ -4459,18 +4522,18 @@ public final class JavaModel extends Model {
                         local313 = local94[local261][local285] * (floor.anInt8888 - local251) + local94[local261 + 1][local285] * local251 >> floor.anInt8895;
                         local327 = local94[local261][local285 + 1] * (floor.anInt8888 - local251) + local94[local261 + 1][local285 + 1] * local251 >> floor.anInt8895;
                         local472 = local313 * (floor.anInt8888 - local256) + local327 * local256 >> floor.anInt8895;
-                        this.anIntArray675[local236] = this.anIntArray675[local236] + local472 - y;
+                        this.vertexY[local236] = this.vertexY[local236] + local472 - y;
                     }
                 }
             } else {
                 @Pc(784) int local784;
                 if (hillType == 2) {
                     local226 = floor.anInt8888 - 1;
-                    for (local228 = 0; local228 < this.anInt8491; local228++) {
-                        local236 = (this.anIntArray675[local228] << 16) / this.aShort116;
+                    for (local228 = 0; local228 < this.maxVertex; local228++) {
+                        local236 = (this.vertexY[local228] << 16) / this.aShort116;
                         if (local236 < hillValue) {
-                            local243 = this.anIntArray666[local228] + x;
-                            local247 = this.anIntArray658[local228] + z;
+                            local243 = this.vertexX[local228] + x;
+                            local247 = this.vertexZ[local228] + z;
                             local251 = local243 & local226;
                             local256 = local247 & local226;
                             local261 = local243 >> floor.anInt8895;
@@ -4478,16 +4541,16 @@ public final class JavaModel extends Model {
                             local313 = local94[local261][local285] * (floor.anInt8888 - local251) + local94[local261 + 1][local285] * local251 >> floor.anInt8895;
                             local327 = local94[local261][local285 + 1] * (floor.anInt8888 - local251) + local94[local261 + 1][local285 + 1] * local251 >> floor.anInt8895;
                             local472 = local313 * (floor.anInt8888 - local256) + local327 * local256 >> floor.anInt8895;
-                            this.anIntArray675[local228] += (local472 - y) * (hillValue - local236) / hillValue;
+                            this.vertexY[local228] += (local472 - y) * (hillValue - local236) / hillValue;
                         } else {
-                            this.anIntArray675[local228] = this.anIntArray675[local228];
+                            this.vertexY[local228] = this.vertexY[local228];
                         }
                     }
-                    for (local236 = this.anInt8491; local236 < this.anInt8483; local236++) {
-                        local243 = (this.anIntArray675[local236] << 16) / this.aShort116;
+                    for (local236 = this.maxVertex; local236 < this.vertexCount; local236++) {
+                        local243 = (this.vertexY[local236] << 16) / this.aShort116;
                         if (local243 < hillValue) {
-                            local247 = this.anIntArray666[local236] + x;
-                            local251 = this.anIntArray658[local236] + z;
+                            local247 = this.vertexX[local236] + x;
+                            local251 = this.vertexZ[local236] + z;
                             local256 = local247 & local226;
                             local261 = local251 & local226;
                             local285 = local247 >> floor.anInt8895;
@@ -4496,10 +4559,10 @@ public final class JavaModel extends Model {
                                 local327 = local94[local285][local313] * (floor.anInt8888 - local256) + local94[local285 + 1][local313] * local256 >> floor.anInt8895;
                                 local472 = local94[local285][local313 + 1] * (floor.anInt8888 - local256) + local94[local285 + 1][local313 + 1] * local256 >> floor.anInt8895;
                                 local784 = local327 * (floor.anInt8888 - local261) + local472 * local261 >> floor.anInt8895;
-                                this.anIntArray675[local236] += (local784 - y) * (hillValue - local243) / hillValue;
+                                this.vertexY[local236] += (local784 - y) * (hillValue - local243) / hillValue;
                             }
                         } else {
-                            this.anIntArray675[local236] = this.anIntArray675[local236];
+                            this.vertexY[local236] = this.vertexY[local236];
                         }
                     }
                 } else if (hillType == 3) {
@@ -4514,9 +4577,9 @@ public final class JavaModel extends Model {
                 } else if (hillType == 4) {
                     local226 = ceiling.anInt8888 - 1;
                     local228 = this.aShort113 - this.aShort116;
-                    for (local236 = 0; local236 < this.anInt8491; local236++) {
-                        local243 = this.anIntArray666[local236] + x;
-                        local247 = this.anIntArray658[local236] + z;
+                    for (local236 = 0; local236 < this.maxVertex; local236++) {
+                        local243 = this.vertexX[local236] + x;
+                        local247 = this.vertexZ[local236] + z;
                         local251 = local243 & local226;
                         local256 = local247 & local226;
                         local261 = local243 >> ceiling.anInt8895;
@@ -4524,11 +4587,11 @@ public final class JavaModel extends Model {
                         local313 = local96[local261][local285] * (ceiling.anInt8888 - local251) + local96[local261 + 1][local285] * local251 >> ceiling.anInt8895;
                         local327 = local96[local261][local285 + 1] * (ceiling.anInt8888 - local251) + local96[local261 + 1][local285 + 1] * local251 >> ceiling.anInt8895;
                         local472 = local313 * (ceiling.anInt8888 - local256) + local327 * local256 >> ceiling.anInt8895;
-                        this.anIntArray675[local236] = this.anIntArray675[local236] + local472 + local228 - y;
+                        this.vertexY[local236] = this.vertexY[local236] + local472 + local228 - y;
                     }
-                    for (local243 = this.anInt8491; local243 < this.anInt8483; local243++) {
-                        local247 = this.anIntArray666[local243] + x;
-                        local251 = this.anIntArray658[local243] + z;
+                    for (local243 = this.maxVertex; local243 < this.vertexCount; local243++) {
+                        local247 = this.vertexX[local243] + x;
+                        local251 = this.vertexZ[local243] + z;
                         local256 = local247 & local226;
                         local261 = local251 & local226;
                         local285 = local247 >> ceiling.anInt8895;
@@ -4537,16 +4600,16 @@ public final class JavaModel extends Model {
                             local327 = local96[local285][local313] * (ceiling.anInt8888 - local256) + local96[local285 + 1][local313] * local256 >> ceiling.anInt8895;
                             local472 = local96[local285][local313 + 1] * (ceiling.anInt8888 - local256) + local96[local285 + 1][local313 + 1] * local256 >> ceiling.anInt8895;
                             local784 = local327 * (ceiling.anInt8888 - local261) + local472 * local261 >> ceiling.anInt8895;
-                            this.anIntArray675[local243] = this.anIntArray675[local243] + local784 + local228 - y;
+                            this.vertexY[local243] = this.vertexY[local243] + local784 + local228 - y;
                         }
                     }
                 } else if (hillType == 5) {
                     local226 = ceiling.anInt8888 - 1;
                     local228 = this.aShort113 - this.aShort116;
                     @Pc(1380) int local1380;
-                    for (local236 = 0; local236 < this.anInt8491; local236++) {
-                        local243 = this.anIntArray666[local236] + x;
-                        local247 = this.anIntArray658[local236] + z;
+                    for (local236 = 0; local236 < this.maxVertex; local236++) {
+                        local243 = this.vertexX[local236] + x;
+                        local247 = this.vertexZ[local236] + z;
                         local251 = local243 & local226;
                         local256 = local247 & local226;
                         local261 = local243 >> floor.anInt8895;
@@ -4558,11 +4621,11 @@ public final class JavaModel extends Model {
                         local327 = local96[local261][local285 + 1] * (ceiling.anInt8888 - local251) + local96[local261 + 1][local285 + 1] * local251 >> ceiling.anInt8895;
                         local784 = local313 * (ceiling.anInt8888 - local256) + local327 * local256 >> ceiling.anInt8895;
                         local1380 = local472 - local784 - hillValue;
-                        this.anIntArray675[local236] = ((this.anIntArray675[local236] << 8) / local228 * local1380 >> 8) - (y - local472);
+                        this.vertexY[local236] = ((this.vertexY[local236] << 8) / local228 * local1380 >> 8) - (y - local472);
                     }
-                    for (local243 = this.anInt8491; local243 < this.anInt8483; local243++) {
-                        local247 = this.anIntArray666[local243] + x;
-                        local251 = this.anIntArray658[local243] + z;
+                    for (local243 = this.maxVertex; local243 < this.vertexCount; local243++) {
+                        local247 = this.vertexX[local243] + x;
+                        local251 = this.vertexZ[local243] + z;
                         local256 = local247 & local226;
                         local261 = local251 & local226;
                         local285 = local247 >> floor.anInt8895;
@@ -4575,7 +4638,7 @@ public final class JavaModel extends Model {
                             local472 = local96[local285][local313 + 1] * (ceiling.anInt8888 - local256) + local96[local285 + 1][local313 + 1] * local256 >> ceiling.anInt8895;
                             local1380 = local327 * (ceiling.anInt8888 - local261) + local472 * local261 >> ceiling.anInt8895;
                             @Pc(1619) int local1619 = local784 - local1380 - hillValue;
-                            this.anIntArray675[local243] = ((this.anIntArray675[local243] << 8) / local228 * local1619 >> 8) - (y - local784);
+                            this.vertexY[local243] = ((this.vertexY[local243] << 8) / local228 * local1619 >> 8) - (y - local784);
                         }
                     }
                 }
@@ -4597,7 +4660,7 @@ public final class JavaModel extends Model {
 
     @OriginalMember(owner = "client!rs", name = "b", descriptor = "(Ljava/lang/Thread;)V")
     public void method7535(@OriginalArg(0) Thread arg0) {
-        @Pc(4) JavaThreadResource local4 = this.aClass19_Sub2_9.threadResource(arg0);
+        @Pc(4) JavaThreadResource local4 = this.toolkit.threadResource(arg0);
         if (local4 != this.aJavaThreadResource_2) {
             this.aJavaThreadResource_2 = local4;
             this.aClass114_Sub3Array2 = this.aJavaThreadResource_2.aClass114_Sub3Array4;

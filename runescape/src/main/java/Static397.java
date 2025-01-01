@@ -67,34 +67,6 @@ public final class Static397 {
         }
     }
 
-    @OriginalMember(owner = "client!mia", name = "a", descriptor = "(III[FIF[FIIII)V")
-    public static void method5556(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) float[] arg3, @OriginalArg(4) int arg4, @OriginalArg(5) float arg5, @OriginalArg(6) float[] arg6, @OriginalArg(7) int arg7, @OriginalArg(8) int arg8, @OriginalArg(10) int arg9) {
-        @Pc(3) int local3 = arg1 - arg4;
-        @Pc(11) int local11 = arg2 - arg9;
-        @Pc(15) int local15 = arg8 - arg0;
-        @Pc(36) float local36 = arg6[2] * (float) local3 + arg6[1] * (float) local11 + arg6[0] * (float) local15;
-        @Pc(57) float local57 = (float) local11 * arg6[4] + arg6[3] * (float) local15 + (float) local3 * arg6[5];
-        @Pc(78) float local78 = arg6[8] * (float) local3 + arg6[7] * (float) local11 + arg6[6] * (float) local15;
-        @Pc(93) float local93 = (float) Math.sqrt(local36 * local36 + local57 * local57 + local78 * local78);
-        @Pc(111) float local111 = (float) Math.atan2(local36, local78) / 6.2831855F + 0.5F;
-        @Pc(124) float local124 = (float) Math.asin(local57 / local93) / 3.1415927F + arg5 + 0.5F;
-        @Pc(146) float local146;
-        if (arg7 == 1) {
-            local146 = local111;
-            local111 = -local124;
-            local124 = local146;
-        } else if (arg7 == 2) {
-            local111 = -local111;
-            local124 = -local124;
-        } else if (arg7 == 3) {
-            local146 = local111;
-            local111 = local124;
-            local124 = -local146;
-        }
-        arg3[0] = local111;
-        arg3[1] = local124;
-    }
-
     @OriginalMember(owner = "client!mia", name = "a", descriptor = "(BILclient!cg;ILclient!cg;IIIII)V")
     public static void method5557(@OriginalArg(1) int arg0, @OriginalArg(2) PathingEntity arg1, @OriginalArg(4) PathingEntity arg2, @OriginalArg(5) int arg3, @OriginalArg(6) int arg4, @OriginalArg(8) int arg5, @OriginalArg(9) int arg6) {
         @Pc(7) int local7 = arg2.method9304((byte) -71);

@@ -8,10 +8,10 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class MeshBillboard {
 
     @OriginalMember(owner = "client!aq", name = "h", descriptor = "I")
-    public final int anInt591;
+    public final int distance;
 
     @OriginalMember(owner = "client!aq", name = "c", descriptor = "I")
-    public final int anInt592;
+    public final int id;
 
     @OriginalMember(owner = "client!aq", name = "j", descriptor = "I")
     public final int face;
@@ -20,15 +20,15 @@ public final class MeshBillboard {
     public final int group;
 
     @OriginalMember(owner = "client!aq", name = "<init>", descriptor = "(IIII)V")
-    public MeshBillboard(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3) {
-        this.anInt591 = arg3;
-        this.anInt592 = arg0;
-        this.face = arg1;
-        this.group = arg2;
+    public MeshBillboard(@OriginalArg(0) int id, @OriginalArg(1) int face, @OriginalArg(2) int group, @OriginalArg(3) int distance) {
+        this.distance = distance;
+        this.id = id;
+        this.face = face;
+        this.group = group;
     }
 
     @OriginalMember(owner = "client!aq", name = "a", descriptor = "(II)Lclient!aq;")
-    public MeshBillboard copy(@OriginalArg(1) int arg0) {
-        return new MeshBillboard(this.anInt592, arg0, this.group, this.anInt591);
+    public MeshBillboard copy(@OriginalArg(1) int face) {
+        return new MeshBillboard(this.id, face, this.group, this.distance);
     }
 }

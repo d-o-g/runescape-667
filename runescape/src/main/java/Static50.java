@@ -3,7 +3,6 @@ import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
-import com.jagex.graphics.Mesh;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -15,109 +14,6 @@ public final class Static50 {
 
     @OriginalMember(owner = "client!bm", name = "e", descriptor = "Z")
     public static boolean aBoolean566 = false;
-
-    @OriginalMember(owner = "client!bm", name = "a", descriptor = "(ILclient!dv;I[I)Lclient!uea;")
-    public static Class369 method6635(@OriginalArg(1) Mesh arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int[] arg2) {
-        @Pc(7) int[] local7 = null;
-        @Pc(9) int[] local9 = null;
-        @Pc(11) int[] local11 = null;
-        @Pc(13) float[][] local13 = null;
-        if (arg0.faceTexSpace != null) {
-            @Pc(25) int local25 = arg0.texSpaceCount;
-            @Pc(28) int[] local28 = new int[local25];
-            @Pc(31) int[] local31 = new int[local25];
-            @Pc(34) int[] local34 = new int[local25];
-            @Pc(37) int[] local37 = new int[local25];
-            @Pc(40) int[] local40 = new int[local25];
-            @Pc(43) int[] local43 = new int[local25];
-            for (@Pc(45) int local45 = 0; local45 < local25; local45++) {
-                local28[local45] = Integer.MAX_VALUE;
-                local31[local45] = -2147483647;
-                local34[local45] = Integer.MAX_VALUE;
-                local37[local45] = -2147483647;
-                local40[local45] = Integer.MAX_VALUE;
-                local43[local45] = -2147483647;
-            }
-            local11 = new int[local25];
-            local13 = new float[local25][];
-            @Pc(97) int local97;
-            @Pc(158) int local158;
-            for (@Pc(89) int local89 = 0; local89 < arg1; local89++) {
-                local97 = arg2[local89];
-                if (arg0.faceTexSpace[local97] != -1) {
-                    @Pc(111) int local111 = arg0.faceTexSpace[local97] & 0xFF;
-                    for (@Pc(113) int local113 = 0; local113 < 3; local113++) {
-                        @Pc(134) short local134;
-                        if (local113 == 0) {
-                            local134 = arg0.faceA[local97];
-                        } else if (local113 == 1) {
-                            local134 = arg0.faceB[local97];
-                        } else {
-                            local134 = arg0.faceC[local97];
-                        }
-                        @Pc(153) int local153 = arg0.vertexX[local134];
-                        local158 = arg0.vertexY[local134];
-                        @Pc(163) int local163 = arg0.vertexZ[local134];
-                        if (local153 < local28[local111]) {
-                            local28[local111] = local153;
-                        }
-                        if (local153 > local31[local111]) {
-                            local31[local111] = local153;
-                        }
-                        if (local34[local111] > local158) {
-                            local34[local111] = local158;
-                        }
-                        if (local158 > local37[local111]) {
-                            local37[local111] = local158;
-                        }
-                        if (local40[local111] > local163) {
-                            local40[local111] = local163;
-                        }
-                        if (local163 > local43[local111]) {
-                            local43[local111] = local163;
-                        }
-                    }
-                }
-            }
-            local7 = new int[local25];
-            local9 = new int[local25];
-            for (local97 = 0; local97 < local25; local97++) {
-                @Pc(268) byte local268 = arg0.texMappingType[local97];
-                if (local268 > 0) {
-                    local7[local97] = (local28[local97] + local31[local97]) / 2;
-                    local9[local97] = (local34[local97] + local37[local97]) / 2;
-                    local11[local97] = (local43[local97] + local40[local97]) / 2;
-                    @Pc(340) float local340;
-                    @Pc(326) float local326;
-                    @Pc(334) float local334;
-                    if (local268 == 1) {
-                        local158 = arg0.texSpaceScaleX[local97];
-                        local326 = 64.0F / (float) arg0.texSpaceScaleY[local97];
-                        if (local158 == 0) {
-                            local340 = 1.0F;
-                            local334 = 1.0F;
-                        } else if (local158 <= 0) {
-                            local334 = 1.0F;
-                            local340 = (float) -local158 / 1024.0F;
-                        } else {
-                            local340 = 1.0F;
-                            local334 = (float) local158 / 1024.0F;
-                        }
-                    } else if (local268 == 2) {
-                        local326 = 64.0F / (float) arg0.texSpaceScaleY[local97];
-                        local334 = 64.0F / (float) arg0.texSpaceScaleZ[local97];
-                        local340 = 64.0F / (float) arg0.texSpaceScaleX[local97];
-                    } else {
-                        local340 = (float) arg0.texSpaceScaleX[local97] / 1024.0F;
-                        local326 = (float) arg0.texSpaceScaleY[local97] / 1024.0F;
-                        local334 = (float) arg0.texSpaceScaleZ[local97] / 1024.0F;
-                    }
-                    local13[local97] = Static395.method9163(local340, local326, local334, arg0.texSpaceDefA[local97], arg0.texSpaceDefC[local97], arg0.aByteArray27[local97] & 0xFF, arg0.texSpaceDefB[local97]);
-                }
-            }
-        }
-        return new Class369(local7, local9, local11, local13);
-    }
 
     @OriginalMember(owner = "client!bm", name = "a", descriptor = "(Lclient!cg;B)V")
     public static void animationTick(@OriginalArg(0) PathingEntity arg0) {

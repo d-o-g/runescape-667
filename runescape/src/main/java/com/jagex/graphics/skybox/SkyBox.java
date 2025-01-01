@@ -291,7 +291,7 @@ public final class SkyBox {
                         this.aSkyBoxSphereArray2[this.anInt3508++] = local68;
                     }
                 }
-                Quicksort.sort(local57, this.aSkyBoxSphereArray2, 0, this.anInt3508 - 1);
+                Quicksort.sort(this.aSkyBoxSphereArray2, local57, 0, this.anInt3508 - 1);
             }
             this.aBoolean273 = true;
         }

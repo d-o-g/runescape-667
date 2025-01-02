@@ -389,6 +389,7 @@ public final class MainLogicManager {
             ConnectionManager.disconnect();
             return;
         }
+
         if (CutsceneManager.state == 0) {
             Static82.method1593();
             Static13.method158();
@@ -397,6 +398,7 @@ public final class MainLogicManager {
                 Static266.method6774();
                 CutsceneManager.state = 2;
             }
+
             if (CutsceneManager.state == 2 && step != 12) {
                 CutsceneVarDomain.cache.clear();
                 Static440.anInt6680 = 0;
@@ -404,6 +406,7 @@ public final class MainLogicManager {
                 CutsceneManager.state = 3;
                 Static457.method6231();
             }
+
             if (CutsceneManager.state == 3) {
                 @Pc(80) int local80 = TimeUtils.clock - CutsceneManager.clock;
                 if (Static401.aCutsceneActionArray1.length > Static440.anInt6680) {
@@ -415,6 +418,7 @@ public final class MainLogicManager {
                         local982.execute();
                     } while (CutsceneManager.state == 3 && ++Static440.anInt6680 < Static401.aCutsceneActionArray1.length);
                 }
+
                 if (CutsceneManager.state == 3) {
                     for (@Pc(181) int local181 = 0; local181 < CutsceneManager.actors.length; local181++) {
                         @Pc(1027) Actor local1027 = CutsceneManager.actors[local181];
@@ -426,192 +430,202 @@ public final class MainLogicManager {
                 }
             }
         }
+
         Static90.method1733();
+
         if (!Static288.aBoolean356) {
             Static598.method7827();
             Static288.aBoolean356 = true;
         }
+
         for (@Pc(80) int local80 = TimedVarDomain.instance.removeNext(true); local80 != -1; local80 = TimedVarDomain.instance.removeNext(false)) {
             method977(local80);
             Static142.anIntArray225[Static635.varpUpdateCount++ & 0x1F] = local80;
         }
 
         for (@Pc(1099) DelayedStateChange change = DelayedStateChange.removeFirst(); change != null; change = DelayedStateChange.removeFirst()) {
-            @Pc(541) int local541 = change.getType();
-            @Pc(660) long local660 = change.getValue();
-            if (local541 == 1) {
-                Static511.varcs[(int) local660] = change.primaryData;
-                Static624.varcSaveRecommended |= Static118.permVarcs[(int) local660];
-                Static278.anIntArray350[Static52.varcUpdateCount++ & 0x1F] = (int) local660;
-            } else if (local541 == 2) {
-                Static37.varcstrs[(int) local660] = change.stringData;
-                Static268.anIntArray332[Static455.varcstrUpdateCount++ & 0x1F] = (int) local660;
-            } else {
-                @Pc(1143) Component local1143;
-                if (local541 == 3) {
-                    local1143 = InterfaceList.list((int) local660);
-                    if (!change.stringData.equals(local1143.text)) {
-                        local1143.text = change.stringData;
-                        InterfaceManager.redraw(local1143);
+            @Pc(541) int type = change.getType();
+            @Pc(660) long value = change.getValue();
+
+            if (type == DelayedStateChange.TYPE_SETVARC) {
+                Static511.varcs[(int) value] = change.primaryData;
+                Static624.varcSaveRecommended |= Static118.permVarcs[(int) value];
+                Static278.anIntArray350[Static52.varcUpdateCount++ & 0x1F] = (int) value;
+            } else if (type == DelayedStateChange.TYPE_SETVARCSTR) {
+                Static37.varcstrs[(int) value] = change.stringData;
+                Static268.anIntArray332[Static455.varcstrUpdateCount++ & 0x1F] = (int) value;
+            } else if (type == DelayedStateChange.TYPE_IF_SETTEXT) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                if (!change.stringData.equals(component.text)) {
+                    component.text = change.stringData;
+                    InterfaceManager.redraw(component);
+                }
+            } else if (type == DelayedStateChange.TYPE_IF_SETMODEL) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                @Pc(288) int objType = change.primaryData;
+                @Pc(300) int obj = change.secondaryData;
+                @Pc(1739) int objData = change.tertiaryData;
+                if (objType != component.objType || obj != component.obj || objData != component.objData) {
+                    component.objData = objData;
+                    component.objType = objType;
+                    component.obj = obj;
+                    InterfaceManager.redraw(component);
+                }
+            } else if (type == DelayedStateChange.TYPE_IF_SETMODELANIM) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+
+                if (component.modelAnimation != change.primaryData) {
+                    if (change.primaryData == -1) {
+                        component.animator = null;
+                    } else {
+                        if (component.animator == null) {
+                            component.animator = new ComponentAnimator();
+                        }
+
+                        component.animator.update(true, change.primaryData);
                     }
-                } else {
-                    @Pc(1739) int local1739;
-                    if (local541 == 4) {
-                        local1143 = InterfaceList.list((int) local660);
-                        @Pc(288) int local288 = change.primaryData;
-                        @Pc(300) int local300 = change.secondaryData;
-                        local1739 = change.tertiaryData;
-                        if (local288 != local1143.objType || local300 != local1143.obj || local1739 != local1143.objData) {
-                            local1143.objData = local1739;
-                            local1143.objType = local288;
-                            local1143.obj = local300;
-                            InterfaceManager.redraw(local1143);
+
+                    component.modelAnimation = change.primaryData;
+                    InterfaceManager.redraw(component);
+                }
+            } else if (type == DelayedStateChange.TYPE_IF_SETCOLOUR) {
+                @Pc(282) int rgb15 = change.primaryData;
+                @Pc(288) int red = rgb15 >> 10 & 0x1F;
+                @Pc(300) int green = rgb15 >> 5 & 0x1F;
+                @Pc(1739) int blue = rgb15 & 0x1F;
+                @Pc(1751) int rgb24 = (red << 19) + (green << 11) + (blue << 3);
+                @Pc(1756) Component component = InterfaceList.list((int) value);
+                if (component.colour != rgb24) {
+                    component.colour = rgb24;
+                    InterfaceManager.redraw(component);
+                }
+            } else if (type == DelayedStateChange.TYPE_IF_SETHIDE) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                @Pc(1701) boolean hidden = change.primaryData == 1;
+                if (hidden != component.hidden) {
+                    component.hidden = hidden;
+                    InterfaceManager.redraw(component);
+                }
+            } else if (type == DelayedStateChange.TYPE_IF_SETMODELANGLE) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                if (change.primaryData != component.xan2d || change.secondaryData != component.yan2d || component.zoom2d != change.tertiaryData) {
+                    component.xan2d = change.primaryData;
+                    component.yan2d = change.secondaryData;
+                    component.zoom2d = change.tertiaryData;
+                    if (component.invObject != -1) {
+                        if (component.modelAspectRatioX > 0) {
+                            component.zoom2d = component.zoom2d * 32 / component.modelAspectRatioX;
+                        } else if (component.originalWidth > 0) {
+                            component.zoom2d = component.zoom2d * 32 / component.originalWidth;
                         }
-                    } else if (local541 == 5) {
-                        local1143 = InterfaceList.list((int) local660);
-                        if (local1143.modelAnimation != change.primaryData) {
-                            if (change.primaryData == -1) {
-                                local1143.animator = null;
-                            } else {
-                                if (local1143.animator == null) {
-                                    local1143.animator = new ComponentAnimator();
-                                }
-                                local1143.animator.update(true, change.primaryData);
-                            }
-                            local1143.modelAnimation = change.primaryData;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 6) {
-                        @Pc(282) int local282 = change.primaryData;
-                        @Pc(288) int local288 = local282 >> 10 & 0x1F;
-                        @Pc(300) int local300 = local282 >> 5 & 0x1F;
-                        local1739 = local282 & 0x1F;
-                        @Pc(1751) int local1751 = (local300 << 11) + (local288 << 19) + (local1739 << 3);
-                        @Pc(1756) Component local1756 = InterfaceList.list((int) local660);
-                        if (local1756.colour != local1751) {
-                            local1756.colour = local1751;
-                            InterfaceManager.redraw(local1756);
-                        }
-                    } else if (local541 == 7) {
-                        local1143 = InterfaceList.list((int) local660);
-                        @Pc(1701) boolean local1701 = change.primaryData == 1;
-                        if (local1701 != local1143.hidden) {
-                            local1143.hidden = local1701;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 8) {
-                        local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.xan2d || change.secondaryData != local1143.yan2d || local1143.zoom2d != change.tertiaryData) {
-                            local1143.xan2d = change.primaryData;
-                            local1143.yan2d = change.secondaryData;
-                            local1143.zoom2d = change.tertiaryData;
-                            if (local1143.invObject != -1) {
-                                if (local1143.modelAspectRatioX > 0) {
-                                    local1143.zoom2d = local1143.zoom2d * 32 / local1143.modelAspectRatioX;
-                                } else if (local1143.originalWidth > 0) {
-                                    local1143.zoom2d = local1143.zoom2d * 32 / local1143.originalWidth;
-                                }
-                            }
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 9) {
-                        local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.invObject || change.secondaryData != local1143.invCount) {
-                            local1143.invCount = change.secondaryData;
-                            local1143.invObject = change.primaryData;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 10) {
-                        local1143 = InterfaceList.list((int) local660);
-                        if (change.primaryData != local1143.xof2d || local1143.yof2d != change.secondaryData || change.tertiaryData != local1143.zan2d) {
-                            local1143.xof2d = change.primaryData;
-                            local1143.yof2d = change.secondaryData;
-                            local1143.zan2d = change.tertiaryData;
-                            InterfaceManager.redraw(local1143);
-                        }
-                    } else if (local541 == 11) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.reposModeY = 0;
-                        local1143.y = local1143.originalY = change.secondaryData;
-                        local1143.x = local1143.originalX = change.primaryData;
-                        local1143.reposModeX = 0;
-                        InterfaceManager.redraw(local1143);
-                    } else if (local541 == 12) {
-                        local1143 = InterfaceList.list((int) local660);
-                        @Pc(288) int local288 = change.primaryData;
-                        if (local1143 != null && local1143.type == 0) {
-                            if (local288 > local1143.scrollHeight - local1143.height) {
-                                local288 = local1143.scrollHeight - local1143.height;
-                            }
-                            if (local288 < 0) {
-                                local288 = 0;
-                            }
-                            if (local1143.scrollY != local288) {
-                                local1143.scrollY = local288;
-                                InterfaceManager.redraw(local1143);
-                            }
-                        }
-                    } else if (local541 == 14) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.graphic = change.primaryData;
-                    } else if (local541 == 15) {
-                        Minimap.flagY = change.secondaryData;
-                        Minimap.flagSet = true;
-                        Minimap.flagX = change.primaryData;
-                    } else if (local541 == 16) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.fontGraphic = change.primaryData;
-                    } else if (local541 == 20) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.fontMonospaced = change.primaryData == 1;
-                    } else if (local541 == 21) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.clickMask = change.primaryData == 1;
-                    } else if (local541 == 17) {
-                        local1143 = InterfaceList.list((int) local660);
-                        local1143.video = change.primaryData;
-                    } else if (local541 == 18) {
-                        local1143 = InterfaceList.list((int) local660);
-                        @Pc(288) int local288 = (int) (local660 >> 32);
-                        local1143.setRecol((short) change.secondaryData, local288, (short) change.primaryData);
-                    } else if (local541 == 19) {
-                        local1143 = InterfaceList.list((int) local660);
-                        @Pc(288) int local288 = (int) (local660 >> 32);
-                        local1143.setRetex((short) change.primaryData, local288, (short) change.secondaryData);
+                    }
+                    InterfaceManager.redraw(component);
+                }
+            } else if (type == DelayedStateChange.TYPE_IF_SETOBJECT) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                if (change.primaryData != component.invObject || change.secondaryData != component.invCount) {
+                    component.invCount = change.secondaryData;
+                    component.invObject = change.primaryData;
+                    InterfaceManager.redraw(component);
+                }
+            } else if (type == DelayedStateChange.TYPE_IF_SETMODELOFFSET) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                if (change.primaryData != component.xof2d || component.yof2d != change.secondaryData || change.tertiaryData != component.zan2d) {
+                    component.xof2d = change.primaryData;
+                    component.yof2d = change.secondaryData;
+                    component.zan2d = change.tertiaryData;
+                    InterfaceManager.redraw(component);
+                }
+            } else if (type == DelayedStateChange.TYPE_IF_SETPOSITION) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                component.reposModeY = 0;
+                component.y = component.originalY = change.secondaryData;
+                component.x = component.originalX = change.primaryData;
+                component.reposModeX = 0;
+                InterfaceManager.redraw(component);
+            } else if (type == DelayedStateChange.TYPE_IF_SETSCROLLPOS) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                @Pc(288) int scrollY = change.primaryData;
+                if (component != null && component.type == 0) {
+                    if (scrollY > component.scrollHeight - component.height) {
+                        scrollY = component.scrollHeight - component.height;
+                    }
+                    if (scrollY < 0) {
+                        scrollY = 0;
+                    }
+                    if (component.scrollY != scrollY) {
+                        component.scrollY = scrollY;
+                        InterfaceManager.redraw(component);
                     }
                 }
+            } else if (type == DelayedStateChange.TYPE_IF_SETGRAPHIC) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                component.graphic = change.primaryData;
+            } else if (type == DelayedStateChange.TYPE_SETMAPFLAG) {
+                Minimap.flagY = change.secondaryData;
+                Minimap.flagSet = true;
+                Minimap.flagX = change.primaryData;
+            } else if (type == DelayedStateChange.TYPE_IF_SETTEXTFONT) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                component.fontGraphic = change.primaryData;
+            } else if (type == DelayedStateChange.TYPE_IF_SETFONTMONO) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                component.fontMonospaced = change.primaryData == 1;
+            } else if (type == DelayedStateChange.TYPE_IF_SETCLICKMASK) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                component.clickMask = change.primaryData == 1;
+            } else if (type == DelayedStateChange.TYPE_IF_SETVIDEO) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                component.video = change.primaryData;
+            } else if (type == DelayedStateChange.TYPE_IF_SETRECOL) {
+                @Pc(1143) Component local1143 = InterfaceList.list((int) value);
+                @Pc(288) int index = (int) (value >> 32);
+                local1143.setRecol((short) change.secondaryData, index, (short) change.primaryData);
+            } else if (type == DelayedStateChange.TYPE_IF_SETRETEX) {
+                @Pc(1143) Component component = InterfaceList.list((int) value);
+                @Pc(288) int index = (int) (value >> 32);
+                component.setRetex((short) change.primaryData, index, (short) change.secondaryData);
             }
         }
+
         Static35.currentTick++;
+
         if (Static616.crossType != 0) {
             Static481.crossDuration += 20;
             if (Static481.crossDuration >= 400) {
                 Static616.crossType = 0;
             }
         }
+
         if (Static67.aComponent_10 != null) {
             Static499.anInt7501++;
+
             if (Static499.anInt7501 >= 15) {
                 InterfaceManager.redraw(Static67.aComponent_10);
                 Static67.aComponent_10 = null;
             }
         }
+
         WorldMap.component = null;
         InterfaceManager.aBoolean428 = false;
         Static702.aBoolean797 = false;
         InterfaceManager.dragTarget = null;
         WorldMap.setOptions(-1, -1, null);
+
         if (!InterfaceManager.targetMode) {
             InterfaceManager.targetEndCursor = -1;
         }
+
         Static443.method5981();
         World.tick++;
+
         if (WorldMap.clicked) {
-            @Pc(1980) ClientMessage local1980 = ClientMessage.create(ClientProt.CLICKWORLDMAP, ServerConnection.GAME.isaac);
-            local1980.bitPacket.p4_alt3(WorldMap.clickedY | WorldMap.clickedLevel << 28 | WorldMap.clickedX << 14);
-            ServerConnection.GAME.send(local1980);
+            @Pc(1980) ClientMessage message = ClientMessage.create(ClientProt.CLICKWORLDMAP, ServerConnection.GAME.isaac);
+            message.bitPacket.p4_alt3(WorldMap.clickedY | WorldMap.clickedLevel << 28 | WorldMap.clickedX << 14);
+            ServerConnection.GAME.send(message);
             WorldMap.clicked = false;
         }
+
         while (true) {
             @Pc(2006) HookRequest local2006;
             @Pc(2026) Component local2026;

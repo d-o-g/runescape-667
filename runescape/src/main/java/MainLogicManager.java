@@ -737,9 +737,9 @@ public final class MainLogicManager {
                                                 @Pc(2571) ClientMessage local2571 = ClientMessage.create(ClientProt.NO_TIMEOUT, ServerConnection.GAME.isaac);
                                                 ServerConnection.GAME.send(local2571);
                                             }
-                                            if (Static252.aBoolean316) {
-                                                Static143.method3571();
-                                                Static252.aBoolean316 = false;
+                                            if (VerifyId.isTransmitRequested()) {
+                                                VerifyId.transmit();
+                                                VerifyId.cancelTransmitRequest();
                                             }
                                             try {
                                                 ServerConnection.GAME.flush();

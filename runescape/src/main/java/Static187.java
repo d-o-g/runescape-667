@@ -35,7 +35,7 @@ public final class Static187 {
         NPCList.newNpcCount = 0;
         Static497.objStacks.clear();
         Camera.reset();
-        Static334.anInt5456 = 0;
+        VerifyId.reset();
         TimedVarDomain.instance.reset();
         ClanSettings.listened = null;
         ClanSettings.affined = null;

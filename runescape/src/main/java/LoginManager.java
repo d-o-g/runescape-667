@@ -447,7 +447,7 @@ public final class LoginManager {
                     @Pc(748) Packet systemInfo = new Packet(SystemInfo.instance.size());
                     SystemInfo.instance.encode(systemInfo);
                     bitPacket.pdata(systemInfo.data.length, systemInfo.data, 0);
-                    bitPacket.p4(Static334.anInt5456);
+                    bitPacket.p4(VerifyId.getValue());
                     bitPacket.p8(Client.userFlow);
                     bitPacket.p1(Client.additionalInfo != null ? 1 : 0);
                     if (Client.additionalInfo != null) {
@@ -1052,7 +1052,7 @@ public final class LoginManager {
         Static331.moveText = LocalisedText.WALKHERE.localise(Client.language);
         ClientOptions.instance.update(ClientOptions.instance.removeRoofs.getValue(), ClientOptions.instance.removeRoofsOverride);
         ClientOptions.instance.update(ClientOptions.instance.animateBackgroundDefault.getValue(), ClientOptions.instance.animateBackground);
-        Static334.anInt5456 = 0;
+        VerifyId.reset();
         MiniMenu.resetAndClose();
         ServerConnectionReader.sendWindowStatus();
         Static211.pingRequest = null;

@@ -119,9 +119,6 @@ public final class DynamicGroundDecor extends GroundDecor implements Location {
     @OriginalMember(owner = "client!hp", name = "c", descriptor = "(Lclient!ha;I)Lclient!ke;")
     @Override
     public BoundingCylinder getCylinder(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
-        if (arg1 >= -93) {
-            Static252.aBoolean316 = true;
-        }
         return this.cylinder;
     }
 

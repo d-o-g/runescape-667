@@ -8,9 +8,6 @@ public final class Static334 {
     @OriginalMember(owner = "client!kja", name = "e", descriptor = "[[[Lclient!pha;")
     public static Tile[][][] activeTiles;
 
-    @OriginalMember(owner = "client!kja", name = "a", descriptor = "I")
-    public static int anInt5456 = 0;
-
     @OriginalMember(owner = "client!kja", name = "a", descriptor = "()V")
     public static void w2debug() {
         if (Static684.w2debug == 0 || Fonts.debug == null) {

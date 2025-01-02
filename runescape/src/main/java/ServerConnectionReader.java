@@ -171,7 +171,7 @@ public final class ServerConnectionReader {
 
         if (context.currentProt == ServerProt.IF_CLOSESUB) {
             @Pc(277) int idAndSlot = bitPacket.g4_alt1();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
 
             @Pc(287) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot);
             if (sub != null) {
@@ -196,7 +196,7 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.IF_SETHIDE) {
             @Pc(277) int idAndSlot = bitPacket.g4_alt2();
             @Pc(100) int visible = bitPacket.g1_alt1();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetHide(idAndSlot, visible);
             context.currentProt = null;
             return true;
@@ -219,21 +219,21 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.IF_SETCLICKMASK) {
             @Pc(446) boolean clickmask = bitPacket.g1_alt2() == 1;
             @Pc(100) int idAndSlot = bitPacket.g4_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetClickMask(idAndSlot, clickmask);
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.IF_SETSCROLLPOS) {
             @Pc(277) int position = bitPacket.g2_alt2();
             @Pc(100) int idAndSlot = bitPacket.g4_alt1();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetScrollPosition(idAndSlot, position);
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.IF_SETVIDEO) {
             @Pc(277) int idAndSlot = bitPacket.g4_alt1();
             @Pc(100) int video = bitPacket.g2_alt2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetVideo(idAndSlot, video);
             context.currentProt = null;
             return true;
@@ -241,7 +241,7 @@ public final class ServerConnectionReader {
             @Pc(277) int y = bitPacket.g2s_alt1();
             @Pc(100) int x = bitPacket.g2s_alt1();
             @Pc(526) int idAndSlot = bitPacket.g4_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetPosition(idAndSlot, x, y);
             context.currentProt = null;
             return true;
@@ -423,7 +423,7 @@ public final class ServerConnectionReader {
                 model = -1;
             }
 
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetModel(idAndSlot, Component.OBJ_TYPE_MODEL, model, -1);
             context.currentProt = null;
             return true;
@@ -569,7 +569,7 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.SOUND_MIXBUSS_SETLEVEL) {
             @Pc(277) int level = bitPacket.g1_alt3();
             @Pc(931) byte channel = bitPacket.g1b_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             Static711.mixBussSetLevel(channel, level);
             context.currentProt = null;
             return true;
@@ -601,7 +601,7 @@ public final class ServerConnectionReader {
             return true;
         } else if (context.currentProt == ServerProt.SERVER_PROT_141) {
             @Pc(277) int local277 = bitPacket.ig2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             VideoTypeList.method9267(local277);
             context.currentProt = null;
             return true;
@@ -611,7 +611,7 @@ public final class ServerConnectionReader {
             if (font == 65535) {
                 font = -1;
             }
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetTextFont(idAndSlot, font);
             context.currentProt = null;
             return true;
@@ -644,7 +644,7 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.CLIENT_SETVARC_LARGE) {
             @Pc(277) int id = bitPacket.ig2();
             @Pc(100) int value = bitPacket.g4();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.setVarc(id, value);
             context.currentProt = null;
             return true;
@@ -653,13 +653,13 @@ public final class ServerConnectionReader {
             @Pc(100) int local100 = bitPacket.g2();
             @Pc(526) int local526 = bitPacket.g2_alt3();
             @Pc(1409) int local1409 = bitPacket.g2_alt2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetModel(idAndSlot, Component.OBJ_TYPE_PLAYERHEAD_IGNOREWORN, (local1409 << 16) | local526, local100);
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.IF_SETPLAYERMODEL_SELF) {
             @Pc(277) int idAndSlot = bitPacket.g4();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetModel(idAndSlot, Component.OBJ_TYPE_PLAYERMODEL, PlayerList.activePlayerSlot, 0);
             context.currentProt = null;
             return true;
@@ -708,7 +708,7 @@ public final class ServerConnectionReader {
             }
 
             arguments[0] = Integer.valueOf(bitPacket.g4());
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
 
             @Pc(2442) HookRequest hook = new HookRequest();
             hook.arguments = arguments;
@@ -718,7 +718,7 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.IF_SETGRAPHIC) {
             @Pc(277) int graphic = bitPacket.ig2();
             @Pc(100) int idAndSlot = bitPacket.g4();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetGraphic(idAndSlot, graphic);
             context.currentProt = null;
             return true;
@@ -730,7 +730,7 @@ public final class ServerConnectionReader {
         } else if (ServerProt.IF_OPENTOP == context.currentProt) {
             @Pc(277) int id = bitPacket.g2_alt3();
             @Pc(100) int type = bitPacket.g1_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             if (type == 2) {
                 WorldMap.close();
             }
@@ -802,13 +802,13 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.IF_SETCOLOUR) {
             @Pc(277) int idAndSlot = bitPacket.g4_alt2();
             @Pc(100) int colour = bitPacket.g2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetColour(idAndSlot, colour);
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.SERVER_PROT_92) {
             @Pc(277) int coord = bitPacket.g4_alt1();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
 
             if (coord == -1) {
                 Camera.anInt10383 = -1;
@@ -961,7 +961,7 @@ public final class ServerConnectionReader {
             @Pc(100) int idAndSlot = bitPacket.g4();
             @Pc(526) int source = bitPacket.ig2();
             @Pc(1409) int destination = bitPacket.ig2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetRecol(idAndSlot, index, source, destination);
             context.currentProt = null;
             return true;
@@ -1075,7 +1075,7 @@ public final class ServerConnectionReader {
             return true;
         } else if (context.currentProt == ServerProt.SETDRAWORDER) {
             @Pc(277) int drawOrder = bitPacket.g1_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             context.currentProt = null;
             Static150.drawOrder = drawOrder;
             return true;
@@ -1093,7 +1093,7 @@ public final class ServerConnectionReader {
             }
             @Pc(100) int count = bitPacket.g4();
             @Pc(526) int idAndSlot = bitPacket.g4_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetObject(idAndSlot, count, objId);
             @Pc(4005) ObjType objType = ObjTypeList.instance.list(objId);
             DelayedStateChange.interfaceSetModelAngle(idAndSlot, objType.xan2d, objType.yan2d, objType.zoom2d);
@@ -1103,13 +1103,13 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.SERVER_PROT_113) {
             @Pc(277) int local277 = bitPacket.g1_alt3();
             @Pc(100) int id = bitPacket.g2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             VideoTypeList.method6802(true, id, local277);
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.SHOW_FACE_HERE) {
             @Pc(446) boolean showFaceHere = bitPacket.g1_alt2() == 1;
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             MiniMenu.showFaceHere = showFaceHere;
             context.currentProt = null;
             return true;
@@ -1127,7 +1127,7 @@ public final class ServerConnectionReader {
             return true;
         } else if (ServerProt.VIDEO_STOP == context.currentProt) {
             @Pc(277) int id = bitPacket.g2_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             VideoManager.stop(id);
             context.currentProt = null;
             return true;
@@ -1173,7 +1173,7 @@ public final class ServerConnectionReader {
         } else if (ServerProt.CLIENT_SETVARCSTR_SMALL == context.currentProt) {
             @Pc(277) int id = bitPacket.g2_alt3();
             @Pc(627) String value = bitPacket.gjstr();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.setVarcstr(id, value);
             context.currentProt = null;
             return true;
@@ -1183,7 +1183,7 @@ public final class ServerConnectionReader {
             @Pc(526) int time = bitPacket.g2_alt3();
             @Pc(1409) int center = bitPacket.g1_alt3();
             @Pc(1413) int amplitude = bitPacket.g1_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             Shake.enabled[index] = true;
             Shake.center[index] = center;
             Shake.amplitude[index] = amplitude;
@@ -1253,7 +1253,7 @@ public final class ServerConnectionReader {
             }
 
             @Pc(1409) int targetParam = bitPacket.ig2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
 
             for (@Pc(1413) int component = start; component <= end; component++) {
                 @Pc(644) long key = ((long) idAndSlot << 32) + (long) component;
@@ -1288,7 +1288,7 @@ public final class ServerConnectionReader {
             @Pc(277) int local277 = bitPacket.ig2();
             @Pc(100) int local100 = bitPacket.g2_alt3();
             @Pc(526) int local526 = bitPacket.g4();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.method4347(local526, (local100 << 16) + local277);
             context.currentProt = null;
             return true;
@@ -1480,7 +1480,7 @@ public final class ServerConnectionReader {
             if (npc == 65535) {
                 npc = -1;
             }
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetModel(idAndSlot, Component.OBJ_TYPE_NPCHEAD, npc, -1);
             context.currentProt = null;
             return true;
@@ -1489,14 +1489,14 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.CAM_RESET) {
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             Camera.reset();
             context.currentProt = null;
             return true;
         } else if (ServerProt.IF_MOVESUB == context.currentProt) {
             @Pc(277) int idAndSlot_d = bitPacket.g4_alt2();
             @Pc(100) int idAndSlot_s = bitPacket.g4_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
 
             @Pc(5438) SubInterface sub_s = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot_s);
             @Pc(5445) SubInterface sub_d = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot_d);
@@ -1529,7 +1529,7 @@ public final class ServerConnectionReader {
             @Pc(277) int subId = bitPacket.g2_alt3();
             @Pc(100) int idAndSlot = bitPacket.g4_alt1();
             @Pc(526) int type = bitPacket.g1();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
 
             @Pc(5445) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot);
             if (sub != null) {
@@ -1545,7 +1545,7 @@ public final class ServerConnectionReader {
             @Pc(526) int x = bitPacket.g1_alt3();
             @Pc(1409) int step = bitPacket.g1();
             @Pc(1413) int speed = bitPacket.g1_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             Camera.lookAt(x, y, z, step, speed);
             context.currentProt = null;
             return true;
@@ -1559,7 +1559,7 @@ public final class ServerConnectionReader {
             @Pc(100) int yan2d = bitPacket.g2_alt3();
             @Pc(526) int idAndSlot = bitPacket.g4_alt1();
             @Pc(1409) int xan2d = bitPacket.g2_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetModelAngle(idAndSlot, xan2d, yan2d, zoom2d);
             context.currentProt = null;
             return true;
@@ -1567,7 +1567,7 @@ public final class ServerConnectionReader {
             @Pc(1937) String value = bitPacket.gjstr();
             @Pc(100) int id = bitPacket.g2_alt2();
             // g.trace("client_setvarcstr (large) - var:" + var18 + " val:" + var26);
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.setVarcstr(id, value);
             context.currentProt = null;
             return true;
@@ -1658,7 +1658,7 @@ public final class ServerConnectionReader {
             @Pc(277) int id = bitPacket.g2();
             @Pc(100) int start = bitPacket.g2();
             @Pc(526) int end = bitPacket.g2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
 
             if (InterfaceList.interfaces[id] != null) {
                 for (@Pc(1409) int slot = start; slot < end; slot++) {
@@ -1676,7 +1676,7 @@ public final class ServerConnectionReader {
             @Pc(277) int idAndSlot = bitPacket.g4_alt2();
             @Pc(100) int otherPlayer = bitPacket.g2();
             @Pc(526) int model = bitPacket.g4_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetModel(idAndSlot, Component.OBJ_TYPE_PLAYERMODEL, otherPlayer, model);
             context.currentProt = null;
             return true;
@@ -1696,7 +1696,7 @@ public final class ServerConnectionReader {
             context.currentProt = null;
             return true;
         } else if (context.currentProt == ServerProt.CAM_SMOOTH_RESET) {
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             Camera.smoothReset();
             context.currentProt = null;
             return true;
@@ -1747,7 +1747,7 @@ public final class ServerConnectionReader {
             return true;
         } else if (context.currentProt == ServerProt.IF_SETPLAYERHEAD) {
             @Pc(277) int idAndSlot = bitPacket.g4_alt1();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetModel(idAndSlot, Component.OBJ_TYPE_PLAYERHEAD, -1, -1);
             context.currentProt = null;
             return true;
@@ -2158,7 +2158,7 @@ public final class ServerConnectionReader {
             }
 
             @Pc(1409) int events = bitPacket.g4_alt1();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
 
             for (@Pc(1413) int component = start; component <= end; component++) {
                 @Pc(644) long key = ((long) idAndSlot << 32) + (long) component;
@@ -2184,7 +2184,7 @@ public final class ServerConnectionReader {
             @Pc(100) int idAndSlot = bitPacket.g4();
             @Pc(526) int source = bitPacket.g2();
             @Pc(1409) int index = bitPacket.g1_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetRetex(idAndSlot, index, source, destination);
             context.currentProt = null;
             return true;
@@ -2201,14 +2201,14 @@ public final class ServerConnectionReader {
         } else if (ServerProt.IF_SETANIM == context.currentProt) {
             @Pc(277) int anim = bitPacket.g2s_alt3();
             @Pc(100) int idAndSlot = bitPacket.g4_alt2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetModelAnim(idAndSlot, anim);
             context.currentProt = null;
             return true;
         } else if (ServerProt.CAM_FORCEANGLE == context.currentProt) {
             @Pc(277) int pitch = bitPacket.g2_alt3();
             @Pc(100) int yaw = bitPacket.g2_alt2();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             Camera.forceAngle(pitch, yaw, 0);
             context.currentProt = null;
             return true;
@@ -2220,7 +2220,7 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.CLIENT_SETVARC_SMALL) {
             @Pc(277) int id = bitPacket.g2_alt3();
             @Pc(931) byte value = bitPacket.g1b_alt3();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.setVarc(id, value);
             context.currentProt = null;
             return true;
@@ -2248,7 +2248,7 @@ public final class ServerConnectionReader {
         } else if (context.currentProt == ServerProt.IF_SETTEXT) {
             @Pc(277) int idAndSlot = bitPacket.g4();
             @Pc(627) String text = bitPacket.gjstr();
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             DelayedStateChange.interfaceSetText(idAndSlot, text);
             context.currentProt = null;
             return true;
@@ -2274,7 +2274,7 @@ public final class ServerConnectionReader {
             @Pc(526) int x = bitPacket.g1_alt2();
             @Pc(1409) int step = bitPacket.g1_alt2();
             @Pc(1413) int y = bitPacket.g2_alt3() << 2;
-            Static574.method7573();
+            VerifyId.incrementAndTransmit();
             Camera.moveTo(x, y, z, step, rate, true);
             context.currentProt = null;
             return true;

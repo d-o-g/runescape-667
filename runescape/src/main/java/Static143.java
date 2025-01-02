@@ -1,8 +1,7 @@
-import com.jagex.ClientProt;
-import rs2.client.loading.screen.LoadingScreen;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
+import rs2.client.loading.screen.LoadingScreen;
 
 public final class Static143 {
 
@@ -11,13 +10,6 @@ public final class Static143 {
 
     @OriginalMember(owner = "client!eia", name = "B", descriptor = "Z")
     public static boolean aBoolean315;
-
-    @OriginalMember(owner = "client!eia", name = "f", descriptor = "(B)V")
-    public static void method3571() {
-        @Pc(20) ClientMessage local20 = ClientMessage.create(ClientProt.TRANSMITVAR_VERIFYID, ServerConnection.GAME.isaac);
-        local20.bitPacket.p4(Static334.anInt5456);
-        ServerConnection.GAME.send(local20);
-    }
 
     @OriginalMember(owner = "client!eia", name = "e", descriptor = "(B)V")
     public static void method3572() {

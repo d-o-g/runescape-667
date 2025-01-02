@@ -29,10 +29,4 @@ public final class Static574 {
         Static75.hasOpaqueStationaryEntities = true;
     }
 
-    @OriginalMember(owner = "client!saa", name = "a", descriptor = "(I)Z")
-    public static boolean method7573() {
-        Static334.anInt5456++;
-        Static252.aBoolean316 = true;
-        return true;
-    }
 }

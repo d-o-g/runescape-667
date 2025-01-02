@@ -1207,9 +1207,10 @@ public class Class306 {
                                 texture = overlayType.texture;
 
                                 @Pc(1162) int local1162 = Static718.blendColour(overlayType, toolkit);
-                                @Pc(1277) byte local1277;
 
                                 for (@Pc(1164) int local1164 = 0; local1164 < faceOverlay; local1164++) {
+                                    @Pc(1277) byte local1277;
+
                                     if (local88[-direction & 0x3] && local911[0] == local1062) {
                                         anIntArray695[0] = faceA[local1062];
                                         anIntArray695[1] = 1;
@@ -1342,8 +1343,9 @@ public class Class306 {
                                 @Pc(1766) FloorUnderlayType underlayTypeNE = this.underlayTypeList.list(underlayNE - 1);
                                 @Pc(1774) FloorUnderlayType underlayTypeSE = this.underlayTypeList.list(underlaySE - 1);
 
-                                @Pc(1277) byte local1277;
                                 for (@Pc(1425) int local1425 = 0; local1425 < faceUnderlay; local1425++) {
+                                    @Pc(1277) byte local1277;
+
                                     if (local88[-direction & 0x3] && local911[0] == local1062) {
                                         anIntArray695[0] = faceA[local1062];
                                         anIntArray695[1] = 1;

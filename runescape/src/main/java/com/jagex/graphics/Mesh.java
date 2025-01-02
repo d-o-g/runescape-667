@@ -526,7 +526,7 @@ public final class Mesh {
         this.texSpaceCount = packet1.g1();
 
         @Pc(63) int globalFlags = packet1.g1();
-        @Pc(75) boolean hasSmoothingTypes = (globalFlags & 0x1) == 1;
+        @Pc(75) boolean hasFlatShading = (globalFlags & 0x1) == 1;
         @Pc(85) boolean hasParticleEffects = (globalFlags & 0x2) == 2;
         @Pc(97) boolean hasBillboards = (globalFlags & 0x4) == 4;
         @Pc(109) boolean hasVersion = (globalFlags & 0x8) == 8;
@@ -579,7 +579,7 @@ public final class Mesh {
         ptr += this.vertexCount;
 
         @Pc(249) int smoothingPtr = ptr;
-        if (hasSmoothingTypes) {
+        if (hasFlatShading) {
             ptr += this.faceCount;
         }
 
@@ -657,7 +657,7 @@ public final class Mesh {
         this.faceColour = new short[this.faceCount];
         packet1.pos = vertexFlagsPtr;
 
-        if (hasSmoothingTypes) {
+        if (hasFlatShading) {
             this.shadingType = new byte[this.faceCount];
         }
 
@@ -768,7 +768,7 @@ public final class Mesh {
         for (@Pc(638) int i = 0; i < this.faceCount; i++) {
             this.faceColour[i] = (short) packet1.g2();
 
-            if (hasSmoothingTypes) {
+            if (hasFlatShading) {
                 this.shadingType[i] = packet2.g1b();
             }
 
@@ -1172,7 +1172,7 @@ public final class Mesh {
 
     @OriginalMember(owner = "client!dv", name = "a", descriptor = "(I[B)V")
     public void decodeOld(@OriginalArg(1) byte[] data) {
-        @Pc(5) boolean hasSmoothingTypes = false;
+        @Pc(5) boolean hasFlatShading = false;
         @Pc(7) boolean hasTextures = false;
         @Pc(12) Packet packet1 = new Packet(data);
         @Pc(17) Packet packet2 = new Packet(data);
@@ -1343,7 +1343,7 @@ public final class Mesh {
 
                 if ((type & 0x1) == 1) {
                     this.shadingType[i] = 1;
-                    hasSmoothingTypes = true;
+                    hasFlatShading = true;
                 } else {
                     this.shadingType[i] = 0;
                 }
@@ -1482,7 +1482,7 @@ public final class Mesh {
             }
         }
 
-        if (!hasSmoothingTypes) {
+        if (!hasFlatShading) {
             this.shadingType = null;
         }
 

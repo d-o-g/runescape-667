@@ -1186,7 +1186,7 @@ public final class Mesh {
         this.faceCount = packet1.g2();
         this.texSpaceCount = packet1.g1();
 
-        @Pc(57) int texFlag = packet1.g1();
+        @Pc(57) int customShadingFlag = packet1.g1();
         @Pc(61) int priorityFlag = packet1.g1();
         @Pc(65) int alphaFlag = packet1.g1();
         @Pc(69) int faceLabelFlag = packet1.g1();
@@ -1214,7 +1214,7 @@ public final class Mesh {
         }
 
         @Pc(129) int texPtr = ptr;
-        if (texFlag == 1) {
+        if (customShadingFlag == 1) {
             ptr += this.faceCount;
         }
 
@@ -1276,7 +1276,7 @@ public final class Mesh {
             this.texSpaceDefA = new short[this.texSpaceCount];
         }
 
-        if (texFlag == 1) {
+        if (customShadingFlag == 1) {
             this.shadingType = new byte[this.faceCount];
             this.faceTexture = new short[this.faceCount];
             this.faceTexSpace = new byte[this.faceCount];
@@ -1338,7 +1338,7 @@ public final class Mesh {
         for (@Pc(365) int i = 0; i < this.faceCount; i++) {
             this.faceColour[i] = (short) packet1.g2();
 
-            if (texFlag == 1) {
+            if (customShadingFlag == 1) {
                 @Pc(367) int type = packet2.g1();
 
                 if ((type & 0x1) == 1) {

@@ -1,7 +1,7 @@
 package com.jagex.js5;
 
-import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.constants.CompressionType;
+import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.io.BufferedSocket;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.SystemTimer;
@@ -195,10 +195,10 @@ public final class Js5WorkerThread {
                             this.read.pos = 0;
                             @Pc(260) int archiveId = this.read.g1();
                             @Pc(328) int groupId = this.read.g2();
-                            @Pc(333) int flags = this.read.g1();
+                            @Pc(333) int compressionTypeAndPrefetchFlag = this.read.g1();
                             @Pc(338) int compressedLength = this.read.g4();
-                            @Pc(342) int compressionType = flags & 0x7F;
-                            @Pc(354) boolean prefetch = (flags & 0x80) != 0;
+                            @Pc(342) int compressionType = compressionTypeAndPrefetchFlag & 0x7F;
+                            @Pc(354) boolean prefetch = (compressionTypeAndPrefetchFlag & 0x80) != 0;
                             @Pc(361) long key = (archiveId << 16) + groupId;
 
                             @Pc(371) Js5WorkerRequestMessage message;

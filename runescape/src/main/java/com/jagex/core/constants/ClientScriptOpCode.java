@@ -910,15 +910,27 @@ public final class ClientScriptOpCode {
 
     public static final int CHAT_SENDPRIVATE = 5009;
 
-    public static final int CHAT_PLAYERNAME = 5010;
+    public static final int CHAT_GETHISTORYNAME = 5010;
 
     public static final int CHAT_GETHISTORYCLAN = 5011;
 
-    public static final int CHAT_GETPLAYERNAME = 5015;
+    public static final int CHAT_GETHISTORYPHRASE = 5012;
+
+    public static final int CHAT_PLAYERNAME = 5015;
 
     public static final int CHAT_GETFILTER_TRADE = 5016;
 
-    public static final int CHAT_GETHISTORY_LENGTH = 5017;
+    public static final int CHAT_GETHISTORYLENGTH = 5017;
+
+    public static final int CHAT_GETHISTORYNAME_UNFILTERED = 5019;
+
+    public static final int CHAT_PLAYERNAME_UNFILTERED = 5020;
+
+    public static final int CHAT_GETNEXTUID = 5023;
+
+    public static final int CHAT_GETPREVUID = 5024;
+
+    public static final int CHAT_GETHISTORYDISPLAYNAME = 5025;
 
     public static final int CHATCAT_GETDESC = 5050;
 
@@ -938,9 +950,11 @@ public final class ClientScriptOpCode {
 
     public static final int ACTIVECHATPHRASE_PREPARE = 5058;
 
-    public static final int ACTIVECHATPHRASE_SEND = 5059;
+    public static final int ACTIVECHATPHRASE_SENDPUBLIC = 5059;
 
     public static final int ACTIVECHATPHRASE_SENDPRIVATE = 5060;
+
+    public static final int ACTIVECHATPHRASE_SENDCLAN = 5061;
 
     public static final int CHATCAT_GETSUBCATSHORTCUT = 5062;
 
@@ -954,9 +968,17 @@ public final class ClientScriptOpCode {
 
     public static final int CHATPHRASE_GETDYNAMICCOMMAND = 5067;
 
+    public static final int ACTIVECHATPHRASE_SETDYNAMICINT = 5068;
+
+    public static final int ACTIVECHATPHRASE_SETDYNAMICOBJ = 5069;
+
     public static final int CHATPHRASE_GETDYNAMICCOMMANDPARAM_ENUM = 5070;
 
+    public static final int CHATPHRASE_FIND = 5071;
+
     public static final int CHATPHRASE_FINDNEXT = 5072;
+
+    public static final int CHATPHRASE_FINDRESTART = 5073;
 
     public static final int KEYHELD_ALT = 5100;
 
@@ -1048,6 +1070,8 @@ public final class ClientScriptOpCode {
 
     public static final int OPENURL = 5400;
 
+    public static final int SETCLIENTPALETTE = 5401;
+
     public static final int SPLINE_NEW = 5405;
 
     public static final int SPLINE_ADDPOINT = 5406;
@@ -1114,15 +1138,19 @@ public final class ClientScriptOpCode {
 
     public static final int LOGIN_REQUEST = 5600;
 
+    public static final int LOGIN_CONTINUE = 5601;
+
     public static final int LOGIN_RESETREPLY = 5602;
 
     public static final int CREATE_AVAILABLEREQUEST = 5604;
 
     public static final int CREATE_CONNECTREQUEST = 5605;
 
+    public static final int LOGIN_REPLY = 5607;
+
     public static final int LOGIN_HOPTIME = 5608;
 
-    public static final int LOGIN_REPLY = 5609;
+    public static final int CREATE_REPLY = 5609;
 
     public static final int LOGIN_DISALLOWRESULT = 5611;
 
@@ -1339,6 +1367,8 @@ public final class ClientScriptOpCode {
     public static final int WORLDLIST_AUTOWORLD = 6508;
 
     public static final int WORLDLIST_PINGWORLDS = 6509;
+
+    public static final int WORLDLIST_SPECIFIC_THISWORLD = 6510;
 
     public static final int IF_DEBUG_GETOPENIFCOUNT = 6700;
 

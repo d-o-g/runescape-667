@@ -93,7 +93,7 @@ public final class IgnoreList {
                 }
             }
         }
-        if (NameTools.format(PlayerEntity.self.name).equals(local27)) {
+        if (NameTools.format(PlayerEntity.self.nameUnfiltered).equals(local27)) {
             ChatHistory.addPrivateError(LocalisedText.IGNORECANTADDSELF.localise(Client.language));
             return;
         }

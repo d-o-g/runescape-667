@@ -769,7 +769,7 @@ public final class InterfaceManager {
                             if (slot >= 0 && slot < 2048) {
                                 @Pc(2341) PlayerEntity player = PlayerList.highResolutionPlayers[slot];
 
-                                if (player != null && (slot == PlayerList.activePlayerSlot || StringTools.intHash(player.name) == child.objData)) {
+                                if (player != null && (slot == PlayerList.activePlayerSlot || StringTools.intHash(player.nameUnfiltered) == child.objData)) {
                                     model = player.playerModel.bodyModel(ObjTypeList.instance, child.animator, BASTypeList.instance, SeqTypeList.instance, 2048, null, WearposDefaults.instance, IDKTypeList.instance, Toolkit.active, NPCTypeList.instance, null, 0, null, TimedVarDomain.instance);
                                 }
                             }
@@ -987,7 +987,7 @@ public final class InterfaceManager {
             return;
         }
 
-        if (PlayerEntity.self.name == null) {
+        if (PlayerEntity.self.nameUnfiltered == null) {
             component.obj = 0;
             component.objData = 0;
             return;
@@ -998,7 +998,7 @@ public final class InterfaceManager {
 
         component.objType = 5;
         component.obj = PlayerList.activePlayerSlot;
-        component.objData = StringTools.intHash(PlayerEntity.self.name);
+        component.objData = StringTools.intHash(PlayerEntity.self.nameUnfiltered);
 
         @Pc(55) Animator animator = PlayerEntity.self.animator;
         if (animator == null) {

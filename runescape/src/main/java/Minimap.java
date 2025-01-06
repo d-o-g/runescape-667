@@ -199,7 +199,7 @@ public final class Minimap {
             @Pc(585) int playerZ = (player.z / 128) - (selfZ / 128);
             @Pc(587) boolean friend = false;
             for (@Pc(589) int j = 0; j < FriendsList.count; j++) {
-                if (player.name.equals(FriendsList.names[j]) && FriendsList.worlds[j] != 0) {
+                if (player.nameUnfiltered.equals(FriendsList.names[j]) && FriendsList.worlds[j] != 0) {
                     friend = true;
                     break;
                 }
@@ -207,7 +207,7 @@ public final class Minimap {
 
             @Pc(620) boolean chatmate = false;
             for (@Pc(622) int j = 0; j < FriendChat.count; j++) {
-                if (player.name.equals(FriendChat.users[j].usernameUnfiltered)) {
+                if (player.nameUnfiltered.equals(FriendChat.users[j].usernameUnfiltered)) {
                     chatmate = true;
                     break;
                 }

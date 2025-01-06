@@ -2012,7 +2012,7 @@ public final class ServerConnectionReader {
                         FriendChat.users[index].rank = rank;
                         FriendChat.users[index].worldName = worldName;
 
-                        if (nameUnfiltered.equals(PlayerEntity.self.name)) {
+                        if (nameUnfiltered.equals(PlayerEntity.self.nameUnfiltered)) {
                             FriendChat.rank = rank;
                         }
 
@@ -2049,7 +2049,7 @@ public final class ServerConnectionReader {
                 FriendChat.users[index + 1] = user;
                 FriendChat.count++;
 
-                if (nameUnfiltered.equals(PlayerEntity.self.name)) {
+                if (nameUnfiltered.equals(PlayerEntity.self.nameUnfiltered)) {
                     FriendChat.rank = rank;
                 }
             }
@@ -2086,12 +2086,12 @@ public final class ServerConnectionReader {
             @Pc(1409) int rank = bitPacket.g1();
             @Pc(6565) boolean quickChat = (flags & 0x8000) != 0;
 
-            if (player.name != null && player.playerModel != null) {
+            if (player.nameUnfiltered != null && player.playerModel != null) {
                 @Pc(1425) boolean blocked = false;
                 if (rank <= 1) {
                     if (!quickChat && ((UserDetail.underage && !UserDetail.parentalChatConsent) || Static617.quickChatWorld)) {
                         blocked = true;
-                    } else if (IgnoreList.contains(player.name)) {
+                    } else if (IgnoreList.contains(player.nameUnfiltered)) {
                         blocked = true;
                     }
                 }
@@ -2118,11 +2118,11 @@ public final class ServerConnectionReader {
                     }
 
                     if (rank == 2) {
-                        ChatHistory.add(type, 0, "<img=1>" + player.getDisplayName(false, true), "<img=1>" + player.getName(), player.displayName, null, quickChatId, quickChatText);
+                        ChatHistory.add(type, 0, "<img=1>" + player.getName(false, true), "<img=1>" + player.getNameUnfiltered(), player.displayName, null, quickChatId, quickChatText);
                     } else if (rank == 1) {
-                        ChatHistory.add(type, 0, "<img=0>" + player.getDisplayName(false, true), "<img=0>" + player.getName(), player.displayName, null, quickChatId, quickChatText);
+                        ChatHistory.add(type, 0, "<img=0>" + player.getName(false, true), "<img=0>" + player.getNameUnfiltered(), player.displayName, null, quickChatId, quickChatText);
                     } else {
-                        ChatHistory.add(type, 0, player.getDisplayName(false, true), player.getName(), player.displayName, null, quickChatId, quickChatText);
+                        ChatHistory.add(type, 0, player.getName(false, true), player.getNameUnfiltered(), player.displayName, null, quickChatId, quickChatText);
                     }
                 }
             }
@@ -2324,7 +2324,7 @@ public final class ServerConnectionReader {
                 users[i].rank = bitPacket.g1b();
                 users[i].worldName = bitPacket.gjstr();
 
-                if (users[i].usernameUnfiltered.equals(PlayerEntity.self.name)) {
+                if (users[i].usernameUnfiltered.equals(PlayerEntity.self.nameUnfiltered)) {
                     FriendChat.rank = users[i].rank;
                 }
             }

@@ -54,7 +54,7 @@ public final class FriendsList {
                 return true;
             }
         }
-        return name.equalsIgnoreCase(PlayerEntity.self.name);
+        return name.equalsIgnoreCase(PlayerEntity.self.nameUnfiltered);
     }
 
     @OriginalMember(owner = "client!nja", name = "a", descriptor = "(Ljava/lang/String;II)V")
@@ -109,7 +109,7 @@ public final class FriendsList {
                 }
             }
         }
-        if (NameTools.format(PlayerEntity.self.name).equals(local34)) {
+        if (NameTools.format(PlayerEntity.self.nameUnfiltered).equals(local34)) {
             ChatHistory.addPrivateError(LocalisedText.FRIENDCANTADDSELF.localise(Client.language));
             return;
         }

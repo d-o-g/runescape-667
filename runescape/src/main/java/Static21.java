@@ -1,7 +1,7 @@
 import com.jagex.Client;
 import com.jagex.Entity;
-import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.JavaScript;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Toolkit;
@@ -124,7 +124,7 @@ public final class Static21 {
     }
 
     @OriginalMember(owner = "client!am", name = "f", descriptor = "(B)Z")
-    public static boolean method8119() {
+    public static boolean showVideoAd() {
         if (Client.js) {
             try {
                 JavaScript.call("showVideoAd", GameShell.loaderApplet);

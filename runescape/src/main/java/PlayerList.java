@@ -375,9 +375,9 @@ public final class PlayerList {
 
             if (message.charAt(0) == '~') {
                 message = message.substring(1);
-                ChatHistory.add(ChatLineType.PUBLIC, 0, player.getDisplayName(false, true), player.getName(), player.displayName, message);
+                ChatHistory.add(ChatLineType.PUBLIC, 0, player.getName(false, true), player.getNameUnfiltered(), player.displayName, message);
             } else if (player == PlayerEntity.self) {
-                ChatHistory.add(ChatLineType.PUBLIC, 0, player.getDisplayName(false, true), player.getName(), player.displayName, message);
+                ChatHistory.add(ChatLineType.PUBLIC, 0, player.getName(false, true), player.getNameUnfiltered(), player.displayName, message);
             }
 
             player.setChatLine(message, 0, 0);

@@ -1143,9 +1143,9 @@ public final class MiniMenu {
             @Pc(177) String name;
             if (player.skillRating != 0) {
                 if (player.skillRating != -1) {
-                    name = player.getDisplayName(false, true) + " (" + LocalisedText.SKILL.localise(Client.language) + player.skillRating + ")";
+                    name = player.getName(false, true) + " (" + LocalisedText.SKILL.localise(Client.language) + player.skillRating + ")";
                 } else {
-                    name = player.getDisplayName(false, true);
+                    name = player.getName(false, true);
                 }
             } else {
                 @Pc(63) boolean outOfRange = true;
@@ -1162,9 +1162,9 @@ public final class MiniMenu {
 
                 @Pc(129) String prefix = ModeGame.STELLAR_DAWN == Client.modeGame ? LocalisedText.RATING.localise(Client.language) : LocalisedText.LEVEL.localise(Client.language);
                 if (player.combatLevel >= player.maxCombatLevel) {
-                    name = player.getDisplayName(false, true) + (outOfRange ? colourCode(PlayerEntity.self.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + prefix + player.combatLevel + ")";
+                    name = player.getName(false, true) + (outOfRange ? colourCode(PlayerEntity.self.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + prefix + player.combatLevel + ")";
                 } else {
-                    name = player.getDisplayName(false, true) + (outOfRange ? colourCode(PlayerEntity.self.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + prefix + player.combatLevel + "+" + (player.maxCombatLevel - player.combatLevel) + ")";
+                    name = player.getName(false, true) + (outOfRange ? colourCode(PlayerEntity.self.combatLevel, player.combatLevel) : "<col=ffffff>") + " (" + prefix + player.combatLevel + "+" + (player.maxCombatLevel - player.combatLevel) + ")";
                 }
             }
 

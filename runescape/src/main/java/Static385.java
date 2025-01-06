@@ -1,6 +1,6 @@
 import com.jagex.Client;
-import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.util.JavaScript;
+import com.jagex.game.runetek6.client.GameShell;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -63,7 +63,7 @@ public final class Static385 {
     }
 
     @OriginalMember(owner = "client!mb", name = "a", descriptor = "(B)Z")
-    public static boolean method5421() {
+    public static boolean showingVideoAd() {
         if (Client.js) {
             try {
                 if ((Boolean) JavaScript.call("showingVideoAd", GameShell.loaderApplet)) {

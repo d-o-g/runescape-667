@@ -17,7 +17,7 @@ public final class ThreeDView {
         for (@Pc(19) int i = 0; i < count; i++) {
             @Pc(26) PlayerEntity player = PlayerList.highResolutionPlayers[indices[i]];
 
-            if (player != null && PlayerEntity.self != player && player.name != null && player.name.equalsIgnoreCase(arg0)) {
+            if (player != null && PlayerEntity.self != player && player.nameUnfiltered != null && player.nameUnfiltered.equalsIgnoreCase(arg0)) {
                 @Pc(47) ClientProt prot = null;
                 if (arg1 == 1) {
                     prot = ClientProt.OPPLAYER1;
@@ -67,7 +67,7 @@ public final class ThreeDView {
         for (@Pc(28) int i = 0; i < count; i++) {
             @Pc(35) PlayerEntity player = PlayerList.highResolutionPlayers[indices[i]];
 
-            if (player.name != null && player.name.equalsIgnoreCase(arg0) && (PlayerEntity.self == player && (InterfaceManager.targetMask & TargetMask.TGT_SELF) != 0 || (InterfaceManager.targetMask & TargetMask.TGT_PLAYER) != 0)) {
+            if (player.nameUnfiltered != null && player.nameUnfiltered.equalsIgnoreCase(arg0) && (PlayerEntity.self == player && (InterfaceManager.targetMask & TargetMask.TGT_SELF) != 0 || (InterfaceManager.targetMask & TargetMask.TGT_PLAYER) != 0)) {
                 @Pc(75) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ServerConnection.GAME.isaac);
                 message.bitPacket.p2_alt1(indices[i]);
                 message.bitPacket.p4_alt1(InterfaceManager.targetSlot);

@@ -81,8 +81,11 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 
 import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECHATPHRASE_PREPARE;
-import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECHATPHRASE_SEND;
+import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECHATPHRASE_SENDCLAN;
 import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECHATPHRASE_SENDPRIVATE;
+import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECHATPHRASE_SENDPUBLIC;
+import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECHATPHRASE_SETDYNAMICINT;
+import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECHATPHRASE_SETDYNAMICOBJ;
 import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECLANCHANNEL_FIND_AFFINED;
 import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECLANCHANNEL_FIND_LISTENED;
 import static com.jagex.core.constants.ClientScriptOpCode.ACTIVECLANCHANNEL_GETCLANNAME;
@@ -312,7 +315,9 @@ import static com.jagex.core.constants.ClientScriptOpCode.CHATCAT_GETPHRASESHORT
 import static com.jagex.core.constants.ClientScriptOpCode.CHATCAT_GETSUBCAT;
 import static com.jagex.core.constants.ClientScriptOpCode.CHATCAT_GETSUBCATCOUNT;
 import static com.jagex.core.constants.ClientScriptOpCode.CHATCAT_GETSUBCATSHORTCUT;
+import static com.jagex.core.constants.ClientScriptOpCode.CHATPHRASE_FIND;
 import static com.jagex.core.constants.ClientScriptOpCode.CHATPHRASE_FINDNEXT;
+import static com.jagex.core.constants.ClientScriptOpCode.CHATPHRASE_FINDRESTART;
 import static com.jagex.core.constants.ClientScriptOpCode.CHATPHRASE_GETAUTORESPONSE;
 import static com.jagex.core.constants.ClientScriptOpCode.CHATPHRASE_GETAUTORESPONSECOUNT;
 import static com.jagex.core.constants.ClientScriptOpCode.CHATPHRASE_GETDYNAMICCOMMAND;
@@ -323,11 +328,17 @@ import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETFILTER_PRIVATE
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETFILTER_PUBLIC;
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETFILTER_TRADE;
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORYCLAN;
+import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORYDISPLAYNAME;
+import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORYLENGTH;
+import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORYNAME;
+import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORYNAME_UNFILTERED;
+import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORYPHRASE;
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORY_BYTYPEANDLINE;
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORY_BYUID;
-import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETHISTORY_LENGTH;
-import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETPLAYERNAME;
+import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETNEXTUID;
+import static com.jagex.core.constants.ClientScriptOpCode.CHAT_GETPREVUID;
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_PLAYERNAME;
+import static com.jagex.core.constants.ClientScriptOpCode.CHAT_PLAYERNAME_UNFILTERED;
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_SENDABUSEREPORT;
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_SENDPRIVATE;
 import static com.jagex.core.constants.ClientScriptOpCode.CHAT_SENDPUBLIC;
@@ -359,6 +370,7 @@ import static com.jagex.core.constants.ClientScriptOpCode.COORDY;
 import static com.jagex.core.constants.ClientScriptOpCode.COORDZ;
 import static com.jagex.core.constants.ClientScriptOpCode.CREATE_AVAILABLEREQUEST;
 import static com.jagex.core.constants.ClientScriptOpCode.CREATE_CONNECTREQUEST;
+import static com.jagex.core.constants.ClientScriptOpCode.CREATE_REPLY;
 import static com.jagex.core.constants.ClientScriptOpCode.CREATE_SETUNDER13;
 import static com.jagex.core.constants.ClientScriptOpCode.CREATE_UNDER13;
 import static com.jagex.core.constants.ClientScriptOpCode.DATE_ISLEAPYEAR;
@@ -608,6 +620,7 @@ import static com.jagex.core.constants.ClientScriptOpCode.LOBBY_ENTERLOBBYREPLY;
 import static com.jagex.core.constants.ClientScriptOpCode.LOBBY_ENTERLOBBY_SOCIAL_NETWORK;
 import static com.jagex.core.constants.ClientScriptOpCode.LOBBY_LEAVELOBBY;
 import static com.jagex.core.constants.ClientScriptOpCode.LOGIN_CANCEL;
+import static com.jagex.core.constants.ClientScriptOpCode.LOGIN_CONTINUE;
 import static com.jagex.core.constants.ClientScriptOpCode.LOGIN_DISALLOWETRIGGER;
 import static com.jagex.core.constants.ClientScriptOpCode.LOGIN_DISALLOWRESULT;
 import static com.jagex.core.constants.ClientScriptOpCode.LOGIN_HOPTIME;
@@ -714,6 +727,7 @@ import static com.jagex.core.constants.ClientScriptOpCode.RUNENERGY_VISIBLE;
 import static com.jagex.core.constants.ClientScriptOpCode.RUNWEIGHT_VISIBLE;
 import static com.jagex.core.constants.ClientScriptOpCode.SCALE;
 import static com.jagex.core.constants.ClientScriptOpCode.SETBIT;
+import static com.jagex.core.constants.ClientScriptOpCode.SETCLIENTPALETTE;
 import static com.jagex.core.constants.ClientScriptOpCode.SETDEFAULTCURSORS;
 import static com.jagex.core.constants.ClientScriptOpCode.SETDEFAULTWINDOWMODE;
 import static com.jagex.core.constants.ClientScriptOpCode.SETGENDER;
@@ -794,6 +808,7 @@ import static com.jagex.core.constants.ClientScriptOpCode.WORLDLIST_NEXT;
 import static com.jagex.core.constants.ClientScriptOpCode.WORLDLIST_PINGWORLDS;
 import static com.jagex.core.constants.ClientScriptOpCode.WORLDLIST_SORT;
 import static com.jagex.core.constants.ClientScriptOpCode.WORLDLIST_SPECIFIC;
+import static com.jagex.core.constants.ClientScriptOpCode.WORLDLIST_SPECIFIC_THISWORLD;
 import static com.jagex.core.constants.ClientScriptOpCode.WORLDLIST_START;
 import static com.jagex.core.constants.ClientScriptOpCode.WORLDLIST_SWITCH;
 import static com.jagex.core.constants.ClientScriptOpCode.WORLDMAP_CLOSEMAP;
@@ -3503,7 +3518,7 @@ public final class ScriptRunner {
             if (op == CLAN_ISSELF) {
                 @Pc(15) int index = intStack[--intStackPointer];
 
-                if (FriendChat.users != null && index < FriendChat.count && FriendChat.users[index].usernameUnfiltered.equalsIgnoreCase(PlayerEntity.self.name)) {
+                if (FriendChat.users != null && index < FriendChat.count && FriendChat.users[index].usernameUnfiltered.equalsIgnoreCase(PlayerEntity.self.nameUnfiltered)) {
                     intStack[intStackPointer++] = 1;
                     return;
                 }
@@ -5130,7 +5145,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == CHAT_PLAYERNAME) {
+            if (opcode == CHAT_GETHISTORYNAME) {
                 @Pc(192) int index = intStack[--intStackPointer];
                 @Pc(196) ChatLine line = ChatHistory.getLine(index);
                 @Pc(198) String name = "";
@@ -5152,7 +5167,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5012) {
+            if (opcode == CHAT_GETHISTORYPHRASE) {
                 @Pc(192) int index = intStack[--intStackPointer];
                 @Pc(196) ChatLine line = ChatHistory.getLine(index);
                 @Pc(109) int quickChatId = -1;
@@ -5163,12 +5178,12 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == CHAT_GETPLAYERNAME) {
+            if (opcode == CHAT_PLAYERNAME) {
                 @Pc(95) String name;
                 if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
                     name = "";
                 } else {
-                    name = PlayerEntity.self.getDisplayName(false, true);
+                    name = PlayerEntity.self.getName(false, true);
                 }
                 stringStack[stringStackPointer++] = name;
                 return;
@@ -5179,7 +5194,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == CHAT_GETHISTORY_LENGTH) {
+            if (opcode == CHAT_GETHISTORYLENGTH) {
                 intStack[intStackPointer++] = ChatHistory.length();
                 return;
             }
@@ -5195,7 +5210,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5019) {
+            if (opcode == CHAT_GETHISTORYNAME_UNFILTERED) {
                 @Pc(192) int index = intStack[--intStackPointer];
                 @Pc(196) ChatLine line = ChatHistory.getLine(index);
                 @Pc(198) String name = "";
@@ -5206,18 +5221,18 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5020) {
+            if (opcode == CHAT_PLAYERNAME_UNFILTERED) {
                 @Pc(95) String name;
                 if (PlayerEntity.self == null || PlayerEntity.self.displayName == null) {
                     name = "";
                 } else {
-                    name = PlayerEntity.self.getName();
+                    name = PlayerEntity.self.getNameUnfiltered();
                 }
                 stringStack[stringStackPointer++] = name;
                 return;
             }
 
-            if (opcode == 5023) {
+            if (opcode == CHAT_GETNEXTUID) {
                 @Pc(192) int index = intStack[--intStackPointer];
                 @Pc(196) ChatLine line = ChatHistory.getLine(index);
                 @Pc(109) int uid = -1;
@@ -5228,7 +5243,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5024) {
+            if (opcode == CHAT_GETPREVUID) {
                 @Pc(192) int index = intStack[--intStackPointer];
                 @Pc(196) ChatLine line = ChatHistory.getLine(index);
                 @Pc(109) int clock = -1;
@@ -5239,7 +5254,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5025) {
+            if (opcode == CHAT_GETHISTORYDISPLAYNAME) {
                 @Pc(192) int index = intStack[--intStackPointer];
                 @Pc(196) ChatLine line = ChatHistory.getLine(index);
                 @Pc(198) String name = "";
@@ -5329,7 +5344,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == ACTIVECHATPHRASE_SEND) { // TODO: same as op5061 but second byte is 0
+            if (opcode == ACTIVECHATPHRASE_SENDPUBLIC) { // TODO: same as op5061 but second byte is 0
                 @Pc(57) ServerConnection connection = ConnectionManager.active();
                 @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.isaac);
                 message.bitPacket.p1(0);
@@ -5356,7 +5371,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5061) { // TODO: same as op5059 but second byte is 1
+            if (opcode == ACTIVECHATPHRASE_SENDCLAN) {
                 @Pc(57) ServerConnection connection = ConnectionManager.active();
                 @Pc(63) ClientMessage message = ClientMessage.create(ClientProt.MESSAGE_QUICKCHAT_PUBLIC, connection.isaac);
                 message.bitPacket.p1(0);
@@ -5424,7 +5439,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5068) {
+            if (opcode == ACTIVECHATPHRASE_SETDYNAMICINT) {
                 intStackPointer -= 2;
                 @Pc(192) int id = intStack[intStackPointer];
                 @Pc(834) int value = intStack[intStackPointer + 1];
@@ -5432,7 +5447,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5069) {
+            if (opcode == ACTIVECHATPHRASE_SETDYNAMICOBJ) {
                 intStackPointer -= 2;
                 @Pc(192) int id = intStack[intStackPointer];
                 @Pc(834) int value = intStack[intStackPointer + 1];
@@ -5453,7 +5468,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5071) {
+            if (opcode == CHATPHRASE_FIND) {
                 @Pc(95) String local95 = stringStack[--stringStackPointer];
                 @Pc(1578) boolean local1578 = intStack[--intStackPointer] == 1;
                 Static494.method6599(local95, local1578);
@@ -5470,7 +5485,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5073) {
+            if (opcode == CHATPHRASE_FINDRESTART) {
                 ObjFinder.pointer = 0;
                 return;
             }
@@ -5956,7 +5971,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5401) {
+            if (opcode == SETCLIENTPALETTE) {
                 intStackPointer -= 2;
                 Client.clientpalette[intStack[intStackPointer]] = (short) ColourUtils.rgbToHsl(intStack[intStackPointer + 1]);
                 ObjTypeList.instance.modelCacheReset();
@@ -6360,7 +6375,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5601) {
+            if (opcode == LOGIN_CONTINUE) {
                 LoginManager.videoAdvertisementFinished();
                 return;
             }
@@ -6404,7 +6419,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 5607) {
+            if (opcode == LOGIN_REPLY) {
                 intStack[intStackPointer++] = LoginManager.gameLoginResponse;
                 return;
             }
@@ -6414,7 +6429,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == LOGIN_REPLY) {
+            if (opcode == CREATE_REPLY) {
                 intStack[intStackPointer++] = LobbyManager.response;
                 return;
             }
@@ -7149,11 +7164,11 @@ public final class ScriptRunner {
             }
         } else if (opcode < 6500) {
             if (opcode == 6405) {
-                intStack[intStackPointer++] = Static21.method8119() ? 1 : 0;
+                intStack[intStackPointer++] = Static21.showVideoAd() ? 1 : 0;
                 return;
             }
             if (opcode == 6406) {
-                intStack[intStackPointer++] = Static385.method5421() ? 1 : 0;
+                intStack[intStackPointer++] = Static385.showingVideoAd() ? 1 : 0;
                 return;
             }
         } else if (opcode < 6600) {
@@ -7287,7 +7302,7 @@ public final class ScriptRunner {
                 return;
             }
 
-            if (opcode == 6510) {
+            if (opcode == WORLDLIST_SPECIFIC_THISWORLD) {
                 intStack[intStackPointer++] = Client.worldFlags;
                 return;
             }

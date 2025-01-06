@@ -1,16 +1,16 @@
 import com.jagex.Client;
 import com.jagex.Entity;
-import com.jagex.PickableEntity;
-import com.jagex.core.util.Arrays;
-import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ParticleList;
+import com.jagex.PickableEntity;
 import com.jagex.core.constants.ModeWhere;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
+import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.PlayerModel;
+import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
@@ -162,7 +162,7 @@ public final class PlayerEntity extends PathingEntity {
     public PlayerModel playerModel;
 
     @OriginalMember(owner = "client!ca", name = "xd", descriptor = "Ljava/lang/String;")
-    public String name;
+    public String nameUnfiltered;
 
     @OriginalMember(owner = "client!ca", name = "bd", descriptor = "I")
     public int moveX;
@@ -293,7 +293,7 @@ public final class PlayerEntity extends PathingEntity {
     @Override
     public BoundingCylinder getCylinder(@OriginalArg(0) Toolkit toolkit, @OriginalArg(1) int arg1) {
         if (arg1 > -93) {
-            this.getDisplayName(true, true);
+            this.getName(true, true);
         }
         return null;
     }
@@ -646,7 +646,7 @@ public final class PlayerEntity extends PathingEntity {
         if (self == this) {
             Client.playerDisplayName = this.displayName;
         }
-        this.name = this.displayName;
+        this.nameUnfiltered = this.displayName;
         this.combatLevel = packet.g1();
 
         if (skillArea) {
@@ -806,12 +806,12 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ZI)Ljava/lang/String;")
-    public String getName() {
-        return this.name;
+    public String getNameUnfiltered() {
+        return this.nameUnfiltered;
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(ZZ)Ljava/lang/String;")
-    public String getDisplayName(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean useDisplayName) {
+    public String getName(@OriginalArg(0) boolean arg0, @OriginalArg(1) boolean useDisplayName) {
         @Pc(5) String name = "";
         if (Static685.prefixTitles != null) {
             name = name + Static685.prefixTitles[this.titleEnum];
@@ -842,7 +842,7 @@ public final class PlayerEntity extends PathingEntity {
         if (useDisplayName) {
             name += this.displayName;
         } else {
-            name += this.name;
+            name += this.nameUnfiltered;
         }
 
         if (Static377.suffixTitles != null) {
@@ -862,7 +862,7 @@ public final class PlayerEntity extends PathingEntity {
             if (super.line.text == null) {
                 return null;
             }
-            if (Static133.publicChatFilter == 0 || Static133.publicChatFilter == 3 || Static133.publicChatFilter == 1 && FriendsList.contains(arg0 + 3109, this.name)) {
+            if (Static133.publicChatFilter == 0 || Static133.publicChatFilter == 3 || Static133.publicChatFilter == 1 && FriendsList.contains(arg0 + 3109, this.nameUnfiltered)) {
                 return super.line;
             }
         }

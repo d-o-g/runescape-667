@@ -602,7 +602,7 @@ public class Packet extends Node {
     }
 
     @OriginalMember(owner = "client!ge", name = "a", descriptor = "(I[III)V")
-    public final void tinyenc(@OriginalArg(1) int[] key, @OriginalArg(2) int end) {
+    public final void tinydec(@OriginalArg(1) int[] key, @OriginalArg(2) int end) {
         @Pc(6) int oldPos = this.pos;
         this.pos = 5;
         @Pc(16) int blocks = (end - 5) / 8;

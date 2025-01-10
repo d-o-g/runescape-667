@@ -401,7 +401,7 @@ public final class js5 {
             } else {
                 unpacked = ByteArrayWrapper.unwrap(true, this.packed[groupId]);
                 @Pc(152) Packet packet = new Packet(unpacked);
-                packet.tinyenc(key, packet.data.length);
+                packet.tinydec(key, packet.data.length);
             }
 
             @Pc(164) byte[] data;

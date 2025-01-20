@@ -95,7 +95,7 @@ public final class Static684 {
                     }
 
                     if (inBounds) {
-                        NPCList.localNpcIndices[NPCList.localNpcCount++] = npc.id;
+                        NPCList.localNpcSlots[NPCList.localNpcCount++] = npc.slot;
                     } else {
                         npc.setupNewNPCType(null);
                         removed = true;

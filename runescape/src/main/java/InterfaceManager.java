@@ -766,6 +766,7 @@ public final class InterfaceManager {
                             }
                         } else if (child.objType == Component.OBJ_TYPE_PLAYERMODEL) {
                             @Pc(1255) int slot = child.obj;
+
                             if (slot >= 0 && slot < 2048) {
                                 @Pc(2341) PlayerEntity player = PlayerList.highResolutionPlayers[slot];
 
@@ -983,7 +984,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!qi", name = "a", descriptor = "(ZLclient!hda;)V")
     public static void drawSpinningPlayer(@OriginalArg(1) Component component) {
-        if (ComponentClientCode.SPINNING_PLAYER != component.clientcode) {
+        if (component.clientcode != ComponentClientCode.SPINNING_PLAYER) {
             return;
         }
 
@@ -996,7 +997,7 @@ public final class InterfaceManager {
         component.xan2d = 150;
         component.yan2d = (int) (Math.sin((double) TimeUtils.clock / 40.0D) * 256.0D) & 0x7FF;
 
-        component.objType = 5;
+        component.objType = Component.OBJ_TYPE_PLAYERMODEL;
         component.obj = PlayerList.activePlayerSlot;
         component.objData = StringTools.intHash(PlayerEntity.self.nameUnfiltered);
 
@@ -1170,7 +1171,7 @@ public final class InterfaceManager {
     public static void method3833() {
         dragChildren = null;
         if (OrthoMode.toolkitActive && getWindowMode() != 1) {
-            Static294.method4339(0, MainLogicManager.step == 3 || MainLogicManager.step == 7, OrthoMode.method7779(), Static58.method1260(), 0);
+            Static294.method4339(0, MainLogicManager.step == 3 || MainLogicManager.step == 7, OrthoMode.method7779(), OrthoMode.method1260(), 0);
         }
 
         @Pc(46) int x1 = 0;

@@ -22,22 +22,22 @@ public final class NPCList {
     public static final IterableHashTable local = new IterableHashTable(64);
 
     @OriginalMember(owner = "client!dm", name = "d", descriptor = "[I")
-    public static final int[] pendingRemoval = new int[1000];
+    public static final int[] removalSlots = new int[1000];
 
     @OriginalMember(owner = "client!dda", name = "c", descriptor = "[I")
-    public static final int[] localNpcIndices = new int[1024];
+    public static final int[] localNpcSlots = new int[1024];
 
     @OriginalMember(owner = "client!sla", name = "b", descriptor = "[Lclient!qfa;")
     public static final NPCEntityNode[] localNpcs = new NPCEntityNode[1024];
 
     @OriginalMember(owner = "client!oi", name = "q", descriptor = "[I")
-    public static final int[] pendingBlockUpdate = new int[250];
+    public static final int[] extendedInfoSlots = new int[250];
 
     @OriginalMember(owner = "client!cj", name = "k", descriptor = "I")
     public static int removedCount = 0;
 
     @OriginalMember(owner = "client!cma", name = "M", descriptor = "I")
-    public static int blockUpdateCount = 0;
+    public static int extendedInfoCount = 0;
 
     @OriginalMember(owner = "client!s", name = "o", descriptor = "I")
     public static int clock = 0;
@@ -51,33 +51,33 @@ public final class NPCList {
     @OriginalMember(owner = "client!kt", name = "c", descriptor = "(I)V")
     public static void updateNpcs() {
         removedCount = 0;
-        blockUpdateCount = 0;
+        extendedInfoCount = 0;
         clock++;
 
         iterateNpcs();
         processNewNpcs();
         processExtendedInfo();
 
-        @Pc(23) boolean local23 = false;
+        @Pc(23) boolean removed = false;
         for (@Pc(25) int i = 0; i < removedCount; i++) {
-            @Pc(33) int index = pendingRemoval[i];
-            @Pc(40) NPCEntityNode node = (NPCEntityNode) local.get(index);
+            @Pc(33) int slot = removalSlots[i];
+            @Pc(40) NPCEntityNode node = (NPCEntityNode) local.get(slot);
 
             @Pc(43) NPCEntity npc = node.npc;
             if (npc.cutsceneClock != clock) {
-                if (MiniMenu.open && MiniMenu.hasNpcOp(index)) {
+                if (MiniMenu.open && MiniMenu.hasNpcOp(slot)) {
                     MiniMenu.close();
                 }
                 if (npc.type.hasSounds()) {
-                    Static58.method1259(npc);
+                    SoundManager.removeSounds(npc);
                 }
                 npc.setupNewNPCType(null);
                 node.unlink();
-                local23 = true;
+                removed = true;
             }
         }
 
-        if (local23) {
+        if (removed) {
             newNpcCount = local.size();
             local.copyTo(localNpcs);
         }
@@ -87,7 +87,7 @@ public final class NPCList {
         }
 
         for (@Pc(33) int i = 0; i < localNpcCount; i++) {
-            if (local.get(localNpcIndices[i]) == null) {
+            if (local.get(localNpcSlots[i]) == null) {
                 throw new RuntimeException("gnp2 pos:" + i + " size:" + localNpcCount);
             }
         }
@@ -98,7 +98,7 @@ public final class NPCList {
 
         for (@Pc(214) int i = 0; i < newNpcCount; i++) {
             if (localNpcs[i].npc.cutsceneClock != clock) {
-                throw new RuntimeException("gnp4 uk:" + localNpcs[i].npc.id);
+                throw new RuntimeException("gnp4 uk:" + localNpcs[i].npc.slot);
             }
         }
     }
@@ -109,9 +109,9 @@ public final class NPCList {
         bitPacket.enterBitMode();
 
         @Pc(16) int count = bitPacket.gbit(8);
-        if (localNpcCount > count) {
+        if (count < localNpcCount) {
             for (@Pc(21) int i = count; i < localNpcCount; i++) {
-                pendingRemoval[removedCount++] = localNpcIndices[i];
+                removalSlots[removedCount++] = localNpcSlots[i];
             }
         }
 
@@ -122,33 +122,33 @@ public final class NPCList {
         localNpcCount = 0;
 
         for (@Pc(21) int i = 0; i < count; i++) {
-            @Pc(73) int index = localNpcIndices[i];
-            @Pc(81) NPCEntity npc = ((NPCEntityNode) local.get(index)).npc;
+            @Pc(73) int slot = localNpcSlots[i];
+            @Pc(81) NPCEntity npc = ((NPCEntityNode) local.get(slot)).npc;
 
             @Pc(86) int updateRequired = bitPacket.gbit(1);
             if (updateRequired == 0) {
-                localNpcIndices[localNpcCount++] = index;
+                localNpcSlots[localNpcCount++] = slot;
                 npc.cutsceneClock = clock;
             } else {
                 @Pc(108) int update = bitPacket.gbit(2);
 
                 if (update == UPDATE_READY) {
-                    localNpcIndices[localNpcCount++] = index;
+                    localNpcSlots[localNpcCount++] = slot;
                     npc.cutsceneClock = clock;
-                    pendingBlockUpdate[blockUpdateCount++] = index;
+                    extendedInfoSlots[extendedInfoCount++] = slot;
                 } else if (update == UPDATE_WALK) {
-                    localNpcIndices[localNpcCount++] = index;
+                    localNpcSlots[localNpcCount++] = slot;
                     npc.cutsceneClock = clock;
 
                     @Pc(156) int direction = bitPacket.gbit(3);
                     npc.move(MoveSpeed.WALK, direction);
 
-                    @Pc(166) int blockUpdateRequired = bitPacket.gbit(1);
-                    if (blockUpdateRequired == 1) {
-                        pendingBlockUpdate[blockUpdateCount++] = index;
+                    @Pc(166) int extendedInfo = bitPacket.gbit(1);
+                    if (extendedInfo == 1) {
+                        extendedInfoSlots[extendedInfoCount++] = slot;
                     }
                 } else if (update == UPDATE_RUN_OR_CRAWL) {
-                    localNpcIndices[localNpcCount++] = index;
+                    localNpcSlots[localNpcCount++] = slot;
                     npc.cutsceneClock = clock;
 
                     if (bitPacket.gbit(1) == 1) {
@@ -162,12 +162,12 @@ public final class NPCList {
                         npc.move(MoveSpeed.CRAWL, direction);
                     }
 
-                    @Pc(156) int blockUpdateRequired = bitPacket.gbit(1);
-                    if (blockUpdateRequired == 1) {
-                        pendingBlockUpdate[blockUpdateCount++] = index;
+                    @Pc(156) int extendedInfo = bitPacket.gbit(1);
+                    if (extendedInfo == 1) {
+                        extendedInfoSlots[extendedInfoCount++] = slot;
                     }
                 } else if (update == UPDATE_REMOVE) {
-                    pendingRemoval[removedCount++] = index;
+                    removalSlots[removedCount++] = slot;
                 }
             }
         }
@@ -178,37 +178,37 @@ public final class NPCList {
         @Pc(8) BitPacket bitPacket = ServerConnection.GAME.bitPacket;
 
         while (bitPacket.bitsRemaining(ServerConnection.GAME.currentPacketSize) >= 15) {
-            @Pc(22) int id = bitPacket.gbit(15);
-            if (id == 32767) {
+            @Pc(22) int slot = bitPacket.gbit(15);
+            if (slot == 32767) {
                 break;
             }
 
             @Pc(29) boolean turn = false;
-            @Pc(36) NPCEntityNode node = (NPCEntityNode) local.get(id);
+            @Pc(36) NPCEntityNode node = (NPCEntityNode) local.get(slot);
             @Pc(42) NPCEntity npc;
 
             if (node == null) {
                 npc = new NPCEntity();
-                npc.id = id;
+                npc.slot = slot;
                 node = new NPCEntityNode(npc);
-                local.put(id, node);
+                local.put(slot, node);
                 localNpcs[newNpcCount++] = node;
                 turn = true;
             }
 
             npc = node.npc;
-            localNpcIndices[localNpcCount++] = id;
+            localNpcSlots[localNpcCount++] = slot;
             npc.cutsceneClock = clock;
 
             if (npc.type != null && npc.type.hasSounds()) {
-                Static58.method1259(npc);
+                SoundManager.removeSounds(npc);
             }
 
             @Pc(108) int yaw = ((bitPacket.gbit(3) + 4) << 11) & 0x3A6E;
 
-            @Pc(113) int blockUpdateRequired = bitPacket.gbit(1);
-            if (blockUpdateRequired == 1) {
-                pendingBlockUpdate[blockUpdateCount++] = id;
+            @Pc(113) int extendedInfo = bitPacket.gbit(1);
+            if (extendedInfo == 1) {
+                extendedInfoSlots[extendedInfoCount++] = slot;
             }
 
             @Pc(131) int deltaX = bitPacket.gbit(5);
@@ -236,7 +236,7 @@ public final class NPCList {
             npc.clearPath(clearPath == 1, deltaX + PlayerEntity.self.pathZ[0], deltaZ + PlayerEntity.self.pathX[0], level, npc.getSize());
 
             if (npc.type.hasSounds()) {
-                Static89.method1714(npc.level, null, npc.pathX[0], npc.pathZ[0], npc, null, 0);
+                SoundManager.addSounds(npc.level, npc.pathX[0], npc.pathZ[0], null, npc, null, 0);
             }
         }
 
@@ -247,9 +247,9 @@ public final class NPCList {
     public static void processExtendedInfo() {
         @Pc(15) BitPacket bitPacket = ServerConnection.GAME.bitPacket;
 
-        for (@Pc(17) int i = 0; i < blockUpdateCount; i++) {
-            @Pc(23) int index = pendingBlockUpdate[i];
-            @Pc(31) NPCEntity npc = ((NPCEntityNode) local.get(index)).npc;
+        for (@Pc(17) int i = 0; i < extendedInfoCount; i++) {
+            @Pc(23) int slot = extendedInfoSlots[i];
+            @Pc(31) NPCEntity npc = ((NPCEntityNode) local.get(slot)).npc;
 
             @Pc(35) int flags = bitPacket.g1();
             if ((flags & 0x80) != 0) {
@@ -351,7 +351,7 @@ public final class NPCList {
 
             if ((flags & NpcExtendedInfoFlag.SET_TYPE) != 0) {
                 if (npc.type.hasSounds()) {
-                    Static58.method1259(npc);
+                    SoundManager.removeSounds(npc);
                 }
 
                 npc.setupNewNPCType(NPCTypeList.instance.list(bitPacket.ig2()));
@@ -359,7 +359,7 @@ public final class NPCList {
                 npc.yawSpeed = npc.type.yawSpeed << 3;
 
                 if (npc.type.hasSounds()) {
-                    Static89.method1714(npc.level, null, npc.pathX[0], npc.pathZ[0], npc, null, 0);
+                    SoundManager.addSounds(npc.level, npc.pathX[0], npc.pathZ[0], null, npc, null, 0);
                 }
             }
 
@@ -439,7 +439,7 @@ public final class NPCList {
                         }
                     }
 
-                    @Pc(708) long id = (long) npc.customiseHeadCount++ << 32 | (long) index;
+                    @Pc(708) long id = (long) npc.customiseHeadCount++ << 32 | (long) slot;
                     new NPCTypeCustomisation(id, remodel_d, recol_d, retex_d);
                 }
             }
@@ -516,7 +516,7 @@ public final class NPCList {
                         }
                     }
 
-                    @Pc(708) long id = (long) index | (long) npc.customiseCount++ << 32;
+                    @Pc(708) long id = (long) slot | (long) npc.customiseCount++ << 32;
                     npc.customisation = new NPCTypeCustomisation(id, remodel_d, recol_d, retex_d);
                 }
             }

@@ -1,3 +1,4 @@
+import com.jagex.EntityMoveFlag;
 import com.jagex.Static14;
 import com.jagex.game.Animator;
 import com.jagex.game.MoveSpeed;
@@ -9,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class Static651 {
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "(IIIILclient!cg;)V")
-    public static void basTick(@OriginalArg(0) int moveSpeed, @OriginalArg(1) int deltaYaw, @OriginalArg(2) int motionFlags, @OriginalArg(4) PathingEntity entity) {
+    public static void basTick(@OriginalArg(0) int moveSpeed, @OriginalArg(1) int deltaYaw, @OriginalArg(2) int moveFlags, @OriginalArg(4) PathingEntity entity) {
         @Pc(9) BASType basType = entity.getBASType();
         @Pc(19) Animator animator = entity.animator;
         @Pc(29) int turnRemaining = entity.yawTarget - entity.yaw.value & 0x3FFF;
@@ -33,7 +34,7 @@ public final class Static651 {
                 }
             }
         } else if (entity.target != -1 && (turnRemaining >= 10240 || turnRemaining <= 2048)) {
-            @Pc(172) int delta = Static464.anIntArray561[motionFlags] - entity.yaw.value & 0x3FFF;
+            @Pc(172) int delta = EntityMoveFlag.FLAG_TO_YAW[moveFlags] - entity.yaw.value & 0x3FFF;
 
             if (moveSpeed == MoveSpeed.RUN && basType.run != -1) {
                 if (delta > 2048 && delta <= 6144 && basType.runFollowTurnCw != -1) {

@@ -70,7 +70,7 @@ public final class Actor {
             if (this.npcId >= 0) {
                 this.npc = new NPCEntity(25);
                 this.npc.cutsceneClock = TimeUtils.clock;
-                this.npc.id = this.id;
+                this.npc.slot = this.id;
                 this.npc.setupNewNPCType(NPCTypeList.instance.list(this.npcId));
                 this.npc.setSize(this.npc.type.size);
                 this.npc.yawSpeed = this.npc.type.yawSpeed << 3;
@@ -80,7 +80,7 @@ public final class Actor {
                 this.player.decodeAppearance(CutsceneManager.packet);
                 this.player.cutsceneClock = TimeUtils.clock;
                 this.player.drawPriority = Static457.anInt6933++;
-                this.player.id = this.id;
+                this.player.slot = this.id;
             }
         }
 

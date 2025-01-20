@@ -162,7 +162,7 @@ public final class Minimap {
         }
 
         for (@Pc(211) int i = 0; i < NPCList.localNpcCount; i++) {
-            @Pc(427) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[i]);
+            @Pc(427) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(NPCList.localNpcSlots[i]);
             if (node == null) {
                 continue;
             }
@@ -188,7 +188,7 @@ public final class Minimap {
         }
 
         @Pc(222) int playerCount = PlayerList.highResolutionPlayerCount;
-        @Pc(531) int[] playerIndices = PlayerList.highResolutionPlayerIndices;
+        @Pc(531) int[] playerIndices = PlayerList.highResolutionPlayerSlots;
         for (@Pc(381) int i = 0; i < playerCount; i++) {
             @Pc(541) PlayerEntity player = PlayerList.highResolutionPlayers[playerIndices[i]];
             if (player == null || !player.hasModel() || player.hideOnMap || PlayerEntity.self == player || player.level != PlayerEntity.self.level) {

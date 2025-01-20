@@ -387,7 +387,7 @@ public final class MiniMenu {
                             local286 = local610.x - (local610.getSize() - 1 << 8);
                             local295 = local610.z - (local610.getSize() - 1 << 8);
                             for (local306 = 0; local306 < NPCList.localNpcCount; local306++) {
-                                @Pc(690) NPCEntityNode local690 = (NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local306]);
+                                @Pc(690) NPCEntityNode local690 = (NPCEntityNode) NPCList.local.get(NPCList.localNpcSlots[local306]);
                                 if (local690 != null) {
                                     @Pc(695) NPCEntity local695 = local690.npc;
                                     if (TimeUtils.clock != local695.anInt10743 && local695.visible) {
@@ -401,7 +401,7 @@ public final class MiniMenu {
                                 }
                             }
                             local317 = PlayerList.highResolutionPlayerCount;
-                            @Pc(820) int[] local820 = PlayerList.highResolutionPlayerIndices;
+                            @Pc(820) int[] local820 = PlayerList.highResolutionPlayerSlots;
                             for (local723 = 0; local723 < local317; local723++) {
                                 @Pc(830) PlayerEntity local830 = PlayerList.highResolutionPlayers[local820[local723]];
                                 if (local830 != null && local830.anInt10743 != TimeUtils.clock && local830 != local610 && local830.visible) {
@@ -427,7 +427,7 @@ public final class MiniMenu {
                                 local614 = local988.x - (local988.type.size - 1 << 8);
                                 local286 = local988.z - (local988.type.size - 1 << 8);
                                 for (local295 = 0; local295 < NPCList.localNpcCount; local295++) {
-                                    @Pc(1081) NPCEntityNode local1081 = (NPCEntityNode) NPCList.local.get(NPCList.localNpcIndices[local295]);
+                                    @Pc(1081) NPCEntityNode local1081 = (NPCEntityNode) NPCList.local.get(NPCList.localNpcSlots[local295]);
                                     if (local1081 != null) {
                                         @Pc(1086) NPCEntity local1086 = local1081.npc;
                                         if (local1086.anInt10743 != TimeUtils.clock && local1086 != local988 && local1086.visible) {
@@ -441,7 +441,7 @@ public final class MiniMenu {
                                     }
                                 }
                                 local306 = PlayerList.highResolutionPlayerCount;
-                                @Pc(1216) int[] local1216 = PlayerList.highResolutionPlayerIndices;
+                                @Pc(1216) int[] local1216 = PlayerList.highResolutionPlayerSlots;
                                 for (local370 = 0; local370 < local306; local370++) {
                                     @Pc(1226) PlayerEntity local1226 = PlayerList.highResolutionPlayers[local1216[local370]];
                                     if (local1226 != null && local1226.anInt10743 != TimeUtils.clock && local1226.visible) {
@@ -773,7 +773,7 @@ public final class MiniMenu {
             @Pc(113) ParamType param = InterfaceManager.targetParam != -1 ? ParamTypeList.instance.list(InterfaceManager.targetParam) : null;
 
             if ((InterfaceManager.targetMask & TargetMask.TGT_NPC) != 0 && (param == null || type.param(InterfaceManager.targetParam, param.defaultint) != param.defaultint)) {
-                addEntryInner(false, -1, npc.id, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_NPC, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + npcName, npc.id, false);
+                addEntryInner(false, -1, npc.slot, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_NPC, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffff00>" + npcName, npc.slot, false);
             }
         }
 
@@ -820,7 +820,7 @@ public final class MiniMenu {
                     cursor = type.cursor2;
                 }
 
-                addEntryInner(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
+                addEntryInner(false, -1, npc.slot, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.slot, false);
             }
         }
 
@@ -864,7 +864,7 @@ public final class MiniMenu {
                         cursor = type.cursor2;
                     }
 
-                    addEntryInner(false, -1, npc.id, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.id, false);
+                    addEntryInner(false, -1, npc.slot, 0, 0, ops[op], action, true, ops[op].equalsIgnoreCase(LocalisedText.ATTACK.localise(Client.language)) ? type.attackCursor : cursor, "<col=ffff00>" + npcName, npc.slot, false);
                 }
             }
         }
@@ -1137,7 +1137,7 @@ public final class MiniMenu {
 
         if (player == PlayerEntity.self) {
             if (InterfaceManager.targetMode && (InterfaceManager.targetMask & TargetMask.TGT_SELF) != 0) {
-                addEntryInner(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Client.language), player.id, false);
+                addEntryInner(false, -1, 0L, 0, 0, InterfaceManager.targetVerb, 4, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + LocalisedText.SELF.localise(Client.language), player.slot, false);
             }
         } else {
             @Pc(177) String name;
@@ -1169,11 +1169,11 @@ public final class MiniMenu {
             }
 
             if (InterfaceManager.targetMode && !diffentLevel && (InterfaceManager.targetMask & 0x8) != 0) {
-                addEntryInner(false, -1, player.id, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_PLAYER, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + name, player.id, false);
+                addEntryInner(false, -1, player.slot, 0, 0, InterfaceManager.targetVerb, MiniMenuAction.TGT_PLAYER, true, InterfaceManager.targetEnterCursor, InterfaceManager.targetedVerb + " -> <col=ffffff>" + name, player.slot, false);
             }
 
             if (diffentLevel) {
-                addEntryInner(true, 0, 0L, 0, 0, "<col=cccccc>" + name, -1, false, -1, "", player.id, false);
+                addEntryInner(true, 0, 0L, 0, 0, "<col=cccccc>" + name, -1, false, -1, "", player.slot, false);
             } else {
                 for (@Pc(318) int op = 7; op >= 0; op--) {
                     if (playerOps[op] != null) {
@@ -1198,7 +1198,7 @@ public final class MiniMenu {
 
                         @Pc(403) short action = (short) (offset + MiniMenuAction.PLAYER_OPS[op]);
                         @Pc(416) int cursor = playerOpCursors[op] != -1 ? playerOpCursors[op] : Cursor.interaction;
-                        addEntryInner(false, -1, player.id, 0, 0, playerOps[op], action, true, cursor, "<col=ffffff>" + name, player.id, false);
+                        addEntryInner(false, -1, player.slot, 0, 0, playerOps[op], action, true, cursor, "<col=ffffff>" + name, player.slot, false);
                     }
                 }
             }
@@ -1257,7 +1257,7 @@ public final class MiniMenu {
             Static676.crossX = clickX;
 
             @Pc(147) ClientMessage message = ClientMessage.create(ClientProt.OPPLAYERT, ServerConnection.GAME.isaac);
-            message.bitPacket.p2_alt1(PlayerEntity.self.id);
+            message.bitPacket.p2_alt1(PlayerEntity.self.slot);
             message.bitPacket.p4_alt1(InterfaceManager.targetSlot);
             message.bitPacket.p2(InterfaceManager.targetInvObj);
             message.bitPacket.p1_alt3(KeyboardMonitor.instance.isPressed(SimpleKeyboardMonitor.KEY_CODE_CONTROL) ? 1 : 0);
@@ -1611,9 +1611,9 @@ public final class MiniMenu {
     }
 
     @OriginalMember(owner = "client!kca", name = "a", descriptor = "(II)Z")
-    public static boolean hasNpcOp(@OriginalArg(0) int index) {
+    public static boolean hasNpcOp(@OriginalArg(0) int slot) {
         for (@Pc(8) MiniMenuEntryInner entry = (MiniMenuEntryInner) innerEntryQueue.first(); entry != null; entry = (MiniMenuEntryInner) innerEntryQueue.next()) {
-            if (MiniMenuAction.isNpcOp(entry.action) && entry.v1 == (long) index) {
+            if (MiniMenuAction.isNpcOp(entry.action) && entry.v1 == (long) slot) {
                 return true;
             }
         }

@@ -1,7 +1,9 @@
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.game.runetek6.config.loctype.LocType;
+import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
+import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.js5.js5;
 import com.jagex.sound.MixBuss;
 import com.jagex.sound.Node_Sub6_Sub3;
@@ -369,6 +371,99 @@ public final class SoundManager {
     public static void playVorbisSoundArea(@OriginalArg(7) int id, @OriginalArg(0) int loops, @OriginalArg(1) int delay, @OriginalArg(6) int volume, @OriginalArg(5) int rate, @OriginalArg(2) int coord) {
         if (ClientOptions.instance.soundVolume.getValue() != 0 && loops != 0 && count < 50 && id != -1) {
             sounds[count++] = new Sound((byte) SoundType.VORBIS, id, loops, delay, volume, rate, coord, null);
+        }
+    }
+
+    @OriginalMember(owner = "client!bu", name = "a", descriptor = "(ILclient!wj;)V")
+    public static void removeSounds(@OriginalArg(1) NPCEntity npc) {
+        for (@Pc(17) PositionedSound sound = (PositionedSound) npcSounds.first(); sound != null; sound = (PositionedSound) npcSounds.next()) {
+            if (sound.npc == npc) {
+                if (sound.stream != null) {
+                    activeStreams.remove(sound.stream);
+                    sound.stream = null;
+                }
+                sound.unlink();
+                return;
+            }
+        }
+    }
+
+    @OriginalMember(owner = "client!cp", name = "a", descriptor = "(ILclient!ca;IILclient!wj;Lclient!c;BI)V")
+    public static void addSounds(@OriginalArg(0) int level, @OriginalArg(2) int x, @OriginalArg(3) int z, @OriginalArg(1) PlayerEntity player, @OriginalArg(4) NPCEntity npc, @OriginalArg(5) LocType locType, @OriginalArg(7) int rotation) {
+        @Pc(7) PositionedSound sound = new PositionedSound();
+        sound.level = level;
+        sound.x1 = x << 9;
+        sound.z1 = z << 9;
+
+        if (locType != null) {
+            sound.locType = locType;
+
+            @Pc(173) int width = locType.width;
+            @Pc(176) int length = locType.length;
+            if (rotation == 1 || rotation == 3) {
+                length = locType.width;
+                width = locType.length;
+            }
+
+            sound.volume = locType.soundVolume;
+            sound.rangeMax = locType.soundRange << 9;
+            sound.id = locType.sound;
+            sound.delayMax = locType.soundDelayMax;
+            sound.z2 = z + length << 9;
+            sound.rateMax = locType.soundRateMax;
+            sound.vorbis = locType.vorbis;
+            sound.random = locType.randomsound;
+            sound.minRange = locType.soundSize << 9;
+            sound.delayMin = locType.soundDelayMin;
+            sound.rateMin = locType.soundRateMin;
+            sound.randomIds = locType.randomSoundIds;
+            sound.x2 = x + width << 9;
+
+            if (locType.multiloc != null) {
+                sound.multi = true;
+                sound.update();
+            }
+
+            if (sound.randomIds != null) {
+                sound.randomDelay = (int) ((double) (sound.delayMax - sound.delayMin) * Math.random()) + sound.delayMin;
+            }
+
+            locSounds.addLast(sound);
+        } else if (npc != null) {
+            sound.npc = npc;
+
+            @Pc(37) NPCType type = npc.type;
+            if (type.multinpcs != null) {
+                sound.multi = true;
+                type = type.getMultiNPC(TimedVarDomain.instance);
+            }
+
+            if (type != null) {
+                sound.x2 = (x + type.size) << 9;
+                sound.z2 = (z + type.size) << 9;
+                sound.id = NPCEntity.currentSound(npc);
+                sound.minRange = type.soundRangeMin << 9;
+                sound.volume = type.soundVolume;
+                sound.rateMin = type.soundRateMin;
+                sound.vorbis = type.vorbis;
+                sound.rangeMax = type.soundRangeMax << 9;
+                sound.rateMax = type.soundRateMax;
+            }
+
+            npcSounds.addLast(sound);
+        } else if (player != null) {
+            sound.player = player;
+            sound.x2 = (x + player.getSize()) << 9;
+            sound.z2 = (z + player.getSize()) << 9;
+            sound.id = PlayerEntity.currentSound(player);
+            sound.rangeMax = player.soundRange << 9;
+            sound.rateMax = 256;
+            sound.rateMin = 256;
+            sound.volume = player.soundVolume;
+            sound.minRange = 0;
+            sound.vorbis = player.vorbis;
+
+            playerSounds.put(player.slot, sound);
         }
     }
 }

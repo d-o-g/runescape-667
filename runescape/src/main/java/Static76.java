@@ -9,7 +9,7 @@ public final class Static76 {
 
     @OriginalMember(owner = "client!cha", name = "a", descriptor = "(BLclient!ca;)V")
     public static void method1552(@OriginalArg(1) PlayerEntity arg0) {
-        @Pc(19) PositionedSound local19 = (PositionedSound) SoundManager.playerSounds.get(arg0.id);
+        @Pc(19) PositionedSound local19 = (PositionedSound) SoundManager.playerSounds.get(arg0.slot);
         if (local19 == null) {
             return;
         }

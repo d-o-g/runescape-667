@@ -17,12 +17,12 @@ public final class Static147 {
         if (local16 < 0 || local16 >= Static720.mapWidth || local21 < 0 || Static501.mapLength <= local21) {
             return false;
         } else if (arg4 >= 0 && Static720.mapWidth > arg4 && arg1 >= 0 && arg1 < Static501.mapLength) {
-            @Pc(98) int local98 = PathFinder.findPath(Client.collisionMaps[PlayerEntity.self.level], Static480.anIntArray583, Static70.anIntArray147, local16, local21, PlayerEntity.self.getSize(), arg4, arg1, arg7, arg2, arg6, arg0, arg5, arg3);
+            @Pc(98) int local98 = PathFinder.findPath(Client.collisionMaps[PlayerEntity.self.level], PlayerEntity.runZ, PlayerEntity.runX, local16, local21, PlayerEntity.self.getSize(), arg4, arg1, arg7, arg2, arg6, arg0, arg5, arg3);
             if (local98 < 1) {
                 return false;
             }
-            Minimap.flagX = Static70.anIntArray147[local98 - 1];
-            Minimap.flagY = Static480.anIntArray583[local98 - 1];
+            Minimap.flagX = PlayerEntity.runX[local98 - 1];
+            Minimap.flagY = PlayerEntity.runZ[local98 - 1];
             Minimap.flagSet = false;
             DelayedStateChange.resetMapFlag();
             return true;

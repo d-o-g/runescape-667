@@ -1,6 +1,4 @@
-import com.jagex.Client;
 import com.jagex.core.io.Packet;
-import com.jagex.game.PathFinder;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -76,21 +74,6 @@ public final class Static360 {
             Static178.aClass247_1 = Static403.aClass247_4;
         }
         return true;
-    }
-
-    @OriginalMember(owner = "client!lg", name = "a", descriptor = "(Lclient!ca;IZBI)V")
-    public static void method5232(@OriginalArg(0) PlayerEntity arg0, @OriginalArg(1) int arg1, @OriginalArg(4) int arg2) {
-        @Pc(10) int local10 = arg0.pathX[0];
-        @Pc(15) int local15 = arg0.pathZ[0];
-        if (local10 < 0 || local10 >= Static720.mapWidth || local15 < 0 || Static501.mapLength <= local15 || (arg1 < 0 || arg1 >= Static720.mapWidth || arg2 < 0 || Static501.mapLength <= arg2)) {
-            return;
-        }
-        @Pc(76) int local76 = PathFinder.findPath(Client.collisionMaps[arg0.level], Static480.anIntArray583, Static70.anIntArray147, local10, local15, arg0.getSize(), arg1, arg2, 0, 0, -4, 0, 0, true);
-        if (local76 >= 1 && local76 <= 3) {
-            for (@Pc(92) int local92 = 0; local92 < local76 - 1; local92++) {
-                arg0.method1418(Static480.anIntArray583[local92], Static70.anIntArray147[local92], (byte) 2);
-            }
-        }
     }
 
 }

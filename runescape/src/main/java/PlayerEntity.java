@@ -3,12 +3,15 @@ import com.jagex.Entity;
 import com.jagex.ParticleList;
 import com.jagex.PickableEntity;
 import com.jagex.core.constants.ModeWhere;
+import com.jagex.core.constants.PathDestination;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.JagException;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
+import com.jagex.game.MoveSpeed;
+import com.jagex.game.PathFinder;
 import com.jagex.game.PlayerModel;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.game.runetek6.config.bastype.BASType;
@@ -41,6 +44,12 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ca")
 public final class PlayerEntity extends PathingEntity {
+
+    @OriginalMember(owner = "client!ce", name = "h", descriptor = "[I")
+    public static final int[] runX = new int[50];
+
+    @OriginalMember(owner = "client!pca", name = "b", descriptor = "[I")
+    public static final int[] runZ = new int[50];
 
     private static final int APPEARANCE_FLAG_GENDER = 0x1;
 
@@ -117,15 +126,15 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!kf", name = "a", descriptor = "(ILclient!ca;)I")
-    public static int sound(@OriginalArg(1) PlayerEntity entity) {
+    public static int currentSound(@OriginalArg(1) PlayerEntity entity) {
         @Pc(6) int sound = entity.walkSound;
         @Pc(10) BASType basType = entity.getBASType();
         @Pc(15) int animationId = entity.animator.getAnimationId();
         if (animationId == -1 || entity.ready) {
             sound = entity.readySound;
-        } else if (basType.run == animationId || animationId == basType.runFollowTurn180 || basType.runFollowTurnCw == animationId || basType.runFollowTurnCcw == animationId) {
+        } else if (animationId == basType.run || animationId == basType.runFollowTurn180 || animationId == basType.runFollowTurnCw || animationId == basType.runFollowTurnCcw) {
             sound = entity.runSound;
-        } else if (basType.crawl == animationId || basType.crawlFollowTurn180 == animationId || basType.crawlFollowTurnCw == animationId || basType.crawlFollowTurnCcw == animationId) {
+        } else if (animationId == basType.crawl || animationId == basType.crawlFollowTurn180 || animationId == basType.crawlFollowTurnCw || animationId == basType.crawlFollowTurnCcw) {
             sound = entity.crawlSound;
         }
         return sound;
@@ -150,6 +159,39 @@ public final class PlayerEntity extends PathingEntity {
     @OriginalMember(owner = "client!sga", name = "b", descriptor = "(Z)V")
     public static void cacheReset() {
         modelCache.reset();
+    }
+
+    @OriginalMember(owner = "client!lg", name = "a", descriptor = "(Lclient!ca;IZBI)V")
+    public static void findRunPath(@OriginalArg(0) PlayerEntity entity, @OriginalArg(1) int x, @OriginalArg(4) int z) {
+        @Pc(10) int pathX = entity.pathX[0];
+        @Pc(15) int pathZ = entity.pathZ[0];
+
+        if (pathX < 0 || pathX >= Static720.mapWidth || pathZ < 0 || Static501.mapLength <= pathZ || (x < 0 || x >= Static720.mapWidth || z < 0 || Static501.mapLength <= z)) {
+            return;
+        }
+
+        @Pc(76) int path = PathFinder.findPath(
+                Client.collisionMaps[entity.level],
+                runZ,
+                runX,
+                pathX,
+                pathZ,
+                entity.getSize(),
+                x,
+                z,
+                0,
+                0,
+                PathDestination.ON,
+                0,
+                0,
+                true
+        );
+
+        if (path >= 1 && path <= 3) {
+            for (@Pc(92) int i = 0; i < path - 1; i++) {
+                entity.run(runX[i], runZ[i], (byte) MoveSpeed.RUN);
+            }
+        }
     }
 
     @OriginalMember(owner = "client!rj", name = "c", descriptor = "Lclient!ca;")
@@ -377,21 +419,20 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "a", descriptor = "(IIIB)V")
-    public void method1418(@OriginalArg(1) int arg0, @OriginalArg(2) int arg1, @OriginalArg(3) byte arg2) {
+    public void run(@OriginalArg(2) int x, @OriginalArg(1) int z, @OriginalArg(3) byte speed) {
         if (super.pathPointer < super.pathX.length - 1) {
             super.pathPointer++;
         }
-        for (@Pc(24) int local24 = super.pathPointer; local24 > 0; local24--) {
-            super.pathX[local24] = super.pathX[local24 - 1];
-            super.pathZ[local24] = super.pathZ[local24 - 1];
-            super.pathSpeed[local24] = super.pathSpeed[local24 - 1];
+
+        for (@Pc(24) int i = super.pathPointer; i > 0; i--) {
+            super.pathX[i] = super.pathX[i - 1];
+            super.pathZ[i] = super.pathZ[i - 1];
+            super.pathSpeed[i] = super.pathSpeed[i - 1];
         }
-        super.pathX[0] = arg1;
-        super.pathSpeed[0] = arg2;
-        if (-24527 != -24527) {
-            this.method9304((byte) -13);
-        }
-        super.pathZ[0] = arg0;
+
+        super.pathX[0] = x;
+        super.pathZ[0] = z;
+        super.pathSpeed[0] = speed;
     }
 
     @OriginalMember(owner = "client!ca", name = "g", descriptor = "(B)I")
@@ -408,15 +449,15 @@ public final class PlayerEntity extends PathingEntity {
     public void teleport(@OriginalArg(0) int x, @OriginalArg(2) int z) {
         super.pathPointer = 0;
         super.pathX[0] = x;
+        super.pathZ[0] = z;
         super.delayedWalkingTicks = 0;
         super.animationPathPointer = 0;
-        super.pathZ[0] = z;
 
         @Pc(26) int size = this.getSize();
         super.x = (super.pathX[0] * 512) + (size * 256);
         super.z = (super.pathZ[0] * 512) + (size * 256);
 
-        if (self == this) {
+        if (this == self) {
             InterfaceManager.loginOpened();
         }
 
@@ -702,7 +743,7 @@ public final class PlayerEntity extends PathingEntity {
             super.z = (super.pathZ[0] << 9) + (this.getSize() << 8);
         }
 
-        if (PlayerList.activePlayerSlot == super.id && clientpaletteBefore != null) {
+        if (PlayerList.activePlayerSlot == super.slot && clientpaletteBefore != null) {
             for (@Pc(490) int i = 0; i < clientpalette.length; i++) {
                 if (clientpalette[i] != clientpaletteBefore[i]) {
                     ObjTypeList.instance.spriteCacheReset();
@@ -870,33 +911,35 @@ public final class PlayerEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!ca", name = "b", descriptor = "(IIIB)V")
-    public void move(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(3) byte arg2) {
+    public void move(@OriginalArg(1) int x, @OriginalArg(0) int z, @OriginalArg(3) byte speed) {
         if (super.actionAnimator.isAnimating() && super.actionAnimator.getAnimation().walkingPrecedence == 1) {
             super.actionAnimations = null;
             super.actionAnimator.update(true, -1);
         }
-        for (@Pc(33) int local33 = 0; local33 < super.spotAnims.length; local33++) {
-            if (super.spotAnims[local33].id != -1) {
-                @Pc(56) SpotAnimationType local56 = SpotAnimationTypeList.instance.list(super.spotAnims[local33].id);
-                if (local56.loopSeq && local56.seq != -1 && SeqTypeList.instance.list(local56.seq).walkingPrecedence == 1) {
-                    super.spotAnims[local33].animator.update(true, -1);
-                    super.spotAnims[local33].id = -1;
+
+        for (@Pc(33) int i = 0; i < super.spotAnims.length; i++) {
+            if (super.spotAnims[i].id != -1) {
+                @Pc(56) SpotAnimationType type = SpotAnimationTypeList.instance.list(super.spotAnims[i].id);
+
+                if (type.loopSeq && type.seq != -1 && SeqTypeList.instance.list(type.seq).walkingPrecedence == 1) {
+                    super.spotAnims[i].animator.update(true, -1);
+                    super.spotAnims[i].id = -1;
                 }
             }
         }
-        if (-9380 != -9380) {
-            this.getSize();
-        }
+
         this.turnAngle = -1;
-        if (arg1 < 0 || Static720.mapWidth <= arg1 || arg0 < 0 || Static501.mapLength <= arg0) {
-            this.teleport(arg1, arg0);
+
+        if (x < 0 || Static720.mapWidth <= x || z < 0 || Static501.mapLength <= z) {
+            this.teleport(x, z);
         } else if (super.pathX[0] >= 0 && super.pathX[0] < Static720.mapWidth && super.pathZ[0] >= 0 && Static501.mapLength > super.pathZ[0]) {
-            if (arg2 == 2) {
-                Static360.method5232(this, arg1, arg0);
+            if (speed == MoveSpeed.RUN) {
+                findRunPath(this, x, z);
             }
-            this.method1418(arg0, arg1, arg2);
+
+            this.run(x, z, speed);
         } else {
-            this.teleport(arg1, arg0);
+            this.teleport(x, z);
         }
     }
 }

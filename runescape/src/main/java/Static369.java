@@ -52,11 +52,11 @@ public final class Static369 {
                     @Pc(149) NPCEntityNode local149 = (NPCEntityNode) NPCList.local.get(local88);
                     if (local149 == null && (local142.movementCapabilities & 0x1) > 0 && local98 == Static164.areaLevel && local121 >= 0 && local142.size + local121 < Static720.mapWidth && local135 >= 0 && local135 + local142.size < Static501.mapLength) {
                         @Pc(197) NPCEntity local197 = new NPCEntity();
-                        local197.id = local88;
+                        local197.slot = local88;
                         @Pc(205) NPCEntityNode local205 = new NPCEntityNode(local197);
                         NPCList.local.put(local88, local205);
                         NPCList.localNpcs[NPCList.newNpcCount++] = local205;
-                        NPCList.localNpcIndices[NPCList.localNpcCount++] = local88;
+                        NPCList.localNpcSlots[NPCList.localNpcCount++] = local88;
                         local197.cutsceneClock = TimeUtils.clock;
                         local197.setupNewNPCType(local142);
                         local197.setSize(local197.type.size);

@@ -26,13 +26,13 @@ public final class PlayerList {
     public static final byte[] updateHistory = new byte[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!gia", name = "o", descriptor = "[I")
-    public static final int[] highResolutionPlayerIndices = new int[MAX_PLAYER_COUNT];
+    public static final int[] highResolutionPlayerSlots = new int[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!mt", name = "N", descriptor = "[I")
-    public static final int[] lowResolutionPlayerIndices = new int[MAX_PLAYER_COUNT];
+    public static final int[] lowResolutionPlayerSlots = new int[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!kca", name = "O", descriptor = "[I")
-    public static final int[] extendedInfoIndices = new int[MAX_PLAYER_COUNT];
+    public static final int[] extendedInfoSlots = new int[MAX_PLAYER_COUNT];
 
     @OriginalMember(owner = "client!hl", name = "d", descriptor = "[Lclient!tea;")
     public static final SnapShotPlayer[] lowResolutionPlayers = new SnapShotPlayer[MAX_PLAYER_COUNT];
@@ -53,11 +53,11 @@ public final class PlayerList {
     public static int lowResolutionPlayerCount = 0;
 
     @OriginalMember(owner = "client!uka", name = "y", descriptor = "I")
-    public static int extendedInfoUpdateCount = 0;
+    public static int extendedInfoCount = 0;
 
     @OriginalMember(owner = "client!jp", name = "a", descriptor = "(BLclient!rka;I)V")
     public static void iteratePlayers(@OriginalArg(1) BitPacket bitPacket, @OriginalArg(2) int size) {
-        extendedInfoUpdateCount = 0;
+        extendedInfoCount = 0;
         debug = false;
 
         processInfo(bitPacket);
@@ -77,20 +77,20 @@ public final class PlayerList {
         bitPacket.enterBitMode();
         @Pc(10) int stationary = 0;
         for (@Pc(12) int i = 0; i < highResolutionPlayerCount; i++) {
-            @Pc(20) int id = highResolutionPlayerIndices[i];
+            @Pc(20) int slot = highResolutionPlayerSlots[i];
 
-            if ((updateHistory[id] & SKIPPED_LAST_CYCLE) == 0) {
+            if ((updateHistory[slot] & SKIPPED_LAST_CYCLE) == 0) {
                 if (stationary > 0) {
-                    updateHistory[id] |= SKIPPED_THIS_CYCLE;
+                    updateHistory[slot] |= SKIPPED_THIS_CYCLE;
                     stationary--;
                 } else {
                     @Pc(52) int change = bitPacket.gbit(1);
 
                     if (change == 0) {
                         stationary = readStationary(bitPacket);
-                        updateHistory[id] |= SKIPPED_THIS_CYCLE;
+                        updateHistory[slot] |= SKIPPED_THIS_CYCLE;
                     } else {
-                        getHighResolutionPlayerPosition(id, bitPacket);
+                        getHighResolutionPlayerPosition(slot, bitPacket);
                     }
                 }
             }
@@ -103,20 +103,20 @@ public final class PlayerList {
 
         bitPacket.enterBitMode();
         for (@Pc(20) int i = 0; i < highResolutionPlayerCount; i++) {
-            @Pc(52) int id = highResolutionPlayerIndices[i];
+            @Pc(52) int slot = highResolutionPlayerSlots[i];
 
-            if ((updateHistory[id] & SKIPPED_LAST_CYCLE) != 0) {
+            if ((updateHistory[slot] & SKIPPED_LAST_CYCLE) != 0) {
                 if (stationary > 0) {
                     stationary--;
-                    updateHistory[id] |= SKIPPED_THIS_CYCLE;
+                    updateHistory[slot] |= SKIPPED_THIS_CYCLE;
                 } else {
                     @Pc(144) int change = bitPacket.gbit(1);
 
                     if (change == 0) {
                         stationary = readStationary(bitPacket);
-                        updateHistory[id] |= SKIPPED_THIS_CYCLE;
+                        updateHistory[slot] |= SKIPPED_THIS_CYCLE;
                     } else {
-                        getHighResolutionPlayerPosition(id, bitPacket);
+                        getHighResolutionPlayerPosition(slot, bitPacket);
                     }
                 }
             }
@@ -129,20 +129,20 @@ public final class PlayerList {
 
         bitPacket.enterBitMode();
         for (@Pc(52) int i = 0; i < lowResolutionPlayerCount; i++) {
-            @Pc(144) int id = lowResolutionPlayerIndices[i];
+            @Pc(144) int slot = lowResolutionPlayerSlots[i];
 
-            if ((updateHistory[id] & 0x1) != 0) {
+            if ((updateHistory[slot] & SKIPPED_LAST_CYCLE) != 0) {
                 if (stationary > 0) {
-                    updateHistory[id] |= SKIPPED_THIS_CYCLE;
+                    updateHistory[slot] |= SKIPPED_THIS_CYCLE;
                     stationary--;
                 } else {
                     @Pc(243) int change = bitPacket.gbit(1);
 
                     if (change == 0) {
                         stationary = readStationary(bitPacket);
-                        updateHistory[id] |= SKIPPED_THIS_CYCLE;
-                    } else if (getLowResolutionPlayerPosition(id, bitPacket)) {
-                        updateHistory[id] |= SKIPPED_THIS_CYCLE;
+                        updateHistory[slot] |= SKIPPED_THIS_CYCLE;
+                    } else if (getLowResolutionPlayerPosition(slot, bitPacket)) {
+                        updateHistory[slot] |= SKIPPED_THIS_CYCLE;
                     }
                 }
             }
@@ -155,20 +155,20 @@ public final class PlayerList {
 
         bitPacket.enterBitMode();
         for (@Pc(144) int i = 0; i < lowResolutionPlayerCount; i++) {
-            @Pc(243) int id = lowResolutionPlayerIndices[i];
+            @Pc(243) int slot = lowResolutionPlayerSlots[i];
 
-            if ((updateHistory[id] & SKIPPED_LAST_CYCLE) == 0) {
+            if ((updateHistory[slot] & SKIPPED_LAST_CYCLE) == 0) {
                 if (stationary > 0) {
                     stationary--;
-                    updateHistory[id] |= SKIPPED_THIS_CYCLE;
+                    updateHistory[slot] |= SKIPPED_THIS_CYCLE;
                 } else {
                     @Pc(351) int change = bitPacket.gbit(1);
 
                     if (change == 0) {
                         stationary = readStationary(bitPacket);
-                        updateHistory[id] |= SKIPPED_THIS_CYCLE;
-                    } else if (getLowResolutionPlayerPosition(id, bitPacket)) {
-                        updateHistory[id] |= SKIPPED_THIS_CYCLE;
+                        updateHistory[slot] |= SKIPPED_THIS_CYCLE;
+                    } else if (getLowResolutionPlayerPosition(slot, bitPacket)) {
+                        updateHistory[slot] |= SKIPPED_THIS_CYCLE;
                     }
                 }
             }
@@ -187,17 +187,17 @@ public final class PlayerList {
 
             @Pc(433) PlayerEntity player = highResolutionPlayers[i];
             if (player == null) {
-                lowResolutionPlayerIndices[lowResolutionPlayerCount++] = i;
+                lowResolutionPlayerSlots[lowResolutionPlayerCount++] = i;
             } else {
-                highResolutionPlayerIndices[highResolutionPlayerCount++] = i;
+                highResolutionPlayerSlots[highResolutionPlayerCount++] = i;
             }
         }
     }
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(Lclient!rka;B)V")
     public static void processExtendedInfo(@OriginalArg(0) BitPacket bitPacket) {
-        for (@Pc(10) int i = 0; i < extendedInfoUpdateCount; i++) {
-            @Pc(18) int index = extendedInfoIndices[i];
+        for (@Pc(10) int i = 0; i < extendedInfoCount; i++) {
+            @Pc(18) int index = extendedInfoSlots[i];
             @Pc(22) PlayerEntity player = highResolutionPlayers[index];
 
             @Pc(26) int flags = bitPacket.g1();
@@ -471,7 +471,7 @@ public final class PlayerList {
         }
 
         if (player.moved) {
-            if (tempSpeed == MoveSpeed.TELEPORT) {
+            if (tempSpeed == MoveSpeed.INSTANT) {
                 player.teleport(player.moveX, player.moveZ);
             } else {
                 @Pc(985) byte speed;
@@ -481,28 +481,28 @@ public final class PlayerList {
                     speed = pathSpeeds[index];
                 }
 
-                Static702.updateActionAnimator(player, speed);
-                player.move(player.moveZ, player.moveX, speed);
+                PathingEntity.updateActionAnimator(player, speed);
+                player.move(player.moveX, player.moveZ, speed);
             }
         }
     }
 
     @OriginalMember(owner = "client!tf", name = "a", descriptor = "(ILclient!rka;I)V")
-    public static void getHighResolutionPlayerPosition(@OriginalArg(0) int id, @OriginalArg(1) BitPacket bitPacket) {
+    public static void getHighResolutionPlayerPosition(@OriginalArg(0) int slot, @OriginalArg(1) BitPacket bitPacket) {
         @Pc(16) boolean updateRequired = bitPacket.gbit(1) == 1;
         if (updateRequired) {
-            extendedInfoIndices[extendedInfoUpdateCount++] = id;
+            extendedInfoSlots[extendedInfoCount++] = slot;
         }
 
         @Pc(33) int type = bitPacket.gbit(2);
-        @Pc(37) PlayerEntity player = highResolutionPlayers[id];
+        @Pc(37) PlayerEntity player = highResolutionPlayers[slot];
         if (type == 0) {
             if (updateRequired) {
                 player.moved = false;
-            } else if (activePlayerSlot == id) {
+            } else if (slot == activePlayerSlot) {
                 throw new RuntimeException("s:lr");
             } else {
-                @Pc(70) SnapShotPlayer snapShot = lowResolutionPlayers[id] = new SnapShotPlayer();
+                @Pc(70) SnapShotPlayer snapShot = lowResolutionPlayers[slot] = new SnapShotPlayer();
                 snapShot.coord = (player.level << 28) + ((WorldMap.areaBaseX + player.pathX[0] >> 6 << 14) + (WorldMap.areaBaseZ + player.pathZ[0] >> 6));
                 if (player.turnAngle == -1) {
                     snapShot.direction = player.yaw.getValue(16383);
@@ -516,10 +516,10 @@ public final class PlayerList {
                     Static76.method1552(player);
                 }
 
-                highResolutionPlayers[id] = null;
+                highResolutionPlayers[slot] = null;
 
                 if (bitPacket.gbit(1) != 0) {
-                    getLowResolutionPlayerPosition(id, bitPacket);
+                    getLowResolutionPlayerPosition(slot, bitPacket);
                 }
             }
         } else if (type == 1) {
@@ -554,7 +554,7 @@ public final class PlayerList {
                 player.moveX = x;
                 player.moved = true;
             } else {
-                player.move(z, x, pathSpeeds[id]);
+                player.move(x, z, pathSpeeds[slot]);
             }
         } else if (type == 2) {
             @Pc(165) int direction = bitPacket.gbit(4);
@@ -612,7 +612,7 @@ public final class PlayerList {
                 player.moveZ = z;
                 player.moved = true;
             } else {
-                player.move(z, x, pathSpeeds[id]);
+                player.move(x, z, pathSpeeds[slot]);
             }
         } else {
             @Pc(165) int farTravel = bitPacket.gbit(1);
@@ -639,7 +639,7 @@ public final class PlayerList {
                     player.moved = true;
                     player.moveZ = z;
                 } else {
-                    player.move(z, x, pathSpeeds[id]);
+                    player.move(x, z, pathSpeeds[slot]);
                 }
 
                 player.level = player.virtualLevel = (byte) ((player.level + deltaLevel) & 0x3);
@@ -648,7 +648,7 @@ public final class PlayerList {
                     player.virtualLevel++;
                 }
 
-                if (activePlayerSlot == id) {
+                if (activePlayerSlot == slot) {
                     if (player.level != Camera.renderingLevel) {
                         Static75.hasOpaqueStationaryEntities = true;
                     }
@@ -669,7 +669,7 @@ public final class PlayerList {
                     player.moveZ = z;
                     player.moveX = x;
                 } else {
-                    player.move(z, x, pathSpeeds[id]);
+                    player.move(x, z, pathSpeeds[slot]);
                 }
 
                 player.level = player.virtualLevel = (byte) ((deltaLevel + player.level) & 0x3);
@@ -678,7 +678,7 @@ public final class PlayerList {
                     player.virtualLevel++;
                 }
 
-                if (activePlayerSlot == id) {
+                if (activePlayerSlot == slot) {
                     Camera.renderingLevel = player.level;
                 }
             }
@@ -686,30 +686,30 @@ public final class PlayerList {
     }
 
     @OriginalMember(owner = "client!ma", name = "a", descriptor = "(ILclient!rka;I)Z")
-    public static boolean getLowResolutionPlayerPosition(@OriginalArg(0) int id, @OriginalArg(1) BitPacket bitPacket) {
+    public static boolean getLowResolutionPlayerPosition(@OriginalArg(0) int slot, @OriginalArg(1) BitPacket bitPacket) {
         @Pc(18) int type = bitPacket.gbit(2);
 
         if (type == 0) {
             if (bitPacket.gbit(1) != 0) {
-                getLowResolutionPlayerPosition(id, bitPacket);
+                getLowResolutionPlayerPosition(slot, bitPacket);
             }
 
             @Pc(45) int deltaX = bitPacket.gbit(6);
             @Pc(127) int deltaY = bitPacket.gbit(6);
             @Pc(63) boolean updateRequired = bitPacket.gbit(1) == 1;
             if (updateRequired) {
-                extendedInfoIndices[extendedInfoUpdateCount++] = id;
+                extendedInfoSlots[extendedInfoCount++] = slot;
             }
 
-            if (highResolutionPlayers[id] != null) {
+            if (highResolutionPlayers[slot] != null) {
                 throw new RuntimeException("hr:lr");
             }
 
-            @Pc(91) SnapShotPlayer snapshot = lowResolutionPlayers[id];
-            @Pc(99) PlayerEntity player = highResolutionPlayers[id] = new PlayerEntity();
-            player.id = id;
-            if (appearances[id] != null) {
-                player.decodeAppearance(appearances[id]);
+            @Pc(91) SnapShotPlayer snapshot = lowResolutionPlayers[slot];
+            @Pc(99) PlayerEntity player = highResolutionPlayers[slot] = new PlayerEntity();
+            player.slot = slot;
+            if (appearances[slot] != null) {
+                player.decodeAppearance(appearances[slot]);
             }
 
             player.turn(snapshot.direction, true);
@@ -724,7 +724,7 @@ public final class PlayerList {
 
             player.clanmate = snapshot.clanmate;
             player.showPIcon = snapshot.showPIcon;
-            player.pathSpeed[0] = pathSpeeds[id];
+            player.pathSpeed[0] = pathSpeeds[slot];
 
             player.level = player.virtualLevel = (byte) level;
             if (Static441.isBridgeAt(localZ, localX)) {
@@ -733,18 +733,18 @@ public final class PlayerList {
 
             player.teleport(localX, localZ);
             player.moved = false;
-            lowResolutionPlayers[id] = null;
+            lowResolutionPlayers[slot] = null;
             return true;
         } else if (type == 1) {
             @Pc(45) int deltaLevel = bitPacket.gbit(2);
-            @Pc(50) int coord = lowResolutionPlayers[id].coord;
-            lowResolutionPlayers[id].coord = (((coord >> 28) + deltaLevel & 0x3) << 28) + (coord & 0xFFFFFFF);
+            @Pc(50) int coord = lowResolutionPlayers[slot].coord;
+            lowResolutionPlayers[slot].coord = (((coord >> 28) + deltaLevel & 0x3) << 28) + (coord & 0xFFFFFFF);
             return false;
         } else if (type == 2) {
             @Pc(45) int data = bitPacket.gbit(5);
             @Pc(50) int deltaLevel = data >> 3;
             @Pc(257) int direction = data & 0x7;
-            @Pc(262) int coord = lowResolutionPlayers[id].coord;
+            @Pc(262) int coord = lowResolutionPlayers[slot].coord;
             @Pc(271) int level = (coord >> 28) + deltaLevel & 0x3;
             @Pc(127) int x = (coord >> 14) & 0xFF;
             @Pc(131) int z = coord & 0xFF;
@@ -771,18 +771,18 @@ public final class PlayerList {
                 z++;
             }
 
-            lowResolutionPlayers[id].coord = (level << 28) + (x << 14) + z;
+            lowResolutionPlayers[slot].coord = (level << 28) + (x << 14) + z;
             return false;
         } else {
             @Pc(45) int data = bitPacket.gbit(18);
             @Pc(50) int deltaLevel = data >> 16;
             @Pc(257) int deltaX = (data >> 8) & 0xFF;
             @Pc(262) int deltaZ = data & 0xFF;
-            @Pc(271) int coord = lowResolutionPlayers[id].coord;
+            @Pc(271) int coord = lowResolutionPlayers[slot].coord;
             @Pc(127) int level = ((coord >> 28) + deltaLevel) & 0x3;
             @Pc(131) int x = ((coord >> 14) + deltaX) & 0xFF;
             @Pc(137) int z = (coord + deltaZ) & 0xFF;
-            lowResolutionPlayers[id].coord = (level << 28) + (x << 14) + z;
+            lowResolutionPlayers[slot].coord = (level << 28) + (x << 14) + z;
             return false;
         }
     }
@@ -790,10 +790,10 @@ public final class PlayerList {
     @OriginalMember(owner = "client!fda", name = "a", descriptor = "(Lclient!rka;I)V")
     public static void getSnapShotPlayer(@OriginalArg(0) BitPacket bitPacket) {
         bitPacket.enterBitMode();
-        @Pc(10) int id = activePlayerSlot;
+        @Pc(10) int slot = activePlayerSlot;
 
-        @Pc(20) PlayerEntity self = PlayerEntity.self = highResolutionPlayers[id] = new PlayerEntity();
-        self.id = id;
+        @Pc(20) PlayerEntity self = PlayerEntity.self = highResolutionPlayers[slot] = new PlayerEntity();
+        self.slot = slot;
 
         @Pc(28) int delta = bitPacket.gbit(30);
         @Pc(33) byte deltaLevel = (byte) (delta >> 28);
@@ -811,17 +811,17 @@ public final class PlayerList {
             self.virtualLevel++;
         }
 
-        if (appearances[id] != null) {
-            self.decodeAppearance(appearances[id]);
+        if (appearances[slot] != null) {
+            self.decodeAppearance(appearances[slot]);
         }
 
         highResolutionPlayerCount = 0;
-        highResolutionPlayerIndices[highResolutionPlayerCount++] = id;
-        updateHistory[id] = 0;
+        highResolutionPlayerSlots[highResolutionPlayerCount++] = slot;
+        updateHistory[slot] = 0;
         lowResolutionPlayerCount = 0;
 
         for (@Pc(151) int i = 1; i < MAX_PLAYER_COUNT; i++) {
-            if (id != i) {
+            if (slot != i) {
                 @Pc(163) int coord = bitPacket.gbit(18);
                 @Pc(167) int level = coord >> 16;
                 @Pc(173) int x = (coord >> 8) & 0xFF;
@@ -834,7 +834,7 @@ public final class PlayerList {
                 snapShot.direction = 0;
                 snapShot.clanmate = false;
 
-                lowResolutionPlayerIndices[lowResolutionPlayerCount++] = i;
+                lowResolutionPlayerSlots[lowResolutionPlayerCount++] = i;
                 updateHistory[i] = 0;
             }
         }

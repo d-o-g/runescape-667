@@ -17,8 +17,8 @@ public final class Static489 {
 
     @OriginalMember(owner = "client!ph", name = "a", descriptor = "(ZBLclient!cg;)V")
     public static void tick(@OriginalArg(0) boolean cutscene, @OriginalArg(2) PathingEntity entity) {
-        @Pc(7) int local7 = -1;
-        @Pc(16) int local16 = 0;
+        @Pc(7) int speed = -1;
+        @Pc(16) int flags = 0;
 
         if (entity.exactMoveT1 > TimeUtils.clock) {
             Static441.exactMoveTick1(entity);
@@ -26,8 +26,8 @@ public final class Static489 {
             Static354.exactMoveTick2(entity);
         } else {
             Static256.movementTick(entity, cutscene);
-            local7 = Static521.entityMoveSpeed;
-            local16 = Static524.entityMoveFlags;
+            speed = Static521.entityMoveSpeed;
+            flags = Static524.entityMoveFlags;
         }
 
         if ((entity.x < 512) || (entity.z < 512) || (entity.x >= ((Static720.mapWidth * 512) - 512)) || (entity.z >= ((Static501.mapLength * 512) - 512))) {
@@ -38,10 +38,10 @@ public final class Static489 {
             }
 
             entity.exactMoveT1 = 0;
-            local7 = -1;
+            speed = -1;
             entity.exactMoveT2 = 0;
             entity.actionAnimations = null;
-            local16 = 0;
+            flags = 0;
             entity.x = entity.pathX[0] * 512 + entity.getSize() * 256;
             entity.z = entity.pathZ[0] * 512 + entity.getSize() * 256;
             entity.stopMoving();
@@ -56,8 +56,8 @@ public final class Static489 {
             entity.exactMoveT1 = 0;
             entity.exactMoveT2 = 0;
             entity.actionAnimations = null;
-            local16 = 0;
-            local7 = -1;
+            flags = 0;
+            speed = -1;
             entity.x = entity.pathX[0] * 512 + entity.getSize() * 256;
             entity.z = entity.pathZ[0] * 512 + entity.getSize() * 256;
             entity.stopMoving();
@@ -65,8 +65,8 @@ public final class Static489 {
 
         @Pc(107) int deltaYaw = Static112.turnTick(entity);
         Static145.wornTargetTick(entity);
-        Static651.basTick(local7, deltaYaw, local16, entity);
-        Static702.updateActionAnimator(entity, local7);
+        Static651.basTick(speed, deltaYaw, flags, entity);
+        PathingEntity.updateActionAnimator(entity, speed);
         Static50.animationTick(entity);
     }
 

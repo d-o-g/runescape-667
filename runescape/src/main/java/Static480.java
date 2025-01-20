@@ -1,16 +1,13 @@
-import com.jagex.sign.SignLink;
-import com.jagex.sign.SignedResource;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.texture.Node_Sub1_Sub27;
+import com.jagex.sign.SignLink;
+import com.jagex.sign.SignedResource;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 public final class Static480 {
-
-    @OriginalMember(owner = "client!pca", name = "b", descriptor = "[I")
-    public static final int[] anIntArray583 = new int[50];
 
     @OriginalMember(owner = "client!pca", name = "a", descriptor = "I")
     public static int npcCount = 0;

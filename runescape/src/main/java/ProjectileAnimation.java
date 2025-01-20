@@ -8,10 +8,10 @@ import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Matrix;
-import com.jagex.graphics.particles.ModelParticleEmitter;
-import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.particles.ModelParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -206,7 +206,7 @@ public final class ProjectileAnimation extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(I)V")
-    public void method815() {
+    public void stopParticles() {
         if (this.particleSystem != null) {
             this.particleSystem.stopped();
         }
@@ -228,16 +228,16 @@ public final class ProjectileAnimation extends PositionEntity {
         if (CutsceneManager.state == 3) {
             entity = CutsceneManager.actors[this.entity1 - 1].entity();
         } else if (this.entity1 < 0) {
-            @Pc(35) int index = -this.entity1 - 1;
+            @Pc(35) int slot = -this.entity1 - 1;
 
-            if (PlayerList.activePlayerSlot == index) {
+            if (PlayerList.activePlayerSlot == slot) {
                 entity = PlayerEntity.self;
             } else {
-                entity = PlayerList.highResolutionPlayers[index];
+                entity = PlayerList.highResolutionPlayers[slot];
             }
         } else {
-            @Pc(35) int index = this.entity1 - 1;
-            @Pc(58) NPCEntityNode npc = (NPCEntityNode) NPCList.local.get(index);
+            @Pc(35) int slot = this.entity1 - 1;
+            @Pc(58) NPCEntityNode npc = (NPCEntityNode) NPCList.local.get(slot);
 
             if (npc != null) {
                 entity = npc.npc;
@@ -257,22 +257,24 @@ public final class ProjectileAnimation extends PositionEntity {
 
             @Pc(107) int local107 = 0;
             @Pc(109) int local109 = 0;
+
             if (basType.wornTransformations != null && basType.wornTransformations[this.wornSlot] != null) {
                 local109 = basType.wornTransformations[this.wornSlot][2];
                 local107 = basType.wornTransformations[this.wornSlot][0];
             }
+
             if (basType.graphicOffsets != null && basType.graphicOffsets[this.wornSlot] != null) {
                 local109 += basType.graphicOffsets[this.wornSlot][2];
                 local107 += basType.graphicOffsets[this.wornSlot][0];
             }
 
             if (local107 != 0 || local109 != 0) {
-                @Pc(185) int yaw = entity.yaw.getValue(16383);
+                @Pc(185) int yaw = entity.yaw.getValue(0x3FFF);
                 @Pc(187) int local187 = yaw;
                 if (entity.wornRotation != null && entity.wornRotation[this.wornSlot] != -1) {
                     local187 = entity.wornRotation[this.wornSlot];
                 }
-                @Pc(213) int local213 = local187 - yaw & 0x3FFF;
+                @Pc(213) int local213 = (local187 - yaw) & 0x3FFF;
                 @Pc(217) int local217 = Trig1.SIN[local213];
                 @Pc(221) int local221 = Trig1.COS[local213];
                 @Pc(232) int local232 = local217 * local109 + local221 * local107 >> 14;

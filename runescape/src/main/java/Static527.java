@@ -18,43 +18,52 @@ public final class Static527 {
 
     @OriginalMember(owner = "client!qka", name = "c", descriptor = "(I)V")
     public static void method7083() {
-        for (@Pc(15) ProjectileAnimationNode local15 = (ProjectileAnimationNode) Static505.projectiles.first(); local15 != null; local15 = (ProjectileAnimationNode) Static505.projectiles.next()) {
-            @Pc(20) ProjectileAnimation local20 = local15.projectileAnimation;
-            if (TimeUtils.clock > local20.t2) {
-                local15.unlink();
-                local20.method815();
-            } else if (TimeUtils.clock >= local20.t1) {
-                local20.method816();
-                if (local20.entity2 > 0) {
+        for (@Pc(15) ProjectileAnimationNode projectileNode = (ProjectileAnimationNode) Static505.projectiles.first(); projectileNode != null; projectileNode = (ProjectileAnimationNode) Static505.projectiles.next()) {
+            @Pc(20) ProjectileAnimation projectile = projectileNode.projectileAnimation;
+
+            if (TimeUtils.clock > projectile.t2) {
+                projectileNode.unlink();
+                projectile.stopParticles();
+            } else if (TimeUtils.clock >= projectile.t1) {
+                projectile.method816();
+
+                if (projectile.entity2 > 0) {
                     if (CutsceneManager.state == 3) {
-                        @Pc(61) PathingEntity local61 = CutsceneManager.actors[local20.entity2 - 1].entity();
-                        if (local61 != null && local61.x >= 0 && local61.x < Static720.mapWidth * 512 && local61.z >= 0 && local61.z < Static501.mapLength * 512) {
-                            local20.target(Static102.averageHeight(local20.level, local61.x, local61.z) - local20.y2, TimeUtils.clock, local61.z, local61.x);
+                        @Pc(61) PathingEntity entity = CutsceneManager.actors[projectile.entity2 - 1].entity();
+
+                        if (entity != null && entity.x >= 0 && entity.x < Static720.mapWidth * 512 && entity.z >= 0 && entity.z < Static501.mapLength * 512) {
+                            projectile.target(Static102.averageHeight(projectile.level, entity.x, entity.z) - projectile.y2, TimeUtils.clock, entity.z, entity.x);
                         }
                     } else {
-                        @Pc(130) NPCEntityNode local130 = (NPCEntityNode) NPCList.local.get(local20.entity2 - 1);
-                        if (local130 != null) {
-                            @Pc(135) NPCEntity local135 = local130.npc;
-                            if (local135.x >= 0 && local135.x < Static720.mapWidth * 512 && local135.z >= 0 && local135.z < Static501.mapLength * 512) {
-                                local20.target(Static102.averageHeight(local20.level, local135.x, local135.z) - local20.y2, TimeUtils.clock, local135.z, local135.x);
+                        @Pc(130) NPCEntityNode npcNode = (NPCEntityNode) NPCList.local.get(projectile.entity2 - 1);
+
+                        if (npcNode != null) {
+                            @Pc(135) NPCEntity npc = npcNode.npc;
+
+                            if (npc.x >= 0 && npc.x < Static720.mapWidth * 512 && npc.z >= 0 && npc.z < Static501.mapLength * 512) {
+                                projectile.target(Static102.averageHeight(projectile.level, npc.x, npc.z) - projectile.y2, TimeUtils.clock, npc.z, npc.x);
                             }
                         }
                     }
                 }
-                if (local20.entity2 < 0) {
-                    @Pc(193) int local193 = -local20.entity2 - 1;
-                    @Pc(198) PlayerEntity local198;
-                    if (local193 == PlayerList.activePlayerSlot) {
-                        local198 = PlayerEntity.self;
+
+                if (projectile.entity2 < 0) {
+                    @Pc(193) int slot = -projectile.entity2 - 1;
+                    @Pc(198) PlayerEntity entity;
+
+                    if (slot == PlayerList.activePlayerSlot) {
+                        entity = PlayerEntity.self;
                     } else {
-                        local198 = PlayerList.highResolutionPlayers[local193];
+                        entity = PlayerList.highResolutionPlayers[slot];
                     }
-                    if (local198 != null && local198.x >= 0 && Static720.mapWidth * 512 > local198.x && local198.z >= 0 && Static501.mapLength * 512 > local198.z) {
-                        local20.target(Static102.averageHeight(local20.level, local198.x, local198.z) - local20.y2, TimeUtils.clock, local198.z, local198.x);
+
+                    if (entity != null && entity.x >= 0 && Static720.mapWidth * 512 > entity.x && entity.z >= 0 && Static501.mapLength * 512 > entity.z) {
+                        projectile.target(Static102.averageHeight(projectile.level, entity.x, entity.z) - projectile.y2, TimeUtils.clock, entity.z, entity.x);
                     }
                 }
-                local20.tick(Static35.currentTick);
-                Static102.method2026(local20, true);
+
+                projectile.tick(Static35.currentTick);
+                Static102.method2026(projectile, true);
             }
         }
     }

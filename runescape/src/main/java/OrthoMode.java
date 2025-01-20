@@ -2,8 +2,8 @@ import com.jagex.PickableEntity;
 import com.jagex.core.datastruct.LinkedList;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.graphics.FlipException;
-import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.Matrix;
+import com.jagex.graphics.OffscreenSurface;
 import com.jagex.graphics.PickingCylinder;
 import com.jagex.graphics.Toolkit;
 import com.jagex.graphics.texture.Node_Sub1_Sub27;
@@ -747,5 +747,10 @@ public final class OrthoMode {
     @OriginalMember(owner = "client!paa", name = "a", descriptor = "(II)V")
     public static void method6448(@OriginalArg(0) int arg0) {
         backgroundColour = arg0;
+    }
+
+    @OriginalMember(owner = "client!bu", name = "d", descriptor = "(B)I")
+    public static int method1260() {
+        return anInt6796 == 1 ? anInt8585 : orthoHeight;
     }
 }

@@ -1,13 +1,14 @@
+import com.jagex.EntityMoveFlag;
 import com.jagex.game.MoveSpeed;
 import com.jagex.game.camera.CameraMode;
+import com.jagex.game.runetek6.config.bastype.BASType;
+import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
-import com.jagex.game.runetek6.config.bastype.BASType;
-import com.jagex.game.runetek6.config.seqtype.SeqType;
-import com.jagex.graphics.ClippingMask;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -33,6 +34,7 @@ public final class Static256 {
                 entity.delayedWalkingTicks++;
                 return;
             }
+
             if (entity.animationPathPointer <= 0 && local41.walkingPrecedence == 0) {
                 Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
                 entity.delayedWalkingTicks++;
@@ -40,175 +42,208 @@ public final class Static256 {
                 return;
             }
         }
-        for (@Pc(86) int local86 = 0; local86 < entity.spotAnims.length; local86++) {
-            if (entity.spotAnims[local86].id != -1 && entity.spotAnims[local86].animator.isDelayed()) {
-                @Pc(117) SpotAnimationType local117 = SpotAnimationTypeList.instance.list(entity.spotAnims[local86].id);
-                if (local117.loopSeq && local117.seq != -1) {
-                    @Pc(133) SeqType local133 = SeqTypeList.instance.list(local117.seq);
-                    if (entity.animationPathPointer > 0 && local133.animatingPrecedence == 0) {
-                        Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
-                        entity.delayedWalkingTicks++;
-                        Static524.entityMoveFlags = 0;
-                        return;
-                    }
-                    if (entity.animationPathPointer <= 0 && local133.walkingPrecedence == 0) {
-                        Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
-                        entity.delayedWalkingTicks++;
-                        Static524.entityMoveFlags = 0;
-                        return;
-                    }
+
+        for (@Pc(86) int i = 0; i < entity.spotAnims.length; i++) {
+            if (entity.spotAnims[i].id == -1 || !entity.spotAnims[i].animator.isDelayed()) {
+                continue;
+            }
+
+            @Pc(117) SpotAnimationType type = SpotAnimationTypeList.instance.list(entity.spotAnims[i].id);
+
+            if (type.loopSeq && type.seq != -1) {
+                @Pc(133) SeqType local133 = SeqTypeList.instance.list(type.seq);
+                if (entity.animationPathPointer > 0 && local133.animatingPrecedence == 0) {
+                    Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
+                    entity.delayedWalkingTicks++;
+                    Static524.entityMoveFlags = 0;
+                    return;
+                }
+
+                if (entity.animationPathPointer <= 0 && local133.walkingPrecedence == 0) {
+                    Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
+                    entity.delayedWalkingTicks++;
+                    Static524.entityMoveFlags = 0;
+                    return;
                 }
             }
         }
-        @Pc(186) int local186 = entity.x;
-        @Pc(189) int local189 = entity.z;
-        @Pc(206) int local206 = entity.pathX[entity.pathPointer - 1] * 512 + entity.getSize() * 256;
-        @Pc(222) int local222 = entity.pathZ[entity.pathPointer - 1] * 512 + entity.getSize() * 256;
-        if (local186 < local206) {
-            if (local189 < local222) {
+
+        @Pc(186) int x = entity.x;
+        @Pc(189) int z = entity.z;
+        @Pc(206) int pathX = (entity.pathX[entity.pathPointer - 1] * 512) + (entity.getSize() * 256);
+        @Pc(222) int pathZ = (entity.pathZ[entity.pathPointer - 1] * 512) + (entity.getSize() * 256);
+
+        if (x < pathX) {
+            if (z < pathZ) {
                 entity.turn(10240);
-            } else if (local222 < local189) {
+            } else if (pathZ < z) {
                 entity.turn(14336);
             } else {
                 entity.turn(12288);
             }
-        } else if (local206 >= local186) {
-            if (local189 < local222) {
+        } else if (pathX >= x) {
+            if (z < pathZ) {
                 entity.turn(8192);
-            } else if (local222 < local189) {
+            } else if (pathZ < z) {
                 entity.turn(0);
             }
-        } else if (local222 > local189) {
+        } else if (pathZ > z) {
             entity.turn(6144);
-        } else if (local222 < local189) {
+        } else if (pathZ < z) {
             entity.turn(2048);
         } else {
             entity.turn(4096);
         }
+
         @Pc(348) byte moveSpeed = entity.pathSpeed[entity.pathPointer - 1];
-        if (!cutscene && (local206 - local186 > 1024 || local206 - local186 < -1024 || local222 - local189 > 1024 || local222 - local189 < -1024)) {
-            entity.z = local222;
-            entity.x = local206;
+        if (!cutscene && (pathX - x > 1024 || pathX - x < -1024 || pathZ - z > 1024 || pathZ - z < -1024)) {
+            entity.z = pathZ;
+            entity.x = pathX;
             entity.turn(entity.yawTarget, false);
+
             Static524.entityMoveFlags = 0;
             if (entity.animationPathPointer > 0) {
                 entity.animationPathPointer--;
             }
+
             Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
             entity.pathPointer--;
             return;
         }
-        @Pc(422) int local422 = 16;
-        @Pc(424) boolean local424 = true;
+
+        @Pc(422) int acceleration = 16;
+        @Pc(424) boolean crawl = true;
         if (entity instanceof NPCEntity) {
-            local424 = ((NPCEntity) entity).type.crawl;
+            crawl = ((NPCEntity) entity).type.crawl;
         }
-        @Pc(468) int local468;
-        if (local424) {
-            local468 = entity.yawTarget - entity.yaw.value;
-            if (local468 != 0 && entity.target == -1 && entity.yawSpeed != 0) {
-                local422 = 8;
+
+        if (crawl) {
+            @Pc(468) int yawDelta = entity.yawTarget - entity.yaw.value;
+            if (yawDelta != 0 && entity.target == -1 && entity.yawSpeed != 0) {
+                acceleration = 8;
             }
             if (!cutscene && entity.pathPointer > 2) {
-                local422 = 24;
+                acceleration = 24;
             }
             if (!cutscene && entity.pathPointer > 3) {
-                local422 = 32;
+                acceleration = 32;
             }
         } else {
             if (!cutscene && entity.pathPointer > 1) {
-                local422 = 24;
+                acceleration = 24;
             }
             if (!cutscene && entity.pathPointer > 2) {
-                local422 = 32;
+                acceleration = 32;
             }
         }
+
         if (entity.delayedWalkingTicks > 0 && entity.pathPointer > 1) {
             entity.delayedWalkingTicks--;
-            local422 = 32;
+            acceleration = 32;
         }
-        if (moveSpeed == 2) {
-            local422 <<= 0x1;
-        } else if (moveSpeed == 0) {
-            local422 >>= 0x1;
+
+        if (moveSpeed == MoveSpeed.RUN) {
+            acceleration <<= 0x1;
+        } else if (moveSpeed == MoveSpeed.CRAWL) {
+            acceleration >>= 0x1;
         }
+
         if (basType.movementAcceleration != -1) {
-            local422 <<= 0x9;
+            acceleration <<= 0x9;
+
             if (entity.pathPointer == 1) {
-                local468 = entity.anInt10765 * entity.anInt10765;
-                @Pc(642) int local642 = (local206 >= entity.x ? local206 - entity.x : entity.x - local206) << 9;
-                @Pc(661) int local661 = (entity.z <= local222 ? local222 - entity.z : entity.z + -local222) << 9;
-                @Pc(673) int local673 = local642 > local661 ? local642 : local661;
-                @Pc(680) int local680 = local673 * basType.movementAcceleration * 2;
-                if (local680 < local468) {
-                    entity.anInt10765 /= 2;
-                } else if (local468 / 2 > local673) {
-                    entity.anInt10765 -= basType.movementAcceleration;
-                    if (entity.anInt10765 < 0) {
-                        entity.anInt10765 = 0;
+                @Pc(468) int accelerationSquared = entity.movementAcceleration * entity.movementAcceleration;
+                @Pc(642) int relativeX = (pathX >= entity.x ? pathX - entity.x : entity.x - pathX) << 9;
+                @Pc(661) int relativeZ = (pathZ >= entity.z ? pathZ - entity.z : entity.z - pathZ) << 9;
+                @Pc(673) int max = relativeX > relativeZ ? relativeX : relativeZ;
+                @Pc(680) int maxAcceleration = max * basType.movementAcceleration * 2;
+
+                if (accelerationSquared > maxAcceleration) {
+                    entity.movementAcceleration /= 2;
+                } else if ((accelerationSquared / 2) > max) {
+                    entity.movementAcceleration -= basType.movementAcceleration;
+
+                    if (entity.movementAcceleration < 0) {
+                        entity.movementAcceleration = 0;
                     }
-                } else if (local422 > entity.anInt10765) {
-                    entity.anInt10765 += basType.movementAcceleration;
-                    if (entity.anInt10765 > local422) {
-                        entity.anInt10765 = local422;
+                } else if (acceleration > entity.movementAcceleration) {
+                    entity.movementAcceleration += basType.movementAcceleration;
+
+                    if (entity.movementAcceleration > acceleration) {
+                        entity.movementAcceleration = acceleration;
                     }
                 }
-            } else if (local422 > entity.anInt10765) {
-                entity.anInt10765 += basType.movementAcceleration;
-                if (local422 < entity.anInt10765) {
-                    entity.anInt10765 = local422;
+            } else if (acceleration > entity.movementAcceleration) {
+                entity.movementAcceleration += basType.movementAcceleration;
+
+                if (acceleration < entity.movementAcceleration) {
+                    entity.movementAcceleration = acceleration;
                 }
-            } else if (entity.anInt10765 > 0) {
-                entity.anInt10765 -= basType.movementAcceleration;
-                if (entity.anInt10765 < 0) {
-                    entity.anInt10765 = 0;
+            } else if (entity.movementAcceleration > 0) {
+                entity.movementAcceleration -= basType.movementAcceleration;
+
+                if (entity.movementAcceleration < 0) {
+                    entity.movementAcceleration = 0;
                 }
             }
-            local422 = entity.anInt10765 >> 9;
-            if (local422 < 1) {
-                local422 = 1;
+
+            acceleration = entity.movementAcceleration >> 9;
+
+            if (acceleration < 1) {
+                acceleration = 1;
             }
         }
+
         Static524.entityMoveFlags = 0;
-        if (local206 == local186 && local189 == local222) {
+
+        if (x == pathX && z == pathZ) {
             Static521.entityMoveSpeed = MoveSpeed.STATIONARY;
         } else {
-            if (local206 > local186) {
-                entity.x += local422;
-                Static524.entityMoveFlags |= 0x4;
-                if (entity.x > local206) {
-                    entity.x = local206;
+            if (x < pathX) {
+                entity.x += acceleration;
+                Static524.entityMoveFlags |= EntityMoveFlag.EAST;
+
+                if (entity.x > pathX) {
+                    entity.x = pathX;
                 }
-            } else if (local206 < local186) {
-                entity.x -= local422;
-                Static524.entityMoveFlags |= 0x8;
-                if (local206 > entity.x) {
-                    entity.x = local206;
+            } else if (x > pathX) {
+                entity.x -= acceleration;
+                Static524.entityMoveFlags |= EntityMoveFlag.WEST;
+
+                if (pathX > entity.x) {
+                    entity.x = pathX;
                 }
             }
-            if (local422 >= 32) {
+
+            if (acceleration >= 32) {
                 Static521.entityMoveSpeed = MoveSpeed.RUN;
             } else {
                 Static521.entityMoveSpeed = moveSpeed;
             }
-            if (local222 > local189) {
-                Static524.entityMoveFlags |= 0x1;
-                entity.z += local422;
-                if (local222 < entity.z) {
-                    entity.z = local222;
+
+            if (z < pathZ) {
+                Static524.entityMoveFlags |= EntityMoveFlag.NORTH;
+                entity.z += acceleration;
+
+                if (pathZ < entity.z) {
+                    entity.z = pathZ;
                 }
-            } else if (local222 < local189) {
-                entity.z -= local422;
-                Static524.entityMoveFlags |= 0x2;
-                if (local222 > entity.z) {
-                    entity.z = local222;
+            } else if (z > pathZ) {
+                entity.z -= acceleration;
+                Static524.entityMoveFlags |= EntityMoveFlag.SOUTH;
+
+                if (pathZ > entity.z) {
+                    entity.z = pathZ;
                 }
             }
         }
-        if (entity.x != local206 || local222 != entity.z) {
+
+        if (entity.x != pathX || pathZ != entity.z) {
             return;
         }
+
         entity.pathPointer--;
+
         if (entity.animationPathPointer > 0) {
             entity.animationPathPointer--;
             return;

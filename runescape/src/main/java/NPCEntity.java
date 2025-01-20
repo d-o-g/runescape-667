@@ -1,15 +1,15 @@
 import com.jagex.Entity;
-import com.jagex.PickableEntity;
-import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.ParticleList;
+import com.jagex.PickableEntity;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.MoveSpeed;
+import com.jagex.game.runetek6.client.GameShell;
+import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.bastype.BASTypeList;
 import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
-import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
-import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.npctype.NPCType;
+import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
@@ -61,25 +61,26 @@ public final class NPCEntity extends PathingEntity {
     }
 
     @OriginalMember(owner = "client!pla", name = "a", descriptor = "(ILclient!wj;)I")
-    public static int currentSound(@OriginalArg(1) NPCEntity arg0) {
-        @Pc(6) NPCType local6 = arg0.type;
-        if (local6.multinpcs != null) {
-            local6 = local6.getMultiNPC(TimedVarDomain.instance);
-            if (local6 == null) {
+    public static int currentSound(@OriginalArg(1) NPCEntity entity) {
+        @Pc(6) NPCType type = entity.type;
+        if (type.multinpcs != null) {
+            type = type.getMultiNPC(TimedVarDomain.instance);
+            if (type == null) {
                 return -1;
             }
         }
-        @Pc(22) int local22 = local6.walkSound;
-        @Pc(32) BASType local32 = arg0.getBASType();
-        @Pc(37) int local37 = arg0.animator.getAnimationId();
-        if (local37 == -1 || arg0.ready) {
-            local22 = local6.readySound;
-        } else if (local32.run == local37 || local32.runFollowTurn180 == local37 || local32.runFollowTurnCw == local37 || local37 == local32.runFollowTurnCcw) {
-            local22 = local6.runSound;
-        } else if (local32.crawl == local37 || local37 == local32.crawlFollowTurn180 || local32.crawlFollowTurnCw == local37 || local32.crawlFollowTurnCcw == local37) {
-            local22 = local6.crawlSound;
+
+        @Pc(22) int sound = type.walkSound;
+        @Pc(32) BASType basType = entity.getBASType();
+        @Pc(37) int animationId = entity.animator.getAnimationId();
+        if (animationId == -1 || entity.ready) {
+            sound = type.readySound;
+        } else if (animationId == basType.run || animationId == basType.runFollowTurn180 || animationId == basType.runFollowTurnCw || animationId == basType.runFollowTurnCcw) {
+            sound = type.runSound;
+        } else if (animationId == basType.crawl || animationId == basType.crawlFollowTurn180 || animationId == basType.crawlFollowTurnCw || animationId == basType.crawlFollowTurnCcw) {
+            sound = type.crawlSound;
         }
-        return local22;
+        return sound;
     }
 
     @OriginalMember(owner = "client!wj", name = "j", descriptor = "(I)V")
@@ -481,7 +482,7 @@ public final class NPCEntity extends PathingEntity {
 
     @OriginalMember(owner = "client!wj", name = "a", descriptor = "(Lclient!o;Z)V")
     public void setupNewNPCType(@OriginalArg(0) NPCType type) {
-        if (type != this.type && MiniMenu.open && MiniMenu.hasNpcOp(super.id)) {
+        if (type != this.type && MiniMenu.open && MiniMenu.hasNpcOp(super.slot)) {
             MiniMenu.close();
         }
 

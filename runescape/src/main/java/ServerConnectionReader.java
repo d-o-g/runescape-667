@@ -1415,7 +1415,7 @@ public final class ServerConnectionReader {
 
                 if (player != null) {
                     @Pc(4850) EntitySpotAnimation current = player.spotAnims[index];
-                    if (id == 65535) {
+                    if (id == 0xFFFF) {
                         id = -1;
                     }
 
@@ -2659,19 +2659,19 @@ public final class ServerConnectionReader {
                     @Pc(948) PathingEntity source = null;
 
                     if (entity1 >= 0) {
-                        @Pc(957) int index = entity1 - 1;
-                        @Pc(964) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(index);
+                        @Pc(957) int slot = entity1 - 1;
+                        @Pc(964) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(slot);
 
                         if (node != null) {
                             source = node.npc;
                         }
                     } else {
-                        @Pc(957) int index = -entity1 - 1;
+                        @Pc(957) int slot = -entity1 - 1;
 
-                        if (index == PlayerList.activePlayerSlot) {
+                        if (slot == PlayerList.activePlayerSlot) {
                             source = PlayerEntity.self;
                         } else {
-                            source = PlayerList.highResolutionPlayers[index];
+                            source = PlayerList.highResolutionPlayers[slot];
                         }
                     }
 

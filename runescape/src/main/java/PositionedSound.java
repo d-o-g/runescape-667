@@ -154,7 +154,7 @@ public final class PositionedSound extends Node {
                 }
             }
         } else if (this.player != null) {
-            this.id = PlayerEntity.sound(this.player);
+            this.id = PlayerEntity.currentSound(this.player);
             this.volume = this.player.soundVolume;
             this.minRange = 0;
             this.rateMin = 256;

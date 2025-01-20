@@ -504,7 +504,7 @@ public final class MapRegion extends Class306 {
         @Pc(204) boolean copyNormals = Static404.renderShadows && !super.underwater && locType.sharelight;
 
         if (locType.hasSounds()) {
-            Static89.method1714(level, null, x, z, null, locType, rotation);
+            SoundManager.addSounds(level, x, z, null, null, locType, rotation);
         }
 
         @Pc(248) boolean isStatic = animation == -1 && !locType.hasAnimations() && locType.multiloc == null && !locType.animated && !locType.aBoolean91;

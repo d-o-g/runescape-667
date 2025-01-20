@@ -1,6 +1,4 @@
-import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
-import org.openrs2.deob.annotation.Pc;
 
 public final class Static702 {
 
@@ -31,16 +29,4 @@ public final class Static702 {
     @OriginalMember(owner = "client!wda", name = "h", descriptor = "Z")
     public static boolean aBoolean797 = false;
 
-    @OriginalMember(owner = "client!wda", name = "a", descriptor = "(ILclient!cg;I)V")
-    public static void updateActionAnimator(@OriginalArg(1) PathingEntity entity, @OriginalArg(2) int speed) {
-        if (entity.actionAnimations == null) {
-            return;
-        }
-
-        @Pc(13) int animation = entity.actionAnimations[speed + 1];
-        if (entity.actionAnimator.getAnimationId() != animation) {
-            entity.actionAnimator.update(entity.actionAnimator.getDelay(), animation);
-            entity.animationPathPointer = entity.pathPointer;
-        }
-    }
 }

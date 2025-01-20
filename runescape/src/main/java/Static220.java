@@ -99,7 +99,7 @@ public final class Static220 {
             }
 
             if (movementSpeed != sound.movementSpeed) {
-                @Pc(448) int currentSound = PlayerEntity.sound(sound.player);
+                @Pc(448) int currentSound = PlayerEntity.currentSound(sound.player);
 
                 if (sound.id == currentSound && sound.player.vorbis == sound.vorbis) {
                     sound.movementSpeed = movementSpeed;

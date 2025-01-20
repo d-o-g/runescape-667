@@ -14,10 +14,10 @@ import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
 import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
 import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Matrix;
-import com.jagex.graphics.particles.ModelParticleEmitter;
-import com.jagex.graphics.particles.ModelParticleEffector;
 import com.jagex.graphics.Model;
 import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.particles.ModelParticleEffector;
+import com.jagex.graphics.particles.ModelParticleEmitter;
 import com.jagex.math.Trig1;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -26,6 +26,19 @@ import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!cg")
 public abstract class PathingEntity extends PositionEntity {
+
+    @OriginalMember(owner = "client!wda", name = "a", descriptor = "(ILclient!cg;I)V")
+    public static void updateActionAnimator(@OriginalArg(1) PathingEntity entity, @OriginalArg(2) int speed) {
+        if (entity.actionAnimations == null) {
+            return;
+        }
+
+        @Pc(13) int animation = entity.actionAnimations[speed + 1];
+        if (entity.actionAnimator.getAnimationId() != animation) {
+            entity.actionAnimator.update(entity.actionAnimator.getDelay(), animation);
+            entity.animationPathPointer = entity.pathPointer;
+        }
+    }
 
     @OriginalMember(owner = "client!uja", name = "a", descriptor = "([IIZLclient!cg;I)V")
     public static void animate(@OriginalArg(0) int[] animations, @OriginalArg(1) int delay, @OriginalArg(2) boolean updatePathPointer, @OriginalArg(3) PathingEntity entity) {
@@ -102,7 +115,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int timerbarStart;
 
     @OriginalMember(owner = "client!cg", name = "Z", descriptor = "I")
-    public int id;
+    public int slot;
 
     @OriginalMember(owner = "client!cg", name = "Pb", descriptor = "Lclient!dj;")
     protected EntityChatLine line;
@@ -258,7 +271,7 @@ public abstract class PathingEntity extends PositionEntity {
     public int pathPointer;
 
     @OriginalMember(owner = "client!cg", name = "cc", descriptor = "I")
-    public int anInt10765;
+    public int movementAcceleration;
 
     @OriginalMember(owner = "client!cg", name = "Hb", descriptor = "Z")
     protected boolean transparent;
@@ -322,7 +335,7 @@ public abstract class PathingEntity extends PositionEntity {
         this.animationPathPointer = 0;
         this.delayedWalkingTicks = 0;
         this.pathPointer = 0;
-        this.anInt10765 = 0;
+        this.movementAcceleration = 0;
         this.transparent = false;
         this.aBoolean820 = false;
         this.pathZ = new int[pathLength];

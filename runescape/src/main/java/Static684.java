@@ -51,8 +51,8 @@ public final class Static684 {
         @Pc(113) int deltaZ = WorldMap.areaBaseZ - baseZ;
 
         if (buildStep == 12) {
-            for (@Pc(308) int i = 0; i < NPCList.newNpcCount; i++) {
-                @Pc(313) NPCEntityNode node = NPCList.localNpcs[i];
+            for (@Pc(308) int i = 0; i < NPCList.newSize; i++) {
+                @Pc(313) NPCEntityNode node = NPCList.entities[i];
 
                 if (node != null) {
                     @Pc(318) NPCEntity npc = node.npc;
@@ -66,14 +66,14 @@ public final class Static684 {
                 }
             }
         } else {
-            NPCList.localNpcCount = 0;
+            NPCList.size = 0;
 
             @Pc(120) boolean removed = false;
             @Pc(128) int maxX = (Static720.mapWidth - 1) * 512;
             @Pc(134) int maxZ = (Static501.mapLength * 512) - 512;
 
-            for (@Pc(136) int i = 0; i < NPCList.newNpcCount; i++) {
-                @Pc(141) NPCEntityNode node = NPCList.localNpcs[i];
+            for (@Pc(136) int i = 0; i < NPCList.newSize; i++) {
+                @Pc(141) NPCEntityNode node = NPCList.entities[i];
                 if (node == null) {
                     continue;
                 }
@@ -95,7 +95,7 @@ public final class Static684 {
                     }
 
                     if (inBounds) {
-                        NPCList.localNpcSlots[NPCList.localNpcCount++] = npc.slot;
+                        NPCList.slots[NPCList.size++] = npc.slot;
                     } else {
                         npc.setupNewNPCType(null);
                         removed = true;
@@ -109,12 +109,12 @@ public final class Static684 {
             }
 
             if (removed) {
-                NPCList.newNpcCount = NPCList.local.size();
-                NPCList.local.copyTo(NPCList.localNpcs);
+                NPCList.newSize = NPCList.local.size();
+                NPCList.local.copyTo(NPCList.entities);
             }
         }
 
-        for (@Pc(308) int i = 0; i < PlayerList.MAX_PLAYER_COUNT; i++) {
+        for (@Pc(308) int i = 0; i < PlayerList.COUNT; i++) {
             @Pc(389) PlayerEntity player = PlayerList.highResolutionPlayers[i];
 
             if (player != null) {

@@ -972,11 +972,11 @@ public final class LoginManager {
         Static508.anInt7627 = (int) (Math.random() * 100.0D) - 50;
         Camera.playerCameraYaw = (float) ((int) (Math.random() * 160.0D) - 80 & 0x3FFF);
         Minimap.resetToggle();
-        for (@Pc(8697) int local8697 = 0; local8697 < PlayerList.MAX_PLAYER_COUNT; local8697++) {
+        for (@Pc(8697) int local8697 = 0; local8697 < PlayerList.COUNT; local8697++) {
             PlayerList.highResolutionPlayers[local8697] = null;
         }
-        NPCList.localNpcCount = 0;
-        NPCList.newNpcCount = 0;
+        NPCList.size = 0;
+        NPCList.newSize = 0;
         NPCList.local.clear();
         Static505.projectiles.clear();
         Static346.spotAnimations.clear();
@@ -1074,13 +1074,13 @@ public final class LoginManager {
         MiniMenu.resetAndClose();
         Minimap.resetFlag();
 
-        for (@Pc(36) int i = 0; i < PlayerList.MAX_PLAYER_COUNT; i++) {
+        for (@Pc(36) int i = 0; i < PlayerList.COUNT; i++) {
             PlayerList.highResolutionPlayers[i] = null;
         }
         PlayerEntity.self = null;
 
-        for (@Pc(49) int i = 0; i < NPCList.newNpcCount; i++) {
-            @Pc(55) NPCEntity npc = NPCList.localNpcs[i].npc;
+        for (@Pc(49) int i = 0; i < NPCList.newSize; i++) {
+            @Pc(55) NPCEntity npc = NPCList.entities[i].npc;
 
             if (npc != null) {
                 npc.target = -1;

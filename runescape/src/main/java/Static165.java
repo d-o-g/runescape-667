@@ -13,8 +13,8 @@ public final class Static165 {
         }
 
         if (Static117.areaMode == AreaMode.CLEAR_LOCAL_NPCS || Static117.areaMode == AreaMode.ALLOW_OUT_OF_BOUNDS || Static117.areaMode != Static102.lastAreaMode && (Static117.areaMode == AreaMode.STATIC_AREA || Static102.lastAreaMode == AreaMode.STATIC_AREA)) {
-            NPCList.localNpcCount = 0;
-            NPCList.newNpcCount = 0;
+            NPCList.size = 0;
+            NPCList.newSize = 0;
             NPCList.local.clear();
         }
 

@@ -524,8 +524,8 @@ public final class client extends GameShell {
         Static443.method5981();
         World.tick++;
 
-        for (@Pc(46) int i = 0; i < NPCList.newNpcCount; i++) {
-            @Pc(97) NPCEntity npc = NPCList.localNpcs[i].npc;
+        for (@Pc(46) int i = 0; i < NPCList.newSize; i++) {
+            @Pc(97) NPCEntity npc = NPCList.entities[i].npc;
 
             if (npc != null) {
                 @Pc(103) byte movementCapabilities = npc.type.movementCapabilities;

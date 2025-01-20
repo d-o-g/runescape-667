@@ -30,9 +30,9 @@ public final class Static187 {
         for (@Pc(48) int local48 = 0; local48 < 2048; local48++) {
             PlayerList.highResolutionPlayers[local48] = null;
         }
-        NPCList.localNpcCount = 0;
+        NPCList.size = 0;
         NPCList.local.clear();
-        NPCList.newNpcCount = 0;
+        NPCList.newSize = 0;
         Static497.objStacks.clear();
         Camera.reset();
         VerifyId.reset();

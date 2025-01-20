@@ -60,11 +60,11 @@ public final class Static231 {
                 }
             }
         }
-        for (@Pc(65) int local65 = 0; local65 < NPCList.newNpcCount; local65++) {
-            @Pc(71) NPCEntity local71 = NPCList.localNpcs[local65].npc;
-            if (local71 != null) {
-                for (@Pc(75) int local75 = 0; local75 < local71.aModelArray3.length; local75++) {
-                    local71.aModelArray3[local75] = null;
+        for (@Pc(65) int local65 = 0; local65 < NPCList.newSize; local65++) {
+            @Pc(71) NPCEntity entity = NPCList.entities[local65].npc;
+            if (entity != null) {
+                for (@Pc(75) int local75 = 0; local75 < entity.aModelArray3.length; local75++) {
+                    entity.aModelArray3[local75] = null;
                 }
             }
         }

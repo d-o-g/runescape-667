@@ -11,15 +11,15 @@ public final class Static90 {
 
     @OriginalMember(owner = "client!cq", name = "a", descriptor = "(I)V")
     public static void method1733() {
-        @Pc(17) int[] local17 = PlayerList.highResolutionPlayerSlots;
-        for (@Pc(19) int local19 = 0; local19 < PlayerList.highResolutionPlayerCount; local19++) {
+        @Pc(17) int[] local17 = PlayerList.highResolutionSlots;
+        for (@Pc(19) int local19 = 0; local19 < PlayerList.highResolutionCount; local19++) {
             @Pc(27) PlayerEntity local27 = PlayerList.highResolutionPlayers[local17[local19]];
             if (local27 != null) {
                 local27.chatTick();
             }
         }
-        for (@Pc(40) int local40 = 0; local40 < NPCList.localNpcCount; local40++) {
-            @Pc(49) long local49 = NPCList.localNpcSlots[local40];
+        for (@Pc(40) int local40 = 0; local40 < NPCList.size; local40++) {
+            @Pc(49) long local49 = NPCList.slots[local40];
             @Pc(57) NPCEntityNode local57 = (NPCEntityNode) NPCList.local.get(local49);
             if (local57 != null) {
                 local57.npc.chatTick();

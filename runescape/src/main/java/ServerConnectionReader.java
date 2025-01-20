@@ -397,9 +397,9 @@ public final class ServerConnectionReader {
                 }
             }
 
-            for (@Pc(100) int i = 0; i < NPCList.newNpcCount; i++) {
-                NPCList.localNpcs[i].npc.actionAnimations = null;
-                NPCList.localNpcs[i].npc.actionAnimator.update(true, -1);
+            for (@Pc(100) int i = 0; i < NPCList.newSize; i++) {
+                NPCList.entities[i].npc.actionAnimations = null;
+                NPCList.entities[i].npc.actionAnimator.update(true, -1);
             }
 
             context.currentProt = null;

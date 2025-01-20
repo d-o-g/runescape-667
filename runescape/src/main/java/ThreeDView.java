@@ -10,8 +10,8 @@ public final class ThreeDView {
 
     @OriginalMember(owner = "client!hj", name = "a", descriptor = "(Ljava/lang/String;II)V")
     public static void doOpPlayer(@OriginalArg(0) String arg0, @OriginalArg(1) int arg1) {
-        @Pc(5) int count = PlayerList.highResolutionPlayerCount;
-        @Pc(7) int[] indices = PlayerList.highResolutionPlayerSlots;
+        @Pc(5) int count = PlayerList.highResolutionCount;
+        @Pc(7) int[] indices = PlayerList.highResolutionSlots;
         @Pc(9) boolean found = false;
 
         for (@Pc(19) int i = 0; i < count; i++) {
@@ -61,8 +61,8 @@ public final class ThreeDView {
         }
 
         @Pc(22) boolean found = false;
-        @Pc(24) int count = PlayerList.highResolutionPlayerCount;
-        @Pc(26) int[] indices = PlayerList.highResolutionPlayerSlots;
+        @Pc(24) int count = PlayerList.highResolutionCount;
+        @Pc(26) int[] indices = PlayerList.highResolutionSlots;
 
         for (@Pc(28) int i = 0; i < count; i++) {
             @Pc(35) PlayerEntity player = PlayerList.highResolutionPlayers[indices[i]];

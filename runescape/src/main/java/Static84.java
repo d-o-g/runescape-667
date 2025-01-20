@@ -13,13 +13,13 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "a", descriptor = "()V")
     public static void method1652() {
-        @Pc(1) int local1 = PlayerList.highResolutionPlayerCount;
-        @Pc(3) int[] local3 = PlayerList.highResolutionPlayerSlots;
+        @Pc(1) int local1 = PlayerList.highResolutionCount;
+        @Pc(3) int[] local3 = PlayerList.highResolutionSlots;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
             local9 = CutsceneManager.actors.length;
         } else {
-            local9 = Static353.noNpcs ? local1 : local1 + NPCList.localNpcCount;
+            local9 = Static353.noNpcs ? local1 : local1 + NPCList.size;
         }
         for (@Pc(21) int local21 = 0; local21 < local9; local21++) {
             @Pc(36) PathingEntity local36;
@@ -33,7 +33,7 @@ public final class Static84 {
                 if (local21 < local1) {
                     local36 = PlayerList.highResolutionPlayers[local3[local21]];
                 } else {
-                    local36 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcSlots[local21 - local1])).npc;
+                    local36 = ((NPCEntityNode) NPCList.local.get(NPCList.slots[local21 - local1])).npc;
                 }
                 if (local36.drawPriority < 0) {
                     continue;
@@ -54,13 +54,13 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "n", descriptor = "(I)V")
     public static void method1654(@OriginalArg(0) int arg0) {
-        @Pc(1) int local1 = PlayerList.highResolutionPlayerCount;
-        @Pc(3) int[] local3 = PlayerList.highResolutionPlayerSlots;
+        @Pc(1) int local1 = PlayerList.highResolutionCount;
+        @Pc(3) int[] local3 = PlayerList.highResolutionSlots;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
             local9 = CutsceneManager.actors.length;
         } else {
-            local9 = Static353.noNpcs ? local1 : local1 + NPCList.localNpcCount;
+            local9 = Static353.noNpcs ? local1 : local1 + NPCList.size;
         }
         for (@Pc(21) int local21 = 0; local21 < local9; local21++) {
             @Pc(36) PathingEntity local36;
@@ -74,7 +74,7 @@ public final class Static84 {
                 if (local21 < local1) {
                     local36 = PlayerList.highResolutionPlayers[local3[local21]];
                 } else {
-                    local36 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcSlots[local21 - local1])).npc;
+                    local36 = ((NPCEntityNode) NPCList.local.get(NPCList.slots[local21 - local1])).npc;
                 }
                 if (local36.level != arg0) {
                     continue;
@@ -138,8 +138,8 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "b", descriptor = "()V")
     public static void method1655() {
-        @Pc(1) int local1 = PlayerList.highResolutionPlayerCount;
-        @Pc(3) int[] local3 = PlayerList.highResolutionPlayerSlots;
+        @Pc(1) int local1 = PlayerList.highResolutionCount;
+        @Pc(3) int[] local3 = PlayerList.highResolutionSlots;
         @Pc(8) int local8 = ClientOptions.instance.idleAnimations.getValue();
         @Pc(30) boolean local30 = local8 == 1 && local1 > 200 || local8 == 0 && local1 > 50;
         @Pc(103) int local103;
@@ -181,8 +181,8 @@ public final class Static84 {
                 }
             }
         }
-        for (@Pc(155) int local155 = 0; local155 < NPCList.localNpcCount; local155++) {
-            @Pc(166) NPCEntity local166 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcSlots[local155])).npc;
+        for (@Pc(155) int local155 = 0; local155 < NPCList.size; local155++) {
+            @Pc(166) NPCEntity local166 = ((NPCEntityNode) NPCList.local.get(NPCList.slots[local155])).npc;
             if (local166.hasType() && local166.type.isVisible(TimedVarDomain.instance)) {
                 local166.updateBounds();
                 if (local166.x1 >= 0 && local166.z1 >= 0 && local166.x2 < Static720.mapWidth && local166.z2 < Static501.mapLength) {
@@ -259,8 +259,8 @@ public final class Static84 {
     @OriginalMember(owner = "client!client", name = "c", descriptor = "()V")
     public static void method1664() {
         Static172.anInt2893 = 0;
-        for (@Pc(3) int local3 = 0; local3 < NPCList.localNpcCount; local3++) {
-            @Pc(14) NPCEntity local14 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcSlots[local3])).npc;
+        for (@Pc(3) int local3 = 0; local3 < NPCList.size; local3++) {
+            @Pc(14) NPCEntity local14 = ((NPCEntityNode) NPCList.local.get(NPCList.slots[local3])).npc;
             if (local14.visible && local14.method9304((byte) -123) != -1) {
                 @Pc(34) int local34 = (local14.getSize() - 1) * 256 + 252;
                 @Pc(41) int local41 = local14.x - local34 >> 9;
@@ -299,13 +299,13 @@ public final class Static84 {
 
     @OriginalMember(owner = "client!client", name = "l", descriptor = "(I)V")
     public static void method1670(@OriginalArg(0) int arg0) {
-        @Pc(1) int local1 = PlayerList.highResolutionPlayerCount;
-        @Pc(3) int[] local3 = PlayerList.highResolutionPlayerSlots;
+        @Pc(1) int local1 = PlayerList.highResolutionCount;
+        @Pc(3) int[] local3 = PlayerList.highResolutionSlots;
         @Pc(9) int local9;
         if (CutsceneManager.state == 3) {
             local9 = CutsceneManager.actors.length;
         } else {
-            local9 = local1 + NPCList.localNpcCount;
+            local9 = local1 + NPCList.size;
         }
         for (@Pc(16) int local16 = 0; local16 < local9; local16++) {
             @Pc(31) PathingEntity local31;
@@ -319,7 +319,7 @@ public final class Static84 {
                 if (local16 < local1) {
                     local31 = PlayerList.highResolutionPlayers[local3[local16]];
                 } else {
-                    local31 = ((NPCEntityNode) NPCList.local.get(NPCList.localNpcSlots[local16 - local1])).npc;
+                    local31 = ((NPCEntityNode) NPCList.local.get(NPCList.slots[local16 - local1])).npc;
                 }
                 if (local31.level != arg0 || local31.drawPriority < 0) {
                     continue;

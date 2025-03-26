@@ -26,6 +26,6 @@ public final class CutsceneAction_Sub1_Sub2 extends CutsceneAction_Sub1 {
     @OriginalMember(owner = "client!wd", name = "b", descriptor = "(I)V")
     @Override
     public void execute() {
-        CutsceneManager.actors[this.anInt10564].entity().setSpotAnim(this.anInt10562, super.anInt10556, false, super.anInt10560 << 16, this.anInt10563, super.anInt10558);
+        CutsceneManager.actors[this.anInt10564].entity().setEffect(this.anInt10562, super.anInt10556, false, super.anInt10560 << 16, this.anInt10563, super.anInt10558);
     }
 }

@@ -34,7 +34,7 @@ public final class CutsceneAction_Sub1_Sub1 extends CutsceneAction_Sub1 {
         if (local30 < 3 && Static441.isBridgeAt(this.anInt987, this.anInt983)) {
             local30++;
         }
-        @Pc(79) SpotAnimation local79 = new SpotAnimation(super.anInt10558, 0, this.anInt986, local30, local10, Static102.averageHeight(this.anInt986, local10, local17) - super.anInt10560, local17, this.anInt983, this.anInt983, this.anInt987, this.anInt987, super.anInt10556, false);
-        Static346.spotAnimations.put(this.anInt983 << 16 | this.anInt987, new SpotAnimationNode(local79));
+        @Pc(79) Effect local79 = new Effect(super.anInt10558, 0, this.anInt986, local30, local10, Static102.averageHeight(this.anInt986, local10, local17) - super.anInt10560, local17, this.anInt983, this.anInt983, this.anInt987, this.anInt987, super.anInt10556, false);
+        Static346.effects.put(this.anInt983 << 16 | this.anInt987, new EffectNode(local79));
     }
 }

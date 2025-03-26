@@ -4,8 +4,8 @@ import com.jagex.PickableEntity;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectType;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Ground;
 import com.jagex.graphics.Matrix;
@@ -19,7 +19,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!pja")
-public final class SpotAnimation extends PositionEntity {
+public final class Effect extends PositionEntity {
 
     @OriginalMember(owner = "client!pja", name = "qb", descriptor = "Lclient!hv;")
     public ParticleSystem particleSystem;
@@ -43,12 +43,12 @@ public final class SpotAnimation extends PositionEntity {
     public Animator animator;
 
     @OriginalMember(owner = "client!pja", name = "<init>", descriptor = "(IIIIIIIIIIIIZ)V")
-    public SpotAnimation(@OriginalArg(0) int id, @OriginalArg(1) int delay, @OriginalArg(2) int level, @OriginalArg(3) int virtualLevel, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z, @OriginalArg(7) int x1, @OriginalArg(8) int x2, @OriginalArg(9) int z1, @OriginalArg(10) int z2, @OriginalArg(11) int rotation, @OriginalArg(12) boolean multipleAnims) {
+    public Effect(@OriginalArg(0) int id, @OriginalArg(1) int delay, @OriginalArg(2) int level, @OriginalArg(3) int virtualLevel, @OriginalArg(4) int x, @OriginalArg(5) int y, @OriginalArg(6) int z, @OriginalArg(7) int x1, @OriginalArg(8) int x2, @OriginalArg(9) int z1, @OriginalArg(10) int z2, @OriginalArg(11) int rotation, @OriginalArg(12) boolean multipleAnims) {
         super(level, virtualLevel, x, y, z, x1, x2, z1, z2, false, (byte) 0);
         this.id = id;
         this.rotation = rotation;
 
-        @Pc(36) SpotAnimationType type = SpotAnimationTypeList.instance.list(this.id);
+        @Pc(36) EffectType type = EffectTypeList.instance.list(this.id);
         @Pc(39) int animation = type.seq;
         if (animation != -1) {
             this.animator = new EntityAnimator(this, false);
@@ -80,7 +80,7 @@ public final class SpotAnimation extends PositionEntity {
 
     @OriginalMember(owner = "client!pja", name = "a", descriptor = "(IILclient!ha;I)Lclient!ka;")
     public Model method6594(@OriginalArg(1) int id, @OriginalArg(2) Toolkit toolkit, @OriginalArg(3) int functionMask) {
-        @Pc(8) SpotAnimationType type = SpotAnimationTypeList.instance.list(id);
+        @Pc(8) EffectType type = EffectTypeList.instance.list(id);
         @Pc(22) Ground floor = Static706.floor[super.level];
         @Pc(36) Ground ceiling = super.virtualLevel < 3 ? Static706.floor[super.virtualLevel + 1] : null;
 

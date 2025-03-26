@@ -2,11 +2,11 @@ package com.jagex.core.constants;
 
 public final class NpcExtendedInfoFlag {
 
-    public static final int SPOTANIM_2 = 0x100000;
+    public static final int EFFECT_2 = 0x100000;
 
     public static final int TARGET = 0x1;
 
-    public static final int SPOTANIM3 = 0x20000;
+    public static final int EFFECT3 = 0x20000;
 
     public static final int HITMARK = 0x40;
 
@@ -34,9 +34,9 @@ public final class NpcExtendedInfoFlag {
 
     public static final int ANIMATE_WORN = 0x4000;
 
-    public static final int SPOTANIM1 = 0x1000;
+    public static final int EFFECT1 = 0x1000;
 
-    public static final int SPOTANIM0 = 0x4;
+    public static final int EFFECT0 = 0x4;
 
     public static final int RECOL = 0x200;
 

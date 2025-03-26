@@ -6,7 +6,7 @@ public final class PlayerExtendedInfoFlag {
 
     public static final int ANIMATION = 0x40;
 
-    public static final int SPOTANIM2 = 0x40000;
+    public static final int EFFECT2 = 0x40000;
 
     public static final int RECOL = 0x20000;
 
@@ -14,7 +14,7 @@ public final class PlayerExtendedInfoFlag {
 
     public static final int TIMERBAR = 0x2000;
 
-    public static final int SPOTANIM3 = 0x80000;
+    public static final int EFFECT3 = 0x80000;
 
     public static final int CLANMATE = 0x100000;
 
@@ -36,9 +36,9 @@ public final class PlayerExtendedInfoFlag {
 
     public static final int TURN = 0x20;
 
-    public static final int SPOTANIM0 = 0x2;
+    public static final int EFFECT0 = 0x2;
 
-    public static final int SPOTANIM1 = 0x100;
+    public static final int EFFECT1 = 0x100;
 
     private PlayerExtendedInfoFlag() {
         /* empty */

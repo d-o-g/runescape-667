@@ -979,7 +979,7 @@ public final class LoginManager {
         NPCList.newSize = 0;
         NPCList.local.clear();
         Static505.projectiles.clear();
-        Static346.spotAnimations.clear();
+        Static346.effects.clear();
         TextCoordList.textCoords.clear();
         Static497.objStacks.clear();
         Static159.changes = new Deque();

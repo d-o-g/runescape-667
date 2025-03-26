@@ -199,7 +199,7 @@ public final class Static684 {
         }
         MiniMenu.resetAndClose();
         Minimap.reset();
-        Static346.spotAnimations.clear();
+        Static346.effects.clear();
         Static505.projectiles.clear();
         TextCoordList.textCoords.clear();
         ParticleManager.method2044();

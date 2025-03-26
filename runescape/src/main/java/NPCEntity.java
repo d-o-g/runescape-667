@@ -11,8 +11,8 @@ import com.jagex.game.runetek6.config.defaults.GraphicsDefaults;
 import com.jagex.game.runetek6.config.npctype.NPCType;
 import com.jagex.game.runetek6.config.npctype.NPCTypeCustomisation;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectType;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.EnvironmentLight;
@@ -367,12 +367,12 @@ public final class NPCEntity extends PathingEntity {
             super.actionAnimations = null;
             super.actionAnimator.update(true, -1);
         }
-        for (@Pc(110) int local110 = 0; local110 < super.spotAnims.length; local110++) {
-            if (super.spotAnims[local110].id != -1) {
-                @Pc(131) SpotAnimationType local131 = SpotAnimationTypeList.instance.list(super.spotAnims[local110].id);
+        for (@Pc(110) int local110 = 0; local110 < super.effects.length; local110++) {
+            if (super.effects[local110].id != -1) {
+                @Pc(131) EffectType local131 = EffectTypeList.instance.list(super.effects[local110].id);
                 if (local131.loopSeq && local131.seq != -1 && SeqTypeList.instance.list(local131.seq).walkingPrecedence == 1) {
-                    super.spotAnims[local110].animator.update(true, -1);
-                    super.spotAnims[local110].id = -1;
+                    super.effects[local110].animator.update(true, -1);
+                    super.effects[local110].id = -1;
                 }
             }
         }
@@ -401,13 +401,13 @@ public final class NPCEntity extends PathingEntity {
             super.actionAnimator.update(true, -1);
         }
 
-        for (@Pc(61) int i = 0; i < super.spotAnims.length; i++) {
-            if (super.spotAnims[i].id != -1) {
-                @Pc(81) SpotAnimationType type = SpotAnimationTypeList.instance.list(super.spotAnims[i].id);
+        for (@Pc(61) int i = 0; i < super.effects.length; i++) {
+            if (super.effects[i].id != -1) {
+                @Pc(81) EffectType type = EffectTypeList.instance.list(super.effects[i].id);
 
                 if (type.loopSeq && type.seq != -1 && SeqTypeList.instance.list(type.seq).walkingPrecedence == 1) {
-                    super.spotAnims[i].animator.update(true, -1);
-                    super.spotAnims[i].id = -1;
+                    super.effects[i].animator.update(true, -1);
+                    super.effects[i].id = -1;
                 }
             }
         }

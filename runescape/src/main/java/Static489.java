@@ -32,9 +32,9 @@ public final class Static489 {
 
         if ((entity.x < 512) || (entity.z < 512) || (entity.x >= ((Static720.mapWidth * 512) - 512)) || (entity.z >= ((Static501.mapLength * 512) - 512))) {
             entity.actionAnimator.update(true, -1);
-            for (@Pc(107) int local107 = 0; local107 < entity.spotAnims.length; local107++) {
-                entity.spotAnims[local107].id = -1;
-                entity.spotAnims[local107].animator.update(true, -1);
+            for (@Pc(107) int local107 = 0; local107 < entity.effects.length; local107++) {
+                entity.effects[local107].id = -1;
+                entity.effects[local107].animator.update(true, -1);
             }
 
             entity.exactMoveT1 = 0;
@@ -49,9 +49,9 @@ public final class Static489 {
 
         if ((entity == PlayerEntity.self) && ((entity.x < 6144) || (entity.z < 6144) || (entity.x >= ((Static720.mapWidth * 512) - 6144)) || (((Static501.mapLength * 512) - 6144) <= entity.z))) {
             entity.actionAnimator.update(true, -1);
-            for (@Pc(107) int local107 = 0; local107 < entity.spotAnims.length; local107++) {
-                entity.spotAnims[local107].id = -1;
-                entity.spotAnims[local107].animator.update(true, -1);
+            for (@Pc(107) int local107 = 0; local107 < entity.effects.length; local107++) {
+                entity.effects[local107].id = -1;
+                entity.effects[local107].animator.update(true, -1);
             }
             entity.exactMoveT1 = 0;
             entity.exactMoveT2 = 0;

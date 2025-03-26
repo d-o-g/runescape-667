@@ -4,13 +4,13 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!vb")
-public final class SpotAnimationNode extends Node2 {
+public final class EffectNode extends Node2 {
 
     @OriginalMember(owner = "client!vb", name = "t", descriptor = "Lclient!pja;")
-    public final SpotAnimation spotAnimation;
+    public final Effect effect;
 
     @OriginalMember(owner = "client!vb", name = "<init>", descriptor = "(Lclient!pja;)V")
-    public SpotAnimationNode(@OriginalArg(0) SpotAnimation spotAnimation) {
-        this.spotAnimation = spotAnimation;
+    public EffectNode(@OriginalArg(0) Effect effect) {
+        this.effect = effect;
     }
 }

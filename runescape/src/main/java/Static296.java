@@ -4,7 +4,7 @@ import com.jagex.game.runetek6.config.loctype.LocTypeCustomisation;
 import com.jagex.game.runetek6.config.loctype.LocTypeList;
 import com.jagex.game.runetek6.config.npctype.NPCTypeList;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -57,7 +57,7 @@ public final class Static296 {
         LocTypeList.instance.setFeatureMask(featureMask);
         ObjTypeList.instance.setFeatureMask(featureMask);
         NPCTypeList.instance.setFeatureMask(featureMask);
-        SpotAnimationTypeList.instance.setFeatureMask(featureMask);
+        EffectTypeList.instance.setFeatureMask(featureMask);
         PlayerEntity.setFeatureMask(featureMask);
         ShadowList.setFeatureMask(featureMask);
         PlayerModel.setFeatureMask(featureMask);

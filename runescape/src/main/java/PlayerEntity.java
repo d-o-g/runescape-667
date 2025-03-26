@@ -27,8 +27,8 @@ import com.jagex.game.runetek6.config.objtype.ObjType;
 import com.jagex.game.runetek6.config.objtype.ObjTypeCustomisation;
 import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectType;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.EnvironmentLight;
@@ -917,13 +917,13 @@ public final class PlayerEntity extends PathingEntity {
             super.actionAnimator.update(true, -1);
         }
 
-        for (@Pc(33) int i = 0; i < super.spotAnims.length; i++) {
-            if (super.spotAnims[i].id != -1) {
-                @Pc(56) SpotAnimationType type = SpotAnimationTypeList.instance.list(super.spotAnims[i].id);
+        for (@Pc(33) int i = 0; i < super.effects.length; i++) {
+            if (super.effects[i].id != -1) {
+                @Pc(56) EffectType type = EffectTypeList.instance.list(super.effects[i].id);
 
                 if (type.loopSeq && type.seq != -1 && SeqTypeList.instance.list(type.seq).walkingPrecedence == 1) {
-                    super.spotAnims[i].animator.update(true, -1);
-                    super.spotAnims[i].id = -1;
+                    super.effects[i].animator.update(true, -1);
+                    super.effects[i].id = -1;
                 }
             }
         }

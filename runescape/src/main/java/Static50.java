@@ -1,8 +1,8 @@
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectType;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
@@ -26,17 +26,17 @@ public final class Static50 {
             local8.resetImmediately();
         }
         @Pc(75) Animator local75;
-        for (@Pc(50) int local50 = 0; local50 < arg0.spotAnims.length; local50++) {
-            if (arg0.spotAnims[local50].id != -1) {
-                local75 = arg0.spotAnims[local50].animator;
+        for (@Pc(50) int local50 = 0; local50 < arg0.effects.length; local50++) {
+            if (arg0.effects[local50].id != -1) {
+                local75 = arg0.effects[local50].animator;
                 if (local75.isDelayed()) {
-                    @Pc(88) SpotAnimationType local88 = SpotAnimationTypeList.instance.list(arg0.spotAnims[local50].id);
+                    @Pc(88) EffectType local88 = EffectTypeList.instance.list(arg0.effects[local50].id);
                     @Pc(92) SeqType local92 = local75.getAnimation();
                     if (local88.loopSeq) {
                         if (local92.animatingPrecedence == 3) {
                             if (arg0.animationPathPointer > 0 && TimeUtils.clock >= arg0.exactMoveT1 && arg0.exactMoveT2 < TimeUtils.clock) {
                                 local75.update(true, -1);
-                                arg0.spotAnims[local50].id = -1;
+                                arg0.effects[local50].id = -1;
                                 continue;
                             }
                         } else if (local92.animatingPrecedence == 1 && arg0.animationPathPointer > 0 && arg0.exactMoveT1 <= TimeUtils.clock && TimeUtils.clock > arg0.exactMoveT2) {
@@ -46,7 +46,7 @@ public final class Static50 {
                 }
                 if (local75.tick(1) && local75.isFinished()) {
                     local75.update(true, -1);
-                    arg0.spotAnims[local50].id = -1;
+                    arg0.effects[local50].id = -1;
                 }
             }
         }

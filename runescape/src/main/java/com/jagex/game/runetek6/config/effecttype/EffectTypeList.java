@@ -1,4 +1,4 @@
-package com.jagex.game.runetek6.config.spotanimationtype;
+package com.jagex.game.runetek6.config.effecttype;
 
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -10,12 +10,12 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!fh")
-public final class SpotAnimationTypeList {
+public final class EffectTypeList {
 
     private static final int DEFAULT_CACHE_SIZE = 64;
 
     @OriginalMember(owner = "client!an", name = "b", descriptor = "Lclient!fh;")
-    public static SpotAnimationTypeList instance;
+    public static EffectTypeList instance;
 
     @OriginalMember(owner = "client!lfa", name = "a", descriptor = "(II)I")
     private static int groupId(@OriginalArg(0) int id) {
@@ -49,7 +49,7 @@ public final class SpotAnimationTypeList {
     private final int num;
 
     @OriginalMember(owner = "client!fh", name = "<init>", descriptor = "(Lclient!ul;ILclient!sb;Lclient!sb;)V")
-    public SpotAnimationTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 models) {
+    public EffectTypeList(@OriginalArg(0) ModeGame game, @OriginalArg(1) int languageId, @OriginalArg(2) js5 configClient, @OriginalArg(3) js5 models) {
         this.game = game;
         this.languageId = languageId;
         this.models = models;
@@ -60,11 +60,11 @@ public final class SpotAnimationTypeList {
     }
 
     @OriginalMember(owner = "client!fh", name = "a", descriptor = "(II)Lclient!lia;")
-    public SpotAnimationType list(@OriginalArg(1) int id) {
+    public EffectType list(@OriginalArg(1) int id) {
         @Pc(14) ReferenceCache local14 = this.recentUse;
-        @Pc(24) SpotAnimationType type;
+        @Pc(24) EffectType type;
         synchronized (this.recentUse) {
-            type = (SpotAnimationType) this.recentUse.get(id);
+            type = (EffectType) this.recentUse.get(id);
         }
         if (type != null) {
             return type;
@@ -76,7 +76,7 @@ public final class SpotAnimationTypeList {
             data = this.configClient.getfile(fileId(id), groupId(id));
         }
 
-        type = new SpotAnimationType();
+        type = new EffectType();
         type.id = id;
         type.myList = this;
         if (data != null) {

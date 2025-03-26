@@ -268,7 +268,7 @@ public final class PlayerList {
             PathingEntity.animate(animations, delay, false, player);
         }
 
-        if ((flags & PlayerExtendedInfoFlag.SPOTANIM2) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.EFFECT2) != 0) {
             @Pc(15) int id = bitPacket.g2_alt3();
             @Pc(77) int heightAndDelay = bitPacket.g4_alt3();
             if (id == 65535) {
@@ -283,7 +283,7 @@ public final class PlayerList {
             }
             @Pc(166) boolean loop = (data >> 7 & 0x1) == 1;
 
-            player.setSpotAnim(2, rotation, loop, heightAndDelay, wornSlot, id);
+            player.setEffect(2, rotation, loop, heightAndDelay, wornSlot, id);
         }
 
         if ((flags & PlayerExtendedInfoFlag.RECOL) != 0) {
@@ -308,7 +308,7 @@ public final class PlayerList {
             player.timerbarEnd = player.timerbarStart + player.timerbarDuration + TimeUtils.clock;
         }
 
-        if ((flags & PlayerExtendedInfoFlag.SPOTANIM3) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.EFFECT3) != 0) {
             @Pc(15) int id = bitPacket.ig2();
             @Pc(108) int heightAndDelay = bitPacket.g4_alt3();
             if (id == 65535) {
@@ -323,7 +323,7 @@ public final class PlayerList {
             }
             @Pc(166) boolean loop = (data >> 7 & 0x1) == 1;
 
-            player.setSpotAnim(3, rotation, loop, heightAndDelay, wornSlot, id);
+            player.setEffect(3, rotation, loop, heightAndDelay, wornSlot, id);
         }
 
         if ((flags & PlayerExtendedInfoFlag.CLANMATE) != 0) {
@@ -451,7 +451,7 @@ public final class PlayerList {
             }
         }
 
-        if ((flags & PlayerExtendedInfoFlag.SPOTANIM0) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.EFFECT0) != 0) {
             @Pc(15) int id = bitPacket.g2();
             @Pc(77) int heightAndDelay = bitPacket.g4_alt1();
             if (id == 65535) {
@@ -466,10 +466,10 @@ public final class PlayerList {
             }
             @Pc(166) boolean loop = (data >> 7 & 0x1) == 1;
 
-            player.setSpotAnim(0, rotation, loop, heightAndDelay, wornSlot, id);
+            player.setEffect(0, rotation, loop, heightAndDelay, wornSlot, id);
         }
 
-        if ((flags & PlayerExtendedInfoFlag.SPOTANIM1) != 0) {
+        if ((flags & PlayerExtendedInfoFlag.EFFECT1) != 0) {
             @Pc(15) int id = bitPacket.g2_alt3();
             if (id == 65535) {
                 id = -1;
@@ -484,7 +484,7 @@ public final class PlayerList {
             }
             @Pc(166) boolean loop = (data >> 7 & 0x1) == 1;
 
-            player.setSpotAnim(1, rotation, loop, heightAndDelay, wornSlot, id);
+            player.setEffect(1, rotation, loop, heightAndDelay, wornSlot, id);
         }
 
         if (player.moved) {

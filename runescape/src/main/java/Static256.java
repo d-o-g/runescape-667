@@ -4,8 +4,8 @@ import com.jagex.game.camera.CameraMode;
 import com.jagex.game.runetek6.config.bastype.BASType;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectType;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.graphics.ClippingMask;
 import com.jagex.graphics.Font;
 import com.jagex.graphics.FontMetrics;
@@ -43,12 +43,12 @@ public final class Static256 {
             }
         }
 
-        for (@Pc(86) int i = 0; i < entity.spotAnims.length; i++) {
-            if (entity.spotAnims[i].id == -1 || !entity.spotAnims[i].animator.isDelayed()) {
+        for (@Pc(86) int i = 0; i < entity.effects.length; i++) {
+            if (entity.effects[i].id == -1 || !entity.effects[i].animator.isDelayed()) {
                 continue;
             }
 
-            @Pc(117) SpotAnimationType type = SpotAnimationTypeList.instance.list(entity.spotAnims[i].id);
+            @Pc(117) EffectType type = EffectTypeList.instance.list(entity.effects[i].id);
 
             if (type.loopSeq && type.seq != -1) {
                 @Pc(133) SeqType local133 = SeqTypeList.instance.list(type.seq);

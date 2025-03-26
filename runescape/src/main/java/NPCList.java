@@ -258,7 +258,7 @@ public final class NPCList {
                 flags += bitPacket.g1() << 16;
             }
 
-            if ((flags & NpcExtendedInfoFlag.SPOTANIM_2) != 0) {
+            if ((flags & NpcExtendedInfoFlag.EFFECT_2) != 0) {
                 @Pc(73) int id = bitPacket.g2();
                 @Pc(77) int heightAndDelay = bitPacket.g4();
                 if (id == 65535) {
@@ -273,7 +273,7 @@ public final class NPCList {
                 }
                 @Pc(117) boolean loop = (data >> 7 & 0x1) == 1;
 
-                npc.setSpotAnim(2, rotation, loop, heightAndDelay, wornSlot, id);
+                npc.setEffect(2, rotation, loop, heightAndDelay, wornSlot, id);
             }
 
             if ((flags & NpcExtendedInfoFlag.TARGET) != 0) {
@@ -284,7 +284,7 @@ public final class NPCList {
                 }
             }
 
-            if ((flags & NpcExtendedInfoFlag.SPOTANIM3) != 0) {
+            if ((flags & NpcExtendedInfoFlag.EFFECT3) != 0) {
                 @Pc(73) int id = bitPacket.g2();
                 @Pc(77) int heightAndDelay = bitPacket.g4();
                 if (id == 65535) {
@@ -299,7 +299,7 @@ public final class NPCList {
                 }
                 @Pc(117) boolean loop = (data >> 7 & 0x1) == 1;
 
-                npc.setSpotAnim(3, rotation, loop, heightAndDelay, wornSlot, id);
+                npc.setEffect(3, rotation, loop, heightAndDelay, wornSlot, id);
             }
 
             if ((flags & NpcExtendedInfoFlag.HITMARK) != 0) {
@@ -538,7 +538,7 @@ public final class NPCList {
                 Static310.animateWorn(slots, animations, delays, npc);
             }
 
-            if ((flags & NpcExtendedInfoFlag.SPOTANIM1) != 0) {
+            if ((flags & NpcExtendedInfoFlag.EFFECT1) != 0) {
                 @Pc(73) int id = bitPacket.g2_alt2();
                 @Pc(77) int heightAndDelay = bitPacket.g4();
                 if (id == 65535) {
@@ -551,10 +551,10 @@ public final class NPCList {
                     wornSlot = -1;
                 }
                 @Pc(117) boolean loop = (data >> 7 & 0x1) == 1;
-                npc.setSpotAnim(1, rotation, loop, heightAndDelay, wornSlot, id);
+                npc.setEffect(1, rotation, loop, heightAndDelay, wornSlot, id);
             }
 
-            if ((flags & NpcExtendedInfoFlag.SPOTANIM0) != 0) {
+            if ((flags & NpcExtendedInfoFlag.EFFECT0) != 0) {
                 @Pc(73) int id = bitPacket.ig2();
                 @Pc(77) int heightAndDelay = bitPacket.g4_alt3();
                 if (id == 65535) {
@@ -567,7 +567,7 @@ public final class NPCList {
                     wornSlot = -1;
                 }
                 @Pc(117) boolean loop = (data >> 7 & 0x1) == 1;
-                npc.setSpotAnim(0, rotation, loop, heightAndDelay, wornSlot, id);
+                npc.setEffect(0, rotation, loop, heightAndDelay, wornSlot, id);
             }
 
             if ((flags & NpcExtendedInfoFlag.RECOL) != 0) {

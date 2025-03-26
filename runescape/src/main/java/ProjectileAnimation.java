@@ -4,8 +4,8 @@ import com.jagex.PickableEntity;
 import com.jagex.core.util.TimeUtils;
 import com.jagex.game.Animator;
 import com.jagex.game.runetek6.config.bastype.BASType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectType;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.graphics.BoundingCylinder;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -118,7 +118,7 @@ public final class ProjectileAnimation extends PositionEntity {
         this.verticalAngle = verticalAngle;
         this.displacement = displacement;
 
-        @Pc(82) int animation = SpotAnimationTypeList.instance.list(this.id).seq;
+        @Pc(82) int animation = EffectTypeList.instance.list(this.id).seq;
         this.animator = new EntityAnimator(this, false);
         this.animator.update(true, animation);
     }
@@ -201,7 +201,7 @@ public final class ProjectileAnimation extends PositionEntity {
 
     @OriginalMember(owner = "client!b", name = "a", descriptor = "(ILclient!ha;I)Lclient!ka;")
     public Model model(@OriginalArg(0) int functionMask, @OriginalArg(1) Toolkit toolkit, @OriginalArg(2) int arg2) {
-        @Pc(17) SpotAnimationType type = SpotAnimationTypeList.instance.list(this.id);
+        @Pc(17) EffectType type = EffectTypeList.instance.list(this.id);
         return type.model(this.animator, (byte) 2, functionMask, toolkit);
     }
 

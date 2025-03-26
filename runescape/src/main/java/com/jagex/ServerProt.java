@@ -336,7 +336,7 @@ public final class ServerProt {
     public static final ServerProt CAM_FORCEANGLE = new ServerProt(107, 4);
 
     @OriginalMember(owner = "client!tba", name = "h", descriptor = "Lclient!lga;")
-    public static final ServerProt SPOTANIM_SPECIFIC = new ServerProt(108, 12);
+    public static final ServerProt EFFECT_SPECIFIC = new ServerProt(108, 12);
 
     @OriginalMember(owner = "client!ifa", name = "i", descriptor = "Lclient!lga;")
     public static final ServerProt IF_SETPLAYERMODEL_OTHER = new ServerProt(109, 10);
@@ -557,7 +557,7 @@ public final class ServerProt {
             IGNORELIST_ADD,
             SYNTH_SOUND,
             CAM_FORCEANGLE,
-            SPOTANIM_SPECIFIC,
+            EFFECT_SPECIFIC,
             IF_SETPLAYERMODEL_OTHER,
             DEBUG_SERVER_TRIGGERS,
             CLIENT_SETVARC_SMALL,

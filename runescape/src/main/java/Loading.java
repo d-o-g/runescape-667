@@ -41,7 +41,7 @@ import com.jagex.game.runetek6.config.questtype.QuestTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
 import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.VarcTypeList;
@@ -478,7 +478,7 @@ public final class Loading {
             SeqTypeList.instance = new SeqTypeList(Client.modeGame, Client.language, js5.CONFIG_SEQ, js5.ANIMS, js5.BASES);
             SkyBoxTypeList.instance = new SkyBoxTypeList(Client.modeGame, Client.language, js5.CONFIG);
             SkyBoxSphereTypeList.instance = new SkyBoxSphereTypeList(Client.modeGame, Client.language, js5.CONFIG);
-            SpotAnimationTypeList.instance = new SpotAnimationTypeList(Client.modeGame, Client.language, js5.CONFIG_SPOT, js5.MODELS);
+            EffectTypeList.instance = new EffectTypeList(Client.modeGame, Client.language, js5.CONFIG_SPOT, js5.MODELS);
             StructTypeList.instance = new StructTypeList(Client.modeGame, Client.language, js5.CONFIG);
             VarcstrTypeList.instance = new VarcstrTypeList(Client.modeGame, Client.language, js5.CONFIG);
             VarcTypeList.instance = new VarcTypeList(Client.modeGame, Client.language, js5.CONFIG);

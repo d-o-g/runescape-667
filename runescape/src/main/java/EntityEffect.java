@@ -4,7 +4,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!jq")
-public final class EntitySpotAnimation {
+public final class EntityEffect {
 
     @OriginalMember(owner = "client!jq", name = "e", descriptor = "I")
     public int wornSlot;
@@ -22,7 +22,7 @@ public final class EntitySpotAnimation {
     public final Animator animator;
 
     @OriginalMember(owner = "client!jq", name = "<init>", descriptor = "(Lclient!cg;)V")
-    public EntitySpotAnimation(@OriginalArg(0) PathingEntity arg0) {
+    public EntityEffect(@OriginalArg(0) PathingEntity arg0) {
         this.animator = new EntityAnimator(arg0, false);
     }
 }

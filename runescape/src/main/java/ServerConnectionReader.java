@@ -37,8 +37,8 @@ import com.jagex.game.runetek6.config.objtype.ObjTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectType;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.game.runetek6.config.vartype.TimedVarDomain;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
 import com.jagex.game.world.World;
@@ -1296,7 +1296,7 @@ public final class ServerConnectionReader {
             decodeZoneProt(ZoneProt.LOC_PREFETCH);
             context.currentProt = null;
             return true;
-        } else if (context.currentProt == ServerProt.SPOTANIM_SPECIFIC) {
+        } else if (context.currentProt == ServerProt.EFFECT_SPECIFIC) {
             @Pc(277) int delay = bitPacket.g2_alt2();
             @Pc(100) int position = bitPacket.g4_alt3();
             @Pc(526) int index = bitPacket.g1_alt1();
@@ -1323,10 +1323,10 @@ public final class ServerConnectionReader {
 
                 if (localX >= 0 && localZ >= 0 && localX < Static720.mapWidth && localZ < Static501.mapLength) {
                     if (id == -1) {
-                        @Pc(5270) SpotAnimationNode node = (SpotAnimationNode) Static346.spotAnimations.get((localX << 16) | localZ);
+                        @Pc(5270) EffectNode node = (EffectNode) Static346.effects.get((localX << 16) | localZ);
 
                         if (node != null) {
-                            node.spotAnimation.stopParticleSystem();
+                            node.effect.stopParticleSystem();
                             node.unlink();
                         }
                     } else {
@@ -1338,8 +1338,8 @@ public final class ServerConnectionReader {
                             virtualLevel = level + 1;
                         }
 
-                        @Pc(5334) SpotAnimation spotAnimation = new SpotAnimation(id, delay, level, virtualLevel, x, Static102.averageHeight(level, x, z) - height, z, localX, localX, localZ, localZ, rotation, multipleAnims);
-                        Static346.spotAnimations.put((localX << 16) | localZ, new SpotAnimationNode(spotAnimation));
+                        @Pc(5334) Effect effect = new Effect(id, delay, level, virtualLevel, x, Static102.averageHeight(level, x, z) - height, z, localX, localX, localZ, localZ, rotation, multipleAnims);
+                        Static346.effects.put((localX << 16) | localZ, new EffectNode(effect));
                     }
                 }
             } else if (position >> 29 != 0) {
@@ -1348,7 +1348,7 @@ public final class ServerConnectionReader {
 
                 if (node != null) {
                     @Pc(5037) NPCEntity npc = node.npc;
-                    @Pc(5042) EntitySpotAnimation current = npc.spotAnims[index];
+                    @Pc(5042) EntityEffect current = npc.effects[index];
                     if (id == 65535) {
                         id = -1;
                     }
@@ -1357,7 +1357,7 @@ public final class ServerConnectionReader {
                     @Pc(667) int currentId = current.id;
                     if (id != -1 && currentId != -1) {
                         if (currentId == id) {
-                            @Pc(4888) SpotAnimationType type = SpotAnimationTypeList.instance.list(id);
+                            @Pc(4888) EffectType type = EffectTypeList.instance.list(id);
 
                             if (type.loopSeq && type.seq != -1) {
                                 @Pc(4905) SeqType seqType = SeqTypeList.instance.list(type.seq);
@@ -1370,8 +1370,8 @@ public final class ServerConnectionReader {
                                 }
                             }
                         } else {
-                            @Pc(4888) SpotAnimationType type = SpotAnimationTypeList.instance.list(id);
-                            @Pc(5078) SpotAnimationType currentType = SpotAnimationTypeList.instance.list(currentId);
+                            @Pc(4888) EffectType type = EffectTypeList.instance.list(id);
+                            @Pc(5078) EffectType currentType = EffectTypeList.instance.list(currentId);
 
                             if (type.seq != -1 && currentType.seq != -1) {
                                 @Pc(4911) SeqType seqType = SeqTypeList.instance.list(type.seq);
@@ -1392,7 +1392,7 @@ public final class ServerConnectionReader {
                         if (id == -1) {
                             current.animator.update(true, -1);
                         } else {
-                            @Pc(4888) SpotAnimationType type = SpotAnimationTypeList.instance.list(id);
+                            @Pc(4888) EffectType type = EffectTypeList.instance.list(id);
 
                             @Pc(4943) int loopMode = type.loopSeq ? 0 : 2;
                             if (multipleAnims) {
@@ -1414,7 +1414,7 @@ public final class ServerConnectionReader {
                 }
 
                 if (player != null) {
-                    @Pc(4850) EntitySpotAnimation current = player.spotAnims[index];
+                    @Pc(4850) EntityEffect current = player.effects[index];
                     if (id == 0xFFFF) {
                         id = -1;
                     }
@@ -1424,7 +1424,7 @@ public final class ServerConnectionReader {
 
                     if (id != -1 && currentId != -1) {
                         if (id == currentId) {
-                            @Pc(4883) SpotAnimationType type = SpotAnimationTypeList.instance.list(id);
+                            @Pc(4883) EffectType type = EffectTypeList.instance.list(id);
 
                             if (type.loopSeq && type.seq != -1) {
                                 @Pc(4940) SeqType seqType = SeqTypeList.instance.list(type.seq);
@@ -1437,8 +1437,8 @@ public final class ServerConnectionReader {
                                 }
                             }
                         } else {
-                            @Pc(4883) SpotAnimationType type = SpotAnimationTypeList.instance.list(id);
-                            @Pc(4888) SpotAnimationType currentType = SpotAnimationTypeList.instance.list(currentId);
+                            @Pc(4883) EffectType type = EffectTypeList.instance.list(id);
+                            @Pc(4888) EffectType currentType = EffectTypeList.instance.list(currentId);
 
                             if (type.seq != -1 && currentType.seq != -1) {
                                 @Pc(4905) SeqType seqType = SeqTypeList.instance.list(type.seq);
@@ -1460,7 +1460,7 @@ public final class ServerConnectionReader {
                         if (id == -1) {
                             current.animator.update(true, -1);
                         } else {
-                            @Pc(4883) SpotAnimationType type = SpotAnimationTypeList.instance.list(id);
+                            @Pc(4883) EffectType type = EffectTypeList.instance.list(id);
 
                             @Pc(5006) int loopMode = type.loopSeq ? 0 : 2;
                             if (multipleAnims) {
@@ -2847,10 +2847,10 @@ public final class ServerConnectionReader {
 
             if (zoneX >= 0 && zoneZ >= 0 && zoneX < Static720.mapWidth && Static501.mapLength > zoneZ) {
                 if (id == -1) {
-                    @Pc(2004) SpotAnimationNode local2004 = (SpotAnimationNode) Static346.spotAnimations.get(zoneX << 16 | zoneZ);
+                    @Pc(2004) EffectNode local2004 = (EffectNode) Static346.effects.get(zoneX << 16 | zoneZ);
 
                     if (local2004 != null) {
-                        local2004.spotAnimation.stopParticleSystem();
+                        local2004.effect.stopParticleSystem();
                         local2004.unlink();
                         return;
                     }
@@ -2862,8 +2862,8 @@ public final class ServerConnectionReader {
                         virtualLevel++;
                     }
 
-                    @Pc(2065) SpotAnimation spotAnimation = new SpotAnimation(id, delay, Static87.updateZoneLevel, virtualLevel, x, Static102.averageHeight(Static87.updateZoneLevel, x, z) - y, z, zoneX, zoneX, zoneZ, zoneZ, rotation, false);
-                    Static346.spotAnimations.put((zoneX << 16) | zoneZ, new SpotAnimationNode(spotAnimation));
+                    @Pc(2065) Effect effect = new Effect(id, delay, Static87.updateZoneLevel, virtualLevel, x, Static102.averageHeight(Static87.updateZoneLevel, x, z) - y, z, zoneX, zoneX, zoneZ, zoneZ, rotation, false);
+                    Static346.effects.put((zoneX << 16) | zoneZ, new EffectNode(effect));
                 }
             }
         } else {

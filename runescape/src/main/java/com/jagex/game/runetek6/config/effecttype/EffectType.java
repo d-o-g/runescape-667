@@ -1,4 +1,4 @@
-package com.jagex.game.runetek6.config.spotanimationtype;
+package com.jagex.game.runetek6.config.effecttype;
 
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.io.Packet;
@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!lia")
-public final class SpotAnimationType {
+public final class EffectType {
 
     @OriginalMember(owner = "client!lia", name = "m", descriptor = "I")
     public int id;
@@ -31,7 +31,7 @@ public final class SpotAnimationType {
     public short[] retex_s;
 
     @OriginalMember(owner = "client!lia", name = "e", descriptor = "Lclient!fh;")
-    public SpotAnimationTypeList myList;
+    public EffectTypeList myList;
 
     @OriginalMember(owner = "client!lia", name = "c", descriptor = "[S")
     public short[] retex_d;

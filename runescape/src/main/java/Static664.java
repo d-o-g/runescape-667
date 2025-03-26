@@ -18,7 +18,7 @@ import com.jagex.game.runetek6.config.questtype.QuestTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
 import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
@@ -58,7 +58,7 @@ public final class Static664 {
         NPCTypeList.instance.cacheRemoveSoftReferences();
         ObjTypeList.instance.cacheRemoveSoftReferences();
         SeqTypeList.instance.cacheRemoveSoftReferences();
-        SpotAnimationTypeList.instance.cacheRemoveSoftReferences();
+        EffectTypeList.instance.cacheRemoveSoftReferences();
         VarBitTypeListClient.instance.cacheRemoveSoftReferences();
         VarPlayerTypeListClient.instance.cacheRemoveSoftReferences();
         VarClanSettingTypeList.instance.cacheRemoveSoftReferences();

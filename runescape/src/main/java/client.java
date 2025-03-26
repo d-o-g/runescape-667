@@ -44,7 +44,7 @@ import com.jagex.game.runetek6.config.questtype.QuestTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
 import com.jagex.game.runetek6.config.skyboxspheretype.SkyBoxSphereTypeList;
 import com.jagex.game.runetek6.config.skyboxtype.SkyBoxTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.game.runetek6.config.structtype.StructTypeList;
 import com.jagex.game.runetek6.config.vartype.bit.VarBitTypeListClient;
 import com.jagex.game.runetek6.config.vartype.clan.VarClanSettingTypeList;
@@ -181,7 +181,7 @@ public final class client extends GameShell {
         NPCTypeList.instance.cacheClean(5);
         ObjTypeList.instance.cacheClean(5);
         SeqTypeList.instance.cacheClean(5);
-        SpotAnimationTypeList.instance.cacheClean(5);
+        EffectTypeList.instance.cacheClean(5);
         VarBitTypeListClient.instance.cacheClean(5);
         VarPlayerTypeListClient.instance.cacheClean(5);
         VarClanSettingTypeList.instance.cacheClean(5);
@@ -218,7 +218,7 @@ public final class client extends GameShell {
         NPCTypeList.instance.cacheReset();
         ObjTypeList.instance.cacheReset();
         SeqTypeList.instance.cacheReset();
-        SpotAnimationTypeList.instance.cacheReset();
+        EffectTypeList.instance.cacheReset();
         VarBitTypeListClient.instance.cacheReset();
         VarPlayerTypeListClient.instance.cacheReset();
         VarClanSettingTypeList.instance.cacheReset();

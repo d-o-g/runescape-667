@@ -25,7 +25,7 @@ public final class Static587 {
                     if (Static522.aClass2_Sub12_4 == null) {
                         Static522.aClass2_Sub12_4 = Static151.aClass226_20.method5245(local26.address);
                     }
-                    @Pc(54) int local54 = Static522.aClass2_Sub12_4.anInt1631;
+                    @Pc(54) int local54 = Static522.aClass2_Sub12_4.ping;
                     if (local54 == -1) {
                         return;
                     }

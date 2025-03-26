@@ -9,16 +9,16 @@ public final class Static598 {
 
     @OriginalMember(owner = "client!ss", name = "a", descriptor = "(Z)V")
     public static void method7827() {
-        for (@Pc(13) SpotAnimationNode node = (SpotAnimationNode) Static346.spotAnimations.first(); node != null; node = (SpotAnimationNode) Static346.spotAnimations.next()) {
-            @Pc(18) SpotAnimation spotAnimation = node.spotAnimation;
+        for (@Pc(13) EffectNode node = (EffectNode) Static346.effects.first(); node != null; node = (EffectNode) Static346.effects.next()) {
+            @Pc(18) Effect effect = node.effect;
 
-            spotAnimation.tick();
+            effect.tick();
 
-            if (spotAnimation.isFinished()) {
+            if (effect.isFinished()) {
                 node.unlink();
-                spotAnimation.stopParticleSystem();
-            } else if (Static334.activeTiles != null && spotAnimation.isAnimating()) {
-                Static102.method2026(spotAnimation, true);
+                effect.stopParticleSystem();
+            } else if (Static334.activeTiles != null && effect.isAnimating()) {
+                Static102.method2026(effect, true);
             }
         }
     }

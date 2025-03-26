@@ -28,7 +28,7 @@ public final class Class226 implements Runnable {
     public void run() {
         while (true) {
             @Pc(8) Deque local8 = this.aDeque_32;
-            @Pc(43) Node_Sub12 local43;
+            @Pc(43) PingRequest local43;
             synchronized (this.aDeque_32) {
                 @Pc(15) Node local15;
                 for (local15 = this.aDeque_32.removeFirst(); local15 == null; local15 = this.aDeque_32.removeFirst()) {
@@ -37,19 +37,19 @@ public final class Class226 implements Runnable {
                     } catch (@Pc(23) InterruptedException local23) {
                     }
                 }
-                if (!(local15 instanceof Node_Sub12)) {
+                if (!(local15 instanceof PingRequest)) {
                     return;
                 }
-                local43 = (Node_Sub12) local15;
+                local43 = (PingRequest) local15;
             }
             @Pc(69) int local69;
             try {
-                @Pc(54) byte[] local54 = InetAddress.getByName(local43.aString14).getAddress();
+                @Pc(54) byte[] local54 = InetAddress.getByName(local43.host).getAddress();
                 local69 = jagmisc.ping(local54[0], local54[1], local54[2], local54[3], 1000L);
             } catch (@Pc(71) Throwable local71) {
                 local69 = 1000;
             }
-            local43.anInt1631 = local69;
+            local43.ping = local69;
         }
     }
 
@@ -76,13 +76,13 @@ public final class Class226 implements Runnable {
     }
 
     @OriginalMember(owner = "client!lha", name = "a", descriptor = "(BLjava/lang/String;)Lclient!cja;")
-    public Node_Sub12 method5245(@OriginalArg(1) String arg0) {
+    public PingRequest method5245(@OriginalArg(1) String arg0) {
         if (this.aThread4 == null) {
             throw new IllegalStateException("");
         } else if (arg0 == null) {
             throw new IllegalArgumentException("");
         } else {
-            @Pc(32) Node_Sub12 local32 = new Node_Sub12(arg0);
+            @Pc(32) PingRequest local32 = new PingRequest(arg0);
             this.method5244(local32);
             return local32;
         }

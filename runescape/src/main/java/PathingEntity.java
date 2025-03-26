@@ -10,8 +10,8 @@ import com.jagex.game.runetek6.config.hitmarktype.HitmarkTypeList;
 import com.jagex.game.runetek6.config.seqtype.SeqReplayMode;
 import com.jagex.game.runetek6.config.seqtype.SeqType;
 import com.jagex.game.runetek6.config.seqtype.SeqTypeList;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationType;
-import com.jagex.game.runetek6.config.spotanimationtype.SpotAnimationTypeList;
+import com.jagex.game.runetek6.config.effecttype.EffectType;
+import com.jagex.game.runetek6.config.effecttype.EffectTypeList;
 import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.Matrix;
 import com.jagex.graphics.Model;
@@ -286,7 +286,7 @@ public abstract class PathingEntity extends PositionEntity {
     public final int[] pathX;
 
     @OriginalMember(owner = "client!cg", name = "Nb", descriptor = "[Lclient!jq;")
-    public final EntitySpotAnimation[] spotAnims;
+    public final EntityEffect[] effects;
 
     @OriginalMember(owner = "client!cg", name = "gc", descriptor = "[B")
     public final byte[] pathSpeed;
@@ -340,11 +340,11 @@ public abstract class PathingEntity extends PositionEntity {
         this.aBoolean820 = false;
         this.pathZ = new int[pathLength];
         this.pathX = new int[pathLength];
-        this.spotAnims = new EntitySpotAnimation[4];
+        this.effects = new EntityEffect[4];
         this.pathSpeed = new byte[pathLength];
         this.aModelArray3 = new Model[5];
         for (@Pc(174) int local174 = 0; local174 < 4; local174++) {
-            this.spotAnims[local174] = new EntitySpotAnimation(this);
+            this.effects[local174] = new EntityEffect(this);
         }
         this.wornAnimators = new DelayedEntityAnimator[WearposDefaults.instance.hidden.length];
     }
@@ -367,7 +367,7 @@ public abstract class PathingEntity extends PositionEntity {
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IILclient!ha;Lclient!pda;III)V")
     protected final void method9297(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) Toolkit toolkit, @OriginalArg(3) BASType basType, @OriginalArg(4) int rotation, @OriginalArg(5) int arg5) {
-        for (@Pc(13) int i = 0; i < this.spotAnims.length; i++) {
+        for (@Pc(13) int i = 0; i < this.effects.length; i++) {
             @Pc(16) byte local16 = 0;
             if (i == 0) {
                 local16 = 2;
@@ -379,54 +379,54 @@ public abstract class PathingEntity extends PositionEntity {
                 local16 = 7;
             }
 
-            @Pc(50) EntitySpotAnimation spotAnim = this.spotAnims[i];
-            if (spotAnim.id == -1 || spotAnim.animator.isDelayed()) {
+            @Pc(50) EntityEffect effect = this.effects[i];
+            if (effect.id == -1 || effect.animator.isDelayed()) {
                 this.aModelArray3[i + 1] = null;
             } else {
-                @Pc(76) SpotAnimationType spotAnimationType = SpotAnimationTypeList.instance.list(spotAnim.id);
-                @Pc(95) boolean local95 = spotAnimationType.hillType == 3 && (arg5 != 0 || arg1 != 0);
+                @Pc(76) EffectType effectType = EffectTypeList.instance.list(effect.id);
+                @Pc(95) boolean local95 = effectType.hillType == 3 && (arg5 != 0 || arg1 != 0);
 
                 @Pc(97) int local97 = arg0;
                 if (local95) {
                     local97 = arg0 | 0x7;
                 } else {
-                    if (spotAnim.rotation != 0) {
+                    if (effect.rotation != 0) {
                         local97 = arg0 | 0x5;
                     }
-                    if (spotAnim.height != 0) {
+                    if (effect.height != 0) {
                         local97 |= 0x2;
                     }
-                    if (spotAnim.wornSlot >= 0) {
+                    if (effect.wornSlot >= 0) {
                         local97 |= 0x7;
                     }
                 }
 
-                @Pc(146) Model model = this.aModelArray3[i + 1] = spotAnimationType.model(spotAnim.animator, local16, local97, toolkit);
+                @Pc(146) Model model = this.aModelArray3[i + 1] = effectType.model(effect.animator, local16, local97, toolkit);
                 if (model != null) {
-                    if (spotAnim.wornSlot >= 0 && basType.wornTransformations != null && basType.wornTransformations[spotAnim.wornSlot] != null) {
+                    if (effect.wornSlot >= 0 && basType.wornTransformations != null && basType.wornTransformations[effect.wornSlot] != null) {
                         @Pc(171) int translateX = 0;
                         @Pc(173) int translateY = 0;
                         @Pc(175) int translateZ = 0;
 
-                        if (basType.wornTransformations != null && basType.wornTransformations[spotAnim.wornSlot] != null) {
-                            translateY = basType.wornTransformations[spotAnim.wornSlot][1];
-                            translateZ = basType.wornTransformations[spotAnim.wornSlot][2];
-                            translateX = basType.wornTransformations[spotAnim.wornSlot][0];
+                        if (basType.wornTransformations != null && basType.wornTransformations[effect.wornSlot] != null) {
+                            translateY = basType.wornTransformations[effect.wornSlot][1];
+                            translateZ = basType.wornTransformations[effect.wornSlot][2];
+                            translateX = basType.wornTransformations[effect.wornSlot][0];
                         }
 
-                        if (basType.graphicOffsets != null && basType.graphicOffsets[spotAnim.wornSlot] != null) {
-                            translateY += basType.graphicOffsets[spotAnim.wornSlot][1];
-                            translateZ += basType.graphicOffsets[spotAnim.wornSlot][2];
-                            translateX += basType.graphicOffsets[spotAnim.wornSlot][0];
+                        if (basType.graphicOffsets != null && basType.graphicOffsets[effect.wornSlot] != null) {
+                            translateY += basType.graphicOffsets[effect.wornSlot][1];
+                            translateZ += basType.graphicOffsets[effect.wornSlot][2];
+                            translateX += basType.graphicOffsets[effect.wornSlot][0];
                         }
 
                         if (translateZ != 0 || translateX != 0) {
                             @Pc(268) int wornRotation = rotation;
-                            if (this.wornRotation != null && this.wornRotation[spotAnim.wornSlot] != -1) {
-                                wornRotation = this.wornRotation[spotAnim.wornSlot];
+                            if (this.wornRotation != null && this.wornRotation[effect.wornSlot] != -1) {
+                                wornRotation = this.wornRotation[effect.wornSlot];
                             }
 
-                            @Pc(299) int rotateY = ((wornRotation + (spotAnim.rotation * 2048)) - rotation) & 0x3FFF;
+                            @Pc(299) int rotateY = ((wornRotation + (effect.rotation * 2048)) - rotation) & 0x3FFF;
                             if (rotateY != 0) {
                                 model.a(rotateY);
                             }
@@ -439,12 +439,12 @@ public abstract class PathingEntity extends PositionEntity {
                         }
 
                         model.H(translateX, translateY, translateZ);
-                    } else if (spotAnim.rotation != 0) {
-                        model.a(spotAnim.rotation * 2048);
+                    } else if (effect.rotation != 0) {
+                        model.a(effect.rotation * 2048);
                     }
 
-                    if (spotAnim.height != 0) {
-                        model.H(0, -spotAnim.height << 2, 0);
+                    if (effect.height != 0) {
+                        model.H(0, -effect.height << 2, 0);
                     }
 
                     if (local95) {
@@ -757,13 +757,13 @@ public abstract class PathingEntity extends PositionEntity {
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(IIZIIII)V")
-    public final void setSpotAnim(@OriginalArg(0) int index, @OriginalArg(1) int rotation, @OriginalArg(2) boolean loop, @OriginalArg(3) int heightAndDelay, @OriginalArg(4) int wornSlot, @OriginalArg(5) int id) {
-        @Pc(16) EntitySpotAnimation spotAnim = this.spotAnims[index];
-        @Pc(19) int currentId = spotAnim.id;
+    public final void setEffect(@OriginalArg(0) int index, @OriginalArg(1) int rotation, @OriginalArg(2) boolean loop, @OriginalArg(3) int heightAndDelay, @OriginalArg(4) int wornSlot, @OriginalArg(5) int id) {
+        @Pc(16) EntityEffect effect = this.effects[index];
+        @Pc(19) int currentId = effect.id;
 
         if (id != -1 && currentId != -1) {
             if (currentId == id) {
-                @Pc(38) SpotAnimationType type = SpotAnimationTypeList.instance.list(id);
+                @Pc(38) EffectType type = EffectTypeList.instance.list(id);
 
                 if (type.loopSeq && type.seq != -1) {
                     @Pc(54) SeqType seqType = SeqTypeList.instance.list(type.seq);
@@ -772,13 +772,13 @@ public abstract class PathingEntity extends PositionEntity {
                     if (replayMode == SeqReplayMode.STOP) {
                         return;
                     } else if (replayMode == SeqReplayMode.RESTART_LOOP) {
-                        spotAnim.animator.restartLoop();
+                        effect.animator.restartLoop();
                         return;
                     }
                 }
             } else {
-                @Pc(38) SpotAnimationType newType = SpotAnimationTypeList.instance.list(id);
-                @Pc(86) SpotAnimationType currType = SpotAnimationTypeList.instance.list(currentId);
+                @Pc(38) EffectType newType = EffectTypeList.instance.list(id);
+                @Pc(86) EffectType currType = EffectTypeList.instance.list(currentId);
 
                 if (newType.seq != -1 && currType.seq != -1) {
                     @Pc(103) SeqType newSeqType = SeqTypeList.instance.list(newType.seq);
@@ -792,19 +792,19 @@ public abstract class PathingEntity extends PositionEntity {
         }
 
         @Pc(118) byte loopMode = 0;
-        if (id != -1 && !SpotAnimationTypeList.instance.list(id).loopSeq) {
+        if (id != -1 && !EffectTypeList.instance.list(id).loopSeq) {
             loopMode =  2;
         }
 
-        spotAnim.rotation = rotation;
-        spotAnim.wornSlot = wornSlot;
-        spotAnim.id = id;
-        spotAnim.height = heightAndDelay >> 16;
+        effect.rotation = rotation;
+        effect.wornSlot = wornSlot;
+        effect.id = id;
+        effect.height = heightAndDelay >> 16;
         if (id != -1 && loop) {
             loopMode = 1;
         }
 
-        spotAnim.animator.update(id == -1 ? -1 : SpotAnimationTypeList.instance.list(id).seq, heightAndDelay & 0xFFFF, loopMode, false);
+        effect.animator.update(id == -1 ? -1 : EffectTypeList.instance.list(id).seq, heightAndDelay & 0xFFFF, loopMode, false);
     }
 
     @OriginalMember(owner = "client!cg", name = "a", descriptor = "(II)V")

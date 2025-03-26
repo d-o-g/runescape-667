@@ -1124,7 +1124,7 @@ public final class Model_Sub1 extends Model {
                 @Pc(165) float local165 = Static706.aFloat217 + Static654.aFloat209 * local137 + Static348.aFloat107 * local94 + local116 * Static580.aFloat176;
                 @Pc(179) float local179 = local137 * Static382.aFloat114 + Static624.aFloat198 * local116 + local94 * Static355.aFloat111 + Static115.aFloat50;
                 @Pc(200) float local200 = (float) (1.0D / Math.sqrt(local179 * local179 + local165 * local165 + local151 * local151)) * (float) local57.anInt7576;
-                @Pc(205) Matrix_Sub1 local205 = this.aClass19_Sub1_6.method8040();
+                @Pc(205) CompactMatrix local205 = this.aClass19_Sub1_6.method8040();
                 local205.method1893(local179 - local179 * local200, local62.anInt266 * local57.aShort98 >> 7, local62.anInt268 * local57.aShort99 >> 7, (float) local62.anInt263 + local165 - local165 * local200, (float) local62.anInt262 + local151 - local151 * local200, local62.anInt267);
                 local205.method1878(this.aClass19_Sub1_6.aClass73_Sub1_17);
                 this.aClass19_Sub1_6.method8042();
@@ -1342,7 +1342,7 @@ public final class Model_Sub1 extends Model {
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
     public void apply(@OriginalArg(0) Matrix arg0) {
-        @Pc(8) Matrix_Sub1 local8 = (Matrix_Sub1) arg0;
+        @Pc(8) CompactMatrix local8 = (CompactMatrix) arg0;
         @Pc(13) int local13;
         if (this.aModelParticleEmitterArray2 != null) {
             for (local13 = 0; local13 < this.aModelParticleEmitterArray2.length; local13++) {
@@ -1390,8 +1390,8 @@ public final class Model_Sub1 extends Model {
 
     @OriginalMember(owner = "client!eu", name = "a", descriptor = "(ILclient!tt;IIZZI)Z")
     public boolean method2553(@OriginalArg(0) int arg0, @OriginalArg(1) Matrix arg1, @OriginalArg(2) int arg2, @OriginalArg(3) int arg3, @OriginalArg(5) boolean arg4, @OriginalArg(6) int arg5) {
-        @Pc(8) Matrix_Sub1 local8 = (Matrix_Sub1) arg1;
-        @Pc(12) Matrix_Sub1 local12 = this.aClass19_Sub1_6.aClass73_Sub1_16;
+        @Pc(8) CompactMatrix local8 = (CompactMatrix) arg1;
+        @Pc(12) CompactMatrix local12 = this.aClass19_Sub1_6.aClass73_Sub1_16;
         @Pc(33) float local33 = local12.aFloat46 + local12.aFloat38 * local8.aFloat43 + local8.aFloat46 * local12.aFloat39 + local12.aFloat40 * local8.aFloat37;
         @Pc(54) float local54 = local12.aFloat37 + local12.aFloat41 * local8.aFloat43 + local12.aFloat42 * local8.aFloat37 + local8.aFloat46 * local12.aFloat44;
         Static654.aFloat209 = local12.aFloat41 * local8.aFloat47 + local12.aFloat44 * local8.aFloat38 + local8.aFloat41 * local12.aFloat42;
@@ -2448,11 +2448,11 @@ public final class Model_Sub1 extends Model {
         if (this.anInt2759 == 0) {
             return;
         }
-        @Pc(14) Matrix_Sub1 local14 = this.aClass19_Sub1_6.aClass73_Sub1_16;
+        @Pc(14) CompactMatrix local14 = this.aClass19_Sub1_6.aClass73_Sub1_16;
         if (!this.aBoolean232) {
             this.method2561();
         }
-        @Pc(25) Matrix_Sub1 local25 = (Matrix_Sub1) arg0;
+        @Pc(25) CompactMatrix local25 = (CompactMatrix) arg0;
         Static115.aFloat50 = local25.aFloat43 * local14.aFloat47 + local25.aFloat46 * local14.aFloat45 + local14.aFloat36 * local25.aFloat37 + local14.aFloat43;
         Static624.aFloat198 = local25.aFloat40 * local14.aFloat45 + local25.aFloat42 * local14.aFloat36 + local25.aFloat36 * local14.aFloat47;
         @Pc(72) float local72 = Static624.aFloat198 * (float) this.anInt2768 + Static115.aFloat50;
@@ -2697,11 +2697,11 @@ public final class Model_Sub1 extends Model {
         if (this.anInt2759 == 0) {
             return;
         }
-        @Pc(14) Matrix_Sub1 local14 = this.aClass19_Sub1_6.aClass73_Sub1_16;
+        @Pc(14) CompactMatrix local14 = this.aClass19_Sub1_6.aClass73_Sub1_16;
         if (!this.aBoolean232) {
             this.method2561();
         }
-        @Pc(25) Matrix_Sub1 local25 = (Matrix_Sub1) matrix;
+        @Pc(25) CompactMatrix local25 = (CompactMatrix) matrix;
         Static115.aFloat50 = local14.aFloat47 * local25.aFloat43 + local14.aFloat45 * local25.aFloat46 + local14.aFloat36 * local25.aFloat37 + local14.aFloat43;
         Static624.aFloat198 = local25.aFloat42 * local14.aFloat36 + local14.aFloat45 * local25.aFloat40 + local14.aFloat47 * local25.aFloat36;
         @Pc(72) float local72 = Static115.aFloat50 + Static624.aFloat198 * (float) this.anInt2768;

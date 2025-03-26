@@ -821,8 +821,8 @@ public final class Model_Sub2 extends Model {
 
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(Lclient!tt;ZIIIII)Z")
     public boolean method4981(@OriginalArg(0) Matrix arg0, @OriginalArg(1) boolean arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4, @OriginalArg(6) int arg5) {
-        @Pc(8) Matrix_Sub3 local8 = (Matrix_Sub3) arg0;
-        @Pc(12) Matrix_Sub3 local12 = this.aClass19_Sub3_24.aClass73_Sub3_3;
+        @Pc(8) AffineMatrix local8 = (AffineMatrix) arg0;
+        @Pc(12) AffineMatrix local12 = this.aClass19_Sub3_24.aClass73_Sub3_3;
         @Pc(33) float local33 = local12.aFloat152 + local8.aFloat158 * local12.aFloat157 + local8.aFloat152 * local12.aFloat153 + local12.aFloat160 * local8.aFloat159;
         @Pc(54) float local54 = local12.aFloat158 + local12.aFloat156 * local8.aFloat158 + local8.aFloat152 * local12.aFloat161 + local8.aFloat159 * local12.aFloat150;
         Static188.aFloat65 = local8.aFloat156 * local12.aFloat151 + local8.aFloat157 * local12.aFloat155 + local8.aFloat151 * local12.aFloat154;
@@ -1234,7 +1234,7 @@ public final class Model_Sub2 extends Model {
         if (this.aClass97Array1 == null) {
             return;
         }
-        @Pc(16) Matrix_Sub3 local16 = this.aClass19_Sub3_24.aClass73_Sub3_2;
+        @Pc(16) AffineMatrix local16 = this.aClass19_Sub3_24.aClass73_Sub3_2;
         this.aClass19_Sub3_24.method7011();
         this.aClass19_Sub3_24.C(!this.aBoolean421);
         this.aClass19_Sub3_24.method7008(false);
@@ -1482,7 +1482,7 @@ public final class Model_Sub2 extends Model {
     @OriginalMember(owner = "client!kla", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
     public void apply(@OriginalArg(0) Matrix arg0) {
-        @Pc(8) Matrix_Sub3 local8 = (Matrix_Sub3) arg0;
+        @Pc(8) AffineMatrix local8 = (AffineMatrix) arg0;
         @Pc(13) int local13;
         if (this.aModelParticleEmitterArray4 != null) {
             for (local13 = 0; local13 < this.aModelParticleEmitterArray4.length; local13++) {
@@ -1564,8 +1564,8 @@ public final class Model_Sub2 extends Model {
         if (this.anInt5538 == 0) {
             return;
         }
-        @Pc(17) Matrix_Sub3 local17 = this.aClass19_Sub3_24.aClass73_Sub3_3;
-        @Pc(20) Matrix_Sub3 local20 = (Matrix_Sub3) matrix;
+        @Pc(17) AffineMatrix local17 = this.aClass19_Sub3_24.aClass73_Sub3_3;
+        @Pc(20) AffineMatrix local20 = (AffineMatrix) matrix;
         if (!this.aBoolean424) {
             this.method4982();
         }
@@ -1924,8 +1924,8 @@ public final class Model_Sub2 extends Model {
         if (this.anInt5538 == 0) {
             return;
         }
-        @Pc(14) Matrix_Sub3 local14 = this.aClass19_Sub3_24.aClass73_Sub3_3;
-        @Pc(17) Matrix_Sub3 local17 = (Matrix_Sub3) arg0;
+        @Pc(14) AffineMatrix local14 = this.aClass19_Sub3_24.aClass73_Sub3_3;
+        @Pc(17) AffineMatrix local17 = (AffineMatrix) arg0;
         if (!this.aBoolean424) {
             this.method4982();
         }

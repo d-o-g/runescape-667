@@ -218,7 +218,7 @@ public final class Font_Sub1 extends Font {
         } else {
             this.aClass19_Sub1_2.method8094(Static185.aClass121_3, Static185.aClass121_3);
         }
-        @Pc(43) Matrix_Sub1 local43 = this.aClass19_Sub1_2.method8040();
+        @Pc(43) CompactMatrix local43 = this.aClass19_Sub1_2.method8040();
         local43.applyTranslation(x, y, 0);
         this.aClass19_Sub1_2.method8042();
         this.aClass19_Sub1_2.method8130(0, this.anInterface16_1);

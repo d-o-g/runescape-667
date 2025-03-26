@@ -299,10 +299,10 @@ public final class GlToolkit extends Toolkit {
     public final Class42 aClass42_1 = new Class42();
 
     @OriginalMember(owner = "client!qha", name = "Dd", descriptor = "Lclient!qr;")
-    public final Matrix_Sub3 aClass73_Sub3_1 = new Matrix_Sub3();
+    public final AffineMatrix aClass73_Sub3_1 = new AffineMatrix();
 
     @OriginalMember(owner = "client!qha", name = "Fb", descriptor = "Lclient!qr;")
-    public final Matrix_Sub3 aClass73_Sub3_2 = new Matrix_Sub3();
+    public final AffineMatrix aClass73_Sub3_2 = new AffineMatrix();
 
     @OriginalMember(owner = "client!qha", name = "Ee", descriptor = "Z")
     public boolean aBoolean589 = false;
@@ -356,13 +356,13 @@ public final class GlToolkit extends Toolkit {
     public final Deque aDeque_53;
 
     @OriginalMember(owner = "client!qha", name = "hh", descriptor = "Lclient!qr;")
-    public final Matrix_Sub3 aClass73_Sub3_3;
+    public final AffineMatrix aClass73_Sub3_3;
 
     @OriginalMember(owner = "client!qha", name = "Og", descriptor = "Lclient!qr;")
-    public final Matrix_Sub3 aClass73_Sub3_4;
+    public final AffineMatrix aClass73_Sub3_4;
 
     @OriginalMember(owner = "client!qha", name = "nf", descriptor = "Lclient!qr;")
-    public final Matrix_Sub3 aClass73_Sub3_5;
+    public final AffineMatrix aClass73_Sub3_5;
 
     @OriginalMember(owner = "client!qha", name = "Mc", descriptor = "[Lclient!lca;")
     public final PointLight[] aClass2_Sub7Array5;
@@ -580,9 +580,9 @@ public final class GlToolkit extends Toolkit {
         this.aDeque_51 = new Deque();
         this.aDeque_52 = new Deque();
         this.aDeque_53 = new Deque();
-        this.aClass73_Sub3_3 = new Matrix_Sub3();
-        this.aClass73_Sub3_4 = new Matrix_Sub3();
-        this.aClass73_Sub3_5 = new Matrix_Sub3();
+        this.aClass73_Sub3_3 = new AffineMatrix();
+        this.aClass73_Sub3_4 = new AffineMatrix();
+        this.aClass73_Sub3_5 = new AffineMatrix();
         this.aClass2_Sub7Array5 = new PointLight[Static509.anInt7634];
         this.aFloat129 = -1.0F;
         this.aFloatArray52 = new float[4];
@@ -2103,7 +2103,7 @@ public final class GlToolkit extends Toolkit {
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!qr;B)V")
-    public void method7012(@OriginalArg(0) Matrix_Sub3 arg0) {
+    public void method7012(@OriginalArg(0) AffineMatrix arg0) {
         OpenGL.glLoadMatrixf(arg0.method7146(), 0);
     }
 
@@ -2394,7 +2394,7 @@ public final class GlToolkit extends Toolkit {
     @OriginalMember(owner = "client!qha", name = "y", descriptor = "()Lclient!tt;")
     @Override
     public Matrix createMatrix() {
-        return new Matrix_Sub3();
+        return new AffineMatrix();
     }
 
     @OriginalMember(owner = "client!qha", name = "o", descriptor = "(I)V")
@@ -2409,7 +2409,7 @@ public final class GlToolkit extends Toolkit {
     }
 
     @OriginalMember(owner = "client!qha", name = "a", descriptor = "(Lclient!qr;I)V")
-    public void method7020(@OriginalArg(0) Matrix_Sub3 arg0) {
+    public void method7020(@OriginalArg(0) AffineMatrix arg0) {
         OpenGL.glPushMatrix();
         OpenGL.glMultMatrixf(arg0.method7146(), 0);
     }

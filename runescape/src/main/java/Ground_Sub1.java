@@ -276,7 +276,7 @@ public final class Ground_Sub1 extends Ground {
         for (@Pc(219) int local219 = 0; local219 < this.aClass2_Sub58Array1.length; local219++) {
             this.aClass2_Sub58Array1[local219].method9400(Static80.anIntArray153, Static236.anInt3893);
         }
-        @Pc(246) Matrix_Sub1 local246 = this.aClass19_Sub1_9.method8040();
+        @Pc(246) CompactMatrix local246 = this.aClass19_Sub1_9.method8040();
         local246.applyTranslation(0, -1, 0);
         this.aClass19_Sub1_9.method8042();
         if (!this.aDeque_24.isEmpty()) {
@@ -763,7 +763,7 @@ public final class Ground_Sub1 extends Ground {
         this.aClass19_Sub1_9.method8053(0);
         this.aClass19_Sub1_9.method8108(false, -2, false);
         this.aClass19_Sub1_9.method8088(null);
-        @Pc(306) Matrix_Sub1 local306 = this.aClass19_Sub1_9.method8040();
+        @Pc(306) CompactMatrix local306 = this.aClass19_Sub1_9.method8040();
         @Pc(311) float[] local311 = this.aClass19_Sub1_9.method8133();
         local311[13] = 1.0F - ((float) 0 + (float) (y2 * 1024) / 128.0F) / (float) this.aClass19_Sub1_9.anInt9013;
         local311[2] = 0.0F;

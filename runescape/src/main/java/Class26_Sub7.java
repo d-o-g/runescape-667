@@ -67,7 +67,7 @@ public final class Class26_Sub7 extends Class26 {
         super.aClass19_Sub1_21.method8094(Static185.aClass121_3, Static725.aClass121_6);
         super.aClass19_Sub1_21.method8125(Static188.aClass168_1, true, false, 2);
         super.aClass19_Sub1_21.method8142(Static207.aClass168_4, 0);
-        @Pc(59) Matrix_Sub1 local59 = super.aClass19_Sub1_21.method8082();
+        @Pc(59) CompactMatrix local59 = super.aClass19_Sub1_21.method8082();
         local59.method1886(super.aClass19_Sub1_21.method8068());
         super.aClass19_Sub1_21.method8073(Static104.aClass370_1);
         super.aClass19_Sub1_21.method8138(0);

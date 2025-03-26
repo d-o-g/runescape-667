@@ -138,7 +138,7 @@ public final class Class26_Sub11 extends Class26 {
     @Override
     public void method8295() {
         @Pc(8) int local8 = super.aClass19_Sub1_21.method8092();
-        @Pc(13) Matrix_Sub1 local13 = super.aClass19_Sub1_21.method8118();
+        @Pc(13) CompactMatrix local13 = super.aClass19_Sub1_21.method8118();
         if (this.aBoolean726) {
             OpenGL.glBindProgramARB(OpenGL.GL_VERTEX_PROGRAM_ARB, ~local8 == Integer.MIN_VALUE ? this.aClass135_3.anInt3106 : this.aClass135_4.anInt3106);
         } else {

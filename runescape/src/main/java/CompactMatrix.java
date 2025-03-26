@@ -4,8 +4,12 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
+/**
+ * A standard m4x3 structure. Contrary to {@link AffineMatrix}, it is implemented and used in a more minimal form.
+ * More so for screen-space transformations, where performance is very critical.
+ */
 @OriginalClass("client!cw")
-public final class Matrix_Sub1 extends Matrix {
+public final class CompactMatrix extends Matrix {
 
     @OriginalMember(owner = "client!cw", name = "U", descriptor = "F")
     public float aFloat36;
@@ -44,7 +48,7 @@ public final class Matrix_Sub1 extends Matrix {
     public float aFloat47;
 
     @OriginalMember(owner = "client!cw", name = "<init>", descriptor = "()V")
-    public Matrix_Sub1() {
+    public CompactMatrix() {
         this.makeIdentity();
     }
 
@@ -80,7 +84,7 @@ public final class Matrix_Sub1 extends Matrix {
 
     @OriginalMember(owner = "client!cw", name = "a", descriptor = "(ILclient!tt;)V")
     public void method1878(@OriginalArg(1) Matrix arg0) {
-        @Pc(6) Matrix_Sub1 local6 = (Matrix_Sub1) arg0;
+        @Pc(6) CompactMatrix local6 = (CompactMatrix) arg0;
         @Pc(9) float local9 = this.aFloat39;
         @Pc(12) float local12 = this.aFloat44;
         @Pc(15) float local15 = this.aFloat40;
@@ -162,7 +166,7 @@ public final class Matrix_Sub1 extends Matrix {
 
     @OriginalMember(owner = "client!cw", name = "b", descriptor = "(Lclient!tt;B)V")
     public void method1880(@OriginalArg(0) Matrix arg0) {
-        @Pc(6) Matrix_Sub1 local6 = (Matrix_Sub1) arg0;
+        @Pc(6) CompactMatrix local6 = (CompactMatrix) arg0;
         this.aFloat40 = local6.aFloat44;
         this.aFloat39 = local6.aFloat39;
         this.aFloat38 = local6.aFloat45;
@@ -251,7 +255,7 @@ public final class Matrix_Sub1 extends Matrix {
 
     @OriginalMember(owner = "client!cw", name = "a", descriptor = "(Lclient!tt;B)V")
     public void method1886(@OriginalArg(0) Matrix arg0) {
-        @Pc(15) Matrix_Sub1 local15 = (Matrix_Sub1) arg0;
+        @Pc(15) CompactMatrix local15 = (CompactMatrix) arg0;
         this.aFloat42 = local15.aFloat42;
         this.aFloat41 = local15.aFloat41;
         this.aFloat36 = local15.aFloat36;
@@ -343,8 +347,8 @@ public final class Matrix_Sub1 extends Matrix {
 
     @OriginalMember(owner = "client!cw", name = "a", descriptor = "(Lclient!tt;Lclient!tt;)V")
     public void method1890(@OriginalArg(0) Matrix arg0, @OriginalArg(1) Matrix arg1) {
-        @Pc(6) Matrix_Sub1 local6 = (Matrix_Sub1) arg0;
-        @Pc(9) Matrix_Sub1 local9 = (Matrix_Sub1) arg1;
+        @Pc(6) CompactMatrix local6 = (CompactMatrix) arg0;
+        @Pc(9) CompactMatrix local9 = (CompactMatrix) arg1;
         this.aFloat39 = local9.aFloat45 * local6.aFloat38 + local9.aFloat39 * local6.aFloat39 + local6.aFloat40 * local9.aFloat44;
         this.aFloat44 = local9.aFloat44 * local6.aFloat42 + local9.aFloat39 * local6.aFloat44 + local9.aFloat45 * local6.aFloat41;
         this.aFloat45 = local9.aFloat39 * local6.aFloat45 + local6.aFloat36 * local9.aFloat44 + local9.aFloat45 * local6.aFloat47;
@@ -476,7 +480,7 @@ public final class Matrix_Sub1 extends Matrix {
     @OriginalMember(owner = "client!cw", name = "b", descriptor = "()Lclient!tt;")
     @Override
     public Matrix copy() {
-        @Pc(7) Matrix_Sub1 local7 = new Matrix_Sub1();
+        @Pc(7) CompactMatrix local7 = new CompactMatrix();
         local7.aFloat39 = this.aFloat39;
         local7.aFloat46 = this.aFloat46;
         local7.aFloat40 = this.aFloat40;
@@ -550,7 +554,7 @@ public final class Matrix_Sub1 extends Matrix {
     @OriginalMember(owner = "client!cw", name = "a", descriptor = "(Lclient!tt;)V")
     @Override
     public void apply(@OriginalArg(0) Matrix other) {
-        @Pc(6) Matrix_Sub1 local6 = (Matrix_Sub1) other;
+        @Pc(6) CompactMatrix local6 = (CompactMatrix) other;
         this.aFloat45 = local6.aFloat45;
         this.aFloat44 = local6.aFloat44;
         this.aFloat40 = local6.aFloat40;

@@ -69,7 +69,7 @@ public final class t extends Ground implements SoftwareObject {
     @Override
     public void method7868(@OriginalArg(0) PointLight arg0, @OriginalArg(1) int[] arg1) {
         this.aDeque_57.addLast(arg0);
-        this.V(arg0.hashCode(), arg0.getX(), arg0.getY(), arg0.getZ(), arg0.getRange(), arg0.method8431(), arg1);
+        this.V(arg0.hashCode(), arg0.getX(), arg0.getY(), arg0.getZ(), arg0.getRange(), arg0.getColor(), arg1);
     }
 
     @OriginalMember(owner = "client!t", name = "q", descriptor = "([F)V")

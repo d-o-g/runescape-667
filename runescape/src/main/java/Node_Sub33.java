@@ -295,7 +295,7 @@ public final class Node_Sub33 extends Node {
         if (local565 > 1.0F) {
             local565 = 1.0F;
         }
-        @Pc(576) int local576 = this.aClass2_Sub7_2.method8431();
+        @Pc(576) int local576 = this.aClass2_Sub7_2.getColor();
         @Pc(586) int local586 = (int) (local565 * (float) (local576 >> 16 & 0xFF));
         if (local586 > 255) {
             local586 = 255;

@@ -1158,7 +1158,7 @@ public final class GlxToolkit extends NativeToolkit {
         @Pc(18) int local18;
         for (local18 = 0; super.anInt9177 > local18; local18++) {
             @Pc(25) PointLight local25 = super.aClass2_Sub7Array6[local18];
-            @Pc(29) int local29 = local25.method8431();
+            @Pc(29) int local29 = local25.getColor();
             @Pc(34) int local34 = local18 + 16386;
             @Pc(40) float local40 = local25.getIntensity() / 255.0F;
             Static337.aFloatArray38[0] = (float) local25.getX();

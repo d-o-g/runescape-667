@@ -1249,7 +1249,7 @@ public final class GlToolkit extends Toolkit {
             Static376.aFloatArray42[2] = (float) local14.getZ();
             Static376.aFloatArray42[3] = 1.0F;
             OpenGL.glLightfv(local18, OpenGL.GL_POSITION, Static376.aFloatArray42, 0);
-            @Pc(52) int local52 = local14.method8431();
+            @Pc(52) int local52 = local14.getColor();
             @Pc(60) float local60 = local14.getIntensity() / 255.0F;
             Static376.aFloatArray42[0] = (float) (local52 >> 16 & 0xFF) * local60;
             Static376.aFloatArray42[2] = (float) (local52 & 0xFF) * local60;

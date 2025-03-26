@@ -312,7 +312,7 @@ public final class Node_Sub32 extends Node {
         if (local572 > 1.0F) {
             local572 = 1.0F;
         }
-        @Pc(583) int local583 = this.aClass2_Sub7_1.method8431();
+        @Pc(583) int local583 = this.aClass2_Sub7_1.getColor();
         @Pc(593) int local593 = (int) ((float) (local583 >> 16 & 0xFF) * local572);
         if (local593 > 255) {
             local593 = 255;

@@ -787,7 +787,7 @@ public final class D3DToolkit extends NativeToolkit {
         for (local1 = 0; local1 < this.anInt9177; local1++) {
             @Pc(10) PointLight local10 = this.aClass2_Sub7Array6[local1];
             @Pc(14) int local14 = local1 + 2;
-            @Pc(18) int local18 = local10.method8431();
+            @Pc(18) int local18 = local10.getColor();
             @Pc(24) float local24 = local10.getIntensity() / 255.0F;
             this.aD3DLIGHT2.SetPosition((float) local10.getX(), (float) local10.getY(), (float) local10.getZ());
             this.aD3DLIGHT2.SetDiffuse((float) (local18 >> 16 & 0xFF) * local24, local24 * (float) (local18 >> 8 & 0xFF), local24 * (float) (local18 & 0xFF), 0.0F);

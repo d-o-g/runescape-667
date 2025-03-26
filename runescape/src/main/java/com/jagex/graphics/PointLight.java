@@ -12,7 +12,7 @@ public abstract class PointLight extends Node {
     public final int range;
 
     @OriginalMember(owner = "client!lca", name = "r", descriptor = "I")
-    public final int anInt9582;
+    public final int color;
 
     @OriginalMember(owner = "client!lca", name = "z", descriptor = "F")
     protected float intensity;
@@ -27,9 +27,9 @@ public abstract class PointLight extends Node {
     protected int y;
 
     @OriginalMember(owner = "client!lca", name = "<init>", descriptor = "(IIIIIF)V")
-    public PointLight(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int range, @OriginalArg(4) int arg4, @OriginalArg(5) float intensity) {
+    public PointLight(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int z, @OriginalArg(3) int range, @OriginalArg(4) int color, @OriginalArg(5) float intensity) {
         this.range = range;
-        this.anInt9582 = arg4;
+        this.color = color;
         this.intensity = intensity;
         this.x = x;
         this.z = z;
@@ -60,8 +60,8 @@ public abstract class PointLight extends Node {
     }
 
     @OriginalMember(owner = "client!lca", name = "b", descriptor = "(B)I")
-    public final int method8431() {
-        return this.anInt9582;
+    public final int getColor() {
+        return this.color;
     }
 
     @OriginalMember(owner = "client!lca", name = "g", descriptor = "(I)I")

@@ -668,7 +668,7 @@ public final class oa extends Toolkit implements SoftwareObject {
             Static445.anIntArray540[local1++] = arg1[local3].getZ();
             Static445.anIntArray540[local1++] = arg1[local3].getRange();
             Static445.aFloatArray44[local3] = arg1[local3].getIntensity();
-            Static445.anIntArray540[local1++] = arg1[local3].method8431();
+            Static445.anIntArray540[local1++] = arg1[local3].getColor();
         }
         this.N(arg0, Static445.anIntArray540, Static445.aFloatArray44);
     }

@@ -18,11 +18,11 @@ public final class Static434 {
         Static165.updateLastAreaMode();
         Static342.setBuildArea(local12);
         @Pc(46) int local46 = (ServerConnection.GAME.currentPacketSize - bitPacket.pos) / 16;
-        Static22.anIntArrayArray11 = new int[local46][4];
+        SurfaceUtil.anIntArrayArray11 = new int[local46][4];
         @Pc(55) int local55;
         for (@Pc(52) int local52 = 0; local52 < local46; local52++) {
             for (local55 = 0; local55 < 4; local55++) {
-                Static22.anIntArrayArray11[local52][local55] = bitPacket.g4();
+                SurfaceUtil.anIntArrayArray11[local52][local55] = bitPacket.g4();
             }
         }
         Static363.aByteArrayArray22 = null;

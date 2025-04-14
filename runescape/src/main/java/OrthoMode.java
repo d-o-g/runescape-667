@@ -347,7 +347,7 @@ public final class OrthoMode {
             for (@Pc(25) int local25 = 0; local25 < maxX; local25++) {
                 @Pc(36) int local36 = Node_Sub1_Sub27.method9118(anInt9503 + local25, maxX) + local23;
                 if (anIntArray252[local36] == anInt6436) {
-                    anOffscreenSurfaceArray1[local36].method9040(0, 0, horizontalAspectRatio, verticalAspectRatio, horizontalAspectRatio * local25, verticalAspectRatio * local10);
+                    anOffscreenSurfaceArray1[local36].copyFrom(0, 0, horizontalAspectRatio, verticalAspectRatio, horizontalAspectRatio * local25, verticalAspectRatio * local10);
                 }
             }
         }
@@ -563,7 +563,7 @@ public final class OrthoMode {
                         for (local465 = 0; local465 < maxX; local465++) {
                             @Pc(881) int local881 = Node_Sub1_Sub27.method9118(local465 + anInt9503, maxX) + local868;
                             @Pc(936) boolean local936 = local855 >= local319 && local855 < local319 + local321 || local325 <= local855 && local855 < local329 + local325 && local465 >= local323 && local465 < local327 + local323;
-                            anOffscreenSurfaceArray1[local881].method9039(local465 * horizontalAspectRatio, verticalAspectRatio * local855, horizontalAspectRatio, verticalAspectRatio, local936);
+                            anOffscreenSurfaceArray1[local881].copyTo(local465 * horizontalAspectRatio, verticalAspectRatio * local855, horizontalAspectRatio, verticalAspectRatio, local936);
                         }
                     }
                 }
@@ -616,7 +616,7 @@ public final class OrthoMode {
             }
         }
         if (anInt6796 == 0) {
-            anOffscreenSurface_1.method9040(anInt45, anInt5001, orthoWidth, orthoHeight, 0, 0);
+            anOffscreenSurface_1.copyFrom(anInt45, anInt5001, orthoWidth, orthoHeight, 0, 0);
         }
         anInt6436++;
         translateCameraZ(aDouble23);
@@ -661,7 +661,7 @@ public final class OrthoMode {
             @Pc(33) int local33 = maxX * local27;
             for (@Pc(35) int local35 = 0; local35 < maxX; local35++) {
                 @Pc(41) int local41 = local35 + local33;
-                anOffscreenSurfaceArray1[local41].method9039(local35 * horizontalAspectRatio, verticalAspectRatio * local27, horizontalAspectRatio, verticalAspectRatio, true);
+                anOffscreenSurfaceArray1[local41].copyTo(local35 * horizontalAspectRatio, verticalAspectRatio * local27, horizontalAspectRatio, verticalAspectRatio, true);
             }
         }
     }

@@ -86,7 +86,7 @@ public final class Static489 {
             }
 
             if (Static266.locationGroups[local12] != -1 && Static118.aByteArrayArray3[local12] == null) {
-                Static118.aByteArrayArray3[local12] = js5.MAPS.getfile(Static22.anIntArrayArray11[local12], 0, Static266.locationGroups[local12]);
+                Static118.aByteArrayArray3[local12] = js5.MAPS.getfile(SurfaceUtil.anIntArrayArray11[local12], 0, Static266.locationGroups[local12]);
                 if (Static118.aByteArrayArray3[local12] == null) {
                     local10 = false;
                     Static593.anInt8763++;
@@ -110,7 +110,7 @@ public final class Static489 {
             }
 
             if (Static376.npcGroups != null && Static363.aByteArrayArray22[local12] == null && Static376.npcGroups[local12] != -1) {
-                Static363.aByteArrayArray22[local12] = js5.MAPS.getfile(Static22.anIntArrayArray11[local12], 0, Static376.npcGroups[local12]);
+                Static363.aByteArrayArray22[local12] = js5.MAPS.getfile(SurfaceUtil.anIntArrayArray11[local12], 0, Static376.npcGroups[local12]);
                 if (Static363.aByteArrayArray22[local12] == null) {
                     Static593.anInt8763++;
                     local10 = false;

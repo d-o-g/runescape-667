@@ -13,7 +13,7 @@ public final class Static54 {
         @Pc(28) int centerZ = (Camera.z >> 12) + (WorldMap.areaBaseZ >> 3);
         Camera.renderingLevel = PlayerEntity.self.level = 0;
         PlayerEntity.self.teleport(8, 8);
-        Static22.anIntArrayArray11 = new int[18][4];
+        SurfaceUtil.anIntArrayArray11 = new int[18][4];
         Static363.aByteArrayArray22 = new byte[18][];
         Static177.aByteArrayArray5 = new byte[18][];
         Static267.mapGroups = new int[18];

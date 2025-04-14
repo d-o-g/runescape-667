@@ -34,10 +34,10 @@ public final class Static466 {
         }
         bitPacket.exitBitMode();
         local50 = (ServerConnection.GAME.currentPacketSize - bitPacket.pos) / 16;
-        Static22.anIntArrayArray11 = new int[local50][4];
+        SurfaceUtil.anIntArrayArray11 = new int[local50][4];
         for (local54 = 0; local54 < local50; local54++) {
             for (local61 = 0; local61 < 4; local61++) {
-                Static22.anIntArrayArray11[local54][local61] = bitPacket.g4();
+                SurfaceUtil.anIntArrayArray11[local54][local61] = bitPacket.g4();
             }
         }
         Static118.aByteArrayArray3 = new byte[local50][];

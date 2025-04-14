@@ -121,7 +121,7 @@ public final class Static266 {
                 }
             }
         }
-        Static22.anIntArrayArray11 = CutsceneManager.anIntArrayArray265;
+        SurfaceUtil.anIntArrayArray11 = CutsceneManager.anIntArrayArray265;
         CutsceneManager.anIntArrayArray265 = null;
         Static684.updateMapArea(false, Static720.mapWidth >> 4, MainLogicStep.STEP_GAME_SCREEN_MAP_BUILD, Static501.mapLength >> 4);
     }

@@ -32,16 +32,16 @@ public final class Js5WorkerThread {
     public Js5WorkerRequestMessage current;
 
     @OriginalMember(owner = "client!pla", name = "C", descriptor = "Lclient!jga;")
-    public final Queue urgentRequests = new Queue();
+    public final Queue<Js5WorkerRequestMessage> urgentRequests = new Queue<Js5WorkerRequestMessage>();
 
     @OriginalMember(owner = "client!pla", name = "b", descriptor = "Lclient!jga;")
-    public final Queue pendingUrgentRequests = new Queue();
+    public final Queue<Js5WorkerRequestMessage> pendingUrgentRequests = new Queue<>();
 
     @OriginalMember(owner = "client!pla", name = "r", descriptor = "Lclient!jga;")
-    public final Queue prefetchRequests = new Queue();
+    public final Queue<Js5WorkerRequestMessage> prefetchRequests = new Queue<>();
 
     @OriginalMember(owner = "client!pla", name = "j", descriptor = "Lclient!jga;")
-    public final Queue pendingPrefetchRequests = new Queue();
+    public final Queue<Js5WorkerRequestMessage> pendingPrefetchRequests = new Queue<>();
 
     @OriginalMember(owner = "client!pla", name = "v", descriptor = "Lclient!ge;")
     public final Packet write = new Packet(4);
@@ -140,7 +140,7 @@ public final class Js5WorkerThread {
         try {
             this.socket.sanityCheck();
 
-            for (@Pc(84) Js5WorkerRequestMessage message = (Js5WorkerRequestMessage) this.urgentRequests.first(); message != null; message = (Js5WorkerRequestMessage) this.urgentRequests.next()) {
+            for (@Pc(84) Js5WorkerRequestMessage message = this.urgentRequests.first(); message != null; message = this.urgentRequests.next()) {
                 this.write.pos = 0;
                 this.write.p1(Js5RequestCode.URGENT);
                 this.write.p3((int) message.key2);
@@ -148,7 +148,7 @@ public final class Js5WorkerThread {
                 this.pendingUrgentRequests.add(message);
             }
 
-            for (@Pc(142) Js5WorkerRequestMessage message = (Js5WorkerRequestMessage) this.prefetchRequests.first(); message != null; message = (Js5WorkerRequestMessage) this.prefetchRequests.next()) {
+            for (@Pc(142) Js5WorkerRequestMessage message = this.prefetchRequests.first(); message != null; message = this.prefetchRequests.next()) {
                 this.write.pos = 0;
                 this.write.p1(Js5RequestCode.PREFETCH);
                 this.write.p3((int) message.key2);
@@ -203,10 +203,10 @@ public final class Js5WorkerThread {
 
                             @Pc(371) Js5WorkerRequestMessage message;
                             if (prefetch) {
-                                for (message = (Js5WorkerRequestMessage) this.pendingPrefetchRequests.first(); message != null && message.key2 != key; message = (Js5WorkerRequestMessage) this.pendingPrefetchRequests.next()) {
+                                for (message = this.pendingPrefetchRequests.first(); message != null && message.key2 != key; message = this.pendingPrefetchRequests.next()) {
                                 }
                             } else {
-                                for (message = (Js5WorkerRequestMessage) this.pendingUrgentRequests.first(); message != null && message.key2 != key; message = (Js5WorkerRequestMessage) this.pendingUrgentRequests.next()) {
+                                for (message = this.pendingUrgentRequests.first(); message != null && message.key2 != key; message = this.pendingUrgentRequests.next()) {
                                 }
                             }
 

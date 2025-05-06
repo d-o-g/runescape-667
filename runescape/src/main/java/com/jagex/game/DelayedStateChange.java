@@ -56,14 +56,14 @@ public final class DelayedStateChange extends DoublyLinkedNode {
     private static final IterableHashTable<DelayedStateChange> changes = new IterableHashTable<DelayedStateChange>(16);
 
     @OriginalMember(owner = "client!bv", name = "k", descriptor = "Lclient!jga;")
-    private static final Queue delayed = new Queue();
+    private static final Queue<DelayedStateChange> delayed = new Queue<>();
 
     @OriginalMember(owner = "client!efa", name = "e", descriptor = "Lclient!jga;")
-    private static final Queue immediate = new Queue();
+    private static final Queue<DelayedStateChange> immediate = new Queue<>();
 
     @OriginalMember(owner = "client!cka", name = "a", descriptor = "(I)Lclient!aj;")
     public static DelayedStateChange removeFirst() {
-        @Pc(17) DelayedStateChange change = (DelayedStateChange) immediate.first();
+        @Pc(17) DelayedStateChange change = immediate.first();
         if (change != null) {
             change.unlink();
             change.unlink2();
@@ -71,7 +71,7 @@ public final class DelayedStateChange extends DoublyLinkedNode {
         }
 
         do {
-            change = (DelayedStateChange) delayed.first();
+            change = delayed.first();
             if (change == null) {
                 return null;
             }

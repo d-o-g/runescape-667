@@ -85,7 +85,7 @@ public final class MiniMenu {
     public static final ReferenceCache questCache = new ReferenceCache(8);
 
     @OriginalMember(owner = "client!la", name = "v", descriptor = "Lclient!jga;")
-    public static final Queue entryQueue = new Queue();
+    public static final Queue<MiniMenuEntry> entryQueue = new Queue<>();
 
     @OriginalMember(owner = "client!fp", name = "T", descriptor = "Z")
     public static final boolean debugOps = false;
@@ -236,7 +236,7 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!cja", name = "b", descriptor = "(B)V")
     public static void reset() {
-        for (@Pc(10) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+        for (@Pc(10) MiniMenuEntry entry = entryQueue.first(); entry != null; entry = entryQueue.next()) {
             if (entry.size > 1) {
                 entry.size = 0;
                 cache.put(entry, ((MiniMenuEntryInner) entry.innerEntries.sentinel.next2).entryKey);
@@ -636,7 +636,7 @@ public final class MiniMenu {
             entryCount++;
         } else {
             @Pc(41) long key = inner.entryKey;
-            for (entry = (MiniMenuEntry) entryTable.get(key); entry != null && !entry.title.equals(inner.opBase); entry = (MiniMenuEntry) entryTable.nextWithSameKey()) {
+            for (entry = entryTable.get(key); entry != null && !entry.title.equals(inner.opBase); entry = entryTable.nextWithSameKey()) {
             }
 
             if (entry == null) {
@@ -663,7 +663,7 @@ public final class MiniMenu {
         @Pc(5) boolean inserted = false;
         entry.unlink2();
 
-        for (@Pc(21) MiniMenuEntry other = (MiniMenuEntry) entryQueue.first(); other != null; other = (MiniMenuEntry) entryQueue.next()) {
+        for (@Pc(21) MiniMenuEntry other = entryQueue.first(); other != null; other = entryQueue.next()) {
             if (isActionBefore(entry.getAction(), other.getAction())) {
                 inserted = true;
                 DoublyLinkedNode.addAfter(other, entry);
@@ -706,13 +706,13 @@ public final class MiniMenu {
         innerEntryCount--;
 
         if (inner.independent) {
-            for (@Pc(22) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+            for (@Pc(22) MiniMenuEntry entry = entryQueue.first(); entry != null; entry = entryQueue.next()) {
                 if (!entry.title.equals(inner.opBase)) {
                     continue;
                 }
 
                 @Pc(31) boolean found = false;
-                for (@Pc(37) MiniMenuEntryInner other = (MiniMenuEntryInner) entry.innerEntries.first(); other != null; other = (MiniMenuEntryInner) entry.innerEntries.next()) {
+                for (@Pc(37) MiniMenuEntryInner other = entry.innerEntries.first(); other != null; other = entry.innerEntries.next()) {
                     if (other == inner) {
                         found = true;
 
@@ -1675,7 +1675,7 @@ public final class MiniMenu {
         if (collapsed) {
             @Pc(70) int count = 0;
 
-            for (@Pc(77) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+            for (@Pc(77) MiniMenuEntry entry = entryQueue.first(); entry != null; entry = entryQueue.next()) {
                 @Pc(89) int entryY = menuY + (count * ENTRY_HEIGHT) + 13 + 20;
 
                 if (mouseX > offsetX + x && mouseX < offsetX + x + width && mouseY > entryY - 13 && mouseY < entryY + 4 && (entry.size > 1 || ((MiniMenuEntryInner) entry.innerEntries.sentinel.next2).aBoolean552)) {
@@ -1689,7 +1689,7 @@ public final class MiniMenu {
                 drawTop(openedEntryWidth, openedEntryHeight, openedEntry.title, toolkit, openedEntryY, openedEntryX);
 
                 count = 0;
-                for (@Pc(190) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
+                for (@Pc(190) MiniMenuEntryInner inner = openedEntry.innerEntries.first(); inner != null; inner = openedEntry.innerEntries.next()) {
                     @Pc(202) int innerY = openedEntryY + (count * ENTRY_HEIGHT) + 13 + 20;
 
                     if (openedEntryX < mouseX && openedEntryX + openedEntryWidth > mouseX && mouseY > innerY - 13 && mouseY < innerY + 4 && inner.aBoolean552) {
@@ -1719,7 +1719,7 @@ public final class MiniMenu {
         if (collapsed) {
             @Pc(70) int count = 0;
 
-            for (@Pc(77) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+            for (@Pc(77) MiniMenuEntry entry = entryQueue.first(); entry != null; entry = entryQueue.next()) {
                 @Pc(202) int entryY = (count * ENTRY_HEIGHT) + offsetY + y + SPRITE_TOP_HEIGHT;
 
                 if (entry.size == 1) {
@@ -1734,7 +1734,7 @@ public final class MiniMenu {
             if (openedEntry != null) {
                 count = 0;
 
-                for (@Pc(190) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
+                for (@Pc(190) MiniMenuEntryInner inner = openedEntry.innerEntries.first(); inner != null; inner = openedEntry.innerEntries.next()) {
                     @Pc(202) int innerY = openedEntryY + (count * ENTRY_HEIGHT) + 20 + 13;
                     drawEntryInner(toolkit, inner, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight, mouseX, mouseY, textColour | 0xFF000000, spriteHighlightColour | 0xFF000000, innerY);
                     count++;
@@ -1773,7 +1773,7 @@ public final class MiniMenu {
         if (collapsed) {
             @Pc(80) int count = 0;
 
-            for (@Pc(137) MiniMenuEntry inner = (MiniMenuEntry) entryQueue.first(); inner != null; inner = (MiniMenuEntry) entryQueue.next()) {
+            for (@Pc(137) MiniMenuEntry inner = entryQueue.first(); inner != null; inner = entryQueue.next()) {
                 @Pc(101) int innerY = offsetY + y + (count * ENTRY_HEIGHT) + 31;
 
                 if (inner.size == 1) {
@@ -1791,7 +1791,7 @@ public final class MiniMenu {
                 count = 0;
                 Fonts.b12.render(openedEntry.title, openedEntryX + 3, openedEntryY + 14, -1, 0xFF5D5447);
 
-                for (@Pc(239) MiniMenuEntryInner inner = (MiniMenuEntryInner) openedEntry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) openedEntry.innerEntries.next()) {
+                for (@Pc(239) MiniMenuEntryInner inner = openedEntry.innerEntries.first(); inner != null; inner = openedEntry.innerEntries.next()) {
                     @Pc(251) int innerY = (count * ENTRY_HEIGHT) + openedEntryY + 31;
                     count++;
                     drawEntryInner(toolkit, inner, openedEntryX, openedEntryY, openedEntryWidth, openedEntryHeight, mouseX, mouseY, -1, -256, innerY);
@@ -2144,7 +2144,7 @@ public final class MiniMenu {
         @Pc(68) int menuHeight;
 
         if (collapsed) {
-            for (@Pc(18) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+            for (@Pc(18) MiniMenuEntry entry = entryQueue.first(); entry != null; entry = entryQueue.next()) {
                 @Pc(27) int width;
                 if (entry.size == 1) {
                     width = getLineWidth((MiniMenuEntryInner) entry.innerEntries.sentinel.next2);
@@ -2208,7 +2208,7 @@ public final class MiniMenu {
         }
 
         @Pc(11) int entryWidth = 0;
-        for (@Pc(17) MiniMenuEntryInner inner = (MiniMenuEntryInner) entry.innerEntries.first(); inner != null; inner = (MiniMenuEntryInner) entry.innerEntries.next()) {
+        for (@Pc(17) MiniMenuEntryInner inner = entry.innerEntries.first(); inner != null; inner = entry.innerEntries.next()) {
             @Pc(23) int lineWidth = getLineWidth(inner);
 
             if (lineWidth > entryWidth) {
@@ -2444,7 +2444,7 @@ public final class MiniMenu {
 
     @OriginalMember(owner = "client!qp", name = "a", descriptor = "(B)V")
     public static void resetAndClose() {
-        for (@Pc(8) MiniMenuEntry entry = (MiniMenuEntry) entryQueue.first(); entry != null; entry = (MiniMenuEntry) entryQueue.next()) {
+        for (@Pc(8) MiniMenuEntry entry = entryQueue.first(); entry != null; entry = entryQueue.next()) {
             if (entry.size > 1) {
                 entry.size = 0;
                 cache.put(entry, ((MiniMenuEntryInner) entry.innerEntries.sentinel.next2).entryKey);

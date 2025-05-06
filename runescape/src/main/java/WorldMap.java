@@ -1385,8 +1385,8 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(II)Lclient!jga;")
-    public static Queue findAreas(@OriginalArg(0) int x, @OriginalArg(1) int z) {
-        @Pc(3) Queue queue = new Queue();
+    public static Queue<WorldMapArea> findAreas(@OriginalArg(0) int x, @OriginalArg(1) int z) {
+        @Pc(3) Queue<WorldMapArea> queue = new Queue<>();
         for (@Pc(8) WorldMapArea area = areas.first(); area != null; area = areas.next()) {
             if (area.aBoolean354 && area.sourceContains(x, z)) {
                 queue.add(area);

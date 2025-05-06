@@ -15,7 +15,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class CachedResourceWorker implements Runnable {
 
     @OriginalMember(owner = "client!iba", name = "d", descriptor = "Lclient!jga;")
-    public final Queue requests = new Queue();
+    public final Queue<Js5ResourceRequest> requests = new Queue<>();
 
     @OriginalMember(owner = "client!iba", name = "n", descriptor = "I")
     public int remaining = 0;
@@ -44,9 +44,9 @@ public final class CachedResourceWorker implements Runnable {
         @Pc(7) Js5ResourceRequest request = new Js5ResourceRequest();
         request.type = Js5ResourceRequest.TYPE_READ_URGENT;
 
-        @Pc(13) Queue local13 = this.requests;
+        @Pc(13) Queue<Js5ResourceRequest> local13 = this.requests;
         synchronized (this.requests) {
-            @Pc(21) Js5ResourceRequest first = (Js5ResourceRequest) this.requests.first();
+            @Pc(21) Js5ResourceRequest first = this.requests.first();
 
             while (true) {
                 if (first == null) {
@@ -59,7 +59,7 @@ public final class CachedResourceWorker implements Runnable {
                     return request;
                 }
 
-                first = (Js5ResourceRequest) this.requests.next();
+                first = this.requests.next();
             }
         }
 
@@ -73,7 +73,7 @@ public final class CachedResourceWorker implements Runnable {
     public void close() {
         this.closed = true;
 
-        @Pc(9) Queue local9 = this.requests;
+        @Pc(9) Queue<Js5ResourceRequest> local9 = this.requests;
         synchronized (this.requests) {
             this.requests.notifyAll();
         }
@@ -89,7 +89,7 @@ public final class CachedResourceWorker implements Runnable {
 
     @OriginalMember(owner = "client!iba", name = "a", descriptor = "(ILclient!vp;)V")
     public void add(@OriginalArg(1) Js5ResourceRequest request) {
-        @Pc(6) Queue local6 = this.requests;
+        @Pc(6) Queue<Js5ResourceRequest> local6 = this.requests;
         synchronized (this.requests) {
             this.requests.add(request);
             this.remaining++;
@@ -101,7 +101,7 @@ public final class CachedResourceWorker implements Runnable {
     @Override
     public void run() {
         while (!this.closed) {
-            @Pc(10) Queue local10 = this.requests;
+            @Pc(10) Queue<Js5ResourceRequest> local10 = this.requests;
             @Pc(18) Js5ResourceRequest request;
             synchronized (this.requests) {
                 request = (Js5ResourceRequest) this.requests.removeFirst();

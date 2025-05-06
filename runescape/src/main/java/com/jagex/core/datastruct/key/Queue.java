@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!jga")
-public final class Queue {
+public final class Queue<T extends DoublyLinkedNode> {
 
     @OriginalMember(owner = "client!jga", name = "f", descriptor = "Lclient!cm;")
     public DoublyLinkedNode pointer;
@@ -32,7 +32,7 @@ public final class Queue {
     }
 
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(ZLclient!cm;)V")
-    public void add(@OriginalArg(1) DoublyLinkedNode node) {
+    public void add(@OriginalArg(1) T node) {
         if (node.prev2 != null) {
             node.unlink2();
         }
@@ -54,14 +54,14 @@ public final class Queue {
     }
 
     @OriginalMember(owner = "client!jga", name = "b", descriptor = "(I)Lclient!cm;")
-    public DoublyLinkedNode next() {
+    public T next() {
         @Pc(11) DoublyLinkedNode next = this.pointer;
         if (next == this.sentinel) {
             this.pointer = null;
             return null;
         } else {
             this.pointer = next.next2;
-            return next;
+            return (T) next;
         }
     }
 
@@ -78,15 +78,14 @@ public final class Queue {
     }
 
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(I)Lclient!cm;")
-    public DoublyLinkedNode first() {
+    public T first() {
         @Pc(18) DoublyLinkedNode first = this.sentinel.next2;
         if (first == this.sentinel) {
             this.pointer = null;
             return null;
         } else {
             this.pointer = first.next2;
-            return first;
+            return (T) first;
         }
     }
-
 }

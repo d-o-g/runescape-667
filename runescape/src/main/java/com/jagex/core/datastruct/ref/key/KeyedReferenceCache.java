@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class KeyedReferenceCache {
 
     @OriginalMember(owner = "client!aka", name = "c", descriptor = "Lclient!jga;")
-    public final Queue history = new Queue();
+    public final Queue<KeyedReferenceNode> history = new Queue<KeyedReferenceNode>();
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "I")
     public final int capacity;
@@ -55,7 +55,7 @@ public final class KeyedReferenceCache {
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(B)V")
     public void removeSoftReferences() {
-        for (@Pc(5) KeyedReferenceNode node = (KeyedReferenceNode) this.history.first(); node != null; node = (KeyedReferenceNode) this.history.next()) {
+        for (@Pc(5) KeyedReferenceNode node = this.history.first(); node != null; node = this.history.next()) {
             if (node.isSoft()) {
                 node.unlink();
                 node.unlink2();
@@ -79,7 +79,7 @@ public final class KeyedReferenceCache {
             return;
         }
 
-        for (@Pc(11) KeyedReferenceNode node = (KeyedReferenceNode) this.history.first(); node != null; node = (KeyedReferenceNode) this.history.next()) {
+        for (@Pc(11) KeyedReferenceNode node = this.history.first(); node != null; node = this.history.next()) {
             if (node.isSoft()) {
                 if (node.get() == null) {
                     node.unlink();

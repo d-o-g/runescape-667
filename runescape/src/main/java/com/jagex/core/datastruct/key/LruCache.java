@@ -12,7 +12,7 @@ public final class LruCache<T extends DoublyLinkedNode> {
     public DoublyLinkedNode pointer = new DoublyLinkedNode();
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "Lclient!jga;")
-    public final Queue history = new Queue();
+    public final Queue<DoublyLinkedNode> history = new Queue<>();
 
     @OriginalMember(owner = "client!ts", name = "h", descriptor = "I")
     public int remaining;

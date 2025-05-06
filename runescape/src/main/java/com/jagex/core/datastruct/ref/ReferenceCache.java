@@ -12,7 +12,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "j", descriptor = "Lclient!jga;")
-    public final Queue history = new Queue();
+    public final Queue<ReferenceNode> history = new Queue<ReferenceNode>();
 
     @OriginalMember(owner = "client!dla", name = "h", descriptor = "I")
     public int remaining;
@@ -74,7 +74,7 @@ public final class ReferenceCache {
             return;
         }
 
-        for (@Pc(15) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
+        for (@Pc(15) ReferenceNode node = this.history.first(); node != null; node = this.history.next()) {
             if (node.isSoft()) {
                 if (node.get() == null) {
                     node.unlink();
@@ -94,7 +94,7 @@ public final class ReferenceCache {
     @OriginalMember(owner = "client!dla", name = "b", descriptor = "(B)I")
     public int hardCount() {
         @Pc(5) int count = 0;
-        for (@Pc(11) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
+        for (@Pc(11) ReferenceNode node = this.history.first(); node != null; node = this.history.next()) {
             if (!node.isSoft()) {
                 count++;
             }
@@ -118,7 +118,7 @@ public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(B)V")
     public void removeSoftReferences() {
-        for (@Pc(14) ReferenceNode node = (ReferenceNode) this.history.first(); node != null; node = (ReferenceNode) this.history.next()) {
+        for (@Pc(14) ReferenceNode node = this.history.first(); node != null; node = this.history.next()) {
             if (node.isSoft()) {
                 node.unlink();
                 node.unlink2();

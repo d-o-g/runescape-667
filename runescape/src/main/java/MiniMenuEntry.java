@@ -15,12 +15,12 @@ public final class MiniMenuEntry extends DoublyLinkedNode {
     public final String title;
 
     @OriginalMember(owner = "client!cba", name = "A", descriptor = "Lclient!jga;")
-    public final Queue innerEntries;
+    public final Queue<MiniMenuEntryInner> innerEntries;
 
     @OriginalMember(owner = "client!cba", name = "<init>", descriptor = "(Ljava/lang/String;)V")
     public MiniMenuEntry(@OriginalArg(0) String title) {
         this.title = title;
-        this.innerEntries = new Queue();
+        this.innerEntries = new Queue<>();
     }
 
     @OriginalMember(owner = "client!cba", name = "d", descriptor = "(B)I")
@@ -50,7 +50,7 @@ public final class MiniMenuEntry extends DoublyLinkedNode {
         @Pc(5) boolean changedTypes = true;
         inner.unlink2();
 
-        @Pc(21) MiniMenuEntryInner existing = (MiniMenuEntryInner) this.innerEntries.first();
+        @Pc(21) MiniMenuEntryInner existing = this.innerEntries.first();
         while (existing != null) {
             if (MiniMenu.isActionBefore(inner.action, existing.action)) {
                 DoublyLinkedNode.addBefore(existing, inner);
@@ -63,7 +63,7 @@ public final class MiniMenuEntry extends DoublyLinkedNode {
                 return true;
             }
 
-            existing = (MiniMenuEntryInner) this.innerEntries.next();
+            existing = this.innerEntries.next();
             changedTypes = false;
         }
 

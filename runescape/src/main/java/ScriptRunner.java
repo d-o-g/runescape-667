@@ -5659,9 +5659,9 @@ public final class ScriptRunner {
                 intStackPointer -= 2;
                 @Pc(192) int coord = intStack[intStackPointer];
                 @Pc(834) int id = intStack[intStackPointer + 1];
-                @Pc(2329) Queue queue = WorldMap.findAreas((coord >> 14) & 0x3FFF, coord & 0x3FFF);
+                @Pc(2329) Queue<WorldMapArea> queue = WorldMap.findAreas((coord >> 14) & 0x3FFF, coord & 0x3FFF);
                 @Pc(2331) boolean contained = false;
-                for (@Pc(2336) WorldMapArea area = (WorldMapArea) queue.first(); area != null; area = (WorldMapArea) queue.next()) {
+                for (@Pc(2336) WorldMapArea area = queue.first(); area != null; area = queue.next()) {
                     if (area.id == id) {
                         contained = true;
                         break;

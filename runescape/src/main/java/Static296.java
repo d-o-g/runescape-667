@@ -21,7 +21,7 @@ public final class Static296 {
     @OriginalMember(owner = "client!jh", name = "a", descriptor = "(Lclient!gp;BIIII)V")
     public static void customiseLocation(@OriginalArg(0) LocTypeCustomisation arg0, @OriginalArg(2) int arg1, @OriginalArg(3) int arg2, @OriginalArg(4) int arg3, @OriginalArg(5) int arg4) {
         @Pc(15) ChangeLocationRequest local15 = null;
-        for (@Pc(20) ChangeLocationRequest local20 = (ChangeLocationRequest) Static227.customisations.first(); local20 != null; local20 = (ChangeLocationRequest) Static227.customisations.next()) {
+        for (@Pc(20) ChangeLocationRequest local20 = Static227.customisations.first(); local20 != null; local20 = Static227.customisations.next()) {
             if (local20.level == arg1 && local20.x == arg3 && local20.z == arg4 && arg2 == local20.layer) {
                 local15 = local20;
                 break;

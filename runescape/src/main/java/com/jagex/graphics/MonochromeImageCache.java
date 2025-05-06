@@ -1,7 +1,6 @@
 package com.jagex.graphics;
 
 import com.jagex.core.datastruct.key.Deque;
-import com.jagex.graphics.MonochromeImageCacheSlot;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -20,7 +19,7 @@ public final class MonochromeImageCache {
     public int count = 0;
 
     @OriginalMember(owner = "client!ija", name = "c", descriptor = "Lclient!sia;")
-    public Deque history = new Deque();
+    public Deque<MonochromeImageCacheSlot> history = new Deque<>();
 
     @OriginalMember(owner = "client!ija", name = "o", descriptor = "Z")
     public boolean dirty = false;
@@ -90,7 +89,7 @@ public final class MonochromeImageCache {
                     slot = new MonochromeImageCacheSlot(index, this.count);
                     this.count++;
                 } else {
-                    @Pc(59) MonochromeImageCacheSlot last = (MonochromeImageCacheSlot) this.history.last();
+                    @Pc(59) MonochromeImageCacheSlot last = this.history.last();
                     slot = new MonochromeImageCacheSlot(index, last.slot);
                     this.slots[last.id] = null;
                     last.unlink();

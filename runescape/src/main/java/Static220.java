@@ -19,11 +19,11 @@ public final class Static220 {
 
     @OriginalMember(owner = "client!gq", name = "a", descriptor = "(IBIII)V")
     public static void method3198(@OriginalArg(0) int currentTick, @OriginalArg(2) int z, @OriginalArg(3) int x, @OriginalArg(4) int level) {
-        for (@Pc(6) PositionedSound sound = (PositionedSound) SoundManager.locSounds.first(); sound != null; sound = (PositionedSound) SoundManager.locSounds.next()) {
+        for (@Pc(6) PositionedSound sound = SoundManager.locSounds.first(); sound != null; sound = SoundManager.locSounds.next()) {
             SoundManager.method8366(currentTick, sound, level, x, z);
         }
 
-        for (@Pc(42) PositionedSound sound = (PositionedSound) SoundManager.npcSounds.first(); sound != null; sound = (PositionedSound) SoundManager.npcSounds.next()) {
+        for (@Pc(42) PositionedSound sound = SoundManager.npcSounds.first(); sound != null; sound = SoundManager.npcSounds.next()) {
             @Pc(51) BASType basType = sound.npc.getBASType();
             @Pc(57) int animation = sound.npc.animator.getAnimationId();
 

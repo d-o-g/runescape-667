@@ -137,7 +137,7 @@ public final class Static684 {
             }
         }
 
-        for (@Pc(485) ChangeLocationRequest request = (ChangeLocationRequest) Static159.changes.first(); request != null; request = (ChangeLocationRequest) Static159.changes.next()) {
+        for (@Pc(485) ChangeLocationRequest request = Static159.changes.first(); request != null; request = Static159.changes.next()) {
             request.x -= deltaX;
             request.z -= deltaZ;
 
@@ -147,7 +147,7 @@ public final class Static684 {
             }
         }
 
-        for (@Pc(485) ChangeLocationRequest request = (ChangeLocationRequest) Static227.customisations.first(); request != null; request = (ChangeLocationRequest) Static227.customisations.next()) {
+        for (@Pc(485) ChangeLocationRequest request = Static227.customisations.first(); request != null; request = Static227.customisations.next()) {
             request.z -= deltaZ;
             request.x -= deltaX;
 

@@ -1,3 +1,4 @@
+import com.jagex.ChangeLocationRequest;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.datastruct.key.Deque;
 import org.openrs2.deob.annotation.OriginalMember;
@@ -12,7 +13,7 @@ public final class Static159 {
     public static int anInt2788 = 0;
 
     @OriginalMember(owner = "client!ew", name = "d", descriptor = "Lclient!sia;")
-    public static Deque changes = new Deque();
+    public static Deque<ChangeLocationRequest> changes = new Deque<>();
 
     @OriginalMember(owner = "client!ew", name = "a", descriptor = "(Z)V")
     public static void method2575() {

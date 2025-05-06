@@ -7,7 +7,7 @@ public final class Static197 {
     @OriginalMember(owner = "client!gba", name = "a", descriptor = "(Z)V")
     public static void method2949() {
         @Pc(8) ChangeLocationRequest local8;
-        for (local8 = (ChangeLocationRequest) Static159.changes.first(); local8 != null; local8 = (ChangeLocationRequest) Static159.changes.next()) {
+        for (local8 = Static159.changes.first(); local8 != null; local8 = (ChangeLocationRequest) Static159.changes.next()) {
             if (local8.pendingRemoval) {
                 local8.unlink();
             } else {
@@ -17,7 +17,7 @@ public final class Static197 {
                 }
             }
         }
-        for (local8 = (ChangeLocationRequest) Static227.customisations.first(); local8 != null; local8 = (ChangeLocationRequest) Static227.customisations.next()) {
+        for (local8 = Static227.customisations.first(); local8 != null; local8 = Static227.customisations.next()) {
             if (local8.pendingRemoval) {
                 local8.unlink();
             } else {

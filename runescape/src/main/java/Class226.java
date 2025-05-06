@@ -12,7 +12,7 @@ import java.net.InetAddress;
 public final class Class226 implements Runnable {
 
     @OriginalMember(owner = "client!lha", name = "h", descriptor = "Lclient!sia;")
-    public final Deque aDeque_32 = new Deque();
+    public final Deque<Node> aDeque_32 = new Deque<>();
 
     @OriginalMember(owner = "client!lha", name = "d", descriptor = "Ljava/lang/Thread;")
     public Thread aThread4 = new Thread(this);
@@ -27,7 +27,7 @@ public final class Class226 implements Runnable {
     @Override
     public void run() {
         while (true) {
-            @Pc(8) Deque local8 = this.aDeque_32;
+            @Pc(8) Deque<Node> local8 = this.aDeque_32;
             @Pc(43) PingRequest local43;
             synchronized (this.aDeque_32) {
                 @Pc(15) Node local15;
@@ -68,7 +68,7 @@ public final class Class226 implements Runnable {
 
     @OriginalMember(owner = "client!lha", name = "a", descriptor = "(ILclient!ie;)V")
     public void method5244(@OriginalArg(1) Node arg0) {
-        @Pc(2) Deque local2 = this.aDeque_32;
+        @Pc(2) Deque<Node> local2 = this.aDeque_32;
         synchronized (this.aDeque_32) {
             this.aDeque_32.addLast(arg0);
             this.aDeque_32.notify();

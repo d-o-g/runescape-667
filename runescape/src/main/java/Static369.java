@@ -76,7 +76,7 @@ public final class Static369 {
         }
 
         if (ClientOptions.instance.toolkit.getValue() == ToolkitType.JAVA) {
-            for (@Pc(31) JavaObjSprite sprite = (JavaObjSprite) JavaToolkit.objSprites.first(); sprite != null; sprite = (JavaObjSprite) JavaToolkit.objSprites.next()) {
+            for (@Pc(31) JavaObjSprite sprite = JavaToolkit.objSprites.first(); sprite != null; sprite = JavaToolkit.objSprites.next()) {
                 ObjTypeList.instance.sprite(sprite.outline, toolkit, toolkit, sprite.objWearCol ? PlayerEntity.self.playerModel : null, false, sprite.graphicShadow, sprite.invCount, false, sprite.objNumMode, Fonts.p11, sprite.objId);
                 sprite.unlink();
             }
@@ -92,7 +92,7 @@ public final class Static369 {
             Fonts.objSpriteFont = Static158.objSpriteToolkit.createFont(FontMetrics.loadGroup(js5.FONTMETRICS, Fonts.p11FullGroup), IndexedImage.load(js5.SPRITES, Fonts.p11FullGroup, 0), true);
         }
 
-        for (@Pc(31) JavaObjSprite sprite = (JavaObjSprite) JavaToolkit.objSprites.first(); sprite != null; sprite = (JavaObjSprite) JavaToolkit.objSprites.next()) {
+        for (@Pc(31) JavaObjSprite sprite = JavaToolkit.objSprites.first(); sprite != null; sprite = JavaToolkit.objSprites.next()) {
             ObjTypeList.instance.sprite(sprite.outline, Static158.objSpriteToolkit, toolkit, sprite.objWearCol ? PlayerEntity.self.playerModel : null, false, sprite.graphicShadow, sprite.invCount, false, sprite.objNumMode, Fonts.objSpriteFont, sprite.objId);
             sprite.unlink();
         }

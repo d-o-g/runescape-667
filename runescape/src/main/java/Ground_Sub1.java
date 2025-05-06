@@ -52,7 +52,7 @@ public final class Ground_Sub1 extends Ground {
     public float aFloat77 = Float.MAX_VALUE;
 
     @OriginalMember(owner = "client!iga", name = "J", descriptor = "Lclient!sia;")
-    public final Deque aDeque_24 = new Deque();
+    public final Deque<Node_Sub32> aDeque_24 = new Deque<>();
 
     @OriginalMember(owner = "client!iga", name = "qb", descriptor = "Lclient!am;")
     public final NativeToolkit aClass19_Sub1_9;
@@ -343,7 +343,7 @@ public final class Ground_Sub1 extends Ground {
             if (local214 < 1) {
                 local214 = 1;
             }
-            @Pc(224) IterableHashTable local224 = new IterableHashTable(local214);
+            @Pc(224) IterableHashTable<Node_Sub50> local224 = new IterableHashTable<Node_Sub50>(local214);
             @Pc(228) Node_Sub58[] local228 = new Node_Sub58[this.anInt4321];
             @Pc(234) int local234;
             for (@Pc(230) int local230 = 0; super.anInt8894 > local230; local230++) {

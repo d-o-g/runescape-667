@@ -8,20 +8,6 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.clan.settings.ClanSettings;
-import rs2.client.clan.settings.delta.AddBanned;
-import rs2.client.clan.settings.delta.AddMemberV1;
-import rs2.client.clan.settings.delta.AddMemberV2;
-import rs2.client.clan.settings.delta.DeleteBanned;
-import rs2.client.clan.settings.delta.DeleteMember;
-import rs2.client.clan.settings.delta.DeltaEntry;
-import rs2.client.clan.settings.delta.SetClanName;
-import rs2.client.clan.settings.delta.SetExtraSettingInt;
-import rs2.client.clan.settings.delta.SetExtraSettingLong;
-import rs2.client.clan.settings.delta.SetExtraSettingString;
-import rs2.client.clan.settings.delta.SetExtraSettingVarbit;
-import rs2.client.clan.settings.delta.SetMemberExtraInfo;
-import rs2.client.clan.settings.delta.SetMemberRank;
-import rs2.client.clan.settings.delta.UpdateBaseSettings;
 
 @OriginalClass("client!ama")
 public final class ClanSettingsDelta {
@@ -33,7 +19,7 @@ public final class ClanSettingsDelta {
     public int updateNum = -1;
 
     @OriginalMember(owner = "client!ama", name = "g", descriptor = "Lclient!sia;")
-    public final Deque entries = new Deque();
+    public final Deque<DeltaEntry> entries = new Deque<DeltaEntry>();
 
     @OriginalMember(owner = "client!ama", name = "<init>", descriptor = "(Lclient!ge;)V")
     public ClanSettingsDelta(@OriginalArg(0) Packet arg0) {
@@ -92,7 +78,7 @@ public final class ClanSettingsDelta {
             throw new RuntimeException("ClanSettingsDelta.applyToClanSettings(): Credentials do not match! Settings.owner:" + Base37.decode(settings.owner) + " updateNum:" + settings.updateNum + " delta.owner:" + Base37.decode(this.owner) + " updateNum:" + this.updateNum);
         }
 
-        for (@Pc(82) DeltaEntry entry = (DeltaEntry) this.entries.first(); entry != null; entry = (DeltaEntry) this.entries.next()) {
+        for (@Pc(82) DeltaEntry entry = this.entries.first(); entry != null; entry = this.entries.next()) {
             entry.applyTo(settings);
         }
 

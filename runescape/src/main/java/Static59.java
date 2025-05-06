@@ -8,6 +8,6 @@ public final class Static59 {
     public static Matrix aMatrix_5;
 
     @OriginalMember(owner = "client!bv", name = "o", descriptor = "Lclient!sia;")
-    public static final Deque A_DEQUE___33 = new Deque();
+    public static final Deque<HookRequest> A_DEQUE___33 = new Deque<>();
 
 }

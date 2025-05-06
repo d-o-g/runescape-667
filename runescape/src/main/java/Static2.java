@@ -14,7 +14,7 @@ public final class Static2 {
         if (stack == null) {
             stack = new ObjStack();
             Static497.objStacks.put(key, stack);
-            stack.objs.addLast(entry);
+            stack.entries.addLast(entry);
             return;
         }
         @Pc(45) ObjType type = ObjTypeList.instance.list(entry.id);
@@ -22,7 +22,7 @@ public final class Static2 {
         if (type.stackable == 1) {
             totalCost *= entry.count + 1;
         }
-        for (@Pc(65) ObjStackEntry other = (ObjStackEntry) stack.objs.first(); other != null; other = (ObjStackEntry) stack.objs.next()) {
+        for (@Pc(65) ObjStackEntry other = stack.entries.first(); other != null; other = stack.entries.next()) {
             type = ObjTypeList.instance.list(other.id);
             @Pc(78) int otherTotalCost = type.cost;
             if (type.stackable == 1) {
@@ -33,7 +33,7 @@ public final class Static2 {
                 return;
             }
         }
-        stack.objs.addLast(entry);
+        stack.entries.addLast(entry);
     }
 
     @OriginalMember(owner = "client!aaa", name = "c", descriptor = "(III)Z")

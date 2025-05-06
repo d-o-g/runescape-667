@@ -52,7 +52,7 @@ public final class Ground_Sub2 extends Ground {
     public Interface12 anInterface12_5;
 
     @OriginalMember(owner = "client!pn", name = "I", descriptor = "Lclient!sia;")
-    public final Deque aDeque_43 = new Deque();
+    public final Deque<Node_Sub33> aDeque_43 = new Deque<Node_Sub33>();
 
     @OriginalMember(owner = "client!pn", name = "J", descriptor = "I")
     public final int anInt7488 = this.anInt8895 - 2;
@@ -333,7 +333,7 @@ public final class Ground_Sub2 extends Ground {
             if (local194 < 1) {
                 local194 = 1;
             }
-            @Pc(206) IterableHashTable local206 = new IterableHashTable(local194);
+            @Pc(206) IterableHashTable<Node_Sub50> local206 = new IterableHashTable<Node_Sub50>(local194);
             @Pc(210) Node_Sub39[] local210 = new Node_Sub39[this.anInt7507];
             @Pc(216) int local216;
             for (@Pc(212) int local212 = 0; super.anInt8894 > local212; local212++) {

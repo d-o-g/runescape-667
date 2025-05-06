@@ -27,7 +27,7 @@ public final class Node_Sub6_Sub5 extends AudioBuss {
     public boolean aBoolean795;
 
     @OriginalMember(owner = "client!wc", name = "M", descriptor = "Lclient!sia;")
-    public final Deque aDeque_80 = new Deque();
+    public final Deque<DoublyLinkedNode_Sub2_Sub8> aDeque_80 = new Deque<DoublyLinkedNode_Sub2_Sub8>();
 
     @OriginalMember(owner = "client!wc", name = "E", descriptor = "I")
     public int anInt10535 = 0;
@@ -51,7 +51,7 @@ public final class Node_Sub6_Sub5 extends AudioBuss {
         if (this.anInt10535 < 1) {
             return -1.0D;
         }
-        @Pc(16) DoublyLinkedNode_Sub2_Sub8 local16 = (DoublyLinkedNode_Sub2_Sub8) this.aDeque_80.first();
+        @Pc(16) DoublyLinkedNode_Sub2_Sub8 local16 = this.aDeque_80.first();
         if (local16 == null) {
             return -1.0D;
         } else {
@@ -153,7 +153,7 @@ public final class Node_Sub6_Sub5 extends AudioBuss {
 
     @OriginalMember(owner = "client!wc", name = "c", descriptor = "(B)Lclient!dk;")
     public synchronized DoublyLinkedNode_Sub2_Sub8 method9145() {
-        return (DoublyLinkedNode_Sub2_Sub8) this.aDeque_80.first();
+        return this.aDeque_80.first();
     }
 
     @OriginalMember(owner = "client!wc", name = "a", descriptor = "(IZ)V")

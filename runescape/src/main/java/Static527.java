@@ -18,7 +18,7 @@ public final class Static527 {
 
     @OriginalMember(owner = "client!qka", name = "c", descriptor = "(I)V")
     public static void method7083() {
-        for (@Pc(15) ProjectileAnimationNode projectileNode = (ProjectileAnimationNode) Static505.projectiles.first(); projectileNode != null; projectileNode = (ProjectileAnimationNode) Static505.projectiles.next()) {
+        for (@Pc(15) ProjectileAnimationNode projectileNode = Static505.projectiles.first(); projectileNode != null; projectileNode = Static505.projectiles.next()) {
             @Pc(20) ProjectileAnimation projectile = projectileNode.projectileAnimation;
 
             if (TimeUtils.clock > projectile.t2) {

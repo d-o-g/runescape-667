@@ -75,7 +75,7 @@ public final class AnimFrameset extends DoublyLinkedNode {
             return false;
         }
 
-        @Pc(123) Deque bases = new Deque();
+        @Pc(123) Deque<AnimBase> bases = new Deque<>();
         @Pc(125) js5 local125 = anims;
         @Pc(36) int[] fileIds;
         synchronized (anims) {
@@ -91,7 +91,7 @@ public final class AnimFrameset extends DoublyLinkedNode {
 
             @Pc(179) int baseId = packet.g2();
             @Pc(181) AnimBase base = null;
-            for (@Pc(188) AnimBase existing = (AnimBase) bases.first(); existing != null; existing = (AnimBase) bases.next()) {
+            for (@Pc(188) AnimBase existing = bases.first(); existing != null; existing = bases.next()) {
                 if (existing.id == baseId) {
                     base = existing;
                     break;

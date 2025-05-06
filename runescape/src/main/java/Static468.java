@@ -26,7 +26,7 @@ public final class Static468 {
             return;
         }
 
-        @Pc(88) ObjStackEntry firstEntry = (ObjStackEntry) stack.objs.first();
+        @Pc(88) ObjStackEntry firstEntry = stack.entries.first();
         if (firstEntry == null) {
             Static638.method8398(level, zoneX, zoneZ);
             return;
@@ -44,7 +44,7 @@ public final class Static468 {
 
         label56:
         while (true) {
-            @Pc(146) ObjStackEntry secondEntry = (ObjStackEntry) stack.objs.next();
+            @Pc(146) ObjStackEntry secondEntry = stack.entries.next();
             if (secondEntry == null) {
                 break;
             }
@@ -54,7 +54,7 @@ public final class Static468 {
                 entity.secondId = secondEntry.id;
 
                 while (true) {
-                    @Pc(171) ObjStackEntry thirdEntry = (ObjStackEntry) stack.objs.next();
+                    @Pc(171) ObjStackEntry thirdEntry = stack.entries.next();
                     if (thirdEntry == null) {
                         break label56;
                     }

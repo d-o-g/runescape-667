@@ -595,15 +595,15 @@ public final class client extends GameShell {
             @Pc(458) Component local458;
             @Pc(470) Component local470;
             do {
-                local453 = (HookRequest) Static618.A_DEQUE___68.removeFirst();
+                local453 = Static618.A_DEQUE___68.removeFirst();
                 if (local453 == null) {
                     while (true) {
                         do {
-                            local453 = (HookRequest) Static59.A_DEQUE___33.removeFirst();
+                            local453 = Static59.A_DEQUE___33.removeFirst();
                             if (local453 == null) {
                                 while (true) {
                                     do {
-                                        local453 = (HookRequest) InterfaceManager.hookRequests.removeFirst();
+                                        local453 = InterfaceManager.hookRequests.removeFirst();
                                         if (local453 == null) {
                                             if (InterfaceManager.dragSource != null) {
                                                 Static603.method7899();

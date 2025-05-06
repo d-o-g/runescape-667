@@ -34,7 +34,7 @@ public final class Class276 {
     public int anInt6942 = 0;
 
     @OriginalMember(owner = "client!oia", name = "l", descriptor = "Lclient!sia;")
-    public final Deque aDeque_39 = new Deque();
+    public final Deque<Node_Sub31> aDeque_39 = new Deque<>();
 
     @OriginalMember(owner = "client!oia", name = "m", descriptor = "[Lclient!rq;")
     public Class93_Sub2[] aClass93_Sub2Array2 = new Class93_Sub2[2];
@@ -201,8 +201,8 @@ public final class Class276 {
         @Pc(90) int local90 = 0;
         @Pc(99) int local99 = 1;
         @Pc(115) Node_Sub31 local115;
-        for (@Pc(105) Node_Sub31 local105 = (Node_Sub31) this.aDeque_39.first(); local105 != null; local105 = local115) {
-            local115 = (Node_Sub31) this.aDeque_39.next();
+        for (@Pc(105) Node_Sub31 local105 = this.aDeque_39.first(); local105 != null; local105 = local115) {
+            local115 = this.aDeque_39.next();
             @Pc(119) int local119 = local105.method4605();
             for (@Pc(121) int local121 = 0; local121 < local119; local121++) {
                 local105.method4611(this.aClass93_Sub2_4, this.aClass93_Sub2Array2[local90], local121);
@@ -273,7 +273,7 @@ public final class Class276 {
         @Pc(15) int local15 = 0;
         @Pc(17) int local17 = 0;
         @Pc(32) int local32;
-        for (@Pc(25) Node_Sub31 local25 = (Node_Sub31) this.aDeque_39.first(); local25 != null; local25 = (Node_Sub31) this.aDeque_39.next()) {
+        for (@Pc(25) Node_Sub31 local25 = this.aDeque_39.first(); local25 != null; local25 = this.aDeque_39.next()) {
             local32 = local25.method4612();
             if (local15 < local32) {
                 local15 = local32;

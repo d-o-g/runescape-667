@@ -72,25 +72,25 @@ public final class GlxToolkit extends NativeToolkit {
     public boolean aBoolean702;
 
     @OriginalMember(owner = "client!tca", name = "jh", descriptor = "Lclient!sia;")
-    public final Deque aDeque_60 = new Deque();
+    public final Deque<? extends IntNode> aDeque_60 = new Deque<IntNode>();
 
     @OriginalMember(owner = "client!tca", name = "oi", descriptor = "Lclient!sia;")
-    public final Deque aDeque_61 = new Deque();
+    public final Deque<IntNode> aDeque_61 = new Deque<IntNode>();
 
     @OriginalMember(owner = "client!tca", name = "oh", descriptor = "Lclient!sia;")
-    public final Deque aDeque_62 = new Deque();
+    public final Deque<IntNode> aDeque_62 = new Deque<IntNode>();
 
     @OriginalMember(owner = "client!tca", name = "Gi", descriptor = "Lclient!sia;")
-    public final Deque aDeque_63 = new Deque();
+    public final Deque<? extends IntNode> aDeque_63 = new Deque<>();
 
     @OriginalMember(owner = "client!tca", name = "Ji", descriptor = "Lclient!sia;")
-    public final Deque aDeque_64 = new Deque();
+    public final Deque<? extends IntNode> aDeque_64 = new Deque<>();
 
     @OriginalMember(owner = "client!tca", name = "ii", descriptor = "Lclient!sia;")
-    public final Deque aDeque_65 = new Deque();
+    public final Deque<Node> aDeque_65 = new Deque<>();
 
     @OriginalMember(owner = "client!tca", name = "Ng", descriptor = "Lclient!sia;")
-    public final Deque aDeque_66 = new Deque();
+    public final Deque<Node> aDeque_66 = new Deque<>();
 
     @OriginalMember(owner = "client!tca", name = "ni", descriptor = "[Lclient!gla;")
     public final Class72_Sub1[] aClass72_Sub1Array1 = new Class72_Sub1[16];
@@ -492,7 +492,7 @@ public final class GlxToolkit extends NativeToolkit {
         @Pc(11) int local11 = time & Integer.MAX_VALUE;
         @Pc(19) IntNode local19;
         while (!this.aDeque_61.isEmpty()) {
-            local19 = (IntNode) this.aDeque_61.removeFirst();
+            local19 = this.aDeque_61.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
             super.anInt9141 -= local19.value;
             if (local7 == 1000) {
@@ -505,7 +505,7 @@ public final class GlxToolkit extends NativeToolkit {
             local7 = 0;
         }
         while (!this.aDeque_62.isEmpty()) {
-            local19 = (IntNode) this.aDeque_62.removeFirst();
+            local19 = this.aDeque_62.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
             super.anInt9145 -= local19.value;
             if (local7 == 1000) {
@@ -518,7 +518,7 @@ public final class GlxToolkit extends NativeToolkit {
             local7 = 0;
         }
         while (!this.aDeque_63.isEmpty()) {
-            local19 = (IntNode) this.aDeque_63.removeFirst();
+            local19 = this.aDeque_63.removeFirst();
             Static382.anIntArray465[local7++] = local19.value;
             if (local7 == 1000) {
                 OpenGL.glDeleteFramebuffersEXT(local7, Static382.anIntArray465, 0);
@@ -530,7 +530,7 @@ public final class GlxToolkit extends NativeToolkit {
             local7 = 0;
         }
         while (!this.aDeque_64.isEmpty()) {
-            local19 = (IntNode) this.aDeque_64.removeFirst();
+            local19 = this.aDeque_64.removeFirst();
             Static382.anIntArray465[local7++] = (int) local19.key;
             super.anInt9143 -= local19.value;
             if (local7 == 1000) {
@@ -542,7 +542,7 @@ public final class GlxToolkit extends NativeToolkit {
             OpenGL.glDeleteRenderbuffersEXT(local7, Static382.anIntArray465, 0);
         }
         while (!this.aDeque_60.isEmpty()) {
-            local19 = (IntNode) this.aDeque_60.removeFirst();
+            local19 = this.aDeque_60.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
         @Pc(227) Node local227;
@@ -555,7 +555,7 @@ public final class GlxToolkit extends NativeToolkit {
             OpenGL.glDeleteObjectARB(local227.key);
         }
         while (!this.aDeque_60.isEmpty()) {
-            local19 = (IntNode) this.aDeque_60.removeFirst();
+            local19 = this.aDeque_60.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
         if (this.E() > 100663296 && this.aLong279 + TimeUtils.MILLISECONDS_PER_MINUTE < SystemTimer.safetime()) {

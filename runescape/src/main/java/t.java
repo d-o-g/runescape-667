@@ -16,7 +16,7 @@ public final class t extends Ground implements SoftwareObject {
     public long nativeid;
 
     @OriginalMember(owner = "client!t", name = "C", descriptor = "Lclient!sia;")
-    public final Deque aDeque_57 = new Deque();
+    public final Deque<PointLight> aDeque_57 = new Deque<PointLight>();
 
     @OriginalMember(owner = "client!t", name = "A", descriptor = "I")
     public int anInt8897 = -1;
@@ -48,7 +48,7 @@ public final class t extends Ground implements SoftwareObject {
         this.anInt8897 = -1;
         @Pc(4) int local4 = 0;
         @Pc(10) float[] local10 = new float[this.aDeque_57.size()];
-        for (@Pc(16) PointLight local16 = (PointLight) this.aDeque_57.first(); local16 != null; local16 = (PointLight) this.aDeque_57.next()) {
+        for (@Pc(16) PointLight local16 = this.aDeque_57.first(); local16 != null; local16 = this.aDeque_57.next()) {
             local10[local4++] = local16.getIntensity();
         }
         this.q(local10);
@@ -91,7 +91,7 @@ public final class t extends Ground implements SoftwareObject {
         this.anInt8897 = arg5;
         @Pc(4) int local4 = 0;
         @Pc(10) float[] local10 = new float[this.aDeque_57.size()];
-        for (@Pc(16) PointLight local16 = (PointLight) this.aDeque_57.first(); local16 != null; local16 = (PointLight) this.aDeque_57.next()) {
+        for (@Pc(16) PointLight local16 = this.aDeque_57.first(); local16 != null; local16 = this.aDeque_57.next()) {
             local10[local4++] = local16.getIntensity();
         }
         this.q(local10);

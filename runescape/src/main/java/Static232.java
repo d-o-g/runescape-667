@@ -70,7 +70,7 @@ public final class Static232 {
 
     @OriginalMember(owner = "client!hda", name = "a", descriptor = "(I)Z")
     public static boolean reflectionCheckRunning() {
-        @Pc(10) ReflectionCheck check = (ReflectionCheck) Static631.reflectionChecks.first();
+        @Pc(10) ReflectionCheck check = Static631.reflectionChecks.first();
         if (check == null) {
             return false;
         }

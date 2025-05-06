@@ -274,7 +274,7 @@ public final class MixBuss extends AudioBuss {
     @OriginalMember(owner = "client!bd", name = "c", descriptor = "(II)V")
     public void method917(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1) {
         if ((this.anIntArray56[arg1] & 0x4) != 0) {
-            for (@Pc(22) Node_Sub16 local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local22 != null; local22 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+            for (@Pc(22) Node_Sub16 local22 = this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local22 != null; local22 = this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
                 if (arg1 == local22.anInt2187) {
                     local22.anInt2183 = 0;
                 }
@@ -577,7 +577,7 @@ public final class MixBuss extends AudioBuss {
 
     @OriginalMember(owner = "client!bd", name = "a", descriptor = "(II)V")
     public void method930(@OriginalArg(1) int arg0) {
-        for (@Pc(14) Node_Sub16 local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local14 != null; local14 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+        for (@Pc(14) Node_Sub16 local14 = this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local14 != null; local14 = this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if (arg0 < 0 || local14.anInt2187 == arg0) {
                 if (local14.aClass2_Sub6_Sub2_1 != null) {
                     local14.aClass2_Sub6_Sub2_1.method3320(Audio.sampleRate / 100);
@@ -665,7 +665,7 @@ public final class MixBuss extends AudioBuss {
     public void method936(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
         this.method915(64, arg0, arg1);
         if ((this.anIntArray56[arg0] & 0x2) != 0) {
-            for (@Pc(25) Node_Sub16 local25 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.last(); local25 != null; local25 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.previous()) {
+            for (@Pc(25) Node_Sub16 local25 = this.aClass2_Sub6_Sub4_1.aDeque_72.last(); local25 != null; local25 = this.aClass2_Sub6_Sub4_1.aDeque_72.previous()) {
                 if (arg0 == local25.anInt2187 && local25.anInt2202 < 0) {
                     this.aClass2_Sub16ArrayArray1[arg0][local25.anInt2196] = null;
                     this.aClass2_Sub16ArrayArray1[arg0][arg1] = local25;
@@ -732,7 +732,7 @@ public final class MixBuss extends AudioBuss {
 
     @OriginalMember(owner = "client!bd", name = "e", descriptor = "(II)V")
     public void method938(@OriginalArg(1) int arg0) {
-        for (@Pc(6) Node_Sub16 local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local6 != null; local6 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+        for (@Pc(6) Node_Sub16 local6 = this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local6 != null; local6 = this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if ((arg0 < 0 || arg0 == local6.anInt2187) && local6.anInt2202 < 0) {
                 this.aClass2_Sub16ArrayArray1[local6.anInt2187][local6.anInt2196] = null;
                 local6.anInt2202 = 0;
@@ -756,7 +756,7 @@ public final class MixBuss extends AudioBuss {
         if ((this.anIntArray56[arg0] & 0x2) == 0) {
             return;
         }
-        for (@Pc(28) Node_Sub16 local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local28 != null; local28 = (Node_Sub16) this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
+        for (@Pc(28) Node_Sub16 local28 = this.aClass2_Sub6_Sub4_1.aDeque_72.first(); local28 != null; local28 = this.aClass2_Sub6_Sub4_1.aDeque_72.next()) {
             if (arg0 == local28.anInt2187 && this.aClass2_Sub16ArrayArray1[arg0][local28.anInt2196] == null && local28.anInt2202 < 0) {
                 local28.anInt2202 = 0;
             }

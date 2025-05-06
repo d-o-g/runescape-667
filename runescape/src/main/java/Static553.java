@@ -8,7 +8,7 @@ public final class Static553 {
     @OriginalMember(owner = "client!rga", name = "a", descriptor = "(IIIIIIIZ)V")
     public static void changeLocation(@OriginalArg(3) int x, @OriginalArg(6) int z, @OriginalArg(4) int level, @OriginalArg(5) int shape, @OriginalArg(0) int rotation, @OriginalArg(2) int layer, @OriginalArg(1) int id) {
         @Pc(7) ChangeLocationRequest local7 = null;
-        for (@Pc(12) ChangeLocationRequest local12 = (ChangeLocationRequest) Static159.changes.first(); local12 != null; local12 = (ChangeLocationRequest) Static159.changes.next()) {
+        for (@Pc(12) ChangeLocationRequest local12 = Static159.changes.first(); local12 != null; local12 = Static159.changes.next()) {
             if (level == local12.level && local12.x == x && z == local12.z && local12.layer == layer) {
                 local7 = local12;
                 break;

@@ -14,7 +14,7 @@ public final class Static443 {
 
         @Pc(13) int mouseX = MouseMonitor.instance.getRecordedX();
         @Pc(22) int mouseY = MouseMonitor.instance.getRecordedY();
-        @Pc(27) MouseLog log = (MouseLog) Static226.mouseLogs.first();
+        @Pc(27) MouseLog log = Static226.mouseLogs.first();
         if (log != null) {
             mouseX = log.getX();
             mouseY = log.getY();

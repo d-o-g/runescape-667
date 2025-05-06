@@ -12,7 +12,7 @@ public final class Static618 {
     public static int anInt9449;
 
     @OriginalMember(owner = "client!tja", name = "G", descriptor = "Lclient!sia;")
-    public static final Deque A_DEQUE___68 = new Deque();
+    public static final Deque<HookRequest> A_DEQUE___68 = new Deque<>();
 
     @OriginalMember(owner = "client!tja", name = "a", descriptor = "(III)Z")
     public static boolean method8316(@OriginalArg(0) int arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {

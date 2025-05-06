@@ -16,7 +16,7 @@ public final class ColourImageCache {
     public int count = 0;
 
     @OriginalMember(owner = "client!ug", name = "f", descriptor = "Lclient!sia;")
-    public Deque history = new Deque();
+    public Deque<ColourImageCacheSlot> history = new Deque<ColourImageCacheSlot>();
 
     @OriginalMember(owner = "client!ug", name = "k", descriptor = "Z")
     public boolean dirty = false;
@@ -78,7 +78,7 @@ public final class ColourImageCache {
                     slot = new ColourImageCacheSlot(index, this.count);
                     this.count++;
                 } else {
-                    @Pc(111) ColourImageCacheSlot last = (ColourImageCacheSlot) this.history.last();
+                    @Pc(111) ColourImageCacheSlot last = this.history.last();
                     slot = new ColourImageCacheSlot(index, last.slot);
                     this.slots[last.id] = null;
                     last.unlink();

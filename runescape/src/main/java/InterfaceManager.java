@@ -75,7 +75,7 @@ public final class InterfaceManager {
     public static final Rectangle[] flippedDirtyRects = new Rectangle[100];
 
     @OriginalMember(owner = "client!qga", name = "i", descriptor = "Lclient!sia;")
-    public static final Deque hookRequests = new Deque();
+    public static final Deque<HookRequest> hookRequests = new Deque<HookRequest>();
 
     @OriginalMember(owner = "client!lia", name = "b", descriptor = "[Z")
     public static final boolean[] dirtyRectangles = new boolean[100];
@@ -1255,7 +1255,7 @@ public final class InterfaceManager {
 
                 if (component.hasOpKey || x1 < x2 && y1 < y2) {
                     if (component.noClickThrough && mouseX2 >= x1 && mouseY2 >= y1 && mouseX2 < x2 && mouseY2 < y2) {
-                        for (@Pc(220) HookRequest hook = (HookRequest) hookRequests.first(); hook != null; hook = (HookRequest) hookRequests.next()) {
+                        for (@Pc(220) HookRequest hook = hookRequests.first(); hook != null; hook = hookRequests.next()) {
                             if (hook.mouseEvent) {
                                 hook.unlink();
                                 hook.source.hovered = false;
@@ -1320,7 +1320,7 @@ public final class InterfaceManager {
                     }
 
                     @Pc(474) boolean clicked = false;
-                    @Pc(479) MouseLog log = (MouseLog) Static226.mouseLogs.first();
+                    @Pc(479) MouseLog log = Static226.mouseLogs.first();
                     if (log != null && log.getType() == MouseLog.TYPE_PRESS_LEFT && log.getX() >= x1 && log.getY() >= y1 && log.getX() < x2 && log.getY() < y2) {
                         if (clickMask) {
                             @Pc(524) Graphic graphic = component.graphic(Toolkit.active);

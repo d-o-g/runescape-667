@@ -1731,13 +1731,13 @@ public final class ServerConnectionReader {
             }
 
             @Pc(6385) ChangeLocationRequest request;
-            for (request = (ChangeLocationRequest) Static159.changes.first(); request != null; request = (ChangeLocationRequest) Static159.changes.next()) {
+            for (request = Static159.changes.first(); request != null; request = Static159.changes.next()) {
                 if (request.x >= Static626.updateZoneX && request.x < Static626.updateZoneX + 8 && request.z >= Static270.updateZoneZ && request.z < Static270.updateZoneZ + 8 && request.level == Static87.updateZoneLevel) {
                     request.pendingRemoval = true;
                 }
             }
 
-            for (request = (ChangeLocationRequest) Static227.customisations.first(); request != null; request = (ChangeLocationRequest) Static227.customisations.next()) {
+            for (request = Static227.customisations.first(); request != null; request = Static227.customisations.next()) {
                 if (request.x >= Static626.updateZoneX && request.x < Static626.updateZoneX + 8 && request.z >= Static270.updateZoneZ && request.z < Static270.updateZoneZ + 8 && request.level == Static87.updateZoneLevel) {
                     request.pendingRemoval = true;
                 }
@@ -2475,7 +2475,7 @@ public final class ServerConnectionReader {
                 @Pc(69) ObjStack stack = Static497.objStacks.get((Static87.updateZoneLevel << 28) | (z << 14) | x);
 
                 if (stack != null) {
-                    for (@Pc(77) ObjStackEntry entry = (ObjStackEntry) stack.objs.first(); entry != null; entry = (ObjStackEntry) stack.objs.next()) {
+                    for (@Pc(77) ObjStackEntry entry = stack.entries.first(); entry != null; entry = stack.entries.next()) {
                         if ((objId & 0x7FFF) == entry.id && entry.count == oldCount) {
                             entry.unlink();
                             entry.count = newCount;
@@ -2746,14 +2746,14 @@ public final class ServerConnectionReader {
 
             @Pc(1389) ObjStack stack = Static497.objStacks.get((Static87.updateZoneLevel << 28) | (z << 14) | x);
             if (stack != null) {
-                for (@Pc(1399) ObjStackEntry entry = (ObjStackEntry) stack.objs.first(); entry != null; entry = (ObjStackEntry) stack.objs.next()) {
+                for (@Pc(1399) ObjStackEntry entry = stack.entries.first(); entry != null; entry = stack.entries.next()) {
                     if (entry.id == (objId & 0x7FFF)) {
                         entry.unlink();
                         break;
                     }
                 }
 
-                if (stack.objs.isEmpty()) {
+                if (stack.entries.isEmpty()) {
                     stack.unlink();
                 }
 

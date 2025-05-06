@@ -20,13 +20,13 @@ import org.openrs2.deob.annotation.Pc;
 public final class SoundManager {
 
     @OriginalMember(owner = "client!oj", name = "n", descriptor = "Lclient!sia;")
-    public static final Deque locSounds = new Deque();
+    public static final Deque<PositionedSound> locSounds = new Deque<PositionedSound>();
 
     @OriginalMember(owner = "client!dja", name = "h", descriptor = "Lclient!av;")
     public static final IterableHashTable<PositionedSound> playerSounds = new IterableHashTable<>(16);
 
     @OriginalMember(owner = "client!wn", name = "f", descriptor = "Lclient!sia;")
-    public static final Deque npcSounds = new Deque();
+    public static final Deque<PositionedSound> npcSounds = new Deque<>();
 
     @OriginalMember(owner = "client!mt", name = "L", descriptor = "[Lclient!eka;")
     public static Sound[] sounds = new Sound[50];
@@ -45,12 +45,12 @@ public final class SoundManager {
 
     @OriginalMember(owner = "client!dca", name = "a", descriptor = "(I)V")
     public static void method2000() {
-        for (@Pc(8) PositionedSound sound = (PositionedSound) locSounds.first(); sound != null; sound = (PositionedSound) locSounds.next()) {
+        for (@Pc(8) PositionedSound sound = locSounds.first(); sound != null; sound = locSounds.next()) {
             if (sound.multi) {
                 sound.update();
             }
         }
-        for (@Pc(31) PositionedSound sound = (PositionedSound) npcSounds.first(); sound != null; sound = (PositionedSound) npcSounds.next()) {
+        for (@Pc(31) PositionedSound sound = npcSounds.first(); sound != null; sound = npcSounds.next()) {
             if (sound.multi) {
                 sound.update();
             }
@@ -59,7 +59,7 @@ public final class SoundManager {
 
     @OriginalMember(owner = "client!pv", name = "a", descriptor = "(IIILclient!c;I)V")
     public static void method8312(@OriginalArg(0) int x, @OriginalArg(1) int y, @OriginalArg(2) int level, @OriginalArg(3) LocType locType) {
-        for (@Pc(18) PositionedSound sound = (PositionedSound) locSounds.first(); sound != null; sound = (PositionedSound) locSounds.next()) {
+        for (@Pc(18) PositionedSound sound = locSounds.first(); sound != null; sound = locSounds.next()) {
             if (sound.level == level && sound.x1 == x << 9 && sound.z1 == y << 9 && locType.id == sound.locType.id) {
                 if (sound.stream != null) {
                     activeStreams.remove(sound.stream);
@@ -77,7 +77,7 @@ public final class SoundManager {
 
     @OriginalMember(owner = "client!tea", name = "a", descriptor = "(ZI)V")
     public static void removeActiveStreams(@OriginalArg(0) boolean entities) {
-        for (@Pc(8) PositionedSound sound = (PositionedSound) locSounds.first(); sound != null; sound = (PositionedSound) locSounds.next()) {
+        for (@Pc(8) PositionedSound sound = locSounds.first(); sound != null; sound = locSounds.next()) {
             if (sound.stream != null) {
                 activeStreams.remove(sound.stream);
                 sound.stream = null;
@@ -90,7 +90,7 @@ public final class SoundManager {
         }
 
         if (entities) {
-            for (@Pc(57) PositionedSound sound = (PositionedSound) npcSounds.first(); sound != null; sound = (PositionedSound) npcSounds.next()) {
+            for (@Pc(57) PositionedSound sound = npcSounds.first(); sound != null; sound = npcSounds.next()) {
                 if (sound.stream != null) {
                     activeStreams.remove(sound.stream);
                     sound.stream = null;
@@ -376,7 +376,7 @@ public final class SoundManager {
 
     @OriginalMember(owner = "client!bu", name = "a", descriptor = "(ILclient!wj;)V")
     public static void removeSounds(@OriginalArg(1) NPCEntity npc) {
-        for (@Pc(17) PositionedSound sound = (PositionedSound) npcSounds.first(); sound != null; sound = (PositionedSound) npcSounds.next()) {
+        for (@Pc(17) PositionedSound sound = npcSounds.first(); sound != null; sound = npcSounds.next()) {
             if (sound.npc == npc) {
                 if (sound.stream != null) {
                     activeStreams.remove(sound.stream);

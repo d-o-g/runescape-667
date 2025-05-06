@@ -65,7 +65,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     public boolean aBoolean509 = false;
 
     @OriginalMember(owner = "client!oa", name = "E", descriptor = "Lclient!sia;")
-    public final Deque aDeque_38 = new Deque();
+    public final Deque<ya> aDeque_38 = new Deque<>();
 
     @OriginalMember(owner = "client!oa", name = "I", descriptor = "I")
     public int anInt6768 = 4096;
@@ -129,7 +129,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     public void tick(@OriginalArg(0) int time) {
         SoftwareMemoryManager.freeAll();
         this.d(time);
-        for (@Pc(10) ya local10 = (ya) this.aDeque_38.first(); local10 != null; local10 = (ya) this.aDeque_38.next()) {
+        for (@Pc(10) ya local10 = this.aDeque_38.first(); local10 != null; local10 = this.aDeque_38.next()) {
             local10.r();
         }
     }
@@ -811,7 +811,7 @@ public final class oa extends Toolkit implements SoftwareObject {
         this.aYa2 = null;
         this.aMatrix_8 = null;
         this.aIterableHashTable_33.clear();
-        for (@Pc(26) ya local26 = (ya) this.aDeque_38.first(); local26 != null; local26 = (ya) this.aDeque_38.next()) {
+        for (@Pc(26) ya local26 = this.aDeque_38.first(); local26 != null; local26 = this.aDeque_38.next()) {
             local26.ga();
         }
         this.aDeque_38.clear();

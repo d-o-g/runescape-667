@@ -11,10 +11,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Node_Sub6_Sub3 extends AudioBuss {
 
     @OriginalMember(owner = "client!nn", name = "p", descriptor = "Lclient!sia;")
-    public final Deque aDeque_35 = new Deque();
+    public final Deque<AudioBuss> aDeque_35 = new Deque<AudioBuss>();
 
     @OriginalMember(owner = "client!nn", name = "o", descriptor = "Lclient!sia;")
-    public final Deque aDeque_36 = new Deque();
+    public final Deque<? extends Node_Sub3> aDeque_36 = new Deque<>();
 
     @OriginalMember(owner = "client!nn", name = "q", descriptor = "I")
     public int anInt6603 = 0;
@@ -47,7 +47,7 @@ public final class Node_Sub6_Sub3 extends AudioBuss {
             arg2 -= local33;
             this.anInt6603 += local33;
             this.method5887();
-            @Pc(60) Node_Sub3 local60 = (Node_Sub3) this.aDeque_36.first();
+            @Pc(60) Node_Sub3 local60 = this.aDeque_36.first();
             synchronized (local60) {
                 @Pc(68) int local68 = local60.method114(this);
                 if (local68 < 0) {
@@ -78,14 +78,14 @@ public final class Node_Sub6_Sub3 extends AudioBuss {
 
     @OriginalMember(owner = "client!nn", name = "b", descriptor = "(I)V")
     public void method5884(@OriginalArg(0) int arg0) {
-        for (@Pc(5) AudioBuss local5 = (AudioBuss) this.aDeque_35.first(); local5 != null; local5 = (AudioBuss) this.aDeque_35.next()) {
+        for (@Pc(5) AudioBuss local5 = this.aDeque_35.first(); local5 != null; local5 = this.aDeque_35.next()) {
             local5.method9130(arg0);
         }
     }
 
     @OriginalMember(owner = "client!nn", name = "c", descriptor = "([III)V")
     public void method5885(@OriginalArg(0) int[] arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        for (@Pc(5) AudioBuss local5 = (AudioBuss) this.aDeque_35.first(); local5 != null; local5 = (AudioBuss) this.aDeque_35.next()) {
+        for (@Pc(5) AudioBuss local5 = this.aDeque_35.first(); local5 != null; local5 = this.aDeque_35.next()) {
             local5.method9134(arg0, arg1, arg2);
         }
     }
@@ -93,7 +93,7 @@ public final class Node_Sub6_Sub3 extends AudioBuss {
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "()Lclient!dea;")
     @Override
     public AudioBuss method9135() {
-        return (AudioBuss) this.aDeque_35.next();
+        return this.aDeque_35.next();
     }
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(Lclient!ie;Lclient!ada;)V")
@@ -108,7 +108,7 @@ public final class Node_Sub6_Sub3 extends AudioBuss {
     @OriginalMember(owner = "client!nn", name = "c", descriptor = "()Lclient!dea;")
     @Override
     public AudioBuss method9133() {
-        return (AudioBuss) this.aDeque_35.first();
+        return this.aDeque_35.first();
     }
 
     @OriginalMember(owner = "client!nn", name = "a", descriptor = "(I)V")
@@ -129,7 +129,7 @@ public final class Node_Sub6_Sub3 extends AudioBuss {
             arg0 -= local29;
             this.anInt6603 += local29;
             this.method5887();
-            @Pc(50) Node_Sub3 local50 = (Node_Sub3) this.aDeque_36.first();
+            @Pc(50) Node_Sub3 local50 = this.aDeque_36.first();
             synchronized (local50) {
                 @Pc(58) int local58 = local50.method114(this);
                 if (local58 < 0) {
@@ -148,7 +148,7 @@ public final class Node_Sub6_Sub3 extends AudioBuss {
         if (this.anInt6603 <= 0) {
             return;
         }
-        for (@Pc(8) Node_Sub3 local8 = (Node_Sub3) this.aDeque_36.first(); local8 != null; local8 = (Node_Sub3) this.aDeque_36.next()) {
+        for (@Pc(8) Node_Sub3 local8 = this.aDeque_36.first(); local8 != null; local8 = this.aDeque_36.next()) {
             local8.anInt101 -= this.anInt6603;
         }
         this.anInt6604 -= this.anInt6603;

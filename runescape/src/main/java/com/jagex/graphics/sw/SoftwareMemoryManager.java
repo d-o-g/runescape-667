@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class SoftwareMemoryManager {
 
     @OriginalMember(owner = "client!jo", name = "c", descriptor = "Lclient!sia;")
-    private static final Deque objects = new Deque();
+    private static final Deque<SoftwareObjectNode> objects = new Deque<SoftwareObjectNode>();
 
     @OriginalMember(owner = "client!jo", name = "a", descriptor = "I")
     private static int instances = 0;
@@ -54,7 +54,7 @@ public final class SoftwareMemoryManager {
     @OriginalMember(owner = "client!jo", name = "c", descriptor = "(I)V")
     public static synchronized void freeAll() {
         while (true) {
-            @Pc(4) SoftwareObjectNode node = (SoftwareObjectNode) objects.removeFirst();
+            @Pc(4) SoftwareObjectNode node = objects.removeFirst();
             if (node == null) {
                 return;
             }

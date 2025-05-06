@@ -7,5 +7,5 @@ import org.openrs2.deob.annotation.OriginalMember;
 public final class ObjStack extends Node {
 
     @OriginalMember(owner = "client!dq", name = "n", descriptor = "Lclient!sia;")
-    public final Deque objs = new Deque();
+    public final Deque<ObjStackEntry> entries = new Deque<>();
 }

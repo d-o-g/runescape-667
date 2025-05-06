@@ -198,12 +198,12 @@ public final class MainLogicManager {
             Static675.nextPing = SystemTimer.safetime() + 30000L;
         }
 
-        @Pc(166) MouseLog mouseLog = (MouseLog) Static226.mouseLogs.first();
+        @Pc(166) MouseLog mouseLog = Static226.mouseLogs.first();
         if (mouseLog != null || Static56.lastMouseMovement < SystemTimer.safetime() - 2000L) {
             @Pc(179) ClientMessage message = null;
             @Pc(181) int pos = 0;
 
-            for (@Pc(186) MouseLog local186 = (MouseLog) Static677.mouseMovements.first(); local186 != null && (message == null || message.bitPacket.pos - pos < 240); local186 = (MouseLog) Static677.mouseMovements.next()) {
+            for (@Pc(186) MouseLog local186 = Static677.mouseMovements.first(); local186 != null && (message == null || message.bitPacket.pos - pos < 240); local186 = Static677.mouseMovements.next()) {
                 local186.unlink();
 
                 @Pc(208) int y = local186.getY();
@@ -631,15 +631,15 @@ public final class MainLogicManager {
             @Pc(2026) Component local2026;
             @Pc(2011) Component local2011;
             do {
-                local2006 = (HookRequest) Static618.A_DEQUE___68.removeFirst();
+                local2006 = Static618.A_DEQUE___68.removeFirst();
                 if (local2006 == null) {
                     while (true) {
                         do {
-                            local2006 = (HookRequest) Static59.A_DEQUE___33.removeFirst();
+                            local2006 = Static59.A_DEQUE___33.removeFirst();
                             if (local2006 == null) {
                                 while (true) {
                                     do {
-                                        local2006 = (HookRequest) InterfaceManager.hookRequests.removeFirst();
+                                        local2006 = InterfaceManager.hookRequests.removeFirst();
                                         if (local2006 == null) {
                                             if (WorldMap.component == null) {
                                                 MiniMenu.anInt6964 = 0;

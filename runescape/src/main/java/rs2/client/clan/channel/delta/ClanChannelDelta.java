@@ -7,11 +7,6 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 import rs2.client.clan.channel.ClanChannel;
-import rs2.client.clan.channel.delta.AddUser;
-import rs2.client.clan.channel.delta.DeleteUser;
-import rs2.client.clan.channel.delta.DeltaEntry;
-import rs2.client.clan.channel.delta.UpdateBaseSettings;
-import rs2.client.clan.channel.delta.UpdateUserDetails;
 
 @OriginalClass("client!ck")
 public final class ClanChannelDelta {
@@ -23,7 +18,7 @@ public final class ClanChannelDelta {
     public long updateNum = -1L;
 
     @OriginalMember(owner = "client!ck", name = "h", descriptor = "Lclient!sia;")
-    public final Deque entries = new Deque();
+    public final Deque<DeltaEntry> entries = new Deque<DeltaEntry>();
 
     @OriginalMember(owner = "client!ck", name = "<init>", descriptor = "(Lclient!ge;)V")
     public ClanChannelDelta(@OriginalArg(0) Packet packet) {
@@ -59,7 +54,7 @@ public final class ClanChannelDelta {
         if (channel.key != this.clanHash || this.updateNum != channel.updateNum) {
             throw new RuntimeException("ClanChannelDelta.applyToClanChannel(): Credentials do not match! cc.clanHash:" + channel.key + " updateNum:" + channel.updateNum + " delta.clanHash:" + this.clanHash + " updateNum:" + this.updateNum);
         }
-        for (@Pc(69) DeltaEntry entry = (DeltaEntry) this.entries.first(); entry != null; entry = (DeltaEntry) this.entries.next()) {
+        for (@Pc(69) DeltaEntry entry = this.entries.first(); entry != null; entry = this.entries.next()) {
             entry.applyTo(channel);
         }
         channel.updateNum++;

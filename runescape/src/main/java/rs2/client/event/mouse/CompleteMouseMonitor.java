@@ -39,10 +39,10 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
     public Component component;
 
     @OriginalMember(owner = "client!ht", name = "n", descriptor = "Lclient!sia;")
-    public Deque recorded = new Deque();
+    public Deque<CompleteMouseLog> recorded = new Deque<>();
 
     @OriginalMember(owner = "client!ht", name = "q", descriptor = "Lclient!sia;")
-    public Deque logged = new Deque();
+    public Deque<CompleteMouseLog> logged = new Deque<>();
 
     @OriginalMember(owner = "client!ht", name = "o", descriptor = "Z")
     public final boolean logging;
@@ -108,7 +108,7 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
     @OriginalMember(owner = "client!ht", name = "a", descriptor = "(B)Lclient!bv;")
     @Override
     public MouseLog removeFirstLog() {
-        return (MouseLog) this.recorded.removeFirst();
+        return this.recorded.removeFirst();
     }
 
     @OriginalMember(owner = "client!ht", name = "a", descriptor = "(ILjava/awt/Component;)V")
@@ -208,7 +208,7 @@ public final class CompleteMouseMonitor extends MouseMonitor implements MouseLis
         this.recordedState = this.clickState;
         this.recordedX = this.mouseX;
         this.recordedY = this.mouseY;
-        @Pc(23) Deque temp = this.recorded;
+        @Pc(23) Deque<CompleteMouseLog> temp = this.recorded;
         this.recorded = this.logged;
         this.logged = temp;
         this.logged.clear();

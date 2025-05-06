@@ -59,7 +59,7 @@ public final class ServerConnection {
     public int written;
 
     @OriginalMember(owner = "client!gw", name = "h", descriptor = "Lclient!sia;")
-    public final Deque messages = new Deque();
+    public final Deque<ClientMessage> messages = new Deque<>();
 
     @OriginalMember(owner = "client!gw", name = "x", descriptor = "I")
     public int buffered = 0;
@@ -113,7 +113,7 @@ public final class ServerConnection {
         this.writePacket.pos = 0;
 
         while (true) {
-            @Pc(23) ClientMessage message = (ClientMessage) this.messages.first();
+            @Pc(23) ClientMessage message = this.messages.first();
             if (message == null || message.totalSize > this.writePacket.data.length - this.writePacket.pos) {
                 break;
             }

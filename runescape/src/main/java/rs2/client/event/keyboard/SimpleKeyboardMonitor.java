@@ -97,10 +97,10 @@ public final class SimpleKeyboardMonitor extends KeyboardMonitor implements KeyL
     public Component component;
 
     @OriginalMember(owner = "client!ui", name = "p", descriptor = "Lclient!sia;")
-    public final Deque recorded = new Deque();
+    public final Deque<SimpleKeyLog> recorded = new Deque<SimpleKeyLog>();
 
     @OriginalMember(owner = "client!ui", name = "q", descriptor = "Lclient!sia;")
-    public final Deque logged = new Deque();
+    public final Deque<SimpleKeyLog> logged = new Deque<SimpleKeyLog>();
 
     @OriginalMember(owner = "client!ui", name = "i", descriptor = "[Z")
     public final boolean[] pressed = new boolean[112];
@@ -145,7 +145,7 @@ public final class SimpleKeyboardMonitor extends KeyboardMonitor implements KeyL
     @OriginalMember(owner = "client!ui", name = "a", descriptor = "(I)Lclient!wka;")
     @Override
     public KeyLog removeFirstRecorded() {
-        return (KeyLog) this.recorded.removeFirst();
+        return this.recorded.removeFirst();
     }
 
     @OriginalMember(owner = "client!ui", name = "keyReleased", descriptor = "(Ljava/awt/event/KeyEvent;)V")
@@ -165,7 +165,7 @@ public final class SimpleKeyboardMonitor extends KeyboardMonitor implements KeyL
     public synchronized void record() {
         this.recorded.clear();
 
-        for (@Pc(22) SimpleKeyLog log = (SimpleKeyLog) this.logged.removeFirst(); log != null; log = (SimpleKeyLog) this.logged.removeFirst()) {
+        for (@Pc(22) SimpleKeyLog log = this.logged.removeFirst(); log != null; log = this.logged.removeFirst()) {
             log.modifierFlags = this.modifierFlags();
 
             if (log.type == KeyLog.TYPE_PRESSED) {

@@ -290,7 +290,7 @@ public final class GlToolkit extends Toolkit {
     public int anInt8034;
 
     @OriginalMember(owner = "client!qha", name = "Re", descriptor = "Ljava/util/Hashtable;")
-    public final Hashtable aHashtable5 = new Hashtable();
+    public final Hashtable<Canvas, Long> aHashtable5 = new Hashtable<>();
 
     @OriginalMember(owner = "client!qha", name = "Sc", descriptor = "I")
     public int anInt7981 = 128;
@@ -314,7 +314,7 @@ public final class GlToolkit extends Toolkit {
     public int anInt7989 = 3;
 
     @OriginalMember(owner = "client!qha", name = "sf", descriptor = "Lclient!sia;")
-    public final Deque aDeque_46 = new Deque();
+    public final Deque<GlMemoryPool> aDeque_46 = new Deque<>();
 
     @OriginalMember(owner = "client!qha", name = "Yc", descriptor = "[Lclient!jf;")
     public final Interface14[] anInterface14Array1 = new Interface14[4];
@@ -335,25 +335,25 @@ public final class GlToolkit extends Toolkit {
     public final Interface14[] anInterface14Array3 = new Interface14[4];
 
     @OriginalMember(owner = "client!qha", name = "rh", descriptor = "Lclient!sia;")
-    public final Deque aDeque_47;
+    public final Deque<? extends IntNode> aDeque_47;
 
     @OriginalMember(owner = "client!qha", name = "Zf", descriptor = "Lclient!sia;")
-    public final Deque aDeque_48;
+    public final Deque<IntNode> aDeque_48;
 
     @OriginalMember(owner = "client!qha", name = "gf", descriptor = "Lclient!sia;")
-    public final Deque aDeque_49;
+    public final Deque<IntNode> aDeque_49;
 
     @OriginalMember(owner = "client!qha", name = "Pg", descriptor = "Lclient!sia;")
-    public final Deque aDeque_50;
+    public final Deque<IntNode> aDeque_50;
 
     @OriginalMember(owner = "client!qha", name = "ed", descriptor = "Lclient!sia;")
-    public final Deque aDeque_51;
+    public final Deque<IntNode> aDeque_51;
 
     @OriginalMember(owner = "client!qha", name = "Zb", descriptor = "Lclient!sia;")
-    public final Deque aDeque_52;
+    public final Deque<Node> aDeque_52;
 
     @OriginalMember(owner = "client!qha", name = "Hg", descriptor = "Lclient!sia;")
-    public final Deque aDeque_53;
+    public final Deque<Node> aDeque_53;
 
     @OriginalMember(owner = "client!qha", name = "hh", descriptor = "Lclient!qr;")
     public final AffineMatrix aClass73_Sub3_3;
@@ -572,14 +572,14 @@ public final class GlToolkit extends Toolkit {
     public GlToolkit(@OriginalArg(0) Canvas arg0, @OriginalArg(1) TextureSource arg1, @OriginalArg(2) int arg2) {
         super(arg1);
         new Queue();
-        new IterableHashTable(16);
-        this.aDeque_47 = new Deque();
-        this.aDeque_48 = new Deque();
-        this.aDeque_49 = new Deque();
-        this.aDeque_50 = new Deque();
-        this.aDeque_51 = new Deque();
-        this.aDeque_52 = new Deque();
-        this.aDeque_53 = new Deque();
+        new IterableHashTable<>(16);
+        this.aDeque_47 = new Deque<IntNode>();
+        this.aDeque_48 = new Deque<>();
+        this.aDeque_49 = new Deque<>();
+        this.aDeque_50 = new Deque<>();
+        this.aDeque_51 = new Deque<IntNode>();
+        this.aDeque_52 = new Deque<>();
+        this.aDeque_53 = new Deque<>();
         this.aClass73_Sub3_3 = new AffineMatrix();
         this.aClass73_Sub3_4 = new AffineMatrix();
         this.aClass73_Sub3_5 = new AffineMatrix();
@@ -1179,10 +1179,10 @@ public final class GlToolkit extends Toolkit {
         }
         if (this.anOpenGL1 != null) {
             this.method7045();
-            @Pc(41) Enumeration local41 = this.aHashtable5.keys();
+            @Pc(41) Enumeration<Canvas> local41 = this.aHashtable5.keys();
             while (local41.hasMoreElements()) {
-                @Pc(46) Canvas local46 = (Canvas) local41.nextElement();
-                @Pc(52) Long local52 = (Long) this.aHashtable5.get(local46);
+                @Pc(46) Canvas local46 = local41.nextElement();
+                @Pc(52) Long local52 = this.aHashtable5.get(local46);
                 this.anOpenGL1.releaseSurface(local46, local52);
             }
             this.anOpenGL1.release();
@@ -1830,7 +1830,7 @@ public final class GlToolkit extends Toolkit {
             this.aLong246 = this.aLong247;
             this.aCanvas11 = this.aCanvas10;
         } else if (this.aHashtable5.containsKey(arg0)) {
-            @Pc(42) Long local42 = (Long) this.aHashtable5.get(arg0);
+            @Pc(42) Long local42 = this.aHashtable5.get(arg0);
             this.aLong246 = local42;
             this.aCanvas11 = arg0;
         }
@@ -2178,7 +2178,7 @@ public final class GlToolkit extends Toolkit {
         if (arg0 == null || this.aCanvas10 == arg0) {
             local5 = this.aLong247;
         } else if (this.aHashtable5.containsKey(arg0)) {
-            @Pc(28) Long local28 = (Long) this.aHashtable5.get(arg0);
+            @Pc(28) Long local28 = this.aHashtable5.get(arg0);
             local5 = local28;
         }
         if (local5 == 0L) {
@@ -2684,7 +2684,7 @@ public final class GlToolkit extends Toolkit {
         @Pc(11) int local11 = 0;
         @Pc(19) IntNode local19;
         while (!this.aDeque_48.isEmpty()) {
-            local19 = (IntNode) this.aDeque_48.removeFirst();
+            local19 = this.aDeque_48.removeFirst();
             Static154.anIntArray236[local11++] = (int) local19.key;
             this.anInt7993 -= local19.value;
             if (local11 == 1000) {
@@ -2697,7 +2697,7 @@ public final class GlToolkit extends Toolkit {
             local11 = 0;
         }
         while (!this.aDeque_49.isEmpty()) {
-            local19 = (IntNode) this.aDeque_49.removeFirst();
+            local19 = this.aDeque_49.removeFirst();
             Static154.anIntArray236[local11++] = (int) local19.key;
             this.anInt7994 -= local19.value;
             if (local11 == 1000) {
@@ -2710,7 +2710,7 @@ public final class GlToolkit extends Toolkit {
             local11 = 0;
         }
         while (!this.aDeque_50.isEmpty()) {
-            local19 = (IntNode) this.aDeque_50.removeFirst();
+            local19 = this.aDeque_50.removeFirst();
             Static154.anIntArray236[local11++] = local19.value;
             if (local11 == 1000) {
                 OpenGL.glDeleteFramebuffersEXT(local11, Static154.anIntArray236, 0);
@@ -2722,7 +2722,7 @@ public final class GlToolkit extends Toolkit {
             local11 = 0;
         }
         while (!this.aDeque_51.isEmpty()) {
-            local19 = (IntNode) this.aDeque_51.removeFirst();
+            local19 = this.aDeque_51.removeFirst();
             Static154.anIntArray236[local11++] = (int) local19.key;
             this.anInt7995 -= local19.value;
             if (local11 == 1000) {
@@ -2734,7 +2734,7 @@ public final class GlToolkit extends Toolkit {
             OpenGL.glDeleteRenderbuffersEXT(local11, Static154.anIntArray236, 0);
         }
         while (!this.aDeque_47.isEmpty()) {
-            local19 = (IntNode) this.aDeque_47.removeFirst();
+            local19 = this.aDeque_47.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
         @Pc(227) Node local227;
@@ -2747,7 +2747,7 @@ public final class GlToolkit extends Toolkit {
             OpenGL.glDeleteObjectARB(local227.key);
         }
         while (!this.aDeque_47.isEmpty()) {
-            local19 = (IntNode) this.aDeque_47.removeFirst();
+            local19 = this.aDeque_47.removeFirst();
             OpenGL.glDeleteLists((int) local19.key, local19.value);
         }
         this.aClass169_1.method3528();
@@ -3247,7 +3247,7 @@ public final class GlToolkit extends Toolkit {
         if (canvas == this.aCanvas10) {
             throw new RuntimeException();
         } else if (this.aHashtable5.containsKey(canvas)) {
-            @Pc(23) Long local23 = (Long) this.aHashtable5.get(canvas);
+            @Pc(23) Long local23 = this.aHashtable5.get(canvas);
             this.anOpenGL1.releaseSurface(canvas, local23);
             this.aHashtable5.remove(canvas);
         }

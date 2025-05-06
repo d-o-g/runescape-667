@@ -6,6 +6,7 @@ import com.jagex.graphics.ToolkitType;
 import com.jagex.js5.js5;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalMember;
+import rs2.client.event.mouse.MouseLog;
 
 import java.awt.Canvas;
 
@@ -18,7 +19,7 @@ public final class Static226 {
     public static Class46[] aClass46Array7;
 
     @OriginalMember(owner = "client!ha", name = "q", descriptor = "Lclient!sia;")
-    public static final Deque mouseLogs = new Deque();
+    public static final Deque<MouseLog> mouseLogs = new Deque<>();
 
     @OriginalMember(owner = "client!ha", name = "a", descriptor = "(ILjava/awt/Canvas;IILclient!d;ILclient!sb;I)Lclient!ha;")
     public static synchronized Toolkit create(@OriginalArg(5) int type, @OriginalArg(6) js5 shaders, @OriginalArg(1) Canvas canvas, @OriginalArg(4) TextureSource textureSource, @OriginalArg(7) int width, @OriginalArg(2) int height, @OriginalArg(3) int antialiasing) {

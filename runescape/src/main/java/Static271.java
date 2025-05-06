@@ -15,11 +15,11 @@ public final class Static271 {
 
     @OriginalMember(owner = "client!ij", name = "c", descriptor = "(B)V")
     public static void processLocChanges() {
-        for (@Pc(10) ChangeLocationRequest request = (ChangeLocationRequest) Static159.changes.first(); request != null; request = (ChangeLocationRequest) Static159.changes.next()) {
+        for (@Pc(10) ChangeLocationRequest request = Static159.changes.first(); request != null; request = Static159.changes.next()) {
             Static544.method7214(request, false);
         }
 
-        for (@Pc(10) ChangeLocationRequest request = (ChangeLocationRequest) Static227.customisations.first(); request != null; request = (ChangeLocationRequest) Static227.customisations.next()) {
+        for (@Pc(10) ChangeLocationRequest request = Static227.customisations.first(); request != null; request = Static227.customisations.next()) {
             Static544.method7214(request, true);
         }
     }

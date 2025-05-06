@@ -37,7 +37,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "D", descriptor = "Lclient!sia;")
-    public static final Deque elements = new Deque();
+    public static final Deque<MapElementListEntry> elements = new Deque<MapElementListEntry>();
 
     @OriginalMember(owner = "client!baa", name = "e", descriptor = "Lclient!av;")
     public static final IterableHashTable<WorldMapArea> areas = new IterableHashTable<WorldMapArea>(16);
@@ -136,7 +136,7 @@ public final class WorldMap {
     public static byte[][][] tileShapes;
 
     @OriginalMember(owner = "client!rfa", name = "y", descriptor = "Lclient!sia;")
-    public static Deque boundedEntries;
+    public static Deque<BoundedMapElementListEntry> boundedEntries;
 
     @OriginalMember(owner = "client!baa", name = "g", descriptor = "I")
     public static int mapDl = (int) (Math.random() * 17.0D) - 8;
@@ -345,7 +345,7 @@ public final class WorldMap {
             method5062(x1 + areaX, y1 + areaZ, x2 + areaX, y2 + areaZ, childX, childY, childWidth + childX, childHeight + childY + 1);
             method5060(toolkit);
 
-            @Pc(203) Deque local203 = method5081(toolkit);
+            @Pc(203) Deque<MapElementListEntry> local203 = method5081(toolkit);
             renderElements(local203, toolkit);
 
             if (anInt5084 > 0) {
@@ -428,7 +428,7 @@ public final class WorldMap {
             alpha = anInt3467 * 5;
         }
 
-        for (@Pc(213) MapElementListEntry entry = (MapElementListEntry) elements.first(); entry != null; entry = (MapElementListEntry) elements.next()) {
+        for (@Pc(213) MapElementListEntry entry = elements.first(); entry != null; entry = elements.next()) {
             @Pc(221) MapElementType elementType = mapElementTypeList.list(entry.id);
 
             if (isEnabled(elementType)) {
@@ -562,7 +562,7 @@ public final class WorldMap {
             checkJump();
             method5069();
 
-            boundedEntries = new Deque();
+            boundedEntries = new Deque<>();
 
             mapDh += (int) (Math.random() * 5.0D) - 2;
             if (mapDh < -8) {
@@ -1505,7 +1505,7 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(Lclient!ha;)Lclient!sia;")
-    public static Deque method5081(@OriginalArg(0) Toolkit arg0) {
+    public static Deque<MapElementListEntry> method5081(@OriginalArg(0) Toolkit arg0) {
         @Pc(3) int local3 = anInt5647 - anInt5652;
         @Pc(7) int local7 = anInt5645 - anInt5654;
         @Pc(15) int local15 = (anInt5651 - anInt5649 << 16) / local3;
@@ -1514,8 +1514,8 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(Lclient!ha;IIII)Lclient!sia;")
-    public static Deque method5082(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        for (@Pc(4) MapElementListEntry entry = (MapElementListEntry) elements.first(); entry != null; entry = (MapElementListEntry) elements.next()) {
+    public static Deque<MapElementListEntry> method5082(@OriginalArg(0) Toolkit arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
+        for (@Pc(4) MapElementListEntry entry = elements.first(); entry != null; entry = elements.next()) {
             method5073(arg0, entry, arg1, arg2);
         }
         return elements;
@@ -1718,7 +1718,7 @@ public final class WorldMap {
         @Pc(19) int x1 = x - areaX;
         @Pc(23) int z1 = z - areaZ;
 
-        for (@Pc(34) MapElementListEntry entry = (MapElementListEntry) elements.first(); entry != null; entry = (MapElementListEntry) elements.next()) {
+        for (@Pc(34) MapElementListEntry entry = elements.first(); entry != null; entry = elements.next()) {
             if (entry.id == id) {
                 @Pc(46) int x2 = entry.x;
                 @Pc(49) int z2 = entry.z;
@@ -2057,7 +2057,7 @@ public final class WorldMap {
         }
 
         if (hovered && boundedEntries != null) {
-            for (@Pc(197) BoundedMapElementListEntry entry = (BoundedMapElementListEntry) boundedEntries.first(); entry != null; entry = (BoundedMapElementListEntry) boundedEntries.next()) {
+            for (@Pc(197) BoundedMapElementListEntry entry = boundedEntries.first(); entry != null; entry = boundedEntries.next()) {
                 @Pc(206) MapElementType elementType = mapElementTypeList.list(entry.entry.id);
 
                 if (entry.contains(x, y)) {
@@ -2168,14 +2168,14 @@ public final class WorldMap {
     }
 
     @OriginalMember(owner = "client!lka", name = "a", descriptor = "(ILclient!sia;ILclient!ha;I)V")
-    public static void renderElements(@OriginalArg(1) Deque arg0, @OriginalArg(3) Toolkit toolkit) {
+    public static void renderElements(@OriginalArg(1) Deque<MapElementListEntry> arg0, @OriginalArg(3) Toolkit toolkit) {
         boundedEntries.clear();
 
         if (disableElements) {
             return;
         }
 
-        for (@Pc(27) MapElementListEntry entry = (MapElementListEntry) arg0.first(); entry != null; entry = (MapElementListEntry) arg0.next()) {
+        for (@Pc(27) MapElementListEntry entry = arg0.first(); entry != null; entry = arg0.next()) {
             @Pc(35) MapElementType type = mapElementTypeList.list(entry.id);
 
             if (isEnabled(type)) {

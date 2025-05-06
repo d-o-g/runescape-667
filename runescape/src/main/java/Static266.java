@@ -34,7 +34,7 @@ public final class Static266 {
         @Pc(110) int local110;
         @Pc(113) int local113;
         @Pc(116) int local116;
-        for (@Pc(71) Node_Sub35 local71 = (Node_Sub35) Static391.A_DEQUE___34.first(); local71 != null; local71 = (Node_Sub35) Static391.A_DEQUE___34.next()) {
+        for (@Pc(71) Node_Sub35 local71 = Static391.A_DEQUE___34.first(); local71 != null; local71 = Static391.A_DEQUE___34.next()) {
             local22 = local71.anInt5689;
             @Pc(88) boolean local88 = (local22 & 0x1) == 1;
             local93 = local71.anInt5691 >> 3;
@@ -90,7 +90,7 @@ public final class Static266 {
         Static376.npcGroups = null;
         Static421.aByteArrayArray19 = new byte[local22][];
         local22 = 0;
-        for (@Pc(312) Node_Sub35 local312 = (Node_Sub35) Static391.A_DEQUE___34.first(); local312 != null; local312 = (Node_Sub35) Static391.A_DEQUE___34.next()) {
+        for (@Pc(312) Node_Sub35 local312 = Static391.A_DEQUE___34.first(); local312 != null; local312 = Static391.A_DEQUE___34.next()) {
             local93 = local312.anInt5691 >>> -2127211805;
             local98 = local312.anInt5692 >>> 3;
             local101 = local312.anInt5686 + local93;

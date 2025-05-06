@@ -200,7 +200,7 @@ public abstract class NativeToolkit extends Toolkit {
     public int anInt9186;
 
     @OriginalMember(owner = "client!am", name = "vb", descriptor = "Lclient!sia;")
-    public final Deque aDeque_59 = new Deque();
+    public final Deque<NativeMemoryPool> aDeque_59 = new Deque<>();
 
     @OriginalMember(owner = "client!am", name = "jg", descriptor = "Z")
     protected boolean aBoolean676 = true;

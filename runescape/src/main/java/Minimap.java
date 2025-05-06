@@ -48,7 +48,7 @@ public final class Minimap {
     public static final int[] locX = new int[1000];
 
     @OriginalMember(owner = "client!tg", name = "n", descriptor = "Lclient!sia;")
-    public static final Deque elementCoords = new Deque();
+    public static final Deque<IntNode> elementCoords = new Deque<>();
 
     @OriginalMember(owner = "client!qp", name = "f", descriptor = "[I")
     public static final int[] locId = new int[1000];
@@ -121,7 +121,7 @@ public final class Minimap {
         @Pc(137) int z = ((Static501.mapLength * 4) + 48) - (selfZ / 128) - ((Static501.mapLength - 104) * 2);
         sprite.renderRotated((float) screenX + ((float) component.width / 2.0F), ((float) component.height / 2.0F) + (float) screenY, (float) x, (float) z, scale, yaw << 2, clippingMask, screenX, screenY);
 
-        for (@Pc(171) IntNode node = (IntNode) elementCoords.first(); node != null; node = (IntNode) elementCoords.next()) {
+        for (@Pc(171) IntNode node = elementCoords.first(); node != null; node = elementCoords.next()) {
             @Pc(178) int coord = node.value;
 
             @Pc(190) int local190 = (elements.coords[coord] >> 14 & 0x3FFF) - WorldMap.areaBaseX;

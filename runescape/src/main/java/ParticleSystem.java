@@ -57,7 +57,7 @@ public final class ParticleSystem extends Node {
     public int emitterCount = 0;
 
     @OriginalMember(owner = "client!hv", name = "k", descriptor = "Lclient!sia;")
-    public Deque effectorCache = new Deque();
+    public Deque<ParticleEffector> effectorCache = new Deque<>();
 
     @OriginalMember(owner = "client!hv", name = "j", descriptor = "Z")
     public boolean awaitingStartup = false;
@@ -113,7 +113,7 @@ public final class ParticleSystem extends Node {
         }
 
         label71:
-        for (@Pc(16) ParticleEffector effector = (ParticleEffector) this.effectorCache.first(); effector != null; effector = (ParticleEffector) this.effectorCache.next()) {
+        for (@Pc(16) ParticleEffector effector = this.effectorCache.first(); effector != null; effector = this.effectorCache.next()) {
             if (effectors != null) {
                 for (@Pc(21) int i = 0; i < effectors.length; i++) {
                     if (effector.model == effectors[i] || effector.model == effectors[i].next) {
@@ -216,7 +216,7 @@ public final class ParticleSystem extends Node {
     public void remove() {
         this.removed = true;
 
-        for (@Pc(8) ParticleEffector effector = (ParticleEffector) this.effectorCache.first(); effector != null; effector = (ParticleEffector) this.effectorCache.next()) {
+        for (@Pc(8) ParticleEffector effector = this.effectorCache.first(); effector != null; effector = this.effectorCache.next()) {
             if (effector.type.visibility == 1) {
                 effector.unlink2();
             }
@@ -232,7 +232,7 @@ public final class ParticleSystem extends Node {
         this.anInt4147 = 0;
         this.emitterCache = new LinkedList();
         this.emitterCount = 0;
-        this.effectorCache = new Deque();
+        this.effectorCache = new Deque<>();
         this.effectorCount = 0;
         this.unlink();
         ParticleManager.systems[ParticleManager.systemFreePtr] = this;

@@ -21,7 +21,7 @@ public final class Static437 {
 
     @OriginalMember(owner = "client!np", name = "a", descriptor = "(ILclient!rka;)V")
     public static void sendReflectionCheckReply(@OriginalArg(1) BitPacket bitPacket) {
-        @Pc(10) ReflectionCheck check = (ReflectionCheck) Static631.reflectionChecks.first();
+        @Pc(10) ReflectionCheck check = Static631.reflectionChecks.first();
         if (check == null) {
             return;
         }

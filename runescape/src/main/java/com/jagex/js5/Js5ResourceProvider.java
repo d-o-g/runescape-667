@@ -41,7 +41,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public int currentGroup = 0;
 
     @OriginalMember(owner = "client!pm", name = "F", descriptor = "Lclient!sia;")
-    public final Deque groupRequests = new Deque();
+    public final Deque<Node> groupRequests = new Deque<>();
 
     @OriginalMember(owner = "client!pm", name = "m", descriptor = "J")
     public long nextOphanCheck = 0L;
@@ -56,7 +56,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public boolean verifyLocal;
 
     @OriginalMember(owner = "client!pm", name = "v", descriptor = "Lclient!sia;")
-    public Deque passives;
+    public Deque<Node> passives;
 
     @OriginalMember(owner = "client!pm", name = "x", descriptor = "Z")
     public final boolean clearIdle;
@@ -90,7 +90,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             this.verifyLocal = false;
         } else {
             this.verifyLocal = true;
-            this.passives = new Deque();
+            this.passives = new Deque<>();
         }
         this.clearIdle = clearIdle;
         this.netWorker = netWorker;
@@ -556,7 +556,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
             this.requestMissing = true;
 
             if (this.passives == null) {
-                this.passives = new Deque();
+                this.passives = new Deque<>();
             }
         }
     }

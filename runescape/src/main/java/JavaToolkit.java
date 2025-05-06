@@ -8,23 +8,7 @@ import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.ref.ReferenceCache;
 import com.jagex.core.util.Arrays;
 import com.jagex.core.util.SystemTimer;
-import com.jagex.graphics.ClippingMask;
-import com.jagex.graphics.FlipException;
-import com.jagex.graphics.Font;
-import com.jagex.graphics.FontMetrics;
-import com.jagex.graphics.Ground;
-import com.jagex.graphics.Matrix;
-import com.jagex.graphics.Mesh;
-import com.jagex.graphics.Model;
-import com.jagex.graphics.MemoryPool;
-import com.jagex.graphics.OffscreenSurface;
-import com.jagex.graphics.PointLight;
-import com.jagex.graphics.Renderer;
-import com.jagex.graphics.Sprite;
-import com.jagex.graphics.Surface;
-import com.jagex.graphics.TextureMetrics;
-import com.jagex.graphics.TextureSource;
-import com.jagex.graphics.Toolkit;
+import com.jagex.graphics.*;
 import com.jagex.math.ColourUtils;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
@@ -40,7 +24,7 @@ import java.awt.Rectangle;
 public final class JavaToolkit extends Toolkit {
 
     @OriginalMember(owner = "client!ed", name = "g", descriptor = "Lclient!sia;")
-    public static final Deque objSprites = new Deque();
+    public static final Deque<JavaObjSprite> objSprites = new Deque<>();
 
     @OriginalMember(owner = "client!uf", name = "a", descriptor = "(IILclient!d;ILjava/awt/Canvas;)Lclient!ha;")
     public static Toolkit create(@OriginalArg(4) Canvas canvas, @OriginalArg(2) TextureSource textureSource, @OriginalArg(0) int width, @OriginalArg(3) int height) {

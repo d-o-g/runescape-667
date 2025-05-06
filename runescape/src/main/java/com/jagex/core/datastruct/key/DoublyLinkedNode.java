@@ -5,10 +5,10 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!cm")
-public class Node2 extends Node {
+public class DoublyLinkedNode extends Node {
 
     @OriginalMember(owner = "client!eja", name = "a", descriptor = "(ZLclient!cm;Lclient!cm;)V")
-    public static void addBefore(@OriginalArg(2) Node2 before, @OriginalArg(1) Node2 node) {
+    public static void addBefore(@OriginalArg(2) DoublyLinkedNode before, @OriginalArg(1) DoublyLinkedNode node) {
         if (node.prev2 != null) {
             node.unlink2();
         }
@@ -19,7 +19,7 @@ public class Node2 extends Node {
     }
 
     @OriginalMember(owner = "client!mt", name = "a", descriptor = "(ILclient!cm;Lclient!cm;)V")
-    public static void addAfter(@OriginalArg(1) Node2 after, @OriginalArg(2) Node2 node) {
+    public static void addAfter(@OriginalArg(1) DoublyLinkedNode after, @OriginalArg(2) DoublyLinkedNode node) {
         if (node.prev2 != null) {
             node.unlink2();
         }
@@ -30,10 +30,10 @@ public class Node2 extends Node {
     }
 
     @OriginalMember(owner = "client!cm", name = "l", descriptor = "Lclient!cm;")
-    public Node2 next2;
+    public DoublyLinkedNode next2;
 
     @OriginalMember(owner = "client!cm", name = "s", descriptor = "Lclient!cm;")
-    public Node2 prev2;
+    public DoublyLinkedNode prev2;
 
     @OriginalMember(owner = "client!cm", name = "m", descriptor = "J")
     public long key2;

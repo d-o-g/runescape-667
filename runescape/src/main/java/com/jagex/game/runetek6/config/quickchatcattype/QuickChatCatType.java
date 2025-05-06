@@ -1,6 +1,6 @@
 package com.jagex.game.runetek6.config.quickchatcattype;
 
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.Cp1252;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!bq")
-public final class QuickChatCatType extends Node2 {
+public final class QuickChatCatType extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!bq", name = "x", descriptor = "Ljava/lang/String;")
     public String desc;

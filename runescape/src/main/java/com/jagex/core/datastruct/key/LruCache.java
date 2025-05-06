@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class LruCache {
 
     @OriginalMember(owner = "client!ts", name = "j", descriptor = "Lclient!cm;")
-    public Node2 pointer = new Node2();
+    public DoublyLinkedNode pointer = new DoublyLinkedNode();
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "Lclient!jga;")
     public final Queue history = new Queue();
@@ -21,7 +21,7 @@ public final class LruCache {
     public final int capacity;
 
     @OriginalMember(owner = "client!ts", name = "c", descriptor = "Lclient!av;")
-    public final IterableHashTable<Node2> table;
+    public final IterableHashTable<DoublyLinkedNode> table;
 
     @OriginalMember(owner = "client!ts", name = "<init>", descriptor = "(I)V")
     public LruCache(@OriginalArg(0) int capacity) {
@@ -35,9 +35,9 @@ public final class LruCache {
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(BLclient!cm;J)V")
-    public void put(@OriginalArg(1) Node2 node, @OriginalArg(2) long key) {
+    public void put(@OriginalArg(1) DoublyLinkedNode node, @OriginalArg(2) long key) {
         if (this.remaining == 0) {
-            @Pc(19) Node2 first = this.history.removeFirst();
+            @Pc(19) DoublyLinkedNode first = this.history.removeFirst();
             first.unlink();
             first.unlink2();
 
@@ -55,8 +55,8 @@ public final class LruCache {
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(JZ)Lclient!cm;")
-    public Node2 get(@OriginalArg(0) long key) {
-        @Pc(16) Node2 node = this.table.get(key);
+    public DoublyLinkedNode get(@OriginalArg(0) long key) {
+        @Pc(16) DoublyLinkedNode node = this.table.get(key);
         if (node != null) {
             this.history.add(node);
         }
@@ -65,7 +65,7 @@ public final class LruCache {
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(IJ)V")
     public void remove(@OriginalArg(1) long key) {
-        @Pc(18) Node2 node = this.table.get(key);
+        @Pc(18) DoublyLinkedNode node = this.table.get(key);
         if (node != null) {
             node.unlink();
             node.unlink2();
@@ -77,7 +77,7 @@ public final class LruCache {
     public void clear() {
         this.history.clear();
         this.table.clear();
-        this.pointer = new Node2();
+        this.pointer = new DoublyLinkedNode();
         this.remaining = this.capacity;
     }
 }

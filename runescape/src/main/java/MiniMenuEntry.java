@@ -1,12 +1,12 @@
 import com.jagex.core.datastruct.key.Queue;
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!cba")
-public final class MiniMenuEntry extends Node2 {
+public final class MiniMenuEntry extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!cba", name = "C", descriptor = "I")
     public int size;
@@ -53,7 +53,7 @@ public final class MiniMenuEntry extends Node2 {
         @Pc(21) MiniMenuEntryInner existing = (MiniMenuEntryInner) this.innerEntries.first();
         while (existing != null) {
             if (MiniMenu.isActionBefore(inner.action, existing.action)) {
-                Node2.addBefore(existing, inner);
+                DoublyLinkedNode.addBefore(existing, inner);
                 this.size++;
 
                 if (changedTypes) {

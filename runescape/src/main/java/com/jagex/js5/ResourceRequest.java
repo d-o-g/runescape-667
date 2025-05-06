@@ -1,11 +1,11 @@
 package com.jagex.js5;
 
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!tw")
-public abstract class ResourceRequest extends Node2 {
+public abstract class ResourceRequest extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!tw", name = "y", descriptor = "Z")
     public boolean orphan;

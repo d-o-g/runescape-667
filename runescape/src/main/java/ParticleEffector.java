@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.game.runetek6.config.effectortype.ParticleEffectorType;
 import com.jagex.graphics.particles.ModelParticleEffector;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!co")
-public final class ParticleEffector extends Node2 {
+public final class ParticleEffector extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!pf", name = "x", descriptor = "[I")
     private static final int[] PROJECTION = new int[3];

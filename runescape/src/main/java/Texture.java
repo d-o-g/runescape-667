@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.EnvironmentLight;
 import com.jagex.graphics.TextureSource;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!vm")
-public final class Texture extends Node2 {
+public final class Texture extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!vm", name = "E", descriptor = "[I")
     public final int[] anIntArray824;

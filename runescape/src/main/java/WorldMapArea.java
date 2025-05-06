@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.io.Packet;
 import com.jagex.js5.js5;
@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ip")
-public final class WorldMapArea extends Node2 {
+public final class WorldMapArea extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(Lclient!sb;III)Lclient!ip;")
     public static WorldMapArea decode(@OriginalArg(0) js5 data, @OriginalArg(1) int group, @OriginalArg(2) int file) {

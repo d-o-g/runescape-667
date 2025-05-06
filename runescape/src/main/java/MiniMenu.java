@@ -8,7 +8,7 @@ import com.jagex.core.datastruct.LinkedList;
 import com.jagex.core.datastruct.key.Deque;
 import com.jagex.core.datastruct.key.DequeIterator;
 import com.jagex.core.datastruct.key.IterableHashTable;
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.datastruct.key.QueueIterator;
 import com.jagex.core.datastruct.ref.ReferenceCache;
@@ -666,7 +666,7 @@ public final class MiniMenu {
         for (@Pc(21) MiniMenuEntry other = (MiniMenuEntry) entryQueue.first(); other != null; other = (MiniMenuEntry) entryQueue.next()) {
             if (isActionBefore(entry.getAction(), other.getAction())) {
                 inserted = true;
-                Node2.addAfter(other, entry);
+                DoublyLinkedNode.addAfter(other, entry);
                 break;
             }
         }

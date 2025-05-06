@@ -1,11 +1,11 @@
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import jaggl.OpenGL;
 import org.openrs2.deob.annotation.OriginalArg;
 import org.openrs2.deob.annotation.OriginalClass;
 import org.openrs2.deob.annotation.OriginalMember;
 
 @OriginalClass("client!ut")
-public final class DoublyLinkedNode_Sub2_Sub19 extends Node2 implements Interface3 {
+public final class DoublyLinkedNode_Sub2_Sub19 extends DoublyLinkedNode implements Interface3 {
 
     @OriginalMember(owner = "client!ut", name = "K", descriptor = "I")
     public int anInt9822 = -1;

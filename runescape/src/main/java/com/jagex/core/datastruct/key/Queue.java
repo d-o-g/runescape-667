@@ -9,10 +9,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Queue {
 
     @OriginalMember(owner = "client!jga", name = "f", descriptor = "Lclient!cm;")
-    public Node2 pointer;
+    public DoublyLinkedNode pointer;
 
     @OriginalMember(owner = "client!jga", name = "h", descriptor = "Lclient!cm;")
-    public final Node2 sentinel = new Node2();
+    public final DoublyLinkedNode sentinel = new DoublyLinkedNode();
 
     @OriginalMember(owner = "client!jga", name = "<init>", descriptor = "()V")
     public Queue() {
@@ -21,8 +21,8 @@ public final class Queue {
     }
 
     @OriginalMember(owner = "client!jga", name = "c", descriptor = "(I)Lclient!cm;")
-    public Node2 removeFirst() {
-        @Pc(7) Node2 node = this.sentinel.next2;
+    public DoublyLinkedNode removeFirst() {
+        @Pc(7) DoublyLinkedNode node = this.sentinel.next2;
         if (this.sentinel == node) {
             return null;
         } else {
@@ -32,7 +32,7 @@ public final class Queue {
     }
 
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(ZLclient!cm;)V")
-    public void add(@OriginalArg(1) Node2 node) {
+    public void add(@OriginalArg(1) DoublyLinkedNode node) {
         if (node.prev2 != null) {
             node.unlink2();
         }
@@ -45,7 +45,7 @@ public final class Queue {
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(B)I")
     public int size() {
         @Pc(5) int size = 0;
-        @Pc(17) Node2 current = this.sentinel.next2;
+        @Pc(17) DoublyLinkedNode current = this.sentinel.next2;
         while (this.sentinel != current) {
             current = current.next2;
             size++;
@@ -54,8 +54,8 @@ public final class Queue {
     }
 
     @OriginalMember(owner = "client!jga", name = "b", descriptor = "(I)Lclient!cm;")
-    public Node2 next() {
-        @Pc(11) Node2 next = this.pointer;
+    public DoublyLinkedNode next() {
+        @Pc(11) DoublyLinkedNode next = this.pointer;
         if (next == this.sentinel) {
             this.pointer = null;
             return null;
@@ -68,7 +68,7 @@ public final class Queue {
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(Z)V")
     public void clear() {
         while (true) {
-            @Pc(3) Node2 current = this.sentinel.next2;
+            @Pc(3) DoublyLinkedNode current = this.sentinel.next2;
             if (current == this.sentinel) {
                 this.pointer = null;
                 return;
@@ -78,8 +78,8 @@ public final class Queue {
     }
 
     @OriginalMember(owner = "client!jga", name = "a", descriptor = "(I)Lclient!cm;")
-    public Node2 first() {
-        @Pc(18) Node2 first = this.sentinel.next2;
+    public DoublyLinkedNode first() {
+        @Pc(18) DoublyLinkedNode first = this.sentinel.next2;
         if (first == this.sentinel) {
             this.pointer = null;
             return null;

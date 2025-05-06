@@ -1,7 +1,7 @@
 package com.jagex.game;
 
 import com.jagex.core.datastruct.key.IterableHashTable;
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.util.SystemTimer;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!aj")
-public final class DelayedStateChange extends Node2 {
+public final class DelayedStateChange extends DoublyLinkedNode {
 
     public static final int TYPE_SETVARC = 1;
 

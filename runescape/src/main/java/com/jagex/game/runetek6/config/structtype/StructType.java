@@ -1,6 +1,6 @@
 package com.jagex.game.runetek6.config.structtype;
 
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.datastruct.key.Node;
 import com.jagex.core.datastruct.key.IterableHashTable;
 import com.jagex.core.datastruct.key.IntNode;
@@ -13,7 +13,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ab")
-public final class StructType extends Node2 {
+public final class StructType extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!ab", name = "A", descriptor = "Lclient!av;")
     public IterableHashTable<Node> params;

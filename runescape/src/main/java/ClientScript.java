@@ -1,7 +1,7 @@
 import com.jagex.trigger.ClientTriggerType;
 import com.jagex.core.datastruct.key.IntNode;
 import com.jagex.core.datastruct.key.IterableHashTable;
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.io.Packet;
 import com.jagex.math.IntMath;
 import org.openrs2.deob.annotation.OriginalArg;
@@ -10,7 +10,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!fj")
-public final class ClientScript extends Node2 {
+public final class ClientScript extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!bka", name = "a", descriptor = "([BZ)Lclient!fj;")
     public static ClientScript decode(@OriginalArg(0) byte[] arg0) {

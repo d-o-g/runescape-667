@@ -1,4 +1,4 @@
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.io.Packet;
 import com.jagex.core.stringtools.general.StringTools;
 import com.jagex.game.QuickChatDynamicCommand;
@@ -8,7 +8,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ih")
-public final class QuickChatPhraseType extends Node2 {
+public final class QuickChatPhraseType extends DoublyLinkedNode {
 
     @OriginalMember(owner = "client!ih", name = "A", descriptor = "[[I")
     public int[][] dynamicCommandParams;

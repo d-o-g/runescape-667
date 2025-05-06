@@ -1,5 +1,5 @@
 import com.jagex.core.datastruct.key.LruCache;
-import com.jagex.core.datastruct.key.Node2;
+import com.jagex.core.datastruct.key.DoublyLinkedNode;
 import com.jagex.core.io.Packet;
 import com.jagex.graphics.TextureMetrics;
 import com.jagex.graphics.TextureSource;
@@ -142,7 +142,7 @@ public final class Js5TextureSource implements TextureSource {
 
     @OriginalMember(owner = "client!qea", name = "a", descriptor = "(IB)Lclient!vm;")
     public Texture list(@OriginalArg(0) int id) {
-        @Pc(10) Node2 cached = this.recentUse.get(id);
+        @Pc(10) DoublyLinkedNode cached = this.recentUse.get(id);
         if (cached != null) {
             return (Texture) cached;
         }

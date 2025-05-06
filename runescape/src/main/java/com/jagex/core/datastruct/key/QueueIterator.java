@@ -9,7 +9,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class QueueIterator {
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "Lclient!cm;")
-    public Node2 node;
+    public DoublyLinkedNode node;
 
     @OriginalMember(owner = "client!ps", name = "e", descriptor = "Lclient!jga;")
     public Queue queue;
@@ -24,8 +24,8 @@ public final class QueueIterator {
     }
 
     @OriginalMember(owner = "client!ps", name = "b", descriptor = "(I)Lclient!cm;")
-    public Node2 next() {
-        @Pc(6) Node2 node = this.node;
+    public DoublyLinkedNode next() {
+        @Pc(6) DoublyLinkedNode node = this.node;
         if (node == this.queue.sentinel) {
             this.node = null;
             return null;
@@ -36,8 +36,8 @@ public final class QueueIterator {
     }
 
     @OriginalMember(owner = "client!ps", name = "a", descriptor = "(I)Lclient!cm;")
-    public Node2 first() {
-        @Pc(14) Node2 node = this.queue.sentinel.next2;
+    public DoublyLinkedNode first() {
+        @Pc(14) DoublyLinkedNode node = this.queue.sentinel.next2;
         if (this.queue.sentinel == node) {
             this.node = null;
             return null;

@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!ts")
-public final class LruCache {
+public final class LruCache<T extends DoublyLinkedNode> {
 
     @OriginalMember(owner = "client!ts", name = "j", descriptor = "Lclient!cm;")
     public DoublyLinkedNode pointer = new DoublyLinkedNode();
@@ -35,7 +35,7 @@ public final class LruCache {
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(BLclient!cm;J)V")
-    public void put(@OriginalArg(1) DoublyLinkedNode node, @OriginalArg(2) long key) {
+    public void put(@OriginalArg(1) T node, @OriginalArg(2) long key) {
         if (this.remaining == 0) {
             @Pc(19) DoublyLinkedNode first = this.history.removeFirst();
             first.unlink();
@@ -55,12 +55,12 @@ public final class LruCache {
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(JZ)Lclient!cm;")
-    public DoublyLinkedNode get(@OriginalArg(0) long key) {
+    public T get(@OriginalArg(0) long key) {
         @Pc(16) DoublyLinkedNode node = this.table.get(key);
         if (node != null) {
             this.history.add(node);
         }
-        return node;
+        return (T) node;
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(IJ)V")

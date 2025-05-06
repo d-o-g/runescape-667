@@ -16,7 +16,7 @@ public final class ParticleManager {
     public static final boolean debug = false;
 
     @OriginalMember(owner = "client!qfa", name = "n", descriptor = "Lclient!gga;")
-    public static HashTable effectorsCache = new HashTable(8);
+    public static HashTable<ParticleEffector> effectorsCache = new HashTable<>(8);
 
     @OriginalMember(owner = "client!kp", name = "w", descriptor = "Lclient!fla;")
     public static LinkedList systemsCache;
@@ -106,7 +106,7 @@ public final class ParticleManager {
 
     @OriginalMember(owner = "client!df", name = "b", descriptor = "(I)V")
     public static void method2044() {
-        effectorsCache = new HashTable(8);
+        effectorsCache = new HashTable<>(8);
         effectorCount = 0;
 
         for (@Pc(20) ParticleSystem system = (ParticleSystem) systemsCache.first(); system != null; system = (ParticleSystem) systemsCache.next()) {

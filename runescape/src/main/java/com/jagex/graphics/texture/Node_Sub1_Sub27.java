@@ -19,7 +19,7 @@ public final class Node_Sub1_Sub27 extends TextureOp {
     public static final int[] anIntArray768 = new int[4096];
 
     @OriginalMember(owner = "client!ra", name = "p", descriptor = "Lclient!ts;")
-    public static final LruCache A_DOUBLY_LINKED_LIST___4 = new LruCache(16);
+    public static final LruCache<DoublyLinkedNode_Sub2_Sub7> A_DOUBLY_LINKED_LIST___4 = new LruCache<>(16);
 
     @OriginalMember(owner = "client!c", name = "a", descriptor = "(II)I")
     public static int method1310(@OriginalArg(0) int arg0) {
@@ -69,7 +69,7 @@ public final class Node_Sub1_Sub27 extends TextureOp {
 
     @OriginalMember(owner = "client!vv", name = "a", descriptor = "(IZ)[B")
     public static byte[] method9027(@OriginalArg(0) int arg0) {
-        @Pc(17) DoublyLinkedNode_Sub2_Sub7 local17 = (DoublyLinkedNode_Sub2_Sub7) A_DOUBLY_LINKED_LIST___4.get(arg0);
+        @Pc(17) DoublyLinkedNode_Sub2_Sub7 local17 = A_DOUBLY_LINKED_LIST___4.get(arg0);
         if (local17 == null) {
             @Pc(22) byte[] local22 = new byte[512];
             @Pc(28) Random local28 = new Random(arg0);

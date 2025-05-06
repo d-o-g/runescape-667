@@ -8,11 +8,11 @@ import org.openrs2.deob.annotation.Pc;
 public final class ClientScriptList {
 
     @OriginalMember(owner = "client!pca", name = "i", descriptor = "Lclient!ts;")
-    public static final LruCache cache = new LruCache(128);
+    public static final LruCache<ClientScript> cache = new LruCache<>(128);
 
     @OriginalMember(owner = "client!pga", name = "a", descriptor = "(II)Lclient!fj;")
     public static ClientScript list(@OriginalArg(0) int id) {
-        @Pc(10) ClientScript script = (ClientScript) cache.get(id);
+        @Pc(10) ClientScript script = cache.get(id);
         if (script != null) {
             return script;
         }
@@ -35,7 +35,7 @@ public final class ClientScriptList {
     @OriginalMember(owner = "client!qu", name = "a", descriptor = "(Lclient!mia;III)Lclient!fj;")
     public static ClientScript trigger(@OriginalArg(0) ClientTriggerType type, @OriginalArg(1) int v1, @OriginalArg(2) int v2) {
         @Pc(10) int id = type.id | (v1 << 10);
-        @Pc(19) ClientScript script = (ClientScript) cache.get((long) id << 16);
+        @Pc(19) ClientScript script = cache.get((long) id << 16);
         if (script != null) {
             return script;
         }
@@ -55,7 +55,7 @@ public final class ClientScriptList {
             }
         } else {
             id = v2 + 65536 << 10 | type.id;
-            script = (ClientScript) cache.get((long) id << 16);
+            script = cache.get((long) id << 16);
             if (script != null) {
                 return script;
             }
@@ -75,7 +75,7 @@ public final class ClientScriptList {
                 }
             } else {
                 id = type.id | 0x3FFFC00;
-                script = (ClientScript) cache.get((long) id << 16);
+                script = cache.get((long) id << 16);
                 if (script != null) {
                     return script;
                 }

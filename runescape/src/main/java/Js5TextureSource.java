@@ -16,7 +16,7 @@ public final class Js5TextureSource implements TextureSource {
     public static TextureSource instance;
 
     @OriginalMember(owner = "client!qea", name = "k", descriptor = "Lclient!ts;")
-    public final LruCache recentUse = new LruCache(256);
+    public final LruCache<Texture> recentUse = new LruCache<Texture>(256);
 
     @OriginalMember(owner = "client!qea", name = "b", descriptor = "Lclient!sb;")
     public final js5 sprites;

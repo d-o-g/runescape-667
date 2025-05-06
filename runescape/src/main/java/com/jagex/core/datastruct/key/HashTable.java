@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!gga")
-public final class HashTable {
+public final class HashTable<T extends DoublyLinkedNode> {
 
     @OriginalMember(owner = "client!gga", name = "h", descriptor = "Lclient!cm;")
     public DoublyLinkedNode searchPointer;
@@ -33,7 +33,7 @@ public final class HashTable {
     }
 
     @OriginalMember(owner = "client!gga", name = "a", descriptor = "(BLclient!cm;J)V")
-    public void put(@OriginalArg(1) DoublyLinkedNode node, @OriginalArg(2) long key) {
+    public void put(@OriginalArg(1) T node, @OriginalArg(2) long key) {
         if (node.prev2 != null) {
             node.unlink2();
         }
@@ -47,14 +47,14 @@ public final class HashTable {
     }
 
     @OriginalMember(owner = "client!gga", name = "a", descriptor = "(JI)Lclient!cm;")
-    public DoublyLinkedNode get(@OriginalArg(0) long key) {
+    public T get(@OriginalArg(0) long key) {
         this.searchKey = key;
         @Pc(20) DoublyLinkedNode bucket = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
         for (this.searchPointer = bucket.next2; this.searchPointer != bucket; this.searchPointer = this.searchPointer.next2) {
             if (key == this.searchPointer.key2) {
                 @Pc(41) DoublyLinkedNode node = this.searchPointer;
                 this.searchPointer = this.searchPointer.next2;
-                return node;
+                return (T) node;
             }
         }
         this.searchPointer = null;
@@ -62,7 +62,7 @@ public final class HashTable {
     }
 
     @OriginalMember(owner = "client!gga", name = "a", descriptor = "(I)Lclient!cm;")
-    public DoublyLinkedNode nextWithSameKey() {
+    public T nextWithSameKey() {
         if (this.searchPointer == null) {
             return null;
         }
@@ -72,7 +72,7 @@ public final class HashTable {
             if (this.searchKey == this.searchPointer.key2) {
                 @Pc(38) DoublyLinkedNode node = this.searchPointer;
                 this.searchPointer = this.searchPointer.next2;
-                return node;
+                return (T) node;
             }
 
             this.searchPointer = this.searchPointer.next2;

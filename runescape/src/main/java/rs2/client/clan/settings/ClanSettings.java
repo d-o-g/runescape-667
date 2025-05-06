@@ -34,7 +34,7 @@ public final class ClanSettings {
     public int affinedCount;
 
     @OriginalMember(owner = "client!hi", name = "n", descriptor = "Lclient!av;")
-    public IterableHashTable extraSettings;
+    public IterableHashTable<Node> extraSettings;
 
     @OriginalMember(owner = "client!hi", name = "J", descriptor = "[I")
     public int[] affinedJoinRuneday;
@@ -227,7 +227,7 @@ public final class ClanSettings {
         }
 
         if (this.extraSettings == null) {
-            this.extraSettings = new IterableHashTable(4);
+            this.extraSettings = new IterableHashTable<>(4);
         } else {
             @Pc(32) Node node = this.extraSettings.get(id);
 
@@ -370,7 +370,7 @@ public final class ClanSettings {
     @OriginalMember(owner = "client!hi", name = "a", descriptor = "(BIJ)Z")
     public boolean doSetExtraSettingLong(@OriginalArg(1) int id, @OriginalArg(2) long value) {
         if (this.extraSettings == null) {
-            this.extraSettings = new IterableHashTable(4);
+            this.extraSettings = new IterableHashTable<>(4);
         } else {
             @Pc(29) Node node = this.extraSettings.get(id);
 
@@ -481,7 +481,7 @@ public final class ClanSettings {
                 node.unlink();
             }
         } else {
-            this.extraSettings = new IterableHashTable(4);
+            this.extraSettings = new IterableHashTable<>(4);
         }
 
         this.extraSettings.put(id, new IntNode(newValue));
@@ -596,7 +596,7 @@ public final class ClanSettings {
             @Pc(282) int count = packet.g2();
 
             if (count > 0) {
-                this.extraSettings = new IterableHashTable(count >= 16 ? 16 : IntMath.nextPow2(count));
+                this.extraSettings = new IterableHashTable<>(count >= 16 ? 16 : IntMath.nextPow2(count));
 
                 while (count-- > 0) {
                     @Pc(493) int idAndType = packet.g4();
@@ -658,7 +658,7 @@ public final class ClanSettings {
                 node.unlink();
             }
         } else {
-            this.extraSettings = new IterableHashTable(4);
+            this.extraSettings = new IterableHashTable<>(4);
         }
 
         this.extraSettings.put(id, new IntNode(value));

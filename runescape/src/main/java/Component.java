@@ -267,7 +267,7 @@ public final class Component {
     public Object[] onMouseLeave;
 
     @OriginalMember(owner = "client!hda", name = "qd", descriptor = "Lclient!av;")
-    public IterableHashTable params;
+    public IterableHashTable<Node> params;
 
     @OriginalMember(owner = "client!hda", name = "tc", descriptor = "I")
     public int skyboxRenderPitch;
@@ -657,7 +657,7 @@ public final class Component {
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(III)V")
     public void setParam(@OriginalArg(0) int id, @OriginalArg(2) int value) {
         if (this.params == null) {
-            this.params = new IterableHashTable(16);
+            this.params = new IterableHashTable<>(16);
             this.params.put(id, new IntNode(value));
             return;
         }
@@ -682,7 +682,7 @@ public final class Component {
             @Pc(25) int type = packet.g1();
 
             if (type == 0) {
-                args[i] = Integer.valueOf(packet.g4());
+                args[i] = packet.g4();
             } else if (type == 1) {
                 args[i] = packet.gjstr();
             }
@@ -1080,7 +1080,7 @@ public final class Component {
     @OriginalMember(owner = "client!hda", name = "b", descriptor = "(Ljava/lang/String;II)V")
     public void setParam(@OriginalArg(0) String value, @OriginalArg(1) int id) {
         if (this.params == null) {
-            this.params = new IterableHashTable(16);
+            this.params = new IterableHashTable<>(16);
             this.params.put(id, new StringNode(value));
             return;
         }

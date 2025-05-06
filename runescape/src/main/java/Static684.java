@@ -158,7 +158,7 @@ public final class Static684 {
         }
 
         if (Static117.areaMode != AreaMode.RETAIN_OUT_OF_BOUNDS) {
-            for (@Pc(608) ObjStack stack = (ObjStack) Static497.objStacks.first(); stack != null; stack = (ObjStack) Static497.objStacks.next()) {
+            for (@Pc(608) ObjStack stack = Static497.objStacks.first(); stack != null; stack = Static497.objStacks.next()) {
                 @Pc(615) int absX = (int) (stack.key & 0x3FFFL);
                 @Pc(619) int x = absX - WorldMap.areaBaseX;
                 @Pc(193) int absZ = (int) (stack.key >> 14 & 0x3FFFL);

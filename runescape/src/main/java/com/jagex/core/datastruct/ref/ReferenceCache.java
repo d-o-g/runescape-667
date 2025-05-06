@@ -18,7 +18,7 @@ public final class ReferenceCache {
     public int remaining;
 
     @OriginalMember(owner = "client!dla", name = "r", descriptor = "Lclient!av;")
-    public final IterableHashTable table;
+    public final IterableHashTable<ReferenceNode> table;
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "I")
     public final int capacity;
@@ -36,7 +36,7 @@ public final class ReferenceCache {
         while (((bucketCount + bucketCount) < max) && (bucketCount < min)) {
             bucketCount += bucketCount;
         }
-        this.table = new IterableHashTable(bucketCount);
+        this.table = new IterableHashTable<>(bucketCount);
     }
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "(I)I")
@@ -46,13 +46,13 @@ public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "b", descriptor = "(I)Ljava/lang/Object;")
     public Object first() {
-        @Pc(19) ReferenceNode current = (ReferenceNode) this.table.first();
+        @Pc(19) ReferenceNode current = this.table.first();
         while (current != null) {
             @Pc(25) Object object = current.get();
 
             if (object == null) {
                 @Pc(29) ReferenceNode copy = current;
-                current = (ReferenceNode) this.table.next();
+                current = this.table.next();
                 copy.unlink();
                 copy.unlink2();
                 this.remaining += copy.size;
@@ -129,14 +129,14 @@ public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "c", descriptor = "(B)Ljava/lang/Object;")
     public Object next() {
-        @Pc(19) ReferenceNode current = (ReferenceNode) this.table.next();
+        @Pc(19) ReferenceNode current = this.table.next();
         while (current != null) {
             @Pc(25) Object object = current.get();
             if (object != null) {
                 return object;
             }
             @Pc(29) ReferenceNode copy = current;
-            current = (ReferenceNode) this.table.next();
+            current = this.table.next();
             copy.unlink();
             copy.unlink2();
             this.remaining += copy.size;
@@ -166,13 +166,13 @@ public final class ReferenceCache {
 
     @OriginalMember(owner = "client!dla", name = "a", descriptor = "(JI)V")
     public void remove(@OriginalArg(0) long key) {
-        @Pc(15) ReferenceNode node = (ReferenceNode) this.table.get(key);
+        @Pc(15) ReferenceNode node = this.table.get(key);
         this.remove(node);
     }
 
     @OriginalMember(owner = "client!dla", name = "b", descriptor = "(JI)Ljava/lang/Object;")
     public Object get(@OriginalArg(0) long key) {
-        @Pc(12) ReferenceNode node = (ReferenceNode) this.table.get(key);
+        @Pc(12) ReferenceNode node = this.table.get(key);
         if (node == null) {
             return null;
         }

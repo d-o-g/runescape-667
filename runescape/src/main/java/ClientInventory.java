@@ -25,7 +25,7 @@ public final class ClientInventory extends Node {
     public static final ReferenceCache modelCache = new ReferenceCache(10);
 
     @OriginalMember(owner = "client!iw", name = "c", descriptor = "Lclient!av;")
-    public static final IterableHashTable recentUse = new IterableHashTable(32);
+    public static final IterableHashTable<ClientInventory> recentUse = new IterableHashTable<>(32);
 
     @OriginalMember(owner = "client!kd", name = "c", descriptor = "[I")
     public static final int[] updates = new int[32];

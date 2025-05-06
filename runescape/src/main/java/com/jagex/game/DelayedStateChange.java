@@ -53,7 +53,7 @@ public final class DelayedStateChange extends Node2 {
     public static final int TYPE_IF_SETCLICKMASK = 21;
 
     @OriginalMember(owner = "client!us", name = "k", descriptor = "Lclient!av;")
-    private static final IterableHashTable changes = new IterableHashTable(16);
+    private static final IterableHashTable<DelayedStateChange> changes = new IterableHashTable<DelayedStateChange>(16);
 
     @OriginalMember(owner = "client!bv", name = "k", descriptor = "Lclient!jga;")
     private static final Queue delayed = new Queue();
@@ -87,7 +87,7 @@ public final class DelayedStateChange extends Node2 {
 
     @OriginalMember(owner = "client!nt", name = "a", descriptor = "(IIJ)Lclient!aj;")
     private static DelayedStateChange getOrAdd(@OriginalArg(1) int type, @OriginalArg(2) long value) {
-        @Pc(21) DelayedStateChange change = (DelayedStateChange) changes.get(((long) type << 56) | value);
+        @Pc(21) DelayedStateChange change = changes.get(((long) type << 56) | value);
 
         if (change == null) {
             change = new DelayedStateChange(type, value);

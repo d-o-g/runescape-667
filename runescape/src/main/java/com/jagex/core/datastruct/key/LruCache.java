@@ -21,7 +21,7 @@ public final class LruCache {
     public final int capacity;
 
     @OriginalMember(owner = "client!ts", name = "c", descriptor = "Lclient!av;")
-    public final IterableHashTable table;
+    public final IterableHashTable<Node2> table;
 
     @OriginalMember(owner = "client!ts", name = "<init>", descriptor = "(I)V")
     public LruCache(@OriginalArg(0) int capacity) {
@@ -31,7 +31,7 @@ public final class LruCache {
         while ((bucketCount + bucketCount) < capacity) {
             bucketCount += bucketCount;
         }
-        this.table = new IterableHashTable(bucketCount);
+        this.table = new IterableHashTable<>(bucketCount);
     }
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(BLclient!cm;J)V")
@@ -56,7 +56,7 @@ public final class LruCache {
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(JZ)Lclient!cm;")
     public Node2 get(@OriginalArg(0) long key) {
-        @Pc(16) Node2 node = (Node2) this.table.get(key);
+        @Pc(16) Node2 node = this.table.get(key);
         if (node != null) {
             this.history.add(node);
         }
@@ -65,7 +65,7 @@ public final class LruCache {
 
     @OriginalMember(owner = "client!ts", name = "a", descriptor = "(IJ)V")
     public void remove(@OriginalArg(1) long key) {
-        @Pc(18) Node2 node = (Node2) this.table.get(key);
+        @Pc(18) Node2 node = this.table.get(key);
         if (node != null) {
             node.unlink();
             node.unlink2();

@@ -87,7 +87,7 @@ public final class InterfaceManager {
     public static final boolean[] currentlyDirtyRect = new boolean[100];
 
     @OriginalMember(owner = "client!je", name = "h", descriptor = "Lclient!av;")
-    public static final IterableHashTable serverActiveProperties = new IterableHashTable(512);
+    public static final IterableHashTable<ServerActiveProperties> serverActiveProperties = new IterableHashTable<>(512);
 
     @OriginalMember(owner = "client!ff", name = "k", descriptor = "I")
     public static int lastDrawCycle = -2;
@@ -144,7 +144,7 @@ public final class InterfaceManager {
     public static int dragParentX = -1;
 
     @OriginalMember(owner = "client!re", name = "n", descriptor = "Lclient!av;")
-    public static IterableHashTable subInterfaces = new IterableHashTable(8);
+    public static IterableHashTable<SubInterface> subInterfaces = new IterableHashTable<>(8);
 
     @OriginalMember(owner = "client!aka", name = "l", descriptor = "I")
     public static int rectDebug = 0;
@@ -548,7 +548,7 @@ public final class InterfaceManager {
                         draw(child.dynamicComponents, child.slot, offsetX - child.scrollX, offsetY - child.scrollY, childX1, childY1, childX2, childY2, rectangle, aspectRatio);
                     }
 
-                    @Pc(1214) SubInterface sub = (SubInterface) subInterfaces.get(child.slot);
+                    @Pc(1214) SubInterface sub = subInterfaces.get(child.slot);
                     if (sub != null) {
                         draw(sub.id, childX1, childY1, childX2, childY2, offsetX, offsetY, rectangle);
                     }
@@ -1017,7 +1017,7 @@ public final class InterfaceManager {
 
     @OriginalMember(owner = "client!client", name = "c", descriptor = "(Lclient!hda;)Lclient!ofa;")
     public static ServerActiveProperties serverActiveProperties(@OriginalArg(0) Component component) {
-        @Pc(13) ServerActiveProperties properties = (ServerActiveProperties) serverActiveProperties.get(((long) component.slot << 32) + (long) component.id);
+        @Pc(13) ServerActiveProperties properties = serverActiveProperties.get(((long) component.slot << 32) + (long) component.id);
         return properties != null ? properties : component.serverActiveProperties;
     }
 
@@ -1116,7 +1116,7 @@ public final class InterfaceManager {
                         animate(component.slot, component.dynamicComponents);
                     }
 
-                    @Pc(56) SubInterface sub = (SubInterface) subInterfaces.get(component.slot);
+                    @Pc(56) SubInterface sub = subInterfaces.get(component.slot);
                     if (sub != null) {
                         animate(sub.id);
                     }
@@ -1920,7 +1920,7 @@ public final class InterfaceManager {
                             logicComponentList(component.dynamicComponents, component.slot, x1, y1, x2, y2, startX - component.scrollX, startY - component.scrollY, mouseX1, mouseY1, mouseX2, mouseY2);
                         }
 
-                        @Pc(2824) SubInterface sub = (SubInterface) subInterfaces.get(component.slot);
+                        @Pc(2824) SubInterface sub = subInterfaces.get(component.slot);
                         if (sub != null) {
                             if (Client.modeGame == ModeGame.RUNESCAPE && sub.type == Component.TYPE_LAYER && !MiniMenu.open && hovered && !testOpacity) {
                                 MiniMenu.reset();
@@ -2180,7 +2180,7 @@ public final class InterfaceManager {
                     runHookImmediate(child.dynamicComponents, type);
                 }
 
-                @Pc(38) SubInterface sub = (SubInterface) subInterfaces.get(child.slot);
+                @Pc(38) SubInterface sub = subInterfaces.get(child.slot);
                 if (sub != null) {
                     runHookImmediate(type, sub.id);
                 }
@@ -2222,7 +2222,7 @@ public final class InterfaceManager {
             calculateComponentListDimensions(layer.dynamicComponents, layer.slot, width, height, execScript);
         }
 
-        @Pc(72) SubInterface sub = (SubInterface) subInterfaces.get(layer.slot);
+        @Pc(72) SubInterface sub = subInterfaces.get(layer.slot);
         if (sub != null) {
             calculateComponentListDimensions(execScript, sub.id, height, width);
         }
@@ -2547,9 +2547,9 @@ public final class InterfaceManager {
                 discard(topLevelInterface);
             }
 
-            for (@Pc(21) SubInterface sub = (SubInterface) subInterfaces.first(); sub != null; sub = (SubInterface) subInterfaces.next()) {
+            for (@Pc(21) SubInterface sub = subInterfaces.first(); sub != null; sub = subInterfaces.next()) {
                 if (!sub.isLinked()) {
-                    sub = (SubInterface) subInterfaces.first();
+                    sub = subInterfaces.first();
 
                     if (sub == null) {
                         break;
@@ -2560,7 +2560,7 @@ public final class InterfaceManager {
             }
 
             topLevelInterface = -1;
-            subInterfaces = new IterableHashTable(8);
+            subInterfaces = new IterableHashTable<>(8);
             InterfaceList.reset();
             topLevelInterface = GraphicsDefaults.instance.login_interface;
             refreshTopLevelInterface(false);
@@ -2603,9 +2603,9 @@ public final class InterfaceManager {
                 discard(topLevelInterface);
             }
 
-            for (@Pc(16) SubInterface sub = (SubInterface) subInterfaces.first(); sub != null; sub = (SubInterface) subInterfaces.next()) {
+            for (@Pc(16) SubInterface sub = subInterfaces.first(); sub != null; sub = subInterfaces.next()) {
                 if (!sub.isLinked()) {
-                    sub = (SubInterface) subInterfaces.first();
+                    sub = subInterfaces.first();
 
                     if (sub == null) {
                         break;
@@ -2616,7 +2616,7 @@ public final class InterfaceManager {
             }
 
             topLevelInterface = -1;
-            subInterfaces = new IterableHashTable(8);
+            subInterfaces = new IterableHashTable<>(8);
             InterfaceList.reset();
             topLevelInterface = GraphicsDefaults.instance.lobby_interface;
             refreshTopLevelInterface(false);
@@ -2689,9 +2689,9 @@ public final class InterfaceManager {
         @Pc(13) ClientMessage message = ClientMessage.create(ClientProt.CLOSE_MODAL, ServerConnection.GAME.isaac);
         ServerConnection.GAME.send(message);
 
-        for (@Pc(22) SubInterface sub = (SubInterface) subInterfaces.first(); sub != null; sub = (SubInterface) subInterfaces.next()) {
+        for (@Pc(22) SubInterface sub = subInterfaces.first(); sub != null; sub = subInterfaces.next()) {
             if (!sub.isLinked()) {
-                sub = (SubInterface) subInterfaces.first();
+                sub = subInterfaces.first();
 
                 if (sub == null) {
                     break;

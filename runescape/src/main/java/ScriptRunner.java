@@ -2503,7 +2503,7 @@ public final class ScriptRunner {
 
             if (op == IF_HASSUB) {
                 @Pc(15) int id = intStack[--intStackPointer];
-                @Pc(4653) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(id);
+                @Pc(4653) SubInterface sub = InterfaceManager.subInterfaces.get(id);
 
                 if (sub != null) {
                     intStack[intStackPointer++] = 1;
@@ -2538,7 +2538,7 @@ public final class ScriptRunner {
 
                 @Pc(15) int id = intStack[intStackPointer];
                 @Pc(21) int subId = intStack[intStackPointer + 1];
-                @Pc(4760) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(id);
+                @Pc(4760) SubInterface sub = InterfaceManager.subInterfaces.get(id);
 
                 if (sub != null && sub.id == subId) {
                     intStack[intStackPointer++] = 1;
@@ -2670,7 +2670,7 @@ public final class ScriptRunner {
 
                 @Pc(15) int idAndSlot = intStack[intStackPointer];
                 @Pc(21) int subId = intStack[intStackPointer + 1];
-                @Pc(4760) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot);
+                @Pc(4760) SubInterface sub = InterfaceManager.subInterfaces.get(idAndSlot);
 
                 if (sub != null) {
                     InterfaceManager.closeSubInterface(sub, sub.id != subId, true);
@@ -2684,7 +2684,7 @@ public final class ScriptRunner {
                 intStackPointer--;
 
                 @Pc(15) int idAndSlot = intStack[intStackPointer];
-                @Pc(4653) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot);
+                @Pc(4653) SubInterface sub = InterfaceManager.subInterfaces.get(idAndSlot);
 
                 if (sub != null && sub.type == 3) {
                     InterfaceManager.closeSubInterface(sub, true, true);
@@ -4911,8 +4911,8 @@ public final class ScriptRunner {
                     Static37.varcstrs[id] = stringStack[--stringStackPointer];
                     DelayedStateChange.resetVarcstr(id);
                 } else if (op == SWITCH) {
-                    @Pc(889) IterableHashTable table = script.switchTables[operands[pc]];
-                    @Pc(902) IntNode jump = (IntNode) table.get(intStack[--intStackPointer]);
+                    @Pc(889) IterableHashTable<IntNode> table = script.switchTables[operands[pc]];
+                    @Pc(902) IntNode jump = table.get(intStack[--intStackPointer]);
                     if (jump != null) {
                         pc += jump.value;
                     }
@@ -7326,9 +7326,9 @@ public final class ScriptRunner {
                         }
                         local192--;
                     }
-                    @Pc(8344) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.first();
+                    @Pc(8344) SubInterface sub = InterfaceManager.subInterfaces.first();
                     while (local192-- > 0) {
-                        sub = (SubInterface) InterfaceManager.subInterfaces.next();
+                        sub = InterfaceManager.subInterfaces.next();
                     }
                     intStack[intStackPointer++] = sub.id;
                     return;

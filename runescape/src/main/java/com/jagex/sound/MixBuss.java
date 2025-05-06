@@ -105,11 +105,11 @@ public final class MixBuss extends AudioBuss {
     public final Node_Sub6_Sub4 aClass2_Sub6_Sub4_1 = new Node_Sub6_Sub4(this);
 
     @OriginalMember(owner = "client!bd", name = "q", descriptor = "Lclient!av;")
-    public final IterableHashTable aIterableHashTable_7;
+    public final IterableHashTable<Node_Sub11> aIterableHashTable_7;
 
     @OriginalMember(owner = "client!bd", name = "<init>", descriptor = "()V")
     public MixBuss() {
-        this.aIterableHashTable_7 = new IterableHashTable(128);
+        this.aIterableHashTable_7 = new IterableHashTable<>(128);
         this.method926(256, -1);
         this.method942(true);
     }
@@ -559,7 +559,7 @@ public final class MixBuss extends AudioBuss {
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(B)V")
     public synchronized void method927() {
-        for (@Pc(5) Node_Sub11 local5 = (Node_Sub11) this.aIterableHashTable_7.first(); local5 != null; local5 = (Node_Sub11) this.aIterableHashTable_7.next()) {
+        for (@Pc(5) Node_Sub11 local5 = this.aIterableHashTable_7.first(); local5 != null; local5 = this.aIterableHashTable_7.next()) {
             local5.unlink();
         }
     }
@@ -651,7 +651,7 @@ public final class MixBuss extends AudioBuss {
 
     @OriginalMember(owner = "client!bd", name = "b", descriptor = "(I)V")
     public synchronized void method933() {
-        for (@Pc(7) Node_Sub11 local7 = (Node_Sub11) this.aIterableHashTable_7.first(); local7 != null; local7 = (Node_Sub11) this.aIterableHashTable_7.next()) {
+        for (@Pc(7) Node_Sub11 local7 = this.aIterableHashTable_7.first(); local7 != null; local7 = this.aIterableHashTable_7.next()) {
             local7.method1521();
         }
     }
@@ -678,7 +678,7 @@ public final class MixBuss extends AudioBuss {
                 }
             }
         }
-        @Pc(117) Node_Sub11 local117 = (Node_Sub11) this.aIterableHashTable_7.get(this.anIntArray54[arg0]);
+        @Pc(117) Node_Sub11 local117 = this.aIterableHashTable_7.get(this.anIntArray54[arg0]);
         if (local117 == null) {
             return;
         }
@@ -803,9 +803,9 @@ public final class MixBuss extends AudioBuss {
 
         @Pc(15) boolean ready = true;
         @Pc(29) int[] maxSamples = new int[]{22050};
-        for (@Pc(35) MidiProgramNode node = (MidiProgramNode) song.programs.first(); node != null; node = (MidiProgramNode) song.programs.next()) {
+        for (@Pc(35) MidiProgramNode node = song.programs.first(); node != null; node = song.programs.next()) {
             @Pc(40) int program = (int) node.key;
-            @Pc(48) Node_Sub11 local48 = (Node_Sub11) this.aIterableHashTable_7.get(program);
+            @Pc(48) Node_Sub11 local48 = this.aIterableHashTable_7.get(program);
             if (local48 == null) {
                 local48 = method8917(arg1, program);
                 if (local48 == null) {

@@ -34,7 +34,7 @@ public final class ClientScript extends Node2 {
             local7.switchTables = new IterableHashTable[local84];
             for (local95 = 0; local95 < local84; local95++) {
                 local100 = local12.g2();
-                @Pc(107) IterableHashTable local107 = new IterableHashTable(IntMath.nextPow2(local100));
+                @Pc(107) IterableHashTable<IntNode> local107 = new IterableHashTable<>(IntMath.nextPow2(local100));
                 local7.switchTables[local95] = local107;
                 while (local100-- > 0) {
                     @Pc(117) int local117 = local12.g4();
@@ -90,7 +90,7 @@ public final class ClientScript extends Node2 {
     public int longVarCount;
 
     @OriginalMember(owner = "client!fj", name = "B", descriptor = "[Lclient!av;")
-    public IterableHashTable[] switchTables;
+    public IterableHashTable<IntNode>[] switchTables;
 
     @OriginalMember(owner = "client!fj", name = "E", descriptor = "[Ljava/lang/String;")
     public String[] stringOperands;

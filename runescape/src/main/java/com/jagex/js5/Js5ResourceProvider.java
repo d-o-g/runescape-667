@@ -35,7 +35,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     public int loaded = 0;
 
     @OriginalMember(owner = "client!pm", name = "A", descriptor = "Lclient!av;")
-    public final IterableHashTable waiting = new IterableHashTable(16);
+    public final IterableHashTable<ResourceRequest> waiting = new IterableHashTable<>(16);
 
     @OriginalMember(owner = "client!pm", name = "h", descriptor = "I")
     public int currentGroup = 0;
@@ -250,7 +250,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
         }
 
         if (this.clearIdle && SystemTimer.safetime() >= this.nextOphanCheck) {
-            for (@Pc(366) ResourceRequest request = (ResourceRequest) this.waiting.first(); request != null; request = (ResourceRequest) this.waiting.next()) {
+            for (@Pc(366) ResourceRequest request = this.waiting.first(); request != null; request = this.waiting.next()) {
                 if (!request.incomplete) {
                     if (request.orphan) {
                         if (!request.urgent) {
@@ -288,7 +288,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
 
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(III)Lclient!tw;")
     public ResourceRequest fetchgroup_inner(@OriginalArg(0) int groupId, @OriginalArg(1) int mode) {
-        @Pc(19) ResourceRequest request = (ResourceRequest) this.waiting.get(groupId);
+        @Pc(19) ResourceRequest request = this.waiting.get(groupId);
         if (request != null && mode == 0 && !request.urgent && request.incomplete) {
             request.unlink();
             request = null;
@@ -444,7 +444,7 @@ public final class Js5ResourceProvider extends ResourceProvider {
     @OriginalMember(owner = "client!pm", name = "a", descriptor = "(BI)I")
     @Override
     public int completePercentage(@OriginalArg(1) int groupId) {
-        @Pc(19) ResourceRequest request = (ResourceRequest) this.waiting.get(groupId);
+        @Pc(19) ResourceRequest request = this.waiting.get(groupId);
         return request == null ? 0 : request.completePercentage();
     }
 

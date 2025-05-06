@@ -21,7 +21,7 @@ public final class KeyedReferenceCache {
     public int remaining;
 
     @OriginalMember(owner = "client!aka", name = "b", descriptor = "Lclient!av;")
-    public final IterableHashTable table;
+    public final IterableHashTable<KeyedReferenceNode> table;
 
     @OriginalMember(owner = "client!aka", name = "<init>", descriptor = "(I)V")
     public KeyedReferenceCache(@OriginalArg(0) int capacity) {
@@ -31,14 +31,14 @@ public final class KeyedReferenceCache {
         while ((bucketCount + bucketCount) < capacity) {
             bucketCount += bucketCount;
         }
-        this.table = new IterableHashTable(bucketCount);
+        this.table = new IterableHashTable<>(bucketCount);
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ILclient!uq;)V")
     public void removeByKey(@OriginalArg(1) CacheKey cacheKey) {
         @Pc(9) long key = cacheKey.toLong();
 
-        for (@Pc(22) KeyedReferenceNode node = (KeyedReferenceNode) this.table.get(key); node != null; node = (KeyedReferenceNode) this.table.nextWithSameKey()) {
+        for (@Pc(22) KeyedReferenceNode node = this.table.get(key); node != null; node = this.table.nextWithSameKey()) {
             if (node.cacheKey.matches(cacheKey)) {
                 this.remove(node);
                 return;
@@ -107,7 +107,7 @@ public final class KeyedReferenceCache {
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(ZILjava/lang/Object;Lclient!uq;)V")
-    public void put(@OriginalArg(2) Object value, @OriginalArg(3) CacheKey cacheKey, @OriginalArg(1) int size) {
+    public void put(@OriginalArg(2) com.jagex.graphics.Sprite value, @OriginalArg(3) CacheKey cacheKey, @OriginalArg(1) int size) {
         if (size > this.capacity) {
             throw new IllegalStateException("s>cs");
         }
@@ -130,7 +130,7 @@ public final class KeyedReferenceCache {
     public Object get(@OriginalArg(0) CacheKey cacheKey) {
         @Pc(18) long hash = cacheKey.toLong();
 
-        for (@Pc(25) KeyedReferenceNode node = (KeyedReferenceNode) this.table.get(hash); node != null; node = (KeyedReferenceNode) this.table.nextWithSameKey()) {
+        for (@Pc(25) KeyedReferenceNode node = this.table.get(hash); node != null; node = this.table.nextWithSameKey()) {
             if (node.cacheKey.matches(cacheKey)) {
                 @Pc(39) Object object = node.get();
 
@@ -160,7 +160,7 @@ public final class KeyedReferenceCache {
     }
 
     @OriginalMember(owner = "client!aka", name = "a", descriptor = "(Ljava/lang/Object;ILclient!uq;)V")
-    public void put(@OriginalArg(0) Object object, @OriginalArg(2) CacheKey cacheKey) {
+    public void put(@OriginalArg(0) com.jagex.graphics.Sprite object, @OriginalArg(2) CacheKey cacheKey) {
         this.put(object, cacheKey, 1);
     }
 }

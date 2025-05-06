@@ -132,7 +132,7 @@ public final class JavaToolkit extends Toolkit {
     public boolean colourTables;
 
     @OriginalMember(owner = "client!iaa", name = "N", descriptor = "Lclient!av;")
-    public IterableHashTable surfaces;
+    public IterableHashTable<JavaSurface> surfaces;
 
     @OriginalMember(owner = "client!iaa", name = "L", descriptor = "I")
     public int clipY1;
@@ -199,7 +199,7 @@ public final class JavaToolkit extends Toolkit {
         super(textureSource);
         this.stopped = false;
         this.colourTables = false;
-        this.surfaces = new IterableHashTable(4);
+        this.surfaces = new IterableHashTable<>(4);
         this.clipY1 = 0;
         this.projectionScaleY = 512;
         this.ambient = 75518;
@@ -488,7 +488,7 @@ public final class JavaToolkit extends Toolkit {
     @Override
     public void setCanvas(@OriginalArg(0) Canvas canvas) {
         if (canvas != null) {
-            @Pc(10) JavaSurface surface = (JavaSurface) this.surfaces.get(canvas.hashCode());
+            @Pc(10) JavaSurface surface = this.surfaces.get(canvas.hashCode());
             if (surface == null) {
                 return;
             }
@@ -1029,7 +1029,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void resizeCanvas(@OriginalArg(0) Canvas canvas, @OriginalArg(1) int width, @OriginalArg(2) int height) {
-        @Pc(8) JavaSurface surface = (JavaSurface) this.surfaces.get(canvas.hashCode());
+        @Pc(8) JavaSurface surface = this.surfaces.get(canvas.hashCode());
         if (surface == null) {
             return;
         }
@@ -2988,7 +2988,7 @@ public final class JavaToolkit extends Toolkit {
     @OriginalMember(owner = "client!iaa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void addCanvas(@OriginalArg(0) Canvas canvas, @OriginalArg(1) int width, @OriginalArg(2) int height) {
-        @Pc(8) JavaSurface surface = (JavaSurface) this.surfaces.get(canvas.hashCode());
+        @Pc(8) JavaSurface surface = this.surfaces.get(canvas.hashCode());
 
         if (surface == null) {
             surface = JavaSurface.create(canvas, width, height);

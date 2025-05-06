@@ -103,7 +103,7 @@ public final class Ground_Sub1 extends Ground {
     public float[][] aFloatArrayArray5;
 
     @OriginalMember(owner = "client!iga", name = "V", descriptor = "Lclient!av;")
-    public IterableHashTable aIterableHashTable_21;
+    public IterableHashTable<Node_Sub58> aIterableHashTable_21;
 
     @OriginalMember(owner = "client!iga", name = "Y", descriptor = "Lclient!pk;")
     public Class293 aClass293_1;
@@ -148,7 +148,7 @@ public final class Ground_Sub1 extends Ground {
         }
         this.aFloat77--;
         this.aFloat76++;
-        this.aIterableHashTable_21 = new IterableHashTable(128);
+        this.aIterableHashTable_21 = new IterableHashTable<>(128);
         if ((this.anInt4302 & 0x10) != 0) {
             this.aClass293_1 = new Class293(this.aClass19_Sub1_9, this);
         }
@@ -189,9 +189,9 @@ public final class Ground_Sub1 extends Ground {
                 local114 = -1;
             }
             @Pc(167) long local167 = (long) local114 | (long) arg10 << 28 | (long) arg12 << 48 | (long) arg11 << 42 | (long) (local118 << 14);
-            @Pc(173) Node local173;
+            @Pc(173) Node_Sub58 local173;
             for (local173 = this.aIterableHashTable_21.get(local167); local173 != null; local173 = this.aIterableHashTable_21.nextWithSameKey()) {
-                @Pc(180) Node_Sub58 local180 = (Node_Sub58) local173;
+                @Pc(180) Node_Sub58 local180 = local173;
                 if (local180.anInt10870 == local114 && (float) local118 == local180.aFloat219 && local180.anInt10863 == arg10 && arg11 == local180.anInt10860 && arg12 == local180.anInt10868) {
                     break;
                 }
@@ -200,7 +200,7 @@ public final class Ground_Sub1 extends Ground {
                 local104[local106] = new Node_Sub58(this, local114, local118, arg10, arg11, arg12);
                 this.aIterableHashTable_21.put(local167, local104[local106]);
             } else {
-                local104[local106] = (Node_Sub58) local173;
+                local104[local106] = local173;
             }
         }
         if (arg13) {

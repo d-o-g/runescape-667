@@ -103,7 +103,7 @@ public final class Ground_Sub2 extends Ground {
     public final int anInt7499;
 
     @OriginalMember(owner = "client!pn", name = "M", descriptor = "Lclient!av;")
-    public IterableHashTable aIterableHashTable_37;
+    public IterableHashTable<Node_Sub39> aIterableHashTable_37;
 
     @OriginalMember(owner = "client!pn", name = "xb", descriptor = "Lclient!hn;")
     public Class170 aClass170_1;
@@ -136,7 +136,7 @@ public final class Ground_Sub2 extends Ground {
                 this.aFloatArrayArray16[local121][local115] = local176 * (float) local157;
             }
         }
-        this.aIterableHashTable_37 = new IterableHashTable(128);
+        this.aIterableHashTable_37 = new IterableHashTable<>(128);
         if ((this.anInt7486 & 0x10) != 0) {
             this.aClass170_1 = new Class170(this.aClass19_Sub3_33, this);
         }
@@ -703,9 +703,9 @@ public final class Ground_Sub2 extends Ground {
                 local118 = 128;
             }
             @Pc(164) long local164 = (long) local114 | (long) arg12 << 48 | (long) arg11 << 42 | (long) arg10 << 28 | (long) (local118 << 14);
-            @Pc(170) Node local170;
+            @Pc(170) Node_Sub39 local170;
             for (local170 = this.aIterableHashTable_37.get(local164); local170 != null; local170 = this.aIterableHashTable_37.nextWithSameKey()) {
-                @Pc(177) Node_Sub39 local177 = (Node_Sub39) local170;
+                @Pc(177) Node_Sub39 local177 = local170;
                 if (local177.anInt6592 == local114 && (float) local118 == local177.aFloat121 && arg10 == local177.anInt6593 && local177.anInt6595 == arg11 && local177.anInt6585 == arg12) {
                     break;
                 }
@@ -714,7 +714,7 @@ public final class Ground_Sub2 extends Ground {
                 local104[local106] = new Node_Sub39(this, local114, local118, arg10, arg11, arg12);
                 this.aIterableHashTable_37.put(local164, local104[local106]);
             } else {
-                local104[local106] = (Node_Sub39) local170;
+                local104[local106] = local170;
             }
         }
         if (arg13) {

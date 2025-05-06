@@ -20,7 +20,7 @@ public final class Static468 {
         }
 
         @Pc(67) long key = (level << 28) | (z << 14) | x;
-        @Pc(73) ObjStack stack = (ObjStack) Static497.objStacks.get(key);
+        @Pc(73) ObjStack stack = Static497.objStacks.get(key);
         if (stack == null) {
             Static638.method8398(level, zoneX, zoneZ);
             return;

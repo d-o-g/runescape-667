@@ -18,7 +18,7 @@ public final class NPCList {
     private static final int REMOVAL_COUNT = 1000;
 
     @OriginalMember(owner = "client!aka", name = "m", descriptor = "Lclient!av;")
-    public static final IterableHashTable local = new IterableHashTable(64);
+    public static final IterableHashTable<NPCEntityNode> local = new IterableHashTable<>(64);
 
     @OriginalMember(owner = "client!sla", name = "b", descriptor = "[Lclient!qfa;")
     public static final NPCEntityNode[] entities = new NPCEntityNode[COUNT];

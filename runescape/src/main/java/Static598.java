@@ -9,7 +9,7 @@ public final class Static598 {
 
     @OriginalMember(owner = "client!ss", name = "a", descriptor = "(Z)V")
     public static void method7827() {
-        for (@Pc(13) EffectNode node = (EffectNode) Static346.effects.first(); node != null; node = (EffectNode) Static346.effects.next()) {
+        for (@Pc(13) EffectNode node = Static346.effects.first(); node != null; node = Static346.effects.next()) {
             @Pc(18) Effect effect = node.effect;
 
             effect.tick();

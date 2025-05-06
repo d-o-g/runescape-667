@@ -6,7 +6,7 @@ import org.openrs2.deob.annotation.OriginalMember;
 import org.openrs2.deob.annotation.Pc;
 
 @OriginalClass("client!av")
-public final class IterableHashTable {
+public final class IterableHashTable<T extends Node> {
 
     @OriginalMember(owner = "client!av", name = "c", descriptor = "Lclient!ie;")
     public Node searchPointer;
@@ -39,7 +39,7 @@ public final class IterableHashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(JLclient!ie;I)V")
-    public void put(@OriginalArg(0) long key, @OriginalArg(1) Node node) {
+    public void put(@OriginalArg(0) long key, @OriginalArg(1) T node) {
         if (node.prev != null) {
             node.unlink();
         }
@@ -53,7 +53,7 @@ public final class IterableHashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "b", descriptor = "(Z)Lclient!ie;")
-    public Node first() {
+    public T first() {
         this.iteratorPosition = 0;
         return this.next();
     }
@@ -75,14 +75,14 @@ public final class IterableHashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(IJ)Lclient!ie;")
-    public Node get(@OriginalArg(1) long key) {
+    public T get(@OriginalArg(1) long key) {
         this.searchKey = key;
         @Pc(25) Node bucket = this.buckets[(int) (key & (long) (this.bucketCount - 1))];
         for (this.searchPointer = bucket.next; this.searchPointer != bucket; this.searchPointer = this.searchPointer.next) {
             if (key == this.searchPointer.key) {
                 @Pc(43) Node result = this.searchPointer;
                 this.searchPointer = this.searchPointer.next;
-                return result;
+                return (T) result;
             }
         }
         this.searchPointer = null;
@@ -104,18 +104,18 @@ public final class IterableHashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(I)Lclient!ie;")
-    public Node next() {
+    public T next() {
         @Pc(32) Node node;
         if (this.iteratorPosition > 0 && this.iteratorPointer != this.buckets[this.iteratorPosition - 1]) {
             node = this.iteratorPointer;
             this.iteratorPointer = node.next;
-            return node;
+            return (T) node;
         }
         while (this.bucketCount > this.iteratorPosition) {
             node = this.buckets[this.iteratorPosition++].next;
             if (this.buckets[this.iteratorPosition - 1] != node) {
                 this.iteratorPointer = node.next;
-                return node;
+                return (T) node;
             }
         }
         return null;
@@ -139,7 +139,7 @@ public final class IterableHashTable {
     }
 
     @OriginalMember(owner = "client!av", name = "a", descriptor = "(B)Lclient!ie;")
-    public Node nextWithSameKey() {
+    public T nextWithSameKey() {
         if (this.searchPointer == null) {
             return null;
         }
@@ -149,7 +149,7 @@ public final class IterableHashTable {
             if (this.searchPointer.key == this.searchKey) {
                 @Pc(43) Node node = this.searchPointer;
                 this.searchPointer = this.searchPointer.next;
-                return node;
+                return (T) node;
             }
 
             this.searchPointer = this.searchPointer.next;

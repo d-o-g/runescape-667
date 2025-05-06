@@ -1007,9 +1007,9 @@ public final class LoginManager {
             InterfaceManager.discard(InterfaceManager.topLevelInterface);
         }
 
-        for (@Pc(8803) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.first(); sub != null; sub = (SubInterface) InterfaceManager.subInterfaces.next()) {
+        for (@Pc(8803) SubInterface sub = InterfaceManager.subInterfaces.first(); sub != null; sub = InterfaceManager.subInterfaces.next()) {
             if (!sub.isLinked()) {
-                sub = (SubInterface) InterfaceManager.subInterfaces.first();
+                sub = InterfaceManager.subInterfaces.first();
 
                 if (sub == null) {
                     break;
@@ -1020,7 +1020,7 @@ public final class LoginManager {
         }
 
         InterfaceManager.topLevelInterface = -1;
-        InterfaceManager.subInterfaces = new IterableHashTable(8);
+        InterfaceManager.subInterfaces = new IterableHashTable<>(8);
         InterfaceList.reset();
         InterfaceManager.dialog = null;
         for (@Pc(8849) int i = 0; i < 8; i++) {

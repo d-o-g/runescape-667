@@ -76,7 +76,7 @@ public final class MiniMenu {
     public static final Deque innerEntryQueue = new Deque();
 
     @OriginalMember(owner = "client!pha", name = "m", descriptor = "Lclient!av;")
-    public static final IterableHashTable entryTable = new IterableHashTable(16);
+    public static final IterableHashTable<MiniMenuEntry> entryTable = new IterableHashTable<>(16);
 
     @OriginalMember(owner = "client!wn", name = "k", descriptor = "Lclient!dla;")
     public static final ReferenceCache cache = new ReferenceCache(30);
@@ -464,7 +464,7 @@ public final class MiniMenu {
                     if (local543.aEntity_18 instanceof ObjStackEntity) {
                         @Pc(1385) int local1385 = local186 + WorldMap.areaBaseX;
                         local614 = WorldMap.areaBaseZ + local584;
-                        @Pc(1406) ObjStack local1406 = (ObjStack) Static497.objStacks.get(local614 << 14 | local543.aEntity_18.level << 28 | local1385);
+                        @Pc(1406) ObjStack local1406 = Static497.objStacks.get(local614 << 14 | local543.aEntity_18.level << 28 | local1385);
                         if (local1406 != null) {
                             local295 = 0;
                             for (@Pc(1416) ObjStackEntry local1416 = (ObjStackEntry) local1406.objs.last(); local1416 != null; local1416 = (ObjStackEntry) local1406.objs.previous()) {

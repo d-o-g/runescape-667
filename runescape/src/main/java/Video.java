@@ -55,7 +55,7 @@ public abstract class Video {
     public final OggPacket packet;
 
     @OriginalMember(owner = "client!lf", name = "A", descriptor = "Lclient!av;")
-    public final IterableHashTable streams;
+    public final IterableHashTable<OggStream> streams;
 
     @OriginalMember(owner = "client!lf", name = "<init>", descriptor = "(I)V")
     protected Video(@OriginalArg(0) int pageBufferSize) {
@@ -67,7 +67,7 @@ public abstract class Video {
         this.syncState = new OggSyncState();
         this.page = new OggPage();
         this.packet = new OggPacket();
-        this.streams = new IterableHashTable(8);
+        this.streams = new IterableHashTable<>(8);
     }
 
     @OriginalMember(owner = "client!lf", name = "b", descriptor = "(B)Lclient!kb;")
@@ -96,7 +96,7 @@ public abstract class Video {
         @Pc(25) int serialNumber = this.page.getSerialNumber();
 
         if (!this.page.isBOS()) {
-            @Pc(81) OggStream stream = (OggStream) this.streams.get(serialNumber);
+            @Pc(81) OggStream stream = this.streams.get(serialNumber);
 
             if (stream.state.pageIn(this.page)) {
                 return stream;

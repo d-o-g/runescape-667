@@ -41,7 +41,7 @@ import static com.jagex.sound.midi.MidiStatus.PROGRAM_CHANGE;
 public final class MidiSong extends Node {
 
     @OriginalMember(owner = "client!bn", name = "l", descriptor = "Lclient!av;")
-    public IterableHashTable programs;
+    public IterableHashTable<MidiProgramNode> programs;
 
     @OriginalMember(owner = "client!bn", name = "k", descriptor = "[B")
     public final byte[] midiData;
@@ -387,7 +387,7 @@ public final class MidiSong extends Node {
             return;
         }
 
-        this.programs = new IterableHashTable(16);
+        this.programs = new IterableHashTable<>(16);
 
         @Pc(13) int[] extPrograms = new int[16];
         @Pc(16) int[] programs = new int[16];
@@ -450,7 +450,7 @@ public final class MidiSong extends Node {
 
                     if (velocity > 0) {
                         @Pc(182) int program = programs[channel];
-                        @Pc(190) MidiProgramNode node = (MidiProgramNode) this.programs.get(program);
+                        @Pc(190) MidiProgramNode node = this.programs.get(program);
 
                         if (node == null) {
                             node = new MidiProgramNode(new byte[128]);

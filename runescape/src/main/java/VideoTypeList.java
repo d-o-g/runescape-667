@@ -11,7 +11,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class VideoTypeList {
 
     @OriginalMember(owner = "client!dfa", name = "a", descriptor = "Lclient!av;")
-    public static final IterableHashTable recentUse = new IterableHashTable(4);
+    public static final IterableHashTable<VideoType> recentUse = new IterableHashTable<>(4);
 
     @OriginalMember(owner = "client!hea", name = "s", descriptor = "Z")
     public static boolean loadedJagtheora = false;

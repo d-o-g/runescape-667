@@ -74,7 +74,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     public int anInt6769 = 4096;
 
     @OriginalMember(owner = "client!oa", name = "x", descriptor = "Lclient!av;")
-    public final IterableHashTable aIterableHashTable_33 = new IterableHashTable(4);
+    public final IterableHashTable<p> aIterableHashTable_33 = new IterableHashTable<>(4);
 
     @OriginalMember(owner = "client!oa", name = "G", descriptor = "Z")
     public boolean aBoolean510 = false;
@@ -194,7 +194,7 @@ public final class oa extends Toolkit implements SoftwareObject {
             this.aP1 = null;
             this.t(null);
         } else {
-            @Pc(10) p local10 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
+            @Pc(10) p local10 = this.aIterableHashTable_33.get(arg0.hashCode());
             this.aP1 = local10;
             this.t(local10);
         }
@@ -206,7 +206,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     @OriginalMember(owner = "client!oa", name = "a", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void resizeCanvas(@OriginalArg(0) Canvas arg0, @OriginalArg(1) int arg1, @OriginalArg(2) int arg2) {
-        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(arg0.hashCode());
+        @Pc(8) p local8 = this.aIterableHashTable_33.get(arg0.hashCode());
         local8.method6439(arg0, arg1, arg2);
         if (arg0 != null && arg0 == this.aP1.aCanvas9) {
             this.setCanvas(arg0);
@@ -362,7 +362,7 @@ public final class oa extends Toolkit implements SoftwareObject {
         if (this.aP1.aCanvas9 == canvas) {
             this.setCanvas(null);
         }
-        @Pc(18) p local18 = (p) this.aIterableHashTable_33.get(canvas.hashCode());
+        @Pc(18) p local18 = this.aIterableHashTable_33.get(canvas.hashCode());
         if (local18 != null) {
             local18.unlink();
             local18.method6442();
@@ -507,7 +507,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     @OriginalMember(owner = "client!oa", name = "b", descriptor = "(Ljava/awt/Canvas;II)V")
     @Override
     public void addCanvas(@OriginalArg(0) Canvas canvas, @OriginalArg(1) int width, @OriginalArg(2) int height) {
-        @Pc(8) p local8 = (p) this.aIterableHashTable_33.get(canvas.hashCode());
+        @Pc(8) p local8 = this.aIterableHashTable_33.get(canvas.hashCode());
         if (local8 == null) {
             try {
                 @Pc(15) Class local15 = Class.forName("java.awt.Canvas");
@@ -706,7 +706,7 @@ public final class oa extends Toolkit implements SoftwareObject {
     }
 
     @OriginalMember(owner = "client!oa", name = "OA", descriptor = "()Ljava/lang/Object;")
-    public Object OA() {
+    public ba OA() {
         return new ba(this);
     }
 

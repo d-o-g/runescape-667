@@ -10,7 +10,7 @@ public final class Static2 {
     @OriginalMember(owner = "client!aaa", name = "a", descriptor = "(IBIILclient!cv;)V")
     public static void sortAllObjs(@OriginalArg(0) int level, @OriginalArg(3) int x, @OriginalArg(2) int z, @OriginalArg(4) ObjStackEntry entry) {
         @Pc(16) long key = (level << 28) | (z << 14) | x;
-        @Pc(22) ObjStack stack = (ObjStack) Static497.objStacks.get(key);
+        @Pc(22) ObjStack stack = Static497.objStacks.get(key);
         if (stack == null) {
             stack = new ObjStack();
             Static497.objStacks.put(key, stack);

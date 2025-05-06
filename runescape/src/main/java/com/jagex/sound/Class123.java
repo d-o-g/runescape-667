@@ -12,10 +12,10 @@ import org.openrs2.deob.annotation.Pc;
 public final class Class123 {
 
     @OriginalMember(owner = "client!fca", name = "k", descriptor = "Lclient!av;")
-    public final IterableHashTable aIterableHashTable_15 = new IterableHashTable(256);
+    public final IterableHashTable<VorbisSound> aIterableHashTable_15 = new IterableHashTable<>(256);
 
     @OriginalMember(owner = "client!fca", name = "c", descriptor = "Lclient!av;")
-    public final IterableHashTable aIterableHashTable_16 = new IterableHashTable(256);
+    public final IterableHashTable<VariableRateSoundPacket> aIterableHashTable_16 = new IterableHashTable<VariableRateSoundPacket>(256);
 
     @OriginalMember(owner = "client!fca", name = "d", descriptor = "Lclient!sb;")
     public final js5 aJs5_31;
@@ -34,7 +34,7 @@ public final class Class123 {
         @Pc(15) int local15 = arg0 ^ (arg1 >>> 12 | (arg1 & 0x10000FFF) << 4);
         @Pc(27) int local27 = local15 | arg1 << 16;
         @Pc(30) long local30 = local27;
-        @Pc(37) VariableRateSoundPacket local37 = (VariableRateSoundPacket) this.aIterableHashTable_16.get(local30);
+        @Pc(37) VariableRateSoundPacket local37 = this.aIterableHashTable_16.get(local30);
         if (local37 != null) {
             return local37;
         } else if (arg2 == null || arg2[0] > 0) {
@@ -58,11 +58,11 @@ public final class Class123 {
         @Pc(15) int local15 = (arg1 >>> 12 | (arg1 & 0xB0000FFF) << 4) ^ arg2;
         @Pc(21) int local21 = local15 | arg1 << 16;
         @Pc(26) long local26 = (long) local21 ^ 0x100000000L;
-        @Pc(33) VariableRateSoundPacket local33 = (VariableRateSoundPacket) this.aIterableHashTable_16.get(local26);
+        @Pc(33) VariableRateSoundPacket local33 = this.aIterableHashTable_16.get(local26);
         if (local33 != null) {
             return local33;
         } else if (arg0 == null || arg0[0] > 0) {
-            @Pc(59) VorbisSound local59 = (VorbisSound) this.aIterableHashTable_15.get(local26);
+            @Pc(59) VorbisSound local59 = this.aIterableHashTable_15.get(local26);
             if (local59 == null) {
                 local59 = VorbisSound.create(this.aJs5_31, arg1, arg2);
                 if (local59 == null) {

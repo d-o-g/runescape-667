@@ -56,7 +56,7 @@ public final class Node_Sub32 extends Node {
     public final Interface20 anInterface20_2;
 
     @OriginalMember(owner = "client!jw", name = "z", descriptor = "Lclient!av;")
-    public IterableHashTable aIterableHashTable_25;
+    public IterableHashTable<Node_Sub50> aIterableHashTable_25;
 
     @OriginalMember(owner = "client!jw", name = "x", descriptor = "Lclient!jaclib/memory/Stream;")
     public Stream aStream3;
@@ -131,7 +131,7 @@ public final class Node_Sub32 extends Node {
             this.anInterface16_7 = null;
             this.anInterface20_2 = null;
         } else {
-            this.aIterableHashTable_25 = new IterableHashTable(IntMath.nextPow2(this.anInt5023));
+            this.aIterableHashTable_25 = new IterableHashTable<Node_Sub50>(IntMath.nextPow2(this.anInt5023));
             this.anInterface20_2 = this.aClass19_Sub1_11.method8122(false);
             this.anInterface20_2.method8543(this.anInt5023);
             @Pc(448) NativeHeapBuffer local448 = this.aClass19_Sub1_11.method8106(false, this.anInt5023 * 16);

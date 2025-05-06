@@ -16,7 +16,7 @@ import org.openrs2.deob.annotation.Pc;
 public final class StructType extends Node2 {
 
     @OriginalMember(owner = "client!ab", name = "A", descriptor = "Lclient!av;")
-    public IterableHashTable params;
+    public IterableHashTable<Node> params;
 
     @OriginalMember(owner = "client!ab", name = "a", descriptor = "(ILclient!ge;I)V")
     public void decode(@OriginalArg(0) int code, @OriginalArg(1) Packet packet) {
@@ -25,7 +25,7 @@ public final class StructType extends Node2 {
 
             if (this.params == null) {
                 @Pc(13) int bucketCount = IntMath.nextPow2(count);
-                this.params = new IterableHashTable(bucketCount);
+                this.params = new IterableHashTable<>(bucketCount);
             }
 
             for (@Pc(13) int i = 0; i < count; i++) {

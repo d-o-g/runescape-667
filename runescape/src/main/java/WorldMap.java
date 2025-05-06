@@ -1,13 +1,10 @@
 import com.jagex.Client;
 import com.jagex.core.constants.MainLogicStep;
 import com.jagex.core.constants.MiniMenuAction;
-import com.jagex.core.datastruct.key.DequeIterator;
+import com.jagex.core.datastruct.key.*;
 import com.jagex.game.runetek6.client.GameShell;
 import com.jagex.core.constants.ModeGame;
 import com.jagex.core.datastruct.LinkedList;
-import com.jagex.core.datastruct.key.Deque;
-import com.jagex.core.datastruct.key.IterableHashTable;
-import com.jagex.core.datastruct.key.Queue;
 import com.jagex.core.io.Packet;
 import com.jagex.game.LocalisedText;
 import com.jagex.game.runetek6.config.flotype.FloorOverlayType;
@@ -43,7 +40,7 @@ public final class WorldMap {
     public static final Deque elements = new Deque();
 
     @OriginalMember(owner = "client!baa", name = "e", descriptor = "Lclient!av;")
-    public static final IterableHashTable areas = new IterableHashTable(16);
+    public static final IterableHashTable<WorldMapArea> areas = new IterableHashTable<WorldMapArea>(16);
 
     @OriginalMember(owner = "client!baa", name = "J", descriptor = "[B")
     public static final byte[] aByteArray55 = new byte[1];
@@ -55,10 +52,10 @@ public final class WorldMap {
     public static final DequeIterator elementIterator = new DequeIterator();
 
     @OriginalMember(owner = "client!hda", name = "ob", descriptor = "Lclient!av;")
-    public static final IterableHashTable disabledElementCategories = new IterableHashTable(8);
+    public static final IterableHashTable<Node> disabledElementCategories = new IterableHashTable<>(8);
 
     @OriginalMember(owner = "client!ih", name = "D", descriptor = "Lclient!av;")
-    public static final IterableHashTable disabledElements = new IterableHashTable(8);
+    public static final IterableHashTable<Node> disabledElements = new IterableHashTable<>(8);
 
     @OriginalMember(owner = "client!be", name = "L", descriptor = "[Ljava/lang/String;")
     public static final String[] mapElementTextLines = new String[5];
@@ -199,7 +196,7 @@ public final class WorldMap {
     public static byte[] aByteArray59;
 
     @OriginalMember(owner = "client!baa", name = "l", descriptor = "Lclient!av;")
-    public static IterableHashTable aIterableHashTable;
+    public static IterableHashTable<Node_Sub23> aIterableHashTable;
 
     @OriginalMember(owner = "client!baa", name = "r", descriptor = "I")
     public static int anInt5651;
@@ -455,7 +452,7 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(I)V")
     public static void setArea(@OriginalArg(0) int id) {
-        area = (WorldMapArea) areas.get(id);
+        area = areas.get(id);
     }
 
     @OriginalMember(owner = "client!gf", name = "a", descriptor = "(IIIBI)V")
@@ -691,7 +688,7 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(I)Lclient!ip;")
     public static WorldMapArea getArea(@OriginalArg(0) int arg0) {
-        return (WorldMapArea) areas.get(arg0);
+        return areas.get(arg0);
     }
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(Lclient!ha;)V")
@@ -960,7 +957,7 @@ public final class WorldMap {
                             } else if (local179 <= 0) {
                                 method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], null, null, true);
                             } else if (local179 == 65535) {
-                                @Pc(282) Node_Sub23 local282 = (Node_Sub23) aIterableHashTable.get(local50 << 16 | local93);
+                                @Pc(282) Node_Sub23 local282 = aIterableHashTable.get(local50 << 16 | local93);
                                 if (local282 != null) {
                                     method5061(arg0, local28, local70, local44, local84, local175, local177, aByteArray59[local173], local282.aShortArray59, local282.aByteArray38, true);
                                 }
@@ -1009,7 +1006,7 @@ public final class WorldMap {
                                 if (local175 <= 0) {
                                     drawMsiMultiple(arg0, local40, local80, local50, local93, null, null);
                                 } else if (local175 == 65535) {
-                                    @Pc(459) Node_Sub23 local459 = (Node_Sub23) aIterableHashTable.get(local57 << 16 | local173);
+                                    @Pc(459) Node_Sub23 local459 = aIterableHashTable.get(local57 << 16 | local173);
                                     if (local459 != null) {
                                         drawMsiMultiple(arg0, local40, local80, local50, local93, local459.aShortArray59, local459.aByteArray38);
                                     }
@@ -1136,7 +1133,7 @@ public final class WorldMap {
         aByteArray59 = new byte[areaWidth * areaHeight];
         aShortArray78 = new short[areaWidth * areaHeight];
         aByteArray58 = new byte[areaWidth * areaHeight];
-        aIterableHashTable = new IterableHashTable(1024);
+        aIterableHashTable = new IterableHashTable<>(1024);
         tiles = new LinkedList[3][areaWidth >> 6][areaHeight >> 6];
         overlayColours = new int[floorOverlayTypeList.num + 1];
     }
@@ -1318,7 +1315,7 @@ public final class WorldMap {
                 if (local15 != 0) {
                     @Pc(35) int local35;
                     if (local15 == 65535) {
-                        @Pc(31) Node_Sub23 local31 = (Node_Sub23) aIterableHashTable.get(local1 << 16 | local4);
+                        @Pc(31) Node_Sub23 local31 = aIterableHashTable.get(local1 << 16 | local4);
                         if (local31 != null) {
                             for (local35 = 0; local35 < local31.aShortArray59.length; local35++) {
                                 @Pc(46) LocType local46 = locTypeList.list(local31.aShortArray59[local35] & 0xFFFF);
@@ -1390,7 +1387,7 @@ public final class WorldMap {
     @OriginalMember(owner = "client!baa", name = "b", descriptor = "(II)Lclient!jga;")
     public static Queue findAreas(@OriginalArg(0) int x, @OriginalArg(1) int z) {
         @Pc(3) Queue queue = new Queue();
-        for (@Pc(8) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
+        for (@Pc(8) WorldMapArea area = areas.first(); area != null; area = areas.next()) {
             if (area.aBoolean354 && area.sourceContains(x, z)) {
                 queue.add(area);
             }
@@ -1400,7 +1397,7 @@ public final class WorldMap {
 
     @OriginalMember(owner = "client!baa", name = "a", descriptor = "(II)Lclient!ip;")
     public static WorldMapArea getMap(@OriginalArg(0) int x, @OriginalArg(1) int z) {
-        for (@Pc(4) WorldMapArea area = (WorldMapArea) areas.first(); area != null; area = (WorldMapArea) areas.next()) {
+        for (@Pc(4) WorldMapArea area = areas.first(); area != null; area = areas.next()) {
             if (area.aBoolean354 && area.sourceContains(x, z)) {
                 return area;
             }

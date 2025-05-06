@@ -66,7 +66,7 @@ public final class Node_Sub33 extends Node {
     public Node_Sub21_Sub1 aClass2_Sub21_Sub1_2;
 
     @OriginalMember(owner = "client!kia", name = "B", descriptor = "Lclient!av;")
-    public IterableHashTable aIterableHashTable_26;
+    public IterableHashTable<Node_Sub50> aIterableHashTable_26;
 
     @OriginalMember(owner = "client!kia", name = "<init>", descriptor = "(Lclient!qha;Lclient!pn;Lclient!lca;[I)V")
     public Node_Sub33(@OriginalArg(0) GlToolkit arg0, @OriginalArg(1) Ground_Sub2 arg1, @OriginalArg(2) PointLight arg2, @OriginalArg(3) int[] arg3) {
@@ -139,7 +139,7 @@ public final class Node_Sub33 extends Node {
         } else {
             this.aClass2_Sub21_8 = new Packet(this.anInt5447 * 2);
             this.aClass2_Sub21_Sub1_2 = new Node_Sub21_Sub1(this.anInt5447 * 16);
-            this.aIterableHashTable_26 = new IterableHashTable(IntMath.nextPow2(this.anInt5447));
+            this.aIterableHashTable_26 = new IterableHashTable<Node_Sub50>(IntMath.nextPow2(this.anInt5447));
             local148 = 0;
             local121 = 0;
             for (local178 = this.anInt5449; local178 <= this.anInt5454; local178++) {

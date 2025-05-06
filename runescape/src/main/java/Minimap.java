@@ -149,7 +149,7 @@ public final class Minimap {
             drawMapElement(locZ, screenX, clippingMask, toolkit, type.mapelement, screenY, locX, component);
         }
 
-        for (@Pc(334) ObjStack stack = (ObjStack) Static497.objStacks.first(); stack != null; stack = (ObjStack) Static497.objStacks.next()) {
+        for (@Pc(334) ObjStack stack = Static497.objStacks.first(); stack != null; stack = Static497.objStacks.next()) {
             @Pc(211) int stackLevel = (int) (stack.key >> 28 & 0x3L);
 
             if (level == stackLevel) {
@@ -162,7 +162,7 @@ public final class Minimap {
         }
 
         for (@Pc(211) int i = 0; i < NPCList.size; i++) {
-            @Pc(427) NPCEntityNode node = (NPCEntityNode) NPCList.local.get(NPCList.slots[i]);
+            @Pc(427) NPCEntityNode node = NPCList.local.get(NPCList.slots[i]);
             if (node == null) {
                 continue;
             }

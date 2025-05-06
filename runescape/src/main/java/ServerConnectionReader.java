@@ -173,7 +173,7 @@ public final class ServerConnectionReader {
             @Pc(277) int idAndSlot = bitPacket.g4_alt1();
             VerifyId.incrementAndTransmit();
 
-            @Pc(287) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot);
+            @Pc(287) SubInterface sub = InterfaceManager.subInterfaces.get(idAndSlot);
             if (sub != null) {
                 InterfaceManager.closeSubInterface(sub, true, false);
             }
@@ -1257,7 +1257,7 @@ public final class ServerConnectionReader {
 
             for (@Pc(1413) int component = start; component <= end; component++) {
                 @Pc(644) long key = ((long) idAndSlot << 32) + (long) component;
-                @Pc(4597) ServerActiveProperties oldProperties = (ServerActiveProperties) InterfaceManager.serverActiveProperties.get(key);
+                @Pc(4597) ServerActiveProperties oldProperties = InterfaceManager.serverActiveProperties.get(key);
                 @Pc(4611) ServerActiveProperties newProperties;
 
                 if (oldProperties != null) {
@@ -1323,7 +1323,7 @@ public final class ServerConnectionReader {
 
                 if (localX >= 0 && localZ >= 0 && localX < Static720.mapWidth && localZ < Static501.mapLength) {
                     if (id == -1) {
-                        @Pc(5270) EffectNode node = (EffectNode) Static346.effects.get((localX << 16) | localZ);
+                        @Pc(5270) EffectNode node = Static346.effects.get((localX << 16) | localZ);
 
                         if (node != null) {
                             node.effect.stopParticleSystem();
@@ -1498,8 +1498,8 @@ public final class ServerConnectionReader {
             @Pc(100) int idAndSlot_s = bitPacket.g4_alt3();
             VerifyId.incrementAndTransmit();
 
-            @Pc(5438) SubInterface sub_s = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot_s);
-            @Pc(5445) SubInterface sub_d = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot_d);
+            @Pc(5438) SubInterface sub_s = InterfaceManager.subInterfaces.get(idAndSlot_s);
+            @Pc(5445) SubInterface sub_d = InterfaceManager.subInterfaces.get(idAndSlot_d);
             if (sub_d != null) {
                 InterfaceManager.closeSubInterface(sub_d, sub_s == null || sub_s.id != sub_d.id, false);
             }
@@ -1531,7 +1531,7 @@ public final class ServerConnectionReader {
             @Pc(526) int type = bitPacket.g1();
             VerifyId.incrementAndTransmit();
 
-            @Pc(5445) SubInterface sub = (SubInterface) InterfaceManager.subInterfaces.get(idAndSlot);
+            @Pc(5445) SubInterface sub = InterfaceManager.subInterfaces.get(idAndSlot);
             if (sub != null) {
                 InterfaceManager.closeSubInterface(sub, sub.id != subId, false);
             }
@@ -1714,7 +1714,7 @@ public final class ServerConnectionReader {
             Static270.updateZoneZ = bitPacket.g1b_alt3() << 3;
             Static87.updateZoneLevel = bitPacket.g1();
 
-            for (@Pc(6277) ObjStack stack = (ObjStack) Static497.objStacks.first(); stack != null; stack = (ObjStack) Static497.objStacks.next()) {
+            for (@Pc(6277) ObjStack stack = Static497.objStacks.first(); stack != null; stack = Static497.objStacks.next()) {
                 @Pc(100) int level = (int) ((stack.key >> 28) & 0x3L);
                 @Pc(526) int x = (int) (stack.key & 0x3FFFL);
                 @Pc(1409) int zoneX = x - WorldMap.areaBaseX;
@@ -2162,7 +2162,7 @@ public final class ServerConnectionReader {
 
             for (@Pc(1413) int component = start; component <= end; component++) {
                 @Pc(644) long key = ((long) idAndSlot << 32) + (long) component;
-                @Pc(4597) ServerActiveProperties oldProperties = (ServerActiveProperties) InterfaceManager.serverActiveProperties.get(key);
+                @Pc(4597) ServerActiveProperties oldProperties = InterfaceManager.serverActiveProperties.get(key);
                 @Pc(4611) ServerActiveProperties newProperties;
 
                 if (oldProperties != null) {
@@ -2472,7 +2472,7 @@ public final class ServerConnectionReader {
             @Pc(52) int newCount = bitPacket.g2();
 
             if (Static497.objStacks != null) {
-                @Pc(69) ObjStack stack = (ObjStack) Static497.objStacks.get((Static87.updateZoneLevel << 28) | (z << 14) | x);
+                @Pc(69) ObjStack stack = Static497.objStacks.get((Static87.updateZoneLevel << 28) | (z << 14) | x);
 
                 if (stack != null) {
                     for (@Pc(77) ObjStackEntry entry = (ObjStackEntry) stack.objs.first(); entry != null; entry = (ObjStackEntry) stack.objs.next()) {
@@ -2744,7 +2744,7 @@ public final class ServerConnectionReader {
             @Pc(38) int zoneX = ((coord >> 4) & 0x7) + Static626.updateZoneX;
             @Pc(42) int x = zoneX + WorldMap.areaBaseX;
 
-            @Pc(1389) ObjStack stack = (ObjStack) Static497.objStacks.get((Static87.updateZoneLevel << 28) | (z << 14) | x);
+            @Pc(1389) ObjStack stack = Static497.objStacks.get((Static87.updateZoneLevel << 28) | (z << 14) | x);
             if (stack != null) {
                 for (@Pc(1399) ObjStackEntry entry = (ObjStackEntry) stack.objs.first(); entry != null; entry = (ObjStackEntry) stack.objs.next()) {
                     if (entry.id == (objId & 0x7FFF)) {
@@ -2847,7 +2847,7 @@ public final class ServerConnectionReader {
 
             if (zoneX >= 0 && zoneZ >= 0 && zoneX < Static720.mapWidth && Static501.mapLength > zoneZ) {
                 if (id == -1) {
-                    @Pc(2004) EffectNode local2004 = (EffectNode) Static346.effects.get(zoneX << 16 | zoneZ);
+                    @Pc(2004) EffectNode local2004 = Static346.effects.get(zoneX << 16 | zoneZ);
 
                     if (local2004 != null) {
                         local2004.effect.stopParticleSystem();

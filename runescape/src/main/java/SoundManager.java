@@ -23,7 +23,7 @@ public final class SoundManager {
     public static final Deque locSounds = new Deque();
 
     @OriginalMember(owner = "client!dja", name = "h", descriptor = "Lclient!av;")
-    public static final IterableHashTable playerSounds = new IterableHashTable(16);
+    public static final IterableHashTable<PositionedSound> playerSounds = new IterableHashTable<>(16);
 
     @OriginalMember(owner = "client!wn", name = "f", descriptor = "Lclient!sia;")
     public static final Deque npcSounds = new Deque();

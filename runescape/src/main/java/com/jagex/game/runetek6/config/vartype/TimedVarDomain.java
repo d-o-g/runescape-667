@@ -19,7 +19,7 @@ public final class TimedVarDomain implements VarDomain {
     public static TimedVarDomain instance;
 
     @OriginalMember(owner = "client!qga", name = "b", descriptor = "Lclient!av;")
-    public IterableHashTable updates = new IterableHashTable(128);
+    public IterableHashTable<LongNode> updates = new IterableHashTable<>(128);
 
     @OriginalMember(owner = "client!qga", name = "k", descriptor = "[I")
     public final int[] updatedVarValues = new int[VarPlayerTypeListClient.instance.num];
@@ -32,7 +32,7 @@ public final class TimedVarDomain implements VarDomain {
         // g.trace("Setting varp from client: {}", (Object)Integer.valueOf(var1.id));
         this.varValues[id] = value;
 
-        @Pc(24) LongNode node = (LongNode) this.updates.get(id);
+        @Pc(24) LongNode node = this.updates.get(id);
         if (node == null) {
             node = new LongNode(SystemTimer.safetime() + 500L);
             this.updates.put(id, node);
@@ -62,7 +62,7 @@ public final class TimedVarDomain implements VarDomain {
             }
         }
 
-        this.updates = new IterableHashTable(128);
+        this.updates = new IterableHashTable<>(128);
     }
 
     @OriginalMember(owner = "client!qga", name = "a", descriptor = "(BII)V")
@@ -105,7 +105,7 @@ public final class TimedVarDomain implements VarDomain {
     public int removeNext(@OriginalArg(1) boolean first) {
         @Pc(8) long time = SystemTimer.safetime();
 
-        for (@Pc(23) LongNode node = first ? (LongNode) this.updates.first() : (LongNode) this.updates.next(); node != null; node = (LongNode) this.updates.next()) {
+        for (@Pc(23) LongNode node = first ? this.updates.first() : this.updates.next(); node != null; node = this.updates.next()) {
             if ((node.value & 0x3FFFFFFFFFFFFFFFL) < time) {
                 if ((node.value & 0x4000000000000000L) != 0L) {
                     // g.trace("Copying server variable {}", (Object)Long.valueOf(var5.bq));
@@ -127,7 +127,7 @@ public final class TimedVarDomain implements VarDomain {
         // g.trace("Incoming varp from server: {}", (Object)Integer.valueOf(var1.id));
         this.updatedVarValues[id] = value;
 
-        @Pc(24) LongNode node = (LongNode) this.updates.get(id);
+        @Pc(24) LongNode node = this.updates.get(id);
         if (node != null) {
             if (node.value != 0x4000000000000001L) {
                 node.value = SystemTimer.safetime() + 500L | 0x4000000000000000L;

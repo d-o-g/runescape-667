@@ -24,7 +24,7 @@ public final class QuestType {
     public int[][] anIntArrayArray137;
 
     @OriginalMember(owner = "client!la", name = "j", descriptor = "Lclient!av;")
-    public IterableHashTable params;
+    public IterableHashTable<Node> params;
 
     @OriginalMember(owner = "client!la", name = "m", descriptor = "[I")
     public int[] anIntArray430;
@@ -157,7 +157,7 @@ public final class QuestType {
             @Pc(29) int count = packet.g1();
             if (this.params == null) {
                 @Pc(36) int local36 = IntMath.nextPow2(count);
-                this.params = new IterableHashTable(local36);
+                this.params = new IterableHashTable<>(local36);
             }
 
             for (@Pc(36) int i = 0; i < count; i++) {
